@@ -95,7 +95,7 @@ class GetServiceResult:
     @pulumi.getter(name="dnsEntry")
     def dns_entry(self) -> Optional['outputs.ServiceDnsEntry']:
         """
-        The DNS information of the service.
+        Describes the DNS information of the service. This field is read-only.
         """
         return pulumi.get(self, "dns_entry")
 

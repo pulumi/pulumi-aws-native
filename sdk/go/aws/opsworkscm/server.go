@@ -150,7 +150,7 @@ type Server struct {
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
 	ServerName pulumi.StringPtrOutput `pulumi:"serverName"`
-	// The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
+	// The service role that the AWS OpsWorks CM service backend uses to work with your account.
 	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
 	// The IDs of subnets in which to launch the server EC2 instance.
 	//
@@ -299,7 +299,7 @@ type serverArgs struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
 	ServerName *string `pulumi:"serverName"`
-	// The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
+	// The service role that the AWS OpsWorks CM service backend uses to work with your account.
 	ServiceRoleArn string `pulumi:"serviceRoleArn"`
 	// The IDs of subnets in which to launch the server EC2 instance.
 	//
@@ -383,7 +383,7 @@ type ServerArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
 	ServerName pulumi.StringPtrInput
-	// The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
+	// The service role that the AWS OpsWorks CM service backend uses to work with your account.
 	ServiceRoleArn pulumi.StringInput
 	// The IDs of subnets in which to launch the server EC2 instance.
 	//
@@ -571,7 +571,7 @@ func (o ServerOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.ServerName }).(pulumi.StringPtrOutput)
 }
 
-// The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
+// The service role that the AWS OpsWorks CM service backend uses to work with your account.
 func (o ServerOutput) ServiceRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.ServiceRoleArn }).(pulumi.StringOutput)
 }

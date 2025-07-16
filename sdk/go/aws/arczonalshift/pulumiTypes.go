@@ -127,6 +127,8 @@ type ZonalAutoshiftConfigurationPracticeRunConfiguration struct {
 	// An array of one or more days and times that you can specify when ARC does not start practice runs for a resource. Days and times are in UTC.
 	//
 	// Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
+	//
+	// > Blocked windows have to start and end on the same day. Windows that span multiple days aren't supported.
 	BlockedWindows []string `pulumi:"blockedWindows"`
 	// An optional alarm that you can specify that blocks practice runs when the alarm is in an `ALARM` state. When a blocking alarm goes into an `ALARM` state, it prevents practice runs from being started, and ends practice runs that are in progress.
 	BlockingAlarms []ZonalAutoshiftConfigurationControlCondition `pulumi:"blockingAlarms"`
@@ -153,6 +155,8 @@ type ZonalAutoshiftConfigurationPracticeRunConfigurationArgs struct {
 	// An array of one or more days and times that you can specify when ARC does not start practice runs for a resource. Days and times are in UTC.
 	//
 	// Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
+	//
+	// > Blocked windows have to start and end on the same day. Windows that span multiple days aren't supported.
 	BlockedWindows pulumi.StringArrayInput `pulumi:"blockedWindows"`
 	// An optional alarm that you can specify that blocks practice runs when the alarm is in an `ALARM` state. When a blocking alarm goes into an `ALARM` state, it prevents practice runs from being started, and ends practice runs that are in progress.
 	BlockingAlarms ZonalAutoshiftConfigurationControlConditionArrayInput `pulumi:"blockingAlarms"`
@@ -247,6 +251,8 @@ func (o ZonalAutoshiftConfigurationPracticeRunConfigurationOutput) BlockedDates(
 // An array of one or more days and times that you can specify when ARC does not start practice runs for a resource. Days and times are in UTC.
 //
 // Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
+//
+// > Blocked windows have to start and end on the same day. Windows that span multiple days aren't supported.
 func (o ZonalAutoshiftConfigurationPracticeRunConfigurationOutput) BlockedWindows() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ZonalAutoshiftConfigurationPracticeRunConfiguration) []string { return v.BlockedWindows }).(pulumi.StringArrayOutput)
 }
@@ -304,6 +310,8 @@ func (o ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput) BlockedDat
 // An array of one or more days and times that you can specify when ARC does not start practice runs for a resource. Days and times are in UTC.
 //
 // Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
+//
+// > Blocked windows have to start and end on the same day. Windows that span multiple days aren't supported.
 func (o ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput) BlockedWindows() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ZonalAutoshiftConfigurationPracticeRunConfiguration) []string {
 		if v == nil {

@@ -9,6 +9,10 @@ from enum import Enum
 __all__ = [
     'TableBucketEncryptionConfigurationSseAlgorithm',
     'TableBucketUnreferencedFileRemovalStatus',
+    'TableCompactionStatus',
+    'TableOpenTableFormat',
+    'TableSnapshotManagementStatus',
+    'TableWithoutMetadata',
 ]
 
 
@@ -28,3 +32,37 @@ class TableBucketUnreferencedFileRemovalStatus(builtins.str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+@pulumi.type_token("aws-native:s3tables:TableCompactionStatus")
+class TableCompactionStatus(builtins.str, Enum):
+    """
+    Indicates whether the Compaction maintenance action is enabled.
+    """
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+
+
+@pulumi.type_token("aws-native:s3tables:TableOpenTableFormat")
+class TableOpenTableFormat(builtins.str, Enum):
+    """
+    Format of the table.
+    """
+    ICEBERG = "ICEBERG"
+
+
+@pulumi.type_token("aws-native:s3tables:TableSnapshotManagementStatus")
+class TableSnapshotManagementStatus(builtins.str, Enum):
+    """
+    Indicates whether the SnapshotManagement maintenance action is enabled.
+    """
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+
+
+@pulumi.type_token("aws-native:s3tables:TableWithoutMetadata")
+class TableWithoutMetadata(builtins.str, Enum):
+    """
+    Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to 'IcebergMetadata', and its only possible value is 'Yes'.
+    """
+    YES = "Yes"

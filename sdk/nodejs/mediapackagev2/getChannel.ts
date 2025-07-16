@@ -37,6 +37,9 @@ export interface GetChannelResult {
      * <p>Enter any descriptive text that helps you to identify the channel.</p>
      */
     readonly description?: string;
+    /**
+     * The ingest domain URL where the source stream should be sent.
+     */
     readonly ingestEndpointUrls?: string[];
     /**
      * <p>The list of ingest endpoints.</p>
@@ -54,9 +57,6 @@ export interface GetChannelResult {
      * The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
      */
     readonly outputHeaderConfiguration?: outputs.mediapackagev2.ChannelOutputHeaderConfiguration;
-    /**
-     * The tags associated with the channel.
-     */
     readonly tags?: outputs.Tag[];
 }
 /**

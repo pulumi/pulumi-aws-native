@@ -162,6 +162,20 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
+     * The location for storing automated backups and manual snapshots.
+     *
+     * Valid Values:
+     *
+     * - `local` (Dedicated Local Zone)
+     * - `outposts` ( AWS Outposts)
+     * - `region` ( AWS Region )
+     *
+     * Default: `region`
+     *
+     * For more information, see [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide* .
+     */
+    public readonly backupTarget!: pulumi.Output<string | undefined>;
+    /**
      * The identifier of the CA certificate for this DB instance.
      *  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
      */
@@ -624,9 +638,7 @@ export class DbInstance extends pulumi.CustomResource {
     public readonly monitoringRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the DB instance is a Multi-AZ deployment. You can't set the ``AvailabilityZone`` parameter if the DB instance is a Multi-AZ deployment.
-     *  This setting doesn't apply to the following DB instances:
-     *   +  Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)
-     *   +  RDS Custom
+     *  This setting doesn't apply to Amazon Aurora because the DB instance Availability Zones (AZs) are managed by the DB cluster.
      */
     public readonly multiAz!: pulumi.Output<boolean | undefined>;
     /**
@@ -853,6 +865,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["automaticBackupReplicationRetentionPeriod"] = args ? args.automaticBackupReplicationRetentionPeriod : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
+            resourceInputs["backupTarget"] = args ? args.backupTarget : undefined;
             resourceInputs["caCertificateIdentifier"] = args ? args.caCertificateIdentifier : undefined;
             resourceInputs["certificateRotationRestart"] = args ? args.certificateRotationRestart : undefined;
             resourceInputs["characterSetName"] = args ? args.characterSetName : undefined;
@@ -938,6 +951,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["automaticBackupReplicationRetentionPeriod"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["backupRetentionPeriod"] = undefined /*out*/;
+            resourceInputs["backupTarget"] = undefined /*out*/;
             resourceInputs["caCertificateIdentifier"] = undefined /*out*/;
             resourceInputs["certificateDetails"] = undefined /*out*/;
             resourceInputs["certificateRotationRestart"] = undefined /*out*/;
@@ -1014,7 +1028,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["vpcSecurityGroups"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["characterSetName", "customIamInstanceProfile", "dbClusterIdentifier", "dbInstanceIdentifier", "dbName", "dbSubnetGroupName", "dbSystemId", "kmsKeyId", "masterUsername", "ncharCharacterSetName", "sourceRegion", "storageEncrypted", "timezone"] };
+        const replaceOnChanges = { replaceOnChanges: ["backupTarget", "characterSetName", "customIamInstanceProfile", "dbClusterIdentifier", "dbInstanceIdentifier", "dbName", "dbSubnetGroupName", "dbSystemId", "kmsKeyId", "masterUsername", "ncharCharacterSetName", "sourceRegion", "storageEncrypted", "timezone"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DbInstance.__pulumiType, name, resourceInputs, opts);
     }
@@ -1128,6 +1142,20 @@ export interface DbInstanceArgs {
      *   +  Can't be set to 0 if the DB instance is a source to read replicas
      */
     backupRetentionPeriod?: pulumi.Input<number>;
+    /**
+     * The location for storing automated backups and manual snapshots.
+     *
+     * Valid Values:
+     *
+     * - `local` (Dedicated Local Zone)
+     * - `outposts` ( AWS Outposts)
+     * - `region` ( AWS Region )
+     *
+     * Default: `region`
+     *
+     * For more information, see [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide* .
+     */
+    backupTarget?: pulumi.Input<string>;
     /**
      * The identifier of the CA certificate for this DB instance.
      *  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
@@ -1581,9 +1609,7 @@ export interface DbInstanceArgs {
     monitoringRoleArn?: pulumi.Input<string>;
     /**
      * Specifies whether the DB instance is a Multi-AZ deployment. You can't set the ``AvailabilityZone`` parameter if the DB instance is a Multi-AZ deployment.
-     *  This setting doesn't apply to the following DB instances:
-     *   +  Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)
-     *   +  RDS Custom
+     *  This setting doesn't apply to Amazon Aurora because the DB instance Availability Zones (AZs) are managed by the DB cluster.
      */
     multiAz?: pulumi.Input<boolean>;
     /**

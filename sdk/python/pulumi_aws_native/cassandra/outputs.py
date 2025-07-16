@@ -22,6 +22,7 @@ __all__ = [
     'TableAutoScalingSetting',
     'TableAutoScalingSpecification',
     'TableBillingMode',
+    'TableCdcSpecification',
     'TableClusteringKeyColumn',
     'TableColumn',
     'TableEncryptionSpecification',
@@ -291,6 +292,71 @@ class TableBillingMode(dict):
         The provisioned read capacity and write capacity for the table. For more information, see [Provisioned throughput capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html#ReadWriteCapacityMode.Provisioned) in the *Amazon Keyspaces Developer Guide* .
         """
         return pulumi.get(self, "provisioned_throughput")
+
+
+@pulumi.output_type
+class TableCdcSpecification(dict):
+    """
+    Represents the CDC configuration for the table
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "viewType":
+            suggest = "view_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableCdcSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableCdcSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableCdcSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: 'TableCdcStatus',
+                 view_type: Optional['TableCdcViewType'] = None):
+        """
+        Represents the CDC configuration for the table
+        :param 'TableCdcStatus' status: The status of the CDC stream. You can enable or disable a stream for a table.
+        :param 'TableCdcViewType' view_type: The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
+               
+               The options are:
+               
+               - `NEW_AND_OLD_IMAGES` - both versions of the row, before and after the change. This is the default.
+               - `NEW_IMAGE` - the version of the row after the change.
+               - `OLD_IMAGE` - the version of the row before the change.
+               - `KEYS_ONLY` - the partition and clustering keys of the row that was changed.
+        """
+        pulumi.set(__self__, "status", status)
+        if view_type is not None:
+            pulumi.set(__self__, "view_type", view_type)
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'TableCdcStatus':
+        """
+        The status of the CDC stream. You can enable or disable a stream for a table.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="viewType")
+    def view_type(self) -> Optional['TableCdcViewType']:
+        """
+        The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
+
+        The options are:
+
+        - `NEW_AND_OLD_IMAGES` - both versions of the row, before and after the change. This is the default.
+        - `NEW_IMAGE` - the version of the row after the change.
+        - `OLD_IMAGE` - the version of the row before the change.
+        - `KEYS_ONLY` - the partition and clustering keys of the row that was changed.
+        """
+        return pulumi.get(self, "view_type")
 
 
 @pulumi.output_type

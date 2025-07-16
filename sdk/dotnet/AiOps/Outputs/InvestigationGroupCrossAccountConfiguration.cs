@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AiOps.Outputs
     [OutputType]
     public sealed class InvestigationGroupCrossAccountConfiguration
     {
+        /// <summary>
+        /// The ARN of an existing role which will be used to do investigations on your behalf.
+        /// </summary>
         public readonly string? SourceRoleArn;
 
         [OutputConstructor]

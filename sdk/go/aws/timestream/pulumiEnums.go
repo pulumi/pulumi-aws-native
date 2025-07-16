@@ -22,6 +22,7 @@ const (
 	InfluxDbInstanceDbInstanceTypeDbInflux8xlarge  = InfluxDbInstanceDbInstanceType("db.influx.8xlarge")
 	InfluxDbInstanceDbInstanceTypeDbInflux12xlarge = InfluxDbInstanceDbInstanceType("db.influx.12xlarge")
 	InfluxDbInstanceDbInstanceTypeDbInflux16xlarge = InfluxDbInstanceDbInstanceType("db.influx.16xlarge")
+	InfluxDbInstanceDbInstanceTypeDbInflux24xlarge = InfluxDbInstanceDbInstanceType("db.influx.24xlarge")
 )
 
 func (InfluxDbInstanceDbInstanceType) ElementType() reflect.Type {
@@ -154,6 +155,7 @@ func (o InfluxDbInstanceDbInstanceTypePtrOutput) ToStringPtrOutputWithContext(ct
 //	InfluxDbInstanceDbInstanceTypeDbInflux8xlarge
 //	InfluxDbInstanceDbInstanceTypeDbInflux12xlarge
 //	InfluxDbInstanceDbInstanceTypeDbInflux16xlarge
+//	InfluxDbInstanceDbInstanceTypeDbInflux24xlarge
 type InfluxDbInstanceDbInstanceTypeInput interface {
 	pulumi.Input
 

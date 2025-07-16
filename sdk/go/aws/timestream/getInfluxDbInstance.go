@@ -29,6 +29,8 @@ type LookupInfluxDbInstanceArgs struct {
 }
 
 type LookupInfluxDbInstanceResult struct {
+	// The allocated storage for the InfluxDB instance.
+	AllocatedStorage *int `pulumi:"allocatedStorage"`
 	// The Amazon Resource Name (ARN) that is associated with the InfluxDB instance.
 	Arn *string `pulumi:"arn"`
 	// The Availability Zone (AZ) where the InfluxDB instance is created.
@@ -37,6 +39,8 @@ type LookupInfluxDbInstanceResult struct {
 	DbInstanceType *InfluxDbInstanceDbInstanceType `pulumi:"dbInstanceType"`
 	// The name of an existing InfluxDB parameter group.
 	DbParameterGroupIdentifier *string `pulumi:"dbParameterGroupIdentifier"`
+	// The storage type of the InfluxDB instance.
+	DbStorageType *InfluxDbInstanceDbStorageType `pulumi:"dbStorageType"`
 	// Deployment type of the InfluxDB Instance.
 	DeploymentType *InfluxDbInstanceDeploymentType `pulumi:"deploymentType"`
 	// The connection endpoint for the InfluxDB instance.
@@ -89,6 +93,11 @@ func (o LookupInfluxDbInstanceResultOutput) ToLookupInfluxDbInstanceResultOutput
 	return o
 }
 
+// The allocated storage for the InfluxDB instance.
+func (o LookupInfluxDbInstanceResultOutput) AllocatedStorage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupInfluxDbInstanceResult) *int { return v.AllocatedStorage }).(pulumi.IntPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) that is associated with the InfluxDB instance.
 func (o LookupInfluxDbInstanceResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInfluxDbInstanceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
@@ -107,6 +116,11 @@ func (o LookupInfluxDbInstanceResultOutput) DbInstanceType() InfluxDbInstanceDbI
 // The name of an existing InfluxDB parameter group.
 func (o LookupInfluxDbInstanceResultOutput) DbParameterGroupIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInfluxDbInstanceResult) *string { return v.DbParameterGroupIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The storage type of the InfluxDB instance.
+func (o LookupInfluxDbInstanceResultOutput) DbStorageType() InfluxDbInstanceDbStorageTypePtrOutput {
+	return o.ApplyT(func(v LookupInfluxDbInstanceResult) *InfluxDbInstanceDbStorageType { return v.DbStorageType }).(InfluxDbInstanceDbStorageTypePtrOutput)
 }
 
 // Deployment type of the InfluxDB Instance.

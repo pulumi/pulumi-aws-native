@@ -12,9 +12,6 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
     public sealed class EvaluationFormAutoEvaluationConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Auto Evaluation enablement status.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

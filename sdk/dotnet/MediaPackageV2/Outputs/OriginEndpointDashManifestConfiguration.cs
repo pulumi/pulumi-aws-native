@@ -16,7 +16,19 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
     [OutputType]
     public sealed class OriginEndpointDashManifestConfiguration
     {
+        /// <summary>
+        /// &lt;p&gt;The base URL to use for retrieving segments.&lt;/p&gt;
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OriginEndpointDashBaseUrl> BaseUrls;
+        public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashCompactness? Compactness;
+        /// <summary>
+        /// Determines how the DASH manifest signals the DRM content.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashDrmSignaling? DrmSignaling;
+        public readonly Outputs.OriginEndpointDashDvbSettings? DvbSettings;
+        /// <summary>
+        /// Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
+        /// </summary>
         public readonly Outputs.OriginEndpointFilterConfiguration? FilterConfiguration;
         /// <summary>
         /// &lt;p&gt;A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. &lt;/p&gt;
@@ -35,21 +47,45 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// </summary>
         public readonly int? MinUpdatePeriodSeconds;
         /// <summary>
-        /// &lt;p&gt;A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period.
-        ///          For more information about periods in the DASH manifest, see &lt;a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html"&gt;Multi-period DASH in AWS Elemental MediaPackage&lt;/a&gt;.&lt;/p&gt;
+        /// &lt;p&gt;A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period. For more information about periods in the DASH manifest, see &lt;a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html"&gt;Multi-period DASH in AWS Elemental MediaPackage&lt;/a&gt;.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashPeriodTrigger> PeriodTriggers;
+        /// <summary>
+        /// &lt;p&gt;The profile that the output is compliant with.&lt;/p&gt;
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashProfile> Profiles;
+        public readonly Outputs.OriginEndpointDashProgramInformation? ProgramInformation;
+        /// <summary>
+        /// The SCTE configuration.
+        /// </summary>
         public readonly Outputs.OriginEndpointScteDash? ScteDash;
+        /// <summary>
+        /// Determines the type of variable used in the `media` URL of the `SegmentTemplate` tag in the manifest. Also specifies if segment timeline information is included in `SegmentTimeline` or `SegmentTemplate` .
+        /// 
+        /// Value description:
+        /// 
+        /// - `NUMBER_WITH_TIMELINE` - The `$Number$` variable is used in the `media` URL. The value of this variable is the sequential number of the segment. A full `SegmentTimeline` object is presented in each `SegmentTemplate` .
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashSegmentTemplateFormat? SegmentTemplateFormat;
+        public readonly Outputs.OriginEndpointDashSubtitleConfiguration? SubtitleConfiguration;
         /// <summary>
         /// &lt;p&gt;The amount of time (in seconds) that the player should be from the end of the manifest.&lt;/p&gt;
         /// </summary>
         public readonly int? SuggestedPresentationDelaySeconds;
+        /// <summary>
+        /// Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).
+        /// </summary>
         public readonly Outputs.OriginEndpointDashUtcTiming? UtcTiming;
 
         [OutputConstructor]
         private OriginEndpointDashManifestConfiguration(
+            ImmutableArray<Outputs.OriginEndpointDashBaseUrl> baseUrls,
+
+            Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashCompactness? compactness,
+
             Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashDrmSignaling? drmSignaling,
+
+            Outputs.OriginEndpointDashDvbSettings? dvbSettings,
 
             Outputs.OriginEndpointFilterConfiguration? filterConfiguration,
 
@@ -63,23 +99,35 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 
             ImmutableArray<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashPeriodTrigger> periodTriggers,
 
+            ImmutableArray<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashProfile> profiles,
+
+            Outputs.OriginEndpointDashProgramInformation? programInformation,
+
             Outputs.OriginEndpointScteDash? scteDash,
 
             Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashSegmentTemplateFormat? segmentTemplateFormat,
+
+            Outputs.OriginEndpointDashSubtitleConfiguration? subtitleConfiguration,
 
             int? suggestedPresentationDelaySeconds,
 
             Outputs.OriginEndpointDashUtcTiming? utcTiming)
         {
+            BaseUrls = baseUrls;
+            Compactness = compactness;
             DrmSignaling = drmSignaling;
+            DvbSettings = dvbSettings;
             FilterConfiguration = filterConfiguration;
             ManifestName = manifestName;
             ManifestWindowSeconds = manifestWindowSeconds;
             MinBufferTimeSeconds = minBufferTimeSeconds;
             MinUpdatePeriodSeconds = minUpdatePeriodSeconds;
             PeriodTriggers = periodTriggers;
+            Profiles = profiles;
+            ProgramInformation = programInformation;
             ScteDash = scteDash;
             SegmentTemplateFormat = segmentTemplateFormat;
+            SubtitleConfiguration = subtitleConfiguration;
             SuggestedPresentationDelaySeconds = suggestedPresentationDelaySeconds;
             UtcTiming = utcTiming;
         }

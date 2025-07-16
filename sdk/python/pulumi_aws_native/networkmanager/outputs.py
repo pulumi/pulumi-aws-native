@@ -1547,8 +1547,12 @@ class VpcAttachmentVpcOptions(dict):
         suggest = None
         if key == "applianceModeSupport":
             suggest = "appliance_mode_support"
+        elif key == "dnsSupport":
+            suggest = "dns_support"
         elif key == "ipv6Support":
             suggest = "ipv6_support"
+        elif key == "securityGroupReferencingSupport":
+            suggest = "security_group_referencing_support"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VpcAttachmentVpcOptions. Access the value via the '{suggest}' property getter instead.")
@@ -1563,16 +1567,24 @@ class VpcAttachmentVpcOptions(dict):
 
     def __init__(__self__, *,
                  appliance_mode_support: Optional[builtins.bool] = None,
-                 ipv6_support: Optional[builtins.bool] = None):
+                 dns_support: Optional[builtins.bool] = None,
+                 ipv6_support: Optional[builtins.bool] = None,
+                 security_group_referencing_support: Optional[builtins.bool] = None):
         """
         Vpc options of the attachment.
         :param builtins.bool appliance_mode_support: Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
+        :param builtins.bool dns_support: Indicates whether to enable private DNS Support for Vpc Attachment. Valid Values: true | false
         :param builtins.bool ipv6_support: Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+        :param builtins.bool security_group_referencing_support: Indicates whether to enable Security Group Referencing Support for Vpc Attachment. Valid Values: true | false
         """
         if appliance_mode_support is not None:
             pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
+        if dns_support is not None:
+            pulumi.set(__self__, "dns_support", dns_support)
         if ipv6_support is not None:
             pulumi.set(__self__, "ipv6_support", ipv6_support)
+        if security_group_referencing_support is not None:
+            pulumi.set(__self__, "security_group_referencing_support", security_group_referencing_support)
 
     @property
     @pulumi.getter(name="applianceModeSupport")
@@ -1583,11 +1595,27 @@ class VpcAttachmentVpcOptions(dict):
         return pulumi.get(self, "appliance_mode_support")
 
     @property
+    @pulumi.getter(name="dnsSupport")
+    def dns_support(self) -> Optional[builtins.bool]:
+        """
+        Indicates whether to enable private DNS Support for Vpc Attachment. Valid Values: true | false
+        """
+        return pulumi.get(self, "dns_support")
+
+    @property
     @pulumi.getter(name="ipv6Support")
     def ipv6_support(self) -> Optional[builtins.bool]:
         """
         Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
         """
         return pulumi.get(self, "ipv6_support")
+
+    @property
+    @pulumi.getter(name="securityGroupReferencingSupport")
+    def security_group_referencing_support(self) -> Optional[builtins.bool]:
+        """
+        Indicates whether to enable Security Group Referencing Support for Vpc Attachment. Valid Values: true | false
+        """
+        return pulumi.get(self, "security_group_referencing_support")
 
 

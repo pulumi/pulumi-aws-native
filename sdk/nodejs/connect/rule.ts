@@ -55,7 +55,7 @@ export class Rule extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The publish status of the rule.
-     *   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
+     *  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
      */
     public readonly publishStatus!: pulumi.Output<enums.connect.RulePublishStatus>;
     /**
@@ -144,7 +144,7 @@ export interface RuleArgs {
     name?: pulumi.Input<string>;
     /**
      * The publish status of the rule.
-     *   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
+     *  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
      */
     publishStatus: pulumi.Input<enums.connect.RulePublishStatus>;
     /**

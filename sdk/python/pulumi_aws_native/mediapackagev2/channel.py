@@ -45,7 +45,6 @@ class ChannelArgs:
                - `HLS` - The HLS streaming specification (which defines M3U8 manifests and TS segments).
                - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
         :param pulumi.Input['ChannelOutputHeaderConfigurationArgs'] output_header_configuration: The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags associated with the channel.
         """
         pulumi.set(__self__, "channel_group_name", channel_group_name)
         if channel_name is not None:
@@ -141,9 +140,6 @@ class ChannelArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        The tags associated with the channel.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -181,7 +177,6 @@ class Channel(pulumi.CustomResource):
                - `HLS` - The HLS streaming specification (which defines M3U8 manifests and TS segments).
                - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
         :param pulumi.Input[Union['ChannelOutputHeaderConfigurationArgs', 'ChannelOutputHeaderConfigurationArgsDict']] output_header_configuration: The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with the channel.
         """
         ...
     @overload
@@ -318,6 +313,9 @@ class Channel(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ingestEndpointUrls")
     def ingest_endpoint_urls(self) -> pulumi.Output[Sequence[builtins.str]]:
+        """
+        The ingest domain URL where the source stream should be sent.
+        """
         return pulumi.get(self, "ingest_endpoint_urls")
 
     @property
@@ -368,8 +366,5 @@ class Channel(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        The tags associated with the channel.
-        """
         return pulumi.get(self, "tags")
 

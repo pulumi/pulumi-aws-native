@@ -39,7 +39,7 @@ class ServiceArgs:
                - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
         :param pulumi.Input[builtins.str] certificate_arn: The Amazon Resource Name (ARN) of the certificate.
         :param pulumi.Input[builtins.str] custom_domain_name: The custom domain name of the service.
-        :param pulumi.Input['ServiceDnsEntryArgs'] dns_entry: The DNS information of the service.
+        :param pulumi.Input['ServiceDnsEntryArgs'] dns_entry: Describes the DNS information of the service. This field is read-only.
         :param pulumi.Input[builtins.str] name: The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
                
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
@@ -101,7 +101,7 @@ class ServiceArgs:
     @pulumi.getter(name="dnsEntry")
     def dns_entry(self) -> Optional[pulumi.Input['ServiceDnsEntryArgs']]:
         """
-        The DNS information of the service.
+        Describes the DNS information of the service. This field is read-only.
         """
         return pulumi.get(self, "dns_entry")
 
@@ -160,7 +160,7 @@ class Service(pulumi.CustomResource):
                - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
         :param pulumi.Input[builtins.str] certificate_arn: The Amazon Resource Name (ARN) of the certificate.
         :param pulumi.Input[builtins.str] custom_domain_name: The custom domain name of the service.
-        :param pulumi.Input[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict']] dns_entry: The DNS information of the service.
+        :param pulumi.Input[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict']] dns_entry: Describes the DNS information of the service. This field is read-only.
         :param pulumi.Input[builtins.str] name: The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
                
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
@@ -308,7 +308,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="dnsEntry")
     def dns_entry(self) -> pulumi.Output[Optional['outputs.ServiceDnsEntry']]:
         """
-        The DNS information of the service.
+        Describes the DNS information of the service. This field is read-only.
         """
         return pulumi.get(self, "dns_entry")
 

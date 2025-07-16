@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// 
         /// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
         /// </summary>
-        public readonly Outputs.DataSourceIdentityCenterConfiguration? IdentityCenterConfiguration;
+        public readonly object? IdentityCenterConfiguration;
         /// <summary>
         /// &lt;p&gt;Port. This field can be blank if the &lt;code&gt;ClusterId&lt;/code&gt; is provided.&lt;/p&gt;
         /// </summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DataSourceRedshiftIamParameters? iamParameters,
 
-            Outputs.DataSourceIdentityCenterConfiguration? identityCenterConfiguration,
+            object? identityCenterConfiguration,
 
             double? port)
         {

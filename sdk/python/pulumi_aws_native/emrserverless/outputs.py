@@ -22,6 +22,7 @@ __all__ = [
     'ApplicationAutoStopConfiguration',
     'ApplicationCloudWatchLoggingConfiguration',
     'ApplicationConfigurationObject',
+    'ApplicationIdentityCenterConfiguration',
     'ApplicationImageConfigurationInput',
     'ApplicationInitialCapacityConfig',
     'ApplicationInitialCapacityConfigKeyValuePair',
@@ -239,6 +240,46 @@ class ApplicationConfigurationObject(dict):
     @pulumi.getter
     def properties(self) -> Optional[Mapping[str, builtins.str]]:
         return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class ApplicationIdentityCenterConfiguration(dict):
+    """
+    The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityCenterInstanceArn":
+            suggest = "identity_center_instance_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationIdentityCenterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationIdentityCenterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationIdentityCenterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_center_instance_arn: Optional[builtins.str] = None):
+        """
+        The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+        :param builtins.str identity_center_instance_arn: The IAM IdentityCenter instance arn
+        """
+        if identity_center_instance_arn is not None:
+            pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
+
+    @property
+    @pulumi.getter(name="identityCenterInstanceArn")
+    def identity_center_instance_arn(self) -> Optional[builtins.str]:
+        """
+        The IAM IdentityCenter instance arn
+        """
+        return pulumi.get(self, "identity_center_instance_arn")
 
 
 @pulumi.output_type

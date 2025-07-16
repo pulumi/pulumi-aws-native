@@ -17,7 +17,12 @@ namespace Pulumi.AwsNative.Connect.Outputs
         public readonly bool? ContactLens;
         public readonly bool? ContactflowLogs;
         public readonly bool? EarlyMedia;
+        public readonly bool? EnhancedChatMonitoring;
+        public readonly bool? EnhancedContactMonitoring;
+        public readonly bool? HighVolumeOutBound;
         public readonly bool InboundCalls;
+        public readonly bool? MultiPartyChatConference;
+        public readonly bool? MultiPartyConference;
         public readonly bool OutboundCalls;
         public readonly bool? UseCustomTtsVoices;
 
@@ -31,7 +36,17 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             bool? earlyMedia,
 
+            bool? enhancedChatMonitoring,
+
+            bool? enhancedContactMonitoring,
+
+            bool? highVolumeOutBound,
+
             bool inboundCalls,
+
+            bool? multiPartyChatConference,
+
+            bool? multiPartyConference,
 
             bool outboundCalls,
 
@@ -41,7 +56,12 @@ namespace Pulumi.AwsNative.Connect.Outputs
             ContactLens = contactLens;
             ContactflowLogs = contactflowLogs;
             EarlyMedia = earlyMedia;
+            EnhancedChatMonitoring = enhancedChatMonitoring;
+            EnhancedContactMonitoring = enhancedContactMonitoring;
+            HighVolumeOutBound = highVolumeOutBound;
             InboundCalls = inboundCalls;
+            MultiPartyChatConference = multiPartyChatConference;
+            MultiPartyConference = multiPartyConference;
             OutboundCalls = outboundCalls;
             UseCustomTtsVoices = useCustomTtsVoices;
         }

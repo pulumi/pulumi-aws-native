@@ -259,7 +259,7 @@
     "Description" : {
       "description" : "A description of the resource",
       "type" : "string",
-      "maxLength" : 200
+      "maxLength" : 2000
     },
     "DataPrivacy" : {
       "type" : "object",
@@ -328,6 +328,73 @@
         }
       },
       "required" : [ "VoiceId" ],
+      "additionalProperties" : false
+    },
+    "GenerativeAISettings" : {
+      "type" : "object",
+      "properties" : {
+        "BuildtimeSettings" : {
+          "type" : "object",
+          "properties" : {
+            "DescriptiveBotBuilderSpecification" : {
+              "type" : "object",
+              "properties" : {
+                "Enabled" : {
+                  "type" : "boolean"
+                },
+                "BedrockModelSpecification" : {
+                  "$ref" : "#/definitions/BedrockModelSpecification"
+                }
+              },
+              "required" : [ "Enabled" ],
+              "additionalProperties" : false
+            },
+            "SampleUtteranceGenerationSpecification" : {
+              "type" : "object",
+              "properties" : {
+                "Enabled" : {
+                  "type" : "boolean"
+                },
+                "BedrockModelSpecification" : {
+                  "$ref" : "#/definitions/BedrockModelSpecification"
+                }
+              },
+              "required" : [ "Enabled" ],
+              "additionalProperties" : false
+            }
+          },
+          "additionalProperties" : false
+        },
+        "RuntimeSettings" : {
+          "type" : "object",
+          "properties" : {
+            "NluImprovementSpecification" : {
+              "type" : "object",
+              "properties" : {
+                "Enabled" : {
+                  "type" : "boolean"
+                }
+              },
+              "required" : [ "Enabled" ],
+              "additionalProperties" : false
+            },
+            "SlotResolutionImprovementSpecification" : {
+              "type" : "object",
+              "properties" : {
+                "Enabled" : {
+                  "type" : "boolean"
+                },
+                "BedrockModelSpecification" : {
+                  "$ref" : "#/definitions/BedrockModelSpecification"
+                }
+              },
+              "required" : [ "Enabled" ],
+              "additionalProperties" : false
+            }
+          },
+          "additionalProperties" : false
+        }
+      },
       "additionalProperties" : false
     },
     "ConfidenceThreshold" : {
@@ -1643,6 +1710,9 @@
         },
         "VoiceSettings" : {
           "$ref" : "#/definitions/VoiceSettings"
+        },
+        "GenerativeAISettings" : {
+          "$ref" : "#/definitions/GenerativeAISettings"
         },
         "NluConfidenceThreshold" : {
           "$ref" : "#/definitions/ConfidenceThreshold"

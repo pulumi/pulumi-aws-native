@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DbCluster{}
 	case "aws-native:neptune:DbClusterParameterGroup":
 		r = &DbClusterParameterGroup{}
+	case "aws-native:neptune:DbInstance":
+		r = &DbInstance{}
 	case "aws-native:neptune:DbParameterGroup":
 		r = &DbParameterGroup{}
 	case "aws-native:neptune:DbSubnetGroup":

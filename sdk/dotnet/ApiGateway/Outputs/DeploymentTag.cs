@@ -10,15 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Outputs
 {
 
+    /// <summary>
+    /// An array of key-value pairs to apply to this resource.
+    ///  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+    /// </summary>
     [OutputType]
     public sealed class DeploymentTag
     {
         /// <summary>
-        /// The key name of the tag
+        /// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The value for the tag
+        /// The value for the specified tag key.
         /// </summary>
         public readonly string Value;
 

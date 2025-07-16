@@ -65,6 +65,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("s3Configuration", required: true)]
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs> S3Configuration { get; set; } = null!;
 
+        [Input("schemaEvolutionConfiguration")]
+        public Input<Inputs.DeliveryStreamSchemaEvolutionConfigurationArgs>? SchemaEvolutionConfiguration { get; set; }
+
+        [Input("tableCreationConfiguration")]
+        public Input<Inputs.DeliveryStreamTableCreationConfigurationArgs>? TableCreationConfiguration { get; set; }
+
         public DeliveryStreamIcebergDestinationConfigurationArgs()
         {
         }

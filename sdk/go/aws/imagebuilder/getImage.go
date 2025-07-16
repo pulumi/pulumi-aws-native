@@ -38,6 +38,8 @@ type LookupImageResult struct {
 	ImageUri *string `pulumi:"imageUri"`
 	// The name of the image.
 	Name *string `pulumi:"name"`
+	// The tags associated with the image.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupImageOutput(ctx *pulumi.Context, args LookupImageOutputArgs, opts ...pulumi.InvokeOption) LookupImageResultOutput {
@@ -95,6 +97,11 @@ func (o LookupImageResultOutput) ImageUri() pulumi.StringPtrOutput {
 // The name of the image.
 func (o LookupImageResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The tags associated with the image.
+func (o LookupImageResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupImageResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

@@ -79,6 +79,10 @@ namespace Pulumi.AwsNative.Logs.Outputs
         /// </summary>
         public readonly Outputs.TransformerParseRoute53? ParseRoute53;
         /// <summary>
+        /// Use this parameter to convert logs into Open Cybersecurity Schema (OCSF) format.
+        /// </summary>
+        public readonly Outputs.TransformerParseToOcsf? ParseToOcsf;
+        /// <summary>
         /// Use this parameter to include the [parseVPC](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseVPC) processor in your transformer.
         /// 
         /// If you use this processor, it must be the first processor in your transformer.
@@ -145,6 +149,8 @@ namespace Pulumi.AwsNative.Logs.Outputs
 
             Outputs.TransformerParseRoute53? parseRoute53,
 
+            Outputs.TransformerParseToOcsf? parseToOcsf,
+
             Outputs.TransformerParseVpc? parseVpc,
 
             Outputs.TransformerParseWaf? parseWaf,
@@ -175,6 +181,7 @@ namespace Pulumi.AwsNative.Logs.Outputs
             ParseKeyValue = parseKeyValue;
             ParsePostgres = parsePostgres;
             ParseRoute53 = parseRoute53;
+            ParseToOcsf = parseToOcsf;
             ParseVpc = parseVpc;
             ParseWaf = parseWaf;
             RenameKeys = renameKeys;

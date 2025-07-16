@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.Transfer.Inputs
     /// </summary>
     public sealed class SftpConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the number of active connections that your connector can establish with the remote server at the same time.
+        /// </summary>
+        [Input("maxConcurrentConnections")]
+        public Input<int>? MaxConcurrentConnections { get; set; }
+
         [Input("trustedHostKeys")]
         private InputList<string>? _trustedHostKeys;
 

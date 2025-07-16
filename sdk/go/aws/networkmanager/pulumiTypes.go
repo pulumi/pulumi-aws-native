@@ -3680,8 +3680,12 @@ func (o VpcAttachmentTagArrayOutput) Index(i pulumi.IntInput) VpcAttachmentTagOu
 type VpcAttachmentVpcOptions struct {
 	// Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
 	ApplianceModeSupport *bool `pulumi:"applianceModeSupport"`
+	// Indicates whether to enable private DNS Support for Vpc Attachment. Valid Values: true | false
+	DnsSupport *bool `pulumi:"dnsSupport"`
 	// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
 	Ipv6Support *bool `pulumi:"ipv6Support"`
+	// Indicates whether to enable Security Group Referencing Support for Vpc Attachment. Valid Values: true | false
+	SecurityGroupReferencingSupport *bool `pulumi:"securityGroupReferencingSupport"`
 }
 
 // VpcAttachmentVpcOptionsInput is an input type that accepts VpcAttachmentVpcOptionsArgs and VpcAttachmentVpcOptionsOutput values.
@@ -3699,8 +3703,12 @@ type VpcAttachmentVpcOptionsInput interface {
 type VpcAttachmentVpcOptionsArgs struct {
 	// Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
 	ApplianceModeSupport pulumi.BoolPtrInput `pulumi:"applianceModeSupport"`
+	// Indicates whether to enable private DNS Support for Vpc Attachment. Valid Values: true | false
+	DnsSupport pulumi.BoolPtrInput `pulumi:"dnsSupport"`
 	// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
 	Ipv6Support pulumi.BoolPtrInput `pulumi:"ipv6Support"`
+	// Indicates whether to enable Security Group Referencing Support for Vpc Attachment. Valid Values: true | false
+	SecurityGroupReferencingSupport pulumi.BoolPtrInput `pulumi:"securityGroupReferencingSupport"`
 }
 
 func (VpcAttachmentVpcOptionsArgs) ElementType() reflect.Type {
@@ -3786,9 +3794,19 @@ func (o VpcAttachmentVpcOptionsOutput) ApplianceModeSupport() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v VpcAttachmentVpcOptions) *bool { return v.ApplianceModeSupport }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether to enable private DNS Support for Vpc Attachment. Valid Values: true | false
+func (o VpcAttachmentVpcOptionsOutput) DnsSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpcAttachmentVpcOptions) *bool { return v.DnsSupport }).(pulumi.BoolPtrOutput)
+}
+
 // Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
 func (o VpcAttachmentVpcOptionsOutput) Ipv6Support() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcAttachmentVpcOptions) *bool { return v.Ipv6Support }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether to enable Security Group Referencing Support for Vpc Attachment. Valid Values: true | false
+func (o VpcAttachmentVpcOptionsOutput) SecurityGroupReferencingSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpcAttachmentVpcOptions) *bool { return v.SecurityGroupReferencingSupport }).(pulumi.BoolPtrOutput)
 }
 
 type VpcAttachmentVpcOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -3825,6 +3843,16 @@ func (o VpcAttachmentVpcOptionsPtrOutput) ApplianceModeSupport() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether to enable private DNS Support for Vpc Attachment. Valid Values: true | false
+func (o VpcAttachmentVpcOptionsPtrOutput) DnsSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpcAttachmentVpcOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DnsSupport
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
 func (o VpcAttachmentVpcOptionsPtrOutput) Ipv6Support() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcAttachmentVpcOptions) *bool {
@@ -3832,6 +3860,16 @@ func (o VpcAttachmentVpcOptionsPtrOutput) Ipv6Support() pulumi.BoolPtrOutput {
 			return nil
 		}
 		return v.Ipv6Support
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether to enable Security Group Referencing Support for Vpc Attachment. Valid Values: true | false
+func (o VpcAttachmentVpcOptionsPtrOutput) SecurityGroupReferencingSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpcAttachmentVpcOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupReferencingSupport
 	}).(pulumi.BoolPtrOutput)
 }
 

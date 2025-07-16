@@ -412,6 +412,9 @@ class OriginEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dashManifestUrls")
     def dash_manifest_urls(self) -> pulumi.Output[Sequence[builtins.str]]:
+        """
+        The egress domain URL for stream delivery from MediaPackage.
+        """
         return pulumi.get(self, "dash_manifest_urls")
 
     @property
@@ -441,6 +444,9 @@ class OriginEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="hlsManifestUrls")
     def hls_manifest_urls(self) -> pulumi.Output[Sequence[builtins.str]]:
+        """
+        The egress domain URL for stream delivery from MediaPackage.
+        """
         return pulumi.get(self, "hls_manifest_urls")
 
     @property
@@ -454,6 +460,9 @@ class OriginEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="lowLatencyHlsManifestUrls")
     def low_latency_hls_manifest_urls(self) -> pulumi.Output[Sequence[builtins.str]]:
+        """
+        The egress domain URL for stream delivery from MediaPackage.
+        """
         return pulumi.get(self, "low_latency_hls_manifest_urls")
 
     @property

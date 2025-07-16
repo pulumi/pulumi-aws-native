@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,6 +37,7 @@ type LookupDirectoryBucketResult struct {
 	BucketEncryption *DirectoryBucketBucketEncryption `pulumi:"bucketEncryption"`
 	// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
 	LifecycleConfiguration *DirectoryBucketLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
+	Tags                   []aws.Tag                              `pulumi:"tags"`
 }
 
 func LookupDirectoryBucketOutput(ctx *pulumi.Context, args LookupDirectoryBucketOutputArgs, opts ...pulumi.InvokeOption) LookupDirectoryBucketResultOutput {
@@ -90,6 +92,10 @@ func (o LookupDirectoryBucketResultOutput) LifecycleConfiguration() DirectoryBuc
 	return o.ApplyT(func(v LookupDirectoryBucketResult) *DirectoryBucketLifecycleConfiguration {
 		return v.LifecycleConfiguration
 	}).(DirectoryBucketLifecycleConfigurationPtrOutput)
+}
+
+func (o LookupDirectoryBucketResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDirectoryBucketResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, application_id=None, architecture=None, arn=None, auto_start_configuration=None, auto_stop_configuration=None, image_configuration=None, initial_capacity=None, interactive_configuration=None, maximum_capacity=None, monitoring_configuration=None, network_configuration=None, release_label=None, runtime_configuration=None, scheduler_configuration=None, tags=None, worker_type_specifications=None):
+    def __init__(__self__, application_id=None, architecture=None, arn=None, auto_start_configuration=None, auto_stop_configuration=None, identity_center_configuration=None, image_configuration=None, initial_capacity=None, interactive_configuration=None, maximum_capacity=None, monitoring_configuration=None, network_configuration=None, release_label=None, runtime_configuration=None, scheduler_configuration=None, tags=None, worker_type_specifications=None):
         if application_id and not isinstance(application_id, str):
             raise TypeError("Expected argument 'application_id' to be a str")
         pulumi.set(__self__, "application_id", application_id)
@@ -43,6 +43,9 @@ class GetApplicationResult:
         if auto_stop_configuration and not isinstance(auto_stop_configuration, dict):
             raise TypeError("Expected argument 'auto_stop_configuration' to be a dict")
         pulumi.set(__self__, "auto_stop_configuration", auto_stop_configuration)
+        if identity_center_configuration and not isinstance(identity_center_configuration, dict):
+            raise TypeError("Expected argument 'identity_center_configuration' to be a dict")
+        pulumi.set(__self__, "identity_center_configuration", identity_center_configuration)
         if image_configuration and not isinstance(image_configuration, dict):
             raise TypeError("Expected argument 'image_configuration' to be a dict")
         pulumi.set(__self__, "image_configuration", image_configuration)
@@ -116,6 +119,14 @@ class GetApplicationResult:
         Configuration for Auto Stop of Application.
         """
         return pulumi.get(self, "auto_stop_configuration")
+
+    @property
+    @pulumi.getter(name="identityCenterConfiguration")
+    def identity_center_configuration(self) -> Optional['outputs.ApplicationIdentityCenterConfiguration']:
+        """
+        The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+        """
+        return pulumi.get(self, "identity_center_configuration")
 
     @property
     @pulumi.getter(name="imageConfiguration")
@@ -217,6 +228,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             arn=self.arn,
             auto_start_configuration=self.auto_start_configuration,
             auto_stop_configuration=self.auto_stop_configuration,
+            identity_center_configuration=self.identity_center_configuration,
             image_configuration=self.image_configuration,
             initial_capacity=self.initial_capacity,
             interactive_configuration=self.interactive_configuration,
@@ -249,6 +261,7 @@ def get_application(application_id: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         auto_start_configuration=pulumi.get(__ret__, 'auto_start_configuration'),
         auto_stop_configuration=pulumi.get(__ret__, 'auto_stop_configuration'),
+        identity_center_configuration=pulumi.get(__ret__, 'identity_center_configuration'),
         image_configuration=pulumi.get(__ret__, 'image_configuration'),
         initial_capacity=pulumi.get(__ret__, 'initial_capacity'),
         interactive_configuration=pulumi.get(__ret__, 'interactive_configuration'),
@@ -278,6 +291,7 @@ def get_application_output(application_id: Optional[pulumi.Input[builtins.str]] 
         arn=pulumi.get(__response__, 'arn'),
         auto_start_configuration=pulumi.get(__response__, 'auto_start_configuration'),
         auto_stop_configuration=pulumi.get(__response__, 'auto_stop_configuration'),
+        identity_center_configuration=pulumi.get(__response__, 'identity_center_configuration'),
         image_configuration=pulumi.get(__response__, 'image_configuration'),
         initial_capacity=pulumi.get(__response__, 'initial_capacity'),
         interactive_configuration=pulumi.get(__response__, 'interactive_configuration'),

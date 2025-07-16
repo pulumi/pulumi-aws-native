@@ -29,15 +29,19 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         ///  To avoid changing your applications in client Amazon ECS services, set this to the same port that the client application uses by default. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
         /// </summary>
         public readonly int Port;
+        public readonly Outputs.ServiceConnectTestTrafficRules? TestTrafficRules;
 
         [OutputConstructor]
         private ServiceConnectClientAlias(
             string? dnsName,
 
-            int port)
+            int port,
+
+            Outputs.ServiceConnectTestTrafficRules? testTrafficRules)
         {
             DnsName = dnsName;
             Port = port;
+            TestTrafficRules = testTrafficRules;
         }
     }
 }

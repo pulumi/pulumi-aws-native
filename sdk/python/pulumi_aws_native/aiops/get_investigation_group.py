@@ -70,6 +70,9 @@ class GetInvestigationGroupResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the investigation group.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -83,11 +86,17 @@ class GetInvestigationGroupResult:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[builtins.str]:
+        """
+        The date and time that the investigation group was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[builtins.str]:
+        """
+        The name of the user who created the investigation group.
+        """
         return pulumi.get(self, "created_by")
 
     @property
@@ -101,6 +110,9 @@ class GetInvestigationGroupResult:
     @property
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> Optional['outputs.InvestigationGroupEncryptionConfigMap']:
+        """
+        Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+        """
         return pulumi.get(self, "encryption_config")
 
     @property
@@ -122,21 +134,33 @@ class GetInvestigationGroupResult:
     @property
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[builtins.str]:
+        """
+        The date and time that the investigation group was most recently modified.
+        """
         return pulumi.get(self, "last_modified_at")
 
     @property
     @pulumi.getter(name="lastModifiedBy")
     def last_modified_by(self) -> Optional[builtins.str]:
+        """
+        The name of the user who created the investigation group.
+        """
         return pulumi.get(self, "last_modified_by")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[builtins.str]:
+        """
+        The ARN of the IAM role that the investigation group uses for permissions to gather data.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="tagKeyBoundaries")
     def tag_key_boundaries(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
+        """
         return pulumi.get(self, "tag_key_boundaries")
 
     @property
@@ -173,6 +197,9 @@ def get_investigation_group(arn: Optional[builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInvestigationGroupResult:
     """
     Definition of AWS::AIOps::InvestigationGroup Resource Type
+
+
+    :param builtins.str arn: The Amazon Resource Name (ARN) of the investigation group.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -197,6 +224,9 @@ def get_investigation_group_output(arn: Optional[pulumi.Input[builtins.str]] = N
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInvestigationGroupResult]:
     """
     Definition of AWS::AIOps::InvestigationGroup Resource Type
+
+
+    :param builtins.str arn: The Amazon Resource Name (ARN) of the investigation group.
     """
     __args__ = dict()
     __args__['arn'] = arn

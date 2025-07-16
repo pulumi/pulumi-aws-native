@@ -68,4 +68,126 @@ namespace Pulumi.AwsNative.S3Tables
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Indicates whether the Compaction maintenance action is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct TableCompactionStatus : IEquatable<TableCompactionStatus>
+    {
+        private readonly string _value;
+
+        private TableCompactionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TableCompactionStatus Enabled { get; } = new TableCompactionStatus("enabled");
+        public static TableCompactionStatus Disabled { get; } = new TableCompactionStatus("disabled");
+
+        public static bool operator ==(TableCompactionStatus left, TableCompactionStatus right) => left.Equals(right);
+        public static bool operator !=(TableCompactionStatus left, TableCompactionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(TableCompactionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TableCompactionStatus other && Equals(other);
+        public bool Equals(TableCompactionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Format of the table.
+    /// </summary>
+    [EnumType]
+    public readonly struct TableOpenTableFormat : IEquatable<TableOpenTableFormat>
+    {
+        private readonly string _value;
+
+        private TableOpenTableFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TableOpenTableFormat Iceberg { get; } = new TableOpenTableFormat("ICEBERG");
+
+        public static bool operator ==(TableOpenTableFormat left, TableOpenTableFormat right) => left.Equals(right);
+        public static bool operator !=(TableOpenTableFormat left, TableOpenTableFormat right) => !left.Equals(right);
+
+        public static explicit operator string(TableOpenTableFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TableOpenTableFormat other && Equals(other);
+        public bool Equals(TableOpenTableFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the SnapshotManagement maintenance action is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct TableSnapshotManagementStatus : IEquatable<TableSnapshotManagementStatus>
+    {
+        private readonly string _value;
+
+        private TableSnapshotManagementStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TableSnapshotManagementStatus Enabled { get; } = new TableSnapshotManagementStatus("enabled");
+        public static TableSnapshotManagementStatus Disabled { get; } = new TableSnapshotManagementStatus("disabled");
+
+        public static bool operator ==(TableSnapshotManagementStatus left, TableSnapshotManagementStatus right) => left.Equals(right);
+        public static bool operator !=(TableSnapshotManagementStatus left, TableSnapshotManagementStatus right) => !left.Equals(right);
+
+        public static explicit operator string(TableSnapshotManagementStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TableSnapshotManagementStatus other && Equals(other);
+        public bool Equals(TableSnapshotManagementStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to 'IcebergMetadata', and its only possible value is 'Yes'.
+    /// </summary>
+    [EnumType]
+    public readonly struct TableWithoutMetadata : IEquatable<TableWithoutMetadata>
+    {
+        private readonly string _value;
+
+        private TableWithoutMetadata(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TableWithoutMetadata Yes { get; } = new TableWithoutMetadata("Yes");
+
+        public static bool operator ==(TableWithoutMetadata left, TableWithoutMetadata right) => left.Equals(right);
+        public static bool operator !=(TableWithoutMetadata left, TableWithoutMetadata right) => !left.Equals(right);
+
+        public static explicit operator string(TableWithoutMetadata value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TableWithoutMetadata other && Equals(other);
+        public bool Equals(TableWithoutMetadata other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

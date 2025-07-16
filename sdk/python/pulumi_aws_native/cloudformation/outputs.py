@@ -199,11 +199,11 @@ class ManagedExecutionProperties(dict):
                  active: Optional[builtins.bool] = None):
         """
         Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
-        :param builtins.bool active: When `true` , StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order.
+        :param builtins.bool active: When `true` , CloudFormation performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, CloudFormation starts queued operations in request order.
                
-               > If there are already running or queued operations, StackSets queues all incoming operations even if they are non-conflicting.
+               > If there are already running or queued operations, CloudFormation queues all incoming operations even if they are non-conflicting.
                > 
-               > You can't modify your stack set's execution configuration while there are running or queued operations for that stack set. 
+               > You can't modify your StackSet's execution configuration while there are running or queued operations for that StackSet. 
                
                When `false` (default), StackSets performs one operation at a time in request order.
         """
@@ -214,11 +214,11 @@ class ManagedExecutionProperties(dict):
     @pulumi.getter
     def active(self) -> Optional[builtins.bool]:
         """
-        When `true` , StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order.
+        When `true` , CloudFormation performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, CloudFormation starts queued operations in request order.
 
-        > If there are already running or queued operations, StackSets queues all incoming operations even if they are non-conflicting.
+        > If there are already running or queued operations, CloudFormation queues all incoming operations even if they are non-conflicting.
         > 
-        > You can't modify your stack set's execution configuration while there are running or queued operations for that stack set. 
+        > You can't modify your StackSet's execution configuration while there are running or queued operations for that StackSet. 
 
         When `false` (default), StackSets performs one operation at a time in request order.
         """
@@ -705,11 +705,11 @@ class StackSetOperationPreferences(dict):
                - `STRICT_FAILURE_TOLERANCE` : This option dynamically lowers the concurrency level to ensure the number of failed accounts never exceeds the value of `FailureToleranceCount` +1. The initial actual concurrency is set to the lower of either the value of the `MaxConcurrentCount` , or the value of `FailureToleranceCount` +1. The actual concurrency is then reduced proportionally by the number of failures. This is the default behavior.
                
                If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior is similar.
-               - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows stack set operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
-        :param builtins.int failure_tolerance_count: The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+               - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows StackSet operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
+        :param builtins.int failure_tolerance_count: The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
                
                Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
-        :param builtins.int failure_tolerance_percentage: The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+        :param builtins.int failure_tolerance_percentage: The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
                
                When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
                
@@ -753,7 +753,7 @@ class StackSetOperationPreferences(dict):
         - `STRICT_FAILURE_TOLERANCE` : This option dynamically lowers the concurrency level to ensure the number of failed accounts never exceeds the value of `FailureToleranceCount` +1. The initial actual concurrency is set to the lower of either the value of the `MaxConcurrentCount` , or the value of `FailureToleranceCount` +1. The actual concurrency is then reduced proportionally by the number of failures. This is the default behavior.
 
         If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior is similar.
-        - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows stack set operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
+        - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows StackSet operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
         """
         return pulumi.get(self, "concurrency_mode")
 
@@ -761,7 +761,7 @@ class StackSetOperationPreferences(dict):
     @pulumi.getter(name="failureToleranceCount")
     def failure_tolerance_count(self) -> Optional[builtins.int]:
         """
-        The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+        The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 
         Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
         """
@@ -771,7 +771,7 @@ class StackSetOperationPreferences(dict):
     @pulumi.getter(name="failureTolerancePercentage")
     def failure_tolerance_percentage(self) -> Optional[builtins.int]:
         """
-        The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+        The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 
         When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
 
@@ -900,7 +900,7 @@ class StackSetStackInstances(dict):
                  parameter_overrides: Optional[Sequence['outputs.StackSetParameter']] = None):
         """
         Stack instances in some specific accounts and Regions.
-        :param 'StackSetDeploymentTargets' deployment_targets: The AWS `OrganizationalUnitIds` or `Accounts` for which to create stack instances in the specified Regions.
+        :param 'StackSetDeploymentTargets' deployment_targets: The AWS Organizations accounts or AWS accounts to deploy stacks to in the specified Regions.
         :param Sequence[builtins.str] regions: The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
         :param Sequence['StackSetParameter'] parameter_overrides: A list of stack set parameters whose values you want to override in the selected stack instances.
         """
@@ -913,7 +913,7 @@ class StackSetStackInstances(dict):
     @pulumi.getter(name="deploymentTargets")
     def deployment_targets(self) -> 'outputs.StackSetDeploymentTargets':
         """
-        The AWS `OrganizationalUnitIds` or `Accounts` for which to create stack instances in the specified Regions.
+        The AWS Organizations accounts or AWS accounts to deploy stacks to in the specified Regions.
         """
         return pulumi.get(self, "deployment_targets")
 

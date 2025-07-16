@@ -84,6 +84,10 @@ namespace Pulumi.AwsNative.EmrServerless
         /// </summary>
         public readonly Outputs.ApplicationAutoStopConfiguration? AutoStopConfiguration;
         /// <summary>
+        /// The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+        /// </summary>
+        public readonly Outputs.ApplicationIdentityCenterConfiguration? IdentityCenterConfiguration;
+        /// <summary>
         /// The image configuration applied to all worker types.
         /// </summary>
         public readonly Outputs.ApplicationImageConfigurationInput? ImageConfiguration;
@@ -140,6 +144,8 @@ namespace Pulumi.AwsNative.EmrServerless
 
             Outputs.ApplicationAutoStopConfiguration? autoStopConfiguration,
 
+            Outputs.ApplicationIdentityCenterConfiguration? identityCenterConfiguration,
+
             Outputs.ApplicationImageConfigurationInput? imageConfiguration,
 
             ImmutableArray<Outputs.ApplicationInitialCapacityConfigKeyValuePair> initialCapacity,
@@ -167,6 +173,7 @@ namespace Pulumi.AwsNative.EmrServerless
             Arn = arn;
             AutoStartConfiguration = autoStartConfiguration;
             AutoStopConfiguration = autoStopConfiguration;
+            IdentityCenterConfiguration = identityCenterConfiguration;
             ImageConfiguration = imageConfiguration;
             InitialCapacity = initialCapacity;
             InteractiveConfiguration = interactiveConfiguration;

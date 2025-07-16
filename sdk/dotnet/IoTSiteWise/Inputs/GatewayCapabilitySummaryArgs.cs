@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public Input<string>? CapabilityConfiguration { get; set; }
 
         /// <summary>
-        /// The namespace of the capability configuration. For example, if you configure OPC-UA sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:version` , where `version` is a number such as `1` .
+        /// The namespace of the capability configuration. For example, if you configure OPC UA sources for an MQTT-enabled gateway, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:3` .
         /// </summary>
         [Input("capabilityNamespace", required: true)]
         public Input<string> CapabilityNamespace { get; set; } = null!;

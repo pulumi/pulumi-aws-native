@@ -746,6 +746,193 @@ func (o TableBillingModePtrOutput) ProvisionedThroughput() TableProvisionedThrou
 	}).(TableProvisionedThroughputPtrOutput)
 }
 
+// Represents the CDC configuration for the table
+type TableCdcSpecification struct {
+	// The status of the CDC stream. You can enable or disable a stream for a table.
+	Status TableCdcStatus `pulumi:"status"`
+	// The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
+	//
+	// The options are:
+	//
+	// - `NEW_AND_OLD_IMAGES` - both versions of the row, before and after the change. This is the default.
+	// - `NEW_IMAGE` - the version of the row after the change.
+	// - `OLD_IMAGE` - the version of the row before the change.
+	// - `KEYS_ONLY` - the partition and clustering keys of the row that was changed.
+	ViewType *TableCdcViewType `pulumi:"viewType"`
+}
+
+// TableCdcSpecificationInput is an input type that accepts TableCdcSpecificationArgs and TableCdcSpecificationOutput values.
+// You can construct a concrete instance of `TableCdcSpecificationInput` via:
+//
+//	TableCdcSpecificationArgs{...}
+type TableCdcSpecificationInput interface {
+	pulumi.Input
+
+	ToTableCdcSpecificationOutput() TableCdcSpecificationOutput
+	ToTableCdcSpecificationOutputWithContext(context.Context) TableCdcSpecificationOutput
+}
+
+// Represents the CDC configuration for the table
+type TableCdcSpecificationArgs struct {
+	// The status of the CDC stream. You can enable or disable a stream for a table.
+	Status TableCdcStatusInput `pulumi:"status"`
+	// The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
+	//
+	// The options are:
+	//
+	// - `NEW_AND_OLD_IMAGES` - both versions of the row, before and after the change. This is the default.
+	// - `NEW_IMAGE` - the version of the row after the change.
+	// - `OLD_IMAGE` - the version of the row before the change.
+	// - `KEYS_ONLY` - the partition and clustering keys of the row that was changed.
+	ViewType TableCdcViewTypePtrInput `pulumi:"viewType"`
+}
+
+func (TableCdcSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableCdcSpecification)(nil)).Elem()
+}
+
+func (i TableCdcSpecificationArgs) ToTableCdcSpecificationOutput() TableCdcSpecificationOutput {
+	return i.ToTableCdcSpecificationOutputWithContext(context.Background())
+}
+
+func (i TableCdcSpecificationArgs) ToTableCdcSpecificationOutputWithContext(ctx context.Context) TableCdcSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableCdcSpecificationOutput)
+}
+
+func (i TableCdcSpecificationArgs) ToTableCdcSpecificationPtrOutput() TableCdcSpecificationPtrOutput {
+	return i.ToTableCdcSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i TableCdcSpecificationArgs) ToTableCdcSpecificationPtrOutputWithContext(ctx context.Context) TableCdcSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableCdcSpecificationOutput).ToTableCdcSpecificationPtrOutputWithContext(ctx)
+}
+
+// TableCdcSpecificationPtrInput is an input type that accepts TableCdcSpecificationArgs, TableCdcSpecificationPtr and TableCdcSpecificationPtrOutput values.
+// You can construct a concrete instance of `TableCdcSpecificationPtrInput` via:
+//
+//	        TableCdcSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableCdcSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToTableCdcSpecificationPtrOutput() TableCdcSpecificationPtrOutput
+	ToTableCdcSpecificationPtrOutputWithContext(context.Context) TableCdcSpecificationPtrOutput
+}
+
+type tableCdcSpecificationPtrType TableCdcSpecificationArgs
+
+func TableCdcSpecificationPtr(v *TableCdcSpecificationArgs) TableCdcSpecificationPtrInput {
+	return (*tableCdcSpecificationPtrType)(v)
+}
+
+func (*tableCdcSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableCdcSpecification)(nil)).Elem()
+}
+
+func (i *tableCdcSpecificationPtrType) ToTableCdcSpecificationPtrOutput() TableCdcSpecificationPtrOutput {
+	return i.ToTableCdcSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableCdcSpecificationPtrType) ToTableCdcSpecificationPtrOutputWithContext(ctx context.Context) TableCdcSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableCdcSpecificationPtrOutput)
+}
+
+// Represents the CDC configuration for the table
+type TableCdcSpecificationOutput struct{ *pulumi.OutputState }
+
+func (TableCdcSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableCdcSpecification)(nil)).Elem()
+}
+
+func (o TableCdcSpecificationOutput) ToTableCdcSpecificationOutput() TableCdcSpecificationOutput {
+	return o
+}
+
+func (o TableCdcSpecificationOutput) ToTableCdcSpecificationOutputWithContext(ctx context.Context) TableCdcSpecificationOutput {
+	return o
+}
+
+func (o TableCdcSpecificationOutput) ToTableCdcSpecificationPtrOutput() TableCdcSpecificationPtrOutput {
+	return o.ToTableCdcSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o TableCdcSpecificationOutput) ToTableCdcSpecificationPtrOutputWithContext(ctx context.Context) TableCdcSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableCdcSpecification) *TableCdcSpecification {
+		return &v
+	}).(TableCdcSpecificationPtrOutput)
+}
+
+// The status of the CDC stream. You can enable or disable a stream for a table.
+func (o TableCdcSpecificationOutput) Status() TableCdcStatusOutput {
+	return o.ApplyT(func(v TableCdcSpecification) TableCdcStatus { return v.Status }).(TableCdcStatusOutput)
+}
+
+// The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
+//
+// The options are:
+//
+// - `NEW_AND_OLD_IMAGES` - both versions of the row, before and after the change. This is the default.
+// - `NEW_IMAGE` - the version of the row after the change.
+// - `OLD_IMAGE` - the version of the row before the change.
+// - `KEYS_ONLY` - the partition and clustering keys of the row that was changed.
+func (o TableCdcSpecificationOutput) ViewType() TableCdcViewTypePtrOutput {
+	return o.ApplyT(func(v TableCdcSpecification) *TableCdcViewType { return v.ViewType }).(TableCdcViewTypePtrOutput)
+}
+
+type TableCdcSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableCdcSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableCdcSpecification)(nil)).Elem()
+}
+
+func (o TableCdcSpecificationPtrOutput) ToTableCdcSpecificationPtrOutput() TableCdcSpecificationPtrOutput {
+	return o
+}
+
+func (o TableCdcSpecificationPtrOutput) ToTableCdcSpecificationPtrOutputWithContext(ctx context.Context) TableCdcSpecificationPtrOutput {
+	return o
+}
+
+func (o TableCdcSpecificationPtrOutput) Elem() TableCdcSpecificationOutput {
+	return o.ApplyT(func(v *TableCdcSpecification) TableCdcSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret TableCdcSpecification
+		return ret
+	}).(TableCdcSpecificationOutput)
+}
+
+// The status of the CDC stream. You can enable or disable a stream for a table.
+func (o TableCdcSpecificationPtrOutput) Status() TableCdcStatusPtrOutput {
+	return o.ApplyT(func(v *TableCdcSpecification) *TableCdcStatus {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(TableCdcStatusPtrOutput)
+}
+
+// The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
+//
+// The options are:
+//
+// - `NEW_AND_OLD_IMAGES` - both versions of the row, before and after the change. This is the default.
+// - `NEW_IMAGE` - the version of the row after the change.
+// - `OLD_IMAGE` - the version of the row before the change.
+// - `KEYS_ONLY` - the partition and clustering keys of the row that was changed.
+func (o TableCdcSpecificationPtrOutput) ViewType() TableCdcViewTypePtrOutput {
+	return o.ApplyT(func(v *TableCdcSpecification) *TableCdcViewType {
+		if v == nil {
+			return nil
+		}
+		return v.ViewType
+	}).(TableCdcViewTypePtrOutput)
+}
+
 type TableClusteringKeyColumn struct {
 	// The name and data type of this clustering key column.
 	Column TableColumn `pulumi:"column"`
@@ -1925,6 +2112,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableAutoScalingSpecificationPtrInput)(nil)).Elem(), TableAutoScalingSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBillingModeInput)(nil)).Elem(), TableBillingModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBillingModePtrInput)(nil)).Elem(), TableBillingModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableCdcSpecificationInput)(nil)).Elem(), TableCdcSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableCdcSpecificationPtrInput)(nil)).Elem(), TableCdcSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableClusteringKeyColumnInput)(nil)).Elem(), TableClusteringKeyColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableClusteringKeyColumnArrayInput)(nil)).Elem(), TableClusteringKeyColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableColumnInput)(nil)).Elem(), TableColumnArgs{})
@@ -1949,6 +2138,8 @@ func init() {
 	pulumi.RegisterOutputType(TableAutoScalingSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableBillingModeOutput{})
 	pulumi.RegisterOutputType(TableBillingModePtrOutput{})
+	pulumi.RegisterOutputType(TableCdcSpecificationOutput{})
+	pulumi.RegisterOutputType(TableCdcSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableClusteringKeyColumnOutput{})
 	pulumi.RegisterOutputType(TableClusteringKeyColumnArrayOutput{})
 	pulumi.RegisterOutputType(TableColumnOutput{})

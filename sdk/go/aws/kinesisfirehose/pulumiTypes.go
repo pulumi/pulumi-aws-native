@@ -1635,7 +1635,8 @@ func (o DeliveryStreamBufferingHintsPtrOutput) SizeInMbs() pulumi.IntPtrOutput {
 
 type DeliveryStreamCatalogConfiguration struct {
 	// Specifies the Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
-	CatalogArn *string `pulumi:"catalogArn"`
+	CatalogArn        *string `pulumi:"catalogArn"`
+	WarehouseLocation *string `pulumi:"warehouseLocation"`
 }
 
 // DeliveryStreamCatalogConfigurationInput is an input type that accepts DeliveryStreamCatalogConfigurationArgs and DeliveryStreamCatalogConfigurationOutput values.
@@ -1651,7 +1652,8 @@ type DeliveryStreamCatalogConfigurationInput interface {
 
 type DeliveryStreamCatalogConfigurationArgs struct {
 	// Specifies the Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
-	CatalogArn pulumi.StringPtrInput `pulumi:"catalogArn"`
+	CatalogArn        pulumi.StringPtrInput `pulumi:"catalogArn"`
+	WarehouseLocation pulumi.StringPtrInput `pulumi:"warehouseLocation"`
 }
 
 func (DeliveryStreamCatalogConfigurationArgs) ElementType() reflect.Type {
@@ -1736,6 +1738,10 @@ func (o DeliveryStreamCatalogConfigurationOutput) CatalogArn() pulumi.StringPtrO
 	return o.ApplyT(func(v DeliveryStreamCatalogConfiguration) *string { return v.CatalogArn }).(pulumi.StringPtrOutput)
 }
 
+func (o DeliveryStreamCatalogConfigurationOutput) WarehouseLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamCatalogConfiguration) *string { return v.WarehouseLocation }).(pulumi.StringPtrOutput)
+}
+
 type DeliveryStreamCatalogConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamCatalogConfigurationPtrOutput) ElementType() reflect.Type {
@@ -1767,6 +1773,15 @@ func (o DeliveryStreamCatalogConfigurationPtrOutput) CatalogArn() pulumi.StringP
 			return nil
 		}
 		return v.CatalogArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamCatalogConfigurationPtrOutput) WarehouseLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamCatalogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WarehouseLocation
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3694,10 +3709,11 @@ func (o DeliveryStreamDeserializerPtrOutput) OpenXJsonSerDe() DeliveryStreamOpen
 }
 
 type DeliveryStreamDestinationTableConfiguration struct {
-	DestinationDatabaseName string   `pulumi:"destinationDatabaseName"`
-	DestinationTableName    string   `pulumi:"destinationTableName"`
-	S3ErrorOutputPrefix     *string  `pulumi:"s3ErrorOutputPrefix"`
-	UniqueKeys              []string `pulumi:"uniqueKeys"`
+	DestinationDatabaseName string                                                              `pulumi:"destinationDatabaseName"`
+	DestinationTableName    string                                                              `pulumi:"destinationTableName"`
+	PartitionSpec           *DeliveryStreamDestinationTableConfigurationPartitionSpecProperties `pulumi:"partitionSpec"`
+	S3ErrorOutputPrefix     *string                                                             `pulumi:"s3ErrorOutputPrefix"`
+	UniqueKeys              []string                                                            `pulumi:"uniqueKeys"`
 }
 
 // DeliveryStreamDestinationTableConfigurationInput is an input type that accepts DeliveryStreamDestinationTableConfigurationArgs and DeliveryStreamDestinationTableConfigurationOutput values.
@@ -3712,10 +3728,11 @@ type DeliveryStreamDestinationTableConfigurationInput interface {
 }
 
 type DeliveryStreamDestinationTableConfigurationArgs struct {
-	DestinationDatabaseName pulumi.StringInput      `pulumi:"destinationDatabaseName"`
-	DestinationTableName    pulumi.StringInput      `pulumi:"destinationTableName"`
-	S3ErrorOutputPrefix     pulumi.StringPtrInput   `pulumi:"s3ErrorOutputPrefix"`
-	UniqueKeys              pulumi.StringArrayInput `pulumi:"uniqueKeys"`
+	DestinationDatabaseName pulumi.StringInput                                                         `pulumi:"destinationDatabaseName"`
+	DestinationTableName    pulumi.StringInput                                                         `pulumi:"destinationTableName"`
+	PartitionSpec           DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrInput `pulumi:"partitionSpec"`
+	S3ErrorOutputPrefix     pulumi.StringPtrInput                                                      `pulumi:"s3ErrorOutputPrefix"`
+	UniqueKeys              pulumi.StringArrayInput                                                    `pulumi:"uniqueKeys"`
 }
 
 func (DeliveryStreamDestinationTableConfigurationArgs) ElementType() reflect.Type {
@@ -3777,6 +3794,12 @@ func (o DeliveryStreamDestinationTableConfigurationOutput) DestinationTableName(
 	return o.ApplyT(func(v DeliveryStreamDestinationTableConfiguration) string { return v.DestinationTableName }).(pulumi.StringOutput)
 }
 
+func (o DeliveryStreamDestinationTableConfigurationOutput) PartitionSpec() DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamDestinationTableConfiguration) *DeliveryStreamDestinationTableConfigurationPartitionSpecProperties {
+		return v.PartitionSpec
+	}).(DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput)
+}
+
 func (o DeliveryStreamDestinationTableConfigurationOutput) S3ErrorOutputPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamDestinationTableConfiguration) *string { return v.S3ErrorOutputPrefix }).(pulumi.StringPtrOutput)
 }
@@ -3803,6 +3826,141 @@ func (o DeliveryStreamDestinationTableConfigurationArrayOutput) Index(i pulumi.I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryStreamDestinationTableConfiguration {
 		return vs[0].([]DeliveryStreamDestinationTableConfiguration)[vs[1].(int)]
 	}).(DeliveryStreamDestinationTableConfigurationOutput)
+}
+
+type DeliveryStreamDestinationTableConfigurationPartitionSpecProperties struct {
+	Identity []DeliveryStreamPartitionField `pulumi:"identity"`
+}
+
+// DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesInput is an input type that accepts DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs and DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput values.
+// You can construct a concrete instance of `DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesInput` via:
+//
+//	DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs{...}
+type DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput() DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput
+	ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutputWithContext(context.Context) DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput
+}
+
+type DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs struct {
+	Identity DeliveryStreamPartitionFieldArrayInput `pulumi:"identity"`
+}
+
+func (DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDestinationTableConfigurationPartitionSpecProperties)(nil)).Elem()
+}
+
+func (i DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs) ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput() DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput {
+	return i.ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs) ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutputWithContext(ctx context.Context) DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput)
+}
+
+func (i DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs) ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput() DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput {
+	return i.ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs) ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutputWithContext(ctx context.Context) DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput).ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrInput is an input type that accepts DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs, DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtr and DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrInput` via:
+//
+//	        DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput() DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput
+	ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutputWithContext(context.Context) DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput
+}
+
+type deliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrType DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs
+
+func DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtr(v *DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs) DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrInput {
+	return (*deliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrType)(v)
+}
+
+func (*deliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDestinationTableConfigurationPartitionSpecProperties)(nil)).Elem()
+}
+
+func (i *deliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrType) ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput() DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput {
+	return i.ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrType) ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutputWithContext(ctx context.Context) DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput)
+}
+
+type DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDestinationTableConfigurationPartitionSpecProperties)(nil)).Elem()
+}
+
+func (o DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput) ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput() DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput {
+	return o
+}
+
+func (o DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput) ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutputWithContext(ctx context.Context) DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput {
+	return o
+}
+
+func (o DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput) ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput() DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput {
+	return o.ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput) ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutputWithContext(ctx context.Context) DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamDestinationTableConfigurationPartitionSpecProperties) *DeliveryStreamDestinationTableConfigurationPartitionSpecProperties {
+		return &v
+	}).(DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput)
+}
+
+func (o DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput) Identity() DeliveryStreamPartitionFieldArrayOutput {
+	return o.ApplyT(func(v DeliveryStreamDestinationTableConfigurationPartitionSpecProperties) []DeliveryStreamPartitionField {
+		return v.Identity
+	}).(DeliveryStreamPartitionFieldArrayOutput)
+}
+
+type DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDestinationTableConfigurationPartitionSpecProperties)(nil)).Elem()
+}
+
+func (o DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput) ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput() DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput) ToDeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutputWithContext(ctx context.Context) DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput) Elem() DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput {
+	return o.ApplyT(func(v *DeliveryStreamDestinationTableConfigurationPartitionSpecProperties) DeliveryStreamDestinationTableConfigurationPartitionSpecProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamDestinationTableConfigurationPartitionSpecProperties
+		return ret
+	}).(DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput)
+}
+
+func (o DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput) Identity() DeliveryStreamPartitionFieldArrayOutput {
+	return o.ApplyT(func(v *DeliveryStreamDestinationTableConfigurationPartitionSpecProperties) []DeliveryStreamPartitionField {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(DeliveryStreamPartitionFieldArrayOutput)
 }
 
 type DeliveryStreamDirectPutSourceConfiguration struct {
@@ -6623,8 +6781,10 @@ type DeliveryStreamIcebergDestinationConfiguration struct {
 	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
 	RoleArn string `pulumi:"roleArn"`
 	// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` .
-	S3BackupMode    *DeliveryStreamIcebergDestinationConfigurations3BackupMode `pulumi:"s3BackupMode"`
-	S3Configuration DeliveryStreamS3DestinationConfiguration                   `pulumi:"s3Configuration"`
+	S3BackupMode                 *DeliveryStreamIcebergDestinationConfigurations3BackupMode `pulumi:"s3BackupMode"`
+	S3Configuration              DeliveryStreamS3DestinationConfiguration                   `pulumi:"s3Configuration"`
+	SchemaEvolutionConfiguration *DeliveryStreamSchemaEvolutionConfiguration                `pulumi:"schemaEvolutionConfiguration"`
+	TableCreationConfiguration   *DeliveryStreamTableCreationConfiguration                  `pulumi:"tableCreationConfiguration"`
 }
 
 // DeliveryStreamIcebergDestinationConfigurationInput is an input type that accepts DeliveryStreamIcebergDestinationConfigurationArgs and DeliveryStreamIcebergDestinationConfigurationOutput values.
@@ -6654,8 +6814,10 @@ type DeliveryStreamIcebergDestinationConfigurationArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` .
-	S3BackupMode    DeliveryStreamIcebergDestinationConfigurations3BackupModePtrInput `pulumi:"s3BackupMode"`
-	S3Configuration DeliveryStreamS3DestinationConfigurationInput                     `pulumi:"s3Configuration"`
+	S3BackupMode                 DeliveryStreamIcebergDestinationConfigurations3BackupModePtrInput `pulumi:"s3BackupMode"`
+	S3Configuration              DeliveryStreamS3DestinationConfigurationInput                     `pulumi:"s3Configuration"`
+	SchemaEvolutionConfiguration DeliveryStreamSchemaEvolutionConfigurationPtrInput                `pulumi:"schemaEvolutionConfiguration"`
+	TableCreationConfiguration   DeliveryStreamTableCreationConfigurationPtrInput                  `pulumi:"tableCreationConfiguration"`
 }
 
 func (DeliveryStreamIcebergDestinationConfigurationArgs) ElementType() reflect.Type {
@@ -6798,6 +6960,18 @@ func (o DeliveryStreamIcebergDestinationConfigurationOutput) S3Configuration() D
 	}).(DeliveryStreamS3DestinationConfigurationOutput)
 }
 
+func (o DeliveryStreamIcebergDestinationConfigurationOutput) SchemaEvolutionConfiguration() DeliveryStreamSchemaEvolutionConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamSchemaEvolutionConfiguration {
+		return v.SchemaEvolutionConfiguration
+	}).(DeliveryStreamSchemaEvolutionConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationOutput) TableCreationConfiguration() DeliveryStreamTableCreationConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamTableCreationConfiguration {
+		return v.TableCreationConfiguration
+	}).(DeliveryStreamTableCreationConfigurationPtrOutput)
+}
+
 type DeliveryStreamIcebergDestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DeliveryStreamIcebergDestinationConfigurationPtrOutput) ElementType() reflect.Type {
@@ -6917,6 +7091,24 @@ func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) S3Configuration(
 		}
 		return &v.S3Configuration
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) SchemaEvolutionConfiguration() DeliveryStreamSchemaEvolutionConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamSchemaEvolutionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaEvolutionConfiguration
+	}).(DeliveryStreamSchemaEvolutionConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) TableCreationConfiguration() DeliveryStreamTableCreationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamTableCreationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.TableCreationConfiguration
+	}).(DeliveryStreamTableCreationConfigurationPtrOutput)
 }
 
 type DeliveryStreamInputFormatConfiguration struct {
@@ -8427,6 +8619,100 @@ func (o DeliveryStreamParquetSerDePtrOutput) WriterVersion() pulumi.StringPtrOut
 		}
 		return v.WriterVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamPartitionField struct {
+	SourceName string `pulumi:"sourceName"`
+}
+
+// DeliveryStreamPartitionFieldInput is an input type that accepts DeliveryStreamPartitionFieldArgs and DeliveryStreamPartitionFieldOutput values.
+// You can construct a concrete instance of `DeliveryStreamPartitionFieldInput` via:
+//
+//	DeliveryStreamPartitionFieldArgs{...}
+type DeliveryStreamPartitionFieldInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamPartitionFieldOutput() DeliveryStreamPartitionFieldOutput
+	ToDeliveryStreamPartitionFieldOutputWithContext(context.Context) DeliveryStreamPartitionFieldOutput
+}
+
+type DeliveryStreamPartitionFieldArgs struct {
+	SourceName pulumi.StringInput `pulumi:"sourceName"`
+}
+
+func (DeliveryStreamPartitionFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamPartitionField)(nil)).Elem()
+}
+
+func (i DeliveryStreamPartitionFieldArgs) ToDeliveryStreamPartitionFieldOutput() DeliveryStreamPartitionFieldOutput {
+	return i.ToDeliveryStreamPartitionFieldOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamPartitionFieldArgs) ToDeliveryStreamPartitionFieldOutputWithContext(ctx context.Context) DeliveryStreamPartitionFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamPartitionFieldOutput)
+}
+
+// DeliveryStreamPartitionFieldArrayInput is an input type that accepts DeliveryStreamPartitionFieldArray and DeliveryStreamPartitionFieldArrayOutput values.
+// You can construct a concrete instance of `DeliveryStreamPartitionFieldArrayInput` via:
+//
+//	DeliveryStreamPartitionFieldArray{ DeliveryStreamPartitionFieldArgs{...} }
+type DeliveryStreamPartitionFieldArrayInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamPartitionFieldArrayOutput() DeliveryStreamPartitionFieldArrayOutput
+	ToDeliveryStreamPartitionFieldArrayOutputWithContext(context.Context) DeliveryStreamPartitionFieldArrayOutput
+}
+
+type DeliveryStreamPartitionFieldArray []DeliveryStreamPartitionFieldInput
+
+func (DeliveryStreamPartitionFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliveryStreamPartitionField)(nil)).Elem()
+}
+
+func (i DeliveryStreamPartitionFieldArray) ToDeliveryStreamPartitionFieldArrayOutput() DeliveryStreamPartitionFieldArrayOutput {
+	return i.ToDeliveryStreamPartitionFieldArrayOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamPartitionFieldArray) ToDeliveryStreamPartitionFieldArrayOutputWithContext(ctx context.Context) DeliveryStreamPartitionFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamPartitionFieldArrayOutput)
+}
+
+type DeliveryStreamPartitionFieldOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamPartitionFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamPartitionField)(nil)).Elem()
+}
+
+func (o DeliveryStreamPartitionFieldOutput) ToDeliveryStreamPartitionFieldOutput() DeliveryStreamPartitionFieldOutput {
+	return o
+}
+
+func (o DeliveryStreamPartitionFieldOutput) ToDeliveryStreamPartitionFieldOutputWithContext(ctx context.Context) DeliveryStreamPartitionFieldOutput {
+	return o
+}
+
+func (o DeliveryStreamPartitionFieldOutput) SourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamPartitionField) string { return v.SourceName }).(pulumi.StringOutput)
+}
+
+type DeliveryStreamPartitionFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamPartitionFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliveryStreamPartitionField)(nil)).Elem()
+}
+
+func (o DeliveryStreamPartitionFieldArrayOutput) ToDeliveryStreamPartitionFieldArrayOutput() DeliveryStreamPartitionFieldArrayOutput {
+	return o
+}
+
+func (o DeliveryStreamPartitionFieldArrayOutput) ToDeliveryStreamPartitionFieldArrayOutputWithContext(ctx context.Context) DeliveryStreamPartitionFieldArrayOutput {
+	return o
+}
+
+func (o DeliveryStreamPartitionFieldArrayOutput) Index(i pulumi.IntInput) DeliveryStreamPartitionFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryStreamPartitionField {
+		return vs[0].([]DeliveryStreamPartitionField)[vs[1].(int)]
+	}).(DeliveryStreamPartitionFieldOutput)
 }
 
 type DeliveryStreamProcessingConfiguration struct {
@@ -9963,6 +10249,139 @@ func (o DeliveryStreamSchemaConfigurationPtrOutput) VersionId() pulumi.StringPtr
 		}
 		return v.VersionId
 	}).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamSchemaEvolutionConfiguration struct {
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// DeliveryStreamSchemaEvolutionConfigurationInput is an input type that accepts DeliveryStreamSchemaEvolutionConfigurationArgs and DeliveryStreamSchemaEvolutionConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamSchemaEvolutionConfigurationInput` via:
+//
+//	DeliveryStreamSchemaEvolutionConfigurationArgs{...}
+type DeliveryStreamSchemaEvolutionConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSchemaEvolutionConfigurationOutput() DeliveryStreamSchemaEvolutionConfigurationOutput
+	ToDeliveryStreamSchemaEvolutionConfigurationOutputWithContext(context.Context) DeliveryStreamSchemaEvolutionConfigurationOutput
+}
+
+type DeliveryStreamSchemaEvolutionConfigurationArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (DeliveryStreamSchemaEvolutionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSchemaEvolutionConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamSchemaEvolutionConfigurationArgs) ToDeliveryStreamSchemaEvolutionConfigurationOutput() DeliveryStreamSchemaEvolutionConfigurationOutput {
+	return i.ToDeliveryStreamSchemaEvolutionConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamSchemaEvolutionConfigurationArgs) ToDeliveryStreamSchemaEvolutionConfigurationOutputWithContext(ctx context.Context) DeliveryStreamSchemaEvolutionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSchemaEvolutionConfigurationOutput)
+}
+
+func (i DeliveryStreamSchemaEvolutionConfigurationArgs) ToDeliveryStreamSchemaEvolutionConfigurationPtrOutput() DeliveryStreamSchemaEvolutionConfigurationPtrOutput {
+	return i.ToDeliveryStreamSchemaEvolutionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamSchemaEvolutionConfigurationArgs) ToDeliveryStreamSchemaEvolutionConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSchemaEvolutionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSchemaEvolutionConfigurationOutput).ToDeliveryStreamSchemaEvolutionConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamSchemaEvolutionConfigurationPtrInput is an input type that accepts DeliveryStreamSchemaEvolutionConfigurationArgs, DeliveryStreamSchemaEvolutionConfigurationPtr and DeliveryStreamSchemaEvolutionConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamSchemaEvolutionConfigurationPtrInput` via:
+//
+//	        DeliveryStreamSchemaEvolutionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamSchemaEvolutionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSchemaEvolutionConfigurationPtrOutput() DeliveryStreamSchemaEvolutionConfigurationPtrOutput
+	ToDeliveryStreamSchemaEvolutionConfigurationPtrOutputWithContext(context.Context) DeliveryStreamSchemaEvolutionConfigurationPtrOutput
+}
+
+type deliveryStreamSchemaEvolutionConfigurationPtrType DeliveryStreamSchemaEvolutionConfigurationArgs
+
+func DeliveryStreamSchemaEvolutionConfigurationPtr(v *DeliveryStreamSchemaEvolutionConfigurationArgs) DeliveryStreamSchemaEvolutionConfigurationPtrInput {
+	return (*deliveryStreamSchemaEvolutionConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamSchemaEvolutionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSchemaEvolutionConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamSchemaEvolutionConfigurationPtrType) ToDeliveryStreamSchemaEvolutionConfigurationPtrOutput() DeliveryStreamSchemaEvolutionConfigurationPtrOutput {
+	return i.ToDeliveryStreamSchemaEvolutionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamSchemaEvolutionConfigurationPtrType) ToDeliveryStreamSchemaEvolutionConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSchemaEvolutionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSchemaEvolutionConfigurationPtrOutput)
+}
+
+type DeliveryStreamSchemaEvolutionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSchemaEvolutionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSchemaEvolutionConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamSchemaEvolutionConfigurationOutput) ToDeliveryStreamSchemaEvolutionConfigurationOutput() DeliveryStreamSchemaEvolutionConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamSchemaEvolutionConfigurationOutput) ToDeliveryStreamSchemaEvolutionConfigurationOutputWithContext(ctx context.Context) DeliveryStreamSchemaEvolutionConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamSchemaEvolutionConfigurationOutput) ToDeliveryStreamSchemaEvolutionConfigurationPtrOutput() DeliveryStreamSchemaEvolutionConfigurationPtrOutput {
+	return o.ToDeliveryStreamSchemaEvolutionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamSchemaEvolutionConfigurationOutput) ToDeliveryStreamSchemaEvolutionConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSchemaEvolutionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamSchemaEvolutionConfiguration) *DeliveryStreamSchemaEvolutionConfiguration {
+		return &v
+	}).(DeliveryStreamSchemaEvolutionConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamSchemaEvolutionConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSchemaEvolutionConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type DeliveryStreamSchemaEvolutionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSchemaEvolutionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSchemaEvolutionConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamSchemaEvolutionConfigurationPtrOutput) ToDeliveryStreamSchemaEvolutionConfigurationPtrOutput() DeliveryStreamSchemaEvolutionConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSchemaEvolutionConfigurationPtrOutput) ToDeliveryStreamSchemaEvolutionConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamSchemaEvolutionConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSchemaEvolutionConfigurationPtrOutput) Elem() DeliveryStreamSchemaEvolutionConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamSchemaEvolutionConfiguration) DeliveryStreamSchemaEvolutionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamSchemaEvolutionConfiguration
+		return ret
+	}).(DeliveryStreamSchemaEvolutionConfigurationOutput)
+}
+
+func (o DeliveryStreamSchemaEvolutionConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSchemaEvolutionConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type DeliveryStreamSecretsManagerConfiguration struct {
@@ -12062,6 +12481,139 @@ func (o DeliveryStreamSplunkRetryOptionsPtrOutput) DurationInSeconds() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+type DeliveryStreamTableCreationConfiguration struct {
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// DeliveryStreamTableCreationConfigurationInput is an input type that accepts DeliveryStreamTableCreationConfigurationArgs and DeliveryStreamTableCreationConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamTableCreationConfigurationInput` via:
+//
+//	DeliveryStreamTableCreationConfigurationArgs{...}
+type DeliveryStreamTableCreationConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamTableCreationConfigurationOutput() DeliveryStreamTableCreationConfigurationOutput
+	ToDeliveryStreamTableCreationConfigurationOutputWithContext(context.Context) DeliveryStreamTableCreationConfigurationOutput
+}
+
+type DeliveryStreamTableCreationConfigurationArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (DeliveryStreamTableCreationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamTableCreationConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamTableCreationConfigurationArgs) ToDeliveryStreamTableCreationConfigurationOutput() DeliveryStreamTableCreationConfigurationOutput {
+	return i.ToDeliveryStreamTableCreationConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamTableCreationConfigurationArgs) ToDeliveryStreamTableCreationConfigurationOutputWithContext(ctx context.Context) DeliveryStreamTableCreationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamTableCreationConfigurationOutput)
+}
+
+func (i DeliveryStreamTableCreationConfigurationArgs) ToDeliveryStreamTableCreationConfigurationPtrOutput() DeliveryStreamTableCreationConfigurationPtrOutput {
+	return i.ToDeliveryStreamTableCreationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamTableCreationConfigurationArgs) ToDeliveryStreamTableCreationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamTableCreationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamTableCreationConfigurationOutput).ToDeliveryStreamTableCreationConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamTableCreationConfigurationPtrInput is an input type that accepts DeliveryStreamTableCreationConfigurationArgs, DeliveryStreamTableCreationConfigurationPtr and DeliveryStreamTableCreationConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamTableCreationConfigurationPtrInput` via:
+//
+//	        DeliveryStreamTableCreationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamTableCreationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamTableCreationConfigurationPtrOutput() DeliveryStreamTableCreationConfigurationPtrOutput
+	ToDeliveryStreamTableCreationConfigurationPtrOutputWithContext(context.Context) DeliveryStreamTableCreationConfigurationPtrOutput
+}
+
+type deliveryStreamTableCreationConfigurationPtrType DeliveryStreamTableCreationConfigurationArgs
+
+func DeliveryStreamTableCreationConfigurationPtr(v *DeliveryStreamTableCreationConfigurationArgs) DeliveryStreamTableCreationConfigurationPtrInput {
+	return (*deliveryStreamTableCreationConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamTableCreationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamTableCreationConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamTableCreationConfigurationPtrType) ToDeliveryStreamTableCreationConfigurationPtrOutput() DeliveryStreamTableCreationConfigurationPtrOutput {
+	return i.ToDeliveryStreamTableCreationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamTableCreationConfigurationPtrType) ToDeliveryStreamTableCreationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamTableCreationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamTableCreationConfigurationPtrOutput)
+}
+
+type DeliveryStreamTableCreationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamTableCreationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamTableCreationConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamTableCreationConfigurationOutput) ToDeliveryStreamTableCreationConfigurationOutput() DeliveryStreamTableCreationConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamTableCreationConfigurationOutput) ToDeliveryStreamTableCreationConfigurationOutputWithContext(ctx context.Context) DeliveryStreamTableCreationConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamTableCreationConfigurationOutput) ToDeliveryStreamTableCreationConfigurationPtrOutput() DeliveryStreamTableCreationConfigurationPtrOutput {
+	return o.ToDeliveryStreamTableCreationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamTableCreationConfigurationOutput) ToDeliveryStreamTableCreationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamTableCreationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamTableCreationConfiguration) *DeliveryStreamTableCreationConfiguration {
+		return &v
+	}).(DeliveryStreamTableCreationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamTableCreationConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamTableCreationConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type DeliveryStreamTableCreationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamTableCreationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamTableCreationConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamTableCreationConfigurationPtrOutput) ToDeliveryStreamTableCreationConfigurationPtrOutput() DeliveryStreamTableCreationConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamTableCreationConfigurationPtrOutput) ToDeliveryStreamTableCreationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamTableCreationConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamTableCreationConfigurationPtrOutput) Elem() DeliveryStreamTableCreationConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamTableCreationConfiguration) DeliveryStreamTableCreationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamTableCreationConfiguration
+		return ret
+	}).(DeliveryStreamTableCreationConfigurationOutput)
+}
+
+func (o DeliveryStreamTableCreationConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamTableCreationConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type DeliveryStreamTag struct {
 	// A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @
 	Key string `pulumi:"key"`
@@ -12337,6 +12889,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDeserializerPtrInput)(nil)).Elem(), DeliveryStreamDeserializerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDestinationTableConfigurationInput)(nil)).Elem(), DeliveryStreamDestinationTableConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDestinationTableConfigurationArrayInput)(nil)).Elem(), DeliveryStreamDestinationTableConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesInput)(nil)).Elem(), DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrInput)(nil)).Elem(), DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDirectPutSourceConfigurationInput)(nil)).Elem(), DeliveryStreamDirectPutSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDirectPutSourceConfigurationPtrInput)(nil)).Elem(), DeliveryStreamDirectPutSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDocumentIdOptionsInput)(nil)).Elem(), DeliveryStreamDocumentIdOptionsArgs{})
@@ -12383,6 +12937,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamOutputFormatConfigurationPtrInput)(nil)).Elem(), DeliveryStreamOutputFormatConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamParquetSerDeInput)(nil)).Elem(), DeliveryStreamParquetSerDeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamParquetSerDePtrInput)(nil)).Elem(), DeliveryStreamParquetSerDeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamPartitionFieldInput)(nil)).Elem(), DeliveryStreamPartitionFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamPartitionFieldArrayInput)(nil)).Elem(), DeliveryStreamPartitionFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamProcessingConfigurationInput)(nil)).Elem(), DeliveryStreamProcessingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamProcessingConfigurationPtrInput)(nil)).Elem(), DeliveryStreamProcessingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamProcessorInput)(nil)).Elem(), DeliveryStreamProcessorArgs{})
@@ -12399,6 +12955,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamS3DestinationConfigurationPtrInput)(nil)).Elem(), DeliveryStreamS3DestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSchemaConfigurationInput)(nil)).Elem(), DeliveryStreamSchemaConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSchemaConfigurationPtrInput)(nil)).Elem(), DeliveryStreamSchemaConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSchemaEvolutionConfigurationInput)(nil)).Elem(), DeliveryStreamSchemaEvolutionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSchemaEvolutionConfigurationPtrInput)(nil)).Elem(), DeliveryStreamSchemaEvolutionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSecretsManagerConfigurationInput)(nil)).Elem(), DeliveryStreamSecretsManagerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSecretsManagerConfigurationPtrInput)(nil)).Elem(), DeliveryStreamSecretsManagerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSerializerInput)(nil)).Elem(), DeliveryStreamSerializerArgs{})
@@ -12419,6 +12977,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkDestinationConfigurationPtrInput)(nil)).Elem(), DeliveryStreamSplunkDestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkRetryOptionsInput)(nil)).Elem(), DeliveryStreamSplunkRetryOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkRetryOptionsPtrInput)(nil)).Elem(), DeliveryStreamSplunkRetryOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamTableCreationConfigurationInput)(nil)).Elem(), DeliveryStreamTableCreationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamTableCreationConfigurationPtrInput)(nil)).Elem(), DeliveryStreamTableCreationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamVpcConfigurationInput)(nil)).Elem(), DeliveryStreamVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamVpcConfigurationPtrInput)(nil)).Elem(), DeliveryStreamVpcConfigurationArgs{})
 	pulumi.RegisterOutputType(DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput{})
@@ -12461,6 +13021,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamDeserializerPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDestinationTableConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDestinationTableConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDirectPutSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDirectPutSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDocumentIdOptionsOutput{})
@@ -12507,6 +13069,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamOutputFormatConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamParquetSerDeOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamParquetSerDePtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamPartitionFieldOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamPartitionFieldArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamProcessingConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamProcessingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamProcessorOutput{})
@@ -12523,6 +13087,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamS3DestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSchemaConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSchemaConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSchemaEvolutionConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSchemaEvolutionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSecretsManagerConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSecretsManagerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSerializerOutput{})
@@ -12543,6 +13109,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamSplunkDestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSplunkRetryOptionsOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSplunkRetryOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamTableCreationConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamTableCreationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamVpcConfigurationPtrOutput{})
 }

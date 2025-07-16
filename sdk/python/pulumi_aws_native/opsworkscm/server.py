@@ -49,7 +49,7 @@ class ServerArgs:
         The set of arguments for constructing a Server resource.
         :param pulumi.Input[builtins.str] instance_profile_arn: The ARN of the instance profile that your Amazon EC2 instances use.
         :param pulumi.Input[builtins.str] instance_type: The Amazon EC2 instance type to use. For example, `m5.large` .
-        :param pulumi.Input[builtins.str] service_role_arn: The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
+        :param pulumi.Input[builtins.str] service_role_arn: The service role that the AWS OpsWorks CM service backend uses to work with your account.
         :param pulumi.Input[builtins.bool] associate_public_ip_address: Associate a public IP address with a server that you are launching. Valid values are `true` or `false` . The default value is `true` .
         :param pulumi.Input[builtins.str] backup_id: If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
         :param pulumi.Input[builtins.int] backup_retention_count: The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded. The default value is `1` .
@@ -175,7 +175,7 @@ class ServerArgs:
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> pulumi.Input[builtins.str]:
         """
-        The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
+        The service role that the AWS OpsWorks CM service backend uses to work with your account.
         """
         return pulumi.get(self, "service_role_arn")
 
@@ -563,7 +563,7 @@ class Server(pulumi.CustomResource):
                
                If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone).
         :param pulumi.Input[builtins.str] server_name: The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
-        :param pulumi.Input[builtins.str] service_role_arn: The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
+        :param pulumi.Input[builtins.str] service_role_arn: The service role that the AWS OpsWorks CM service backend uses to work with your account.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The IDs of subnets in which to launch the server EC2 instance.
                
                Amazon EC2-Classic customers: This field is required. All servers must run within a VPC. The VPC must have "Auto Assign Public IP" enabled.
@@ -959,7 +959,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> pulumi.Output[builtins.str]:
         """
-        The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role and instance profile that you need.
+        The service role that the AWS OpsWorks CM service backend uses to work with your account.
         """
         return pulumi.get(self, "service_role_arn")
 

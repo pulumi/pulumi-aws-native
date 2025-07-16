@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.S3Express
         [Output("locationName")]
         public Output<string> LocationName { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a DirectoryBucket resource with the given unique name, arguments, and options.
@@ -137,6 +140,14 @@ namespace Pulumi.AwsNative.S3Express
         /// </summary>
         [Input("locationName", required: true)]
         public Input<string> LocationName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public DirectoryBucketArgs()
         {

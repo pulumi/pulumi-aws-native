@@ -40,6 +40,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamIcebergDestinationConfigurations3BackupMode? S3BackupMode;
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
+        public readonly Outputs.DeliveryStreamSchemaEvolutionConfiguration? SchemaEvolutionConfiguration;
+        public readonly Outputs.DeliveryStreamTableCreationConfiguration? TableCreationConfiguration;
 
         [OutputConstructor]
         private DeliveryStreamIcebergDestinationConfiguration(
@@ -61,7 +63,11 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             Pulumi.AwsNative.KinesisFirehose.DeliveryStreamIcebergDestinationConfigurations3BackupMode? s3BackupMode,
 
-            Outputs.DeliveryStreamS3DestinationConfiguration s3Configuration)
+            Outputs.DeliveryStreamS3DestinationConfiguration s3Configuration,
+
+            Outputs.DeliveryStreamSchemaEvolutionConfiguration? schemaEvolutionConfiguration,
+
+            Outputs.DeliveryStreamTableCreationConfiguration? tableCreationConfiguration)
         {
             AppendOnly = appendOnly;
             BufferingHints = bufferingHints;
@@ -73,6 +79,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
             RoleArn = roleArn;
             S3BackupMode = s3BackupMode;
             S3Configuration = s3Configuration;
+            SchemaEvolutionConfiguration = schemaEvolutionConfiguration;
+            TableCreationConfiguration = tableCreationConfiguration;
         }
     }
 }

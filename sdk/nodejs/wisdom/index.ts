@@ -100,6 +100,11 @@ export const getMessageTemplateVersion: typeof import("./getMessageTemplateVersi
 export const getMessageTemplateVersionOutput: typeof import("./getMessageTemplateVersion").getMessageTemplateVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getMessageTemplateVersion","getMessageTemplateVersionOutput"], () => require("./getMessageTemplateVersion"));
 
+export { GetQuickResponseArgs, GetQuickResponseResult, GetQuickResponseOutputArgs } from "./getQuickResponse";
+export const getQuickResponse: typeof import("./getQuickResponse").getQuickResponse = null as any;
+export const getQuickResponseOutput: typeof import("./getQuickResponse").getQuickResponseOutput = null as any;
+utilities.lazyLoad(exports, ["getQuickResponse","getQuickResponseOutput"], () => require("./getQuickResponse"));
+
 export { KnowledgeBaseArgs } from "./knowledgeBase";
 export type KnowledgeBase = import("./knowledgeBase").KnowledgeBase;
 export const KnowledgeBase: typeof import("./knowledgeBase").KnowledgeBase = null as any;
@@ -114,6 +119,11 @@ export { MessageTemplateVersionArgs } from "./messageTemplateVersion";
 export type MessageTemplateVersion = import("./messageTemplateVersion").MessageTemplateVersion;
 export const MessageTemplateVersion: typeof import("./messageTemplateVersion").MessageTemplateVersion = null as any;
 utilities.lazyLoad(exports, ["MessageTemplateVersion"], () => require("./messageTemplateVersion"));
+
+export { QuickResponseArgs } from "./quickResponse";
+export type QuickResponse = import("./quickResponse").QuickResponse;
+export const QuickResponse: typeof import("./quickResponse").QuickResponse = null as any;
+utilities.lazyLoad(exports, ["QuickResponse"], () => require("./quickResponse"));
 
 
 // Export enums:
@@ -145,6 +155,8 @@ const _module = {
                 return new MessageTemplate(name, <any>undefined, { urn })
             case "aws-native:wisdom:MessageTemplateVersion":
                 return new MessageTemplateVersion(name, <any>undefined, { urn })
+            case "aws-native:wisdom:QuickResponse":
+                return new QuickResponse(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

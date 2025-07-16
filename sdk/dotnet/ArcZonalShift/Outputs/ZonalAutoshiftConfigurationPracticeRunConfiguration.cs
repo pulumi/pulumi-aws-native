@@ -23,6 +23,8 @@ namespace Pulumi.AwsNative.ArcZonalShift.Outputs
         /// An array of one or more days and times that you can specify when ARC does not start practice runs for a resource. Days and times are in UTC.
         /// 
         /// Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
+        /// 
+        /// &gt; Blocked windows have to start and end on the same day. Windows that span multiple days aren't supported.
         /// </summary>
         public readonly ImmutableArray<string> BlockedWindows;
         /// <summary>

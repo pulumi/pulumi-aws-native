@@ -398,16 +398,25 @@ type NamespaceTag struct {
 }
 
 type SnapshotType struct {
-	AdminUsername      *string         `pulumi:"adminUsername"`
-	KmsKeyId           *string         `pulumi:"kmsKeyId"`
-	NamespaceArn       *string         `pulumi:"namespaceArn"`
-	NamespaceName      *string         `pulumi:"namespaceName"`
-	OwnerAccount       *string         `pulumi:"ownerAccount"`
-	RetentionPeriod    *int            `pulumi:"retentionPeriod"`
-	SnapshotArn        *string         `pulumi:"snapshotArn"`
-	SnapshotCreateTime *string         `pulumi:"snapshotCreateTime"`
-	SnapshotName       *string         `pulumi:"snapshotName"`
-	Status             *SnapshotStatus `pulumi:"status"`
+	// The username of the database within a snapshot.
+	AdminUsername *string `pulumi:"adminUsername"`
+	// The unique identifier of the KMS key used to encrypt the snapshot.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+	NamespaceArn *string `pulumi:"namespaceArn"`
+	// The name of the namepsace.
+	NamespaceName *string `pulumi:"namespaceName"`
+	// The owner AWS ; account of the snapshot.
+	OwnerAccount    *string `pulumi:"ownerAccount"`
+	RetentionPeriod *int    `pulumi:"retentionPeriod"`
+	// The Amazon Resource Name (ARN) of the snapshot.
+	SnapshotArn *string `pulumi:"snapshotArn"`
+	// The timestamp of when the snapshot was created.
+	SnapshotCreateTime *string `pulumi:"snapshotCreateTime"`
+	// The name of the snapshot.
+	SnapshotName *string `pulumi:"snapshotName"`
+	// The status of the snapshot.
+	Status *SnapshotStatus `pulumi:"status"`
 }
 
 type SnapshotTypeOutput struct{ *pulumi.OutputState }
@@ -424,22 +433,27 @@ func (o SnapshotTypeOutput) ToSnapshotTypeOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The username of the database within a snapshot.
 func (o SnapshotTypeOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotType) *string { return v.AdminUsername }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the KMS key used to encrypt the snapshot.
 func (o SnapshotTypeOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotType) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
 func (o SnapshotTypeOutput) NamespaceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotType) *string { return v.NamespaceArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the namepsace.
 func (o SnapshotTypeOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotType) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
 
+// The owner AWS ; account of the snapshot.
 func (o SnapshotTypeOutput) OwnerAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotType) *string { return v.OwnerAccount }).(pulumi.StringPtrOutput)
 }
@@ -448,18 +462,22 @@ func (o SnapshotTypeOutput) RetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SnapshotType) *int { return v.RetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the snapshot.
 func (o SnapshotTypeOutput) SnapshotArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotType) *string { return v.SnapshotArn }).(pulumi.StringPtrOutput)
 }
 
+// The timestamp of when the snapshot was created.
 func (o SnapshotTypeOutput) SnapshotCreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotType) *string { return v.SnapshotCreateTime }).(pulumi.StringPtrOutput)
 }
 
+// The name of the snapshot.
 func (o SnapshotTypeOutput) SnapshotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotType) *string { return v.SnapshotName }).(pulumi.StringPtrOutput)
 }
 
+// The status of the snapshot.
 func (o SnapshotTypeOutput) Status() SnapshotStatusPtrOutput {
 	return o.ApplyT(func(v SnapshotType) *SnapshotStatus { return v.Status }).(SnapshotStatusPtrOutput)
 }
@@ -488,6 +506,7 @@ func (o SnapshotTypePtrOutput) Elem() SnapshotTypeOutput {
 	}).(SnapshotTypeOutput)
 }
 
+// The username of the database within a snapshot.
 func (o SnapshotTypePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotType) *string {
 		if v == nil {
@@ -497,6 +516,7 @@ func (o SnapshotTypePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the KMS key used to encrypt the snapshot.
 func (o SnapshotTypePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotType) *string {
 		if v == nil {
@@ -506,6 +526,7 @@ func (o SnapshotTypePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
 func (o SnapshotTypePtrOutput) NamespaceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotType) *string {
 		if v == nil {
@@ -515,6 +536,7 @@ func (o SnapshotTypePtrOutput) NamespaceArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the namepsace.
 func (o SnapshotTypePtrOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotType) *string {
 		if v == nil {
@@ -524,6 +546,7 @@ func (o SnapshotTypePtrOutput) NamespaceName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The owner AWS ; account of the snapshot.
 func (o SnapshotTypePtrOutput) OwnerAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotType) *string {
 		if v == nil {
@@ -542,6 +565,7 @@ func (o SnapshotTypePtrOutput) RetentionPeriod() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the snapshot.
 func (o SnapshotTypePtrOutput) SnapshotArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotType) *string {
 		if v == nil {
@@ -551,6 +575,7 @@ func (o SnapshotTypePtrOutput) SnapshotArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The timestamp of when the snapshot was created.
 func (o SnapshotTypePtrOutput) SnapshotCreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotType) *string {
 		if v == nil {
@@ -560,6 +585,7 @@ func (o SnapshotTypePtrOutput) SnapshotCreateTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the snapshot.
 func (o SnapshotTypePtrOutput) SnapshotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotType) *string {
 		if v == nil {
@@ -569,6 +595,7 @@ func (o SnapshotTypePtrOutput) SnapshotName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The status of the snapshot.
 func (o SnapshotTypePtrOutput) Status() SnapshotStatusPtrOutput {
 	return o.ApplyT(func(v *SnapshotType) *SnapshotStatus {
 		if v == nil {
@@ -579,7 +606,9 @@ func (o SnapshotTypePtrOutput) Status() SnapshotStatusPtrOutput {
 }
 
 type SnapshotTag struct {
-	Key   string `pulumi:"key"`
+	// The key to use in the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 

@@ -57,14 +57,24 @@ __all__ = [
     'BucketIntelligentTieringConfigurationArgsDict',
     'BucketInventoryConfigurationArgs',
     'BucketInventoryConfigurationArgsDict',
+    'BucketInventoryTableConfigurationArgs',
+    'BucketInventoryTableConfigurationArgsDict',
+    'BucketJournalTableConfigurationArgs',
+    'BucketJournalTableConfigurationArgsDict',
     'BucketLambdaConfigurationArgs',
     'BucketLambdaConfigurationArgsDict',
     'BucketLifecycleConfigurationArgs',
     'BucketLifecycleConfigurationArgsDict',
     'BucketLoggingConfigurationArgs',
     'BucketLoggingConfigurationArgsDict',
+    'BucketMetadataConfigurationArgs',
+    'BucketMetadataConfigurationArgsDict',
+    'BucketMetadataDestinationArgs',
+    'BucketMetadataDestinationArgsDict',
     'BucketMetadataTableConfigurationArgs',
     'BucketMetadataTableConfigurationArgsDict',
+    'BucketMetadataTableEncryptionConfigurationArgs',
+    'BucketMetadataTableEncryptionConfigurationArgsDict',
     'BucketMetricsConfigurationArgs',
     'BucketMetricsConfigurationArgsDict',
     'BucketMetricsArgs',
@@ -89,6 +99,8 @@ __all__ = [
     'BucketPublicAccessBlockConfigurationArgsDict',
     'BucketQueueConfigurationArgs',
     'BucketQueueConfigurationArgsDict',
+    'BucketRecordExpirationArgs',
+    'BucketRecordExpirationArgsDict',
     'BucketRedirectAllRequestsToArgs',
     'BucketRedirectAllRequestsToArgsDict',
     'BucketRedirectRuleArgs',
@@ -1504,6 +1516,181 @@ class BucketInventoryConfigurationArgs:
 
 
 if not MYPY:
+    class BucketInventoryTableConfigurationArgsDict(TypedDict):
+        configuration_state: pulumi.Input['BucketInventoryTableConfigurationConfigurationState']
+        """
+        Specifies whether inventory table configuration is enabled or disabled.
+        """
+        encryption_configuration: NotRequired[pulumi.Input['BucketMetadataTableEncryptionConfigurationArgsDict']]
+        """
+        The encryption configuration for the inventory table.
+        """
+        table_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The ARN of the inventory table.
+        """
+        table_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The name of the inventory table.
+        """
+elif False:
+    BucketInventoryTableConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketInventoryTableConfigurationArgs:
+    def __init__(__self__, *,
+                 configuration_state: pulumi.Input['BucketInventoryTableConfigurationConfigurationState'],
+                 encryption_configuration: Optional[pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs']] = None,
+                 table_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 table_name: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input['BucketInventoryTableConfigurationConfigurationState'] configuration_state: Specifies whether inventory table configuration is enabled or disabled.
+        :param pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration for the inventory table.
+        :param pulumi.Input[builtins.str] table_arn: The ARN of the inventory table.
+        :param pulumi.Input[builtins.str] table_name: The name of the inventory table.
+        """
+        pulumi.set(__self__, "configuration_state", configuration_state)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+        if table_arn is not None:
+            pulumi.set(__self__, "table_arn", table_arn)
+        if table_name is not None:
+            pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> pulumi.Input['BucketInventoryTableConfigurationConfigurationState']:
+        """
+        Specifies whether inventory table configuration is enabled or disabled.
+        """
+        return pulumi.get(self, "configuration_state")
+
+    @configuration_state.setter
+    def configuration_state(self, value: pulumi.Input['BucketInventoryTableConfigurationConfigurationState']):
+        pulumi.set(self, "configuration_state", value)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs']]:
+        """
+        The encryption configuration for the inventory table.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
+
+    @property
+    @pulumi.getter(name="tableArn")
+    def table_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ARN of the inventory table.
+        """
+        return pulumi.get(self, "table_arn")
+
+    @table_arn.setter
+    def table_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "table_arn", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the inventory table.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "table_name", value)
+
+
+if not MYPY:
+    class BucketJournalTableConfigurationArgsDict(TypedDict):
+        record_expiration: pulumi.Input['BucketRecordExpirationArgsDict']
+        encryption_configuration: NotRequired[pulumi.Input['BucketMetadataTableEncryptionConfigurationArgsDict']]
+        """
+        The encryption configuration for the journal table.
+        """
+        table_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The ARN of the journal table.
+        """
+        table_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The name of the journal table.
+        """
+elif False:
+    BucketJournalTableConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketJournalTableConfigurationArgs:
+    def __init__(__self__, *,
+                 record_expiration: pulumi.Input['BucketRecordExpirationArgs'],
+                 encryption_configuration: Optional[pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs']] = None,
+                 table_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 table_name: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration for the journal table.
+        :param pulumi.Input[builtins.str] table_arn: The ARN of the journal table.
+        :param pulumi.Input[builtins.str] table_name: The name of the journal table.
+        """
+        pulumi.set(__self__, "record_expiration", record_expiration)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+        if table_arn is not None:
+            pulumi.set(__self__, "table_arn", table_arn)
+        if table_name is not None:
+            pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="recordExpiration")
+    def record_expiration(self) -> pulumi.Input['BucketRecordExpirationArgs']:
+        return pulumi.get(self, "record_expiration")
+
+    @record_expiration.setter
+    def record_expiration(self, value: pulumi.Input['BucketRecordExpirationArgs']):
+        pulumi.set(self, "record_expiration", value)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs']]:
+        """
+        The encryption configuration for the journal table.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
+
+    @property
+    @pulumi.getter(name="tableArn")
+    def table_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ARN of the journal table.
+        """
+        return pulumi.get(self, "table_arn")
+
+    @table_arn.setter
+    def table_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "table_arn", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the journal table.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "table_name", value)
+
+
+if not MYPY:
     class BucketLambdaConfigurationArgsDict(TypedDict):
         """
         Describes the LAMlong functions to invoke and the events for which to invoke them.
@@ -1726,6 +1913,148 @@ class BucketLoggingConfigurationArgs:
 
 
 if not MYPY:
+    class BucketMetadataConfigurationArgsDict(TypedDict):
+        journal_table_configuration: pulumi.Input['BucketJournalTableConfigurationArgsDict']
+        """
+        The configuration for the journal table.
+        """
+        destination: NotRequired[pulumi.Input['BucketMetadataDestinationArgsDict']]
+        """
+        The destination information for the metadata configuration.
+        """
+        inventory_table_configuration: NotRequired[pulumi.Input['BucketInventoryTableConfigurationArgsDict']]
+        """
+        The configuration for the inventory table.
+        """
+elif False:
+    BucketMetadataConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketMetadataConfigurationArgs:
+    def __init__(__self__, *,
+                 journal_table_configuration: pulumi.Input['BucketJournalTableConfigurationArgs'],
+                 destination: Optional[pulumi.Input['BucketMetadataDestinationArgs']] = None,
+                 inventory_table_configuration: Optional[pulumi.Input['BucketInventoryTableConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['BucketJournalTableConfigurationArgs'] journal_table_configuration: The configuration for the journal table.
+        :param pulumi.Input['BucketMetadataDestinationArgs'] destination: The destination information for the metadata configuration.
+        :param pulumi.Input['BucketInventoryTableConfigurationArgs'] inventory_table_configuration: The configuration for the inventory table.
+        """
+        pulumi.set(__self__, "journal_table_configuration", journal_table_configuration)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if inventory_table_configuration is not None:
+            pulumi.set(__self__, "inventory_table_configuration", inventory_table_configuration)
+
+    @property
+    @pulumi.getter(name="journalTableConfiguration")
+    def journal_table_configuration(self) -> pulumi.Input['BucketJournalTableConfigurationArgs']:
+        """
+        The configuration for the journal table.
+        """
+        return pulumi.get(self, "journal_table_configuration")
+
+    @journal_table_configuration.setter
+    def journal_table_configuration(self, value: pulumi.Input['BucketJournalTableConfigurationArgs']):
+        pulumi.set(self, "journal_table_configuration", value)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input['BucketMetadataDestinationArgs']]:
+        """
+        The destination information for the metadata configuration.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input['BucketMetadataDestinationArgs']]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter(name="inventoryTableConfiguration")
+    def inventory_table_configuration(self) -> Optional[pulumi.Input['BucketInventoryTableConfigurationArgs']]:
+        """
+        The configuration for the inventory table.
+        """
+        return pulumi.get(self, "inventory_table_configuration")
+
+    @inventory_table_configuration.setter
+    def inventory_table_configuration(self, value: Optional[pulumi.Input['BucketInventoryTableConfigurationArgs']]):
+        pulumi.set(self, "inventory_table_configuration", value)
+
+
+if not MYPY:
+    class BucketMetadataDestinationArgsDict(TypedDict):
+        table_bucket_type: pulumi.Input['BucketMetadataDestinationTableBucketType']
+        """
+        The type of the table bucket.
+        """
+        table_bucket_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The ARN of the table bucket.
+        """
+        table_namespace: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The namespace of the table.
+        """
+elif False:
+    BucketMetadataDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketMetadataDestinationArgs:
+    def __init__(__self__, *,
+                 table_bucket_type: pulumi.Input['BucketMetadataDestinationTableBucketType'],
+                 table_bucket_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 table_namespace: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input['BucketMetadataDestinationTableBucketType'] table_bucket_type: The type of the table bucket.
+        :param pulumi.Input[builtins.str] table_bucket_arn: The ARN of the table bucket.
+        :param pulumi.Input[builtins.str] table_namespace: The namespace of the table.
+        """
+        pulumi.set(__self__, "table_bucket_type", table_bucket_type)
+        if table_bucket_arn is not None:
+            pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
+        if table_namespace is not None:
+            pulumi.set(__self__, "table_namespace", table_namespace)
+
+    @property
+    @pulumi.getter(name="tableBucketType")
+    def table_bucket_type(self) -> pulumi.Input['BucketMetadataDestinationTableBucketType']:
+        """
+        The type of the table bucket.
+        """
+        return pulumi.get(self, "table_bucket_type")
+
+    @table_bucket_type.setter
+    def table_bucket_type(self, value: pulumi.Input['BucketMetadataDestinationTableBucketType']):
+        pulumi.set(self, "table_bucket_type", value)
+
+    @property
+    @pulumi.getter(name="tableBucketArn")
+    def table_bucket_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ARN of the table bucket.
+        """
+        return pulumi.get(self, "table_bucket_arn")
+
+    @table_bucket_arn.setter
+    def table_bucket_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "table_bucket_arn", value)
+
+    @property
+    @pulumi.getter(name="tableNamespace")
+    def table_namespace(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The namespace of the table.
+        """
+        return pulumi.get(self, "table_namespace")
+
+    @table_namespace.setter
+    def table_namespace(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "table_namespace", value)
+
+
+if not MYPY:
     class BucketMetadataTableConfigurationArgsDict(TypedDict):
         """
         The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
@@ -1758,6 +2087,57 @@ class BucketMetadataTableConfigurationArgs:
     @s3_tables_destination.setter
     def s3_tables_destination(self, value: pulumi.Input['BucketS3TablesDestinationArgs']):
         pulumi.set(self, "s3_tables_destination", value)
+
+
+if not MYPY:
+    class BucketMetadataTableEncryptionConfigurationArgsDict(TypedDict):
+        sse_algorithm: pulumi.Input['BucketMetadataTableEncryptionConfigurationSseAlgorithm']
+        """
+        Specifies the server-side encryption algorithm to use for encrypting tables.
+        """
+        kms_key_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The ARN of the KMS key. Required if SseAlgorithm is aws:kms.
+        """
+elif False:
+    BucketMetadataTableEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketMetadataTableEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 sse_algorithm: pulumi.Input['BucketMetadataTableEncryptionConfigurationSseAlgorithm'],
+                 kms_key_arn: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input['BucketMetadataTableEncryptionConfigurationSseAlgorithm'] sse_algorithm: Specifies the server-side encryption algorithm to use for encrypting tables.
+        :param pulumi.Input[builtins.str] kms_key_arn: The ARN of the KMS key. Required if SseAlgorithm is aws:kms.
+        """
+        pulumi.set(__self__, "sse_algorithm", sse_algorithm)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="sseAlgorithm")
+    def sse_algorithm(self) -> pulumi.Input['BucketMetadataTableEncryptionConfigurationSseAlgorithm']:
+        """
+        Specifies the server-side encryption algorithm to use for encrypting tables.
+        """
+        return pulumi.get(self, "sse_algorithm")
+
+    @sse_algorithm.setter
+    def sse_algorithm(self, value: pulumi.Input['BucketMetadataTableEncryptionConfigurationSseAlgorithm']):
+        pulumi.set(self, "sse_algorithm", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ARN of the KMS key. Required if SseAlgorithm is aws:kms.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
 
 if not MYPY:
@@ -2537,6 +2917,57 @@ class BucketQueueConfigurationArgs:
     @filter.setter
     def filter(self, value: Optional[pulumi.Input['BucketNotificationFilterArgs']]):
         pulumi.set(self, "filter", value)
+
+
+if not MYPY:
+    class BucketRecordExpirationArgsDict(TypedDict):
+        expiration: pulumi.Input['BucketRecordExpirationExpiration']
+        """
+        Specifies whether record expiration is enabled or disabled.
+        """
+        days: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The number of days after which records expire. Required if Expiration is ENABLED.
+        """
+elif False:
+    BucketRecordExpirationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketRecordExpirationArgs:
+    def __init__(__self__, *,
+                 expiration: pulumi.Input['BucketRecordExpirationExpiration'],
+                 days: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input['BucketRecordExpirationExpiration'] expiration: Specifies whether record expiration is enabled or disabled.
+        :param pulumi.Input[builtins.int] days: The number of days after which records expire. Required if Expiration is ENABLED.
+        """
+        pulumi.set(__self__, "expiration", expiration)
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+
+    @property
+    @pulumi.getter
+    def expiration(self) -> pulumi.Input['BucketRecordExpirationExpiration']:
+        """
+        Specifies whether record expiration is enabled or disabled.
+        """
+        return pulumi.get(self, "expiration")
+
+    @expiration.setter
+    def expiration(self, value: pulumi.Input['BucketRecordExpirationExpiration']):
+        pulumi.set(self, "expiration", value)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The number of days after which records expire. Required if Expiration is ENABLED.
+        """
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "days", value)
 
 
 if not MYPY:

@@ -26,8 +26,10 @@ from .get_assistant_association import *
 from .get_knowledge_base import *
 from .get_message_template import *
 from .get_message_template_version import *
+from .get_quick_response import *
 from .knowledge_base import *
 from .message_template import *
 from .message_template_version import *
+from .quick_response import *
 from ._inputs import *
 from . import outputs

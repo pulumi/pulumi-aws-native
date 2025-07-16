@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Specifies an Amazon Redshift subnet group.
+ * Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
  */
 export class ClusterSubnetGroup extends pulumi.CustomResource {
     /**

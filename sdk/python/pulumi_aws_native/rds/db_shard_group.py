@@ -33,10 +33,10 @@ class DbShardGroupArgs:
         The set of arguments for constructing a DbShardGroup resource.
         :param pulumi.Input[builtins.str] db_cluster_identifier: The name of the primary DB cluster for the DB shard group.
         :param pulumi.Input[builtins.float] max_acu: The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
-        :param pulumi.Input[builtins.int] compute_redundancy: Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
-                 +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
-                 +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
-                 +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
+        :param pulumi.Input[builtins.int] compute_redundancy: Specifies whether to create standby standby DB data access shard for the DB shard group. Valid values are the following:
+                 +  0 - Creates a DB shard group without a standby DB data access shard. This is the default value.
+                 +  1 - Creates a DB shard group with a standby DB data access shard in a different Availability Zone (AZ).
+                 +  2 - Creates a DB shard group with two standby DB data access shard in two different AZs.
         :param pulumi.Input[builtins.str] db_shard_group_identifier: The name of the DB shard group.
         :param pulumi.Input[builtins.float] min_acu: The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
         :param pulumi.Input[builtins.bool] publicly_accessible: Specifies whether the DB shard group is publicly accessible.
@@ -93,10 +93,10 @@ class DbShardGroupArgs:
     @pulumi.getter(name="computeRedundancy")
     def compute_redundancy(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
-          +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
-          +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
-          +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
+        Specifies whether to create standby standby DB data access shard for the DB shard group. Valid values are the following:
+          +  0 - Creates a DB shard group without a standby DB data access shard. This is the default value.
+          +  1 - Creates a DB shard group with a standby DB data access shard in a different Availability Zone (AZ).
+          +  2 - Creates a DB shard group with two standby DB data access shard in two different AZs.
         """
         return pulumi.get(self, "compute_redundancy")
 
@@ -183,10 +183,10 @@ class DbShardGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.int] compute_redundancy: Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
-                 +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
-                 +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
-                 +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
+        :param pulumi.Input[builtins.int] compute_redundancy: Specifies whether to create standby standby DB data access shard for the DB shard group. Valid values are the following:
+                 +  0 - Creates a DB shard group without a standby DB data access shard. This is the default value.
+                 +  1 - Creates a DB shard group with a standby DB data access shard in a different Availability Zone (AZ).
+                 +  2 - Creates a DB shard group with two standby DB data access shard in two different AZs.
         :param pulumi.Input[builtins.str] db_cluster_identifier: The name of the primary DB cluster for the DB shard group.
         :param pulumi.Input[builtins.str] db_shard_group_identifier: The name of the DB shard group.
         :param pulumi.Input[builtins.float] max_acu: The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
@@ -297,10 +297,10 @@ class DbShardGroup(pulumi.CustomResource):
     @pulumi.getter(name="computeRedundancy")
     def compute_redundancy(self) -> pulumi.Output[Optional[builtins.int]]:
         """
-        Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
-          +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
-          +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
-          +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
+        Specifies whether to create standby standby DB data access shard for the DB shard group. Valid values are the following:
+          +  0 - Creates a DB shard group without a standby DB data access shard. This is the default value.
+          +  1 - Creates a DB shard group with a standby DB data access shard in a different Availability Zone (AZ).
+          +  2 - Creates a DB shard group with two standby DB data access shard in two different AZs.
         """
         return pulumi.get(self, "compute_redundancy")
 

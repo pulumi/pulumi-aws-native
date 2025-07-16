@@ -592,6 +592,7 @@ type ServerEndpointDetails struct {
 	// > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
 	// > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
 	// > - Call the `UpdateServer` API to set or change this parameter.
+	// > - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
 	AddressAllocationIds []string `pulumi:"addressAllocationIds"`
 	// A list of security groups IDs that are available to attach to your server's endpoint.
 	//
@@ -638,6 +639,7 @@ type ServerEndpointDetailsArgs struct {
 	// > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
 	// > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
 	// > - Call the `UpdateServer` API to set or change this parameter.
+	// > - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
 	AddressAllocationIds pulumi.StringArrayInput `pulumi:"addressAllocationIds"`
 	// A list of security groups IDs that are available to attach to your server's endpoint.
 	//
@@ -749,6 +751,7 @@ func (o ServerEndpointDetailsOutput) ToServerEndpointDetailsPtrOutputWithContext
 // > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
 // > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
 // > - Call the `UpdateServer` API to set or change this parameter.
+// > - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
 func (o ServerEndpointDetailsOutput) AddressAllocationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerEndpointDetails) []string { return v.AddressAllocationIds }).(pulumi.StringArrayOutput)
 }
@@ -820,6 +823,7 @@ func (o ServerEndpointDetailsPtrOutput) Elem() ServerEndpointDetailsOutput {
 // > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
 // > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
 // > - Call the `UpdateServer` API to set or change this parameter.
+// > - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
 func (o ServerEndpointDetailsPtrOutput) AddressAllocationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerEndpointDetails) []string {
 		if v == nil {
@@ -1397,7 +1401,10 @@ func (o ServerProtocolDetailsPtrOutput) TlsSessionResumptionMode() ServerTlsSess
 }
 
 type ServerS3StorageOptions struct {
-	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+	// Specifies whether or not performance for your Amazon S3 directories is optimized.
+	//
+	// - If using the console, this is enabled by default.
+	// - If using the API or CLI, this is disabled by default.
 	//
 	// By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
 	DirectoryListingOptimization *ServerDirectoryListingOptimization `pulumi:"directoryListingOptimization"`
@@ -1415,7 +1422,10 @@ type ServerS3StorageOptionsInput interface {
 }
 
 type ServerS3StorageOptionsArgs struct {
-	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+	// Specifies whether or not performance for your Amazon S3 directories is optimized.
+	//
+	// - If using the console, this is enabled by default.
+	// - If using the API or CLI, this is disabled by default.
 	//
 	// By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
 	DirectoryListingOptimization ServerDirectoryListingOptimizationPtrInput `pulumi:"directoryListingOptimization"`
@@ -1498,7 +1508,10 @@ func (o ServerS3StorageOptionsOutput) ToServerS3StorageOptionsPtrOutputWithConte
 	}).(ServerS3StorageOptionsPtrOutput)
 }
 
-// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+// Specifies whether or not performance for your Amazon S3 directories is optimized.
+//
+// - If using the console, this is enabled by default.
+// - If using the API or CLI, this is disabled by default.
 //
 // By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
 func (o ServerS3StorageOptionsOutput) DirectoryListingOptimization() ServerDirectoryListingOptimizationPtrOutput {
@@ -1531,7 +1544,10 @@ func (o ServerS3StorageOptionsPtrOutput) Elem() ServerS3StorageOptionsOutput {
 	}).(ServerS3StorageOptionsOutput)
 }
 
-// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+// Specifies whether or not performance for your Amazon S3 directories is optimized.
+//
+// - If using the console, this is enabled by default.
+// - If using the API or CLI, this is disabled by default.
 //
 // By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
 func (o ServerS3StorageOptionsPtrOutput) DirectoryListingOptimization() ServerDirectoryListingOptimizationPtrOutput {
@@ -1854,6 +1870,8 @@ func (o ServerWorkflowDetailsPtrOutput) OnUpload() ServerWorkflowDetailArrayOutp
 
 // Configuration for an SFTP connector.
 type SftpConfigProperties struct {
+	// Specifies the number of active connections that your connector can establish with the remote server at the same time.
+	MaxConcurrentConnections *int `pulumi:"maxConcurrentConnections"`
 	// List of public host keys, for the external server to which you are connecting.
 	TrustedHostKeys []string `pulumi:"trustedHostKeys"`
 	// ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
@@ -1873,6 +1891,8 @@ type SftpConfigPropertiesInput interface {
 
 // Configuration for an SFTP connector.
 type SftpConfigPropertiesArgs struct {
+	// Specifies the number of active connections that your connector can establish with the remote server at the same time.
+	MaxConcurrentConnections pulumi.IntPtrInput `pulumi:"maxConcurrentConnections"`
 	// List of public host keys, for the external server to which you are connecting.
 	TrustedHostKeys pulumi.StringArrayInput `pulumi:"trustedHostKeys"`
 	// ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
@@ -1957,6 +1977,11 @@ func (o SftpConfigPropertiesOutput) ToSftpConfigPropertiesPtrOutputWithContext(c
 	}).(SftpConfigPropertiesPtrOutput)
 }
 
+// Specifies the number of active connections that your connector can establish with the remote server at the same time.
+func (o SftpConfigPropertiesOutput) MaxConcurrentConnections() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SftpConfigProperties) *int { return v.MaxConcurrentConnections }).(pulumi.IntPtrOutput)
+}
+
 // List of public host keys, for the external server to which you are connecting.
 func (o SftpConfigPropertiesOutput) TrustedHostKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SftpConfigProperties) []string { return v.TrustedHostKeys }).(pulumi.StringArrayOutput)
@@ -1989,6 +2014,16 @@ func (o SftpConfigPropertiesPtrOutput) Elem() SftpConfigPropertiesOutput {
 		var ret SftpConfigProperties
 		return ret
 	}).(SftpConfigPropertiesOutput)
+}
+
+// Specifies the number of active connections that your connector can establish with the remote server at the same time.
+func (o SftpConfigPropertiesPtrOutput) MaxConcurrentConnections() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SftpConfigProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentConnections
+	}).(pulumi.IntPtrOutput)
 }
 
 // List of public host keys, for the external server to which you are connecting.

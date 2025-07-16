@@ -11,6 +11,7 @@ export const InfluxDbInstanceDbInstanceType = {
     DbInflux8xlarge: "db.influx.8xlarge",
     DbInflux12xlarge: "db.influx.12xlarge",
     DbInflux16xlarge: "db.influx.16xlarge",
+    DbInflux24xlarge: "db.influx.24xlarge",
 } as const;
 
 /**

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("destinationTableName", required: true)]
         public Input<string> DestinationTableName { get; set; } = null!;
 
+        [Input("partitionSpec")]
+        public Input<Inputs.DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs>? PartitionSpec { get; set; }
+
         [Input("s3ErrorOutputPrefix")]
         public Input<string>? S3ErrorOutputPrefix { get; set; }
 

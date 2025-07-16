@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies an Amazon Redshift subnet group.
+// Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
 type ClusterSubnetGroup struct {
 	pulumi.CustomResourceState
 

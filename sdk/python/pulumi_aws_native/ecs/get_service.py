@@ -226,7 +226,7 @@ class GetServiceResult:
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> Optional[builtins.str]:
         """
-        Not currently supported in AWS CloudFormation .
+        The ARN that identifies the service. For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .
         """
         return pulumi.get(self, "service_arn")
 
@@ -335,7 +335,7 @@ def get_service(cluster: Optional[builtins.str] = None,
 
 
     :param builtins.str cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
-    :param builtins.str service_arn: Not currently supported in AWS CloudFormation .
+    :param builtins.str service_arn: The ARN that identifies the service. For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .
     """
     __args__ = dict()
     __args__['cluster'] = cluster
@@ -396,7 +396,7 @@ def get_service_output(cluster: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
-    :param builtins.str service_arn: Not currently supported in AWS CloudFormation .
+    :param builtins.str service_arn: The ARN that identifies the service. For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .
     """
     __args__ = dict()
     __args__['cluster'] = cluster

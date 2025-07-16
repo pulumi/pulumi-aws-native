@@ -66,7 +66,7 @@ export class StackSet extends pulumi.CustomResource {
      */
     public readonly managedExecution!: pulumi.Output<outputs.cloudformation.ManagedExecutionProperties | undefined>;
     /**
-     * The user-specified preferences for how CloudFormation performs a stack set operation.
+     * The user-specified preferences for how CloudFormation performs a StackSet operation.
      */
     public readonly operationPreferences!: pulumi.Output<outputs.cloudformation.StackSetOperationPreferences | undefined>;
     /**
@@ -190,7 +190,7 @@ export interface StackSetArgs {
      */
     managedExecution?: pulumi.Input<inputs.cloudformation.ManagedExecutionPropertiesArgs>;
     /**
-     * The user-specified preferences for how CloudFormation performs a stack set operation.
+     * The user-specified preferences for how CloudFormation performs a StackSet operation.
      */
     operationPreferences?: pulumi.Input<inputs.cloudformation.StackSetOperationPreferencesArgs>;
     /**

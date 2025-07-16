@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
     /// <summary>
-    /// The ``EndpointConfiguration`` property type specifies the endpoint types of an Amazon API Gateway domain name.
+    /// The ``EndpointConfiguration`` property type specifies the endpoint types and IP address types of an Amazon API Gateway domain name.
     ///  ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
     /// </summary>
     public sealed class DomainNameEndpointConfigurationArgs : global::Pulumi.ResourceArgs

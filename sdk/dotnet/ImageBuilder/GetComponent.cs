@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public readonly bool? Encrypted;
         /// <summary>
+        /// The tags associated with the component.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
         /// The type of the component denotes whether the component is used to build the image or only to test it. 
         /// </summary>
         public readonly Pulumi.AwsNative.ImageBuilder.ComponentType? Type;
@@ -82,10 +86,13 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             bool? encrypted,
 
+            ImmutableDictionary<string, string>? tags,
+
             Pulumi.AwsNative.ImageBuilder.ComponentType? type)
         {
             Arn = arn;
             Encrypted = encrypted;
+            Tags = tags;
             Type = type;
         }
     }

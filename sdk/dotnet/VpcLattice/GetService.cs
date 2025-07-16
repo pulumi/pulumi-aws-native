@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
-        /// The DNS information of the service.
+        /// Describes the DNS information of the service. This field is read-only.
         /// </summary>
         public readonly Outputs.ServiceDnsEntry? DnsEntry;
         /// <summary>

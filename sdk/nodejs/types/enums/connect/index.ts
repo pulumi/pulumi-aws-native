@@ -306,7 +306,7 @@ export const RulePublishStatus = {
 
 /**
  * The publish status of the rule.
- *   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
+ *  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
  */
 export type RulePublishStatus = (typeof RulePublishStatus)[keyof typeof RulePublishStatus];
 
@@ -321,7 +321,7 @@ export const RuleReferenceType = {
 
 /**
  * The type of the reference. ``DATE`` must be of type Epoch timestamp. 
- *   *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+ *  *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
  */
 export type RuleReferenceType = (typeof RuleReferenceType)[keyof typeof RuleReferenceType];
 
@@ -331,7 +331,7 @@ export const RuleSendNotificationActionContentType = {
 
 /**
  * Content type format.
- *   *Allowed value*: ``PLAIN_TEXT``
+ *  *Allowed value*: ``PLAIN_TEXT``
  */
 export type RuleSendNotificationActionContentType = (typeof RuleSendNotificationActionContentType)[keyof typeof RuleSendNotificationActionContentType];
 
@@ -341,7 +341,7 @@ export const RuleSendNotificationActionDeliveryMethod = {
 
 /**
  * Notification delivery method.
- *   *Allowed value*: ``EMAIL``
+ *  *Allowed value*: ``EMAIL``
  */
 export type RuleSendNotificationActionDeliveryMethod = (typeof RuleSendNotificationActionDeliveryMethod)[keyof typeof RuleSendNotificationActionDeliveryMethod];
 

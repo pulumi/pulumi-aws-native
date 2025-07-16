@@ -45,7 +45,7 @@ export interface GetServiceResult {
      */
     readonly createdAt?: string;
     /**
-     * The DNS information of the service.
+     * Describes the DNS information of the service. This field is read-only.
      */
     readonly dnsEntry?: outputs.vpclattice.ServiceDnsEntry;
     /**

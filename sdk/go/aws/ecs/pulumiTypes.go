@@ -1774,6 +1774,184 @@ type ClusterTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type ServiceAdvancedConfiguration struct {
+	AlternateTargetGroupArn string  `pulumi:"alternateTargetGroupArn"`
+	ProductionListenerRule  *string `pulumi:"productionListenerRule"`
+	RoleArn                 *string `pulumi:"roleArn"`
+	TestListenerRule        *string `pulumi:"testListenerRule"`
+}
+
+// ServiceAdvancedConfigurationInput is an input type that accepts ServiceAdvancedConfigurationArgs and ServiceAdvancedConfigurationOutput values.
+// You can construct a concrete instance of `ServiceAdvancedConfigurationInput` via:
+//
+//	ServiceAdvancedConfigurationArgs{...}
+type ServiceAdvancedConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceAdvancedConfigurationOutput() ServiceAdvancedConfigurationOutput
+	ToServiceAdvancedConfigurationOutputWithContext(context.Context) ServiceAdvancedConfigurationOutput
+}
+
+type ServiceAdvancedConfigurationArgs struct {
+	AlternateTargetGroupArn pulumi.StringInput    `pulumi:"alternateTargetGroupArn"`
+	ProductionListenerRule  pulumi.StringPtrInput `pulumi:"productionListenerRule"`
+	RoleArn                 pulumi.StringPtrInput `pulumi:"roleArn"`
+	TestListenerRule        pulumi.StringPtrInput `pulumi:"testListenerRule"`
+}
+
+func (ServiceAdvancedConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAdvancedConfiguration)(nil)).Elem()
+}
+
+func (i ServiceAdvancedConfigurationArgs) ToServiceAdvancedConfigurationOutput() ServiceAdvancedConfigurationOutput {
+	return i.ToServiceAdvancedConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceAdvancedConfigurationArgs) ToServiceAdvancedConfigurationOutputWithContext(ctx context.Context) ServiceAdvancedConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAdvancedConfigurationOutput)
+}
+
+func (i ServiceAdvancedConfigurationArgs) ToServiceAdvancedConfigurationPtrOutput() ServiceAdvancedConfigurationPtrOutput {
+	return i.ToServiceAdvancedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceAdvancedConfigurationArgs) ToServiceAdvancedConfigurationPtrOutputWithContext(ctx context.Context) ServiceAdvancedConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAdvancedConfigurationOutput).ToServiceAdvancedConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceAdvancedConfigurationPtrInput is an input type that accepts ServiceAdvancedConfigurationArgs, ServiceAdvancedConfigurationPtr and ServiceAdvancedConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceAdvancedConfigurationPtrInput` via:
+//
+//	        ServiceAdvancedConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceAdvancedConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceAdvancedConfigurationPtrOutput() ServiceAdvancedConfigurationPtrOutput
+	ToServiceAdvancedConfigurationPtrOutputWithContext(context.Context) ServiceAdvancedConfigurationPtrOutput
+}
+
+type serviceAdvancedConfigurationPtrType ServiceAdvancedConfigurationArgs
+
+func ServiceAdvancedConfigurationPtr(v *ServiceAdvancedConfigurationArgs) ServiceAdvancedConfigurationPtrInput {
+	return (*serviceAdvancedConfigurationPtrType)(v)
+}
+
+func (*serviceAdvancedConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAdvancedConfiguration)(nil)).Elem()
+}
+
+func (i *serviceAdvancedConfigurationPtrType) ToServiceAdvancedConfigurationPtrOutput() ServiceAdvancedConfigurationPtrOutput {
+	return i.ToServiceAdvancedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceAdvancedConfigurationPtrType) ToServiceAdvancedConfigurationPtrOutputWithContext(ctx context.Context) ServiceAdvancedConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAdvancedConfigurationPtrOutput)
+}
+
+type ServiceAdvancedConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceAdvancedConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAdvancedConfiguration)(nil)).Elem()
+}
+
+func (o ServiceAdvancedConfigurationOutput) ToServiceAdvancedConfigurationOutput() ServiceAdvancedConfigurationOutput {
+	return o
+}
+
+func (o ServiceAdvancedConfigurationOutput) ToServiceAdvancedConfigurationOutputWithContext(ctx context.Context) ServiceAdvancedConfigurationOutput {
+	return o
+}
+
+func (o ServiceAdvancedConfigurationOutput) ToServiceAdvancedConfigurationPtrOutput() ServiceAdvancedConfigurationPtrOutput {
+	return o.ToServiceAdvancedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceAdvancedConfigurationOutput) ToServiceAdvancedConfigurationPtrOutputWithContext(ctx context.Context) ServiceAdvancedConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAdvancedConfiguration) *ServiceAdvancedConfiguration {
+		return &v
+	}).(ServiceAdvancedConfigurationPtrOutput)
+}
+
+func (o ServiceAdvancedConfigurationOutput) AlternateTargetGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceAdvancedConfiguration) string { return v.AlternateTargetGroupArn }).(pulumi.StringOutput)
+}
+
+func (o ServiceAdvancedConfigurationOutput) ProductionListenerRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceAdvancedConfiguration) *string { return v.ProductionListenerRule }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceAdvancedConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceAdvancedConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceAdvancedConfigurationOutput) TestListenerRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceAdvancedConfiguration) *string { return v.TestListenerRule }).(pulumi.StringPtrOutput)
+}
+
+type ServiceAdvancedConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceAdvancedConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAdvancedConfiguration)(nil)).Elem()
+}
+
+func (o ServiceAdvancedConfigurationPtrOutput) ToServiceAdvancedConfigurationPtrOutput() ServiceAdvancedConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceAdvancedConfigurationPtrOutput) ToServiceAdvancedConfigurationPtrOutputWithContext(ctx context.Context) ServiceAdvancedConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceAdvancedConfigurationPtrOutput) Elem() ServiceAdvancedConfigurationOutput {
+	return o.ApplyT(func(v *ServiceAdvancedConfiguration) ServiceAdvancedConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceAdvancedConfiguration
+		return ret
+	}).(ServiceAdvancedConfigurationOutput)
+}
+
+func (o ServiceAdvancedConfigurationPtrOutput) AlternateTargetGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAdvancedConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AlternateTargetGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceAdvancedConfigurationPtrOutput) ProductionListenerRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAdvancedConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProductionListenerRule
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceAdvancedConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAdvancedConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceAdvancedConfigurationPtrOutput) TestListenerRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAdvancedConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TestListenerRule
+	}).(pulumi.StringPtrOutput)
+}
+
 // An object representing the networking details for a task or service. For example “awsVpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}“.
 type ServiceAwsVpcConfiguration struct {
 	// Whether the task's elastic network interface receives a public IP address.
@@ -2126,7 +2304,8 @@ type ServiceConnectClientAlias struct {
 	DnsName *string `pulumi:"dnsName"`
 	// The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
 	//  To avoid changing your applications in client Amazon ECS services, set this to the same port that the client application uses by default. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
-	Port int `pulumi:"port"`
+	Port             int                             `pulumi:"port"`
+	TestTrafficRules *ServiceConnectTestTrafficRules `pulumi:"testTrafficRules"`
 }
 
 // ServiceConnectClientAliasInput is an input type that accepts ServiceConnectClientAliasArgs and ServiceConnectClientAliasOutput values.
@@ -2151,7 +2330,8 @@ type ServiceConnectClientAliasArgs struct {
 	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
 	// The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
 	//  To avoid changing your applications in client Amazon ECS services, set this to the same port that the client application uses by default. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
-	Port pulumi.IntInput `pulumi:"port"`
+	Port             pulumi.IntInput                        `pulumi:"port"`
+	TestTrafficRules ServiceConnectTestTrafficRulesPtrInput `pulumi:"testTrafficRules"`
 }
 
 func (ServiceConnectClientAliasArgs) ElementType() reflect.Type {
@@ -2222,6 +2402,10 @@ func (o ServiceConnectClientAliasOutput) DnsName() pulumi.StringPtrOutput {
 //	To avoid changing your applications in client Amazon ECS services, set this to the same port that the client application uses by default. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 func (o ServiceConnectClientAliasOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceConnectClientAlias) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o ServiceConnectClientAliasOutput) TestTrafficRules() ServiceConnectTestTrafficRulesPtrOutput {
+	return o.ApplyT(func(v ServiceConnectClientAlias) *ServiceConnectTestTrafficRules { return v.TestTrafficRules }).(ServiceConnectTestTrafficRulesPtrOutput)
 }
 
 type ServiceConnectClientAliasArrayOutput struct{ *pulumi.OutputState }
@@ -2655,6 +2839,422 @@ func (o ServiceConnectServiceArrayOutput) Index(i pulumi.IntInput) ServiceConnec
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceConnectService {
 		return vs[0].([]ServiceConnectService)[vs[1].(int)]
 	}).(ServiceConnectServiceOutput)
+}
+
+type ServiceConnectTestTrafficRules struct {
+	Header ServiceConnectTestTrafficRulesHeader `pulumi:"header"`
+}
+
+// ServiceConnectTestTrafficRulesInput is an input type that accepts ServiceConnectTestTrafficRulesArgs and ServiceConnectTestTrafficRulesOutput values.
+// You can construct a concrete instance of `ServiceConnectTestTrafficRulesInput` via:
+//
+//	ServiceConnectTestTrafficRulesArgs{...}
+type ServiceConnectTestTrafficRulesInput interface {
+	pulumi.Input
+
+	ToServiceConnectTestTrafficRulesOutput() ServiceConnectTestTrafficRulesOutput
+	ToServiceConnectTestTrafficRulesOutputWithContext(context.Context) ServiceConnectTestTrafficRulesOutput
+}
+
+type ServiceConnectTestTrafficRulesArgs struct {
+	Header ServiceConnectTestTrafficRulesHeaderInput `pulumi:"header"`
+}
+
+func (ServiceConnectTestTrafficRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectTestTrafficRules)(nil)).Elem()
+}
+
+func (i ServiceConnectTestTrafficRulesArgs) ToServiceConnectTestTrafficRulesOutput() ServiceConnectTestTrafficRulesOutput {
+	return i.ToServiceConnectTestTrafficRulesOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectTestTrafficRulesArgs) ToServiceConnectTestTrafficRulesOutputWithContext(ctx context.Context) ServiceConnectTestTrafficRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTestTrafficRulesOutput)
+}
+
+func (i ServiceConnectTestTrafficRulesArgs) ToServiceConnectTestTrafficRulesPtrOutput() ServiceConnectTestTrafficRulesPtrOutput {
+	return i.ToServiceConnectTestTrafficRulesPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectTestTrafficRulesArgs) ToServiceConnectTestTrafficRulesPtrOutputWithContext(ctx context.Context) ServiceConnectTestTrafficRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTestTrafficRulesOutput).ToServiceConnectTestTrafficRulesPtrOutputWithContext(ctx)
+}
+
+// ServiceConnectTestTrafficRulesPtrInput is an input type that accepts ServiceConnectTestTrafficRulesArgs, ServiceConnectTestTrafficRulesPtr and ServiceConnectTestTrafficRulesPtrOutput values.
+// You can construct a concrete instance of `ServiceConnectTestTrafficRulesPtrInput` via:
+//
+//	        ServiceConnectTestTrafficRulesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceConnectTestTrafficRulesPtrInput interface {
+	pulumi.Input
+
+	ToServiceConnectTestTrafficRulesPtrOutput() ServiceConnectTestTrafficRulesPtrOutput
+	ToServiceConnectTestTrafficRulesPtrOutputWithContext(context.Context) ServiceConnectTestTrafficRulesPtrOutput
+}
+
+type serviceConnectTestTrafficRulesPtrType ServiceConnectTestTrafficRulesArgs
+
+func ServiceConnectTestTrafficRulesPtr(v *ServiceConnectTestTrafficRulesArgs) ServiceConnectTestTrafficRulesPtrInput {
+	return (*serviceConnectTestTrafficRulesPtrType)(v)
+}
+
+func (*serviceConnectTestTrafficRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceConnectTestTrafficRules)(nil)).Elem()
+}
+
+func (i *serviceConnectTestTrafficRulesPtrType) ToServiceConnectTestTrafficRulesPtrOutput() ServiceConnectTestTrafficRulesPtrOutput {
+	return i.ToServiceConnectTestTrafficRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceConnectTestTrafficRulesPtrType) ToServiceConnectTestTrafficRulesPtrOutputWithContext(ctx context.Context) ServiceConnectTestTrafficRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTestTrafficRulesPtrOutput)
+}
+
+type ServiceConnectTestTrafficRulesOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectTestTrafficRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectTestTrafficRules)(nil)).Elem()
+}
+
+func (o ServiceConnectTestTrafficRulesOutput) ToServiceConnectTestTrafficRulesOutput() ServiceConnectTestTrafficRulesOutput {
+	return o
+}
+
+func (o ServiceConnectTestTrafficRulesOutput) ToServiceConnectTestTrafficRulesOutputWithContext(ctx context.Context) ServiceConnectTestTrafficRulesOutput {
+	return o
+}
+
+func (o ServiceConnectTestTrafficRulesOutput) ToServiceConnectTestTrafficRulesPtrOutput() ServiceConnectTestTrafficRulesPtrOutput {
+	return o.ToServiceConnectTestTrafficRulesPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceConnectTestTrafficRulesOutput) ToServiceConnectTestTrafficRulesPtrOutputWithContext(ctx context.Context) ServiceConnectTestTrafficRulesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceConnectTestTrafficRules) *ServiceConnectTestTrafficRules {
+		return &v
+	}).(ServiceConnectTestTrafficRulesPtrOutput)
+}
+
+func (o ServiceConnectTestTrafficRulesOutput) Header() ServiceConnectTestTrafficRulesHeaderOutput {
+	return o.ApplyT(func(v ServiceConnectTestTrafficRules) ServiceConnectTestTrafficRulesHeader { return v.Header }).(ServiceConnectTestTrafficRulesHeaderOutput)
+}
+
+type ServiceConnectTestTrafficRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectTestTrafficRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceConnectTestTrafficRules)(nil)).Elem()
+}
+
+func (o ServiceConnectTestTrafficRulesPtrOutput) ToServiceConnectTestTrafficRulesPtrOutput() ServiceConnectTestTrafficRulesPtrOutput {
+	return o
+}
+
+func (o ServiceConnectTestTrafficRulesPtrOutput) ToServiceConnectTestTrafficRulesPtrOutputWithContext(ctx context.Context) ServiceConnectTestTrafficRulesPtrOutput {
+	return o
+}
+
+func (o ServiceConnectTestTrafficRulesPtrOutput) Elem() ServiceConnectTestTrafficRulesOutput {
+	return o.ApplyT(func(v *ServiceConnectTestTrafficRules) ServiceConnectTestTrafficRules {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceConnectTestTrafficRules
+		return ret
+	}).(ServiceConnectTestTrafficRulesOutput)
+}
+
+func (o ServiceConnectTestTrafficRulesPtrOutput) Header() ServiceConnectTestTrafficRulesHeaderPtrOutput {
+	return o.ApplyT(func(v *ServiceConnectTestTrafficRules) *ServiceConnectTestTrafficRulesHeader {
+		if v == nil {
+			return nil
+		}
+		return &v.Header
+	}).(ServiceConnectTestTrafficRulesHeaderPtrOutput)
+}
+
+type ServiceConnectTestTrafficRulesHeader struct {
+	Name  string                                     `pulumi:"name"`
+	Value *ServiceConnectTestTrafficRulesHeaderValue `pulumi:"value"`
+}
+
+// ServiceConnectTestTrafficRulesHeaderInput is an input type that accepts ServiceConnectTestTrafficRulesHeaderArgs and ServiceConnectTestTrafficRulesHeaderOutput values.
+// You can construct a concrete instance of `ServiceConnectTestTrafficRulesHeaderInput` via:
+//
+//	ServiceConnectTestTrafficRulesHeaderArgs{...}
+type ServiceConnectTestTrafficRulesHeaderInput interface {
+	pulumi.Input
+
+	ToServiceConnectTestTrafficRulesHeaderOutput() ServiceConnectTestTrafficRulesHeaderOutput
+	ToServiceConnectTestTrafficRulesHeaderOutputWithContext(context.Context) ServiceConnectTestTrafficRulesHeaderOutput
+}
+
+type ServiceConnectTestTrafficRulesHeaderArgs struct {
+	Name  pulumi.StringInput                                `pulumi:"name"`
+	Value ServiceConnectTestTrafficRulesHeaderValuePtrInput `pulumi:"value"`
+}
+
+func (ServiceConnectTestTrafficRulesHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectTestTrafficRulesHeader)(nil)).Elem()
+}
+
+func (i ServiceConnectTestTrafficRulesHeaderArgs) ToServiceConnectTestTrafficRulesHeaderOutput() ServiceConnectTestTrafficRulesHeaderOutput {
+	return i.ToServiceConnectTestTrafficRulesHeaderOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectTestTrafficRulesHeaderArgs) ToServiceConnectTestTrafficRulesHeaderOutputWithContext(ctx context.Context) ServiceConnectTestTrafficRulesHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTestTrafficRulesHeaderOutput)
+}
+
+func (i ServiceConnectTestTrafficRulesHeaderArgs) ToServiceConnectTestTrafficRulesHeaderPtrOutput() ServiceConnectTestTrafficRulesHeaderPtrOutput {
+	return i.ToServiceConnectTestTrafficRulesHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectTestTrafficRulesHeaderArgs) ToServiceConnectTestTrafficRulesHeaderPtrOutputWithContext(ctx context.Context) ServiceConnectTestTrafficRulesHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTestTrafficRulesHeaderOutput).ToServiceConnectTestTrafficRulesHeaderPtrOutputWithContext(ctx)
+}
+
+// ServiceConnectTestTrafficRulesHeaderPtrInput is an input type that accepts ServiceConnectTestTrafficRulesHeaderArgs, ServiceConnectTestTrafficRulesHeaderPtr and ServiceConnectTestTrafficRulesHeaderPtrOutput values.
+// You can construct a concrete instance of `ServiceConnectTestTrafficRulesHeaderPtrInput` via:
+//
+//	        ServiceConnectTestTrafficRulesHeaderArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceConnectTestTrafficRulesHeaderPtrInput interface {
+	pulumi.Input
+
+	ToServiceConnectTestTrafficRulesHeaderPtrOutput() ServiceConnectTestTrafficRulesHeaderPtrOutput
+	ToServiceConnectTestTrafficRulesHeaderPtrOutputWithContext(context.Context) ServiceConnectTestTrafficRulesHeaderPtrOutput
+}
+
+type serviceConnectTestTrafficRulesHeaderPtrType ServiceConnectTestTrafficRulesHeaderArgs
+
+func ServiceConnectTestTrafficRulesHeaderPtr(v *ServiceConnectTestTrafficRulesHeaderArgs) ServiceConnectTestTrafficRulesHeaderPtrInput {
+	return (*serviceConnectTestTrafficRulesHeaderPtrType)(v)
+}
+
+func (*serviceConnectTestTrafficRulesHeaderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceConnectTestTrafficRulesHeader)(nil)).Elem()
+}
+
+func (i *serviceConnectTestTrafficRulesHeaderPtrType) ToServiceConnectTestTrafficRulesHeaderPtrOutput() ServiceConnectTestTrafficRulesHeaderPtrOutput {
+	return i.ToServiceConnectTestTrafficRulesHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceConnectTestTrafficRulesHeaderPtrType) ToServiceConnectTestTrafficRulesHeaderPtrOutputWithContext(ctx context.Context) ServiceConnectTestTrafficRulesHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTestTrafficRulesHeaderPtrOutput)
+}
+
+type ServiceConnectTestTrafficRulesHeaderOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectTestTrafficRulesHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectTestTrafficRulesHeader)(nil)).Elem()
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderOutput) ToServiceConnectTestTrafficRulesHeaderOutput() ServiceConnectTestTrafficRulesHeaderOutput {
+	return o
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderOutput) ToServiceConnectTestTrafficRulesHeaderOutputWithContext(ctx context.Context) ServiceConnectTestTrafficRulesHeaderOutput {
+	return o
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderOutput) ToServiceConnectTestTrafficRulesHeaderPtrOutput() ServiceConnectTestTrafficRulesHeaderPtrOutput {
+	return o.ToServiceConnectTestTrafficRulesHeaderPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderOutput) ToServiceConnectTestTrafficRulesHeaderPtrOutputWithContext(ctx context.Context) ServiceConnectTestTrafficRulesHeaderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceConnectTestTrafficRulesHeader) *ServiceConnectTestTrafficRulesHeader {
+		return &v
+	}).(ServiceConnectTestTrafficRulesHeaderPtrOutput)
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceConnectTestTrafficRulesHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderOutput) Value() ServiceConnectTestTrafficRulesHeaderValuePtrOutput {
+	return o.ApplyT(func(v ServiceConnectTestTrafficRulesHeader) *ServiceConnectTestTrafficRulesHeaderValue {
+		return v.Value
+	}).(ServiceConnectTestTrafficRulesHeaderValuePtrOutput)
+}
+
+type ServiceConnectTestTrafficRulesHeaderPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectTestTrafficRulesHeaderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceConnectTestTrafficRulesHeader)(nil)).Elem()
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderPtrOutput) ToServiceConnectTestTrafficRulesHeaderPtrOutput() ServiceConnectTestTrafficRulesHeaderPtrOutput {
+	return o
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderPtrOutput) ToServiceConnectTestTrafficRulesHeaderPtrOutputWithContext(ctx context.Context) ServiceConnectTestTrafficRulesHeaderPtrOutput {
+	return o
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderPtrOutput) Elem() ServiceConnectTestTrafficRulesHeaderOutput {
+	return o.ApplyT(func(v *ServiceConnectTestTrafficRulesHeader) ServiceConnectTestTrafficRulesHeader {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceConnectTestTrafficRulesHeader
+		return ret
+	}).(ServiceConnectTestTrafficRulesHeaderOutput)
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceConnectTestTrafficRulesHeader) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderPtrOutput) Value() ServiceConnectTestTrafficRulesHeaderValuePtrOutput {
+	return o.ApplyT(func(v *ServiceConnectTestTrafficRulesHeader) *ServiceConnectTestTrafficRulesHeaderValue {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(ServiceConnectTestTrafficRulesHeaderValuePtrOutput)
+}
+
+type ServiceConnectTestTrafficRulesHeaderValue struct {
+	Exact string `pulumi:"exact"`
+}
+
+// ServiceConnectTestTrafficRulesHeaderValueInput is an input type that accepts ServiceConnectTestTrafficRulesHeaderValueArgs and ServiceConnectTestTrafficRulesHeaderValueOutput values.
+// You can construct a concrete instance of `ServiceConnectTestTrafficRulesHeaderValueInput` via:
+//
+//	ServiceConnectTestTrafficRulesHeaderValueArgs{...}
+type ServiceConnectTestTrafficRulesHeaderValueInput interface {
+	pulumi.Input
+
+	ToServiceConnectTestTrafficRulesHeaderValueOutput() ServiceConnectTestTrafficRulesHeaderValueOutput
+	ToServiceConnectTestTrafficRulesHeaderValueOutputWithContext(context.Context) ServiceConnectTestTrafficRulesHeaderValueOutput
+}
+
+type ServiceConnectTestTrafficRulesHeaderValueArgs struct {
+	Exact pulumi.StringInput `pulumi:"exact"`
+}
+
+func (ServiceConnectTestTrafficRulesHeaderValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectTestTrafficRulesHeaderValue)(nil)).Elem()
+}
+
+func (i ServiceConnectTestTrafficRulesHeaderValueArgs) ToServiceConnectTestTrafficRulesHeaderValueOutput() ServiceConnectTestTrafficRulesHeaderValueOutput {
+	return i.ToServiceConnectTestTrafficRulesHeaderValueOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectTestTrafficRulesHeaderValueArgs) ToServiceConnectTestTrafficRulesHeaderValueOutputWithContext(ctx context.Context) ServiceConnectTestTrafficRulesHeaderValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTestTrafficRulesHeaderValueOutput)
+}
+
+func (i ServiceConnectTestTrafficRulesHeaderValueArgs) ToServiceConnectTestTrafficRulesHeaderValuePtrOutput() ServiceConnectTestTrafficRulesHeaderValuePtrOutput {
+	return i.ToServiceConnectTestTrafficRulesHeaderValuePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectTestTrafficRulesHeaderValueArgs) ToServiceConnectTestTrafficRulesHeaderValuePtrOutputWithContext(ctx context.Context) ServiceConnectTestTrafficRulesHeaderValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTestTrafficRulesHeaderValueOutput).ToServiceConnectTestTrafficRulesHeaderValuePtrOutputWithContext(ctx)
+}
+
+// ServiceConnectTestTrafficRulesHeaderValuePtrInput is an input type that accepts ServiceConnectTestTrafficRulesHeaderValueArgs, ServiceConnectTestTrafficRulesHeaderValuePtr and ServiceConnectTestTrafficRulesHeaderValuePtrOutput values.
+// You can construct a concrete instance of `ServiceConnectTestTrafficRulesHeaderValuePtrInput` via:
+//
+//	        ServiceConnectTestTrafficRulesHeaderValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceConnectTestTrafficRulesHeaderValuePtrInput interface {
+	pulumi.Input
+
+	ToServiceConnectTestTrafficRulesHeaderValuePtrOutput() ServiceConnectTestTrafficRulesHeaderValuePtrOutput
+	ToServiceConnectTestTrafficRulesHeaderValuePtrOutputWithContext(context.Context) ServiceConnectTestTrafficRulesHeaderValuePtrOutput
+}
+
+type serviceConnectTestTrafficRulesHeaderValuePtrType ServiceConnectTestTrafficRulesHeaderValueArgs
+
+func ServiceConnectTestTrafficRulesHeaderValuePtr(v *ServiceConnectTestTrafficRulesHeaderValueArgs) ServiceConnectTestTrafficRulesHeaderValuePtrInput {
+	return (*serviceConnectTestTrafficRulesHeaderValuePtrType)(v)
+}
+
+func (*serviceConnectTestTrafficRulesHeaderValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceConnectTestTrafficRulesHeaderValue)(nil)).Elem()
+}
+
+func (i *serviceConnectTestTrafficRulesHeaderValuePtrType) ToServiceConnectTestTrafficRulesHeaderValuePtrOutput() ServiceConnectTestTrafficRulesHeaderValuePtrOutput {
+	return i.ToServiceConnectTestTrafficRulesHeaderValuePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceConnectTestTrafficRulesHeaderValuePtrType) ToServiceConnectTestTrafficRulesHeaderValuePtrOutputWithContext(ctx context.Context) ServiceConnectTestTrafficRulesHeaderValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTestTrafficRulesHeaderValuePtrOutput)
+}
+
+type ServiceConnectTestTrafficRulesHeaderValueOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectTestTrafficRulesHeaderValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectTestTrafficRulesHeaderValue)(nil)).Elem()
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderValueOutput) ToServiceConnectTestTrafficRulesHeaderValueOutput() ServiceConnectTestTrafficRulesHeaderValueOutput {
+	return o
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderValueOutput) ToServiceConnectTestTrafficRulesHeaderValueOutputWithContext(ctx context.Context) ServiceConnectTestTrafficRulesHeaderValueOutput {
+	return o
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderValueOutput) ToServiceConnectTestTrafficRulesHeaderValuePtrOutput() ServiceConnectTestTrafficRulesHeaderValuePtrOutput {
+	return o.ToServiceConnectTestTrafficRulesHeaderValuePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderValueOutput) ToServiceConnectTestTrafficRulesHeaderValuePtrOutputWithContext(ctx context.Context) ServiceConnectTestTrafficRulesHeaderValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceConnectTestTrafficRulesHeaderValue) *ServiceConnectTestTrafficRulesHeaderValue {
+		return &v
+	}).(ServiceConnectTestTrafficRulesHeaderValuePtrOutput)
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderValueOutput) Exact() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceConnectTestTrafficRulesHeaderValue) string { return v.Exact }).(pulumi.StringOutput)
+}
+
+type ServiceConnectTestTrafficRulesHeaderValuePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectTestTrafficRulesHeaderValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceConnectTestTrafficRulesHeaderValue)(nil)).Elem()
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderValuePtrOutput) ToServiceConnectTestTrafficRulesHeaderValuePtrOutput() ServiceConnectTestTrafficRulesHeaderValuePtrOutput {
+	return o
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderValuePtrOutput) ToServiceConnectTestTrafficRulesHeaderValuePtrOutputWithContext(ctx context.Context) ServiceConnectTestTrafficRulesHeaderValuePtrOutput {
+	return o
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderValuePtrOutput) Elem() ServiceConnectTestTrafficRulesHeaderValueOutput {
+	return o.ApplyT(func(v *ServiceConnectTestTrafficRulesHeaderValue) ServiceConnectTestTrafficRulesHeaderValue {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceConnectTestTrafficRulesHeaderValue
+		return ret
+	}).(ServiceConnectTestTrafficRulesHeaderValueOutput)
+}
+
+func (o ServiceConnectTestTrafficRulesHeaderValuePtrOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceConnectTestTrafficRulesHeaderValue) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Exact
+	}).(pulumi.StringPtrOutput)
 }
 
 // The certificate root authority that secures your service.
@@ -3338,10 +3938,12 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) Rollback() pulumi.BoolPtrOutpu
 // Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
 type ServiceDeploymentConfiguration struct {
 	// Information about the CloudWatch alarms.
-	Alarms *ServiceDeploymentAlarms `pulumi:"alarms"`
+	Alarms            *ServiceDeploymentAlarms `pulumi:"alarms"`
+	BakeTimeInMinutes *int                     `pulumi:"bakeTimeInMinutes"`
 	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
 	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
 	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker `pulumi:"deploymentCircuitBreaker"`
+	LifecycleHooks           []ServiceDeploymentLifecycleHook `pulumi:"lifecycleHooks"`
 	// If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
 	//  The Amazon ECS scheduler uses this parameter to replace unhealthy tasks by starting replacement tasks first and then stopping the unhealthy tasks, as long as cluster resources for starting replacement tasks are available. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 	//  If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types, and tasks in the service use the EC2 launch type, the *maximum percent* value is set to the default value. The *maximum percent* value is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state.
@@ -3364,7 +3966,8 @@ type ServiceDeploymentConfiguration struct {
 	//  If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the EC2 launch type, the *minimum healthy percent* value is set to the default value. The *minimum healthy percent* value is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state.
 	//   You can't specify a custom ``minimumHealthyPercent`` value for a service that uses either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and has tasks that use the EC2 launch type.
 	//   If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
-	MinimumHealthyPercent *int `pulumi:"minimumHealthyPercent"`
+	MinimumHealthyPercent *int                                    `pulumi:"minimumHealthyPercent"`
+	Strategy              *ServiceDeploymentConfigurationStrategy `pulumi:"strategy"`
 }
 
 // ServiceDeploymentConfigurationInput is an input type that accepts ServiceDeploymentConfigurationArgs and ServiceDeploymentConfigurationOutput values.
@@ -3381,10 +3984,12 @@ type ServiceDeploymentConfigurationInput interface {
 // Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
 type ServiceDeploymentConfigurationArgs struct {
 	// Information about the CloudWatch alarms.
-	Alarms ServiceDeploymentAlarmsPtrInput `pulumi:"alarms"`
+	Alarms            ServiceDeploymentAlarmsPtrInput `pulumi:"alarms"`
+	BakeTimeInMinutes pulumi.IntPtrInput              `pulumi:"bakeTimeInMinutes"`
 	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
 	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
-	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput `pulumi:"deploymentCircuitBreaker"`
+	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput  `pulumi:"deploymentCircuitBreaker"`
+	LifecycleHooks           ServiceDeploymentLifecycleHookArrayInput `pulumi:"lifecycleHooks"`
 	// If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
 	//  The Amazon ECS scheduler uses this parameter to replace unhealthy tasks by starting replacement tasks first and then stopping the unhealthy tasks, as long as cluster resources for starting replacement tasks are available. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 	//  If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types, and tasks in the service use the EC2 launch type, the *maximum percent* value is set to the default value. The *maximum percent* value is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state.
@@ -3407,7 +4012,8 @@ type ServiceDeploymentConfigurationArgs struct {
 	//  If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the EC2 launch type, the *minimum healthy percent* value is set to the default value. The *minimum healthy percent* value is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state.
 	//   You can't specify a custom ``minimumHealthyPercent`` value for a service that uses either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and has tasks that use the EC2 launch type.
 	//   If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
-	MinimumHealthyPercent pulumi.IntPtrInput `pulumi:"minimumHealthyPercent"`
+	MinimumHealthyPercent pulumi.IntPtrInput                             `pulumi:"minimumHealthyPercent"`
+	Strategy              ServiceDeploymentConfigurationStrategyPtrInput `pulumi:"strategy"`
 }
 
 func (ServiceDeploymentConfigurationArgs) ElementType() reflect.Type {
@@ -3493,6 +4099,10 @@ func (o ServiceDeploymentConfigurationOutput) Alarms() ServiceDeploymentAlarmsPt
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceDeploymentAlarms { return v.Alarms }).(ServiceDeploymentAlarmsPtrOutput)
 }
 
+func (o ServiceDeploymentConfigurationOutput) BakeTimeInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfiguration) *int { return v.BakeTimeInMinutes }).(pulumi.IntPtrOutput)
+}
+
 // The deployment circuit breaker can only be used for services using the rolling update (“ECS“) deployment type.
 //
 //	The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
@@ -3500,6 +4110,10 @@ func (o ServiceDeploymentConfigurationOutput) DeploymentCircuitBreaker() Service
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceDeploymentCircuitBreaker {
 		return v.DeploymentCircuitBreaker
 	}).(ServiceDeploymentCircuitBreakerPtrOutput)
+}
+
+func (o ServiceDeploymentConfigurationOutput) LifecycleHooks() ServiceDeploymentLifecycleHookArrayOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfiguration) []ServiceDeploymentLifecycleHook { return v.LifecycleHooks }).(ServiceDeploymentLifecycleHookArrayOutput)
 }
 
 // If a service is using the rolling update (“ECS“) deployment type, the “maximumPercent“ parameter represents an upper limit on the number of your service's tasks that are allowed in the “RUNNING“ or “PENDING“ state during a deployment, as a percentage of the “desiredCount“ (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the “REPLICA“ service scheduler and has a “desiredCount“ of four tasks and a “maximumPercent“ value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default “maximumPercent“ value for a service using the “REPLICA“ service scheduler is 200%.
@@ -3531,6 +4145,10 @@ func (o ServiceDeploymentConfigurationOutput) MaximumPercent() pulumi.IntPtrOutp
 //	 If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
 func (o ServiceDeploymentConfigurationOutput) MinimumHealthyPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *int { return v.MinimumHealthyPercent }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceDeploymentConfigurationOutput) Strategy() ServiceDeploymentConfigurationStrategyPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceDeploymentConfigurationStrategy { return v.Strategy }).(ServiceDeploymentConfigurationStrategyPtrOutput)
 }
 
 type ServiceDeploymentConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -3567,6 +4185,15 @@ func (o ServiceDeploymentConfigurationPtrOutput) Alarms() ServiceDeploymentAlarm
 	}).(ServiceDeploymentAlarmsPtrOutput)
 }
 
+func (o ServiceDeploymentConfigurationPtrOutput) BakeTimeInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BakeTimeInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
 // The deployment circuit breaker can only be used for services using the rolling update (“ECS“) deployment type.
 //
 //	The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
@@ -3577,6 +4204,15 @@ func (o ServiceDeploymentConfigurationPtrOutput) DeploymentCircuitBreaker() Serv
 		}
 		return v.DeploymentCircuitBreaker
 	}).(ServiceDeploymentCircuitBreakerPtrOutput)
+}
+
+func (o ServiceDeploymentConfigurationPtrOutput) LifecycleHooks() ServiceDeploymentLifecycleHookArrayOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfiguration) []ServiceDeploymentLifecycleHook {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleHooks
+	}).(ServiceDeploymentLifecycleHookArrayOutput)
 }
 
 // If a service is using the rolling update (“ECS“) deployment type, the “maximumPercent“ parameter represents an upper limit on the number of your service's tasks that are allowed in the “RUNNING“ or “PENDING“ state during a deployment, as a percentage of the “desiredCount“ (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the “REPLICA“ service scheduler and has a “desiredCount“ of four tasks and a “maximumPercent“ value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default “maximumPercent“ value for a service using the “REPLICA“ service scheduler is 200%.
@@ -3618,6 +4254,15 @@ func (o ServiceDeploymentConfigurationPtrOutput) MinimumHealthyPercent() pulumi.
 		}
 		return v.MinimumHealthyPercent
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceDeploymentConfigurationPtrOutput) Strategy() ServiceDeploymentConfigurationStrategyPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *ServiceDeploymentConfigurationStrategy {
+		if v == nil {
+			return nil
+		}
+		return v.Strategy
+	}).(ServiceDeploymentConfigurationStrategyPtrOutput)
 }
 
 // The deployment controller to use for the service.
@@ -3764,6 +4409,114 @@ func (o ServiceDeploymentControllerPtrOutput) Type() ServiceDeploymentController
 	}).(ServiceDeploymentControllerTypePtrOutput)
 }
 
+type ServiceDeploymentLifecycleHook struct {
+	HookTargetArn   string                                              `pulumi:"hookTargetArn"`
+	LifecycleStages []ServiceDeploymentLifecycleHookLifecycleStagesItem `pulumi:"lifecycleStages"`
+	RoleArn         string                                              `pulumi:"roleArn"`
+}
+
+// ServiceDeploymentLifecycleHookInput is an input type that accepts ServiceDeploymentLifecycleHookArgs and ServiceDeploymentLifecycleHookOutput values.
+// You can construct a concrete instance of `ServiceDeploymentLifecycleHookInput` via:
+//
+//	ServiceDeploymentLifecycleHookArgs{...}
+type ServiceDeploymentLifecycleHookInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentLifecycleHookOutput() ServiceDeploymentLifecycleHookOutput
+	ToServiceDeploymentLifecycleHookOutputWithContext(context.Context) ServiceDeploymentLifecycleHookOutput
+}
+
+type ServiceDeploymentLifecycleHookArgs struct {
+	HookTargetArn   pulumi.StringInput                                          `pulumi:"hookTargetArn"`
+	LifecycleStages ServiceDeploymentLifecycleHookLifecycleStagesItemArrayInput `pulumi:"lifecycleStages"`
+	RoleArn         pulumi.StringInput                                          `pulumi:"roleArn"`
+}
+
+func (ServiceDeploymentLifecycleHookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentLifecycleHook)(nil)).Elem()
+}
+
+func (i ServiceDeploymentLifecycleHookArgs) ToServiceDeploymentLifecycleHookOutput() ServiceDeploymentLifecycleHookOutput {
+	return i.ToServiceDeploymentLifecycleHookOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentLifecycleHookArgs) ToServiceDeploymentLifecycleHookOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentLifecycleHookOutput)
+}
+
+// ServiceDeploymentLifecycleHookArrayInput is an input type that accepts ServiceDeploymentLifecycleHookArray and ServiceDeploymentLifecycleHookArrayOutput values.
+// You can construct a concrete instance of `ServiceDeploymentLifecycleHookArrayInput` via:
+//
+//	ServiceDeploymentLifecycleHookArray{ ServiceDeploymentLifecycleHookArgs{...} }
+type ServiceDeploymentLifecycleHookArrayInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentLifecycleHookArrayOutput() ServiceDeploymentLifecycleHookArrayOutput
+	ToServiceDeploymentLifecycleHookArrayOutputWithContext(context.Context) ServiceDeploymentLifecycleHookArrayOutput
+}
+
+type ServiceDeploymentLifecycleHookArray []ServiceDeploymentLifecycleHookInput
+
+func (ServiceDeploymentLifecycleHookArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceDeploymentLifecycleHook)(nil)).Elem()
+}
+
+func (i ServiceDeploymentLifecycleHookArray) ToServiceDeploymentLifecycleHookArrayOutput() ServiceDeploymentLifecycleHookArrayOutput {
+	return i.ToServiceDeploymentLifecycleHookArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentLifecycleHookArray) ToServiceDeploymentLifecycleHookArrayOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentLifecycleHookArrayOutput)
+}
+
+type ServiceDeploymentLifecycleHookOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentLifecycleHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentLifecycleHook)(nil)).Elem()
+}
+
+func (o ServiceDeploymentLifecycleHookOutput) ToServiceDeploymentLifecycleHookOutput() ServiceDeploymentLifecycleHookOutput {
+	return o
+}
+
+func (o ServiceDeploymentLifecycleHookOutput) ToServiceDeploymentLifecycleHookOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookOutput {
+	return o
+}
+
+func (o ServiceDeploymentLifecycleHookOutput) HookTargetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceDeploymentLifecycleHook) string { return v.HookTargetArn }).(pulumi.StringOutput)
+}
+
+func (o ServiceDeploymentLifecycleHookOutput) LifecycleStages() ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput {
+	return o.ApplyT(func(v ServiceDeploymentLifecycleHook) []ServiceDeploymentLifecycleHookLifecycleStagesItem {
+		return v.LifecycleStages
+	}).(ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput)
+}
+
+func (o ServiceDeploymentLifecycleHookOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceDeploymentLifecycleHook) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type ServiceDeploymentLifecycleHookArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentLifecycleHookArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceDeploymentLifecycleHook)(nil)).Elem()
+}
+
+func (o ServiceDeploymentLifecycleHookArrayOutput) ToServiceDeploymentLifecycleHookArrayOutput() ServiceDeploymentLifecycleHookArrayOutput {
+	return o
+}
+
+func (o ServiceDeploymentLifecycleHookArrayOutput) ToServiceDeploymentLifecycleHookArrayOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookArrayOutput {
+	return o
+}
+
+func (o ServiceDeploymentLifecycleHookArrayOutput) Index(i pulumi.IntInput) ServiceDeploymentLifecycleHookOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceDeploymentLifecycleHook {
+		return vs[0].([]ServiceDeploymentLifecycleHook)[vs[1].(int)]
+	}).(ServiceDeploymentLifecycleHookOutput)
+}
+
 // The tag specifications of an Amazon EBS volume.
 type ServiceEbsTagSpecification struct {
 	// Determines whether to propagate the tags from the task definition to
@@ -3896,6 +4649,7 @@ func (o ServiceEbsTagSpecificationArrayOutput) Index(i pulumi.IntInput) ServiceE
 //	If the service is using the ``CODE_DEPLOY`` deployment controller, the service is required to use either an Application Load Balancer or Network Load Balancer. When you are creating an ACDlong deployment group, you specify two target groups (referred to as a ``targetGroupPair``). Each target group binds to a separate task set in the deployment. The load balancer can also have up to two listeners, a required listener for production traffic and an optional listener that allows you to test new revisions of the service before routing production traffic to it.
 //	Services with tasks that use the ``awsvpc`` network mode (for example, those with the Fargate launch type) only support Application Load Balancers and Network Load Balancers. Classic Load Balancers are not supported. Also, when you create any target groups for these services, you must choose ``ip`` as the target type, not ``instance``. Tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
 type ServiceLoadBalancer struct {
+	AdvancedConfiguration *ServiceAdvancedConfiguration `pulumi:"advancedConfiguration"`
 	// The name of the container (as it appears in a container definition) to associate with the load balancer.
 	//  You need to specify the container name when configuring the target group for an Amazon ECS load balancer.
 	ContainerName *string `pulumi:"containerName"`
@@ -3928,6 +4682,7 @@ type ServiceLoadBalancerInput interface {
 //	If the service is using the ``CODE_DEPLOY`` deployment controller, the service is required to use either an Application Load Balancer or Network Load Balancer. When you are creating an ACDlong deployment group, you specify two target groups (referred to as a ``targetGroupPair``). Each target group binds to a separate task set in the deployment. The load balancer can also have up to two listeners, a required listener for production traffic and an optional listener that allows you to test new revisions of the service before routing production traffic to it.
 //	Services with tasks that use the ``awsvpc`` network mode (for example, those with the Fargate launch type) only support Application Load Balancers and Network Load Balancers. Classic Load Balancers are not supported. Also, when you create any target groups for these services, you must choose ``ip`` as the target type, not ``instance``. Tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
 type ServiceLoadBalancerArgs struct {
+	AdvancedConfiguration ServiceAdvancedConfigurationPtrInput `pulumi:"advancedConfiguration"`
 	// The name of the container (as it appears in a container definition) to associate with the load balancer.
 	//  You need to specify the container name when configuring the target group for an Amazon ECS load balancer.
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
@@ -3997,6 +4752,10 @@ func (o ServiceLoadBalancerOutput) ToServiceLoadBalancerOutput() ServiceLoadBala
 
 func (o ServiceLoadBalancerOutput) ToServiceLoadBalancerOutputWithContext(ctx context.Context) ServiceLoadBalancerOutput {
 	return o
+}
+
+func (o ServiceLoadBalancerOutput) AdvancedConfiguration() ServiceAdvancedConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceLoadBalancer) *ServiceAdvancedConfiguration { return v.AdvancedConfiguration }).(ServiceAdvancedConfigurationPtrOutput)
 }
 
 // The name of the container (as it appears in a container definition) to associate with the load balancer.
@@ -4070,7 +4829,7 @@ type ServiceLogConfiguration struct {
 	//  The options you can specify depend on the log driver. Some of the options you can specify when you use the ``awslogs`` log driver to route logs to Amazon CloudWatch include the following:
 	//   + awslogs-create-group Required: No Specify whether you want the log group to be created automatically. If this option isn't specified, it defaults to false. Your IAM policy must include the logs:CreateLogGroup permission before you attempt to use awslogs-create-group. + awslogs-region Required: Yes Specify the Region that the awslogs log driver is to send your Docker logs to. You can choose to send all of your logs from clusters in different Regions to a single region in CloudWatch Logs. This is so that they're all visible in one location. Otherwise, you can separate them by Region for more granularity. Make sure that the specified log group exists in the Region that you specify with this option. + awslogs-group Required: Yes Make sure to specify a log group that the awslogs log driver sends its log streams to. + awslogs-stream-prefix Required: Yes, when using Fargate.Optional when using EC2. Use the awslogs-stream-prefix option to associate a log stream with the specified prefix, the container name, and the ID of the Amazon ECS task that the container belongs to. If you specify a prefix with this option, then the log stream takes the format prefix-name/container-name/ecs-task-id. If you don't specify a prefix with this option, then the log stream is named after the container ID that's assigned by the Docker daemon on the container instance. Because it's difficult to trace logs back to the container that sent them with just the Docker container ID (which is only available on the container instance), we recommend that you specify a prefix with this option. For Amazon ECS services, you can use the service name as the prefix. Doing so, you can trace log streams to the service that the container belongs to, the name of the container that sent them, and the ID of the task that the container belongs to. You must specify a stream-prefix for your logs to have your logs appear in the Log pane when using the Amazon ECS console. + awslogs-datetime-format Required: No This option defines a multiline start pattern in Python strftime format. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. One example of a use case for using this format is for parsing output such as a stack dump, which might otherwise be logged in multiple entries. The correct pattern allows it to be captured in a single entry. For more information, see awslogs-datetime-format. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance. + awslogs-multiline-pattern Required: No This option defines a multiline start pattern that uses a regular expression. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. For more information, see awslogs-multiline-pattern. This option is ignored if awslogs-datetime-format is also configured. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance.
 	//      The following options apply to all supported log drivers.
-	//   + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS is changing the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 1m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost.
+	//   + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the non-blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS changed the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 1m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost.
 	//      To route logs using the ``splunk`` log router, you need to specify a ``splunk-token`` and a ``splunk-url``.
 	//      When you use the ``awsfirelens`` log router to route logs to an AWS Service or AWS Partner Network destination for log storage and analytics, you can set the ``log-driver-buffer-limit`` option to limit the number of events that are buffered in memory, before being sent to the log router container. It can help to resolve potential log loss issue because high throughput might result in memory running out for the buffer inside of Docker.
 	//      Other options you can specify when using ``awsfirelens`` to route logs depend on the destination. When you export logs to Amazon Data Firehose, you can specify the AWS Region with ``region`` and a name for the log stream with ``delivery_stream``.
@@ -4116,7 +4875,7 @@ type ServiceLogConfigurationArgs struct {
 	//  The options you can specify depend on the log driver. Some of the options you can specify when you use the ``awslogs`` log driver to route logs to Amazon CloudWatch include the following:
 	//   + awslogs-create-group Required: No Specify whether you want the log group to be created automatically. If this option isn't specified, it defaults to false. Your IAM policy must include the logs:CreateLogGroup permission before you attempt to use awslogs-create-group. + awslogs-region Required: Yes Specify the Region that the awslogs log driver is to send your Docker logs to. You can choose to send all of your logs from clusters in different Regions to a single region in CloudWatch Logs. This is so that they're all visible in one location. Otherwise, you can separate them by Region for more granularity. Make sure that the specified log group exists in the Region that you specify with this option. + awslogs-group Required: Yes Make sure to specify a log group that the awslogs log driver sends its log streams to. + awslogs-stream-prefix Required: Yes, when using Fargate.Optional when using EC2. Use the awslogs-stream-prefix option to associate a log stream with the specified prefix, the container name, and the ID of the Amazon ECS task that the container belongs to. If you specify a prefix with this option, then the log stream takes the format prefix-name/container-name/ecs-task-id. If you don't specify a prefix with this option, then the log stream is named after the container ID that's assigned by the Docker daemon on the container instance. Because it's difficult to trace logs back to the container that sent them with just the Docker container ID (which is only available on the container instance), we recommend that you specify a prefix with this option. For Amazon ECS services, you can use the service name as the prefix. Doing so, you can trace log streams to the service that the container belongs to, the name of the container that sent them, and the ID of the task that the container belongs to. You must specify a stream-prefix for your logs to have your logs appear in the Log pane when using the Amazon ECS console. + awslogs-datetime-format Required: No This option defines a multiline start pattern in Python strftime format. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. One example of a use case for using this format is for parsing output such as a stack dump, which might otherwise be logged in multiple entries. The correct pattern allows it to be captured in a single entry. For more information, see awslogs-datetime-format. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance. + awslogs-multiline-pattern Required: No This option defines a multiline start pattern that uses a regular expression. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. For more information, see awslogs-multiline-pattern. This option is ignored if awslogs-datetime-format is also configured. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance.
 	//      The following options apply to all supported log drivers.
-	//   + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS is changing the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 1m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost.
+	//   + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the non-blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS changed the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 1m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost.
 	//      To route logs using the ``splunk`` log router, you need to specify a ``splunk-token`` and a ``splunk-url``.
 	//      When you use the ``awsfirelens`` log router to route logs to an AWS Service or AWS Partner Network destination for log storage and analytics, you can set the ``log-driver-buffer-limit`` option to limit the number of events that are buffered in memory, before being sent to the log router container. It can help to resolve potential log loss issue because high throughput might result in memory running out for the buffer inside of Docker.
 	//      Other options you can specify when using ``awsfirelens`` to route logs depend on the destination. When you export logs to Amazon Data Firehose, you can specify the AWS Region with ``region`` and a name for the log stream with ``delivery_stream``.
@@ -4232,7 +4991,7 @@ func (o ServiceLogConfigurationOutput) LogDriver() pulumi.StringPtrOutput {
 //	The options you can specify depend on the log driver. Some of the options you can specify when you use the ``awslogs`` log driver to route logs to Amazon CloudWatch include the following:
 //	 + awslogs-create-group Required: No Specify whether you want the log group to be created automatically. If this option isn't specified, it defaults to false. Your IAM policy must include the logs:CreateLogGroup permission before you attempt to use awslogs-create-group. + awslogs-region Required: Yes Specify the Region that the awslogs log driver is to send your Docker logs to. You can choose to send all of your logs from clusters in different Regions to a single region in CloudWatch Logs. This is so that they're all visible in one location. Otherwise, you can separate them by Region for more granularity. Make sure that the specified log group exists in the Region that you specify with this option. + awslogs-group Required: Yes Make sure to specify a log group that the awslogs log driver sends its log streams to. + awslogs-stream-prefix Required: Yes, when using Fargate.Optional when using EC2. Use the awslogs-stream-prefix option to associate a log stream with the specified prefix, the container name, and the ID of the Amazon ECS task that the container belongs to. If you specify a prefix with this option, then the log stream takes the format prefix-name/container-name/ecs-task-id. If you don't specify a prefix with this option, then the log stream is named after the container ID that's assigned by the Docker daemon on the container instance. Because it's difficult to trace logs back to the container that sent them with just the Docker container ID (which is only available on the container instance), we recommend that you specify a prefix with this option. For Amazon ECS services, you can use the service name as the prefix. Doing so, you can trace log streams to the service that the container belongs to, the name of the container that sent them, and the ID of the task that the container belongs to. You must specify a stream-prefix for your logs to have your logs appear in the Log pane when using the Amazon ECS console. + awslogs-datetime-format Required: No This option defines a multiline start pattern in Python strftime format. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. One example of a use case for using this format is for parsing output such as a stack dump, which might otherwise be logged in multiple entries. The correct pattern allows it to be captured in a single entry. For more information, see awslogs-datetime-format. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance. + awslogs-multiline-pattern Required: No This option defines a multiline start pattern that uses a regular expression. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. For more information, see awslogs-multiline-pattern. This option is ignored if awslogs-datetime-format is also configured. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance.
 //	    The following options apply to all supported log drivers.
-//	 + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS is changing the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 1m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost.
+//	 + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the non-blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS changed the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 1m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost.
 //	    To route logs using the ``splunk`` log router, you need to specify a ``splunk-token`` and a ``splunk-url``.
 //	    When you use the ``awsfirelens`` log router to route logs to an AWS Service or AWS Partner Network destination for log storage and analytics, you can set the ``log-driver-buffer-limit`` option to limit the number of events that are buffered in memory, before being sent to the log router container. It can help to resolve potential log loss issue because high throughput might result in memory running out for the buffer inside of Docker.
 //	    Other options you can specify when using ``awsfirelens`` to route logs depend on the destination. When you export logs to Amazon Data Firehose, you can specify the AWS Region with ``region`` and a name for the log stream with ``delivery_stream``.
@@ -4294,7 +5053,7 @@ func (o ServiceLogConfigurationPtrOutput) LogDriver() pulumi.StringPtrOutput {
 //	The options you can specify depend on the log driver. Some of the options you can specify when you use the ``awslogs`` log driver to route logs to Amazon CloudWatch include the following:
 //	 + awslogs-create-group Required: No Specify whether you want the log group to be created automatically. If this option isn't specified, it defaults to false. Your IAM policy must include the logs:CreateLogGroup permission before you attempt to use awslogs-create-group. + awslogs-region Required: Yes Specify the Region that the awslogs log driver is to send your Docker logs to. You can choose to send all of your logs from clusters in different Regions to a single region in CloudWatch Logs. This is so that they're all visible in one location. Otherwise, you can separate them by Region for more granularity. Make sure that the specified log group exists in the Region that you specify with this option. + awslogs-group Required: Yes Make sure to specify a log group that the awslogs log driver sends its log streams to. + awslogs-stream-prefix Required: Yes, when using Fargate.Optional when using EC2. Use the awslogs-stream-prefix option to associate a log stream with the specified prefix, the container name, and the ID of the Amazon ECS task that the container belongs to. If you specify a prefix with this option, then the log stream takes the format prefix-name/container-name/ecs-task-id. If you don't specify a prefix with this option, then the log stream is named after the container ID that's assigned by the Docker daemon on the container instance. Because it's difficult to trace logs back to the container that sent them with just the Docker container ID (which is only available on the container instance), we recommend that you specify a prefix with this option. For Amazon ECS services, you can use the service name as the prefix. Doing so, you can trace log streams to the service that the container belongs to, the name of the container that sent them, and the ID of the task that the container belongs to. You must specify a stream-prefix for your logs to have your logs appear in the Log pane when using the Amazon ECS console. + awslogs-datetime-format Required: No This option defines a multiline start pattern in Python strftime format. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. One example of a use case for using this format is for parsing output such as a stack dump, which might otherwise be logged in multiple entries. The correct pattern allows it to be captured in a single entry. For more information, see awslogs-datetime-format. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance. + awslogs-multiline-pattern Required: No This option defines a multiline start pattern that uses a regular expression. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. For more information, see awslogs-multiline-pattern. This option is ignored if awslogs-datetime-format is also configured. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance.
 //	    The following options apply to all supported log drivers.
-//	 + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS is changing the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 1m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost.
+//	 + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the non-blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS changed the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 1m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost.
 //	    To route logs using the ``splunk`` log router, you need to specify a ``splunk-token`` and a ``splunk-url``.
 //	    When you use the ``awsfirelens`` log router to route logs to an AWS Service or AWS Partner Network destination for log storage and analytics, you can set the ``log-driver-buffer-limit`` option to limit the number of events that are buffered in memory, before being sent to the log router container. It can help to resolve potential log loss issue because high throughput might result in memory running out for the buffer inside of Docker.
 //	    Other options you can specify when using ``awsfirelens`` to route logs depend on the destination. When you export logs to Amazon Data Firehose, you can specify the AWS Region with ``region`` and a name for the log stream with ``delivery_stream``.
@@ -6154,7 +6913,7 @@ type TaskDefinitionContainerDefinition struct {
 	//   +  Linux platform version ``1.3.0`` or later.
 	//   +  Windows platform version ``1.0.0`` or later.
 	//
-	//  If the task definition is used in a blue/green deployment that uses [AWS::CodeDeploy::DeploymentGroup BlueGreenDeploymentConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html), the ``dependsOn`` parameter is not supported. For more information see [Issue #680](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-coverage-roadmap/issues/680) on the on the GitHub website.
+	//  If the task definition is used in a blue/green deployment that uses [AWS::CodeDeploy::DeploymentGroup BlueGreenDeploymentConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html), the ``dependsOn`` parameter is not supported.
 	DependsOn []TaskDefinitionContainerDependency `pulumi:"dependsOn"`
 	// When this parameter is true, networking is off within the container. This parameter maps to ``NetworkDisabled`` in the docker container create command.
 	//   This parameter is not supported for Windows containers.
@@ -6197,7 +6956,7 @@ type TaskDefinitionContainerDefinition struct {
 	// The hostname to use for your container. This parameter maps to ``Hostname`` in the docker container create command and the ``--hostname`` option to docker run.
 	//   The ``hostname`` parameter is not supported if you're using the ``awsvpc`` network mode.
 	Hostname *string `pulumi:"hostname"`
-	// The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the docker container create command and the ``IMAGE`` parameter of docker run.
+	// The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. For images using tags (repository-url/image:tag), up to 255 characters total are allowed, including letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs (#). For images using digests (repository-url/image@digest), the 255 character limit applies only to the repository URL and image name (everything before the @ sign). The only supported hash function is sha256, and the hash value after sha256: must be exactly 64 characters (only letters A-F, a-f, and numbers 0-9 are allowed). This parameter maps to ``Image`` in the docker container create command and the ``IMAGE`` parameter of docker run.
 	//   +  When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image aren't propagated to already running tasks.
 	//   +  Images in Amazon ECR repositories can be specified by either using the full ``registry/repository:tag`` or ``registry/repository@digest``. For example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>:latest`` or ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE``.
 	//   +  Images in official repositories on Docker Hub use a single name (for example, ``ubuntu`` or ``mongo``).
@@ -6340,7 +7099,7 @@ type TaskDefinitionContainerDefinitionArgs struct {
 	//   +  Linux platform version ``1.3.0`` or later.
 	//   +  Windows platform version ``1.0.0`` or later.
 	//
-	//  If the task definition is used in a blue/green deployment that uses [AWS::CodeDeploy::DeploymentGroup BlueGreenDeploymentConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html), the ``dependsOn`` parameter is not supported. For more information see [Issue #680](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-coverage-roadmap/issues/680) on the on the GitHub website.
+	//  If the task definition is used in a blue/green deployment that uses [AWS::CodeDeploy::DeploymentGroup BlueGreenDeploymentConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html), the ``dependsOn`` parameter is not supported.
 	DependsOn TaskDefinitionContainerDependencyArrayInput `pulumi:"dependsOn"`
 	// When this parameter is true, networking is off within the container. This parameter maps to ``NetworkDisabled`` in the docker container create command.
 	//   This parameter is not supported for Windows containers.
@@ -6383,7 +7142,7 @@ type TaskDefinitionContainerDefinitionArgs struct {
 	// The hostname to use for your container. This parameter maps to ``Hostname`` in the docker container create command and the ``--hostname`` option to docker run.
 	//   The ``hostname`` parameter is not supported if you're using the ``awsvpc`` network mode.
 	Hostname pulumi.StringPtrInput `pulumi:"hostname"`
-	// The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the docker container create command and the ``IMAGE`` parameter of docker run.
+	// The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. For images using tags (repository-url/image:tag), up to 255 characters total are allowed, including letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs (#). For images using digests (repository-url/image@digest), the 255 character limit applies only to the repository URL and image name (everything before the @ sign). The only supported hash function is sha256, and the hash value after sha256: must be exactly 64 characters (only letters A-F, a-f, and numbers 0-9 are allowed). This parameter maps to ``Image`` in the docker container create command and the ``IMAGE`` parameter of docker run.
 	//   +  When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image aren't propagated to already running tasks.
 	//   +  Images in Amazon ECR repositories can be specified by either using the full ``registry/repository:tag`` or ``registry/repository@digest``. For example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>:latest`` or ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE``.
 	//   +  Images in official repositories on Docker Hub use a single name (for example, ``ubuntu`` or ``mongo``).
@@ -6577,7 +7336,7 @@ func (o TaskDefinitionContainerDefinitionOutput) CredentialSpecs() pulumi.String
 //	 +  Linux platform version ``1.3.0`` or later.
 //	 +  Windows platform version ``1.0.0`` or later.
 //
-//	If the task definition is used in a blue/green deployment that uses [AWS::CodeDeploy::DeploymentGroup BlueGreenDeploymentConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html), the ``dependsOn`` parameter is not supported. For more information see [Issue #680](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-coverage-roadmap/issues/680) on the on the GitHub website.
+//	If the task definition is used in a blue/green deployment that uses [AWS::CodeDeploy::DeploymentGroup BlueGreenDeploymentConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html), the ``dependsOn`` parameter is not supported.
 func (o TaskDefinitionContainerDefinitionOutput) DependsOn() TaskDefinitionContainerDependencyArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []TaskDefinitionContainerDependency { return v.DependsOn }).(TaskDefinitionContainerDependencyArrayOutput)
 }
@@ -6674,7 +7433,7 @@ func (o TaskDefinitionContainerDefinitionOutput) Hostname() pulumi.StringPtrOutp
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *string { return v.Hostname }).(pulumi.StringPtrOutput)
 }
 
-// The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either “repository-url/image:tag“ or “repository-url/image@digest“. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to “Image“ in the docker container create command and the “IMAGE“ parameter of docker run.
+// The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either “repository-url/image:tag“ or “repository-url/image@digest“. For images using tags (repository-url/image:tag), up to 255 characters total are allowed, including letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs (#). For images using digests (repository-url/image@digest), the 255 character limit applies only to the repository URL and image name (everything before the @ sign). The only supported hash function is sha256, and the hash value after sha256: must be exactly 64 characters (only letters A-F, a-f, and numbers 0-9 are allowed). This parameter maps to “Image“ in the docker container create command and the “IMAGE“ parameter of docker run.
 //   - When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image aren't propagated to already running tasks.
 //   - Images in Amazon ECR repositories can be specified by either using the full “registry/repository:tag“ or “registry/repository@digest“. For example, “012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>:latest“ or “012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE“.
 //   - Images in official repositories on Docker Hub use a single name (for example, “ubuntu“ or “mongo“).
@@ -8929,11 +9688,8 @@ func (o TaskDefinitionHostVolumePropertiesPtrOutput) SourcePath() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details on an Elastic Inference accelerator. For more information, see [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*.
 type TaskDefinitionInferenceAccelerator struct {
-	// The Elastic Inference accelerator device name. The ``deviceName`` must also be referenced in a container definition as a [ResourceRequirement](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ResourceRequirement.html).
 	DeviceName *string `pulumi:"deviceName"`
-	// The Elastic Inference accelerator type to use.
 	DeviceType *string `pulumi:"deviceType"`
 }
 
@@ -8948,11 +9704,8 @@ type TaskDefinitionInferenceAcceleratorInput interface {
 	ToTaskDefinitionInferenceAcceleratorOutputWithContext(context.Context) TaskDefinitionInferenceAcceleratorOutput
 }
 
-// Details on an Elastic Inference accelerator. For more information, see [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*.
 type TaskDefinitionInferenceAcceleratorArgs struct {
-	// The Elastic Inference accelerator device name. The ``deviceName`` must also be referenced in a container definition as a [ResourceRequirement](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ResourceRequirement.html).
 	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
-	// The Elastic Inference accelerator type to use.
 	DeviceType pulumi.StringPtrInput `pulumi:"deviceType"`
 }
 
@@ -8993,7 +9746,6 @@ func (i TaskDefinitionInferenceAcceleratorArray) ToTaskDefinitionInferenceAccele
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionInferenceAcceleratorArrayOutput)
 }
 
-// Details on an Elastic Inference accelerator. For more information, see [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*.
 type TaskDefinitionInferenceAcceleratorOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionInferenceAcceleratorOutput) ElementType() reflect.Type {
@@ -9008,12 +9760,10 @@ func (o TaskDefinitionInferenceAcceleratorOutput) ToTaskDefinitionInferenceAccel
 	return o
 }
 
-// The Elastic Inference accelerator device name. The “deviceName“ must also be referenced in a container definition as a [ResourceRequirement](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ResourceRequirement.html).
 func (o TaskDefinitionInferenceAcceleratorOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionInferenceAccelerator) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
-// The Elastic Inference accelerator type to use.
 func (o TaskDefinitionInferenceAcceleratorOutput) DeviceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionInferenceAccelerator) *string { return v.DeviceType }).(pulumi.StringPtrOutput)
 }
@@ -9658,7 +10408,7 @@ type TaskDefinitionLogConfiguration struct {
 	//  The options you can specify depend on the log driver. Some of the options you can specify when you use the ``awslogs`` log driver to route logs to Amazon CloudWatch include the following:
 	//   + awslogs-create-group Required: No Specify whether you want the log group to be created automatically. If this option isn't specified, it defaults to false. Your IAM policy must include the logs:CreateLogGroup permission before you attempt to use awslogs-create-group. + awslogs-region Required: Yes Specify the Region that the awslogs log driver is to send your Docker logs to. You can choose to send all of your logs from clusters in different Regions to a single region in CloudWatch Logs. This is so that they're all visible in one location. Otherwise, you can separate them by Region for more granularity. Make sure that the specified log group exists in the Region that you specify with this option. + awslogs-group Required: Yes Make sure to specify a log group that the awslogs log driver sends its log streams to. + awslogs-stream-prefix Required: Yes, when using Fargate.Optional when using EC2. Use the awslogs-stream-prefix option to associate a log stream with the specified prefix, the container name, and the ID of the Amazon ECS task that the container belongs to. If you specify a prefix with this option, then the log stream takes the format prefix-name/container-name/ecs-task-id. If you don't specify a prefix with this option, then the log stream is named after the container ID that's assigned by the Docker daemon on the container instance. Because it's difficult to trace logs back to the container that sent them with just the Docker container ID (which is only available on the container instance), we recommend that you specify a prefix with this option. For Amazon ECS services, you can use the service name as the prefix. Doing so, you can trace log streams to the service that the container belongs to, the name of the container that sent them, and the ID of the task that the container belongs to. You must specify a stream-prefix for your logs to have your logs appear in the Log pane when using the Amazon ECS console. + awslogs-datetime-format Required: No This option defines a multiline start pattern in Python strftime format. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. One example of a use case for using this format is for parsing output such as a stack dump, which might otherwise be logged in multiple entries. The correct pattern allows it to be captured in a single entry. For more information, see awslogs-datetime-format. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance. + awslogs-multiline-pattern Required: No This option defines a multiline start pattern that uses a regular expression. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. For more information, see awslogs-multiline-pattern. This option is ignored if awslogs-datetime-format is also configured. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance.
 	//      The following options apply to all supported log drivers.
-	//   + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS is changing the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 1m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost.
+	//   + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the non-blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS changed the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 1m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost.
 	//      To route logs using the ``splunk`` log router, you need to specify a ``splunk-token`` and a ``splunk-url``.
 	//      When you use the ``awsfirelens`` log router to route logs to an AWS Service or AWS Partner Network destination for log storage and analytics, you can set the ``log-driver-buffer-limit`` option to limit the number of events that are buffered in memory, before being sent to the log router container. It can help to resolve potential log loss issue because high throughput might result in memory running out for the buffer inside of Docker.
 	//      Other options you can specify when using ``awsfirelens`` to route logs depend on the destination. When you export logs to Amazon Data Firehose, you can specify the AWS Region with ``region`` and a name for the log stream with ``delivery_stream``.
@@ -9695,7 +10445,7 @@ type TaskDefinitionLogConfigurationArgs struct {
 	//  The options you can specify depend on the log driver. Some of the options you can specify when you use the ``awslogs`` log driver to route logs to Amazon CloudWatch include the following:
 	//   + awslogs-create-group Required: No Specify whether you want the log group to be created automatically. If this option isn't specified, it defaults to false. Your IAM policy must include the logs:CreateLogGroup permission before you attempt to use awslogs-create-group. + awslogs-region Required: Yes Specify the Region that the awslogs log driver is to send your Docker logs to. You can choose to send all of your logs from clusters in different Regions to a single region in CloudWatch Logs. This is so that they're all visible in one location. Otherwise, you can separate them by Region for more granularity. Make sure that the specified log group exists in the Region that you specify with this option. + awslogs-group Required: Yes Make sure to specify a log group that the awslogs log driver sends its log streams to. + awslogs-stream-prefix Required: Yes, when using Fargate.Optional when using EC2. Use the awslogs-stream-prefix option to associate a log stream with the specified prefix, the container name, and the ID of the Amazon ECS task that the container belongs to. If you specify a prefix with this option, then the log stream takes the format prefix-name/container-name/ecs-task-id. If you don't specify a prefix with this option, then the log stream is named after the container ID that's assigned by the Docker daemon on the container instance. Because it's difficult to trace logs back to the container that sent them with just the Docker container ID (which is only available on the container instance), we recommend that you specify a prefix with this option. For Amazon ECS services, you can use the service name as the prefix. Doing so, you can trace log streams to the service that the container belongs to, the name of the container that sent them, and the ID of the task that the container belongs to. You must specify a stream-prefix for your logs to have your logs appear in the Log pane when using the Amazon ECS console. + awslogs-datetime-format Required: No This option defines a multiline start pattern in Python strftime format. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. One example of a use case for using this format is for parsing output such as a stack dump, which might otherwise be logged in multiple entries. The correct pattern allows it to be captured in a single entry. For more information, see awslogs-datetime-format. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance. + awslogs-multiline-pattern Required: No This option defines a multiline start pattern that uses a regular expression. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. For more information, see awslogs-multiline-pattern. This option is ignored if awslogs-datetime-format is also configured. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance.
 	//      The following options apply to all supported log drivers.
-	//   + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS is changing the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 1m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost.
+	//   + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the non-blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS changed the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 1m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost.
 	//      To route logs using the ``splunk`` log router, you need to specify a ``splunk-token`` and a ``splunk-url``.
 	//      When you use the ``awsfirelens`` log router to route logs to an AWS Service or AWS Partner Network destination for log storage and analytics, you can set the ``log-driver-buffer-limit`` option to limit the number of events that are buffered in memory, before being sent to the log router container. It can help to resolve potential log loss issue because high throughput might result in memory running out for the buffer inside of Docker.
 	//      Other options you can specify when using ``awsfirelens`` to route logs depend on the destination. When you export logs to Amazon Data Firehose, you can specify the AWS Region with ``region`` and a name for the log stream with ``delivery_stream``.
@@ -9802,7 +10552,7 @@ func (o TaskDefinitionLogConfigurationOutput) LogDriver() pulumi.StringOutput {
 //	The options you can specify depend on the log driver. Some of the options you can specify when you use the ``awslogs`` log driver to route logs to Amazon CloudWatch include the following:
 //	 + awslogs-create-group Required: No Specify whether you want the log group to be created automatically. If this option isn't specified, it defaults to false. Your IAM policy must include the logs:CreateLogGroup permission before you attempt to use awslogs-create-group. + awslogs-region Required: Yes Specify the Region that the awslogs log driver is to send your Docker logs to. You can choose to send all of your logs from clusters in different Regions to a single region in CloudWatch Logs. This is so that they're all visible in one location. Otherwise, you can separate them by Region for more granularity. Make sure that the specified log group exists in the Region that you specify with this option. + awslogs-group Required: Yes Make sure to specify a log group that the awslogs log driver sends its log streams to. + awslogs-stream-prefix Required: Yes, when using Fargate.Optional when using EC2. Use the awslogs-stream-prefix option to associate a log stream with the specified prefix, the container name, and the ID of the Amazon ECS task that the container belongs to. If you specify a prefix with this option, then the log stream takes the format prefix-name/container-name/ecs-task-id. If you don't specify a prefix with this option, then the log stream is named after the container ID that's assigned by the Docker daemon on the container instance. Because it's difficult to trace logs back to the container that sent them with just the Docker container ID (which is only available on the container instance), we recommend that you specify a prefix with this option. For Amazon ECS services, you can use the service name as the prefix. Doing so, you can trace log streams to the service that the container belongs to, the name of the container that sent them, and the ID of the task that the container belongs to. You must specify a stream-prefix for your logs to have your logs appear in the Log pane when using the Amazon ECS console. + awslogs-datetime-format Required: No This option defines a multiline start pattern in Python strftime format. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. One example of a use case for using this format is for parsing output such as a stack dump, which might otherwise be logged in multiple entries. The correct pattern allows it to be captured in a single entry. For more information, see awslogs-datetime-format. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance. + awslogs-multiline-pattern Required: No This option defines a multiline start pattern that uses a regular expression. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. For more information, see awslogs-multiline-pattern. This option is ignored if awslogs-datetime-format is also configured. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance.
 //	    The following options apply to all supported log drivers.
-//	 + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS is changing the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 1m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost.
+//	 + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the non-blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS changed the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 1m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost.
 //	    To route logs using the ``splunk`` log router, you need to specify a ``splunk-token`` and a ``splunk-url``.
 //	    When you use the ``awsfirelens`` log router to route logs to an AWS Service or AWS Partner Network destination for log storage and analytics, you can set the ``log-driver-buffer-limit`` option to limit the number of events that are buffered in memory, before being sent to the log router container. It can help to resolve potential log loss issue because high throughput might result in memory running out for the buffer inside of Docker.
 //	    Other options you can specify when using ``awsfirelens`` to route logs depend on the destination. When you export logs to Amazon Data Firehose, you can specify the AWS Region with ``region`` and a name for the log stream with ``delivery_stream``.
@@ -9864,7 +10614,7 @@ func (o TaskDefinitionLogConfigurationPtrOutput) LogDriver() pulumi.StringPtrOut
 //	The options you can specify depend on the log driver. Some of the options you can specify when you use the ``awslogs`` log driver to route logs to Amazon CloudWatch include the following:
 //	 + awslogs-create-group Required: No Specify whether you want the log group to be created automatically. If this option isn't specified, it defaults to false. Your IAM policy must include the logs:CreateLogGroup permission before you attempt to use awslogs-create-group. + awslogs-region Required: Yes Specify the Region that the awslogs log driver is to send your Docker logs to. You can choose to send all of your logs from clusters in different Regions to a single region in CloudWatch Logs. This is so that they're all visible in one location. Otherwise, you can separate them by Region for more granularity. Make sure that the specified log group exists in the Region that you specify with this option. + awslogs-group Required: Yes Make sure to specify a log group that the awslogs log driver sends its log streams to. + awslogs-stream-prefix Required: Yes, when using Fargate.Optional when using EC2. Use the awslogs-stream-prefix option to associate a log stream with the specified prefix, the container name, and the ID of the Amazon ECS task that the container belongs to. If you specify a prefix with this option, then the log stream takes the format prefix-name/container-name/ecs-task-id. If you don't specify a prefix with this option, then the log stream is named after the container ID that's assigned by the Docker daemon on the container instance. Because it's difficult to trace logs back to the container that sent them with just the Docker container ID (which is only available on the container instance), we recommend that you specify a prefix with this option. For Amazon ECS services, you can use the service name as the prefix. Doing so, you can trace log streams to the service that the container belongs to, the name of the container that sent them, and the ID of the task that the container belongs to. You must specify a stream-prefix for your logs to have your logs appear in the Log pane when using the Amazon ECS console. + awslogs-datetime-format Required: No This option defines a multiline start pattern in Python strftime format. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. One example of a use case for using this format is for parsing output such as a stack dump, which might otherwise be logged in multiple entries. The correct pattern allows it to be captured in a single entry. For more information, see awslogs-datetime-format. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance. + awslogs-multiline-pattern Required: No This option defines a multiline start pattern that uses a regular expression. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. For more information, see awslogs-multiline-pattern. This option is ignored if awslogs-datetime-format is also configured. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance.
 //	    The following options apply to all supported log drivers.
-//	 + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS is changing the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 1m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost.
+//	 + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the non-blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS changed the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 1m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost.
 //	    To route logs using the ``splunk`` log router, you need to specify a ``splunk-token`` and a ``splunk-url``.
 //	    When you use the ``awsfirelens`` log router to route logs to an AWS Service or AWS Partner Network destination for log storage and analytics, you can set the ``log-driver-buffer-limit`` option to limit the number of events that are buffered in memory, before being sent to the log router container. It can help to resolve potential log loss issue because high throughput might result in memory running out for the buffer inside of Docker.
 //	    Other options you can specify when using ``awsfirelens`` to route logs depend on the destination. When you export logs to Amazon Data Firehose, you can specify the AWS Region with ``region`` and a name for the log stream with ``delivery_stream``.
@@ -12917,6 +13667,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServiceConnectDefaultsPtrInput)(nil)).Elem(), ClusterServiceConnectDefaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSettingsInput)(nil)).Elem(), ClusterSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSettingsArrayInput)(nil)).Elem(), ClusterSettingsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAdvancedConfigurationInput)(nil)).Elem(), ServiceAdvancedConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAdvancedConfigurationPtrInput)(nil)).Elem(), ServiceAdvancedConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationInput)(nil)).Elem(), ServiceAwsVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationPtrInput)(nil)).Elem(), ServiceAwsVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCapacityProviderStrategyItemInput)(nil)).Elem(), ServiceCapacityProviderStrategyItemArgs{})
@@ -12927,6 +13679,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectConfigurationPtrInput)(nil)).Elem(), ServiceConnectConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectServiceInput)(nil)).Elem(), ServiceConnectServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectServiceArrayInput)(nil)).Elem(), ServiceConnectServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectTestTrafficRulesInput)(nil)).Elem(), ServiceConnectTestTrafficRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectTestTrafficRulesPtrInput)(nil)).Elem(), ServiceConnectTestTrafficRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectTestTrafficRulesHeaderInput)(nil)).Elem(), ServiceConnectTestTrafficRulesHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectTestTrafficRulesHeaderPtrInput)(nil)).Elem(), ServiceConnectTestTrafficRulesHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectTestTrafficRulesHeaderValueInput)(nil)).Elem(), ServiceConnectTestTrafficRulesHeaderValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectTestTrafficRulesHeaderValuePtrInput)(nil)).Elem(), ServiceConnectTestTrafficRulesHeaderValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectTlsCertificateAuthorityInput)(nil)).Elem(), ServiceConnectTlsCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectTlsCertificateAuthorityPtrInput)(nil)).Elem(), ServiceConnectTlsCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectTlsConfigurationInput)(nil)).Elem(), ServiceConnectTlsConfigurationArgs{})
@@ -12939,6 +13697,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationPtrInput)(nil)).Elem(), ServiceDeploymentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerInput)(nil)).Elem(), ServiceDeploymentControllerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerPtrInput)(nil)).Elem(), ServiceDeploymentControllerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentLifecycleHookInput)(nil)).Elem(), ServiceDeploymentLifecycleHookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentLifecycleHookArrayInput)(nil)).Elem(), ServiceDeploymentLifecycleHookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEbsTagSpecificationInput)(nil)).Elem(), ServiceEbsTagSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEbsTagSpecificationArrayInput)(nil)).Elem(), ServiceEbsTagSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLoadBalancerInput)(nil)).Elem(), ServiceLoadBalancerArgs{})
@@ -13063,6 +13823,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterServiceConnectDefaultsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSettingsOutput{})
 	pulumi.RegisterOutputType(ClusterSettingsArrayOutput{})
+	pulumi.RegisterOutputType(ServiceAdvancedConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceAdvancedConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCapacityProviderStrategyItemOutput{})
@@ -13073,6 +13835,12 @@ func init() {
 	pulumi.RegisterOutputType(ServiceConnectConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceConnectServiceOutput{})
 	pulumi.RegisterOutputType(ServiceConnectServiceArrayOutput{})
+	pulumi.RegisterOutputType(ServiceConnectTestTrafficRulesOutput{})
+	pulumi.RegisterOutputType(ServiceConnectTestTrafficRulesPtrOutput{})
+	pulumi.RegisterOutputType(ServiceConnectTestTrafficRulesHeaderOutput{})
+	pulumi.RegisterOutputType(ServiceConnectTestTrafficRulesHeaderPtrOutput{})
+	pulumi.RegisterOutputType(ServiceConnectTestTrafficRulesHeaderValueOutput{})
+	pulumi.RegisterOutputType(ServiceConnectTestTrafficRulesHeaderValuePtrOutput{})
 	pulumi.RegisterOutputType(ServiceConnectTlsCertificateAuthorityOutput{})
 	pulumi.RegisterOutputType(ServiceConnectTlsCertificateAuthorityPtrOutput{})
 	pulumi.RegisterOutputType(ServiceConnectTlsConfigurationOutput{})
@@ -13085,6 +13853,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceDeploymentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerPtrOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentLifecycleHookOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentLifecycleHookArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEbsTagSpecificationOutput{})
 	pulumi.RegisterOutputType(ServiceEbsTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(ServiceLoadBalancerOutput{})

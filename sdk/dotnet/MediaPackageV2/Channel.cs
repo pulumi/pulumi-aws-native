@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The ingest domain URL where the source stream should be sent.
+        /// </summary>
         [Output("ingestEndpointUrls")]
         public Output<ImmutableArray<string>> IngestEndpointUrls { get; private set; } = null!;
 
@@ -83,9 +86,6 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("outputHeaderConfiguration")]
         public Output<Outputs.ChannelOutputHeaderConfiguration?> OutputHeaderConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// The tags associated with the channel.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -183,10 +183,6 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// The tags associated with the channel.
-        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

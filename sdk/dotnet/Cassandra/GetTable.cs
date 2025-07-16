@@ -85,6 +85,10 @@ namespace Pulumi.AwsNative.Cassandra
         /// </summary>
         public readonly Outputs.TableBillingMode? BillingMode;
         /// <summary>
+        /// The settings for the CDC stream of a table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide* .
+        /// </summary>
+        public readonly Outputs.TableCdcSpecification? CdcSpecification;
+        /// <summary>
         /// Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
         /// </summary>
         public readonly int? DefaultTimeToLive;
@@ -116,6 +120,8 @@ namespace Pulumi.AwsNative.Cassandra
         private GetTableResult(
             Outputs.TableBillingMode? billingMode,
 
+            Outputs.TableCdcSpecification? cdcSpecification,
+
             int? defaultTimeToLive,
 
             Outputs.TableEncryptionSpecification? encryptionSpecification,
@@ -127,6 +133,7 @@ namespace Pulumi.AwsNative.Cassandra
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             BillingMode = billingMode;
+            CdcSpecification = cdcSpecification;
             DefaultTimeToLive = defaultTimeToLive;
             EncryptionSpecification = encryptionSpecification;
             PointInTimeRecoveryEnabled = pointInTimeRecoveryEnabled;

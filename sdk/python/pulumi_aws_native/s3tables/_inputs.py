@@ -23,6 +23,18 @@ __all__ = [
     'TableBucketPolicyResourcePolicyArgsDict',
     'TableBucketUnreferencedFileRemovalArgs',
     'TableBucketUnreferencedFileRemovalArgsDict',
+    'TableCompactionArgs',
+    'TableCompactionArgsDict',
+    'TableIcebergMetadataArgs',
+    'TableIcebergMetadataArgsDict',
+    'TableIcebergSchemaArgs',
+    'TableIcebergSchemaArgsDict',
+    'TablePolicyResourcePolicyArgs',
+    'TablePolicyResourcePolicyArgsDict',
+    'TableSchemaFieldArgs',
+    'TableSchemaFieldArgsDict',
+    'TableSnapshotManagementArgs',
+    'TableSnapshotManagementArgsDict',
 ]
 
 MYPY = False
@@ -175,5 +187,285 @@ class TableBucketUnreferencedFileRemovalArgs:
     @unreferenced_days.setter
     def unreferenced_days(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "unreferenced_days", value)
+
+
+if not MYPY:
+    class TableCompactionArgsDict(TypedDict):
+        """
+        Settings governing the Compaction maintenance action. Contains details about the compaction settings for an Iceberg table.
+        """
+        status: NotRequired[pulumi.Input['TableCompactionStatus']]
+        """
+        Indicates whether the Compaction maintenance action is enabled.
+        """
+        target_file_size_mb: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The target file size for the table in MB.
+        """
+elif False:
+    TableCompactionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableCompactionArgs:
+    def __init__(__self__, *,
+                 status: Optional[pulumi.Input['TableCompactionStatus']] = None,
+                 target_file_size_mb: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        Settings governing the Compaction maintenance action. Contains details about the compaction settings for an Iceberg table.
+        :param pulumi.Input['TableCompactionStatus'] status: Indicates whether the Compaction maintenance action is enabled.
+        :param pulumi.Input[builtins.int] target_file_size_mb: The target file size for the table in MB.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if target_file_size_mb is not None:
+            pulumi.set(__self__, "target_file_size_mb", target_file_size_mb)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['TableCompactionStatus']]:
+        """
+        Indicates whether the Compaction maintenance action is enabled.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['TableCompactionStatus']]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="targetFileSizeMb")
+    def target_file_size_mb(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The target file size for the table in MB.
+        """
+        return pulumi.get(self, "target_file_size_mb")
+
+    @target_file_size_mb.setter
+    def target_file_size_mb(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "target_file_size_mb", value)
+
+
+if not MYPY:
+    class TableIcebergMetadataArgsDict(TypedDict):
+        """
+        Contains details about the metadata for an Iceberg table.
+        """
+        iceberg_schema: pulumi.Input['TableIcebergSchemaArgsDict']
+elif False:
+    TableIcebergMetadataArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableIcebergMetadataArgs:
+    def __init__(__self__, *,
+                 iceberg_schema: pulumi.Input['TableIcebergSchemaArgs']):
+        """
+        Contains details about the metadata for an Iceberg table.
+        """
+        pulumi.set(__self__, "iceberg_schema", iceberg_schema)
+
+    @property
+    @pulumi.getter(name="icebergSchema")
+    def iceberg_schema(self) -> pulumi.Input['TableIcebergSchemaArgs']:
+        return pulumi.get(self, "iceberg_schema")
+
+    @iceberg_schema.setter
+    def iceberg_schema(self, value: pulumi.Input['TableIcebergSchemaArgs']):
+        pulumi.set(self, "iceberg_schema", value)
+
+
+if not MYPY:
+    class TableIcebergSchemaArgsDict(TypedDict):
+        """
+        Contains details about the schema for an Iceberg table
+        """
+        schema_field_list: pulumi.Input[Sequence[pulumi.Input['TableSchemaFieldArgsDict']]]
+elif False:
+    TableIcebergSchemaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableIcebergSchemaArgs:
+    def __init__(__self__, *,
+                 schema_field_list: pulumi.Input[Sequence[pulumi.Input['TableSchemaFieldArgs']]]):
+        """
+        Contains details about the schema for an Iceberg table
+        """
+        pulumi.set(__self__, "schema_field_list", schema_field_list)
+
+    @property
+    @pulumi.getter(name="schemaFieldList")
+    def schema_field_list(self) -> pulumi.Input[Sequence[pulumi.Input['TableSchemaFieldArgs']]]:
+        return pulumi.get(self, "schema_field_list")
+
+    @schema_field_list.setter
+    def schema_field_list(self, value: pulumi.Input[Sequence[pulumi.Input['TableSchemaFieldArgs']]]):
+        pulumi.set(self, "schema_field_list", value)
+
+
+if not MYPY:
+    class TablePolicyResourcePolicyArgsDict(TypedDict):
+        """
+        A policy document containing permissions to add to the specified table. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+        """
+        pass
+elif False:
+    TablePolicyResourcePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TablePolicyResourcePolicyArgs:
+    def __init__(__self__):
+        """
+        A policy document containing permissions to add to the specified table. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+        """
+        pass
+
+
+if not MYPY:
+    class TableSchemaFieldArgsDict(TypedDict):
+        """
+        Contains details about the schema for an Iceberg table
+        """
+        name: pulumi.Input[builtins.str]
+        """
+        The name of the field
+        """
+        type: pulumi.Input[builtins.str]
+        """
+        The field type
+        """
+        required: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        A Boolean value that specifies whether values are required for each row in this field
+        """
+elif False:
+    TableSchemaFieldArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableSchemaFieldArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
+                 type: pulumi.Input[builtins.str],
+                 required: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        Contains details about the schema for an Iceberg table
+        :param pulumi.Input[builtins.str] name: The name of the field
+        :param pulumi.Input[builtins.str] type: The field type
+        :param pulumi.Input[builtins.bool] required: A Boolean value that specifies whether values are required for each row in this field
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the field
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        The field type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        A Boolean value that specifies whether values are required for each row in this field
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "required", value)
+
+
+if not MYPY:
+    class TableSnapshotManagementArgsDict(TypedDict):
+        """
+        Contains details about the snapshot management settings for an Iceberg table. A snapshot is expired when it exceeds MinSnapshotsToKeep and MaxSnapshotAgeHours.
+        """
+        max_snapshot_age_hours: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The maximum age of a snapshot before it can be expired.
+        """
+        min_snapshots_to_keep: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The minimum number of snapshots to keep.
+        """
+        status: NotRequired[pulumi.Input['TableSnapshotManagementStatus']]
+        """
+        Indicates whether the SnapshotManagement maintenance action is enabled.
+        """
+elif False:
+    TableSnapshotManagementArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableSnapshotManagementArgs:
+    def __init__(__self__, *,
+                 max_snapshot_age_hours: Optional[pulumi.Input[builtins.int]] = None,
+                 min_snapshots_to_keep: Optional[pulumi.Input[builtins.int]] = None,
+                 status: Optional[pulumi.Input['TableSnapshotManagementStatus']] = None):
+        """
+        Contains details about the snapshot management settings for an Iceberg table. A snapshot is expired when it exceeds MinSnapshotsToKeep and MaxSnapshotAgeHours.
+        :param pulumi.Input[builtins.int] max_snapshot_age_hours: The maximum age of a snapshot before it can be expired.
+        :param pulumi.Input[builtins.int] min_snapshots_to_keep: The minimum number of snapshots to keep.
+        :param pulumi.Input['TableSnapshotManagementStatus'] status: Indicates whether the SnapshotManagement maintenance action is enabled.
+        """
+        if max_snapshot_age_hours is not None:
+            pulumi.set(__self__, "max_snapshot_age_hours", max_snapshot_age_hours)
+        if min_snapshots_to_keep is not None:
+            pulumi.set(__self__, "min_snapshots_to_keep", min_snapshots_to_keep)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="maxSnapshotAgeHours")
+    def max_snapshot_age_hours(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The maximum age of a snapshot before it can be expired.
+        """
+        return pulumi.get(self, "max_snapshot_age_hours")
+
+    @max_snapshot_age_hours.setter
+    def max_snapshot_age_hours(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_snapshot_age_hours", value)
+
+    @property
+    @pulumi.getter(name="minSnapshotsToKeep")
+    def min_snapshots_to_keep(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The minimum number of snapshots to keep.
+        """
+        return pulumi.get(self, "min_snapshots_to_keep")
+
+    @min_snapshots_to_keep.setter
+    def min_snapshots_to_keep(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "min_snapshots_to_keep", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['TableSnapshotManagementStatus']]:
+        """
+        Indicates whether the SnapshotManagement maintenance action is enabled.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['TableSnapshotManagementStatus']]):
+        pulumi.set(self, "status", value)
 
 

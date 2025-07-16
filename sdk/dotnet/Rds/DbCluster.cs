@@ -182,6 +182,12 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> DbSystemId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted, unless the AWS Backup policy specifies a point-in-time restore rule.
+        /// </summary>
+        [Output("deleteAutomatedBackups")]
+        public Output<bool?> DeleteAutomatedBackups { get; private set; } = null!;
+
+        /// <summary>
         /// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         ///  Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </summary>
@@ -862,6 +868,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("dbSystemId")]
         public Input<string>? DbSystemId { get; set; }
+
+        /// <summary>
+        /// Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted, unless the AWS Backup policy specifies a point-in-time restore rule.
+        /// </summary>
+        [Input("deleteAutomatedBackups")]
+        public Input<bool>? DeleteAutomatedBackups { get; set; }
 
         /// <summary>
         /// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.

@@ -57,6 +57,9 @@ export class Channel extends pulumi.CustomResource {
      * <p>Enter any descriptive text that helps you to identify the channel.</p>
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The ingest domain URL where the source stream should be sent.
+     */
     public /*out*/ readonly ingestEndpointUrls!: pulumi.Output<string[]>;
     /**
      * <p>The list of ingest endpoints.</p>
@@ -83,9 +86,6 @@ export class Channel extends pulumi.CustomResource {
      * The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
      */
     public readonly outputHeaderConfiguration!: pulumi.Output<outputs.mediapackagev2.ChannelOutputHeaderConfiguration | undefined>;
-    /**
-     * The tags associated with the channel.
-     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -168,8 +168,5 @@ export interface ChannelArgs {
      * The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
      */
     outputHeaderConfiguration?: pulumi.Input<inputs.mediapackagev2.ChannelOutputHeaderConfigurationArgs>;
-    /**
-     * The tags associated with the channel.
-     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -674,6 +674,8 @@ type Table struct {
 	//
 	// If you don't specify a value for this property, then the table will use on-demand mode.
 	BillingMode TableBillingModePtrOutput `pulumi:"billingMode"`
+	// The settings for the CDC stream of a table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide* .
+	CdcSpecification TableCdcSpecificationPtrOutput `pulumi:"cdcSpecification"`
 	// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
 	ClientSideTimestampsEnabled pulumi.BoolPtrOutput `pulumi:"clientSideTimestampsEnabled"`
 	// Clustering key columns of the table
@@ -774,6 +776,8 @@ type tableArgs struct {
 	//
 	// If you don't specify a value for this property, then the table will use on-demand mode.
 	BillingMode *TableBillingMode `pulumi:"billingMode"`
+	// The settings for the CDC stream of a table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide* .
+	CdcSpecification *TableCdcSpecification `pulumi:"cdcSpecification"`
 	// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
 	ClientSideTimestampsEnabled *bool `pulumi:"clientSideTimestampsEnabled"`
 	// Clustering key columns of the table
@@ -822,6 +826,8 @@ type TableArgs struct {
 	//
 	// If you don't specify a value for this property, then the table will use on-demand mode.
 	BillingMode TableBillingModePtrInput
+	// The settings for the CDC stream of a table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide* .
+	CdcSpecification TableCdcSpecificationPtrInput
 	// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
 	ClientSideTimestampsEnabled pulumi.BoolPtrInput
 	// Clustering key columns of the table
@@ -909,6 +915,11 @@ func (o TableOutput) AutoScalingSpecifications() TableAutoScalingSpecificationPt
 // If you don't specify a value for this property, then the table will use on-demand mode.
 func (o TableOutput) BillingMode() TableBillingModePtrOutput {
 	return o.ApplyT(func(v *Table) TableBillingModePtrOutput { return v.BillingMode }).(TableBillingModePtrOutput)
+}
+
+// The settings for the CDC stream of a table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide* .
+func (o TableOutput) CdcSpecification() TableCdcSpecificationPtrOutput {
+	return o.ApplyT(func(v *Table) TableCdcSpecificationPtrOutput { return v.CdcSpecification }).(TableCdcSpecificationPtrOutput)
 }
 
 // Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.

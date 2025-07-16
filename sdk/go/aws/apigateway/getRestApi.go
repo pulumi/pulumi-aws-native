@@ -39,7 +39,7 @@ type LookupRestApiResult struct {
 	Description *string `pulumi:"description"`
 	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
 	DisableExecuteApiEndpoint *bool `pulumi:"disableExecuteApiEndpoint"`
-	// A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
+	// A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
 	EndpointConfiguration *RestApiEndpointConfiguration `pulumi:"endpointConfiguration"`
 	// A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
 	MinimumCompressionSize *int `pulumi:"minimumCompressionSize"`
@@ -109,7 +109,7 @@ func (o LookupRestApiResultOutput) DisableExecuteApiEndpoint() pulumi.BoolPtrOut
 	return o.ApplyT(func(v LookupRestApiResult) *bool { return v.DisableExecuteApiEndpoint }).(pulumi.BoolPtrOutput)
 }
 
-// A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the “Parameters“ property.
+// A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the “Parameters“ property.
 func (o LookupRestApiResultOutput) EndpointConfiguration() RestApiEndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *RestApiEndpointConfiguration { return v.EndpointConfiguration }).(RestApiEndpointConfigurationPtrOutput)
 }

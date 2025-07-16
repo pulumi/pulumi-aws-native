@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Transfer.Outputs
     public sealed class SftpConfigProperties
     {
         /// <summary>
+        /// Specifies the number of active connections that your connector can establish with the remote server at the same time.
+        /// </summary>
+        public readonly int? MaxConcurrentConnections;
+        /// <summary>
         /// List of public host keys, for the external server to which you are connecting.
         /// </summary>
         public readonly ImmutableArray<string> TrustedHostKeys;
@@ -27,10 +31,13 @@ namespace Pulumi.AwsNative.Transfer.Outputs
 
         [OutputConstructor]
         private SftpConfigProperties(
+            int? maxConcurrentConnections,
+
             ImmutableArray<string> trustedHostKeys,
 
             string? userSecretId)
         {
+            MaxConcurrentConnections = maxConcurrentConnections;
             TrustedHostKeys = trustedHostKeys;
             UserSecretId = userSecretId;
         }

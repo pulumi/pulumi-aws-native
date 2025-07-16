@@ -41,6 +41,10 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly string? ProjectS3Path;
         /// <summary>
+        /// The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
+        /// </summary>
+        public readonly string? SingleSignOnApplicationArn;
+        /// <summary>
         /// Sets whether you can access the domain in Amazon SageMaker Studio:
         /// 
         /// ENABLED
@@ -64,6 +68,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             string? projectS3Path,
 
+            string? singleSignOnApplicationArn,
+
             Pulumi.AwsNative.SageMaker.DomainUnifiedStudioSettingsStudioWebPortalAccess? studioWebPortalAccess)
         {
             DomainAccountId = domainAccountId;
@@ -72,6 +78,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             EnvironmentId = environmentId;
             ProjectId = projectId;
             ProjectS3Path = projectS3Path;
+            SingleSignOnApplicationArn = singleSignOnApplicationArn;
             StudioWebPortalAccess = studioWebPortalAccess;
         }
     }

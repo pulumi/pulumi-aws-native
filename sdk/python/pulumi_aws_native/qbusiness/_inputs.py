@@ -35,6 +35,10 @@ __all__ = [
     'DataAccessorActionFilterConfigurationArgsDict',
     'DataAccessorAttributeFilterArgs',
     'DataAccessorAttributeFilterArgsDict',
+    'DataAccessorAuthenticationConfigurationPropertiesArgs',
+    'DataAccessorAuthenticationConfigurationPropertiesArgsDict',
+    'DataAccessorAuthenticationDetailArgs',
+    'DataAccessorAuthenticationDetailArgsDict',
     'DataAccessorDocumentAttributeValue0PropertiesArgs',
     'DataAccessorDocumentAttributeValue0PropertiesArgsDict',
     'DataAccessorDocumentAttributeValue1PropertiesArgs',
@@ -45,6 +49,8 @@ __all__ = [
     'DataAccessorDocumentAttributeValue3PropertiesArgsDict',
     'DataAccessorDocumentAttributeArgs',
     'DataAccessorDocumentAttributeArgsDict',
+    'DataAccessorIdcTrustedTokenIssuerConfigurationArgs',
+    'DataAccessorIdcTrustedTokenIssuerConfigurationArgsDict',
     'DataSourceAudioExtractionConfigurationArgs',
     'DataSourceAudioExtractionConfigurationArgsDict',
     'DataSourceDocumentAttributeConditionArgs',
@@ -77,6 +83,8 @@ __all__ = [
     'IndexCapacityConfigurationArgsDict',
     'IndexDocumentAttributeConfigurationArgs',
     'IndexDocumentAttributeConfigurationArgsDict',
+    'PermissionConditionArgs',
+    'PermissionConditionArgsDict',
     'PluginApiSchema0PropertiesArgs',
     'PluginApiSchema0PropertiesArgsDict',
     'PluginApiSchema1PropertiesArgs',
@@ -623,6 +631,108 @@ class DataAccessorAttributeFilterArgs:
 
 
 if not MYPY:
+    class DataAccessorAuthenticationConfigurationPropertiesArgsDict(TypedDict):
+        idc_trusted_token_issuer_configuration: pulumi.Input['DataAccessorIdcTrustedTokenIssuerConfigurationArgsDict']
+elif False:
+    DataAccessorAuthenticationConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAccessorAuthenticationConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 idc_trusted_token_issuer_configuration: pulumi.Input['DataAccessorIdcTrustedTokenIssuerConfigurationArgs']):
+        pulumi.set(__self__, "idc_trusted_token_issuer_configuration", idc_trusted_token_issuer_configuration)
+
+    @property
+    @pulumi.getter(name="idcTrustedTokenIssuerConfiguration")
+    def idc_trusted_token_issuer_configuration(self) -> pulumi.Input['DataAccessorIdcTrustedTokenIssuerConfigurationArgs']:
+        return pulumi.get(self, "idc_trusted_token_issuer_configuration")
+
+    @idc_trusted_token_issuer_configuration.setter
+    def idc_trusted_token_issuer_configuration(self, value: pulumi.Input['DataAccessorIdcTrustedTokenIssuerConfigurationArgs']):
+        pulumi.set(self, "idc_trusted_token_issuer_configuration", value)
+
+
+if not MYPY:
+    class DataAccessorAuthenticationDetailArgsDict(TypedDict):
+        authentication_type: pulumi.Input['DataAccessorAuthenticationType']
+        """
+        The type of authentication to use for the data accessor. This determines how the ISV authenticates when accessing data. You can use one of two authentication types:
+
+        - `AWS_IAM_IDC_TTI` - Authentication using IAM Identity Center Trusted Token Issuer (TTI). This authentication type allows the ISV to use a trusted token issuer to generate tokens for accessing the data.
+        - `AWS_IAM_IDC_AUTH_CODE` - Authentication using IAM Identity Center authorization code flow. This authentication type uses the standard OAuth 2.0 authorization code flow for authentication.
+        """
+        authentication_configuration: NotRequired[pulumi.Input['DataAccessorAuthenticationConfigurationPropertiesArgsDict']]
+        """
+        The specific authentication configuration based on the authentication type.
+        """
+        external_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        A list of external identifiers associated with this authentication configuration. These are used to correlate the data accessor with external systems.
+        """
+elif False:
+    DataAccessorAuthenticationDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAccessorAuthenticationDetailArgs:
+    def __init__(__self__, *,
+                 authentication_type: pulumi.Input['DataAccessorAuthenticationType'],
+                 authentication_configuration: Optional[pulumi.Input['DataAccessorAuthenticationConfigurationPropertiesArgs']] = None,
+                 external_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        """
+        :param pulumi.Input['DataAccessorAuthenticationType'] authentication_type: The type of authentication to use for the data accessor. This determines how the ISV authenticates when accessing data. You can use one of two authentication types:
+               
+               - `AWS_IAM_IDC_TTI` - Authentication using IAM Identity Center Trusted Token Issuer (TTI). This authentication type allows the ISV to use a trusted token issuer to generate tokens for accessing the data.
+               - `AWS_IAM_IDC_AUTH_CODE` - Authentication using IAM Identity Center authorization code flow. This authentication type uses the standard OAuth 2.0 authorization code flow for authentication.
+        :param pulumi.Input['DataAccessorAuthenticationConfigurationPropertiesArgs'] authentication_configuration: The specific authentication configuration based on the authentication type.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] external_ids: A list of external identifiers associated with this authentication configuration. These are used to correlate the data accessor with external systems.
+        """
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        if authentication_configuration is not None:
+            pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+        if external_ids is not None:
+            pulumi.set(__self__, "external_ids", external_ids)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> pulumi.Input['DataAccessorAuthenticationType']:
+        """
+        The type of authentication to use for the data accessor. This determines how the ISV authenticates when accessing data. You can use one of two authentication types:
+
+        - `AWS_IAM_IDC_TTI` - Authentication using IAM Identity Center Trusted Token Issuer (TTI). This authentication type allows the ISV to use a trusted token issuer to generate tokens for accessing the data.
+        - `AWS_IAM_IDC_AUTH_CODE` - Authentication using IAM Identity Center authorization code flow. This authentication type uses the standard OAuth 2.0 authorization code flow for authentication.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: pulumi.Input['DataAccessorAuthenticationType']):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="authenticationConfiguration")
+    def authentication_configuration(self) -> Optional[pulumi.Input['DataAccessorAuthenticationConfigurationPropertiesArgs']]:
+        """
+        The specific authentication configuration based on the authentication type.
+        """
+        return pulumi.get(self, "authentication_configuration")
+
+    @authentication_configuration.setter
+    def authentication_configuration(self, value: Optional[pulumi.Input['DataAccessorAuthenticationConfigurationPropertiesArgs']]):
+        pulumi.set(self, "authentication_configuration", value)
+
+    @property
+    @pulumi.getter(name="externalIds")
+    def external_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        A list of external identifiers associated with this authentication configuration. These are used to correlate the data accessor with external systems.
+        """
+        return pulumi.get(self, "external_ids")
+
+    @external_ids.setter
+    def external_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "external_ids", value)
+
+
+if not MYPY:
     class DataAccessorDocumentAttributeValue0PropertiesArgsDict(TypedDict):
         string_value: pulumi.Input[builtins.str]
 elif False:
@@ -758,6 +868,28 @@ class DataAccessorDocumentAttributeArgs:
     @value.setter
     def value(self, value: pulumi.Input[Union['DataAccessorDocumentAttributeValue0PropertiesArgs', 'DataAccessorDocumentAttributeValue1PropertiesArgs', 'DataAccessorDocumentAttributeValue2PropertiesArgs', 'DataAccessorDocumentAttributeValue3PropertiesArgs']]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class DataAccessorIdcTrustedTokenIssuerConfigurationArgsDict(TypedDict):
+        idc_trusted_token_issuer_arn: pulumi.Input[builtins.str]
+elif False:
+    DataAccessorIdcTrustedTokenIssuerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAccessorIdcTrustedTokenIssuerConfigurationArgs:
+    def __init__(__self__, *,
+                 idc_trusted_token_issuer_arn: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "idc_trusted_token_issuer_arn", idc_trusted_token_issuer_arn)
+
+    @property
+    @pulumi.getter(name="idcTrustedTokenIssuerArn")
+    def idc_trusted_token_issuer_arn(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "idc_trusted_token_issuer_arn")
+
+    @idc_trusted_token_issuer_arn.setter
+    def idc_trusted_token_issuer_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "idc_trusted_token_issuer_arn", value)
 
 
 if not MYPY:
@@ -1126,7 +1258,7 @@ if not MYPY:
         """
         lambda_arn: NotRequired[pulumi.Input[builtins.str]]
         """
-        The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
+        The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
         """
         role_arn: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -1150,7 +1282,7 @@ class DataSourceHookConfigurationArgs:
         :param pulumi.Input['DataSourceDocumentAttributeConditionArgs'] invocation_condition: The condition used for when a Lambda function should be invoked.
                
                For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
-        :param pulumi.Input[builtins.str] lambda_arn: The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
+        :param pulumi.Input[builtins.str] lambda_arn: The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
         :param pulumi.Input[builtins.str] s3_bucket_name: Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts) .
         """
@@ -1181,7 +1313,7 @@ class DataSourceHookConfigurationArgs:
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
+        The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
         """
         return pulumi.get(self, "lambda_arn")
 
@@ -1572,6 +1704,52 @@ class IndexDocumentAttributeConfigurationArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input['IndexAttributeType']]):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class PermissionConditionArgsDict(TypedDict):
+        condition_key: pulumi.Input[builtins.str]
+        condition_operator: pulumi.Input['PermissionConditionConditionOperator']
+        condition_values: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+elif False:
+    PermissionConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PermissionConditionArgs:
+    def __init__(__self__, *,
+                 condition_key: pulumi.Input[builtins.str],
+                 condition_operator: pulumi.Input['PermissionConditionConditionOperator'],
+                 condition_values: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(__self__, "condition_key", condition_key)
+        pulumi.set(__self__, "condition_operator", condition_operator)
+        pulumi.set(__self__, "condition_values", condition_values)
+
+    @property
+    @pulumi.getter(name="conditionKey")
+    def condition_key(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "condition_key")
+
+    @condition_key.setter
+    def condition_key(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "condition_key", value)
+
+    @property
+    @pulumi.getter(name="conditionOperator")
+    def condition_operator(self) -> pulumi.Input['PermissionConditionConditionOperator']:
+        return pulumi.get(self, "condition_operator")
+
+    @condition_operator.setter
+    def condition_operator(self, value: pulumi.Input['PermissionConditionConditionOperator']):
+        pulumi.set(self, "condition_operator", value)
+
+    @property
+    @pulumi.getter(name="conditionValues")
+    def condition_values(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        return pulumi.get(self, "condition_values")
+
+    @condition_values.setter
+    def condition_values(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "condition_values", value)
 
 
 if not MYPY:

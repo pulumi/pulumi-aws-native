@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetImageResult:
-    def __init__(__self__, arn=None, execution_role=None, image_id=None, image_uri=None, name=None):
+    def __init__(__self__, arn=None, execution_role=None, image_id=None, image_uri=None, name=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +40,9 @@ class GetImageResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -81,6 +84,14 @@ class GetImageResult:
         """
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        The tags associated with the image.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetImageResult(GetImageResult):
     # pylint: disable=using-constant-test
@@ -92,7 +103,8 @@ class AwaitableGetImageResult(GetImageResult):
             execution_role=self.execution_role,
             image_id=self.image_id,
             image_uri=self.image_uri,
-            name=self.name)
+            name=self.name,
+            tags=self.tags)
 
 
 def get_image(arn: Optional[builtins.str] = None,
@@ -113,7 +125,8 @@ def get_image(arn: Optional[builtins.str] = None,
         execution_role=pulumi.get(__ret__, 'execution_role'),
         image_id=pulumi.get(__ret__, 'image_id'),
         image_uri=pulumi.get(__ret__, 'image_uri'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_image_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
@@ -131,4 +144,5 @@ def get_image_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         execution_role=pulumi.get(__response__, 'execution_role'),
         image_id=pulumi.get(__response__, 'image_id'),
         image_uri=pulumi.get(__response__, 'image_uri'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

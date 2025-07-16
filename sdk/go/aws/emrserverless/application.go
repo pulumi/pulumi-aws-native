@@ -27,6 +27,8 @@ type Application struct {
 	AutoStartConfiguration ApplicationAutoStartConfigurationPtrOutput `pulumi:"autoStartConfiguration"`
 	// Configuration for Auto Stop of Application.
 	AutoStopConfiguration ApplicationAutoStopConfigurationPtrOutput `pulumi:"autoStopConfiguration"`
+	// The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+	IdentityCenterConfiguration ApplicationIdentityCenterConfigurationPtrOutput `pulumi:"identityCenterConfiguration"`
 	// The image configuration applied to all worker types.
 	ImageConfiguration ApplicationImageConfigurationInputPtrOutput `pulumi:"imageConfiguration"`
 	// Initial capacity initialized when an Application is started.
@@ -112,6 +114,8 @@ type applicationArgs struct {
 	AutoStartConfiguration *ApplicationAutoStartConfiguration `pulumi:"autoStartConfiguration"`
 	// Configuration for Auto Stop of Application.
 	AutoStopConfiguration *ApplicationAutoStopConfiguration `pulumi:"autoStopConfiguration"`
+	// The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+	IdentityCenterConfiguration *ApplicationIdentityCenterConfiguration `pulumi:"identityCenterConfiguration"`
 	// The image configuration applied to all worker types.
 	ImageConfiguration *ApplicationImageConfigurationInput `pulumi:"imageConfiguration"`
 	// Initial capacity initialized when an Application is started.
@@ -148,6 +152,8 @@ type ApplicationArgs struct {
 	AutoStartConfiguration ApplicationAutoStartConfigurationPtrInput
 	// Configuration for Auto Stop of Application.
 	AutoStopConfiguration ApplicationAutoStopConfigurationPtrInput
+	// The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+	IdentityCenterConfiguration ApplicationIdentityCenterConfigurationPtrInput
 	// The image configuration applied to all worker types.
 	ImageConfiguration ApplicationImageConfigurationInputPtrInput
 	// Initial capacity initialized when an Application is started.
@@ -236,6 +242,13 @@ func (o ApplicationOutput) AutoStartConfiguration() ApplicationAutoStartConfigur
 // Configuration for Auto Stop of Application.
 func (o ApplicationOutput) AutoStopConfiguration() ApplicationAutoStopConfigurationPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationAutoStopConfigurationPtrOutput { return v.AutoStopConfiguration }).(ApplicationAutoStopConfigurationPtrOutput)
+}
+
+// The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+func (o ApplicationOutput) IdentityCenterConfiguration() ApplicationIdentityCenterConfigurationPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationIdentityCenterConfigurationPtrOutput {
+		return v.IdentityCenterConfiguration
+	}).(ApplicationIdentityCenterConfigurationPtrOutput)
 }
 
 // The image configuration applied to all worker types.

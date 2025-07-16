@@ -147,6 +147,34 @@ namespace Pulumi.AwsNative.MediaPackageV2
     }
 
     [EnumType]
+    public readonly struct OriginEndpointDashCompactness : IEquatable<OriginEndpointDashCompactness>
+    {
+        private readonly string _value;
+
+        private OriginEndpointDashCompactness(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointDashCompactness Standard { get; } = new OriginEndpointDashCompactness("STANDARD");
+        public static OriginEndpointDashCompactness None { get; } = new OriginEndpointDashCompactness("NONE");
+
+        public static bool operator ==(OriginEndpointDashCompactness left, OriginEndpointDashCompactness right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointDashCompactness left, OriginEndpointDashCompactness right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointDashCompactness value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointDashCompactness other && Equals(other);
+        public bool Equals(OriginEndpointDashCompactness other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct OriginEndpointDashDrmSignaling : IEquatable<OriginEndpointDashDrmSignaling>
     {
         private readonly string _value;
@@ -206,6 +234,33 @@ namespace Pulumi.AwsNative.MediaPackageV2
     }
 
     [EnumType]
+    public readonly struct OriginEndpointDashProfile : IEquatable<OriginEndpointDashProfile>
+    {
+        private readonly string _value;
+
+        private OriginEndpointDashProfile(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointDashProfile DvbDash { get; } = new OriginEndpointDashProfile("DVB_DASH");
+
+        public static bool operator ==(OriginEndpointDashProfile left, OriginEndpointDashProfile right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointDashProfile left, OriginEndpointDashProfile right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointDashProfile value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointDashProfile other && Equals(other);
+        public bool Equals(OriginEndpointDashProfile other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct OriginEndpointDashSegmentTemplateFormat : IEquatable<OriginEndpointDashSegmentTemplateFormat>
     {
         private readonly string _value;
@@ -225,6 +280,34 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OriginEndpointDashSegmentTemplateFormat other && Equals(other);
         public bool Equals(OriginEndpointDashSegmentTemplateFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OriginEndpointDashTtmlProfile : IEquatable<OriginEndpointDashTtmlProfile>
+    {
+        private readonly string _value;
+
+        private OriginEndpointDashTtmlProfile(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointDashTtmlProfile Imsc1 { get; } = new OriginEndpointDashTtmlProfile("IMSC_1");
+        public static OriginEndpointDashTtmlProfile EbuTtD101 { get; } = new OriginEndpointDashTtmlProfile("EBU_TT_D_101");
+
+        public static bool operator ==(OriginEndpointDashTtmlProfile left, OriginEndpointDashTtmlProfile right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointDashTtmlProfile left, OriginEndpointDashTtmlProfile right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointDashTtmlProfile value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointDashTtmlProfile other && Equals(other);
+        public bool Equals(OriginEndpointDashTtmlProfile other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

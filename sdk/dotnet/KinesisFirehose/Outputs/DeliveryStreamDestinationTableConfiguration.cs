@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     {
         public readonly string DestinationDatabaseName;
         public readonly string DestinationTableName;
+        public readonly Outputs.DeliveryStreamDestinationTableConfigurationPartitionSpecProperties? PartitionSpec;
         public readonly string? S3ErrorOutputPrefix;
         public readonly ImmutableArray<string> UniqueKeys;
 
@@ -24,12 +25,15 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             string destinationTableName,
 
+            Outputs.DeliveryStreamDestinationTableConfigurationPartitionSpecProperties? partitionSpec,
+
             string? s3ErrorOutputPrefix,
 
             ImmutableArray<string> uniqueKeys)
         {
             DestinationDatabaseName = destinationDatabaseName;
             DestinationTableName = destinationTableName;
+            PartitionSpec = partitionSpec;
             S3ErrorOutputPrefix = s3ErrorOutputPrefix;
             UniqueKeys = uniqueKeys;
         }

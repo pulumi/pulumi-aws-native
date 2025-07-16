@@ -33,6 +33,10 @@ export interface GetImageRecipeResult {
      * The Amazon Resource Name (ARN) of the image recipe.
      */
     readonly arn?: string;
+    /**
+     * The tags of the image recipe.
+     */
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Resource schema for AWS::ImageBuilder::ImageRecipe

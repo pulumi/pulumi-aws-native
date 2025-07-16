@@ -422,16 +422,836 @@ func (o TableBucketUnreferencedFileRemovalPtrOutput) UnreferencedDays() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// Settings governing the Compaction maintenance action. Contains details about the compaction settings for an Iceberg table.
+type TableCompaction struct {
+	// Indicates whether the Compaction maintenance action is enabled.
+	Status *TableCompactionStatus `pulumi:"status"`
+	// The target file size for the table in MB.
+	TargetFileSizeMb *int `pulumi:"targetFileSizeMb"`
+}
+
+// TableCompactionInput is an input type that accepts TableCompactionArgs and TableCompactionOutput values.
+// You can construct a concrete instance of `TableCompactionInput` via:
+//
+//	TableCompactionArgs{...}
+type TableCompactionInput interface {
+	pulumi.Input
+
+	ToTableCompactionOutput() TableCompactionOutput
+	ToTableCompactionOutputWithContext(context.Context) TableCompactionOutput
+}
+
+// Settings governing the Compaction maintenance action. Contains details about the compaction settings for an Iceberg table.
+type TableCompactionArgs struct {
+	// Indicates whether the Compaction maintenance action is enabled.
+	Status TableCompactionStatusPtrInput `pulumi:"status"`
+	// The target file size for the table in MB.
+	TargetFileSizeMb pulumi.IntPtrInput `pulumi:"targetFileSizeMb"`
+}
+
+func (TableCompactionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableCompaction)(nil)).Elem()
+}
+
+func (i TableCompactionArgs) ToTableCompactionOutput() TableCompactionOutput {
+	return i.ToTableCompactionOutputWithContext(context.Background())
+}
+
+func (i TableCompactionArgs) ToTableCompactionOutputWithContext(ctx context.Context) TableCompactionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableCompactionOutput)
+}
+
+func (i TableCompactionArgs) ToTableCompactionPtrOutput() TableCompactionPtrOutput {
+	return i.ToTableCompactionPtrOutputWithContext(context.Background())
+}
+
+func (i TableCompactionArgs) ToTableCompactionPtrOutputWithContext(ctx context.Context) TableCompactionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableCompactionOutput).ToTableCompactionPtrOutputWithContext(ctx)
+}
+
+// TableCompactionPtrInput is an input type that accepts TableCompactionArgs, TableCompactionPtr and TableCompactionPtrOutput values.
+// You can construct a concrete instance of `TableCompactionPtrInput` via:
+//
+//	        TableCompactionArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableCompactionPtrInput interface {
+	pulumi.Input
+
+	ToTableCompactionPtrOutput() TableCompactionPtrOutput
+	ToTableCompactionPtrOutputWithContext(context.Context) TableCompactionPtrOutput
+}
+
+type tableCompactionPtrType TableCompactionArgs
+
+func TableCompactionPtr(v *TableCompactionArgs) TableCompactionPtrInput {
+	return (*tableCompactionPtrType)(v)
+}
+
+func (*tableCompactionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableCompaction)(nil)).Elem()
+}
+
+func (i *tableCompactionPtrType) ToTableCompactionPtrOutput() TableCompactionPtrOutput {
+	return i.ToTableCompactionPtrOutputWithContext(context.Background())
+}
+
+func (i *tableCompactionPtrType) ToTableCompactionPtrOutputWithContext(ctx context.Context) TableCompactionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableCompactionPtrOutput)
+}
+
+// Settings governing the Compaction maintenance action. Contains details about the compaction settings for an Iceberg table.
+type TableCompactionOutput struct{ *pulumi.OutputState }
+
+func (TableCompactionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableCompaction)(nil)).Elem()
+}
+
+func (o TableCompactionOutput) ToTableCompactionOutput() TableCompactionOutput {
+	return o
+}
+
+func (o TableCompactionOutput) ToTableCompactionOutputWithContext(ctx context.Context) TableCompactionOutput {
+	return o
+}
+
+func (o TableCompactionOutput) ToTableCompactionPtrOutput() TableCompactionPtrOutput {
+	return o.ToTableCompactionPtrOutputWithContext(context.Background())
+}
+
+func (o TableCompactionOutput) ToTableCompactionPtrOutputWithContext(ctx context.Context) TableCompactionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableCompaction) *TableCompaction {
+		return &v
+	}).(TableCompactionPtrOutput)
+}
+
+// Indicates whether the Compaction maintenance action is enabled.
+func (o TableCompactionOutput) Status() TableCompactionStatusPtrOutput {
+	return o.ApplyT(func(v TableCompaction) *TableCompactionStatus { return v.Status }).(TableCompactionStatusPtrOutput)
+}
+
+// The target file size for the table in MB.
+func (o TableCompactionOutput) TargetFileSizeMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableCompaction) *int { return v.TargetFileSizeMb }).(pulumi.IntPtrOutput)
+}
+
+type TableCompactionPtrOutput struct{ *pulumi.OutputState }
+
+func (TableCompactionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableCompaction)(nil)).Elem()
+}
+
+func (o TableCompactionPtrOutput) ToTableCompactionPtrOutput() TableCompactionPtrOutput {
+	return o
+}
+
+func (o TableCompactionPtrOutput) ToTableCompactionPtrOutputWithContext(ctx context.Context) TableCompactionPtrOutput {
+	return o
+}
+
+func (o TableCompactionPtrOutput) Elem() TableCompactionOutput {
+	return o.ApplyT(func(v *TableCompaction) TableCompaction {
+		if v != nil {
+			return *v
+		}
+		var ret TableCompaction
+		return ret
+	}).(TableCompactionOutput)
+}
+
+// Indicates whether the Compaction maintenance action is enabled.
+func (o TableCompactionPtrOutput) Status() TableCompactionStatusPtrOutput {
+	return o.ApplyT(func(v *TableCompaction) *TableCompactionStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(TableCompactionStatusPtrOutput)
+}
+
+// The target file size for the table in MB.
+func (o TableCompactionPtrOutput) TargetFileSizeMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableCompaction) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetFileSizeMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// Contains details about the metadata for an Iceberg table.
+type TableIcebergMetadata struct {
+	IcebergSchema TableIcebergSchema `pulumi:"icebergSchema"`
+}
+
+// TableIcebergMetadataInput is an input type that accepts TableIcebergMetadataArgs and TableIcebergMetadataOutput values.
+// You can construct a concrete instance of `TableIcebergMetadataInput` via:
+//
+//	TableIcebergMetadataArgs{...}
+type TableIcebergMetadataInput interface {
+	pulumi.Input
+
+	ToTableIcebergMetadataOutput() TableIcebergMetadataOutput
+	ToTableIcebergMetadataOutputWithContext(context.Context) TableIcebergMetadataOutput
+}
+
+// Contains details about the metadata for an Iceberg table.
+type TableIcebergMetadataArgs struct {
+	IcebergSchema TableIcebergSchemaInput `pulumi:"icebergSchema"`
+}
+
+func (TableIcebergMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergMetadata)(nil)).Elem()
+}
+
+func (i TableIcebergMetadataArgs) ToTableIcebergMetadataOutput() TableIcebergMetadataOutput {
+	return i.ToTableIcebergMetadataOutputWithContext(context.Background())
+}
+
+func (i TableIcebergMetadataArgs) ToTableIcebergMetadataOutputWithContext(ctx context.Context) TableIcebergMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergMetadataOutput)
+}
+
+func (i TableIcebergMetadataArgs) ToTableIcebergMetadataPtrOutput() TableIcebergMetadataPtrOutput {
+	return i.ToTableIcebergMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i TableIcebergMetadataArgs) ToTableIcebergMetadataPtrOutputWithContext(ctx context.Context) TableIcebergMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergMetadataOutput).ToTableIcebergMetadataPtrOutputWithContext(ctx)
+}
+
+// TableIcebergMetadataPtrInput is an input type that accepts TableIcebergMetadataArgs, TableIcebergMetadataPtr and TableIcebergMetadataPtrOutput values.
+// You can construct a concrete instance of `TableIcebergMetadataPtrInput` via:
+//
+//	        TableIcebergMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableIcebergMetadataPtrInput interface {
+	pulumi.Input
+
+	ToTableIcebergMetadataPtrOutput() TableIcebergMetadataPtrOutput
+	ToTableIcebergMetadataPtrOutputWithContext(context.Context) TableIcebergMetadataPtrOutput
+}
+
+type tableIcebergMetadataPtrType TableIcebergMetadataArgs
+
+func TableIcebergMetadataPtr(v *TableIcebergMetadataArgs) TableIcebergMetadataPtrInput {
+	return (*tableIcebergMetadataPtrType)(v)
+}
+
+func (*tableIcebergMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergMetadata)(nil)).Elem()
+}
+
+func (i *tableIcebergMetadataPtrType) ToTableIcebergMetadataPtrOutput() TableIcebergMetadataPtrOutput {
+	return i.ToTableIcebergMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *tableIcebergMetadataPtrType) ToTableIcebergMetadataPtrOutputWithContext(ctx context.Context) TableIcebergMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergMetadataPtrOutput)
+}
+
+// Contains details about the metadata for an Iceberg table.
+type TableIcebergMetadataOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergMetadata)(nil)).Elem()
+}
+
+func (o TableIcebergMetadataOutput) ToTableIcebergMetadataOutput() TableIcebergMetadataOutput {
+	return o
+}
+
+func (o TableIcebergMetadataOutput) ToTableIcebergMetadataOutputWithContext(ctx context.Context) TableIcebergMetadataOutput {
+	return o
+}
+
+func (o TableIcebergMetadataOutput) ToTableIcebergMetadataPtrOutput() TableIcebergMetadataPtrOutput {
+	return o.ToTableIcebergMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergMetadataOutput) ToTableIcebergMetadataPtrOutputWithContext(ctx context.Context) TableIcebergMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableIcebergMetadata) *TableIcebergMetadata {
+		return &v
+	}).(TableIcebergMetadataPtrOutput)
+}
+
+func (o TableIcebergMetadataOutput) IcebergSchema() TableIcebergSchemaOutput {
+	return o.ApplyT(func(v TableIcebergMetadata) TableIcebergSchema { return v.IcebergSchema }).(TableIcebergSchemaOutput)
+}
+
+type TableIcebergMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergMetadata)(nil)).Elem()
+}
+
+func (o TableIcebergMetadataPtrOutput) ToTableIcebergMetadataPtrOutput() TableIcebergMetadataPtrOutput {
+	return o
+}
+
+func (o TableIcebergMetadataPtrOutput) ToTableIcebergMetadataPtrOutputWithContext(ctx context.Context) TableIcebergMetadataPtrOutput {
+	return o
+}
+
+func (o TableIcebergMetadataPtrOutput) Elem() TableIcebergMetadataOutput {
+	return o.ApplyT(func(v *TableIcebergMetadata) TableIcebergMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret TableIcebergMetadata
+		return ret
+	}).(TableIcebergMetadataOutput)
+}
+
+func (o TableIcebergMetadataPtrOutput) IcebergSchema() TableIcebergSchemaPtrOutput {
+	return o.ApplyT(func(v *TableIcebergMetadata) *TableIcebergSchema {
+		if v == nil {
+			return nil
+		}
+		return &v.IcebergSchema
+	}).(TableIcebergSchemaPtrOutput)
+}
+
+// Contains details about the schema for an Iceberg table
+type TableIcebergSchema struct {
+	SchemaFieldList []TableSchemaField `pulumi:"schemaFieldList"`
+}
+
+// TableIcebergSchemaInput is an input type that accepts TableIcebergSchemaArgs and TableIcebergSchemaOutput values.
+// You can construct a concrete instance of `TableIcebergSchemaInput` via:
+//
+//	TableIcebergSchemaArgs{...}
+type TableIcebergSchemaInput interface {
+	pulumi.Input
+
+	ToTableIcebergSchemaOutput() TableIcebergSchemaOutput
+	ToTableIcebergSchemaOutputWithContext(context.Context) TableIcebergSchemaOutput
+}
+
+// Contains details about the schema for an Iceberg table
+type TableIcebergSchemaArgs struct {
+	SchemaFieldList TableSchemaFieldArrayInput `pulumi:"schemaFieldList"`
+}
+
+func (TableIcebergSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSchema)(nil)).Elem()
+}
+
+func (i TableIcebergSchemaArgs) ToTableIcebergSchemaOutput() TableIcebergSchemaOutput {
+	return i.ToTableIcebergSchemaOutputWithContext(context.Background())
+}
+
+func (i TableIcebergSchemaArgs) ToTableIcebergSchemaOutputWithContext(ctx context.Context) TableIcebergSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSchemaOutput)
+}
+
+func (i TableIcebergSchemaArgs) ToTableIcebergSchemaPtrOutput() TableIcebergSchemaPtrOutput {
+	return i.ToTableIcebergSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i TableIcebergSchemaArgs) ToTableIcebergSchemaPtrOutputWithContext(ctx context.Context) TableIcebergSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSchemaOutput).ToTableIcebergSchemaPtrOutputWithContext(ctx)
+}
+
+// TableIcebergSchemaPtrInput is an input type that accepts TableIcebergSchemaArgs, TableIcebergSchemaPtr and TableIcebergSchemaPtrOutput values.
+// You can construct a concrete instance of `TableIcebergSchemaPtrInput` via:
+//
+//	        TableIcebergSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableIcebergSchemaPtrInput interface {
+	pulumi.Input
+
+	ToTableIcebergSchemaPtrOutput() TableIcebergSchemaPtrOutput
+	ToTableIcebergSchemaPtrOutputWithContext(context.Context) TableIcebergSchemaPtrOutput
+}
+
+type tableIcebergSchemaPtrType TableIcebergSchemaArgs
+
+func TableIcebergSchemaPtr(v *TableIcebergSchemaArgs) TableIcebergSchemaPtrInput {
+	return (*tableIcebergSchemaPtrType)(v)
+}
+
+func (*tableIcebergSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergSchema)(nil)).Elem()
+}
+
+func (i *tableIcebergSchemaPtrType) ToTableIcebergSchemaPtrOutput() TableIcebergSchemaPtrOutput {
+	return i.ToTableIcebergSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *tableIcebergSchemaPtrType) ToTableIcebergSchemaPtrOutputWithContext(ctx context.Context) TableIcebergSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSchemaPtrOutput)
+}
+
+// Contains details about the schema for an Iceberg table
+type TableIcebergSchemaOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSchema)(nil)).Elem()
+}
+
+func (o TableIcebergSchemaOutput) ToTableIcebergSchemaOutput() TableIcebergSchemaOutput {
+	return o
+}
+
+func (o TableIcebergSchemaOutput) ToTableIcebergSchemaOutputWithContext(ctx context.Context) TableIcebergSchemaOutput {
+	return o
+}
+
+func (o TableIcebergSchemaOutput) ToTableIcebergSchemaPtrOutput() TableIcebergSchemaPtrOutput {
+	return o.ToTableIcebergSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergSchemaOutput) ToTableIcebergSchemaPtrOutputWithContext(ctx context.Context) TableIcebergSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableIcebergSchema) *TableIcebergSchema {
+		return &v
+	}).(TableIcebergSchemaPtrOutput)
+}
+
+func (o TableIcebergSchemaOutput) SchemaFieldList() TableSchemaFieldArrayOutput {
+	return o.ApplyT(func(v TableIcebergSchema) []TableSchemaField { return v.SchemaFieldList }).(TableSchemaFieldArrayOutput)
+}
+
+type TableIcebergSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergSchema)(nil)).Elem()
+}
+
+func (o TableIcebergSchemaPtrOutput) ToTableIcebergSchemaPtrOutput() TableIcebergSchemaPtrOutput {
+	return o
+}
+
+func (o TableIcebergSchemaPtrOutput) ToTableIcebergSchemaPtrOutputWithContext(ctx context.Context) TableIcebergSchemaPtrOutput {
+	return o
+}
+
+func (o TableIcebergSchemaPtrOutput) Elem() TableIcebergSchemaOutput {
+	return o.ApplyT(func(v *TableIcebergSchema) TableIcebergSchema {
+		if v != nil {
+			return *v
+		}
+		var ret TableIcebergSchema
+		return ret
+	}).(TableIcebergSchemaOutput)
+}
+
+func (o TableIcebergSchemaPtrOutput) SchemaFieldList() TableSchemaFieldArrayOutput {
+	return o.ApplyT(func(v *TableIcebergSchema) []TableSchemaField {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaFieldList
+	}).(TableSchemaFieldArrayOutput)
+}
+
+// A policy document containing permissions to add to the specified table. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+type TablePolicyResourcePolicy struct {
+}
+
+// TablePolicyResourcePolicyInput is an input type that accepts TablePolicyResourcePolicyArgs and TablePolicyResourcePolicyOutput values.
+// You can construct a concrete instance of `TablePolicyResourcePolicyInput` via:
+//
+//	TablePolicyResourcePolicyArgs{...}
+type TablePolicyResourcePolicyInput interface {
+	pulumi.Input
+
+	ToTablePolicyResourcePolicyOutput() TablePolicyResourcePolicyOutput
+	ToTablePolicyResourcePolicyOutputWithContext(context.Context) TablePolicyResourcePolicyOutput
+}
+
+// A policy document containing permissions to add to the specified table. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+type TablePolicyResourcePolicyArgs struct {
+}
+
+func (TablePolicyResourcePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablePolicyResourcePolicy)(nil)).Elem()
+}
+
+func (i TablePolicyResourcePolicyArgs) ToTablePolicyResourcePolicyOutput() TablePolicyResourcePolicyOutput {
+	return i.ToTablePolicyResourcePolicyOutputWithContext(context.Background())
+}
+
+func (i TablePolicyResourcePolicyArgs) ToTablePolicyResourcePolicyOutputWithContext(ctx context.Context) TablePolicyResourcePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablePolicyResourcePolicyOutput)
+}
+
+// A policy document containing permissions to add to the specified table. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+type TablePolicyResourcePolicyOutput struct{ *pulumi.OutputState }
+
+func (TablePolicyResourcePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablePolicyResourcePolicy)(nil)).Elem()
+}
+
+func (o TablePolicyResourcePolicyOutput) ToTablePolicyResourcePolicyOutput() TablePolicyResourcePolicyOutput {
+	return o
+}
+
+func (o TablePolicyResourcePolicyOutput) ToTablePolicyResourcePolicyOutputWithContext(ctx context.Context) TablePolicyResourcePolicyOutput {
+	return o
+}
+
+type TablePolicyResourcePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (TablePolicyResourcePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablePolicyResourcePolicy)(nil)).Elem()
+}
+
+func (o TablePolicyResourcePolicyPtrOutput) ToTablePolicyResourcePolicyPtrOutput() TablePolicyResourcePolicyPtrOutput {
+	return o
+}
+
+func (o TablePolicyResourcePolicyPtrOutput) ToTablePolicyResourcePolicyPtrOutputWithContext(ctx context.Context) TablePolicyResourcePolicyPtrOutput {
+	return o
+}
+
+func (o TablePolicyResourcePolicyPtrOutput) Elem() TablePolicyResourcePolicyOutput {
+	return o.ApplyT(func(v *TablePolicyResourcePolicy) TablePolicyResourcePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret TablePolicyResourcePolicy
+		return ret
+	}).(TablePolicyResourcePolicyOutput)
+}
+
+// Contains details about the schema for an Iceberg table
+type TableSchemaField struct {
+	// The name of the field
+	Name string `pulumi:"name"`
+	// A Boolean value that specifies whether values are required for each row in this field
+	Required *bool `pulumi:"required"`
+	// The field type
+	Type string `pulumi:"type"`
+}
+
+// TableSchemaFieldInput is an input type that accepts TableSchemaFieldArgs and TableSchemaFieldOutput values.
+// You can construct a concrete instance of `TableSchemaFieldInput` via:
+//
+//	TableSchemaFieldArgs{...}
+type TableSchemaFieldInput interface {
+	pulumi.Input
+
+	ToTableSchemaFieldOutput() TableSchemaFieldOutput
+	ToTableSchemaFieldOutputWithContext(context.Context) TableSchemaFieldOutput
+}
+
+// Contains details about the schema for an Iceberg table
+type TableSchemaFieldArgs struct {
+	// The name of the field
+	Name pulumi.StringInput `pulumi:"name"`
+	// A Boolean value that specifies whether values are required for each row in this field
+	Required pulumi.BoolPtrInput `pulumi:"required"`
+	// The field type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TableSchemaFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchemaField)(nil)).Elem()
+}
+
+func (i TableSchemaFieldArgs) ToTableSchemaFieldOutput() TableSchemaFieldOutput {
+	return i.ToTableSchemaFieldOutputWithContext(context.Background())
+}
+
+func (i TableSchemaFieldArgs) ToTableSchemaFieldOutputWithContext(ctx context.Context) TableSchemaFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaFieldOutput)
+}
+
+// TableSchemaFieldArrayInput is an input type that accepts TableSchemaFieldArray and TableSchemaFieldArrayOutput values.
+// You can construct a concrete instance of `TableSchemaFieldArrayInput` via:
+//
+//	TableSchemaFieldArray{ TableSchemaFieldArgs{...} }
+type TableSchemaFieldArrayInput interface {
+	pulumi.Input
+
+	ToTableSchemaFieldArrayOutput() TableSchemaFieldArrayOutput
+	ToTableSchemaFieldArrayOutputWithContext(context.Context) TableSchemaFieldArrayOutput
+}
+
+type TableSchemaFieldArray []TableSchemaFieldInput
+
+func (TableSchemaFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableSchemaField)(nil)).Elem()
+}
+
+func (i TableSchemaFieldArray) ToTableSchemaFieldArrayOutput() TableSchemaFieldArrayOutput {
+	return i.ToTableSchemaFieldArrayOutputWithContext(context.Background())
+}
+
+func (i TableSchemaFieldArray) ToTableSchemaFieldArrayOutputWithContext(ctx context.Context) TableSchemaFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaFieldArrayOutput)
+}
+
+// Contains details about the schema for an Iceberg table
+type TableSchemaFieldOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchemaField)(nil)).Elem()
+}
+
+func (o TableSchemaFieldOutput) ToTableSchemaFieldOutput() TableSchemaFieldOutput {
+	return o
+}
+
+func (o TableSchemaFieldOutput) ToTableSchemaFieldOutputWithContext(ctx context.Context) TableSchemaFieldOutput {
+	return o
+}
+
+// The name of the field
+func (o TableSchemaFieldOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TableSchemaField) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A Boolean value that specifies whether values are required for each row in this field
+func (o TableSchemaFieldOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TableSchemaField) *bool { return v.Required }).(pulumi.BoolPtrOutput)
+}
+
+// The field type
+func (o TableSchemaFieldOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TableSchemaField) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type TableSchemaFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableSchemaField)(nil)).Elem()
+}
+
+func (o TableSchemaFieldArrayOutput) ToTableSchemaFieldArrayOutput() TableSchemaFieldArrayOutput {
+	return o
+}
+
+func (o TableSchemaFieldArrayOutput) ToTableSchemaFieldArrayOutputWithContext(ctx context.Context) TableSchemaFieldArrayOutput {
+	return o
+}
+
+func (o TableSchemaFieldArrayOutput) Index(i pulumi.IntInput) TableSchemaFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableSchemaField {
+		return vs[0].([]TableSchemaField)[vs[1].(int)]
+	}).(TableSchemaFieldOutput)
+}
+
+// Contains details about the snapshot management settings for an Iceberg table. A snapshot is expired when it exceeds MinSnapshotsToKeep and MaxSnapshotAgeHours.
+type TableSnapshotManagement struct {
+	// The maximum age of a snapshot before it can be expired.
+	MaxSnapshotAgeHours *int `pulumi:"maxSnapshotAgeHours"`
+	// The minimum number of snapshots to keep.
+	MinSnapshotsToKeep *int `pulumi:"minSnapshotsToKeep"`
+	// Indicates whether the SnapshotManagement maintenance action is enabled.
+	Status *TableSnapshotManagementStatus `pulumi:"status"`
+}
+
+// TableSnapshotManagementInput is an input type that accepts TableSnapshotManagementArgs and TableSnapshotManagementOutput values.
+// You can construct a concrete instance of `TableSnapshotManagementInput` via:
+//
+//	TableSnapshotManagementArgs{...}
+type TableSnapshotManagementInput interface {
+	pulumi.Input
+
+	ToTableSnapshotManagementOutput() TableSnapshotManagementOutput
+	ToTableSnapshotManagementOutputWithContext(context.Context) TableSnapshotManagementOutput
+}
+
+// Contains details about the snapshot management settings for an Iceberg table. A snapshot is expired when it exceeds MinSnapshotsToKeep and MaxSnapshotAgeHours.
+type TableSnapshotManagementArgs struct {
+	// The maximum age of a snapshot before it can be expired.
+	MaxSnapshotAgeHours pulumi.IntPtrInput `pulumi:"maxSnapshotAgeHours"`
+	// The minimum number of snapshots to keep.
+	MinSnapshotsToKeep pulumi.IntPtrInput `pulumi:"minSnapshotsToKeep"`
+	// Indicates whether the SnapshotManagement maintenance action is enabled.
+	Status TableSnapshotManagementStatusPtrInput `pulumi:"status"`
+}
+
+func (TableSnapshotManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSnapshotManagement)(nil)).Elem()
+}
+
+func (i TableSnapshotManagementArgs) ToTableSnapshotManagementOutput() TableSnapshotManagementOutput {
+	return i.ToTableSnapshotManagementOutputWithContext(context.Background())
+}
+
+func (i TableSnapshotManagementArgs) ToTableSnapshotManagementOutputWithContext(ctx context.Context) TableSnapshotManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSnapshotManagementOutput)
+}
+
+func (i TableSnapshotManagementArgs) ToTableSnapshotManagementPtrOutput() TableSnapshotManagementPtrOutput {
+	return i.ToTableSnapshotManagementPtrOutputWithContext(context.Background())
+}
+
+func (i TableSnapshotManagementArgs) ToTableSnapshotManagementPtrOutputWithContext(ctx context.Context) TableSnapshotManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSnapshotManagementOutput).ToTableSnapshotManagementPtrOutputWithContext(ctx)
+}
+
+// TableSnapshotManagementPtrInput is an input type that accepts TableSnapshotManagementArgs, TableSnapshotManagementPtr and TableSnapshotManagementPtrOutput values.
+// You can construct a concrete instance of `TableSnapshotManagementPtrInput` via:
+//
+//	        TableSnapshotManagementArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableSnapshotManagementPtrInput interface {
+	pulumi.Input
+
+	ToTableSnapshotManagementPtrOutput() TableSnapshotManagementPtrOutput
+	ToTableSnapshotManagementPtrOutputWithContext(context.Context) TableSnapshotManagementPtrOutput
+}
+
+type tableSnapshotManagementPtrType TableSnapshotManagementArgs
+
+func TableSnapshotManagementPtr(v *TableSnapshotManagementArgs) TableSnapshotManagementPtrInput {
+	return (*tableSnapshotManagementPtrType)(v)
+}
+
+func (*tableSnapshotManagementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSnapshotManagement)(nil)).Elem()
+}
+
+func (i *tableSnapshotManagementPtrType) ToTableSnapshotManagementPtrOutput() TableSnapshotManagementPtrOutput {
+	return i.ToTableSnapshotManagementPtrOutputWithContext(context.Background())
+}
+
+func (i *tableSnapshotManagementPtrType) ToTableSnapshotManagementPtrOutputWithContext(ctx context.Context) TableSnapshotManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSnapshotManagementPtrOutput)
+}
+
+// Contains details about the snapshot management settings for an Iceberg table. A snapshot is expired when it exceeds MinSnapshotsToKeep and MaxSnapshotAgeHours.
+type TableSnapshotManagementOutput struct{ *pulumi.OutputState }
+
+func (TableSnapshotManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSnapshotManagement)(nil)).Elem()
+}
+
+func (o TableSnapshotManagementOutput) ToTableSnapshotManagementOutput() TableSnapshotManagementOutput {
+	return o
+}
+
+func (o TableSnapshotManagementOutput) ToTableSnapshotManagementOutputWithContext(ctx context.Context) TableSnapshotManagementOutput {
+	return o
+}
+
+func (o TableSnapshotManagementOutput) ToTableSnapshotManagementPtrOutput() TableSnapshotManagementPtrOutput {
+	return o.ToTableSnapshotManagementPtrOutputWithContext(context.Background())
+}
+
+func (o TableSnapshotManagementOutput) ToTableSnapshotManagementPtrOutputWithContext(ctx context.Context) TableSnapshotManagementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableSnapshotManagement) *TableSnapshotManagement {
+		return &v
+	}).(TableSnapshotManagementPtrOutput)
+}
+
+// The maximum age of a snapshot before it can be expired.
+func (o TableSnapshotManagementOutput) MaxSnapshotAgeHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableSnapshotManagement) *int { return v.MaxSnapshotAgeHours }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of snapshots to keep.
+func (o TableSnapshotManagementOutput) MinSnapshotsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableSnapshotManagement) *int { return v.MinSnapshotsToKeep }).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether the SnapshotManagement maintenance action is enabled.
+func (o TableSnapshotManagementOutput) Status() TableSnapshotManagementStatusPtrOutput {
+	return o.ApplyT(func(v TableSnapshotManagement) *TableSnapshotManagementStatus { return v.Status }).(TableSnapshotManagementStatusPtrOutput)
+}
+
+type TableSnapshotManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (TableSnapshotManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSnapshotManagement)(nil)).Elem()
+}
+
+func (o TableSnapshotManagementPtrOutput) ToTableSnapshotManagementPtrOutput() TableSnapshotManagementPtrOutput {
+	return o
+}
+
+func (o TableSnapshotManagementPtrOutput) ToTableSnapshotManagementPtrOutputWithContext(ctx context.Context) TableSnapshotManagementPtrOutput {
+	return o
+}
+
+func (o TableSnapshotManagementPtrOutput) Elem() TableSnapshotManagementOutput {
+	return o.ApplyT(func(v *TableSnapshotManagement) TableSnapshotManagement {
+		if v != nil {
+			return *v
+		}
+		var ret TableSnapshotManagement
+		return ret
+	}).(TableSnapshotManagementOutput)
+}
+
+// The maximum age of a snapshot before it can be expired.
+func (o TableSnapshotManagementPtrOutput) MaxSnapshotAgeHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableSnapshotManagement) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSnapshotAgeHours
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of snapshots to keep.
+func (o TableSnapshotManagementPtrOutput) MinSnapshotsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableSnapshotManagement) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinSnapshotsToKeep
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether the SnapshotManagement maintenance action is enabled.
+func (o TableSnapshotManagementPtrOutput) Status() TableSnapshotManagementStatusPtrOutput {
+	return o.ApplyT(func(v *TableSnapshotManagement) *TableSnapshotManagementStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(TableSnapshotManagementStatusPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationInput)(nil)).Elem(), TableBucketEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationPtrInput)(nil)).Elem(), TableBucketEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketPolicyResourcePolicyInput)(nil)).Elem(), TableBucketPolicyResourcePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalPtrInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableCompactionInput)(nil)).Elem(), TableCompactionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableCompactionPtrInput)(nil)).Elem(), TableCompactionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergMetadataInput)(nil)).Elem(), TableIcebergMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergMetadataPtrInput)(nil)).Elem(), TableIcebergMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSchemaInput)(nil)).Elem(), TableIcebergSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSchemaPtrInput)(nil)).Elem(), TableIcebergSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablePolicyResourcePolicyInput)(nil)).Elem(), TablePolicyResourcePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaFieldInput)(nil)).Elem(), TableSchemaFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaFieldArrayInput)(nil)).Elem(), TableSchemaFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSnapshotManagementInput)(nil)).Elem(), TableSnapshotManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSnapshotManagementPtrInput)(nil)).Elem(), TableSnapshotManagementArgs{})
 	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketPolicyResourcePolicyOutput{})
 	pulumi.RegisterOutputType(TableBucketPolicyResourcePolicyPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketUnreferencedFileRemovalOutput{})
 	pulumi.RegisterOutputType(TableBucketUnreferencedFileRemovalPtrOutput{})
+	pulumi.RegisterOutputType(TableCompactionOutput{})
+	pulumi.RegisterOutputType(TableCompactionPtrOutput{})
+	pulumi.RegisterOutputType(TableIcebergMetadataOutput{})
+	pulumi.RegisterOutputType(TableIcebergMetadataPtrOutput{})
+	pulumi.RegisterOutputType(TableIcebergSchemaOutput{})
+	pulumi.RegisterOutputType(TableIcebergSchemaPtrOutput{})
+	pulumi.RegisterOutputType(TablePolicyResourcePolicyOutput{})
+	pulumi.RegisterOutputType(TablePolicyResourcePolicyPtrOutput{})
+	pulumi.RegisterOutputType(TableSchemaFieldOutput{})
+	pulumi.RegisterOutputType(TableSchemaFieldArrayOutput{})
+	pulumi.RegisterOutputType(TableSnapshotManagementOutput{})
+	pulumi.RegisterOutputType(TableSnapshotManagementPtrOutput{})
 }

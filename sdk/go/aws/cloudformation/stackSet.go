@@ -31,7 +31,7 @@ type StackSet struct {
 	ExecutionRoleName pulumi.StringPtrOutput `pulumi:"executionRoleName"`
 	// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
 	ManagedExecution ManagedExecutionPropertiesPtrOutput `pulumi:"managedExecution"`
-	// The user-specified preferences for how CloudFormation performs a stack set operation.
+	// The user-specified preferences for how CloudFormation performs a StackSet operation.
 	OperationPreferences StackSetOperationPreferencesPtrOutput `pulumi:"operationPreferences"`
 	// The input parameters for the stack set template.
 	Parameters StackSetParameterArrayOutput `pulumi:"parameters"`
@@ -113,7 +113,7 @@ type stackSetArgs struct {
 	ExecutionRoleName *string `pulumi:"executionRoleName"`
 	// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
 	ManagedExecution *ManagedExecutionProperties `pulumi:"managedExecution"`
-	// The user-specified preferences for how CloudFormation performs a stack set operation.
+	// The user-specified preferences for how CloudFormation performs a StackSet operation.
 	OperationPreferences *StackSetOperationPreferences `pulumi:"operationPreferences"`
 	// The input parameters for the stack set template.
 	Parameters []StackSetParameter `pulumi:"parameters"`
@@ -147,7 +147,7 @@ type StackSetArgs struct {
 	ExecutionRoleName pulumi.StringPtrInput
 	// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
 	ManagedExecution ManagedExecutionPropertiesPtrInput
-	// The user-specified preferences for how CloudFormation performs a stack set operation.
+	// The user-specified preferences for how CloudFormation performs a StackSet operation.
 	OperationPreferences StackSetOperationPreferencesPtrInput
 	// The input parameters for the stack set template.
 	Parameters StackSetParameterArrayInput
@@ -237,7 +237,7 @@ func (o StackSetOutput) ManagedExecution() ManagedExecutionPropertiesPtrOutput {
 	return o.ApplyT(func(v *StackSet) ManagedExecutionPropertiesPtrOutput { return v.ManagedExecution }).(ManagedExecutionPropertiesPtrOutput)
 }
 
-// The user-specified preferences for how CloudFormation performs a stack set operation.
+// The user-specified preferences for how CloudFormation performs a StackSet operation.
 func (o StackSetOutput) OperationPreferences() StackSetOperationPreferencesPtrOutput {
 	return o.ApplyT(func(v *StackSet) StackSetOperationPreferencesPtrOutput { return v.OperationPreferences }).(StackSetOperationPreferencesPtrOutput)
 }

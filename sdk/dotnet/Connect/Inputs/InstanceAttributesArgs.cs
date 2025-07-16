@@ -24,8 +24,23 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("earlyMedia")]
         public Input<bool>? EarlyMedia { get; set; }
 
+        [Input("enhancedChatMonitoring")]
+        public Input<bool>? EnhancedChatMonitoring { get; set; }
+
+        [Input("enhancedContactMonitoring")]
+        public Input<bool>? EnhancedContactMonitoring { get; set; }
+
+        [Input("highVolumeOutBound")]
+        public Input<bool>? HighVolumeOutBound { get; set; }
+
         [Input("inboundCalls", required: true)]
         public Input<bool> InboundCalls { get; set; } = null!;
+
+        [Input("multiPartyChatConference")]
+        public Input<bool>? MultiPartyChatConference { get; set; }
+
+        [Input("multiPartyConference")]
+        public Input<bool>? MultiPartyConference { get; set; }
 
         [Input("outboundCalls", required: true)]
         public Input<bool> OutboundCalls { get; set; } = null!;

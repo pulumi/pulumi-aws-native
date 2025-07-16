@@ -4,7 +4,7 @@
     "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UntagResource" ],
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "tagProperty" : "/properties/Tags",
     "cloudFormationSystemTags" : true
   },
@@ -22,6 +22,9 @@
     "create" : {
       "permissions" : [ "ecr:BatchGetRepositoryScanningConfiguration", "iam:GetRole", "iam:PassRole", "iam:CreateServiceLinkedRole", "imagebuilder:GetImageRecipe", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:GetDistributionConfiguration", "imagebuilder:GetWorkflow", "imagebuilder:GetImage", "imagebuilder:CreateImage", "imagebuilder:TagResource", "inspector2:BatchGetAccountStatus" ],
       "timeoutInMinutes" : 720
+    },
+    "update" : {
+      "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
     },
     "list" : {
       "permissions" : [ "imagebuilder:ListImages", "imagebuilder:ListImageBuildVersions" ],
@@ -41,7 +44,7 @@
   "typeName" : "AWS::ImageBuilder::Image",
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Name", "/properties/ImageId", "/properties/ImageUri" ],
   "description" : "Resource schema for AWS::ImageBuilder::Image",
-  "createOnlyProperties" : [ "/properties/ImageRecipeArn", "/properties/ContainerRecipeArn", "/properties/InfrastructureConfigurationArn", "/properties/Workflows", "/properties/DistributionConfigurationArn", "/properties/ImageTestsConfiguration", "/properties/ImageScanningConfiguration", "/properties/EnhancedImageMetadataEnabled", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/ImageRecipeArn", "/properties/ContainerRecipeArn", "/properties/InfrastructureConfigurationArn", "/properties/Workflows", "/properties/DistributionConfigurationArn", "/properties/ImageTestsConfiguration", "/properties/ImageScanningConfiguration", "/properties/EnhancedImageMetadataEnabled" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Arn" ],
   "definitions" : {

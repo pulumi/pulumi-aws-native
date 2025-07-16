@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
+        [Input("testTrafficRules")]
+        public Input<Inputs.ServiceConnectTestTrafficRulesArgs>? TestTrafficRules { get; set; }
+
         public ServiceConnectClientAliasArgs()
         {
         }

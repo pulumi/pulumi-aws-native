@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Redshift
     public static class GetClusterSubnetGroup
     {
         /// <summary>
-        /// Specifies an Amazon Redshift subnet group.
+        /// Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
         /// </summary>
         public static Task<GetClusterSubnetGroupResult> InvokeAsync(GetClusterSubnetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterSubnetGroupResult>("aws-native:redshift:getClusterSubnetGroup", args ?? new GetClusterSubnetGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Specifies an Amazon Redshift subnet group.
+        /// Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
         /// </summary>
         public static Output<GetClusterSubnetGroupResult> Invoke(GetClusterSubnetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterSubnetGroupResult>("aws-native:redshift:getClusterSubnetGroup", args ?? new GetClusterSubnetGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Specifies an Amazon Redshift subnet group.
+        /// Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
         /// </summary>
         public static Output<GetClusterSubnetGroupResult> Invoke(GetClusterSubnetGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterSubnetGroupResult>("aws-native:redshift:getClusterSubnetGroup", args ?? new GetClusterSubnetGroupInvokeArgs(), options.WithDefaults());
@@ -75,6 +75,10 @@ namespace Pulumi.AwsNative.Redshift
         /// The list of VPC subnet IDs
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
+        /// The list of tags for the cluster parameter group.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetClusterSubnetGroupResult(
@@ -82,11 +86,14 @@ namespace Pulumi.AwsNative.Redshift
 
             string? description,
 
-            ImmutableArray<string> subnetIds)
+            ImmutableArray<string> subnetIds,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ClusterSubnetGroupName = clusterSubnetGroupName;
             Description = description;
             SubnetIds = subnetIds;
+            Tags = tags;
         }
     }
 }

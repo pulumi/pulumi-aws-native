@@ -96,7 +96,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The VPC subnets that Studio uses for communication.
      */
-    public readonly subnetIds!: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
     /**
      * Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
      */
@@ -112,7 +112,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -130,12 +130,6 @@ export class Domain extends pulumi.CustomResource {
             }
             if ((!args || args.defaultUserSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultUserSettings'");
-            }
-            if ((!args || args.subnetIds === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subnetIds'");
-            }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'vpcId'");
             }
             resourceInputs["appNetworkAccessType"] = args ? args.appNetworkAccessType : undefined;
             resourceInputs["appSecurityGroupManagement"] = args ? args.appSecurityGroupManagement : undefined;
@@ -223,7 +217,7 @@ export interface DomainArgs {
     /**
      * The VPC subnets that Studio uses for communication.
      */
-    subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
      */
@@ -235,5 +229,5 @@ export interface DomainArgs {
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
      */
-    vpcId: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }

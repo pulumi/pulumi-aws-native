@@ -7,11 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies an Amazon Redshift subnet group.
+// Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
 func LookupClusterSubnetGroup(ctx *pulumi.Context, args *LookupClusterSubnetGroupArgs, opts ...pulumi.InvokeOption) (*LookupClusterSubnetGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupClusterSubnetGroupResult
@@ -34,6 +35,8 @@ type LookupClusterSubnetGroupResult struct {
 	Description *string `pulumi:"description"`
 	// The list of VPC subnet IDs
 	SubnetIds []string `pulumi:"subnetIds"`
+	// The list of tags for the cluster parameter group.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupClusterSubnetGroupOutput(ctx *pulumi.Context, args LookupClusterSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupClusterSubnetGroupResultOutput {
@@ -81,6 +84,11 @@ func (o LookupClusterSubnetGroupResultOutput) Description() pulumi.StringPtrOutp
 // The list of VPC subnet IDs
 func (o LookupClusterSubnetGroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterSubnetGroupResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// The list of tags for the cluster parameter group.
+func (o LookupClusterSubnetGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupClusterSubnetGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

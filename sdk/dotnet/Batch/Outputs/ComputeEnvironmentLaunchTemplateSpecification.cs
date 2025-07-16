@@ -29,6 +29,9 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// &gt; To unset all override templates for a compute environment, you can pass an empty array to the [UpdateComputeEnvironment.overrides](https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html) parameter, or not include the `overrides` parameter when submitting the `UpdateComputeEnvironment` API operation.
         /// </summary>
         public readonly ImmutableArray<Outputs.ComputeEnvironmentLaunchTemplateSpecificationOverride> Overrides;
+        /// <summary>
+        /// The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
+        /// </summary>
         public readonly Pulumi.AwsNative.Batch.ComputeEnvironmentLaunchTemplateSpecificationUserdataType? UserdataType;
         /// <summary>
         /// The version number of the launch template, `$Default` , or `$Latest` .

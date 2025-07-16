@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetClusterSubnetGroupResult',
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterSubnetGroupResult:
-    def __init__(__self__, cluster_subnet_group_name=None, description=None, subnet_ids=None):
+    def __init__(__self__, cluster_subnet_group_name=None, description=None, subnet_ids=None, tags=None):
         if cluster_subnet_group_name and not isinstance(cluster_subnet_group_name, str):
             raise TypeError("Expected argument 'cluster_subnet_group_name' to be a str")
         pulumi.set(__self__, "cluster_subnet_group_name", cluster_subnet_group_name)
@@ -34,6 +35,9 @@ class GetClusterSubnetGroupResult:
         if subnet_ids and not isinstance(subnet_ids, list):
             raise TypeError("Expected argument 'subnet_ids' to be a list")
         pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="clusterSubnetGroupName")
@@ -59,6 +63,14 @@ class GetClusterSubnetGroupResult:
         """
         return pulumi.get(self, "subnet_ids")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The list of tags for the cluster parameter group.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetClusterSubnetGroupResult(GetClusterSubnetGroupResult):
     # pylint: disable=using-constant-test
@@ -68,13 +80,14 @@ class AwaitableGetClusterSubnetGroupResult(GetClusterSubnetGroupResult):
         return GetClusterSubnetGroupResult(
             cluster_subnet_group_name=self.cluster_subnet_group_name,
             description=self.description,
-            subnet_ids=self.subnet_ids)
+            subnet_ids=self.subnet_ids,
+            tags=self.tags)
 
 
 def get_cluster_subnet_group(cluster_subnet_group_name: Optional[builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterSubnetGroupResult:
     """
-    Specifies an Amazon Redshift subnet group.
+    Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
 
 
     :param builtins.str cluster_subnet_group_name: This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
@@ -87,11 +100,12 @@ def get_cluster_subnet_group(cluster_subnet_group_name: Optional[builtins.str] =
     return AwaitableGetClusterSubnetGroupResult(
         cluster_subnet_group_name=pulumi.get(__ret__, 'cluster_subnet_group_name'),
         description=pulumi.get(__ret__, 'description'),
-        subnet_ids=pulumi.get(__ret__, 'subnet_ids'))
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_cluster_subnet_group_output(cluster_subnet_group_name: Optional[pulumi.Input[builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterSubnetGroupResult]:
     """
-    Specifies an Amazon Redshift subnet group.
+    Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
 
 
     :param builtins.str cluster_subnet_group_name: This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
@@ -103,4 +117,5 @@ def get_cluster_subnet_group_output(cluster_subnet_group_name: Optional[pulumi.I
     return __ret__.apply(lambda __response__: GetClusterSubnetGroupResult(
         cluster_subnet_group_name=pulumi.get(__response__, 'cluster_subnet_group_name'),
         description=pulumi.get(__response__, 'description'),
-        subnet_ids=pulumi.get(__response__, 'subnet_ids')))
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        tags=pulumi.get(__response__, 'tags')))

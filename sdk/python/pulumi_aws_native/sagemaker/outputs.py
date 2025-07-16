@@ -257,7 +257,10 @@ __all__ = [
     'PipelineDefinition0Properties',
     'PipelineDefinition1Properties',
     'PipelineS3Location',
+    'ProjectCfnStackParameter',
+    'ProjectCfnTemplateProviderDetail',
     'ProjectProvisioningParameter',
+    'ProjectTemplateProviderDetail',
     'ServiceCatalogProvisionedProductDetailsProperties',
     'ServiceCatalogProvisioningDetailsProperties',
     'SpaceAppLifecycleManagement',
@@ -3754,6 +3757,8 @@ class DomainUnifiedStudioSettings(dict):
             suggest = "project_id"
         elif key == "projectS3Path":
             suggest = "project_s3_path"
+        elif key == "singleSignOnApplicationArn":
+            suggest = "single_sign_on_application_arn"
         elif key == "studioWebPortalAccess":
             suggest = "studio_web_portal_access"
 
@@ -3775,6 +3780,7 @@ class DomainUnifiedStudioSettings(dict):
                  environment_id: Optional[builtins.str] = None,
                  project_id: Optional[builtins.str] = None,
                  project_s3_path: Optional[builtins.str] = None,
+                 single_sign_on_application_arn: Optional[builtins.str] = None,
                  studio_web_portal_access: Optional['DomainUnifiedStudioSettingsStudioWebPortalAccess'] = None):
         """
         A collection of settings that apply to an Amazon SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
@@ -3784,6 +3790,7 @@ class DomainUnifiedStudioSettings(dict):
         :param builtins.str environment_id: The ID of the environment that Amazon SageMaker Unified Studio associates with the domain.
         :param builtins.str project_id: The ID of the Amazon SageMaker Unified Studio project that corresponds to the domain.
         :param builtins.str project_s3_path: The location where Amazon S3 stores temporary execution data and other artifacts for the project that corresponds to the domain.
+        :param builtins.str single_sign_on_application_arn: The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
         :param 'DomainUnifiedStudioSettingsStudioWebPortalAccess' studio_web_portal_access: Sets whether you can access the domain in Amazon SageMaker Studio:
                
                ENABLED
@@ -3803,6 +3810,8 @@ class DomainUnifiedStudioSettings(dict):
             pulumi.set(__self__, "project_id", project_id)
         if project_s3_path is not None:
             pulumi.set(__self__, "project_s3_path", project_s3_path)
+        if single_sign_on_application_arn is not None:
+            pulumi.set(__self__, "single_sign_on_application_arn", single_sign_on_application_arn)
         if studio_web_portal_access is not None:
             pulumi.set(__self__, "studio_web_portal_access", studio_web_portal_access)
 
@@ -3853,6 +3862,14 @@ class DomainUnifiedStudioSettings(dict):
         The location where Amazon S3 stores temporary execution data and other artifacts for the project that corresponds to the domain.
         """
         return pulumi.get(self, "project_s3_path")
+
+    @property
+    @pulumi.getter(name="singleSignOnApplicationArn")
+    def single_sign_on_application_arn(self) -> Optional[builtins.str]:
+        """
+        The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
+        """
+        return pulumi.get(self, "single_sign_on_application_arn")
 
     @property
     @pulumi.getter(name="studioWebPortalAccess")
@@ -15069,6 +15086,109 @@ class PipelineS3Location(dict):
 
 
 @pulumi.output_type
+class ProjectCfnStackParameter(dict):
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str key: The key of the parameter.
+        :param builtins.str value: The value of the parameter.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        The key of the parameter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        The value of the parameter.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProjectCfnTemplateProviderDetail(dict):
+    """
+    CloudFormation template provider details for a SageMaker project.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "templateName":
+            suggest = "template_name"
+        elif key == "templateUrl":
+            suggest = "template_url"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectCfnTemplateProviderDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectCfnTemplateProviderDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectCfnTemplateProviderDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 template_name: builtins.str,
+                 template_url: builtins.str,
+                 parameters: Optional[Sequence['outputs.ProjectCfnStackParameter']] = None,
+                 role_arn: Optional[builtins.str] = None):
+        """
+        CloudFormation template provider details for a SageMaker project.
+        :param builtins.str template_name: The name of the template used for the project.
+        :param builtins.str template_url: The URL of the CloudFormation template.
+        :param builtins.str role_arn: The Amazon Resource Name (ARN) of the IAM role used by the template provider.
+        """
+        pulumi.set(__self__, "template_name", template_name)
+        pulumi.set(__self__, "template_url", template_url)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="templateName")
+    def template_name(self) -> builtins.str:
+        """
+        The name of the template used for the project.
+        """
+        return pulumi.get(self, "template_name")
+
+    @property
+    @pulumi.getter(name="templateUrl")
+    def template_url(self) -> builtins.str:
+        """
+        The URL of the CloudFormation template.
+        """
+        return pulumi.get(self, "template_url")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ProjectCfnStackParameter']]:
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role used by the template provider.
+        """
+        return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
 class ProjectProvisioningParameter(dict):
     """
     Information about a parameter used to provision a product.
@@ -15099,6 +15219,42 @@ class ProjectProvisioningParameter(dict):
         The parameter value.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProjectTemplateProviderDetail(dict):
+    """
+    Details about the template provider for the SageMaker project.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cfnTemplateProviderDetail":
+            suggest = "cfn_template_provider_detail"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectTemplateProviderDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectTemplateProviderDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectTemplateProviderDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cfn_template_provider_detail: Optional['outputs.ProjectCfnTemplateProviderDetail'] = None):
+        """
+        Details about the template provider for the SageMaker project.
+        """
+        if cfn_template_provider_detail is not None:
+            pulumi.set(__self__, "cfn_template_provider_detail", cfn_template_provider_detail)
+
+    @property
+    @pulumi.getter(name="cfnTemplateProviderDetail")
+    def cfn_template_provider_detail(self) -> Optional['outputs.ProjectCfnTemplateProviderDetail']:
+        return pulumi.get(self, "cfn_template_provider_detail")
 
 
 @pulumi.output_type

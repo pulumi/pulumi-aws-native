@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventSubscriptionResult:
-    def __init__(__self__, cust_subscription_id=None, customer_aws_id=None, enabled=None, event_categories=None, event_categories_list=None, severity=None, sns_topic_arn=None, source_ids=None, source_ids_list=None, source_type=None, status=None, subscription_creation_time=None):
+    def __init__(__self__, cust_subscription_id=None, customer_aws_id=None, enabled=None, event_categories=None, event_categories_list=None, severity=None, sns_topic_arn=None, source_ids=None, source_ids_list=None, source_type=None, status=None, subscription_creation_time=None, tags=None):
         if cust_subscription_id and not isinstance(cust_subscription_id, str):
             raise TypeError("Expected argument 'cust_subscription_id' to be a str")
         pulumi.set(__self__, "cust_subscription_id", cust_subscription_id)
@@ -62,6 +63,9 @@ class GetEventSubscriptionResult:
         if subscription_creation_time and not isinstance(subscription_creation_time, str):
             raise TypeError("Expected argument 'subscription_creation_time' to be a str")
         pulumi.set(__self__, "subscription_creation_time", subscription_creation_time)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="custSubscriptionId")
@@ -159,6 +163,14 @@ class GetEventSubscriptionResult:
         """
         return pulumi.get(self, "subscription_creation_time")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetEventSubscriptionResult(GetEventSubscriptionResult):
     # pylint: disable=using-constant-test
@@ -177,7 +189,8 @@ class AwaitableGetEventSubscriptionResult(GetEventSubscriptionResult):
             source_ids_list=self.source_ids_list,
             source_type=self.source_type,
             status=self.status,
-            subscription_creation_time=self.subscription_creation_time)
+            subscription_creation_time=self.subscription_creation_time,
+            tags=self.tags)
 
 
 def get_event_subscription(subscription_name: Optional[builtins.str] = None,
@@ -205,7 +218,8 @@ def get_event_subscription(subscription_name: Optional[builtins.str] = None,
         source_ids_list=pulumi.get(__ret__, 'source_ids_list'),
         source_type=pulumi.get(__ret__, 'source_type'),
         status=pulumi.get(__ret__, 'status'),
-        subscription_creation_time=pulumi.get(__ret__, 'subscription_creation_time'))
+        subscription_creation_time=pulumi.get(__ret__, 'subscription_creation_time'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_event_subscription_output(subscription_name: Optional[pulumi.Input[builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventSubscriptionResult]:
     """
@@ -230,4 +244,5 @@ def get_event_subscription_output(subscription_name: Optional[pulumi.Input[built
         source_ids_list=pulumi.get(__response__, 'source_ids_list'),
         source_type=pulumi.get(__response__, 'source_type'),
         status=pulumi.get(__response__, 'status'),
-        subscription_creation_time=pulumi.get(__response__, 'subscription_creation_time')))
+        subscription_creation_time=pulumi.get(__response__, 'subscription_creation_time'),
+        tags=pulumi.get(__response__, 'tags')))

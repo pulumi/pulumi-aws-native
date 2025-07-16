@@ -23,7 +23,8 @@ type Partnership struct {
 	CapabilityOptions PartnershipCapabilityOptionsPtrOutput `pulumi:"capabilityOptions"`
 	// Returns a timestamp for creation date and time of the partnership.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	Email     pulumi.StringOutput `pulumi:"email"`
+	// Specifies the email address associated with this trading partner.
+	Email pulumi.StringOutput `pulumi:"email"`
 	// Returns a timestamp that identifies the most recent date and time that the partnership was modified.
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
 	// Returns the name of the partnership.
@@ -31,8 +32,9 @@ type Partnership struct {
 	// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
 	PartnershipArn pulumi.StringOutput `pulumi:"partnershipArn"`
 	// Returns the unique, system-generated identifier for a partnership.
-	PartnershipId pulumi.StringOutput    `pulumi:"partnershipId"`
-	Phone         pulumi.StringPtrOutput `pulumi:"phone"`
+	PartnershipId pulumi.StringOutput `pulumi:"partnershipId"`
+	// Specifies the phone number associated with the partnership.
+	Phone pulumi.StringPtrOutput `pulumi:"phone"`
 	// Returns the unique, system-generated identifier for the profile connected to this partnership.
 	ProfileId pulumi.StringOutput `pulumi:"profileId"`
 	// A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
@@ -100,9 +102,11 @@ type partnershipArgs struct {
 	Capabilities []string `pulumi:"capabilities"`
 	// Contains the details for an Outbound EDI capability.
 	CapabilityOptions *PartnershipCapabilityOptions `pulumi:"capabilityOptions"`
-	Email             string                        `pulumi:"email"`
+	// Specifies the email address associated with this trading partner.
+	Email string `pulumi:"email"`
 	// Returns the name of the partnership.
-	Name  *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Specifies the phone number associated with the partnership.
 	Phone *string `pulumi:"phone"`
 	// Returns the unique, system-generated identifier for the profile connected to this partnership.
 	ProfileId string `pulumi:"profileId"`
@@ -116,9 +120,11 @@ type PartnershipArgs struct {
 	Capabilities pulumi.StringArrayInput
 	// Contains the details for an Outbound EDI capability.
 	CapabilityOptions PartnershipCapabilityOptionsPtrInput
-	Email             pulumi.StringInput
+	// Specifies the email address associated with this trading partner.
+	Email pulumi.StringInput
 	// Returns the name of the partnership.
-	Name  pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Specifies the phone number associated with the partnership.
 	Phone pulumi.StringPtrInput
 	// Returns the unique, system-generated identifier for the profile connected to this partnership.
 	ProfileId pulumi.StringInput
@@ -178,6 +184,7 @@ func (o PartnershipOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partnership) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// Specifies the email address associated with this trading partner.
 func (o PartnershipOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partnership) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
@@ -202,6 +209,7 @@ func (o PartnershipOutput) PartnershipId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partnership) pulumi.StringOutput { return v.PartnershipId }).(pulumi.StringOutput)
 }
 
+// Specifies the phone number associated with the partnership.
 func (o PartnershipOutput) Phone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Partnership) pulumi.StringPtrOutput { return v.Phone }).(pulumi.StringPtrOutput)
 }

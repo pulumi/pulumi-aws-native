@@ -28,9 +28,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         public Input<Inputs.OriginEndpointEncryptionMethodArgs> EncryptionMethod { get; set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.&lt;/p&gt;
-        ///          &lt;p&gt;The following example setting causes the service to rotate keys every thirty minutes: &lt;code&gt;1800&lt;/code&gt;
-        ///          &lt;/p&gt;
+        /// &lt;p&gt;The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.&lt;/p&gt; &lt;p&gt;The following example setting causes the service to rotate keys every thirty minutes: &lt;code&gt;1800&lt;/code&gt; &lt;/p&gt;
         /// </summary>
         [Input("keyRotationIntervalSeconds")]
         public Input<int>? KeyRotationIntervalSeconds { get; set; }

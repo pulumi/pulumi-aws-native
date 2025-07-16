@@ -375,7 +375,7 @@ class ContainerRecipe(pulumi.CustomResource):
             __props__.__dict__["version"] = version
             __props__.__dict__["working_directory"] = working_directory
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["components[*]", "containerType", "description", "dockerfileTemplateData", "dockerfileTemplateUri", "imageOsVersionOverride", "instanceConfiguration", "kmsKeyId", "name", "parentImage", "platformOverride", "tags.*", "targetRepository", "version", "workingDirectory"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["components[*]", "containerType", "description", "dockerfileTemplateData", "dockerfileTemplateUri", "imageOsVersionOverride", "instanceConfiguration", "kmsKeyId", "name", "parentImage", "platformOverride", "targetRepository", "version", "workingDirectory"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ContainerRecipe, __self__).__init__(
             'aws-native:imagebuilder:ContainerRecipe',

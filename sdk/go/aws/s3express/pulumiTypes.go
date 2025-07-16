@@ -1384,6 +1384,11 @@ func (o DirectoryBucketServerSideEncryptionRuleArrayOutput) Index(i pulumi.IntIn
 	}).(DirectoryBucketServerSideEncryptionRuleOutput)
 }
 
+type DirectoryBucketTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationPtrInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})

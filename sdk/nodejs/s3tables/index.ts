@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetTableArgs, GetTableResult, GetTableOutputArgs } from "./getTable";
+export const getTable: typeof import("./getTable").getTable = null as any;
+export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;
+utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
+
 export { GetTableBucketArgs, GetTableBucketResult, GetTableBucketOutputArgs } from "./getTableBucket";
 export const getTableBucket: typeof import("./getTableBucket").getTableBucket = null as any;
 export const getTableBucketOutput: typeof import("./getTableBucket").getTableBucketOutput = null as any;
@@ -15,10 +20,20 @@ export const getTableBucketPolicy: typeof import("./getTableBucketPolicy").getTa
 export const getTableBucketPolicyOutput: typeof import("./getTableBucketPolicy").getTableBucketPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getTableBucketPolicy","getTableBucketPolicyOutput"], () => require("./getTableBucketPolicy"));
 
+export { GetTablePolicyArgs, GetTablePolicyResult, GetTablePolicyOutputArgs } from "./getTablePolicy";
+export const getTablePolicy: typeof import("./getTablePolicy").getTablePolicy = null as any;
+export const getTablePolicyOutput: typeof import("./getTablePolicy").getTablePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getTablePolicy","getTablePolicyOutput"], () => require("./getTablePolicy"));
+
 export { NamespaceArgs } from "./namespace";
 export type Namespace = import("./namespace").Namespace;
 export const Namespace: typeof import("./namespace").Namespace = null as any;
 utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
+
+export { TableArgs } from "./table";
+export type Table = import("./table").Table;
+export const Table: typeof import("./table").Table = null as any;
+utilities.lazyLoad(exports, ["Table"], () => require("./table"));
 
 export { TableBucketArgs } from "./tableBucket";
 export type TableBucket = import("./tableBucket").TableBucket;
@@ -30,6 +45,11 @@ export type TableBucketPolicy = import("./tableBucketPolicy").TableBucketPolicy;
 export const TableBucketPolicy: typeof import("./tableBucketPolicy").TableBucketPolicy = null as any;
 utilities.lazyLoad(exports, ["TableBucketPolicy"], () => require("./tableBucketPolicy"));
 
+export { TablePolicyArgs } from "./tablePolicy";
+export type TablePolicy = import("./tablePolicy").TablePolicy;
+export const TablePolicy: typeof import("./tablePolicy").TablePolicy = null as any;
+utilities.lazyLoad(exports, ["TablePolicy"], () => require("./tablePolicy"));
+
 
 // Export enums:
 export * from "../types/enums/s3tables";
@@ -40,10 +60,14 @@ const _module = {
         switch (type) {
             case "aws-native:s3tables:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
+            case "aws-native:s3tables:Table":
+                return new Table(name, <any>undefined, { urn })
             case "aws-native:s3tables:TableBucket":
                 return new TableBucket(name, <any>undefined, { urn })
             case "aws-native:s3tables:TableBucketPolicy":
                 return new TableBucketPolicy(name, <any>undefined, { urn })
+            case "aws-native:s3tables:TablePolicy":
+                return new TablePolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -27,6 +27,8 @@ __all__ = [
     'KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy',
     'KnowledgeBaseWebCrawlerConfigurationScope',
     'MessageTemplateChannelSubtype',
+    'QuickResponseChannelType',
+    'QuickResponseStatus',
 ]
 
 
@@ -211,3 +213,24 @@ class MessageTemplateChannelSubtype(builtins.str, Enum):
     """
     EMAIL = "EMAIL"
     SMS = "SMS"
+
+
+@pulumi.type_token("aws-native:wisdom:QuickResponseChannelType")
+class QuickResponseChannelType(builtins.str, Enum):
+    CHAT = "Chat"
+    EMAIL = "Email"
+
+
+@pulumi.type_token("aws-native:wisdom:QuickResponseStatus")
+class QuickResponseStatus(builtins.str, Enum):
+    """
+    The status of the quick response data.
+    """
+    CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
+    CREATE_FAILED = "CREATE_FAILED"
+    CREATED = "CREATED"
+    DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+    DELETE_FAILED = "DELETE_FAILED"
+    DELETED = "DELETED"
+    UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
+    UPDATE_FAILED = "UPDATE_FAILED"

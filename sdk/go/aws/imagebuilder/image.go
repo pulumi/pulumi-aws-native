@@ -60,7 +60,6 @@ func NewImage(ctx *pulumi.Context,
 		"imageScanningConfiguration",
 		"imageTestsConfiguration",
 		"infrastructureConfigurationArn",
-		"tags.*",
 		"workflows[*]",
 	})
 	opts = append(opts, replaceOnChanges)

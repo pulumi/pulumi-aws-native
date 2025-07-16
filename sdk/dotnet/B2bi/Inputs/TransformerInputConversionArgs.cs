@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.B2bi.Inputs
 
     public sealed class TransformerInputConversionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("advancedOptions")]
+        public Input<Inputs.TransformerAdvancedOptionsArgs>? AdvancedOptions { get; set; }
+
         [Input("formatOptions")]
         public Input<Inputs.TransformerFormatOptionsPropertiesArgs>? FormatOptions { get; set; }
 

@@ -258,7 +258,7 @@ class ImageRecipe(pulumi.CustomResource):
             __props__.__dict__["version"] = version
             __props__.__dict__["working_directory"] = working_directory
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["blockDeviceMappings[*]", "components[*]", "description", "name", "parentImage", "tags.*", "version", "workingDirectory"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["blockDeviceMappings[*]", "components[*]", "description", "name", "parentImage", "version", "workingDirectory"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ImageRecipe, __self__).__init__(
             'aws-native:imagebuilder:ImageRecipe',

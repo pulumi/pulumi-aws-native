@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class ServiceLoadBalancer
     {
+        public readonly Outputs.ServiceAdvancedConfiguration? AdvancedConfiguration;
         /// <summary>
         /// The name of the container (as it appears in a container definition) to associate with the load balancer.
         ///  You need to specify the container name when configuring the target group for an Amazon ECS load balancer.
@@ -43,6 +44,8 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
         [OutputConstructor]
         private ServiceLoadBalancer(
+            Outputs.ServiceAdvancedConfiguration? advancedConfiguration,
+
             string? containerName,
 
             int? containerPort,
@@ -51,6 +54,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
             string? targetGroupArn)
         {
+            AdvancedConfiguration = advancedConfiguration;
             ContainerName = containerName;
             ContainerPort = containerPort;
             LoadBalancerName = loadBalancerName;

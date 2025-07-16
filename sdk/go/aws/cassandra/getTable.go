@@ -38,6 +38,8 @@ type LookupTableResult struct {
 	//
 	// If you don't specify a value for this property, then the table will use on-demand mode.
 	BillingMode *TableBillingMode `pulumi:"billingMode"`
+	// The settings for the CDC stream of a table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide* .
+	CdcSpecification *TableCdcSpecification `pulumi:"cdcSpecification"`
 	// Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
 	DefaultTimeToLive *int `pulumi:"defaultTimeToLive"`
 	// The encryption at rest options for the table.
@@ -99,6 +101,11 @@ func (o LookupTableResultOutput) ToLookupTableResultOutputWithContext(ctx contex
 // If you don't specify a value for this property, then the table will use on-demand mode.
 func (o LookupTableResultOutput) BillingMode() TableBillingModePtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *TableBillingMode { return v.BillingMode }).(TableBillingModePtrOutput)
+}
+
+// The settings for the CDC stream of a table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide* .
+func (o LookupTableResultOutput) CdcSpecification() TableCdcSpecificationPtrOutput {
+	return o.ApplyT(func(v LookupTableResult) *TableCdcSpecification { return v.CdcSpecification }).(TableCdcSpecificationPtrOutput)
 }
 
 // Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.

@@ -80,6 +80,9 @@ __all__ = [
     'MessageTemplateSmsMessageTemplateContentBody',
     'MessageTemplateSystemAttributes',
     'MessageTemplateSystemEndpointAttributes',
+    'QuickResponseContentProvider',
+    'QuickResponseContents',
+    'QuickResponseGroupingConfiguration',
 ]
 
 @pulumi.output_type
@@ -3378,5 +3381,105 @@ class MessageTemplateSystemEndpointAttributes(dict):
         The customer's phone number if used with customerEndpoint, or the number the customer dialed to call your contact center if used with systemEndpoint.
         """
         return pulumi.get(self, "address")
+
+
+@pulumi.output_type
+class QuickResponseContentProvider(dict):
+    """
+    The container of quick response content.
+    """
+    def __init__(__self__, *,
+                 content: Optional[builtins.str] = None):
+        """
+        The container of quick response content.
+        :param builtins.str content: The content of the quick response.
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[builtins.str]:
+        """
+        The content of the quick response.
+        """
+        return pulumi.get(self, "content")
+
+
+@pulumi.output_type
+class QuickResponseContents(dict):
+    """
+    The content of the quick response stored in different media types.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "plainText":
+            suggest = "plain_text"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QuickResponseContents. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QuickResponseContents.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QuickResponseContents.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 markdown: Optional['outputs.QuickResponseContentProvider'] = None,
+                 plain_text: Optional['outputs.QuickResponseContentProvider'] = None):
+        """
+        The content of the quick response stored in different media types.
+        """
+        if markdown is not None:
+            pulumi.set(__self__, "markdown", markdown)
+        if plain_text is not None:
+            pulumi.set(__self__, "plain_text", plain_text)
+
+    @property
+    @pulumi.getter
+    def markdown(self) -> Optional['outputs.QuickResponseContentProvider']:
+        return pulumi.get(self, "markdown")
+
+    @property
+    @pulumi.getter(name="plainText")
+    def plain_text(self) -> Optional['outputs.QuickResponseContentProvider']:
+        return pulumi.get(self, "plain_text")
+
+
+@pulumi.output_type
+class QuickResponseGroupingConfiguration(dict):
+    """
+    The configuration information of the user groups that the quick response is accessible to.
+    """
+    def __init__(__self__, *,
+                 criteria: builtins.str,
+                 values: Sequence[builtins.str]):
+        """
+        The configuration information of the user groups that the quick response is accessible to.
+        :param builtins.str criteria: The criteria used for grouping Amazon Q in Connect users.
+        :param Sequence[builtins.str] values: The list of values that define different groups of Amazon Q in Connect users.
+        """
+        pulumi.set(__self__, "criteria", criteria)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> builtins.str:
+        """
+        The criteria used for grouping Amazon Q in Connect users.
+        """
+        return pulumi.get(self, "criteria")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[builtins.str]:
+        """
+        The list of values that define different groups of Amazon Q in Connect users.
+        """
+        return pulumi.get(self, "values")
 
 

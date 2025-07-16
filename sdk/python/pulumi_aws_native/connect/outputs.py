@@ -162,18 +162,12 @@ class ConstraintsProperties(dict):
 class EvaluationFormAutoEvaluationConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[builtins.bool] = None):
-        """
-        :param builtins.bool enabled: Auto Evaluation enablement status.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[builtins.bool]:
-        """
-        Auto Evaluation enablement status.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -1401,6 +1395,16 @@ class InstanceAttributes(dict):
             suggest = "contactflow_logs"
         elif key == "earlyMedia":
             suggest = "early_media"
+        elif key == "enhancedChatMonitoring":
+            suggest = "enhanced_chat_monitoring"
+        elif key == "enhancedContactMonitoring":
+            suggest = "enhanced_contact_monitoring"
+        elif key == "highVolumeOutBound":
+            suggest = "high_volume_out_bound"
+        elif key == "multiPartyChatConference":
+            suggest = "multi_party_chat_conference"
+        elif key == "multiPartyConference":
+            suggest = "multi_party_conference"
         elif key == "useCustomTtsVoices":
             suggest = "use_custom_tts_voices"
 
@@ -1422,6 +1426,11 @@ class InstanceAttributes(dict):
                  contact_lens: Optional[builtins.bool] = None,
                  contactflow_logs: Optional[builtins.bool] = None,
                  early_media: Optional[builtins.bool] = None,
+                 enhanced_chat_monitoring: Optional[builtins.bool] = None,
+                 enhanced_contact_monitoring: Optional[builtins.bool] = None,
+                 high_volume_out_bound: Optional[builtins.bool] = None,
+                 multi_party_chat_conference: Optional[builtins.bool] = None,
+                 multi_party_conference: Optional[builtins.bool] = None,
                  use_custom_tts_voices: Optional[builtins.bool] = None):
         pulumi.set(__self__, "inbound_calls", inbound_calls)
         pulumi.set(__self__, "outbound_calls", outbound_calls)
@@ -1433,6 +1442,16 @@ class InstanceAttributes(dict):
             pulumi.set(__self__, "contactflow_logs", contactflow_logs)
         if early_media is not None:
             pulumi.set(__self__, "early_media", early_media)
+        if enhanced_chat_monitoring is not None:
+            pulumi.set(__self__, "enhanced_chat_monitoring", enhanced_chat_monitoring)
+        if enhanced_contact_monitoring is not None:
+            pulumi.set(__self__, "enhanced_contact_monitoring", enhanced_contact_monitoring)
+        if high_volume_out_bound is not None:
+            pulumi.set(__self__, "high_volume_out_bound", high_volume_out_bound)
+        if multi_party_chat_conference is not None:
+            pulumi.set(__self__, "multi_party_chat_conference", multi_party_chat_conference)
+        if multi_party_conference is not None:
+            pulumi.set(__self__, "multi_party_conference", multi_party_conference)
         if use_custom_tts_voices is not None:
             pulumi.set(__self__, "use_custom_tts_voices", use_custom_tts_voices)
 
@@ -1465,6 +1484,31 @@ class InstanceAttributes(dict):
     @pulumi.getter(name="earlyMedia")
     def early_media(self) -> Optional[builtins.bool]:
         return pulumi.get(self, "early_media")
+
+    @property
+    @pulumi.getter(name="enhancedChatMonitoring")
+    def enhanced_chat_monitoring(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "enhanced_chat_monitoring")
+
+    @property
+    @pulumi.getter(name="enhancedContactMonitoring")
+    def enhanced_contact_monitoring(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "enhanced_contact_monitoring")
+
+    @property
+    @pulumi.getter(name="highVolumeOutBound")
+    def high_volume_out_bound(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "high_volume_out_bound")
+
+    @property
+    @pulumi.getter(name="multiPartyChatConference")
+    def multi_party_chat_conference(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "multi_party_chat_conference")
+
+    @property
+    @pulumi.getter(name="multiPartyConference")
+    def multi_party_conference(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "multi_party_conference")
 
     @property
     @pulumi.getter(name="useCustomTtsVoices")
@@ -2637,7 +2681,7 @@ class RuleReference(dict):
         """
         Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. (Supports variable injection in the ``Value`` field.)
         :param 'RuleReferenceType' type: The type of the reference. ``DATE`` must be of type Epoch timestamp. 
-                 *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+                *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
         :param builtins.str value: A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
         """
         pulumi.set(__self__, "type", type)
@@ -2648,7 +2692,7 @@ class RuleReference(dict):
     def type(self) -> 'RuleReferenceType':
         """
         The type of the reference. ``DATE`` must be of type Epoch timestamp. 
-          *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+         *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
         """
         return pulumi.get(self, "type")
 
@@ -2695,9 +2739,9 @@ class RuleSendNotificationAction(dict):
         Information about the send notification action.
         :param builtins.str content: Notification content. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         :param 'RuleSendNotificationActionContentType' content_type: Content type format.
-                 *Allowed value*: ``PLAIN_TEXT``
+                *Allowed value*: ``PLAIN_TEXT``
         :param 'RuleSendNotificationActionDeliveryMethod' delivery_method: Notification delivery method.
-                 *Allowed value*: ``EMAIL``
+                *Allowed value*: ``EMAIL``
         :param 'RuleNotificationRecipientType' recipient: Notification recipient.
         :param builtins.str subject: The subject of the email if the delivery method is ``EMAIL``. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         """
@@ -2721,7 +2765,7 @@ class RuleSendNotificationAction(dict):
     def content_type(self) -> 'RuleSendNotificationActionContentType':
         """
         Content type format.
-          *Allowed value*: ``PLAIN_TEXT``
+         *Allowed value*: ``PLAIN_TEXT``
         """
         return pulumi.get(self, "content_type")
 
@@ -2730,7 +2774,7 @@ class RuleSendNotificationAction(dict):
     def delivery_method(self) -> 'RuleSendNotificationActionDeliveryMethod':
         """
         Notification delivery method.
-          *Allowed value*: ``EMAIL``
+         *Allowed value*: ``EMAIL``
         """
         return pulumi.get(self, "delivery_method")
 

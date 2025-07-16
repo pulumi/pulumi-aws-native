@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("port", required: true)]
         public Input<double> Port { get; set; } = null!;
 
+        [Input("useServiceName")]
+        public Input<bool>? UseServiceName { get; set; }
+
         public DataSourceOracleParametersArgs()
         {
         }

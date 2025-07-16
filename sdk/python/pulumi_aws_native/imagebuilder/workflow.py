@@ -255,7 +255,7 @@ class Workflow(pulumi.CustomResource):
                 raise TypeError("Missing required property 'version'")
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["changeDescription", "data", "description", "kmsKeyId", "name", "tags.*", "type", "uri", "version"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["changeDescription", "data", "description", "kmsKeyId", "name", "type", "uri", "version"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workflow, __self__).__init__(
             'aws-native:imagebuilder:Workflow',

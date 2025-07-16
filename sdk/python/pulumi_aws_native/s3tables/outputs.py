@@ -14,12 +14,19 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'TableBucketEncryptionConfiguration',
     'TableBucketPolicyResourcePolicy',
     'TableBucketUnreferencedFileRemoval',
+    'TableCompaction',
+    'TableIcebergMetadata',
+    'TableIcebergSchema',
+    'TablePolicyResourcePolicy',
+    'TableSchemaField',
+    'TableSnapshotManagement',
 ]
 
 @pulumi.output_type
@@ -152,5 +159,250 @@ class TableBucketUnreferencedFileRemoval(dict):
         For any object not referenced by your table and older than the UnreferencedDays property, S3 creates a delete marker and marks the object version as noncurrent.
         """
         return pulumi.get(self, "unreferenced_days")
+
+
+@pulumi.output_type
+class TableCompaction(dict):
+    """
+    Settings governing the Compaction maintenance action. Contains details about the compaction settings for an Iceberg table.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetFileSizeMb":
+            suggest = "target_file_size_mb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableCompaction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableCompaction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableCompaction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: Optional['TableCompactionStatus'] = None,
+                 target_file_size_mb: Optional[builtins.int] = None):
+        """
+        Settings governing the Compaction maintenance action. Contains details about the compaction settings for an Iceberg table.
+        :param 'TableCompactionStatus' status: Indicates whether the Compaction maintenance action is enabled.
+        :param builtins.int target_file_size_mb: The target file size for the table in MB.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if target_file_size_mb is not None:
+            pulumi.set(__self__, "target_file_size_mb", target_file_size_mb)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['TableCompactionStatus']:
+        """
+        Indicates whether the Compaction maintenance action is enabled.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="targetFileSizeMb")
+    def target_file_size_mb(self) -> Optional[builtins.int]:
+        """
+        The target file size for the table in MB.
+        """
+        return pulumi.get(self, "target_file_size_mb")
+
+
+@pulumi.output_type
+class TableIcebergMetadata(dict):
+    """
+    Contains details about the metadata for an Iceberg table.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "icebergSchema":
+            suggest = "iceberg_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableIcebergMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableIcebergMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableIcebergMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iceberg_schema: 'outputs.TableIcebergSchema'):
+        """
+        Contains details about the metadata for an Iceberg table.
+        """
+        pulumi.set(__self__, "iceberg_schema", iceberg_schema)
+
+    @property
+    @pulumi.getter(name="icebergSchema")
+    def iceberg_schema(self) -> 'outputs.TableIcebergSchema':
+        return pulumi.get(self, "iceberg_schema")
+
+
+@pulumi.output_type
+class TableIcebergSchema(dict):
+    """
+    Contains details about the schema for an Iceberg table
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "schemaFieldList":
+            suggest = "schema_field_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableIcebergSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableIcebergSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableIcebergSchema.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schema_field_list: Sequence['outputs.TableSchemaField']):
+        """
+        Contains details about the schema for an Iceberg table
+        """
+        pulumi.set(__self__, "schema_field_list", schema_field_list)
+
+    @property
+    @pulumi.getter(name="schemaFieldList")
+    def schema_field_list(self) -> Sequence['outputs.TableSchemaField']:
+        return pulumi.get(self, "schema_field_list")
+
+
+@pulumi.output_type
+class TablePolicyResourcePolicy(dict):
+    """
+    A policy document containing permissions to add to the specified table. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+    """
+    def __init__(__self__):
+        """
+        A policy document containing permissions to add to the specified table. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
+        """
+        pass
+
+
+@pulumi.output_type
+class TableSchemaField(dict):
+    """
+    Contains details about the schema for an Iceberg table
+    """
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 type: builtins.str,
+                 required: Optional[builtins.bool] = None):
+        """
+        Contains details about the schema for an Iceberg table
+        :param builtins.str name: The name of the field
+        :param builtins.str type: The field type
+        :param builtins.bool required: A Boolean value that specifies whether values are required for each row in this field
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the field
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        The field type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[builtins.bool]:
+        """
+        A Boolean value that specifies whether values are required for each row in this field
+        """
+        return pulumi.get(self, "required")
+
+
+@pulumi.output_type
+class TableSnapshotManagement(dict):
+    """
+    Contains details about the snapshot management settings for an Iceberg table. A snapshot is expired when it exceeds MinSnapshotsToKeep and MaxSnapshotAgeHours.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxSnapshotAgeHours":
+            suggest = "max_snapshot_age_hours"
+        elif key == "minSnapshotsToKeep":
+            suggest = "min_snapshots_to_keep"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableSnapshotManagement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableSnapshotManagement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableSnapshotManagement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_snapshot_age_hours: Optional[builtins.int] = None,
+                 min_snapshots_to_keep: Optional[builtins.int] = None,
+                 status: Optional['TableSnapshotManagementStatus'] = None):
+        """
+        Contains details about the snapshot management settings for an Iceberg table. A snapshot is expired when it exceeds MinSnapshotsToKeep and MaxSnapshotAgeHours.
+        :param builtins.int max_snapshot_age_hours: The maximum age of a snapshot before it can be expired.
+        :param builtins.int min_snapshots_to_keep: The minimum number of snapshots to keep.
+        :param 'TableSnapshotManagementStatus' status: Indicates whether the SnapshotManagement maintenance action is enabled.
+        """
+        if max_snapshot_age_hours is not None:
+            pulumi.set(__self__, "max_snapshot_age_hours", max_snapshot_age_hours)
+        if min_snapshots_to_keep is not None:
+            pulumi.set(__self__, "min_snapshots_to_keep", min_snapshots_to_keep)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="maxSnapshotAgeHours")
+    def max_snapshot_age_hours(self) -> Optional[builtins.int]:
+        """
+        The maximum age of a snapshot before it can be expired.
+        """
+        return pulumi.get(self, "max_snapshot_age_hours")
+
+    @property
+    @pulumi.getter(name="minSnapshotsToKeep")
+    def min_snapshots_to_keep(self) -> Optional[builtins.int]:
+        """
+        The minimum number of snapshots to keep.
+        """
+        return pulumi.get(self, "min_snapshots_to_keep")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['TableSnapshotManagementStatus']:
+        """
+        Indicates whether the SnapshotManagement maintenance action is enabled.
+        """
+        return pulumi.get(self, "status")
 
 

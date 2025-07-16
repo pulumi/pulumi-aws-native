@@ -41,6 +41,7 @@ export interface GetDirectoryBucketResult {
      * Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
      */
     readonly lifecycleConfiguration?: outputs.s3express.DirectoryBucketLifecycleConfiguration;
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::S3Express::DirectoryBucket.

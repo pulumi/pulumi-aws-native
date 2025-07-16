@@ -51,7 +51,7 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 type LookupServiceArgs struct {
 	// The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
 	Cluster string `pulumi:"cluster"`
-	// Not currently supported in AWS CloudFormation .
+	// The ARN that identifies the service. For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .
 	ServiceArn string `pulumi:"serviceArn"`
 }
 
@@ -99,7 +99,7 @@ type LookupServiceResult struct {
 	//  You must set this to a value other than ``NONE`` when you use Cost Explorer. For more information, see [Amazon ECS usage reports](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/usage-reports.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//  The default is ``NONE``.
 	PropagateTags *ServicePropagateTags `pulumi:"propagateTags"`
-	// Not currently supported in AWS CloudFormation .
+	// The ARN that identifies the service. For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .
 	ServiceArn *string `pulumi:"serviceArn"`
 	// The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
 	//   Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
@@ -135,7 +135,7 @@ func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts
 type LookupServiceOutputArgs struct {
 	// The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
 	Cluster pulumi.StringInput `pulumi:"cluster"`
-	// Not currently supported in AWS CloudFormation .
+	// The ARN that identifies the service. For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .
 	ServiceArn pulumi.StringInput `pulumi:"serviceArn"`
 }
 
@@ -254,7 +254,7 @@ func (o LookupServiceResultOutput) PropagateTags() ServicePropagateTagsPtrOutput
 	return o.ApplyT(func(v LookupServiceResult) *ServicePropagateTags { return v.PropagateTags }).(ServicePropagateTagsPtrOutput)
 }
 
-// Not currently supported in AWS CloudFormation .
+// The ARN that identifies the service. For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .
 func (o LookupServiceResultOutput) ServiceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.ServiceArn }).(pulumi.StringPtrOutput)
 }

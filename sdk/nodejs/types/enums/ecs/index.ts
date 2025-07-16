@@ -82,6 +82,13 @@ export const ServiceAwsVpcConfigurationAssignPublicIp = {
  */
 export type ServiceAwsVpcConfigurationAssignPublicIp = (typeof ServiceAwsVpcConfigurationAssignPublicIp)[keyof typeof ServiceAwsVpcConfigurationAssignPublicIp];
 
+export const ServiceDeploymentConfigurationStrategy = {
+    Rolling: "ROLLING",
+    BlueGreen: "BLUE_GREEN",
+} as const;
+
+export type ServiceDeploymentConfigurationStrategy = (typeof ServiceDeploymentConfigurationStrategy)[keyof typeof ServiceDeploymentConfigurationStrategy];
+
 export const ServiceDeploymentControllerType = {
     CodeDeploy: "CODE_DEPLOY",
     Ecs: "ECS",
@@ -93,6 +100,18 @@ export const ServiceDeploymentControllerType = {
  *   + ECS The rolling update (ECS) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the DeploymentConfiguration. + CODE_DEPLOY The blue/green (CODE_DEPLOY) deployment type uses the blue/green deployment model powered by , which allows you to verify a new deployment of a service before sending production traffic to it. + EXTERNAL The external (EXTERNAL) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
  */
 export type ServiceDeploymentControllerType = (typeof ServiceDeploymentControllerType)[keyof typeof ServiceDeploymentControllerType];
+
+export const ServiceDeploymentLifecycleHookLifecycleStagesItem = {
+    ReconcileService: "RECONCILE_SERVICE",
+    PreScaleUp: "PRE_SCALE_UP",
+    PostScaleUp: "POST_SCALE_UP",
+    TestTrafficShift: "TEST_TRAFFIC_SHIFT",
+    PostTestTrafficShift: "POST_TEST_TRAFFIC_SHIFT",
+    ProductionTrafficShift: "PRODUCTION_TRAFFIC_SHIFT",
+    PostProductionTrafficShift: "POST_PRODUCTION_TRAFFIC_SHIFT",
+} as const;
+
+export type ServiceDeploymentLifecycleHookLifecycleStagesItem = (typeof ServiceDeploymentLifecycleHookLifecycleStagesItem)[keyof typeof ServiceDeploymentLifecycleHookLifecycleStagesItem];
 
 export const ServiceEbsTagSpecificationPropagateTags = {
     Service: "SERVICE",

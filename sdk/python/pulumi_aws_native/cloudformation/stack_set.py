@@ -50,7 +50,7 @@ class StackSetArgs:
         :param pulumi.Input[builtins.str] description: A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
         :param pulumi.Input[builtins.str] execution_role_name: The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
         :param pulumi.Input['ManagedExecutionPropertiesArgs'] managed_execution: Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
-        :param pulumi.Input['StackSetOperationPreferencesArgs'] operation_preferences: The user-specified preferences for how CloudFormation performs a stack set operation.
+        :param pulumi.Input['StackSetOperationPreferencesArgs'] operation_preferences: The user-specified preferences for how CloudFormation performs a StackSet operation.
         :param pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]] parameters: The input parameters for the stack set template.
         :param pulumi.Input[Sequence[pulumi.Input['StackSetStackInstancesArgs']]] stack_instances_group: A group of stack instances with parameters in some specific accounts and regions.
         :param pulumi.Input[builtins.str] stack_set_name: The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
@@ -188,7 +188,7 @@ class StackSetArgs:
     @pulumi.getter(name="operationPreferences")
     def operation_preferences(self) -> Optional[pulumi.Input['StackSetOperationPreferencesArgs']]:
         """
-        The user-specified preferences for how CloudFormation performs a stack set operation.
+        The user-specified preferences for how CloudFormation performs a StackSet operation.
         """
         return pulumi.get(self, "operation_preferences")
 
@@ -303,7 +303,7 @@ class StackSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
         :param pulumi.Input[builtins.str] execution_role_name: The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
         :param pulumi.Input[Union['ManagedExecutionPropertiesArgs', 'ManagedExecutionPropertiesArgsDict']] managed_execution: Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
-        :param pulumi.Input[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict']] operation_preferences: The user-specified preferences for how CloudFormation performs a stack set operation.
+        :param pulumi.Input[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict']] operation_preferences: The user-specified preferences for how CloudFormation performs a StackSet operation.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StackSetParameterArgs', 'StackSetParameterArgsDict']]]] parameters: The input parameters for the stack set template.
         :param pulumi.Input['StackSetPermissionModel'] permission_model: Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StackSetStackInstancesArgs', 'StackSetStackInstancesArgsDict']]]] stack_instances_group: A group of stack instances with parameters in some specific accounts and regions.
@@ -480,7 +480,7 @@ class StackSet(pulumi.CustomResource):
     @pulumi.getter(name="operationPreferences")
     def operation_preferences(self) -> pulumi.Output[Optional['outputs.StackSetOperationPreferences']]:
         """
-        The user-specified preferences for how CloudFormation performs a stack set operation.
+        The user-specified preferences for how CloudFormation performs a StackSet operation.
         """
         return pulumi.get(self, "operation_preferences")
 

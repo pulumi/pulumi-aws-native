@@ -13,9 +13,6 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class EvaluationFormAutoEvaluationConfiguration
     {
-        /// <summary>
-        /// Auto Evaluation enablement status.
-        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

@@ -36,6 +36,13 @@ export const OriginEndpointContainerType = {
 
 export type OriginEndpointContainerType = (typeof OriginEndpointContainerType)[keyof typeof OriginEndpointContainerType];
 
+export const OriginEndpointDashCompactness = {
+    Standard: "STANDARD",
+    None: "NONE",
+} as const;
+
+export type OriginEndpointDashCompactness = (typeof OriginEndpointDashCompactness)[keyof typeof OriginEndpointDashCompactness];
+
 export const OriginEndpointDashDrmSignaling = {
     Individual: "INDIVIDUAL",
     Referenced: "REFERENCED",
@@ -53,11 +60,24 @@ export const OriginEndpointDashPeriodTrigger = {
 
 export type OriginEndpointDashPeriodTrigger = (typeof OriginEndpointDashPeriodTrigger)[keyof typeof OriginEndpointDashPeriodTrigger];
 
+export const OriginEndpointDashProfile = {
+    DvbDash: "DVB_DASH",
+} as const;
+
+export type OriginEndpointDashProfile = (typeof OriginEndpointDashProfile)[keyof typeof OriginEndpointDashProfile];
+
 export const OriginEndpointDashSegmentTemplateFormat = {
     NumberWithTimeline: "NUMBER_WITH_TIMELINE",
 } as const;
 
 export type OriginEndpointDashSegmentTemplateFormat = (typeof OriginEndpointDashSegmentTemplateFormat)[keyof typeof OriginEndpointDashSegmentTemplateFormat];
+
+export const OriginEndpointDashTtmlProfile = {
+    Imsc1: "IMSC_1",
+    EbuTtD101: "EBU_TT_D_101",
+} as const;
+
+export type OriginEndpointDashTtmlProfile = (typeof OriginEndpointDashTtmlProfile)[keyof typeof OriginEndpointDashTtmlProfile];
 
 export const OriginEndpointDashUtcTimingMode = {
     HttpHead: "HTTP_HEAD",

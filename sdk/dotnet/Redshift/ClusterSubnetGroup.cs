@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Redshift
 {
     /// <summary>
-    /// Specifies an Amazon Redshift subnet group.
+    /// Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
     /// </summary>
     [AwsNativeResourceType("aws-native:redshift:ClusterSubnetGroup")]
     public partial class ClusterSubnetGroup : global::Pulumi.CustomResource

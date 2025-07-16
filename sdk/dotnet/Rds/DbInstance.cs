@@ -160,6 +160,22 @@ namespace Pulumi.AwsNative.Rds
         public Output<int?> BackupRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
+        /// The location for storing automated backups and manual snapshots.
+        /// 
+        /// Valid Values:
+        /// 
+        /// - `local` (Dedicated Local Zone)
+        /// - `outposts` ( AWS Outposts)
+        /// - `region` ( AWS Region )
+        /// 
+        /// Default: `region`
+        /// 
+        /// For more information, see [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide* .
+        /// </summary>
+        [Output("backupTarget")]
+        public Output<string?> BackupTarget { get; private set; } = null!;
+
+        /// <summary>
         /// The identifier of the CA certificate for this DB instance.
         ///  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
         /// </summary>
@@ -712,9 +728,7 @@ namespace Pulumi.AwsNative.Rds
 
         /// <summary>
         /// Specifies whether the DB instance is a Multi-AZ deployment. You can't set the ``AvailabilityZone`` parameter if the DB instance is a Multi-AZ deployment.
-        ///  This setting doesn't apply to the following DB instances:
-        ///   +  Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)
-        ///   +  RDS Custom
+        ///  This setting doesn't apply to Amazon Aurora because the DB instance Availability Zones (AZs) are managed by the DB cluster.
         /// </summary>
         [Output("multiAz")]
         public Output<bool?> MultiAz { get; private set; } = null!;
@@ -1002,6 +1016,7 @@ namespace Pulumi.AwsNative.Rds
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "backupTarget",
                     "characterSetName",
                     "customIamInstanceProfile",
                     "dbClusterIdentifier",
@@ -1167,6 +1182,22 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("backupRetentionPeriod")]
         public Input<int>? BackupRetentionPeriod { get; set; }
+
+        /// <summary>
+        /// The location for storing automated backups and manual snapshots.
+        /// 
+        /// Valid Values:
+        /// 
+        /// - `local` (Dedicated Local Zone)
+        /// - `outposts` ( AWS Outposts)
+        /// - `region` ( AWS Region )
+        /// 
+        /// Default: `region`
+        /// 
+        /// For more information, see [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide* .
+        /// </summary>
+        [Input("backupTarget")]
+        public Input<string>? BackupTarget { get; set; }
 
         /// <summary>
         /// The identifier of the CA certificate for this DB instance.
@@ -1721,9 +1752,7 @@ namespace Pulumi.AwsNative.Rds
 
         /// <summary>
         /// Specifies whether the DB instance is a Multi-AZ deployment. You can't set the ``AvailabilityZone`` parameter if the DB instance is a Multi-AZ deployment.
-        ///  This setting doesn't apply to the following DB instances:
-        ///   +  Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)
-        ///   +  RDS Custom
+        ///  This setting doesn't apply to Amazon Aurora because the DB instance Availability Zones (AZs) are managed by the DB cluster.
         /// </summary>
         [Input("multiAz")]
         public Input<bool>? MultiAz { get; set; }

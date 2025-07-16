@@ -279,7 +279,6 @@ func NewComponent(ctx *pulumi.Context,
 		"name",
 		"platform",
 		"supportedOsVersions[*]",
-		"tags.*",
 		"uri",
 		"version",
 	})

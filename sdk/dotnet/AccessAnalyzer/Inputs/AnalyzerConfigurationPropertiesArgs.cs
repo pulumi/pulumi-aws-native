@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
     /// </summary>
     public sealed class AnalyzerConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment.
+        /// </summary>
         [Input("internalAccessConfiguration")]
         public Input<Inputs.AnalyzerInternalAccessConfigurationArgs>? InternalAccessConfiguration { get; set; }
 

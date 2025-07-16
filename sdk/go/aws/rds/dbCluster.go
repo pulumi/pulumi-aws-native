@@ -111,6 +111,8 @@ type DbCluster struct {
 	DbSubnetGroupName pulumi.StringPtrOutput `pulumi:"dbSubnetGroupName"`
 	// Reserved for future use.
 	DbSystemId pulumi.StringPtrOutput `pulumi:"dbSystemId"`
+	// Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted, unless the AWS Backup policy specifies a point-in-time restore rule.
+	DeleteAutomatedBackups pulumi.BoolPtrOutput `pulumi:"deleteAutomatedBackups"`
 	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
@@ -537,6 +539,8 @@ type dbClusterArgs struct {
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
 	// Reserved for future use.
 	DbSystemId *string `pulumi:"dbSystemId"`
+	// Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted, unless the AWS Backup policy specifies a point-in-time restore rule.
+	DeleteAutomatedBackups *bool `pulumi:"deleteAutomatedBackups"`
 	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	DeletionProtection *bool `pulumi:"deletionProtection"`
@@ -900,6 +904,8 @@ type DbClusterArgs struct {
 	DbSubnetGroupName pulumi.StringPtrInput
 	// Reserved for future use.
 	DbSystemId pulumi.StringPtrInput
+	// Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted, unless the AWS Backup policy specifies a point-in-time restore rule.
+	DeleteAutomatedBackups pulumi.BoolPtrInput
 	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	DeletionProtection pulumi.BoolPtrInput
@@ -1368,6 +1374,11 @@ func (o DbClusterOutput) DbSubnetGroupName() pulumi.StringPtrOutput {
 // Reserved for future use.
 func (o DbClusterOutput) DbSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.DbSystemId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted, unless the AWS Backup policy specifies a point-in-time restore rule.
+func (o DbClusterOutput) DeleteAutomatedBackups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DbCluster) pulumi.BoolPtrOutput { return v.DeleteAutomatedBackups }).(pulumi.BoolPtrOutput)
 }
 
 // A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.

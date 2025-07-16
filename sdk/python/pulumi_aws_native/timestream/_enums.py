@@ -34,6 +34,7 @@ class InfluxDbInstanceDbInstanceType(builtins.str, Enum):
     DB_INFLUX8XLARGE = "db.influx.8xlarge"
     DB_INFLUX12XLARGE = "db.influx.12xlarge"
     DB_INFLUX16XLARGE = "db.influx.16xlarge"
+    DB_INFLUX24XLARGE = "db.influx.24xlarge"
 
 
 @pulumi.type_token("aws-native:timestream:InfluxDbInstanceDbStorageType")

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AiOps.Inputs
 
     public sealed class InvestigationGroupEncryptionConfigMapArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Displays whether investigation data is encrypted by a customer managed key or an AWS owned key.
+        /// </summary>
         [Input("encryptionConfigurationType")]
         public Input<string>? EncryptionConfigurationType { get; set; }
 
+        /// <summary>
+        /// If the investigation group uses a customer managed key for encryption, this field displays the ID of that key.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 

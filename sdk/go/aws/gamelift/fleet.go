@@ -18,7 +18,7 @@ type Fleet struct {
 
 	// Configuration for Anywhere fleet.
 	AnywhereConfiguration FleetAnywhereConfigurationPtrOutput `pulumi:"anywhereConfiguration"`
-	// Determines whether to apply fleet or location capacities on fleet creation.
+	// Determines when and how to apply fleet or location capacities. If you choose ON_CREATE_AND_UPDATE_WITH_AUTOSCALING, MinSize and MaxSize will still be applied on creation and on updates, but DesiredEC2Instances will only be applied once on fleet creation and will be ignored during updates to prevent conflicts with auto-scaling.
 	ApplyCapacity FleetApplyCapacityPtrOutput `pulumi:"applyCapacity"`
 	// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
 	BuildId pulumi.StringPtrOutput `pulumi:"buildId"`
@@ -90,7 +90,6 @@ func NewFleet(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"applyCapacity",
 		"buildId",
 		"certificateConfiguration",
 		"computeType",
@@ -141,7 +140,7 @@ func (FleetState) ElementType() reflect.Type {
 type fleetArgs struct {
 	// Configuration for Anywhere fleet.
 	AnywhereConfiguration *FleetAnywhereConfiguration `pulumi:"anywhereConfiguration"`
-	// Determines whether to apply fleet or location capacities on fleet creation.
+	// Determines when and how to apply fleet or location capacities. If you choose ON_CREATE_AND_UPDATE_WITH_AUTOSCALING, MinSize and MaxSize will still be applied on creation and on updates, but DesiredEC2Instances will only be applied once on fleet creation and will be ignored during updates to prevent conflicts with auto-scaling.
 	ApplyCapacity *FleetApplyCapacity `pulumi:"applyCapacity"`
 	// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
 	BuildId *string `pulumi:"buildId"`
@@ -205,7 +204,7 @@ type fleetArgs struct {
 type FleetArgs struct {
 	// Configuration for Anywhere fleet.
 	AnywhereConfiguration FleetAnywhereConfigurationPtrInput
-	// Determines whether to apply fleet or location capacities on fleet creation.
+	// Determines when and how to apply fleet or location capacities. If you choose ON_CREATE_AND_UPDATE_WITH_AUTOSCALING, MinSize and MaxSize will still be applied on creation and on updates, but DesiredEC2Instances will only be applied once on fleet creation and will be ignored during updates to prevent conflicts with auto-scaling.
 	ApplyCapacity FleetApplyCapacityPtrInput
 	// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
 	BuildId pulumi.StringPtrInput
@@ -307,7 +306,7 @@ func (o FleetOutput) AnywhereConfiguration() FleetAnywhereConfigurationPtrOutput
 	return o.ApplyT(func(v *Fleet) FleetAnywhereConfigurationPtrOutput { return v.AnywhereConfiguration }).(FleetAnywhereConfigurationPtrOutput)
 }
 
-// Determines whether to apply fleet or location capacities on fleet creation.
+// Determines when and how to apply fleet or location capacities. If you choose ON_CREATE_AND_UPDATE_WITH_AUTOSCALING, MinSize and MaxSize will still be applied on creation and on updates, but DesiredEC2Instances will only be applied once on fleet creation and will be ignored during updates to prevent conflicts with auto-scaling.
 func (o FleetOutput) ApplyCapacity() FleetApplyCapacityPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetApplyCapacityPtrOutput { return v.ApplyCapacity }).(FleetApplyCapacityPtrOutput)
 }

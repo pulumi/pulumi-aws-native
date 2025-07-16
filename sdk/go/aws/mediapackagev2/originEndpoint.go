@@ -26,7 +26,8 @@ type OriginEndpoint struct {
 	// The container type associated with the origin endpoint configuration.
 	ContainerType OriginEndpointContainerTypeOutput `pulumi:"containerType"`
 	// <p>The date and time the origin endpoint was created.</p>
-	CreatedAt        pulumi.StringOutput      `pulumi:"createdAt"`
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The egress domain URL for stream delivery from MediaPackage.
 	DashManifestUrls pulumi.StringArrayOutput `pulumi:"dashManifestUrls"`
 	// <p>A DASH manifest configuration.</p>
 	DashManifests OriginEndpointDashManifestConfigurationArrayOutput `pulumi:"dashManifests"`
@@ -34,10 +35,12 @@ type OriginEndpoint struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The failover settings for the endpoint.
 	ForceEndpointErrorConfiguration OriginEndpointForceEndpointErrorConfigurationPtrOutput `pulumi:"forceEndpointErrorConfiguration"`
-	HlsManifestUrls                 pulumi.StringArrayOutput                               `pulumi:"hlsManifestUrls"`
+	// The egress domain URL for stream delivery from MediaPackage.
+	HlsManifestUrls pulumi.StringArrayOutput `pulumi:"hlsManifestUrls"`
 	// <p>An HTTP live streaming (HLS) manifest configuration.</p>
-	HlsManifests              OriginEndpointHlsManifestConfigurationArrayOutput `pulumi:"hlsManifests"`
-	LowLatencyHlsManifestUrls pulumi.StringArrayOutput                          `pulumi:"lowLatencyHlsManifestUrls"`
+	HlsManifests OriginEndpointHlsManifestConfigurationArrayOutput `pulumi:"hlsManifests"`
+	// The egress domain URL for stream delivery from MediaPackage.
+	LowLatencyHlsManifestUrls pulumi.StringArrayOutput `pulumi:"lowLatencyHlsManifestUrls"`
 	// <p>A low-latency HLS manifest configuration.</p>
 	LowLatencyHlsManifests OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput `pulumi:"lowLatencyHlsManifests"`
 	// <p>The date and time the origin endpoint was modified.</p>
@@ -223,6 +226,7 @@ func (o OriginEndpointOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The egress domain URL for stream delivery from MediaPackage.
 func (o OriginEndpointOutput) DashManifestUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringArrayOutput { return v.DashManifestUrls }).(pulumi.StringArrayOutput)
 }
@@ -244,6 +248,7 @@ func (o OriginEndpointOutput) ForceEndpointErrorConfiguration() OriginEndpointFo
 	}).(OriginEndpointForceEndpointErrorConfigurationPtrOutput)
 }
 
+// The egress domain URL for stream delivery from MediaPackage.
 func (o OriginEndpointOutput) HlsManifestUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringArrayOutput { return v.HlsManifestUrls }).(pulumi.StringArrayOutput)
 }
@@ -253,6 +258,7 @@ func (o OriginEndpointOutput) HlsManifests() OriginEndpointHlsManifestConfigurat
 	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointHlsManifestConfigurationArrayOutput { return v.HlsManifests }).(OriginEndpointHlsManifestConfigurationArrayOutput)
 }
 
+// The egress domain URL for stream delivery from MediaPackage.
 func (o OriginEndpointOutput) LowLatencyHlsManifestUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringArrayOutput { return v.LowLatencyHlsManifestUrls }).(pulumi.StringArrayOutput)
 }

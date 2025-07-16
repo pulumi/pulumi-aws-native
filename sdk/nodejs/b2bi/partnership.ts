@@ -49,6 +49,9 @@ export class Partnership extends pulumi.CustomResource {
      * Returns a timestamp for creation date and time of the partnership.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Specifies the email address associated with this trading partner.
+     */
     public readonly email!: pulumi.Output<string>;
     /**
      * Returns a timestamp that identifies the most recent date and time that the partnership was modified.
@@ -66,6 +69,9 @@ export class Partnership extends pulumi.CustomResource {
      * Returns the unique, system-generated identifier for a partnership.
      */
     public /*out*/ readonly partnershipId!: pulumi.Output<string>;
+    /**
+     * Specifies the phone number associated with the partnership.
+     */
     public readonly phone!: pulumi.Output<string | undefined>;
     /**
      * Returns the unique, system-generated identifier for the profile connected to this partnership.
@@ -145,11 +151,17 @@ export interface PartnershipArgs {
      * Contains the details for an Outbound EDI capability.
      */
     capabilityOptions?: pulumi.Input<inputs.b2bi.PartnershipCapabilityOptionsArgs>;
+    /**
+     * Specifies the email address associated with this trading partner.
+     */
     email: pulumi.Input<string>;
     /**
      * Returns the name of the partnership.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the phone number associated with the partnership.
+     */
     phone?: pulumi.Input<string>;
     /**
      * Returns the unique, system-generated identifier for the profile connected to this partnership.

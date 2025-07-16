@@ -37,17 +37,29 @@ export class InvestigationGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === InvestigationGroup.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the investigation group.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * An array of key-value pairs of notification channels to apply to this resource.
      */
     public readonly chatbotNotificationChannels!: pulumi.Output<outputs.aiops.InvestigationGroupChatbotNotificationChannel[] | undefined>;
+    /**
+     * The date and time that the investigation group was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The name of the user who created the investigation group.
+     */
     public /*out*/ readonly createdBy!: pulumi.Output<string>;
     /**
      * An array of cross account configurations.
      */
     public readonly crossAccountConfigurations!: pulumi.Output<outputs.aiops.InvestigationGroupCrossAccountConfiguration[] | undefined>;
+    /**
+     * Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+     */
     public readonly encryptionConfig!: pulumi.Output<outputs.aiops.InvestigationGroupEncryptionConfigMap | undefined>;
     /**
      * Investigation Group policy
@@ -57,14 +69,29 @@ export class InvestigationGroup extends pulumi.CustomResource {
      * Flag to enable cloud trail history
      */
     public readonly isCloudTrailEventHistoryEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The date and time that the investigation group was most recently modified.
+     */
     public /*out*/ readonly lastModifiedAt!: pulumi.Output<string>;
+    /**
+     * The name of the user who created the investigation group.
+     */
     public /*out*/ readonly lastModifiedBy!: pulumi.Output<string>;
+    /**
+     * Specify either the name or the ARN of the investigation group that you want to view.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * The number of days to retain the investigation group
      */
     public readonly retentionInDays!: pulumi.Output<number | undefined>;
+    /**
+     * The ARN of the IAM role that the investigation group uses for permissions to gather data.
+     */
     public readonly roleArn!: pulumi.Output<string | undefined>;
+    /**
+     * Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
+     */
     public readonly tagKeyBoundaries!: pulumi.Output<string[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -133,6 +160,9 @@ export interface InvestigationGroupArgs {
      * An array of cross account configurations.
      */
     crossAccountConfigurations?: pulumi.Input<pulumi.Input<inputs.aiops.InvestigationGroupCrossAccountConfigurationArgs>[]>;
+    /**
+     * Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+     */
     encryptionConfig?: pulumi.Input<inputs.aiops.InvestigationGroupEncryptionConfigMapArgs>;
     /**
      * Investigation Group policy
@@ -142,12 +172,21 @@ export interface InvestigationGroupArgs {
      * Flag to enable cloud trail history
      */
     isCloudTrailEventHistoryEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specify either the name or the ARN of the investigation group that you want to view.
+     */
     name?: pulumi.Input<string>;
     /**
      * The number of days to retain the investigation group
      */
     retentionInDays?: pulumi.Input<number>;
+    /**
+     * The ARN of the IAM role that the investigation group uses for permissions to gather data.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
+     */
     tagKeyBoundaries?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An array of key-value pairs to apply to this resource.

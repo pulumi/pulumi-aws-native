@@ -8784,6 +8784,8 @@ type DomainUnifiedStudioSettings struct {
 	ProjectId *string `pulumi:"projectId"`
 	// The location where Amazon S3 stores temporary execution data and other artifacts for the project that corresponds to the domain.
 	ProjectS3Path *string `pulumi:"projectS3Path"`
+	// The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
+	SingleSignOnApplicationArn *string `pulumi:"singleSignOnApplicationArn"`
 	// Sets whether you can access the domain in Amazon SageMaker Studio:
 	//
 	// ENABLED
@@ -8818,6 +8820,8 @@ type DomainUnifiedStudioSettingsArgs struct {
 	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
 	// The location where Amazon S3 stores temporary execution data and other artifacts for the project that corresponds to the domain.
 	ProjectS3Path pulumi.StringPtrInput `pulumi:"projectS3Path"`
+	// The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
+	SingleSignOnApplicationArn pulumi.StringPtrInput `pulumi:"singleSignOnApplicationArn"`
 	// Sets whether you can access the domain in Amazon SageMaker Studio:
 	//
 	// ENABLED
@@ -8935,6 +8939,11 @@ func (o DomainUnifiedStudioSettingsOutput) ProjectS3Path() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v DomainUnifiedStudioSettings) *string { return v.ProjectS3Path }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
+func (o DomainUnifiedStudioSettingsOutput) SingleSignOnApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainUnifiedStudioSettings) *string { return v.SingleSignOnApplicationArn }).(pulumi.StringPtrOutput)
+}
+
 // Sets whether you can access the domain in Amazon SageMaker Studio:
 //
 // ENABLED
@@ -9028,6 +9037,16 @@ func (o DomainUnifiedStudioSettingsPtrOutput) ProjectS3Path() pulumi.StringPtrOu
 			return nil
 		}
 		return v.ProjectS3Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
+func (o DomainUnifiedStudioSettingsPtrOutput) SingleSignOnApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainUnifiedStudioSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SingleSignOnApplicationArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -36201,6 +36220,305 @@ type PipelineTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ProjectCfnStackParameter struct {
+	// The key of the parameter.
+	Key string `pulumi:"key"`
+	// The value of the parameter.
+	Value string `pulumi:"value"`
+}
+
+// ProjectCfnStackParameterInput is an input type that accepts ProjectCfnStackParameterArgs and ProjectCfnStackParameterOutput values.
+// You can construct a concrete instance of `ProjectCfnStackParameterInput` via:
+//
+//	ProjectCfnStackParameterArgs{...}
+type ProjectCfnStackParameterInput interface {
+	pulumi.Input
+
+	ToProjectCfnStackParameterOutput() ProjectCfnStackParameterOutput
+	ToProjectCfnStackParameterOutputWithContext(context.Context) ProjectCfnStackParameterOutput
+}
+
+type ProjectCfnStackParameterArgs struct {
+	// The key of the parameter.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the parameter.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ProjectCfnStackParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectCfnStackParameter)(nil)).Elem()
+}
+
+func (i ProjectCfnStackParameterArgs) ToProjectCfnStackParameterOutput() ProjectCfnStackParameterOutput {
+	return i.ToProjectCfnStackParameterOutputWithContext(context.Background())
+}
+
+func (i ProjectCfnStackParameterArgs) ToProjectCfnStackParameterOutputWithContext(ctx context.Context) ProjectCfnStackParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCfnStackParameterOutput)
+}
+
+// ProjectCfnStackParameterArrayInput is an input type that accepts ProjectCfnStackParameterArray and ProjectCfnStackParameterArrayOutput values.
+// You can construct a concrete instance of `ProjectCfnStackParameterArrayInput` via:
+//
+//	ProjectCfnStackParameterArray{ ProjectCfnStackParameterArgs{...} }
+type ProjectCfnStackParameterArrayInput interface {
+	pulumi.Input
+
+	ToProjectCfnStackParameterArrayOutput() ProjectCfnStackParameterArrayOutput
+	ToProjectCfnStackParameterArrayOutputWithContext(context.Context) ProjectCfnStackParameterArrayOutput
+}
+
+type ProjectCfnStackParameterArray []ProjectCfnStackParameterInput
+
+func (ProjectCfnStackParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectCfnStackParameter)(nil)).Elem()
+}
+
+func (i ProjectCfnStackParameterArray) ToProjectCfnStackParameterArrayOutput() ProjectCfnStackParameterArrayOutput {
+	return i.ToProjectCfnStackParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectCfnStackParameterArray) ToProjectCfnStackParameterArrayOutputWithContext(ctx context.Context) ProjectCfnStackParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCfnStackParameterArrayOutput)
+}
+
+type ProjectCfnStackParameterOutput struct{ *pulumi.OutputState }
+
+func (ProjectCfnStackParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectCfnStackParameter)(nil)).Elem()
+}
+
+func (o ProjectCfnStackParameterOutput) ToProjectCfnStackParameterOutput() ProjectCfnStackParameterOutput {
+	return o
+}
+
+func (o ProjectCfnStackParameterOutput) ToProjectCfnStackParameterOutputWithContext(ctx context.Context) ProjectCfnStackParameterOutput {
+	return o
+}
+
+// The key of the parameter.
+func (o ProjectCfnStackParameterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectCfnStackParameter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the parameter.
+func (o ProjectCfnStackParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectCfnStackParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ProjectCfnStackParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectCfnStackParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectCfnStackParameter)(nil)).Elem()
+}
+
+func (o ProjectCfnStackParameterArrayOutput) ToProjectCfnStackParameterArrayOutput() ProjectCfnStackParameterArrayOutput {
+	return o
+}
+
+func (o ProjectCfnStackParameterArrayOutput) ToProjectCfnStackParameterArrayOutputWithContext(ctx context.Context) ProjectCfnStackParameterArrayOutput {
+	return o
+}
+
+func (o ProjectCfnStackParameterArrayOutput) Index(i pulumi.IntInput) ProjectCfnStackParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectCfnStackParameter {
+		return vs[0].([]ProjectCfnStackParameter)[vs[1].(int)]
+	}).(ProjectCfnStackParameterOutput)
+}
+
+// CloudFormation template provider details for a SageMaker project.
+type ProjectCfnTemplateProviderDetail struct {
+	Parameters []ProjectCfnStackParameter `pulumi:"parameters"`
+	// The Amazon Resource Name (ARN) of the IAM role used by the template provider.
+	RoleArn *string `pulumi:"roleArn"`
+	// The name of the template used for the project.
+	TemplateName string `pulumi:"templateName"`
+	// The URL of the CloudFormation template.
+	TemplateUrl string `pulumi:"templateUrl"`
+}
+
+// ProjectCfnTemplateProviderDetailInput is an input type that accepts ProjectCfnTemplateProviderDetailArgs and ProjectCfnTemplateProviderDetailOutput values.
+// You can construct a concrete instance of `ProjectCfnTemplateProviderDetailInput` via:
+//
+//	ProjectCfnTemplateProviderDetailArgs{...}
+type ProjectCfnTemplateProviderDetailInput interface {
+	pulumi.Input
+
+	ToProjectCfnTemplateProviderDetailOutput() ProjectCfnTemplateProviderDetailOutput
+	ToProjectCfnTemplateProviderDetailOutputWithContext(context.Context) ProjectCfnTemplateProviderDetailOutput
+}
+
+// CloudFormation template provider details for a SageMaker project.
+type ProjectCfnTemplateProviderDetailArgs struct {
+	Parameters ProjectCfnStackParameterArrayInput `pulumi:"parameters"`
+	// The Amazon Resource Name (ARN) of the IAM role used by the template provider.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The name of the template used for the project.
+	TemplateName pulumi.StringInput `pulumi:"templateName"`
+	// The URL of the CloudFormation template.
+	TemplateUrl pulumi.StringInput `pulumi:"templateUrl"`
+}
+
+func (ProjectCfnTemplateProviderDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectCfnTemplateProviderDetail)(nil)).Elem()
+}
+
+func (i ProjectCfnTemplateProviderDetailArgs) ToProjectCfnTemplateProviderDetailOutput() ProjectCfnTemplateProviderDetailOutput {
+	return i.ToProjectCfnTemplateProviderDetailOutputWithContext(context.Background())
+}
+
+func (i ProjectCfnTemplateProviderDetailArgs) ToProjectCfnTemplateProviderDetailOutputWithContext(ctx context.Context) ProjectCfnTemplateProviderDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCfnTemplateProviderDetailOutput)
+}
+
+func (i ProjectCfnTemplateProviderDetailArgs) ToProjectCfnTemplateProviderDetailPtrOutput() ProjectCfnTemplateProviderDetailPtrOutput {
+	return i.ToProjectCfnTemplateProviderDetailPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectCfnTemplateProviderDetailArgs) ToProjectCfnTemplateProviderDetailPtrOutputWithContext(ctx context.Context) ProjectCfnTemplateProviderDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCfnTemplateProviderDetailOutput).ToProjectCfnTemplateProviderDetailPtrOutputWithContext(ctx)
+}
+
+// ProjectCfnTemplateProviderDetailPtrInput is an input type that accepts ProjectCfnTemplateProviderDetailArgs, ProjectCfnTemplateProviderDetailPtr and ProjectCfnTemplateProviderDetailPtrOutput values.
+// You can construct a concrete instance of `ProjectCfnTemplateProviderDetailPtrInput` via:
+//
+//	        ProjectCfnTemplateProviderDetailArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectCfnTemplateProviderDetailPtrInput interface {
+	pulumi.Input
+
+	ToProjectCfnTemplateProviderDetailPtrOutput() ProjectCfnTemplateProviderDetailPtrOutput
+	ToProjectCfnTemplateProviderDetailPtrOutputWithContext(context.Context) ProjectCfnTemplateProviderDetailPtrOutput
+}
+
+type projectCfnTemplateProviderDetailPtrType ProjectCfnTemplateProviderDetailArgs
+
+func ProjectCfnTemplateProviderDetailPtr(v *ProjectCfnTemplateProviderDetailArgs) ProjectCfnTemplateProviderDetailPtrInput {
+	return (*projectCfnTemplateProviderDetailPtrType)(v)
+}
+
+func (*projectCfnTemplateProviderDetailPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectCfnTemplateProviderDetail)(nil)).Elem()
+}
+
+func (i *projectCfnTemplateProviderDetailPtrType) ToProjectCfnTemplateProviderDetailPtrOutput() ProjectCfnTemplateProviderDetailPtrOutput {
+	return i.ToProjectCfnTemplateProviderDetailPtrOutputWithContext(context.Background())
+}
+
+func (i *projectCfnTemplateProviderDetailPtrType) ToProjectCfnTemplateProviderDetailPtrOutputWithContext(ctx context.Context) ProjectCfnTemplateProviderDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCfnTemplateProviderDetailPtrOutput)
+}
+
+// CloudFormation template provider details for a SageMaker project.
+type ProjectCfnTemplateProviderDetailOutput struct{ *pulumi.OutputState }
+
+func (ProjectCfnTemplateProviderDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectCfnTemplateProviderDetail)(nil)).Elem()
+}
+
+func (o ProjectCfnTemplateProviderDetailOutput) ToProjectCfnTemplateProviderDetailOutput() ProjectCfnTemplateProviderDetailOutput {
+	return o
+}
+
+func (o ProjectCfnTemplateProviderDetailOutput) ToProjectCfnTemplateProviderDetailOutputWithContext(ctx context.Context) ProjectCfnTemplateProviderDetailOutput {
+	return o
+}
+
+func (o ProjectCfnTemplateProviderDetailOutput) ToProjectCfnTemplateProviderDetailPtrOutput() ProjectCfnTemplateProviderDetailPtrOutput {
+	return o.ToProjectCfnTemplateProviderDetailPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectCfnTemplateProviderDetailOutput) ToProjectCfnTemplateProviderDetailPtrOutputWithContext(ctx context.Context) ProjectCfnTemplateProviderDetailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectCfnTemplateProviderDetail) *ProjectCfnTemplateProviderDetail {
+		return &v
+	}).(ProjectCfnTemplateProviderDetailPtrOutput)
+}
+
+func (o ProjectCfnTemplateProviderDetailOutput) Parameters() ProjectCfnStackParameterArrayOutput {
+	return o.ApplyT(func(v ProjectCfnTemplateProviderDetail) []ProjectCfnStackParameter { return v.Parameters }).(ProjectCfnStackParameterArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role used by the template provider.
+func (o ProjectCfnTemplateProviderDetailOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectCfnTemplateProviderDetail) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the template used for the project.
+func (o ProjectCfnTemplateProviderDetailOutput) TemplateName() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectCfnTemplateProviderDetail) string { return v.TemplateName }).(pulumi.StringOutput)
+}
+
+// The URL of the CloudFormation template.
+func (o ProjectCfnTemplateProviderDetailOutput) TemplateUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectCfnTemplateProviderDetail) string { return v.TemplateUrl }).(pulumi.StringOutput)
+}
+
+type ProjectCfnTemplateProviderDetailPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectCfnTemplateProviderDetailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectCfnTemplateProviderDetail)(nil)).Elem()
+}
+
+func (o ProjectCfnTemplateProviderDetailPtrOutput) ToProjectCfnTemplateProviderDetailPtrOutput() ProjectCfnTemplateProviderDetailPtrOutput {
+	return o
+}
+
+func (o ProjectCfnTemplateProviderDetailPtrOutput) ToProjectCfnTemplateProviderDetailPtrOutputWithContext(ctx context.Context) ProjectCfnTemplateProviderDetailPtrOutput {
+	return o
+}
+
+func (o ProjectCfnTemplateProviderDetailPtrOutput) Elem() ProjectCfnTemplateProviderDetailOutput {
+	return o.ApplyT(func(v *ProjectCfnTemplateProviderDetail) ProjectCfnTemplateProviderDetail {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectCfnTemplateProviderDetail
+		return ret
+	}).(ProjectCfnTemplateProviderDetailOutput)
+}
+
+func (o ProjectCfnTemplateProviderDetailPtrOutput) Parameters() ProjectCfnStackParameterArrayOutput {
+	return o.ApplyT(func(v *ProjectCfnTemplateProviderDetail) []ProjectCfnStackParameter {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(ProjectCfnStackParameterArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role used by the template provider.
+func (o ProjectCfnTemplateProviderDetailPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectCfnTemplateProviderDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the template used for the project.
+func (o ProjectCfnTemplateProviderDetailPtrOutput) TemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectCfnTemplateProviderDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TemplateName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL of the CloudFormation template.
+func (o ProjectCfnTemplateProviderDetailPtrOutput) TemplateUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectCfnTemplateProviderDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TemplateUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 // Information about a parameter used to provision a product.
 type ProjectProvisioningParameter struct {
 	// The parameter key.
@@ -36316,6 +36634,105 @@ type ProjectTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
+}
+
+// Details about the template provider for the SageMaker project.
+type ProjectTemplateProviderDetail struct {
+	CfnTemplateProviderDetail *ProjectCfnTemplateProviderDetail `pulumi:"cfnTemplateProviderDetail"`
+}
+
+// ProjectTemplateProviderDetailInput is an input type that accepts ProjectTemplateProviderDetailArgs and ProjectTemplateProviderDetailOutput values.
+// You can construct a concrete instance of `ProjectTemplateProviderDetailInput` via:
+//
+//	ProjectTemplateProviderDetailArgs{...}
+type ProjectTemplateProviderDetailInput interface {
+	pulumi.Input
+
+	ToProjectTemplateProviderDetailOutput() ProjectTemplateProviderDetailOutput
+	ToProjectTemplateProviderDetailOutputWithContext(context.Context) ProjectTemplateProviderDetailOutput
+}
+
+// Details about the template provider for the SageMaker project.
+type ProjectTemplateProviderDetailArgs struct {
+	CfnTemplateProviderDetail ProjectCfnTemplateProviderDetailPtrInput `pulumi:"cfnTemplateProviderDetail"`
+}
+
+func (ProjectTemplateProviderDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectTemplateProviderDetail)(nil)).Elem()
+}
+
+func (i ProjectTemplateProviderDetailArgs) ToProjectTemplateProviderDetailOutput() ProjectTemplateProviderDetailOutput {
+	return i.ToProjectTemplateProviderDetailOutputWithContext(context.Background())
+}
+
+func (i ProjectTemplateProviderDetailArgs) ToProjectTemplateProviderDetailOutputWithContext(ctx context.Context) ProjectTemplateProviderDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTemplateProviderDetailOutput)
+}
+
+// ProjectTemplateProviderDetailArrayInput is an input type that accepts ProjectTemplateProviderDetailArray and ProjectTemplateProviderDetailArrayOutput values.
+// You can construct a concrete instance of `ProjectTemplateProviderDetailArrayInput` via:
+//
+//	ProjectTemplateProviderDetailArray{ ProjectTemplateProviderDetailArgs{...} }
+type ProjectTemplateProviderDetailArrayInput interface {
+	pulumi.Input
+
+	ToProjectTemplateProviderDetailArrayOutput() ProjectTemplateProviderDetailArrayOutput
+	ToProjectTemplateProviderDetailArrayOutputWithContext(context.Context) ProjectTemplateProviderDetailArrayOutput
+}
+
+type ProjectTemplateProviderDetailArray []ProjectTemplateProviderDetailInput
+
+func (ProjectTemplateProviderDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectTemplateProviderDetail)(nil)).Elem()
+}
+
+func (i ProjectTemplateProviderDetailArray) ToProjectTemplateProviderDetailArrayOutput() ProjectTemplateProviderDetailArrayOutput {
+	return i.ToProjectTemplateProviderDetailArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectTemplateProviderDetailArray) ToProjectTemplateProviderDetailArrayOutputWithContext(ctx context.Context) ProjectTemplateProviderDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTemplateProviderDetailArrayOutput)
+}
+
+// Details about the template provider for the SageMaker project.
+type ProjectTemplateProviderDetailOutput struct{ *pulumi.OutputState }
+
+func (ProjectTemplateProviderDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectTemplateProviderDetail)(nil)).Elem()
+}
+
+func (o ProjectTemplateProviderDetailOutput) ToProjectTemplateProviderDetailOutput() ProjectTemplateProviderDetailOutput {
+	return o
+}
+
+func (o ProjectTemplateProviderDetailOutput) ToProjectTemplateProviderDetailOutputWithContext(ctx context.Context) ProjectTemplateProviderDetailOutput {
+	return o
+}
+
+func (o ProjectTemplateProviderDetailOutput) CfnTemplateProviderDetail() ProjectCfnTemplateProviderDetailPtrOutput {
+	return o.ApplyT(func(v ProjectTemplateProviderDetail) *ProjectCfnTemplateProviderDetail {
+		return v.CfnTemplateProviderDetail
+	}).(ProjectCfnTemplateProviderDetailPtrOutput)
+}
+
+type ProjectTemplateProviderDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectTemplateProviderDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectTemplateProviderDetail)(nil)).Elem()
+}
+
+func (o ProjectTemplateProviderDetailArrayOutput) ToProjectTemplateProviderDetailArrayOutput() ProjectTemplateProviderDetailArrayOutput {
+	return o
+}
+
+func (o ProjectTemplateProviderDetailArrayOutput) ToProjectTemplateProviderDetailArrayOutputWithContext(ctx context.Context) ProjectTemplateProviderDetailArrayOutput {
+	return o
+}
+
+func (o ProjectTemplateProviderDetailArrayOutput) Index(i pulumi.IntInput) ProjectTemplateProviderDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectTemplateProviderDetail {
+		return vs[0].([]ProjectTemplateProviderDetail)[vs[1].(int)]
+	}).(ProjectTemplateProviderDetailOutput)
 }
 
 // Provisioned ServiceCatalog  Details
@@ -36550,6 +36967,47 @@ func (i ServiceCatalogProvisioningDetailsPropertiesArgs) ToServiceCatalogProvisi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCatalogProvisioningDetailsPropertiesOutput)
 }
 
+func (i ServiceCatalogProvisioningDetailsPropertiesArgs) ToServiceCatalogProvisioningDetailsPropertiesPtrOutput() ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
+	return i.ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceCatalogProvisioningDetailsPropertiesArgs) ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCatalogProvisioningDetailsPropertiesOutput).ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(ctx)
+}
+
+// ServiceCatalogProvisioningDetailsPropertiesPtrInput is an input type that accepts ServiceCatalogProvisioningDetailsPropertiesArgs, ServiceCatalogProvisioningDetailsPropertiesPtr and ServiceCatalogProvisioningDetailsPropertiesPtrOutput values.
+// You can construct a concrete instance of `ServiceCatalogProvisioningDetailsPropertiesPtrInput` via:
+//
+//	        ServiceCatalogProvisioningDetailsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceCatalogProvisioningDetailsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToServiceCatalogProvisioningDetailsPropertiesPtrOutput() ServiceCatalogProvisioningDetailsPropertiesPtrOutput
+	ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(context.Context) ServiceCatalogProvisioningDetailsPropertiesPtrOutput
+}
+
+type serviceCatalogProvisioningDetailsPropertiesPtrType ServiceCatalogProvisioningDetailsPropertiesArgs
+
+func ServiceCatalogProvisioningDetailsPropertiesPtr(v *ServiceCatalogProvisioningDetailsPropertiesArgs) ServiceCatalogProvisioningDetailsPropertiesPtrInput {
+	return (*serviceCatalogProvisioningDetailsPropertiesPtrType)(v)
+}
+
+func (*serviceCatalogProvisioningDetailsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceCatalogProvisioningDetailsProperties)(nil)).Elem()
+}
+
+func (i *serviceCatalogProvisioningDetailsPropertiesPtrType) ToServiceCatalogProvisioningDetailsPropertiesPtrOutput() ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
+	return i.ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceCatalogProvisioningDetailsPropertiesPtrType) ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCatalogProvisioningDetailsPropertiesPtrOutput)
+}
+
 // Input ServiceCatalog Provisioning Details
 type ServiceCatalogProvisioningDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -36563,6 +37021,16 @@ func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ToServiceCatalogProvi
 
 func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ToServiceCatalogProvisioningDetailsPropertiesOutputWithContext(ctx context.Context) ServiceCatalogProvisioningDetailsPropertiesOutput {
 	return o
+}
+
+func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ToServiceCatalogProvisioningDetailsPropertiesPtrOutput() ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
+	return o.ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceCatalogProvisioningDetailsProperties) *ServiceCatalogProvisioningDetailsProperties {
+		return &v
+	}).(ServiceCatalogProvisioningDetailsPropertiesPtrOutput)
 }
 
 // The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
@@ -36583,6 +37051,70 @@ func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ProvisioningArtifactI
 // Parameters specified by the administrator that are required for provisioning the product.
 func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ProvisioningParameters() ProjectProvisioningParameterArrayOutput {
 	return o.ApplyT(func(v ServiceCatalogProvisioningDetailsProperties) []ProjectProvisioningParameter {
+		return v.ProvisioningParameters
+	}).(ProjectProvisioningParameterArrayOutput)
+}
+
+type ServiceCatalogProvisioningDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceCatalogProvisioningDetailsProperties)(nil)).Elem()
+}
+
+func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ToServiceCatalogProvisioningDetailsPropertiesPtrOutput() ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) Elem() ServiceCatalogProvisioningDetailsPropertiesOutput {
+	return o.ApplyT(func(v *ServiceCatalogProvisioningDetailsProperties) ServiceCatalogProvisioningDetailsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceCatalogProvisioningDetailsProperties
+		return ret
+	}).(ServiceCatalogProvisioningDetailsPropertiesOutput)
+}
+
+// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
+func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) PathId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceCatalogProvisioningDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PathId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the product to provision.
+func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ProductId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceCatalogProvisioningDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProductId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the provisioning artifact.
+func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ProvisioningArtifactId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceCatalogProvisioningDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningArtifactId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters specified by the administrator that are required for provisioning the product.
+func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ProvisioningParameters() ProjectProvisioningParameterArrayOutput {
+	return o.ApplyT(func(v *ServiceCatalogProvisioningDetailsProperties) []ProjectProvisioningParameter {
+		if v == nil {
+			return nil
+		}
 		return v.ProvisioningParameters
 	}).(ProjectProvisioningParameterArrayOutput)
 }
@@ -43086,11 +43618,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineDefinition0PropertiesInput)(nil)).Elem(), PipelineDefinition0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineDefinition1PropertiesInput)(nil)).Elem(), PipelineDefinition1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineS3LocationInput)(nil)).Elem(), PipelineS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectCfnStackParameterInput)(nil)).Elem(), ProjectCfnStackParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectCfnStackParameterArrayInput)(nil)).Elem(), ProjectCfnStackParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectCfnTemplateProviderDetailInput)(nil)).Elem(), ProjectCfnTemplateProviderDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectCfnTemplateProviderDetailPtrInput)(nil)).Elem(), ProjectCfnTemplateProviderDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProvisioningParameterInput)(nil)).Elem(), ProjectProvisioningParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProvisioningParameterArrayInput)(nil)).Elem(), ProjectProvisioningParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTemplateProviderDetailInput)(nil)).Elem(), ProjectTemplateProviderDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTemplateProviderDetailArrayInput)(nil)).Elem(), ProjectTemplateProviderDetailArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisionedProductDetailsPropertiesInput)(nil)).Elem(), ServiceCatalogProvisionedProductDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisionedProductDetailsPropertiesPtrInput)(nil)).Elem(), ServiceCatalogProvisionedProductDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisioningDetailsPropertiesInput)(nil)).Elem(), ServiceCatalogProvisioningDetailsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisioningDetailsPropertiesPtrInput)(nil)).Elem(), ServiceCatalogProvisioningDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceAppLifecycleManagementInput)(nil)).Elem(), SpaceAppLifecycleManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceAppLifecycleManagementPtrInput)(nil)).Elem(), SpaceAppLifecycleManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceCodeEditorAppSettingsInput)(nil)).Elem(), SpaceCodeEditorAppSettingsArgs{})
@@ -43603,11 +44142,18 @@ func init() {
 	pulumi.RegisterOutputType(PipelineDefinition1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PipelineS3LocationOutput{})
 	pulumi.RegisterOutputType(PipelineS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(ProjectCfnStackParameterOutput{})
+	pulumi.RegisterOutputType(ProjectCfnStackParameterArrayOutput{})
+	pulumi.RegisterOutputType(ProjectCfnTemplateProviderDetailOutput{})
+	pulumi.RegisterOutputType(ProjectCfnTemplateProviderDetailPtrOutput{})
 	pulumi.RegisterOutputType(ProjectProvisioningParameterOutput{})
 	pulumi.RegisterOutputType(ProjectProvisioningParameterArrayOutput{})
+	pulumi.RegisterOutputType(ProjectTemplateProviderDetailOutput{})
+	pulumi.RegisterOutputType(ProjectTemplateProviderDetailArrayOutput{})
 	pulumi.RegisterOutputType(ServiceCatalogProvisionedProductDetailsPropertiesOutput{})
 	pulumi.RegisterOutputType(ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCatalogProvisioningDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(ServiceCatalogProvisioningDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SpaceAppLifecycleManagementOutput{})
 	pulumi.RegisterOutputType(SpaceAppLifecycleManagementPtrOutput{})
 	pulumi.RegisterOutputType(SpaceCodeEditorAppSettingsOutput{})

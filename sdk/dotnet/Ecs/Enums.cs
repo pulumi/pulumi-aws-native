@@ -234,6 +234,34 @@ namespace Pulumi.AwsNative.Ecs
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ServiceDeploymentConfigurationStrategy : IEquatable<ServiceDeploymentConfigurationStrategy>
+    {
+        private readonly string _value;
+
+        private ServiceDeploymentConfigurationStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceDeploymentConfigurationStrategy Rolling { get; } = new ServiceDeploymentConfigurationStrategy("ROLLING");
+        public static ServiceDeploymentConfigurationStrategy BlueGreen { get; } = new ServiceDeploymentConfigurationStrategy("BLUE_GREEN");
+
+        public static bool operator ==(ServiceDeploymentConfigurationStrategy left, ServiceDeploymentConfigurationStrategy right) => left.Equals(right);
+        public static bool operator !=(ServiceDeploymentConfigurationStrategy left, ServiceDeploymentConfigurationStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceDeploymentConfigurationStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceDeploymentConfigurationStrategy other && Equals(other);
+        public bool Equals(ServiceDeploymentConfigurationStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The deployment controller type to use. There are three deployment controller types available:
     ///   + ECS The rolling update (ECS) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the DeploymentConfiguration. + CODE_DEPLOY The blue/green (CODE_DEPLOY) deployment type uses the blue/green deployment model powered by , which allows you to verify a new deployment of a service before sending production traffic to it. + EXTERNAL The external (EXTERNAL) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
@@ -260,6 +288,39 @@ namespace Pulumi.AwsNative.Ecs
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ServiceDeploymentControllerType other && Equals(other);
         public bool Equals(ServiceDeploymentControllerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ServiceDeploymentLifecycleHookLifecycleStagesItem : IEquatable<ServiceDeploymentLifecycleHookLifecycleStagesItem>
+    {
+        private readonly string _value;
+
+        private ServiceDeploymentLifecycleHookLifecycleStagesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceDeploymentLifecycleHookLifecycleStagesItem ReconcileService { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("RECONCILE_SERVICE");
+        public static ServiceDeploymentLifecycleHookLifecycleStagesItem PreScaleUp { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("PRE_SCALE_UP");
+        public static ServiceDeploymentLifecycleHookLifecycleStagesItem PostScaleUp { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("POST_SCALE_UP");
+        public static ServiceDeploymentLifecycleHookLifecycleStagesItem TestTrafficShift { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("TEST_TRAFFIC_SHIFT");
+        public static ServiceDeploymentLifecycleHookLifecycleStagesItem PostTestTrafficShift { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("POST_TEST_TRAFFIC_SHIFT");
+        public static ServiceDeploymentLifecycleHookLifecycleStagesItem ProductionTrafficShift { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("PRODUCTION_TRAFFIC_SHIFT");
+        public static ServiceDeploymentLifecycleHookLifecycleStagesItem PostProductionTrafficShift { get; } = new ServiceDeploymentLifecycleHookLifecycleStagesItem("POST_PRODUCTION_TRAFFIC_SHIFT");
+
+        public static bool operator ==(ServiceDeploymentLifecycleHookLifecycleStagesItem left, ServiceDeploymentLifecycleHookLifecycleStagesItem right) => left.Equals(right);
+        public static bool operator !=(ServiceDeploymentLifecycleHookLifecycleStagesItem left, ServiceDeploymentLifecycleHookLifecycleStagesItem right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceDeploymentLifecycleHookLifecycleStagesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceDeploymentLifecycleHookLifecycleStagesItem other && Equals(other);
+        public bool Equals(ServiceDeploymentLifecycleHookLifecycleStagesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

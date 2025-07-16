@@ -83,6 +83,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The name of the image.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The tags associated with the image.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetImageResult(
@@ -94,13 +98,16 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             string? imageUri,
 
-            string? name)
+            string? name,
+
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             ExecutionRole = executionRole;
             ImageId = imageId;
             ImageUri = imageUri;
             Name = name;
+            Tags = tags;
         }
     }
 }

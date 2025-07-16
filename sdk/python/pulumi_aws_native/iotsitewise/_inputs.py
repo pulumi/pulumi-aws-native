@@ -1978,7 +1978,7 @@ if not MYPY:
         """
         capability_namespace: pulumi.Input[builtins.str]
         """
-        The namespace of the capability configuration. For example, if you configure OPC-UA sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:version` , where `version` is a number such as `1` .
+        The namespace of the capability configuration. For example, if you configure OPC UA sources for an MQTT-enabled gateway, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:3` .
         """
         capability_configuration: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -1994,7 +1994,7 @@ class GatewayCapabilitySummaryArgs:
                  capability_configuration: Optional[pulumi.Input[builtins.str]] = None):
         """
         Contains a summary of a gateway capability configuration.
-        :param pulumi.Input[builtins.str] capability_namespace: The namespace of the capability configuration. For example, if you configure OPC-UA sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:version` , where `version` is a number such as `1` .
+        :param pulumi.Input[builtins.str] capability_namespace: The namespace of the capability configuration. For example, if you configure OPC UA sources for an MQTT-enabled gateway, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:3` .
         :param pulumi.Input[builtins.str] capability_configuration: The JSON document that defines the configuration for the gateway capability. For more information, see [Configuring data sources (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli) in the *AWS IoT SiteWise User Guide* .
         """
         pulumi.set(__self__, "capability_namespace", capability_namespace)
@@ -2005,7 +2005,7 @@ class GatewayCapabilitySummaryArgs:
     @pulumi.getter(name="capabilityNamespace")
     def capability_namespace(self) -> pulumi.Input[builtins.str]:
         """
-        The namespace of the capability configuration. For example, if you configure OPC-UA sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:version` , where `version` is a number such as `1` .
+        The namespace of the capability configuration. For example, if you configure OPC UA sources for an MQTT-enabled gateway, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:3` .
         """
         return pulumi.get(self, "capability_namespace")
 

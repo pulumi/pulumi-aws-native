@@ -24,26 +24,35 @@ func LookupInvestigationGroup(ctx *pulumi.Context, args *LookupInvestigationGrou
 }
 
 type LookupInvestigationGroupArgs struct {
+	// The Amazon Resource Name (ARN) of the investigation group.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupInvestigationGroupResult struct {
+	// The Amazon Resource Name (ARN) of the investigation group.
 	Arn *string `pulumi:"arn"`
 	// An array of key-value pairs of notification channels to apply to this resource.
 	ChatbotNotificationChannels []InvestigationGroupChatbotNotificationChannel `pulumi:"chatbotNotificationChannels"`
-	CreatedAt                   *string                                        `pulumi:"createdAt"`
-	CreatedBy                   *string                                        `pulumi:"createdBy"`
+	// The date and time that the investigation group was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The name of the user who created the investigation group.
+	CreatedBy *string `pulumi:"createdBy"`
 	// An array of cross account configurations.
 	CrossAccountConfigurations []InvestigationGroupCrossAccountConfiguration `pulumi:"crossAccountConfigurations"`
-	EncryptionConfig           *InvestigationGroupEncryptionConfigMap        `pulumi:"encryptionConfig"`
+	// Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+	EncryptionConfig *InvestigationGroupEncryptionConfigMap `pulumi:"encryptionConfig"`
 	// Investigation Group policy
 	InvestigationGroupPolicy *string `pulumi:"investigationGroupPolicy"`
 	// Flag to enable cloud trail history
-	IsCloudTrailEventHistoryEnabled *bool    `pulumi:"isCloudTrailEventHistoryEnabled"`
-	LastModifiedAt                  *string  `pulumi:"lastModifiedAt"`
-	LastModifiedBy                  *string  `pulumi:"lastModifiedBy"`
-	RoleArn                         *string  `pulumi:"roleArn"`
-	TagKeyBoundaries                []string `pulumi:"tagKeyBoundaries"`
+	IsCloudTrailEventHistoryEnabled *bool `pulumi:"isCloudTrailEventHistoryEnabled"`
+	// The date and time that the investigation group was most recently modified.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The name of the user who created the investigation group.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The ARN of the IAM role that the investigation group uses for permissions to gather data.
+	RoleArn *string `pulumi:"roleArn"`
+	// Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
+	TagKeyBoundaries []string `pulumi:"tagKeyBoundaries"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -58,6 +67,7 @@ func LookupInvestigationGroupOutput(ctx *pulumi.Context, args LookupInvestigatio
 }
 
 type LookupInvestigationGroupOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the investigation group.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -79,6 +89,7 @@ func (o LookupInvestigationGroupResultOutput) ToLookupInvestigationGroupResultOu
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the investigation group.
 func (o LookupInvestigationGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInvestigationGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -90,10 +101,12 @@ func (o LookupInvestigationGroupResultOutput) ChatbotNotificationChannels() Inve
 	}).(InvestigationGroupChatbotNotificationChannelArrayOutput)
 }
 
+// The date and time that the investigation group was created.
 func (o LookupInvestigationGroupResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInvestigationGroupResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The name of the user who created the investigation group.
 func (o LookupInvestigationGroupResultOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInvestigationGroupResult) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
@@ -105,6 +118,7 @@ func (o LookupInvestigationGroupResultOutput) CrossAccountConfigurations() Inves
 	}).(InvestigationGroupCrossAccountConfigurationArrayOutput)
 }
 
+// Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
 func (o LookupInvestigationGroupResultOutput) EncryptionConfig() InvestigationGroupEncryptionConfigMapPtrOutput {
 	return o.ApplyT(func(v LookupInvestigationGroupResult) *InvestigationGroupEncryptionConfigMap {
 		return v.EncryptionConfig
@@ -121,18 +135,22 @@ func (o LookupInvestigationGroupResultOutput) IsCloudTrailEventHistoryEnabled() 
 	return o.ApplyT(func(v LookupInvestigationGroupResult) *bool { return v.IsCloudTrailEventHistoryEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The date and time that the investigation group was most recently modified.
 func (o LookupInvestigationGroupResultOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInvestigationGroupResult) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
+// The name of the user who created the investigation group.
 func (o LookupInvestigationGroupResultOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInvestigationGroupResult) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that the investigation group uses for permissions to gather data.
 func (o LookupInvestigationGroupResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInvestigationGroupResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
 func (o LookupInvestigationGroupResultOutput) TagKeyBoundaries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupInvestigationGroupResult) []string { return v.TagKeyBoundaries }).(pulumi.StringArrayOutput)
 }

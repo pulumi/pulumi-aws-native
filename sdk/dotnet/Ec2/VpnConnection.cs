@@ -46,8 +46,8 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> LocalIpv6NetworkCidr { get; private set; } = null!;
 
         /// <summary>
-        /// The type of IPv4 address assigned to the outside interface of the customer gateway device.
-        ///  Valid values: ``PrivateIpv4`` | ``PublicIpv4``
+        /// The type of IP address assigned to the outside interface of the customer gateway device.
+        ///  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
         ///  Default: ``PublicIpv4``
         /// </summary>
         [Output("outsideIpAddressType")]
@@ -216,8 +216,8 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? LocalIpv6NetworkCidr { get; set; }
 
         /// <summary>
-        /// The type of IPv4 address assigned to the outside interface of the customer gateway device.
-        ///  Valid values: ``PrivateIpv4`` | ``PublicIpv4``
+        /// The type of IP address assigned to the outside interface of the customer gateway device.
+        ///  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
         ///  Default: ``PublicIpv4``
         /// </summary>
         [Input("outsideIpAddressType")]

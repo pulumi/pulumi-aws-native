@@ -29,7 +29,13 @@ MYPY = False
 if not MYPY:
     class InvestigationGroupChatbotNotificationChannelArgsDict(TypedDict):
         chat_configuration_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Returns the Amazon Resource Name (ARN) of any third-party chat integrations configured for the account.
+        """
         sns_topic_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Returns the ARN of an Amazon SNS topic used for third-party chat integrations.
+        """
 elif False:
     InvestigationGroupChatbotNotificationChannelArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -38,6 +44,10 @@ class InvestigationGroupChatbotNotificationChannelArgs:
     def __init__(__self__, *,
                  chat_configuration_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] chat_configuration_arns: Returns the Amazon Resource Name (ARN) of any third-party chat integrations configured for the account.
+        :param pulumi.Input[builtins.str] sns_topic_arn: Returns the ARN of an Amazon SNS topic used for third-party chat integrations.
+        """
         if chat_configuration_arns is not None:
             pulumi.set(__self__, "chat_configuration_arns", chat_configuration_arns)
         if sns_topic_arn is not None:
@@ -46,6 +56,9 @@ class InvestigationGroupChatbotNotificationChannelArgs:
     @property
     @pulumi.getter(name="chatConfigurationArns")
     def chat_configuration_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Returns the Amazon Resource Name (ARN) of any third-party chat integrations configured for the account.
+        """
         return pulumi.get(self, "chat_configuration_arns")
 
     @chat_configuration_arns.setter
@@ -55,6 +68,9 @@ class InvestigationGroupChatbotNotificationChannelArgs:
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Returns the ARN of an Amazon SNS topic used for third-party chat integrations.
+        """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
@@ -65,6 +81,9 @@ class InvestigationGroupChatbotNotificationChannelArgs:
 if not MYPY:
     class InvestigationGroupCrossAccountConfigurationArgsDict(TypedDict):
         source_role_arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The ARN of an existing role which will be used to do investigations on your behalf.
+        """
 elif False:
     InvestigationGroupCrossAccountConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -72,12 +91,18 @@ elif False:
 class InvestigationGroupCrossAccountConfigurationArgs:
     def __init__(__self__, *,
                  source_role_arn: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] source_role_arn: The ARN of an existing role which will be used to do investigations on your behalf.
+        """
         if source_role_arn is not None:
             pulumi.set(__self__, "source_role_arn", source_role_arn)
 
     @property
     @pulumi.getter(name="sourceRoleArn")
     def source_role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ARN of an existing role which will be used to do investigations on your behalf.
+        """
         return pulumi.get(self, "source_role_arn")
 
     @source_role_arn.setter
@@ -88,7 +113,13 @@ class InvestigationGroupCrossAccountConfigurationArgs:
 if not MYPY:
     class InvestigationGroupEncryptionConfigMapArgsDict(TypedDict):
         encryption_configuration_type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Displays whether investigation data is encrypted by a customer managed key or an AWS owned key.
+        """
         kms_key_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        If the investigation group uses a customer managed key for encryption, this field displays the ID of that key.
+        """
 elif False:
     InvestigationGroupEncryptionConfigMapArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -97,6 +128,10 @@ class InvestigationGroupEncryptionConfigMapArgs:
     def __init__(__self__, *,
                  encryption_configuration_type: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] encryption_configuration_type: Displays whether investigation data is encrypted by a customer managed key or an AWS owned key.
+        :param pulumi.Input[builtins.str] kms_key_id: If the investigation group uses a customer managed key for encryption, this field displays the ID of that key.
+        """
         if encryption_configuration_type is not None:
             pulumi.set(__self__, "encryption_configuration_type", encryption_configuration_type)
         if kms_key_id is not None:
@@ -105,6 +140,9 @@ class InvestigationGroupEncryptionConfigMapArgs:
     @property
     @pulumi.getter(name="encryptionConfigurationType")
     def encryption_configuration_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Displays whether investigation data is encrypted by a customer managed key or an AWS owned key.
+        """
         return pulumi.get(self, "encryption_configuration_type")
 
     @encryption_configuration_type.setter
@@ -114,6 +152,9 @@ class InvestigationGroupEncryptionConfigMapArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        If the investigation group uses a customer managed key for encryption, this field displays the ID of that key.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter

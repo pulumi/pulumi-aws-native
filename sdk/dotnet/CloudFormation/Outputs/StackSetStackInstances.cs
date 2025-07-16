@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
     public sealed class StackSetStackInstances
     {
         /// <summary>
-        /// The AWS `OrganizationalUnitIds` or `Accounts` for which to create stack instances in the specified Regions.
+        /// The AWS Organizations accounts or AWS accounts to deploy stacks to in the specified Regions.
         /// </summary>
         public readonly Outputs.StackSetDeploymentTargets DeploymentTargets;
         /// <summary>

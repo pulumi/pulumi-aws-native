@@ -252,10 +252,11 @@ class ContainerGroupDefinitionStatus(builtins.str, Enum):
 @pulumi.type_token("aws-native:gamelift:FleetApplyCapacity")
 class FleetApplyCapacity(builtins.str, Enum):
     """
-    Determines whether to apply fleet or location capacities on fleet creation.
+    Determines when and how to apply fleet or location capacities. If you choose ON_CREATE_AND_UPDATE_WITH_AUTOSCALING, MinSize and MaxSize will still be applied on creation and on updates, but DesiredEC2Instances will only be applied once on fleet creation and will be ignored during updates to prevent conflicts with auto-scaling.
     """
     ON_UPDATE = "ON_UPDATE"
     ON_CREATE_AND_UPDATE = "ON_CREATE_AND_UPDATE"
+    ON_CREATE_AND_UPDATE_WITH_AUTOSCALING = "ON_CREATE_AND_UPDATE_WITH_AUTOSCALING"
 
 
 @pulumi.type_token("aws-native:gamelift:FleetCertificateConfigurationCertificateType")

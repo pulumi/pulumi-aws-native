@@ -21,10 +21,14 @@ __all__ = [
     'BucketInventoryConfigurationIncludedObjectVersions',
     'BucketInventoryConfigurationOptionalFieldsItem',
     'BucketInventoryConfigurationScheduleFrequency',
+    'BucketInventoryTableConfigurationConfigurationState',
     'BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize',
+    'BucketMetadataDestinationTableBucketType',
+    'BucketMetadataTableEncryptionConfigurationSseAlgorithm',
     'BucketMetricsStatus',
     'BucketNoncurrentVersionTransitionStorageClass',
     'BucketOwnershipControlsRuleObjectOwnership',
+    'BucketRecordExpirationExpiration',
     'BucketRedirectAllRequestsToProtocol',
     'BucketRedirectRuleProtocol',
     'BucketReplicaModificationsStatus',
@@ -191,6 +195,15 @@ class BucketInventoryConfigurationScheduleFrequency(builtins.str, Enum):
     WEEKLY = "Weekly"
 
 
+@pulumi.type_token("aws-native:s3:BucketInventoryTableConfigurationConfigurationState")
+class BucketInventoryTableConfigurationConfigurationState(builtins.str, Enum):
+    """
+    Specifies whether inventory table configuration is enabled or disabled.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 @pulumi.type_token("aws-native:s3:BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize")
 class BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize(builtins.str, Enum):
     """
@@ -203,6 +216,24 @@ class BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize(builtins.st
     """
     VARIES_BY_STORAGE_CLASS = "varies_by_storage_class"
     ALL_STORAGE_CLASSES128K = "all_storage_classes_128K"
+
+
+@pulumi.type_token("aws-native:s3:BucketMetadataDestinationTableBucketType")
+class BucketMetadataDestinationTableBucketType(builtins.str, Enum):
+    """
+    The type of the table bucket.
+    """
+    AWS = "aws"
+    CUSTOMER = "customer"
+
+
+@pulumi.type_token("aws-native:s3:BucketMetadataTableEncryptionConfigurationSseAlgorithm")
+class BucketMetadataTableEncryptionConfigurationSseAlgorithm(builtins.str, Enum):
+    """
+    Specifies the server-side encryption algorithm to use for encrypting tables.
+    """
+    AWSKMS = "aws:kms"
+    AES256 = "AES256"
 
 
 @pulumi.type_token("aws-native:s3:BucketMetricsStatus")
@@ -235,6 +266,15 @@ class BucketOwnershipControlsRuleObjectOwnership(builtins.str, Enum):
     OBJECT_WRITER = "ObjectWriter"
     BUCKET_OWNER_PREFERRED = "BucketOwnerPreferred"
     BUCKET_OWNER_ENFORCED = "BucketOwnerEnforced"
+
+
+@pulumi.type_token("aws-native:s3:BucketRecordExpirationExpiration")
+class BucketRecordExpirationExpiration(builtins.str, Enum):
+    """
+    Specifies whether record expiration is enabled or disabled.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:s3:BucketRedirectAllRequestsToProtocol")

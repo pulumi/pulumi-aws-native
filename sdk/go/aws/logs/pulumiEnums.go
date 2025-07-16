@@ -1496,6 +1496,340 @@ func (in *subscriptionFilterDistributionPtr) ToSubscriptionFilterDistributionPtr
 	return pulumi.ToOutputWithContext(ctx, in).(SubscriptionFilterDistributionPtrOutput)
 }
 
+type TransformerEventSource string
+
+const (
+	TransformerEventSourceCloudTrail      = TransformerEventSource("CloudTrail")
+	TransformerEventSourceRoute53Resolver = TransformerEventSource("Route53Resolver")
+	TransformerEventSourceVpcFlow         = TransformerEventSource("VPCFlow")
+	TransformerEventSourceEksAudit        = TransformerEventSource("EKSAudit")
+	TransformerEventSourceAwswaf          = TransformerEventSource("AWSWAF")
+)
+
+func (TransformerEventSource) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerEventSource)(nil)).Elem()
+}
+
+func (e TransformerEventSource) ToTransformerEventSourceOutput() TransformerEventSourceOutput {
+	return pulumi.ToOutput(e).(TransformerEventSourceOutput)
+}
+
+func (e TransformerEventSource) ToTransformerEventSourceOutputWithContext(ctx context.Context) TransformerEventSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransformerEventSourceOutput)
+}
+
+func (e TransformerEventSource) ToTransformerEventSourcePtrOutput() TransformerEventSourcePtrOutput {
+	return e.ToTransformerEventSourcePtrOutputWithContext(context.Background())
+}
+
+func (e TransformerEventSource) ToTransformerEventSourcePtrOutputWithContext(ctx context.Context) TransformerEventSourcePtrOutput {
+	return TransformerEventSource(e).ToTransformerEventSourceOutputWithContext(ctx).ToTransformerEventSourcePtrOutputWithContext(ctx)
+}
+
+func (e TransformerEventSource) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransformerEventSource) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransformerEventSource) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransformerEventSource) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransformerEventSourceOutput struct{ *pulumi.OutputState }
+
+func (TransformerEventSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerEventSource)(nil)).Elem()
+}
+
+func (o TransformerEventSourceOutput) ToTransformerEventSourceOutput() TransformerEventSourceOutput {
+	return o
+}
+
+func (o TransformerEventSourceOutput) ToTransformerEventSourceOutputWithContext(ctx context.Context) TransformerEventSourceOutput {
+	return o
+}
+
+func (o TransformerEventSourceOutput) ToTransformerEventSourcePtrOutput() TransformerEventSourcePtrOutput {
+	return o.ToTransformerEventSourcePtrOutputWithContext(context.Background())
+}
+
+func (o TransformerEventSourceOutput) ToTransformerEventSourcePtrOutputWithContext(ctx context.Context) TransformerEventSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformerEventSource) *TransformerEventSource {
+		return &v
+	}).(TransformerEventSourcePtrOutput)
+}
+
+func (o TransformerEventSourceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransformerEventSourceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformerEventSource) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransformerEventSourceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerEventSourceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformerEventSource) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformerEventSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (TransformerEventSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerEventSource)(nil)).Elem()
+}
+
+func (o TransformerEventSourcePtrOutput) ToTransformerEventSourcePtrOutput() TransformerEventSourcePtrOutput {
+	return o
+}
+
+func (o TransformerEventSourcePtrOutput) ToTransformerEventSourcePtrOutputWithContext(ctx context.Context) TransformerEventSourcePtrOutput {
+	return o
+}
+
+func (o TransformerEventSourcePtrOutput) Elem() TransformerEventSourceOutput {
+	return o.ApplyT(func(v *TransformerEventSource) TransformerEventSource {
+		if v != nil {
+			return *v
+		}
+		var ret TransformerEventSource
+		return ret
+	}).(TransformerEventSourceOutput)
+}
+
+func (o TransformerEventSourcePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerEventSourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransformerEventSource) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransformerEventSourceInput is an input type that accepts values of the TransformerEventSource enum
+// A concrete instance of `TransformerEventSourceInput` can be one of the following:
+//
+//	TransformerEventSourceCloudTrail
+//	TransformerEventSourceRoute53Resolver
+//	TransformerEventSourceVpcFlow
+//	TransformerEventSourceEksAudit
+//	TransformerEventSourceAwswaf
+type TransformerEventSourceInput interface {
+	pulumi.Input
+
+	ToTransformerEventSourceOutput() TransformerEventSourceOutput
+	ToTransformerEventSourceOutputWithContext(context.Context) TransformerEventSourceOutput
+}
+
+var transformerEventSourcePtrType = reflect.TypeOf((**TransformerEventSource)(nil)).Elem()
+
+type TransformerEventSourcePtrInput interface {
+	pulumi.Input
+
+	ToTransformerEventSourcePtrOutput() TransformerEventSourcePtrOutput
+	ToTransformerEventSourcePtrOutputWithContext(context.Context) TransformerEventSourcePtrOutput
+}
+
+type transformerEventSourcePtr string
+
+func TransformerEventSourcePtr(v string) TransformerEventSourcePtrInput {
+	return (*transformerEventSourcePtr)(&v)
+}
+
+func (*transformerEventSourcePtr) ElementType() reflect.Type {
+	return transformerEventSourcePtrType
+}
+
+func (in *transformerEventSourcePtr) ToTransformerEventSourcePtrOutput() TransformerEventSourcePtrOutput {
+	return pulumi.ToOutput(in).(TransformerEventSourcePtrOutput)
+}
+
+func (in *transformerEventSourcePtr) ToTransformerEventSourcePtrOutputWithContext(ctx context.Context) TransformerEventSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransformerEventSourcePtrOutput)
+}
+
+type TransformerOcsfVersion string
+
+const (
+	TransformerOcsfVersionV11 = TransformerOcsfVersion("V1.1")
+)
+
+func (TransformerOcsfVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerOcsfVersion)(nil)).Elem()
+}
+
+func (e TransformerOcsfVersion) ToTransformerOcsfVersionOutput() TransformerOcsfVersionOutput {
+	return pulumi.ToOutput(e).(TransformerOcsfVersionOutput)
+}
+
+func (e TransformerOcsfVersion) ToTransformerOcsfVersionOutputWithContext(ctx context.Context) TransformerOcsfVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransformerOcsfVersionOutput)
+}
+
+func (e TransformerOcsfVersion) ToTransformerOcsfVersionPtrOutput() TransformerOcsfVersionPtrOutput {
+	return e.ToTransformerOcsfVersionPtrOutputWithContext(context.Background())
+}
+
+func (e TransformerOcsfVersion) ToTransformerOcsfVersionPtrOutputWithContext(ctx context.Context) TransformerOcsfVersionPtrOutput {
+	return TransformerOcsfVersion(e).ToTransformerOcsfVersionOutputWithContext(ctx).ToTransformerOcsfVersionPtrOutputWithContext(ctx)
+}
+
+func (e TransformerOcsfVersion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransformerOcsfVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransformerOcsfVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransformerOcsfVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransformerOcsfVersionOutput struct{ *pulumi.OutputState }
+
+func (TransformerOcsfVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerOcsfVersion)(nil)).Elem()
+}
+
+func (o TransformerOcsfVersionOutput) ToTransformerOcsfVersionOutput() TransformerOcsfVersionOutput {
+	return o
+}
+
+func (o TransformerOcsfVersionOutput) ToTransformerOcsfVersionOutputWithContext(ctx context.Context) TransformerOcsfVersionOutput {
+	return o
+}
+
+func (o TransformerOcsfVersionOutput) ToTransformerOcsfVersionPtrOutput() TransformerOcsfVersionPtrOutput {
+	return o.ToTransformerOcsfVersionPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerOcsfVersionOutput) ToTransformerOcsfVersionPtrOutputWithContext(ctx context.Context) TransformerOcsfVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformerOcsfVersion) *TransformerOcsfVersion {
+		return &v
+	}).(TransformerOcsfVersionPtrOutput)
+}
+
+func (o TransformerOcsfVersionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransformerOcsfVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformerOcsfVersion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransformerOcsfVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerOcsfVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformerOcsfVersion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformerOcsfVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformerOcsfVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerOcsfVersion)(nil)).Elem()
+}
+
+func (o TransformerOcsfVersionPtrOutput) ToTransformerOcsfVersionPtrOutput() TransformerOcsfVersionPtrOutput {
+	return o
+}
+
+func (o TransformerOcsfVersionPtrOutput) ToTransformerOcsfVersionPtrOutputWithContext(ctx context.Context) TransformerOcsfVersionPtrOutput {
+	return o
+}
+
+func (o TransformerOcsfVersionPtrOutput) Elem() TransformerOcsfVersionOutput {
+	return o.ApplyT(func(v *TransformerOcsfVersion) TransformerOcsfVersion {
+		if v != nil {
+			return *v
+		}
+		var ret TransformerOcsfVersion
+		return ret
+	}).(TransformerOcsfVersionOutput)
+}
+
+func (o TransformerOcsfVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerOcsfVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransformerOcsfVersion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransformerOcsfVersionInput is an input type that accepts values of the TransformerOcsfVersion enum
+// A concrete instance of `TransformerOcsfVersionInput` can be one of the following:
+//
+//	TransformerOcsfVersionV11
+type TransformerOcsfVersionInput interface {
+	pulumi.Input
+
+	ToTransformerOcsfVersionOutput() TransformerOcsfVersionOutput
+	ToTransformerOcsfVersionOutputWithContext(context.Context) TransformerOcsfVersionOutput
+}
+
+var transformerOcsfVersionPtrType = reflect.TypeOf((**TransformerOcsfVersion)(nil)).Elem()
+
+type TransformerOcsfVersionPtrInput interface {
+	pulumi.Input
+
+	ToTransformerOcsfVersionPtrOutput() TransformerOcsfVersionPtrOutput
+	ToTransformerOcsfVersionPtrOutputWithContext(context.Context) TransformerOcsfVersionPtrOutput
+}
+
+type transformerOcsfVersionPtr string
+
+func TransformerOcsfVersionPtr(v string) TransformerOcsfVersionPtrInput {
+	return (*transformerOcsfVersionPtr)(&v)
+}
+
+func (*transformerOcsfVersionPtr) ElementType() reflect.Type {
+	return transformerOcsfVersionPtrType
+}
+
+func (in *transformerOcsfVersionPtr) ToTransformerOcsfVersionPtrOutput() TransformerOcsfVersionPtrOutput {
+	return pulumi.ToOutput(in).(TransformerOcsfVersionPtrOutput)
+}
+
+func (in *transformerOcsfVersionPtr) ToTransformerOcsfVersionPtrOutputWithContext(ctx context.Context) TransformerOcsfVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransformerOcsfVersionPtrOutput)
+}
+
 type TransformerProcessorListToMapPropertiesFlattenedElement string
 
 const (
@@ -1847,6 +2181,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryDefinitionQueryLanguagePtrInput)(nil)).Elem(), QueryDefinitionQueryLanguage("CWLI"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFilterDistributionInput)(nil)).Elem(), SubscriptionFilterDistribution("Random"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFilterDistributionPtrInput)(nil)).Elem(), SubscriptionFilterDistribution("Random"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerEventSourceInput)(nil)).Elem(), TransformerEventSource("CloudTrail"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerEventSourcePtrInput)(nil)).Elem(), TransformerEventSource("CloudTrail"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerOcsfVersionInput)(nil)).Elem(), TransformerOcsfVersion("V1.1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerOcsfVersionPtrInput)(nil)).Elem(), TransformerOcsfVersion("V1.1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerProcessorListToMapPropertiesFlattenedElementInput)(nil)).Elem(), TransformerProcessorListToMapPropertiesFlattenedElement("first"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerProcessorListToMapPropertiesFlattenedElementPtrInput)(nil)).Elem(), TransformerProcessorListToMapPropertiesFlattenedElement("first"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerTypeConverterEntryTypeInput)(nil)).Elem(), TransformerTypeConverterEntryType("boolean"))
@@ -1869,6 +2207,10 @@ func init() {
 	pulumi.RegisterOutputType(QueryDefinitionQueryLanguagePtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionFilterDistributionOutput{})
 	pulumi.RegisterOutputType(SubscriptionFilterDistributionPtrOutput{})
+	pulumi.RegisterOutputType(TransformerEventSourceOutput{})
+	pulumi.RegisterOutputType(TransformerEventSourcePtrOutput{})
+	pulumi.RegisterOutputType(TransformerOcsfVersionOutput{})
+	pulumi.RegisterOutputType(TransformerOcsfVersionPtrOutput{})
 	pulumi.RegisterOutputType(TransformerProcessorListToMapPropertiesFlattenedElementOutput{})
 	pulumi.RegisterOutputType(TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput{})
 	pulumi.RegisterOutputType(TransformerTypeConverterEntryTypeOutput{})

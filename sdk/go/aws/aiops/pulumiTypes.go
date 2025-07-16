@@ -14,8 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type InvestigationGroupChatbotNotificationChannel struct {
+	// Returns the Amazon Resource Name (ARN) of any third-party chat integrations configured for the account.
 	ChatConfigurationArns []string `pulumi:"chatConfigurationArns"`
-	SnsTopicArn           *string  `pulumi:"snsTopicArn"`
+	// Returns the ARN of an Amazon SNS topic used for third-party chat integrations.
+	SnsTopicArn *string `pulumi:"snsTopicArn"`
 }
 
 // InvestigationGroupChatbotNotificationChannelInput is an input type that accepts InvestigationGroupChatbotNotificationChannelArgs and InvestigationGroupChatbotNotificationChannelOutput values.
@@ -30,8 +32,10 @@ type InvestigationGroupChatbotNotificationChannelInput interface {
 }
 
 type InvestigationGroupChatbotNotificationChannelArgs struct {
+	// Returns the Amazon Resource Name (ARN) of any third-party chat integrations configured for the account.
 	ChatConfigurationArns pulumi.StringArrayInput `pulumi:"chatConfigurationArns"`
-	SnsTopicArn           pulumi.StringPtrInput   `pulumi:"snsTopicArn"`
+	// Returns the ARN of an Amazon SNS topic used for third-party chat integrations.
+	SnsTopicArn pulumi.StringPtrInput `pulumi:"snsTopicArn"`
 }
 
 func (InvestigationGroupChatbotNotificationChannelArgs) ElementType() reflect.Type {
@@ -85,10 +89,12 @@ func (o InvestigationGroupChatbotNotificationChannelOutput) ToInvestigationGroup
 	return o
 }
 
+// Returns the Amazon Resource Name (ARN) of any third-party chat integrations configured for the account.
 func (o InvestigationGroupChatbotNotificationChannelOutput) ChatConfigurationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InvestigationGroupChatbotNotificationChannel) []string { return v.ChatConfigurationArns }).(pulumi.StringArrayOutput)
 }
 
+// Returns the ARN of an Amazon SNS topic used for third-party chat integrations.
 func (o InvestigationGroupChatbotNotificationChannelOutput) SnsTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InvestigationGroupChatbotNotificationChannel) *string { return v.SnsTopicArn }).(pulumi.StringPtrOutput)
 }
@@ -114,6 +120,7 @@ func (o InvestigationGroupChatbotNotificationChannelArrayOutput) Index(i pulumi.
 }
 
 type InvestigationGroupCrossAccountConfiguration struct {
+	// The ARN of an existing role which will be used to do investigations on your behalf.
 	SourceRoleArn *string `pulumi:"sourceRoleArn"`
 }
 
@@ -129,6 +136,7 @@ type InvestigationGroupCrossAccountConfigurationInput interface {
 }
 
 type InvestigationGroupCrossAccountConfigurationArgs struct {
+	// The ARN of an existing role which will be used to do investigations on your behalf.
 	SourceRoleArn pulumi.StringPtrInput `pulumi:"sourceRoleArn"`
 }
 
@@ -183,6 +191,7 @@ func (o InvestigationGroupCrossAccountConfigurationOutput) ToInvestigationGroupC
 	return o
 }
 
+// The ARN of an existing role which will be used to do investigations on your behalf.
 func (o InvestigationGroupCrossAccountConfigurationOutput) SourceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InvestigationGroupCrossAccountConfiguration) *string { return v.SourceRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -208,8 +217,10 @@ func (o InvestigationGroupCrossAccountConfigurationArrayOutput) Index(i pulumi.I
 }
 
 type InvestigationGroupEncryptionConfigMap struct {
+	// Displays whether investigation data is encrypted by a customer managed key or an AWS owned key.
 	EncryptionConfigurationType *string `pulumi:"encryptionConfigurationType"`
-	KmsKeyId                    *string `pulumi:"kmsKeyId"`
+	// If the investigation group uses a customer managed key for encryption, this field displays the ID of that key.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
 // InvestigationGroupEncryptionConfigMapInput is an input type that accepts InvestigationGroupEncryptionConfigMap and InvestigationGroupEncryptionConfigMapOutput values.
@@ -224,8 +235,10 @@ type InvestigationGroupEncryptionConfigMapInput interface {
 }
 
 type InvestigationGroupEncryptionConfigMapArgs struct {
+	// Displays whether investigation data is encrypted by a customer managed key or an AWS owned key.
 	EncryptionConfigurationType pulumi.StringPtrInput `pulumi:"encryptionConfigurationType"`
-	KmsKeyId                    pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// If the investigation group uses a customer managed key for encryption, this field displays the ID of that key.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
 func (InvestigationGroupEncryptionConfigMapArgs) ElementType() reflect.Type {
@@ -305,10 +318,12 @@ func (o InvestigationGroupEncryptionConfigMapOutput) ToInvestigationGroupEncrypt
 	}).(InvestigationGroupEncryptionConfigMapPtrOutput)
 }
 
+// Displays whether investigation data is encrypted by a customer managed key or an AWS owned key.
 func (o InvestigationGroupEncryptionConfigMapOutput) EncryptionConfigurationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InvestigationGroupEncryptionConfigMap) *string { return v.EncryptionConfigurationType }).(pulumi.StringPtrOutput)
 }
 
+// If the investigation group uses a customer managed key for encryption, this field displays the ID of that key.
 func (o InvestigationGroupEncryptionConfigMapOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InvestigationGroupEncryptionConfigMap) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -337,6 +352,7 @@ func (o InvestigationGroupEncryptionConfigMapPtrOutput) Elem() InvestigationGrou
 	}).(InvestigationGroupEncryptionConfigMapOutput)
 }
 
+// Displays whether investigation data is encrypted by a customer managed key or an AWS owned key.
 func (o InvestigationGroupEncryptionConfigMapPtrOutput) EncryptionConfigurationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InvestigationGroupEncryptionConfigMap) *string {
 		if v == nil {
@@ -346,6 +362,7 @@ func (o InvestigationGroupEncryptionConfigMapPtrOutput) EncryptionConfigurationT
 	}).(pulumi.StringPtrOutput)
 }
 
+// If the investigation group uses a customer managed key for encryption, this field displays the ID of that key.
 func (o InvestigationGroupEncryptionConfigMapPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InvestigationGroupEncryptionConfigMap) *string {
 		if v == nil {
@@ -356,7 +373,17 @@ func (o InvestigationGroupEncryptionConfigMapPtrOutput) KmsKeyId() pulumi.String
 }
 
 type InvestigationGroupTag struct {
-	Key   string `pulumi:"key"`
+	// Assigns one or more tags (key-value pairs) to the specified resource.
+	//
+	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+	//
+	// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+	//
+	// You can associate as many as 50 tags with a resource.
+	Key string `pulumi:"key"`
+	// A list of key-value pairs to associate with the investigation group. You can associate as many as 50 tags with an investigation group. To be able to associate tags when you create the investigation group, you must have the `cloudwatch:TagResource` permission.
+	//
+	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
 	Value string `pulumi:"value"`
 }
 

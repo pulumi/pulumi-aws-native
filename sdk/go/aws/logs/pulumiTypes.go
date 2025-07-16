@@ -1502,6 +1502,181 @@ func (o TransformerParseRoute53PtrOutput) Source() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TransformerParseToOcsf struct {
+	// Specify the service or process that produces the log events that will be converted with this processor.
+	EventSource TransformerEventSource `pulumi:"eventSource"`
+	// Specify which version of the OCSF schema to use for the transformed log events.
+	OcsfVersion TransformerOcsfVersion `pulumi:"ocsfVersion"`
+	// The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.
+	Source *string `pulumi:"source"`
+}
+
+// TransformerParseToOcsfInput is an input type that accepts TransformerParseToOcsfArgs and TransformerParseToOcsfOutput values.
+// You can construct a concrete instance of `TransformerParseToOcsfInput` via:
+//
+//	TransformerParseToOcsfArgs{...}
+type TransformerParseToOcsfInput interface {
+	pulumi.Input
+
+	ToTransformerParseToOcsfOutput() TransformerParseToOcsfOutput
+	ToTransformerParseToOcsfOutputWithContext(context.Context) TransformerParseToOcsfOutput
+}
+
+type TransformerParseToOcsfArgs struct {
+	// Specify the service or process that produces the log events that will be converted with this processor.
+	EventSource TransformerEventSourceInput `pulumi:"eventSource"`
+	// Specify which version of the OCSF schema to use for the transformed log events.
+	OcsfVersion TransformerOcsfVersionInput `pulumi:"ocsfVersion"`
+	// The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+}
+
+func (TransformerParseToOcsfArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerParseToOcsf)(nil)).Elem()
+}
+
+func (i TransformerParseToOcsfArgs) ToTransformerParseToOcsfOutput() TransformerParseToOcsfOutput {
+	return i.ToTransformerParseToOcsfOutputWithContext(context.Background())
+}
+
+func (i TransformerParseToOcsfArgs) ToTransformerParseToOcsfOutputWithContext(ctx context.Context) TransformerParseToOcsfOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerParseToOcsfOutput)
+}
+
+func (i TransformerParseToOcsfArgs) ToTransformerParseToOcsfPtrOutput() TransformerParseToOcsfPtrOutput {
+	return i.ToTransformerParseToOcsfPtrOutputWithContext(context.Background())
+}
+
+func (i TransformerParseToOcsfArgs) ToTransformerParseToOcsfPtrOutputWithContext(ctx context.Context) TransformerParseToOcsfPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerParseToOcsfOutput).ToTransformerParseToOcsfPtrOutputWithContext(ctx)
+}
+
+// TransformerParseToOcsfPtrInput is an input type that accepts TransformerParseToOcsfArgs, TransformerParseToOcsfPtr and TransformerParseToOcsfPtrOutput values.
+// You can construct a concrete instance of `TransformerParseToOcsfPtrInput` via:
+//
+//	        TransformerParseToOcsfArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformerParseToOcsfPtrInput interface {
+	pulumi.Input
+
+	ToTransformerParseToOcsfPtrOutput() TransformerParseToOcsfPtrOutput
+	ToTransformerParseToOcsfPtrOutputWithContext(context.Context) TransformerParseToOcsfPtrOutput
+}
+
+type transformerParseToOcsfPtrType TransformerParseToOcsfArgs
+
+func TransformerParseToOcsfPtr(v *TransformerParseToOcsfArgs) TransformerParseToOcsfPtrInput {
+	return (*transformerParseToOcsfPtrType)(v)
+}
+
+func (*transformerParseToOcsfPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerParseToOcsf)(nil)).Elem()
+}
+
+func (i *transformerParseToOcsfPtrType) ToTransformerParseToOcsfPtrOutput() TransformerParseToOcsfPtrOutput {
+	return i.ToTransformerParseToOcsfPtrOutputWithContext(context.Background())
+}
+
+func (i *transformerParseToOcsfPtrType) ToTransformerParseToOcsfPtrOutputWithContext(ctx context.Context) TransformerParseToOcsfPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerParseToOcsfPtrOutput)
+}
+
+type TransformerParseToOcsfOutput struct{ *pulumi.OutputState }
+
+func (TransformerParseToOcsfOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerParseToOcsf)(nil)).Elem()
+}
+
+func (o TransformerParseToOcsfOutput) ToTransformerParseToOcsfOutput() TransformerParseToOcsfOutput {
+	return o
+}
+
+func (o TransformerParseToOcsfOutput) ToTransformerParseToOcsfOutputWithContext(ctx context.Context) TransformerParseToOcsfOutput {
+	return o
+}
+
+func (o TransformerParseToOcsfOutput) ToTransformerParseToOcsfPtrOutput() TransformerParseToOcsfPtrOutput {
+	return o.ToTransformerParseToOcsfPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerParseToOcsfOutput) ToTransformerParseToOcsfPtrOutputWithContext(ctx context.Context) TransformerParseToOcsfPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformerParseToOcsf) *TransformerParseToOcsf {
+		return &v
+	}).(TransformerParseToOcsfPtrOutput)
+}
+
+// Specify the service or process that produces the log events that will be converted with this processor.
+func (o TransformerParseToOcsfOutput) EventSource() TransformerEventSourceOutput {
+	return o.ApplyT(func(v TransformerParseToOcsf) TransformerEventSource { return v.EventSource }).(TransformerEventSourceOutput)
+}
+
+// Specify which version of the OCSF schema to use for the transformed log events.
+func (o TransformerParseToOcsfOutput) OcsfVersion() TransformerOcsfVersionOutput {
+	return o.ApplyT(func(v TransformerParseToOcsf) TransformerOcsfVersion { return v.OcsfVersion }).(TransformerOcsfVersionOutput)
+}
+
+// The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.
+func (o TransformerParseToOcsfOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformerParseToOcsf) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type TransformerParseToOcsfPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformerParseToOcsfPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerParseToOcsf)(nil)).Elem()
+}
+
+func (o TransformerParseToOcsfPtrOutput) ToTransformerParseToOcsfPtrOutput() TransformerParseToOcsfPtrOutput {
+	return o
+}
+
+func (o TransformerParseToOcsfPtrOutput) ToTransformerParseToOcsfPtrOutputWithContext(ctx context.Context) TransformerParseToOcsfPtrOutput {
+	return o
+}
+
+func (o TransformerParseToOcsfPtrOutput) Elem() TransformerParseToOcsfOutput {
+	return o.ApplyT(func(v *TransformerParseToOcsf) TransformerParseToOcsf {
+		if v != nil {
+			return *v
+		}
+		var ret TransformerParseToOcsf
+		return ret
+	}).(TransformerParseToOcsfOutput)
+}
+
+// Specify the service or process that produces the log events that will be converted with this processor.
+func (o TransformerParseToOcsfPtrOutput) EventSource() TransformerEventSourcePtrOutput {
+	return o.ApplyT(func(v *TransformerParseToOcsf) *TransformerEventSource {
+		if v == nil {
+			return nil
+		}
+		return &v.EventSource
+	}).(TransformerEventSourcePtrOutput)
+}
+
+// Specify which version of the OCSF schema to use for the transformed log events.
+func (o TransformerParseToOcsfPtrOutput) OcsfVersion() TransformerOcsfVersionPtrOutput {
+	return o.ApplyT(func(v *TransformerParseToOcsf) *TransformerOcsfVersion {
+		if v == nil {
+			return nil
+		}
+		return &v.OcsfVersion
+	}).(TransformerOcsfVersionPtrOutput)
+}
+
+// The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.
+func (o TransformerParseToOcsfPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformerParseToOcsf) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
 type TransformerParseVpc struct {
 	// Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
 	Source *string `pulumi:"source"`
@@ -1812,6 +1987,8 @@ type TransformerProcessor struct {
 	//
 	// If you use this processor, it must be the first processor in your transformer.
 	ParseRoute53 *TransformerParseRoute53 `pulumi:"parseRoute53"`
+	// Use this parameter to convert logs into Open Cybersecurity Schema (OCSF) format.
+	ParseToOcsf *TransformerParseToOcsf `pulumi:"parseToOcsf"`
 	// Use this parameter to include the [parseVPC](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseVPC) processor in your transformer.
 	//
 	// If you use this processor, it must be the first processor in your transformer.
@@ -1881,6 +2058,8 @@ type TransformerProcessorArgs struct {
 	//
 	// If you use this processor, it must be the first processor in your transformer.
 	ParseRoute53 TransformerParseRoute53PtrInput `pulumi:"parseRoute53"`
+	// Use this parameter to convert logs into Open Cybersecurity Schema (OCSF) format.
+	ParseToOcsf TransformerParseToOcsfPtrInput `pulumi:"parseToOcsf"`
 	// Use this parameter to include the [parseVPC](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseVPC) processor in your transformer.
 	//
 	// If you use this processor, it must be the first processor in your transformer.
@@ -2031,6 +2210,11 @@ func (o TransformerProcessorOutput) ParsePostgres() TransformerParsePostgresPtrO
 // If you use this processor, it must be the first processor in your transformer.
 func (o TransformerProcessorOutput) ParseRoute53() TransformerParseRoute53PtrOutput {
 	return o.ApplyT(func(v TransformerProcessor) *TransformerParseRoute53 { return v.ParseRoute53 }).(TransformerParseRoute53PtrOutput)
+}
+
+// Use this parameter to convert logs into Open Cybersecurity Schema (OCSF) format.
+func (o TransformerProcessorOutput) ParseToOcsf() TransformerParseToOcsfPtrOutput {
+	return o.ApplyT(func(v TransformerProcessor) *TransformerParseToOcsf { return v.ParseToOcsf }).(TransformerParseToOcsfPtrOutput)
 }
 
 // Use this parameter to include the [parseVPC](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseVPC) processor in your transformer.
@@ -5179,6 +5363,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerParsePostgresPtrInput)(nil)).Elem(), TransformerParsePostgresArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerParseRoute53Input)(nil)).Elem(), TransformerParseRoute53Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerParseRoute53PtrInput)(nil)).Elem(), TransformerParseRoute53Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerParseToOcsfInput)(nil)).Elem(), TransformerParseToOcsfArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerParseToOcsfPtrInput)(nil)).Elem(), TransformerParseToOcsfArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerParseVpcInput)(nil)).Elem(), TransformerParseVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerParseVpcPtrInput)(nil)).Elem(), TransformerParseVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerParseWafInput)(nil)).Elem(), TransformerParseWafArgs{})
@@ -5248,6 +5434,8 @@ func init() {
 	pulumi.RegisterOutputType(TransformerParsePostgresPtrOutput{})
 	pulumi.RegisterOutputType(TransformerParseRoute53Output{})
 	pulumi.RegisterOutputType(TransformerParseRoute53PtrOutput{})
+	pulumi.RegisterOutputType(TransformerParseToOcsfOutput{})
+	pulumi.RegisterOutputType(TransformerParseToOcsfPtrOutput{})
 	pulumi.RegisterOutputType(TransformerParseVpcOutput{})
 	pulumi.RegisterOutputType(TransformerParseVpcPtrOutput{})
 	pulumi.RegisterOutputType(TransformerParseWafOutput{})

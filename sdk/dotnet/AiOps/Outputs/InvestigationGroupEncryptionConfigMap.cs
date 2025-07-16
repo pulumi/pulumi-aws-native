@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AiOps.Outputs
     [OutputType]
     public sealed class InvestigationGroupEncryptionConfigMap
     {
+        /// <summary>
+        /// Displays whether investigation data is encrypted by a customer managed key or an AWS owned key.
+        /// </summary>
         public readonly string? EncryptionConfigurationType;
+        /// <summary>
+        /// If the investigation group uses a customer managed key for encryption, this field displays the ID of that key.
+        /// </summary>
         public readonly string? KmsKeyId;
 
         [OutputConstructor]

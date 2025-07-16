@@ -38,6 +38,7 @@ __all__ = [
     'DeliveryStreamDatabases',
     'DeliveryStreamDeserializer',
     'DeliveryStreamDestinationTableConfiguration',
+    'DeliveryStreamDestinationTableConfigurationPartitionSpecProperties',
     'DeliveryStreamDirectPutSourceConfiguration',
     'DeliveryStreamDocumentIdOptions',
     'DeliveryStreamDynamicPartitioningConfiguration',
@@ -61,6 +62,7 @@ __all__ = [
     'DeliveryStreamOrcSerDe',
     'DeliveryStreamOutputFormatConfiguration',
     'DeliveryStreamParquetSerDe',
+    'DeliveryStreamPartitionField',
     'DeliveryStreamProcessingConfiguration',
     'DeliveryStreamProcessor',
     'DeliveryStreamProcessorParameter',
@@ -69,6 +71,7 @@ __all__ = [
     'DeliveryStreamRetryOptions',
     'DeliveryStreamS3DestinationConfiguration',
     'DeliveryStreamSchemaConfiguration',
+    'DeliveryStreamSchemaEvolutionConfiguration',
     'DeliveryStreamSecretsManagerConfiguration',
     'DeliveryStreamSerializer',
     'DeliveryStreamSnowflakeBufferingHints',
@@ -79,6 +82,7 @@ __all__ = [
     'DeliveryStreamSplunkBufferingHints',
     'DeliveryStreamSplunkDestinationConfiguration',
     'DeliveryStreamSplunkRetryOptions',
+    'DeliveryStreamTableCreationConfiguration',
     'DeliveryStreamVpcConfiguration',
 ]
 
@@ -719,6 +723,8 @@ class DeliveryStreamCatalogConfiguration(dict):
         suggest = None
         if key == "catalogArn":
             suggest = "catalog_arn"
+        elif key == "warehouseLocation":
+            suggest = "warehouse_location"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamCatalogConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -732,12 +738,15 @@ class DeliveryStreamCatalogConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 catalog_arn: Optional[builtins.str] = None):
+                 catalog_arn: Optional[builtins.str] = None,
+                 warehouse_location: Optional[builtins.str] = None):
         """
         :param builtins.str catalog_arn: Specifies the Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
         """
         if catalog_arn is not None:
             pulumi.set(__self__, "catalog_arn", catalog_arn)
+        if warehouse_location is not None:
+            pulumi.set(__self__, "warehouse_location", warehouse_location)
 
     @property
     @pulumi.getter(name="catalogArn")
@@ -746,6 +755,11 @@ class DeliveryStreamCatalogConfiguration(dict):
         Specifies the Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
         """
         return pulumi.get(self, "catalog_arn")
+
+    @property
+    @pulumi.getter(name="warehouseLocation")
+    def warehouse_location(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "warehouse_location")
 
 
 @pulumi.output_type
@@ -1377,6 +1391,8 @@ class DeliveryStreamDestinationTableConfiguration(dict):
             suggest = "destination_database_name"
         elif key == "destinationTableName":
             suggest = "destination_table_name"
+        elif key == "partitionSpec":
+            suggest = "partition_spec"
         elif key == "s3ErrorOutputPrefix":
             suggest = "s3_error_output_prefix"
         elif key == "uniqueKeys":
@@ -1396,10 +1412,13 @@ class DeliveryStreamDestinationTableConfiguration(dict):
     def __init__(__self__, *,
                  destination_database_name: builtins.str,
                  destination_table_name: builtins.str,
+                 partition_spec: Optional['outputs.DeliveryStreamDestinationTableConfigurationPartitionSpecProperties'] = None,
                  s3_error_output_prefix: Optional[builtins.str] = None,
                  unique_keys: Optional[Sequence[builtins.str]] = None):
         pulumi.set(__self__, "destination_database_name", destination_database_name)
         pulumi.set(__self__, "destination_table_name", destination_table_name)
+        if partition_spec is not None:
+            pulumi.set(__self__, "partition_spec", partition_spec)
         if s3_error_output_prefix is not None:
             pulumi.set(__self__, "s3_error_output_prefix", s3_error_output_prefix)
         if unique_keys is not None:
@@ -1416,6 +1435,11 @@ class DeliveryStreamDestinationTableConfiguration(dict):
         return pulumi.get(self, "destination_table_name")
 
     @property
+    @pulumi.getter(name="partitionSpec")
+    def partition_spec(self) -> Optional['outputs.DeliveryStreamDestinationTableConfigurationPartitionSpecProperties']:
+        return pulumi.get(self, "partition_spec")
+
+    @property
     @pulumi.getter(name="s3ErrorOutputPrefix")
     def s3_error_output_prefix(self) -> Optional[builtins.str]:
         return pulumi.get(self, "s3_error_output_prefix")
@@ -1424,6 +1448,19 @@ class DeliveryStreamDestinationTableConfiguration(dict):
     @pulumi.getter(name="uniqueKeys")
     def unique_keys(self) -> Optional[Sequence[builtins.str]]:
         return pulumi.get(self, "unique_keys")
+
+
+@pulumi.output_type
+class DeliveryStreamDestinationTableConfigurationPartitionSpecProperties(dict):
+    def __init__(__self__, *,
+                 identity: Optional[Sequence['outputs.DeliveryStreamPartitionField']] = None):
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[Sequence['outputs.DeliveryStreamPartitionField']]:
+        return pulumi.get(self, "identity")
 
 
 @pulumi.output_type
@@ -2567,6 +2604,10 @@ class DeliveryStreamIcebergDestinationConfiguration(dict):
             suggest = "retry_options"
         elif key == "s3BackupMode":
             suggest = "s3_backup_mode"
+        elif key == "schemaEvolutionConfiguration":
+            suggest = "schema_evolution_configuration"
+        elif key == "tableCreationConfiguration":
+            suggest = "table_creation_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamIcebergDestinationConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -2589,7 +2630,9 @@ class DeliveryStreamIcebergDestinationConfiguration(dict):
                  destination_table_configuration_list: Optional[Sequence['outputs.DeliveryStreamDestinationTableConfiguration']] = None,
                  processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
                  retry_options: Optional['outputs.DeliveryStreamRetryOptions'] = None,
-                 s3_backup_mode: Optional['DeliveryStreamIcebergDestinationConfigurations3BackupMode'] = None):
+                 s3_backup_mode: Optional['DeliveryStreamIcebergDestinationConfigurations3BackupMode'] = None,
+                 schema_evolution_configuration: Optional['outputs.DeliveryStreamSchemaEvolutionConfiguration'] = None,
+                 table_creation_configuration: Optional['outputs.DeliveryStreamTableCreationConfiguration'] = None):
         """
         :param 'DeliveryStreamCatalogConfiguration' catalog_configuration: Configuration describing where the destination Apache Iceberg Tables are persisted.
         :param builtins.str role_arn: The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
@@ -2616,6 +2659,10 @@ class DeliveryStreamIcebergDestinationConfiguration(dict):
             pulumi.set(__self__, "retry_options", retry_options)
         if s3_backup_mode is not None:
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
+        if schema_evolution_configuration is not None:
+            pulumi.set(__self__, "schema_evolution_configuration", schema_evolution_configuration)
+        if table_creation_configuration is not None:
+            pulumi.set(__self__, "table_creation_configuration", table_creation_configuration)
 
     @property
     @pulumi.getter(name="catalogConfiguration")
@@ -2683,6 +2730,16 @@ class DeliveryStreamIcebergDestinationConfiguration(dict):
         Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` .
         """
         return pulumi.get(self, "s3_backup_mode")
+
+    @property
+    @pulumi.getter(name="schemaEvolutionConfiguration")
+    def schema_evolution_configuration(self) -> Optional['outputs.DeliveryStreamSchemaEvolutionConfiguration']:
+        return pulumi.get(self, "schema_evolution_configuration")
+
+    @property
+    @pulumi.getter(name="tableCreationConfiguration")
+    def table_creation_configuration(self) -> Optional['outputs.DeliveryStreamTableCreationConfiguration']:
+        return pulumi.get(self, "table_creation_configuration")
 
 
 @pulumi.output_type
@@ -3223,6 +3280,35 @@ class DeliveryStreamParquetSerDe(dict):
         Indicates the version of row format to output. The possible values are `V1` and `V2` . The default is `V1` .
         """
         return pulumi.get(self, "writer_version")
+
+
+@pulumi.output_type
+class DeliveryStreamPartitionField(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceName":
+            suggest = "source_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamPartitionField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamPartitionField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamPartitionField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_name: builtins.str):
+        pulumi.set(__self__, "source_name", source_name)
+
+    @property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> builtins.str:
+        return pulumi.get(self, "source_name")
 
 
 @pulumi.output_type
@@ -3832,6 +3918,19 @@ class DeliveryStreamSchemaConfiguration(dict):
         Specifies the table version for the output data schema. If you don't specify this version ID, or if you set it to `LATEST` , Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
         """
         return pulumi.get(self, "version_id")
+
+
+@pulumi.output_type
+class DeliveryStreamSchemaEvolutionConfiguration(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[builtins.bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -4667,6 +4766,19 @@ class DeliveryStreamSplunkRetryOptions(dict):
         The total amount of time that Firehose spends on retries. This duration starts after the initial attempt to send data to Splunk fails. It doesn't include the periods during which Firehose waits for acknowledgment from Splunk after each attempt.
         """
         return pulumi.get(self, "duration_in_seconds")
+
+
+@pulumi.output_type
+class DeliveryStreamTableCreationConfiguration(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[builtins.bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

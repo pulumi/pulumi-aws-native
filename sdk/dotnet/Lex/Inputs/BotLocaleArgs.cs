@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("generativeAiSettings")]
+        public Input<Inputs.BotGenerativeAiSettingsArgs>? GenerativeAiSettings { get; set; }
+
         [Input("intents")]
         private InputList<Inputs.BotIntentArgs>? _intents;
 

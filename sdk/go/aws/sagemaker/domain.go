@@ -54,7 +54,7 @@ type Domain struct {
 	// The URL to the created domain.
 	Url pulumi.StringOutput `pulumi:"url"`
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -69,12 +69,6 @@ func NewDomain(ctx *pulumi.Context,
 	}
 	if args.DefaultUserSettings == nil {
 		return nil, errors.New("invalid value for required argument 'DefaultUserSettings'")
-	}
-	if args.SubnetIds == nil {
-		return nil, errors.New("invalid value for required argument 'SubnetIds'")
-	}
-	if args.VpcId == nil {
-		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"authMode",
@@ -141,7 +135,7 @@ type domainArgs struct {
 	// A list of tags to apply to the user profile.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-	VpcId string `pulumi:"vpcId"`
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a Domain resource.
@@ -169,7 +163,7 @@ type DomainArgs struct {
 	// A list of tags to apply to the user profile.
 	Tags aws.CreateOnlyTagArrayInput
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-	VpcId pulumi.StringInput
+	VpcId pulumi.StringPtrInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -300,8 +294,8 @@ func (o DomainOutput) Url() pulumi.StringOutput {
 }
 
 // The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-func (o DomainOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o DomainOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

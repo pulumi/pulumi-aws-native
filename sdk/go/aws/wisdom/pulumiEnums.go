@@ -3396,6 +3396,313 @@ func (in *messageTemplateChannelSubtypePtr) ToMessageTemplateChannelSubtypePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(MessageTemplateChannelSubtypePtrOutput)
 }
 
+type QuickResponseChannelType string
+
+const (
+	QuickResponseChannelTypeChat  = QuickResponseChannelType("Chat")
+	QuickResponseChannelTypeEmail = QuickResponseChannelType("Email")
+)
+
+func (QuickResponseChannelType) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuickResponseChannelType)(nil)).Elem()
+}
+
+func (e QuickResponseChannelType) ToQuickResponseChannelTypeOutput() QuickResponseChannelTypeOutput {
+	return pulumi.ToOutput(e).(QuickResponseChannelTypeOutput)
+}
+
+func (e QuickResponseChannelType) ToQuickResponseChannelTypeOutputWithContext(ctx context.Context) QuickResponseChannelTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(QuickResponseChannelTypeOutput)
+}
+
+func (e QuickResponseChannelType) ToQuickResponseChannelTypePtrOutput() QuickResponseChannelTypePtrOutput {
+	return e.ToQuickResponseChannelTypePtrOutputWithContext(context.Background())
+}
+
+func (e QuickResponseChannelType) ToQuickResponseChannelTypePtrOutputWithContext(ctx context.Context) QuickResponseChannelTypePtrOutput {
+	return QuickResponseChannelType(e).ToQuickResponseChannelTypeOutputWithContext(ctx).ToQuickResponseChannelTypePtrOutputWithContext(ctx)
+}
+
+func (e QuickResponseChannelType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e QuickResponseChannelType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e QuickResponseChannelType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e QuickResponseChannelType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type QuickResponseChannelTypeOutput struct{ *pulumi.OutputState }
+
+func (QuickResponseChannelTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuickResponseChannelType)(nil)).Elem()
+}
+
+func (o QuickResponseChannelTypeOutput) ToQuickResponseChannelTypeOutput() QuickResponseChannelTypeOutput {
+	return o
+}
+
+func (o QuickResponseChannelTypeOutput) ToQuickResponseChannelTypeOutputWithContext(ctx context.Context) QuickResponseChannelTypeOutput {
+	return o
+}
+
+func (o QuickResponseChannelTypeOutput) ToQuickResponseChannelTypePtrOutput() QuickResponseChannelTypePtrOutput {
+	return o.ToQuickResponseChannelTypePtrOutputWithContext(context.Background())
+}
+
+func (o QuickResponseChannelTypeOutput) ToQuickResponseChannelTypePtrOutputWithContext(ctx context.Context) QuickResponseChannelTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuickResponseChannelType) *QuickResponseChannelType {
+		return &v
+	}).(QuickResponseChannelTypePtrOutput)
+}
+
+func (o QuickResponseChannelTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o QuickResponseChannelTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QuickResponseChannelType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o QuickResponseChannelTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o QuickResponseChannelTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QuickResponseChannelType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type QuickResponseChannelTypePtrOutput struct{ *pulumi.OutputState }
+
+func (QuickResponseChannelTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuickResponseChannelType)(nil)).Elem()
+}
+
+func (o QuickResponseChannelTypePtrOutput) ToQuickResponseChannelTypePtrOutput() QuickResponseChannelTypePtrOutput {
+	return o
+}
+
+func (o QuickResponseChannelTypePtrOutput) ToQuickResponseChannelTypePtrOutputWithContext(ctx context.Context) QuickResponseChannelTypePtrOutput {
+	return o
+}
+
+func (o QuickResponseChannelTypePtrOutput) Elem() QuickResponseChannelTypeOutput {
+	return o.ApplyT(func(v *QuickResponseChannelType) QuickResponseChannelType {
+		if v != nil {
+			return *v
+		}
+		var ret QuickResponseChannelType
+		return ret
+	}).(QuickResponseChannelTypeOutput)
+}
+
+func (o QuickResponseChannelTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o QuickResponseChannelTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *QuickResponseChannelType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// QuickResponseChannelTypeInput is an input type that accepts values of the QuickResponseChannelType enum
+// A concrete instance of `QuickResponseChannelTypeInput` can be one of the following:
+//
+//	QuickResponseChannelTypeChat
+//	QuickResponseChannelTypeEmail
+type QuickResponseChannelTypeInput interface {
+	pulumi.Input
+
+	ToQuickResponseChannelTypeOutput() QuickResponseChannelTypeOutput
+	ToQuickResponseChannelTypeOutputWithContext(context.Context) QuickResponseChannelTypeOutput
+}
+
+var quickResponseChannelTypePtrType = reflect.TypeOf((**QuickResponseChannelType)(nil)).Elem()
+
+type QuickResponseChannelTypePtrInput interface {
+	pulumi.Input
+
+	ToQuickResponseChannelTypePtrOutput() QuickResponseChannelTypePtrOutput
+	ToQuickResponseChannelTypePtrOutputWithContext(context.Context) QuickResponseChannelTypePtrOutput
+}
+
+type quickResponseChannelTypePtr string
+
+func QuickResponseChannelTypePtr(v string) QuickResponseChannelTypePtrInput {
+	return (*quickResponseChannelTypePtr)(&v)
+}
+
+func (*quickResponseChannelTypePtr) ElementType() reflect.Type {
+	return quickResponseChannelTypePtrType
+}
+
+func (in *quickResponseChannelTypePtr) ToQuickResponseChannelTypePtrOutput() QuickResponseChannelTypePtrOutput {
+	return pulumi.ToOutput(in).(QuickResponseChannelTypePtrOutput)
+}
+
+func (in *quickResponseChannelTypePtr) ToQuickResponseChannelTypePtrOutputWithContext(ctx context.Context) QuickResponseChannelTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(QuickResponseChannelTypePtrOutput)
+}
+
+// QuickResponseChannelTypeArrayInput is an input type that accepts QuickResponseChannelTypeArray and QuickResponseChannelTypeArrayOutput values.
+// You can construct a concrete instance of `QuickResponseChannelTypeArrayInput` via:
+//
+//	QuickResponseChannelTypeArray{ QuickResponseChannelTypeArgs{...} }
+type QuickResponseChannelTypeArrayInput interface {
+	pulumi.Input
+
+	ToQuickResponseChannelTypeArrayOutput() QuickResponseChannelTypeArrayOutput
+	ToQuickResponseChannelTypeArrayOutputWithContext(context.Context) QuickResponseChannelTypeArrayOutput
+}
+
+type QuickResponseChannelTypeArray []QuickResponseChannelType
+
+func (QuickResponseChannelTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QuickResponseChannelType)(nil)).Elem()
+}
+
+func (i QuickResponseChannelTypeArray) ToQuickResponseChannelTypeArrayOutput() QuickResponseChannelTypeArrayOutput {
+	return i.ToQuickResponseChannelTypeArrayOutputWithContext(context.Background())
+}
+
+func (i QuickResponseChannelTypeArray) ToQuickResponseChannelTypeArrayOutputWithContext(ctx context.Context) QuickResponseChannelTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuickResponseChannelTypeArrayOutput)
+}
+
+type QuickResponseChannelTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (QuickResponseChannelTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QuickResponseChannelType)(nil)).Elem()
+}
+
+func (o QuickResponseChannelTypeArrayOutput) ToQuickResponseChannelTypeArrayOutput() QuickResponseChannelTypeArrayOutput {
+	return o
+}
+
+func (o QuickResponseChannelTypeArrayOutput) ToQuickResponseChannelTypeArrayOutputWithContext(ctx context.Context) QuickResponseChannelTypeArrayOutput {
+	return o
+}
+
+func (o QuickResponseChannelTypeArrayOutput) Index(i pulumi.IntInput) QuickResponseChannelTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QuickResponseChannelType {
+		return vs[0].([]QuickResponseChannelType)[vs[1].(int)]
+	}).(QuickResponseChannelTypeOutput)
+}
+
+// The status of the quick response data.
+type QuickResponseStatus string
+
+const (
+	QuickResponseStatusCreateInProgress = QuickResponseStatus("CREATE_IN_PROGRESS")
+	QuickResponseStatusCreateFailed     = QuickResponseStatus("CREATE_FAILED")
+	QuickResponseStatusCreated          = QuickResponseStatus("CREATED")
+	QuickResponseStatusDeleteInProgress = QuickResponseStatus("DELETE_IN_PROGRESS")
+	QuickResponseStatusDeleteFailed     = QuickResponseStatus("DELETE_FAILED")
+	QuickResponseStatusDeleted          = QuickResponseStatus("DELETED")
+	QuickResponseStatusUpdateInProgress = QuickResponseStatus("UPDATE_IN_PROGRESS")
+	QuickResponseStatusUpdateFailed     = QuickResponseStatus("UPDATE_FAILED")
+)
+
+type QuickResponseStatusOutput struct{ *pulumi.OutputState }
+
+func (QuickResponseStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuickResponseStatus)(nil)).Elem()
+}
+
+func (o QuickResponseStatusOutput) ToQuickResponseStatusOutput() QuickResponseStatusOutput {
+	return o
+}
+
+func (o QuickResponseStatusOutput) ToQuickResponseStatusOutputWithContext(ctx context.Context) QuickResponseStatusOutput {
+	return o
+}
+
+func (o QuickResponseStatusOutput) ToQuickResponseStatusPtrOutput() QuickResponseStatusPtrOutput {
+	return o.ToQuickResponseStatusPtrOutputWithContext(context.Background())
+}
+
+func (o QuickResponseStatusOutput) ToQuickResponseStatusPtrOutputWithContext(ctx context.Context) QuickResponseStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuickResponseStatus) *QuickResponseStatus {
+		return &v
+	}).(QuickResponseStatusPtrOutput)
+}
+
+func (o QuickResponseStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o QuickResponseStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QuickResponseStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o QuickResponseStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o QuickResponseStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QuickResponseStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type QuickResponseStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (QuickResponseStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuickResponseStatus)(nil)).Elem()
+}
+
+func (o QuickResponseStatusPtrOutput) ToQuickResponseStatusPtrOutput() QuickResponseStatusPtrOutput {
+	return o
+}
+
+func (o QuickResponseStatusPtrOutput) ToQuickResponseStatusPtrOutputWithContext(ctx context.Context) QuickResponseStatusPtrOutput {
+	return o
+}
+
+func (o QuickResponseStatusPtrOutput) Elem() QuickResponseStatusOutput {
+	return o.ApplyT(func(v *QuickResponseStatus) QuickResponseStatus {
+		if v != nil {
+			return *v
+		}
+		var ret QuickResponseStatus
+		return ret
+	}).(QuickResponseStatusOutput)
+}
+
+func (o QuickResponseStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o QuickResponseStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *QuickResponseStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentAssociationConfigurationTypeInput)(nil)).Elem(), AiAgentAiAgentAssociationConfigurationType("KNOWLEDGE_BASE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentAssociationConfigurationTypePtrInput)(nil)).Elem(), AiAgentAiAgentAssociationConfigurationType("KNOWLEDGE_BASE"))
@@ -3437,6 +3744,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseWebCrawlerConfigurationScopePtrInput)(nil)).Elem(), KnowledgeBaseWebCrawlerConfigurationScope("HOST_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateChannelSubtypeInput)(nil)).Elem(), MessageTemplateChannelSubtype("EMAIL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateChannelSubtypePtrInput)(nil)).Elem(), MessageTemplateChannelSubtype("EMAIL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickResponseChannelTypeInput)(nil)).Elem(), QuickResponseChannelType("Chat"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickResponseChannelTypePtrInput)(nil)).Elem(), QuickResponseChannelType("Chat"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickResponseChannelTypeArrayInput)(nil)).Elem(), QuickResponseChannelTypeArray{})
 	pulumi.RegisterOutputType(AiAgentAiAgentAssociationConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(AiAgentAiAgentAssociationConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(AiAgentAiAgentTypeOutput{})
@@ -3477,4 +3787,9 @@ func init() {
 	pulumi.RegisterOutputType(KnowledgeBaseWebCrawlerConfigurationScopePtrOutput{})
 	pulumi.RegisterOutputType(MessageTemplateChannelSubtypeOutput{})
 	pulumi.RegisterOutputType(MessageTemplateChannelSubtypePtrOutput{})
+	pulumi.RegisterOutputType(QuickResponseChannelTypeOutput{})
+	pulumi.RegisterOutputType(QuickResponseChannelTypePtrOutput{})
+	pulumi.RegisterOutputType(QuickResponseChannelTypeArrayOutput{})
+	pulumi.RegisterOutputType(QuickResponseStatusOutput{})
+	pulumi.RegisterOutputType(QuickResponseStatusPtrOutput{})
 }

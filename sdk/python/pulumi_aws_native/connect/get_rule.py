@@ -76,7 +76,7 @@ class GetRuleResult:
     def publish_status(self) -> Optional['RulePublishStatus']:
         """
         The publish status of the rule.
-          *Allowed values*: ``DRAFT`` | ``PUBLISHED``
+         *Allowed values*: ``DRAFT`` | ``PUBLISHED``
         """
         return pulumi.get(self, "publish_status")
 

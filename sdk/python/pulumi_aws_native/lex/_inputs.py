@@ -107,6 +107,20 @@ __all__ = [
     'BotFulfillmentUpdateResponseSpecificationArgsDict',
     'BotFulfillmentUpdatesSpecificationArgs',
     'BotFulfillmentUpdatesSpecificationArgsDict',
+    'BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs',
+    'BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgsDict',
+    'BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs',
+    'BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgsDict',
+    'BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs',
+    'BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgsDict',
+    'BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs',
+    'BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgsDict',
+    'BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs',
+    'BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgsDict',
+    'BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs',
+    'BotGenerativeAiSettingsRuntimeSettingsPropertiesArgsDict',
+    'BotGenerativeAiSettingsArgs',
+    'BotGenerativeAiSettingsArgsDict',
     'BotGrammarSlotTypeSettingArgs',
     'BotGrammarSlotTypeSettingArgsDict',
     'BotGrammarSlotTypeSourceArgs',
@@ -2400,6 +2414,241 @@ class BotFulfillmentUpdatesSpecificationArgs:
 
 
 if not MYPY:
+    class BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgsDict(TypedDict):
+        enabled: pulumi.Input[builtins.bool]
+        bedrock_model_specification: NotRequired[pulumi.Input['BotBedrockModelSpecificationArgsDict']]
+elif False:
+    BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[builtins.bool],
+                 bedrock_model_specification: Optional[pulumi.Input['BotBedrockModelSpecificationArgs']] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if bedrock_model_specification is not None:
+            pulumi.set(__self__, "bedrock_model_specification", bedrock_model_specification)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="bedrockModelSpecification")
+    def bedrock_model_specification(self) -> Optional[pulumi.Input['BotBedrockModelSpecificationArgs']]:
+        return pulumi.get(self, "bedrock_model_specification")
+
+    @bedrock_model_specification.setter
+    def bedrock_model_specification(self, value: Optional[pulumi.Input['BotBedrockModelSpecificationArgs']]):
+        pulumi.set(self, "bedrock_model_specification", value)
+
+
+if not MYPY:
+    class BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgsDict(TypedDict):
+        enabled: pulumi.Input[builtins.bool]
+        bedrock_model_specification: NotRequired[pulumi.Input['BotBedrockModelSpecificationArgsDict']]
+elif False:
+    BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[builtins.bool],
+                 bedrock_model_specification: Optional[pulumi.Input['BotBedrockModelSpecificationArgs']] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if bedrock_model_specification is not None:
+            pulumi.set(__self__, "bedrock_model_specification", bedrock_model_specification)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="bedrockModelSpecification")
+    def bedrock_model_specification(self) -> Optional[pulumi.Input['BotBedrockModelSpecificationArgs']]:
+        return pulumi.get(self, "bedrock_model_specification")
+
+    @bedrock_model_specification.setter
+    def bedrock_model_specification(self, value: Optional[pulumi.Input['BotBedrockModelSpecificationArgs']]):
+        pulumi.set(self, "bedrock_model_specification", value)
+
+
+if not MYPY:
+    class BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgsDict(TypedDict):
+        descriptive_bot_builder_specification: NotRequired[pulumi.Input['BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgsDict']]
+        sample_utterance_generation_specification: NotRequired[pulumi.Input['BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgsDict']]
+elif False:
+    BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 descriptive_bot_builder_specification: Optional[pulumi.Input['BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs']] = None,
+                 sample_utterance_generation_specification: Optional[pulumi.Input['BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs']] = None):
+        if descriptive_bot_builder_specification is not None:
+            pulumi.set(__self__, "descriptive_bot_builder_specification", descriptive_bot_builder_specification)
+        if sample_utterance_generation_specification is not None:
+            pulumi.set(__self__, "sample_utterance_generation_specification", sample_utterance_generation_specification)
+
+    @property
+    @pulumi.getter(name="descriptiveBotBuilderSpecification")
+    def descriptive_bot_builder_specification(self) -> Optional[pulumi.Input['BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs']]:
+        return pulumi.get(self, "descriptive_bot_builder_specification")
+
+    @descriptive_bot_builder_specification.setter
+    def descriptive_bot_builder_specification(self, value: Optional[pulumi.Input['BotGenerativeAiSettingsBuildtimeSettingsPropertiesDescriptiveBotBuilderSpecificationPropertiesArgs']]):
+        pulumi.set(self, "descriptive_bot_builder_specification", value)
+
+    @property
+    @pulumi.getter(name="sampleUtteranceGenerationSpecification")
+    def sample_utterance_generation_specification(self) -> Optional[pulumi.Input['BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs']]:
+        return pulumi.get(self, "sample_utterance_generation_specification")
+
+    @sample_utterance_generation_specification.setter
+    def sample_utterance_generation_specification(self, value: Optional[pulumi.Input['BotGenerativeAiSettingsBuildtimeSettingsPropertiesSampleUtteranceGenerationSpecificationPropertiesArgs']]):
+        pulumi.set(self, "sample_utterance_generation_specification", value)
+
+
+if not MYPY:
+    class BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgsDict(TypedDict):
+        enabled: pulumi.Input[builtins.bool]
+elif False:
+    BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[builtins.bool]):
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
+    class BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgsDict(TypedDict):
+        enabled: pulumi.Input[builtins.bool]
+        bedrock_model_specification: NotRequired[pulumi.Input['BotBedrockModelSpecificationArgsDict']]
+elif False:
+    BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[builtins.bool],
+                 bedrock_model_specification: Optional[pulumi.Input['BotBedrockModelSpecificationArgs']] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if bedrock_model_specification is not None:
+            pulumi.set(__self__, "bedrock_model_specification", bedrock_model_specification)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="bedrockModelSpecification")
+    def bedrock_model_specification(self) -> Optional[pulumi.Input['BotBedrockModelSpecificationArgs']]:
+        return pulumi.get(self, "bedrock_model_specification")
+
+    @bedrock_model_specification.setter
+    def bedrock_model_specification(self, value: Optional[pulumi.Input['BotBedrockModelSpecificationArgs']]):
+        pulumi.set(self, "bedrock_model_specification", value)
+
+
+if not MYPY:
+    class BotGenerativeAiSettingsRuntimeSettingsPropertiesArgsDict(TypedDict):
+        nlu_improvement_specification: NotRequired[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgsDict']]
+        slot_resolution_improvement_specification: NotRequired[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgsDict']]
+elif False:
+    BotGenerativeAiSettingsRuntimeSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 nlu_improvement_specification: Optional[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs']] = None,
+                 slot_resolution_improvement_specification: Optional[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs']] = None):
+        if nlu_improvement_specification is not None:
+            pulumi.set(__self__, "nlu_improvement_specification", nlu_improvement_specification)
+        if slot_resolution_improvement_specification is not None:
+            pulumi.set(__self__, "slot_resolution_improvement_specification", slot_resolution_improvement_specification)
+
+    @property
+    @pulumi.getter(name="nluImprovementSpecification")
+    def nlu_improvement_specification(self) -> Optional[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs']]:
+        return pulumi.get(self, "nlu_improvement_specification")
+
+    @nlu_improvement_specification.setter
+    def nlu_improvement_specification(self, value: Optional[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs']]):
+        pulumi.set(self, "nlu_improvement_specification", value)
+
+    @property
+    @pulumi.getter(name="slotResolutionImprovementSpecification")
+    def slot_resolution_improvement_specification(self) -> Optional[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs']]:
+        return pulumi.get(self, "slot_resolution_improvement_specification")
+
+    @slot_resolution_improvement_specification.setter
+    def slot_resolution_improvement_specification(self, value: Optional[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationPropertiesArgs']]):
+        pulumi.set(self, "slot_resolution_improvement_specification", value)
+
+
+if not MYPY:
+    class BotGenerativeAiSettingsArgsDict(TypedDict):
+        buildtime_settings: NotRequired[pulumi.Input['BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgsDict']]
+        runtime_settings: NotRequired[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesArgsDict']]
+elif False:
+    BotGenerativeAiSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotGenerativeAiSettingsArgs:
+    def __init__(__self__, *,
+                 buildtime_settings: Optional[pulumi.Input['BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs']] = None,
+                 runtime_settings: Optional[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs']] = None):
+        if buildtime_settings is not None:
+            pulumi.set(__self__, "buildtime_settings", buildtime_settings)
+        if runtime_settings is not None:
+            pulumi.set(__self__, "runtime_settings", runtime_settings)
+
+    @property
+    @pulumi.getter(name="buildtimeSettings")
+    def buildtime_settings(self) -> Optional[pulumi.Input['BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs']]:
+        return pulumi.get(self, "buildtime_settings")
+
+    @buildtime_settings.setter
+    def buildtime_settings(self, value: Optional[pulumi.Input['BotGenerativeAiSettingsBuildtimeSettingsPropertiesArgs']]):
+        pulumi.set(self, "buildtime_settings", value)
+
+    @property
+    @pulumi.getter(name="runtimeSettings")
+    def runtime_settings(self) -> Optional[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs']]:
+        return pulumi.get(self, "runtime_settings")
+
+    @runtime_settings.setter
+    def runtime_settings(self, value: Optional[pulumi.Input['BotGenerativeAiSettingsRuntimeSettingsPropertiesArgs']]):
+        pulumi.set(self, "runtime_settings", value)
+
+
+if not MYPY:
     class BotGrammarSlotTypeSettingArgsDict(TypedDict):
         source: NotRequired[pulumi.Input['BotGrammarSlotTypeSourceArgsDict']]
         """
@@ -3516,6 +3765,7 @@ if not MYPY:
         """
         A description of the bot locale. Use this to help identify the bot locale in lists.
         """
+        generative_ai_settings: NotRequired[pulumi.Input['BotGenerativeAiSettingsArgsDict']]
         intents: NotRequired[pulumi.Input[Sequence[pulumi.Input['BotIntentArgsDict']]]]
         """
         One or more intents defined for the locale.
@@ -3545,6 +3795,7 @@ class BotLocaleArgs:
                  nlu_confidence_threshold: pulumi.Input[builtins.float],
                  custom_vocabulary: Optional[pulumi.Input['BotCustomVocabularyArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 generative_ai_settings: Optional[pulumi.Input['BotGenerativeAiSettingsArgs']] = None,
                  intents: Optional[pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]]] = None,
                  slot_types: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotTypeArgs']]]] = None,
                  voice_settings: Optional[pulumi.Input['BotVoiceSettingsArgs']] = None):
@@ -3570,6 +3821,8 @@ class BotLocaleArgs:
             pulumi.set(__self__, "custom_vocabulary", custom_vocabulary)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if generative_ai_settings is not None:
+            pulumi.set(__self__, "generative_ai_settings", generative_ai_settings)
         if intents is not None:
             pulumi.set(__self__, "intents", intents)
         if slot_types is not None:
@@ -3624,6 +3877,15 @@ class BotLocaleArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="generativeAiSettings")
+    def generative_ai_settings(self) -> Optional[pulumi.Input['BotGenerativeAiSettingsArgs']]:
+        return pulumi.get(self, "generative_ai_settings")
+
+    @generative_ai_settings.setter
+    def generative_ai_settings(self, value: Optional[pulumi.Input['BotGenerativeAiSettingsArgs']]):
+        pulumi.set(self, "generative_ai_settings", value)
 
     @property
     @pulumi.getter

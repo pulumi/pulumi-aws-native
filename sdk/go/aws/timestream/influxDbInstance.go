@@ -74,9 +74,7 @@ func NewInfluxDbInstance(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"allocatedStorage",
 		"bucket",
-		"dbStorageType",
 		"name",
 		"networkType",
 		"organization",

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.B2bi.Inputs
         [Input("common")]
         public Input<Inputs.PartnershipX12OutboundEdiHeadersArgs>? Common { get; set; }
 
+        [Input("wrapOptions")]
+        public Input<Inputs.PartnershipWrapOptionsArgs>? WrapOptions { get; set; }
+
         public PartnershipX12EnvelopeArgs()
         {
         }

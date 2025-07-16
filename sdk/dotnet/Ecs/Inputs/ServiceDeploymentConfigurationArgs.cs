@@ -21,12 +21,23 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("alarms")]
         public Input<Inputs.ServiceDeploymentAlarmsArgs>? Alarms { get; set; }
 
+        [Input("bakeTimeInMinutes")]
+        public Input<int>? BakeTimeInMinutes { get; set; }
+
         /// <summary>
         /// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
         ///   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
         /// </summary>
         [Input("deploymentCircuitBreaker")]
         public Input<Inputs.ServiceDeploymentCircuitBreakerArgs>? DeploymentCircuitBreaker { get; set; }
+
+        [Input("lifecycleHooks")]
+        private InputList<Inputs.ServiceDeploymentLifecycleHookArgs>? _lifecycleHooks;
+        public InputList<Inputs.ServiceDeploymentLifecycleHookArgs> LifecycleHooks
+        {
+            get => _lifecycleHooks ?? (_lifecycleHooks = new InputList<Inputs.ServiceDeploymentLifecycleHookArgs>());
+            set => _lifecycleHooks = value;
+        }
 
         /// <summary>
         /// If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
@@ -58,6 +69,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         /// </summary>
         [Input("minimumHealthyPercent")]
         public Input<int>? MinimumHealthyPercent { get; set; }
+
+        [Input("strategy")]
+        public Input<Pulumi.AwsNative.Ecs.ServiceDeploymentConfigurationStrategy>? Strategy { get; set; }
 
         public ServiceDeploymentConfigurationArgs()
         {

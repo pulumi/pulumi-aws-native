@@ -224,7 +224,6 @@ type EmailAddressTag struct {
 }
 
 type EvaluationFormAutoEvaluationConfiguration struct {
-	// Auto Evaluation enablement status.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -240,7 +239,6 @@ type EvaluationFormAutoEvaluationConfigurationInput interface {
 }
 
 type EvaluationFormAutoEvaluationConfigurationArgs struct {
-	// Auto Evaluation enablement status.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -321,7 +319,6 @@ func (o EvaluationFormAutoEvaluationConfigurationOutput) ToEvaluationFormAutoEva
 	}).(EvaluationFormAutoEvaluationConfigurationPtrOutput)
 }
 
-// Auto Evaluation enablement status.
 func (o EvaluationFormAutoEvaluationConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EvaluationFormAutoEvaluationConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -350,7 +347,6 @@ func (o EvaluationFormAutoEvaluationConfigurationPtrOutput) Elem() EvaluationFor
 	}).(EvaluationFormAutoEvaluationConfigurationOutput)
 }
 
-// Auto Evaluation enablement status.
 func (o EvaluationFormAutoEvaluationConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormAutoEvaluationConfiguration) *bool {
 		if v == nil {
@@ -3306,13 +3302,18 @@ func (o HoursOfOperationTimeSliceOutput) Minutes() pulumi.IntOutput {
 }
 
 type InstanceAttributes struct {
-	AutoResolveBestVoices *bool `pulumi:"autoResolveBestVoices"`
-	ContactLens           *bool `pulumi:"contactLens"`
-	ContactflowLogs       *bool `pulumi:"contactflowLogs"`
-	EarlyMedia            *bool `pulumi:"earlyMedia"`
-	InboundCalls          bool  `pulumi:"inboundCalls"`
-	OutboundCalls         bool  `pulumi:"outboundCalls"`
-	UseCustomTtsVoices    *bool `pulumi:"useCustomTtsVoices"`
+	AutoResolveBestVoices     *bool `pulumi:"autoResolveBestVoices"`
+	ContactLens               *bool `pulumi:"contactLens"`
+	ContactflowLogs           *bool `pulumi:"contactflowLogs"`
+	EarlyMedia                *bool `pulumi:"earlyMedia"`
+	EnhancedChatMonitoring    *bool `pulumi:"enhancedChatMonitoring"`
+	EnhancedContactMonitoring *bool `pulumi:"enhancedContactMonitoring"`
+	HighVolumeOutBound        *bool `pulumi:"highVolumeOutBound"`
+	InboundCalls              bool  `pulumi:"inboundCalls"`
+	MultiPartyChatConference  *bool `pulumi:"multiPartyChatConference"`
+	MultiPartyConference      *bool `pulumi:"multiPartyConference"`
+	OutboundCalls             bool  `pulumi:"outboundCalls"`
+	UseCustomTtsVoices        *bool `pulumi:"useCustomTtsVoices"`
 }
 
 // InstanceAttributesInput is an input type that accepts InstanceAttributesArgs and InstanceAttributesOutput values.
@@ -3327,13 +3328,18 @@ type InstanceAttributesInput interface {
 }
 
 type InstanceAttributesArgs struct {
-	AutoResolveBestVoices pulumi.BoolPtrInput `pulumi:"autoResolveBestVoices"`
-	ContactLens           pulumi.BoolPtrInput `pulumi:"contactLens"`
-	ContactflowLogs       pulumi.BoolPtrInput `pulumi:"contactflowLogs"`
-	EarlyMedia            pulumi.BoolPtrInput `pulumi:"earlyMedia"`
-	InboundCalls          pulumi.BoolInput    `pulumi:"inboundCalls"`
-	OutboundCalls         pulumi.BoolInput    `pulumi:"outboundCalls"`
-	UseCustomTtsVoices    pulumi.BoolPtrInput `pulumi:"useCustomTtsVoices"`
+	AutoResolveBestVoices     pulumi.BoolPtrInput `pulumi:"autoResolveBestVoices"`
+	ContactLens               pulumi.BoolPtrInput `pulumi:"contactLens"`
+	ContactflowLogs           pulumi.BoolPtrInput `pulumi:"contactflowLogs"`
+	EarlyMedia                pulumi.BoolPtrInput `pulumi:"earlyMedia"`
+	EnhancedChatMonitoring    pulumi.BoolPtrInput `pulumi:"enhancedChatMonitoring"`
+	EnhancedContactMonitoring pulumi.BoolPtrInput `pulumi:"enhancedContactMonitoring"`
+	HighVolumeOutBound        pulumi.BoolPtrInput `pulumi:"highVolumeOutBound"`
+	InboundCalls              pulumi.BoolInput    `pulumi:"inboundCalls"`
+	MultiPartyChatConference  pulumi.BoolPtrInput `pulumi:"multiPartyChatConference"`
+	MultiPartyConference      pulumi.BoolPtrInput `pulumi:"multiPartyConference"`
+	OutboundCalls             pulumi.BoolInput    `pulumi:"outboundCalls"`
+	UseCustomTtsVoices        pulumi.BoolPtrInput `pulumi:"useCustomTtsVoices"`
 }
 
 func (InstanceAttributesArgs) ElementType() reflect.Type {
@@ -3378,8 +3384,28 @@ func (o InstanceAttributesOutput) EarlyMedia() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceAttributes) *bool { return v.EarlyMedia }).(pulumi.BoolPtrOutput)
 }
 
+func (o InstanceAttributesOutput) EnhancedChatMonitoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceAttributes) *bool { return v.EnhancedChatMonitoring }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesOutput) EnhancedContactMonitoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceAttributes) *bool { return v.EnhancedContactMonitoring }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesOutput) HighVolumeOutBound() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceAttributes) *bool { return v.HighVolumeOutBound }).(pulumi.BoolPtrOutput)
+}
+
 func (o InstanceAttributesOutput) InboundCalls() pulumi.BoolOutput {
 	return o.ApplyT(func(v InstanceAttributes) bool { return v.InboundCalls }).(pulumi.BoolOutput)
+}
+
+func (o InstanceAttributesOutput) MultiPartyChatConference() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceAttributes) *bool { return v.MultiPartyChatConference }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesOutput) MultiPartyConference() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceAttributes) *bool { return v.MultiPartyConference }).(pulumi.BoolPtrOutput)
 }
 
 func (o InstanceAttributesOutput) OutboundCalls() pulumi.BoolOutput {
@@ -3450,12 +3476,57 @@ func (o InstanceAttributesPtrOutput) EarlyMedia() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+func (o InstanceAttributesPtrOutput) EnhancedChatMonitoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnhancedChatMonitoring
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesPtrOutput) EnhancedContactMonitoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnhancedContactMonitoring
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesPtrOutput) HighVolumeOutBound() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HighVolumeOutBound
+	}).(pulumi.BoolPtrOutput)
+}
+
 func (o InstanceAttributesPtrOutput) InboundCalls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceAttributes) *bool {
 		if v == nil {
 			return nil
 		}
 		return &v.InboundCalls
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesPtrOutput) MultiPartyChatConference() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MultiPartyChatConference
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceAttributesPtrOutput) MultiPartyConference() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MultiPartyConference
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -6550,7 +6621,7 @@ func (o RuleNotificationRecipientTypeOutput) UserTags() pulumi.StringMapOutput {
 // Information about the reference when the “referenceType“ is “URL“. Otherwise, null. (Supports variable injection in the “Value“ field.)
 type RuleReference struct {
 	// The type of the reference. ``DATE`` must be of type Epoch timestamp.
-	//   *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+	//  *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
 	Type RuleReferenceType `pulumi:"type"`
 	// A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
 	Value string `pulumi:"value"`
@@ -6570,7 +6641,7 @@ type RuleReferenceInput interface {
 // Information about the reference when the “referenceType“ is “URL“. Otherwise, null. (Supports variable injection in the “Value“ field.)
 type RuleReferenceArgs struct {
 	// The type of the reference. ``DATE`` must be of type Epoch timestamp.
-	//   *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+	//  *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
 	Type RuleReferenceTypeInput `pulumi:"type"`
 	// A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
 	Value pulumi.StringInput `pulumi:"value"`
@@ -6665,10 +6736,10 @@ type RuleSendNotificationAction struct {
 	// Notification content. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
 	Content string `pulumi:"content"`
 	// Content type format.
-	//   *Allowed value*: ``PLAIN_TEXT``
+	//  *Allowed value*: ``PLAIN_TEXT``
 	ContentType RuleSendNotificationActionContentType `pulumi:"contentType"`
 	// Notification delivery method.
-	//   *Allowed value*: ``EMAIL``
+	//  *Allowed value*: ``EMAIL``
 	DeliveryMethod RuleSendNotificationActionDeliveryMethod `pulumi:"deliveryMethod"`
 	// Notification recipient.
 	Recipient RuleNotificationRecipientType `pulumi:"recipient"`
@@ -6692,10 +6763,10 @@ type RuleSendNotificationActionArgs struct {
 	// Notification content. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
 	Content pulumi.StringInput `pulumi:"content"`
 	// Content type format.
-	//   *Allowed value*: ``PLAIN_TEXT``
+	//  *Allowed value*: ``PLAIN_TEXT``
 	ContentType RuleSendNotificationActionContentTypeInput `pulumi:"contentType"`
 	// Notification delivery method.
-	//   *Allowed value*: ``EMAIL``
+	//  *Allowed value*: ``EMAIL``
 	DeliveryMethod RuleSendNotificationActionDeliveryMethodInput `pulumi:"deliveryMethod"`
 	// Notification recipient.
 	Recipient RuleNotificationRecipientTypeInput `pulumi:"recipient"`

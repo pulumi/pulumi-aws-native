@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.AiOps.Inputs
 
     public sealed class InvestigationGroupCrossAccountConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of an existing role which will be used to do investigations on your behalf.
+        /// </summary>
         [Input("sourceRoleArn")]
         public Input<string>? SourceRoleArn { get; set; }
 

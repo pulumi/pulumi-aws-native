@@ -21,8 +21,22 @@ __all__ = [
     'ChannelInputSwitchConfigurationArgsDict',
     'ChannelOutputHeaderConfigurationArgs',
     'ChannelOutputHeaderConfigurationArgsDict',
+    'OriginEndpointDashBaseUrlArgs',
+    'OriginEndpointDashBaseUrlArgsDict',
+    'OriginEndpointDashDvbFontDownloadArgs',
+    'OriginEndpointDashDvbFontDownloadArgsDict',
+    'OriginEndpointDashDvbMetricsReportingArgs',
+    'OriginEndpointDashDvbMetricsReportingArgsDict',
+    'OriginEndpointDashDvbSettingsArgs',
+    'OriginEndpointDashDvbSettingsArgsDict',
     'OriginEndpointDashManifestConfigurationArgs',
     'OriginEndpointDashManifestConfigurationArgsDict',
+    'OriginEndpointDashProgramInformationArgs',
+    'OriginEndpointDashProgramInformationArgsDict',
+    'OriginEndpointDashSubtitleConfigurationArgs',
+    'OriginEndpointDashSubtitleConfigurationArgsDict',
+    'OriginEndpointDashTtmlConfigurationArgs',
+    'OriginEndpointDashTtmlConfigurationArgsDict',
     'OriginEndpointDashUtcTimingArgs',
     'OriginEndpointDashUtcTimingArgsDict',
     'OriginEndpointEncryptionContractConfigurationArgs',
@@ -128,6 +142,281 @@ class ChannelOutputHeaderConfigurationArgs:
 
 
 if not MYPY:
+    class OriginEndpointDashBaseUrlArgsDict(TypedDict):
+        """
+        <p>The base URLs to use for retrieving segments. You can specify multiple locations and indicate the priority and weight for when each should be used, for use in mutli-CDN workflows.</p>
+        """
+        url: pulumi.Input[builtins.str]
+        """
+        <p>A source location for segments.</p>
+        """
+        dvb_priority: NotRequired[pulumi.Input[builtins.int]]
+        """
+        <p>For use with DVB-DASH profiles only. The priority of this location for servings segments. The lower the number, the higher the priority.</p>
+        """
+        dvb_weight: NotRequired[pulumi.Input[builtins.int]]
+        """
+        <p>For use with DVB-DASH profiles only. The weighting for source locations that have the same priority. </p>
+        """
+        service_location: NotRequired[pulumi.Input[builtins.str]]
+        """
+        <p>The name of the source location.</p>
+        """
+elif False:
+    OriginEndpointDashBaseUrlArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OriginEndpointDashBaseUrlArgs:
+    def __init__(__self__, *,
+                 url: pulumi.Input[builtins.str],
+                 dvb_priority: Optional[pulumi.Input[builtins.int]] = None,
+                 dvb_weight: Optional[pulumi.Input[builtins.int]] = None,
+                 service_location: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        <p>The base URLs to use for retrieving segments. You can specify multiple locations and indicate the priority and weight for when each should be used, for use in mutli-CDN workflows.</p>
+        :param pulumi.Input[builtins.str] url: <p>A source location for segments.</p>
+        :param pulumi.Input[builtins.int] dvb_priority: <p>For use with DVB-DASH profiles only. The priority of this location for servings segments. The lower the number, the higher the priority.</p>
+        :param pulumi.Input[builtins.int] dvb_weight: <p>For use with DVB-DASH profiles only. The weighting for source locations that have the same priority. </p>
+        :param pulumi.Input[builtins.str] service_location: <p>The name of the source location.</p>
+        """
+        pulumi.set(__self__, "url", url)
+        if dvb_priority is not None:
+            pulumi.set(__self__, "dvb_priority", dvb_priority)
+        if dvb_weight is not None:
+            pulumi.set(__self__, "dvb_weight", dvb_weight)
+        if service_location is not None:
+            pulumi.set(__self__, "service_location", service_location)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[builtins.str]:
+        """
+        <p>A source location for segments.</p>
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="dvbPriority")
+    def dvb_priority(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        <p>For use with DVB-DASH profiles only. The priority of this location for servings segments. The lower the number, the higher the priority.</p>
+        """
+        return pulumi.get(self, "dvb_priority")
+
+    @dvb_priority.setter
+    def dvb_priority(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "dvb_priority", value)
+
+    @property
+    @pulumi.getter(name="dvbWeight")
+    def dvb_weight(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        <p>For use with DVB-DASH profiles only. The weighting for source locations that have the same priority. </p>
+        """
+        return pulumi.get(self, "dvb_weight")
+
+    @dvb_weight.setter
+    def dvb_weight(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "dvb_weight", value)
+
+    @property
+    @pulumi.getter(name="serviceLocation")
+    def service_location(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        <p>The name of the source location.</p>
+        """
+        return pulumi.get(self, "service_location")
+
+    @service_location.setter
+    def service_location(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "service_location", value)
+
+
+if not MYPY:
+    class OriginEndpointDashDvbFontDownloadArgsDict(TypedDict):
+        """
+        <p>For use with DVB-DASH profiles only. The settings for font downloads that you want Elemental MediaPackage to pass through to the manifest.</p>
+        """
+        font_family: NotRequired[pulumi.Input[builtins.str]]
+        """
+        <p>The <code>fontFamily</code> name for subtitles, as described in <a href="https://tech.ebu.ch/publications/tech3380">EBU-TT-D Subtitling Distribution Format</a>. </p>
+        """
+        mime_type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        <p>The <code>mimeType</code> of the resource that's at the font download URL.</p> <p>For information about font MIME types, see the <a href="https://dvb.org/wp-content/uploads/2021/06/A168r4_MPEG-DASH-Profile-for-Transport-of-ISO-BMFF-Based-DVB-Services_Draft-ts_103-285-v140_November_2021.pdf">MPEG-DASH Profile for Transport of ISO BMFF Based DVB Services over IP Based Networks</a> document. </p>
+        """
+        url: NotRequired[pulumi.Input[builtins.str]]
+        """
+        <p>The URL for downloading fonts for subtitles.</p>
+        """
+elif False:
+    OriginEndpointDashDvbFontDownloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OriginEndpointDashDvbFontDownloadArgs:
+    def __init__(__self__, *,
+                 font_family: Optional[pulumi.Input[builtins.str]] = None,
+                 mime_type: Optional[pulumi.Input[builtins.str]] = None,
+                 url: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        <p>For use with DVB-DASH profiles only. The settings for font downloads that you want Elemental MediaPackage to pass through to the manifest.</p>
+        :param pulumi.Input[builtins.str] font_family: <p>The <code>fontFamily</code> name for subtitles, as described in <a href="https://tech.ebu.ch/publications/tech3380">EBU-TT-D Subtitling Distribution Format</a>. </p>
+        :param pulumi.Input[builtins.str] mime_type: <p>The <code>mimeType</code> of the resource that's at the font download URL.</p> <p>For information about font MIME types, see the <a href="https://dvb.org/wp-content/uploads/2021/06/A168r4_MPEG-DASH-Profile-for-Transport-of-ISO-BMFF-Based-DVB-Services_Draft-ts_103-285-v140_November_2021.pdf">MPEG-DASH Profile for Transport of ISO BMFF Based DVB Services over IP Based Networks</a> document. </p>
+        :param pulumi.Input[builtins.str] url: <p>The URL for downloading fonts for subtitles.</p>
+        """
+        if font_family is not None:
+            pulumi.set(__self__, "font_family", font_family)
+        if mime_type is not None:
+            pulumi.set(__self__, "mime_type", mime_type)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="fontFamily")
+    def font_family(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        <p>The <code>fontFamily</code> name for subtitles, as described in <a href="https://tech.ebu.ch/publications/tech3380">EBU-TT-D Subtitling Distribution Format</a>. </p>
+        """
+        return pulumi.get(self, "font_family")
+
+    @font_family.setter
+    def font_family(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "font_family", value)
+
+    @property
+    @pulumi.getter(name="mimeType")
+    def mime_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        <p>The <code>mimeType</code> of the resource that's at the font download URL.</p> <p>For information about font MIME types, see the <a href="https://dvb.org/wp-content/uploads/2021/06/A168r4_MPEG-DASH-Profile-for-Transport-of-ISO-BMFF-Based-DVB-Services_Draft-ts_103-285-v140_November_2021.pdf">MPEG-DASH Profile for Transport of ISO BMFF Based DVB Services over IP Based Networks</a> document. </p>
+        """
+        return pulumi.get(self, "mime_type")
+
+    @mime_type.setter
+    def mime_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "mime_type", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        <p>The URL for downloading fonts for subtitles.</p>
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "url", value)
+
+
+if not MYPY:
+    class OriginEndpointDashDvbMetricsReportingArgsDict(TypedDict):
+        """
+        <p>For use with DVB-DASH profiles only. The settings for error reporting from the playback device that you want Elemental MediaPackage to pass through to the manifest.</p>
+        """
+        reporting_url: pulumi.Input[builtins.str]
+        """
+        <p>The URL where playback devices send error reports.</p>
+        """
+        probability: NotRequired[pulumi.Input[builtins.int]]
+        """
+        <p>The number of playback devices per 1000 that will send error reports to the reporting URL. This represents the probability that a playback device will be a reporting player for this session.</p>
+        """
+elif False:
+    OriginEndpointDashDvbMetricsReportingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OriginEndpointDashDvbMetricsReportingArgs:
+    def __init__(__self__, *,
+                 reporting_url: pulumi.Input[builtins.str],
+                 probability: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        <p>For use with DVB-DASH profiles only. The settings for error reporting from the playback device that you want Elemental MediaPackage to pass through to the manifest.</p>
+        :param pulumi.Input[builtins.str] reporting_url: <p>The URL where playback devices send error reports.</p>
+        :param pulumi.Input[builtins.int] probability: <p>The number of playback devices per 1000 that will send error reports to the reporting URL. This represents the probability that a playback device will be a reporting player for this session.</p>
+        """
+        pulumi.set(__self__, "reporting_url", reporting_url)
+        if probability is not None:
+            pulumi.set(__self__, "probability", probability)
+
+    @property
+    @pulumi.getter(name="reportingUrl")
+    def reporting_url(self) -> pulumi.Input[builtins.str]:
+        """
+        <p>The URL where playback devices send error reports.</p>
+        """
+        return pulumi.get(self, "reporting_url")
+
+    @reporting_url.setter
+    def reporting_url(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "reporting_url", value)
+
+    @property
+    @pulumi.getter
+    def probability(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        <p>The number of playback devices per 1000 that will send error reports to the reporting URL. This represents the probability that a playback device will be a reporting player for this session.</p>
+        """
+        return pulumi.get(self, "probability")
+
+    @probability.setter
+    def probability(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "probability", value)
+
+
+if not MYPY:
+    class OriginEndpointDashDvbSettingsArgsDict(TypedDict):
+        """
+        <p>For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.</p>
+        """
+        error_metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashDvbMetricsReportingArgsDict']]]]
+        """
+        <p>Playback device error reporting settings.</p>
+        """
+        font_download: NotRequired[pulumi.Input['OriginEndpointDashDvbFontDownloadArgsDict']]
+elif False:
+    OriginEndpointDashDvbSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OriginEndpointDashDvbSettingsArgs:
+    def __init__(__self__, *,
+                 error_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashDvbMetricsReportingArgs']]]] = None,
+                 font_download: Optional[pulumi.Input['OriginEndpointDashDvbFontDownloadArgs']] = None):
+        """
+        <p>For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashDvbMetricsReportingArgs']]] error_metrics: <p>Playback device error reporting settings.</p>
+        """
+        if error_metrics is not None:
+            pulumi.set(__self__, "error_metrics", error_metrics)
+        if font_download is not None:
+            pulumi.set(__self__, "font_download", font_download)
+
+    @property
+    @pulumi.getter(name="errorMetrics")
+    def error_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashDvbMetricsReportingArgs']]]]:
+        """
+        <p>Playback device error reporting settings.</p>
+        """
+        return pulumi.get(self, "error_metrics")
+
+    @error_metrics.setter
+    def error_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashDvbMetricsReportingArgs']]]]):
+        pulumi.set(self, "error_metrics", value)
+
+    @property
+    @pulumi.getter(name="fontDownload")
+    def font_download(self) -> Optional[pulumi.Input['OriginEndpointDashDvbFontDownloadArgs']]:
+        return pulumi.get(self, "font_download")
+
+    @font_download.setter
+    def font_download(self, value: Optional[pulumi.Input['OriginEndpointDashDvbFontDownloadArgs']]):
+        pulumi.set(self, "font_download", value)
+
+
+if not MYPY:
     class OriginEndpointDashManifestConfigurationArgsDict(TypedDict):
         """
         <p>Retrieve the DASH manifest configuration.</p>
@@ -136,8 +425,20 @@ if not MYPY:
         """
         <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
         """
+        base_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashBaseUrlArgsDict']]]]
+        """
+        <p>The base URL to use for retrieving segments.</p>
+        """
+        compactness: NotRequired[pulumi.Input['OriginEndpointDashCompactness']]
         drm_signaling: NotRequired[pulumi.Input['OriginEndpointDashDrmSignaling']]
+        """
+        Determines how the DASH manifest signals the DRM content.
+        """
+        dvb_settings: NotRequired[pulumi.Input['OriginEndpointDashDvbSettingsArgsDict']]
         filter_configuration: NotRequired[pulumi.Input['OriginEndpointFilterConfigurationArgsDict']]
+        """
+        Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
+        """
         manifest_window_seconds: NotRequired[pulumi.Input[builtins.int]]
         """
         <p>The total duration (in seconds) of the manifest's content.</p>
@@ -152,16 +453,34 @@ if not MYPY:
         """
         period_triggers: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPeriodTrigger']]]]
         """
-        <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period.
-                 For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
+        <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period. For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
         """
+        profiles: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashProfile']]]]
+        """
+        <p>The profile that the output is compliant with.</p>
+        """
+        program_information: NotRequired[pulumi.Input['OriginEndpointDashProgramInformationArgsDict']]
         scte_dash: NotRequired[pulumi.Input['OriginEndpointScteDashArgsDict']]
+        """
+        The SCTE configuration.
+        """
         segment_template_format: NotRequired[pulumi.Input['OriginEndpointDashSegmentTemplateFormat']]
+        """
+        Determines the type of variable used in the `media` URL of the `SegmentTemplate` tag in the manifest. Also specifies if segment timeline information is included in `SegmentTimeline` or `SegmentTemplate` .
+
+        Value description:
+
+        - `NUMBER_WITH_TIMELINE` - The `$Number$` variable is used in the `media` URL. The value of this variable is the sequential number of the segment. A full `SegmentTimeline` object is presented in each `SegmentTemplate` .
+        """
+        subtitle_configuration: NotRequired[pulumi.Input['OriginEndpointDashSubtitleConfigurationArgsDict']]
         suggested_presentation_delay_seconds: NotRequired[pulumi.Input[builtins.int]]
         """
         <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
         """
         utc_timing: NotRequired[pulumi.Input['OriginEndpointDashUtcTimingArgsDict']]
+        """
+        Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).
+        """
 elif False:
     OriginEndpointDashManifestConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -169,29 +488,51 @@ elif False:
 class OriginEndpointDashManifestConfigurationArgs:
     def __init__(__self__, *,
                  manifest_name: pulumi.Input[builtins.str],
+                 base_urls: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashBaseUrlArgs']]]] = None,
+                 compactness: Optional[pulumi.Input['OriginEndpointDashCompactness']] = None,
                  drm_signaling: Optional[pulumi.Input['OriginEndpointDashDrmSignaling']] = None,
+                 dvb_settings: Optional[pulumi.Input['OriginEndpointDashDvbSettingsArgs']] = None,
                  filter_configuration: Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']] = None,
                  manifest_window_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  min_buffer_time_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  min_update_period_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  period_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPeriodTrigger']]]] = None,
+                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashProfile']]]] = None,
+                 program_information: Optional[pulumi.Input['OriginEndpointDashProgramInformationArgs']] = None,
                  scte_dash: Optional[pulumi.Input['OriginEndpointScteDashArgs']] = None,
                  segment_template_format: Optional[pulumi.Input['OriginEndpointDashSegmentTemplateFormat']] = None,
+                 subtitle_configuration: Optional[pulumi.Input['OriginEndpointDashSubtitleConfigurationArgs']] = None,
                  suggested_presentation_delay_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  utc_timing: Optional[pulumi.Input['OriginEndpointDashUtcTimingArgs']] = None):
         """
         <p>Retrieve the DASH manifest configuration.</p>
         :param pulumi.Input[builtins.str] manifest_name: <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
+        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashBaseUrlArgs']]] base_urls: <p>The base URL to use for retrieving segments.</p>
+        :param pulumi.Input['OriginEndpointDashDrmSignaling'] drm_signaling: Determines how the DASH manifest signals the DRM content.
+        :param pulumi.Input['OriginEndpointFilterConfigurationArgs'] filter_configuration: Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
         :param pulumi.Input[builtins.int] manifest_window_seconds: <p>The total duration (in seconds) of the manifest's content.</p>
         :param pulumi.Input[builtins.int] min_buffer_time_seconds: <p>Minimum amount of content (in seconds) that a player must keep available in the buffer.</p>
         :param pulumi.Input[builtins.int] min_update_period_seconds: <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPeriodTrigger']]] period_triggers: <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period.
-                        For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPeriodTrigger']]] period_triggers: <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period. For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashProfile']]] profiles: <p>The profile that the output is compliant with.</p>
+        :param pulumi.Input['OriginEndpointScteDashArgs'] scte_dash: The SCTE configuration.
+        :param pulumi.Input['OriginEndpointDashSegmentTemplateFormat'] segment_template_format: Determines the type of variable used in the `media` URL of the `SegmentTemplate` tag in the manifest. Also specifies if segment timeline information is included in `SegmentTimeline` or `SegmentTemplate` .
+               
+               Value description:
+               
+               - `NUMBER_WITH_TIMELINE` - The `$Number$` variable is used in the `media` URL. The value of this variable is the sequential number of the segment. A full `SegmentTimeline` object is presented in each `SegmentTemplate` .
         :param pulumi.Input[builtins.int] suggested_presentation_delay_seconds: <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
+        :param pulumi.Input['OriginEndpointDashUtcTimingArgs'] utc_timing: Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).
         """
         pulumi.set(__self__, "manifest_name", manifest_name)
+        if base_urls is not None:
+            pulumi.set(__self__, "base_urls", base_urls)
+        if compactness is not None:
+            pulumi.set(__self__, "compactness", compactness)
         if drm_signaling is not None:
             pulumi.set(__self__, "drm_signaling", drm_signaling)
+        if dvb_settings is not None:
+            pulumi.set(__self__, "dvb_settings", dvb_settings)
         if filter_configuration is not None:
             pulumi.set(__self__, "filter_configuration", filter_configuration)
         if manifest_window_seconds is not None:
@@ -202,10 +543,16 @@ class OriginEndpointDashManifestConfigurationArgs:
             pulumi.set(__self__, "min_update_period_seconds", min_update_period_seconds)
         if period_triggers is not None:
             pulumi.set(__self__, "period_triggers", period_triggers)
+        if profiles is not None:
+            pulumi.set(__self__, "profiles", profiles)
+        if program_information is not None:
+            pulumi.set(__self__, "program_information", program_information)
         if scte_dash is not None:
             pulumi.set(__self__, "scte_dash", scte_dash)
         if segment_template_format is not None:
             pulumi.set(__self__, "segment_template_format", segment_template_format)
+        if subtitle_configuration is not None:
+            pulumi.set(__self__, "subtitle_configuration", subtitle_configuration)
         if suggested_presentation_delay_seconds is not None:
             pulumi.set(__self__, "suggested_presentation_delay_seconds", suggested_presentation_delay_seconds)
         if utc_timing is not None:
@@ -224,8 +571,32 @@ class OriginEndpointDashManifestConfigurationArgs:
         pulumi.set(self, "manifest_name", value)
 
     @property
+    @pulumi.getter(name="baseUrls")
+    def base_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashBaseUrlArgs']]]]:
+        """
+        <p>The base URL to use for retrieving segments.</p>
+        """
+        return pulumi.get(self, "base_urls")
+
+    @base_urls.setter
+    def base_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashBaseUrlArgs']]]]):
+        pulumi.set(self, "base_urls", value)
+
+    @property
+    @pulumi.getter
+    def compactness(self) -> Optional[pulumi.Input['OriginEndpointDashCompactness']]:
+        return pulumi.get(self, "compactness")
+
+    @compactness.setter
+    def compactness(self, value: Optional[pulumi.Input['OriginEndpointDashCompactness']]):
+        pulumi.set(self, "compactness", value)
+
+    @property
     @pulumi.getter(name="drmSignaling")
     def drm_signaling(self) -> Optional[pulumi.Input['OriginEndpointDashDrmSignaling']]:
+        """
+        Determines how the DASH manifest signals the DRM content.
+        """
         return pulumi.get(self, "drm_signaling")
 
     @drm_signaling.setter
@@ -233,8 +604,20 @@ class OriginEndpointDashManifestConfigurationArgs:
         pulumi.set(self, "drm_signaling", value)
 
     @property
+    @pulumi.getter(name="dvbSettings")
+    def dvb_settings(self) -> Optional[pulumi.Input['OriginEndpointDashDvbSettingsArgs']]:
+        return pulumi.get(self, "dvb_settings")
+
+    @dvb_settings.setter
+    def dvb_settings(self, value: Optional[pulumi.Input['OriginEndpointDashDvbSettingsArgs']]):
+        pulumi.set(self, "dvb_settings", value)
+
+    @property
     @pulumi.getter(name="filterConfiguration")
     def filter_configuration(self) -> Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']]:
+        """
+        Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
+        """
         return pulumi.get(self, "filter_configuration")
 
     @filter_configuration.setter
@@ -281,8 +664,7 @@ class OriginEndpointDashManifestConfigurationArgs:
     @pulumi.getter(name="periodTriggers")
     def period_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPeriodTrigger']]]]:
         """
-        <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period.
-                 For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
+        <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period. For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
         """
         return pulumi.get(self, "period_triggers")
 
@@ -291,8 +673,32 @@ class OriginEndpointDashManifestConfigurationArgs:
         pulumi.set(self, "period_triggers", value)
 
     @property
+    @pulumi.getter
+    def profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashProfile']]]]:
+        """
+        <p>The profile that the output is compliant with.</p>
+        """
+        return pulumi.get(self, "profiles")
+
+    @profiles.setter
+    def profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashProfile']]]]):
+        pulumi.set(self, "profiles", value)
+
+    @property
+    @pulumi.getter(name="programInformation")
+    def program_information(self) -> Optional[pulumi.Input['OriginEndpointDashProgramInformationArgs']]:
+        return pulumi.get(self, "program_information")
+
+    @program_information.setter
+    def program_information(self, value: Optional[pulumi.Input['OriginEndpointDashProgramInformationArgs']]):
+        pulumi.set(self, "program_information", value)
+
+    @property
     @pulumi.getter(name="scteDash")
     def scte_dash(self) -> Optional[pulumi.Input['OriginEndpointScteDashArgs']]:
+        """
+        The SCTE configuration.
+        """
         return pulumi.get(self, "scte_dash")
 
     @scte_dash.setter
@@ -302,11 +708,27 @@ class OriginEndpointDashManifestConfigurationArgs:
     @property
     @pulumi.getter(name="segmentTemplateFormat")
     def segment_template_format(self) -> Optional[pulumi.Input['OriginEndpointDashSegmentTemplateFormat']]:
+        """
+        Determines the type of variable used in the `media` URL of the `SegmentTemplate` tag in the manifest. Also specifies if segment timeline information is included in `SegmentTimeline` or `SegmentTemplate` .
+
+        Value description:
+
+        - `NUMBER_WITH_TIMELINE` - The `$Number$` variable is used in the `media` URL. The value of this variable is the sequential number of the segment. A full `SegmentTimeline` object is presented in each `SegmentTemplate` .
+        """
         return pulumi.get(self, "segment_template_format")
 
     @segment_template_format.setter
     def segment_template_format(self, value: Optional[pulumi.Input['OriginEndpointDashSegmentTemplateFormat']]):
         pulumi.set(self, "segment_template_format", value)
+
+    @property
+    @pulumi.getter(name="subtitleConfiguration")
+    def subtitle_configuration(self) -> Optional[pulumi.Input['OriginEndpointDashSubtitleConfigurationArgs']]:
+        return pulumi.get(self, "subtitle_configuration")
+
+    @subtitle_configuration.setter
+    def subtitle_configuration(self, value: Optional[pulumi.Input['OriginEndpointDashSubtitleConfigurationArgs']]):
+        pulumi.set(self, "subtitle_configuration", value)
 
     @property
     @pulumi.getter(name="suggestedPresentationDelaySeconds")
@@ -323,11 +745,187 @@ class OriginEndpointDashManifestConfigurationArgs:
     @property
     @pulumi.getter(name="utcTiming")
     def utc_timing(self) -> Optional[pulumi.Input['OriginEndpointDashUtcTimingArgs']]:
+        """
+        Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).
+        """
         return pulumi.get(self, "utc_timing")
 
     @utc_timing.setter
     def utc_timing(self, value: Optional[pulumi.Input['OriginEndpointDashUtcTimingArgs']]):
         pulumi.set(self, "utc_timing", value)
+
+
+if not MYPY:
+    class OriginEndpointDashProgramInformationArgsDict(TypedDict):
+        """
+        <p>Details about the content that you want MediaPackage to pass through in the manifest to the playback device.</p>
+        """
+        copyright: NotRequired[pulumi.Input[builtins.str]]
+        """
+        <p>A copyright statement about the content.</p>
+        """
+        language_code: NotRequired[pulumi.Input[builtins.str]]
+        """
+        <p>The language code for this manifest.</p>
+        """
+        more_information_url: NotRequired[pulumi.Input[builtins.str]]
+        """
+        <p>An absolute URL that contains more information about this content.</p>
+        """
+        source: NotRequired[pulumi.Input[builtins.str]]
+        """
+        <p>Information about the content provider.</p>
+        """
+        title: NotRequired[pulumi.Input[builtins.str]]
+        """
+        <p>The title for the manifest.</p>
+        """
+elif False:
+    OriginEndpointDashProgramInformationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OriginEndpointDashProgramInformationArgs:
+    def __init__(__self__, *,
+                 copyright: Optional[pulumi.Input[builtins.str]] = None,
+                 language_code: Optional[pulumi.Input[builtins.str]] = None,
+                 more_information_url: Optional[pulumi.Input[builtins.str]] = None,
+                 source: Optional[pulumi.Input[builtins.str]] = None,
+                 title: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        <p>Details about the content that you want MediaPackage to pass through in the manifest to the playback device.</p>
+        :param pulumi.Input[builtins.str] copyright: <p>A copyright statement about the content.</p>
+        :param pulumi.Input[builtins.str] language_code: <p>The language code for this manifest.</p>
+        :param pulumi.Input[builtins.str] more_information_url: <p>An absolute URL that contains more information about this content.</p>
+        :param pulumi.Input[builtins.str] source: <p>Information about the content provider.</p>
+        :param pulumi.Input[builtins.str] title: <p>The title for the manifest.</p>
+        """
+        if copyright is not None:
+            pulumi.set(__self__, "copyright", copyright)
+        if language_code is not None:
+            pulumi.set(__self__, "language_code", language_code)
+        if more_information_url is not None:
+            pulumi.set(__self__, "more_information_url", more_information_url)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def copyright(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        <p>A copyright statement about the content.</p>
+        """
+        return pulumi.get(self, "copyright")
+
+    @copyright.setter
+    def copyright(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "copyright", value)
+
+    @property
+    @pulumi.getter(name="languageCode")
+    def language_code(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        <p>The language code for this manifest.</p>
+        """
+        return pulumi.get(self, "language_code")
+
+    @language_code.setter
+    def language_code(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "language_code", value)
+
+    @property
+    @pulumi.getter(name="moreInformationUrl")
+    def more_information_url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        <p>An absolute URL that contains more information about this content.</p>
+        """
+        return pulumi.get(self, "more_information_url")
+
+    @more_information_url.setter
+    def more_information_url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "more_information_url", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        <p>Information about the content provider.</p>
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        <p>The title for the manifest.</p>
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "title", value)
+
+
+if not MYPY:
+    class OriginEndpointDashSubtitleConfigurationArgsDict(TypedDict):
+        """
+        <p>The configuration for DASH subtitles.</p>
+        """
+        ttml_configuration: NotRequired[pulumi.Input['OriginEndpointDashTtmlConfigurationArgsDict']]
+elif False:
+    OriginEndpointDashSubtitleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OriginEndpointDashSubtitleConfigurationArgs:
+    def __init__(__self__, *,
+                 ttml_configuration: Optional[pulumi.Input['OriginEndpointDashTtmlConfigurationArgs']] = None):
+        """
+        <p>The configuration for DASH subtitles.</p>
+        """
+        if ttml_configuration is not None:
+            pulumi.set(__self__, "ttml_configuration", ttml_configuration)
+
+    @property
+    @pulumi.getter(name="ttmlConfiguration")
+    def ttml_configuration(self) -> Optional[pulumi.Input['OriginEndpointDashTtmlConfigurationArgs']]:
+        return pulumi.get(self, "ttml_configuration")
+
+    @ttml_configuration.setter
+    def ttml_configuration(self, value: Optional[pulumi.Input['OriginEndpointDashTtmlConfigurationArgs']]):
+        pulumi.set(self, "ttml_configuration", value)
+
+
+if not MYPY:
+    class OriginEndpointDashTtmlConfigurationArgsDict(TypedDict):
+        """
+        <p>The settings for TTML subtitles.</p>
+        """
+        ttml_profile: pulumi.Input['OriginEndpointDashTtmlProfile']
+elif False:
+    OriginEndpointDashTtmlConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OriginEndpointDashTtmlConfigurationArgs:
+    def __init__(__self__, *,
+                 ttml_profile: pulumi.Input['OriginEndpointDashTtmlProfile']):
+        """
+        <p>The settings for TTML subtitles.</p>
+        """
+        pulumi.set(__self__, "ttml_profile", ttml_profile)
+
+    @property
+    @pulumi.getter(name="ttmlProfile")
+    def ttml_profile(self) -> pulumi.Input['OriginEndpointDashTtmlProfile']:
+        return pulumi.get(self, "ttml_profile")
+
+    @ttml_profile.setter
+    def ttml_profile(self, value: pulumi.Input['OriginEndpointDashTtmlProfile']):
+        pulumi.set(self, "ttml_profile", value)
 
 
 if not MYPY:
@@ -584,9 +1182,7 @@ if not MYPY:
         """
         key_rotation_interval_seconds: NotRequired[pulumi.Input[builtins.int]]
         """
-        <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p>
-                 <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code>
-                 </p>
+        <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p> <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code> </p>
         """
 elif False:
     OriginEndpointEncryptionArgsDict: TypeAlias = Mapping[str, Any]
@@ -603,9 +1199,7 @@ class OriginEndpointEncryptionArgs:
         :param pulumi.Input['OriginEndpointEncryptionMethodArgs'] encryption_method: The encryption method to use.
         :param pulumi.Input['OriginEndpointSpekeKeyProviderArgs'] speke_key_provider: The SPEKE key provider to use for encryption.
         :param pulumi.Input[builtins.str] constant_initialization_vector: <p>A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
-        :param pulumi.Input[builtins.int] key_rotation_interval_seconds: <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p>
-                        <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code>
-                        </p>
+        :param pulumi.Input[builtins.int] key_rotation_interval_seconds: <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p> <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code> </p>
         """
         pulumi.set(__self__, "encryption_method", encryption_method)
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
@@ -654,9 +1248,7 @@ class OriginEndpointEncryptionArgs:
     @pulumi.getter(name="keyRotationIntervalSeconds")
     def key_rotation_interval_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p>
-                 <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code>
-                 </p>
+        <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p> <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code> </p>
         """
         return pulumi.get(self, "key_rotation_interval_seconds")
 
@@ -788,25 +1380,7 @@ if not MYPY:
         """
         endpoint_error_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]]
         """
-        <p>The failover conditions for the endpoint. The options are:</p>
-                 <ul>
-                    <li>
-                       <p>
-                          <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p>
-                    </li>
-                    <li>
-                       <p>
-                          <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p>
-                    </li>
-                    <li>
-                       <p>
-                          <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
-                    </li>
-                    <li>
-                       <p>
-                          <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p>
-                    </li>
-                 </ul>
+        <p>The failover conditions for the endpoint. The options are:</p> <ul> <li> <p> <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p> </li> <li> <p> <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p> </li> <li> <p> <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p> </li> <li> <p> <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p> </li> </ul>
         """
 elif False:
     OriginEndpointForceEndpointErrorConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -817,25 +1391,7 @@ class OriginEndpointForceEndpointErrorConfigurationArgs:
                  endpoint_error_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]] = None):
         """
         <p>The failover settings for the endpoint.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]] endpoint_error_conditions: <p>The failover conditions for the endpoint. The options are:</p>
-                        <ul>
-                           <li>
-                              <p>
-                                 <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p>
-                           </li>
-                           <li>
-                              <p>
-                                 <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p>
-                           </li>
-                           <li>
-                              <p>
-                                 <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
-                           </li>
-                           <li>
-                              <p>
-                                 <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p>
-                           </li>
-                        </ul>
+        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]] endpoint_error_conditions: <p>The failover conditions for the endpoint. The options are:</p> <ul> <li> <p> <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p> </li> <li> <p> <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p> </li> <li> <p> <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p> </li> <li> <p> <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p> </li> </ul>
         """
         if endpoint_error_conditions is not None:
             pulumi.set(__self__, "endpoint_error_conditions", endpoint_error_conditions)
@@ -844,25 +1400,7 @@ class OriginEndpointForceEndpointErrorConfigurationArgs:
     @pulumi.getter(name="endpointErrorConditions")
     def endpoint_error_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]]:
         """
-        <p>The failover conditions for the endpoint. The options are:</p>
-                 <ul>
-                    <li>
-                       <p>
-                          <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p>
-                    </li>
-                    <li>
-                       <p>
-                          <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p>
-                    </li>
-                    <li>
-                       <p>
-                          <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
-                    </li>
-                    <li>
-                       <p>
-                          <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p>
-                    </li>
-                 </ul>
+        <p>The failover conditions for the endpoint. The options are:</p> <ul> <li> <p> <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p> </li> <li> <p> <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p> </li> <li> <p> <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p> </li> <li> <p> <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p> </li> </ul>
         """
         return pulumi.get(self, "endpoint_error_conditions")
 
@@ -885,30 +1423,32 @@ if not MYPY:
         <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
         """
         filter_configuration: NotRequired[pulumi.Input['OriginEndpointFilterConfigurationArgsDict']]
+        """
+        Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
+        """
         manifest_window_seconds: NotRequired[pulumi.Input[builtins.int]]
         """
         <p>The total duration (in seconds) of the manifest's content.</p>
         """
         program_date_time_interval_seconds: NotRequired[pulumi.Input[builtins.int]]
         """
-        <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
-                 EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-                 The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
-                 <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
+        <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p> <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
         """
         scte_hls: NotRequired[pulumi.Input['OriginEndpointScteHlsArgsDict']]
         """
         THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
         """
         start_tag: NotRequired[pulumi.Input['OriginEndpointStartTagArgsDict']]
+        """
+        To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.
+        """
         url: NotRequired[pulumi.Input[builtins.str]]
         """
         <p>The egress domain URL for stream delivery from MediaPackage.</p>
         """
         url_encode_child_manifest: NotRequired[pulumi.Input[builtins.bool]]
         """
-        <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
-                 For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+        <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
         """
 elif False:
     OriginEndpointHlsManifestConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -929,15 +1469,13 @@ class OriginEndpointHlsManifestConfigurationArgs:
         <p>Retrieve the HTTP live streaming (HLS) manifest configuration.</p>
         :param pulumi.Input[builtins.str] manifest_name: <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
         :param pulumi.Input[builtins.str] child_manifest_name: <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
+        :param pulumi.Input['OriginEndpointFilterConfigurationArgs'] filter_configuration: Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
         :param pulumi.Input[builtins.int] manifest_window_seconds: <p>The total duration (in seconds) of the manifest's content.</p>
-        :param pulumi.Input[builtins.int] program_date_time_interval_seconds: <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
-                        EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-                        The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
-                        <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
+        :param pulumi.Input[builtins.int] program_date_time_interval_seconds: <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p> <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
         :param pulumi.Input['OriginEndpointScteHlsArgs'] scte_hls: THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
+        :param pulumi.Input['OriginEndpointStartTagArgs'] start_tag: To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.
         :param pulumi.Input[builtins.str] url: <p>The egress domain URL for stream delivery from MediaPackage.</p>
-        :param pulumi.Input[builtins.bool] url_encode_child_manifest: <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
-                        For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+        :param pulumi.Input[builtins.bool] url_encode_child_manifest: <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
         """
         pulumi.set(__self__, "manifest_name", manifest_name)
         if child_manifest_name is not None:
@@ -984,6 +1522,9 @@ class OriginEndpointHlsManifestConfigurationArgs:
     @property
     @pulumi.getter(name="filterConfiguration")
     def filter_configuration(self) -> Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']]:
+        """
+        Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
+        """
         return pulumi.get(self, "filter_configuration")
 
     @filter_configuration.setter
@@ -1006,10 +1547,7 @@ class OriginEndpointHlsManifestConfigurationArgs:
     @pulumi.getter(name="programDateTimeIntervalSeconds")
     def program_date_time_interval_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
-                 EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-                 The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
-                 <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
+        <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p> <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
         """
         return pulumi.get(self, "program_date_time_interval_seconds")
 
@@ -1032,6 +1570,9 @@ class OriginEndpointHlsManifestConfigurationArgs:
     @property
     @pulumi.getter(name="startTag")
     def start_tag(self) -> Optional[pulumi.Input['OriginEndpointStartTagArgs']]:
+        """
+        To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.
+        """
         return pulumi.get(self, "start_tag")
 
     @start_tag.setter
@@ -1054,8 +1595,7 @@ class OriginEndpointHlsManifestConfigurationArgs:
     @pulumi.getter(name="urlEncodeChildManifest")
     def url_encode_child_manifest(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
-                 For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+        <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
         """
         return pulumi.get(self, "url_encode_child_manifest")
 
@@ -1078,30 +1618,32 @@ if not MYPY:
         <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
         """
         filter_configuration: NotRequired[pulumi.Input['OriginEndpointFilterConfigurationArgsDict']]
+        """
+        Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
+        """
         manifest_window_seconds: NotRequired[pulumi.Input[builtins.int]]
         """
         <p>The total duration (in seconds) of the manifest's content.</p>
         """
         program_date_time_interval_seconds: NotRequired[pulumi.Input[builtins.int]]
         """
-        <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
-                 EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-                 The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
-                 <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
+        <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p> <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
         """
         scte_hls: NotRequired[pulumi.Input['OriginEndpointScteHlsArgsDict']]
         """
         The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
         """
         start_tag: NotRequired[pulumi.Input['OriginEndpointStartTagArgsDict']]
+        """
+        To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.
+        """
         url: NotRequired[pulumi.Input[builtins.str]]
         """
         <p>The egress domain URL for stream delivery from MediaPackage.</p>
         """
         url_encode_child_manifest: NotRequired[pulumi.Input[builtins.bool]]
         """
-        <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
-                 For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+        <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
         """
 elif False:
     OriginEndpointLowLatencyHlsManifestConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1122,15 +1664,13 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
         <p>Retrieve the low-latency HTTP live streaming (HLS) manifest configuration.</p>
         :param pulumi.Input[builtins.str] manifest_name: <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
         :param pulumi.Input[builtins.str] child_manifest_name: <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
+        :param pulumi.Input['OriginEndpointFilterConfigurationArgs'] filter_configuration: Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
         :param pulumi.Input[builtins.int] manifest_window_seconds: <p>The total duration (in seconds) of the manifest's content.</p>
-        :param pulumi.Input[builtins.int] program_date_time_interval_seconds: <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
-                        EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-                        The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
-                        <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
+        :param pulumi.Input[builtins.int] program_date_time_interval_seconds: <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p> <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
         :param pulumi.Input['OriginEndpointScteHlsArgs'] scte_hls: The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
+        :param pulumi.Input['OriginEndpointStartTagArgs'] start_tag: To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.
         :param pulumi.Input[builtins.str] url: <p>The egress domain URL for stream delivery from MediaPackage.</p>
-        :param pulumi.Input[builtins.bool] url_encode_child_manifest: <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
-                        For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+        :param pulumi.Input[builtins.bool] url_encode_child_manifest: <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
         """
         pulumi.set(__self__, "manifest_name", manifest_name)
         if child_manifest_name is not None:
@@ -1177,6 +1717,9 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
     @property
     @pulumi.getter(name="filterConfiguration")
     def filter_configuration(self) -> Optional[pulumi.Input['OriginEndpointFilterConfigurationArgs']]:
+        """
+        Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
+        """
         return pulumi.get(self, "filter_configuration")
 
     @filter_configuration.setter
@@ -1199,10 +1742,7 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
     @pulumi.getter(name="programDateTimeIntervalSeconds")
     def program_date_time_interval_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
-                 EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-                 The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
-                 <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
+        <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p> <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
         """
         return pulumi.get(self, "program_date_time_interval_seconds")
 
@@ -1225,6 +1765,9 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
     @property
     @pulumi.getter(name="startTag")
     def start_tag(self) -> Optional[pulumi.Input['OriginEndpointStartTagArgs']]:
+        """
+        To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.
+        """
         return pulumi.get(self, "start_tag")
 
     @start_tag.setter
@@ -1247,8 +1790,7 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
     @pulumi.getter(name="urlEncodeChildManifest")
     def url_encode_child_manifest(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
-                 For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+        <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
         """
         return pulumi.get(self, "url_encode_child_manifest")
 
@@ -1551,21 +2093,15 @@ if not MYPY:
         """
         resource_id: pulumi.Input[builtins.str]
         """
-        <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p>
-                 <p>The following example shows a resource ID: <code>MovieNight20171126093045</code>
-                 </p>
+        <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p> <p>The following example shows a resource ID: <code>MovieNight20171126093045</code> </p>
         """
         role_arn: pulumi.Input[builtins.str]
         """
-        <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p>
-                 <p>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code>
-                 </p>
+        <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p> <p>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code> </p>
         """
         url: pulumi.Input[builtins.str]
         """
-        <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p>
-                 <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code>
-                 </p>
+        <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p> <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code> </p>
         """
 elif False:
     OriginEndpointSpekeKeyProviderArgsDict: TypeAlias = Mapping[str, Any]
@@ -1582,15 +2118,9 @@ class OriginEndpointSpekeKeyProviderArgs:
         <p>The parameters for the SPEKE key provider.</p>
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointDrmSystem']]] drm_systems: <p>The DRM solution provider you're using to protect your content during distribution.</p>
         :param pulumi.Input['OriginEndpointEncryptionContractConfigurationArgs'] encryption_contract_configuration: The encryption contract configuration associated with the SPEKE key provider.
-        :param pulumi.Input[builtins.str] resource_id: <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p>
-                        <p>The following example shows a resource ID: <code>MovieNight20171126093045</code>
-                        </p>
-        :param pulumi.Input[builtins.str] role_arn: <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p>
-                        <p>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code>
-                        </p>
-        :param pulumi.Input[builtins.str] url: <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p>
-                        <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code>
-                        </p>
+        :param pulumi.Input[builtins.str] resource_id: <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p> <p>The following example shows a resource ID: <code>MovieNight20171126093045</code> </p>
+        :param pulumi.Input[builtins.str] role_arn: <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p> <p>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code> </p>
+        :param pulumi.Input[builtins.str] url: <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p> <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code> </p>
         """
         pulumi.set(__self__, "drm_systems", drm_systems)
         pulumi.set(__self__, "encryption_contract_configuration", encryption_contract_configuration)
@@ -1626,9 +2156,7 @@ class OriginEndpointSpekeKeyProviderArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[builtins.str]:
         """
-        <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p>
-                 <p>The following example shows a resource ID: <code>MovieNight20171126093045</code>
-                 </p>
+        <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p> <p>The following example shows a resource ID: <code>MovieNight20171126093045</code> </p>
         """
         return pulumi.get(self, "resource_id")
 
@@ -1640,9 +2168,7 @@ class OriginEndpointSpekeKeyProviderArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[builtins.str]:
         """
-        <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p>
-                 <p>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code>
-                 </p>
+        <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p> <p>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code> </p>
         """
         return pulumi.get(self, "role_arn")
 
@@ -1654,9 +2180,7 @@ class OriginEndpointSpekeKeyProviderArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[builtins.str]:
         """
-        <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p>
-                 <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code>
-                 </p>
+        <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p> <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code> </p>
         """
         return pulumi.get(self, "url")
 

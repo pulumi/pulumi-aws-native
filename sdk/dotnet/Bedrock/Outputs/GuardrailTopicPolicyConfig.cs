@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// List of topic configs in topic policy.
         /// </summary>
         public readonly ImmutableArray<Outputs.GuardrailTopicConfig> TopicsConfig;
+        /// <summary>
+        /// Guardrail tier config for topic policy
+        /// </summary>
+        public readonly Outputs.GuardrailTopicPolicyConfigTopicsTierConfigProperties? TopicsTierConfig;
 
         [OutputConstructor]
-        private GuardrailTopicPolicyConfig(ImmutableArray<Outputs.GuardrailTopicConfig> topicsConfig)
+        private GuardrailTopicPolicyConfig(
+            ImmutableArray<Outputs.GuardrailTopicConfig> topicsConfig,
+
+            Outputs.GuardrailTopicPolicyConfigTopicsTierConfigProperties? topicsTierConfig)
         {
             TopicsConfig = topicsConfig;
+            TopicsTierConfig = topicsTierConfig;
         }
     }
 }

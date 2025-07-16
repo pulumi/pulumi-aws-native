@@ -92,6 +92,11 @@ class KeyArgs:
                  +  Other asymmetric elliptic curve key pairs (signing and verification)
                  +  ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.
                  
+                 +  Asymmetric ML-DSA key pairs (signing and verification)
+                 +   ``ML_DSA_44`` 
+                 +   ``ML_DSA_65`` 
+                 +   ``ML_DSA_87`` 
+                 
                  +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)
                  +  ``SM2`` (China Regions only)
         :param pulumi.Input['KeyUsage'] key_usage: Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is ``ENCRYPT_DECRYPT``. This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the ``KeyUsage`` value after the KMS key is created.
@@ -101,7 +106,8 @@ class KeyArgs:
                  +  For HMAC KMS keys (symmetric), specify ``GENERATE_VERIFY_MAC``.
                  +  For asymmetric KMS keys with RSA key pairs, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
                  +  For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify ``SIGN_VERIFY`` or ``KEY_AGREEMENT``.
-                 +  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs specify ``SIGN_VERIFY``.
+                 +  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs, specify ``SIGN_VERIFY``.
+                 +  For asymmetric KMS keys with ML-DSA key pairs, specify ``SIGN_VERIFY``.
                  +  For asymmetric KMS keys with SM2 key pairs (China Regions only), specify ``ENCRYPT_DECRYPT``, ``SIGN_VERIFY``, or ``KEY_AGREEMENT``.
         :param pulumi.Input[builtins.bool] multi_region: Creates a multi-Region primary key that you can replicate in other AWS-Regions. You can't change the ``MultiRegion`` value after the KMS key is created.
                 For a list of AWS-Regions in which multi-Region keys are supported, see [Multi-Region keys in](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the **.
@@ -113,7 +119,8 @@ class KeyArgs:
         :param pulumi.Input['KeyOrigin'] origin: The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is ``AWS_KMS``, which means that KMS creates the key material.
                 To [create a KMS key with no key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html) (for imported key material), set this value to ``EXTERNAL``. For more information about importing key material into KMS, see [Importing Key Material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) in the *Developer Guide*.
                 You can ignore ``ENABLED`` when Origin is ``EXTERNAL``. When a KMS key with Origin ``EXTERNAL`` is created, the key state is ``PENDING_IMPORT`` and ``ENABLED`` is ``false``. After you import the key material, ``ENABLED`` updated to ``true``. The KMS key can then be used for Cryptographic Operations. 
-                 CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
+                  +  CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
+                 +  ``EXTERNAL`` is not supported for ML-DSA keys.
         :param pulumi.Input[builtins.int] pending_window_in_days: Specifies the number of days in the waiting period before KMS deletes a KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
                 When you remove a KMS key from a CloudFormation stack, KMS schedules the KMS key for deletion and starts the mandatory waiting period. The ``PendingWindowInDays`` property determines the length of waiting period. During the waiting period, the key state of KMS key is ``Pending Deletion`` or ``Pending Replica Deletion``, which prevents the KMS key from being used in cryptographic operations. When the waiting period expires, KMS permanently deletes the KMS key.
                 KMS will not delete a [multi-Region primary key](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) that has replica keys. If you remove a multi-Region primary key from a CloudFormation stack, its key state changes to ``PendingReplicaDeletion`` so it cannot be replicated or used in cryptographic operations. This state can persist indefinitely. When the last of its replica keys is deleted, the key state of the primary key changes to ``PendingDeletion`` and the waiting period specified by ``PendingWindowInDays`` begins. When this waiting period expires, KMS deletes the primary key. For details, see [Deleting multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html) in the *Developer Guide*.
@@ -266,6 +273,11 @@ class KeyArgs:
           +  Other asymmetric elliptic curve key pairs (signing and verification)
           +  ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.
           
+          +  Asymmetric ML-DSA key pairs (signing and verification)
+          +   ``ML_DSA_44`` 
+          +   ``ML_DSA_65`` 
+          +   ``ML_DSA_87`` 
+          
           +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)
           +  ``SM2`` (China Regions only)
         """
@@ -286,7 +298,8 @@ class KeyArgs:
           +  For HMAC KMS keys (symmetric), specify ``GENERATE_VERIFY_MAC``.
           +  For asymmetric KMS keys with RSA key pairs, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
           +  For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify ``SIGN_VERIFY`` or ``KEY_AGREEMENT``.
-          +  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs specify ``SIGN_VERIFY``.
+          +  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs, specify ``SIGN_VERIFY``.
+          +  For asymmetric KMS keys with ML-DSA key pairs, specify ``SIGN_VERIFY``.
           +  For asymmetric KMS keys with SM2 key pairs (China Regions only), specify ``ENCRYPT_DECRYPT``, ``SIGN_VERIFY``, or ``KEY_AGREEMENT``.
         """
         return pulumi.get(self, "key_usage")
@@ -320,7 +333,8 @@ class KeyArgs:
         The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is ``AWS_KMS``, which means that KMS creates the key material.
          To [create a KMS key with no key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html) (for imported key material), set this value to ``EXTERNAL``. For more information about importing key material into KMS, see [Importing Key Material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) in the *Developer Guide*.
          You can ignore ``ENABLED`` when Origin is ``EXTERNAL``. When a KMS key with Origin ``EXTERNAL`` is created, the key state is ``PENDING_IMPORT`` and ``ENABLED`` is ``false``. After you import the key material, ``ENABLED`` updated to ``true``. The KMS key can then be used for Cryptographic Operations. 
-          CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
+           +  CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
+          +  ``EXTERNAL`` is not supported for ML-DSA keys.
         """
         return pulumi.get(self, "origin")
 
@@ -462,6 +476,11 @@ class Key(pulumi.CustomResource):
                  +  Other asymmetric elliptic curve key pairs (signing and verification)
                  +  ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.
                  
+                 +  Asymmetric ML-DSA key pairs (signing and verification)
+                 +   ``ML_DSA_44`` 
+                 +   ``ML_DSA_65`` 
+                 +   ``ML_DSA_87`` 
+                 
                  +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)
                  +  ``SM2`` (China Regions only)
         :param pulumi.Input['KeyUsage'] key_usage: Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is ``ENCRYPT_DECRYPT``. This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the ``KeyUsage`` value after the KMS key is created.
@@ -471,7 +490,8 @@ class Key(pulumi.CustomResource):
                  +  For HMAC KMS keys (symmetric), specify ``GENERATE_VERIFY_MAC``.
                  +  For asymmetric KMS keys with RSA key pairs, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
                  +  For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify ``SIGN_VERIFY`` or ``KEY_AGREEMENT``.
-                 +  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs specify ``SIGN_VERIFY``.
+                 +  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs, specify ``SIGN_VERIFY``.
+                 +  For asymmetric KMS keys with ML-DSA key pairs, specify ``SIGN_VERIFY``.
                  +  For asymmetric KMS keys with SM2 key pairs (China Regions only), specify ``ENCRYPT_DECRYPT``, ``SIGN_VERIFY``, or ``KEY_AGREEMENT``.
         :param pulumi.Input[builtins.bool] multi_region: Creates a multi-Region primary key that you can replicate in other AWS-Regions. You can't change the ``MultiRegion`` value after the KMS key is created.
                 For a list of AWS-Regions in which multi-Region keys are supported, see [Multi-Region keys in](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the **.
@@ -483,7 +503,8 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input['KeyOrigin'] origin: The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is ``AWS_KMS``, which means that KMS creates the key material.
                 To [create a KMS key with no key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html) (for imported key material), set this value to ``EXTERNAL``. For more information about importing key material into KMS, see [Importing Key Material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) in the *Developer Guide*.
                 You can ignore ``ENABLED`` when Origin is ``EXTERNAL``. When a KMS key with Origin ``EXTERNAL`` is created, the key state is ``PENDING_IMPORT`` and ``ENABLED`` is ``false``. After you import the key material, ``ENABLED`` updated to ``true``. The KMS key can then be used for Cryptographic Operations. 
-                 CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
+                  +  CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
+                 +  ``EXTERNAL`` is not supported for ML-DSA keys.
         :param pulumi.Input[builtins.int] pending_window_in_days: Specifies the number of days in the waiting period before KMS deletes a KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
                 When you remove a KMS key from a CloudFormation stack, KMS schedules the KMS key for deletion and starts the mandatory waiting period. The ``PendingWindowInDays`` property determines the length of waiting period. During the waiting period, the key state of KMS key is ``Pending Deletion`` or ``Pending Replica Deletion``, which prevents the KMS key from being used in cryptographic operations. When the waiting period expires, KMS permanently deletes the KMS key.
                 KMS will not delete a [multi-Region primary key](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) that has replica keys. If you remove a multi-Region primary key from a CloudFormation stack, its key state changes to ``PendingReplicaDeletion`` so it cannot be replicated or used in cryptographic operations. This state can persist indefinitely. When the last of its replica keys is deleted, the key state of the primary key changes to ``PendingDeletion`` and the waiting period specified by ``PendingWindowInDays`` begins. When this waiting period expires, KMS deletes the primary key. For details, see [Deleting multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html) in the *Developer Guide*.
@@ -717,6 +738,11 @@ class Key(pulumi.CustomResource):
           +  Other asymmetric elliptic curve key pairs (signing and verification)
           +  ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.
           
+          +  Asymmetric ML-DSA key pairs (signing and verification)
+          +   ``ML_DSA_44`` 
+          +   ``ML_DSA_65`` 
+          +   ``ML_DSA_87`` 
+          
           +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)
           +  ``SM2`` (China Regions only)
         """
@@ -733,7 +759,8 @@ class Key(pulumi.CustomResource):
           +  For HMAC KMS keys (symmetric), specify ``GENERATE_VERIFY_MAC``.
           +  For asymmetric KMS keys with RSA key pairs, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
           +  For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify ``SIGN_VERIFY`` or ``KEY_AGREEMENT``.
-          +  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs specify ``SIGN_VERIFY``.
+          +  For asymmetric KMS keys with ``ECC_SECG_P256K1`` key pairs, specify ``SIGN_VERIFY``.
+          +  For asymmetric KMS keys with ML-DSA key pairs, specify ``SIGN_VERIFY``.
           +  For asymmetric KMS keys with SM2 key pairs (China Regions only), specify ``ENCRYPT_DECRYPT``, ``SIGN_VERIFY``, or ``KEY_AGREEMENT``.
         """
         return pulumi.get(self, "key_usage")
@@ -759,7 +786,8 @@ class Key(pulumi.CustomResource):
         The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is ``AWS_KMS``, which means that KMS creates the key material.
          To [create a KMS key with no key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html) (for imported key material), set this value to ``EXTERNAL``. For more information about importing key material into KMS, see [Importing Key Material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) in the *Developer Guide*.
          You can ignore ``ENABLED`` when Origin is ``EXTERNAL``. When a KMS key with Origin ``EXTERNAL`` is created, the key state is ``PENDING_IMPORT`` and ``ENABLED`` is ``false``. After you import the key material, ``ENABLED`` updated to ``true``. The KMS key can then be used for Cryptographic Operations. 
-          CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
+           +  CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
+          +  ``EXTERNAL`` is not supported for ML-DSA keys.
         """
         return pulumi.get(self, "origin")
 

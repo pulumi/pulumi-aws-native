@@ -225,7 +225,10 @@ class GetServerResult:
     @pulumi.getter(name="s3StorageOptions")
     def s3_storage_options(self) -> Optional['outputs.ServerS3StorageOptions']:
         """
-        Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+        Specifies whether or not performance for your Amazon S3 directories is optimized.
+
+        - If using the console, this is enabled by default.
+        - If using the API or CLI, this is disabled by default.
 
         By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
         """

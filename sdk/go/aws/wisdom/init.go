@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MessageTemplate{}
 	case "aws-native:wisdom:MessageTemplateVersion":
 		r = &MessageTemplateVersion{}
+	case "aws-native:wisdom:QuickResponse":
+		r = &QuickResponse{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

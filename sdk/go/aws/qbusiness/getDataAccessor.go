@@ -33,6 +33,8 @@ type LookupDataAccessorArgs struct {
 type LookupDataAccessorResult struct {
 	// A list of action configurations specifying the allowed actions and any associated filters.
 	ActionConfigurations []DataAccessorActionConfiguration `pulumi:"actionConfigurations"`
+	// The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
+	AuthenticationDetail *DataAccessorAuthenticationDetail `pulumi:"authenticationDetail"`
 	// The timestamp when the data accessor was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The Amazon Resource Name (ARN) of the data accessor.
@@ -86,6 +88,11 @@ func (o LookupDataAccessorResultOutput) ToLookupDataAccessorResultOutputWithCont
 // A list of action configurations specifying the allowed actions and any associated filters.
 func (o LookupDataAccessorResultOutput) ActionConfigurations() DataAccessorActionConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupDataAccessorResult) []DataAccessorActionConfiguration { return v.ActionConfigurations }).(DataAccessorActionConfigurationArrayOutput)
+}
+
+// The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
+func (o LookupDataAccessorResultOutput) AuthenticationDetail() DataAccessorAuthenticationDetailPtrOutput {
+	return o.ApplyT(func(v LookupDataAccessorResult) *DataAccessorAuthenticationDetail { return v.AuthenticationDetail }).(DataAccessorAuthenticationDetailPtrOutput)
 }
 
 // The timestamp when the data accessor was created.

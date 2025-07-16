@@ -168,6 +168,10 @@ export class DbCluster extends pulumi.CustomResource {
      */
     public readonly dbSystemId!: pulumi.Output<string | undefined>;
     /**
+     * Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted, unless the AWS Backup policy specifies a point-in-time restore rule.
+     */
+    public readonly deleteAutomatedBackups!: pulumi.Output<boolean | undefined>;
+    /**
      * A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
@@ -573,6 +577,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["dbInstanceParameterGroupName"] = args ? args.dbInstanceParameterGroupName : undefined;
             resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             resourceInputs["dbSystemId"] = args ? args.dbSystemId : undefined;
+            resourceInputs["deleteAutomatedBackups"] = args ? args.deleteAutomatedBackups : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["domainIamRoleName"] = args ? args.domainIamRoleName : undefined;
@@ -639,6 +644,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["dbInstanceParameterGroupName"] = undefined /*out*/;
             resourceInputs["dbSubnetGroupName"] = undefined /*out*/;
             resourceInputs["dbSystemId"] = undefined /*out*/;
+            resourceInputs["deleteAutomatedBackups"] = undefined /*out*/;
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["domainIamRoleName"] = undefined /*out*/;
@@ -802,6 +808,10 @@ export interface DbClusterArgs {
      * Reserved for future use.
      */
     dbSystemId?: pulumi.Input<string>;
+    /**
+     * Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted, unless the AWS Backup policy specifies a point-in-time restore rule.
+     */
+    deleteAutomatedBackups?: pulumi.Input<boolean>;
     /**
      * A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters

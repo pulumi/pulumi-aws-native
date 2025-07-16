@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class GuardrailContentPolicyConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Guardrail tier config for content policy
+        /// </summary>
+        [Input("contentFiltersTierConfig")]
+        public Input<Inputs.GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgs>? ContentFiltersTierConfig { get; set; }
+
         [Input("filtersConfig", required: true)]
         private InputList<Inputs.GuardrailContentFilterConfigArgs>? _filtersConfig;
 

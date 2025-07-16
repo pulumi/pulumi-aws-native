@@ -61,16 +61,52 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateSpiceDataset { get; set; }
 
         /// <summary>
-        /// The ability to export to CSV files.
+        /// The ability to export to CSV files from the UI.
         /// </summary>
         [Input("exportToCsv")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ExportToCsv { get; set; }
 
         /// <summary>
-        /// The ability to export to Excel files.
+        /// The ability to export to CSV files in scheduled email reports.
+        /// </summary>
+        [Input("exportToCsvInScheduledReports")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ExportToCsvInScheduledReports { get; set; }
+
+        /// <summary>
+        /// The ability to export to Excel files from the UI.
         /// </summary>
         [Input("exportToExcel")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ExportToExcel { get; set; }
+
+        /// <summary>
+        /// The ability to export to Excel files in scheduled email reports.
+        /// </summary>
+        [Input("exportToExcelInScheduledReports")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ExportToExcelInScheduledReports { get; set; }
+
+        /// <summary>
+        /// The ability to export to PDF files from the UI.
+        /// </summary>
+        [Input("exportToPdf")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ExportToPdf { get; set; }
+
+        /// <summary>
+        /// The ability to export to PDF files in scheduled email reports.
+        /// </summary>
+        [Input("exportToPdfInScheduledReports")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ExportToPdfInScheduledReports { get; set; }
+
+        /// <summary>
+        /// The ability to include content in scheduled email reports.
+        /// </summary>
+        [Input("includeContentInScheduledReportsEmail")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? IncludeContentInScheduledReportsEmail { get; set; }
+
+        /// <summary>
+        /// The ability to print reports.
+        /// </summary>
+        [Input("printReports")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? PrintReports { get; set; }
 
         /// <summary>
         /// The ability to rename shared folders.

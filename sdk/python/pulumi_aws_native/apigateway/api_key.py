@@ -39,7 +39,7 @@ class ApiKeyArgs:
         :param pulumi.Input[builtins.bool] enabled: Specifies whether the ApiKey can be used by callers.
         :param pulumi.Input[builtins.bool] generate_distinct_id: Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
         :param pulumi.Input[builtins.str] name: A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
-                If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+                 If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         :param pulumi.Input[Sequence[pulumi.Input['ApiKeyStageKeyArgs']]] stage_keys: DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         :param pulumi.Input[builtins.str] value: Specifies a value of the API key.
@@ -114,7 +114,7 @@ class ApiKeyArgs:
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
-         If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+          If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         """
         return pulumi.get(self, "name")
 
@@ -218,7 +218,7 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: Specifies whether the ApiKey can be used by callers.
         :param pulumi.Input[builtins.bool] generate_distinct_id: Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
         :param pulumi.Input[builtins.str] name: A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
-                If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+                 If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApiKeyStageKeyArgs', 'ApiKeyStageKeyArgsDict']]]] stage_keys: DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         :param pulumi.Input[builtins.str] value: Specifies a value of the API key.
@@ -387,7 +387,7 @@ class ApiKey(pulumi.CustomResource):
     def name(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
-         If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+          If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         """
         return pulumi.get(self, "name")
 

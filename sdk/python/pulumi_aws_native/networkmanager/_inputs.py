@@ -1439,9 +1439,17 @@ if not MYPY:
         """
         Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
         """
+        dns_support: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Indicates whether to enable private DNS Support for Vpc Attachment. Valid Values: true | false
+        """
         ipv6_support: NotRequired[pulumi.Input[builtins.bool]]
         """
         Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+        """
+        security_group_referencing_support: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Indicates whether to enable Security Group Referencing Support for Vpc Attachment. Valid Values: true | false
         """
 elif False:
     VpcAttachmentVpcOptionsArgsDict: TypeAlias = Mapping[str, Any]
@@ -1450,16 +1458,24 @@ elif False:
 class VpcAttachmentVpcOptionsArgs:
     def __init__(__self__, *,
                  appliance_mode_support: Optional[pulumi.Input[builtins.bool]] = None,
-                 ipv6_support: Optional[pulumi.Input[builtins.bool]] = None):
+                 dns_support: Optional[pulumi.Input[builtins.bool]] = None,
+                 ipv6_support: Optional[pulumi.Input[builtins.bool]] = None,
+                 security_group_referencing_support: Optional[pulumi.Input[builtins.bool]] = None):
         """
         Vpc options of the attachment.
         :param pulumi.Input[builtins.bool] appliance_mode_support: Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
+        :param pulumi.Input[builtins.bool] dns_support: Indicates whether to enable private DNS Support for Vpc Attachment. Valid Values: true | false
         :param pulumi.Input[builtins.bool] ipv6_support: Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+        :param pulumi.Input[builtins.bool] security_group_referencing_support: Indicates whether to enable Security Group Referencing Support for Vpc Attachment. Valid Values: true | false
         """
         if appliance_mode_support is not None:
             pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
+        if dns_support is not None:
+            pulumi.set(__self__, "dns_support", dns_support)
         if ipv6_support is not None:
             pulumi.set(__self__, "ipv6_support", ipv6_support)
+        if security_group_referencing_support is not None:
+            pulumi.set(__self__, "security_group_referencing_support", security_group_referencing_support)
 
     @property
     @pulumi.getter(name="applianceModeSupport")
@@ -1474,6 +1490,18 @@ class VpcAttachmentVpcOptionsArgs:
         pulumi.set(self, "appliance_mode_support", value)
 
     @property
+    @pulumi.getter(name="dnsSupport")
+    def dns_support(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Indicates whether to enable private DNS Support for Vpc Attachment. Valid Values: true | false
+        """
+        return pulumi.get(self, "dns_support")
+
+    @dns_support.setter
+    def dns_support(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "dns_support", value)
+
+    @property
     @pulumi.getter(name="ipv6Support")
     def ipv6_support(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -1484,5 +1512,17 @@ class VpcAttachmentVpcOptionsArgs:
     @ipv6_support.setter
     def ipv6_support(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "ipv6_support", value)
+
+    @property
+    @pulumi.getter(name="securityGroupReferencingSupport")
+    def security_group_referencing_support(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Indicates whether to enable Security Group Referencing Support for Vpc Attachment. Valid Values: true | false
+        """
+        return pulumi.get(self, "security_group_referencing_support")
+
+    @security_group_referencing_support.setter
+    def security_group_referencing_support(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "security_group_referencing_support", value)
 
 

@@ -38,9 +38,13 @@ class InvestigationGroupArgs:
         The set of arguments for constructing a InvestigationGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input['InvestigationGroupChatbotNotificationChannelArgs']]] chatbot_notification_channels: An array of key-value pairs of notification channels to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input['InvestigationGroupCrossAccountConfigurationArgs']]] cross_account_configurations: An array of cross account configurations.
+        :param pulumi.Input['InvestigationGroupEncryptionConfigMapArgs'] encryption_config: Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
         :param pulumi.Input[builtins.str] investigation_group_policy: Investigation Group policy
         :param pulumi.Input[builtins.bool] is_cloud_trail_event_history_enabled: Flag to enable cloud trail history
+        :param pulumi.Input[builtins.str] name: Specify either the name or the ARN of the investigation group that you want to view.
         :param pulumi.Input[builtins.int] retention_in_days: The number of days to retain the investigation group
+        :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role that the investigation group uses for permissions to gather data.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tag_key_boundaries: Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if chatbot_notification_channels is not None:
@@ -91,6 +95,9 @@ class InvestigationGroupArgs:
     @property
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> Optional[pulumi.Input['InvestigationGroupEncryptionConfigMapArgs']]:
+        """
+        Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+        """
         return pulumi.get(self, "encryption_config")
 
     @encryption_config.setter
@@ -124,6 +131,9 @@ class InvestigationGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specify either the name or the ARN of the investigation group that you want to view.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -145,6 +155,9 @@ class InvestigationGroupArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ARN of the IAM role that the investigation group uses for permissions to gather data.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -154,6 +167,9 @@ class InvestigationGroupArgs:
     @property
     @pulumi.getter(name="tagKeyBoundaries")
     def tag_key_boundaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
+        """
         return pulumi.get(self, "tag_key_boundaries")
 
     @tag_key_boundaries.setter
@@ -197,9 +213,13 @@ class InvestigationGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InvestigationGroupChatbotNotificationChannelArgs', 'InvestigationGroupChatbotNotificationChannelArgsDict']]]] chatbot_notification_channels: An array of key-value pairs of notification channels to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InvestigationGroupCrossAccountConfigurationArgs', 'InvestigationGroupCrossAccountConfigurationArgsDict']]]] cross_account_configurations: An array of cross account configurations.
+        :param pulumi.Input[Union['InvestigationGroupEncryptionConfigMapArgs', 'InvestigationGroupEncryptionConfigMapArgsDict']] encryption_config: Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
         :param pulumi.Input[builtins.str] investigation_group_policy: Investigation Group policy
         :param pulumi.Input[builtins.bool] is_cloud_trail_event_history_enabled: Flag to enable cloud trail history
+        :param pulumi.Input[builtins.str] name: Specify either the name or the ARN of the investigation group that you want to view.
         :param pulumi.Input[builtins.int] retention_in_days: The number of days to retain the investigation group
+        :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role that the investigation group uses for permissions to gather data.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tag_key_boundaries: Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -304,6 +324,9 @@ class InvestigationGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the investigation group.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -317,11 +340,17 @@ class InvestigationGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[builtins.str]:
+        """
+        The date and time that the investigation group was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[builtins.str]:
+        """
+        The name of the user who created the investigation group.
+        """
         return pulumi.get(self, "created_by")
 
     @property
@@ -335,6 +364,9 @@ class InvestigationGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> pulumi.Output[Optional['outputs.InvestigationGroupEncryptionConfigMap']]:
+        """
+        Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+        """
         return pulumi.get(self, "encryption_config")
 
     @property
@@ -356,16 +388,25 @@ class InvestigationGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> pulumi.Output[builtins.str]:
+        """
+        The date and time that the investigation group was most recently modified.
+        """
         return pulumi.get(self, "last_modified_at")
 
     @property
     @pulumi.getter(name="lastModifiedBy")
     def last_modified_by(self) -> pulumi.Output[builtins.str]:
+        """
+        The name of the user who created the investigation group.
+        """
         return pulumi.get(self, "last_modified_by")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
+        """
+        Specify either the name or the ARN of the investigation group that you want to view.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -379,11 +420,17 @@ class InvestigationGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The ARN of the IAM role that the investigation group uses for permissions to gather data.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="tagKeyBoundaries")
     def tag_key_boundaries(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
+        """
+        Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
+        """
         return pulumi.get(self, "tag_key_boundaries")
 
     @property

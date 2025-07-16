@@ -19,7 +19,8 @@ type Permission struct {
 	// The list of Amazon Q Business actions that the ISV is allowed to perform.
 	Actions pulumi.StringArrayOutput `pulumi:"actions"`
 	// The unique identifier of the Amazon Q Business application.
-	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	ApplicationId pulumi.StringOutput            `pulumi:"applicationId"`
+	Conditions    PermissionConditionArrayOutput `pulumi:"conditions"`
 	// Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// A unique identifier for the policy statement.
@@ -48,6 +49,7 @@ func NewPermission(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"actions[*]",
 		"applicationId",
+		"conditions[*]",
 		"principal",
 		"statementId",
 	})
@@ -88,7 +90,8 @@ type permissionArgs struct {
 	// The list of Amazon Q Business actions that the ISV is allowed to perform.
 	Actions []string `pulumi:"actions"`
 	// The unique identifier of the Amazon Q Business application.
-	ApplicationId string `pulumi:"applicationId"`
+	ApplicationId string                `pulumi:"applicationId"`
+	Conditions    []PermissionCondition `pulumi:"conditions"`
 	// Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
 	Principal string `pulumi:"principal"`
 	// A unique identifier for the policy statement.
@@ -101,6 +104,7 @@ type PermissionArgs struct {
 	Actions pulumi.StringArrayInput
 	// The unique identifier of the Amazon Q Business application.
 	ApplicationId pulumi.StringInput
+	Conditions    PermissionConditionArrayInput
 	// Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
 	Principal pulumi.StringInput
 	// A unique identifier for the policy statement.
@@ -152,6 +156,10 @@ func (o PermissionOutput) Actions() pulumi.StringArrayOutput {
 // The unique identifier of the Amazon Q Business application.
 func (o PermissionOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o PermissionOutput) Conditions() PermissionConditionArrayOutput {
+	return o.ApplyT(func(v *Permission) PermissionConditionArrayOutput { return v.Conditions }).(PermissionConditionArrayOutput)
 }
 
 // Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.

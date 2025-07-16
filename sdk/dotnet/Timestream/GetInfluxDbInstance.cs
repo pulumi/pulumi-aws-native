@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.Timestream
     public sealed class GetInfluxDbInstanceResult
     {
         /// <summary>
+        /// The allocated storage for the InfluxDB instance.
+        /// </summary>
+        public readonly int? AllocatedStorage;
+        /// <summary>
         /// The Amazon Resource Name (ARN) that is associated with the InfluxDB instance.
         /// </summary>
         public readonly string? Arn;
@@ -79,6 +83,10 @@ namespace Pulumi.AwsNative.Timestream
         /// The name of an existing InfluxDB parameter group.
         /// </summary>
         public readonly string? DbParameterGroupIdentifier;
+        /// <summary>
+        /// The storage type of the InfluxDB instance.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Timestream.InfluxDbInstanceDbStorageType? DbStorageType;
         /// <summary>
         /// Deployment type of the InfluxDB Instance.
         /// </summary>
@@ -118,6 +126,8 @@ namespace Pulumi.AwsNative.Timestream
 
         [OutputConstructor]
         private GetInfluxDbInstanceResult(
+            int? allocatedStorage,
+
             string? arn,
 
             string? availabilityZone,
@@ -125,6 +135,8 @@ namespace Pulumi.AwsNative.Timestream
             Pulumi.AwsNative.Timestream.InfluxDbInstanceDbInstanceType? dbInstanceType,
 
             string? dbParameterGroupIdentifier,
+
+            Pulumi.AwsNative.Timestream.InfluxDbInstanceDbStorageType? dbStorageType,
 
             Pulumi.AwsNative.Timestream.InfluxDbInstanceDeploymentType? deploymentType,
 
@@ -144,10 +156,12 @@ namespace Pulumi.AwsNative.Timestream
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            AllocatedStorage = allocatedStorage;
             Arn = arn;
             AvailabilityZone = availabilityZone;
             DbInstanceType = dbInstanceType;
             DbParameterGroupIdentifier = dbParameterGroupIdentifier;
+            DbStorageType = dbStorageType;
             DeploymentType = deploymentType;
             Endpoint = endpoint;
             Id = id;

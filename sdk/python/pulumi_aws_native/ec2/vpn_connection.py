@@ -50,8 +50,8 @@ class VpnConnectionArgs:
                 Default: ``0.0.0.0/0``
         :param pulumi.Input[builtins.str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
                 Default: ``::/0``
-        :param pulumi.Input[builtins.str] outside_ip_address_type: The type of IPv4 address assigned to the outside interface of the customer gateway device.
-                Valid values: ``PrivateIpv4`` | ``PublicIpv4``
+        :param pulumi.Input[builtins.str] outside_ip_address_type: The type of IP address assigned to the outside interface of the customer gateway device.
+                Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
                 Default: ``PublicIpv4``
         :param pulumi.Input[builtins.str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
                 Default: ``0.0.0.0/0``
@@ -166,8 +166,8 @@ class VpnConnectionArgs:
     @pulumi.getter(name="outsideIpAddressType")
     def outside_ip_address_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The type of IPv4 address assigned to the outside interface of the customer gateway device.
-         Valid values: ``PrivateIpv4`` | ``PublicIpv4``
+        The type of IP address assigned to the outside interface of the customer gateway device.
+         Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
          Default: ``PublicIpv4``
         """
         return pulumi.get(self, "outside_ip_address_type")
@@ -329,8 +329,8 @@ class VpnConnection(pulumi.CustomResource):
                 Default: ``0.0.0.0/0``
         :param pulumi.Input[builtins.str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
                 Default: ``::/0``
-        :param pulumi.Input[builtins.str] outside_ip_address_type: The type of IPv4 address assigned to the outside interface of the customer gateway device.
-                Valid values: ``PrivateIpv4`` | ``PublicIpv4``
+        :param pulumi.Input[builtins.str] outside_ip_address_type: The type of IP address assigned to the outside interface of the customer gateway device.
+                Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
                 Default: ``PublicIpv4``
         :param pulumi.Input[builtins.str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
                 Default: ``0.0.0.0/0``
@@ -502,8 +502,8 @@ class VpnConnection(pulumi.CustomResource):
     @pulumi.getter(name="outsideIpAddressType")
     def outside_ip_address_type(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The type of IPv4 address assigned to the outside interface of the customer gateway device.
-         Valid values: ``PrivateIpv4`` | ``PublicIpv4``
+        The type of IP address assigned to the outside interface of the customer gateway device.
+         Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
          Default: ``PublicIpv4``
         """
         return pulumi.get(self, "outside_ip_address_type")

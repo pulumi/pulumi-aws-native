@@ -527,6 +527,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly billingMode!: pulumi.Output<outputs.cassandra.TableBillingMode | undefined>;
     /**
+     * The settings for the CDC stream of a table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide* .
+     */
+    public readonly cdcSpecification!: pulumi.Output<outputs.cassandra.TableCdcSpecification | undefined>;
+    /**
      * Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
      */
     public readonly clientSideTimestampsEnabled!: pulumi.Output<boolean | undefined>;
@@ -603,6 +607,7 @@ export class Table extends pulumi.CustomResource {
             }
             resourceInputs["autoScalingSpecifications"] = args ? args.autoScalingSpecifications : undefined;
             resourceInputs["billingMode"] = args ? args.billingMode : undefined;
+            resourceInputs["cdcSpecification"] = args ? args.cdcSpecification : undefined;
             resourceInputs["clientSideTimestampsEnabled"] = args ? args.clientSideTimestampsEnabled : undefined;
             resourceInputs["clusteringKeyColumns"] = args ? args.clusteringKeyColumns : undefined;
             resourceInputs["defaultTimeToLive"] = args ? args.defaultTimeToLive : undefined;
@@ -617,6 +622,7 @@ export class Table extends pulumi.CustomResource {
         } else {
             resourceInputs["autoScalingSpecifications"] = undefined /*out*/;
             resourceInputs["billingMode"] = undefined /*out*/;
+            resourceInputs["cdcSpecification"] = undefined /*out*/;
             resourceInputs["clientSideTimestampsEnabled"] = undefined /*out*/;
             resourceInputs["clusteringKeyColumns"] = undefined /*out*/;
             resourceInputs["defaultTimeToLive"] = undefined /*out*/;
@@ -653,6 +659,10 @@ export interface TableArgs {
      * If you don't specify a value for this property, then the table will use on-demand mode.
      */
     billingMode?: pulumi.Input<inputs.cassandra.TableBillingModeArgs>;
+    /**
+     * The settings for the CDC stream of a table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide* .
+     */
+    cdcSpecification?: pulumi.Input<inputs.cassandra.TableCdcSpecificationArgs>;
     /**
      * Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
      */

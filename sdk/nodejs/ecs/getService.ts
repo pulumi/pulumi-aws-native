@@ -48,7 +48,7 @@ export interface GetServiceArgs {
      */
     cluster: string;
     /**
-     * Not currently supported in AWS CloudFormation .
+     * The ARN that identifies the service. For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .
      */
     serviceArn: string;
 }
@@ -128,7 +128,7 @@ export interface GetServiceResult {
      */
     readonly propagateTags?: enums.ecs.ServicePropagateTags;
     /**
-     * Not currently supported in AWS CloudFormation .
+     * The ARN that identifies the service. For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .
      */
     readonly serviceArn?: string;
     /**
@@ -201,7 +201,7 @@ export interface GetServiceOutputArgs {
      */
     cluster: pulumi.Input<string>;
     /**
-     * Not currently supported in AWS CloudFormation .
+     * The ARN that identifies the service. For more information about the ARN format, see [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids) in the *Amazon ECS Developer Guide* .
      */
     serviceArn: pulumi.Input<string>;
 }

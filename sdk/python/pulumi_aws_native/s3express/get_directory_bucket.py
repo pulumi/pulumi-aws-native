@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -26,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDirectoryBucketResult:
-    def __init__(__self__, arn=None, availability_zone_name=None, bucket_encryption=None, lifecycle_configuration=None):
+    def __init__(__self__, arn=None, availability_zone_name=None, bucket_encryption=None, lifecycle_configuration=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +40,9 @@ class GetDirectoryBucketResult:
         if lifecycle_configuration and not isinstance(lifecycle_configuration, dict):
             raise TypeError("Expected argument 'lifecycle_configuration' to be a dict")
         pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -72,6 +76,11 @@ class GetDirectoryBucketResult:
         """
         return pulumi.get(self, "lifecycle_configuration")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetDirectoryBucketResult(GetDirectoryBucketResult):
     # pylint: disable=using-constant-test
@@ -82,7 +91,8 @@ class AwaitableGetDirectoryBucketResult(GetDirectoryBucketResult):
             arn=self.arn,
             availability_zone_name=self.availability_zone_name,
             bucket_encryption=self.bucket_encryption,
-            lifecycle_configuration=self.lifecycle_configuration)
+            lifecycle_configuration=self.lifecycle_configuration,
+            tags=self.tags)
 
 
 def get_directory_bucket(bucket_name: Optional[builtins.str] = None,
@@ -102,7 +112,8 @@ def get_directory_bucket(bucket_name: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         availability_zone_name=pulumi.get(__ret__, 'availability_zone_name'),
         bucket_encryption=pulumi.get(__ret__, 'bucket_encryption'),
-        lifecycle_configuration=pulumi.get(__ret__, 'lifecycle_configuration'))
+        lifecycle_configuration=pulumi.get(__ret__, 'lifecycle_configuration'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_directory_bucket_output(bucket_name: Optional[pulumi.Input[builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryBucketResult]:
     """
@@ -119,4 +130,5 @@ def get_directory_bucket_output(bucket_name: Optional[pulumi.Input[builtins.str]
         arn=pulumi.get(__response__, 'arn'),
         availability_zone_name=pulumi.get(__response__, 'availability_zone_name'),
         bucket_encryption=pulumi.get(__response__, 'bucket_encryption'),
-        lifecycle_configuration=pulumi.get(__response__, 'lifecycle_configuration')))
+        lifecycle_configuration=pulumi.get(__response__, 'lifecycle_configuration'),
+        tags=pulumi.get(__response__, 'tags')))

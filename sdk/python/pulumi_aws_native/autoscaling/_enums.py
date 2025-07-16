@@ -16,8 +16,8 @@ __all__ = [
 class AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy(builtins.str, Enum):
     """
     If launches fail in an Availability Zone, the following strategies are available. The default is ``balanced-best-effort``. 
-      +   ``balanced-only`` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
-      +   ``balanced-best-effort`` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
+      +  ``balanced-only`` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+      +  ``balanced-best-effort`` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
     """
     BALANCED_BEST_EFFORT = "balanced-best-effort"
     BALANCED_ONLY = "balanced-only"

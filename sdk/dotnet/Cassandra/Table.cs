@@ -715,6 +715,12 @@ namespace Pulumi.AwsNative.Cassandra
         public Output<Outputs.TableBillingMode?> BillingMode { get; private set; } = null!;
 
         /// <summary>
+        /// The settings for the CDC stream of a table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide* .
+        /// </summary>
+        [Output("cdcSpecification")]
+        public Output<Outputs.TableCdcSpecification?> CdcSpecification { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
         /// </summary>
         [Output("clientSideTimestampsEnabled")]
@@ -862,6 +868,12 @@ namespace Pulumi.AwsNative.Cassandra
         /// </summary>
         [Input("billingMode")]
         public Input<Inputs.TableBillingModeArgs>? BillingMode { get; set; }
+
+        /// <summary>
+        /// The settings for the CDC stream of a table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide* .
+        /// </summary>
+        [Input("cdcSpecification")]
+        public Input<Inputs.TableCdcSpecificationArgs>? CdcSpecification { get; set; }
 
         /// <summary>
         /// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.

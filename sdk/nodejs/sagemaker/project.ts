@@ -102,11 +102,15 @@ export class Project extends pulumi.CustomResource {
     /**
      * Input ServiceCatalog Provisioning Details
      */
-    public readonly serviceCatalogProvisioningDetails!: pulumi.Output<outputs.sagemaker.ServiceCatalogProvisioningDetailsProperties>;
+    public readonly serviceCatalogProvisioningDetails!: pulumi.Output<outputs.sagemaker.ServiceCatalogProvisioningDetailsProperties | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    /**
+     * An array of template providers associated with the project.
+     */
+    public readonly templateProviderDetails!: pulumi.Output<outputs.sagemaker.ProjectTemplateProviderDetail[] | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -115,18 +119,16 @@ export class Project extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.serviceCatalogProvisioningDetails === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'serviceCatalogProvisioningDetails'");
-            }
             resourceInputs["projectDescription"] = args ? args.projectDescription : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["serviceCatalogProvisionedProductDetails"] = args ? args.serviceCatalogProvisionedProductDetails : undefined;
             resourceInputs["serviceCatalogProvisioningDetails"] = args ? args.serviceCatalogProvisioningDetails : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateProviderDetails"] = args ? args.templateProviderDetails : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["projectArn"] = undefined /*out*/;
             resourceInputs["projectId"] = undefined /*out*/;
@@ -141,9 +143,10 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["serviceCatalogProvisionedProductDetails"] = undefined /*out*/;
             resourceInputs["serviceCatalogProvisioningDetails"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["templateProviderDetails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["projectDescription", "projectName", "serviceCatalogProvisioningDetails", "tags[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["projectDescription", "projectName", "serviceCatalogProvisioningDetails", "tags[*]", "templateProviderDetails[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }
@@ -168,9 +171,13 @@ export interface ProjectArgs {
     /**
      * Input ServiceCatalog Provisioning Details
      */
-    serviceCatalogProvisioningDetails: pulumi.Input<inputs.sagemaker.ServiceCatalogProvisioningDetailsPropertiesArgs>;
+    serviceCatalogProvisioningDetails?: pulumi.Input<inputs.sagemaker.ServiceCatalogProvisioningDetailsPropertiesArgs>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    /**
+     * An array of template providers associated with the project.
+     */
+    templateProviderDetails?: pulumi.Input<pulumi.Input<inputs.sagemaker.ProjectTemplateProviderDetailArgs>[]>;
 }

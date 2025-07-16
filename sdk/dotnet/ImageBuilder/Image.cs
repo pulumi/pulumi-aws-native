@@ -131,7 +131,6 @@ namespace Pulumi.AwsNative.ImageBuilder
                     "imageScanningConfiguration",
                     "imageTestsConfiguration",
                     "infrastructureConfigurationArn",
-                    "tags.*",
                     "workflows[*]",
                 },
             };

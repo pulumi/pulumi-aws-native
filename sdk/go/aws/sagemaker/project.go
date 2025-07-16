@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -94,26 +93,26 @@ type Project struct {
 	// Provisioned ServiceCatalog  Details
 	ServiceCatalogProvisionedProductDetails ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput `pulumi:"serviceCatalogProvisionedProductDetails"`
 	// Input ServiceCatalog Provisioning Details
-	ServiceCatalogProvisioningDetails ServiceCatalogProvisioningDetailsPropertiesOutput `pulumi:"serviceCatalogProvisioningDetails"`
+	ServiceCatalogProvisioningDetails ServiceCatalogProvisioningDetailsPropertiesPtrOutput `pulumi:"serviceCatalogProvisioningDetails"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	// An array of template providers associated with the project.
+	TemplateProviderDetails ProjectTemplateProviderDetailArrayOutput `pulumi:"templateProviderDetails"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
 func NewProject(ctx *pulumi.Context,
 	name string, args *ProjectArgs, opts ...pulumi.ResourceOption) (*Project, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ProjectArgs{}
 	}
 
-	if args.ServiceCatalogProvisioningDetails == nil {
-		return nil, errors.New("invalid value for required argument 'ServiceCatalogProvisioningDetails'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"projectDescription",
 		"projectName",
 		"serviceCatalogProvisioningDetails",
 		"tags[*]",
+		"templateProviderDetails[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -156,9 +155,11 @@ type projectArgs struct {
 	// Provisioned ServiceCatalog  Details
 	ServiceCatalogProvisionedProductDetails *ServiceCatalogProvisionedProductDetailsProperties `pulumi:"serviceCatalogProvisionedProductDetails"`
 	// Input ServiceCatalog Provisioning Details
-	ServiceCatalogProvisioningDetails ServiceCatalogProvisioningDetailsProperties `pulumi:"serviceCatalogProvisioningDetails"`
+	ServiceCatalogProvisioningDetails *ServiceCatalogProvisioningDetailsProperties `pulumi:"serviceCatalogProvisioningDetails"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	// An array of template providers associated with the project.
+	TemplateProviderDetails []ProjectTemplateProviderDetail `pulumi:"templateProviderDetails"`
 }
 
 // The set of arguments for constructing a Project resource.
@@ -170,9 +171,11 @@ type ProjectArgs struct {
 	// Provisioned ServiceCatalog  Details
 	ServiceCatalogProvisionedProductDetails ServiceCatalogProvisionedProductDetailsPropertiesPtrInput
 	// Input ServiceCatalog Provisioning Details
-	ServiceCatalogProvisioningDetails ServiceCatalogProvisioningDetailsPropertiesInput
+	ServiceCatalogProvisioningDetails ServiceCatalogProvisioningDetailsPropertiesPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.CreateOnlyTagArrayInput
+	// An array of template providers associated with the project.
+	TemplateProviderDetails ProjectTemplateProviderDetailArrayInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {
@@ -250,15 +253,20 @@ func (o ProjectOutput) ServiceCatalogProvisionedProductDetails() ServiceCatalogP
 }
 
 // Input ServiceCatalog Provisioning Details
-func (o ProjectOutput) ServiceCatalogProvisioningDetails() ServiceCatalogProvisioningDetailsPropertiesOutput {
-	return o.ApplyT(func(v *Project) ServiceCatalogProvisioningDetailsPropertiesOutput {
+func (o ProjectOutput) ServiceCatalogProvisioningDetails() ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
+	return o.ApplyT(func(v *Project) ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
 		return v.ServiceCatalogProvisioningDetails
-	}).(ServiceCatalogProvisioningDetailsPropertiesOutput)
+	}).(ServiceCatalogProvisioningDetailsPropertiesPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.
 func (o ProjectOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *Project) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
+}
+
+// An array of template providers associated with the project.
+func (o ProjectOutput) TemplateProviderDetails() ProjectTemplateProviderDetailArrayOutput {
+	return o.ApplyT(func(v *Project) ProjectTemplateProviderDetailArrayOutput { return v.TemplateProviderDetails }).(ProjectTemplateProviderDetailArrayOutput)
 }
 
 func init() {

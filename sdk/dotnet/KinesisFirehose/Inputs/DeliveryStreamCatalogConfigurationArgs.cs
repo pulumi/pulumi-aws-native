@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("catalogArn")]
         public Input<string>? CatalogArn { get; set; }
 
+        [Input("warehouseLocation")]
+        public Input<string>? WarehouseLocation { get; set; }
+
         public DeliveryStreamCatalogConfigurationArgs()
         {
         }

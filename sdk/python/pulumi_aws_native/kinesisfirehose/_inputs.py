@@ -55,6 +55,8 @@ __all__ = [
     'DeliveryStreamDatabasesArgsDict',
     'DeliveryStreamDeserializerArgs',
     'DeliveryStreamDeserializerArgsDict',
+    'DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs',
+    'DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgsDict',
     'DeliveryStreamDestinationTableConfigurationArgs',
     'DeliveryStreamDestinationTableConfigurationArgsDict',
     'DeliveryStreamDirectPutSourceConfigurationArgs',
@@ -103,6 +105,8 @@ __all__ = [
     'DeliveryStreamOutputFormatConfigurationArgsDict',
     'DeliveryStreamParquetSerDeArgs',
     'DeliveryStreamParquetSerDeArgsDict',
+    'DeliveryStreamPartitionFieldArgs',
+    'DeliveryStreamPartitionFieldArgsDict',
     'DeliveryStreamProcessingConfigurationArgs',
     'DeliveryStreamProcessingConfigurationArgsDict',
     'DeliveryStreamProcessorParameterArgs',
@@ -119,6 +123,8 @@ __all__ = [
     'DeliveryStreamS3DestinationConfigurationArgsDict',
     'DeliveryStreamSchemaConfigurationArgs',
     'DeliveryStreamSchemaConfigurationArgsDict',
+    'DeliveryStreamSchemaEvolutionConfigurationArgs',
+    'DeliveryStreamSchemaEvolutionConfigurationArgsDict',
     'DeliveryStreamSecretsManagerConfigurationArgs',
     'DeliveryStreamSecretsManagerConfigurationArgsDict',
     'DeliveryStreamSerializerArgs',
@@ -139,6 +145,8 @@ __all__ = [
     'DeliveryStreamSplunkDestinationConfigurationArgsDict',
     'DeliveryStreamSplunkRetryOptionsArgs',
     'DeliveryStreamSplunkRetryOptionsArgsDict',
+    'DeliveryStreamTableCreationConfigurationArgs',
+    'DeliveryStreamTableCreationConfigurationArgsDict',
     'DeliveryStreamVpcConfigurationArgs',
     'DeliveryStreamVpcConfigurationArgsDict',
 ]
@@ -897,18 +905,22 @@ if not MYPY:
         """
         Specifies the Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
         """
+        warehouse_location: NotRequired[pulumi.Input[builtins.str]]
 elif False:
     DeliveryStreamCatalogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamCatalogConfigurationArgs:
     def __init__(__self__, *,
-                 catalog_arn: Optional[pulumi.Input[builtins.str]] = None):
+                 catalog_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 warehouse_location: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] catalog_arn: Specifies the Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
         """
         if catalog_arn is not None:
             pulumi.set(__self__, "catalog_arn", catalog_arn)
+        if warehouse_location is not None:
+            pulumi.set(__self__, "warehouse_location", warehouse_location)
 
     @property
     @pulumi.getter(name="catalogArn")
@@ -921,6 +933,15 @@ class DeliveryStreamCatalogConfigurationArgs:
     @catalog_arn.setter
     def catalog_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "catalog_arn", value)
+
+    @property
+    @pulumi.getter(name="warehouseLocation")
+    def warehouse_location(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "warehouse_location")
+
+    @warehouse_location.setter
+    def warehouse_location(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "warehouse_location", value)
 
 
 if not MYPY:
@@ -1724,9 +1745,33 @@ class DeliveryStreamDeserializerArgs:
 
 
 if not MYPY:
+    class DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgsDict(TypedDict):
+        identity: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamPartitionFieldArgsDict']]]]
+elif False:
+    DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs:
+    def __init__(__self__, *,
+                 identity: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamPartitionFieldArgs']]]] = None):
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamPartitionFieldArgs']]]]:
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamPartitionFieldArgs']]]]):
+        pulumi.set(self, "identity", value)
+
+
+if not MYPY:
     class DeliveryStreamDestinationTableConfigurationArgsDict(TypedDict):
         destination_database_name: pulumi.Input[builtins.str]
         destination_table_name: pulumi.Input[builtins.str]
+        partition_spec: NotRequired[pulumi.Input['DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgsDict']]
         s3_error_output_prefix: NotRequired[pulumi.Input[builtins.str]]
         unique_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
 elif False:
@@ -1737,10 +1782,13 @@ class DeliveryStreamDestinationTableConfigurationArgs:
     def __init__(__self__, *,
                  destination_database_name: pulumi.Input[builtins.str],
                  destination_table_name: pulumi.Input[builtins.str],
+                 partition_spec: Optional[pulumi.Input['DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs']] = None,
                  s3_error_output_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         pulumi.set(__self__, "destination_database_name", destination_database_name)
         pulumi.set(__self__, "destination_table_name", destination_table_name)
+        if partition_spec is not None:
+            pulumi.set(__self__, "partition_spec", partition_spec)
         if s3_error_output_prefix is not None:
             pulumi.set(__self__, "s3_error_output_prefix", s3_error_output_prefix)
         if unique_keys is not None:
@@ -1763,6 +1811,15 @@ class DeliveryStreamDestinationTableConfigurationArgs:
     @destination_table_name.setter
     def destination_table_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "destination_table_name", value)
+
+    @property
+    @pulumi.getter(name="partitionSpec")
+    def partition_spec(self) -> Optional[pulumi.Input['DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs']]:
+        return pulumi.get(self, "partition_spec")
+
+    @partition_spec.setter
+    def partition_spec(self, value: Optional[pulumi.Input['DeliveryStreamDestinationTableConfigurationPartitionSpecPropertiesArgs']]):
+        pulumi.set(self, "partition_spec", value)
 
     @property
     @pulumi.getter(name="s3ErrorOutputPrefix")
@@ -3152,6 +3209,8 @@ if not MYPY:
         """
         Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` .
         """
+        schema_evolution_configuration: NotRequired[pulumi.Input['DeliveryStreamSchemaEvolutionConfigurationArgsDict']]
+        table_creation_configuration: NotRequired[pulumi.Input['DeliveryStreamTableCreationConfigurationArgsDict']]
 elif False:
     DeliveryStreamIcebergDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3167,7 +3226,9 @@ class DeliveryStreamIcebergDestinationConfigurationArgs:
                  destination_table_configuration_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamDestinationTableConfigurationArgs']]]] = None,
                  processing_configuration: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']] = None,
                  retry_options: Optional[pulumi.Input['DeliveryStreamRetryOptionsArgs']] = None,
-                 s3_backup_mode: Optional[pulumi.Input['DeliveryStreamIcebergDestinationConfigurations3BackupMode']] = None):
+                 s3_backup_mode: Optional[pulumi.Input['DeliveryStreamIcebergDestinationConfigurations3BackupMode']] = None,
+                 schema_evolution_configuration: Optional[pulumi.Input['DeliveryStreamSchemaEvolutionConfigurationArgs']] = None,
+                 table_creation_configuration: Optional[pulumi.Input['DeliveryStreamTableCreationConfigurationArgs']] = None):
         """
         :param pulumi.Input['DeliveryStreamCatalogConfigurationArgs'] catalog_configuration: Configuration describing where the destination Apache Iceberg Tables are persisted.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
@@ -3194,6 +3255,10 @@ class DeliveryStreamIcebergDestinationConfigurationArgs:
             pulumi.set(__self__, "retry_options", retry_options)
         if s3_backup_mode is not None:
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
+        if schema_evolution_configuration is not None:
+            pulumi.set(__self__, "schema_evolution_configuration", schema_evolution_configuration)
+        if table_creation_configuration is not None:
+            pulumi.set(__self__, "table_creation_configuration", table_creation_configuration)
 
     @property
     @pulumi.getter(name="catalogConfiguration")
@@ -3301,6 +3366,24 @@ class DeliveryStreamIcebergDestinationConfigurationArgs:
     @s3_backup_mode.setter
     def s3_backup_mode(self, value: Optional[pulumi.Input['DeliveryStreamIcebergDestinationConfigurations3BackupMode']]):
         pulumi.set(self, "s3_backup_mode", value)
+
+    @property
+    @pulumi.getter(name="schemaEvolutionConfiguration")
+    def schema_evolution_configuration(self) -> Optional[pulumi.Input['DeliveryStreamSchemaEvolutionConfigurationArgs']]:
+        return pulumi.get(self, "schema_evolution_configuration")
+
+    @schema_evolution_configuration.setter
+    def schema_evolution_configuration(self, value: Optional[pulumi.Input['DeliveryStreamSchemaEvolutionConfigurationArgs']]):
+        pulumi.set(self, "schema_evolution_configuration", value)
+
+    @property
+    @pulumi.getter(name="tableCreationConfiguration")
+    def table_creation_configuration(self) -> Optional[pulumi.Input['DeliveryStreamTableCreationConfigurationArgs']]:
+        return pulumi.get(self, "table_creation_configuration")
+
+    @table_creation_configuration.setter
+    def table_creation_configuration(self, value: Optional[pulumi.Input['DeliveryStreamTableCreationConfigurationArgs']]):
+        pulumi.set(self, "table_creation_configuration", value)
 
 
 if not MYPY:
@@ -3975,6 +4058,28 @@ class DeliveryStreamParquetSerDeArgs:
     @writer_version.setter
     def writer_version(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "writer_version", value)
+
+
+if not MYPY:
+    class DeliveryStreamPartitionFieldArgsDict(TypedDict):
+        source_name: pulumi.Input[builtins.str]
+elif False:
+    DeliveryStreamPartitionFieldArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeliveryStreamPartitionFieldArgs:
+    def __init__(__self__, *,
+                 source_name: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "source_name", source_name)
+
+    @property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "source_name")
+
+    @source_name.setter
+    def source_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "source_name", value)
 
 
 if not MYPY:
@@ -4760,6 +4865,29 @@ class DeliveryStreamSchemaConfigurationArgs:
     @version_id.setter
     def version_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "version_id", value)
+
+
+if not MYPY:
+    class DeliveryStreamSchemaEvolutionConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[builtins.bool]]
+elif False:
+    DeliveryStreamSchemaEvolutionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeliveryStreamSchemaEvolutionConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[builtins.bool]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:
@@ -5778,6 +5906,29 @@ class DeliveryStreamSplunkRetryOptionsArgs:
     @duration_in_seconds.setter
     def duration_in_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "duration_in_seconds", value)
+
+
+if not MYPY:
+    class DeliveryStreamTableCreationConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[builtins.bool]]
+elif False:
+    DeliveryStreamTableCreationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeliveryStreamTableCreationConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[builtins.bool]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:

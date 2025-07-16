@@ -24,10 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkflowResult:
-    def __init__(__self__, arn=None):
+    def __init__(__self__, arn=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -37,6 +40,14 @@ class GetWorkflowResult:
         """
         return pulumi.get(self, "arn")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        The tags associated with the workflow.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetWorkflowResult(GetWorkflowResult):
     # pylint: disable=using-constant-test
@@ -44,7 +55,8 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
         if False:
             yield self
         return GetWorkflowResult(
-            arn=self.arn)
+            arn=self.arn,
+            tags=self.tags)
 
 
 def get_workflow(arn: Optional[builtins.str] = None,
@@ -61,7 +73,8 @@ def get_workflow(arn: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:imagebuilder:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult).value
 
     return AwaitableGetWorkflowResult(
-        arn=pulumi.get(__ret__, 'arn'))
+        arn=pulumi.get(__ret__, 'arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_workflow_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkflowResult]:
     """
@@ -75,4 +88,5 @@ def get_workflow_output(arn: Optional[pulumi.Input[builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:imagebuilder:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult)
     return __ret__.apply(lambda __response__: GetWorkflowResult(
-        arn=pulumi.get(__response__, 'arn')))
+        arn=pulumi.get(__response__, 'arn'),
+        tags=pulumi.get(__response__, 'tags')))

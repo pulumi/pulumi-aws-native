@@ -15,9 +15,33 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
     /// </summary>
     public sealed class OriginEndpointDashManifestConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("baseUrls")]
+        private InputList<Inputs.OriginEndpointDashBaseUrlArgs>? _baseUrls;
+
+        /// <summary>
+        /// &lt;p&gt;The base URL to use for retrieving segments.&lt;/p&gt;
+        /// </summary>
+        public InputList<Inputs.OriginEndpointDashBaseUrlArgs> BaseUrls
+        {
+            get => _baseUrls ?? (_baseUrls = new InputList<Inputs.OriginEndpointDashBaseUrlArgs>());
+            set => _baseUrls = value;
+        }
+
+        [Input("compactness")]
+        public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashCompactness>? Compactness { get; set; }
+
+        /// <summary>
+        /// Determines how the DASH manifest signals the DRM content.
+        /// </summary>
         [Input("drmSignaling")]
         public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashDrmSignaling>? DrmSignaling { get; set; }
 
+        [Input("dvbSettings")]
+        public Input<Inputs.OriginEndpointDashDvbSettingsArgs>? DvbSettings { get; set; }
+
+        /// <summary>
+        /// Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
+        /// </summary>
         [Input("filterConfiguration")]
         public Input<Inputs.OriginEndpointFilterConfigurationArgs>? FilterConfiguration { get; set; }
 
@@ -49,8 +73,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         private InputList<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashPeriodTrigger>? _periodTriggers;
 
         /// <summary>
-        /// &lt;p&gt;A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period.
-        ///          For more information about periods in the DASH manifest, see &lt;a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html"&gt;Multi-period DASH in AWS Elemental MediaPackage&lt;/a&gt;.&lt;/p&gt;
+        /// &lt;p&gt;A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period. For more information about periods in the DASH manifest, see &lt;a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html"&gt;Multi-period DASH in AWS Elemental MediaPackage&lt;/a&gt;.&lt;/p&gt;
         /// </summary>
         public InputList<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashPeriodTrigger> PeriodTriggers
         {
@@ -58,11 +81,39 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
             set => _periodTriggers = value;
         }
 
+        [Input("profiles")]
+        private InputList<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashProfile>? _profiles;
+
+        /// <summary>
+        /// &lt;p&gt;The profile that the output is compliant with.&lt;/p&gt;
+        /// </summary>
+        public InputList<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashProfile> Profiles
+        {
+            get => _profiles ?? (_profiles = new InputList<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashProfile>());
+            set => _profiles = value;
+        }
+
+        [Input("programInformation")]
+        public Input<Inputs.OriginEndpointDashProgramInformationArgs>? ProgramInformation { get; set; }
+
+        /// <summary>
+        /// The SCTE configuration.
+        /// </summary>
         [Input("scteDash")]
         public Input<Inputs.OriginEndpointScteDashArgs>? ScteDash { get; set; }
 
+        /// <summary>
+        /// Determines the type of variable used in the `media` URL of the `SegmentTemplate` tag in the manifest. Also specifies if segment timeline information is included in `SegmentTimeline` or `SegmentTemplate` .
+        /// 
+        /// Value description:
+        /// 
+        /// - `NUMBER_WITH_TIMELINE` - The `$Number$` variable is used in the `media` URL. The value of this variable is the sequential number of the segment. A full `SegmentTimeline` object is presented in each `SegmentTemplate` .
+        /// </summary>
         [Input("segmentTemplateFormat")]
         public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashSegmentTemplateFormat>? SegmentTemplateFormat { get; set; }
+
+        [Input("subtitleConfiguration")]
+        public Input<Inputs.OriginEndpointDashSubtitleConfigurationArgs>? SubtitleConfiguration { get; set; }
 
         /// <summary>
         /// &lt;p&gt;The amount of time (in seconds) that the player should be from the end of the manifest.&lt;/p&gt;
@@ -70,6 +121,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         [Input("suggestedPresentationDelaySeconds")]
         public Input<int>? SuggestedPresentationDelaySeconds { get; set; }
 
+        /// <summary>
+        /// Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).
+        /// </summary>
         [Input("utcTiming")]
         public Input<Inputs.OriginEndpointDashUtcTimingArgs>? UtcTiming { get; set; }
 

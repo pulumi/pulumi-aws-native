@@ -28,7 +28,9 @@ class GlobalTableArgs:
                  replicas: pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaSpecificationArgs']]],
                  billing_mode: Optional[pulumi.Input[builtins.str]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableGlobalSecondaryIndexArgs']]]] = None,
+                 global_table_witnesses: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableWitnessArgs']]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]]] = None,
+                 multi_region_consistency: Optional[pulumi.Input['GlobalTableMultiRegionConsistency']] = None,
                  sse_specification: Optional[pulumi.Input['GlobalTableSseSpecificationArgs']] = None,
                  stream_specification: Optional[pulumi.Input['GlobalTableStreamSpecificationArgs']] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -46,7 +48,7 @@ class GlobalTableArgs:
                > 
                > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica. 
                
-               You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+               You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update. For Multi-Region Strong Consistency (MRSC), you can add or remove up to 3 replicas, or 2 replicas plus a witness Region.
         :param pulumi.Input[builtins.str] billing_mode: Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
                
                - `PAY_PER_REQUEST`
@@ -56,9 +58,18 @@ class GlobalTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['GlobalTableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
                
                Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableWitnessArgs']]] global_table_witnesses: The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
         :param pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]] local_secondary_indexes: Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
+        :param pulumi.Input['GlobalTableMultiRegionConsistency'] multi_region_consistency: Specifies the consistency mode for a new global table.
+               
+               You can specify one of the following consistency modes:
+               
+               - `EVENTUAL` : Configures a new global table for multi-Region eventual consistency (MREC).
+               - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
+               
+               If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
         :param pulumi.Input['GlobalTableSseSpecificationArgs'] sse_specification: Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
-        :param pulumi.Input['GlobalTableStreamSpecificationArgs'] stream_specification: Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
+        :param pulumi.Input['GlobalTableStreamSpecificationArgs'] stream_specification: Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica. For Multi-Region Strong Consistency (MRSC), you do not need to provide a value for this property and can change the settings at any time.
         :param pulumi.Input[builtins.str] table_name: A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
                
                > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
@@ -74,8 +85,12 @@ class GlobalTableArgs:
             pulumi.set(__self__, "billing_mode", billing_mode)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+        if global_table_witnesses is not None:
+            pulumi.set(__self__, "global_table_witnesses", global_table_witnesses)
         if local_secondary_indexes is not None:
             pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
+        if multi_region_consistency is not None:
+            pulumi.set(__self__, "multi_region_consistency", multi_region_consistency)
         if sse_specification is not None:
             pulumi.set(__self__, "sse_specification", sse_specification)
         if stream_specification is not None:
@@ -125,7 +140,7 @@ class GlobalTableArgs:
         > 
         > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica. 
 
-        You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+        You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update. For Multi-Region Strong Consistency (MRSC), you can add or remove up to 3 replicas, or 2 replicas plus a witness Region.
         """
         return pulumi.get(self, "replicas")
 
@@ -165,6 +180,18 @@ class GlobalTableArgs:
         pulumi.set(self, "global_secondary_indexes", value)
 
     @property
+    @pulumi.getter(name="globalTableWitnesses")
+    def global_table_witnesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableWitnessArgs']]]]:
+        """
+        The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
+        """
+        return pulumi.get(self, "global_table_witnesses")
+
+    @global_table_witnesses.setter
+    def global_table_witnesses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableWitnessArgs']]]]):
+        pulumi.set(self, "global_table_witnesses", value)
+
+    @property
     @pulumi.getter(name="localSecondaryIndexes")
     def local_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]]]:
         """
@@ -175,6 +202,25 @@ class GlobalTableArgs:
     @local_secondary_indexes.setter
     def local_secondary_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]]]):
         pulumi.set(self, "local_secondary_indexes", value)
+
+    @property
+    @pulumi.getter(name="multiRegionConsistency")
+    def multi_region_consistency(self) -> Optional[pulumi.Input['GlobalTableMultiRegionConsistency']]:
+        """
+        Specifies the consistency mode for a new global table.
+
+        You can specify one of the following consistency modes:
+
+        - `EVENTUAL` : Configures a new global table for multi-Region eventual consistency (MREC).
+        - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
+
+        If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
+        """
+        return pulumi.get(self, "multi_region_consistency")
+
+    @multi_region_consistency.setter
+    def multi_region_consistency(self, value: Optional[pulumi.Input['GlobalTableMultiRegionConsistency']]):
+        pulumi.set(self, "multi_region_consistency", value)
 
     @property
     @pulumi.getter(name="sseSpecification")
@@ -192,7 +238,7 @@ class GlobalTableArgs:
     @pulumi.getter(name="streamSpecification")
     def stream_specification(self) -> Optional[pulumi.Input['GlobalTableStreamSpecificationArgs']]:
         """
-        Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
+        Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica. For Multi-Region Strong Consistency (MRSC), you do not need to provide a value for this property and can change the settings at any time.
         """
         return pulumi.get(self, "stream_specification")
 
@@ -272,8 +318,10 @@ class GlobalTable(pulumi.CustomResource):
                  attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableAttributeDefinitionArgs', 'GlobalTableAttributeDefinitionArgsDict']]]]] = None,
                  billing_mode: Optional[pulumi.Input[builtins.str]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict']]]]] = None,
+                 global_table_witnesses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableWitnessArgs', 'GlobalTableWitnessArgsDict']]]]] = None,
                  key_schema: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]]] = None,
+                 multi_region_consistency: Optional[pulumi.Input['GlobalTableMultiRegionConsistency']] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaSpecificationArgs', 'GlobalTableReplicaSpecificationArgsDict']]]]] = None,
                  sse_specification: Optional[pulumi.Input[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict']]] = None,
                  stream_specification: Optional[pulumi.Input[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']]] = None,
@@ -298,17 +346,26 @@ class GlobalTable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict']]]] global_secondary_indexes: Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
                
                Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableWitnessArgs', 'GlobalTableWitnessArgsDict']]]] global_table_witnesses: The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]] key_schema: Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]] local_secondary_indexes: Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
+        :param pulumi.Input['GlobalTableMultiRegionConsistency'] multi_region_consistency: Specifies the consistency mode for a new global table.
+               
+               You can specify one of the following consistency modes:
+               
+               - `EVENTUAL` : Configures a new global table for multi-Region eventual consistency (MREC).
+               - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
+               
+               If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaSpecificationArgs', 'GlobalTableReplicaSpecificationArgsDict']]]] replicas: Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
                
                > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
                > 
                > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica. 
                
-               You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+               You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update. For Multi-Region Strong Consistency (MRSC), you can add or remove up to 3 replicas, or 2 replicas plus a witness Region.
         :param pulumi.Input[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict']] sse_specification: Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
-        :param pulumi.Input[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']] stream_specification: Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
+        :param pulumi.Input[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']] stream_specification: Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica. For Multi-Region Strong Consistency (MRSC), you do not need to provide a value for this property and can change the settings at any time.
         :param pulumi.Input[builtins.str] table_name: A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
                
                > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
@@ -344,8 +401,10 @@ class GlobalTable(pulumi.CustomResource):
                  attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableAttributeDefinitionArgs', 'GlobalTableAttributeDefinitionArgsDict']]]]] = None,
                  billing_mode: Optional[pulumi.Input[builtins.str]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict']]]]] = None,
+                 global_table_witnesses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableWitnessArgs', 'GlobalTableWitnessArgsDict']]]]] = None,
                  key_schema: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]]] = None,
+                 multi_region_consistency: Optional[pulumi.Input['GlobalTableMultiRegionConsistency']] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaSpecificationArgs', 'GlobalTableReplicaSpecificationArgsDict']]]]] = None,
                  sse_specification: Optional[pulumi.Input[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict']]] = None,
                  stream_specification: Optional[pulumi.Input[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']]] = None,
@@ -368,10 +427,12 @@ class GlobalTable(pulumi.CustomResource):
             __props__.__dict__["attribute_definitions"] = attribute_definitions
             __props__.__dict__["billing_mode"] = billing_mode
             __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
+            __props__.__dict__["global_table_witnesses"] = global_table_witnesses
             if key_schema is None and not opts.urn:
                 raise TypeError("Missing required property 'key_schema'")
             __props__.__dict__["key_schema"] = key_schema
             __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
+            __props__.__dict__["multi_region_consistency"] = multi_region_consistency
             if replicas is None and not opts.urn:
                 raise TypeError("Missing required property 'replicas'")
             __props__.__dict__["replicas"] = replicas
@@ -413,8 +474,10 @@ class GlobalTable(pulumi.CustomResource):
         __props__.__dict__["attribute_definitions"] = None
         __props__.__dict__["billing_mode"] = None
         __props__.__dict__["global_secondary_indexes"] = None
+        __props__.__dict__["global_table_witnesses"] = None
         __props__.__dict__["key_schema"] = None
         __props__.__dict__["local_secondary_indexes"] = None
+        __props__.__dict__["multi_region_consistency"] = None
         __props__.__dict__["replicas"] = None
         __props__.__dict__["sse_specification"] = None
         __props__.__dict__["stream_arn"] = None
@@ -467,6 +530,14 @@ class GlobalTable(pulumi.CustomResource):
         return pulumi.get(self, "global_secondary_indexes")
 
     @property
+    @pulumi.getter(name="globalTableWitnesses")
+    def global_table_witnesses(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalTableWitness']]]:
+        """
+        The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
+        """
+        return pulumi.get(self, "global_table_witnesses")
+
+    @property
     @pulumi.getter(name="keySchema")
     def key_schema(self) -> pulumi.Output[Sequence['outputs.GlobalTableKeySchema']]:
         """
@@ -483,6 +554,21 @@ class GlobalTable(pulumi.CustomResource):
         return pulumi.get(self, "local_secondary_indexes")
 
     @property
+    @pulumi.getter(name="multiRegionConsistency")
+    def multi_region_consistency(self) -> pulumi.Output[Optional['GlobalTableMultiRegionConsistency']]:
+        """
+        Specifies the consistency mode for a new global table.
+
+        You can specify one of the following consistency modes:
+
+        - `EVENTUAL` : Configures a new global table for multi-Region eventual consistency (MREC).
+        - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
+
+        If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
+        """
+        return pulumi.get(self, "multi_region_consistency")
+
+    @property
     @pulumi.getter
     def replicas(self) -> pulumi.Output[Sequence['outputs.GlobalTableReplicaSpecification']]:
         """
@@ -492,7 +578,7 @@ class GlobalTable(pulumi.CustomResource):
         > 
         > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica. 
 
-        You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+        You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update. For Multi-Region Strong Consistency (MRSC), you can add or remove up to 3 replicas, or 2 replicas plus a witness Region.
         """
         return pulumi.get(self, "replicas")
 
@@ -518,7 +604,7 @@ class GlobalTable(pulumi.CustomResource):
     @pulumi.getter(name="streamSpecification")
     def stream_specification(self) -> pulumi.Output[Optional['outputs.GlobalTableStreamSpecification']]:
         """
-        Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
+        Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica. For Multi-Region Strong Consistency (MRSC), you do not need to provide a value for this property and can change the settings at any time.
         """
         return pulumi.get(self, "stream_specification")
 

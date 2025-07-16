@@ -28,6 +28,7 @@ namespace Pulumi.AwsNative.Timestream
         public static InfluxDbInstanceDbInstanceType DbInflux8xlarge { get; } = new InfluxDbInstanceDbInstanceType("db.influx.8xlarge");
         public static InfluxDbInstanceDbInstanceType DbInflux12xlarge { get; } = new InfluxDbInstanceDbInstanceType("db.influx.12xlarge");
         public static InfluxDbInstanceDbInstanceType DbInflux16xlarge { get; } = new InfluxDbInstanceDbInstanceType("db.influx.16xlarge");
+        public static InfluxDbInstanceDbInstanceType DbInflux24xlarge { get; } = new InfluxDbInstanceDbInstanceType("db.influx.24xlarge");
 
         public static bool operator ==(InfluxDbInstanceDbInstanceType left, InfluxDbInstanceDbInstanceType right) => left.Equals(right);
         public static bool operator !=(InfluxDbInstanceDbInstanceType left, InfluxDbInstanceDbInstanceType right) => !left.Equals(right);

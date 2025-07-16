@@ -75,6 +75,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// &lt;p&gt;Enter any descriptive text that helps you to identify the channel.&lt;/p&gt;
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The ingest domain URL where the source stream should be sent.
+        /// </summary>
         public readonly ImmutableArray<string> IngestEndpointUrls;
         /// <summary>
         /// &lt;p&gt;The list of ingest endpoints.&lt;/p&gt;
@@ -92,9 +95,6 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
         /// </summary>
         public readonly Outputs.ChannelOutputHeaderConfiguration? OutputHeaderConfiguration;
-        /// <summary>
-        /// The tags associated with the channel.
-        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

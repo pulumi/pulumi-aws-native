@@ -26,6 +26,10 @@ export interface GetInfluxDbInstanceArgs {
 
 export interface GetInfluxDbInstanceResult {
     /**
+     * The allocated storage for the InfluxDB instance.
+     */
+    readonly allocatedStorage?: number;
+    /**
      * The Amazon Resource Name (ARN) that is associated with the InfluxDB instance.
      */
     readonly arn?: string;
@@ -41,6 +45,10 @@ export interface GetInfluxDbInstanceResult {
      * The name of an existing InfluxDB parameter group.
      */
     readonly dbParameterGroupIdentifier?: string;
+    /**
+     * The storage type of the InfluxDB instance.
+     */
+    readonly dbStorageType?: enums.timestream.InfluxDbInstanceDbStorageType;
     /**
      * Deployment type of the InfluxDB Instance.
      */

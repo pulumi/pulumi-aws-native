@@ -32,6 +32,8 @@ type LookupComponentResult struct {
 	Arn *string `pulumi:"arn"`
 	// The encryption status of the component.
 	Encrypted *bool `pulumi:"encrypted"`
+	// The tags associated with the component.
+	Tags map[string]string `pulumi:"tags"`
 	// The type of the component denotes whether the component is used to build the image or only to test it.
 	Type *ComponentType `pulumi:"type"`
 }
@@ -76,6 +78,11 @@ func (o LookupComponentResultOutput) Arn() pulumi.StringPtrOutput {
 // The encryption status of the component.
 func (o LookupComponentResultOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupComponentResult) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+// The tags associated with the component.
+func (o LookupComponentResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupComponentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The type of the component denotes whether the component is used to build the image or only to test it.

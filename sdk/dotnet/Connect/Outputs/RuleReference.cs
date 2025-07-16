@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
     {
         /// <summary>
         /// The type of the reference. ``DATE`` must be of type Epoch timestamp. 
-        ///   *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+        ///  *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.RuleReferenceType Type;
         /// <summary>

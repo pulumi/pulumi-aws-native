@@ -2290,6 +2290,7 @@ export const DataSourceResourceStatus = {
     UpdateInProgress: "UPDATE_IN_PROGRESS",
     UpdateSuccessful: "UPDATE_SUCCESSFUL",
     UpdateFailed: "UPDATE_FAILED",
+    PendingUpdate: "PENDING_UPDATE",
     Deleted: "DELETED",
 } as const;
 
@@ -2325,13 +2326,16 @@ export const DataSourceType = {
     Oracle: "ORACLE",
     Postgresql: "POSTGRESQL",
     Presto: "PRESTO",
+    Qbusiness: "QBUSINESS",
     Redshift: "REDSHIFT",
     S3: "S3",
     S3Tables: "S3_TABLES",
+    S3KnowledgeBase: "S3_KNOWLEDGE_BASE",
     Salesforce: "SALESFORCE",
     Servicenow: "SERVICENOW",
     Snowflake: "SNOWFLAKE",
     Spark: "SPARK",
+    Spice: "SPICE",
     Sqlserver: "SQLSERVER",
     Teradata: "TERADATA",
     Timestream: "TIMESTREAM",
@@ -2346,6 +2350,11 @@ export const DataSourceType = {
     Appflow: "APPFLOW",
     Impala: "IMPALA",
     Glue: "GLUE",
+    GoogleDrive: "GOOGLE_DRIVE",
+    Confluence: "CONFLUENCE",
+    Sharepoint: "SHAREPOINT",
+    OneDrive: "ONE_DRIVE",
+    WebCrawler: "WEB_CRAWLER",
 } as const;
 
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];

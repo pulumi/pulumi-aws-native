@@ -34,7 +34,8 @@ type LookupChannelResult struct {
 	// <p>The date and time the channel was created.</p>
 	CreatedAt *string `pulumi:"createdAt"`
 	// <p>Enter any descriptive text that helps you to identify the channel.</p>
-	Description        *string  `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// The ingest domain URL where the source stream should be sent.
 	IngestEndpointUrls []string `pulumi:"ingestEndpointUrls"`
 	// <p>The list of ingest endpoints.</p>
 	IngestEndpoints []ChannelIngestEndpoint `pulumi:"ingestEndpoints"`
@@ -44,8 +45,7 @@ type LookupChannelResult struct {
 	ModifiedAt *string `pulumi:"modifiedAt"`
 	// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
 	OutputHeaderConfiguration *ChannelOutputHeaderConfiguration `pulumi:"outputHeaderConfiguration"`
-	// The tags associated with the channel.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags                      []aws.Tag                         `pulumi:"tags"`
 }
 
 func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts ...pulumi.InvokeOption) LookupChannelResultOutput {
@@ -95,6 +95,7 @@ func (o LookupChannelResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ingest domain URL where the source stream should be sent.
 func (o LookupChannelResultOutput) IngestEndpointUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupChannelResult) []string { return v.IngestEndpointUrls }).(pulumi.StringArrayOutput)
 }
@@ -119,7 +120,6 @@ func (o LookupChannelResultOutput) OutputHeaderConfiguration() ChannelOutputHead
 	return o.ApplyT(func(v LookupChannelResult) *ChannelOutputHeaderConfiguration { return v.OutputHeaderConfiguration }).(ChannelOutputHeaderConfigurationPtrOutput)
 }
 
-// The tags associated with the channel.
 func (o LookupChannelResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupChannelResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -39,6 +39,28 @@ export const KeyspaceReplicationSpecificationReplicationStrategy = {
  */
 export type KeyspaceReplicationSpecificationReplicationStrategy = (typeof KeyspaceReplicationSpecificationReplicationStrategy)[keyof typeof KeyspaceReplicationSpecificationReplicationStrategy];
 
+export const TableCdcStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Indicates whether CDC is enabled or disabled for the table
+ */
+export type TableCdcStatus = (typeof TableCdcStatus)[keyof typeof TableCdcStatus];
+
+export const TableCdcViewType = {
+    NewImage: "NEW_IMAGE",
+    OldImage: "OLD_IMAGE",
+    KeysOnly: "KEYS_ONLY",
+    NewAndOldImages: "NEW_AND_OLD_IMAGES",
+} as const;
+
+/**
+ * Specifies what data should be captured in the change data stream
+ */
+export type TableCdcViewType = (typeof TableCdcViewType)[keyof typeof TableCdcViewType];
+
 export const TableClusteringKeyColumnOrderBy = {
     Asc: "ASC",
     Desc: "DESC",

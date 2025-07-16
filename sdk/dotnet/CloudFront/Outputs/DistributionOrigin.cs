@@ -73,6 +73,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         ///  For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide*.
         /// </summary>
         public readonly Outputs.DistributionOriginShield? OriginShield;
+        public readonly int? ResponseCompletionTimeout;
         /// <summary>
         /// Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead.
         /// </summary>
@@ -102,6 +103,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             Outputs.DistributionOriginShield? originShield,
 
+            int? responseCompletionTimeout,
+
             Outputs.DistributionS3OriginConfig? s3OriginConfig,
 
             Outputs.DistributionVpcOriginConfig? vpcOriginConfig)
@@ -115,6 +118,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             OriginCustomHeaders = originCustomHeaders;
             OriginPath = originPath;
             OriginShield = originShield;
+            ResponseCompletionTimeout = responseCompletionTimeout;
             S3OriginConfig = s3OriginConfig;
             VpcOriginConfig = vpcOriginConfig;
         }

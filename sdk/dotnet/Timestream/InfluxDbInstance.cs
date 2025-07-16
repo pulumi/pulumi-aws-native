@@ -184,9 +184,7 @@ namespace Pulumi.AwsNative.Timestream
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "allocatedStorage",
                     "bucket",
-                    "dbStorageType",
                     "name",
                     "networkType",
                     "organization",

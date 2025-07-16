@@ -463,6 +463,150 @@ namespace Pulumi.AwsNative.B2bi
     }
 
     [EnumType]
+    public readonly struct PartnershipLineTerminator : IEquatable<PartnershipLineTerminator>
+    {
+        private readonly string _value;
+
+        private PartnershipLineTerminator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PartnershipLineTerminator Crlf { get; } = new PartnershipLineTerminator("CRLF");
+        public static PartnershipLineTerminator Lf { get; } = new PartnershipLineTerminator("LF");
+        public static PartnershipLineTerminator Cr { get; } = new PartnershipLineTerminator("CR");
+
+        public static bool operator ==(PartnershipLineTerminator left, PartnershipLineTerminator right) => left.Equals(right);
+        public static bool operator !=(PartnershipLineTerminator left, PartnershipLineTerminator right) => !left.Equals(right);
+
+        public static explicit operator string(PartnershipLineTerminator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PartnershipLineTerminator other && Equals(other);
+        public bool Equals(PartnershipLineTerminator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PartnershipWrapFormat : IEquatable<PartnershipWrapFormat>
+    {
+        private readonly string _value;
+
+        private PartnershipWrapFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PartnershipWrapFormat Segment { get; } = new PartnershipWrapFormat("SEGMENT");
+        public static PartnershipWrapFormat OneLine { get; } = new PartnershipWrapFormat("ONE_LINE");
+        public static PartnershipWrapFormat LineLength { get; } = new PartnershipWrapFormat("LINE_LENGTH");
+
+        public static bool operator ==(PartnershipWrapFormat left, PartnershipWrapFormat right) => left.Equals(right);
+        public static bool operator !=(PartnershipWrapFormat left, PartnershipWrapFormat right) => !left.Equals(right);
+
+        public static explicit operator string(PartnershipWrapFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PartnershipWrapFormat other && Equals(other);
+        public bool Equals(PartnershipWrapFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PartnershipX12FunctionalAcknowledgment : IEquatable<PartnershipX12FunctionalAcknowledgment>
+    {
+        private readonly string _value;
+
+        private PartnershipX12FunctionalAcknowledgment(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PartnershipX12FunctionalAcknowledgment DoNotGenerate { get; } = new PartnershipX12FunctionalAcknowledgment("DO_NOT_GENERATE");
+        public static PartnershipX12FunctionalAcknowledgment GenerateAllSegments { get; } = new PartnershipX12FunctionalAcknowledgment("GENERATE_ALL_SEGMENTS");
+        public static PartnershipX12FunctionalAcknowledgment GenerateWithoutTransactionSetResponseLoop { get; } = new PartnershipX12FunctionalAcknowledgment("GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP");
+
+        public static bool operator ==(PartnershipX12FunctionalAcknowledgment left, PartnershipX12FunctionalAcknowledgment right) => left.Equals(right);
+        public static bool operator !=(PartnershipX12FunctionalAcknowledgment left, PartnershipX12FunctionalAcknowledgment right) => !left.Equals(right);
+
+        public static explicit operator string(PartnershipX12FunctionalAcknowledgment value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PartnershipX12FunctionalAcknowledgment other && Equals(other);
+        public bool Equals(PartnershipX12FunctionalAcknowledgment other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PartnershipX12TechnicalAcknowledgment : IEquatable<PartnershipX12TechnicalAcknowledgment>
+    {
+        private readonly string _value;
+
+        private PartnershipX12TechnicalAcknowledgment(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PartnershipX12TechnicalAcknowledgment DoNotGenerate { get; } = new PartnershipX12TechnicalAcknowledgment("DO_NOT_GENERATE");
+        public static PartnershipX12TechnicalAcknowledgment GenerateAllSegments { get; } = new PartnershipX12TechnicalAcknowledgment("GENERATE_ALL_SEGMENTS");
+
+        public static bool operator ==(PartnershipX12TechnicalAcknowledgment left, PartnershipX12TechnicalAcknowledgment right) => left.Equals(right);
+        public static bool operator !=(PartnershipX12TechnicalAcknowledgment left, PartnershipX12TechnicalAcknowledgment right) => !left.Equals(right);
+
+        public static explicit operator string(PartnershipX12TechnicalAcknowledgment value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PartnershipX12TechnicalAcknowledgment other && Equals(other);
+        public bool Equals(PartnershipX12TechnicalAcknowledgment other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PartnershipX12gs05TimeFormat : IEquatable<PartnershipX12gs05TimeFormat>
+    {
+        private readonly string _value;
+
+        private PartnershipX12gs05TimeFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PartnershipX12gs05TimeFormat Hhmm { get; } = new PartnershipX12gs05TimeFormat("HHMM");
+        public static PartnershipX12gs05TimeFormat Hhmmss { get; } = new PartnershipX12gs05TimeFormat("HHMMSS");
+        public static PartnershipX12gs05TimeFormat Hhmmssdd { get; } = new PartnershipX12gs05TimeFormat("HHMMSSDD");
+
+        public static bool operator ==(PartnershipX12gs05TimeFormat left, PartnershipX12gs05TimeFormat right) => left.Equals(right);
+        public static bool operator !=(PartnershipX12gs05TimeFormat left, PartnershipX12gs05TimeFormat right) => !left.Equals(right);
+
+        public static explicit operator string(PartnershipX12gs05TimeFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PartnershipX12gs05TimeFormat other && Equals(other);
+        public bool Equals(PartnershipX12gs05TimeFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ProfileLogging : IEquatable<ProfileLogging>
     {
         private readonly string _value;
@@ -622,6 +766,34 @@ namespace Pulumi.AwsNative.B2bi
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TransformerToFormat other && Equals(other);
         public bool Equals(TransformerToFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TransformerX12SplitBy : IEquatable<TransformerX12SplitBy>
+    {
+        private readonly string _value;
+
+        private TransformerX12SplitBy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TransformerX12SplitBy None { get; } = new TransformerX12SplitBy("NONE");
+        public static TransformerX12SplitBy Transaction { get; } = new TransformerX12SplitBy("TRANSACTION");
+
+        public static bool operator ==(TransformerX12SplitBy left, TransformerX12SplitBy right) => left.Equals(right);
+        public static bool operator !=(TransformerX12SplitBy left, TransformerX12SplitBy right) => !left.Equals(right);
+
+        public static explicit operator string(TransformerX12SplitBy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TransformerX12SplitBy other && Equals(other);
+        public bool Equals(TransformerX12SplitBy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

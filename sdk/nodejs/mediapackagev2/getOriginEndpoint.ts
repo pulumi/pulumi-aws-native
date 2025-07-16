@@ -37,6 +37,9 @@ export interface GetOriginEndpointResult {
      * <p>The date and time the origin endpoint was created.</p>
      */
     readonly createdAt?: string;
+    /**
+     * The egress domain URL for stream delivery from MediaPackage.
+     */
     readonly dashManifestUrls?: string[];
     /**
      * <p>A DASH manifest configuration.</p>
@@ -50,11 +53,17 @@ export interface GetOriginEndpointResult {
      * The failover settings for the endpoint.
      */
     readonly forceEndpointErrorConfiguration?: outputs.mediapackagev2.OriginEndpointForceEndpointErrorConfiguration;
+    /**
+     * The egress domain URL for stream delivery from MediaPackage.
+     */
     readonly hlsManifestUrls?: string[];
     /**
      * <p>An HTTP live streaming (HLS) manifest configuration.</p>
      */
     readonly hlsManifests?: outputs.mediapackagev2.OriginEndpointHlsManifestConfiguration[];
+    /**
+     * The egress domain URL for stream delivery from MediaPackage.
+     */
     readonly lowLatencyHlsManifestUrls?: string[];
     /**
      * <p>A low-latency HLS manifest configuration.</p>

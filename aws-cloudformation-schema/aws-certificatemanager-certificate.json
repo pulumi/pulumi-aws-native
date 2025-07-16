@@ -6,6 +6,9 @@
     "CertificateAuthorityArn" : {
       "type" : "string"
     },
+    "CertificateExport" : {
+      "type" : "string"
+    },
     "DomainValidationOptions" : {
       "type" : "array",
       "uniqueItems" : true,

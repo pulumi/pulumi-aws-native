@@ -25,6 +25,8 @@ __all__ = [
     'TableAutoScalingSpecificationArgsDict',
     'TableBillingModeArgs',
     'TableBillingModeArgsDict',
+    'TableCdcSpecificationArgs',
+    'TableCdcSpecificationArgsDict',
     'TableClusteringKeyColumnArgs',
     'TableClusteringKeyColumnArgsDict',
     'TableColumnArgs',
@@ -340,6 +342,82 @@ class TableBillingModeArgs:
     @provisioned_throughput.setter
     def provisioned_throughput(self, value: Optional[pulumi.Input['TableProvisionedThroughputArgs']]):
         pulumi.set(self, "provisioned_throughput", value)
+
+
+if not MYPY:
+    class TableCdcSpecificationArgsDict(TypedDict):
+        """
+        Represents the CDC configuration for the table
+        """
+        status: pulumi.Input['TableCdcStatus']
+        """
+        The status of the CDC stream. You can enable or disable a stream for a table.
+        """
+        view_type: NotRequired[pulumi.Input['TableCdcViewType']]
+        """
+        The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
+
+        The options are:
+
+        - `NEW_AND_OLD_IMAGES` - both versions of the row, before and after the change. This is the default.
+        - `NEW_IMAGE` - the version of the row after the change.
+        - `OLD_IMAGE` - the version of the row before the change.
+        - `KEYS_ONLY` - the partition and clustering keys of the row that was changed.
+        """
+elif False:
+    TableCdcSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableCdcSpecificationArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input['TableCdcStatus'],
+                 view_type: Optional[pulumi.Input['TableCdcViewType']] = None):
+        """
+        Represents the CDC configuration for the table
+        :param pulumi.Input['TableCdcStatus'] status: The status of the CDC stream. You can enable or disable a stream for a table.
+        :param pulumi.Input['TableCdcViewType'] view_type: The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
+               
+               The options are:
+               
+               - `NEW_AND_OLD_IMAGES` - both versions of the row, before and after the change. This is the default.
+               - `NEW_IMAGE` - the version of the row after the change.
+               - `OLD_IMAGE` - the version of the row before the change.
+               - `KEYS_ONLY` - the partition and clustering keys of the row that was changed.
+        """
+        pulumi.set(__self__, "status", status)
+        if view_type is not None:
+            pulumi.set(__self__, "view_type", view_type)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input['TableCdcStatus']:
+        """
+        The status of the CDC stream. You can enable or disable a stream for a table.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input['TableCdcStatus']):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="viewType")
+    def view_type(self) -> Optional[pulumi.Input['TableCdcViewType']]:
+        """
+        The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
+
+        The options are:
+
+        - `NEW_AND_OLD_IMAGES` - both versions of the row, before and after the change. This is the default.
+        - `NEW_IMAGE` - the version of the row after the change.
+        - `OLD_IMAGE` - the version of the row before the change.
+        - `KEYS_ONLY` - the partition and clustering keys of the row that was changed.
+        """
+        return pulumi.get(self, "view_type")
+
+    @view_type.setter
+    def view_type(self, value: Optional[pulumi.Input['TableCdcViewType']]):
+        pulumi.set(self, "view_type", value)
 
 
 if not MYPY:

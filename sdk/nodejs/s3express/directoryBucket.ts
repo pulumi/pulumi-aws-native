@@ -65,6 +65,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
      * Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
      */
     public readonly locationName!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DirectoryBucket resource with the given unique name, arguments, and options.
@@ -88,6 +89,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
             resourceInputs["dataRedundancy"] = args ? args.dataRedundancy : undefined;
             resourceInputs["lifecycleConfiguration"] = args ? args.lifecycleConfiguration : undefined;
             resourceInputs["locationName"] = args ? args.locationName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZoneName"] = undefined /*out*/;
         } else {
@@ -98,6 +100,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
             resourceInputs["dataRedundancy"] = undefined /*out*/;
             resourceInputs["lifecycleConfiguration"] = undefined /*out*/;
             resourceInputs["locationName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["bucketName", "dataRedundancy", "locationName"] };
@@ -130,4 +133,5 @@ export interface DirectoryBucketArgs {
      * Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
      */
     locationName: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

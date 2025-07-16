@@ -141,6 +141,10 @@ __all__ = [
     'MessageTemplateSystemAttributesArgsDict',
     'MessageTemplateSystemEndpointAttributesArgs',
     'MessageTemplateSystemEndpointAttributesArgsDict',
+    'QuickResponseContentProviderArgs',
+    'QuickResponseContentProviderArgsDict',
+    'QuickResponseGroupingConfigurationArgs',
+    'QuickResponseGroupingConfigurationArgsDict',
 ]
 
 MYPY = False
@@ -4027,5 +4031,95 @@ class MessageTemplateSystemEndpointAttributesArgs:
     @address.setter
     def address(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "address", value)
+
+
+if not MYPY:
+    class QuickResponseContentProviderArgsDict(TypedDict):
+        """
+        The container of quick response content.
+        """
+        content: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The content of the quick response.
+        """
+elif False:
+    QuickResponseContentProviderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class QuickResponseContentProviderArgs:
+    def __init__(__self__, *,
+                 content: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        The container of quick response content.
+        :param pulumi.Input[builtins.str] content: The content of the quick response.
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The content of the quick response.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "content", value)
+
+
+if not MYPY:
+    class QuickResponseGroupingConfigurationArgsDict(TypedDict):
+        """
+        The configuration information of the user groups that the quick response is accessible to.
+        """
+        criteria: pulumi.Input[builtins.str]
+        """
+        The criteria used for grouping Amazon Q in Connect users.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+        """
+        The list of values that define different groups of Amazon Q in Connect users.
+        """
+elif False:
+    QuickResponseGroupingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class QuickResponseGroupingConfigurationArgs:
+    def __init__(__self__, *,
+                 criteria: pulumi.Input[builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        """
+        The configuration information of the user groups that the quick response is accessible to.
+        :param pulumi.Input[builtins.str] criteria: The criteria used for grouping Amazon Q in Connect users.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: The list of values that define different groups of Amazon Q in Connect users.
+        """
+        pulumi.set(__self__, "criteria", criteria)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> pulumi.Input[builtins.str]:
+        """
+        The criteria used for grouping Amazon Q in Connect users.
+        """
+        return pulumi.get(self, "criteria")
+
+    @criteria.setter
+    def criteria(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "criteria", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        """
+        The list of values that define different groups of Amazon Q in Connect users.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "values", value)
 
 

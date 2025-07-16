@@ -1026,6 +1026,171 @@ func (in *serviceAwsVpcConfigurationAssignPublicIpPtr) ToServiceAwsVpcConfigurat
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput)
 }
 
+type ServiceDeploymentConfigurationStrategy string
+
+const (
+	ServiceDeploymentConfigurationStrategyRolling   = ServiceDeploymentConfigurationStrategy("ROLLING")
+	ServiceDeploymentConfigurationStrategyBlueGreen = ServiceDeploymentConfigurationStrategy("BLUE_GREEN")
+)
+
+func (ServiceDeploymentConfigurationStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentConfigurationStrategy)(nil)).Elem()
+}
+
+func (e ServiceDeploymentConfigurationStrategy) ToServiceDeploymentConfigurationStrategyOutput() ServiceDeploymentConfigurationStrategyOutput {
+	return pulumi.ToOutput(e).(ServiceDeploymentConfigurationStrategyOutput)
+}
+
+func (e ServiceDeploymentConfigurationStrategy) ToServiceDeploymentConfigurationStrategyOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceDeploymentConfigurationStrategyOutput)
+}
+
+func (e ServiceDeploymentConfigurationStrategy) ToServiceDeploymentConfigurationStrategyPtrOutput() ServiceDeploymentConfigurationStrategyPtrOutput {
+	return e.ToServiceDeploymentConfigurationStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceDeploymentConfigurationStrategy) ToServiceDeploymentConfigurationStrategyPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationStrategyPtrOutput {
+	return ServiceDeploymentConfigurationStrategy(e).ToServiceDeploymentConfigurationStrategyOutputWithContext(ctx).ToServiceDeploymentConfigurationStrategyPtrOutputWithContext(ctx)
+}
+
+func (e ServiceDeploymentConfigurationStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceDeploymentConfigurationStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceDeploymentConfigurationStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceDeploymentConfigurationStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceDeploymentConfigurationStrategyOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentConfigurationStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentConfigurationStrategy)(nil)).Elem()
+}
+
+func (o ServiceDeploymentConfigurationStrategyOutput) ToServiceDeploymentConfigurationStrategyOutput() ServiceDeploymentConfigurationStrategyOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationStrategyOutput) ToServiceDeploymentConfigurationStrategyOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationStrategyOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationStrategyOutput) ToServiceDeploymentConfigurationStrategyPtrOutput() ServiceDeploymentConfigurationStrategyPtrOutput {
+	return o.ToServiceDeploymentConfigurationStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentConfigurationStrategyOutput) ToServiceDeploymentConfigurationStrategyPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDeploymentConfigurationStrategy) *ServiceDeploymentConfigurationStrategy {
+		return &v
+	}).(ServiceDeploymentConfigurationStrategyPtrOutput)
+}
+
+func (o ServiceDeploymentConfigurationStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentConfigurationStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceDeploymentConfigurationStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceDeploymentConfigurationStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentConfigurationStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceDeploymentConfigurationStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceDeploymentConfigurationStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentConfigurationStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDeploymentConfigurationStrategy)(nil)).Elem()
+}
+
+func (o ServiceDeploymentConfigurationStrategyPtrOutput) ToServiceDeploymentConfigurationStrategyPtrOutput() ServiceDeploymentConfigurationStrategyPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationStrategyPtrOutput) ToServiceDeploymentConfigurationStrategyPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationStrategyPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationStrategyPtrOutput) Elem() ServiceDeploymentConfigurationStrategyOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfigurationStrategy) ServiceDeploymentConfigurationStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDeploymentConfigurationStrategy
+		return ret
+	}).(ServiceDeploymentConfigurationStrategyOutput)
+}
+
+func (o ServiceDeploymentConfigurationStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentConfigurationStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceDeploymentConfigurationStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceDeploymentConfigurationStrategyInput is an input type that accepts values of the ServiceDeploymentConfigurationStrategy enum
+// A concrete instance of `ServiceDeploymentConfigurationStrategyInput` can be one of the following:
+//
+//	ServiceDeploymentConfigurationStrategyRolling
+//	ServiceDeploymentConfigurationStrategyBlueGreen
+type ServiceDeploymentConfigurationStrategyInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentConfigurationStrategyOutput() ServiceDeploymentConfigurationStrategyOutput
+	ToServiceDeploymentConfigurationStrategyOutputWithContext(context.Context) ServiceDeploymentConfigurationStrategyOutput
+}
+
+var serviceDeploymentConfigurationStrategyPtrType = reflect.TypeOf((**ServiceDeploymentConfigurationStrategy)(nil)).Elem()
+
+type ServiceDeploymentConfigurationStrategyPtrInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentConfigurationStrategyPtrOutput() ServiceDeploymentConfigurationStrategyPtrOutput
+	ToServiceDeploymentConfigurationStrategyPtrOutputWithContext(context.Context) ServiceDeploymentConfigurationStrategyPtrOutput
+}
+
+type serviceDeploymentConfigurationStrategyPtr string
+
+func ServiceDeploymentConfigurationStrategyPtr(v string) ServiceDeploymentConfigurationStrategyPtrInput {
+	return (*serviceDeploymentConfigurationStrategyPtr)(&v)
+}
+
+func (*serviceDeploymentConfigurationStrategyPtr) ElementType() reflect.Type {
+	return serviceDeploymentConfigurationStrategyPtrType
+}
+
+func (in *serviceDeploymentConfigurationStrategyPtr) ToServiceDeploymentConfigurationStrategyPtrOutput() ServiceDeploymentConfigurationStrategyPtrOutput {
+	return pulumi.ToOutput(in).(ServiceDeploymentConfigurationStrategyPtrOutput)
+}
+
+func (in *serviceDeploymentConfigurationStrategyPtr) ToServiceDeploymentConfigurationStrategyPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceDeploymentConfigurationStrategyPtrOutput)
+}
+
 // The deployment controller type to use. There are three deployment controller types available:
 //   - ECS The rolling update (ECS) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the DeploymentConfiguration. + CODE_DEPLOY The blue/green (CODE_DEPLOY) deployment type uses the blue/green deployment model powered by , which allows you to verify a new deployment of a service before sending production traffic to it. + EXTERNAL The external (EXTERNAL) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
 type ServiceDeploymentControllerType string
@@ -1193,6 +1358,226 @@ func (in *serviceDeploymentControllerTypePtr) ToServiceDeploymentControllerTypeP
 
 func (in *serviceDeploymentControllerTypePtr) ToServiceDeploymentControllerTypePtrOutputWithContext(ctx context.Context) ServiceDeploymentControllerTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceDeploymentControllerTypePtrOutput)
+}
+
+type ServiceDeploymentLifecycleHookLifecycleStagesItem string
+
+const (
+	ServiceDeploymentLifecycleHookLifecycleStagesItemReconcileService           = ServiceDeploymentLifecycleHookLifecycleStagesItem("RECONCILE_SERVICE")
+	ServiceDeploymentLifecycleHookLifecycleStagesItemPreScaleUp                 = ServiceDeploymentLifecycleHookLifecycleStagesItem("PRE_SCALE_UP")
+	ServiceDeploymentLifecycleHookLifecycleStagesItemPostScaleUp                = ServiceDeploymentLifecycleHookLifecycleStagesItem("POST_SCALE_UP")
+	ServiceDeploymentLifecycleHookLifecycleStagesItemTestTrafficShift           = ServiceDeploymentLifecycleHookLifecycleStagesItem("TEST_TRAFFIC_SHIFT")
+	ServiceDeploymentLifecycleHookLifecycleStagesItemPostTestTrafficShift       = ServiceDeploymentLifecycleHookLifecycleStagesItem("POST_TEST_TRAFFIC_SHIFT")
+	ServiceDeploymentLifecycleHookLifecycleStagesItemProductionTrafficShift     = ServiceDeploymentLifecycleHookLifecycleStagesItem("PRODUCTION_TRAFFIC_SHIFT")
+	ServiceDeploymentLifecycleHookLifecycleStagesItemPostProductionTrafficShift = ServiceDeploymentLifecycleHookLifecycleStagesItem("POST_PRODUCTION_TRAFFIC_SHIFT")
+)
+
+func (ServiceDeploymentLifecycleHookLifecycleStagesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentLifecycleHookLifecycleStagesItem)(nil)).Elem()
+}
+
+func (e ServiceDeploymentLifecycleHookLifecycleStagesItem) ToServiceDeploymentLifecycleHookLifecycleStagesItemOutput() ServiceDeploymentLifecycleHookLifecycleStagesItemOutput {
+	return pulumi.ToOutput(e).(ServiceDeploymentLifecycleHookLifecycleStagesItemOutput)
+}
+
+func (e ServiceDeploymentLifecycleHookLifecycleStagesItem) ToServiceDeploymentLifecycleHookLifecycleStagesItemOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookLifecycleStagesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceDeploymentLifecycleHookLifecycleStagesItemOutput)
+}
+
+func (e ServiceDeploymentLifecycleHookLifecycleStagesItem) ToServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput() ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput {
+	return e.ToServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceDeploymentLifecycleHookLifecycleStagesItem) ToServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput {
+	return ServiceDeploymentLifecycleHookLifecycleStagesItem(e).ToServiceDeploymentLifecycleHookLifecycleStagesItemOutputWithContext(ctx).ToServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutputWithContext(ctx)
+}
+
+func (e ServiceDeploymentLifecycleHookLifecycleStagesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceDeploymentLifecycleHookLifecycleStagesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceDeploymentLifecycleHookLifecycleStagesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceDeploymentLifecycleHookLifecycleStagesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceDeploymentLifecycleHookLifecycleStagesItemOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentLifecycleHookLifecycleStagesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentLifecycleHookLifecycleStagesItem)(nil)).Elem()
+}
+
+func (o ServiceDeploymentLifecycleHookLifecycleStagesItemOutput) ToServiceDeploymentLifecycleHookLifecycleStagesItemOutput() ServiceDeploymentLifecycleHookLifecycleStagesItemOutput {
+	return o
+}
+
+func (o ServiceDeploymentLifecycleHookLifecycleStagesItemOutput) ToServiceDeploymentLifecycleHookLifecycleStagesItemOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookLifecycleStagesItemOutput {
+	return o
+}
+
+func (o ServiceDeploymentLifecycleHookLifecycleStagesItemOutput) ToServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput() ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput {
+	return o.ToServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentLifecycleHookLifecycleStagesItemOutput) ToServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDeploymentLifecycleHookLifecycleStagesItem) *ServiceDeploymentLifecycleHookLifecycleStagesItem {
+		return &v
+	}).(ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput)
+}
+
+func (o ServiceDeploymentLifecycleHookLifecycleStagesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentLifecycleHookLifecycleStagesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceDeploymentLifecycleHookLifecycleStagesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceDeploymentLifecycleHookLifecycleStagesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentLifecycleHookLifecycleStagesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceDeploymentLifecycleHookLifecycleStagesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDeploymentLifecycleHookLifecycleStagesItem)(nil)).Elem()
+}
+
+func (o ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput) ToServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput() ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput) ToServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput) Elem() ServiceDeploymentLifecycleHookLifecycleStagesItemOutput {
+	return o.ApplyT(func(v *ServiceDeploymentLifecycleHookLifecycleStagesItem) ServiceDeploymentLifecycleHookLifecycleStagesItem {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDeploymentLifecycleHookLifecycleStagesItem
+		return ret
+	}).(ServiceDeploymentLifecycleHookLifecycleStagesItemOutput)
+}
+
+func (o ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceDeploymentLifecycleHookLifecycleStagesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceDeploymentLifecycleHookLifecycleStagesItemInput is an input type that accepts values of the ServiceDeploymentLifecycleHookLifecycleStagesItem enum
+// A concrete instance of `ServiceDeploymentLifecycleHookLifecycleStagesItemInput` can be one of the following:
+//
+//	ServiceDeploymentLifecycleHookLifecycleStagesItemReconcileService
+//	ServiceDeploymentLifecycleHookLifecycleStagesItemPreScaleUp
+//	ServiceDeploymentLifecycleHookLifecycleStagesItemPostScaleUp
+//	ServiceDeploymentLifecycleHookLifecycleStagesItemTestTrafficShift
+//	ServiceDeploymentLifecycleHookLifecycleStagesItemPostTestTrafficShift
+//	ServiceDeploymentLifecycleHookLifecycleStagesItemProductionTrafficShift
+//	ServiceDeploymentLifecycleHookLifecycleStagesItemPostProductionTrafficShift
+type ServiceDeploymentLifecycleHookLifecycleStagesItemInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentLifecycleHookLifecycleStagesItemOutput() ServiceDeploymentLifecycleHookLifecycleStagesItemOutput
+	ToServiceDeploymentLifecycleHookLifecycleStagesItemOutputWithContext(context.Context) ServiceDeploymentLifecycleHookLifecycleStagesItemOutput
+}
+
+var serviceDeploymentLifecycleHookLifecycleStagesItemPtrType = reflect.TypeOf((**ServiceDeploymentLifecycleHookLifecycleStagesItem)(nil)).Elem()
+
+type ServiceDeploymentLifecycleHookLifecycleStagesItemPtrInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput() ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput
+	ToServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutputWithContext(context.Context) ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput
+}
+
+type serviceDeploymentLifecycleHookLifecycleStagesItemPtr string
+
+func ServiceDeploymentLifecycleHookLifecycleStagesItemPtr(v string) ServiceDeploymentLifecycleHookLifecycleStagesItemPtrInput {
+	return (*serviceDeploymentLifecycleHookLifecycleStagesItemPtr)(&v)
+}
+
+func (*serviceDeploymentLifecycleHookLifecycleStagesItemPtr) ElementType() reflect.Type {
+	return serviceDeploymentLifecycleHookLifecycleStagesItemPtrType
+}
+
+func (in *serviceDeploymentLifecycleHookLifecycleStagesItemPtr) ToServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput() ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput {
+	return pulumi.ToOutput(in).(ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput)
+}
+
+func (in *serviceDeploymentLifecycleHookLifecycleStagesItemPtr) ToServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput)
+}
+
+// ServiceDeploymentLifecycleHookLifecycleStagesItemArrayInput is an input type that accepts ServiceDeploymentLifecycleHookLifecycleStagesItemArray and ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput values.
+// You can construct a concrete instance of `ServiceDeploymentLifecycleHookLifecycleStagesItemArrayInput` via:
+//
+//	ServiceDeploymentLifecycleHookLifecycleStagesItemArray{ ServiceDeploymentLifecycleHookLifecycleStagesItemArgs{...} }
+type ServiceDeploymentLifecycleHookLifecycleStagesItemArrayInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput() ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput
+	ToServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutputWithContext(context.Context) ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput
+}
+
+type ServiceDeploymentLifecycleHookLifecycleStagesItemArray []ServiceDeploymentLifecycleHookLifecycleStagesItem
+
+func (ServiceDeploymentLifecycleHookLifecycleStagesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceDeploymentLifecycleHookLifecycleStagesItem)(nil)).Elem()
+}
+
+func (i ServiceDeploymentLifecycleHookLifecycleStagesItemArray) ToServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput() ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput {
+	return i.ToServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentLifecycleHookLifecycleStagesItemArray) ToServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput)
+}
+
+type ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceDeploymentLifecycleHookLifecycleStagesItem)(nil)).Elem()
+}
+
+func (o ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput) ToServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput() ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput {
+	return o
+}
+
+func (o ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput) ToServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutputWithContext(ctx context.Context) ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput {
+	return o
+}
+
+func (o ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput) Index(i pulumi.IntInput) ServiceDeploymentLifecycleHookLifecycleStagesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceDeploymentLifecycleHookLifecycleStagesItem {
+		return vs[0].([]ServiceDeploymentLifecycleHookLifecycleStagesItem)[vs[1].(int)]
+	}).(ServiceDeploymentLifecycleHookLifecycleStagesItemOutput)
 }
 
 // Determines whether to propagate the tags from the task definition to
@@ -3385,8 +3770,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAvailabilityZoneRebalancingPtrInput)(nil)).Elem(), ServiceAvailabilityZoneRebalancing("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationAssignPublicIpInput)(nil)).Elem(), ServiceAwsVpcConfigurationAssignPublicIp("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationAssignPublicIpPtrInput)(nil)).Elem(), ServiceAwsVpcConfigurationAssignPublicIp("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationStrategyInput)(nil)).Elem(), ServiceDeploymentConfigurationStrategy("ROLLING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationStrategyPtrInput)(nil)).Elem(), ServiceDeploymentConfigurationStrategy("ROLLING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerTypeInput)(nil)).Elem(), ServiceDeploymentControllerType("CODE_DEPLOY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerTypePtrInput)(nil)).Elem(), ServiceDeploymentControllerType("CODE_DEPLOY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentLifecycleHookLifecycleStagesItemInput)(nil)).Elem(), ServiceDeploymentLifecycleHookLifecycleStagesItem("RECONCILE_SERVICE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentLifecycleHookLifecycleStagesItemPtrInput)(nil)).Elem(), ServiceDeploymentLifecycleHookLifecycleStagesItem("RECONCILE_SERVICE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentLifecycleHookLifecycleStagesItemArrayInput)(nil)).Elem(), ServiceDeploymentLifecycleHookLifecycleStagesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEbsTagSpecificationPropagateTagsInput)(nil)).Elem(), ServiceEbsTagSpecificationPropagateTags("SERVICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEbsTagSpecificationPropagateTagsPtrInput)(nil)).Elem(), ServiceEbsTagSpecificationPropagateTags("SERVICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLaunchTypeInput)(nil)).Elem(), ServiceLaunchType("EC2"))
@@ -3425,8 +3815,13 @@ func init() {
 	pulumi.RegisterOutputType(ServiceAvailabilityZoneRebalancingPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationAssignPublicIpOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentConfigurationStrategyOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentConfigurationStrategyPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerTypeOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerTypePtrOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentLifecycleHookLifecycleStagesItemOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEbsTagSpecificationPropagateTagsOutput{})
 	pulumi.RegisterOutputType(ServiceEbsTagSpecificationPropagateTagsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLaunchTypeOutput{})

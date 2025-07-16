@@ -12,21 +12,24 @@ namespace Pulumi.AwsNative.ApiGateway
     public static class GetDomainName
     {
         /// <summary>
-        /// The ``AWS::ApiGateway::DomainName`` resource specifies a custom domain name for your API in API Gateway.
+        /// The ``AWS::ApiGateway::DomainName`` resource specifies a public custom domain name for your API in API Gateway.
+        ///  To create a custom domain name for private APIs, use [AWS::ApiGateway::DomainNameV2](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html).
         ///  You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
         /// </summary>
         public static Task<GetDomainNameResult> InvokeAsync(GetDomainNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainNameResult>("aws-native:apigateway:getDomainName", args ?? new GetDomainNameArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The ``AWS::ApiGateway::DomainName`` resource specifies a custom domain name for your API in API Gateway.
+        /// The ``AWS::ApiGateway::DomainName`` resource specifies a public custom domain name for your API in API Gateway.
+        ///  To create a custom domain name for private APIs, use [AWS::ApiGateway::DomainNameV2](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html).
         ///  You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
         /// </summary>
         public static Output<GetDomainNameResult> Invoke(GetDomainNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainNameResult>("aws-native:apigateway:getDomainName", args ?? new GetDomainNameInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The ``AWS::ApiGateway::DomainName`` resource specifies a custom domain name for your API in API Gateway.
+        /// The ``AWS::ApiGateway::DomainName`` resource specifies a public custom domain name for your API in API Gateway.
+        ///  To create a custom domain name for private APIs, use [AWS::ApiGateway::DomainNameV2](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html).
         ///  You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
         /// </summary>
         public static Output<GetDomainNameResult> Invoke(GetDomainNameInvokeArgs args, InvokeOutputOptions options)

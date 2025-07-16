@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.QBusiness
         public Output<string> ApplicationId { get; private set; } = null!;
 
         /// <summary>
+        /// The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
+        /// </summary>
+        [Output("authenticationDetail")]
+        public Output<Outputs.DataAccessorAuthenticationDetail?> AuthenticationDetail { get; private set; } = null!;
+
+        /// <summary>
         /// The timestamp when the data accessor was created.
         /// </summary>
         [Output("createdAt")]
@@ -142,6 +148,12 @@ namespace Pulumi.AwsNative.QBusiness
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
+
+        /// <summary>
+        /// The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
+        /// </summary>
+        [Input("authenticationDetail")]
+        public Input<Inputs.DataAccessorAuthenticationDetailArgs>? AuthenticationDetail { get; set; }
 
         /// <summary>
         /// The friendly name of the data accessor.

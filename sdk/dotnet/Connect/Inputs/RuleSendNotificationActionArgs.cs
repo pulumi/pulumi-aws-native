@@ -23,14 +23,14 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
         /// <summary>
         /// Content type format.
-        ///   *Allowed value*: ``PLAIN_TEXT``
+        ///  *Allowed value*: ``PLAIN_TEXT``
         /// </summary>
         [Input("contentType", required: true)]
         public Input<Pulumi.AwsNative.Connect.RuleSendNotificationActionContentType> ContentType { get; set; } = null!;
 
         /// <summary>
         /// Notification delivery method.
-        ///   *Allowed value*: ``EMAIL``
+        ///  *Allowed value*: ``EMAIL``
         /// </summary>
         [Input("deliveryMethod", required: true)]
         public Input<Pulumi.AwsNative.Connect.RuleSendNotificationActionDeliveryMethod> DeliveryMethod { get; set; } = null!;

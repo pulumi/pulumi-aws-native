@@ -123,6 +123,7 @@ namespace Pulumi.AwsNative.S3
         /// Settings that define where logs are stored.
         /// </summary>
         public readonly Outputs.BucketLoggingConfiguration? LoggingConfiguration;
+        public readonly Outputs.BucketMetadataConfiguration? MetadataConfiguration;
         /// <summary>
         /// The metadata table configuration of an S3 general purpose bucket.
         /// </summary>
@@ -212,6 +213,8 @@ namespace Pulumi.AwsNative.S3
 
             Outputs.BucketLoggingConfiguration? loggingConfiguration,
 
+            Outputs.BucketMetadataConfiguration? metadataConfiguration,
+
             Outputs.BucketMetadataTableConfiguration? metadataTableConfiguration,
 
             ImmutableArray<Outputs.BucketMetricsConfiguration> metricsConfigurations,
@@ -249,6 +252,7 @@ namespace Pulumi.AwsNative.S3
             InventoryConfigurations = inventoryConfigurations;
             LifecycleConfiguration = lifecycleConfiguration;
             LoggingConfiguration = loggingConfiguration;
+            MetadataConfiguration = metadataConfiguration;
             MetadataTableConfiguration = metadataTableConfiguration;
             MetricsConfigurations = metricsConfigurations;
             NotificationConfiguration = notificationConfiguration;

@@ -20,6 +20,7 @@ import * as b2bi from "./b2bi";
 import * as backup from "./backup";
 import * as batch from "./batch";
 import * as bedrock from "./bedrock";
+import * as billing from "./billing";
 import * as budgets from "./budgets";
 import * as cassandra from "./cassandra";
 import * as ce from "./ce";
@@ -116,6 +117,7 @@ import * as msk from "./msk";
 import * as mwaa from "./mwaa";
 import * as networkfirewall from "./networkfirewall";
 import * as oam from "./oam";
+import * as odb from "./odb";
 import * as omics from "./omics";
 import * as opensearchserverless from "./opensearchserverless";
 import * as opensearchservice from "./opensearchservice";
@@ -199,6 +201,7 @@ export {
     backup,
     batch,
     bedrock,
+    billing,
     budgets,
     cassandra,
     ce,
@@ -295,6 +298,7 @@ export {
     mwaa,
     networkfirewall,
     oam,
+    odb,
     omics,
     opensearchserverless,
     opensearchservice,

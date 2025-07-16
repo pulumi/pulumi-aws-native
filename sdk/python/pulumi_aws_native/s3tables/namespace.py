@@ -24,6 +24,7 @@ class NamespaceArgs:
                  table_bucket_arn: pulumi.Input[builtins.str]):
         """
         The set of arguments for constructing a Namespace resource.
+        :param pulumi.Input[builtins.str] namespace: The name of the namespace.
         """
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
@@ -31,6 +32,9 @@ class NamespaceArgs:
     @property
     @pulumi.getter
     def namespace(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the namespace.
+        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -61,6 +65,7 @@ class Namespace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] namespace: The name of the namespace.
         """
         ...
     @overload
@@ -134,6 +139,9 @@ class Namespace(pulumi.CustomResource):
     @property
     @pulumi.getter
     def namespace(self) -> pulumi.Output[builtins.str]:
+        """
+        The name of the namespace.
+        """
         return pulumi.get(self, "namespace")
 
     @property

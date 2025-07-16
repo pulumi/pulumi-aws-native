@@ -17,6 +17,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PartnershipArgs', 'Partnership']
@@ -34,9 +35,11 @@ class PartnershipArgs:
         """
         The set of arguments for constructing a Partnership resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] capabilities: Returns one or more capabilities associated with this partnership.
+        :param pulumi.Input[builtins.str] email: Specifies the email address associated with this trading partner.
         :param pulumi.Input[builtins.str] profile_id: Returns the unique, system-generated identifier for the profile connected to this partnership.
         :param pulumi.Input['PartnershipCapabilityOptionsArgs'] capability_options: Contains the details for an Outbound EDI capability.
         :param pulumi.Input[builtins.str] name: Returns the name of the partnership.
+        :param pulumi.Input[builtins.str] phone: Specifies the phone number associated with the partnership.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
         pulumi.set(__self__, "capabilities", capabilities)
@@ -66,6 +69,9 @@ class PartnershipArgs:
     @property
     @pulumi.getter
     def email(self) -> pulumi.Input[builtins.str]:
+        """
+        Specifies the email address associated with this trading partner.
+        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -111,6 +117,9 @@ class PartnershipArgs:
     @property
     @pulumi.getter
     def phone(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the phone number associated with the partnership.
+        """
         return pulumi.get(self, "phone")
 
     @phone.setter
@@ -151,7 +160,9 @@ class Partnership(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] capabilities: Returns one or more capabilities associated with this partnership.
         :param pulumi.Input[Union['PartnershipCapabilityOptionsArgs', 'PartnershipCapabilityOptionsArgsDict']] capability_options: Contains the details for an Outbound EDI capability.
+        :param pulumi.Input[builtins.str] email: Specifies the email address associated with this trading partner.
         :param pulumi.Input[builtins.str] name: Returns the name of the partnership.
+        :param pulumi.Input[builtins.str] phone: Specifies the phone number associated with the partnership.
         :param pulumi.Input[builtins.str] profile_id: Returns the unique, system-generated identifier for the profile connected to this partnership.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
@@ -278,6 +289,9 @@ class Partnership(pulumi.CustomResource):
     @property
     @pulumi.getter
     def email(self) -> pulumi.Output[builtins.str]:
+        """
+        Specifies the email address associated with this trading partner.
+        """
         return pulumi.get(self, "email")
 
     @property
@@ -315,6 +329,9 @@ class Partnership(pulumi.CustomResource):
     @property
     @pulumi.getter
     def phone(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Specifies the phone number associated with the partnership.
+        """
         return pulumi.get(self, "phone")
 
     @property

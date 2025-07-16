@@ -466,8 +466,8 @@ class LicenseInfoProperties(dict):
                  vsan_key: builtins.str):
         """
         The license information for an EVS environment
-        :param builtins.str solution_key: The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server.
-        :param builtins.str vsan_key: The VSAN license key. This license unlocks vSAN features.
+        :param builtins.str solution_key: The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server. The VCF solution key must cover a minimum of 256 cores.
+        :param builtins.str vsan_key: The VSAN license key. This license unlocks vSAN features. The vSAN license key must provide at least 110 TiB of vSAN capacity.
         """
         pulumi.set(__self__, "solution_key", solution_key)
         pulumi.set(__self__, "vsan_key", vsan_key)
@@ -476,7 +476,7 @@ class LicenseInfoProperties(dict):
     @pulumi.getter(name="solutionKey")
     def solution_key(self) -> builtins.str:
         """
-        The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server.
+        The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server. The VCF solution key must cover a minimum of 256 cores.
         """
         return pulumi.get(self, "solution_key")
 
@@ -484,7 +484,7 @@ class LicenseInfoProperties(dict):
     @pulumi.getter(name="vsanKey")
     def vsan_key(self) -> builtins.str:
         """
-        The VSAN license key. This license unlocks vSAN features.
+        The VSAN license key. This license unlocks vSAN features. The vSAN license key must provide at least 110 TiB of vSAN capacity.
         """
         return pulumi.get(self, "vsan_key")
 

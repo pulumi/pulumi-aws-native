@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        [Output("conditions")]
+        public Output<ImmutableArray<Outputs.PermissionCondition>> Conditions { get; private set; } = null!;
+
         /// <summary>
         /// Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
         /// </summary>
@@ -66,6 +69,7 @@ namespace Pulumi.AwsNative.QBusiness
                 {
                     "actions[*]",
                     "applicationId",
+                    "conditions[*]",
                     "principal",
                     "statementId",
                 },
@@ -108,6 +112,14 @@ namespace Pulumi.AwsNative.QBusiness
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
+
+        [Input("conditions")]
+        private InputList<Inputs.PermissionConditionArgs>? _conditions;
+        public InputList<Inputs.PermissionConditionArgs> Conditions
+        {
+            get => _conditions ?? (_conditions = new InputList<Inputs.PermissionConditionArgs>());
+            set => _conditions = value;
+        }
 
         /// <summary>
         /// Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.

@@ -77,6 +77,8 @@ if typing.TYPE_CHECKING:
     batch = __batch
     import pulumi_aws_native.bedrock as __bedrock
     bedrock = __bedrock
+    import pulumi_aws_native.billing as __billing
+    billing = __billing
     import pulumi_aws_native.budgets as __budgets
     budgets = __budgets
     import pulumi_aws_native.cassandra as __cassandra
@@ -327,6 +329,8 @@ if typing.TYPE_CHECKING:
     nimblestudio = __nimblestudio
     import pulumi_aws_native.oam as __oam
     oam = __oam
+    import pulumi_aws_native.odb as __odb
+    odb = __odb
     import pulumi_aws_native.omics as __omics
     omics = __omics
     import pulumi_aws_native.opensearchserverless as __opensearchserverless
@@ -507,6 +511,7 @@ else:
     backupgateway = _utilities.lazy_import('pulumi_aws_native.backupgateway')
     batch = _utilities.lazy_import('pulumi_aws_native.batch')
     bedrock = _utilities.lazy_import('pulumi_aws_native.bedrock')
+    billing = _utilities.lazy_import('pulumi_aws_native.billing')
     budgets = _utilities.lazy_import('pulumi_aws_native.budgets')
     cassandra = _utilities.lazy_import('pulumi_aws_native.cassandra')
     ce = _utilities.lazy_import('pulumi_aws_native.ce')
@@ -632,6 +637,7 @@ else:
     networkmanager = _utilities.lazy_import('pulumi_aws_native.networkmanager')
     nimblestudio = _utilities.lazy_import('pulumi_aws_native.nimblestudio')
     oam = _utilities.lazy_import('pulumi_aws_native.oam')
+    odb = _utilities.lazy_import('pulumi_aws_native.odb')
     omics = _utilities.lazy_import('pulumi_aws_native.omics')
     opensearchserverless = _utilities.lazy_import('pulumi_aws_native.opensearchserverless')
     opensearchservice = _utilities.lazy_import('pulumi_aws_native.opensearchservice')
@@ -1037,6 +1043,14 @@ _utilities.register(
    "aws-native:bedrock:KnowledgeBase": "KnowledgeBase",
    "aws-native:bedrock:Prompt": "Prompt",
    "aws-native:bedrock:PromptVersion": "PromptVersion"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "billing",
+  "fqn": "pulumi_aws_native.billing",
+  "classes": {
+   "aws-native:billing:BillingView": "BillingView"
   }
  },
  {
@@ -1595,6 +1609,8 @@ _utilities.register(
    "aws-native:ec2:SubnetNetworkAclAssociation": "SubnetNetworkAclAssociation",
    "aws-native:ec2:SubnetRouteTableAssociation": "SubnetRouteTableAssociation",
    "aws-native:ec2:TrafficMirrorFilter": "TrafficMirrorFilter",
+   "aws-native:ec2:TrafficMirrorFilterRule": "TrafficMirrorFilterRule",
+   "aws-native:ec2:TrafficMirrorTarget": "TrafficMirrorTarget",
    "aws-native:ec2:TransitGateway": "TransitGateway",
    "aws-native:ec2:TransitGatewayAttachment": "TransitGatewayAttachment",
    "aws-native:ec2:TransitGatewayConnect": "TransitGatewayConnect",
@@ -1857,7 +1873,8 @@ _utilities.register(
   "mod": "fsx",
   "fqn": "pulumi_aws_native.fsx",
   "classes": {
-   "aws-native:fsx:DataRepositoryAssociation": "DataRepositoryAssociation"
+   "aws-native:fsx:DataRepositoryAssociation": "DataRepositoryAssociation",
+   "aws-native:fsx:S3AccessPointAttachment": "S3AccessPointAttachment"
   }
  },
  {
@@ -2234,7 +2251,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.kinesis",
   "classes": {
    "aws-native:kinesis:ResourcePolicy": "ResourcePolicy",
-   "aws-native:kinesis:Stream": "Stream"
+   "aws-native:kinesis:Stream": "Stream",
+   "aws-native:kinesis:StreamConsumer": "StreamConsumer"
   }
  },
  {
@@ -2532,6 +2550,7 @@ _utilities.register(
   "classes": {
    "aws-native:neptune:DbCluster": "DbCluster",
    "aws-native:neptune:DbClusterParameterGroup": "DbClusterParameterGroup",
+   "aws-native:neptune:DbInstance": "DbInstance",
    "aws-native:neptune:DbParameterGroup": "DbParameterGroup",
    "aws-native:neptune:DbSubnetGroup": "DbSubnetGroup"
   }
@@ -2598,6 +2617,17 @@ _utilities.register(
   "classes": {
    "aws-native:oam:Link": "Link",
    "aws-native:oam:Sink": "Sink"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "odb",
+  "fqn": "pulumi_aws_native.odb",
+  "classes": {
+   "aws-native:odb:CloudAutonomousVmCluster": "CloudAutonomousVmCluster",
+   "aws-native:odb:CloudExadataInfrastructure": "CloudExadataInfrastructure",
+   "aws-native:odb:CloudVmCluster": "CloudVmCluster",
+   "aws-native:odb:OdbNetwork": "OdbNetwork"
   }
  },
  {
@@ -3051,8 +3081,10 @@ _utilities.register(
   "fqn": "pulumi_aws_native.s3tables",
   "classes": {
    "aws-native:s3tables:Namespace": "Namespace",
+   "aws-native:s3tables:Table": "Table",
    "aws-native:s3tables:TableBucket": "TableBucket",
-   "aws-native:s3tables:TableBucketPolicy": "TableBucketPolicy"
+   "aws-native:s3tables:TableBucketPolicy": "TableBucketPolicy",
+   "aws-native:s3tables:TablePolicy": "TablePolicy"
   }
  },
  {
@@ -3425,7 +3457,8 @@ _utilities.register(
    "aws-native:wisdom:AssistantAssociation": "AssistantAssociation",
    "aws-native:wisdom:KnowledgeBase": "KnowledgeBase",
    "aws-native:wisdom:MessageTemplate": "MessageTemplate",
-   "aws-native:wisdom:MessageTemplateVersion": "MessageTemplateVersion"
+   "aws-native:wisdom:MessageTemplateVersion": "MessageTemplateVersion",
+   "aws-native:wisdom:QuickResponse": "QuickResponse"
   }
  },
  {

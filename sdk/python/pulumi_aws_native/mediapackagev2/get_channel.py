@@ -82,6 +82,9 @@ class GetChannelResult:
     @property
     @pulumi.getter(name="ingestEndpointUrls")
     def ingest_endpoint_urls(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The ingest domain URL where the source stream should be sent.
+        """
         return pulumi.get(self, "ingest_endpoint_urls")
 
     @property
@@ -119,9 +122,6 @@ class GetChannelResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        The tags associated with the channel.
-        """
         return pulumi.get(self, "tags")
 
 

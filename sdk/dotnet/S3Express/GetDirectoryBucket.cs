@@ -79,6 +79,7 @@ namespace Pulumi.AwsNative.S3Express
         /// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
         /// </summary>
         public readonly Outputs.DirectoryBucketLifecycleConfiguration? LifecycleConfiguration;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetDirectoryBucketResult(
@@ -88,12 +89,15 @@ namespace Pulumi.AwsNative.S3Express
 
             Outputs.DirectoryBucketBucketEncryption? bucketEncryption,
 
-            Outputs.DirectoryBucketLifecycleConfiguration? lifecycleConfiguration)
+            Outputs.DirectoryBucketLifecycleConfiguration? lifecycleConfiguration,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             AvailabilityZoneName = availabilityZoneName;
             BucketEncryption = bucketEncryption;
             LifecycleConfiguration = lifecycleConfiguration;
+            Tags = tags;
         }
     }
 }

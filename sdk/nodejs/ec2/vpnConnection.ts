@@ -60,8 +60,8 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     public readonly localIpv6NetworkCidr!: pulumi.Output<string | undefined>;
     /**
-     * The type of IPv4 address assigned to the outside interface of the customer gateway device.
-     *  Valid values: ``PrivateIpv4`` | ``PublicIpv4``
+     * The type of IP address assigned to the outside interface of the customer gateway device.
+     *  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
      *  Default: ``PublicIpv4``
      */
     public readonly outsideIpAddressType!: pulumi.Output<string | undefined>;
@@ -199,8 +199,8 @@ export interface VpnConnectionArgs {
      */
     localIpv6NetworkCidr?: pulumi.Input<string>;
     /**
-     * The type of IPv4 address assigned to the outside interface of the customer gateway device.
-     *  Valid values: ``PrivateIpv4`` | ``PublicIpv4``
+     * The type of IP address assigned to the outside interface of the customer gateway device.
+     *  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
      *  Default: ``PublicIpv4``
      */
     outsideIpAddressType?: pulumi.Input<string>;

@@ -73,6 +73,10 @@ export interface GetEventSubscriptionResult {
      * The date and time the Amazon Redshift event notification subscription was created.
      */
     readonly subscriptionCreationTime?: string;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.

@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         /// </summary>
         [Output("vpcId")]
-        public Output<string> VpcId { get; private set; } = null!;
+        public Output<string?> VpcId { get; private set; } = null!;
 
 
         /// <summary>
@@ -231,7 +231,7 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        [Input("subnetIds", required: true)]
+        [Input("subnetIds")]
         private InputList<string>? _subnetIds;
 
         /// <summary>
@@ -264,8 +264,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         /// </summary>
-        [Input("vpcId", required: true)]
-        public Input<string> VpcId { get; set; } = null!;
+        [Input("vpcId")]
+        public Input<string>? VpcId { get; set; }
 
         public DomainArgs()
         {

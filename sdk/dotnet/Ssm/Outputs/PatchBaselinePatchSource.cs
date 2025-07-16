@@ -17,7 +17,9 @@ namespace Pulumi.AwsNative.Ssm.Outputs
     public sealed class PatchBaselinePatchSource
     {
         /// <summary>
-        /// The value of the yum repo configuration. For example:
+        /// The value of the repo configuration.
+        /// 
+        /// *Example for yum repositories*
         /// 
         /// `[main]`
         /// 
@@ -27,7 +29,15 @@ namespace Pulumi.AwsNative.Ssm.Outputs
         /// 
         /// `enabled=1`
         /// 
-        /// &gt; For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) .
+        /// For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) on the *man7.org* website.
+        /// 
+        /// *Examples for Ubuntu Server and Debian Server*
+        /// 
+        /// `deb http://security.ubuntu.com/ubuntu jammy main`
+        /// 
+        /// `deb https://site.example.com/debian distribution component1 component2 component3`
+        /// 
+        /// Repo information for Ubuntu Server repositories must be specifed in a single line. For more examples and information, see [jammy (5) sources.list.5.gz](https://docs.aws.amazon.com/https://manpages.ubuntu.com/manpages/jammy/man5/sources.list.5.html) on the *Ubuntu Server Manuals* website and [sources.list format](https://docs.aws.amazon.com/https://wiki.debian.org/SourcesList#sources.list_format) on the *Debian Wiki* .
         /// </summary>
         public readonly string? Configuration;
         /// <summary>

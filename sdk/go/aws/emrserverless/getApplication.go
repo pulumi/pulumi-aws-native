@@ -39,6 +39,8 @@ type LookupApplicationResult struct {
 	AutoStartConfiguration *ApplicationAutoStartConfiguration `pulumi:"autoStartConfiguration"`
 	// Configuration for Auto Stop of Application.
 	AutoStopConfiguration *ApplicationAutoStopConfiguration `pulumi:"autoStopConfiguration"`
+	// The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+	IdentityCenterConfiguration *ApplicationIdentityCenterConfiguration `pulumi:"identityCenterConfiguration"`
 	// The image configuration applied to all worker types.
 	ImageConfiguration *ApplicationImageConfigurationInput `pulumi:"imageConfiguration"`
 	// Initial capacity initialized when an Application is started.
@@ -118,6 +120,13 @@ func (o LookupApplicationResultOutput) AutoStartConfiguration() ApplicationAutoS
 // Configuration for Auto Stop of Application.
 func (o LookupApplicationResultOutput) AutoStopConfiguration() ApplicationAutoStopConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationAutoStopConfiguration { return v.AutoStopConfiguration }).(ApplicationAutoStopConfigurationPtrOutput)
+}
+
+// The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+func (o LookupApplicationResultOutput) IdentityCenterConfiguration() ApplicationIdentityCenterConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *ApplicationIdentityCenterConfiguration {
+		return v.IdentityCenterConfiguration
+	}).(ApplicationIdentityCenterConfigurationPtrOutput)
 }
 
 // The image configuration applied to all worker types.

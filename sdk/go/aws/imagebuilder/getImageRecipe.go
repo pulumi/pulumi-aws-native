@@ -32,6 +32,8 @@ type LookupImageRecipeResult struct {
 	AdditionalInstanceConfiguration *ImageRecipeAdditionalInstanceConfiguration `pulumi:"additionalInstanceConfiguration"`
 	// The Amazon Resource Name (ARN) of the image recipe.
 	Arn *string `pulumi:"arn"`
+	// The tags of the image recipe.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupImageRecipeOutput(ctx *pulumi.Context, args LookupImageRecipeOutputArgs, opts ...pulumi.InvokeOption) LookupImageRecipeResultOutput {
@@ -76,6 +78,11 @@ func (o LookupImageRecipeResultOutput) AdditionalInstanceConfiguration() ImageRe
 // The Amazon Resource Name (ARN) of the image recipe.
 func (o LookupImageRecipeResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the image recipe.
+func (o LookupImageRecipeResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

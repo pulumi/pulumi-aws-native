@@ -446,11 +446,11 @@ func (o LambdaHookHookTargetArrayOutput) Index(i pulumi.IntInput) LambdaHookHook
 
 // Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
 type ManagedExecutionProperties struct {
-	// When `true` , StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order.
+	// When `true` , CloudFormation performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, CloudFormation starts queued operations in request order.
 	//
-	// > If there are already running or queued operations, StackSets queues all incoming operations even if they are non-conflicting.
+	// > If there are already running or queued operations, CloudFormation queues all incoming operations even if they are non-conflicting.
 	// >
-	// > You can't modify your stack set's execution configuration while there are running or queued operations for that stack set.
+	// > You can't modify your StackSet's execution configuration while there are running or queued operations for that StackSet.
 	//
 	// When `false` (default), StackSets performs one operation at a time in request order.
 	Active *bool `pulumi:"active"`
@@ -469,11 +469,11 @@ type ManagedExecutionPropertiesInput interface {
 
 // Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
 type ManagedExecutionPropertiesArgs struct {
-	// When `true` , StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order.
+	// When `true` , CloudFormation performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, CloudFormation starts queued operations in request order.
 	//
-	// > If there are already running or queued operations, StackSets queues all incoming operations even if they are non-conflicting.
+	// > If there are already running or queued operations, CloudFormation queues all incoming operations even if they are non-conflicting.
 	// >
-	// > You can't modify your stack set's execution configuration while there are running or queued operations for that stack set.
+	// > You can't modify your StackSet's execution configuration while there are running or queued operations for that StackSet.
 	//
 	// When `false` (default), StackSets performs one operation at a time in request order.
 	Active pulumi.BoolPtrInput `pulumi:"active"`
@@ -557,11 +557,11 @@ func (o ManagedExecutionPropertiesOutput) ToManagedExecutionPropertiesPtrOutputW
 	}).(ManagedExecutionPropertiesPtrOutput)
 }
 
-// When `true` , StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order.
+// When `true` , CloudFormation performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, CloudFormation starts queued operations in request order.
 //
-// > If there are already running or queued operations, StackSets queues all incoming operations even if they are non-conflicting.
+// > If there are already running or queued operations, CloudFormation queues all incoming operations even if they are non-conflicting.
 // >
-// > You can't modify your stack set's execution configuration while there are running or queued operations for that stack set.
+// > You can't modify your StackSet's execution configuration while there are running or queued operations for that StackSet.
 //
 // When `false` (default), StackSets performs one operation at a time in request order.
 func (o ManagedExecutionPropertiesOutput) Active() pulumi.BoolPtrOutput {
@@ -592,11 +592,11 @@ func (o ManagedExecutionPropertiesPtrOutput) Elem() ManagedExecutionPropertiesOu
 	}).(ManagedExecutionPropertiesOutput)
 }
 
-// When `true` , StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order.
+// When `true` , CloudFormation performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, CloudFormation starts queued operations in request order.
 //
-// > If there are already running or queued operations, StackSets queues all incoming operations even if they are non-conflicting.
+// > If there are already running or queued operations, CloudFormation queues all incoming operations even if they are non-conflicting.
 // >
-// > You can't modify your stack set's execution configuration while there are running or queued operations for that stack set.
+// > You can't modify your StackSet's execution configuration while there are running or queued operations for that StackSet.
 //
 // When `false` (default), StackSets performs one operation at a time in request order.
 func (o ManagedExecutionPropertiesPtrOutput) Active() pulumi.BoolPtrOutput {
@@ -1714,13 +1714,13 @@ type StackSetOperationPreferences struct {
 	// - `STRICT_FAILURE_TOLERANCE` : This option dynamically lowers the concurrency level to ensure the number of failed accounts never exceeds the value of `FailureToleranceCount` +1. The initial actual concurrency is set to the lower of either the value of the `MaxConcurrentCount` , or the value of `FailureToleranceCount` +1. The actual concurrency is then reduced proportionally by the number of failures. This is the default behavior.
 	//
 	// If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior is similar.
-	// - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows stack set operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
+	// - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows StackSet operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
 	ConcurrencyMode *StackSetConcurrencyMode `pulumi:"concurrencyMode"`
-	// The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+	// The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 	//
 	// Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
 	FailureToleranceCount *int `pulumi:"failureToleranceCount"`
-	// The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+	// The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 	//
 	// When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
 	//
@@ -1764,13 +1764,13 @@ type StackSetOperationPreferencesArgs struct {
 	// - `STRICT_FAILURE_TOLERANCE` : This option dynamically lowers the concurrency level to ensure the number of failed accounts never exceeds the value of `FailureToleranceCount` +1. The initial actual concurrency is set to the lower of either the value of the `MaxConcurrentCount` , or the value of `FailureToleranceCount` +1. The actual concurrency is then reduced proportionally by the number of failures. This is the default behavior.
 	//
 	// If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior is similar.
-	// - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows stack set operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
+	// - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows StackSet operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
 	ConcurrencyMode StackSetConcurrencyModePtrInput `pulumi:"concurrencyMode"`
-	// The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+	// The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 	//
 	// Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
 	FailureToleranceCount pulumi.IntPtrInput `pulumi:"failureToleranceCount"`
-	// The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+	// The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 	//
 	// When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
 	//
@@ -1879,19 +1879,19 @@ func (o StackSetOperationPreferencesOutput) ToStackSetOperationPreferencesPtrOut
 // - `STRICT_FAILURE_TOLERANCE` : This option dynamically lowers the concurrency level to ensure the number of failed accounts never exceeds the value of `FailureToleranceCount` +1. The initial actual concurrency is set to the lower of either the value of the `MaxConcurrentCount` , or the value of `FailureToleranceCount` +1. The actual concurrency is then reduced proportionally by the number of failures. This is the default behavior.
 //
 // If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior is similar.
-// - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows stack set operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
+// - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows StackSet operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
 func (o StackSetOperationPreferencesOutput) ConcurrencyMode() StackSetConcurrencyModePtrOutput {
 	return o.ApplyT(func(v StackSetOperationPreferences) *StackSetConcurrencyMode { return v.ConcurrencyMode }).(StackSetConcurrencyModePtrOutput)
 }
 
-// The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+// The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 //
 // Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
 func (o StackSetOperationPreferencesOutput) FailureToleranceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StackSetOperationPreferences) *int { return v.FailureToleranceCount }).(pulumi.IntPtrOutput)
 }
 
-// The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+// The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 //
 // When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
 //
@@ -1959,7 +1959,7 @@ func (o StackSetOperationPreferencesPtrOutput) Elem() StackSetOperationPreferenc
 // - `STRICT_FAILURE_TOLERANCE` : This option dynamically lowers the concurrency level to ensure the number of failed accounts never exceeds the value of `FailureToleranceCount` +1. The initial actual concurrency is set to the lower of either the value of the `MaxConcurrentCount` , or the value of `FailureToleranceCount` +1. The actual concurrency is then reduced proportionally by the number of failures. This is the default behavior.
 //
 // If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior is similar.
-// - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows stack set operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
+// - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows StackSet operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
 func (o StackSetOperationPreferencesPtrOutput) ConcurrencyMode() StackSetConcurrencyModePtrOutput {
 	return o.ApplyT(func(v *StackSetOperationPreferences) *StackSetConcurrencyMode {
 		if v == nil {
@@ -1969,7 +1969,7 @@ func (o StackSetOperationPreferencesPtrOutput) ConcurrencyMode() StackSetConcurr
 	}).(StackSetConcurrencyModePtrOutput)
 }
 
-// The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+// The number of accounts per Region this operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 //
 // Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
 func (o StackSetOperationPreferencesPtrOutput) FailureToleranceCount() pulumi.IntPtrOutput {
@@ -1981,7 +1981,7 @@ func (o StackSetOperationPreferencesPtrOutput) FailureToleranceCount() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
+// The percentage of accounts per Region this stack operation can fail in before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 //
 // When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
 //
@@ -2153,7 +2153,7 @@ func (o StackSetParameterArrayOutput) Index(i pulumi.IntInput) StackSetParameter
 
 // Stack instances in some specific accounts and Regions.
 type StackSetStackInstances struct {
-	// The AWS `OrganizationalUnitIds` or `Accounts` for which to create stack instances in the specified Regions.
+	// The AWS Organizations accounts or AWS accounts to deploy stacks to in the specified Regions.
 	DeploymentTargets StackSetDeploymentTargets `pulumi:"deploymentTargets"`
 	// A list of stack set parameters whose values you want to override in the selected stack instances.
 	ParameterOverrides []StackSetParameter `pulumi:"parameterOverrides"`
@@ -2174,7 +2174,7 @@ type StackSetStackInstancesInput interface {
 
 // Stack instances in some specific accounts and Regions.
 type StackSetStackInstancesArgs struct {
-	// The AWS `OrganizationalUnitIds` or `Accounts` for which to create stack instances in the specified Regions.
+	// The AWS Organizations accounts or AWS accounts to deploy stacks to in the specified Regions.
 	DeploymentTargets StackSetDeploymentTargetsInput `pulumi:"deploymentTargets"`
 	// A list of stack set parameters whose values you want to override in the selected stack instances.
 	ParameterOverrides StackSetParameterArrayInput `pulumi:"parameterOverrides"`
@@ -2234,7 +2234,7 @@ func (o StackSetStackInstancesOutput) ToStackSetStackInstancesOutputWithContext(
 	return o
 }
 
-// The AWS `OrganizationalUnitIds` or `Accounts` for which to create stack instances in the specified Regions.
+// The AWS Organizations accounts or AWS accounts to deploy stacks to in the specified Regions.
 func (o StackSetStackInstancesOutput) DeploymentTargets() StackSetDeploymentTargetsOutput {
 	return o.ApplyT(func(v StackSetStackInstances) StackSetDeploymentTargets { return v.DeploymentTargets }).(StackSetDeploymentTargetsOutput)
 }

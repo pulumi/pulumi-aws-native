@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<string>? ProjectS3Path { get; set; }
 
         /// <summary>
+        /// The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
+        /// </summary>
+        [Input("singleSignOnApplicationArn")]
+        public Input<string>? SingleSignOnApplicationArn { get; set; }
+
+        /// <summary>
         /// Sets whether you can access the domain in Amazon SageMaker Studio:
         /// 
         /// ENABLED

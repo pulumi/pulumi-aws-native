@@ -9492,6 +9492,333 @@ type MessageTemplateTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The container of quick response content.
+type QuickResponseContentProvider struct {
+	// The content of the quick response.
+	Content *string `pulumi:"content"`
+}
+
+// QuickResponseContentProviderInput is an input type that accepts QuickResponseContentProviderArgs and QuickResponseContentProviderOutput values.
+// You can construct a concrete instance of `QuickResponseContentProviderInput` via:
+//
+//	QuickResponseContentProviderArgs{...}
+type QuickResponseContentProviderInput interface {
+	pulumi.Input
+
+	ToQuickResponseContentProviderOutput() QuickResponseContentProviderOutput
+	ToQuickResponseContentProviderOutputWithContext(context.Context) QuickResponseContentProviderOutput
+}
+
+// The container of quick response content.
+type QuickResponseContentProviderArgs struct {
+	// The content of the quick response.
+	Content pulumi.StringPtrInput `pulumi:"content"`
+}
+
+func (QuickResponseContentProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuickResponseContentProvider)(nil)).Elem()
+}
+
+func (i QuickResponseContentProviderArgs) ToQuickResponseContentProviderOutput() QuickResponseContentProviderOutput {
+	return i.ToQuickResponseContentProviderOutputWithContext(context.Background())
+}
+
+func (i QuickResponseContentProviderArgs) ToQuickResponseContentProviderOutputWithContext(ctx context.Context) QuickResponseContentProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuickResponseContentProviderOutput)
+}
+
+// The container of quick response content.
+type QuickResponseContentProviderOutput struct{ *pulumi.OutputState }
+
+func (QuickResponseContentProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuickResponseContentProvider)(nil)).Elem()
+}
+
+func (o QuickResponseContentProviderOutput) ToQuickResponseContentProviderOutput() QuickResponseContentProviderOutput {
+	return o
+}
+
+func (o QuickResponseContentProviderOutput) ToQuickResponseContentProviderOutputWithContext(ctx context.Context) QuickResponseContentProviderOutput {
+	return o
+}
+
+// The content of the quick response.
+func (o QuickResponseContentProviderOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QuickResponseContentProvider) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+type QuickResponseContentProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (QuickResponseContentProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuickResponseContentProvider)(nil)).Elem()
+}
+
+func (o QuickResponseContentProviderPtrOutput) ToQuickResponseContentProviderPtrOutput() QuickResponseContentProviderPtrOutput {
+	return o
+}
+
+func (o QuickResponseContentProviderPtrOutput) ToQuickResponseContentProviderPtrOutputWithContext(ctx context.Context) QuickResponseContentProviderPtrOutput {
+	return o
+}
+
+func (o QuickResponseContentProviderPtrOutput) Elem() QuickResponseContentProviderOutput {
+	return o.ApplyT(func(v *QuickResponseContentProvider) QuickResponseContentProvider {
+		if v != nil {
+			return *v
+		}
+		var ret QuickResponseContentProvider
+		return ret
+	}).(QuickResponseContentProviderOutput)
+}
+
+// The content of the quick response.
+func (o QuickResponseContentProviderPtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuickResponseContentProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content of the quick response stored in different media types.
+type QuickResponseContents struct {
+	Markdown  *QuickResponseContentProvider `pulumi:"markdown"`
+	PlainText *QuickResponseContentProvider `pulumi:"plainText"`
+}
+
+// The content of the quick response stored in different media types.
+type QuickResponseContentsOutput struct{ *pulumi.OutputState }
+
+func (QuickResponseContentsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuickResponseContents)(nil)).Elem()
+}
+
+func (o QuickResponseContentsOutput) ToQuickResponseContentsOutput() QuickResponseContentsOutput {
+	return o
+}
+
+func (o QuickResponseContentsOutput) ToQuickResponseContentsOutputWithContext(ctx context.Context) QuickResponseContentsOutput {
+	return o
+}
+
+func (o QuickResponseContentsOutput) Markdown() QuickResponseContentProviderPtrOutput {
+	return o.ApplyT(func(v QuickResponseContents) *QuickResponseContentProvider { return v.Markdown }).(QuickResponseContentProviderPtrOutput)
+}
+
+func (o QuickResponseContentsOutput) PlainText() QuickResponseContentProviderPtrOutput {
+	return o.ApplyT(func(v QuickResponseContents) *QuickResponseContentProvider { return v.PlainText }).(QuickResponseContentProviderPtrOutput)
+}
+
+type QuickResponseContentsPtrOutput struct{ *pulumi.OutputState }
+
+func (QuickResponseContentsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuickResponseContents)(nil)).Elem()
+}
+
+func (o QuickResponseContentsPtrOutput) ToQuickResponseContentsPtrOutput() QuickResponseContentsPtrOutput {
+	return o
+}
+
+func (o QuickResponseContentsPtrOutput) ToQuickResponseContentsPtrOutputWithContext(ctx context.Context) QuickResponseContentsPtrOutput {
+	return o
+}
+
+func (o QuickResponseContentsPtrOutput) Elem() QuickResponseContentsOutput {
+	return o.ApplyT(func(v *QuickResponseContents) QuickResponseContents {
+		if v != nil {
+			return *v
+		}
+		var ret QuickResponseContents
+		return ret
+	}).(QuickResponseContentsOutput)
+}
+
+func (o QuickResponseContentsPtrOutput) Markdown() QuickResponseContentProviderPtrOutput {
+	return o.ApplyT(func(v *QuickResponseContents) *QuickResponseContentProvider {
+		if v == nil {
+			return nil
+		}
+		return v.Markdown
+	}).(QuickResponseContentProviderPtrOutput)
+}
+
+func (o QuickResponseContentsPtrOutput) PlainText() QuickResponseContentProviderPtrOutput {
+	return o.ApplyT(func(v *QuickResponseContents) *QuickResponseContentProvider {
+		if v == nil {
+			return nil
+		}
+		return v.PlainText
+	}).(QuickResponseContentProviderPtrOutput)
+}
+
+// The configuration information of the user groups that the quick response is accessible to.
+type QuickResponseGroupingConfiguration struct {
+	// The criteria used for grouping Amazon Q in Connect users.
+	Criteria string `pulumi:"criteria"`
+	// The list of values that define different groups of Amazon Q in Connect users.
+	Values []string `pulumi:"values"`
+}
+
+// QuickResponseGroupingConfigurationInput is an input type that accepts QuickResponseGroupingConfigurationArgs and QuickResponseGroupingConfigurationOutput values.
+// You can construct a concrete instance of `QuickResponseGroupingConfigurationInput` via:
+//
+//	QuickResponseGroupingConfigurationArgs{...}
+type QuickResponseGroupingConfigurationInput interface {
+	pulumi.Input
+
+	ToQuickResponseGroupingConfigurationOutput() QuickResponseGroupingConfigurationOutput
+	ToQuickResponseGroupingConfigurationOutputWithContext(context.Context) QuickResponseGroupingConfigurationOutput
+}
+
+// The configuration information of the user groups that the quick response is accessible to.
+type QuickResponseGroupingConfigurationArgs struct {
+	// The criteria used for grouping Amazon Q in Connect users.
+	Criteria pulumi.StringInput `pulumi:"criteria"`
+	// The list of values that define different groups of Amazon Q in Connect users.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (QuickResponseGroupingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuickResponseGroupingConfiguration)(nil)).Elem()
+}
+
+func (i QuickResponseGroupingConfigurationArgs) ToQuickResponseGroupingConfigurationOutput() QuickResponseGroupingConfigurationOutput {
+	return i.ToQuickResponseGroupingConfigurationOutputWithContext(context.Background())
+}
+
+func (i QuickResponseGroupingConfigurationArgs) ToQuickResponseGroupingConfigurationOutputWithContext(ctx context.Context) QuickResponseGroupingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuickResponseGroupingConfigurationOutput)
+}
+
+func (i QuickResponseGroupingConfigurationArgs) ToQuickResponseGroupingConfigurationPtrOutput() QuickResponseGroupingConfigurationPtrOutput {
+	return i.ToQuickResponseGroupingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i QuickResponseGroupingConfigurationArgs) ToQuickResponseGroupingConfigurationPtrOutputWithContext(ctx context.Context) QuickResponseGroupingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuickResponseGroupingConfigurationOutput).ToQuickResponseGroupingConfigurationPtrOutputWithContext(ctx)
+}
+
+// QuickResponseGroupingConfigurationPtrInput is an input type that accepts QuickResponseGroupingConfigurationArgs, QuickResponseGroupingConfigurationPtr and QuickResponseGroupingConfigurationPtrOutput values.
+// You can construct a concrete instance of `QuickResponseGroupingConfigurationPtrInput` via:
+//
+//	        QuickResponseGroupingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type QuickResponseGroupingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToQuickResponseGroupingConfigurationPtrOutput() QuickResponseGroupingConfigurationPtrOutput
+	ToQuickResponseGroupingConfigurationPtrOutputWithContext(context.Context) QuickResponseGroupingConfigurationPtrOutput
+}
+
+type quickResponseGroupingConfigurationPtrType QuickResponseGroupingConfigurationArgs
+
+func QuickResponseGroupingConfigurationPtr(v *QuickResponseGroupingConfigurationArgs) QuickResponseGroupingConfigurationPtrInput {
+	return (*quickResponseGroupingConfigurationPtrType)(v)
+}
+
+func (*quickResponseGroupingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuickResponseGroupingConfiguration)(nil)).Elem()
+}
+
+func (i *quickResponseGroupingConfigurationPtrType) ToQuickResponseGroupingConfigurationPtrOutput() QuickResponseGroupingConfigurationPtrOutput {
+	return i.ToQuickResponseGroupingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *quickResponseGroupingConfigurationPtrType) ToQuickResponseGroupingConfigurationPtrOutputWithContext(ctx context.Context) QuickResponseGroupingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuickResponseGroupingConfigurationPtrOutput)
+}
+
+// The configuration information of the user groups that the quick response is accessible to.
+type QuickResponseGroupingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (QuickResponseGroupingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuickResponseGroupingConfiguration)(nil)).Elem()
+}
+
+func (o QuickResponseGroupingConfigurationOutput) ToQuickResponseGroupingConfigurationOutput() QuickResponseGroupingConfigurationOutput {
+	return o
+}
+
+func (o QuickResponseGroupingConfigurationOutput) ToQuickResponseGroupingConfigurationOutputWithContext(ctx context.Context) QuickResponseGroupingConfigurationOutput {
+	return o
+}
+
+func (o QuickResponseGroupingConfigurationOutput) ToQuickResponseGroupingConfigurationPtrOutput() QuickResponseGroupingConfigurationPtrOutput {
+	return o.ToQuickResponseGroupingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o QuickResponseGroupingConfigurationOutput) ToQuickResponseGroupingConfigurationPtrOutputWithContext(ctx context.Context) QuickResponseGroupingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuickResponseGroupingConfiguration) *QuickResponseGroupingConfiguration {
+		return &v
+	}).(QuickResponseGroupingConfigurationPtrOutput)
+}
+
+// The criteria used for grouping Amazon Q in Connect users.
+func (o QuickResponseGroupingConfigurationOutput) Criteria() pulumi.StringOutput {
+	return o.ApplyT(func(v QuickResponseGroupingConfiguration) string { return v.Criteria }).(pulumi.StringOutput)
+}
+
+// The list of values that define different groups of Amazon Q in Connect users.
+func (o QuickResponseGroupingConfigurationOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v QuickResponseGroupingConfiguration) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type QuickResponseGroupingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (QuickResponseGroupingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuickResponseGroupingConfiguration)(nil)).Elem()
+}
+
+func (o QuickResponseGroupingConfigurationPtrOutput) ToQuickResponseGroupingConfigurationPtrOutput() QuickResponseGroupingConfigurationPtrOutput {
+	return o
+}
+
+func (o QuickResponseGroupingConfigurationPtrOutput) ToQuickResponseGroupingConfigurationPtrOutputWithContext(ctx context.Context) QuickResponseGroupingConfigurationPtrOutput {
+	return o
+}
+
+func (o QuickResponseGroupingConfigurationPtrOutput) Elem() QuickResponseGroupingConfigurationOutput {
+	return o.ApplyT(func(v *QuickResponseGroupingConfiguration) QuickResponseGroupingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret QuickResponseGroupingConfiguration
+		return ret
+	}).(QuickResponseGroupingConfigurationOutput)
+}
+
+// The criteria used for grouping Amazon Q in Connect users.
+func (o QuickResponseGroupingConfigurationPtrOutput) Criteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuickResponseGroupingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Criteria
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of values that define different groups of Amazon Q in Connect users.
+func (o QuickResponseGroupingConfigurationPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *QuickResponseGroupingConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type QuickResponseTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration0PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration1PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration1PropertiesArgs{})
@@ -9607,6 +9934,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateSystemAttributesPtrInput)(nil)).Elem(), MessageTemplateSystemAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateSystemEndpointAttributesInput)(nil)).Elem(), MessageTemplateSystemEndpointAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateSystemEndpointAttributesPtrInput)(nil)).Elem(), MessageTemplateSystemEndpointAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickResponseContentProviderInput)(nil)).Elem(), QuickResponseContentProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickResponseGroupingConfigurationInput)(nil)).Elem(), QuickResponseGroupingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickResponseGroupingConfigurationPtrInput)(nil)).Elem(), QuickResponseGroupingConfigurationArgs{})
 	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration0PropertiesOutput{})
 	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration1PropertiesOutput{})
@@ -9729,4 +10059,10 @@ func init() {
 	pulumi.RegisterOutputType(MessageTemplateSystemAttributesPtrOutput{})
 	pulumi.RegisterOutputType(MessageTemplateSystemEndpointAttributesOutput{})
 	pulumi.RegisterOutputType(MessageTemplateSystemEndpointAttributesPtrOutput{})
+	pulumi.RegisterOutputType(QuickResponseContentProviderOutput{})
+	pulumi.RegisterOutputType(QuickResponseContentProviderPtrOutput{})
+	pulumi.RegisterOutputType(QuickResponseContentsOutput{})
+	pulumi.RegisterOutputType(QuickResponseContentsPtrOutput{})
+	pulumi.RegisterOutputType(QuickResponseGroupingConfigurationOutput{})
+	pulumi.RegisterOutputType(QuickResponseGroupingConfigurationPtrOutput{})
 }

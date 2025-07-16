@@ -27,7 +27,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetInfluxDbInstanceResult:
-    def __init__(__self__, arn=None, availability_zone=None, db_instance_type=None, db_parameter_group_identifier=None, deployment_type=None, endpoint=None, id=None, influx_auth_parameters_secret_arn=None, log_delivery_configuration=None, port=None, secondary_availability_zone=None, status=None, tags=None):
+    def __init__(__self__, allocated_storage=None, arn=None, availability_zone=None, db_instance_type=None, db_parameter_group_identifier=None, db_storage_type=None, deployment_type=None, endpoint=None, id=None, influx_auth_parameters_secret_arn=None, log_delivery_configuration=None, port=None, secondary_availability_zone=None, status=None, tags=None):
+        if allocated_storage and not isinstance(allocated_storage, int):
+            raise TypeError("Expected argument 'allocated_storage' to be a int")
+        pulumi.set(__self__, "allocated_storage", allocated_storage)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +43,9 @@ class GetInfluxDbInstanceResult:
         if db_parameter_group_identifier and not isinstance(db_parameter_group_identifier, str):
             raise TypeError("Expected argument 'db_parameter_group_identifier' to be a str")
         pulumi.set(__self__, "db_parameter_group_identifier", db_parameter_group_identifier)
+        if db_storage_type and not isinstance(db_storage_type, str):
+            raise TypeError("Expected argument 'db_storage_type' to be a str")
+        pulumi.set(__self__, "db_storage_type", db_storage_type)
         if deployment_type and not isinstance(deployment_type, str):
             raise TypeError("Expected argument 'deployment_type' to be a str")
         pulumi.set(__self__, "deployment_type", deployment_type)
@@ -67,6 +73,14 @@ class GetInfluxDbInstanceResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="allocatedStorage")
+    def allocated_storage(self) -> Optional[builtins.int]:
+        """
+        The allocated storage for the InfluxDB instance.
+        """
+        return pulumi.get(self, "allocated_storage")
 
     @property
     @pulumi.getter
@@ -99,6 +113,14 @@ class GetInfluxDbInstanceResult:
         The name of an existing InfluxDB parameter group.
         """
         return pulumi.get(self, "db_parameter_group_identifier")
+
+    @property
+    @pulumi.getter(name="dbStorageType")
+    def db_storage_type(self) -> Optional['InfluxDbInstanceDbStorageType']:
+        """
+        The storage type of the InfluxDB instance.
+        """
+        return pulumi.get(self, "db_storage_type")
 
     @property
     @pulumi.getter(name="deploymentType")
@@ -179,10 +201,12 @@ class AwaitableGetInfluxDbInstanceResult(GetInfluxDbInstanceResult):
         if False:
             yield self
         return GetInfluxDbInstanceResult(
+            allocated_storage=self.allocated_storage,
             arn=self.arn,
             availability_zone=self.availability_zone,
             db_instance_type=self.db_instance_type,
             db_parameter_group_identifier=self.db_parameter_group_identifier,
+            db_storage_type=self.db_storage_type,
             deployment_type=self.deployment_type,
             endpoint=self.endpoint,
             id=self.id,
@@ -208,10 +232,12 @@ def get_influx_db_instance(id: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:timestream:getInfluxDbInstance', __args__, opts=opts, typ=GetInfluxDbInstanceResult).value
 
     return AwaitableGetInfluxDbInstanceResult(
+        allocated_storage=pulumi.get(__ret__, 'allocated_storage'),
         arn=pulumi.get(__ret__, 'arn'),
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
         db_instance_type=pulumi.get(__ret__, 'db_instance_type'),
         db_parameter_group_identifier=pulumi.get(__ret__, 'db_parameter_group_identifier'),
+        db_storage_type=pulumi.get(__ret__, 'db_storage_type'),
         deployment_type=pulumi.get(__ret__, 'deployment_type'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         id=pulumi.get(__ret__, 'id'),
@@ -234,10 +260,12 @@ def get_influx_db_instance_output(id: Optional[pulumi.Input[builtins.str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:timestream:getInfluxDbInstance', __args__, opts=opts, typ=GetInfluxDbInstanceResult)
     return __ret__.apply(lambda __response__: GetInfluxDbInstanceResult(
+        allocated_storage=pulumi.get(__response__, 'allocated_storage'),
         arn=pulumi.get(__response__, 'arn'),
         availability_zone=pulumi.get(__response__, 'availability_zone'),
         db_instance_type=pulumi.get(__response__, 'db_instance_type'),
         db_parameter_group_identifier=pulumi.get(__response__, 'db_parameter_group_identifier'),
+        db_storage_type=pulumi.get(__response__, 'db_storage_type'),
         deployment_type=pulumi.get(__response__, 'deployment_type'),
         endpoint=pulumi.get(__response__, 'endpoint'),
         id=pulumi.get(__response__, 'id'),

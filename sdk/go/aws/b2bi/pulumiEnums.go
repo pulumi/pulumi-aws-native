@@ -1356,6 +1356,839 @@ func (in *capabilityX12VersionPtr) ToCapabilityX12VersionPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(CapabilityX12VersionPtrOutput)
 }
 
+type PartnershipLineTerminator string
+
+const (
+	PartnershipLineTerminatorCrlf = PartnershipLineTerminator("CRLF")
+	PartnershipLineTerminatorLf   = PartnershipLineTerminator("LF")
+	PartnershipLineTerminatorCr   = PartnershipLineTerminator("CR")
+)
+
+func (PartnershipLineTerminator) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipLineTerminator)(nil)).Elem()
+}
+
+func (e PartnershipLineTerminator) ToPartnershipLineTerminatorOutput() PartnershipLineTerminatorOutput {
+	return pulumi.ToOutput(e).(PartnershipLineTerminatorOutput)
+}
+
+func (e PartnershipLineTerminator) ToPartnershipLineTerminatorOutputWithContext(ctx context.Context) PartnershipLineTerminatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PartnershipLineTerminatorOutput)
+}
+
+func (e PartnershipLineTerminator) ToPartnershipLineTerminatorPtrOutput() PartnershipLineTerminatorPtrOutput {
+	return e.ToPartnershipLineTerminatorPtrOutputWithContext(context.Background())
+}
+
+func (e PartnershipLineTerminator) ToPartnershipLineTerminatorPtrOutputWithContext(ctx context.Context) PartnershipLineTerminatorPtrOutput {
+	return PartnershipLineTerminator(e).ToPartnershipLineTerminatorOutputWithContext(ctx).ToPartnershipLineTerminatorPtrOutputWithContext(ctx)
+}
+
+func (e PartnershipLineTerminator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PartnershipLineTerminator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PartnershipLineTerminator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PartnershipLineTerminator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PartnershipLineTerminatorOutput struct{ *pulumi.OutputState }
+
+func (PartnershipLineTerminatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipLineTerminator)(nil)).Elem()
+}
+
+func (o PartnershipLineTerminatorOutput) ToPartnershipLineTerminatorOutput() PartnershipLineTerminatorOutput {
+	return o
+}
+
+func (o PartnershipLineTerminatorOutput) ToPartnershipLineTerminatorOutputWithContext(ctx context.Context) PartnershipLineTerminatorOutput {
+	return o
+}
+
+func (o PartnershipLineTerminatorOutput) ToPartnershipLineTerminatorPtrOutput() PartnershipLineTerminatorPtrOutput {
+	return o.ToPartnershipLineTerminatorPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipLineTerminatorOutput) ToPartnershipLineTerminatorPtrOutputWithContext(ctx context.Context) PartnershipLineTerminatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnershipLineTerminator) *PartnershipLineTerminator {
+		return &v
+	}).(PartnershipLineTerminatorPtrOutput)
+}
+
+func (o PartnershipLineTerminatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PartnershipLineTerminatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PartnershipLineTerminator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PartnershipLineTerminatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipLineTerminatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PartnershipLineTerminator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PartnershipLineTerminatorPtrOutput struct{ *pulumi.OutputState }
+
+func (PartnershipLineTerminatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnershipLineTerminator)(nil)).Elem()
+}
+
+func (o PartnershipLineTerminatorPtrOutput) ToPartnershipLineTerminatorPtrOutput() PartnershipLineTerminatorPtrOutput {
+	return o
+}
+
+func (o PartnershipLineTerminatorPtrOutput) ToPartnershipLineTerminatorPtrOutputWithContext(ctx context.Context) PartnershipLineTerminatorPtrOutput {
+	return o
+}
+
+func (o PartnershipLineTerminatorPtrOutput) Elem() PartnershipLineTerminatorOutput {
+	return o.ApplyT(func(v *PartnershipLineTerminator) PartnershipLineTerminator {
+		if v != nil {
+			return *v
+		}
+		var ret PartnershipLineTerminator
+		return ret
+	}).(PartnershipLineTerminatorOutput)
+}
+
+func (o PartnershipLineTerminatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipLineTerminatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PartnershipLineTerminator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PartnershipLineTerminatorInput is an input type that accepts values of the PartnershipLineTerminator enum
+// A concrete instance of `PartnershipLineTerminatorInput` can be one of the following:
+//
+//	PartnershipLineTerminatorCrlf
+//	PartnershipLineTerminatorLf
+//	PartnershipLineTerminatorCr
+type PartnershipLineTerminatorInput interface {
+	pulumi.Input
+
+	ToPartnershipLineTerminatorOutput() PartnershipLineTerminatorOutput
+	ToPartnershipLineTerminatorOutputWithContext(context.Context) PartnershipLineTerminatorOutput
+}
+
+var partnershipLineTerminatorPtrType = reflect.TypeOf((**PartnershipLineTerminator)(nil)).Elem()
+
+type PartnershipLineTerminatorPtrInput interface {
+	pulumi.Input
+
+	ToPartnershipLineTerminatorPtrOutput() PartnershipLineTerminatorPtrOutput
+	ToPartnershipLineTerminatorPtrOutputWithContext(context.Context) PartnershipLineTerminatorPtrOutput
+}
+
+type partnershipLineTerminatorPtr string
+
+func PartnershipLineTerminatorPtr(v string) PartnershipLineTerminatorPtrInput {
+	return (*partnershipLineTerminatorPtr)(&v)
+}
+
+func (*partnershipLineTerminatorPtr) ElementType() reflect.Type {
+	return partnershipLineTerminatorPtrType
+}
+
+func (in *partnershipLineTerminatorPtr) ToPartnershipLineTerminatorPtrOutput() PartnershipLineTerminatorPtrOutput {
+	return pulumi.ToOutput(in).(PartnershipLineTerminatorPtrOutput)
+}
+
+func (in *partnershipLineTerminatorPtr) ToPartnershipLineTerminatorPtrOutputWithContext(ctx context.Context) PartnershipLineTerminatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PartnershipLineTerminatorPtrOutput)
+}
+
+type PartnershipWrapFormat string
+
+const (
+	PartnershipWrapFormatSegment    = PartnershipWrapFormat("SEGMENT")
+	PartnershipWrapFormatOneLine    = PartnershipWrapFormat("ONE_LINE")
+	PartnershipWrapFormatLineLength = PartnershipWrapFormat("LINE_LENGTH")
+)
+
+func (PartnershipWrapFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipWrapFormat)(nil)).Elem()
+}
+
+func (e PartnershipWrapFormat) ToPartnershipWrapFormatOutput() PartnershipWrapFormatOutput {
+	return pulumi.ToOutput(e).(PartnershipWrapFormatOutput)
+}
+
+func (e PartnershipWrapFormat) ToPartnershipWrapFormatOutputWithContext(ctx context.Context) PartnershipWrapFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PartnershipWrapFormatOutput)
+}
+
+func (e PartnershipWrapFormat) ToPartnershipWrapFormatPtrOutput() PartnershipWrapFormatPtrOutput {
+	return e.ToPartnershipWrapFormatPtrOutputWithContext(context.Background())
+}
+
+func (e PartnershipWrapFormat) ToPartnershipWrapFormatPtrOutputWithContext(ctx context.Context) PartnershipWrapFormatPtrOutput {
+	return PartnershipWrapFormat(e).ToPartnershipWrapFormatOutputWithContext(ctx).ToPartnershipWrapFormatPtrOutputWithContext(ctx)
+}
+
+func (e PartnershipWrapFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PartnershipWrapFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PartnershipWrapFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PartnershipWrapFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PartnershipWrapFormatOutput struct{ *pulumi.OutputState }
+
+func (PartnershipWrapFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipWrapFormat)(nil)).Elem()
+}
+
+func (o PartnershipWrapFormatOutput) ToPartnershipWrapFormatOutput() PartnershipWrapFormatOutput {
+	return o
+}
+
+func (o PartnershipWrapFormatOutput) ToPartnershipWrapFormatOutputWithContext(ctx context.Context) PartnershipWrapFormatOutput {
+	return o
+}
+
+func (o PartnershipWrapFormatOutput) ToPartnershipWrapFormatPtrOutput() PartnershipWrapFormatPtrOutput {
+	return o.ToPartnershipWrapFormatPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipWrapFormatOutput) ToPartnershipWrapFormatPtrOutputWithContext(ctx context.Context) PartnershipWrapFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnershipWrapFormat) *PartnershipWrapFormat {
+		return &v
+	}).(PartnershipWrapFormatPtrOutput)
+}
+
+func (o PartnershipWrapFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PartnershipWrapFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PartnershipWrapFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PartnershipWrapFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipWrapFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PartnershipWrapFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PartnershipWrapFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (PartnershipWrapFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnershipWrapFormat)(nil)).Elem()
+}
+
+func (o PartnershipWrapFormatPtrOutput) ToPartnershipWrapFormatPtrOutput() PartnershipWrapFormatPtrOutput {
+	return o
+}
+
+func (o PartnershipWrapFormatPtrOutput) ToPartnershipWrapFormatPtrOutputWithContext(ctx context.Context) PartnershipWrapFormatPtrOutput {
+	return o
+}
+
+func (o PartnershipWrapFormatPtrOutput) Elem() PartnershipWrapFormatOutput {
+	return o.ApplyT(func(v *PartnershipWrapFormat) PartnershipWrapFormat {
+		if v != nil {
+			return *v
+		}
+		var ret PartnershipWrapFormat
+		return ret
+	}).(PartnershipWrapFormatOutput)
+}
+
+func (o PartnershipWrapFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipWrapFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PartnershipWrapFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PartnershipWrapFormatInput is an input type that accepts values of the PartnershipWrapFormat enum
+// A concrete instance of `PartnershipWrapFormatInput` can be one of the following:
+//
+//	PartnershipWrapFormatSegment
+//	PartnershipWrapFormatOneLine
+//	PartnershipWrapFormatLineLength
+type PartnershipWrapFormatInput interface {
+	pulumi.Input
+
+	ToPartnershipWrapFormatOutput() PartnershipWrapFormatOutput
+	ToPartnershipWrapFormatOutputWithContext(context.Context) PartnershipWrapFormatOutput
+}
+
+var partnershipWrapFormatPtrType = reflect.TypeOf((**PartnershipWrapFormat)(nil)).Elem()
+
+type PartnershipWrapFormatPtrInput interface {
+	pulumi.Input
+
+	ToPartnershipWrapFormatPtrOutput() PartnershipWrapFormatPtrOutput
+	ToPartnershipWrapFormatPtrOutputWithContext(context.Context) PartnershipWrapFormatPtrOutput
+}
+
+type partnershipWrapFormatPtr string
+
+func PartnershipWrapFormatPtr(v string) PartnershipWrapFormatPtrInput {
+	return (*partnershipWrapFormatPtr)(&v)
+}
+
+func (*partnershipWrapFormatPtr) ElementType() reflect.Type {
+	return partnershipWrapFormatPtrType
+}
+
+func (in *partnershipWrapFormatPtr) ToPartnershipWrapFormatPtrOutput() PartnershipWrapFormatPtrOutput {
+	return pulumi.ToOutput(in).(PartnershipWrapFormatPtrOutput)
+}
+
+func (in *partnershipWrapFormatPtr) ToPartnershipWrapFormatPtrOutputWithContext(ctx context.Context) PartnershipWrapFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PartnershipWrapFormatPtrOutput)
+}
+
+type PartnershipX12FunctionalAcknowledgment string
+
+const (
+	PartnershipX12FunctionalAcknowledgmentDoNotGenerate                             = PartnershipX12FunctionalAcknowledgment("DO_NOT_GENERATE")
+	PartnershipX12FunctionalAcknowledgmentGenerateAllSegments                       = PartnershipX12FunctionalAcknowledgment("GENERATE_ALL_SEGMENTS")
+	PartnershipX12FunctionalAcknowledgmentGenerateWithoutTransactionSetResponseLoop = PartnershipX12FunctionalAcknowledgment("GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP")
+)
+
+func (PartnershipX12FunctionalAcknowledgment) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipX12FunctionalAcknowledgment)(nil)).Elem()
+}
+
+func (e PartnershipX12FunctionalAcknowledgment) ToPartnershipX12FunctionalAcknowledgmentOutput() PartnershipX12FunctionalAcknowledgmentOutput {
+	return pulumi.ToOutput(e).(PartnershipX12FunctionalAcknowledgmentOutput)
+}
+
+func (e PartnershipX12FunctionalAcknowledgment) ToPartnershipX12FunctionalAcknowledgmentOutputWithContext(ctx context.Context) PartnershipX12FunctionalAcknowledgmentOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PartnershipX12FunctionalAcknowledgmentOutput)
+}
+
+func (e PartnershipX12FunctionalAcknowledgment) ToPartnershipX12FunctionalAcknowledgmentPtrOutput() PartnershipX12FunctionalAcknowledgmentPtrOutput {
+	return e.ToPartnershipX12FunctionalAcknowledgmentPtrOutputWithContext(context.Background())
+}
+
+func (e PartnershipX12FunctionalAcknowledgment) ToPartnershipX12FunctionalAcknowledgmentPtrOutputWithContext(ctx context.Context) PartnershipX12FunctionalAcknowledgmentPtrOutput {
+	return PartnershipX12FunctionalAcknowledgment(e).ToPartnershipX12FunctionalAcknowledgmentOutputWithContext(ctx).ToPartnershipX12FunctionalAcknowledgmentPtrOutputWithContext(ctx)
+}
+
+func (e PartnershipX12FunctionalAcknowledgment) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PartnershipX12FunctionalAcknowledgment) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PartnershipX12FunctionalAcknowledgment) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PartnershipX12FunctionalAcknowledgment) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PartnershipX12FunctionalAcknowledgmentOutput struct{ *pulumi.OutputState }
+
+func (PartnershipX12FunctionalAcknowledgmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipX12FunctionalAcknowledgment)(nil)).Elem()
+}
+
+func (o PartnershipX12FunctionalAcknowledgmentOutput) ToPartnershipX12FunctionalAcknowledgmentOutput() PartnershipX12FunctionalAcknowledgmentOutput {
+	return o
+}
+
+func (o PartnershipX12FunctionalAcknowledgmentOutput) ToPartnershipX12FunctionalAcknowledgmentOutputWithContext(ctx context.Context) PartnershipX12FunctionalAcknowledgmentOutput {
+	return o
+}
+
+func (o PartnershipX12FunctionalAcknowledgmentOutput) ToPartnershipX12FunctionalAcknowledgmentPtrOutput() PartnershipX12FunctionalAcknowledgmentPtrOutput {
+	return o.ToPartnershipX12FunctionalAcknowledgmentPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipX12FunctionalAcknowledgmentOutput) ToPartnershipX12FunctionalAcknowledgmentPtrOutputWithContext(ctx context.Context) PartnershipX12FunctionalAcknowledgmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnershipX12FunctionalAcknowledgment) *PartnershipX12FunctionalAcknowledgment {
+		return &v
+	}).(PartnershipX12FunctionalAcknowledgmentPtrOutput)
+}
+
+func (o PartnershipX12FunctionalAcknowledgmentOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PartnershipX12FunctionalAcknowledgmentOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PartnershipX12FunctionalAcknowledgment) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PartnershipX12FunctionalAcknowledgmentOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipX12FunctionalAcknowledgmentOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PartnershipX12FunctionalAcknowledgment) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PartnershipX12FunctionalAcknowledgmentPtrOutput struct{ *pulumi.OutputState }
+
+func (PartnershipX12FunctionalAcknowledgmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnershipX12FunctionalAcknowledgment)(nil)).Elem()
+}
+
+func (o PartnershipX12FunctionalAcknowledgmentPtrOutput) ToPartnershipX12FunctionalAcknowledgmentPtrOutput() PartnershipX12FunctionalAcknowledgmentPtrOutput {
+	return o
+}
+
+func (o PartnershipX12FunctionalAcknowledgmentPtrOutput) ToPartnershipX12FunctionalAcknowledgmentPtrOutputWithContext(ctx context.Context) PartnershipX12FunctionalAcknowledgmentPtrOutput {
+	return o
+}
+
+func (o PartnershipX12FunctionalAcknowledgmentPtrOutput) Elem() PartnershipX12FunctionalAcknowledgmentOutput {
+	return o.ApplyT(func(v *PartnershipX12FunctionalAcknowledgment) PartnershipX12FunctionalAcknowledgment {
+		if v != nil {
+			return *v
+		}
+		var ret PartnershipX12FunctionalAcknowledgment
+		return ret
+	}).(PartnershipX12FunctionalAcknowledgmentOutput)
+}
+
+func (o PartnershipX12FunctionalAcknowledgmentPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipX12FunctionalAcknowledgmentPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PartnershipX12FunctionalAcknowledgment) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PartnershipX12FunctionalAcknowledgmentInput is an input type that accepts values of the PartnershipX12FunctionalAcknowledgment enum
+// A concrete instance of `PartnershipX12FunctionalAcknowledgmentInput` can be one of the following:
+//
+//	PartnershipX12FunctionalAcknowledgmentDoNotGenerate
+//	PartnershipX12FunctionalAcknowledgmentGenerateAllSegments
+//	PartnershipX12FunctionalAcknowledgmentGenerateWithoutTransactionSetResponseLoop
+type PartnershipX12FunctionalAcknowledgmentInput interface {
+	pulumi.Input
+
+	ToPartnershipX12FunctionalAcknowledgmentOutput() PartnershipX12FunctionalAcknowledgmentOutput
+	ToPartnershipX12FunctionalAcknowledgmentOutputWithContext(context.Context) PartnershipX12FunctionalAcknowledgmentOutput
+}
+
+var partnershipX12FunctionalAcknowledgmentPtrType = reflect.TypeOf((**PartnershipX12FunctionalAcknowledgment)(nil)).Elem()
+
+type PartnershipX12FunctionalAcknowledgmentPtrInput interface {
+	pulumi.Input
+
+	ToPartnershipX12FunctionalAcknowledgmentPtrOutput() PartnershipX12FunctionalAcknowledgmentPtrOutput
+	ToPartnershipX12FunctionalAcknowledgmentPtrOutputWithContext(context.Context) PartnershipX12FunctionalAcknowledgmentPtrOutput
+}
+
+type partnershipX12FunctionalAcknowledgmentPtr string
+
+func PartnershipX12FunctionalAcknowledgmentPtr(v string) PartnershipX12FunctionalAcknowledgmentPtrInput {
+	return (*partnershipX12FunctionalAcknowledgmentPtr)(&v)
+}
+
+func (*partnershipX12FunctionalAcknowledgmentPtr) ElementType() reflect.Type {
+	return partnershipX12FunctionalAcknowledgmentPtrType
+}
+
+func (in *partnershipX12FunctionalAcknowledgmentPtr) ToPartnershipX12FunctionalAcknowledgmentPtrOutput() PartnershipX12FunctionalAcknowledgmentPtrOutput {
+	return pulumi.ToOutput(in).(PartnershipX12FunctionalAcknowledgmentPtrOutput)
+}
+
+func (in *partnershipX12FunctionalAcknowledgmentPtr) ToPartnershipX12FunctionalAcknowledgmentPtrOutputWithContext(ctx context.Context) PartnershipX12FunctionalAcknowledgmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PartnershipX12FunctionalAcknowledgmentPtrOutput)
+}
+
+type PartnershipX12TechnicalAcknowledgment string
+
+const (
+	PartnershipX12TechnicalAcknowledgmentDoNotGenerate       = PartnershipX12TechnicalAcknowledgment("DO_NOT_GENERATE")
+	PartnershipX12TechnicalAcknowledgmentGenerateAllSegments = PartnershipX12TechnicalAcknowledgment("GENERATE_ALL_SEGMENTS")
+)
+
+func (PartnershipX12TechnicalAcknowledgment) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipX12TechnicalAcknowledgment)(nil)).Elem()
+}
+
+func (e PartnershipX12TechnicalAcknowledgment) ToPartnershipX12TechnicalAcknowledgmentOutput() PartnershipX12TechnicalAcknowledgmentOutput {
+	return pulumi.ToOutput(e).(PartnershipX12TechnicalAcknowledgmentOutput)
+}
+
+func (e PartnershipX12TechnicalAcknowledgment) ToPartnershipX12TechnicalAcknowledgmentOutputWithContext(ctx context.Context) PartnershipX12TechnicalAcknowledgmentOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PartnershipX12TechnicalAcknowledgmentOutput)
+}
+
+func (e PartnershipX12TechnicalAcknowledgment) ToPartnershipX12TechnicalAcknowledgmentPtrOutput() PartnershipX12TechnicalAcknowledgmentPtrOutput {
+	return e.ToPartnershipX12TechnicalAcknowledgmentPtrOutputWithContext(context.Background())
+}
+
+func (e PartnershipX12TechnicalAcknowledgment) ToPartnershipX12TechnicalAcknowledgmentPtrOutputWithContext(ctx context.Context) PartnershipX12TechnicalAcknowledgmentPtrOutput {
+	return PartnershipX12TechnicalAcknowledgment(e).ToPartnershipX12TechnicalAcknowledgmentOutputWithContext(ctx).ToPartnershipX12TechnicalAcknowledgmentPtrOutputWithContext(ctx)
+}
+
+func (e PartnershipX12TechnicalAcknowledgment) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PartnershipX12TechnicalAcknowledgment) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PartnershipX12TechnicalAcknowledgment) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PartnershipX12TechnicalAcknowledgment) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PartnershipX12TechnicalAcknowledgmentOutput struct{ *pulumi.OutputState }
+
+func (PartnershipX12TechnicalAcknowledgmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipX12TechnicalAcknowledgment)(nil)).Elem()
+}
+
+func (o PartnershipX12TechnicalAcknowledgmentOutput) ToPartnershipX12TechnicalAcknowledgmentOutput() PartnershipX12TechnicalAcknowledgmentOutput {
+	return o
+}
+
+func (o PartnershipX12TechnicalAcknowledgmentOutput) ToPartnershipX12TechnicalAcknowledgmentOutputWithContext(ctx context.Context) PartnershipX12TechnicalAcknowledgmentOutput {
+	return o
+}
+
+func (o PartnershipX12TechnicalAcknowledgmentOutput) ToPartnershipX12TechnicalAcknowledgmentPtrOutput() PartnershipX12TechnicalAcknowledgmentPtrOutput {
+	return o.ToPartnershipX12TechnicalAcknowledgmentPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipX12TechnicalAcknowledgmentOutput) ToPartnershipX12TechnicalAcknowledgmentPtrOutputWithContext(ctx context.Context) PartnershipX12TechnicalAcknowledgmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnershipX12TechnicalAcknowledgment) *PartnershipX12TechnicalAcknowledgment {
+		return &v
+	}).(PartnershipX12TechnicalAcknowledgmentPtrOutput)
+}
+
+func (o PartnershipX12TechnicalAcknowledgmentOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PartnershipX12TechnicalAcknowledgmentOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PartnershipX12TechnicalAcknowledgment) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PartnershipX12TechnicalAcknowledgmentOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipX12TechnicalAcknowledgmentOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PartnershipX12TechnicalAcknowledgment) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PartnershipX12TechnicalAcknowledgmentPtrOutput struct{ *pulumi.OutputState }
+
+func (PartnershipX12TechnicalAcknowledgmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnershipX12TechnicalAcknowledgment)(nil)).Elem()
+}
+
+func (o PartnershipX12TechnicalAcknowledgmentPtrOutput) ToPartnershipX12TechnicalAcknowledgmentPtrOutput() PartnershipX12TechnicalAcknowledgmentPtrOutput {
+	return o
+}
+
+func (o PartnershipX12TechnicalAcknowledgmentPtrOutput) ToPartnershipX12TechnicalAcknowledgmentPtrOutputWithContext(ctx context.Context) PartnershipX12TechnicalAcknowledgmentPtrOutput {
+	return o
+}
+
+func (o PartnershipX12TechnicalAcknowledgmentPtrOutput) Elem() PartnershipX12TechnicalAcknowledgmentOutput {
+	return o.ApplyT(func(v *PartnershipX12TechnicalAcknowledgment) PartnershipX12TechnicalAcknowledgment {
+		if v != nil {
+			return *v
+		}
+		var ret PartnershipX12TechnicalAcknowledgment
+		return ret
+	}).(PartnershipX12TechnicalAcknowledgmentOutput)
+}
+
+func (o PartnershipX12TechnicalAcknowledgmentPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipX12TechnicalAcknowledgmentPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PartnershipX12TechnicalAcknowledgment) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PartnershipX12TechnicalAcknowledgmentInput is an input type that accepts values of the PartnershipX12TechnicalAcknowledgment enum
+// A concrete instance of `PartnershipX12TechnicalAcknowledgmentInput` can be one of the following:
+//
+//	PartnershipX12TechnicalAcknowledgmentDoNotGenerate
+//	PartnershipX12TechnicalAcknowledgmentGenerateAllSegments
+type PartnershipX12TechnicalAcknowledgmentInput interface {
+	pulumi.Input
+
+	ToPartnershipX12TechnicalAcknowledgmentOutput() PartnershipX12TechnicalAcknowledgmentOutput
+	ToPartnershipX12TechnicalAcknowledgmentOutputWithContext(context.Context) PartnershipX12TechnicalAcknowledgmentOutput
+}
+
+var partnershipX12TechnicalAcknowledgmentPtrType = reflect.TypeOf((**PartnershipX12TechnicalAcknowledgment)(nil)).Elem()
+
+type PartnershipX12TechnicalAcknowledgmentPtrInput interface {
+	pulumi.Input
+
+	ToPartnershipX12TechnicalAcknowledgmentPtrOutput() PartnershipX12TechnicalAcknowledgmentPtrOutput
+	ToPartnershipX12TechnicalAcknowledgmentPtrOutputWithContext(context.Context) PartnershipX12TechnicalAcknowledgmentPtrOutput
+}
+
+type partnershipX12TechnicalAcknowledgmentPtr string
+
+func PartnershipX12TechnicalAcknowledgmentPtr(v string) PartnershipX12TechnicalAcknowledgmentPtrInput {
+	return (*partnershipX12TechnicalAcknowledgmentPtr)(&v)
+}
+
+func (*partnershipX12TechnicalAcknowledgmentPtr) ElementType() reflect.Type {
+	return partnershipX12TechnicalAcknowledgmentPtrType
+}
+
+func (in *partnershipX12TechnicalAcknowledgmentPtr) ToPartnershipX12TechnicalAcknowledgmentPtrOutput() PartnershipX12TechnicalAcknowledgmentPtrOutput {
+	return pulumi.ToOutput(in).(PartnershipX12TechnicalAcknowledgmentPtrOutput)
+}
+
+func (in *partnershipX12TechnicalAcknowledgmentPtr) ToPartnershipX12TechnicalAcknowledgmentPtrOutputWithContext(ctx context.Context) PartnershipX12TechnicalAcknowledgmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PartnershipX12TechnicalAcknowledgmentPtrOutput)
+}
+
+type PartnershipX12gs05TimeFormat string
+
+const (
+	PartnershipX12gs05TimeFormatHhmm     = PartnershipX12gs05TimeFormat("HHMM")
+	PartnershipX12gs05TimeFormatHhmmss   = PartnershipX12gs05TimeFormat("HHMMSS")
+	PartnershipX12gs05TimeFormatHhmmssdd = PartnershipX12gs05TimeFormat("HHMMSSDD")
+)
+
+func (PartnershipX12gs05TimeFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipX12gs05TimeFormat)(nil)).Elem()
+}
+
+func (e PartnershipX12gs05TimeFormat) ToPartnershipX12gs05TimeFormatOutput() PartnershipX12gs05TimeFormatOutput {
+	return pulumi.ToOutput(e).(PartnershipX12gs05TimeFormatOutput)
+}
+
+func (e PartnershipX12gs05TimeFormat) ToPartnershipX12gs05TimeFormatOutputWithContext(ctx context.Context) PartnershipX12gs05TimeFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PartnershipX12gs05TimeFormatOutput)
+}
+
+func (e PartnershipX12gs05TimeFormat) ToPartnershipX12gs05TimeFormatPtrOutput() PartnershipX12gs05TimeFormatPtrOutput {
+	return e.ToPartnershipX12gs05TimeFormatPtrOutputWithContext(context.Background())
+}
+
+func (e PartnershipX12gs05TimeFormat) ToPartnershipX12gs05TimeFormatPtrOutputWithContext(ctx context.Context) PartnershipX12gs05TimeFormatPtrOutput {
+	return PartnershipX12gs05TimeFormat(e).ToPartnershipX12gs05TimeFormatOutputWithContext(ctx).ToPartnershipX12gs05TimeFormatPtrOutputWithContext(ctx)
+}
+
+func (e PartnershipX12gs05TimeFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PartnershipX12gs05TimeFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PartnershipX12gs05TimeFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PartnershipX12gs05TimeFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PartnershipX12gs05TimeFormatOutput struct{ *pulumi.OutputState }
+
+func (PartnershipX12gs05TimeFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnershipX12gs05TimeFormat)(nil)).Elem()
+}
+
+func (o PartnershipX12gs05TimeFormatOutput) ToPartnershipX12gs05TimeFormatOutput() PartnershipX12gs05TimeFormatOutput {
+	return o
+}
+
+func (o PartnershipX12gs05TimeFormatOutput) ToPartnershipX12gs05TimeFormatOutputWithContext(ctx context.Context) PartnershipX12gs05TimeFormatOutput {
+	return o
+}
+
+func (o PartnershipX12gs05TimeFormatOutput) ToPartnershipX12gs05TimeFormatPtrOutput() PartnershipX12gs05TimeFormatPtrOutput {
+	return o.ToPartnershipX12gs05TimeFormatPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipX12gs05TimeFormatOutput) ToPartnershipX12gs05TimeFormatPtrOutputWithContext(ctx context.Context) PartnershipX12gs05TimeFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnershipX12gs05TimeFormat) *PartnershipX12gs05TimeFormat {
+		return &v
+	}).(PartnershipX12gs05TimeFormatPtrOutput)
+}
+
+func (o PartnershipX12gs05TimeFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PartnershipX12gs05TimeFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PartnershipX12gs05TimeFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PartnershipX12gs05TimeFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipX12gs05TimeFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PartnershipX12gs05TimeFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PartnershipX12gs05TimeFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (PartnershipX12gs05TimeFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnershipX12gs05TimeFormat)(nil)).Elem()
+}
+
+func (o PartnershipX12gs05TimeFormatPtrOutput) ToPartnershipX12gs05TimeFormatPtrOutput() PartnershipX12gs05TimeFormatPtrOutput {
+	return o
+}
+
+func (o PartnershipX12gs05TimeFormatPtrOutput) ToPartnershipX12gs05TimeFormatPtrOutputWithContext(ctx context.Context) PartnershipX12gs05TimeFormatPtrOutput {
+	return o
+}
+
+func (o PartnershipX12gs05TimeFormatPtrOutput) Elem() PartnershipX12gs05TimeFormatOutput {
+	return o.ApplyT(func(v *PartnershipX12gs05TimeFormat) PartnershipX12gs05TimeFormat {
+		if v != nil {
+			return *v
+		}
+		var ret PartnershipX12gs05TimeFormat
+		return ret
+	}).(PartnershipX12gs05TimeFormatOutput)
+}
+
+func (o PartnershipX12gs05TimeFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PartnershipX12gs05TimeFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PartnershipX12gs05TimeFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PartnershipX12gs05TimeFormatInput is an input type that accepts values of the PartnershipX12gs05TimeFormat enum
+// A concrete instance of `PartnershipX12gs05TimeFormatInput` can be one of the following:
+//
+//	PartnershipX12gs05TimeFormatHhmm
+//	PartnershipX12gs05TimeFormatHhmmss
+//	PartnershipX12gs05TimeFormatHhmmssdd
+type PartnershipX12gs05TimeFormatInput interface {
+	pulumi.Input
+
+	ToPartnershipX12gs05TimeFormatOutput() PartnershipX12gs05TimeFormatOutput
+	ToPartnershipX12gs05TimeFormatOutputWithContext(context.Context) PartnershipX12gs05TimeFormatOutput
+}
+
+var partnershipX12gs05TimeFormatPtrType = reflect.TypeOf((**PartnershipX12gs05TimeFormat)(nil)).Elem()
+
+type PartnershipX12gs05TimeFormatPtrInput interface {
+	pulumi.Input
+
+	ToPartnershipX12gs05TimeFormatPtrOutput() PartnershipX12gs05TimeFormatPtrOutput
+	ToPartnershipX12gs05TimeFormatPtrOutputWithContext(context.Context) PartnershipX12gs05TimeFormatPtrOutput
+}
+
+type partnershipX12gs05TimeFormatPtr string
+
+func PartnershipX12gs05TimeFormatPtr(v string) PartnershipX12gs05TimeFormatPtrInput {
+	return (*partnershipX12gs05TimeFormatPtr)(&v)
+}
+
+func (*partnershipX12gs05TimeFormatPtr) ElementType() reflect.Type {
+	return partnershipX12gs05TimeFormatPtrType
+}
+
+func (in *partnershipX12gs05TimeFormatPtr) ToPartnershipX12gs05TimeFormatPtrOutput() PartnershipX12gs05TimeFormatPtrOutput {
+	return pulumi.ToOutput(in).(PartnershipX12gs05TimeFormatPtrOutput)
+}
+
+func (in *partnershipX12gs05TimeFormatPtr) ToPartnershipX12gs05TimeFormatPtrOutputWithContext(ctx context.Context) PartnershipX12gs05TimeFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PartnershipX12gs05TimeFormatPtrOutput)
+}
+
 type ProfileLogging string
 
 const (
@@ -2342,6 +3175,171 @@ func (in *transformerToFormatPtr) ToTransformerToFormatPtrOutput() TransformerTo
 
 func (in *transformerToFormatPtr) ToTransformerToFormatPtrOutputWithContext(ctx context.Context) TransformerToFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TransformerToFormatPtrOutput)
+}
+
+type TransformerX12SplitBy string
+
+const (
+	TransformerX12SplitByNone        = TransformerX12SplitBy("NONE")
+	TransformerX12SplitByTransaction = TransformerX12SplitBy("TRANSACTION")
+)
+
+func (TransformerX12SplitBy) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12SplitBy)(nil)).Elem()
+}
+
+func (e TransformerX12SplitBy) ToTransformerX12SplitByOutput() TransformerX12SplitByOutput {
+	return pulumi.ToOutput(e).(TransformerX12SplitByOutput)
+}
+
+func (e TransformerX12SplitBy) ToTransformerX12SplitByOutputWithContext(ctx context.Context) TransformerX12SplitByOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransformerX12SplitByOutput)
+}
+
+func (e TransformerX12SplitBy) ToTransformerX12SplitByPtrOutput() TransformerX12SplitByPtrOutput {
+	return e.ToTransformerX12SplitByPtrOutputWithContext(context.Background())
+}
+
+func (e TransformerX12SplitBy) ToTransformerX12SplitByPtrOutputWithContext(ctx context.Context) TransformerX12SplitByPtrOutput {
+	return TransformerX12SplitBy(e).ToTransformerX12SplitByOutputWithContext(ctx).ToTransformerX12SplitByPtrOutputWithContext(ctx)
+}
+
+func (e TransformerX12SplitBy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransformerX12SplitBy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransformerX12SplitBy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransformerX12SplitBy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransformerX12SplitByOutput struct{ *pulumi.OutputState }
+
+func (TransformerX12SplitByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12SplitBy)(nil)).Elem()
+}
+
+func (o TransformerX12SplitByOutput) ToTransformerX12SplitByOutput() TransformerX12SplitByOutput {
+	return o
+}
+
+func (o TransformerX12SplitByOutput) ToTransformerX12SplitByOutputWithContext(ctx context.Context) TransformerX12SplitByOutput {
+	return o
+}
+
+func (o TransformerX12SplitByOutput) ToTransformerX12SplitByPtrOutput() TransformerX12SplitByPtrOutput {
+	return o.ToTransformerX12SplitByPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerX12SplitByOutput) ToTransformerX12SplitByPtrOutputWithContext(ctx context.Context) TransformerX12SplitByPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformerX12SplitBy) *TransformerX12SplitBy {
+		return &v
+	}).(TransformerX12SplitByPtrOutput)
+}
+
+func (o TransformerX12SplitByOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransformerX12SplitByOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformerX12SplitBy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransformerX12SplitByOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerX12SplitByOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformerX12SplitBy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformerX12SplitByPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformerX12SplitByPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerX12SplitBy)(nil)).Elem()
+}
+
+func (o TransformerX12SplitByPtrOutput) ToTransformerX12SplitByPtrOutput() TransformerX12SplitByPtrOutput {
+	return o
+}
+
+func (o TransformerX12SplitByPtrOutput) ToTransformerX12SplitByPtrOutputWithContext(ctx context.Context) TransformerX12SplitByPtrOutput {
+	return o
+}
+
+func (o TransformerX12SplitByPtrOutput) Elem() TransformerX12SplitByOutput {
+	return o.ApplyT(func(v *TransformerX12SplitBy) TransformerX12SplitBy {
+		if v != nil {
+			return *v
+		}
+		var ret TransformerX12SplitBy
+		return ret
+	}).(TransformerX12SplitByOutput)
+}
+
+func (o TransformerX12SplitByPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerX12SplitByPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransformerX12SplitBy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransformerX12SplitByInput is an input type that accepts values of the TransformerX12SplitBy enum
+// A concrete instance of `TransformerX12SplitByInput` can be one of the following:
+//
+//	TransformerX12SplitByNone
+//	TransformerX12SplitByTransaction
+type TransformerX12SplitByInput interface {
+	pulumi.Input
+
+	ToTransformerX12SplitByOutput() TransformerX12SplitByOutput
+	ToTransformerX12SplitByOutputWithContext(context.Context) TransformerX12SplitByOutput
+}
+
+var transformerX12SplitByPtrType = reflect.TypeOf((**TransformerX12SplitBy)(nil)).Elem()
+
+type TransformerX12SplitByPtrInput interface {
+	pulumi.Input
+
+	ToTransformerX12SplitByPtrOutput() TransformerX12SplitByPtrOutput
+	ToTransformerX12SplitByPtrOutputWithContext(context.Context) TransformerX12SplitByPtrOutput
+}
+
+type transformerX12SplitByPtr string
+
+func TransformerX12SplitByPtr(v string) TransformerX12SplitByPtrInput {
+	return (*transformerX12SplitByPtr)(&v)
+}
+
+func (*transformerX12SplitByPtr) ElementType() reflect.Type {
+	return transformerX12SplitByPtrType
+}
+
+func (in *transformerX12SplitByPtr) ToTransformerX12SplitByPtrOutput() TransformerX12SplitByPtrOutput {
+	return pulumi.ToOutput(in).(TransformerX12SplitByPtrOutput)
+}
+
+func (in *transformerX12SplitByPtr) ToTransformerX12SplitByPtrOutputWithContext(ctx context.Context) TransformerX12SplitByPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransformerX12SplitByPtrOutput)
 }
 
 type TransformerX12TransactionSet string
@@ -3371,6 +4369,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityX12TransactionSetPtrInput)(nil)).Elem(), CapabilityX12TransactionSet("X12_100"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityX12VersionInput)(nil)).Elem(), CapabilityX12Version("VERSION_4010"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityX12VersionPtrInput)(nil)).Elem(), CapabilityX12Version("VERSION_4010"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipLineTerminatorInput)(nil)).Elem(), PartnershipLineTerminator("CRLF"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipLineTerminatorPtrInput)(nil)).Elem(), PartnershipLineTerminator("CRLF"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipWrapFormatInput)(nil)).Elem(), PartnershipWrapFormat("SEGMENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipWrapFormatPtrInput)(nil)).Elem(), PartnershipWrapFormat("SEGMENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12FunctionalAcknowledgmentInput)(nil)).Elem(), PartnershipX12FunctionalAcknowledgment("DO_NOT_GENERATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12FunctionalAcknowledgmentPtrInput)(nil)).Elem(), PartnershipX12FunctionalAcknowledgment("DO_NOT_GENERATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12TechnicalAcknowledgmentInput)(nil)).Elem(), PartnershipX12TechnicalAcknowledgment("DO_NOT_GENERATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12TechnicalAcknowledgmentPtrInput)(nil)).Elem(), PartnershipX12TechnicalAcknowledgment("DO_NOT_GENERATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12gs05TimeFormatInput)(nil)).Elem(), PartnershipX12gs05TimeFormat("HHMM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12gs05TimeFormatPtrInput)(nil)).Elem(), PartnershipX12gs05TimeFormat("HHMM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileLoggingInput)(nil)).Elem(), ProfileLogging("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileLoggingPtrInput)(nil)).Elem(), ProfileLogging("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerFileFormatInput)(nil)).Elem(), TransformerFileFormat("XML"))
@@ -3383,6 +4391,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerStatusPtrInput)(nil)).Elem(), TransformerStatus("active"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerToFormatInput)(nil)).Elem(), TransformerToFormat("X12"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerToFormatPtrInput)(nil)).Elem(), TransformerToFormat("X12"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12SplitByInput)(nil)).Elem(), TransformerX12SplitBy("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12SplitByPtrInput)(nil)).Elem(), TransformerX12SplitBy("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12TransactionSetInput)(nil)).Elem(), TransformerX12TransactionSet("X12_100"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12TransactionSetPtrInput)(nil)).Elem(), TransformerX12TransactionSet("X12_100"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12VersionInput)(nil)).Elem(), TransformerX12Version("VERSION_4010"))
@@ -3395,6 +4405,16 @@ func init() {
 	pulumi.RegisterOutputType(CapabilityX12TransactionSetPtrOutput{})
 	pulumi.RegisterOutputType(CapabilityX12VersionOutput{})
 	pulumi.RegisterOutputType(CapabilityX12VersionPtrOutput{})
+	pulumi.RegisterOutputType(PartnershipLineTerminatorOutput{})
+	pulumi.RegisterOutputType(PartnershipLineTerminatorPtrOutput{})
+	pulumi.RegisterOutputType(PartnershipWrapFormatOutput{})
+	pulumi.RegisterOutputType(PartnershipWrapFormatPtrOutput{})
+	pulumi.RegisterOutputType(PartnershipX12FunctionalAcknowledgmentOutput{})
+	pulumi.RegisterOutputType(PartnershipX12FunctionalAcknowledgmentPtrOutput{})
+	pulumi.RegisterOutputType(PartnershipX12TechnicalAcknowledgmentOutput{})
+	pulumi.RegisterOutputType(PartnershipX12TechnicalAcknowledgmentPtrOutput{})
+	pulumi.RegisterOutputType(PartnershipX12gs05TimeFormatOutput{})
+	pulumi.RegisterOutputType(PartnershipX12gs05TimeFormatPtrOutput{})
 	pulumi.RegisterOutputType(ProfileLoggingOutput{})
 	pulumi.RegisterOutputType(ProfileLoggingPtrOutput{})
 	pulumi.RegisterOutputType(TransformerFileFormatOutput{})
@@ -3407,6 +4427,8 @@ func init() {
 	pulumi.RegisterOutputType(TransformerStatusPtrOutput{})
 	pulumi.RegisterOutputType(TransformerToFormatOutput{})
 	pulumi.RegisterOutputType(TransformerToFormatPtrOutput{})
+	pulumi.RegisterOutputType(TransformerX12SplitByOutput{})
+	pulumi.RegisterOutputType(TransformerX12SplitByPtrOutput{})
 	pulumi.RegisterOutputType(TransformerX12TransactionSetOutput{})
 	pulumi.RegisterOutputType(TransformerX12TransactionSetPtrOutput{})
 	pulumi.RegisterOutputType(TransformerX12VersionOutput{})

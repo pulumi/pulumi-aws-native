@@ -23,10 +23,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:s3tables:Namespace":
 		r = &Namespace{}
+	case "aws-native:s3tables:Table":
+		r = &Table{}
 	case "aws-native:s3tables:TableBucket":
 		r = &TableBucket{}
 	case "aws-native:s3tables:TableBucketPolicy":
 		r = &TableBucketPolicy{}
+	case "aws-native:s3tables:TablePolicy":
+		r = &TablePolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

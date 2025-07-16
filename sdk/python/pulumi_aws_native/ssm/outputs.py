@@ -334,7 +334,9 @@ class PatchBaselinePatchSource(dict):
                  products: Optional[Sequence[builtins.str]] = None):
         """
         Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
-        :param builtins.str configuration: The value of the yum repo configuration. For example:
+        :param builtins.str configuration: The value of the repo configuration.
+               
+               *Example for yum repositories*
                
                `[main]`
                
@@ -344,7 +346,15 @@ class PatchBaselinePatchSource(dict):
                
                `enabled=1`
                
-               > For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) .
+               For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) on the *man7.org* website.
+               
+               *Examples for Ubuntu Server and Debian Server*
+               
+               `deb http://security.ubuntu.com/ubuntu jammy main`
+               
+               `deb https://site.example.com/debian distribution component1 component2 component3`
+               
+               Repo information for Ubuntu Server repositories must be specifed in a single line. For more examples and information, see [jammy (5) sources.list.5.gz](https://docs.aws.amazon.com/https://manpages.ubuntu.com/manpages/jammy/man5/sources.list.5.html) on the *Ubuntu Server Manuals* website and [sources.list format](https://docs.aws.amazon.com/https://wiki.debian.org/SourcesList#sources.list_format) on the *Debian Wiki* .
         :param builtins.str name: The name specified to identify the patch source.
         :param Sequence[builtins.str] products: The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
         """
@@ -359,7 +369,9 @@ class PatchBaselinePatchSource(dict):
     @pulumi.getter
     def configuration(self) -> Optional[builtins.str]:
         """
-        The value of the yum repo configuration. For example:
+        The value of the repo configuration.
+
+        *Example for yum repositories*
 
         `[main]`
 
@@ -369,7 +381,15 @@ class PatchBaselinePatchSource(dict):
 
         `enabled=1`
 
-        > For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) .
+        For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) on the *man7.org* website.
+
+        *Examples for Ubuntu Server and Debian Server*
+
+        `deb http://security.ubuntu.com/ubuntu jammy main`
+
+        `deb https://site.example.com/debian distribution component1 component2 component3`
+
+        Repo information for Ubuntu Server repositories must be specifed in a single line. For more examples and information, see [jammy (5) sources.list.5.gz](https://docs.aws.amazon.com/https://manpages.ubuntu.com/manpages/jammy/man5/sources.list.5.html) on the *Ubuntu Server Manuals* website and [sources.list format](https://docs.aws.amazon.com/https://wiki.debian.org/SourcesList#sources.list_format) on the *Debian Wiki* .
         """
         return pulumi.get(self, "configuration")
 

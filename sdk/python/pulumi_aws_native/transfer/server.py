@@ -110,7 +110,10 @@ class ServerArgs:
                The `Protocols` parameter is an array of strings.
                
                *Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`
-        :param pulumi.Input['ServerS3StorageOptionsArgs'] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+        :param pulumi.Input['ServerS3StorageOptionsArgs'] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized.
+               
+               - If using the console, this is enabled by default.
+               - If using the API or CLI, this is disabled by default.
                
                By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
         :param pulumi.Input[builtins.str] security_policy_name: Specifies the name of the security policy for the server.
@@ -355,7 +358,10 @@ class ServerArgs:
     @pulumi.getter(name="s3StorageOptions")
     def s3_storage_options(self) -> Optional[pulumi.Input['ServerS3StorageOptionsArgs']]:
         """
-        Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+        Specifies whether or not performance for your Amazon S3 directories is optimized.
+
+        - If using the console, this is enabled by default.
+        - If using the API or CLI, this is disabled by default.
 
         By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
         """
@@ -709,7 +715,10 @@ class Server(pulumi.CustomResource):
                The `Protocols` parameter is an array of strings.
                
                *Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`
-        :param pulumi.Input[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict']] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+        :param pulumi.Input[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict']] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized.
+               
+               - If using the console, this is enabled by default.
+               - If using the API or CLI, this is disabled by default.
                
                By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
         :param pulumi.Input[builtins.str] security_policy_name: Specifies the name of the security policy for the server.
@@ -1196,7 +1205,10 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="s3StorageOptions")
     def s3_storage_options(self) -> pulumi.Output[Optional['outputs.ServerS3StorageOptions']]:
         """
-        Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+        Specifies whether or not performance for your Amazon S3 directories is optimized.
+
+        - If using the console, this is enabled by default.
+        - If using the API or CLI, this is disabled by default.
 
         By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
         """

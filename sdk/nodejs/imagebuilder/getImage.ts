@@ -42,6 +42,10 @@ export interface GetImageResult {
      * The name of the image.
      */
     readonly name?: string;
+    /**
+     * The tags associated with the image.
+     */
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Resource schema for AWS::ImageBuilder::Image

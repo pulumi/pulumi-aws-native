@@ -948,6 +948,9 @@ namespace Pulumi.AwsNative.S3
         [Output("loggingConfiguration")]
         public Output<Outputs.BucketLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
 
+        [Output("metadataConfiguration")]
+        public Output<Outputs.BucketMetadataConfiguration?> MetadataConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The metadata table configuration of an S3 general purpose bucket.
         /// </summary>
@@ -1064,6 +1067,7 @@ namespace Pulumi.AwsNative.S3
                 ReplaceOnChanges =
                 {
                     "bucketName",
+                    "metadataConfiguration.journalTableConfiguration.encryptionConfiguration",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -1168,6 +1172,9 @@ namespace Pulumi.AwsNative.S3
         /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.BucketLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
+
+        [Input("metadataConfiguration")]
+        public Input<Inputs.BucketMetadataConfigurationArgs>? MetadataConfiguration { get; set; }
 
         /// <summary>
         /// The metadata table configuration of an S3 general purpose bucket.

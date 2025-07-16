@@ -57,6 +57,13 @@ export const ApplicationSubscriptionType = {
 
 export type ApplicationSubscriptionType = (typeof ApplicationSubscriptionType)[keyof typeof ApplicationSubscriptionType];
 
+export const DataAccessorAuthenticationType = {
+    AwsIamIdcTti: "AWS_IAM_IDC_TTI",
+    AwsIamIdcAuthCode: "AWS_IAM_IDC_AUTH_CODE",
+} as const;
+
+export type DataAccessorAuthenticationType = (typeof DataAccessorAuthenticationType)[keyof typeof DataAccessorAuthenticationType];
+
 export const DataSourceAttributeValueOperator = {
     Delete: "DELETE",
 } as const;
@@ -142,6 +149,12 @@ export const IndexType = {
 } as const;
 
 export type IndexType = (typeof IndexType)[keyof typeof IndexType];
+
+export const PermissionConditionConditionOperator = {
+    StringEquals: "StringEquals",
+} as const;
+
+export type PermissionConditionConditionOperator = (typeof PermissionConditionConditionOperator)[keyof typeof PermissionConditionConditionOperator];
 
 export const PluginApiSchemaType = {
     OpenApiV3: "OPEN_API_V3",

@@ -40,6 +40,10 @@ export interface GetTableResult {
      */
     readonly billingMode?: outputs.cassandra.TableBillingMode;
     /**
+     * The settings for the CDC stream of a table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide* .
+     */
+    readonly cdcSpecification?: outputs.cassandra.TableCdcSpecification;
+    /**
      * Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
      */
     readonly defaultTimeToLive?: number;

@@ -26,6 +26,10 @@ export interface GetWorkflowResult {
      * The Amazon Resource Name (ARN) of the workflow.
      */
     readonly arn?: string;
+    /**
+     * The tags associated with the workflow.
+     */
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Resource schema for AWS::ImageBuilder::Workflow

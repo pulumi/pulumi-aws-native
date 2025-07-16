@@ -25,40 +25,33 @@ __all__ = ['ProjectArgs', 'Project']
 @pulumi.input_type
 class ProjectArgs:
     def __init__(__self__, *,
-                 service_catalog_provisioning_details: pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs'],
                  project_description: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  service_catalog_provisioned_product_details: Optional[pulumi.Input['ServiceCatalogProvisionedProductDetailsPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 service_catalog_provisioning_details: Optional[pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
+                 template_provider_details: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTemplateProviderDetailArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
-        :param pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs'] service_catalog_provisioning_details: Input ServiceCatalog Provisioning Details
         :param pulumi.Input[builtins.str] project_description: The description of the project.
         :param pulumi.Input[builtins.str] project_name: The name of the project.
         :param pulumi.Input['ServiceCatalogProvisionedProductDetailsPropertiesArgs'] service_catalog_provisioned_product_details: Provisioned ServiceCatalog  Details
+        :param pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs'] service_catalog_provisioning_details: Input ServiceCatalog Provisioning Details
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectTemplateProviderDetailArgs']]] template_provider_details: An array of template providers associated with the project.
         """
-        pulumi.set(__self__, "service_catalog_provisioning_details", service_catalog_provisioning_details)
         if project_description is not None:
             pulumi.set(__self__, "project_description", project_description)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
         if service_catalog_provisioned_product_details is not None:
             pulumi.set(__self__, "service_catalog_provisioned_product_details", service_catalog_provisioned_product_details)
+        if service_catalog_provisioning_details is not None:
+            pulumi.set(__self__, "service_catalog_provisioning_details", service_catalog_provisioning_details)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="serviceCatalogProvisioningDetails")
-    def service_catalog_provisioning_details(self) -> pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs']:
-        """
-        Input ServiceCatalog Provisioning Details
-        """
-        return pulumi.get(self, "service_catalog_provisioning_details")
-
-    @service_catalog_provisioning_details.setter
-    def service_catalog_provisioning_details(self, value: pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs']):
-        pulumi.set(self, "service_catalog_provisioning_details", value)
+        if template_provider_details is not None:
+            pulumi.set(__self__, "template_provider_details", template_provider_details)
 
     @property
     @pulumi.getter(name="projectDescription")
@@ -97,6 +90,18 @@ class ProjectArgs:
         pulumi.set(self, "service_catalog_provisioned_product_details", value)
 
     @property
+    @pulumi.getter(name="serviceCatalogProvisioningDetails")
+    def service_catalog_provisioning_details(self) -> Optional[pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs']]:
+        """
+        Input ServiceCatalog Provisioning Details
+        """
+        return pulumi.get(self, "service_catalog_provisioning_details")
+
+    @service_catalog_provisioning_details.setter
+    def service_catalog_provisioning_details(self, value: Optional[pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs']]):
+        pulumi.set(self, "service_catalog_provisioning_details", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
@@ -107,6 +112,18 @@ class ProjectArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="templateProviderDetails")
+    def template_provider_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTemplateProviderDetailArgs']]]]:
+        """
+        An array of template providers associated with the project.
+        """
+        return pulumi.get(self, "template_provider_details")
+
+    @template_provider_details.setter
+    def template_provider_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTemplateProviderDetailArgs']]]]):
+        pulumi.set(self, "template_provider_details", value)
 
 
 @pulumi.type_token("aws-native:sagemaker:Project")
@@ -120,6 +137,7 @@ class Project(pulumi.CustomResource):
                  service_catalog_provisioned_product_details: Optional[pulumi.Input[Union['ServiceCatalogProvisionedProductDetailsPropertiesArgs', 'ServiceCatalogProvisionedProductDetailsPropertiesArgsDict']]] = None,
                  service_catalog_provisioning_details: Optional[pulumi.Input[Union['ServiceCatalogProvisioningDetailsPropertiesArgs', 'ServiceCatalogProvisioningDetailsPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 template_provider_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectTemplateProviderDetailArgs', 'ProjectTemplateProviderDetailArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::Project
@@ -163,12 +181,13 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceCatalogProvisionedProductDetailsPropertiesArgs', 'ServiceCatalogProvisionedProductDetailsPropertiesArgsDict']] service_catalog_provisioned_product_details: Provisioned ServiceCatalog  Details
         :param pulumi.Input[Union['ServiceCatalogProvisioningDetailsPropertiesArgs', 'ServiceCatalogProvisioningDetailsPropertiesArgsDict']] service_catalog_provisioning_details: Input ServiceCatalog Provisioning Details
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectTemplateProviderDetailArgs', 'ProjectTemplateProviderDetailArgsDict']]]] template_provider_details: An array of template providers associated with the project.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProjectArgs,
+                 args: Optional[ProjectArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::Project
@@ -225,6 +244,7 @@ class Project(pulumi.CustomResource):
                  service_catalog_provisioned_product_details: Optional[pulumi.Input[Union['ServiceCatalogProvisionedProductDetailsPropertiesArgs', 'ServiceCatalogProvisionedProductDetailsPropertiesArgsDict']]] = None,
                  service_catalog_provisioning_details: Optional[pulumi.Input[Union['ServiceCatalogProvisioningDetailsPropertiesArgs', 'ServiceCatalogProvisioningDetailsPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 template_provider_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectTemplateProviderDetailArgs', 'ProjectTemplateProviderDetailArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -237,15 +257,14 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["project_description"] = project_description
             __props__.__dict__["project_name"] = project_name
             __props__.__dict__["service_catalog_provisioned_product_details"] = service_catalog_provisioned_product_details
-            if service_catalog_provisioning_details is None and not opts.urn:
-                raise TypeError("Missing required property 'service_catalog_provisioning_details'")
             __props__.__dict__["service_catalog_provisioning_details"] = service_catalog_provisioning_details
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["template_provider_details"] = template_provider_details
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["project_arn"] = None
             __props__.__dict__["project_id"] = None
             __props__.__dict__["project_status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["projectDescription", "projectName", "serviceCatalogProvisioningDetails", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["projectDescription", "projectName", "serviceCatalogProvisioningDetails", "tags[*]", "templateProviderDetails[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Project, __self__).__init__(
             'aws-native:sagemaker:Project',
@@ -278,6 +297,7 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["service_catalog_provisioned_product_details"] = None
         __props__.__dict__["service_catalog_provisioning_details"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["template_provider_details"] = None
         return Project(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -338,7 +358,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceCatalogProvisioningDetails")
-    def service_catalog_provisioning_details(self) -> pulumi.Output['outputs.ServiceCatalogProvisioningDetailsProperties']:
+    def service_catalog_provisioning_details(self) -> pulumi.Output[Optional['outputs.ServiceCatalogProvisioningDetailsProperties']]:
         """
         Input ServiceCatalog Provisioning Details
         """
@@ -351,4 +371,12 @@ class Project(pulumi.CustomResource):
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="templateProviderDetails")
+    def template_provider_details(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectTemplateProviderDetail']]]:
+        """
+        An array of template providers associated with the project.
+        """
+        return pulumi.get(self, "template_provider_details")
 

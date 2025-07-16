@@ -40,6 +40,7 @@ class DbClusterArgs:
                  db_instance_parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  db_system_id: Optional[pulumi.Input[builtins.str]] = None,
+                 delete_automated_backups: Optional[pulumi.Input[builtins.bool]] = None,
                  deletion_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  domain: Optional[pulumi.Input[builtins.str]] = None,
                  domain_iam_role_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -142,6 +143,7 @@ class DbClusterArgs:
                 If you are restoring a DB cluster to a point in time with ``RestoreType`` set to ``copy-on-write``, and don't specify a DB subnet group name, then the DB cluster is restored with a default DB subnet group.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[builtins.str] db_system_id: Reserved for future use.
+        :param pulumi.Input[builtins.bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted, unless the AWS Backup policy specifies a point-in-time restore rule.
         :param pulumi.Input[builtins.bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[builtins.str] domain: Indicates the directory ID of the Active Directory to create the DB cluster.
@@ -419,6 +421,8 @@ class DbClusterArgs:
             pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if db_system_id is not None:
             pulumi.set(__self__, "db_system_id", db_system_id)
+        if delete_automated_backups is not None:
+            pulumi.set(__self__, "delete_automated_backups", delete_automated_backups)
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if domain is not None:
@@ -737,6 +741,18 @@ class DbClusterArgs:
     @db_system_id.setter
     def db_system_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "db_system_id", value)
+
+    @property
+    @pulumi.getter(name="deleteAutomatedBackups")
+    def delete_automated_backups(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted, unless the AWS Backup policy specifies a point-in-time restore rule.
+        """
+        return pulumi.get(self, "delete_automated_backups")
+
+    @delete_automated_backups.setter
+    def delete_automated_backups(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "delete_automated_backups", value)
 
     @property
     @pulumi.getter(name="deletionProtection")
@@ -1467,6 +1483,7 @@ class DbCluster(pulumi.CustomResource):
                  db_instance_parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  db_system_id: Optional[pulumi.Input[builtins.str]] = None,
+                 delete_automated_backups: Optional[pulumi.Input[builtins.bool]] = None,
                  deletion_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  domain: Optional[pulumi.Input[builtins.str]] = None,
                  domain_iam_role_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1589,6 +1606,7 @@ class DbCluster(pulumi.CustomResource):
                 If you are restoring a DB cluster to a point in time with ``RestoreType`` set to ``copy-on-write``, and don't specify a DB subnet group name, then the DB cluster is restored with a default DB subnet group.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[builtins.str] db_system_id: Reserved for future use.
+        :param pulumi.Input[builtins.bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted, unless the AWS Backup policy specifies a point-in-time restore rule.
         :param pulumi.Input[builtins.bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[builtins.str] domain: Indicates the directory ID of the Active Directory to create the DB cluster.
@@ -1890,6 +1908,7 @@ class DbCluster(pulumi.CustomResource):
                  db_instance_parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  db_system_id: Optional[pulumi.Input[builtins.str]] = None,
+                 delete_automated_backups: Optional[pulumi.Input[builtins.bool]] = None,
                  deletion_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  domain: Optional[pulumi.Input[builtins.str]] = None,
                  domain_iam_role_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1957,6 +1976,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["db_instance_parameter_group_name"] = db_instance_parameter_group_name
             __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
             __props__.__dict__["db_system_id"] = db_system_id
+            __props__.__dict__["delete_automated_backups"] = delete_automated_backups
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["domain"] = domain
             __props__.__dict__["domain_iam_role_name"] = domain_iam_role_name
@@ -2046,6 +2066,7 @@ class DbCluster(pulumi.CustomResource):
         __props__.__dict__["db_instance_parameter_group_name"] = None
         __props__.__dict__["db_subnet_group_name"] = None
         __props__.__dict__["db_system_id"] = None
+        __props__.__dict__["delete_automated_backups"] = None
         __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["domain"] = None
         __props__.__dict__["domain_iam_role_name"] = None
@@ -2278,6 +2299,14 @@ class DbCluster(pulumi.CustomResource):
         Reserved for future use.
         """
         return pulumi.get(self, "db_system_id")
+
+    @property
+    @pulumi.getter(name="deleteAutomatedBackups")
+    def delete_automated_backups(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted, unless the AWS Backup policy specifies a point-in-time restore rule.
+        """
+        return pulumi.get(self, "delete_automated_backups")
 
     @property
     @pulumi.getter(name="deletionProtection")

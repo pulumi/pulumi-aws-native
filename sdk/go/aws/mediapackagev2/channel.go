@@ -26,7 +26,8 @@ type Channel struct {
 	// <p>The date and time the channel was created.</p>
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// <p>Enter any descriptive text that helps you to identify the channel.</p>
-	Description        pulumi.StringPtrOutput   `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The ingest domain URL where the source stream should be sent.
 	IngestEndpointUrls pulumi.StringArrayOutput `pulumi:"ingestEndpointUrls"`
 	// <p>The list of ingest endpoints.</p>
 	IngestEndpoints ChannelIngestEndpointArrayOutput `pulumi:"ingestEndpoints"`
@@ -43,8 +44,7 @@ type Channel struct {
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
 	// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
 	OutputHeaderConfiguration ChannelOutputHeaderConfigurationPtrOutput `pulumi:"outputHeaderConfiguration"`
-	// The tags associated with the channel.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags                      aws.TagArrayOutput                        `pulumi:"tags"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
@@ -113,8 +113,7 @@ type channelArgs struct {
 	InputType *ChannelInputType `pulumi:"inputType"`
 	// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
 	OutputHeaderConfiguration *ChannelOutputHeaderConfiguration `pulumi:"outputHeaderConfiguration"`
-	// The tags associated with the channel.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags                      []aws.Tag                         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Channel resource.
@@ -136,8 +135,7 @@ type ChannelArgs struct {
 	InputType ChannelInputTypePtrInput
 	// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
 	OutputHeaderConfiguration ChannelOutputHeaderConfigurationPtrInput
-	// The tags associated with the channel.
-	Tags aws.TagArrayInput
+	Tags                      aws.TagArrayInput
 }
 
 func (ChannelArgs) ElementType() reflect.Type {
@@ -202,6 +200,7 @@ func (o ChannelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ingest domain URL where the source stream should be sent.
 func (o ChannelOutput) IngestEndpointUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringArrayOutput { return v.IngestEndpointUrls }).(pulumi.StringArrayOutput)
 }
@@ -236,7 +235,6 @@ func (o ChannelOutput) OutputHeaderConfiguration() ChannelOutputHeaderConfigurat
 	return o.ApplyT(func(v *Channel) ChannelOutputHeaderConfigurationPtrOutput { return v.OutputHeaderConfiguration }).(ChannelOutputHeaderConfigurationPtrOutput)
 }
 
-// The tags associated with the channel.
 func (o ChannelOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Channel) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

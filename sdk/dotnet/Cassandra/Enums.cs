@@ -87,6 +87,70 @@ namespace Pulumi.AwsNative.Cassandra
     }
 
     /// <summary>
+    /// Indicates whether CDC is enabled or disabled for the table
+    /// </summary>
+    [EnumType]
+    public readonly struct TableCdcStatus : IEquatable<TableCdcStatus>
+    {
+        private readonly string _value;
+
+        private TableCdcStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TableCdcStatus Enabled { get; } = new TableCdcStatus("ENABLED");
+        public static TableCdcStatus Disabled { get; } = new TableCdcStatus("DISABLED");
+
+        public static bool operator ==(TableCdcStatus left, TableCdcStatus right) => left.Equals(right);
+        public static bool operator !=(TableCdcStatus left, TableCdcStatus right) => !left.Equals(right);
+
+        public static explicit operator string(TableCdcStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TableCdcStatus other && Equals(other);
+        public bool Equals(TableCdcStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies what data should be captured in the change data stream
+    /// </summary>
+    [EnumType]
+    public readonly struct TableCdcViewType : IEquatable<TableCdcViewType>
+    {
+        private readonly string _value;
+
+        private TableCdcViewType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TableCdcViewType NewImage { get; } = new TableCdcViewType("NEW_IMAGE");
+        public static TableCdcViewType OldImage { get; } = new TableCdcViewType("OLD_IMAGE");
+        public static TableCdcViewType KeysOnly { get; } = new TableCdcViewType("KEYS_ONLY");
+        public static TableCdcViewType NewAndOldImages { get; } = new TableCdcViewType("NEW_AND_OLD_IMAGES");
+
+        public static bool operator ==(TableCdcViewType left, TableCdcViewType right) => left.Equals(right);
+        public static bool operator !=(TableCdcViewType left, TableCdcViewType right) => !left.Equals(right);
+
+        public static explicit operator string(TableCdcViewType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TableCdcViewType other && Equals(other);
+        public bool Equals(TableCdcViewType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The order in which this column's data is stored:
     /// 
     /// - `ASC` (default) - The column's data is stored in ascending order.

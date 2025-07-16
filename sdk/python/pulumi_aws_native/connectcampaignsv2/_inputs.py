@@ -236,6 +236,9 @@ if not MYPY:
         The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
         """
         instance_limits_handling: NotRequired[pulumi.Input['CampaignInstanceLimitsHandling']]
+        """
+        Opt-in or Opt-out from instance-level limits.
+        """
 elif False:
     CampaignCommunicationLimitsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -247,6 +250,7 @@ class CampaignCommunicationLimitsConfigArgs:
         """
         Communication limits config
         :param pulumi.Input['CampaignCommunicationLimitsArgs'] all_channels_subtypes: The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
+        :param pulumi.Input['CampaignInstanceLimitsHandling'] instance_limits_handling: Opt-in or Opt-out from instance-level limits.
         """
         if all_channels_subtypes is not None:
             pulumi.set(__self__, "all_channels_subtypes", all_channels_subtypes)
@@ -268,6 +272,9 @@ class CampaignCommunicationLimitsConfigArgs:
     @property
     @pulumi.getter(name="instanceLimitsHandling")
     def instance_limits_handling(self) -> Optional[pulumi.Input['CampaignInstanceLimitsHandling']]:
+        """
+        Opt-in or Opt-out from instance-level limits.
+        """
         return pulumi.get(self, "instance_limits_handling")
 
     @instance_limits_handling.setter

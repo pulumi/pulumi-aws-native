@@ -22,12 +22,12 @@ namespace Pulumi.AwsNative.Connect.Outputs
         public readonly string Content;
         /// <summary>
         /// Content type format.
-        ///   *Allowed value*: ``PLAIN_TEXT``
+        ///  *Allowed value*: ``PLAIN_TEXT``
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.RuleSendNotificationActionContentType ContentType;
         /// <summary>
         /// Notification delivery method.
-        ///   *Allowed value*: ``EMAIL``
+        ///  *Allowed value*: ``EMAIL``
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.RuleSendNotificationActionDeliveryMethod DeliveryMethod;
         /// <summary>

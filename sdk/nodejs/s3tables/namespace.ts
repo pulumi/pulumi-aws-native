@@ -34,6 +34,9 @@ export class Namespace extends pulumi.CustomResource {
         return obj['__pulumiType'] === Namespace.__pulumiType;
     }
 
+    /**
+     * The name of the namespace.
+     */
     public readonly namespace!: pulumi.Output<string>;
     public readonly tableBucketArn!: pulumi.Output<string>;
 
@@ -71,6 +74,9 @@ export class Namespace extends pulumi.CustomResource {
  * The set of arguments for constructing a Namespace resource.
  */
 export interface NamespaceArgs {
+    /**
+     * The name of the namespace.
+     */
     namespace: pulumi.Input<string>;
     tableBucketArn: pulumi.Input<string>;
 }

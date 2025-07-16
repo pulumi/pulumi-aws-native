@@ -39,6 +39,8 @@ __all__ = [
     'TransformerParsePostgresArgsDict',
     'TransformerParseRoute53Args',
     'TransformerParseRoute53ArgsDict',
+    'TransformerParseToOcsfArgs',
+    'TransformerParseToOcsfArgsDict',
     'TransformerParseVpcArgs',
     'TransformerParseVpcArgsDict',
     'TransformerParseWafArgs',
@@ -756,6 +758,76 @@ class TransformerParseRoute53Args:
     def source(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Omit this parameter and the whole log message will be processed by this processor. No other value than `@message` is allowed for `source` .
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class TransformerParseToOcsfArgsDict(TypedDict):
+        event_source: pulumi.Input['TransformerEventSource']
+        """
+        Specify the service or process that produces the log events that will be converted with this processor.
+        """
+        ocsf_version: pulumi.Input['TransformerOcsfVersion']
+        """
+        Specify which version of the OCSF schema to use for the transformed log events.
+        """
+        source: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.
+        """
+elif False:
+    TransformerParseToOcsfArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TransformerParseToOcsfArgs:
+    def __init__(__self__, *,
+                 event_source: pulumi.Input['TransformerEventSource'],
+                 ocsf_version: pulumi.Input['TransformerOcsfVersion'],
+                 source: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input['TransformerEventSource'] event_source: Specify the service or process that produces the log events that will be converted with this processor.
+        :param pulumi.Input['TransformerOcsfVersion'] ocsf_version: Specify which version of the OCSF schema to use for the transformed log events.
+        :param pulumi.Input[builtins.str] source: The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.
+        """
+        pulumi.set(__self__, "event_source", event_source)
+        pulumi.set(__self__, "ocsf_version", ocsf_version)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter(name="eventSource")
+    def event_source(self) -> pulumi.Input['TransformerEventSource']:
+        """
+        Specify the service or process that produces the log events that will be converted with this processor.
+        """
+        return pulumi.get(self, "event_source")
+
+    @event_source.setter
+    def event_source(self, value: pulumi.Input['TransformerEventSource']):
+        pulumi.set(self, "event_source", value)
+
+    @property
+    @pulumi.getter(name="ocsfVersion")
+    def ocsf_version(self) -> pulumi.Input['TransformerOcsfVersion']:
+        """
+        Specify which version of the OCSF schema to use for the transformed log events.
+        """
+        return pulumi.get(self, "ocsf_version")
+
+    @ocsf_version.setter
+    def ocsf_version(self, value: pulumi.Input['TransformerOcsfVersion']):
+        pulumi.set(self, "ocsf_version", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.
         """
         return pulumi.get(self, "source")
 
@@ -1657,6 +1729,10 @@ if not MYPY:
 
         If you use this processor, it must be the first processor in your transformer.
         """
+        parse_to_ocsf: NotRequired[pulumi.Input['TransformerParseToOcsfArgsDict']]
+        """
+        Use this parameter to convert logs into Open Cybersecurity Schema (OCSF) format.
+        """
         parse_vpc: NotRequired[pulumi.Input['TransformerParseVpcArgsDict']]
         """
         Use this parameter to include the [parseVPC](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseVPC) processor in your transformer.
@@ -1713,6 +1789,7 @@ class TransformerProcessorArgs:
                  parse_key_value: Optional[pulumi.Input['TransformerProcessorParseKeyValuePropertiesArgs']] = None,
                  parse_postgres: Optional[pulumi.Input['TransformerParsePostgresArgs']] = None,
                  parse_route53: Optional[pulumi.Input['TransformerParseRoute53Args']] = None,
+                 parse_to_ocsf: Optional[pulumi.Input['TransformerParseToOcsfArgs']] = None,
                  parse_vpc: Optional[pulumi.Input['TransformerParseVpcArgs']] = None,
                  parse_waf: Optional[pulumi.Input['TransformerParseWafArgs']] = None,
                  rename_keys: Optional[pulumi.Input['TransformerProcessorRenameKeysPropertiesArgs']] = None,
@@ -1743,6 +1820,7 @@ class TransformerProcessorArgs:
         :param pulumi.Input['TransformerParseRoute53Args'] parse_route53: Use this parameter to include the [parseRoute53](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseRoute53) processor in your transformer.
                
                If you use this processor, it must be the first processor in your transformer.
+        :param pulumi.Input['TransformerParseToOcsfArgs'] parse_to_ocsf: Use this parameter to convert logs into Open Cybersecurity Schema (OCSF) format.
         :param pulumi.Input['TransformerParseVpcArgs'] parse_vpc: Use this parameter to include the [parseVPC](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseVPC) processor in your transformer.
                
                If you use this processor, it must be the first processor in your transformer.
@@ -1784,6 +1862,8 @@ class TransformerProcessorArgs:
             pulumi.set(__self__, "parse_postgres", parse_postgres)
         if parse_route53 is not None:
             pulumi.set(__self__, "parse_route53", parse_route53)
+        if parse_to_ocsf is not None:
+            pulumi.set(__self__, "parse_to_ocsf", parse_to_ocsf)
         if parse_vpc is not None:
             pulumi.set(__self__, "parse_vpc", parse_vpc)
         if parse_waf is not None:
@@ -1974,6 +2054,18 @@ class TransformerProcessorArgs:
     @parse_route53.setter
     def parse_route53(self, value: Optional[pulumi.Input['TransformerParseRoute53Args']]):
         pulumi.set(self, "parse_route53", value)
+
+    @property
+    @pulumi.getter(name="parseToOcsf")
+    def parse_to_ocsf(self) -> Optional[pulumi.Input['TransformerParseToOcsfArgs']]:
+        """
+        Use this parameter to convert logs into Open Cybersecurity Schema (OCSF) format.
+        """
+        return pulumi.get(self, "parse_to_ocsf")
+
+    @parse_to_ocsf.setter
+    def parse_to_ocsf(self, value: Optional[pulumi.Input['TransformerParseToOcsfArgs']]):
+        pulumi.set(self, "parse_to_ocsf", value)
 
     @property
     @pulumi.getter(name="parseVpc")

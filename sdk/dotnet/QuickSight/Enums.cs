@@ -8163,6 +8163,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static DataSourceResourceStatus UpdateInProgress { get; } = new DataSourceResourceStatus("UPDATE_IN_PROGRESS");
         public static DataSourceResourceStatus UpdateSuccessful { get; } = new DataSourceResourceStatus("UPDATE_SUCCESSFUL");
         public static DataSourceResourceStatus UpdateFailed { get; } = new DataSourceResourceStatus("UPDATE_FAILED");
+        public static DataSourceResourceStatus PendingUpdate { get; } = new DataSourceResourceStatus("PENDING_UPDATE");
         public static DataSourceResourceStatus Deleted { get; } = new DataSourceResourceStatus("DELETED");
 
         public static bool operator ==(DataSourceResourceStatus left, DataSourceResourceStatus right) => left.Equals(right);
@@ -8240,13 +8241,16 @@ namespace Pulumi.AwsNative.QuickSight
         public static DataSourceType Oracle { get; } = new DataSourceType("ORACLE");
         public static DataSourceType Postgresql { get; } = new DataSourceType("POSTGRESQL");
         public static DataSourceType Presto { get; } = new DataSourceType("PRESTO");
+        public static DataSourceType Qbusiness { get; } = new DataSourceType("QBUSINESS");
         public static DataSourceType Redshift { get; } = new DataSourceType("REDSHIFT");
         public static DataSourceType S3 { get; } = new DataSourceType("S3");
         public static DataSourceType S3Tables { get; } = new DataSourceType("S3_TABLES");
+        public static DataSourceType S3KnowledgeBase { get; } = new DataSourceType("S3_KNOWLEDGE_BASE");
         public static DataSourceType Salesforce { get; } = new DataSourceType("SALESFORCE");
         public static DataSourceType Servicenow { get; } = new DataSourceType("SERVICENOW");
         public static DataSourceType Snowflake { get; } = new DataSourceType("SNOWFLAKE");
         public static DataSourceType Spark { get; } = new DataSourceType("SPARK");
+        public static DataSourceType Spice { get; } = new DataSourceType("SPICE");
         public static DataSourceType Sqlserver { get; } = new DataSourceType("SQLSERVER");
         public static DataSourceType Teradata { get; } = new DataSourceType("TERADATA");
         public static DataSourceType Timestream { get; } = new DataSourceType("TIMESTREAM");
@@ -8261,6 +8265,11 @@ namespace Pulumi.AwsNative.QuickSight
         public static DataSourceType Appflow { get; } = new DataSourceType("APPFLOW");
         public static DataSourceType Impala { get; } = new DataSourceType("IMPALA");
         public static DataSourceType Glue { get; } = new DataSourceType("GLUE");
+        public static DataSourceType GoogleDrive { get; } = new DataSourceType("GOOGLE_DRIVE");
+        public static DataSourceType Confluence { get; } = new DataSourceType("CONFLUENCE");
+        public static DataSourceType Sharepoint { get; } = new DataSourceType("SHAREPOINT");
+        public static DataSourceType OneDrive { get; } = new DataSourceType("ONE_DRIVE");
+        public static DataSourceType WebCrawler { get; } = new DataSourceType("WEB_CRAWLER");
 
         public static bool operator ==(DataSourceType left, DataSourceType right) => left.Equals(right);
         public static bool operator !=(DataSourceType left, DataSourceType right) => !left.Equals(right);

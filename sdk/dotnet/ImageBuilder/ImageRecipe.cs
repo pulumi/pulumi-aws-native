@@ -105,7 +105,6 @@ namespace Pulumi.AwsNative.ImageBuilder
                     "description",
                     "name",
                     "parentImage",
-                    "tags.*",
                     "version",
                     "workingDirectory",
                 },

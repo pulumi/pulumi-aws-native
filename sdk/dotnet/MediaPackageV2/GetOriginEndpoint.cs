@@ -75,6 +75,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// &lt;p&gt;The date and time the origin endpoint was created.&lt;/p&gt;
         /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The egress domain URL for stream delivery from MediaPackage.
+        /// </summary>
         public readonly ImmutableArray<string> DashManifestUrls;
         /// <summary>
         /// &lt;p&gt;A DASH manifest configuration.&lt;/p&gt;
@@ -88,11 +91,17 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// The failover settings for the endpoint.
         /// </summary>
         public readonly Outputs.OriginEndpointForceEndpointErrorConfiguration? ForceEndpointErrorConfiguration;
+        /// <summary>
+        /// The egress domain URL for stream delivery from MediaPackage.
+        /// </summary>
         public readonly ImmutableArray<string> HlsManifestUrls;
         /// <summary>
         /// &lt;p&gt;An HTTP live streaming (HLS) manifest configuration.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.OriginEndpointHlsManifestConfiguration> HlsManifests;
+        /// <summary>
+        /// The egress domain URL for stream delivery from MediaPackage.
+        /// </summary>
         public readonly ImmutableArray<string> LowLatencyHlsManifestUrls;
         /// <summary>
         /// &lt;p&gt;A low-latency HLS manifest configuration.&lt;/p&gt;

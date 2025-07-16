@@ -772,7 +772,7 @@ type RestApi struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
 	DisableExecuteApiEndpoint pulumi.BoolPtrOutput `pulumi:"disableExecuteApiEndpoint"`
-	// A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
+	// A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
 	EndpointConfiguration RestApiEndpointConfigurationPtrOutput `pulumi:"endpointConfiguration"`
 	// A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
 	FailOnWarnings pulumi.BoolPtrOutput `pulumi:"failOnWarnings"`
@@ -857,7 +857,7 @@ type restApiArgs struct {
 	Description *string `pulumi:"description"`
 	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
 	DisableExecuteApiEndpoint *bool `pulumi:"disableExecuteApiEndpoint"`
-	// A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
+	// A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
 	EndpointConfiguration *RestApiEndpointConfiguration `pulumi:"endpointConfiguration"`
 	// A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
 	FailOnWarnings *bool `pulumi:"failOnWarnings"`
@@ -900,7 +900,7 @@ type RestApiArgs struct {
 	Description pulumi.StringPtrInput
 	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
 	DisableExecuteApiEndpoint pulumi.BoolPtrInput
-	// A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
+	// A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
 	EndpointConfiguration RestApiEndpointConfigurationPtrInput
 	// A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
 	FailOnWarnings pulumi.BoolPtrInput
@@ -999,7 +999,7 @@ func (o RestApiOutput) DisableExecuteApiEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.BoolPtrOutput { return v.DisableExecuteApiEndpoint }).(pulumi.BoolPtrOutput)
 }
 
-// A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the “Parameters“ property.
+// A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the “Parameters“ property.
 func (o RestApiOutput) EndpointConfiguration() RestApiEndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v *RestApi) RestApiEndpointConfigurationPtrOutput { return v.EndpointConfiguration }).(RestApiEndpointConfigurationPtrOutput)
 }

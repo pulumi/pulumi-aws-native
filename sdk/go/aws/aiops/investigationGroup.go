@@ -16,24 +16,33 @@ import (
 type InvestigationGroup struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the investigation group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// An array of key-value pairs of notification channels to apply to this resource.
 	ChatbotNotificationChannels InvestigationGroupChatbotNotificationChannelArrayOutput `pulumi:"chatbotNotificationChannels"`
-	CreatedAt                   pulumi.StringOutput                                     `pulumi:"createdAt"`
-	CreatedBy                   pulumi.StringOutput                                     `pulumi:"createdBy"`
+	// The date and time that the investigation group was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The name of the user who created the investigation group.
+	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
 	// An array of cross account configurations.
 	CrossAccountConfigurations InvestigationGroupCrossAccountConfigurationArrayOutput `pulumi:"crossAccountConfigurations"`
-	EncryptionConfig           InvestigationGroupEncryptionConfigMapPtrOutput         `pulumi:"encryptionConfig"`
+	// Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+	EncryptionConfig InvestigationGroupEncryptionConfigMapPtrOutput `pulumi:"encryptionConfig"`
 	// Investigation Group policy
 	InvestigationGroupPolicy pulumi.StringPtrOutput `pulumi:"investigationGroupPolicy"`
 	// Flag to enable cloud trail history
 	IsCloudTrailEventHistoryEnabled pulumi.BoolPtrOutput `pulumi:"isCloudTrailEventHistoryEnabled"`
-	LastModifiedAt                  pulumi.StringOutput  `pulumi:"lastModifiedAt"`
-	LastModifiedBy                  pulumi.StringOutput  `pulumi:"lastModifiedBy"`
-	Name                            pulumi.StringOutput  `pulumi:"name"`
+	// The date and time that the investigation group was most recently modified.
+	LastModifiedAt pulumi.StringOutput `pulumi:"lastModifiedAt"`
+	// The name of the user who created the investigation group.
+	LastModifiedBy pulumi.StringOutput `pulumi:"lastModifiedBy"`
+	// Specify either the name or the ARN of the investigation group that you want to view.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of days to retain the investigation group
-	RetentionInDays  pulumi.IntPtrOutput      `pulumi:"retentionInDays"`
-	RoleArn          pulumi.StringPtrOutput   `pulumi:"roleArn"`
+	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
+	// The ARN of the IAM role that the investigation group uses for permissions to gather data.
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	// Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
 	TagKeyBoundaries pulumi.StringArrayOutput `pulumi:"tagKeyBoundaries"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -88,15 +97,19 @@ type investigationGroupArgs struct {
 	ChatbotNotificationChannels []InvestigationGroupChatbotNotificationChannel `pulumi:"chatbotNotificationChannels"`
 	// An array of cross account configurations.
 	CrossAccountConfigurations []InvestigationGroupCrossAccountConfiguration `pulumi:"crossAccountConfigurations"`
-	EncryptionConfig           *InvestigationGroupEncryptionConfigMap        `pulumi:"encryptionConfig"`
+	// Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+	EncryptionConfig *InvestigationGroupEncryptionConfigMap `pulumi:"encryptionConfig"`
 	// Investigation Group policy
 	InvestigationGroupPolicy *string `pulumi:"investigationGroupPolicy"`
 	// Flag to enable cloud trail history
-	IsCloudTrailEventHistoryEnabled *bool   `pulumi:"isCloudTrailEventHistoryEnabled"`
-	Name                            *string `pulumi:"name"`
+	IsCloudTrailEventHistoryEnabled *bool `pulumi:"isCloudTrailEventHistoryEnabled"`
+	// Specify either the name or the ARN of the investigation group that you want to view.
+	Name *string `pulumi:"name"`
 	// The number of days to retain the investigation group
-	RetentionInDays  *int     `pulumi:"retentionInDays"`
-	RoleArn          *string  `pulumi:"roleArn"`
+	RetentionInDays *int `pulumi:"retentionInDays"`
+	// The ARN of the IAM role that the investigation group uses for permissions to gather data.
+	RoleArn *string `pulumi:"roleArn"`
+	// Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
 	TagKeyBoundaries []string `pulumi:"tagKeyBoundaries"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -108,15 +121,19 @@ type InvestigationGroupArgs struct {
 	ChatbotNotificationChannels InvestigationGroupChatbotNotificationChannelArrayInput
 	// An array of cross account configurations.
 	CrossAccountConfigurations InvestigationGroupCrossAccountConfigurationArrayInput
-	EncryptionConfig           InvestigationGroupEncryptionConfigMapPtrInput
+	// Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+	EncryptionConfig InvestigationGroupEncryptionConfigMapPtrInput
 	// Investigation Group policy
 	InvestigationGroupPolicy pulumi.StringPtrInput
 	// Flag to enable cloud trail history
 	IsCloudTrailEventHistoryEnabled pulumi.BoolPtrInput
-	Name                            pulumi.StringPtrInput
+	// Specify either the name or the ARN of the investigation group that you want to view.
+	Name pulumi.StringPtrInput
 	// The number of days to retain the investigation group
-	RetentionInDays  pulumi.IntPtrInput
-	RoleArn          pulumi.StringPtrInput
+	RetentionInDays pulumi.IntPtrInput
+	// The ARN of the IAM role that the investigation group uses for permissions to gather data.
+	RoleArn pulumi.StringPtrInput
+	// Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
 	TagKeyBoundaries pulumi.StringArrayInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -159,6 +176,7 @@ func (o InvestigationGroupOutput) ToInvestigationGroupOutputWithContext(ctx cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the investigation group.
 func (o InvestigationGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvestigationGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -170,10 +188,12 @@ func (o InvestigationGroupOutput) ChatbotNotificationChannels() InvestigationGro
 	}).(InvestigationGroupChatbotNotificationChannelArrayOutput)
 }
 
+// The date and time that the investigation group was created.
 func (o InvestigationGroupOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvestigationGroup) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The name of the user who created the investigation group.
 func (o InvestigationGroupOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvestigationGroup) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
@@ -185,6 +205,7 @@ func (o InvestigationGroupOutput) CrossAccountConfigurations() InvestigationGrou
 	}).(InvestigationGroupCrossAccountConfigurationArrayOutput)
 }
 
+// Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
 func (o InvestigationGroupOutput) EncryptionConfig() InvestigationGroupEncryptionConfigMapPtrOutput {
 	return o.ApplyT(func(v *InvestigationGroup) InvestigationGroupEncryptionConfigMapPtrOutput { return v.EncryptionConfig }).(InvestigationGroupEncryptionConfigMapPtrOutput)
 }
@@ -199,14 +220,17 @@ func (o InvestigationGroupOutput) IsCloudTrailEventHistoryEnabled() pulumi.BoolP
 	return o.ApplyT(func(v *InvestigationGroup) pulumi.BoolPtrOutput { return v.IsCloudTrailEventHistoryEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The date and time that the investigation group was most recently modified.
 func (o InvestigationGroupOutput) LastModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvestigationGroup) pulumi.StringOutput { return v.LastModifiedAt }).(pulumi.StringOutput)
 }
 
+// The name of the user who created the investigation group.
 func (o InvestigationGroupOutput) LastModifiedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvestigationGroup) pulumi.StringOutput { return v.LastModifiedBy }).(pulumi.StringOutput)
 }
 
+// Specify either the name or the ARN of the investigation group that you want to view.
 func (o InvestigationGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvestigationGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -216,10 +240,12 @@ func (o InvestigationGroupOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InvestigationGroup) pulumi.IntPtrOutput { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
+// The ARN of the IAM role that the investigation group uses for permissions to gather data.
 func (o InvestigationGroupOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InvestigationGroup) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
 func (o InvestigationGroupOutput) TagKeyBoundaries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InvestigationGroup) pulumi.StringArrayOutput { return v.TagKeyBoundaries }).(pulumi.StringArrayOutput)
 }

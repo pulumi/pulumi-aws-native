@@ -629,4 +629,69 @@ namespace Pulumi.AwsNative.Wisdom
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct QuickResponseChannelType : IEquatable<QuickResponseChannelType>
+    {
+        private readonly string _value;
+
+        private QuickResponseChannelType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static QuickResponseChannelType Chat { get; } = new QuickResponseChannelType("Chat");
+        public static QuickResponseChannelType Email { get; } = new QuickResponseChannelType("Email");
+
+        public static bool operator ==(QuickResponseChannelType left, QuickResponseChannelType right) => left.Equals(right);
+        public static bool operator !=(QuickResponseChannelType left, QuickResponseChannelType right) => !left.Equals(right);
+
+        public static explicit operator string(QuickResponseChannelType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is QuickResponseChannelType other && Equals(other);
+        public bool Equals(QuickResponseChannelType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the quick response data.
+    /// </summary>
+    [EnumType]
+    public readonly struct QuickResponseStatus : IEquatable<QuickResponseStatus>
+    {
+        private readonly string _value;
+
+        private QuickResponseStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static QuickResponseStatus CreateInProgress { get; } = new QuickResponseStatus("CREATE_IN_PROGRESS");
+        public static QuickResponseStatus CreateFailed { get; } = new QuickResponseStatus("CREATE_FAILED");
+        public static QuickResponseStatus Created { get; } = new QuickResponseStatus("CREATED");
+        public static QuickResponseStatus DeleteInProgress { get; } = new QuickResponseStatus("DELETE_IN_PROGRESS");
+        public static QuickResponseStatus DeleteFailed { get; } = new QuickResponseStatus("DELETE_FAILED");
+        public static QuickResponseStatus Deleted { get; } = new QuickResponseStatus("DELETED");
+        public static QuickResponseStatus UpdateInProgress { get; } = new QuickResponseStatus("UPDATE_IN_PROGRESS");
+        public static QuickResponseStatus UpdateFailed { get; } = new QuickResponseStatus("UPDATE_FAILED");
+
+        public static bool operator ==(QuickResponseStatus left, QuickResponseStatus right) => left.Equals(right);
+        public static bool operator !=(QuickResponseStatus left, QuickResponseStatus right) => !left.Equals(right);
+
+        public static explicit operator string(QuickResponseStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is QuickResponseStatus other && Equals(other);
+        public bool Equals(QuickResponseStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

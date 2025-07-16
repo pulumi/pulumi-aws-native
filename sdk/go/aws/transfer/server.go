@@ -380,7 +380,10 @@ type Server struct {
 	//
 	// *Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`
 	Protocols ServerProtocolArrayOutput `pulumi:"protocols"`
-	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+	// Specifies whether or not performance for your Amazon S3 directories is optimized.
+	//
+	// - If using the console, this is enabled by default.
+	// - If using the API or CLI, this is disabled by default.
 	//
 	// By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
 	S3StorageOptions ServerS3StorageOptionsPtrOutput `pulumi:"s3StorageOptions"`
@@ -535,7 +538,10 @@ type serverArgs struct {
 	//
 	// *Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`
 	Protocols []ServerProtocol `pulumi:"protocols"`
-	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+	// Specifies whether or not performance for your Amazon S3 directories is optimized.
+	//
+	// - If using the console, this is enabled by default.
+	// - If using the API or CLI, this is disabled by default.
 	//
 	// By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
 	S3StorageOptions *ServerS3StorageOptions `pulumi:"s3StorageOptions"`
@@ -641,7 +647,10 @@ type ServerArgs struct {
 	//
 	// *Allowed values* : One or more of `SFTP` , `FTPS` , `FTP` , `AS2`
 	Protocols ServerProtocolArrayInput
-	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+	// Specifies whether or not performance for your Amazon S3 directories is optimized.
+	//
+	// - If using the console, this is enabled by default.
+	// - If using the API or CLI, this is disabled by default.
 	//
 	// By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
 	S3StorageOptions ServerS3StorageOptionsPtrInput
@@ -825,7 +834,10 @@ func (o ServerOutput) Protocols() ServerProtocolArrayOutput {
 	return o.ApplyT(func(v *Server) ServerProtocolArrayOutput { return v.Protocols }).(ServerProtocolArrayOutput)
 }
 
-// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+// Specifies whether or not performance for your Amazon S3 directories is optimized.
+//
+// - If using the console, this is enabled by default.
+// - If using the API or CLI, this is disabled by default.
 //
 // By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
 func (o ServerOutput) S3StorageOptions() ServerS3StorageOptionsPtrOutput {

@@ -1469,6 +1469,334 @@ func (o DataAccessorAttributeFilterArrayOutput) Index(i pulumi.IntInput) DataAcc
 	}).(DataAccessorAttributeFilterOutput)
 }
 
+type DataAccessorAuthenticationConfiguration0Properties struct {
+	IdcTrustedTokenIssuerConfiguration DataAccessorIdcTrustedTokenIssuerConfiguration `pulumi:"idcTrustedTokenIssuerConfiguration"`
+}
+
+type DataAccessorAuthenticationConfigurationProperties struct {
+	IdcTrustedTokenIssuerConfiguration DataAccessorIdcTrustedTokenIssuerConfiguration `pulumi:"idcTrustedTokenIssuerConfiguration"`
+}
+
+// DataAccessorAuthenticationConfigurationPropertiesInput is an input type that accepts DataAccessorAuthenticationConfigurationPropertiesArgs and DataAccessorAuthenticationConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `DataAccessorAuthenticationConfigurationPropertiesInput` via:
+//
+//	DataAccessorAuthenticationConfigurationPropertiesArgs{...}
+type DataAccessorAuthenticationConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToDataAccessorAuthenticationConfigurationPropertiesOutput() DataAccessorAuthenticationConfigurationPropertiesOutput
+	ToDataAccessorAuthenticationConfigurationPropertiesOutputWithContext(context.Context) DataAccessorAuthenticationConfigurationPropertiesOutput
+}
+
+type DataAccessorAuthenticationConfigurationPropertiesArgs struct {
+	IdcTrustedTokenIssuerConfiguration DataAccessorIdcTrustedTokenIssuerConfigurationInput `pulumi:"idcTrustedTokenIssuerConfiguration"`
+}
+
+func (DataAccessorAuthenticationConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorAuthenticationConfigurationProperties)(nil)).Elem()
+}
+
+func (i DataAccessorAuthenticationConfigurationPropertiesArgs) ToDataAccessorAuthenticationConfigurationPropertiesOutput() DataAccessorAuthenticationConfigurationPropertiesOutput {
+	return i.ToDataAccessorAuthenticationConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i DataAccessorAuthenticationConfigurationPropertiesArgs) ToDataAccessorAuthenticationConfigurationPropertiesOutputWithContext(ctx context.Context) DataAccessorAuthenticationConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorAuthenticationConfigurationPropertiesOutput)
+}
+
+func (i DataAccessorAuthenticationConfigurationPropertiesArgs) ToDataAccessorAuthenticationConfigurationPropertiesPtrOutput() DataAccessorAuthenticationConfigurationPropertiesPtrOutput {
+	return i.ToDataAccessorAuthenticationConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DataAccessorAuthenticationConfigurationPropertiesArgs) ToDataAccessorAuthenticationConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DataAccessorAuthenticationConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorAuthenticationConfigurationPropertiesOutput).ToDataAccessorAuthenticationConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// DataAccessorAuthenticationConfigurationPropertiesPtrInput is an input type that accepts DataAccessorAuthenticationConfigurationPropertiesArgs, DataAccessorAuthenticationConfigurationPropertiesPtr and DataAccessorAuthenticationConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `DataAccessorAuthenticationConfigurationPropertiesPtrInput` via:
+//
+//	        DataAccessorAuthenticationConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAccessorAuthenticationConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDataAccessorAuthenticationConfigurationPropertiesPtrOutput() DataAccessorAuthenticationConfigurationPropertiesPtrOutput
+	ToDataAccessorAuthenticationConfigurationPropertiesPtrOutputWithContext(context.Context) DataAccessorAuthenticationConfigurationPropertiesPtrOutput
+}
+
+type dataAccessorAuthenticationConfigurationPropertiesPtrType DataAccessorAuthenticationConfigurationPropertiesArgs
+
+func DataAccessorAuthenticationConfigurationPropertiesPtr(v *DataAccessorAuthenticationConfigurationPropertiesArgs) DataAccessorAuthenticationConfigurationPropertiesPtrInput {
+	return (*dataAccessorAuthenticationConfigurationPropertiesPtrType)(v)
+}
+
+func (*dataAccessorAuthenticationConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorAuthenticationConfigurationProperties)(nil)).Elem()
+}
+
+func (i *dataAccessorAuthenticationConfigurationPropertiesPtrType) ToDataAccessorAuthenticationConfigurationPropertiesPtrOutput() DataAccessorAuthenticationConfigurationPropertiesPtrOutput {
+	return i.ToDataAccessorAuthenticationConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAccessorAuthenticationConfigurationPropertiesPtrType) ToDataAccessorAuthenticationConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DataAccessorAuthenticationConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorAuthenticationConfigurationPropertiesPtrOutput)
+}
+
+type DataAccessorAuthenticationConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorAuthenticationConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorAuthenticationConfigurationProperties)(nil)).Elem()
+}
+
+func (o DataAccessorAuthenticationConfigurationPropertiesOutput) ToDataAccessorAuthenticationConfigurationPropertiesOutput() DataAccessorAuthenticationConfigurationPropertiesOutput {
+	return o
+}
+
+func (o DataAccessorAuthenticationConfigurationPropertiesOutput) ToDataAccessorAuthenticationConfigurationPropertiesOutputWithContext(ctx context.Context) DataAccessorAuthenticationConfigurationPropertiesOutput {
+	return o
+}
+
+func (o DataAccessorAuthenticationConfigurationPropertiesOutput) ToDataAccessorAuthenticationConfigurationPropertiesPtrOutput() DataAccessorAuthenticationConfigurationPropertiesPtrOutput {
+	return o.ToDataAccessorAuthenticationConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DataAccessorAuthenticationConfigurationPropertiesOutput) ToDataAccessorAuthenticationConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DataAccessorAuthenticationConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAccessorAuthenticationConfigurationProperties) *DataAccessorAuthenticationConfigurationProperties {
+		return &v
+	}).(DataAccessorAuthenticationConfigurationPropertiesPtrOutput)
+}
+
+func (o DataAccessorAuthenticationConfigurationPropertiesOutput) IdcTrustedTokenIssuerConfiguration() DataAccessorIdcTrustedTokenIssuerConfigurationOutput {
+	return o.ApplyT(func(v DataAccessorAuthenticationConfigurationProperties) DataAccessorIdcTrustedTokenIssuerConfiguration {
+		return v.IdcTrustedTokenIssuerConfiguration
+	}).(DataAccessorIdcTrustedTokenIssuerConfigurationOutput)
+}
+
+type DataAccessorAuthenticationConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorAuthenticationConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorAuthenticationConfigurationProperties)(nil)).Elem()
+}
+
+func (o DataAccessorAuthenticationConfigurationPropertiesPtrOutput) ToDataAccessorAuthenticationConfigurationPropertiesPtrOutput() DataAccessorAuthenticationConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o DataAccessorAuthenticationConfigurationPropertiesPtrOutput) ToDataAccessorAuthenticationConfigurationPropertiesPtrOutputWithContext(ctx context.Context) DataAccessorAuthenticationConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o DataAccessorAuthenticationConfigurationPropertiesPtrOutput) Elem() DataAccessorAuthenticationConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *DataAccessorAuthenticationConfigurationProperties) DataAccessorAuthenticationConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DataAccessorAuthenticationConfigurationProperties
+		return ret
+	}).(DataAccessorAuthenticationConfigurationPropertiesOutput)
+}
+
+func (o DataAccessorAuthenticationConfigurationPropertiesPtrOutput) IdcTrustedTokenIssuerConfiguration() DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAccessorAuthenticationConfigurationProperties) *DataAccessorIdcTrustedTokenIssuerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.IdcTrustedTokenIssuerConfiguration
+	}).(DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput)
+}
+
+type DataAccessorAuthenticationDetail struct {
+	// The specific authentication configuration based on the authentication type.
+	AuthenticationConfiguration *DataAccessorAuthenticationConfigurationProperties `pulumi:"authenticationConfiguration"`
+	// The type of authentication to use for the data accessor. This determines how the ISV authenticates when accessing data. You can use one of two authentication types:
+	//
+	// - `AWS_IAM_IDC_TTI` - Authentication using IAM Identity Center Trusted Token Issuer (TTI). This authentication type allows the ISV to use a trusted token issuer to generate tokens for accessing the data.
+	// - `AWS_IAM_IDC_AUTH_CODE` - Authentication using IAM Identity Center authorization code flow. This authentication type uses the standard OAuth 2.0 authorization code flow for authentication.
+	AuthenticationType DataAccessorAuthenticationType `pulumi:"authenticationType"`
+	// A list of external identifiers associated with this authentication configuration. These are used to correlate the data accessor with external systems.
+	ExternalIds []string `pulumi:"externalIds"`
+}
+
+// DataAccessorAuthenticationDetailInput is an input type that accepts DataAccessorAuthenticationDetailArgs and DataAccessorAuthenticationDetailOutput values.
+// You can construct a concrete instance of `DataAccessorAuthenticationDetailInput` via:
+//
+//	DataAccessorAuthenticationDetailArgs{...}
+type DataAccessorAuthenticationDetailInput interface {
+	pulumi.Input
+
+	ToDataAccessorAuthenticationDetailOutput() DataAccessorAuthenticationDetailOutput
+	ToDataAccessorAuthenticationDetailOutputWithContext(context.Context) DataAccessorAuthenticationDetailOutput
+}
+
+type DataAccessorAuthenticationDetailArgs struct {
+	// The specific authentication configuration based on the authentication type.
+	AuthenticationConfiguration DataAccessorAuthenticationConfigurationPropertiesPtrInput `pulumi:"authenticationConfiguration"`
+	// The type of authentication to use for the data accessor. This determines how the ISV authenticates when accessing data. You can use one of two authentication types:
+	//
+	// - `AWS_IAM_IDC_TTI` - Authentication using IAM Identity Center Trusted Token Issuer (TTI). This authentication type allows the ISV to use a trusted token issuer to generate tokens for accessing the data.
+	// - `AWS_IAM_IDC_AUTH_CODE` - Authentication using IAM Identity Center authorization code flow. This authentication type uses the standard OAuth 2.0 authorization code flow for authentication.
+	AuthenticationType DataAccessorAuthenticationTypeInput `pulumi:"authenticationType"`
+	// A list of external identifiers associated with this authentication configuration. These are used to correlate the data accessor with external systems.
+	ExternalIds pulumi.StringArrayInput `pulumi:"externalIds"`
+}
+
+func (DataAccessorAuthenticationDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorAuthenticationDetail)(nil)).Elem()
+}
+
+func (i DataAccessorAuthenticationDetailArgs) ToDataAccessorAuthenticationDetailOutput() DataAccessorAuthenticationDetailOutput {
+	return i.ToDataAccessorAuthenticationDetailOutputWithContext(context.Background())
+}
+
+func (i DataAccessorAuthenticationDetailArgs) ToDataAccessorAuthenticationDetailOutputWithContext(ctx context.Context) DataAccessorAuthenticationDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorAuthenticationDetailOutput)
+}
+
+func (i DataAccessorAuthenticationDetailArgs) ToDataAccessorAuthenticationDetailPtrOutput() DataAccessorAuthenticationDetailPtrOutput {
+	return i.ToDataAccessorAuthenticationDetailPtrOutputWithContext(context.Background())
+}
+
+func (i DataAccessorAuthenticationDetailArgs) ToDataAccessorAuthenticationDetailPtrOutputWithContext(ctx context.Context) DataAccessorAuthenticationDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorAuthenticationDetailOutput).ToDataAccessorAuthenticationDetailPtrOutputWithContext(ctx)
+}
+
+// DataAccessorAuthenticationDetailPtrInput is an input type that accepts DataAccessorAuthenticationDetailArgs, DataAccessorAuthenticationDetailPtr and DataAccessorAuthenticationDetailPtrOutput values.
+// You can construct a concrete instance of `DataAccessorAuthenticationDetailPtrInput` via:
+//
+//	        DataAccessorAuthenticationDetailArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAccessorAuthenticationDetailPtrInput interface {
+	pulumi.Input
+
+	ToDataAccessorAuthenticationDetailPtrOutput() DataAccessorAuthenticationDetailPtrOutput
+	ToDataAccessorAuthenticationDetailPtrOutputWithContext(context.Context) DataAccessorAuthenticationDetailPtrOutput
+}
+
+type dataAccessorAuthenticationDetailPtrType DataAccessorAuthenticationDetailArgs
+
+func DataAccessorAuthenticationDetailPtr(v *DataAccessorAuthenticationDetailArgs) DataAccessorAuthenticationDetailPtrInput {
+	return (*dataAccessorAuthenticationDetailPtrType)(v)
+}
+
+func (*dataAccessorAuthenticationDetailPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorAuthenticationDetail)(nil)).Elem()
+}
+
+func (i *dataAccessorAuthenticationDetailPtrType) ToDataAccessorAuthenticationDetailPtrOutput() DataAccessorAuthenticationDetailPtrOutput {
+	return i.ToDataAccessorAuthenticationDetailPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAccessorAuthenticationDetailPtrType) ToDataAccessorAuthenticationDetailPtrOutputWithContext(ctx context.Context) DataAccessorAuthenticationDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorAuthenticationDetailPtrOutput)
+}
+
+type DataAccessorAuthenticationDetailOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorAuthenticationDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorAuthenticationDetail)(nil)).Elem()
+}
+
+func (o DataAccessorAuthenticationDetailOutput) ToDataAccessorAuthenticationDetailOutput() DataAccessorAuthenticationDetailOutput {
+	return o
+}
+
+func (o DataAccessorAuthenticationDetailOutput) ToDataAccessorAuthenticationDetailOutputWithContext(ctx context.Context) DataAccessorAuthenticationDetailOutput {
+	return o
+}
+
+func (o DataAccessorAuthenticationDetailOutput) ToDataAccessorAuthenticationDetailPtrOutput() DataAccessorAuthenticationDetailPtrOutput {
+	return o.ToDataAccessorAuthenticationDetailPtrOutputWithContext(context.Background())
+}
+
+func (o DataAccessorAuthenticationDetailOutput) ToDataAccessorAuthenticationDetailPtrOutputWithContext(ctx context.Context) DataAccessorAuthenticationDetailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAccessorAuthenticationDetail) *DataAccessorAuthenticationDetail {
+		return &v
+	}).(DataAccessorAuthenticationDetailPtrOutput)
+}
+
+// The specific authentication configuration based on the authentication type.
+func (o DataAccessorAuthenticationDetailOutput) AuthenticationConfiguration() DataAccessorAuthenticationConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v DataAccessorAuthenticationDetail) *DataAccessorAuthenticationConfigurationProperties {
+		return v.AuthenticationConfiguration
+	}).(DataAccessorAuthenticationConfigurationPropertiesPtrOutput)
+}
+
+// The type of authentication to use for the data accessor. This determines how the ISV authenticates when accessing data. You can use one of two authentication types:
+//
+// - `AWS_IAM_IDC_TTI` - Authentication using IAM Identity Center Trusted Token Issuer (TTI). This authentication type allows the ISV to use a trusted token issuer to generate tokens for accessing the data.
+// - `AWS_IAM_IDC_AUTH_CODE` - Authentication using IAM Identity Center authorization code flow. This authentication type uses the standard OAuth 2.0 authorization code flow for authentication.
+func (o DataAccessorAuthenticationDetailOutput) AuthenticationType() DataAccessorAuthenticationTypeOutput {
+	return o.ApplyT(func(v DataAccessorAuthenticationDetail) DataAccessorAuthenticationType { return v.AuthenticationType }).(DataAccessorAuthenticationTypeOutput)
+}
+
+// A list of external identifiers associated with this authentication configuration. These are used to correlate the data accessor with external systems.
+func (o DataAccessorAuthenticationDetailOutput) ExternalIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataAccessorAuthenticationDetail) []string { return v.ExternalIds }).(pulumi.StringArrayOutput)
+}
+
+type DataAccessorAuthenticationDetailPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorAuthenticationDetailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorAuthenticationDetail)(nil)).Elem()
+}
+
+func (o DataAccessorAuthenticationDetailPtrOutput) ToDataAccessorAuthenticationDetailPtrOutput() DataAccessorAuthenticationDetailPtrOutput {
+	return o
+}
+
+func (o DataAccessorAuthenticationDetailPtrOutput) ToDataAccessorAuthenticationDetailPtrOutputWithContext(ctx context.Context) DataAccessorAuthenticationDetailPtrOutput {
+	return o
+}
+
+func (o DataAccessorAuthenticationDetailPtrOutput) Elem() DataAccessorAuthenticationDetailOutput {
+	return o.ApplyT(func(v *DataAccessorAuthenticationDetail) DataAccessorAuthenticationDetail {
+		if v != nil {
+			return *v
+		}
+		var ret DataAccessorAuthenticationDetail
+		return ret
+	}).(DataAccessorAuthenticationDetailOutput)
+}
+
+// The specific authentication configuration based on the authentication type.
+func (o DataAccessorAuthenticationDetailPtrOutput) AuthenticationConfiguration() DataAccessorAuthenticationConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *DataAccessorAuthenticationDetail) *DataAccessorAuthenticationConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationConfiguration
+	}).(DataAccessorAuthenticationConfigurationPropertiesPtrOutput)
+}
+
+// The type of authentication to use for the data accessor. This determines how the ISV authenticates when accessing data. You can use one of two authentication types:
+//
+// - `AWS_IAM_IDC_TTI` - Authentication using IAM Identity Center Trusted Token Issuer (TTI). This authentication type allows the ISV to use a trusted token issuer to generate tokens for accessing the data.
+// - `AWS_IAM_IDC_AUTH_CODE` - Authentication using IAM Identity Center authorization code flow. This authentication type uses the standard OAuth 2.0 authorization code flow for authentication.
+func (o DataAccessorAuthenticationDetailPtrOutput) AuthenticationType() DataAccessorAuthenticationTypePtrOutput {
+	return o.ApplyT(func(v *DataAccessorAuthenticationDetail) *DataAccessorAuthenticationType {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthenticationType
+	}).(DataAccessorAuthenticationTypePtrOutput)
+}
+
+// A list of external identifiers associated with this authentication configuration. These are used to correlate the data accessor with external systems.
+func (o DataAccessorAuthenticationDetailPtrOutput) ExternalIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataAccessorAuthenticationDetail) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalIds
+	}).(pulumi.StringArrayOutput)
+}
+
 type DataAccessorDocumentAttribute struct {
 	// The identifier for the attribute.
 	Name string `pulumi:"name"`
@@ -2154,6 +2482,139 @@ func (o DataAccessorDocumentAttributeValue3PropertiesPtrOutput) DateValue() pulu
 			return nil
 		}
 		return &v.DateValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAccessorIdcTrustedTokenIssuerConfiguration struct {
+	IdcTrustedTokenIssuerArn string `pulumi:"idcTrustedTokenIssuerArn"`
+}
+
+// DataAccessorIdcTrustedTokenIssuerConfigurationInput is an input type that accepts DataAccessorIdcTrustedTokenIssuerConfigurationArgs and DataAccessorIdcTrustedTokenIssuerConfigurationOutput values.
+// You can construct a concrete instance of `DataAccessorIdcTrustedTokenIssuerConfigurationInput` via:
+//
+//	DataAccessorIdcTrustedTokenIssuerConfigurationArgs{...}
+type DataAccessorIdcTrustedTokenIssuerConfigurationInput interface {
+	pulumi.Input
+
+	ToDataAccessorIdcTrustedTokenIssuerConfigurationOutput() DataAccessorIdcTrustedTokenIssuerConfigurationOutput
+	ToDataAccessorIdcTrustedTokenIssuerConfigurationOutputWithContext(context.Context) DataAccessorIdcTrustedTokenIssuerConfigurationOutput
+}
+
+type DataAccessorIdcTrustedTokenIssuerConfigurationArgs struct {
+	IdcTrustedTokenIssuerArn pulumi.StringInput `pulumi:"idcTrustedTokenIssuerArn"`
+}
+
+func (DataAccessorIdcTrustedTokenIssuerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorIdcTrustedTokenIssuerConfiguration)(nil)).Elem()
+}
+
+func (i DataAccessorIdcTrustedTokenIssuerConfigurationArgs) ToDataAccessorIdcTrustedTokenIssuerConfigurationOutput() DataAccessorIdcTrustedTokenIssuerConfigurationOutput {
+	return i.ToDataAccessorIdcTrustedTokenIssuerConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataAccessorIdcTrustedTokenIssuerConfigurationArgs) ToDataAccessorIdcTrustedTokenIssuerConfigurationOutputWithContext(ctx context.Context) DataAccessorIdcTrustedTokenIssuerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorIdcTrustedTokenIssuerConfigurationOutput)
+}
+
+func (i DataAccessorIdcTrustedTokenIssuerConfigurationArgs) ToDataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput() DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput {
+	return i.ToDataAccessorIdcTrustedTokenIssuerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataAccessorIdcTrustedTokenIssuerConfigurationArgs) ToDataAccessorIdcTrustedTokenIssuerConfigurationPtrOutputWithContext(ctx context.Context) DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorIdcTrustedTokenIssuerConfigurationOutput).ToDataAccessorIdcTrustedTokenIssuerConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataAccessorIdcTrustedTokenIssuerConfigurationPtrInput is an input type that accepts DataAccessorIdcTrustedTokenIssuerConfigurationArgs, DataAccessorIdcTrustedTokenIssuerConfigurationPtr and DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataAccessorIdcTrustedTokenIssuerConfigurationPtrInput` via:
+//
+//	        DataAccessorIdcTrustedTokenIssuerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAccessorIdcTrustedTokenIssuerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput() DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput
+	ToDataAccessorIdcTrustedTokenIssuerConfigurationPtrOutputWithContext(context.Context) DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput
+}
+
+type dataAccessorIdcTrustedTokenIssuerConfigurationPtrType DataAccessorIdcTrustedTokenIssuerConfigurationArgs
+
+func DataAccessorIdcTrustedTokenIssuerConfigurationPtr(v *DataAccessorIdcTrustedTokenIssuerConfigurationArgs) DataAccessorIdcTrustedTokenIssuerConfigurationPtrInput {
+	return (*dataAccessorIdcTrustedTokenIssuerConfigurationPtrType)(v)
+}
+
+func (*dataAccessorIdcTrustedTokenIssuerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorIdcTrustedTokenIssuerConfiguration)(nil)).Elem()
+}
+
+func (i *dataAccessorIdcTrustedTokenIssuerConfigurationPtrType) ToDataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput() DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput {
+	return i.ToDataAccessorIdcTrustedTokenIssuerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAccessorIdcTrustedTokenIssuerConfigurationPtrType) ToDataAccessorIdcTrustedTokenIssuerConfigurationPtrOutputWithContext(ctx context.Context) DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput)
+}
+
+type DataAccessorIdcTrustedTokenIssuerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorIdcTrustedTokenIssuerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorIdcTrustedTokenIssuerConfiguration)(nil)).Elem()
+}
+
+func (o DataAccessorIdcTrustedTokenIssuerConfigurationOutput) ToDataAccessorIdcTrustedTokenIssuerConfigurationOutput() DataAccessorIdcTrustedTokenIssuerConfigurationOutput {
+	return o
+}
+
+func (o DataAccessorIdcTrustedTokenIssuerConfigurationOutput) ToDataAccessorIdcTrustedTokenIssuerConfigurationOutputWithContext(ctx context.Context) DataAccessorIdcTrustedTokenIssuerConfigurationOutput {
+	return o
+}
+
+func (o DataAccessorIdcTrustedTokenIssuerConfigurationOutput) ToDataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput() DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput {
+	return o.ToDataAccessorIdcTrustedTokenIssuerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataAccessorIdcTrustedTokenIssuerConfigurationOutput) ToDataAccessorIdcTrustedTokenIssuerConfigurationPtrOutputWithContext(ctx context.Context) DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAccessorIdcTrustedTokenIssuerConfiguration) *DataAccessorIdcTrustedTokenIssuerConfiguration {
+		return &v
+	}).(DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput)
+}
+
+func (o DataAccessorIdcTrustedTokenIssuerConfigurationOutput) IdcTrustedTokenIssuerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataAccessorIdcTrustedTokenIssuerConfiguration) string { return v.IdcTrustedTokenIssuerArn }).(pulumi.StringOutput)
+}
+
+type DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorIdcTrustedTokenIssuerConfiguration)(nil)).Elem()
+}
+
+func (o DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput) ToDataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput() DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput) ToDataAccessorIdcTrustedTokenIssuerConfigurationPtrOutputWithContext(ctx context.Context) DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput) Elem() DataAccessorIdcTrustedTokenIssuerConfigurationOutput {
+	return o.ApplyT(func(v *DataAccessorIdcTrustedTokenIssuerConfiguration) DataAccessorIdcTrustedTokenIssuerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataAccessorIdcTrustedTokenIssuerConfiguration
+		return ret
+	}).(DataAccessorIdcTrustedTokenIssuerConfigurationOutput)
+}
+
+func (o DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput) IdcTrustedTokenIssuerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataAccessorIdcTrustedTokenIssuerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IdcTrustedTokenIssuerArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3407,7 +3868,7 @@ type DataSourceHookConfiguration struct {
 	//
 	// For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
 	InvocationCondition *DataSourceDocumentAttributeCondition `pulumi:"invocationCondition"`
-	// The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
+	// The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
 	LambdaArn *string `pulumi:"lambdaArn"`
 	// The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
 	RoleArn *string `pulumi:"roleArn"`
@@ -3431,7 +3892,7 @@ type DataSourceHookConfigurationArgs struct {
 	//
 	// For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
 	InvocationCondition DataSourceDocumentAttributeConditionPtrInput `pulumi:"invocationCondition"`
-	// The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
+	// The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
 	LambdaArn pulumi.StringPtrInput `pulumi:"lambdaArn"`
 	// The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
@@ -3525,7 +3986,7 @@ func (o DataSourceHookConfigurationOutput) InvocationCondition() DataSourceDocum
 	}).(DataSourceDocumentAttributeConditionPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
+// The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
 func (o DataSourceHookConfigurationOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceHookConfiguration) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
 }
@@ -3576,7 +4037,7 @@ func (o DataSourceHookConfigurationPtrOutput) InvocationCondition() DataSourceDo
 	}).(DataSourceDocumentAttributeConditionPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lambda function sduring ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
+// The Amazon Resource Name (ARN) of the Lambda function during ingestion. For more information, see [Using Lambda functions for Amazon Q Business document enrichment](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cde-lambda-operations.html) .
 func (o DataSourceHookConfigurationPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceHookConfiguration) *string {
 		if v == nil {
@@ -4739,6 +5200,112 @@ func (o IndexTextDocumentStatisticsPtrOutput) IndexedTextDocumentCount() pulumi.
 		}
 		return v.IndexedTextDocumentCount
 	}).(pulumi.Float64PtrOutput)
+}
+
+type PermissionCondition struct {
+	ConditionKey      string                               `pulumi:"conditionKey"`
+	ConditionOperator PermissionConditionConditionOperator `pulumi:"conditionOperator"`
+	ConditionValues   []string                             `pulumi:"conditionValues"`
+}
+
+// PermissionConditionInput is an input type that accepts PermissionConditionArgs and PermissionConditionOutput values.
+// You can construct a concrete instance of `PermissionConditionInput` via:
+//
+//	PermissionConditionArgs{...}
+type PermissionConditionInput interface {
+	pulumi.Input
+
+	ToPermissionConditionOutput() PermissionConditionOutput
+	ToPermissionConditionOutputWithContext(context.Context) PermissionConditionOutput
+}
+
+type PermissionConditionArgs struct {
+	ConditionKey      pulumi.StringInput                        `pulumi:"conditionKey"`
+	ConditionOperator PermissionConditionConditionOperatorInput `pulumi:"conditionOperator"`
+	ConditionValues   pulumi.StringArrayInput                   `pulumi:"conditionValues"`
+}
+
+func (PermissionConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionCondition)(nil)).Elem()
+}
+
+func (i PermissionConditionArgs) ToPermissionConditionOutput() PermissionConditionOutput {
+	return i.ToPermissionConditionOutputWithContext(context.Background())
+}
+
+func (i PermissionConditionArgs) ToPermissionConditionOutputWithContext(ctx context.Context) PermissionConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionConditionOutput)
+}
+
+// PermissionConditionArrayInput is an input type that accepts PermissionConditionArray and PermissionConditionArrayOutput values.
+// You can construct a concrete instance of `PermissionConditionArrayInput` via:
+//
+//	PermissionConditionArray{ PermissionConditionArgs{...} }
+type PermissionConditionArrayInput interface {
+	pulumi.Input
+
+	ToPermissionConditionArrayOutput() PermissionConditionArrayOutput
+	ToPermissionConditionArrayOutputWithContext(context.Context) PermissionConditionArrayOutput
+}
+
+type PermissionConditionArray []PermissionConditionInput
+
+func (PermissionConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionCondition)(nil)).Elem()
+}
+
+func (i PermissionConditionArray) ToPermissionConditionArrayOutput() PermissionConditionArrayOutput {
+	return i.ToPermissionConditionArrayOutputWithContext(context.Background())
+}
+
+func (i PermissionConditionArray) ToPermissionConditionArrayOutputWithContext(ctx context.Context) PermissionConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionConditionArrayOutput)
+}
+
+type PermissionConditionOutput struct{ *pulumi.OutputState }
+
+func (PermissionConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionCondition)(nil)).Elem()
+}
+
+func (o PermissionConditionOutput) ToPermissionConditionOutput() PermissionConditionOutput {
+	return o
+}
+
+func (o PermissionConditionOutput) ToPermissionConditionOutputWithContext(ctx context.Context) PermissionConditionOutput {
+	return o
+}
+
+func (o PermissionConditionOutput) ConditionKey() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionCondition) string { return v.ConditionKey }).(pulumi.StringOutput)
+}
+
+func (o PermissionConditionOutput) ConditionOperator() PermissionConditionConditionOperatorOutput {
+	return o.ApplyT(func(v PermissionCondition) PermissionConditionConditionOperator { return v.ConditionOperator }).(PermissionConditionConditionOperatorOutput)
+}
+
+func (o PermissionConditionOutput) ConditionValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PermissionCondition) []string { return v.ConditionValues }).(pulumi.StringArrayOutput)
+}
+
+type PermissionConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (PermissionConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionCondition)(nil)).Elem()
+}
+
+func (o PermissionConditionArrayOutput) ToPermissionConditionArrayOutput() PermissionConditionArrayOutput {
+	return o
+}
+
+func (o PermissionConditionArrayOutput) ToPermissionConditionArrayOutputWithContext(ctx context.Context) PermissionConditionArrayOutput {
+	return o
+}
+
+func (o PermissionConditionArrayOutput) Index(i pulumi.IntInput) PermissionConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PermissionCondition {
+		return vs[0].([]PermissionCondition)[vs[1].(int)]
+	}).(PermissionConditionOutput)
 }
 
 type PluginApiSchema0Properties struct {
@@ -7144,6 +7711,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorAttributeFilterInput)(nil)).Elem(), DataAccessorAttributeFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorAttributeFilterPtrInput)(nil)).Elem(), DataAccessorAttributeFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorAttributeFilterArrayInput)(nil)).Elem(), DataAccessorAttributeFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorAuthenticationConfigurationPropertiesInput)(nil)).Elem(), DataAccessorAuthenticationConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorAuthenticationConfigurationPropertiesPtrInput)(nil)).Elem(), DataAccessorAuthenticationConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorAuthenticationDetailInput)(nil)).Elem(), DataAccessorAuthenticationDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorAuthenticationDetailPtrInput)(nil)).Elem(), DataAccessorAuthenticationDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributeInput)(nil)).Elem(), DataAccessorDocumentAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributePtrInput)(nil)).Elem(), DataAccessorDocumentAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributeValue0PropertiesInput)(nil)).Elem(), DataAccessorDocumentAttributeValue0PropertiesArgs{})
@@ -7154,6 +7725,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributeValue2PropertiesPtrInput)(nil)).Elem(), DataAccessorDocumentAttributeValue2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributeValue3PropertiesInput)(nil)).Elem(), DataAccessorDocumentAttributeValue3PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributeValue3PropertiesPtrInput)(nil)).Elem(), DataAccessorDocumentAttributeValue3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorIdcTrustedTokenIssuerConfigurationInput)(nil)).Elem(), DataAccessorIdcTrustedTokenIssuerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorIdcTrustedTokenIssuerConfigurationPtrInput)(nil)).Elem(), DataAccessorIdcTrustedTokenIssuerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAudioExtractionConfigurationInput)(nil)).Elem(), DataSourceAudioExtractionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAudioExtractionConfigurationPtrInput)(nil)).Elem(), DataSourceAudioExtractionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentAttributeConditionInput)(nil)).Elem(), DataSourceDocumentAttributeConditionArgs{})
@@ -7186,6 +7759,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexCapacityConfigurationPtrInput)(nil)).Elem(), IndexCapacityConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexDocumentAttributeConfigurationInput)(nil)).Elem(), IndexDocumentAttributeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexDocumentAttributeConfigurationArrayInput)(nil)).Elem(), IndexDocumentAttributeConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionConditionInput)(nil)).Elem(), PermissionConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionConditionArrayInput)(nil)).Elem(), PermissionConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PluginApiSchema0PropertiesInput)(nil)).Elem(), PluginApiSchema0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PluginApiSchema0PropertiesPtrInput)(nil)).Elem(), PluginApiSchema0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PluginApiSchema1PropertiesInput)(nil)).Elem(), PluginApiSchema1PropertiesArgs{})
@@ -7235,6 +7810,10 @@ func init() {
 	pulumi.RegisterOutputType(DataAccessorAttributeFilterOutput{})
 	pulumi.RegisterOutputType(DataAccessorAttributeFilterPtrOutput{})
 	pulumi.RegisterOutputType(DataAccessorAttributeFilterArrayOutput{})
+	pulumi.RegisterOutputType(DataAccessorAuthenticationConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(DataAccessorAuthenticationConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataAccessorAuthenticationDetailOutput{})
+	pulumi.RegisterOutputType(DataAccessorAuthenticationDetailPtrOutput{})
 	pulumi.RegisterOutputType(DataAccessorDocumentAttributeOutput{})
 	pulumi.RegisterOutputType(DataAccessorDocumentAttributePtrOutput{})
 	pulumi.RegisterOutputType(DataAccessorDocumentAttributeValue0PropertiesOutput{})
@@ -7245,6 +7824,8 @@ func init() {
 	pulumi.RegisterOutputType(DataAccessorDocumentAttributeValue2PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataAccessorDocumentAttributeValue3PropertiesOutput{})
 	pulumi.RegisterOutputType(DataAccessorDocumentAttributeValue3PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataAccessorIdcTrustedTokenIssuerConfigurationOutput{})
+	pulumi.RegisterOutputType(DataAccessorIdcTrustedTokenIssuerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAudioExtractionConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceAudioExtractionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentAttributeConditionOutput{})
@@ -7281,6 +7862,8 @@ func init() {
 	pulumi.RegisterOutputType(IndexStatisticsPtrOutput{})
 	pulumi.RegisterOutputType(IndexTextDocumentStatisticsOutput{})
 	pulumi.RegisterOutputType(IndexTextDocumentStatisticsPtrOutput{})
+	pulumi.RegisterOutputType(PermissionConditionOutput{})
+	pulumi.RegisterOutputType(PermissionConditionArrayOutput{})
 	pulumi.RegisterOutputType(PluginApiSchema0PropertiesOutput{})
 	pulumi.RegisterOutputType(PluginApiSchema0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PluginApiSchema1PropertiesOutput{})

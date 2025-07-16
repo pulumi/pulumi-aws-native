@@ -15,6 +15,11 @@ export const getDataRepositoryAssociation: typeof import("./getDataRepositoryAss
 export const getDataRepositoryAssociationOutput: typeof import("./getDataRepositoryAssociation").getDataRepositoryAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getDataRepositoryAssociation","getDataRepositoryAssociationOutput"], () => require("./getDataRepositoryAssociation"));
 
+export { S3AccessPointAttachmentArgs } from "./s3accessPointAttachment";
+export type S3AccessPointAttachment = import("./s3accessPointAttachment").S3AccessPointAttachment;
+export const S3AccessPointAttachment: typeof import("./s3accessPointAttachment").S3AccessPointAttachment = null as any;
+utilities.lazyLoad(exports, ["S3AccessPointAttachment"], () => require("./s3accessPointAttachment"));
+
 
 // Export enums:
 export * from "../types/enums/fsx";
@@ -25,6 +30,8 @@ const _module = {
         switch (type) {
             case "aws-native:fsx:DataRepositoryAssociation":
                 return new DataRepositoryAssociation(name, <any>undefined, { urn })
+            case "aws-native:fsx:S3AccessPointAttachment":
+                return new S3AccessPointAttachment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

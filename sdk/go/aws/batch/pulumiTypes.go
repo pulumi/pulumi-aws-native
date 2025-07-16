@@ -798,6 +798,10 @@ type ComputeEnvironmentEc2ConfigurationObject struct {
 	//
 	// - **EKS_AL2** - [Amazon Linux 2](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : Default for all non-GPU instance families.
 	// - **EKS_AL2_NVIDIA** - [Amazon Linux 2 (accelerated)](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : Default for all GPU instance families (for example, `P4` and `G4` ) and can be used for all non AWS Graviton-based instance types.
+	// - **EKS_AL2023** - [Amazon Linux 2023](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : AWS Batch supports Amazon Linux 2023.
+	//
+	// > Amazon Linux 2023 does not support `A1` instances.
+	// - **EKS_AL2023_NVIDIA** - [Amazon Linux 2023 (accelerated)](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : GPU instance families and can be used for all non AWS Graviton-based instance types.
 	ImageType string `pulumi:"imageType"`
 }
 
@@ -833,6 +837,10 @@ type ComputeEnvironmentEc2ConfigurationObjectArgs struct {
 	//
 	// - **EKS_AL2** - [Amazon Linux 2](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : Default for all non-GPU instance families.
 	// - **EKS_AL2_NVIDIA** - [Amazon Linux 2 (accelerated)](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : Default for all GPU instance families (for example, `P4` and `G4` ) and can be used for all non AWS Graviton-based instance types.
+	// - **EKS_AL2023** - [Amazon Linux 2023](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : AWS Batch supports Amazon Linux 2023.
+	//
+	// > Amazon Linux 2023 does not support `A1` instances.
+	// - **EKS_AL2023_NVIDIA** - [Amazon Linux 2023 (accelerated)](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : GPU instance families and can be used for all non AWS Graviton-based instance types.
 	ImageType pulumi.StringInput `pulumi:"imageType"`
 }
 
@@ -913,6 +921,10 @@ func (o ComputeEnvironmentEc2ConfigurationObjectOutput) ImageKubernetesVersion()
 //
 // - **EKS_AL2** - [Amazon Linux 2](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : Default for all non-GPU instance families.
 // - **EKS_AL2_NVIDIA** - [Amazon Linux 2 (accelerated)](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : Default for all GPU instance families (for example, `P4` and `G4` ) and can be used for all non AWS Graviton-based instance types.
+// - **EKS_AL2023** - [Amazon Linux 2023](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : AWS Batch supports Amazon Linux 2023.
+//
+// > Amazon Linux 2023 does not support `A1` instances.
+// - **EKS_AL2023_NVIDIA** - [Amazon Linux 2023 (accelerated)](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : GPU instance families and can be used for all non AWS Graviton-based instance types.
 func (o ComputeEnvironmentEc2ConfigurationObjectOutput) ImageType() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeEnvironmentEc2ConfigurationObject) string { return v.ImageType }).(pulumi.StringOutput)
 }
@@ -1103,7 +1115,8 @@ type ComputeEnvironmentLaunchTemplateSpecification struct {
 	// You can specify up to ten (10) launch template overrides that are associated to unique instance types or families for each compute environment.
 	//
 	// > To unset all override templates for a compute environment, you can pass an empty array to the [UpdateComputeEnvironment.overrides](https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html) parameter, or not include the `overrides` parameter when submitting the `UpdateComputeEnvironment` API operation.
-	Overrides    []ComputeEnvironmentLaunchTemplateSpecificationOverride    `pulumi:"overrides"`
+	Overrides []ComputeEnvironmentLaunchTemplateSpecificationOverride `pulumi:"overrides"`
+	// The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
 	UserdataType *ComputeEnvironmentLaunchTemplateSpecificationUserdataType `pulumi:"userdataType"`
 	// The version number of the launch template, `$Default` , or `$Latest` .
 	//
@@ -1138,7 +1151,8 @@ type ComputeEnvironmentLaunchTemplateSpecificationArgs struct {
 	// You can specify up to ten (10) launch template overrides that are associated to unique instance types or families for each compute environment.
 	//
 	// > To unset all override templates for a compute environment, you can pass an empty array to the [UpdateComputeEnvironment.overrides](https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html) parameter, or not include the `overrides` parameter when submitting the `UpdateComputeEnvironment` API operation.
-	Overrides    ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayInput   `pulumi:"overrides"`
+	Overrides ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayInput `pulumi:"overrides"`
+	// The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
 	UserdataType ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrInput `pulumi:"userdataType"`
 	// The version number of the launch template, `$Default` , or `$Latest` .
 	//
@@ -1250,6 +1264,7 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationOutput) Overrides() Compute
 	}).(ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput)
 }
 
+// The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
 func (o ComputeEnvironmentLaunchTemplateSpecificationOutput) UserdataType() ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecification) *ComputeEnvironmentLaunchTemplateSpecificationUserdataType {
 		return v.UserdataType
@@ -1327,6 +1342,7 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationPtrOutput) Overrides() Comp
 	}).(ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput)
 }
 
+// The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
 func (o ComputeEnvironmentLaunchTemplateSpecificationPtrOutput) UserdataType() ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentLaunchTemplateSpecification) *ComputeEnvironmentLaunchTemplateSpecificationUserdataType {
 		if v == nil {
@@ -1373,8 +1389,9 @@ type ComputeEnvironmentLaunchTemplateSpecificationOverride struct {
 	// - `optimal` isn't allowed.
 	// - `targetInstanceTypes` can target only instance types and families that are included within the [`ComputeResource.instanceTypes`](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-instanceTypes) set. `targetInstanceTypes` doesn't need to include all of the instances from the `instanceType` set, but at least a subset. For example, if `ComputeResource.instanceTypes` includes `[m5, g5]` , `targetInstanceTypes` can include `[m5.2xlarge]` and `[m5.large]` but not `[c5.large]` .
 	// - `targetInstanceTypes` included within the same launch template override or across launch template overrides can't overlap for the same compute environment. For example, you can't define one launch template override to target an instance family and another define an instance type within this same family.
-	TargetInstanceTypes []string                                                           `pulumi:"targetInstanceTypes"`
-	UserdataType        *ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType `pulumi:"userdataType"`
+	TargetInstanceTypes []string `pulumi:"targetInstanceTypes"`
+	// The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
+	UserdataType *ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType `pulumi:"userdataType"`
 	// The version number of the launch template, `$Default` , or `$Latest` .
 	//
 	// If the value is `$Default` , the default version of the launch template is used. If the value is `$Latest` , the latest version of the launch template is used.
@@ -1417,8 +1434,9 @@ type ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs struct {
 	// - `optimal` isn't allowed.
 	// - `targetInstanceTypes` can target only instance types and families that are included within the [`ComputeResource.instanceTypes`](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-instanceTypes) set. `targetInstanceTypes` doesn't need to include all of the instances from the `instanceType` set, but at least a subset. For example, if `ComputeResource.instanceTypes` includes `[m5, g5]` , `targetInstanceTypes` can include `[m5.2xlarge]` and `[m5.large]` but not `[c5.large]` .
 	// - `targetInstanceTypes` included within the same launch template override or across launch template overrides can't overlap for the same compute environment. For example, you can't define one launch template override to target an instance family and another define an instance type within this same family.
-	TargetInstanceTypes pulumi.StringArrayInput                                                   `pulumi:"targetInstanceTypes"`
-	UserdataType        ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrInput `pulumi:"userdataType"`
+	TargetInstanceTypes pulumi.StringArrayInput `pulumi:"targetInstanceTypes"`
+	// The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
+	UserdataType ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrInput `pulumi:"userdataType"`
 	// The version number of the launch template, `$Default` , or `$Latest` .
 	//
 	// If the value is `$Default` , the default version of the launch template is used. If the value is `$Latest` , the latest version of the launch template is used.
@@ -1510,6 +1528,7 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput) TargetInsta
 	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecificationOverride) []string { return v.TargetInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
+// The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
 func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput) UserdataType() ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecificationOverride) *ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType {
 		return v.UserdataType

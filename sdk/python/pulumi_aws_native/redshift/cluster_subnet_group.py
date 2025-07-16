@@ -84,7 +84,7 @@ class ClusterSubnetGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Specifies an Amazon Redshift subnet group.
+        Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -99,7 +99,7 @@ class ClusterSubnetGroup(pulumi.CustomResource):
                  args: ClusterSubnetGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Specifies an Amazon Redshift subnet group.
+        Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
 
         :param str resource_name: The name of the resource.
         :param ClusterSubnetGroupArgs args: The arguments to use to populate this resource's properties.

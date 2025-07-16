@@ -15,6 +15,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -27,7 +29,8 @@ class DirectoryBucketArgs:
                  location_name: pulumi.Input[builtins.str],
                  bucket_encryption: Optional[pulumi.Input['DirectoryBucketBucketEncryptionArgs']] = None,
                  bucket_name: Optional[pulumi.Input[builtins.str]] = None,
-                 lifecycle_configuration: Optional[pulumi.Input['DirectoryBucketLifecycleConfigurationArgs']] = None):
+                 lifecycle_configuration: Optional[pulumi.Input['DirectoryBucketLifecycleConfigurationArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DirectoryBucket resource.
         :param pulumi.Input['DirectoryBucketDataRedundancy'] data_redundancy: Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
@@ -44,6 +47,8 @@ class DirectoryBucketArgs:
             pulumi.set(__self__, "bucket_name", bucket_name)
         if lifecycle_configuration is not None:
             pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="dataRedundancy")
@@ -105,6 +110,15 @@ class DirectoryBucketArgs:
     def lifecycle_configuration(self, value: Optional[pulumi.Input['DirectoryBucketLifecycleConfigurationArgs']]):
         pulumi.set(self, "lifecycle_configuration", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:s3express:DirectoryBucket")
 class DirectoryBucket(pulumi.CustomResource):
@@ -117,6 +131,7 @@ class DirectoryBucket(pulumi.CustomResource):
                  data_redundancy: Optional[pulumi.Input['DirectoryBucketDataRedundancy']] = None,
                  lifecycle_configuration: Optional[pulumi.Input[Union['DirectoryBucketLifecycleConfigurationArgs', 'DirectoryBucketLifecycleConfigurationArgsDict']]] = None,
                  location_name: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::S3Express::DirectoryBucket.
@@ -158,6 +173,7 @@ class DirectoryBucket(pulumi.CustomResource):
                  data_redundancy: Optional[pulumi.Input['DirectoryBucketDataRedundancy']] = None,
                  lifecycle_configuration: Optional[pulumi.Input[Union['DirectoryBucketLifecycleConfigurationArgs', 'DirectoryBucketLifecycleConfigurationArgsDict']]] = None,
                  location_name: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -176,6 +192,7 @@ class DirectoryBucket(pulumi.CustomResource):
             if location_name is None and not opts.urn:
                 raise TypeError("Missing required property 'location_name'")
             __props__.__dict__["location_name"] = location_name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["availability_zone_name"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucketName", "dataRedundancy", "locationName"])
@@ -209,6 +226,7 @@ class DirectoryBucket(pulumi.CustomResource):
         __props__.__dict__["data_redundancy"] = None
         __props__.__dict__["lifecycle_configuration"] = None
         __props__.__dict__["location_name"] = None
+        __props__.__dict__["tags"] = None
         return DirectoryBucket(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -266,4 +284,9 @@ class DirectoryBucket(pulumi.CustomResource):
         Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
         """
         return pulumi.get(self, "location_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        return pulumi.get(self, "tags")
 

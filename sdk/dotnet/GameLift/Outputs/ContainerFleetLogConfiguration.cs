@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.GameLift.ContainerFleetLogDestination? LogDestination;
         /// <summary>
+        /// If log destination is CLOUDWATCH, logs are sent to the specified log group in Amazon CloudWatch.
+        /// </summary>
+        public readonly string? LogGroupArn;
+        /// <summary>
         /// The name of the S3 bucket to pull logs from if S3 is the LogDestination
         /// </summary>
         public readonly string? S3BucketName;
@@ -33,9 +37,12 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         private ContainerFleetLogConfiguration(
             Pulumi.AwsNative.GameLift.ContainerFleetLogDestination? logDestination,
 
+            string? logGroupArn,
+
             string? s3BucketName)
         {
             LogDestination = logDestination;
+            LogGroupArn = logGroupArn;
             S3BucketName = s3BucketName;
         }
     }

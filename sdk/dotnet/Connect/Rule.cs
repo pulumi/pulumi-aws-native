@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.Connect
 
         /// <summary>
         /// The publish status of the rule.
-        ///   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
+        ///  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
         /// </summary>
         [Output("publishStatus")]
         public Output<Pulumi.AwsNative.Connect.RulePublishStatus> PublishStatus { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.AwsNative.Connect
 
         /// <summary>
         /// The publish status of the rule.
-        ///   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
+        ///  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
         /// </summary>
         [Input("publishStatus", required: true)]
         public Input<Pulumi.AwsNative.Connect.RulePublishStatus> PublishStatus { get; set; } = null!;

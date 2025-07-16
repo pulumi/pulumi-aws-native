@@ -40,7 +40,7 @@ type LookupServiceResult struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The date and time that the service was created, specified in ISO-8601 format.
 	CreatedAt *string `pulumi:"createdAt"`
-	// The DNS information of the service.
+	// Describes the DNS information of the service. This field is read-only.
 	DnsEntry *ServiceDnsEntry `pulumi:"dnsEntry"`
 	// The ID of the service.
 	Id *string `pulumi:"id"`
@@ -107,7 +107,7 @@ func (o LookupServiceResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The DNS information of the service.
+// Describes the DNS information of the service. This field is read-only.
 func (o LookupServiceResultOutput) DnsEntry() ServiceDnsEntryPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceDnsEntry { return v.DnsEntry }).(ServiceDnsEntryPtrOutput)
 }

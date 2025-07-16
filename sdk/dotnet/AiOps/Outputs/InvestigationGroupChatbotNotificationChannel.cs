@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AiOps.Outputs
     [OutputType]
     public sealed class InvestigationGroupChatbotNotificationChannel
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of any third-party chat integrations configured for the account.
+        /// </summary>
         public readonly ImmutableArray<string> ChatConfigurationArns;
+        /// <summary>
+        /// Returns the ARN of an Amazon SNS topic used for third-party chat integrations.
+        /// </summary>
         public readonly string? SnsTopicArn;
 
         [OutputConstructor]

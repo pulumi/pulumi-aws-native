@@ -464,6 +464,37 @@ namespace Pulumi.AwsNative.S3
     }
 
     /// <summary>
+    /// Specifies whether inventory table configuration is enabled or disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct BucketInventoryTableConfigurationConfigurationState : IEquatable<BucketInventoryTableConfigurationConfigurationState>
+    {
+        private readonly string _value;
+
+        private BucketInventoryTableConfigurationConfigurationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BucketInventoryTableConfigurationConfigurationState Enabled { get; } = new BucketInventoryTableConfigurationConfigurationState("ENABLED");
+        public static BucketInventoryTableConfigurationConfigurationState Disabled { get; } = new BucketInventoryTableConfigurationConfigurationState("DISABLED");
+
+        public static bool operator ==(BucketInventoryTableConfigurationConfigurationState left, BucketInventoryTableConfigurationConfigurationState right) => left.Equals(right);
+        public static bool operator !=(BucketInventoryTableConfigurationConfigurationState left, BucketInventoryTableConfigurationConfigurationState right) => !left.Equals(right);
+
+        public static explicit operator string(BucketInventoryTableConfigurationConfigurationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BucketInventoryTableConfigurationConfigurationState other && Equals(other);
+        public bool Equals(BucketInventoryTableConfigurationConfigurationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates which default minimum object size behavior is applied to the lifecycle configuration.
     ///   This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
     ///    +  ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
@@ -492,6 +523,68 @@ namespace Pulumi.AwsNative.S3
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize other && Equals(other);
         public bool Equals(BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the table bucket.
+    /// </summary>
+    [EnumType]
+    public readonly struct BucketMetadataDestinationTableBucketType : IEquatable<BucketMetadataDestinationTableBucketType>
+    {
+        private readonly string _value;
+
+        private BucketMetadataDestinationTableBucketType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BucketMetadataDestinationTableBucketType Aws { get; } = new BucketMetadataDestinationTableBucketType("aws");
+        public static BucketMetadataDestinationTableBucketType Customer { get; } = new BucketMetadataDestinationTableBucketType("customer");
+
+        public static bool operator ==(BucketMetadataDestinationTableBucketType left, BucketMetadataDestinationTableBucketType right) => left.Equals(right);
+        public static bool operator !=(BucketMetadataDestinationTableBucketType left, BucketMetadataDestinationTableBucketType right) => !left.Equals(right);
+
+        public static explicit operator string(BucketMetadataDestinationTableBucketType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BucketMetadataDestinationTableBucketType other && Equals(other);
+        public bool Equals(BucketMetadataDestinationTableBucketType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the server-side encryption algorithm to use for encrypting tables.
+    /// </summary>
+    [EnumType]
+    public readonly struct BucketMetadataTableEncryptionConfigurationSseAlgorithm : IEquatable<BucketMetadataTableEncryptionConfigurationSseAlgorithm>
+    {
+        private readonly string _value;
+
+        private BucketMetadataTableEncryptionConfigurationSseAlgorithm(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BucketMetadataTableEncryptionConfigurationSseAlgorithm Awskms { get; } = new BucketMetadataTableEncryptionConfigurationSseAlgorithm("aws:kms");
+        public static BucketMetadataTableEncryptionConfigurationSseAlgorithm Aes256 { get; } = new BucketMetadataTableEncryptionConfigurationSseAlgorithm("AES256");
+
+        public static bool operator ==(BucketMetadataTableEncryptionConfigurationSseAlgorithm left, BucketMetadataTableEncryptionConfigurationSseAlgorithm right) => left.Equals(right);
+        public static bool operator !=(BucketMetadataTableEncryptionConfigurationSseAlgorithm left, BucketMetadataTableEncryptionConfigurationSseAlgorithm right) => !left.Equals(right);
+
+        public static explicit operator string(BucketMetadataTableEncryptionConfigurationSseAlgorithm value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BucketMetadataTableEncryptionConfigurationSseAlgorithm other && Equals(other);
+        public bool Equals(BucketMetadataTableEncryptionConfigurationSseAlgorithm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -590,6 +683,37 @@ namespace Pulumi.AwsNative.S3
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is BucketOwnershipControlsRuleObjectOwnership other && Equals(other);
         public bool Equals(BucketOwnershipControlsRuleObjectOwnership other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether record expiration is enabled or disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct BucketRecordExpirationExpiration : IEquatable<BucketRecordExpirationExpiration>
+    {
+        private readonly string _value;
+
+        private BucketRecordExpirationExpiration(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BucketRecordExpirationExpiration Enabled { get; } = new BucketRecordExpirationExpiration("ENABLED");
+        public static BucketRecordExpirationExpiration Disabled { get; } = new BucketRecordExpirationExpiration("DISABLED");
+
+        public static bool operator ==(BucketRecordExpirationExpiration left, BucketRecordExpirationExpiration right) => left.Equals(right);
+        public static bool operator !=(BucketRecordExpirationExpiration left, BucketRecordExpirationExpiration right) => !left.Equals(right);
+
+        public static explicit operator string(BucketRecordExpirationExpiration value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BucketRecordExpirationExpiration other && Equals(other);
+        public bool Equals(BucketRecordExpirationExpiration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

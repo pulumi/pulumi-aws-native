@@ -2,10 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Specifies an Amazon Redshift subnet group.
+ * Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
  */
 export function getClusterSubnetGroup(args: GetClusterSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSubnetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,9 +37,13 @@ export interface GetClusterSubnetGroupResult {
      * The list of VPC subnet IDs
      */
     readonly subnetIds?: string[];
+    /**
+     * The list of tags for the cluster parameter group.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
- * Specifies an Amazon Redshift subnet group.
+ * Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
  */
 export function getClusterSubnetGroupOutput(args: GetClusterSubnetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterSubnetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

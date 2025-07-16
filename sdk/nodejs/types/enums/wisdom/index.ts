@@ -204,3 +204,26 @@ export const MessageTemplateChannelSubtype = {
  * The channel subtype this message template applies to.
  */
 export type MessageTemplateChannelSubtype = (typeof MessageTemplateChannelSubtype)[keyof typeof MessageTemplateChannelSubtype];
+
+export const QuickResponseChannelType = {
+    Chat: "Chat",
+    Email: "Email",
+} as const;
+
+export type QuickResponseChannelType = (typeof QuickResponseChannelType)[keyof typeof QuickResponseChannelType];
+
+export const QuickResponseStatus = {
+    CreateInProgress: "CREATE_IN_PROGRESS",
+    CreateFailed: "CREATE_FAILED",
+    Created: "CREATED",
+    DeleteInProgress: "DELETE_IN_PROGRESS",
+    DeleteFailed: "DELETE_FAILED",
+    Deleted: "DELETED",
+    UpdateInProgress: "UPDATE_IN_PROGRESS",
+    UpdateFailed: "UPDATE_FAILED",
+} as const;
+
+/**
+ * The status of the quick response data.
+ */
+export type QuickResponseStatus = (typeof QuickResponseStatus)[keyof typeof QuickResponseStatus];

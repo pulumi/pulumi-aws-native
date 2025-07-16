@@ -93,7 +93,7 @@ type ApiKey struct {
 	// Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
 	GenerateDistinctId pulumi.BoolPtrOutput `pulumi:"generateDistinctId"`
 	// A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
-	//  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+	//   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
 	StageKeys ApiKeyStageKeyArrayOutput `pulumi:"stageKeys"`
@@ -158,7 +158,7 @@ type apiKeyArgs struct {
 	// Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
 	GenerateDistinctId *bool `pulumi:"generateDistinctId"`
 	// A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
-	//  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+	//   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	Name *string `pulumi:"name"`
 	// DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
 	StageKeys []ApiKeyStageKey `pulumi:"stageKeys"`
@@ -179,7 +179,7 @@ type ApiKeyArgs struct {
 	// Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
 	GenerateDistinctId pulumi.BoolPtrInput
 	// A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
-	//  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+	//   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	Name pulumi.StringPtrInput
 	// DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
 	StageKeys ApiKeyStageKeyArrayInput

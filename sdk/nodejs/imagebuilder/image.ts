@@ -136,7 +136,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["workflows"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["containerRecipeArn", "distributionConfigurationArn", "enhancedImageMetadataEnabled", "imageRecipeArn", "imageScanningConfiguration", "imageTestsConfiguration", "infrastructureConfigurationArn", "tags.*", "workflows[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["containerRecipeArn", "distributionConfigurationArn", "enhancedImageMetadataEnabled", "imageRecipeArn", "imageScanningConfiguration", "imageTestsConfiguration", "infrastructureConfigurationArn", "workflows[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Image.__pulumiType, name, resourceInputs, opts);
     }

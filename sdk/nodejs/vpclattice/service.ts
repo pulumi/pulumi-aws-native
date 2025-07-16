@@ -65,7 +65,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly customDomainName!: pulumi.Output<string | undefined>;
     /**
-     * The DNS information of the service.
+     * Describes the DNS information of the service. This field is read-only.
      */
     public readonly dnsEntry!: pulumi.Output<outputs.vpclattice.ServiceDnsEntry | undefined>;
     /**
@@ -149,7 +149,7 @@ export interface ServiceArgs {
      */
     customDomainName?: pulumi.Input<string>;
     /**
-     * The DNS information of the service.
+     * Describes the DNS information of the service. This field is read-only.
      */
     dnsEntry?: pulumi.Input<inputs.vpclattice.ServiceDnsEntryArgs>;
     /**

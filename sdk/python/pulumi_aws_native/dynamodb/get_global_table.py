@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGlobalTableResult:
-    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, global_secondary_indexes=None, replicas=None, sse_specification=None, stream_arn=None, stream_specification=None, table_id=None, time_to_live_specification=None, warm_throughput=None, write_on_demand_throughput_settings=None, write_provisioned_throughput_settings=None):
+    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, global_secondary_indexes=None, global_table_witnesses=None, multi_region_consistency=None, replicas=None, sse_specification=None, stream_arn=None, stream_specification=None, table_id=None, time_to_live_specification=None, warm_throughput=None, write_on_demand_throughput_settings=None, write_provisioned_throughput_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +39,12 @@ class GetGlobalTableResult:
         if global_secondary_indexes and not isinstance(global_secondary_indexes, list):
             raise TypeError("Expected argument 'global_secondary_indexes' to be a list")
         pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+        if global_table_witnesses and not isinstance(global_table_witnesses, list):
+            raise TypeError("Expected argument 'global_table_witnesses' to be a list")
+        pulumi.set(__self__, "global_table_witnesses", global_table_witnesses)
+        if multi_region_consistency and not isinstance(multi_region_consistency, str):
+            raise TypeError("Expected argument 'multi_region_consistency' to be a str")
+        pulumi.set(__self__, "multi_region_consistency", multi_region_consistency)
         if replicas and not isinstance(replicas, list):
             raise TypeError("Expected argument 'replicas' to be a list")
         pulumi.set(__self__, "replicas", replicas)
@@ -107,6 +113,29 @@ class GetGlobalTableResult:
         return pulumi.get(self, "global_secondary_indexes")
 
     @property
+    @pulumi.getter(name="globalTableWitnesses")
+    def global_table_witnesses(self) -> Optional[Sequence['outputs.GlobalTableWitness']]:
+        """
+        The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
+        """
+        return pulumi.get(self, "global_table_witnesses")
+
+    @property
+    @pulumi.getter(name="multiRegionConsistency")
+    def multi_region_consistency(self) -> Optional['GlobalTableMultiRegionConsistency']:
+        """
+        Specifies the consistency mode for a new global table.
+
+        You can specify one of the following consistency modes:
+
+        - `EVENTUAL` : Configures a new global table for multi-Region eventual consistency (MREC).
+        - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
+
+        If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
+        """
+        return pulumi.get(self, "multi_region_consistency")
+
+    @property
     @pulumi.getter
     def replicas(self) -> Optional[Sequence['outputs.GlobalTableReplicaSpecification']]:
         """
@@ -116,7 +145,7 @@ class GetGlobalTableResult:
         > 
         > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica. 
 
-        You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+        You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update. For Multi-Region Strong Consistency (MRSC), you can add or remove up to 3 replicas, or 2 replicas plus a witness Region.
         """
         return pulumi.get(self, "replicas")
 
@@ -142,7 +171,7 @@ class GetGlobalTableResult:
     @pulumi.getter(name="streamSpecification")
     def stream_specification(self) -> Optional['outputs.GlobalTableStreamSpecification']:
         """
-        Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
+        Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica. For Multi-Region Strong Consistency (MRSC), you do not need to provide a value for this property and can change the settings at any time.
         """
         return pulumi.get(self, "stream_specification")
 
@@ -197,6 +226,8 @@ class AwaitableGetGlobalTableResult(GetGlobalTableResult):
             attribute_definitions=self.attribute_definitions,
             billing_mode=self.billing_mode,
             global_secondary_indexes=self.global_secondary_indexes,
+            global_table_witnesses=self.global_table_witnesses,
+            multi_region_consistency=self.multi_region_consistency,
             replicas=self.replicas,
             sse_specification=self.sse_specification,
             stream_arn=self.stream_arn,
@@ -228,6 +259,8 @@ def get_global_table(table_name: Optional[builtins.str] = None,
         attribute_definitions=pulumi.get(__ret__, 'attribute_definitions'),
         billing_mode=pulumi.get(__ret__, 'billing_mode'),
         global_secondary_indexes=pulumi.get(__ret__, 'global_secondary_indexes'),
+        global_table_witnesses=pulumi.get(__ret__, 'global_table_witnesses'),
+        multi_region_consistency=pulumi.get(__ret__, 'multi_region_consistency'),
         replicas=pulumi.get(__ret__, 'replicas'),
         sse_specification=pulumi.get(__ret__, 'sse_specification'),
         stream_arn=pulumi.get(__ret__, 'stream_arn'),
@@ -256,6 +289,8 @@ def get_global_table_output(table_name: Optional[pulumi.Input[builtins.str]] = N
         attribute_definitions=pulumi.get(__response__, 'attribute_definitions'),
         billing_mode=pulumi.get(__response__, 'billing_mode'),
         global_secondary_indexes=pulumi.get(__response__, 'global_secondary_indexes'),
+        global_table_witnesses=pulumi.get(__response__, 'global_table_witnesses'),
+        multi_region_consistency=pulumi.get(__response__, 'multi_region_consistency'),
         replicas=pulumi.get(__response__, 'replicas'),
         sse_specification=pulumi.get(__response__, 'sse_specification'),
         stream_arn=pulumi.get(__response__, 'stream_arn'),

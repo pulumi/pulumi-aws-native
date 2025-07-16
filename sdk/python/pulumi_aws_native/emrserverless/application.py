@@ -30,6 +30,7 @@ class ApplicationArgs:
                  architecture: Optional[pulumi.Input['ApplicationArchitecture']] = None,
                  auto_start_configuration: Optional[pulumi.Input['ApplicationAutoStartConfigurationArgs']] = None,
                  auto_stop_configuration: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']] = None,
+                 identity_center_configuration: Optional[pulumi.Input['ApplicationIdentityCenterConfigurationArgs']] = None,
                  image_configuration: Optional[pulumi.Input['ApplicationImageConfigurationInputArgs']] = None,
                  initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityConfigKeyValuePairArgs']]]] = None,
                  interactive_configuration: Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']] = None,
@@ -48,6 +49,7 @@ class ApplicationArgs:
         :param pulumi.Input['ApplicationArchitecture'] architecture: The CPU architecture of an application.
         :param pulumi.Input['ApplicationAutoStartConfigurationArgs'] auto_start_configuration: Configuration for Auto Start of Application.
         :param pulumi.Input['ApplicationAutoStopConfigurationArgs'] auto_stop_configuration: Configuration for Auto Stop of Application.
+        :param pulumi.Input['ApplicationIdentityCenterConfigurationArgs'] identity_center_configuration: The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
         :param pulumi.Input['ApplicationImageConfigurationInputArgs'] image_configuration: The image configuration applied to all worker types.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityConfigKeyValuePairArgs']]] initial_capacity: Initial capacity initialized when an Application is started.
         :param pulumi.Input['ApplicationInteractiveConfigurationArgs'] interactive_configuration: The interactive configuration object that enables the interactive use cases for an application.
@@ -68,6 +70,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "auto_start_configuration", auto_start_configuration)
         if auto_stop_configuration is not None:
             pulumi.set(__self__, "auto_stop_configuration", auto_stop_configuration)
+        if identity_center_configuration is not None:
+            pulumi.set(__self__, "identity_center_configuration", identity_center_configuration)
         if image_configuration is not None:
             pulumi.set(__self__, "image_configuration", image_configuration)
         if initial_capacity is not None:
@@ -150,6 +154,18 @@ class ApplicationArgs:
     @auto_stop_configuration.setter
     def auto_stop_configuration(self, value: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']]):
         pulumi.set(self, "auto_stop_configuration", value)
+
+    @property
+    @pulumi.getter(name="identityCenterConfiguration")
+    def identity_center_configuration(self) -> Optional[pulumi.Input['ApplicationIdentityCenterConfigurationArgs']]:
+        """
+        The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+        """
+        return pulumi.get(self, "identity_center_configuration")
+
+    @identity_center_configuration.setter
+    def identity_center_configuration(self, value: Optional[pulumi.Input['ApplicationIdentityCenterConfigurationArgs']]):
+        pulumi.set(self, "identity_center_configuration", value)
 
     @property
     @pulumi.getter(name="imageConfiguration")
@@ -293,6 +309,7 @@ class Application(pulumi.CustomResource):
                  architecture: Optional[pulumi.Input['ApplicationArchitecture']] = None,
                  auto_start_configuration: Optional[pulumi.Input[Union['ApplicationAutoStartConfigurationArgs', 'ApplicationAutoStartConfigurationArgsDict']]] = None,
                  auto_stop_configuration: Optional[pulumi.Input[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']]] = None,
+                 identity_center_configuration: Optional[pulumi.Input[Union['ApplicationIdentityCenterConfigurationArgs', 'ApplicationIdentityCenterConfigurationArgsDict']]] = None,
                  image_configuration: Optional[pulumi.Input[Union['ApplicationImageConfigurationInputArgs', 'ApplicationImageConfigurationInputArgsDict']]] = None,
                  initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityConfigKeyValuePairArgs', 'ApplicationInitialCapacityConfigKeyValuePairArgsDict']]]]] = None,
                  interactive_configuration: Optional[pulumi.Input[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']]] = None,
@@ -315,6 +332,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input['ApplicationArchitecture'] architecture: The CPU architecture of an application.
         :param pulumi.Input[Union['ApplicationAutoStartConfigurationArgs', 'ApplicationAutoStartConfigurationArgsDict']] auto_start_configuration: Configuration for Auto Start of Application.
         :param pulumi.Input[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']] auto_stop_configuration: Configuration for Auto Stop of Application.
+        :param pulumi.Input[Union['ApplicationIdentityCenterConfigurationArgs', 'ApplicationIdentityCenterConfigurationArgsDict']] identity_center_configuration: The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
         :param pulumi.Input[Union['ApplicationImageConfigurationInputArgs', 'ApplicationImageConfigurationInputArgsDict']] image_configuration: The image configuration applied to all worker types.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityConfigKeyValuePairArgs', 'ApplicationInitialCapacityConfigKeyValuePairArgsDict']]]] initial_capacity: Initial capacity initialized when an Application is started.
         :param pulumi.Input[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']] interactive_configuration: The interactive configuration object that enables the interactive use cases for an application.
@@ -356,6 +374,7 @@ class Application(pulumi.CustomResource):
                  architecture: Optional[pulumi.Input['ApplicationArchitecture']] = None,
                  auto_start_configuration: Optional[pulumi.Input[Union['ApplicationAutoStartConfigurationArgs', 'ApplicationAutoStartConfigurationArgsDict']]] = None,
                  auto_stop_configuration: Optional[pulumi.Input[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']]] = None,
+                 identity_center_configuration: Optional[pulumi.Input[Union['ApplicationIdentityCenterConfigurationArgs', 'ApplicationIdentityCenterConfigurationArgsDict']]] = None,
                  image_configuration: Optional[pulumi.Input[Union['ApplicationImageConfigurationInputArgs', 'ApplicationImageConfigurationInputArgsDict']]] = None,
                  initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityConfigKeyValuePairArgs', 'ApplicationInitialCapacityConfigKeyValuePairArgsDict']]]]] = None,
                  interactive_configuration: Optional[pulumi.Input[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']]] = None,
@@ -381,6 +400,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["architecture"] = architecture
             __props__.__dict__["auto_start_configuration"] = auto_start_configuration
             __props__.__dict__["auto_stop_configuration"] = auto_stop_configuration
+            __props__.__dict__["identity_center_configuration"] = identity_center_configuration
             __props__.__dict__["image_configuration"] = image_configuration
             __props__.__dict__["initial_capacity"] = initial_capacity
             __props__.__dict__["interactive_configuration"] = interactive_configuration
@@ -429,6 +449,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["auto_start_configuration"] = None
         __props__.__dict__["auto_stop_configuration"] = None
+        __props__.__dict__["identity_center_configuration"] = None
         __props__.__dict__["image_configuration"] = None
         __props__.__dict__["initial_capacity"] = None
         __props__.__dict__["interactive_configuration"] = None
@@ -483,6 +504,14 @@ class Application(pulumi.CustomResource):
         Configuration for Auto Stop of Application.
         """
         return pulumi.get(self, "auto_stop_configuration")
+
+    @property
+    @pulumi.getter(name="identityCenterConfiguration")
+    def identity_center_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationIdentityCenterConfiguration']]:
+        """
+        The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+        """
+        return pulumi.get(self, "identity_center_configuration")
 
     @property
     @pulumi.getter(name="imageConfiguration")

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.AiOps
     [AwsNativeResourceType("aws-native:aiops:InvestigationGroup")]
     public partial class InvestigationGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the investigation group.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -24,9 +27,15 @@ namespace Pulumi.AwsNative.AiOps
         [Output("chatbotNotificationChannels")]
         public Output<ImmutableArray<Outputs.InvestigationGroupChatbotNotificationChannel>> ChatbotNotificationChannels { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time that the investigation group was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the user who created the investigation group.
+        /// </summary>
         [Output("createdBy")]
         public Output<string> CreatedBy { get; private set; } = null!;
 
@@ -36,6 +45,9 @@ namespace Pulumi.AwsNative.AiOps
         [Output("crossAccountConfigurations")]
         public Output<ImmutableArray<Outputs.InvestigationGroupCrossAccountConfiguration>> CrossAccountConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+        /// </summary>
         [Output("encryptionConfig")]
         public Output<Outputs.InvestigationGroupEncryptionConfigMap?> EncryptionConfig { get; private set; } = null!;
 
@@ -51,12 +63,21 @@ namespace Pulumi.AwsNative.AiOps
         [Output("isCloudTrailEventHistoryEnabled")]
         public Output<bool?> IsCloudTrailEventHistoryEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time that the investigation group was most recently modified.
+        /// </summary>
         [Output("lastModifiedAt")]
         public Output<string> LastModifiedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the user who created the investigation group.
+        /// </summary>
         [Output("lastModifiedBy")]
         public Output<string> LastModifiedBy { get; private set; } = null!;
 
+        /// <summary>
+        /// Specify either the name or the ARN of the investigation group that you want to view.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -66,9 +87,15 @@ namespace Pulumi.AwsNative.AiOps
         [Output("retentionInDays")]
         public Output<int?> RetentionInDays { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM role that the investigation group uses for permissions to gather data.
+        /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
+        /// </summary>
         [Output("tagKeyBoundaries")]
         public Output<ImmutableArray<string>> TagKeyBoundaries { get; private set; } = null!;
 
@@ -152,6 +179,9 @@ namespace Pulumi.AwsNative.AiOps
             set => _crossAccountConfigurations = value;
         }
 
+        /// <summary>
+        /// Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+        /// </summary>
         [Input("encryptionConfig")]
         public Input<Inputs.InvestigationGroupEncryptionConfigMapArgs>? EncryptionConfig { get; set; }
 
@@ -167,6 +197,9 @@ namespace Pulumi.AwsNative.AiOps
         [Input("isCloudTrailEventHistoryEnabled")]
         public Input<bool>? IsCloudTrailEventHistoryEnabled { get; set; }
 
+        /// <summary>
+        /// Specify either the name or the ARN of the investigation group that you want to view.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -176,11 +209,18 @@ namespace Pulumi.AwsNative.AiOps
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }
 
+        /// <summary>
+        /// The ARN of the IAM role that the investigation group uses for permissions to gather data.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         [Input("tagKeyBoundaries")]
         private InputList<string>? _tagKeyBoundaries;
+
+        /// <summary>
+        /// Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
+        /// </summary>
         public InputList<string> TagKeyBoundaries
         {
             get => _tagKeyBoundaries ?? (_tagKeyBoundaries = new InputList<string>());

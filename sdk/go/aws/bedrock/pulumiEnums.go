@@ -10778,6 +10778,172 @@ func (in *guardrailContentFilterTypePtr) ToGuardrailContentFilterTypePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(GuardrailContentFilterTypePtrOutput)
 }
 
+// Tier name for tier configuration in content filters policy
+type GuardrailContentFiltersTierName string
+
+const (
+	GuardrailContentFiltersTierNameClassic  = GuardrailContentFiltersTierName("CLASSIC")
+	GuardrailContentFiltersTierNameStandard = GuardrailContentFiltersTierName("STANDARD")
+)
+
+func (GuardrailContentFiltersTierName) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailContentFiltersTierName)(nil)).Elem()
+}
+
+func (e GuardrailContentFiltersTierName) ToGuardrailContentFiltersTierNameOutput() GuardrailContentFiltersTierNameOutput {
+	return pulumi.ToOutput(e).(GuardrailContentFiltersTierNameOutput)
+}
+
+func (e GuardrailContentFiltersTierName) ToGuardrailContentFiltersTierNameOutputWithContext(ctx context.Context) GuardrailContentFiltersTierNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GuardrailContentFiltersTierNameOutput)
+}
+
+func (e GuardrailContentFiltersTierName) ToGuardrailContentFiltersTierNamePtrOutput() GuardrailContentFiltersTierNamePtrOutput {
+	return e.ToGuardrailContentFiltersTierNamePtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailContentFiltersTierName) ToGuardrailContentFiltersTierNamePtrOutputWithContext(ctx context.Context) GuardrailContentFiltersTierNamePtrOutput {
+	return GuardrailContentFiltersTierName(e).ToGuardrailContentFiltersTierNameOutputWithContext(ctx).ToGuardrailContentFiltersTierNamePtrOutputWithContext(ctx)
+}
+
+func (e GuardrailContentFiltersTierName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailContentFiltersTierName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailContentFiltersTierName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailContentFiltersTierName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GuardrailContentFiltersTierNameOutput struct{ *pulumi.OutputState }
+
+func (GuardrailContentFiltersTierNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailContentFiltersTierName)(nil)).Elem()
+}
+
+func (o GuardrailContentFiltersTierNameOutput) ToGuardrailContentFiltersTierNameOutput() GuardrailContentFiltersTierNameOutput {
+	return o
+}
+
+func (o GuardrailContentFiltersTierNameOutput) ToGuardrailContentFiltersTierNameOutputWithContext(ctx context.Context) GuardrailContentFiltersTierNameOutput {
+	return o
+}
+
+func (o GuardrailContentFiltersTierNameOutput) ToGuardrailContentFiltersTierNamePtrOutput() GuardrailContentFiltersTierNamePtrOutput {
+	return o.ToGuardrailContentFiltersTierNamePtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailContentFiltersTierNameOutput) ToGuardrailContentFiltersTierNamePtrOutputWithContext(ctx context.Context) GuardrailContentFiltersTierNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailContentFiltersTierName) *GuardrailContentFiltersTierName {
+		return &v
+	}).(GuardrailContentFiltersTierNamePtrOutput)
+}
+
+func (o GuardrailContentFiltersTierNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GuardrailContentFiltersTierNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailContentFiltersTierName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GuardrailContentFiltersTierNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailContentFiltersTierNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailContentFiltersTierName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GuardrailContentFiltersTierNamePtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailContentFiltersTierNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailContentFiltersTierName)(nil)).Elem()
+}
+
+func (o GuardrailContentFiltersTierNamePtrOutput) ToGuardrailContentFiltersTierNamePtrOutput() GuardrailContentFiltersTierNamePtrOutput {
+	return o
+}
+
+func (o GuardrailContentFiltersTierNamePtrOutput) ToGuardrailContentFiltersTierNamePtrOutputWithContext(ctx context.Context) GuardrailContentFiltersTierNamePtrOutput {
+	return o
+}
+
+func (o GuardrailContentFiltersTierNamePtrOutput) Elem() GuardrailContentFiltersTierNameOutput {
+	return o.ApplyT(func(v *GuardrailContentFiltersTierName) GuardrailContentFiltersTierName {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailContentFiltersTierName
+		return ret
+	}).(GuardrailContentFiltersTierNameOutput)
+}
+
+func (o GuardrailContentFiltersTierNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailContentFiltersTierNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GuardrailContentFiltersTierName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GuardrailContentFiltersTierNameInput is an input type that accepts values of the GuardrailContentFiltersTierName enum
+// A concrete instance of `GuardrailContentFiltersTierNameInput` can be one of the following:
+//
+//	GuardrailContentFiltersTierNameClassic
+//	GuardrailContentFiltersTierNameStandard
+type GuardrailContentFiltersTierNameInput interface {
+	pulumi.Input
+
+	ToGuardrailContentFiltersTierNameOutput() GuardrailContentFiltersTierNameOutput
+	ToGuardrailContentFiltersTierNameOutputWithContext(context.Context) GuardrailContentFiltersTierNameOutput
+}
+
+var guardrailContentFiltersTierNamePtrType = reflect.TypeOf((**GuardrailContentFiltersTierName)(nil)).Elem()
+
+type GuardrailContentFiltersTierNamePtrInput interface {
+	pulumi.Input
+
+	ToGuardrailContentFiltersTierNamePtrOutput() GuardrailContentFiltersTierNamePtrOutput
+	ToGuardrailContentFiltersTierNamePtrOutputWithContext(context.Context) GuardrailContentFiltersTierNamePtrOutput
+}
+
+type guardrailContentFiltersTierNamePtr string
+
+func GuardrailContentFiltersTierNamePtr(v string) GuardrailContentFiltersTierNamePtrInput {
+	return (*guardrailContentFiltersTierNamePtr)(&v)
+}
+
+func (*guardrailContentFiltersTierNamePtr) ElementType() reflect.Type {
+	return guardrailContentFiltersTierNamePtrType
+}
+
+func (in *guardrailContentFiltersTierNamePtr) ToGuardrailContentFiltersTierNamePtrOutput() GuardrailContentFiltersTierNamePtrOutput {
+	return pulumi.ToOutput(in).(GuardrailContentFiltersTierNamePtrOutput)
+}
+
+func (in *guardrailContentFiltersTierNamePtr) ToGuardrailContentFiltersTierNamePtrOutputWithContext(ctx context.Context) GuardrailContentFiltersTierNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GuardrailContentFiltersTierNamePtrOutput)
+}
+
 type GuardrailContextualGroundingAction string
 
 const (
@@ -12468,6 +12634,172 @@ func (in *guardrailTopicTypePtr) ToGuardrailTopicTypePtrOutput() GuardrailTopicT
 
 func (in *guardrailTopicTypePtr) ToGuardrailTopicTypePtrOutputWithContext(ctx context.Context) GuardrailTopicTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GuardrailTopicTypePtrOutput)
+}
+
+// Tier name for tier configuration in topic policy
+type GuardrailTopicsTierName string
+
+const (
+	GuardrailTopicsTierNameClassic  = GuardrailTopicsTierName("CLASSIC")
+	GuardrailTopicsTierNameStandard = GuardrailTopicsTierName("STANDARD")
+)
+
+func (GuardrailTopicsTierName) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailTopicsTierName)(nil)).Elem()
+}
+
+func (e GuardrailTopicsTierName) ToGuardrailTopicsTierNameOutput() GuardrailTopicsTierNameOutput {
+	return pulumi.ToOutput(e).(GuardrailTopicsTierNameOutput)
+}
+
+func (e GuardrailTopicsTierName) ToGuardrailTopicsTierNameOutputWithContext(ctx context.Context) GuardrailTopicsTierNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GuardrailTopicsTierNameOutput)
+}
+
+func (e GuardrailTopicsTierName) ToGuardrailTopicsTierNamePtrOutput() GuardrailTopicsTierNamePtrOutput {
+	return e.ToGuardrailTopicsTierNamePtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailTopicsTierName) ToGuardrailTopicsTierNamePtrOutputWithContext(ctx context.Context) GuardrailTopicsTierNamePtrOutput {
+	return GuardrailTopicsTierName(e).ToGuardrailTopicsTierNameOutputWithContext(ctx).ToGuardrailTopicsTierNamePtrOutputWithContext(ctx)
+}
+
+func (e GuardrailTopicsTierName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailTopicsTierName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailTopicsTierName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailTopicsTierName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GuardrailTopicsTierNameOutput struct{ *pulumi.OutputState }
+
+func (GuardrailTopicsTierNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailTopicsTierName)(nil)).Elem()
+}
+
+func (o GuardrailTopicsTierNameOutput) ToGuardrailTopicsTierNameOutput() GuardrailTopicsTierNameOutput {
+	return o
+}
+
+func (o GuardrailTopicsTierNameOutput) ToGuardrailTopicsTierNameOutputWithContext(ctx context.Context) GuardrailTopicsTierNameOutput {
+	return o
+}
+
+func (o GuardrailTopicsTierNameOutput) ToGuardrailTopicsTierNamePtrOutput() GuardrailTopicsTierNamePtrOutput {
+	return o.ToGuardrailTopicsTierNamePtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailTopicsTierNameOutput) ToGuardrailTopicsTierNamePtrOutputWithContext(ctx context.Context) GuardrailTopicsTierNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailTopicsTierName) *GuardrailTopicsTierName {
+		return &v
+	}).(GuardrailTopicsTierNamePtrOutput)
+}
+
+func (o GuardrailTopicsTierNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GuardrailTopicsTierNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailTopicsTierName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GuardrailTopicsTierNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailTopicsTierNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailTopicsTierName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GuardrailTopicsTierNamePtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailTopicsTierNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailTopicsTierName)(nil)).Elem()
+}
+
+func (o GuardrailTopicsTierNamePtrOutput) ToGuardrailTopicsTierNamePtrOutput() GuardrailTopicsTierNamePtrOutput {
+	return o
+}
+
+func (o GuardrailTopicsTierNamePtrOutput) ToGuardrailTopicsTierNamePtrOutputWithContext(ctx context.Context) GuardrailTopicsTierNamePtrOutput {
+	return o
+}
+
+func (o GuardrailTopicsTierNamePtrOutput) Elem() GuardrailTopicsTierNameOutput {
+	return o.ApplyT(func(v *GuardrailTopicsTierName) GuardrailTopicsTierName {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailTopicsTierName
+		return ret
+	}).(GuardrailTopicsTierNameOutput)
+}
+
+func (o GuardrailTopicsTierNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailTopicsTierNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GuardrailTopicsTierName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GuardrailTopicsTierNameInput is an input type that accepts values of the GuardrailTopicsTierName enum
+// A concrete instance of `GuardrailTopicsTierNameInput` can be one of the following:
+//
+//	GuardrailTopicsTierNameClassic
+//	GuardrailTopicsTierNameStandard
+type GuardrailTopicsTierNameInput interface {
+	pulumi.Input
+
+	ToGuardrailTopicsTierNameOutput() GuardrailTopicsTierNameOutput
+	ToGuardrailTopicsTierNameOutputWithContext(context.Context) GuardrailTopicsTierNameOutput
+}
+
+var guardrailTopicsTierNamePtrType = reflect.TypeOf((**GuardrailTopicsTierName)(nil)).Elem()
+
+type GuardrailTopicsTierNamePtrInput interface {
+	pulumi.Input
+
+	ToGuardrailTopicsTierNamePtrOutput() GuardrailTopicsTierNamePtrOutput
+	ToGuardrailTopicsTierNamePtrOutputWithContext(context.Context) GuardrailTopicsTierNamePtrOutput
+}
+
+type guardrailTopicsTierNamePtr string
+
+func GuardrailTopicsTierNamePtr(v string) GuardrailTopicsTierNamePtrInput {
+	return (*guardrailTopicsTierNamePtr)(&v)
+}
+
+func (*guardrailTopicsTierNamePtr) ElementType() reflect.Type {
+	return guardrailTopicsTierNamePtrType
+}
+
+func (in *guardrailTopicsTierNamePtr) ToGuardrailTopicsTierNamePtrOutput() GuardrailTopicsTierNamePtrOutput {
+	return pulumi.ToOutput(in).(GuardrailTopicsTierNamePtrOutput)
+}
+
+func (in *guardrailTopicsTierNamePtr) ToGuardrailTopicsTierNamePtrOutputWithContext(ctx context.Context) GuardrailTopicsTierNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GuardrailTopicsTierNamePtrOutput)
 }
 
 type GuardrailWordAction string
@@ -15461,6 +15793,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterActionPtrInput)(nil)).Elem(), GuardrailContentFilterAction("BLOCK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterTypeInput)(nil)).Elem(), GuardrailContentFilterType("SEXUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterTypePtrInput)(nil)).Elem(), GuardrailContentFilterType("SEXUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFiltersTierNameInput)(nil)).Elem(), GuardrailContentFiltersTierName("CLASSIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFiltersTierNamePtrInput)(nil)).Elem(), GuardrailContentFiltersTierName("CLASSIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContextualGroundingActionInput)(nil)).Elem(), GuardrailContextualGroundingAction("BLOCK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContextualGroundingActionPtrInput)(nil)).Elem(), GuardrailContextualGroundingAction("BLOCK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContextualGroundingFilterTypeInput)(nil)).Elem(), GuardrailContextualGroundingFilterType("GROUNDING"))
@@ -15480,6 +15814,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicActionPtrInput)(nil)).Elem(), GuardrailTopicAction("BLOCK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicTypeInput)(nil)).Elem(), GuardrailTopicType("DENY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicTypePtrInput)(nil)).Elem(), GuardrailTopicType("DENY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicsTierNameInput)(nil)).Elem(), GuardrailTopicsTierName("CLASSIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicsTierNamePtrInput)(nil)).Elem(), GuardrailTopicsTierName("CLASSIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordActionInput)(nil)).Elem(), GuardrailWordAction("BLOCK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordActionPtrInput)(nil)).Elem(), GuardrailWordAction("BLOCK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypeInput)(nil)).Elem(), KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType("FLOAT32"))
@@ -15657,6 +15993,8 @@ func init() {
 	pulumi.RegisterOutputType(GuardrailContentFilterActionPtrOutput{})
 	pulumi.RegisterOutputType(GuardrailContentFilterTypeOutput{})
 	pulumi.RegisterOutputType(GuardrailContentFilterTypePtrOutput{})
+	pulumi.RegisterOutputType(GuardrailContentFiltersTierNameOutput{})
+	pulumi.RegisterOutputType(GuardrailContentFiltersTierNamePtrOutput{})
 	pulumi.RegisterOutputType(GuardrailContextualGroundingActionOutput{})
 	pulumi.RegisterOutputType(GuardrailContextualGroundingActionPtrOutput{})
 	pulumi.RegisterOutputType(GuardrailContextualGroundingFilterTypeOutput{})
@@ -15678,6 +16016,8 @@ func init() {
 	pulumi.RegisterOutputType(GuardrailTopicActionPtrOutput{})
 	pulumi.RegisterOutputType(GuardrailTopicTypeOutput{})
 	pulumi.RegisterOutputType(GuardrailTopicTypePtrOutput{})
+	pulumi.RegisterOutputType(GuardrailTopicsTierNameOutput{})
+	pulumi.RegisterOutputType(GuardrailTopicsTierNamePtrOutput{})
 	pulumi.RegisterOutputType(GuardrailWordActionOutput{})
 	pulumi.RegisterOutputType(GuardrailWordActionPtrOutput{})
 	pulumi.RegisterOutputType(IntelligentPromptRouterPromptRouterStatusOutput{})

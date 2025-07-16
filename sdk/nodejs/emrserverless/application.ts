@@ -58,6 +58,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly autoStopConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationAutoStopConfiguration | undefined>;
     /**
+     * The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+     */
+    public readonly identityCenterConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationIdentityCenterConfiguration | undefined>;
+    /**
      * The image configuration applied to all worker types.
      */
     public readonly imageConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationImageConfigurationInput | undefined>;
@@ -130,6 +134,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["architecture"] = args ? args.architecture : undefined;
             resourceInputs["autoStartConfiguration"] = args ? args.autoStartConfiguration : undefined;
             resourceInputs["autoStopConfiguration"] = args ? args.autoStopConfiguration : undefined;
+            resourceInputs["identityCenterConfiguration"] = args ? args.identityCenterConfiguration : undefined;
             resourceInputs["imageConfiguration"] = args ? args.imageConfiguration : undefined;
             resourceInputs["initialCapacity"] = args ? args.initialCapacity : undefined;
             resourceInputs["interactiveConfiguration"] = args ? args.interactiveConfiguration : undefined;
@@ -151,6 +156,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoStartConfiguration"] = undefined /*out*/;
             resourceInputs["autoStopConfiguration"] = undefined /*out*/;
+            resourceInputs["identityCenterConfiguration"] = undefined /*out*/;
             resourceInputs["imageConfiguration"] = undefined /*out*/;
             resourceInputs["initialCapacity"] = undefined /*out*/;
             resourceInputs["interactiveConfiguration"] = undefined /*out*/;
@@ -188,6 +194,10 @@ export interface ApplicationArgs {
      * Configuration for Auto Stop of Application.
      */
     autoStopConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStopConfigurationArgs>;
+    /**
+     * The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+     */
+    identityCenterConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationIdentityCenterConfigurationArgs>;
     /**
      * The image configuration applied to all worker types.
      */

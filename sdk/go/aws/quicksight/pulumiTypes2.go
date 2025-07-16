@@ -31487,146 +31487,6 @@ func (o DataSourceErrorInfoPtrOutput) Type() DataSourceErrorInfoTypePtrOutput {
 	}).(DataSourceErrorInfoTypePtrOutput)
 }
 
-// <p>The parameters for an IAM Identity Center configuration.</p>
-type DataSourceIdentityCenterConfiguration struct {
-	// <p>A Boolean option that controls whether Trusted Identity Propagation should be used.</p>
-	EnableIdentityPropagation *bool `pulumi:"enableIdentityPropagation"`
-}
-
-// DataSourceIdentityCenterConfigurationInput is an input type that accepts DataSourceIdentityCenterConfigurationArgs and DataSourceIdentityCenterConfigurationOutput values.
-// You can construct a concrete instance of `DataSourceIdentityCenterConfigurationInput` via:
-//
-//	DataSourceIdentityCenterConfigurationArgs{...}
-type DataSourceIdentityCenterConfigurationInput interface {
-	pulumi.Input
-
-	ToDataSourceIdentityCenterConfigurationOutput() DataSourceIdentityCenterConfigurationOutput
-	ToDataSourceIdentityCenterConfigurationOutputWithContext(context.Context) DataSourceIdentityCenterConfigurationOutput
-}
-
-// <p>The parameters for an IAM Identity Center configuration.</p>
-type DataSourceIdentityCenterConfigurationArgs struct {
-	// <p>A Boolean option that controls whether Trusted Identity Propagation should be used.</p>
-	EnableIdentityPropagation pulumi.BoolPtrInput `pulumi:"enableIdentityPropagation"`
-}
-
-func (DataSourceIdentityCenterConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceIdentityCenterConfiguration)(nil)).Elem()
-}
-
-func (i DataSourceIdentityCenterConfigurationArgs) ToDataSourceIdentityCenterConfigurationOutput() DataSourceIdentityCenterConfigurationOutput {
-	return i.ToDataSourceIdentityCenterConfigurationOutputWithContext(context.Background())
-}
-
-func (i DataSourceIdentityCenterConfigurationArgs) ToDataSourceIdentityCenterConfigurationOutputWithContext(ctx context.Context) DataSourceIdentityCenterConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceIdentityCenterConfigurationOutput)
-}
-
-func (i DataSourceIdentityCenterConfigurationArgs) ToDataSourceIdentityCenterConfigurationPtrOutput() DataSourceIdentityCenterConfigurationPtrOutput {
-	return i.ToDataSourceIdentityCenterConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i DataSourceIdentityCenterConfigurationArgs) ToDataSourceIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) DataSourceIdentityCenterConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceIdentityCenterConfigurationOutput).ToDataSourceIdentityCenterConfigurationPtrOutputWithContext(ctx)
-}
-
-// DataSourceIdentityCenterConfigurationPtrInput is an input type that accepts DataSourceIdentityCenterConfigurationArgs, DataSourceIdentityCenterConfigurationPtr and DataSourceIdentityCenterConfigurationPtrOutput values.
-// You can construct a concrete instance of `DataSourceIdentityCenterConfigurationPtrInput` via:
-//
-//	        DataSourceIdentityCenterConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type DataSourceIdentityCenterConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToDataSourceIdentityCenterConfigurationPtrOutput() DataSourceIdentityCenterConfigurationPtrOutput
-	ToDataSourceIdentityCenterConfigurationPtrOutputWithContext(context.Context) DataSourceIdentityCenterConfigurationPtrOutput
-}
-
-type dataSourceIdentityCenterConfigurationPtrType DataSourceIdentityCenterConfigurationArgs
-
-func DataSourceIdentityCenterConfigurationPtr(v *DataSourceIdentityCenterConfigurationArgs) DataSourceIdentityCenterConfigurationPtrInput {
-	return (*dataSourceIdentityCenterConfigurationPtrType)(v)
-}
-
-func (*dataSourceIdentityCenterConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceIdentityCenterConfiguration)(nil)).Elem()
-}
-
-func (i *dataSourceIdentityCenterConfigurationPtrType) ToDataSourceIdentityCenterConfigurationPtrOutput() DataSourceIdentityCenterConfigurationPtrOutput {
-	return i.ToDataSourceIdentityCenterConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSourceIdentityCenterConfigurationPtrType) ToDataSourceIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) DataSourceIdentityCenterConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceIdentityCenterConfigurationPtrOutput)
-}
-
-// <p>The parameters for an IAM Identity Center configuration.</p>
-type DataSourceIdentityCenterConfigurationOutput struct{ *pulumi.OutputState }
-
-func (DataSourceIdentityCenterConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceIdentityCenterConfiguration)(nil)).Elem()
-}
-
-func (o DataSourceIdentityCenterConfigurationOutput) ToDataSourceIdentityCenterConfigurationOutput() DataSourceIdentityCenterConfigurationOutput {
-	return o
-}
-
-func (o DataSourceIdentityCenterConfigurationOutput) ToDataSourceIdentityCenterConfigurationOutputWithContext(ctx context.Context) DataSourceIdentityCenterConfigurationOutput {
-	return o
-}
-
-func (o DataSourceIdentityCenterConfigurationOutput) ToDataSourceIdentityCenterConfigurationPtrOutput() DataSourceIdentityCenterConfigurationPtrOutput {
-	return o.ToDataSourceIdentityCenterConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceIdentityCenterConfigurationOutput) ToDataSourceIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) DataSourceIdentityCenterConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceIdentityCenterConfiguration) *DataSourceIdentityCenterConfiguration {
-		return &v
-	}).(DataSourceIdentityCenterConfigurationPtrOutput)
-}
-
-// <p>A Boolean option that controls whether Trusted Identity Propagation should be used.</p>
-func (o DataSourceIdentityCenterConfigurationOutput) EnableIdentityPropagation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DataSourceIdentityCenterConfiguration) *bool { return v.EnableIdentityPropagation }).(pulumi.BoolPtrOutput)
-}
-
-type DataSourceIdentityCenterConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourceIdentityCenterConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceIdentityCenterConfiguration)(nil)).Elem()
-}
-
-func (o DataSourceIdentityCenterConfigurationPtrOutput) ToDataSourceIdentityCenterConfigurationPtrOutput() DataSourceIdentityCenterConfigurationPtrOutput {
-	return o
-}
-
-func (o DataSourceIdentityCenterConfigurationPtrOutput) ToDataSourceIdentityCenterConfigurationPtrOutputWithContext(ctx context.Context) DataSourceIdentityCenterConfigurationPtrOutput {
-	return o
-}
-
-func (o DataSourceIdentityCenterConfigurationPtrOutput) Elem() DataSourceIdentityCenterConfigurationOutput {
-	return o.ApplyT(func(v *DataSourceIdentityCenterConfiguration) DataSourceIdentityCenterConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret DataSourceIdentityCenterConfiguration
-		return ret
-	}).(DataSourceIdentityCenterConfigurationOutput)
-}
-
-// <p>A Boolean option that controls whether Trusted Identity Propagation should be used.</p>
-func (o DataSourceIdentityCenterConfigurationPtrOutput) EnableIdentityPropagation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DataSourceIdentityCenterConfiguration) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableIdentityPropagation
-	}).(pulumi.BoolPtrOutput)
-}
-
 // <p>Amazon S3 manifest file location.</p>
 type DataSourceManifestFileLocation struct {
 	// <p>Amazon S3 bucket.</p>
@@ -32341,7 +32201,8 @@ type DataSourceOracleParameters struct {
 	// <p>An Oracle host.</p>
 	Host string `pulumi:"host"`
 	// <p>The port.</p>
-	Port float64 `pulumi:"port"`
+	Port           float64 `pulumi:"port"`
+	UseServiceName *bool   `pulumi:"useServiceName"`
 }
 
 // DataSourceOracleParametersInput is an input type that accepts DataSourceOracleParametersArgs and DataSourceOracleParametersOutput values.
@@ -32362,7 +32223,8 @@ type DataSourceOracleParametersArgs struct {
 	// <p>An Oracle host.</p>
 	Host pulumi.StringInput `pulumi:"host"`
 	// <p>The port.</p>
-	Port pulumi.Float64Input `pulumi:"port"`
+	Port           pulumi.Float64Input `pulumi:"port"`
+	UseServiceName pulumi.BoolPtrInput `pulumi:"useServiceName"`
 }
 
 func (DataSourceOracleParametersArgs) ElementType() reflect.Type {
@@ -32458,6 +32320,10 @@ func (o DataSourceOracleParametersOutput) Port() pulumi.Float64Output {
 	return o.ApplyT(func(v DataSourceOracleParameters) float64 { return v.Port }).(pulumi.Float64Output)
 }
 
+func (o DataSourceOracleParametersOutput) UseServiceName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataSourceOracleParameters) *bool { return v.UseServiceName }).(pulumi.BoolPtrOutput)
+}
+
 type DataSourceOracleParametersPtrOutput struct{ *pulumi.OutputState }
 
 func (DataSourceOracleParametersPtrOutput) ElementType() reflect.Type {
@@ -32510,6 +32376,15 @@ func (o DataSourceOracleParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 		}
 		return &v.Port
 	}).(pulumi.Float64PtrOutput)
+}
+
+func (o DataSourceOracleParametersPtrOutput) UseServiceName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataSourceOracleParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseServiceName
+	}).(pulumi.BoolPtrOutput)
 }
 
 // <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
@@ -33810,7 +33685,7 @@ type DataSourceRedshiftParameters struct {
 	// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
 	//
 	// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
-	IdentityCenterConfiguration *DataSourceIdentityCenterConfiguration `pulumi:"identityCenterConfiguration"`
+	IdentityCenterConfiguration interface{} `pulumi:"identityCenterConfiguration"`
 	// <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
 	Port *float64 `pulumi:"port"`
 }
@@ -33842,7 +33717,7 @@ type DataSourceRedshiftParametersArgs struct {
 	// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
 	//
 	// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
-	IdentityCenterConfiguration DataSourceIdentityCenterConfigurationPtrInput `pulumi:"identityCenterConfiguration"`
+	IdentityCenterConfiguration pulumi.Input `pulumi:"identityCenterConfiguration"`
 	// <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
 	Port pulumi.Float64PtrInput `pulumi:"port"`
 }
@@ -33952,10 +33827,8 @@ func (o DataSourceRedshiftParametersOutput) IamParameters() DataSourceRedshiftIa
 // An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
 //
 // This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
-func (o DataSourceRedshiftParametersOutput) IdentityCenterConfiguration() DataSourceIdentityCenterConfigurationPtrOutput {
-	return o.ApplyT(func(v DataSourceRedshiftParameters) *DataSourceIdentityCenterConfiguration {
-		return v.IdentityCenterConfiguration
-	}).(DataSourceIdentityCenterConfigurationPtrOutput)
+func (o DataSourceRedshiftParametersOutput) IdentityCenterConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v DataSourceRedshiftParameters) interface{} { return v.IdentityCenterConfiguration }).(pulumi.AnyOutput)
 }
 
 // <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
@@ -34032,13 +33905,13 @@ func (o DataSourceRedshiftParametersPtrOutput) IamParameters() DataSourceRedshif
 // An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
 //
 // This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
-func (o DataSourceRedshiftParametersPtrOutput) IdentityCenterConfiguration() DataSourceIdentityCenterConfigurationPtrOutput {
-	return o.ApplyT(func(v *DataSourceRedshiftParameters) *DataSourceIdentityCenterConfiguration {
+func (o DataSourceRedshiftParametersPtrOutput) IdentityCenterConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DataSourceRedshiftParameters) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.IdentityCenterConfiguration
-	}).(DataSourceIdentityCenterConfigurationPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
@@ -85197,6 +85070,143 @@ func (o TemplateListControlSearchOptionsPtrOutput) Visibility() pulumi.AnyOutput
 	}).(pulumi.AnyOutput)
 }
 
+type TemplateListControlSelectAllOptions struct {
+	// The visibility configuration of the `Select all` options in a list control.
+	Visibility interface{} `pulumi:"visibility"`
+}
+
+// TemplateListControlSelectAllOptionsInput is an input type that accepts TemplateListControlSelectAllOptionsArgs and TemplateListControlSelectAllOptionsOutput values.
+// You can construct a concrete instance of `TemplateListControlSelectAllOptionsInput` via:
+//
+//	TemplateListControlSelectAllOptionsArgs{...}
+type TemplateListControlSelectAllOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateListControlSelectAllOptionsOutput() TemplateListControlSelectAllOptionsOutput
+	ToTemplateListControlSelectAllOptionsOutputWithContext(context.Context) TemplateListControlSelectAllOptionsOutput
+}
+
+type TemplateListControlSelectAllOptionsArgs struct {
+	// The visibility configuration of the `Select all` options in a list control.
+	Visibility pulumi.Input `pulumi:"visibility"`
+}
+
+func (TemplateListControlSelectAllOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateListControlSelectAllOptions)(nil)).Elem()
+}
+
+func (i TemplateListControlSelectAllOptionsArgs) ToTemplateListControlSelectAllOptionsOutput() TemplateListControlSelectAllOptionsOutput {
+	return i.ToTemplateListControlSelectAllOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateListControlSelectAllOptionsArgs) ToTemplateListControlSelectAllOptionsOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlSelectAllOptionsOutput)
+}
+
+func (i TemplateListControlSelectAllOptionsArgs) ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput {
+	return i.ToTemplateListControlSelectAllOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateListControlSelectAllOptionsArgs) ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlSelectAllOptionsOutput).ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateListControlSelectAllOptionsPtrInput is an input type that accepts TemplateListControlSelectAllOptionsArgs, TemplateListControlSelectAllOptionsPtr and TemplateListControlSelectAllOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateListControlSelectAllOptionsPtrInput` via:
+//
+//	        TemplateListControlSelectAllOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateListControlSelectAllOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput
+	ToTemplateListControlSelectAllOptionsPtrOutputWithContext(context.Context) TemplateListControlSelectAllOptionsPtrOutput
+}
+
+type templateListControlSelectAllOptionsPtrType TemplateListControlSelectAllOptionsArgs
+
+func TemplateListControlSelectAllOptionsPtr(v *TemplateListControlSelectAllOptionsArgs) TemplateListControlSelectAllOptionsPtrInput {
+	return (*templateListControlSelectAllOptionsPtrType)(v)
+}
+
+func (*templateListControlSelectAllOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateListControlSelectAllOptions)(nil)).Elem()
+}
+
+func (i *templateListControlSelectAllOptionsPtrType) ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput {
+	return i.ToTemplateListControlSelectAllOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateListControlSelectAllOptionsPtrType) ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlSelectAllOptionsPtrOutput)
+}
+
+type TemplateListControlSelectAllOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateListControlSelectAllOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateListControlSelectAllOptions)(nil)).Elem()
+}
+
+func (o TemplateListControlSelectAllOptionsOutput) ToTemplateListControlSelectAllOptionsOutput() TemplateListControlSelectAllOptionsOutput {
+	return o
+}
+
+func (o TemplateListControlSelectAllOptionsOutput) ToTemplateListControlSelectAllOptionsOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsOutput {
+	return o
+}
+
+func (o TemplateListControlSelectAllOptionsOutput) ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput {
+	return o.ToTemplateListControlSelectAllOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateListControlSelectAllOptionsOutput) ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateListControlSelectAllOptions) *TemplateListControlSelectAllOptions {
+		return &v
+	}).(TemplateListControlSelectAllOptionsPtrOutput)
+}
+
+// The visibility configuration of the `Select all` options in a list control.
+func (o TemplateListControlSelectAllOptionsOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateListControlSelectAllOptions) interface{} { return v.Visibility }).(pulumi.AnyOutput)
+}
+
+type TemplateListControlSelectAllOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateListControlSelectAllOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateListControlSelectAllOptions)(nil)).Elem()
+}
+
+func (o TemplateListControlSelectAllOptionsPtrOutput) ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateListControlSelectAllOptionsPtrOutput) ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateListControlSelectAllOptionsPtrOutput) Elem() TemplateListControlSelectAllOptionsOutput {
+	return o.ApplyT(func(v *TemplateListControlSelectAllOptions) TemplateListControlSelectAllOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateListControlSelectAllOptions
+		return ret
+	}).(TemplateListControlSelectAllOptionsOutput)
+}
+
+// The visibility configuration of the `Select all` options in a list control.
+func (o TemplateListControlSelectAllOptionsPtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateListControlSelectAllOptions) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Visibility
+	}).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionLayoutConfigurationInput)(nil)).Elem(), DashboardSectionLayoutConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSectionLayoutConfigurationPtrInput)(nil)).Elem(), DashboardSectionLayoutConfigurationArgs{})
@@ -85569,8 +85579,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDatabricksParametersPtrInput)(nil)).Elem(), DataSourceDatabricksParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceErrorInfoInput)(nil)).Elem(), DataSourceErrorInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceErrorInfoPtrInput)(nil)).Elem(), DataSourceErrorInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceIdentityCenterConfigurationInput)(nil)).Elem(), DataSourceIdentityCenterConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceIdentityCenterConfigurationPtrInput)(nil)).Elem(), DataSourceIdentityCenterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceManifestFileLocationInput)(nil)).Elem(), DataSourceManifestFileLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceManifestFileLocationPtrInput)(nil)).Elem(), DataSourceManifestFileLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMariaDbParametersInput)(nil)).Elem(), DataSourceMariaDbParametersArgs{})
@@ -86177,6 +86185,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlDisplayOptionsPtrInput)(nil)).Elem(), TemplateListControlDisplayOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSearchOptionsInput)(nil)).Elem(), TemplateListControlSearchOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSearchOptionsPtrInput)(nil)).Elem(), TemplateListControlSearchOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSelectAllOptionsInput)(nil)).Elem(), TemplateListControlSelectAllOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSelectAllOptionsPtrInput)(nil)).Elem(), TemplateListControlSelectAllOptionsArgs{})
 	pulumi.RegisterOutputType(DashboardSectionLayoutConfigurationOutput{})
 	pulumi.RegisterOutputType(DashboardSectionLayoutConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSectionPageBreakConfigurationOutput{})
@@ -86554,8 +86564,6 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceDatabricksParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceErrorInfoOutput{})
 	pulumi.RegisterOutputType(DataSourceErrorInfoPtrOutput{})
-	pulumi.RegisterOutputType(DataSourceIdentityCenterConfigurationOutput{})
-	pulumi.RegisterOutputType(DataSourceIdentityCenterConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceManifestFileLocationOutput{})
 	pulumi.RegisterOutputType(DataSourceManifestFileLocationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceMariaDbParametersOutput{})
@@ -87166,4 +87174,6 @@ func init() {
 	pulumi.RegisterOutputType(TemplateListControlDisplayOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateListControlSearchOptionsOutput{})
 	pulumi.RegisterOutputType(TemplateListControlSearchOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateListControlSelectAllOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateListControlSelectAllOptionsPtrOutput{})
 }

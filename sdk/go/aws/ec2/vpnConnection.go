@@ -32,8 +32,8 @@ type VpnConnection struct {
 	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
 	//  Default: ``::/0``
 	LocalIpv6NetworkCidr pulumi.StringPtrOutput `pulumi:"localIpv6NetworkCidr"`
-	// The type of IPv4 address assigned to the outside interface of the customer gateway device.
-	//  Valid values: ``PrivateIpv4`` | ``PublicIpv4``
+	// The type of IP address assigned to the outside interface of the customer gateway device.
+	//  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
 	//  Default: ``PublicIpv4``
 	OutsideIpAddressType pulumi.StringPtrOutput `pulumi:"outsideIpAddressType"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
@@ -141,8 +141,8 @@ type vpnConnectionArgs struct {
 	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
 	//  Default: ``::/0``
 	LocalIpv6NetworkCidr *string `pulumi:"localIpv6NetworkCidr"`
-	// The type of IPv4 address assigned to the outside interface of the customer gateway device.
-	//  Valid values: ``PrivateIpv4`` | ``PublicIpv4``
+	// The type of IP address assigned to the outside interface of the customer gateway device.
+	//  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
 	//  Default: ``PublicIpv4``
 	OutsideIpAddressType *string `pulumi:"outsideIpAddressType"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
@@ -187,8 +187,8 @@ type VpnConnectionArgs struct {
 	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
 	//  Default: ``::/0``
 	LocalIpv6NetworkCidr pulumi.StringPtrInput
-	// The type of IPv4 address assigned to the outside interface of the customer gateway device.
-	//  Valid values: ``PrivateIpv4`` | ``PublicIpv4``
+	// The type of IP address assigned to the outside interface of the customer gateway device.
+	//  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
 	//  Default: ``PublicIpv4``
 	OutsideIpAddressType pulumi.StringPtrInput
 	// The IPv4 CIDR on the AWS side of the VPN connection.
@@ -283,9 +283,9 @@ func (o VpnConnectionOutput) LocalIpv6NetworkCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.LocalIpv6NetworkCidr }).(pulumi.StringPtrOutput)
 }
 
-// The type of IPv4 address assigned to the outside interface of the customer gateway device.
+// The type of IP address assigned to the outside interface of the customer gateway device.
 //
-//	Valid values: ``PrivateIpv4`` | ``PublicIpv4``
+//	Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
 //	Default: ``PublicIpv4``
 func (o VpnConnectionOutput) OutsideIpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.OutsideIpAddressType }).(pulumi.StringPtrOutput)

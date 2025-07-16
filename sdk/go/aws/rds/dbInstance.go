@@ -121,6 +121,18 @@ type DbInstance struct {
 	//   +  Must be a value from 0 to 35
 	//   +  Can't be set to 0 if the DB instance is a source to read replicas
 	BackupRetentionPeriod pulumi.IntPtrOutput `pulumi:"backupRetentionPeriod"`
+	// The location for storing automated backups and manual snapshots.
+	//
+	// Valid Values:
+	//
+	// - `local` (Dedicated Local Zone)
+	// - `outposts` ( AWS Outposts)
+	// - `region` ( AWS Region )
+	//
+	// Default: `region`
+	//
+	// For more information, see [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide* .
+	BackupTarget pulumi.StringPtrOutput `pulumi:"backupTarget"`
 	// The identifier of the CA certificate for this DB instance.
 	//  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
 	CaCertificateIdentifier pulumi.StringPtrOutput             `pulumi:"caCertificateIdentifier"`
@@ -497,9 +509,7 @@ type DbInstance struct {
 	//  This setting doesn't apply to RDS Custom DB instances.
 	MonitoringRoleArn pulumi.StringPtrOutput `pulumi:"monitoringRoleArn"`
 	// Specifies whether the DB instance is a Multi-AZ deployment. You can't set the ``AvailabilityZone`` parameter if the DB instance is a Multi-AZ deployment.
-	//  This setting doesn't apply to the following DB instances:
-	//   +  Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)
-	//   +  RDS Custom
+	//  This setting doesn't apply to Amazon Aurora because the DB instance Availability Zones (AZs) are managed by the DB cluster.
 	MultiAz pulumi.BoolPtrOutput `pulumi:"multiAz"`
 	// The name of the NCHAR character set for the Oracle DB instance.
 	//  This setting doesn't apply to RDS Custom DB instances.
@@ -661,6 +671,7 @@ func NewDbInstance(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"backupTarget",
 		"characterSetName",
 		"customIamInstanceProfile",
 		"dbClusterIdentifier",
@@ -793,6 +804,18 @@ type dbInstanceArgs struct {
 	//   +  Must be a value from 0 to 35
 	//   +  Can't be set to 0 if the DB instance is a source to read replicas
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
+	// The location for storing automated backups and manual snapshots.
+	//
+	// Valid Values:
+	//
+	// - `local` (Dedicated Local Zone)
+	// - `outposts` ( AWS Outposts)
+	// - `region` ( AWS Region )
+	//
+	// Default: `region`
+	//
+	// For more information, see [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide* .
+	BackupTarget *string `pulumi:"backupTarget"`
 	// The identifier of the CA certificate for this DB instance.
 	//  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
 	CaCertificateIdentifier *string `pulumi:"caCertificateIdentifier"`
@@ -1163,9 +1186,7 @@ type dbInstanceArgs struct {
 	//  This setting doesn't apply to RDS Custom DB instances.
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
 	// Specifies whether the DB instance is a Multi-AZ deployment. You can't set the ``AvailabilityZone`` parameter if the DB instance is a Multi-AZ deployment.
-	//  This setting doesn't apply to the following DB instances:
-	//   +  Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)
-	//   +  RDS Custom
+	//  This setting doesn't apply to Amazon Aurora because the DB instance Availability Zones (AZs) are managed by the DB cluster.
 	MultiAz *bool `pulumi:"multiAz"`
 	// The name of the NCHAR character set for the Oracle DB instance.
 	//  This setting doesn't apply to RDS Custom DB instances.
@@ -1405,6 +1426,18 @@ type DbInstanceArgs struct {
 	//   +  Must be a value from 0 to 35
 	//   +  Can't be set to 0 if the DB instance is a source to read replicas
 	BackupRetentionPeriod pulumi.IntPtrInput
+	// The location for storing automated backups and manual snapshots.
+	//
+	// Valid Values:
+	//
+	// - `local` (Dedicated Local Zone)
+	// - `outposts` ( AWS Outposts)
+	// - `region` ( AWS Region )
+	//
+	// Default: `region`
+	//
+	// For more information, see [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide* .
+	BackupTarget pulumi.StringPtrInput
 	// The identifier of the CA certificate for this DB instance.
 	//  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
 	CaCertificateIdentifier pulumi.StringPtrInput
@@ -1775,9 +1808,7 @@ type DbInstanceArgs struct {
 	//  This setting doesn't apply to RDS Custom DB instances.
 	MonitoringRoleArn pulumi.StringPtrInput
 	// Specifies whether the DB instance is a Multi-AZ deployment. You can't set the ``AvailabilityZone`` parameter if the DB instance is a Multi-AZ deployment.
-	//  This setting doesn't apply to the following DB instances:
-	//   +  Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)
-	//   +  RDS Custom
+	//  This setting doesn't apply to Amazon Aurora because the DB instance Availability Zones (AZs) are managed by the DB cluster.
 	MultiAz pulumi.BoolPtrInput
 	// The name of the NCHAR character set for the Oracle DB instance.
 	//  This setting doesn't apply to RDS Custom DB instances.
@@ -2087,6 +2118,21 @@ func (o DbInstanceOutput) AvailabilityZone() pulumi.StringPtrOutput {
 //	 +  Can't be set to 0 if the DB instance is a source to read replicas
 func (o DbInstanceOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.IntPtrOutput { return v.BackupRetentionPeriod }).(pulumi.IntPtrOutput)
+}
+
+// The location for storing automated backups and manual snapshots.
+//
+// Valid Values:
+//
+// - `local` (Dedicated Local Zone)
+// - `outposts` ( AWS Outposts)
+// - `region` ( AWS Region )
+//
+// Default: `region`
+//
+// For more information, see [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide* .
+func (o DbInstanceOutput) BackupTarget() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.BackupTarget }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the CA certificate for this DB instance.
@@ -2639,9 +2685,7 @@ func (o DbInstanceOutput) MonitoringRoleArn() pulumi.StringPtrOutput {
 
 // Specifies whether the DB instance is a Multi-AZ deployment. You can't set the “AvailabilityZone“ parameter if the DB instance is a Multi-AZ deployment.
 //
-//	This setting doesn't apply to the following DB instances:
-//	 +  Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)
-//	 +  RDS Custom
+//	This setting doesn't apply to Amazon Aurora because the DB instance Availability Zones (AZs) are managed by the DB cluster.
 func (o DbInstanceOutput) MultiAz() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.BoolPtrOutput { return v.MultiAz }).(pulumi.BoolPtrOutput)
 }

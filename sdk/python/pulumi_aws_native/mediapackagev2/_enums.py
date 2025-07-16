@@ -12,9 +12,12 @@ __all__ = [
     'OriginEndpointAdMarkerHls',
     'OriginEndpointCmafEncryptionMethod',
     'OriginEndpointContainerType',
+    'OriginEndpointDashCompactness',
     'OriginEndpointDashDrmSignaling',
     'OriginEndpointDashPeriodTrigger',
+    'OriginEndpointDashProfile',
     'OriginEndpointDashSegmentTemplateFormat',
+    'OriginEndpointDashTtmlProfile',
     'OriginEndpointDashUtcTimingMode',
     'OriginEndpointDrmSystem',
     'OriginEndpointEndpointErrorCondition',
@@ -54,6 +57,12 @@ class OriginEndpointContainerType(builtins.str, Enum):
     CMAF = "CMAF"
 
 
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpointDashCompactness")
+class OriginEndpointDashCompactness(builtins.str, Enum):
+    STANDARD = "STANDARD"
+    NONE = "NONE"
+
+
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointDashDrmSignaling")
 class OriginEndpointDashDrmSignaling(builtins.str, Enum):
     INDIVIDUAL = "INDIVIDUAL"
@@ -69,9 +78,20 @@ class OriginEndpointDashPeriodTrigger(builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpointDashProfile")
+class OriginEndpointDashProfile(builtins.str, Enum):
+    DVB_DASH = "DVB_DASH"
+
+
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointDashSegmentTemplateFormat")
 class OriginEndpointDashSegmentTemplateFormat(builtins.str, Enum):
     NUMBER_WITH_TIMELINE = "NUMBER_WITH_TIMELINE"
+
+
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpointDashTtmlProfile")
+class OriginEndpointDashTtmlProfile(builtins.str, Enum):
+    IMSC1 = "IMSC_1"
+    EBU_TT_D101 = "EBU_TT_D_101"
 
 
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointDashUtcTimingMode")

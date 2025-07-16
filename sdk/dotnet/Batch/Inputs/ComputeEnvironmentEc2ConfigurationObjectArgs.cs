@@ -41,6 +41,10 @@ namespace Pulumi.AwsNative.Batch.Inputs
         /// 
         /// - **EKS_AL2** - [Amazon Linux 2](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : Default for all non-GPU instance families.
         /// - **EKS_AL2_NVIDIA** - [Amazon Linux 2 (accelerated)](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : Default for all GPU instance families (for example, `P4` and `G4` ) and can be used for all non AWS Graviton-based instance types.
+        /// - **EKS_AL2023** - [Amazon Linux 2023](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : AWS Batch supports Amazon Linux 2023.
+        /// 
+        /// &gt; Amazon Linux 2023 does not support `A1` instances.
+        /// - **EKS_AL2023_NVIDIA** - [Amazon Linux 2023 (accelerated)](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : GPU instance families and can be used for all non AWS Graviton-based instance types.
         /// </summary>
         [Input("imageType", required: true)]
         public Input<string> ImageType { get; set; } = null!;

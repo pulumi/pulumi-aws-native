@@ -2401,6 +2401,172 @@ func (in *bucketInventoryConfigurationScheduleFrequencyPtr) ToBucketInventoryCon
 	return pulumi.ToOutputWithContext(ctx, in).(BucketInventoryConfigurationScheduleFrequencyPtrOutput)
 }
 
+// Specifies whether inventory table configuration is enabled or disabled.
+type BucketInventoryTableConfigurationConfigurationState string
+
+const (
+	BucketInventoryTableConfigurationConfigurationStateEnabled  = BucketInventoryTableConfigurationConfigurationState("ENABLED")
+	BucketInventoryTableConfigurationConfigurationStateDisabled = BucketInventoryTableConfigurationConfigurationState("DISABLED")
+)
+
+func (BucketInventoryTableConfigurationConfigurationState) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketInventoryTableConfigurationConfigurationState)(nil)).Elem()
+}
+
+func (e BucketInventoryTableConfigurationConfigurationState) ToBucketInventoryTableConfigurationConfigurationStateOutput() BucketInventoryTableConfigurationConfigurationStateOutput {
+	return pulumi.ToOutput(e).(BucketInventoryTableConfigurationConfigurationStateOutput)
+}
+
+func (e BucketInventoryTableConfigurationConfigurationState) ToBucketInventoryTableConfigurationConfigurationStateOutputWithContext(ctx context.Context) BucketInventoryTableConfigurationConfigurationStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BucketInventoryTableConfigurationConfigurationStateOutput)
+}
+
+func (e BucketInventoryTableConfigurationConfigurationState) ToBucketInventoryTableConfigurationConfigurationStatePtrOutput() BucketInventoryTableConfigurationConfigurationStatePtrOutput {
+	return e.ToBucketInventoryTableConfigurationConfigurationStatePtrOutputWithContext(context.Background())
+}
+
+func (e BucketInventoryTableConfigurationConfigurationState) ToBucketInventoryTableConfigurationConfigurationStatePtrOutputWithContext(ctx context.Context) BucketInventoryTableConfigurationConfigurationStatePtrOutput {
+	return BucketInventoryTableConfigurationConfigurationState(e).ToBucketInventoryTableConfigurationConfigurationStateOutputWithContext(ctx).ToBucketInventoryTableConfigurationConfigurationStatePtrOutputWithContext(ctx)
+}
+
+func (e BucketInventoryTableConfigurationConfigurationState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketInventoryTableConfigurationConfigurationState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketInventoryTableConfigurationConfigurationState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BucketInventoryTableConfigurationConfigurationState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BucketInventoryTableConfigurationConfigurationStateOutput struct{ *pulumi.OutputState }
+
+func (BucketInventoryTableConfigurationConfigurationStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketInventoryTableConfigurationConfigurationState)(nil)).Elem()
+}
+
+func (o BucketInventoryTableConfigurationConfigurationStateOutput) ToBucketInventoryTableConfigurationConfigurationStateOutput() BucketInventoryTableConfigurationConfigurationStateOutput {
+	return o
+}
+
+func (o BucketInventoryTableConfigurationConfigurationStateOutput) ToBucketInventoryTableConfigurationConfigurationStateOutputWithContext(ctx context.Context) BucketInventoryTableConfigurationConfigurationStateOutput {
+	return o
+}
+
+func (o BucketInventoryTableConfigurationConfigurationStateOutput) ToBucketInventoryTableConfigurationConfigurationStatePtrOutput() BucketInventoryTableConfigurationConfigurationStatePtrOutput {
+	return o.ToBucketInventoryTableConfigurationConfigurationStatePtrOutputWithContext(context.Background())
+}
+
+func (o BucketInventoryTableConfigurationConfigurationStateOutput) ToBucketInventoryTableConfigurationConfigurationStatePtrOutputWithContext(ctx context.Context) BucketInventoryTableConfigurationConfigurationStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketInventoryTableConfigurationConfigurationState) *BucketInventoryTableConfigurationConfigurationState {
+		return &v
+	}).(BucketInventoryTableConfigurationConfigurationStatePtrOutput)
+}
+
+func (o BucketInventoryTableConfigurationConfigurationStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BucketInventoryTableConfigurationConfigurationStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketInventoryTableConfigurationConfigurationState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BucketInventoryTableConfigurationConfigurationStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketInventoryTableConfigurationConfigurationStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketInventoryTableConfigurationConfigurationState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketInventoryTableConfigurationConfigurationStatePtrOutput struct{ *pulumi.OutputState }
+
+func (BucketInventoryTableConfigurationConfigurationStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketInventoryTableConfigurationConfigurationState)(nil)).Elem()
+}
+
+func (o BucketInventoryTableConfigurationConfigurationStatePtrOutput) ToBucketInventoryTableConfigurationConfigurationStatePtrOutput() BucketInventoryTableConfigurationConfigurationStatePtrOutput {
+	return o
+}
+
+func (o BucketInventoryTableConfigurationConfigurationStatePtrOutput) ToBucketInventoryTableConfigurationConfigurationStatePtrOutputWithContext(ctx context.Context) BucketInventoryTableConfigurationConfigurationStatePtrOutput {
+	return o
+}
+
+func (o BucketInventoryTableConfigurationConfigurationStatePtrOutput) Elem() BucketInventoryTableConfigurationConfigurationStateOutput {
+	return o.ApplyT(func(v *BucketInventoryTableConfigurationConfigurationState) BucketInventoryTableConfigurationConfigurationState {
+		if v != nil {
+			return *v
+		}
+		var ret BucketInventoryTableConfigurationConfigurationState
+		return ret
+	}).(BucketInventoryTableConfigurationConfigurationStateOutput)
+}
+
+func (o BucketInventoryTableConfigurationConfigurationStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketInventoryTableConfigurationConfigurationStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BucketInventoryTableConfigurationConfigurationState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BucketInventoryTableConfigurationConfigurationStateInput is an input type that accepts values of the BucketInventoryTableConfigurationConfigurationState enum
+// A concrete instance of `BucketInventoryTableConfigurationConfigurationStateInput` can be one of the following:
+//
+//	BucketInventoryTableConfigurationConfigurationStateEnabled
+//	BucketInventoryTableConfigurationConfigurationStateDisabled
+type BucketInventoryTableConfigurationConfigurationStateInput interface {
+	pulumi.Input
+
+	ToBucketInventoryTableConfigurationConfigurationStateOutput() BucketInventoryTableConfigurationConfigurationStateOutput
+	ToBucketInventoryTableConfigurationConfigurationStateOutputWithContext(context.Context) BucketInventoryTableConfigurationConfigurationStateOutput
+}
+
+var bucketInventoryTableConfigurationConfigurationStatePtrType = reflect.TypeOf((**BucketInventoryTableConfigurationConfigurationState)(nil)).Elem()
+
+type BucketInventoryTableConfigurationConfigurationStatePtrInput interface {
+	pulumi.Input
+
+	ToBucketInventoryTableConfigurationConfigurationStatePtrOutput() BucketInventoryTableConfigurationConfigurationStatePtrOutput
+	ToBucketInventoryTableConfigurationConfigurationStatePtrOutputWithContext(context.Context) BucketInventoryTableConfigurationConfigurationStatePtrOutput
+}
+
+type bucketInventoryTableConfigurationConfigurationStatePtr string
+
+func BucketInventoryTableConfigurationConfigurationStatePtr(v string) BucketInventoryTableConfigurationConfigurationStatePtrInput {
+	return (*bucketInventoryTableConfigurationConfigurationStatePtr)(&v)
+}
+
+func (*bucketInventoryTableConfigurationConfigurationStatePtr) ElementType() reflect.Type {
+	return bucketInventoryTableConfigurationConfigurationStatePtrType
+}
+
+func (in *bucketInventoryTableConfigurationConfigurationStatePtr) ToBucketInventoryTableConfigurationConfigurationStatePtrOutput() BucketInventoryTableConfigurationConfigurationStatePtrOutput {
+	return pulumi.ToOutput(in).(BucketInventoryTableConfigurationConfigurationStatePtrOutput)
+}
+
+func (in *bucketInventoryTableConfigurationConfigurationStatePtr) ToBucketInventoryTableConfigurationConfigurationStatePtrOutputWithContext(ctx context.Context) BucketInventoryTableConfigurationConfigurationStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BucketInventoryTableConfigurationConfigurationStatePtrOutput)
+}
+
 // Indicates which default minimum object size behavior is applied to the lifecycle configuration.
 //
 //	 This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
@@ -2571,6 +2737,338 @@ func (in *bucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtr) ToB
 
 func (in *bucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtr) ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput)
+}
+
+// The type of the table bucket.
+type BucketMetadataDestinationTableBucketType string
+
+const (
+	BucketMetadataDestinationTableBucketTypeAws      = BucketMetadataDestinationTableBucketType("aws")
+	BucketMetadataDestinationTableBucketTypeCustomer = BucketMetadataDestinationTableBucketType("customer")
+)
+
+func (BucketMetadataDestinationTableBucketType) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketMetadataDestinationTableBucketType)(nil)).Elem()
+}
+
+func (e BucketMetadataDestinationTableBucketType) ToBucketMetadataDestinationTableBucketTypeOutput() BucketMetadataDestinationTableBucketTypeOutput {
+	return pulumi.ToOutput(e).(BucketMetadataDestinationTableBucketTypeOutput)
+}
+
+func (e BucketMetadataDestinationTableBucketType) ToBucketMetadataDestinationTableBucketTypeOutputWithContext(ctx context.Context) BucketMetadataDestinationTableBucketTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BucketMetadataDestinationTableBucketTypeOutput)
+}
+
+func (e BucketMetadataDestinationTableBucketType) ToBucketMetadataDestinationTableBucketTypePtrOutput() BucketMetadataDestinationTableBucketTypePtrOutput {
+	return e.ToBucketMetadataDestinationTableBucketTypePtrOutputWithContext(context.Background())
+}
+
+func (e BucketMetadataDestinationTableBucketType) ToBucketMetadataDestinationTableBucketTypePtrOutputWithContext(ctx context.Context) BucketMetadataDestinationTableBucketTypePtrOutput {
+	return BucketMetadataDestinationTableBucketType(e).ToBucketMetadataDestinationTableBucketTypeOutputWithContext(ctx).ToBucketMetadataDestinationTableBucketTypePtrOutputWithContext(ctx)
+}
+
+func (e BucketMetadataDestinationTableBucketType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketMetadataDestinationTableBucketType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketMetadataDestinationTableBucketType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BucketMetadataDestinationTableBucketType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BucketMetadataDestinationTableBucketTypeOutput struct{ *pulumi.OutputState }
+
+func (BucketMetadataDestinationTableBucketTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketMetadataDestinationTableBucketType)(nil)).Elem()
+}
+
+func (o BucketMetadataDestinationTableBucketTypeOutput) ToBucketMetadataDestinationTableBucketTypeOutput() BucketMetadataDestinationTableBucketTypeOutput {
+	return o
+}
+
+func (o BucketMetadataDestinationTableBucketTypeOutput) ToBucketMetadataDestinationTableBucketTypeOutputWithContext(ctx context.Context) BucketMetadataDestinationTableBucketTypeOutput {
+	return o
+}
+
+func (o BucketMetadataDestinationTableBucketTypeOutput) ToBucketMetadataDestinationTableBucketTypePtrOutput() BucketMetadataDestinationTableBucketTypePtrOutput {
+	return o.ToBucketMetadataDestinationTableBucketTypePtrOutputWithContext(context.Background())
+}
+
+func (o BucketMetadataDestinationTableBucketTypeOutput) ToBucketMetadataDestinationTableBucketTypePtrOutputWithContext(ctx context.Context) BucketMetadataDestinationTableBucketTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketMetadataDestinationTableBucketType) *BucketMetadataDestinationTableBucketType {
+		return &v
+	}).(BucketMetadataDestinationTableBucketTypePtrOutput)
+}
+
+func (o BucketMetadataDestinationTableBucketTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BucketMetadataDestinationTableBucketTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketMetadataDestinationTableBucketType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BucketMetadataDestinationTableBucketTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketMetadataDestinationTableBucketTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketMetadataDestinationTableBucketType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketMetadataDestinationTableBucketTypePtrOutput struct{ *pulumi.OutputState }
+
+func (BucketMetadataDestinationTableBucketTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketMetadataDestinationTableBucketType)(nil)).Elem()
+}
+
+func (o BucketMetadataDestinationTableBucketTypePtrOutput) ToBucketMetadataDestinationTableBucketTypePtrOutput() BucketMetadataDestinationTableBucketTypePtrOutput {
+	return o
+}
+
+func (o BucketMetadataDestinationTableBucketTypePtrOutput) ToBucketMetadataDestinationTableBucketTypePtrOutputWithContext(ctx context.Context) BucketMetadataDestinationTableBucketTypePtrOutput {
+	return o
+}
+
+func (o BucketMetadataDestinationTableBucketTypePtrOutput) Elem() BucketMetadataDestinationTableBucketTypeOutput {
+	return o.ApplyT(func(v *BucketMetadataDestinationTableBucketType) BucketMetadataDestinationTableBucketType {
+		if v != nil {
+			return *v
+		}
+		var ret BucketMetadataDestinationTableBucketType
+		return ret
+	}).(BucketMetadataDestinationTableBucketTypeOutput)
+}
+
+func (o BucketMetadataDestinationTableBucketTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketMetadataDestinationTableBucketTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BucketMetadataDestinationTableBucketType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BucketMetadataDestinationTableBucketTypeInput is an input type that accepts values of the BucketMetadataDestinationTableBucketType enum
+// A concrete instance of `BucketMetadataDestinationTableBucketTypeInput` can be one of the following:
+//
+//	BucketMetadataDestinationTableBucketTypeAws
+//	BucketMetadataDestinationTableBucketTypeCustomer
+type BucketMetadataDestinationTableBucketTypeInput interface {
+	pulumi.Input
+
+	ToBucketMetadataDestinationTableBucketTypeOutput() BucketMetadataDestinationTableBucketTypeOutput
+	ToBucketMetadataDestinationTableBucketTypeOutputWithContext(context.Context) BucketMetadataDestinationTableBucketTypeOutput
+}
+
+var bucketMetadataDestinationTableBucketTypePtrType = reflect.TypeOf((**BucketMetadataDestinationTableBucketType)(nil)).Elem()
+
+type BucketMetadataDestinationTableBucketTypePtrInput interface {
+	pulumi.Input
+
+	ToBucketMetadataDestinationTableBucketTypePtrOutput() BucketMetadataDestinationTableBucketTypePtrOutput
+	ToBucketMetadataDestinationTableBucketTypePtrOutputWithContext(context.Context) BucketMetadataDestinationTableBucketTypePtrOutput
+}
+
+type bucketMetadataDestinationTableBucketTypePtr string
+
+func BucketMetadataDestinationTableBucketTypePtr(v string) BucketMetadataDestinationTableBucketTypePtrInput {
+	return (*bucketMetadataDestinationTableBucketTypePtr)(&v)
+}
+
+func (*bucketMetadataDestinationTableBucketTypePtr) ElementType() reflect.Type {
+	return bucketMetadataDestinationTableBucketTypePtrType
+}
+
+func (in *bucketMetadataDestinationTableBucketTypePtr) ToBucketMetadataDestinationTableBucketTypePtrOutput() BucketMetadataDestinationTableBucketTypePtrOutput {
+	return pulumi.ToOutput(in).(BucketMetadataDestinationTableBucketTypePtrOutput)
+}
+
+func (in *bucketMetadataDestinationTableBucketTypePtr) ToBucketMetadataDestinationTableBucketTypePtrOutputWithContext(ctx context.Context) BucketMetadataDestinationTableBucketTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BucketMetadataDestinationTableBucketTypePtrOutput)
+}
+
+// Specifies the server-side encryption algorithm to use for encrypting tables.
+type BucketMetadataTableEncryptionConfigurationSseAlgorithm string
+
+const (
+	BucketMetadataTableEncryptionConfigurationSseAlgorithmAwskms = BucketMetadataTableEncryptionConfigurationSseAlgorithm("aws:kms")
+	BucketMetadataTableEncryptionConfigurationSseAlgorithmAes256 = BucketMetadataTableEncryptionConfigurationSseAlgorithm("AES256")
+)
+
+func (BucketMetadataTableEncryptionConfigurationSseAlgorithm) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketMetadataTableEncryptionConfigurationSseAlgorithm)(nil)).Elem()
+}
+
+func (e BucketMetadataTableEncryptionConfigurationSseAlgorithm) ToBucketMetadataTableEncryptionConfigurationSseAlgorithmOutput() BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput {
+	return pulumi.ToOutput(e).(BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput)
+}
+
+func (e BucketMetadataTableEncryptionConfigurationSseAlgorithm) ToBucketMetadataTableEncryptionConfigurationSseAlgorithmOutputWithContext(ctx context.Context) BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput)
+}
+
+func (e BucketMetadataTableEncryptionConfigurationSseAlgorithm) ToBucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput() BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput {
+	return e.ToBucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (e BucketMetadataTableEncryptionConfigurationSseAlgorithm) ToBucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutputWithContext(ctx context.Context) BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput {
+	return BucketMetadataTableEncryptionConfigurationSseAlgorithm(e).ToBucketMetadataTableEncryptionConfigurationSseAlgorithmOutputWithContext(ctx).ToBucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutputWithContext(ctx)
+}
+
+func (e BucketMetadataTableEncryptionConfigurationSseAlgorithm) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketMetadataTableEncryptionConfigurationSseAlgorithm) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketMetadataTableEncryptionConfigurationSseAlgorithm) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BucketMetadataTableEncryptionConfigurationSseAlgorithm) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput struct{ *pulumi.OutputState }
+
+func (BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketMetadataTableEncryptionConfigurationSseAlgorithm)(nil)).Elem()
+}
+
+func (o BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput) ToBucketMetadataTableEncryptionConfigurationSseAlgorithmOutput() BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput {
+	return o
+}
+
+func (o BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput) ToBucketMetadataTableEncryptionConfigurationSseAlgorithmOutputWithContext(ctx context.Context) BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput {
+	return o
+}
+
+func (o BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput) ToBucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput() BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput {
+	return o.ToBucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (o BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput) ToBucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutputWithContext(ctx context.Context) BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketMetadataTableEncryptionConfigurationSseAlgorithm) *BucketMetadataTableEncryptionConfigurationSseAlgorithm {
+		return &v
+	}).(BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput)
+}
+
+func (o BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketMetadataTableEncryptionConfigurationSseAlgorithm) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketMetadataTableEncryptionConfigurationSseAlgorithm) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketMetadataTableEncryptionConfigurationSseAlgorithm)(nil)).Elem()
+}
+
+func (o BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput) ToBucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput() BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput {
+	return o
+}
+
+func (o BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput) ToBucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutputWithContext(ctx context.Context) BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput {
+	return o
+}
+
+func (o BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput) Elem() BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput {
+	return o.ApplyT(func(v *BucketMetadataTableEncryptionConfigurationSseAlgorithm) BucketMetadataTableEncryptionConfigurationSseAlgorithm {
+		if v != nil {
+			return *v
+		}
+		var ret BucketMetadataTableEncryptionConfigurationSseAlgorithm
+		return ret
+	}).(BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput)
+}
+
+func (o BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BucketMetadataTableEncryptionConfigurationSseAlgorithm) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BucketMetadataTableEncryptionConfigurationSseAlgorithmInput is an input type that accepts values of the BucketMetadataTableEncryptionConfigurationSseAlgorithm enum
+// A concrete instance of `BucketMetadataTableEncryptionConfigurationSseAlgorithmInput` can be one of the following:
+//
+//	BucketMetadataTableEncryptionConfigurationSseAlgorithmAwskms
+//	BucketMetadataTableEncryptionConfigurationSseAlgorithmAes256
+type BucketMetadataTableEncryptionConfigurationSseAlgorithmInput interface {
+	pulumi.Input
+
+	ToBucketMetadataTableEncryptionConfigurationSseAlgorithmOutput() BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput
+	ToBucketMetadataTableEncryptionConfigurationSseAlgorithmOutputWithContext(context.Context) BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput
+}
+
+var bucketMetadataTableEncryptionConfigurationSseAlgorithmPtrType = reflect.TypeOf((**BucketMetadataTableEncryptionConfigurationSseAlgorithm)(nil)).Elem()
+
+type BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrInput interface {
+	pulumi.Input
+
+	ToBucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput() BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput
+	ToBucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutputWithContext(context.Context) BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput
+}
+
+type bucketMetadataTableEncryptionConfigurationSseAlgorithmPtr string
+
+func BucketMetadataTableEncryptionConfigurationSseAlgorithmPtr(v string) BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrInput {
+	return (*bucketMetadataTableEncryptionConfigurationSseAlgorithmPtr)(&v)
+}
+
+func (*bucketMetadataTableEncryptionConfigurationSseAlgorithmPtr) ElementType() reflect.Type {
+	return bucketMetadataTableEncryptionConfigurationSseAlgorithmPtrType
+}
+
+func (in *bucketMetadataTableEncryptionConfigurationSseAlgorithmPtr) ToBucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput() BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput {
+	return pulumi.ToOutput(in).(BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput)
+}
+
+func (in *bucketMetadataTableEncryptionConfigurationSseAlgorithmPtr) ToBucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutputWithContext(ctx context.Context) BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput)
 }
 
 // Specifies whether the replication metrics are enabled.
@@ -3079,6 +3577,172 @@ func (in *bucketOwnershipControlsRuleObjectOwnershipPtr) ToBucketOwnershipContro
 
 func (in *bucketOwnershipControlsRuleObjectOwnershipPtr) ToBucketOwnershipControlsRuleObjectOwnershipPtrOutputWithContext(ctx context.Context) BucketOwnershipControlsRuleObjectOwnershipPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BucketOwnershipControlsRuleObjectOwnershipPtrOutput)
+}
+
+// Specifies whether record expiration is enabled or disabled.
+type BucketRecordExpirationExpiration string
+
+const (
+	BucketRecordExpirationExpirationEnabled  = BucketRecordExpirationExpiration("ENABLED")
+	BucketRecordExpirationExpirationDisabled = BucketRecordExpirationExpiration("DISABLED")
+)
+
+func (BucketRecordExpirationExpiration) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketRecordExpirationExpiration)(nil)).Elem()
+}
+
+func (e BucketRecordExpirationExpiration) ToBucketRecordExpirationExpirationOutput() BucketRecordExpirationExpirationOutput {
+	return pulumi.ToOutput(e).(BucketRecordExpirationExpirationOutput)
+}
+
+func (e BucketRecordExpirationExpiration) ToBucketRecordExpirationExpirationOutputWithContext(ctx context.Context) BucketRecordExpirationExpirationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BucketRecordExpirationExpirationOutput)
+}
+
+func (e BucketRecordExpirationExpiration) ToBucketRecordExpirationExpirationPtrOutput() BucketRecordExpirationExpirationPtrOutput {
+	return e.ToBucketRecordExpirationExpirationPtrOutputWithContext(context.Background())
+}
+
+func (e BucketRecordExpirationExpiration) ToBucketRecordExpirationExpirationPtrOutputWithContext(ctx context.Context) BucketRecordExpirationExpirationPtrOutput {
+	return BucketRecordExpirationExpiration(e).ToBucketRecordExpirationExpirationOutputWithContext(ctx).ToBucketRecordExpirationExpirationPtrOutputWithContext(ctx)
+}
+
+func (e BucketRecordExpirationExpiration) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketRecordExpirationExpiration) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketRecordExpirationExpiration) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BucketRecordExpirationExpiration) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BucketRecordExpirationExpirationOutput struct{ *pulumi.OutputState }
+
+func (BucketRecordExpirationExpirationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketRecordExpirationExpiration)(nil)).Elem()
+}
+
+func (o BucketRecordExpirationExpirationOutput) ToBucketRecordExpirationExpirationOutput() BucketRecordExpirationExpirationOutput {
+	return o
+}
+
+func (o BucketRecordExpirationExpirationOutput) ToBucketRecordExpirationExpirationOutputWithContext(ctx context.Context) BucketRecordExpirationExpirationOutput {
+	return o
+}
+
+func (o BucketRecordExpirationExpirationOutput) ToBucketRecordExpirationExpirationPtrOutput() BucketRecordExpirationExpirationPtrOutput {
+	return o.ToBucketRecordExpirationExpirationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketRecordExpirationExpirationOutput) ToBucketRecordExpirationExpirationPtrOutputWithContext(ctx context.Context) BucketRecordExpirationExpirationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketRecordExpirationExpiration) *BucketRecordExpirationExpiration {
+		return &v
+	}).(BucketRecordExpirationExpirationPtrOutput)
+}
+
+func (o BucketRecordExpirationExpirationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BucketRecordExpirationExpirationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketRecordExpirationExpiration) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BucketRecordExpirationExpirationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketRecordExpirationExpirationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketRecordExpirationExpiration) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketRecordExpirationExpirationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketRecordExpirationExpirationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketRecordExpirationExpiration)(nil)).Elem()
+}
+
+func (o BucketRecordExpirationExpirationPtrOutput) ToBucketRecordExpirationExpirationPtrOutput() BucketRecordExpirationExpirationPtrOutput {
+	return o
+}
+
+func (o BucketRecordExpirationExpirationPtrOutput) ToBucketRecordExpirationExpirationPtrOutputWithContext(ctx context.Context) BucketRecordExpirationExpirationPtrOutput {
+	return o
+}
+
+func (o BucketRecordExpirationExpirationPtrOutput) Elem() BucketRecordExpirationExpirationOutput {
+	return o.ApplyT(func(v *BucketRecordExpirationExpiration) BucketRecordExpirationExpiration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketRecordExpirationExpiration
+		return ret
+	}).(BucketRecordExpirationExpirationOutput)
+}
+
+func (o BucketRecordExpirationExpirationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketRecordExpirationExpirationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BucketRecordExpirationExpiration) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BucketRecordExpirationExpirationInput is an input type that accepts values of the BucketRecordExpirationExpiration enum
+// A concrete instance of `BucketRecordExpirationExpirationInput` can be one of the following:
+//
+//	BucketRecordExpirationExpirationEnabled
+//	BucketRecordExpirationExpirationDisabled
+type BucketRecordExpirationExpirationInput interface {
+	pulumi.Input
+
+	ToBucketRecordExpirationExpirationOutput() BucketRecordExpirationExpirationOutput
+	ToBucketRecordExpirationExpirationOutputWithContext(context.Context) BucketRecordExpirationExpirationOutput
+}
+
+var bucketRecordExpirationExpirationPtrType = reflect.TypeOf((**BucketRecordExpirationExpiration)(nil)).Elem()
+
+type BucketRecordExpirationExpirationPtrInput interface {
+	pulumi.Input
+
+	ToBucketRecordExpirationExpirationPtrOutput() BucketRecordExpirationExpirationPtrOutput
+	ToBucketRecordExpirationExpirationPtrOutputWithContext(context.Context) BucketRecordExpirationExpirationPtrOutput
+}
+
+type bucketRecordExpirationExpirationPtr string
+
+func BucketRecordExpirationExpirationPtr(v string) BucketRecordExpirationExpirationPtrInput {
+	return (*bucketRecordExpirationExpirationPtr)(&v)
+}
+
+func (*bucketRecordExpirationExpirationPtr) ElementType() reflect.Type {
+	return bucketRecordExpirationExpirationPtrType
+}
+
+func (in *bucketRecordExpirationExpirationPtr) ToBucketRecordExpirationExpirationPtrOutput() BucketRecordExpirationExpirationPtrOutput {
+	return pulumi.ToOutput(in).(BucketRecordExpirationExpirationPtrOutput)
+}
+
+func (in *bucketRecordExpirationExpirationPtr) ToBucketRecordExpirationExpirationPtrOutputWithContext(ctx context.Context) BucketRecordExpirationExpirationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BucketRecordExpirationExpirationPtrOutput)
 }
 
 // Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
@@ -5551,14 +6215,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryConfigurationOptionalFieldsItemArrayInput)(nil)).Elem(), BucketInventoryConfigurationOptionalFieldsItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryConfigurationScheduleFrequencyInput)(nil)).Elem(), BucketInventoryConfigurationScheduleFrequency("Daily"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryConfigurationScheduleFrequencyPtrInput)(nil)).Elem(), BucketInventoryConfigurationScheduleFrequency("Daily"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryTableConfigurationConfigurationStateInput)(nil)).Elem(), BucketInventoryTableConfigurationConfigurationState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryTableConfigurationConfigurationStatePtrInput)(nil)).Elem(), BucketInventoryTableConfigurationConfigurationState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeInput)(nil)).Elem(), BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize("varies_by_storage_class"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrInput)(nil)).Elem(), BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize("varies_by_storage_class"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetadataDestinationTableBucketTypeInput)(nil)).Elem(), BucketMetadataDestinationTableBucketType("aws"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetadataDestinationTableBucketTypePtrInput)(nil)).Elem(), BucketMetadataDestinationTableBucketType("aws"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetadataTableEncryptionConfigurationSseAlgorithmInput)(nil)).Elem(), BucketMetadataTableEncryptionConfigurationSseAlgorithm("aws:kms"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrInput)(nil)).Elem(), BucketMetadataTableEncryptionConfigurationSseAlgorithm("aws:kms"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetricsStatusInput)(nil)).Elem(), BucketMetricsStatus("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetricsStatusPtrInput)(nil)).Elem(), BucketMetricsStatus("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNoncurrentVersionTransitionStorageClassInput)(nil)).Elem(), BucketNoncurrentVersionTransitionStorageClass("DEEP_ARCHIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNoncurrentVersionTransitionStorageClassPtrInput)(nil)).Elem(), BucketNoncurrentVersionTransitionStorageClass("DEEP_ARCHIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketOwnershipControlsRuleObjectOwnershipInput)(nil)).Elem(), BucketOwnershipControlsRuleObjectOwnership("ObjectWriter"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketOwnershipControlsRuleObjectOwnershipPtrInput)(nil)).Elem(), BucketOwnershipControlsRuleObjectOwnership("ObjectWriter"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketRecordExpirationExpirationInput)(nil)).Elem(), BucketRecordExpirationExpiration("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketRecordExpirationExpirationPtrInput)(nil)).Elem(), BucketRecordExpirationExpiration("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketRedirectAllRequestsToProtocolInput)(nil)).Elem(), BucketRedirectAllRequestsToProtocol("http"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketRedirectAllRequestsToProtocolPtrInput)(nil)).Elem(), BucketRedirectAllRequestsToProtocol("http"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketRedirectRuleProtocolInput)(nil)).Elem(), BucketRedirectRuleProtocol("http"))
@@ -5617,14 +6289,22 @@ func init() {
 	pulumi.RegisterOutputType(BucketInventoryConfigurationOptionalFieldsItemArrayOutput{})
 	pulumi.RegisterOutputType(BucketInventoryConfigurationScheduleFrequencyOutput{})
 	pulumi.RegisterOutputType(BucketInventoryConfigurationScheduleFrequencyPtrOutput{})
+	pulumi.RegisterOutputType(BucketInventoryTableConfigurationConfigurationStateOutput{})
+	pulumi.RegisterOutputType(BucketInventoryTableConfigurationConfigurationStatePtrOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput{})
+	pulumi.RegisterOutputType(BucketMetadataDestinationTableBucketTypeOutput{})
+	pulumi.RegisterOutputType(BucketMetadataDestinationTableBucketTypePtrOutput{})
+	pulumi.RegisterOutputType(BucketMetadataTableEncryptionConfigurationSseAlgorithmOutput{})
+	pulumi.RegisterOutputType(BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(BucketMetricsStatusOutput{})
 	pulumi.RegisterOutputType(BucketMetricsStatusPtrOutput{})
 	pulumi.RegisterOutputType(BucketNoncurrentVersionTransitionStorageClassOutput{})
 	pulumi.RegisterOutputType(BucketNoncurrentVersionTransitionStorageClassPtrOutput{})
 	pulumi.RegisterOutputType(BucketOwnershipControlsRuleObjectOwnershipOutput{})
 	pulumi.RegisterOutputType(BucketOwnershipControlsRuleObjectOwnershipPtrOutput{})
+	pulumi.RegisterOutputType(BucketRecordExpirationExpirationOutput{})
+	pulumi.RegisterOutputType(BucketRecordExpirationExpirationPtrOutput{})
 	pulumi.RegisterOutputType(BucketRedirectAllRequestsToProtocolOutput{})
 	pulumi.RegisterOutputType(BucketRedirectAllRequestsToProtocolPtrOutput{})
 	pulumi.RegisterOutputType(BucketRedirectRuleProtocolOutput{})

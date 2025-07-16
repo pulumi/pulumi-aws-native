@@ -17,10 +17,10 @@ namespace Pulumi.AwsNative.Rds
     public partial class DbShardGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
-        ///   +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
-        ///   +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
-        ///   +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
+        /// Specifies whether to create standby standby DB data access shard for the DB shard group. Valid values are the following:
+        ///   +  0 - Creates a DB shard group without a standby DB data access shard. This is the default value.
+        ///   +  1 - Creates a DB shard group with a standby DB data access shard in a different Availability Zone (AZ).
+        ///   +  2 - Creates a DB shard group with two standby DB data access shard in two different AZs.
         /// </summary>
         [Output("computeRedundancy")]
         public Output<int?> ComputeRedundancy { get; private set; } = null!;
@@ -141,10 +141,10 @@ namespace Pulumi.AwsNative.Rds
     public sealed class DbShardGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
-        ///   +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
-        ///   +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
-        ///   +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
+        /// Specifies whether to create standby standby DB data access shard for the DB shard group. Valid values are the following:
+        ///   +  0 - Creates a DB shard group without a standby DB data access shard. This is the default value.
+        ///   +  1 - Creates a DB shard group with a standby DB data access shard in a different Availability Zone (AZ).
+        ///   +  2 - Creates a DB shard group with two standby DB data access shard in two different AZs.
         /// </summary>
         [Input("computeRedundancy")]
         public Input<int>? ComputeRedundancy { get; set; }

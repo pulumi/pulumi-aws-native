@@ -106,6 +106,12 @@ namespace Pulumi.AwsNative.Logs.Inputs
         public Input<Inputs.TransformerParseRoute53Args>? ParseRoute53 { get; set; }
 
         /// <summary>
+        /// Use this parameter to convert logs into Open Cybersecurity Schema (OCSF) format.
+        /// </summary>
+        [Input("parseToOcsf")]
+        public Input<Inputs.TransformerParseToOcsfArgs>? ParseToOcsf { get; set; }
+
+        /// <summary>
         /// Use this parameter to include the [parseVPC](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseVPC) processor in your transformer.
         /// 
         /// If you use this processor, it must be the first processor in your transformer.

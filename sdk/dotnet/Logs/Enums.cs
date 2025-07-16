@@ -322,6 +322,64 @@ namespace Pulumi.AwsNative.Logs
     }
 
     [EnumType]
+    public readonly struct TransformerEventSource : IEquatable<TransformerEventSource>
+    {
+        private readonly string _value;
+
+        private TransformerEventSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TransformerEventSource CloudTrail { get; } = new TransformerEventSource("CloudTrail");
+        public static TransformerEventSource Route53Resolver { get; } = new TransformerEventSource("Route53Resolver");
+        public static TransformerEventSource VpcFlow { get; } = new TransformerEventSource("VPCFlow");
+        public static TransformerEventSource EksAudit { get; } = new TransformerEventSource("EKSAudit");
+        public static TransformerEventSource Awswaf { get; } = new TransformerEventSource("AWSWAF");
+
+        public static bool operator ==(TransformerEventSource left, TransformerEventSource right) => left.Equals(right);
+        public static bool operator !=(TransformerEventSource left, TransformerEventSource right) => !left.Equals(right);
+
+        public static explicit operator string(TransformerEventSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TransformerEventSource other && Equals(other);
+        public bool Equals(TransformerEventSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TransformerOcsfVersion : IEquatable<TransformerOcsfVersion>
+    {
+        private readonly string _value;
+
+        private TransformerOcsfVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TransformerOcsfVersion V11 { get; } = new TransformerOcsfVersion("V1.1");
+
+        public static bool operator ==(TransformerOcsfVersion left, TransformerOcsfVersion right) => left.Equals(right);
+        public static bool operator !=(TransformerOcsfVersion left, TransformerOcsfVersion right) => !left.Equals(right);
+
+        public static explicit operator string(TransformerOcsfVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TransformerOcsfVersion other && Equals(other);
+        public bool Equals(TransformerOcsfVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TransformerProcessorListToMapPropertiesFlattenedElement : IEquatable<TransformerProcessorListToMapPropertiesFlattenedElement>
     {
         private readonly string _value;

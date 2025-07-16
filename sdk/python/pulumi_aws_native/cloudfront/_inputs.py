@@ -4313,6 +4313,7 @@ if not MYPY:
         CloudFront Origin Shield. Using Origin Shield can help reduce the load on your origin.
          For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide*.
         """
+        response_completion_timeout: NotRequired[pulumi.Input[builtins.int]]
         s3_origin_config: NotRequired[pulumi.Input['DistributionS3OriginConfigArgsDict']]
         """
         Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead.
@@ -4336,6 +4337,7 @@ class DistributionOriginArgs:
                  origin_custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginCustomHeaderArgs']]]] = None,
                  origin_path: Optional[pulumi.Input[builtins.str]] = None,
                  origin_shield: Optional[pulumi.Input['DistributionOriginShieldArgs']] = None,
+                 response_completion_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  s3_origin_config: Optional[pulumi.Input['DistributionS3OriginConfigArgs']] = None,
                  vpc_origin_config: Optional[pulumi.Input['DistributionVpcOriginConfigArgs']] = None):
         """
@@ -4389,6 +4391,8 @@ class DistributionOriginArgs:
             pulumi.set(__self__, "origin_path", origin_path)
         if origin_shield is not None:
             pulumi.set(__self__, "origin_shield", origin_shield)
+        if response_completion_timeout is not None:
+            pulumi.set(__self__, "response_completion_timeout", response_completion_timeout)
         if s3_origin_config is not None:
             pulumi.set(__self__, "s3_origin_config", s3_origin_config)
         if vpc_origin_config is not None:
@@ -4510,6 +4514,15 @@ class DistributionOriginArgs:
     @origin_shield.setter
     def origin_shield(self, value: Optional[pulumi.Input['DistributionOriginShieldArgs']]):
         pulumi.set(self, "origin_shield", value)
+
+    @property
+    @pulumi.getter(name="responseCompletionTimeout")
+    def response_completion_timeout(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "response_completion_timeout")
+
+    @response_completion_timeout.setter
+    def response_completion_timeout(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "response_completion_timeout", value)
 
     @property
     @pulumi.getter(name="s3OriginConfig")
@@ -4718,13 +4731,15 @@ if not MYPY:
          To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
          For more information about the origin access identity, see [Serving Private Content through CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
         """
+        origin_read_timeout: NotRequired[pulumi.Input[builtins.int]]
 elif False:
     DistributionS3OriginConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionS3OriginConfigArgs:
     def __init__(__self__, *,
-                 origin_access_identity: Optional[pulumi.Input[builtins.str]] = None):
+                 origin_access_identity: Optional[pulumi.Input[builtins.str]] = None,
+                 origin_read_timeout: Optional[pulumi.Input[builtins.int]] = None):
         """
         A complex type that contains information about the Amazon S3 origin. If the origin is a custom origin or an S3 bucket that is configured as a website endpoint, use the ``CustomOriginConfig`` element instead.
         :param pulumi.Input[builtins.str] origin_access_identity: If you're using origin access control (OAC) instead of origin access identity, specify an empty ``OriginAccessIdentity`` element. For more information, see [Restricting access to an](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide*.
@@ -4738,6 +4753,8 @@ class DistributionS3OriginConfigArgs:
         """
         if origin_access_identity is not None:
             pulumi.set(__self__, "origin_access_identity", origin_access_identity)
+        if origin_read_timeout is not None:
+            pulumi.set(__self__, "origin_read_timeout", origin_read_timeout)
 
     @property
     @pulumi.getter(name="originAccessIdentity")
@@ -4757,6 +4774,15 @@ class DistributionS3OriginConfigArgs:
     @origin_access_identity.setter
     def origin_access_identity(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "origin_access_identity", value)
+
+    @property
+    @pulumi.getter(name="originReadTimeout")
+    def origin_read_timeout(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "origin_read_timeout")
+
+    @origin_read_timeout.setter
+    def origin_read_timeout(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "origin_read_timeout", value)
 
 
 if not MYPY:

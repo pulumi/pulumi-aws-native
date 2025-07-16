@@ -3569,7 +3569,7 @@ type DatasetTag struct {
 type GatewayCapabilitySummary struct {
 	// The JSON document that defines the configuration for the gateway capability. For more information, see [Configuring data sources (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli) in the *AWS IoT SiteWise User Guide* .
 	CapabilityConfiguration *string `pulumi:"capabilityConfiguration"`
-	// The namespace of the capability configuration. For example, if you configure OPC-UA sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:version` , where `version` is a number such as `1` .
+	// The namespace of the capability configuration. For example, if you configure OPC UA sources for an MQTT-enabled gateway, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:3` .
 	CapabilityNamespace string `pulumi:"capabilityNamespace"`
 }
 
@@ -3588,7 +3588,7 @@ type GatewayCapabilitySummaryInput interface {
 type GatewayCapabilitySummaryArgs struct {
 	// The JSON document that defines the configuration for the gateway capability. For more information, see [Configuring data sources (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli) in the *AWS IoT SiteWise User Guide* .
 	CapabilityConfiguration pulumi.StringPtrInput `pulumi:"capabilityConfiguration"`
-	// The namespace of the capability configuration. For example, if you configure OPC-UA sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:version` , where `version` is a number such as `1` .
+	// The namespace of the capability configuration. For example, if you configure OPC UA sources for an MQTT-enabled gateway, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:3` .
 	CapabilityNamespace pulumi.StringInput `pulumi:"capabilityNamespace"`
 }
 
@@ -3649,7 +3649,7 @@ func (o GatewayCapabilitySummaryOutput) CapabilityConfiguration() pulumi.StringP
 	return o.ApplyT(func(v GatewayCapabilitySummary) *string { return v.CapabilityConfiguration }).(pulumi.StringPtrOutput)
 }
 
-// The namespace of the capability configuration. For example, if you configure OPC-UA sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:version` , where `version` is a number such as `1` .
+// The namespace of the capability configuration. For example, if you configure OPC UA sources for an MQTT-enabled gateway, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:3` .
 func (o GatewayCapabilitySummaryOutput) CapabilityNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayCapabilitySummary) string { return v.CapabilityNamespace }).(pulumi.StringOutput)
 }

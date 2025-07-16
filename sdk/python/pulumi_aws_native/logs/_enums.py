@@ -16,6 +16,8 @@ __all__ = [
     'MetricFilterMetricTransformationUnit',
     'QueryDefinitionQueryLanguage',
     'SubscriptionFilterDistribution',
+    'TransformerEventSource',
+    'TransformerOcsfVersion',
     'TransformerProcessorListToMapPropertiesFlattenedElement',
     'TransformerTypeConverterEntryType',
 ]
@@ -135,6 +137,20 @@ class SubscriptionFilterDistribution(builtins.str, Enum):
     """
     RANDOM = "Random"
     BY_LOG_STREAM = "ByLogStream"
+
+
+@pulumi.type_token("aws-native:logs:TransformerEventSource")
+class TransformerEventSource(builtins.str, Enum):
+    CLOUD_TRAIL = "CloudTrail"
+    ROUTE53_RESOLVER = "Route53Resolver"
+    VPC_FLOW = "VPCFlow"
+    EKS_AUDIT = "EKSAudit"
+    AWSWAF = "AWSWAF"
+
+
+@pulumi.type_token("aws-native:logs:TransformerOcsfVersion")
+class TransformerOcsfVersion(builtins.str, Enum):
+    V11 = "V1.1"
 
 
 @pulumi.type_token("aws-native:logs:TransformerProcessorListToMapPropertiesFlattenedElement")

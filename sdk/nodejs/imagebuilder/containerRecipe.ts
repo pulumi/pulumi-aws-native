@@ -148,7 +148,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
             resourceInputs["workingDirectory"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["components[*]", "containerType", "description", "dockerfileTemplateData", "dockerfileTemplateUri", "imageOsVersionOverride", "instanceConfiguration", "kmsKeyId", "name", "parentImage", "platformOverride", "tags.*", "targetRepository", "version", "workingDirectory"] };
+        const replaceOnChanges = { replaceOnChanges: ["components[*]", "containerType", "description", "dockerfileTemplateData", "dockerfileTemplateUri", "imageOsVersionOverride", "instanceConfiguration", "kmsKeyId", "name", "parentImage", "platformOverride", "targetRepository", "version", "workingDirectory"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ContainerRecipe.__pulumiType, name, resourceInputs, opts);
     }

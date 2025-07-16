@@ -928,7 +928,9 @@ func (o PatchBaselinePatchFilterGroupPtrOutput) PatchFilters() PatchBaselinePatc
 
 // Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
 type PatchBaselinePatchSource struct {
-	// The value of the yum repo configuration. For example:
+	// The value of the repo configuration.
+	//
+	// *Example for yum repositories*
 	//
 	// `[main]`
 	//
@@ -938,7 +940,15 @@ type PatchBaselinePatchSource struct {
 	//
 	// `enabled=1`
 	//
-	// > For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) .
+	// For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) on the *man7.org* website.
+	//
+	// *Examples for Ubuntu Server and Debian Server*
+	//
+	// `deb http://security.ubuntu.com/ubuntu jammy main`
+	//
+	// `deb https://site.example.com/debian distribution component1 component2 component3`
+	//
+	// Repo information for Ubuntu Server repositories must be specifed in a single line. For more examples and information, see [jammy (5) sources.list.5.gz](https://docs.aws.amazon.com/https://manpages.ubuntu.com/manpages/jammy/man5/sources.list.5.html) on the *Ubuntu Server Manuals* website and [sources.list format](https://docs.aws.amazon.com/https://wiki.debian.org/SourcesList#sources.list_format) on the *Debian Wiki* .
 	Configuration *string `pulumi:"configuration"`
 	// The name specified to identify the patch source.
 	Name *string `pulumi:"name"`
@@ -959,7 +969,9 @@ type PatchBaselinePatchSourceInput interface {
 
 // Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
 type PatchBaselinePatchSourceArgs struct {
-	// The value of the yum repo configuration. For example:
+	// The value of the repo configuration.
+	//
+	// *Example for yum repositories*
 	//
 	// `[main]`
 	//
@@ -969,7 +981,15 @@ type PatchBaselinePatchSourceArgs struct {
 	//
 	// `enabled=1`
 	//
-	// > For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) .
+	// For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) on the *man7.org* website.
+	//
+	// *Examples for Ubuntu Server and Debian Server*
+	//
+	// `deb http://security.ubuntu.com/ubuntu jammy main`
+	//
+	// `deb https://site.example.com/debian distribution component1 component2 component3`
+	//
+	// Repo information for Ubuntu Server repositories must be specifed in a single line. For more examples and information, see [jammy (5) sources.list.5.gz](https://docs.aws.amazon.com/https://manpages.ubuntu.com/manpages/jammy/man5/sources.list.5.html) on the *Ubuntu Server Manuals* website and [sources.list format](https://docs.aws.amazon.com/https://wiki.debian.org/SourcesList#sources.list_format) on the *Debian Wiki* .
 	Configuration pulumi.StringPtrInput `pulumi:"configuration"`
 	// The name specified to identify the patch source.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -1029,7 +1049,9 @@ func (o PatchBaselinePatchSourceOutput) ToPatchBaselinePatchSourceOutputWithCont
 	return o
 }
 
-// The value of the yum repo configuration. For example:
+// The value of the repo configuration.
+//
+// *Example for yum repositories*
 //
 // `[main]`
 //
@@ -1039,7 +1061,15 @@ func (o PatchBaselinePatchSourceOutput) ToPatchBaselinePatchSourceOutputWithCont
 //
 // `enabled=1`
 //
-// > For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) .
+// For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) on the *man7.org* website.
+//
+// *Examples for Ubuntu Server and Debian Server*
+//
+// `deb http://security.ubuntu.com/ubuntu jammy main`
+//
+// `deb https://site.example.com/debian distribution component1 component2 component3`
+//
+// Repo information for Ubuntu Server repositories must be specifed in a single line. For more examples and information, see [jammy (5) sources.list.5.gz](https://docs.aws.amazon.com/https://manpages.ubuntu.com/manpages/jammy/man5/sources.list.5.html) on the *Ubuntu Server Manuals* website and [sources.list format](https://docs.aws.amazon.com/https://wiki.debian.org/SourcesList#sources.list_format) on the *Debian Wiki* .
 func (o PatchBaselinePatchSourceOutput) Configuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PatchBaselinePatchSource) *string { return v.Configuration }).(pulumi.StringPtrOutput)
 }

@@ -278,7 +278,7 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["image_id"] = None
             __props__.__dict__["image_uri"] = None
             __props__.__dict__["name"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["containerRecipeArn", "distributionConfigurationArn", "enhancedImageMetadataEnabled", "imageRecipeArn", "imageScanningConfiguration", "imageTestsConfiguration", "infrastructureConfigurationArn", "tags.*", "workflows[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["containerRecipeArn", "distributionConfigurationArn", "enhancedImageMetadataEnabled", "imageRecipeArn", "imageScanningConfiguration", "imageTestsConfiguration", "infrastructureConfigurationArn", "workflows[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Image, __self__).__init__(
             'aws-native:imagebuilder:Image',

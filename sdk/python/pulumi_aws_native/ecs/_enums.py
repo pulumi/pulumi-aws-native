@@ -14,7 +14,9 @@ __all__ = [
     'ClusterCapacityProviderAssociationsCapacityProvider0',
     'ServiceAvailabilityZoneRebalancing',
     'ServiceAwsVpcConfigurationAssignPublicIp',
+    'ServiceDeploymentConfigurationStrategy',
     'ServiceDeploymentControllerType',
+    'ServiceDeploymentLifecycleHookLifecycleStagesItem',
     'ServiceEbsTagSpecificationPropagateTags',
     'ServiceLaunchType',
     'ServicePlacementConstraintType',
@@ -104,6 +106,12 @@ class ServiceAwsVpcConfigurationAssignPublicIp(builtins.str, Enum):
     ENABLED = "ENABLED"
 
 
+@pulumi.type_token("aws-native:ecs:ServiceDeploymentConfigurationStrategy")
+class ServiceDeploymentConfigurationStrategy(builtins.str, Enum):
+    ROLLING = "ROLLING"
+    BLUE_GREEN = "BLUE_GREEN"
+
+
 @pulumi.type_token("aws-native:ecs:ServiceDeploymentControllerType")
 class ServiceDeploymentControllerType(builtins.str, Enum):
     """
@@ -113,6 +121,17 @@ class ServiceDeploymentControllerType(builtins.str, Enum):
     CODE_DEPLOY = "CODE_DEPLOY"
     ECS = "ECS"
     EXTERNAL = "EXTERNAL"
+
+
+@pulumi.type_token("aws-native:ecs:ServiceDeploymentLifecycleHookLifecycleStagesItem")
+class ServiceDeploymentLifecycleHookLifecycleStagesItem(builtins.str, Enum):
+    RECONCILE_SERVICE = "RECONCILE_SERVICE"
+    PRE_SCALE_UP = "PRE_SCALE_UP"
+    POST_SCALE_UP = "POST_SCALE_UP"
+    TEST_TRAFFIC_SHIFT = "TEST_TRAFFIC_SHIFT"
+    POST_TEST_TRAFFIC_SHIFT = "POST_TEST_TRAFFIC_SHIFT"
+    PRODUCTION_TRAFFIC_SHIFT = "PRODUCTION_TRAFFIC_SHIFT"
+    POST_PRODUCTION_TRAFFIC_SHIFT = "POST_PRODUCTION_TRAFFIC_SHIFT"
 
 
 @pulumi.type_token("aws-native:ecs:ServiceEbsTagSpecificationPropagateTags")

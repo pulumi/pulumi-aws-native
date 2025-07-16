@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.Connect
         public readonly string? Name;
         /// <summary>
         /// The publish status of the rule.
-        ///   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
+        ///  *Allowed values*: ``DRAFT`` | ``PUBLISHED``
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.RulePublishStatus? PublishStatus;
         /// <summary>

@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.QBusiness
         /// </summary>
         public readonly ImmutableArray<Outputs.DataAccessorActionConfiguration> ActionConfigurations;
         /// <summary>
+        /// The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
+        /// </summary>
+        public readonly Outputs.DataAccessorAuthenticationDetail? AuthenticationDetail;
+        /// <summary>
         /// The timestamp when the data accessor was created.
         /// </summary>
         public readonly string? CreatedAt;
@@ -112,6 +116,8 @@ namespace Pulumi.AwsNative.QBusiness
         private GetDataAccessorResult(
             ImmutableArray<Outputs.DataAccessorActionConfiguration> actionConfigurations,
 
+            Outputs.DataAccessorAuthenticationDetail? authenticationDetail,
+
             string? createdAt,
 
             string? dataAccessorArn,
@@ -127,6 +133,7 @@ namespace Pulumi.AwsNative.QBusiness
             string? updatedAt)
         {
             ActionConfigurations = actionConfigurations;
+            AuthenticationDetail = authenticationDetail;
             CreatedAt = createdAt;
             DataAccessorArn = dataAccessorArn;
             DataAccessorId = dataAccessorId;

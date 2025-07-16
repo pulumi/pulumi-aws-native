@@ -96,6 +96,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("originShield")]
         public Input<Inputs.DistributionOriginShieldArgs>? OriginShield { get; set; }
 
+        [Input("responseCompletionTimeout")]
+        public Input<int>? ResponseCompletionTimeout { get; set; }
+
         /// <summary>
         /// Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead.
         /// </summary>

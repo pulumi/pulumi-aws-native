@@ -416,6 +416,7 @@ if not MYPY:
         > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
         > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
         > - Call the `UpdateServer` API to set or change this parameter.
+        > - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
         """
         security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -469,6 +470,7 @@ class ServerEndpointDetailsArgs:
                > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
                > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
                > - Call the `UpdateServer` API to set or change this parameter.
+               > - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of security groups IDs that are available to attach to your server's endpoint.
                
                > This property can only be set when `EndpointType` is set to `VPC` .
@@ -513,6 +515,7 @@ class ServerEndpointDetailsArgs:
         > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
         > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
         > - Call the `UpdateServer` API to set or change this parameter.
+        > - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
         """
         return pulumi.get(self, "address_allocation_ids")
 
@@ -868,7 +871,10 @@ if not MYPY:
     class ServerS3StorageOptionsArgsDict(TypedDict):
         directory_listing_optimization: NotRequired[pulumi.Input['ServerDirectoryListingOptimization']]
         """
-        Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+        Specifies whether or not performance for your Amazon S3 directories is optimized.
+
+        - If using the console, this is enabled by default.
+        - If using the API or CLI, this is disabled by default.
 
         By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
         """
@@ -880,7 +886,10 @@ class ServerS3StorageOptionsArgs:
     def __init__(__self__, *,
                  directory_listing_optimization: Optional[pulumi.Input['ServerDirectoryListingOptimization']] = None):
         """
-        :param pulumi.Input['ServerDirectoryListingOptimization'] directory_listing_optimization: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+        :param pulumi.Input['ServerDirectoryListingOptimization'] directory_listing_optimization: Specifies whether or not performance for your Amazon S3 directories is optimized.
+               
+               - If using the console, this is enabled by default.
+               - If using the API or CLI, this is disabled by default.
                
                By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
         """
@@ -891,7 +900,10 @@ class ServerS3StorageOptionsArgs:
     @pulumi.getter(name="directoryListingOptimization")
     def directory_listing_optimization(self) -> Optional[pulumi.Input['ServerDirectoryListingOptimization']]:
         """
-        Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+        Specifies whether or not performance for your Amazon S3 directories is optimized.
+
+        - If using the console, this is enabled by default.
+        - If using the API or CLI, this is disabled by default.
 
         By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
         """
@@ -1039,6 +1051,10 @@ if not MYPY:
         """
         Configuration for an SFTP connector.
         """
+        max_concurrent_connections: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Specifies the number of active connections that your connector can establish with the remote server at the same time.
+        """
         trusted_host_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
         List of public host keys, for the external server to which you are connecting.
@@ -1053,17 +1069,33 @@ elif False:
 @pulumi.input_type
 class SftpConfigPropertiesArgs:
     def __init__(__self__, *,
+                 max_concurrent_connections: Optional[pulumi.Input[builtins.int]] = None,
                  trusted_host_keys: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  user_secret_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Configuration for an SFTP connector.
+        :param pulumi.Input[builtins.int] max_concurrent_connections: Specifies the number of active connections that your connector can establish with the remote server at the same time.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trusted_host_keys: List of public host keys, for the external server to which you are connecting.
         :param pulumi.Input[builtins.str] user_secret_id: ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
         """
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if trusted_host_keys is not None:
             pulumi.set(__self__, "trusted_host_keys", trusted_host_keys)
         if user_secret_id is not None:
             pulumi.set(__self__, "user_secret_id", user_secret_id)
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Specifies the number of active connections that your connector can establish with the remote server at the same time.
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @max_concurrent_connections.setter
+    def max_concurrent_connections(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_concurrent_connections", value)
 
     @property
     @pulumi.getter(name="trustedHostKeys")

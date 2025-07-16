@@ -609,6 +609,7 @@ export class Bucket extends pulumi.CustomResource {
      * Settings that define where logs are stored.
      */
     public readonly loggingConfiguration!: pulumi.Output<outputs.s3.BucketLoggingConfiguration | undefined>;
+    public readonly metadataConfiguration!: pulumi.Output<outputs.s3.BucketMetadataConfiguration | undefined>;
     /**
      * The metadata table configuration of an S3 general purpose bucket.
      */
@@ -695,6 +696,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["inventoryConfigurations"] = args ? args.inventoryConfigurations : undefined;
             resourceInputs["lifecycleConfiguration"] = args ? args.lifecycleConfiguration : undefined;
             resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
+            resourceInputs["metadataConfiguration"] = args ? args.metadataConfiguration : undefined;
             resourceInputs["metadataTableConfiguration"] = args ? args.metadataTableConfiguration : undefined;
             resourceInputs["metricsConfigurations"] = args ? args.metricsConfigurations : undefined;
             resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
@@ -725,6 +727,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["inventoryConfigurations"] = undefined /*out*/;
             resourceInputs["lifecycleConfiguration"] = undefined /*out*/;
             resourceInputs["loggingConfiguration"] = undefined /*out*/;
+            resourceInputs["metadataConfiguration"] = undefined /*out*/;
             resourceInputs["metadataTableConfiguration"] = undefined /*out*/;
             resourceInputs["metricsConfigurations"] = undefined /*out*/;
             resourceInputs["notificationConfiguration"] = undefined /*out*/;
@@ -740,7 +743,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["websiteUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["bucketName"] };
+        const replaceOnChanges = { replaceOnChanges: ["bucketName", "metadataConfiguration.journalTableConfiguration.encryptionConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Bucket.__pulumiType, name, resourceInputs, opts);
     }
@@ -794,6 +797,7 @@ export interface BucketArgs {
      * Settings that define where logs are stored.
      */
     loggingConfiguration?: pulumi.Input<inputs.s3.BucketLoggingConfigurationArgs>;
+    metadataConfiguration?: pulumi.Input<inputs.s3.BucketMetadataConfigurationArgs>;
     /**
      * The metadata table configuration of an S3 general purpose bucket.
      */

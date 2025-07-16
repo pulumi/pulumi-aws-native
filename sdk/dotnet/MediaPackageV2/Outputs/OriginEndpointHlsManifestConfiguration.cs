@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// &lt;p&gt;A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.&lt;/p&gt;
         /// </summary>
         public readonly string? ChildManifestName;
+        /// <summary>
+        /// Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
+        /// </summary>
         public readonly Outputs.OriginEndpointFilterConfiguration? FilterConfiguration;
         /// <summary>
         /// &lt;p&gt;A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.&lt;/p&gt;
@@ -30,24 +33,23 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// </summary>
         public readonly int? ManifestWindowSeconds;
         /// <summary>
-        /// &lt;p&gt;Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
-        ///          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-        ///          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.&lt;/p&gt;
-        ///          &lt;p&gt;Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.&lt;/p&gt;
+        /// &lt;p&gt;Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.&lt;/p&gt; &lt;p&gt;Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.&lt;/p&gt;
         /// </summary>
         public readonly int? ProgramDateTimeIntervalSeconds;
         /// <summary>
         /// THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
         /// </summary>
         public readonly Outputs.OriginEndpointScteHls? ScteHls;
+        /// <summary>
+        /// To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.
+        /// </summary>
         public readonly Outputs.OriginEndpointStartTag? StartTag;
         /// <summary>
         /// &lt;p&gt;The egress domain URL for stream delivery from MediaPackage.&lt;/p&gt;
         /// </summary>
         public readonly string? Url;
         /// <summary>
-        /// &lt;p&gt;When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
-        ///          For more information, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html"&gt;Amazon Web Services Signature Version 4 for API requests&lt;/a&gt; in &lt;i&gt;Identity and Access Management User Guide&lt;/i&gt;.&lt;/p&gt;
+        /// &lt;p&gt;When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html"&gt;Amazon Web Services Signature Version 4 for API requests&lt;/a&gt; in &lt;i&gt;Identity and Access Management User Guide&lt;/i&gt;.&lt;/p&gt;
         /// </summary>
         public readonly bool? UrlEncodeChildManifest;
 

@@ -833,6 +833,171 @@ func (in *originEndpointContainerTypePtr) ToOriginEndpointContainerTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointContainerTypePtrOutput)
 }
 
+type OriginEndpointDashCompactness string
+
+const (
+	OriginEndpointDashCompactnessStandard = OriginEndpointDashCompactness("STANDARD")
+	OriginEndpointDashCompactnessNone     = OriginEndpointDashCompactness("NONE")
+)
+
+func (OriginEndpointDashCompactness) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointDashCompactness)(nil)).Elem()
+}
+
+func (e OriginEndpointDashCompactness) ToOriginEndpointDashCompactnessOutput() OriginEndpointDashCompactnessOutput {
+	return pulumi.ToOutput(e).(OriginEndpointDashCompactnessOutput)
+}
+
+func (e OriginEndpointDashCompactness) ToOriginEndpointDashCompactnessOutputWithContext(ctx context.Context) OriginEndpointDashCompactnessOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointDashCompactnessOutput)
+}
+
+func (e OriginEndpointDashCompactness) ToOriginEndpointDashCompactnessPtrOutput() OriginEndpointDashCompactnessPtrOutput {
+	return e.ToOriginEndpointDashCompactnessPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointDashCompactness) ToOriginEndpointDashCompactnessPtrOutputWithContext(ctx context.Context) OriginEndpointDashCompactnessPtrOutput {
+	return OriginEndpointDashCompactness(e).ToOriginEndpointDashCompactnessOutputWithContext(ctx).ToOriginEndpointDashCompactnessPtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointDashCompactness) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointDashCompactness) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointDashCompactness) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointDashCompactness) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointDashCompactnessOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointDashCompactnessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointDashCompactness)(nil)).Elem()
+}
+
+func (o OriginEndpointDashCompactnessOutput) ToOriginEndpointDashCompactnessOutput() OriginEndpointDashCompactnessOutput {
+	return o
+}
+
+func (o OriginEndpointDashCompactnessOutput) ToOriginEndpointDashCompactnessOutputWithContext(ctx context.Context) OriginEndpointDashCompactnessOutput {
+	return o
+}
+
+func (o OriginEndpointDashCompactnessOutput) ToOriginEndpointDashCompactnessPtrOutput() OriginEndpointDashCompactnessPtrOutput {
+	return o.ToOriginEndpointDashCompactnessPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashCompactnessOutput) ToOriginEndpointDashCompactnessPtrOutputWithContext(ctx context.Context) OriginEndpointDashCompactnessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointDashCompactness) *OriginEndpointDashCompactness {
+		return &v
+	}).(OriginEndpointDashCompactnessPtrOutput)
+}
+
+func (o OriginEndpointDashCompactnessOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashCompactnessOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointDashCompactness) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointDashCompactnessOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashCompactnessOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointDashCompactness) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointDashCompactnessPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointDashCompactnessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointDashCompactness)(nil)).Elem()
+}
+
+func (o OriginEndpointDashCompactnessPtrOutput) ToOriginEndpointDashCompactnessPtrOutput() OriginEndpointDashCompactnessPtrOutput {
+	return o
+}
+
+func (o OriginEndpointDashCompactnessPtrOutput) ToOriginEndpointDashCompactnessPtrOutputWithContext(ctx context.Context) OriginEndpointDashCompactnessPtrOutput {
+	return o
+}
+
+func (o OriginEndpointDashCompactnessPtrOutput) Elem() OriginEndpointDashCompactnessOutput {
+	return o.ApplyT(func(v *OriginEndpointDashCompactness) OriginEndpointDashCompactness {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointDashCompactness
+		return ret
+	}).(OriginEndpointDashCompactnessOutput)
+}
+
+func (o OriginEndpointDashCompactnessPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashCompactnessPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointDashCompactness) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointDashCompactnessInput is an input type that accepts values of the OriginEndpointDashCompactness enum
+// A concrete instance of `OriginEndpointDashCompactnessInput` can be one of the following:
+//
+//	OriginEndpointDashCompactnessStandard
+//	OriginEndpointDashCompactnessNone
+type OriginEndpointDashCompactnessInput interface {
+	pulumi.Input
+
+	ToOriginEndpointDashCompactnessOutput() OriginEndpointDashCompactnessOutput
+	ToOriginEndpointDashCompactnessOutputWithContext(context.Context) OriginEndpointDashCompactnessOutput
+}
+
+var originEndpointDashCompactnessPtrType = reflect.TypeOf((**OriginEndpointDashCompactness)(nil)).Elem()
+
+type OriginEndpointDashCompactnessPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointDashCompactnessPtrOutput() OriginEndpointDashCompactnessPtrOutput
+	ToOriginEndpointDashCompactnessPtrOutputWithContext(context.Context) OriginEndpointDashCompactnessPtrOutput
+}
+
+type originEndpointDashCompactnessPtr string
+
+func OriginEndpointDashCompactnessPtr(v string) OriginEndpointDashCompactnessPtrInput {
+	return (*originEndpointDashCompactnessPtr)(&v)
+}
+
+func (*originEndpointDashCompactnessPtr) ElementType() reflect.Type {
+	return originEndpointDashCompactnessPtrType
+}
+
+func (in *originEndpointDashCompactnessPtr) ToOriginEndpointDashCompactnessPtrOutput() OriginEndpointDashCompactnessPtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointDashCompactnessPtrOutput)
+}
+
+func (in *originEndpointDashCompactnessPtr) ToOriginEndpointDashCompactnessPtrOutputWithContext(ctx context.Context) OriginEndpointDashCompactnessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashCompactnessPtrOutput)
+}
+
 type OriginEndpointDashDrmSignaling string
 
 const (
@@ -1214,6 +1379,214 @@ func (o OriginEndpointDashPeriodTriggerArrayOutput) Index(i pulumi.IntInput) Ori
 	}).(OriginEndpointDashPeriodTriggerOutput)
 }
 
+type OriginEndpointDashProfile string
+
+const (
+	OriginEndpointDashProfileDvbDash = OriginEndpointDashProfile("DVB_DASH")
+)
+
+func (OriginEndpointDashProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointDashProfile)(nil)).Elem()
+}
+
+func (e OriginEndpointDashProfile) ToOriginEndpointDashProfileOutput() OriginEndpointDashProfileOutput {
+	return pulumi.ToOutput(e).(OriginEndpointDashProfileOutput)
+}
+
+func (e OriginEndpointDashProfile) ToOriginEndpointDashProfileOutputWithContext(ctx context.Context) OriginEndpointDashProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointDashProfileOutput)
+}
+
+func (e OriginEndpointDashProfile) ToOriginEndpointDashProfilePtrOutput() OriginEndpointDashProfilePtrOutput {
+	return e.ToOriginEndpointDashProfilePtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointDashProfile) ToOriginEndpointDashProfilePtrOutputWithContext(ctx context.Context) OriginEndpointDashProfilePtrOutput {
+	return OriginEndpointDashProfile(e).ToOriginEndpointDashProfileOutputWithContext(ctx).ToOriginEndpointDashProfilePtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointDashProfile) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointDashProfile) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointDashProfile) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointDashProfile) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointDashProfileOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointDashProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointDashProfile)(nil)).Elem()
+}
+
+func (o OriginEndpointDashProfileOutput) ToOriginEndpointDashProfileOutput() OriginEndpointDashProfileOutput {
+	return o
+}
+
+func (o OriginEndpointDashProfileOutput) ToOriginEndpointDashProfileOutputWithContext(ctx context.Context) OriginEndpointDashProfileOutput {
+	return o
+}
+
+func (o OriginEndpointDashProfileOutput) ToOriginEndpointDashProfilePtrOutput() OriginEndpointDashProfilePtrOutput {
+	return o.ToOriginEndpointDashProfilePtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashProfileOutput) ToOriginEndpointDashProfilePtrOutputWithContext(ctx context.Context) OriginEndpointDashProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointDashProfile) *OriginEndpointDashProfile {
+		return &v
+	}).(OriginEndpointDashProfilePtrOutput)
+}
+
+func (o OriginEndpointDashProfileOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashProfileOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointDashProfile) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointDashProfileOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashProfileOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointDashProfile) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointDashProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointDashProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointDashProfile)(nil)).Elem()
+}
+
+func (o OriginEndpointDashProfilePtrOutput) ToOriginEndpointDashProfilePtrOutput() OriginEndpointDashProfilePtrOutput {
+	return o
+}
+
+func (o OriginEndpointDashProfilePtrOutput) ToOriginEndpointDashProfilePtrOutputWithContext(ctx context.Context) OriginEndpointDashProfilePtrOutput {
+	return o
+}
+
+func (o OriginEndpointDashProfilePtrOutput) Elem() OriginEndpointDashProfileOutput {
+	return o.ApplyT(func(v *OriginEndpointDashProfile) OriginEndpointDashProfile {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointDashProfile
+		return ret
+	}).(OriginEndpointDashProfileOutput)
+}
+
+func (o OriginEndpointDashProfilePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashProfilePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointDashProfile) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointDashProfileInput is an input type that accepts values of the OriginEndpointDashProfile enum
+// A concrete instance of `OriginEndpointDashProfileInput` can be one of the following:
+//
+//	OriginEndpointDashProfileDvbDash
+type OriginEndpointDashProfileInput interface {
+	pulumi.Input
+
+	ToOriginEndpointDashProfileOutput() OriginEndpointDashProfileOutput
+	ToOriginEndpointDashProfileOutputWithContext(context.Context) OriginEndpointDashProfileOutput
+}
+
+var originEndpointDashProfilePtrType = reflect.TypeOf((**OriginEndpointDashProfile)(nil)).Elem()
+
+type OriginEndpointDashProfilePtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointDashProfilePtrOutput() OriginEndpointDashProfilePtrOutput
+	ToOriginEndpointDashProfilePtrOutputWithContext(context.Context) OriginEndpointDashProfilePtrOutput
+}
+
+type originEndpointDashProfilePtr string
+
+func OriginEndpointDashProfilePtr(v string) OriginEndpointDashProfilePtrInput {
+	return (*originEndpointDashProfilePtr)(&v)
+}
+
+func (*originEndpointDashProfilePtr) ElementType() reflect.Type {
+	return originEndpointDashProfilePtrType
+}
+
+func (in *originEndpointDashProfilePtr) ToOriginEndpointDashProfilePtrOutput() OriginEndpointDashProfilePtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointDashProfilePtrOutput)
+}
+
+func (in *originEndpointDashProfilePtr) ToOriginEndpointDashProfilePtrOutputWithContext(ctx context.Context) OriginEndpointDashProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashProfilePtrOutput)
+}
+
+// OriginEndpointDashProfileArrayInput is an input type that accepts OriginEndpointDashProfileArray and OriginEndpointDashProfileArrayOutput values.
+// You can construct a concrete instance of `OriginEndpointDashProfileArrayInput` via:
+//
+//	OriginEndpointDashProfileArray{ OriginEndpointDashProfileArgs{...} }
+type OriginEndpointDashProfileArrayInput interface {
+	pulumi.Input
+
+	ToOriginEndpointDashProfileArrayOutput() OriginEndpointDashProfileArrayOutput
+	ToOriginEndpointDashProfileArrayOutputWithContext(context.Context) OriginEndpointDashProfileArrayOutput
+}
+
+type OriginEndpointDashProfileArray []OriginEndpointDashProfile
+
+func (OriginEndpointDashProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OriginEndpointDashProfile)(nil)).Elem()
+}
+
+func (i OriginEndpointDashProfileArray) ToOriginEndpointDashProfileArrayOutput() OriginEndpointDashProfileArrayOutput {
+	return i.ToOriginEndpointDashProfileArrayOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointDashProfileArray) ToOriginEndpointDashProfileArrayOutputWithContext(ctx context.Context) OriginEndpointDashProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashProfileArrayOutput)
+}
+
+type OriginEndpointDashProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointDashProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OriginEndpointDashProfile)(nil)).Elem()
+}
+
+func (o OriginEndpointDashProfileArrayOutput) ToOriginEndpointDashProfileArrayOutput() OriginEndpointDashProfileArrayOutput {
+	return o
+}
+
+func (o OriginEndpointDashProfileArrayOutput) ToOriginEndpointDashProfileArrayOutputWithContext(ctx context.Context) OriginEndpointDashProfileArrayOutput {
+	return o
+}
+
+func (o OriginEndpointDashProfileArrayOutput) Index(i pulumi.IntInput) OriginEndpointDashProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OriginEndpointDashProfile {
+		return vs[0].([]OriginEndpointDashProfile)[vs[1].(int)]
+	}).(OriginEndpointDashProfileOutput)
+}
+
 type OriginEndpointDashSegmentTemplateFormat string
 
 const (
@@ -1375,6 +1748,171 @@ func (in *originEndpointDashSegmentTemplateFormatPtr) ToOriginEndpointDashSegmen
 
 func (in *originEndpointDashSegmentTemplateFormatPtr) ToOriginEndpointDashSegmentTemplateFormatPtrOutputWithContext(ctx context.Context) OriginEndpointDashSegmentTemplateFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashSegmentTemplateFormatPtrOutput)
+}
+
+type OriginEndpointDashTtmlProfile string
+
+const (
+	OriginEndpointDashTtmlProfileImsc1     = OriginEndpointDashTtmlProfile("IMSC_1")
+	OriginEndpointDashTtmlProfileEbuTtD101 = OriginEndpointDashTtmlProfile("EBU_TT_D_101")
+)
+
+func (OriginEndpointDashTtmlProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointDashTtmlProfile)(nil)).Elem()
+}
+
+func (e OriginEndpointDashTtmlProfile) ToOriginEndpointDashTtmlProfileOutput() OriginEndpointDashTtmlProfileOutput {
+	return pulumi.ToOutput(e).(OriginEndpointDashTtmlProfileOutput)
+}
+
+func (e OriginEndpointDashTtmlProfile) ToOriginEndpointDashTtmlProfileOutputWithContext(ctx context.Context) OriginEndpointDashTtmlProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointDashTtmlProfileOutput)
+}
+
+func (e OriginEndpointDashTtmlProfile) ToOriginEndpointDashTtmlProfilePtrOutput() OriginEndpointDashTtmlProfilePtrOutput {
+	return e.ToOriginEndpointDashTtmlProfilePtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointDashTtmlProfile) ToOriginEndpointDashTtmlProfilePtrOutputWithContext(ctx context.Context) OriginEndpointDashTtmlProfilePtrOutput {
+	return OriginEndpointDashTtmlProfile(e).ToOriginEndpointDashTtmlProfileOutputWithContext(ctx).ToOriginEndpointDashTtmlProfilePtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointDashTtmlProfile) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointDashTtmlProfile) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointDashTtmlProfile) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointDashTtmlProfile) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointDashTtmlProfileOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointDashTtmlProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointDashTtmlProfile)(nil)).Elem()
+}
+
+func (o OriginEndpointDashTtmlProfileOutput) ToOriginEndpointDashTtmlProfileOutput() OriginEndpointDashTtmlProfileOutput {
+	return o
+}
+
+func (o OriginEndpointDashTtmlProfileOutput) ToOriginEndpointDashTtmlProfileOutputWithContext(ctx context.Context) OriginEndpointDashTtmlProfileOutput {
+	return o
+}
+
+func (o OriginEndpointDashTtmlProfileOutput) ToOriginEndpointDashTtmlProfilePtrOutput() OriginEndpointDashTtmlProfilePtrOutput {
+	return o.ToOriginEndpointDashTtmlProfilePtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashTtmlProfileOutput) ToOriginEndpointDashTtmlProfilePtrOutputWithContext(ctx context.Context) OriginEndpointDashTtmlProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointDashTtmlProfile) *OriginEndpointDashTtmlProfile {
+		return &v
+	}).(OriginEndpointDashTtmlProfilePtrOutput)
+}
+
+func (o OriginEndpointDashTtmlProfileOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashTtmlProfileOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointDashTtmlProfile) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointDashTtmlProfileOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashTtmlProfileOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointDashTtmlProfile) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointDashTtmlProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointDashTtmlProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointDashTtmlProfile)(nil)).Elem()
+}
+
+func (o OriginEndpointDashTtmlProfilePtrOutput) ToOriginEndpointDashTtmlProfilePtrOutput() OriginEndpointDashTtmlProfilePtrOutput {
+	return o
+}
+
+func (o OriginEndpointDashTtmlProfilePtrOutput) ToOriginEndpointDashTtmlProfilePtrOutputWithContext(ctx context.Context) OriginEndpointDashTtmlProfilePtrOutput {
+	return o
+}
+
+func (o OriginEndpointDashTtmlProfilePtrOutput) Elem() OriginEndpointDashTtmlProfileOutput {
+	return o.ApplyT(func(v *OriginEndpointDashTtmlProfile) OriginEndpointDashTtmlProfile {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointDashTtmlProfile
+		return ret
+	}).(OriginEndpointDashTtmlProfileOutput)
+}
+
+func (o OriginEndpointDashTtmlProfilePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointDashTtmlProfilePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointDashTtmlProfile) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointDashTtmlProfileInput is an input type that accepts values of the OriginEndpointDashTtmlProfile enum
+// A concrete instance of `OriginEndpointDashTtmlProfileInput` can be one of the following:
+//
+//	OriginEndpointDashTtmlProfileImsc1
+//	OriginEndpointDashTtmlProfileEbuTtD101
+type OriginEndpointDashTtmlProfileInput interface {
+	pulumi.Input
+
+	ToOriginEndpointDashTtmlProfileOutput() OriginEndpointDashTtmlProfileOutput
+	ToOriginEndpointDashTtmlProfileOutputWithContext(context.Context) OriginEndpointDashTtmlProfileOutput
+}
+
+var originEndpointDashTtmlProfilePtrType = reflect.TypeOf((**OriginEndpointDashTtmlProfile)(nil)).Elem()
+
+type OriginEndpointDashTtmlProfilePtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointDashTtmlProfilePtrOutput() OriginEndpointDashTtmlProfilePtrOutput
+	ToOriginEndpointDashTtmlProfilePtrOutputWithContext(context.Context) OriginEndpointDashTtmlProfilePtrOutput
+}
+
+type originEndpointDashTtmlProfilePtr string
+
+func OriginEndpointDashTtmlProfilePtr(v string) OriginEndpointDashTtmlProfilePtrInput {
+	return (*originEndpointDashTtmlProfilePtr)(&v)
+}
+
+func (*originEndpointDashTtmlProfilePtr) ElementType() reflect.Type {
+	return originEndpointDashTtmlProfilePtrType
+}
+
+func (in *originEndpointDashTtmlProfilePtr) ToOriginEndpointDashTtmlProfilePtrOutput() OriginEndpointDashTtmlProfilePtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointDashTtmlProfilePtrOutput)
+}
+
+func (in *originEndpointDashTtmlProfilePtr) ToOriginEndpointDashTtmlProfilePtrOutputWithContext(ctx context.Context) OriginEndpointDashTtmlProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointDashTtmlProfilePtrOutput)
 }
 
 type OriginEndpointDashUtcTimingMode string
@@ -2728,13 +3266,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointCmafEncryptionMethodPtrInput)(nil)).Elem(), OriginEndpointCmafEncryptionMethod("CENC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointContainerTypeInput)(nil)).Elem(), OriginEndpointContainerType("TS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointContainerTypePtrInput)(nil)).Elem(), OriginEndpointContainerType("TS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashCompactnessInput)(nil)).Elem(), OriginEndpointDashCompactness("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashCompactnessPtrInput)(nil)).Elem(), OriginEndpointDashCompactness("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashDrmSignalingInput)(nil)).Elem(), OriginEndpointDashDrmSignaling("INDIVIDUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashDrmSignalingPtrInput)(nil)).Elem(), OriginEndpointDashDrmSignaling("INDIVIDUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashPeriodTriggerInput)(nil)).Elem(), OriginEndpointDashPeriodTrigger("AVAILS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashPeriodTriggerPtrInput)(nil)).Elem(), OriginEndpointDashPeriodTrigger("AVAILS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashPeriodTriggerArrayInput)(nil)).Elem(), OriginEndpointDashPeriodTriggerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashProfileInput)(nil)).Elem(), OriginEndpointDashProfile("DVB_DASH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashProfilePtrInput)(nil)).Elem(), OriginEndpointDashProfile("DVB_DASH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashProfileArrayInput)(nil)).Elem(), OriginEndpointDashProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashSegmentTemplateFormatInput)(nil)).Elem(), OriginEndpointDashSegmentTemplateFormat("NUMBER_WITH_TIMELINE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashSegmentTemplateFormatPtrInput)(nil)).Elem(), OriginEndpointDashSegmentTemplateFormat("NUMBER_WITH_TIMELINE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashTtmlProfileInput)(nil)).Elem(), OriginEndpointDashTtmlProfile("IMSC_1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashTtmlProfilePtrInput)(nil)).Elem(), OriginEndpointDashTtmlProfile("IMSC_1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashUtcTimingModeInput)(nil)).Elem(), OriginEndpointDashUtcTimingMode("HTTP_HEAD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashUtcTimingModePtrInput)(nil)).Elem(), OriginEndpointDashUtcTimingMode("HTTP_HEAD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDrmSystemInput)(nil)).Elem(), OriginEndpointDrmSystem("CLEAR_KEY_AES_128"))
@@ -2762,13 +3307,20 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointCmafEncryptionMethodPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointContainerTypeOutput{})
 	pulumi.RegisterOutputType(OriginEndpointContainerTypePtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointDashCompactnessOutput{})
+	pulumi.RegisterOutputType(OriginEndpointDashCompactnessPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashDrmSignalingOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashDrmSignalingPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashPeriodTriggerOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashPeriodTriggerPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashPeriodTriggerArrayOutput{})
+	pulumi.RegisterOutputType(OriginEndpointDashProfileOutput{})
+	pulumi.RegisterOutputType(OriginEndpointDashProfilePtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointDashProfileArrayOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashSegmentTemplateFormatOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashSegmentTemplateFormatPtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointDashTtmlProfileOutput{})
+	pulumi.RegisterOutputType(OriginEndpointDashTtmlProfilePtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashUtcTimingModeOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashUtcTimingModePtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDrmSystemOutput{})

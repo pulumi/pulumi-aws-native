@@ -423,7 +423,7 @@ class InfluxDbInstance(pulumi.CustomResource):
             __props__.__dict__["influx_auth_parameters_secret_arn"] = None
             __props__.__dict__["secondary_availability_zone"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allocatedStorage", "bucket", "dbStorageType", "name", "networkType", "organization", "password", "publiclyAccessible", "username", "vpcSecurityGroupIds[*]", "vpcSubnetIds[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucket", "name", "networkType", "organization", "password", "publiclyAccessible", "username", "vpcSecurityGroupIds[*]", "vpcSubnetIds[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(InfluxDbInstance, __self__).__init__(
             'aws-native:timestream:InfluxDbInstance',

@@ -164,6 +164,16 @@ export const BucketInventoryConfigurationScheduleFrequency = {
  */
 export type BucketInventoryConfigurationScheduleFrequency = (typeof BucketInventoryConfigurationScheduleFrequency)[keyof typeof BucketInventoryConfigurationScheduleFrequency];
 
+export const BucketInventoryTableConfigurationConfigurationState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Specifies whether inventory table configuration is enabled or disabled.
+ */
+export type BucketInventoryTableConfigurationConfigurationState = (typeof BucketInventoryTableConfigurationConfigurationState)[keyof typeof BucketInventoryTableConfigurationConfigurationState];
+
 export const BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize = {
     VariesByStorageClass: "varies_by_storage_class",
     AllStorageClasses128k: "all_storage_classes_128K",
@@ -178,6 +188,26 @@ export const BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize = {
  *  To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
  */
 export type BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize = (typeof BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize)[keyof typeof BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize];
+
+export const BucketMetadataDestinationTableBucketType = {
+    Aws: "aws",
+    Customer: "customer",
+} as const;
+
+/**
+ * The type of the table bucket.
+ */
+export type BucketMetadataDestinationTableBucketType = (typeof BucketMetadataDestinationTableBucketType)[keyof typeof BucketMetadataDestinationTableBucketType];
+
+export const BucketMetadataTableEncryptionConfigurationSseAlgorithm = {
+    Awskms: "aws:kms",
+    Aes256: "AES256",
+} as const;
+
+/**
+ * Specifies the server-side encryption algorithm to use for encrypting tables.
+ */
+export type BucketMetadataTableEncryptionConfigurationSseAlgorithm = (typeof BucketMetadataTableEncryptionConfigurationSseAlgorithm)[keyof typeof BucketMetadataTableEncryptionConfigurationSseAlgorithm];
 
 export const BucketMetricsStatus = {
     Disabled: "Disabled",
@@ -213,6 +243,16 @@ export const BucketOwnershipControlsRuleObjectOwnership = {
  * Specifies an object ownership rule.
  */
 export type BucketOwnershipControlsRuleObjectOwnership = (typeof BucketOwnershipControlsRuleObjectOwnership)[keyof typeof BucketOwnershipControlsRuleObjectOwnership];
+
+export const BucketRecordExpirationExpiration = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Specifies whether record expiration is enabled or disabled.
+ */
+export type BucketRecordExpirationExpiration = (typeof BucketRecordExpirationExpiration)[keyof typeof BucketRecordExpirationExpiration];
 
 export const BucketRedirectAllRequestsToProtocol = {
     Http: "http",

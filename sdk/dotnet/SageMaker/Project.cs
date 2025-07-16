@@ -111,13 +111,19 @@ namespace Pulumi.AwsNative.SageMaker
         /// Input ServiceCatalog Provisioning Details
         /// </summary>
         [Output("serviceCatalogProvisioningDetails")]
-        public Output<Outputs.ServiceCatalogProvisioningDetailsProperties> ServiceCatalogProvisioningDetails { get; private set; } = null!;
+        public Output<Outputs.ServiceCatalogProvisioningDetailsProperties?> ServiceCatalogProvisioningDetails { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of template providers associated with the project.
+        /// </summary>
+        [Output("templateProviderDetails")]
+        public Output<ImmutableArray<Outputs.ProjectTemplateProviderDetail>> TemplateProviderDetails { get; private set; } = null!;
 
 
         /// <summary>
@@ -127,7 +133,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Project(string name, ProjectArgs args, CustomResourceOptions? options = null)
+        public Project(string name, ProjectArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:sagemaker:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -148,6 +154,7 @@ namespace Pulumi.AwsNative.SageMaker
                     "projectName",
                     "serviceCatalogProvisioningDetails",
                     "tags[*]",
+                    "templateProviderDetails[*]",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -192,8 +199,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// Input ServiceCatalog Provisioning Details
         /// </summary>
-        [Input("serviceCatalogProvisioningDetails", required: true)]
-        public Input<Inputs.ServiceCatalogProvisioningDetailsPropertiesArgs> ServiceCatalogProvisioningDetails { get; set; } = null!;
+        [Input("serviceCatalogProvisioningDetails")]
+        public Input<Inputs.ServiceCatalogProvisioningDetailsPropertiesArgs>? ServiceCatalogProvisioningDetails { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
@@ -205,6 +212,18 @@ namespace Pulumi.AwsNative.SageMaker
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
+        }
+
+        [Input("templateProviderDetails")]
+        private InputList<Inputs.ProjectTemplateProviderDetailArgs>? _templateProviderDetails;
+
+        /// <summary>
+        /// An array of template providers associated with the project.
+        /// </summary>
+        public InputList<Inputs.ProjectTemplateProviderDetailArgs> TemplateProviderDetails
+        {
+            get => _templateProviderDetails ?? (_templateProviderDetails = new InputList<Inputs.ProjectTemplateProviderDetailArgs>());
+            set => _templateProviderDetails = value;
         }
 
         public ProjectArgs()

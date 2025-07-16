@@ -19,10 +19,10 @@ import (
 type DbShardGroup struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
-	//   +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
-	//   +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
-	//   +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
+	// Specifies whether to create standby standby DB data access shard for the DB shard group. Valid values are the following:
+	//   +  0 - Creates a DB shard group without a standby DB data access shard. This is the default value.
+	//   +  1 - Creates a DB shard group with a standby DB data access shard in a different Availability Zone (AZ).
+	//   +  2 - Creates a DB shard group with two standby DB data access shard in two different AZs.
 	ComputeRedundancy pulumi.IntPtrOutput `pulumi:"computeRedundancy"`
 	// The name of the primary DB cluster for the DB shard group.
 	DbClusterIdentifier pulumi.StringOutput `pulumi:"dbClusterIdentifier"`
@@ -110,10 +110,10 @@ func (DbShardGroupState) ElementType() reflect.Type {
 }
 
 type dbShardGroupArgs struct {
-	// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
-	//   +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
-	//   +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
-	//   +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
+	// Specifies whether to create standby standby DB data access shard for the DB shard group. Valid values are the following:
+	//   +  0 - Creates a DB shard group without a standby DB data access shard. This is the default value.
+	//   +  1 - Creates a DB shard group with a standby DB data access shard in a different Availability Zone (AZ).
+	//   +  2 - Creates a DB shard group with two standby DB data access shard in two different AZs.
 	ComputeRedundancy *int `pulumi:"computeRedundancy"`
 	// The name of the primary DB cluster for the DB shard group.
 	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
@@ -141,10 +141,10 @@ type dbShardGroupArgs struct {
 
 // The set of arguments for constructing a DbShardGroup resource.
 type DbShardGroupArgs struct {
-	// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
-	//   +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.
-	//   +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
-	//   +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
+	// Specifies whether to create standby standby DB data access shard for the DB shard group. Valid values are the following:
+	//   +  0 - Creates a DB shard group without a standby DB data access shard. This is the default value.
+	//   +  1 - Creates a DB shard group with a standby DB data access shard in a different Availability Zone (AZ).
+	//   +  2 - Creates a DB shard group with two standby DB data access shard in two different AZs.
 	ComputeRedundancy pulumi.IntPtrInput
 	// The name of the primary DB cluster for the DB shard group.
 	DbClusterIdentifier pulumi.StringInput
@@ -207,10 +207,10 @@ func (o DbShardGroupOutput) ToDbShardGroupOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:
-//   - 0 - Creates a DB shard group without a standby DB shard group. This is the default value.
-//   - 1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).
-//   - 2 - Creates a DB shard group with two standby DB shard groups in two different AZs.
+// Specifies whether to create standby standby DB data access shard for the DB shard group. Valid values are the following:
+//   - 0 - Creates a DB shard group without a standby DB data access shard. This is the default value.
+//   - 1 - Creates a DB shard group with a standby DB data access shard in a different Availability Zone (AZ).
+//   - 2 - Creates a DB shard group with two standby DB data access shard in two different AZs.
 func (o DbShardGroupOutput) ComputeRedundancy() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DbShardGroup) pulumi.IntPtrOutput { return v.ComputeRedundancy }).(pulumi.IntPtrOutput)
 }

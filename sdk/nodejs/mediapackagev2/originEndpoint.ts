@@ -57,6 +57,9 @@ export class OriginEndpoint extends pulumi.CustomResource {
      * <p>The date and time the origin endpoint was created.</p>
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The egress domain URL for stream delivery from MediaPackage.
+     */
     public /*out*/ readonly dashManifestUrls!: pulumi.Output<string[]>;
     /**
      * <p>A DASH manifest configuration.</p>
@@ -70,11 +73,17 @@ export class OriginEndpoint extends pulumi.CustomResource {
      * The failover settings for the endpoint.
      */
     public readonly forceEndpointErrorConfiguration!: pulumi.Output<outputs.mediapackagev2.OriginEndpointForceEndpointErrorConfiguration | undefined>;
+    /**
+     * The egress domain URL for stream delivery from MediaPackage.
+     */
     public /*out*/ readonly hlsManifestUrls!: pulumi.Output<string[]>;
     /**
      * <p>An HTTP live streaming (HLS) manifest configuration.</p>
      */
     public readonly hlsManifests!: pulumi.Output<outputs.mediapackagev2.OriginEndpointHlsManifestConfiguration[] | undefined>;
+    /**
+     * The egress domain URL for stream delivery from MediaPackage.
+     */
     public /*out*/ readonly lowLatencyHlsManifestUrls!: pulumi.Output<string[]>;
     /**
      * <p>A low-latency HLS manifest configuration.</p>

@@ -421,6 +421,342 @@ func (in *keyspaceReplicationSpecificationReplicationStrategyPtr) ToKeyspaceRepl
 	return pulumi.ToOutputWithContext(ctx, in).(KeyspaceReplicationSpecificationReplicationStrategyPtrOutput)
 }
 
+// Indicates whether CDC is enabled or disabled for the table
+type TableCdcStatus string
+
+const (
+	TableCdcStatusEnabled  = TableCdcStatus("ENABLED")
+	TableCdcStatusDisabled = TableCdcStatus("DISABLED")
+)
+
+func (TableCdcStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableCdcStatus)(nil)).Elem()
+}
+
+func (e TableCdcStatus) ToTableCdcStatusOutput() TableCdcStatusOutput {
+	return pulumi.ToOutput(e).(TableCdcStatusOutput)
+}
+
+func (e TableCdcStatus) ToTableCdcStatusOutputWithContext(ctx context.Context) TableCdcStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TableCdcStatusOutput)
+}
+
+func (e TableCdcStatus) ToTableCdcStatusPtrOutput() TableCdcStatusPtrOutput {
+	return e.ToTableCdcStatusPtrOutputWithContext(context.Background())
+}
+
+func (e TableCdcStatus) ToTableCdcStatusPtrOutputWithContext(ctx context.Context) TableCdcStatusPtrOutput {
+	return TableCdcStatus(e).ToTableCdcStatusOutputWithContext(ctx).ToTableCdcStatusPtrOutputWithContext(ctx)
+}
+
+func (e TableCdcStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableCdcStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableCdcStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TableCdcStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TableCdcStatusOutput struct{ *pulumi.OutputState }
+
+func (TableCdcStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableCdcStatus)(nil)).Elem()
+}
+
+func (o TableCdcStatusOutput) ToTableCdcStatusOutput() TableCdcStatusOutput {
+	return o
+}
+
+func (o TableCdcStatusOutput) ToTableCdcStatusOutputWithContext(ctx context.Context) TableCdcStatusOutput {
+	return o
+}
+
+func (o TableCdcStatusOutput) ToTableCdcStatusPtrOutput() TableCdcStatusPtrOutput {
+	return o.ToTableCdcStatusPtrOutputWithContext(context.Background())
+}
+
+func (o TableCdcStatusOutput) ToTableCdcStatusPtrOutputWithContext(ctx context.Context) TableCdcStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableCdcStatus) *TableCdcStatus {
+		return &v
+	}).(TableCdcStatusPtrOutput)
+}
+
+func (o TableCdcStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TableCdcStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableCdcStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TableCdcStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableCdcStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableCdcStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableCdcStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (TableCdcStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableCdcStatus)(nil)).Elem()
+}
+
+func (o TableCdcStatusPtrOutput) ToTableCdcStatusPtrOutput() TableCdcStatusPtrOutput {
+	return o
+}
+
+func (o TableCdcStatusPtrOutput) ToTableCdcStatusPtrOutputWithContext(ctx context.Context) TableCdcStatusPtrOutput {
+	return o
+}
+
+func (o TableCdcStatusPtrOutput) Elem() TableCdcStatusOutput {
+	return o.ApplyT(func(v *TableCdcStatus) TableCdcStatus {
+		if v != nil {
+			return *v
+		}
+		var ret TableCdcStatus
+		return ret
+	}).(TableCdcStatusOutput)
+}
+
+func (o TableCdcStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableCdcStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TableCdcStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TableCdcStatusInput is an input type that accepts values of the TableCdcStatus enum
+// A concrete instance of `TableCdcStatusInput` can be one of the following:
+//
+//	TableCdcStatusEnabled
+//	TableCdcStatusDisabled
+type TableCdcStatusInput interface {
+	pulumi.Input
+
+	ToTableCdcStatusOutput() TableCdcStatusOutput
+	ToTableCdcStatusOutputWithContext(context.Context) TableCdcStatusOutput
+}
+
+var tableCdcStatusPtrType = reflect.TypeOf((**TableCdcStatus)(nil)).Elem()
+
+type TableCdcStatusPtrInput interface {
+	pulumi.Input
+
+	ToTableCdcStatusPtrOutput() TableCdcStatusPtrOutput
+	ToTableCdcStatusPtrOutputWithContext(context.Context) TableCdcStatusPtrOutput
+}
+
+type tableCdcStatusPtr string
+
+func TableCdcStatusPtr(v string) TableCdcStatusPtrInput {
+	return (*tableCdcStatusPtr)(&v)
+}
+
+func (*tableCdcStatusPtr) ElementType() reflect.Type {
+	return tableCdcStatusPtrType
+}
+
+func (in *tableCdcStatusPtr) ToTableCdcStatusPtrOutput() TableCdcStatusPtrOutput {
+	return pulumi.ToOutput(in).(TableCdcStatusPtrOutput)
+}
+
+func (in *tableCdcStatusPtr) ToTableCdcStatusPtrOutputWithContext(ctx context.Context) TableCdcStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TableCdcStatusPtrOutput)
+}
+
+// Specifies what data should be captured in the change data stream
+type TableCdcViewType string
+
+const (
+	TableCdcViewTypeNewImage        = TableCdcViewType("NEW_IMAGE")
+	TableCdcViewTypeOldImage        = TableCdcViewType("OLD_IMAGE")
+	TableCdcViewTypeKeysOnly        = TableCdcViewType("KEYS_ONLY")
+	TableCdcViewTypeNewAndOldImages = TableCdcViewType("NEW_AND_OLD_IMAGES")
+)
+
+func (TableCdcViewType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableCdcViewType)(nil)).Elem()
+}
+
+func (e TableCdcViewType) ToTableCdcViewTypeOutput() TableCdcViewTypeOutput {
+	return pulumi.ToOutput(e).(TableCdcViewTypeOutput)
+}
+
+func (e TableCdcViewType) ToTableCdcViewTypeOutputWithContext(ctx context.Context) TableCdcViewTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TableCdcViewTypeOutput)
+}
+
+func (e TableCdcViewType) ToTableCdcViewTypePtrOutput() TableCdcViewTypePtrOutput {
+	return e.ToTableCdcViewTypePtrOutputWithContext(context.Background())
+}
+
+func (e TableCdcViewType) ToTableCdcViewTypePtrOutputWithContext(ctx context.Context) TableCdcViewTypePtrOutput {
+	return TableCdcViewType(e).ToTableCdcViewTypeOutputWithContext(ctx).ToTableCdcViewTypePtrOutputWithContext(ctx)
+}
+
+func (e TableCdcViewType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableCdcViewType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableCdcViewType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TableCdcViewType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TableCdcViewTypeOutput struct{ *pulumi.OutputState }
+
+func (TableCdcViewTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableCdcViewType)(nil)).Elem()
+}
+
+func (o TableCdcViewTypeOutput) ToTableCdcViewTypeOutput() TableCdcViewTypeOutput {
+	return o
+}
+
+func (o TableCdcViewTypeOutput) ToTableCdcViewTypeOutputWithContext(ctx context.Context) TableCdcViewTypeOutput {
+	return o
+}
+
+func (o TableCdcViewTypeOutput) ToTableCdcViewTypePtrOutput() TableCdcViewTypePtrOutput {
+	return o.ToTableCdcViewTypePtrOutputWithContext(context.Background())
+}
+
+func (o TableCdcViewTypeOutput) ToTableCdcViewTypePtrOutputWithContext(ctx context.Context) TableCdcViewTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableCdcViewType) *TableCdcViewType {
+		return &v
+	}).(TableCdcViewTypePtrOutput)
+}
+
+func (o TableCdcViewTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TableCdcViewTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableCdcViewType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TableCdcViewTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableCdcViewTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableCdcViewType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableCdcViewTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TableCdcViewTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableCdcViewType)(nil)).Elem()
+}
+
+func (o TableCdcViewTypePtrOutput) ToTableCdcViewTypePtrOutput() TableCdcViewTypePtrOutput {
+	return o
+}
+
+func (o TableCdcViewTypePtrOutput) ToTableCdcViewTypePtrOutputWithContext(ctx context.Context) TableCdcViewTypePtrOutput {
+	return o
+}
+
+func (o TableCdcViewTypePtrOutput) Elem() TableCdcViewTypeOutput {
+	return o.ApplyT(func(v *TableCdcViewType) TableCdcViewType {
+		if v != nil {
+			return *v
+		}
+		var ret TableCdcViewType
+		return ret
+	}).(TableCdcViewTypeOutput)
+}
+
+func (o TableCdcViewTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableCdcViewTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TableCdcViewType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TableCdcViewTypeInput is an input type that accepts values of the TableCdcViewType enum
+// A concrete instance of `TableCdcViewTypeInput` can be one of the following:
+//
+//	TableCdcViewTypeNewImage
+//	TableCdcViewTypeOldImage
+//	TableCdcViewTypeKeysOnly
+//	TableCdcViewTypeNewAndOldImages
+type TableCdcViewTypeInput interface {
+	pulumi.Input
+
+	ToTableCdcViewTypeOutput() TableCdcViewTypeOutput
+	ToTableCdcViewTypeOutputWithContext(context.Context) TableCdcViewTypeOutput
+}
+
+var tableCdcViewTypePtrType = reflect.TypeOf((**TableCdcViewType)(nil)).Elem()
+
+type TableCdcViewTypePtrInput interface {
+	pulumi.Input
+
+	ToTableCdcViewTypePtrOutput() TableCdcViewTypePtrOutput
+	ToTableCdcViewTypePtrOutputWithContext(context.Context) TableCdcViewTypePtrOutput
+}
+
+type tableCdcViewTypePtr string
+
+func TableCdcViewTypePtr(v string) TableCdcViewTypePtrInput {
+	return (*tableCdcViewTypePtr)(&v)
+}
+
+func (*tableCdcViewTypePtr) ElementType() reflect.Type {
+	return tableCdcViewTypePtrType
+}
+
+func (in *tableCdcViewTypePtr) ToTableCdcViewTypePtrOutput() TableCdcViewTypePtrOutput {
+	return pulumi.ToOutput(in).(TableCdcViewTypePtrOutput)
+}
+
+func (in *tableCdcViewTypePtr) ToTableCdcViewTypePtrOutputWithContext(ctx context.Context) TableCdcViewTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TableCdcViewTypePtrOutput)
+}
+
 // The order in which this column's data is stored:
 //
 // - `ASC` (default) - The column's data is stored in ascending order.
@@ -928,6 +1264,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceRegionListItemArrayInput)(nil)).Elem(), KeyspaceRegionListItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceReplicationSpecificationReplicationStrategyInput)(nil)).Elem(), KeyspaceReplicationSpecificationReplicationStrategy("SINGLE_REGION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceReplicationSpecificationReplicationStrategyPtrInput)(nil)).Elem(), KeyspaceReplicationSpecificationReplicationStrategy("SINGLE_REGION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableCdcStatusInput)(nil)).Elem(), TableCdcStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableCdcStatusPtrInput)(nil)).Elem(), TableCdcStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableCdcViewTypeInput)(nil)).Elem(), TableCdcViewType("NEW_IMAGE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableCdcViewTypePtrInput)(nil)).Elem(), TableCdcViewType("NEW_IMAGE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableClusteringKeyColumnOrderByInput)(nil)).Elem(), TableClusteringKeyColumnOrderBy("ASC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableClusteringKeyColumnOrderByPtrInput)(nil)).Elem(), TableClusteringKeyColumnOrderBy("ASC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableEncryptionTypeInput)(nil)).Elem(), TableEncryptionType("AWS_OWNED_KMS_KEY"))
@@ -939,6 +1279,10 @@ func init() {
 	pulumi.RegisterOutputType(KeyspaceRegionListItemArrayOutput{})
 	pulumi.RegisterOutputType(KeyspaceReplicationSpecificationReplicationStrategyOutput{})
 	pulumi.RegisterOutputType(KeyspaceReplicationSpecificationReplicationStrategyPtrOutput{})
+	pulumi.RegisterOutputType(TableCdcStatusOutput{})
+	pulumi.RegisterOutputType(TableCdcStatusPtrOutput{})
+	pulumi.RegisterOutputType(TableCdcViewTypeOutput{})
+	pulumi.RegisterOutputType(TableCdcViewTypePtrOutput{})
 	pulumi.RegisterOutputType(TableClusteringKeyColumnOrderByOutput{})
 	pulumi.RegisterOutputType(TableClusteringKeyColumnOrderByPtrOutput{})
 	pulumi.RegisterOutputType(TableEncryptionTypeOutput{})

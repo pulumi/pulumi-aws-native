@@ -14,6 +14,7 @@ __all__ = [
     'ApplicationQAppsControlMode',
     'ApplicationStatus',
     'ApplicationSubscriptionType',
+    'DataAccessorAuthenticationType',
     'DataSourceAttributeValueOperator',
     'DataSourceAudioExtractionStatus',
     'DataSourceDocumentContentOperator',
@@ -24,6 +25,7 @@ __all__ = [
     'IndexAttributeType',
     'IndexStatus',
     'IndexType',
+    'PermissionConditionConditionOperator',
     'PluginApiSchemaType',
     'PluginBuildStatus',
     'PluginState',
@@ -83,6 +85,12 @@ class ApplicationStatus(builtins.str, Enum):
 class ApplicationSubscriptionType(builtins.str, Enum):
     Q_LITE = "Q_LITE"
     Q_BUSINESS = "Q_BUSINESS"
+
+
+@pulumi.type_token("aws-native:qbusiness:DataAccessorAuthenticationType")
+class DataAccessorAuthenticationType(builtins.str, Enum):
+    AWS_IAM_IDC_TTI = "AWS_IAM_IDC_TTI"
+    AWS_IAM_IDC_AUTH_CODE = "AWS_IAM_IDC_AUTH_CODE"
 
 
 @pulumi.type_token("aws-native:qbusiness:DataSourceAttributeValueOperator")
@@ -159,6 +167,11 @@ class IndexStatus(builtins.str, Enum):
 class IndexType(builtins.str, Enum):
     ENTERPRISE = "ENTERPRISE"
     STARTER = "STARTER"
+
+
+@pulumi.type_token("aws-native:qbusiness:PermissionConditionConditionOperator")
+class PermissionConditionConditionOperator(builtins.str, Enum):
+    STRING_EQUALS = "StringEquals"
 
 
 @pulumi.type_token("aws-native:qbusiness:PluginApiSchemaType")

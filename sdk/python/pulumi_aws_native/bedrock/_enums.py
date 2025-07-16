@@ -77,6 +77,7 @@ __all__ = [
     'FlowVersionVectorSearchRerankingConfigurationType',
     'GuardrailContentFilterAction',
     'GuardrailContentFilterType',
+    'GuardrailContentFiltersTierName',
     'GuardrailContextualGroundingAction',
     'GuardrailContextualGroundingFilterType',
     'GuardrailFilterStrength',
@@ -87,6 +88,7 @@ __all__ = [
     'GuardrailStatus',
     'GuardrailTopicAction',
     'GuardrailTopicType',
+    'GuardrailTopicsTierName',
     'GuardrailWordAction',
     'IntelligentPromptRouterPromptRouterStatus',
     'IntelligentPromptRouterPromptRouterType',
@@ -768,6 +770,15 @@ class GuardrailContentFilterType(builtins.str, Enum):
     PROMPT_ATTACK = "PROMPT_ATTACK"
 
 
+@pulumi.type_token("aws-native:bedrock:GuardrailContentFiltersTierName")
+class GuardrailContentFiltersTierName(builtins.str, Enum):
+    """
+    Tier name for tier configuration in content filters policy
+    """
+    CLASSIC = "CLASSIC"
+    STANDARD = "STANDARD"
+
+
 @pulumi.type_token("aws-native:bedrock:GuardrailContextualGroundingAction")
 class GuardrailContextualGroundingAction(builtins.str, Enum):
     BLOCK = "BLOCK"
@@ -884,6 +895,15 @@ class GuardrailTopicType(builtins.str, Enum):
     Type of topic in a policy
     """
     DENY = "DENY"
+
+
+@pulumi.type_token("aws-native:bedrock:GuardrailTopicsTierName")
+class GuardrailTopicsTierName(builtins.str, Enum):
+    """
+    Tier name for tier configuration in topic policy
+    """
+    CLASSIC = "CLASSIC"
+    STANDARD = "STANDARD"
 
 
 @pulumi.type_token("aws-native:bedrock:GuardrailWordAction")

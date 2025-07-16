@@ -349,9 +349,6 @@ namespace Pulumi.AwsNative.Ecs
         [Output("family")]
         public Output<string?> Family { get; private set; } = null!;
 
-        /// <summary>
-        /// The Elastic Inference accelerators to use for the containers in the task.
-        /// </summary>
         [Output("inferenceAccelerators")]
         public Output<ImmutableArray<Outputs.TaskDefinitionInferenceAccelerator>> InferenceAccelerators { get; private set; } = null!;
 
@@ -581,10 +578,6 @@ namespace Pulumi.AwsNative.Ecs
 
         [Input("inferenceAccelerators")]
         private InputList<Inputs.TaskDefinitionInferenceAcceleratorArgs>? _inferenceAccelerators;
-
-        /// <summary>
-        /// The Elastic Inference accelerators to use for the containers in the task.
-        /// </summary>
         public InputList<Inputs.TaskDefinitionInferenceAcceleratorArgs> InferenceAccelerators
         {
             get => _inferenceAccelerators ?? (_inferenceAccelerators = new InputList<Inputs.TaskDefinitionInferenceAcceleratorArgs>());

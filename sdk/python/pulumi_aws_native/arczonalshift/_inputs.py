@@ -92,6 +92,8 @@ if not MYPY:
         An array of one or more days and times that you can specify when ARC does not start practice runs for a resource. Days and times are in UTC.
 
         Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
+
+        > Blocked windows have to start and end on the same day. Windows that span multiple days aren't supported.
         """
         blocking_alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationControlConditionArgsDict']]]]
         """
@@ -115,6 +117,8 @@ class ZonalAutoshiftConfigurationPracticeRunConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] blocked_windows: An array of one or more days and times that you can specify when ARC does not start practice runs for a resource. Days and times are in UTC.
                
                Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
+               
+               > Blocked windows have to start and end on the same day. Windows that span multiple days aren't supported.
         :param pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationControlConditionArgs']]] blocking_alarms: An optional alarm that you can specify that blocks practice runs when the alarm is in an `ALARM` state. When a blocking alarm goes into an `ALARM` state, it prevents practice runs from being started, and ends practice runs that are in progress.
         """
         pulumi.set(__self__, "outcome_alarms", outcome_alarms)
@@ -158,6 +162,8 @@ class ZonalAutoshiftConfigurationPracticeRunConfigurationArgs:
         An array of one or more days and times that you can specify when ARC does not start practice runs for a resource. Days and times are in UTC.
 
         Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
+
+        > Blocked windows have to start and end on the same day. Windows that span multiple days aren't supported.
         """
         return pulumi.get(self, "blocked_windows")
 
