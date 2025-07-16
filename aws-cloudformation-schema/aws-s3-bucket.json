@@ -72,6 +72,10 @@
       "$ref" : "#/definitions/MetadataTableConfiguration",
       "description" : "The metadata table configuration of an S3 general purpose bucket."
     },
+    "MetadataConfiguration" : {
+      "$ref" : "#/definitions/MetadataConfiguration",
+      "description" : ""
+    },
     "NotificationConfiguration" : {
       "$ref" : "#/definitions/NotificationConfiguration",
       "description" : "Configuration that defines how Amazon S3 handles bucket notifications."
@@ -1444,6 +1448,129 @@
       },
       "required" : [ "TableBucketArn", "TableName" ],
       "description" : "The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket."
+    },
+    "RecordExpiration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Expiration" : {
+          "type" : "string",
+          "enum" : [ "ENABLED", "DISABLED" ],
+          "description" : "Specifies whether record expiration is enabled or disabled."
+        },
+        "Days" : {
+          "type" : "integer",
+          "description" : "The number of days after which records expire. Required if Expiration is ENABLED."
+        }
+      },
+      "required" : [ "Expiration" ],
+      "description" : ""
+    },
+    "MetadataTableEncryptionConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SseAlgorithm" : {
+          "type" : "string",
+          "enum" : [ "aws:kms", "AES256" ],
+          "description" : "Specifies the server-side encryption algorithm to use for encrypting tables."
+        },
+        "KmsKeyArn" : {
+          "type" : "string",
+          "description" : "The ARN of the KMS key. Required if SseAlgorithm is aws:kms."
+        }
+      },
+      "required" : [ "SseAlgorithm" ],
+      "description" : ""
+    },
+    "MetadataDestination" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "TableBucketType" : {
+          "type" : "string",
+          "enum" : [ "aws", "customer" ],
+          "description" : "The type of the table bucket."
+        },
+        "TableBucketArn" : {
+          "type" : "string",
+          "description" : "The ARN of the table bucket."
+        },
+        "TableNamespace" : {
+          "type" : "string",
+          "description" : "The namespace of the table."
+        }
+      },
+      "required" : [ "TableBucketType" ],
+      "description" : ""
+    },
+    "JournalTableConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "TableName" : {
+          "type" : "string",
+          "description" : "The name of the journal table."
+        },
+        "TableArn" : {
+          "type" : "string",
+          "description" : "The ARN of the journal table."
+        },
+        "RecordExpiration" : {
+          "$ref" : "#/definitions/RecordExpiration"
+        },
+        "EncryptionConfiguration" : {
+          "$ref" : "#/definitions/MetadataTableEncryptionConfiguration",
+          "description" : "The encryption configuration for the journal table."
+        }
+      },
+      "required" : [ "RecordExpiration" ],
+      "description" : ""
+    },
+    "InventoryTableConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "TableName" : {
+          "type" : "string",
+          "description" : "The name of the inventory table."
+        },
+        "TableArn" : {
+          "type" : "string",
+          "description" : "The ARN of the inventory table."
+        },
+        "ConfigurationState" : {
+          "type" : "string",
+          "enum" : [ "ENABLED", "DISABLED" ],
+          "description" : "Specifies whether inventory table configuration is enabled or disabled."
+        },
+        "EncryptionConfiguration" : {
+          "$ref" : "#/definitions/MetadataTableEncryptionConfiguration",
+          "description" : "The encryption configuration for the inventory table."
+        }
+      },
+      "required" : [ "ConfigurationState" ],
+      "description" : ""
+    },
+    "MetadataConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "description" : "",
+      "properties" : {
+        "Destination" : {
+          "$ref" : "#/definitions/MetadataDestination",
+          "description" : "The destination information for the metadata configuration."
+        },
+        "JournalTableConfiguration" : {
+          "$ref" : "#/definitions/JournalTableConfiguration",
+          "description" : "The configuration for the journal table."
+        },
+        "InventoryTableConfiguration" : {
+          "$ref" : "#/definitions/InventoryTableConfiguration",
+          "description" : "The configuration for the inventory table."
+        }
+      },
+      "required" : [ "JournalTableConfiguration" ]
     }
   },
   "tagging" : {
@@ -1454,10 +1581,10 @@
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "s3:PutBucketTagging", "s3:GetBucketTagging", "s3:DeleteBucketTagging" ]
   },
-  "createOnlyProperties" : [ "/properties/BucketName" ],
+  "createOnlyProperties" : [ "/properties/BucketName", "/properties/MetadataConfiguration/JournalTableConfiguration/EncryptionConfiguration" ],
   "primaryIdentifier" : [ "/properties/BucketName" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/DomainName", "/properties/DualStackDomainName", "/properties/RegionalDomainName", "/properties/MetadataTableConfiguration/S3TablesDestination/TableNamespace", "/properties/MetadataTableConfiguration/S3TablesDestination/TableArn", "/properties/WebsiteURL" ],
-  "writeOnlyProperties" : [ "/properties/AccessControl", "/properties/LifecycleConfiguration/Rules/*/NoncurrentVersionExpirationInDays", "/properties/LifecycleConfiguration/Rules/*/NoncurrentVersionTransition", "/properties/LifecycleConfiguration/Rules/*/Transition", "/properties/ReplicationConfiguration/Rules/*/Prefix", "/properties/LifecycleConfiguration/Rules/*/ExpiredObjectDeleteMarker" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/DomainName", "/properties/DualStackDomainName", "/properties/RegionalDomainName", "/properties/MetadataTableConfiguration/S3TablesDestination/TableNamespace", "/properties/MetadataTableConfiguration/S3TablesDestination/TableArn", "/properties/MetadataConfiguration/Destination", "/properties/MetadataConfiguration/JournalTableConfiguration/TableName", "/properties/MetadataConfiguration/JournalTableConfiguration/TableArn", "/properties/MetadataConfiguration/InventoryTableConfiguration/TableName", "/properties/MetadataConfiguration/InventoryTableConfiguration/TableArn", "/properties/WebsiteURL" ],
+  "writeOnlyProperties" : [ "/properties/AccessControl", "/properties/MetadataConfiguration/JournalTableConfiguration/EncryptionConfiguration", "/properties/MetadataConfiguration/InventoryTableConfiguration/EncryptionConfiguration", "/properties/LifecycleConfiguration/Rules/*/NoncurrentVersionExpirationInDays", "/properties/LifecycleConfiguration/Rules/*/NoncurrentVersionTransition", "/properties/LifecycleConfiguration/Rules/*/Transition", "/properties/ReplicationConfiguration/Rules/*/Prefix", "/properties/LifecycleConfiguration/Rules/*/ExpiredObjectDeleteMarker" ],
   "propertyTransform" : {
     "/properties/NotificationConfiguration/QueueConfigurations/*/Filter/S3Key/Rules/*/Name" : "$replace(Name, \"prefix\", \"Prefix\") $OR $replace(Name, \"suffix\", \"Suffix\")",
     "/properties/NotificationConfiguration/LambdaConfigurations/*/Filter/S3Key/Rules/*/Name" : "$replace(Name, \"prefix\", \"Prefix\") $OR $replace(Name, \"suffix\", \"Suffix\")",
@@ -1465,13 +1592,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "s3:CreateBucket", "s3:PutBucketTagging", "s3:PutAnalyticsConfiguration", "s3:PutEncryptionConfiguration", "s3:PutBucketCORS", "s3:PutInventoryConfiguration", "s3:PutLifecycleConfiguration", "s3:PutMetricsConfiguration", "s3:PutBucketNotification", "s3:PutBucketReplication", "s3:PutBucketWebsite", "s3:PutAccelerateConfiguration", "s3:PutBucketPublicAccessBlock", "s3:PutReplicationConfiguration", "s3:PutObjectAcl", "s3:PutBucketObjectLockConfiguration", "s3:GetBucketAcl", "s3:ListBucket", "iam:PassRole", "s3:DeleteObject", "s3:PutBucketLogging", "s3:PutBucketVersioning", "s3:PutObjectLockConfiguration", "s3:PutBucketOwnershipControls", "s3:PutIntelligentTieringConfiguration", "s3:GetBucketMetadataTableConfiguration", "s3:CreateBucketMetadataTableConfiguration", "s3tables:CreateNamespace", "s3tables:CreateTable", "s3tables:GetTable", "s3tables:PutTablePolicy", "s3tables:GetTableMetadataLocation", "s3tables:UpdateTableMetadataLocation" ]
+      "permissions" : [ "s3:CreateBucket", "s3:PutBucketTagging", "s3:PutAnalyticsConfiguration", "s3:PutEncryptionConfiguration", "s3:PutBucketCORS", "s3:PutInventoryConfiguration", "s3:PutLifecycleConfiguration", "s3:PutMetricsConfiguration", "s3:PutBucketNotification", "s3:PutBucketReplication", "s3:PutBucketWebsite", "s3:PutAccelerateConfiguration", "s3:PutBucketPublicAccessBlock", "s3:PutReplicationConfiguration", "s3:PutObjectAcl", "s3:PutBucketObjectLockConfiguration", "s3:GetBucketAcl", "s3:ListBucket", "iam:PassRole", "s3:DeleteObject", "s3:PutBucketLogging", "s3:PutBucketVersioning", "s3:PutObjectLockConfiguration", "s3:PutBucketOwnershipControls", "s3:PutIntelligentTieringConfiguration", "s3:GetBucketMetadataTableConfiguration", "s3:CreateBucketMetadataTableConfiguration", "s3tables:CreateNamespace", "s3tables:CreateTable", "s3tables:CreateTableBucket", "s3tables:GetTable", "s3tables:PutTableEncryption", "s3tables:PutTablePolicy", "s3tables:GetTableMetadataLocation", "s3tables:UpdateTableMetadataLocation" ]
     },
     "read" : {
       "permissions" : [ "s3:GetAccelerateConfiguration", "s3:GetLifecycleConfiguration", "s3:GetBucketPublicAccessBlock", "s3:GetAnalyticsConfiguration", "s3:GetBucketCORS", "s3:GetEncryptionConfiguration", "s3:GetInventoryConfiguration", "s3:GetBucketLogging", "s3:GetMetricsConfiguration", "s3:GetBucketNotification", "s3:GetBucketVersioning", "s3:GetReplicationConfiguration", "S3:GetBucketWebsite", "s3:GetBucketPublicAccessBlock", "s3:GetBucketObjectLockConfiguration", "s3:GetBucketTagging", "s3:GetBucketOwnershipControls", "s3:GetIntelligentTieringConfiguration", "s3:GetBucketMetadataTableConfiguration", "s3:ListBucket" ]
     },
     "update" : {
-      "permissions" : [ "s3:PutBucketAcl", "s3:PutBucketTagging", "s3:PutAnalyticsConfiguration", "s3:PutEncryptionConfiguration", "s3:PutBucketCORS", "s3:PutInventoryConfiguration", "s3:PutLifecycleConfiguration", "s3:PutMetricsConfiguration", "s3:PutBucketNotification", "s3:PutBucketReplication", "s3:PutBucketWebsite", "s3:PutAccelerateConfiguration", "s3:GetBucketMetadataTableConfiguration", "s3:DeleteBucketMetadataTableConfiguration", "s3:CreateBucketMetadataTableConfiguration", "s3tables:CreateNamespace", "s3tables:CreateTable", "s3tables:GetTable", "s3tables:PutTablePolicy", "s3tables:GetTableMetadataLocation", "s3tables:UpdateTableMetadataLocation", "s3:PutBucketPublicAccessBlock", "s3:PutReplicationConfiguration", "s3:PutBucketOwnershipControls", "s3:PutIntelligentTieringConfiguration", "s3:DeleteBucketWebsite", "s3:PutBucketLogging", "s3:PutBucketVersioning", "s3:PutObjectLockConfiguration", "s3:PutBucketObjectLockConfiguration", "s3:DeleteBucketAnalyticsConfiguration", "s3:DeleteBucketCors", "s3:DeleteBucketMetricsConfiguration", "s3:DeleteBucketEncryption", "s3:DeleteBucketLifecycle", "s3:DeleteBucketReplication", "iam:PassRole", "s3:ListBucket" ]
+      "permissions" : [ "s3:PutBucketAcl", "s3:PutBucketTagging", "s3:PutAnalyticsConfiguration", "s3:PutEncryptionConfiguration", "s3:PutBucketCORS", "s3:PutInventoryConfiguration", "s3:PutLifecycleConfiguration", "s3:PutMetricsConfiguration", "s3:PutBucketNotification", "s3:PutBucketReplication", "s3:PutBucketWebsite", "s3:PutAccelerateConfiguration", "s3:GetBucketMetadataTableConfiguration", "s3:DeleteBucketMetadataTableConfiguration", "s3:CreateBucketMetadataTableConfiguration", "s3:UpdateBucketMetadataJournalTableConfiguration", "s3:UpdateBucketMetadataInventoryTableConfiguration", "s3tables:CreateNamespace", "s3tables:CreateTable", "s3tables:CreateTableBucket", "s3tables:GetTable", "s3tables:PutTableEncryption", "s3tables:PutTablePolicy", "s3tables:GetTableMetadataLocation", "s3tables:UpdateTableMetadataLocation", "s3:PutBucketPublicAccessBlock", "s3:PutReplicationConfiguration", "s3:PutBucketOwnershipControls", "s3:PutIntelligentTieringConfiguration", "s3:DeleteBucketWebsite", "s3:PutBucketLogging", "s3:PutBucketVersioning", "s3:PutObjectLockConfiguration", "s3:PutBucketObjectLockConfiguration", "s3:DeleteBucketAnalyticsConfiguration", "s3:DeleteBucketCors", "s3:DeleteBucketMetricsConfiguration", "s3:DeleteBucketEncryption", "s3:DeleteBucketLifecycle", "s3:DeleteBucketReplication", "iam:PassRole", "s3:ListBucket" ]
     },
     "delete" : {
       "permissions" : [ "s3:DeleteBucket", "s3:ListBucket" ]

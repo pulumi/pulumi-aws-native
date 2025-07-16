@@ -222,21 +222,16 @@
   },
   "additionalProperties" : false,
   "oneOf" : [ {
-    "required" : [ "DockerfileTemplateData", "Name", "Version", "Components", "ParentImage", "TargetRepository", "ContainerType" ]
-  }, {
-    "required" : [ "DockerfileTemplateUri", "Name", "Version", "Components", "ParentImage", "TargetRepository", "ContainerType" ]
+    "required" : [ "Name", "Version", "Components", "ParentImage", "TargetRepository", "ContainerType" ]
   } ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Version", "/properties/ContainerType", "/properties/TargetRepository", "/properties/InstanceConfiguration", "/properties/ParentImage", "/properties/Description", "/properties/DockerfileTemplateUri", "/properties/DockerfileTemplateData", "/properties/ImageOsVersionOverride", "/properties/KmsKeyId", "/properties/PlatformOverride", "/properties/WorkingDirectory", "/properties/Components", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Version", "/properties/ContainerType", "/properties/TargetRepository", "/properties/InstanceConfiguration", "/properties/ParentImage", "/properties/Description", "/properties/DockerfileTemplateUri", "/properties/DockerfileTemplateData", "/properties/ImageOsVersionOverride", "/properties/KmsKeyId", "/properties/PlatformOverride", "/properties/WorkingDirectory", "/properties/Components" ],
   "writeOnlyProperties" : [ "/properties/DockerfileTemplateData", "/properties/DockerfileTemplateUri", "/properties/ImageOsVersionOverride", "/properties/PlatformOverride" ],
-  "propertyTransform" : {
-    "/properties/InstanceConfiguration/BlockDeviceMappings/*/Ebs/VolumeType" : "$uppercase(VolumeType)"
-  },
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
@@ -247,6 +242,9 @@
     },
     "read" : {
       "permissions" : [ "imagebuilder:GetContainerRecipe", "kms:Decrypt" ]
+    },
+    "update" : {
+      "permissions" : [ "imagebuilder:TagResource", "imagebuilder:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "imagebuilder:UntagResource", "imagebuilder:GetContainerRecipe", "imagebuilder:DeleteContainerRecipe" ]

@@ -989,6 +989,12 @@
         "CatalogConfiguration" : {
           "$ref" : "#/definitions/CatalogConfiguration"
         },
+        "SchemaEvolutionConfiguration" : {
+          "$ref" : "#/definitions/SchemaEvolutionConfiguration"
+        },
+        "TableCreationConfiguration" : {
+          "$ref" : "#/definitions/TableCreationConfiguration"
+        },
         "RoleARN" : {
           "type" : "string",
           "minLength" : 1,
@@ -1027,6 +1033,30 @@
           "minLength" : 1,
           "maxLength" : 512,
           "pattern" : "arn:.*"
+        },
+        "WarehouseLocation" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 2048,
+          "pattern" : "s3:\\/\\/.*"
+        }
+      }
+    },
+    "SchemaEvolutionConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "TableCreationConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
         }
       }
     },
@@ -1055,6 +1085,19 @@
           "items" : {
             "$ref" : "#/definitions/UniqueKey"
           }
+        },
+        "PartitionSpec" : {
+          "type" : "object",
+          "additionalProperties" : false,
+          "properties" : {
+            "Identity" : {
+              "type" : "array",
+              "uniqueItems" : true,
+              "items" : {
+                "$ref" : "#/definitions/PartitionField"
+              }
+            }
+          }
         }
       },
       "required" : [ "DestinationDatabaseName", "DestinationTableName" ]
@@ -1075,6 +1118,18 @@
           "type" : "integer"
         }
       }
+    },
+    "PartitionField" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SourceName" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 255
+        }
+      },
+      "required" : [ "SourceName" ]
     },
     "ProcessingConfiguration" : {
       "type" : "object",
