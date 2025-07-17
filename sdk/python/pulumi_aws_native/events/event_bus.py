@@ -17,6 +17,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['EventBusArgs', 'EventBus']
@@ -28,6 +29,7 @@ class EventBusArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  event_source_name: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 log_config: Optional[pulumi.Input['LogConfigPropertiesArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -37,6 +39,7 @@ class EventBusArgs:
         :param pulumi.Input[builtins.str] description: The description of the event bus.
         :param pulumi.Input[builtins.str] event_source_name: If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
         :param pulumi.Input[builtins.str] kms_key_identifier: Kms Key Identifier used to encrypt events at rest in the event bus.
+        :param pulumi.Input['LogConfigPropertiesArgs'] log_config: The logging configuration settings for vended logs.
         :param pulumi.Input[builtins.str] name: The name of the event bus.
         :param Any policy: A JSON string that describes the permission policy statement for the event bus.
                
@@ -51,6 +54,8 @@ class EventBusArgs:
             pulumi.set(__self__, "event_source_name", event_source_name)
         if kms_key_identifier is not None:
             pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
+        if log_config is not None:
+            pulumi.set(__self__, "log_config", log_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if policy is not None:
@@ -107,6 +112,18 @@ class EventBusArgs:
         pulumi.set(self, "kms_key_identifier", value)
 
     @property
+    @pulumi.getter(name="logConfig")
+    def log_config(self) -> Optional[pulumi.Input['LogConfigPropertiesArgs']]:
+        """
+        The logging configuration settings for vended logs.
+        """
+        return pulumi.get(self, "log_config")
+
+    @log_config.setter
+    def log_config(self, value: Optional[pulumi.Input['LogConfigPropertiesArgs']]):
+        pulumi.set(self, "log_config", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -155,6 +172,7 @@ class EventBus(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  event_source_name: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 log_config: Optional[pulumi.Input[Union['LogConfigPropertiesArgs', 'LogConfigPropertiesArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -168,6 +186,7 @@ class EventBus(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The description of the event bus.
         :param pulumi.Input[builtins.str] event_source_name: If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
         :param pulumi.Input[builtins.str] kms_key_identifier: Kms Key Identifier used to encrypt events at rest in the event bus.
+        :param pulumi.Input[Union['LogConfigPropertiesArgs', 'LogConfigPropertiesArgsDict']] log_config: The logging configuration settings for vended logs.
         :param pulumi.Input[builtins.str] name: The name of the event bus.
         :param Any policy: A JSON string that describes the permission policy statement for the event bus.
                
@@ -202,6 +221,7 @@ class EventBus(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  event_source_name: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 log_config: Optional[pulumi.Input[Union['LogConfigPropertiesArgs', 'LogConfigPropertiesArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -218,6 +238,7 @@ class EventBus(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["event_source_name"] = event_source_name
             __props__.__dict__["kms_key_identifier"] = kms_key_identifier
+            __props__.__dict__["log_config"] = log_config
             __props__.__dict__["name"] = name
             __props__.__dict__["policy"] = policy
             __props__.__dict__["tags"] = tags
@@ -251,6 +272,7 @@ class EventBus(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["event_source_name"] = None
         __props__.__dict__["kms_key_identifier"] = None
+        __props__.__dict__["log_config"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["policy"] = None
         __props__.__dict__["tags"] = None
@@ -295,6 +317,14 @@ class EventBus(pulumi.CustomResource):
         Kms Key Identifier used to encrypt events at rest in the event bus.
         """
         return pulumi.get(self, "kms_key_identifier")
+
+    @property
+    @pulumi.getter(name="logConfig")
+    def log_config(self) -> pulumi.Output[Optional['outputs.LogConfigProperties']]:
+        """
+        The logging configuration settings for vended logs.
+        """
+        return pulumi.get(self, "log_config")
 
     @property
     @pulumi.getter

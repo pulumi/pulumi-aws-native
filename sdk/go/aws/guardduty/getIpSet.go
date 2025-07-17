@@ -33,7 +33,8 @@ type LookupIpSetArgs struct {
 }
 
 type LookupIpSetResult struct {
-	Id *string `pulumi:"id"`
+	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+	Id                  *string `pulumi:"id"`
 	// The URI of the file that contains the IPSet.
 	Location *string `pulumi:"location"`
 	// The user-friendly name to identify the IPSet.
@@ -80,6 +81,10 @@ func (o LookupIpSetResultOutput) ToLookupIpSetResultOutput() LookupIpSetResultOu
 
 func (o LookupIpSetResultOutput) ToLookupIpSetResultOutputWithContext(ctx context.Context) LookupIpSetResultOutput {
 	return o
+}
+
+func (o LookupIpSetResultOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIpSetResult) *string { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupIpSetResultOutput) Id() pulumi.StringPtrOutput {

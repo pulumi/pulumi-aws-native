@@ -75,6 +75,7 @@ namespace Pulumi.AwsNative.GuardDuty
     [OutputType]
     public sealed class GetIpSetResult
     {
+        public readonly string? ExpectedBucketOwner;
         public readonly string? Id;
         /// <summary>
         /// The URI of the file that contains the IPSet.
@@ -95,6 +96,8 @@ namespace Pulumi.AwsNative.GuardDuty
 
         [OutputConstructor]
         private GetIpSetResult(
+            string? expectedBucketOwner,
+
             string? id,
 
             string? location,
@@ -103,6 +106,7 @@ namespace Pulumi.AwsNative.GuardDuty
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            ExpectedBucketOwner = expectedBucketOwner;
             Id = id;
             Location = location;
             Name = name;

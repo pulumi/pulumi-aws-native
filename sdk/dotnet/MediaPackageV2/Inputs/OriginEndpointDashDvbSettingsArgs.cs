@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
             set => _errorMetrics = value;
         }
 
+        /// <summary>
+        /// Subtitle font settings.
+        /// </summary>
         [Input("fontDownload")]
         public Input<Inputs.OriginEndpointDashDvbFontDownloadArgs>? FontDownload { get; set; }
 

@@ -30,6 +30,7 @@ export interface GetIpSetArgs {
 }
 
 export interface GetIpSetResult {
+    readonly expectedBucketOwner?: string;
     readonly id?: string;
     /**
      * The URI of the file that contains the IPSet.

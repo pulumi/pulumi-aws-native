@@ -389,6 +389,9 @@ namespace Pulumi.AwsNative.Transfer
         [Output("identityProviderType")]
         public Output<Pulumi.AwsNative.Transfer.ServerIdentityProviderType?> IdentityProviderType { get; private set; } = null!;
 
+        [Output("ipAddressType")]
+        public Output<Pulumi.AwsNative.Transfer.ServerIpAddressType?> IpAddressType { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.
         /// </summary>
@@ -621,6 +624,9 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         [Input("identityProviderType")]
         public Input<Pulumi.AwsNative.Transfer.ServerIdentityProviderType>? IdentityProviderType { get; set; }
+
+        [Input("ipAddressType")]
+        public Input<Pulumi.AwsNative.Transfer.ServerIpAddressType>? IpAddressType { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.

@@ -1385,7 +1385,9 @@ func (o DirectoryBucketServerSideEncryptionRuleArrayOutput) Index(i pulumi.IntIn
 }
 
 type DirectoryBucketTag struct {
-	Key   string `pulumi:"key"`
+	// Name of the object key.
+	Key string `pulumi:"key"`
+	// Value of the tag.
 	Value string `pulumi:"value"`
 }
 

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
     public sealed class ServiceConnectTestTrafficRulesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The HTTP header-based routing rules that determine which requests should be routed to the new service version during blue/green deployment testing. These rules provide fine-grained control over test traffic routing based on request headers.
+        /// </summary>
         [Input("header", required: true)]
         public Input<Inputs.ServiceConnectTestTrafficRulesHeaderArgs> Header { get; set; } = null!;
 

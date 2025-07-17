@@ -33,6 +33,7 @@ export interface GetThreatIntelSetArgs {
 }
 
 export interface GetThreatIntelSetResult {
+    readonly expectedBucketOwner?: string;
     /**
      * The unique ID of the `threatIntelSet` .
      */

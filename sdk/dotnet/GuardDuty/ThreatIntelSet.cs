@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.GuardDuty
         [Output("detectorId")]
         public Output<string?> DetectorId { get; private set; } = null!;
 
+        [Output("expectedBucketOwner")]
+        public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
+
         /// <summary>
         /// The format of the file that contains the ThreatIntelSet.
         /// </summary>
@@ -126,6 +129,9 @@ namespace Pulumi.AwsNative.GuardDuty
         /// </summary>
         [Input("detectorId")]
         public Input<string>? DetectorId { get; set; }
+
+        [Input("expectedBucketOwner")]
+        public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
         /// The format of the file that contains the ThreatIntelSet.

@@ -52,6 +52,7 @@ export class ThreatIntelSet extends pulumi.CustomResource {
      * Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
      */
     public readonly detectorId!: pulumi.Output<string | undefined>;
+    public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
      * The format of the file that contains the ThreatIntelSet.
      */
@@ -90,6 +91,7 @@ export class ThreatIntelSet extends pulumi.CustomResource {
             }
             resourceInputs["activate"] = args ? args.activate : undefined;
             resourceInputs["detectorId"] = args ? args.detectorId : undefined;
+            resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
             resourceInputs["format"] = args ? args.format : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -99,6 +101,7 @@ export class ThreatIntelSet extends pulumi.CustomResource {
             resourceInputs["activate"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["detectorId"] = undefined /*out*/;
+            resourceInputs["expectedBucketOwner"] = undefined /*out*/;
             resourceInputs["format"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -126,6 +129,7 @@ export interface ThreatIntelSetArgs {
      * Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
      */
     detectorId?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string>;
     /**
      * The format of the file that contains the ThreatIntelSet.
      */

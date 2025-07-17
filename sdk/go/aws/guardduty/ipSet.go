@@ -24,7 +24,8 @@ type IpSet struct {
 	//
 	// To find the `detectorId` in the current Region, see the
 	// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
-	DetectorId pulumi.StringPtrOutput `pulumi:"detectorId"`
+	DetectorId          pulumi.StringPtrOutput `pulumi:"detectorId"`
+	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// The format of the file that contains the IPSet.
 	Format pulumi.StringOutput `pulumi:"format"`
 	// The URI of the file that contains the IPSet.
@@ -96,7 +97,8 @@ type ipSetArgs struct {
 	//
 	// To find the `detectorId` in the current Region, see the
 	// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
-	DetectorId *string `pulumi:"detectorId"`
+	DetectorId          *string `pulumi:"detectorId"`
+	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// The format of the file that contains the IPSet.
 	Format string `pulumi:"format"`
 	// The URI of the file that contains the IPSet.
@@ -119,7 +121,8 @@ type IpSetArgs struct {
 	//
 	// To find the `detectorId` in the current Region, see the
 	// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
-	DetectorId pulumi.StringPtrInput
+	DetectorId          pulumi.StringPtrInput
+	ExpectedBucketOwner pulumi.StringPtrInput
 	// The format of the file that contains the IPSet.
 	Format pulumi.StringInput
 	// The URI of the file that contains the IPSet.
@@ -186,6 +189,10 @@ func (o IpSetOutput) AwsId() pulumi.StringOutput {
 // Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 func (o IpSetOutput) DetectorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringPtrOutput { return v.DetectorId }).(pulumi.StringPtrOutput)
+}
+
+func (o IpSetOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpSet) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
 // The format of the file that contains the IPSet.

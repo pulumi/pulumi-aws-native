@@ -31,6 +31,7 @@ class ServerArgs:
                  endpoint_type: Optional[pulumi.Input['ServerEndpointType']] = None,
                  identity_provider_details: Optional[pulumi.Input['ServerIdentityProviderDetailsArgs']] = None,
                  identity_provider_type: Optional[pulumi.Input['ServerIdentityProviderType']] = None,
+                 ip_address_type: Optional[pulumi.Input['ServerIpAddressType']] = None,
                  logging_role: Optional[pulumi.Input[builtins.str]] = None,
                  post_authentication_login_banner: Optional[pulumi.Input[builtins.str]] = None,
                  pre_authentication_login_banner: Optional[pulumi.Input[builtins.str]] = None,
@@ -145,6 +146,8 @@ class ServerArgs:
             pulumi.set(__self__, "identity_provider_details", identity_provider_details)
         if identity_provider_type is not None:
             pulumi.set(__self__, "identity_provider_type", identity_provider_type)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if logging_role is not None:
             pulumi.set(__self__, "logging_role", logging_role)
         if post_authentication_login_banner is not None:
@@ -265,6 +268,15 @@ class ServerArgs:
     @identity_provider_type.setter
     def identity_provider_type(self, value: Optional[pulumi.Input['ServerIdentityProviderType']]):
         pulumi.set(self, "identity_provider_type", value)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input['ServerIpAddressType']]:
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input['ServerIpAddressType']]):
+        pulumi.set(self, "ip_address_type", value)
 
     @property
     @pulumi.getter(name="loggingRole")
@@ -444,6 +456,7 @@ class Server(pulumi.CustomResource):
                  endpoint_type: Optional[pulumi.Input['ServerEndpointType']] = None,
                  identity_provider_details: Optional[pulumi.Input[Union['ServerIdentityProviderDetailsArgs', 'ServerIdentityProviderDetailsArgsDict']]] = None,
                  identity_provider_type: Optional[pulumi.Input['ServerIdentityProviderType']] = None,
+                 ip_address_type: Optional[pulumi.Input['ServerIpAddressType']] = None,
                  logging_role: Optional[pulumi.Input[builtins.str]] = None,
                  post_authentication_login_banner: Optional[pulumi.Input[builtins.str]] = None,
                  pre_authentication_login_banner: Optional[pulumi.Input[builtins.str]] = None,
@@ -956,6 +969,7 @@ class Server(pulumi.CustomResource):
                  endpoint_type: Optional[pulumi.Input['ServerEndpointType']] = None,
                  identity_provider_details: Optional[pulumi.Input[Union['ServerIdentityProviderDetailsArgs', 'ServerIdentityProviderDetailsArgsDict']]] = None,
                  identity_provider_type: Optional[pulumi.Input['ServerIdentityProviderType']] = None,
+                 ip_address_type: Optional[pulumi.Input['ServerIpAddressType']] = None,
                  logging_role: Optional[pulumi.Input[builtins.str]] = None,
                  post_authentication_login_banner: Optional[pulumi.Input[builtins.str]] = None,
                  pre_authentication_login_banner: Optional[pulumi.Input[builtins.str]] = None,
@@ -981,6 +995,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["endpoint_type"] = endpoint_type
             __props__.__dict__["identity_provider_details"] = identity_provider_details
             __props__.__dict__["identity_provider_type"] = identity_provider_type
+            __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["logging_role"] = logging_role
             __props__.__dict__["post_authentication_login_banner"] = post_authentication_login_banner
             __props__.__dict__["pre_authentication_login_banner"] = pre_authentication_login_banner
@@ -1027,6 +1042,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["endpoint_type"] = None
         __props__.__dict__["identity_provider_details"] = None
         __props__.__dict__["identity_provider_type"] = None
+        __props__.__dict__["ip_address_type"] = None
         __props__.__dict__["logging_role"] = None
         __props__.__dict__["post_authentication_login_banner"] = None
         __props__.__dict__["pre_authentication_login_banner"] = None
@@ -1132,6 +1148,11 @@ class Server(pulumi.CustomResource):
         Use the `AWS_LAMBDA` value to directly use an AWS Lambda function as your identity provider. If you choose this value, you must specify the ARN for the Lambda function in the `Function` parameter for the `IdentityProviderDetails` data type.
         """
         return pulumi.get(self, "identity_provider_type")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Output[Optional['ServerIpAddressType']]:
+        return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter(name="loggingRole")
