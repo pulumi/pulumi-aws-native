@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamSchemaEvolutionConfiguration
     {
+        /// <summary>
+        /// Specify whether you want to enable schema evolution.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

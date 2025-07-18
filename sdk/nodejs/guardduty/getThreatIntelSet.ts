@@ -34,6 +34,10 @@ export interface GetThreatIntelSetArgs {
 
 export interface GetThreatIntelSetResult {
     /**
+     * Contains information on the owner of the bucket.
+     */
+    readonly expectedBucketOwner?: string;
+    /**
      * The unique ID of the `threatIntelSet` .
      */
     readonly id?: string;

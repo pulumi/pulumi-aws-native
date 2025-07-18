@@ -17,6 +17,8 @@ namespace Pulumi.AwsNative.CleanRooms
     {
         /// <summary>
         /// The analytics engine for the collaboration.
+        /// 
+        /// &gt; After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
         /// </summary>
         [Output("analyticsEngine")]
         public Output<Pulumi.AwsNative.CleanRooms.CollaborationAnalyticsEngine?> AnalyticsEngine { get; private set; } = null!;
@@ -167,6 +169,8 @@ namespace Pulumi.AwsNative.CleanRooms
     {
         /// <summary>
         /// The analytics engine for the collaboration.
+        /// 
+        /// &gt; After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
         /// </summary>
         [Input("analyticsEngine")]
         public Input<Pulumi.AwsNative.CleanRooms.CollaborationAnalyticsEngine>? AnalyticsEngine { get; set; }

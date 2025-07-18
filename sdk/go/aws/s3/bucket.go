@@ -820,7 +820,8 @@ type Bucket struct {
 	// Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
 	LifecycleConfiguration BucketLifecycleConfigurationPtrOutput `pulumi:"lifecycleConfiguration"`
 	// Settings that define where logs are stored.
-	LoggingConfiguration  BucketLoggingConfigurationPtrOutput  `pulumi:"loggingConfiguration"`
+	LoggingConfiguration BucketLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
+	// The S3 Metadata configuration for a general purpose bucket.
 	MetadataConfiguration BucketMetadataConfigurationPtrOutput `pulumi:"metadataConfiguration"`
 	// The metadata table configuration of an S3 general purpose bucket.
 	MetadataTableConfiguration BucketMetadataTableConfigurationPtrOutput `pulumi:"metadataTableConfiguration"`
@@ -930,7 +931,8 @@ type bucketArgs struct {
 	// Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
 	LifecycleConfiguration *BucketLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 	// Settings that define where logs are stored.
-	LoggingConfiguration  *BucketLoggingConfiguration  `pulumi:"loggingConfiguration"`
+	LoggingConfiguration *BucketLoggingConfiguration `pulumi:"loggingConfiguration"`
+	// The S3 Metadata configuration for a general purpose bucket.
 	MetadataConfiguration *BucketMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// The metadata table configuration of an S3 general purpose bucket.
 	MetadataTableConfiguration *BucketMetadataTableConfiguration `pulumi:"metadataTableConfiguration"`
@@ -987,7 +989,8 @@ type BucketArgs struct {
 	// Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
 	LifecycleConfiguration BucketLifecycleConfigurationPtrInput
 	// Settings that define where logs are stored.
-	LoggingConfiguration  BucketLoggingConfigurationPtrInput
+	LoggingConfiguration BucketLoggingConfigurationPtrInput
+	// The S3 Metadata configuration for a general purpose bucket.
 	MetadataConfiguration BucketMetadataConfigurationPtrInput
 	// The metadata table configuration of an S3 general purpose bucket.
 	MetadataTableConfiguration BucketMetadataTableConfigurationPtrInput
@@ -1137,6 +1140,7 @@ func (o BucketOutput) LoggingConfiguration() BucketLoggingConfigurationPtrOutput
 	return o.ApplyT(func(v *Bucket) BucketLoggingConfigurationPtrOutput { return v.LoggingConfiguration }).(BucketLoggingConfigurationPtrOutput)
 }
 
+// The S3 Metadata configuration for a general purpose bucket.
 func (o BucketOutput) MetadataConfiguration() BucketMetadataConfigurationPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketMetadataConfigurationPtrOutput { return v.MetadataConfiguration }).(BucketMetadataConfigurationPtrOutput)
 }

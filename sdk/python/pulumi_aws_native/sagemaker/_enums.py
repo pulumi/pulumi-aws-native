@@ -102,6 +102,8 @@ __all__ = [
     'PartnerAppType',
     'ProjectStatus',
     'SpaceAppType',
+    'SpaceManagedResources',
+    'SpaceRemoteAccess',
     'SpaceResourceSpecInstanceType',
     'SpaceSharingSettingsSharingType',
     'StudioLifecycleConfigAppType',
@@ -1325,6 +1327,24 @@ class SpaceAppType(builtins.str, Enum):
     R_SESSION_GATEWAY = "RSessionGateway"
     JUPYTER_LAB = "JupyterLab"
     CODE_EDITOR = "CodeEditor"
+
+
+@pulumi.type_token("aws-native:sagemaker:SpaceManagedResources")
+class SpaceManagedResources(builtins.str, Enum):
+    """
+    The flag to enable/disable creation of space managed resources.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:sagemaker:SpaceRemoteAccess")
+class SpaceRemoteAccess(builtins.str, Enum):
+    """
+    The flag to enable/disable remote access for a space.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:sagemaker:SpaceResourceSpecInstanceType")

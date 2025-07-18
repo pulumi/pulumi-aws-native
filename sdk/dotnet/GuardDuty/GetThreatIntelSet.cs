@@ -82,6 +82,10 @@ namespace Pulumi.AwsNative.GuardDuty
     public sealed class GetThreatIntelSetResult
     {
         /// <summary>
+        /// Contains information on the owner of the bucket.
+        /// </summary>
+        public readonly string? ExpectedBucketOwner;
+        /// <summary>
         /// The unique ID of the `threatIntelSet` .
         /// </summary>
         public readonly string? Id;
@@ -102,6 +106,8 @@ namespace Pulumi.AwsNative.GuardDuty
 
         [OutputConstructor]
         private GetThreatIntelSetResult(
+            string? expectedBucketOwner,
+
             string? id,
 
             string? location,
@@ -110,6 +116,7 @@ namespace Pulumi.AwsNative.GuardDuty
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            ExpectedBucketOwner = expectedBucketOwner;
             Id = id;
             Location = location;
             Name = name;

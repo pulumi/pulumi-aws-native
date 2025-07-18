@@ -36328,6 +36328,7 @@ func (o ProjectCfnStackParameterArrayOutput) Index(i pulumi.IntInput) ProjectCfn
 
 // CloudFormation template provider details for a SageMaker project.
 type ProjectCfnTemplateProviderDetail struct {
+	// An array of CloudFormation stack parameters.
 	Parameters []ProjectCfnStackParameter `pulumi:"parameters"`
 	// The Amazon Resource Name (ARN) of the IAM role used by the template provider.
 	RoleArn *string `pulumi:"roleArn"`
@@ -36350,6 +36351,7 @@ type ProjectCfnTemplateProviderDetailInput interface {
 
 // CloudFormation template provider details for a SageMaker project.
 type ProjectCfnTemplateProviderDetailArgs struct {
+	// An array of CloudFormation stack parameters.
 	Parameters ProjectCfnStackParameterArrayInput `pulumi:"parameters"`
 	// The Amazon Resource Name (ARN) of the IAM role used by the template provider.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
@@ -36437,6 +36439,7 @@ func (o ProjectCfnTemplateProviderDetailOutput) ToProjectCfnTemplateProviderDeta
 	}).(ProjectCfnTemplateProviderDetailPtrOutput)
 }
 
+// An array of CloudFormation stack parameters.
 func (o ProjectCfnTemplateProviderDetailOutput) Parameters() ProjectCfnStackParameterArrayOutput {
 	return o.ApplyT(func(v ProjectCfnTemplateProviderDetail) []ProjectCfnStackParameter { return v.Parameters }).(ProjectCfnStackParameterArrayOutput)
 }
@@ -36480,6 +36483,7 @@ func (o ProjectCfnTemplateProviderDetailPtrOutput) Elem() ProjectCfnTemplateProv
 	}).(ProjectCfnTemplateProviderDetailOutput)
 }
 
+// An array of CloudFormation stack parameters.
 func (o ProjectCfnTemplateProviderDetailPtrOutput) Parameters() ProjectCfnStackParameterArrayOutput {
 	return o.ApplyT(func(v *ProjectCfnTemplateProviderDetail) []ProjectCfnStackParameter {
 		if v == nil {
@@ -36638,6 +36642,7 @@ type ProjectTag struct {
 
 // Details about the template provider for the SageMaker project.
 type ProjectTemplateProviderDetail struct {
+	// Details about a CloudFormation template provider configuration and associated provisioning information.
 	CfnTemplateProviderDetail *ProjectCfnTemplateProviderDetail `pulumi:"cfnTemplateProviderDetail"`
 }
 
@@ -36654,6 +36659,7 @@ type ProjectTemplateProviderDetailInput interface {
 
 // Details about the template provider for the SageMaker project.
 type ProjectTemplateProviderDetailArgs struct {
+	// Details about a CloudFormation template provider configuration and associated provisioning information.
 	CfnTemplateProviderDetail ProjectCfnTemplateProviderDetailPtrInput `pulumi:"cfnTemplateProviderDetail"`
 }
 
@@ -36709,6 +36715,7 @@ func (o ProjectTemplateProviderDetailOutput) ToProjectTemplateProviderDetailOutp
 	return o
 }
 
+// Details about a CloudFormation template provider configuration and associated provisioning information.
 func (o ProjectTemplateProviderDetailOutput) CfnTemplateProviderDetail() ProjectCfnTemplateProviderDetailPtrOutput {
 	return o.ApplyT(func(v ProjectTemplateProviderDetail) *ProjectCfnTemplateProviderDetail {
 		return v.CfnTemplateProviderDetail
@@ -39135,6 +39142,10 @@ type SpaceSettings struct {
 	JupyterServerAppSettings *SpaceJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
 	KernelGatewayAppSettings *SpaceKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
+	// This is a flag used to indicate if remote access is enabled.
+	RemoteAccess *SpaceRemoteAccess `pulumi:"remoteAccess"`
+	// This is a flag used to indicate if space managed resources needs to be created.
+	SpaceManagedResources *SpaceManagedResources `pulumi:"spaceManagedResources"`
 	// Default storage settings for a space.
 	SpaceStorageSettings *SpaceStorageSettings `pulumi:"spaceStorageSettings"`
 }
@@ -39166,6 +39177,10 @@ type SpaceSettingsArgs struct {
 	JupyterServerAppSettings SpaceJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
 	KernelGatewayAppSettings SpaceKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
+	// This is a flag used to indicate if remote access is enabled.
+	RemoteAccess SpaceRemoteAccessPtrInput `pulumi:"remoteAccess"`
+	// This is a flag used to indicate if space managed resources needs to be created.
+	SpaceManagedResources SpaceManagedResourcesPtrInput `pulumi:"spaceManagedResources"`
 	// Default storage settings for a space.
 	SpaceStorageSettings SpaceStorageSettingsPtrInput `pulumi:"spaceStorageSettings"`
 }
@@ -39280,6 +39295,16 @@ func (o SpaceSettingsOutput) KernelGatewayAppSettings() SpaceKernelGatewayAppSet
 	return o.ApplyT(func(v SpaceSettings) *SpaceKernelGatewayAppSettings { return v.KernelGatewayAppSettings }).(SpaceKernelGatewayAppSettingsPtrOutput)
 }
 
+// This is a flag used to indicate if remote access is enabled.
+func (o SpaceSettingsOutput) RemoteAccess() SpaceRemoteAccessPtrOutput {
+	return o.ApplyT(func(v SpaceSettings) *SpaceRemoteAccess { return v.RemoteAccess }).(SpaceRemoteAccessPtrOutput)
+}
+
+// This is a flag used to indicate if space managed resources needs to be created.
+func (o SpaceSettingsOutput) SpaceManagedResources() SpaceManagedResourcesPtrOutput {
+	return o.ApplyT(func(v SpaceSettings) *SpaceManagedResources { return v.SpaceManagedResources }).(SpaceManagedResourcesPtrOutput)
+}
+
 // Default storage settings for a space.
 func (o SpaceSettingsOutput) SpaceStorageSettings() SpaceStorageSettingsPtrOutput {
 	return o.ApplyT(func(v SpaceSettings) *SpaceStorageSettings { return v.SpaceStorageSettings }).(SpaceStorageSettingsPtrOutput)
@@ -39369,6 +39394,26 @@ func (o SpaceSettingsPtrOutput) KernelGatewayAppSettings() SpaceKernelGatewayApp
 		}
 		return v.KernelGatewayAppSettings
 	}).(SpaceKernelGatewayAppSettingsPtrOutput)
+}
+
+// This is a flag used to indicate if remote access is enabled.
+func (o SpaceSettingsPtrOutput) RemoteAccess() SpaceRemoteAccessPtrOutput {
+	return o.ApplyT(func(v *SpaceSettings) *SpaceRemoteAccess {
+		if v == nil {
+			return nil
+		}
+		return v.RemoteAccess
+	}).(SpaceRemoteAccessPtrOutput)
+}
+
+// This is a flag used to indicate if space managed resources needs to be created.
+func (o SpaceSettingsPtrOutput) SpaceManagedResources() SpaceManagedResourcesPtrOutput {
+	return o.ApplyT(func(v *SpaceSettings) *SpaceManagedResources {
+		if v == nil {
+			return nil
+		}
+		return v.SpaceManagedResources
+	}).(SpaceManagedResourcesPtrOutput)
 }
 
 // Default storage settings for a space.

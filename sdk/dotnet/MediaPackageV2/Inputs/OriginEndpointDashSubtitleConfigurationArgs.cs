@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
     /// </summary>
     public sealed class OriginEndpointDashSubtitleConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Settings for TTML subtitles.
+        /// </summary>
         [Input("ttmlConfiguration")]
         public Input<Inputs.OriginEndpointDashTtmlConfigurationArgs>? TtmlConfiguration { get; set; }
 

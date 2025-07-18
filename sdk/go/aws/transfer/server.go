@@ -342,6 +342,7 @@ type Server struct {
 	//
 	// Use the `AWS_LAMBDA` value to directly use an AWS Lambda function as your identity provider. If you choose this value, you must specify the ARN for the Lambda function in the `Function` parameter for the `IdentityProviderDetails` data type.
 	IdentityProviderType ServerIdentityProviderTypePtrOutput `pulumi:"identityProviderType"`
+	IpAddressType        ServerIpAddressTypePtrOutput        `pulumi:"ipAddressType"`
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.
 	LoggingRole pulumi.StringPtrOutput `pulumi:"loggingRole"`
 	// Specifies a string to display when users connect to a server. This string is displayed after the user authenticates.
@@ -500,6 +501,7 @@ type serverArgs struct {
 	//
 	// Use the `AWS_LAMBDA` value to directly use an AWS Lambda function as your identity provider. If you choose this value, you must specify the ARN for the Lambda function in the `Function` parameter for the `IdentityProviderDetails` data type.
 	IdentityProviderType *ServerIdentityProviderType `pulumi:"identityProviderType"`
+	IpAddressType        *ServerIpAddressType        `pulumi:"ipAddressType"`
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.
 	LoggingRole *string `pulumi:"loggingRole"`
 	// Specifies a string to display when users connect to a server. This string is displayed after the user authenticates.
@@ -609,6 +611,7 @@ type ServerArgs struct {
 	//
 	// Use the `AWS_LAMBDA` value to directly use an AWS Lambda function as your identity provider. If you choose this value, you must specify the ARN for the Lambda function in the `Function` parameter for the `IdentityProviderDetails` data type.
 	IdentityProviderType ServerIdentityProviderTypePtrInput
+	IpAddressType        ServerIpAddressTypePtrInput
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.
 	LoggingRole pulumi.StringPtrInput
 	// Specifies a string to display when users connect to a server. This string is displayed after the user authenticates.
@@ -779,6 +782,10 @@ func (o ServerOutput) IdentityProviderDetails() ServerIdentityProviderDetailsPtr
 // Use the `AWS_LAMBDA` value to directly use an AWS Lambda function as your identity provider. If you choose this value, you must specify the ARN for the Lambda function in the `Function` parameter for the `IdentityProviderDetails` data type.
 func (o ServerOutput) IdentityProviderType() ServerIdentityProviderTypePtrOutput {
 	return o.ApplyT(func(v *Server) ServerIdentityProviderTypePtrOutput { return v.IdentityProviderType }).(ServerIdentityProviderTypePtrOutput)
+}
+
+func (o ServerOutput) IpAddressType() ServerIpAddressTypePtrOutput {
+	return o.ApplyT(func(v *Server) ServerIpAddressTypePtrOutput { return v.IpAddressType }).(ServerIpAddressTypePtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.

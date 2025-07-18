@@ -575,13 +575,13 @@
   "primaryIdentifier" : [ "/properties/RuleGroupArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "network-firewall:CreateRuleGroup", "network-firewall:DescribeRuleGroup", "network-firewall:TagResource", "network-firewall:ListRuleGroups", "iam:CreateServiceLinkedRole", "ec2:GetManagedPrefixListEntries" ]
+      "permissions" : [ "network-firewall:CreateRuleGroup", "network-firewall:DescribeRuleGroup", "network-firewall:TagResource", "network-firewall:ListRuleGroups", "iam:CreateServiceLinkedRole", "ec2:GetManagedPrefixListEntries", "ec2:DescribeManagedPrefixLists" ]
     },
     "read" : {
       "permissions" : [ "network-firewall:DescribeRuleGroup", "network-firewall:ListTagsForResources" ]
     },
     "update" : {
-      "permissions" : [ "network-firewall:UpdateRuleGroup", "network-firewall:DescribeRuleGroup", "network-firewall:TagResource", "network-firewall:UntagResource", "iam:CreateServiceLinkedRole", "ec2:GetManagedPrefixListEntries" ]
+      "permissions" : [ "network-firewall:UpdateRuleGroup", "network-firewall:DescribeRuleGroup", "network-firewall:TagResource", "network-firewall:UntagResource", "iam:CreateServiceLinkedRole", "ec2:GetManagedPrefixListEntries", "ec2:DescribeManagedPrefixLists" ]
     },
     "delete" : {
       "permissions" : [ "network-firewall:DeleteRuleGroup", "network-firewall:DescribeRuleGroup", "network-firewall:UntagResource" ]

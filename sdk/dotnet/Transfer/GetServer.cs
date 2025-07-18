@@ -109,6 +109,7 @@ namespace Pulumi.AwsNative.Transfer
         /// Required when `IdentityProviderType` is set to `AWS_DIRECTORY_SERVICE` , `AWS _LAMBDA` or `API_GATEWAY` . Accepts an array containing all of the information required to use a directory in `AWS_DIRECTORY_SERVICE` or invoke a customer-supplied authentication API, including the API Gateway URL. Cannot be specified when `IdentityProviderType` is set to `SERVICE_MANAGED` .
         /// </summary>
         public readonly Outputs.ServerIdentityProviderDetails? IdentityProviderDetails;
+        public readonly Pulumi.AwsNative.Transfer.ServerIpAddressType? IpAddressType;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.
         /// </summary>
@@ -219,6 +220,8 @@ namespace Pulumi.AwsNative.Transfer
 
             Outputs.ServerIdentityProviderDetails? identityProviderDetails,
 
+            Pulumi.AwsNative.Transfer.ServerIpAddressType? ipAddressType,
+
             string? loggingRole,
 
             string? postAuthenticationLoginBanner,
@@ -249,6 +252,7 @@ namespace Pulumi.AwsNative.Transfer
             EndpointDetails = endpointDetails;
             EndpointType = endpointType;
             IdentityProviderDetails = identityProviderDetails;
+            IpAddressType = ipAddressType;
             LoggingRole = loggingRole;
             PostAuthenticationLoginBanner = postAuthenticationLoginBanner;
             PreAuthenticationLoginBanner = preAuthenticationLoginBanner;

@@ -34,6 +34,8 @@ type LookupThreatIntelSetArgs struct {
 }
 
 type LookupThreatIntelSetResult struct {
+	// Contains information on the owner of the bucket.
+	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// The unique ID of the `threatIntelSet` .
 	Id *string `pulumi:"id"`
 	// The URI of the file that contains the ThreatIntelSet.
@@ -81,6 +83,11 @@ func (o LookupThreatIntelSetResultOutput) ToLookupThreatIntelSetResultOutput() L
 
 func (o LookupThreatIntelSetResultOutput) ToLookupThreatIntelSetResultOutputWithContext(ctx context.Context) LookupThreatIntelSetResultOutput {
 	return o
+}
+
+// Contains information on the owner of the bucket.
+func (o LookupThreatIntelSetResultOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupThreatIntelSetResult) *string { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
 // The unique ID of the `threatIntelSet` .

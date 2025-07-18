@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
     /// </summary>
     public sealed class ServiceLoadBalancerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The advanced settings for the load balancer used in blue/green deployments. Specify the alternate target group, listener rules, and IAM role required for traffic shifting during blue/green deployments.
+        /// </summary>
         [Input("advancedConfiguration")]
         public Input<Inputs.ServiceAdvancedConfigurationArgs>? AdvancedConfiguration { get; set; }
 

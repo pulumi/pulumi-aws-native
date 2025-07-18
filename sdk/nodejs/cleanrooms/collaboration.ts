@@ -39,6 +39,8 @@ export class Collaboration extends pulumi.CustomResource {
 
     /**
      * The analytics engine for the collaboration.
+     *
+     * > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
      */
     public readonly analyticsEngine!: pulumi.Output<enums.cleanrooms.CollaborationAnalyticsEngine | undefined>;
     /**
@@ -167,6 +169,8 @@ export class Collaboration extends pulumi.CustomResource {
 export interface CollaborationArgs {
     /**
      * The analytics engine for the collaboration.
+     *
+     * > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
      */
     analyticsEngine?: pulumi.Input<enums.cleanrooms.CollaborationAnalyticsEngine>;
     /**

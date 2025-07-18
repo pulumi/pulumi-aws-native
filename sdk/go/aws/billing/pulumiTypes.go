@@ -21,9 +21,12 @@ type BillingViewTag struct {
 	Value string `pulumi:"value"`
 }
 
+// See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
 type DataFilterExpressionProperties struct {
+	// The specific `Dimension` to use for `Expression` .
 	Dimensions *DataFilterExpressionPropertiesDimensionsProperties `pulumi:"dimensions"`
-	Tags       *DataFilterExpressionPropertiesTagsProperties       `pulumi:"tags"`
+	// The specific `Tag` to use for `Expression` .
+	Tags *DataFilterExpressionPropertiesTagsProperties `pulumi:"tags"`
 }
 
 // DataFilterExpressionPropertiesInput is an input type that accepts DataFilterExpressionPropertiesArgs and DataFilterExpressionPropertiesOutput values.
@@ -37,9 +40,12 @@ type DataFilterExpressionPropertiesInput interface {
 	ToDataFilterExpressionPropertiesOutputWithContext(context.Context) DataFilterExpressionPropertiesOutput
 }
 
+// See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
 type DataFilterExpressionPropertiesArgs struct {
+	// The specific `Dimension` to use for `Expression` .
 	Dimensions DataFilterExpressionPropertiesDimensionsPropertiesPtrInput `pulumi:"dimensions"`
-	Tags       DataFilterExpressionPropertiesTagsPropertiesPtrInput       `pulumi:"tags"`
+	// The specific `Tag` to use for `Expression` .
+	Tags DataFilterExpressionPropertiesTagsPropertiesPtrInput `pulumi:"tags"`
 }
 
 func (DataFilterExpressionPropertiesArgs) ElementType() reflect.Type {
@@ -95,6 +101,7 @@ func (i *dataFilterExpressionPropertiesPtrType) ToDataFilterExpressionProperties
 	return pulumi.ToOutputWithContext(ctx, i).(DataFilterExpressionPropertiesPtrOutput)
 }
 
+// See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
 type DataFilterExpressionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DataFilterExpressionPropertiesOutput) ElementType() reflect.Type {
@@ -119,12 +126,14 @@ func (o DataFilterExpressionPropertiesOutput) ToDataFilterExpressionPropertiesPt
 	}).(DataFilterExpressionPropertiesPtrOutput)
 }
 
+// The specific `Dimension` to use for `Expression` .
 func (o DataFilterExpressionPropertiesOutput) Dimensions() DataFilterExpressionPropertiesDimensionsPropertiesPtrOutput {
 	return o.ApplyT(func(v DataFilterExpressionProperties) *DataFilterExpressionPropertiesDimensionsProperties {
 		return v.Dimensions
 	}).(DataFilterExpressionPropertiesDimensionsPropertiesPtrOutput)
 }
 
+// The specific `Tag` to use for `Expression` .
 func (o DataFilterExpressionPropertiesOutput) Tags() DataFilterExpressionPropertiesTagsPropertiesPtrOutput {
 	return o.ApplyT(func(v DataFilterExpressionProperties) *DataFilterExpressionPropertiesTagsProperties { return v.Tags }).(DataFilterExpressionPropertiesTagsPropertiesPtrOutput)
 }
@@ -153,6 +162,7 @@ func (o DataFilterExpressionPropertiesPtrOutput) Elem() DataFilterExpressionProp
 	}).(DataFilterExpressionPropertiesOutput)
 }
 
+// The specific `Dimension` to use for `Expression` .
 func (o DataFilterExpressionPropertiesPtrOutput) Dimensions() DataFilterExpressionPropertiesDimensionsPropertiesPtrOutput {
 	return o.ApplyT(func(v *DataFilterExpressionProperties) *DataFilterExpressionPropertiesDimensionsProperties {
 		if v == nil {
@@ -162,6 +172,7 @@ func (o DataFilterExpressionPropertiesPtrOutput) Dimensions() DataFilterExpressi
 	}).(DataFilterExpressionPropertiesDimensionsPropertiesPtrOutput)
 }
 
+// The specific `Tag` to use for `Expression` .
 func (o DataFilterExpressionPropertiesPtrOutput) Tags() DataFilterExpressionPropertiesTagsPropertiesPtrOutput {
 	return o.ApplyT(func(v *DataFilterExpressionProperties) *DataFilterExpressionPropertiesTagsProperties {
 		if v == nil {
@@ -171,6 +182,7 @@ func (o DataFilterExpressionPropertiesPtrOutput) Tags() DataFilterExpressionProp
 	}).(DataFilterExpressionPropertiesTagsPropertiesPtrOutput)
 }
 
+// The specific `Dimension` to use for `Expression` .
 type DataFilterExpressionPropertiesDimensionsProperties struct {
 	Key    *BillingViewDimensionKey `pulumi:"key"`
 	Values []string                 `pulumi:"values"`
@@ -187,6 +199,7 @@ type DataFilterExpressionPropertiesDimensionsPropertiesInput interface {
 	ToDataFilterExpressionPropertiesDimensionsPropertiesOutputWithContext(context.Context) DataFilterExpressionPropertiesDimensionsPropertiesOutput
 }
 
+// The specific `Dimension` to use for `Expression` .
 type DataFilterExpressionPropertiesDimensionsPropertiesArgs struct {
 	Key    BillingViewDimensionKeyPtrInput `pulumi:"key"`
 	Values pulumi.StringArrayInput         `pulumi:"values"`
@@ -245,6 +258,7 @@ func (i *dataFilterExpressionPropertiesDimensionsPropertiesPtrType) ToDataFilter
 	return pulumi.ToOutputWithContext(ctx, i).(DataFilterExpressionPropertiesDimensionsPropertiesPtrOutput)
 }
 
+// The specific `Dimension` to use for `Expression` .
 type DataFilterExpressionPropertiesDimensionsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DataFilterExpressionPropertiesDimensionsPropertiesOutput) ElementType() reflect.Type {
@@ -319,6 +333,7 @@ func (o DataFilterExpressionPropertiesDimensionsPropertiesPtrOutput) Values() pu
 	}).(pulumi.StringArrayOutput)
 }
 
+// The specific `Tag` to use for `Expression` .
 type DataFilterExpressionPropertiesTagsProperties struct {
 	Key    *string  `pulumi:"key"`
 	Values []string `pulumi:"values"`
@@ -335,6 +350,7 @@ type DataFilterExpressionPropertiesTagsPropertiesInput interface {
 	ToDataFilterExpressionPropertiesTagsPropertiesOutputWithContext(context.Context) DataFilterExpressionPropertiesTagsPropertiesOutput
 }
 
+// The specific `Tag` to use for `Expression` .
 type DataFilterExpressionPropertiesTagsPropertiesArgs struct {
 	Key    pulumi.StringPtrInput   `pulumi:"key"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -393,6 +409,7 @@ func (i *dataFilterExpressionPropertiesTagsPropertiesPtrType) ToDataFilterExpres
 	return pulumi.ToOutputWithContext(ctx, i).(DataFilterExpressionPropertiesTagsPropertiesPtrOutput)
 }
 
+// The specific `Tag` to use for `Expression` .
 type DataFilterExpressionPropertiesTagsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DataFilterExpressionPropertiesTagsPropertiesOutput) ElementType() reflect.Type {
