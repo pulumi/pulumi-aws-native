@@ -9,7 +9,7 @@ CODEGEN         := pulumi-gen-${PACK}
 WORKING_DIR		:= $(shell pwd)
 
 JAVA_GEN		 := pulumi-java-gen
-JAVA_GEN_VERSION := v0.9.7
+JAVA_GEN_VERSION := v1.16.0
 
 # Override during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
 # Local & branch builds will just used this fixed default version unless specified
