@@ -4,7 +4,7 @@
     "@types/node": "^8.0.0"
   },
   "dependencies": {
-    "@pulumi/pulumi": "3.184.0"
+    "@pulumi/pulumi": "3.185.0"
   },
   "peerDependencies": {
     "@pulumi/aws-native": "dev"
