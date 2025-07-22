@@ -94,6 +94,10 @@
       "type" : "string",
       "enum" : [ "SERVICE_MANAGED", "API_GATEWAY", "AWS_DIRECTORY_SERVICE", "AWS_LAMBDA" ]
     },
+    "IpAddressType" : {
+      "type" : "string",
+      "enum" : [ "IPV4", "DUALSTACK" ]
+    },
     "Protocol" : {
       "type" : "string",
       "enum" : [ "SFTP", "FTP", "FTPS", "AS2" ]
@@ -246,6 +250,9 @@
     "IdentityProviderType" : {
       "$ref" : "#/definitions/IdentityProviderType"
     },
+    "IpAddressType" : {
+      "$ref" : "#/definitions/IpAddressType"
+    },
     "LoggingRole" : {
       "type" : "string",
       "maxLength" : 2048,
@@ -350,6 +357,6 @@
     "taggable" : true
   },
   "additionalProperties" : false,
-  "conditionalCreateOnlyProperties" : [ "/properties/EndpointDetails", "/properties/EndpointDetails/AddressAllocationIds" ],
+  "conditionalCreateOnlyProperties" : [ "/properties/EndpointDetails", "/properties/EndpointDetails/AddressAllocationIds", "/properties/IpAddressType" ],
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-transfer"
 }

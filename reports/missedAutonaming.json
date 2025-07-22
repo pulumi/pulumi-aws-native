@@ -3944,7 +3944,7 @@
       },
       "instanceCount": {
         "type": "integer",
-        "description": "The number of instances for which to reserve capacity.\n\n\u003e You can request future-dated Capacity Reservations for an instance count with a minimum of 100 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ). \n\nValid range: 1 - 1000"
+        "description": "The number of instances for which to reserve capacity.\n\n\u003e You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ). \n\nValid range: 1 - 1000"
       },
       "instanceMatchCriteria": {
         "type": "string",
@@ -3956,7 +3956,7 @@
       },
       "instanceType": {
         "type": "string",
-        "description": "The instance type for which to reserve capacity.\n\n\u003e You can request future-dated Capacity Reservations for instance types in the C, M, R, I, and T instance families only. \n\nFor more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* ."
+        "description": "The instance type for which to reserve capacity.\n\n\u003e You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only. \n\nFor more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* ."
       },
       "outPostArn": {
         "type": "string",
@@ -4067,7 +4067,7 @@
       },
       "ipAddress": {
         "type": "string",
-        "description": "IPv4 address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``PublicIpv4``, you can use a public IPv4 address."
+        "description": "The IP address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``Ipv6``, you can use an IPv6 address."
       },
       "tags": {
         "type": "array",
@@ -6986,7 +6986,7 @@
       },
       "imageTagMutability": {
         "$ref": "#/types/aws-native:ecr:RepositoryCreationTemplateImageTagMutability",
-        "description": "The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten."
+        "description": "The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten."
       },
       "lifecyclePolicy": {
         "type": "string",
@@ -14499,6 +14499,10 @@
       "identityProviderType": {
         "$ref": "#/types/aws-native:transfer:ServerIdentityProviderType",
         "description": "The mode of authentication for a server. The default value is `SERVICE_MANAGED` , which allows you to store and access user credentials within the AWS Transfer Family service.\n\nUse `AWS_DIRECTORY_SERVICE` to provide access to Active Directory groups in AWS Directory Service for Microsoft Active Directory or Microsoft Active Directory in your on-premises environment or in AWS using AD Connector. This option also requires you to provide a Directory ID by using the `IdentityProviderDetails` parameter.\n\nUse the `API_GATEWAY` value to integrate with an identity provider of your choosing. The `API_GATEWAY` setting requires you to provide an Amazon API Gateway endpoint URL to call for authentication by using the `IdentityProviderDetails` parameter.\n\nUse the `AWS_LAMBDA` value to directly use an AWS Lambda function as your identity provider. If you choose this value, you must specify the ARN for the Lambda function in the `Function` parameter for the `IdentityProviderDetails` data type."
+      },
+      "ipAddressType": {
+        "$ref": "#/types/aws-native:transfer:ServerIpAddressType",
+        "description": "Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your AWS Transfer Family endpoint. The default value is `IPV4` .\n\n\u003e The `IpAddressType` parameter has the following limitations:\n\u003e \n\u003e - It cannot be changed while the server is online. You must stop the server before modifying this parameter.\n\u003e - It cannot be updated to `DUALSTACK` if the server has `AddressAllocationIds` specified. \u003e When using `DUALSTACK` as the `IpAddressType` , you cannot set the `AddressAllocationIds` parameter for the [EndpointDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_EndpointDetails.html) for the server."
       },
       "loggingRole": {
         "type": "string",
