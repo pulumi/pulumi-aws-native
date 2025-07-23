@@ -37,6 +37,8 @@ type LookupEventBusResult struct {
 	Description *string `pulumi:"description"`
 	// Kms Key Identifier used to encrypt events at rest in the event bus.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
+	// The logging configuration settings for vended logs.
+	LogConfig *LogConfigProperties `pulumi:"logConfig"`
 	// A JSON string that describes the permission policy statement for the event bus.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
@@ -95,6 +97,11 @@ func (o LookupEventBusResultOutput) Description() pulumi.StringPtrOutput {
 // Kms Key Identifier used to encrypt events at rest in the event bus.
 func (o LookupEventBusResultOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventBusResult) *string { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The logging configuration settings for vended logs.
+func (o LookupEventBusResultOutput) LogConfig() LogConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupEventBusResult) *LogConfigProperties { return v.LogConfig }).(LogConfigPropertiesPtrOutput)
 }
 
 // A JSON string that describes the permission policy statement for the event bus.

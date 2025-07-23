@@ -587,6 +587,35 @@
       "minLength" : 1,
       "maxLength" : 2048
     },
+    "AttachmentUrl" : {
+      "description" : "The S3 Presigned URL for the attachment file. When generating the PreSignedUrl, please ensure that the expires-in time is set to 30 minutes. The URL can be generated through the AWS Console or through the AWS CLI (https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html). ",
+      "type" : "string",
+      "minLength" : 1
+    },
+    "AttachmentName" : {
+      "description" : "The name of the attachment file being uploaded. The name should include the file extension.",
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 255
+    },
+    "MessageTemplateAttachment" : {
+      "description" : "",
+      "type" : "object",
+      "properties" : {
+        "AttachmentId" : {
+          "type" : "string",
+          "minLength" : 1
+        },
+        "AttachmentName" : {
+          "$ref" : "#/definitions/AttachmentName"
+        },
+        "S3PresignedUrl" : {
+          "$ref" : "#/definitions/AttachmentUrl"
+        }
+      },
+      "additionalProperties" : false,
+      "required" : [ "AttachmentName", "S3PresignedUrl" ]
+    },
     "Tag" : {
       "description" : "A key-value pair to associate with a resource.",
       "type" : "object",
@@ -663,6 +692,14 @@
       "minLength" : 1,
       "maxLength" : 64
     },
+    "MessageTemplateAttachments" : {
+      "description" : "List of message template attachments",
+      "type" : "array",
+      "insertionOrder" : true,
+      "items" : {
+        "$ref" : "#/definitions/MessageTemplateAttachment"
+      }
+    },
     "Tags" : {
       "description" : "The tags used to organize, track, or control access for this resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.",
       "insertionOrder" : false,
@@ -674,7 +711,8 @@
     }
   },
   "required" : [ "KnowledgeBaseArn", "ChannelSubtype", "Name", "Content" ],
-  "readOnlyProperties" : [ "/properties/MessageTemplateId", "/properties/MessageTemplateArn", "/properties/MessageTemplateContentSha256" ],
+  "readOnlyProperties" : [ "/properties/MessageTemplateId", "/properties/MessageTemplateArn", "/properties/MessageTemplateContentSha256", "/properties/MessageTemplateAttachments/*/AttachmentId" ],
+  "writeOnlyProperties" : [ "/properties/MessageTemplateAttachments/*/S3PresignedUrl" ],
   "createOnlyProperties" : [ "/properties/KnowledgeBaseArn", "/properties/ChannelSubtype" ],
   "primaryIdentifier" : [ "/properties/MessageTemplateArn" ],
   "additionalProperties" : false,
@@ -689,13 +727,13 @@
   "replacementStrategy" : "create_then_delete",
   "handlers" : {
     "create" : {
-      "permissions" : [ "wisdom:CreateMessageTemplate", "wisdom:GetMessageTemplate", "wisdom:TagResource", "connect:SearchRoutingProfiles", "connect:DescribeRoutingProfile" ]
+      "permissions" : [ "wisdom:CreateMessageTemplate", "wisdom:GetMessageTemplate", "wisdom:TagResource", "connect:SearchRoutingProfiles", "connect:DescribeRoutingProfile", "wisdom:CreateMessageTemplateAttachment", "wisdom:DeleteMessageTemplateAttachment" ]
     },
     "update" : {
-      "permissions" : [ "wisdom:UpdateMessageTemplate", "wisdom:UpdateMessageTemplateMetadata", "wisdom:GetMessageTemplate", "wisdom:TagResource", "wisdom:UntagResource", "connect:SearchRoutingProfiles", "connect:DescribeRoutingProfile" ]
+      "permissions" : [ "wisdom:UpdateMessageTemplate", "wisdom:UpdateMessageTemplateMetadata", "wisdom:GetMessageTemplate", "wisdom:TagResource", "wisdom:UntagResource", "connect:SearchRoutingProfiles", "connect:DescribeRoutingProfile", "wisdom:CreateMessageTemplateAttachment", "wisdom:DeleteMessageTemplateAttachment" ]
     },
     "delete" : {
-      "permissions" : [ "wisdom:DeleteMessageTemplate", "wisdom:UntagResource" ]
+      "permissions" : [ "wisdom:DeleteMessageTemplate", "wisdom:UntagResource", "wisdom:DeleteMessageTemplateAttachment" ]
     },
     "list" : {
       "handlerSchema" : {

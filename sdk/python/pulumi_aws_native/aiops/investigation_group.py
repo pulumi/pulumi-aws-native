@@ -41,7 +41,7 @@ class InvestigationGroupArgs:
         :param pulumi.Input['InvestigationGroupEncryptionConfigMapArgs'] encryption_config: Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
         :param pulumi.Input[builtins.str] investigation_group_policy: Investigation Group policy
         :param pulumi.Input[builtins.bool] is_cloud_trail_event_history_enabled: Flag to enable cloud trail history
-        :param pulumi.Input[builtins.str] name: Specify either the name or the ARN of the investigation group that you want to view.
+        :param pulumi.Input[builtins.str] name: Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.
         :param pulumi.Input[builtins.int] retention_in_days: The number of days to retain the investigation group
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role that the investigation group uses for permissions to gather data.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tag_key_boundaries: Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
@@ -132,7 +132,7 @@ class InvestigationGroupArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specify either the name or the ARN of the investigation group that you want to view.
+        Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.
         """
         return pulumi.get(self, "name")
 
@@ -216,7 +216,7 @@ class InvestigationGroup(pulumi.CustomResource):
         :param pulumi.Input[Union['InvestigationGroupEncryptionConfigMapArgs', 'InvestigationGroupEncryptionConfigMapArgsDict']] encryption_config: Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
         :param pulumi.Input[builtins.str] investigation_group_policy: Investigation Group policy
         :param pulumi.Input[builtins.bool] is_cloud_trail_event_history_enabled: Flag to enable cloud trail history
-        :param pulumi.Input[builtins.str] name: Specify either the name or the ARN of the investigation group that you want to view.
+        :param pulumi.Input[builtins.str] name: Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.
         :param pulumi.Input[builtins.int] retention_in_days: The number of days to retain the investigation group
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role that the investigation group uses for permissions to gather data.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tag_key_boundaries: Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
@@ -405,7 +405,7 @@ class InvestigationGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Specify either the name or the ARN of the investigation group that you want to view.
+        Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.
         """
         return pulumi.get(self, "name")
 

@@ -345,6 +345,37 @@ namespace Pulumi.AwsNative.Ssm
     }
 
     /// <summary>
+    /// The compliance status for vendor recommended security updates that are not approved by this patch baseline.
+    /// </summary>
+    [EnumType]
+    public readonly struct PatchBaselineAvailableSecurityUpdatesComplianceStatus : IEquatable<PatchBaselineAvailableSecurityUpdatesComplianceStatus>
+    {
+        private readonly string _value;
+
+        private PatchBaselineAvailableSecurityUpdatesComplianceStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PatchBaselineAvailableSecurityUpdatesComplianceStatus NonCompliant { get; } = new PatchBaselineAvailableSecurityUpdatesComplianceStatus("NON_COMPLIANT");
+        public static PatchBaselineAvailableSecurityUpdatesComplianceStatus Compliant { get; } = new PatchBaselineAvailableSecurityUpdatesComplianceStatus("COMPLIANT");
+
+        public static bool operator ==(PatchBaselineAvailableSecurityUpdatesComplianceStatus left, PatchBaselineAvailableSecurityUpdatesComplianceStatus right) => left.Equals(right);
+        public static bool operator !=(PatchBaselineAvailableSecurityUpdatesComplianceStatus left, PatchBaselineAvailableSecurityUpdatesComplianceStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PatchBaselineAvailableSecurityUpdatesComplianceStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PatchBaselineAvailableSecurityUpdatesComplianceStatus other && Equals(other);
+        public bool Equals(PatchBaselineAvailableSecurityUpdatesComplianceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
     /// </summary>
     [EnumType]

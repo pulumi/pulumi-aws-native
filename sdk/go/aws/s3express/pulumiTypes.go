@@ -1385,7 +1385,9 @@ func (o DirectoryBucketServerSideEncryptionRuleArrayOutput) Index(i pulumi.IntIn
 }
 
 type DirectoryBucketTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag. Tags are key-value pairs that you use to label your directory buckets. Tags can help you organize, track costs for, and control access to directory buckets. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
+	Key string `pulumi:"key"`
+	// The value of the tag. Tags are key-value pairs that you use to label your directory buckets. Tags can help you organize, track costs for, and control access to directory buckets. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
 	Value string `pulumi:"value"`
 }
 

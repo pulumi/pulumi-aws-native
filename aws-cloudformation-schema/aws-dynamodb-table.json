@@ -128,10 +128,6 @@
           "enum" : [ "MICROSECOND", "MILLISECOND" ]
         },
         "StreamArn" : {
-          "relationshipRef" : {
-            "typeName" : "AWS::Kinesis::Stream",
-            "propertyPath" : "/properties/Arn"
-          },
           "description" : "The ARN for a specific Kinesis data stream.\n Length Constraints: Minimum length of 37. Maximum length of 1024.",
           "type" : "string"
         }
@@ -359,10 +355,6 @@
       "type" : "object",
       "properties" : {
         "S3Bucket" : {
-          "relationshipRef" : {
-            "typeName" : "AWS::S3::Bucket",
-            "propertyPath" : "/properties/BucketName"
-          },
           "description" : "The S3 bucket that is being imported from.",
           "type" : "string"
         },

@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSourceAthenaParameters
     {
+        public readonly Outputs.DataSourceIdentityCenterConfiguration? IdentityCenterConfiguration;
         /// <summary>
         /// &lt;p&gt;Use the &lt;code&gt;RoleArn&lt;/code&gt; structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use &lt;code&gt;RoleArn&lt;/code&gt; to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.&lt;/p&gt;
         /// </summary>
@@ -27,10 +28,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private DataSourceAthenaParameters(
+            Outputs.DataSourceIdentityCenterConfiguration? identityCenterConfiguration,
+
             string? roleArn,
 
             string? workGroup)
         {
+            IdentityCenterConfiguration = identityCenterConfiguration;
             RoleArn = roleArn;
             WorkGroup = workGroup;
         }

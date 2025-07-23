@@ -57,7 +57,7 @@ type LookupCapacityReservationResult struct {
 	Id *string `pulumi:"id"`
 	// The number of instances for which to reserve capacity.
 	//
-	// > You can request future-dated Capacity Reservations for an instance count with a minimum of 100 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ).
+	// > You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ).
 	//
 	// Valid range: 1 - 1000
 	InstanceCount *int `pulumi:"instanceCount"`
@@ -187,7 +187,7 @@ func (o LookupCapacityReservationResultOutput) Id() pulumi.StringPtrOutput {
 
 // The number of instances for which to reserve capacity.
 //
-// > You can request future-dated Capacity Reservations for an instance count with a minimum of 100 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ).
+// > You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ).
 //
 // Valid range: 1 - 1000
 func (o LookupCapacityReservationResultOutput) InstanceCount() pulumi.IntPtrOutput {

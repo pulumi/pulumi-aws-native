@@ -1609,6 +1609,9 @@ class BucketInventoryTableConfigurationArgs:
 if not MYPY:
     class BucketJournalTableConfigurationArgsDict(TypedDict):
         record_expiration: pulumi.Input['BucketRecordExpirationArgsDict']
+        """
+        The journal table record expiration settings for the journal table.
+        """
         encryption_configuration: NotRequired[pulumi.Input['BucketMetadataTableEncryptionConfigurationArgsDict']]
         """
         The encryption configuration for the journal table.
@@ -1632,6 +1635,7 @@ class BucketJournalTableConfigurationArgs:
                  table_arn: Optional[pulumi.Input[builtins.str]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None):
         """
+        :param pulumi.Input['BucketRecordExpirationArgs'] record_expiration: The journal table record expiration settings for the journal table.
         :param pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration for the journal table.
         :param pulumi.Input[builtins.str] table_arn: The ARN of the journal table.
         :param pulumi.Input[builtins.str] table_name: The name of the journal table.
@@ -1647,6 +1651,9 @@ class BucketJournalTableConfigurationArgs:
     @property
     @pulumi.getter(name="recordExpiration")
     def record_expiration(self) -> pulumi.Input['BucketRecordExpirationArgs']:
+        """
+        The journal table record expiration settings for the journal table.
+        """
         return pulumi.get(self, "record_expiration")
 
     @record_expiration.setter

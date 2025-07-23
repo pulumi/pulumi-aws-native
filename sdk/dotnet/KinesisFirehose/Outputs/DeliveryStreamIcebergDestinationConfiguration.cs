@@ -40,7 +40,17 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamIcebergDestinationConfigurations3BackupMode? S3BackupMode;
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
+        /// <summary>
+        /// The configuration to enable automatic schema evolution.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         public readonly Outputs.DeliveryStreamSchemaEvolutionConfiguration? SchemaEvolutionConfiguration;
+        /// <summary>
+        /// The configuration to enable automatic table creation.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         public readonly Outputs.DeliveryStreamTableCreationConfiguration? TableCreationConfiguration;
 
         [OutputConstructor]

@@ -18,6 +18,8 @@ type Collaboration struct {
 	pulumi.CustomResourceState
 
 	// The analytics engine for the collaboration.
+	//
+	// > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
 	AnalyticsEngine CollaborationAnalyticsEnginePtrOutput `pulumi:"analyticsEngine"`
 	// Returns the Amazon Resource Name (ARN) of the specified collaboration.
 	//
@@ -118,6 +120,8 @@ func (CollaborationState) ElementType() reflect.Type {
 
 type collaborationArgs struct {
 	// The analytics engine for the collaboration.
+	//
+	// > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
 	AnalyticsEngine *CollaborationAnalyticsEngine `pulumi:"analyticsEngine"`
 	// A display name of the collaboration creator.
 	CreatorDisplayName string `pulumi:"creatorDisplayName"`
@@ -152,6 +156,8 @@ type collaborationArgs struct {
 // The set of arguments for constructing a Collaboration resource.
 type CollaborationArgs struct {
 	// The analytics engine for the collaboration.
+	//
+	// > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
 	AnalyticsEngine CollaborationAnalyticsEnginePtrInput
 	// A display name of the collaboration creator.
 	CreatorDisplayName pulumi.StringInput
@@ -221,6 +227,8 @@ func (o CollaborationOutput) ToCollaborationOutputWithContext(ctx context.Contex
 }
 
 // The analytics engine for the collaboration.
+//
+// > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
 func (o CollaborationOutput) AnalyticsEngine() CollaborationAnalyticsEnginePtrOutput {
 	return o.ApplyT(func(v *Collaboration) CollaborationAnalyticsEnginePtrOutput { return v.AnalyticsEngine }).(CollaborationAnalyticsEnginePtrOutput)
 }

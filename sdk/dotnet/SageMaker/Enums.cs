@@ -3306,6 +3306,68 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The flag to enable/disable creation of space managed resources.
+    /// </summary>
+    [EnumType]
+    public readonly struct SpaceManagedResources : IEquatable<SpaceManagedResources>
+    {
+        private readonly string _value;
+
+        private SpaceManagedResources(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpaceManagedResources Enabled { get; } = new SpaceManagedResources("ENABLED");
+        public static SpaceManagedResources Disabled { get; } = new SpaceManagedResources("DISABLED");
+
+        public static bool operator ==(SpaceManagedResources left, SpaceManagedResources right) => left.Equals(right);
+        public static bool operator !=(SpaceManagedResources left, SpaceManagedResources right) => !left.Equals(right);
+
+        public static explicit operator string(SpaceManagedResources value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpaceManagedResources other && Equals(other);
+        public bool Equals(SpaceManagedResources other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The flag to enable/disable remote access for a space.
+    /// </summary>
+    [EnumType]
+    public readonly struct SpaceRemoteAccess : IEquatable<SpaceRemoteAccess>
+    {
+        private readonly string _value;
+
+        private SpaceRemoteAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpaceRemoteAccess Enabled { get; } = new SpaceRemoteAccess("ENABLED");
+        public static SpaceRemoteAccess Disabled { get; } = new SpaceRemoteAccess("DISABLED");
+
+        public static bool operator ==(SpaceRemoteAccess left, SpaceRemoteAccess right) => left.Equals(right);
+        public static bool operator !=(SpaceRemoteAccess left, SpaceRemoteAccess right) => !left.Equals(right);
+
+        public static explicit operator string(SpaceRemoteAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpaceRemoteAccess other && Equals(other);
+        public bool Equals(SpaceRemoteAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The instance type that the image version runs on.
     /// </summary>
     [EnumType]

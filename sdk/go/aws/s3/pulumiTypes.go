@@ -3223,7 +3223,8 @@ func (o BucketInventoryTableConfigurationPtrOutput) TableName() pulumi.StringPtr
 type BucketJournalTableConfiguration struct {
 	// The encryption configuration for the journal table.
 	EncryptionConfiguration *BucketMetadataTableEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	RecordExpiration        BucketRecordExpiration                      `pulumi:"recordExpiration"`
+	// The journal table record expiration settings for the journal table.
+	RecordExpiration BucketRecordExpiration `pulumi:"recordExpiration"`
 	// The ARN of the journal table.
 	TableArn *string `pulumi:"tableArn"`
 	// The name of the journal table.
@@ -3244,7 +3245,8 @@ type BucketJournalTableConfigurationInput interface {
 type BucketJournalTableConfigurationArgs struct {
 	// The encryption configuration for the journal table.
 	EncryptionConfiguration BucketMetadataTableEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
-	RecordExpiration        BucketRecordExpirationInput                        `pulumi:"recordExpiration"`
+	// The journal table record expiration settings for the journal table.
+	RecordExpiration BucketRecordExpirationInput `pulumi:"recordExpiration"`
 	// The ARN of the journal table.
 	TableArn pulumi.StringPtrInput `pulumi:"tableArn"`
 	// The name of the journal table.
@@ -3335,6 +3337,7 @@ func (o BucketJournalTableConfigurationOutput) EncryptionConfiguration() BucketM
 	}).(BucketMetadataTableEncryptionConfigurationPtrOutput)
 }
 
+// The journal table record expiration settings for the journal table.
 func (o BucketJournalTableConfigurationOutput) RecordExpiration() BucketRecordExpirationOutput {
 	return o.ApplyT(func(v BucketJournalTableConfiguration) BucketRecordExpiration { return v.RecordExpiration }).(BucketRecordExpirationOutput)
 }
@@ -3383,6 +3386,7 @@ func (o BucketJournalTableConfigurationPtrOutput) EncryptionConfiguration() Buck
 	}).(BucketMetadataTableEncryptionConfigurationPtrOutput)
 }
 
+// The journal table record expiration settings for the journal table.
 func (o BucketJournalTableConfigurationPtrOutput) RecordExpiration() BucketRecordExpirationPtrOutput {
 	return o.ApplyT(func(v *BucketJournalTableConfiguration) *BucketRecordExpiration {
 		if v == nil {

@@ -88,6 +88,10 @@ namespace Pulumi.AwsNative.Wisdom
         /// </summary>
         public readonly string? MessageTemplateArn;
         /// <summary>
+        /// List of message template attachments
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MessageTemplateAttachment> MessageTemplateAttachments;
+        /// <summary>
         /// The content SHA256 of the message template.
         /// </summary>
         public readonly string? MessageTemplateContentSha256;
@@ -118,6 +122,8 @@ namespace Pulumi.AwsNative.Wisdom
 
             string? messageTemplateArn,
 
+            ImmutableArray<Outputs.MessageTemplateAttachment> messageTemplateAttachments,
+
             string? messageTemplateContentSha256,
 
             string? messageTemplateId,
@@ -132,6 +138,7 @@ namespace Pulumi.AwsNative.Wisdom
             GroupingConfiguration = groupingConfiguration;
             Language = language;
             MessageTemplateArn = messageTemplateArn;
+            MessageTemplateAttachments = messageTemplateAttachments;
             MessageTemplateContentSha256 = messageTemplateContentSha256;
             MessageTemplateId = messageTemplateId;
             Name = name;

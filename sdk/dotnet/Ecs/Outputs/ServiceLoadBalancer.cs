@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class ServiceLoadBalancer
     {
+        /// <summary>
+        /// The advanced settings for the load balancer used in blue/green deployments. Specify the alternate target group, listener rules, and IAM role required for traffic shifting during blue/green deployments.
+        /// </summary>
         public readonly Outputs.ServiceAdvancedConfiguration? AdvancedConfiguration;
         /// <summary>
         /// The name of the container (as it appears in a container definition) to associate with the load balancer.

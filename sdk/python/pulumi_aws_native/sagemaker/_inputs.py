@@ -17844,6 +17844,9 @@ if not MYPY:
         The URL of the CloudFormation template.
         """
         parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectCfnStackParameterArgsDict']]]]
+        """
+        An array of CloudFormation stack parameters.
+        """
         role_arn: NotRequired[pulumi.Input[builtins.str]]
         """
         The Amazon Resource Name (ARN) of the IAM role used by the template provider.
@@ -17862,6 +17865,7 @@ class ProjectCfnTemplateProviderDetailArgs:
         CloudFormation template provider details for a SageMaker project.
         :param pulumi.Input[builtins.str] template_name: The name of the template used for the project.
         :param pulumi.Input[builtins.str] template_url: The URL of the CloudFormation template.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectCfnStackParameterArgs']]] parameters: An array of CloudFormation stack parameters.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role used by the template provider.
         """
         pulumi.set(__self__, "template_name", template_name)
@@ -17898,6 +17902,9 @@ class ProjectCfnTemplateProviderDetailArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectCfnStackParameterArgs']]]]:
+        """
+        An array of CloudFormation stack parameters.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -17977,6 +17984,9 @@ if not MYPY:
         Details about the template provider for the SageMaker project.
         """
         cfn_template_provider_detail: NotRequired[pulumi.Input['ProjectCfnTemplateProviderDetailArgsDict']]
+        """
+        Details about a CloudFormation template provider configuration and associated provisioning information.
+        """
 elif False:
     ProjectTemplateProviderDetailArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -17986,6 +17996,7 @@ class ProjectTemplateProviderDetailArgs:
                  cfn_template_provider_detail: Optional[pulumi.Input['ProjectCfnTemplateProviderDetailArgs']] = None):
         """
         Details about the template provider for the SageMaker project.
+        :param pulumi.Input['ProjectCfnTemplateProviderDetailArgs'] cfn_template_provider_detail: Details about a CloudFormation template provider configuration and associated provisioning information.
         """
         if cfn_template_provider_detail is not None:
             pulumi.set(__self__, "cfn_template_provider_detail", cfn_template_provider_detail)
@@ -17993,6 +18004,9 @@ class ProjectTemplateProviderDetailArgs:
     @property
     @pulumi.getter(name="cfnTemplateProviderDetail")
     def cfn_template_provider_detail(self) -> Optional[pulumi.Input['ProjectCfnTemplateProviderDetailArgs']]:
+        """
+        Details about a CloudFormation template provider configuration and associated provisioning information.
+        """
         return pulumi.get(self, "cfn_template_provider_detail")
 
     @cfn_template_provider_detail.setter
@@ -18871,6 +18885,14 @@ if not MYPY:
         """
         The kernel gateway app settings.
         """
+        remote_access: NotRequired[pulumi.Input['SpaceRemoteAccess']]
+        """
+        This is a flag used to indicate if remote access is enabled.
+        """
+        space_managed_resources: NotRequired[pulumi.Input['SpaceManagedResources']]
+        """
+        This is a flag used to indicate if space managed resources needs to be created.
+        """
         space_storage_settings: NotRequired[pulumi.Input['SpaceStorageSettingsArgsDict']]
         """
         Default storage settings for a space.
@@ -18887,6 +18909,8 @@ class SpaceSettingsArgs:
                  jupyter_lab_app_settings: Optional[pulumi.Input['SpaceJupyterLabAppSettingsArgs']] = None,
                  jupyter_server_app_settings: Optional[pulumi.Input['SpaceJupyterServerAppSettingsArgs']] = None,
                  kernel_gateway_app_settings: Optional[pulumi.Input['SpaceKernelGatewayAppSettingsArgs']] = None,
+                 remote_access: Optional[pulumi.Input['SpaceRemoteAccess']] = None,
+                 space_managed_resources: Optional[pulumi.Input['SpaceManagedResources']] = None,
                  space_storage_settings: Optional[pulumi.Input['SpaceStorageSettingsArgs']] = None):
         """
         A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
@@ -18898,6 +18922,8 @@ class SpaceSettingsArgs:
         :param pulumi.Input['SpaceJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The JupyterLab app settings.
         :param pulumi.Input['SpaceJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings.
         :param pulumi.Input['SpaceKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings.
+        :param pulumi.Input['SpaceRemoteAccess'] remote_access: This is a flag used to indicate if remote access is enabled.
+        :param pulumi.Input['SpaceManagedResources'] space_managed_resources: This is a flag used to indicate if space managed resources needs to be created.
         :param pulumi.Input['SpaceStorageSettingsArgs'] space_storage_settings: Default storage settings for a space.
         """
         if app_type is not None:
@@ -18912,6 +18938,10 @@ class SpaceSettingsArgs:
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
             pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+        if remote_access is not None:
+            pulumi.set(__self__, "remote_access", remote_access)
+        if space_managed_resources is not None:
+            pulumi.set(__self__, "space_managed_resources", space_managed_resources)
         if space_storage_settings is not None:
             pulumi.set(__self__, "space_storage_settings", space_storage_settings)
 
@@ -18988,6 +19018,30 @@ class SpaceSettingsArgs:
     @kernel_gateway_app_settings.setter
     def kernel_gateway_app_settings(self, value: Optional[pulumi.Input['SpaceKernelGatewayAppSettingsArgs']]):
         pulumi.set(self, "kernel_gateway_app_settings", value)
+
+    @property
+    @pulumi.getter(name="remoteAccess")
+    def remote_access(self) -> Optional[pulumi.Input['SpaceRemoteAccess']]:
+        """
+        This is a flag used to indicate if remote access is enabled.
+        """
+        return pulumi.get(self, "remote_access")
+
+    @remote_access.setter
+    def remote_access(self, value: Optional[pulumi.Input['SpaceRemoteAccess']]):
+        pulumi.set(self, "remote_access", value)
+
+    @property
+    @pulumi.getter(name="spaceManagedResources")
+    def space_managed_resources(self) -> Optional[pulumi.Input['SpaceManagedResources']]:
+        """
+        This is a flag used to indicate if space managed resources needs to be created.
+        """
+        return pulumi.get(self, "space_managed_resources")
+
+    @space_managed_resources.setter
+    def space_managed_resources(self, value: Optional[pulumi.Input['SpaceManagedResources']]):
+        pulumi.set(self, "space_managed_resources", value)
 
     @property
     @pulumi.getter(name="spaceStorageSettings")
