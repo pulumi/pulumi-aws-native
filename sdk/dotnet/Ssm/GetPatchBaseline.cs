@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.Ssm
         /// </summary>
         public readonly bool? ApprovedPatchesEnableNonSecurity;
         /// <summary>
+        /// The compliance status for vendor recommended security updates that are not approved by this patch baseline.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Ssm.PatchBaselineAvailableSecurityUpdatesComplianceStatus? AvailableSecurityUpdatesComplianceStatus;
+        /// <summary>
         /// Set the baseline as default baseline. Only registering to default patch baseline is allowed.
         /// </summary>
         public readonly bool? DefaultBaseline;
@@ -130,6 +134,8 @@ namespace Pulumi.AwsNative.Ssm
 
             bool? approvedPatchesEnableNonSecurity,
 
+            Pulumi.AwsNative.Ssm.PatchBaselineAvailableSecurityUpdatesComplianceStatus? availableSecurityUpdatesComplianceStatus,
+
             bool? defaultBaseline,
 
             string? description,
@@ -154,6 +160,7 @@ namespace Pulumi.AwsNative.Ssm
             ApprovedPatches = approvedPatches;
             ApprovedPatchesComplianceLevel = approvedPatchesComplianceLevel;
             ApprovedPatchesEnableNonSecurity = approvedPatchesEnableNonSecurity;
+            AvailableSecurityUpdatesComplianceStatus = availableSecurityUpdatesComplianceStatus;
             DefaultBaseline = defaultBaseline;
             Description = description;
             GlobalFilters = globalFilters;

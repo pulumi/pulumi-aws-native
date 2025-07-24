@@ -1635,7 +1635,10 @@ func (o DeliveryStreamBufferingHintsPtrOutput) SizeInMbs() pulumi.IntPtrOutput {
 
 type DeliveryStreamCatalogConfiguration struct {
 	// Specifies the Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
-	CatalogArn        *string `pulumi:"catalogArn"`
+	CatalogArn *string `pulumi:"catalogArn"`
+	// The warehouse location for Apache Iceberg tables. You must configure this when schema evolution and table creation is enabled.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
 	WarehouseLocation *string `pulumi:"warehouseLocation"`
 }
 
@@ -1652,7 +1655,10 @@ type DeliveryStreamCatalogConfigurationInput interface {
 
 type DeliveryStreamCatalogConfigurationArgs struct {
 	// Specifies the Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
-	CatalogArn        pulumi.StringPtrInput `pulumi:"catalogArn"`
+	CatalogArn pulumi.StringPtrInput `pulumi:"catalogArn"`
+	// The warehouse location for Apache Iceberg tables. You must configure this when schema evolution and table creation is enabled.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
 	WarehouseLocation pulumi.StringPtrInput `pulumi:"warehouseLocation"`
 }
 
@@ -1738,6 +1744,9 @@ func (o DeliveryStreamCatalogConfigurationOutput) CatalogArn() pulumi.StringPtrO
 	return o.ApplyT(func(v DeliveryStreamCatalogConfiguration) *string { return v.CatalogArn }).(pulumi.StringPtrOutput)
 }
 
+// The warehouse location for Apache Iceberg tables. You must configure this when schema evolution and table creation is enabled.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamCatalogConfigurationOutput) WarehouseLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamCatalogConfiguration) *string { return v.WarehouseLocation }).(pulumi.StringPtrOutput)
 }
@@ -1776,6 +1785,9 @@ func (o DeliveryStreamCatalogConfigurationPtrOutput) CatalogArn() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The warehouse location for Apache Iceberg tables. You must configure this when schema evolution and table creation is enabled.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamCatalogConfigurationPtrOutput) WarehouseLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamCatalogConfiguration) *string {
 		if v == nil {
@@ -6781,10 +6793,16 @@ type DeliveryStreamIcebergDestinationConfiguration struct {
 	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
 	RoleArn string `pulumi:"roleArn"`
 	// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` .
-	S3BackupMode                 *DeliveryStreamIcebergDestinationConfigurations3BackupMode `pulumi:"s3BackupMode"`
-	S3Configuration              DeliveryStreamS3DestinationConfiguration                   `pulumi:"s3Configuration"`
-	SchemaEvolutionConfiguration *DeliveryStreamSchemaEvolutionConfiguration                `pulumi:"schemaEvolutionConfiguration"`
-	TableCreationConfiguration   *DeliveryStreamTableCreationConfiguration                  `pulumi:"tableCreationConfiguration"`
+	S3BackupMode    *DeliveryStreamIcebergDestinationConfigurations3BackupMode `pulumi:"s3BackupMode"`
+	S3Configuration DeliveryStreamS3DestinationConfiguration                   `pulumi:"s3Configuration"`
+	// The configuration to enable automatic schema evolution.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	SchemaEvolutionConfiguration *DeliveryStreamSchemaEvolutionConfiguration `pulumi:"schemaEvolutionConfiguration"`
+	// The configuration to enable automatic table creation.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	TableCreationConfiguration *DeliveryStreamTableCreationConfiguration `pulumi:"tableCreationConfiguration"`
 }
 
 // DeliveryStreamIcebergDestinationConfigurationInput is an input type that accepts DeliveryStreamIcebergDestinationConfigurationArgs and DeliveryStreamIcebergDestinationConfigurationOutput values.
@@ -6814,10 +6832,16 @@ type DeliveryStreamIcebergDestinationConfigurationArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` .
-	S3BackupMode                 DeliveryStreamIcebergDestinationConfigurations3BackupModePtrInput `pulumi:"s3BackupMode"`
-	S3Configuration              DeliveryStreamS3DestinationConfigurationInput                     `pulumi:"s3Configuration"`
-	SchemaEvolutionConfiguration DeliveryStreamSchemaEvolutionConfigurationPtrInput                `pulumi:"schemaEvolutionConfiguration"`
-	TableCreationConfiguration   DeliveryStreamTableCreationConfigurationPtrInput                  `pulumi:"tableCreationConfiguration"`
+	S3BackupMode    DeliveryStreamIcebergDestinationConfigurations3BackupModePtrInput `pulumi:"s3BackupMode"`
+	S3Configuration DeliveryStreamS3DestinationConfigurationInput                     `pulumi:"s3Configuration"`
+	// The configuration to enable automatic schema evolution.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	SchemaEvolutionConfiguration DeliveryStreamSchemaEvolutionConfigurationPtrInput `pulumi:"schemaEvolutionConfiguration"`
+	// The configuration to enable automatic table creation.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	TableCreationConfiguration DeliveryStreamTableCreationConfigurationPtrInput `pulumi:"tableCreationConfiguration"`
 }
 
 func (DeliveryStreamIcebergDestinationConfigurationArgs) ElementType() reflect.Type {
@@ -6960,12 +6984,18 @@ func (o DeliveryStreamIcebergDestinationConfigurationOutput) S3Configuration() D
 	}).(DeliveryStreamS3DestinationConfigurationOutput)
 }
 
+// The configuration to enable automatic schema evolution.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamIcebergDestinationConfigurationOutput) SchemaEvolutionConfiguration() DeliveryStreamSchemaEvolutionConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamSchemaEvolutionConfiguration {
 		return v.SchemaEvolutionConfiguration
 	}).(DeliveryStreamSchemaEvolutionConfigurationPtrOutput)
 }
 
+// The configuration to enable automatic table creation.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamIcebergDestinationConfigurationOutput) TableCreationConfiguration() DeliveryStreamTableCreationConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamTableCreationConfiguration {
 		return v.TableCreationConfiguration
@@ -7093,6 +7123,9 @@ func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) S3Configuration(
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
 }
 
+// The configuration to enable automatic schema evolution.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) SchemaEvolutionConfiguration() DeliveryStreamSchemaEvolutionConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamSchemaEvolutionConfiguration {
 		if v == nil {
@@ -7102,6 +7135,9 @@ func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) SchemaEvolutionC
 	}).(DeliveryStreamSchemaEvolutionConfigurationPtrOutput)
 }
 
+// The configuration to enable automatic table creation.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) TableCreationConfiguration() DeliveryStreamTableCreationConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamTableCreationConfiguration {
 		if v == nil {
@@ -10252,6 +10288,9 @@ func (o DeliveryStreamSchemaConfigurationPtrOutput) VersionId() pulumi.StringPtr
 }
 
 type DeliveryStreamSchemaEvolutionConfiguration struct {
+	// Specify whether you want to enable schema evolution.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -10267,6 +10306,9 @@ type DeliveryStreamSchemaEvolutionConfigurationInput interface {
 }
 
 type DeliveryStreamSchemaEvolutionConfigurationArgs struct {
+	// Specify whether you want to enable schema evolution.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -10347,6 +10389,9 @@ func (o DeliveryStreamSchemaEvolutionConfigurationOutput) ToDeliveryStreamSchema
 	}).(DeliveryStreamSchemaEvolutionConfigurationPtrOutput)
 }
 
+// Specify whether you want to enable schema evolution.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamSchemaEvolutionConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSchemaEvolutionConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -10375,6 +10420,9 @@ func (o DeliveryStreamSchemaEvolutionConfigurationPtrOutput) Elem() DeliveryStre
 	}).(DeliveryStreamSchemaEvolutionConfigurationOutput)
 }
 
+// Specify whether you want to enable schema evolution.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamSchemaEvolutionConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSchemaEvolutionConfiguration) *bool {
 		if v == nil {
@@ -12482,6 +12530,9 @@ func (o DeliveryStreamSplunkRetryOptionsPtrOutput) DurationInSeconds() pulumi.In
 }
 
 type DeliveryStreamTableCreationConfiguration struct {
+	// Specify whether you want to enable automatic table creation.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -12497,6 +12548,9 @@ type DeliveryStreamTableCreationConfigurationInput interface {
 }
 
 type DeliveryStreamTableCreationConfigurationArgs struct {
+	// Specify whether you want to enable automatic table creation.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -12577,6 +12631,9 @@ func (o DeliveryStreamTableCreationConfigurationOutput) ToDeliveryStreamTableCre
 	}).(DeliveryStreamTableCreationConfigurationPtrOutput)
 }
 
+// Specify whether you want to enable automatic table creation.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamTableCreationConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamTableCreationConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -12605,6 +12662,9 @@ func (o DeliveryStreamTableCreationConfigurationPtrOutput) Elem() DeliveryStream
 	}).(DeliveryStreamTableCreationConfigurationOutput)
 }
 
+// Specify whether you want to enable automatic table creation.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamTableCreationConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamTableCreationConfiguration) *bool {
 		if v == nil {

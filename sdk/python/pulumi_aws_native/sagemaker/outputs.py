@@ -73,6 +73,7 @@ __all__ = [
     'DomainRStudioServerProAppSettings',
     'DomainRStudioServerProDomainSettings',
     'DomainResourceSpec',
+    'DomainS3FileSystemConfig',
     'DomainSettings',
     'DomainSharingSettings',
     'DomainStudioWebPortalSettings',
@@ -277,6 +278,7 @@ __all__ = [
     'SpaceKernelGatewayAppSettings',
     'SpaceOwnershipSettings',
     'SpaceResourceSpec',
+    'SpaceS3FileSystem',
     'SpaceSettings',
     'SpaceSharingSettings',
     'SpaceStorageSettings',
@@ -297,6 +299,7 @@ __all__ = [
     'UserProfileKernelGatewayAppSettings',
     'UserProfileRStudioServerProAppSettings',
     'UserProfileResourceSpec',
+    'UserProfileS3FileSystemConfig',
     'UserProfileSharingSettings',
     'UserProfileStudioWebPortalSettings',
     'UserProfileUserSettings',
@@ -2347,6 +2350,8 @@ class DomainCustomFileSystemConfig(dict):
             suggest = "efs_file_system_config"
         elif key == "fSxLustreFileSystemConfig":
             suggest = "f_sx_lustre_file_system_config"
+        elif key == "s3FileSystemConfig":
+            suggest = "s3_file_system_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DomainCustomFileSystemConfig. Access the value via the '{suggest}' property getter instead.")
@@ -2361,7 +2366,8 @@ class DomainCustomFileSystemConfig(dict):
 
     def __init__(__self__, *,
                  efs_file_system_config: Optional['outputs.DomainEfsFileSystemConfig'] = None,
-                 f_sx_lustre_file_system_config: Optional['outputs.DomainFSxLustreFileSystemConfig'] = None):
+                 f_sx_lustre_file_system_config: Optional['outputs.DomainFSxLustreFileSystemConfig'] = None,
+                 s3_file_system_config: Optional['outputs.DomainS3FileSystemConfig'] = None):
         """
         :param 'DomainEfsFileSystemConfig' efs_file_system_config: The settings for a custom Amazon EFS file system.
         :param 'DomainFSxLustreFileSystemConfig' f_sx_lustre_file_system_config: The settings for a custom Amazon FSx for Lustre file system.
@@ -2370,6 +2376,8 @@ class DomainCustomFileSystemConfig(dict):
             pulumi.set(__self__, "efs_file_system_config", efs_file_system_config)
         if f_sx_lustre_file_system_config is not None:
             pulumi.set(__self__, "f_sx_lustre_file_system_config", f_sx_lustre_file_system_config)
+        if s3_file_system_config is not None:
+            pulumi.set(__self__, "s3_file_system_config", s3_file_system_config)
 
     @property
     @pulumi.getter(name="efsFileSystemConfig")
@@ -2386,6 +2394,11 @@ class DomainCustomFileSystemConfig(dict):
         The settings for a custom Amazon FSx for Lustre file system.
         """
         return pulumi.get(self, "f_sx_lustre_file_system_config")
+
+    @property
+    @pulumi.getter(name="s3FileSystemConfig")
+    def s3_file_system_config(self) -> Optional['outputs.DomainS3FileSystemConfig']:
+        return pulumi.get(self, "s3_file_system_config")
 
 
 @pulumi.output_type
@@ -3489,6 +3502,46 @@ class DomainResourceSpec(dict):
         The Amazon Resource Name (ARN) of the image version created on the instance.
         """
         return pulumi.get(self, "sage_maker_image_version_arn")
+
+
+@pulumi.output_type
+class DomainS3FileSystemConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPath":
+            suggest = "mount_path"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainS3FileSystemConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainS3FileSystemConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainS3FileSystemConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mount_path: Optional[builtins.str] = None,
+                 s3_uri: Optional[builtins.str] = None):
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+        if s3_uri is not None:
+            pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "mount_path")
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "s3_uri")
 
 
 @pulumi.output_type
@@ -15149,6 +15202,7 @@ class ProjectCfnTemplateProviderDetail(dict):
         CloudFormation template provider details for a SageMaker project.
         :param builtins.str template_name: The name of the template used for the project.
         :param builtins.str template_url: The URL of the CloudFormation template.
+        :param Sequence['ProjectCfnStackParameter'] parameters: An array of CloudFormation stack parameters.
         :param builtins.str role_arn: The Amazon Resource Name (ARN) of the IAM role used by the template provider.
         """
         pulumi.set(__self__, "template_name", template_name)
@@ -15177,6 +15231,9 @@ class ProjectCfnTemplateProviderDetail(dict):
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Sequence['outputs.ProjectCfnStackParameter']]:
+        """
+        An array of CloudFormation stack parameters.
+        """
         return pulumi.get(self, "parameters")
 
     @property
@@ -15247,6 +15304,7 @@ class ProjectTemplateProviderDetail(dict):
                  cfn_template_provider_detail: Optional['outputs.ProjectCfnTemplateProviderDetail'] = None):
         """
         Details about the template provider for the SageMaker project.
+        :param 'ProjectCfnTemplateProviderDetail' cfn_template_provider_detail: Details about a CloudFormation template provider configuration and associated provisioning information.
         """
         if cfn_template_provider_detail is not None:
             pulumi.set(__self__, "cfn_template_provider_detail", cfn_template_provider_detail)
@@ -15254,6 +15312,9 @@ class ProjectTemplateProviderDetail(dict):
     @property
     @pulumi.getter(name="cfnTemplateProviderDetail")
     def cfn_template_provider_detail(self) -> Optional['outputs.ProjectCfnTemplateProviderDetail']:
+        """
+        Details about a CloudFormation template provider configuration and associated provisioning information.
+        """
         return pulumi.get(self, "cfn_template_provider_detail")
 
 
@@ -15538,6 +15599,8 @@ class SpaceCustomFileSystem(dict):
             suggest = "efs_file_system"
         elif key == "fSxLustreFileSystem":
             suggest = "f_sx_lustre_file_system"
+        elif key == "s3FileSystem":
+            suggest = "s3_file_system"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SpaceCustomFileSystem. Access the value via the '{suggest}' property getter instead.")
@@ -15552,11 +15615,14 @@ class SpaceCustomFileSystem(dict):
 
     def __init__(__self__, *,
                  efs_file_system: Optional['outputs.SpaceEfsFileSystem'] = None,
-                 f_sx_lustre_file_system: Optional['outputs.SpaceFSxLustreFileSystem'] = None):
+                 f_sx_lustre_file_system: Optional['outputs.SpaceFSxLustreFileSystem'] = None,
+                 s3_file_system: Optional['outputs.SpaceS3FileSystem'] = None):
         if efs_file_system is not None:
             pulumi.set(__self__, "efs_file_system", efs_file_system)
         if f_sx_lustre_file_system is not None:
             pulumi.set(__self__, "f_sx_lustre_file_system", f_sx_lustre_file_system)
+        if s3_file_system is not None:
+            pulumi.set(__self__, "s3_file_system", s3_file_system)
 
     @property
     @pulumi.getter(name="efsFileSystem")
@@ -15567,6 +15633,11 @@ class SpaceCustomFileSystem(dict):
     @pulumi.getter(name="fSxLustreFileSystem")
     def f_sx_lustre_file_system(self) -> Optional['outputs.SpaceFSxLustreFileSystem']:
         return pulumi.get(self, "f_sx_lustre_file_system")
+
+    @property
+    @pulumi.getter(name="s3FileSystem")
+    def s3_file_system(self) -> Optional['outputs.SpaceS3FileSystem']:
+        return pulumi.get(self, "s3_file_system")
 
 
 @pulumi.output_type
@@ -16072,6 +16143,36 @@ class SpaceResourceSpec(dict):
 
 
 @pulumi.output_type
+class SpaceS3FileSystem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceS3FileSystem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceS3FileSystem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceS3FileSystem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_uri: Optional[builtins.str] = None):
+        if s3_uri is not None:
+            pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "s3_uri")
+
+
+@pulumi.output_type
 class SpaceSettings(dict):
     """
     A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
@@ -16091,6 +16192,10 @@ class SpaceSettings(dict):
             suggest = "jupyter_server_app_settings"
         elif key == "kernelGatewayAppSettings":
             suggest = "kernel_gateway_app_settings"
+        elif key == "remoteAccess":
+            suggest = "remote_access"
+        elif key == "spaceManagedResources":
+            suggest = "space_managed_resources"
         elif key == "spaceStorageSettings":
             suggest = "space_storage_settings"
 
@@ -16112,6 +16217,8 @@ class SpaceSettings(dict):
                  jupyter_lab_app_settings: Optional['outputs.SpaceJupyterLabAppSettings'] = None,
                  jupyter_server_app_settings: Optional['outputs.SpaceJupyterServerAppSettings'] = None,
                  kernel_gateway_app_settings: Optional['outputs.SpaceKernelGatewayAppSettings'] = None,
+                 remote_access: Optional['SpaceRemoteAccess'] = None,
+                 space_managed_resources: Optional['SpaceManagedResources'] = None,
                  space_storage_settings: Optional['outputs.SpaceStorageSettings'] = None):
         """
         A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
@@ -16123,6 +16230,8 @@ class SpaceSettings(dict):
         :param 'SpaceJupyterLabAppSettings' jupyter_lab_app_settings: The JupyterLab app settings.
         :param 'SpaceJupyterServerAppSettings' jupyter_server_app_settings: The Jupyter server's app settings.
         :param 'SpaceKernelGatewayAppSettings' kernel_gateway_app_settings: The kernel gateway app settings.
+        :param 'SpaceRemoteAccess' remote_access: This is a flag used to indicate if remote access is enabled.
+        :param 'SpaceManagedResources' space_managed_resources: This is a flag used to indicate if space managed resources needs to be created.
         :param 'SpaceStorageSettings' space_storage_settings: Default storage settings for a space.
         """
         if app_type is not None:
@@ -16137,6 +16246,10 @@ class SpaceSettings(dict):
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
             pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+        if remote_access is not None:
+            pulumi.set(__self__, "remote_access", remote_access)
+        if space_managed_resources is not None:
+            pulumi.set(__self__, "space_managed_resources", space_managed_resources)
         if space_storage_settings is not None:
             pulumi.set(__self__, "space_storage_settings", space_storage_settings)
 
@@ -16189,6 +16302,22 @@ class SpaceSettings(dict):
         The kernel gateway app settings.
         """
         return pulumi.get(self, "kernel_gateway_app_settings")
+
+    @property
+    @pulumi.getter(name="remoteAccess")
+    def remote_access(self) -> Optional['SpaceRemoteAccess']:
+        """
+        This is a flag used to indicate if remote access is enabled.
+        """
+        return pulumi.get(self, "remote_access")
+
+    @property
+    @pulumi.getter(name="spaceManagedResources")
+    def space_managed_resources(self) -> Optional['SpaceManagedResources']:
+        """
+        This is a flag used to indicate if space managed resources needs to be created.
+        """
+        return pulumi.get(self, "space_managed_resources")
 
     @property
     @pulumi.getter(name="spaceStorageSettings")
@@ -16446,6 +16575,8 @@ class UserProfileCustomFileSystemConfig(dict):
             suggest = "efs_file_system_config"
         elif key == "fSxLustreFileSystemConfig":
             suggest = "f_sx_lustre_file_system_config"
+        elif key == "s3FileSystemConfig":
+            suggest = "s3_file_system_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserProfileCustomFileSystemConfig. Access the value via the '{suggest}' property getter instead.")
@@ -16460,7 +16591,8 @@ class UserProfileCustomFileSystemConfig(dict):
 
     def __init__(__self__, *,
                  efs_file_system_config: Optional['outputs.UserProfileEfsFileSystemConfig'] = None,
-                 f_sx_lustre_file_system_config: Optional['outputs.UserProfileFSxLustreFileSystemConfig'] = None):
+                 f_sx_lustre_file_system_config: Optional['outputs.UserProfileFSxLustreFileSystemConfig'] = None,
+                 s3_file_system_config: Optional['outputs.UserProfileS3FileSystemConfig'] = None):
         """
         :param 'UserProfileEfsFileSystemConfig' efs_file_system_config: The settings for a custom Amazon EFS file system.
         :param 'UserProfileFSxLustreFileSystemConfig' f_sx_lustre_file_system_config: The settings for a custom Amazon FSx for Lustre file system.
@@ -16469,6 +16601,8 @@ class UserProfileCustomFileSystemConfig(dict):
             pulumi.set(__self__, "efs_file_system_config", efs_file_system_config)
         if f_sx_lustre_file_system_config is not None:
             pulumi.set(__self__, "f_sx_lustre_file_system_config", f_sx_lustre_file_system_config)
+        if s3_file_system_config is not None:
+            pulumi.set(__self__, "s3_file_system_config", s3_file_system_config)
 
     @property
     @pulumi.getter(name="efsFileSystemConfig")
@@ -16485,6 +16619,11 @@ class UserProfileCustomFileSystemConfig(dict):
         The settings for a custom Amazon FSx for Lustre file system.
         """
         return pulumi.get(self, "f_sx_lustre_file_system_config")
+
+    @property
+    @pulumi.getter(name="s3FileSystemConfig")
+    def s3_file_system_config(self) -> Optional['outputs.UserProfileS3FileSystemConfig']:
+        return pulumi.get(self, "s3_file_system_config")
 
 
 @pulumi.output_type
@@ -17262,6 +17401,46 @@ class UserProfileResourceSpec(dict):
         The ARN of the image version created on the instance.
         """
         return pulumi.get(self, "sage_maker_image_version_arn")
+
+
+@pulumi.output_type
+class UserProfileS3FileSystemConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPath":
+            suggest = "mount_path"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileS3FileSystemConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileS3FileSystemConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileS3FileSystemConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mount_path: Optional[builtins.str] = None,
+                 s3_uri: Optional[builtins.str] = None):
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+        if s3_uri is not None:
+            pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "mount_path")
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "s3_uri")
 
 
 @pulumi.output_type

@@ -41,6 +41,10 @@ export interface GetAppImageConfigResult {
      * The KernelGatewayImageConfig.
      */
     readonly kernelGatewayImageConfig?: outputs.sagemaker.AppImageConfigKernelGatewayImageConfig;
+    /**
+     * A list of tags to apply to the AppImageConfig.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::SageMaker::AppImageConfig

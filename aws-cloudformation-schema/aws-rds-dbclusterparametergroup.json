@@ -65,7 +65,7 @@
       "timeoutInMinutes" : 180
     },
     "read" : {
-      "permissions" : [ "rds:DescribeDBClusterParameterGroups", "rds:DescribeDBClusterParameters", "rds:DescribeEngineDefaultClusterParameters", "rds:ListTagsForResource" ]
+      "permissions" : [ "rds:DescribeDBClusterParameterGroups", "rds:DescribeDBClusterParameters", "rds:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "rds:AddTagsToResource", "rds:DescribeDBClusterParameterGroups", "rds:DescribeDBClusterParameters", "rds:DescribeDBClusters", "rds:DescribeEngineDefaultClusterParameters", "rds:ListTagsForResource", "rds:ModifyDBClusterParameterGroup", "rds:RemoveTagsFromResource", "rds:ResetDBClusterParameterGroup" ],

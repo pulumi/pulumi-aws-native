@@ -1610,6 +1610,7 @@ _utilities.register(
    "aws-native:ec2:SubnetRouteTableAssociation": "SubnetRouteTableAssociation",
    "aws-native:ec2:TrafficMirrorFilter": "TrafficMirrorFilter",
    "aws-native:ec2:TrafficMirrorFilterRule": "TrafficMirrorFilterRule",
+   "aws-native:ec2:TrafficMirrorSession": "TrafficMirrorSession",
    "aws-native:ec2:TrafficMirrorTarget": "TrafficMirrorTarget",
    "aws-native:ec2:TransitGateway": "TransitGateway",
    "aws-native:ec2:TransitGatewayAttachment": "TransitGatewayAttachment",

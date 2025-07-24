@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// The encryption configuration for the journal table.
         /// </summary>
         public readonly Outputs.BucketMetadataTableEncryptionConfiguration? EncryptionConfiguration;
+        /// <summary>
+        /// The journal table record expiration settings for the journal table.
+        /// </summary>
         public readonly Outputs.BucketRecordExpiration RecordExpiration;
         /// <summary>
         /// The ARN of the journal table.

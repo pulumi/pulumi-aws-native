@@ -16079,6 +16079,338 @@ func (in *spaceAppTypePtr) ToSpaceAppTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(SpaceAppTypePtrOutput)
 }
 
+// The flag to enable/disable creation of space managed resources.
+type SpaceManagedResources string
+
+const (
+	SpaceManagedResourcesEnabled  = SpaceManagedResources("ENABLED")
+	SpaceManagedResourcesDisabled = SpaceManagedResources("DISABLED")
+)
+
+func (SpaceManagedResources) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceManagedResources)(nil)).Elem()
+}
+
+func (e SpaceManagedResources) ToSpaceManagedResourcesOutput() SpaceManagedResourcesOutput {
+	return pulumi.ToOutput(e).(SpaceManagedResourcesOutput)
+}
+
+func (e SpaceManagedResources) ToSpaceManagedResourcesOutputWithContext(ctx context.Context) SpaceManagedResourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpaceManagedResourcesOutput)
+}
+
+func (e SpaceManagedResources) ToSpaceManagedResourcesPtrOutput() SpaceManagedResourcesPtrOutput {
+	return e.ToSpaceManagedResourcesPtrOutputWithContext(context.Background())
+}
+
+func (e SpaceManagedResources) ToSpaceManagedResourcesPtrOutputWithContext(ctx context.Context) SpaceManagedResourcesPtrOutput {
+	return SpaceManagedResources(e).ToSpaceManagedResourcesOutputWithContext(ctx).ToSpaceManagedResourcesPtrOutputWithContext(ctx)
+}
+
+func (e SpaceManagedResources) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpaceManagedResources) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpaceManagedResources) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpaceManagedResources) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpaceManagedResourcesOutput struct{ *pulumi.OutputState }
+
+func (SpaceManagedResourcesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceManagedResources)(nil)).Elem()
+}
+
+func (o SpaceManagedResourcesOutput) ToSpaceManagedResourcesOutput() SpaceManagedResourcesOutput {
+	return o
+}
+
+func (o SpaceManagedResourcesOutput) ToSpaceManagedResourcesOutputWithContext(ctx context.Context) SpaceManagedResourcesOutput {
+	return o
+}
+
+func (o SpaceManagedResourcesOutput) ToSpaceManagedResourcesPtrOutput() SpaceManagedResourcesPtrOutput {
+	return o.ToSpaceManagedResourcesPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceManagedResourcesOutput) ToSpaceManagedResourcesPtrOutputWithContext(ctx context.Context) SpaceManagedResourcesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceManagedResources) *SpaceManagedResources {
+		return &v
+	}).(SpaceManagedResourcesPtrOutput)
+}
+
+func (o SpaceManagedResourcesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpaceManagedResourcesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpaceManagedResources) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpaceManagedResourcesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceManagedResourcesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpaceManagedResources) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpaceManagedResourcesPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceManagedResourcesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceManagedResources)(nil)).Elem()
+}
+
+func (o SpaceManagedResourcesPtrOutput) ToSpaceManagedResourcesPtrOutput() SpaceManagedResourcesPtrOutput {
+	return o
+}
+
+func (o SpaceManagedResourcesPtrOutput) ToSpaceManagedResourcesPtrOutputWithContext(ctx context.Context) SpaceManagedResourcesPtrOutput {
+	return o
+}
+
+func (o SpaceManagedResourcesPtrOutput) Elem() SpaceManagedResourcesOutput {
+	return o.ApplyT(func(v *SpaceManagedResources) SpaceManagedResources {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceManagedResources
+		return ret
+	}).(SpaceManagedResourcesOutput)
+}
+
+func (o SpaceManagedResourcesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceManagedResourcesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpaceManagedResources) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpaceManagedResourcesInput is an input type that accepts values of the SpaceManagedResources enum
+// A concrete instance of `SpaceManagedResourcesInput` can be one of the following:
+//
+//	SpaceManagedResourcesEnabled
+//	SpaceManagedResourcesDisabled
+type SpaceManagedResourcesInput interface {
+	pulumi.Input
+
+	ToSpaceManagedResourcesOutput() SpaceManagedResourcesOutput
+	ToSpaceManagedResourcesOutputWithContext(context.Context) SpaceManagedResourcesOutput
+}
+
+var spaceManagedResourcesPtrType = reflect.TypeOf((**SpaceManagedResources)(nil)).Elem()
+
+type SpaceManagedResourcesPtrInput interface {
+	pulumi.Input
+
+	ToSpaceManagedResourcesPtrOutput() SpaceManagedResourcesPtrOutput
+	ToSpaceManagedResourcesPtrOutputWithContext(context.Context) SpaceManagedResourcesPtrOutput
+}
+
+type spaceManagedResourcesPtr string
+
+func SpaceManagedResourcesPtr(v string) SpaceManagedResourcesPtrInput {
+	return (*spaceManagedResourcesPtr)(&v)
+}
+
+func (*spaceManagedResourcesPtr) ElementType() reflect.Type {
+	return spaceManagedResourcesPtrType
+}
+
+func (in *spaceManagedResourcesPtr) ToSpaceManagedResourcesPtrOutput() SpaceManagedResourcesPtrOutput {
+	return pulumi.ToOutput(in).(SpaceManagedResourcesPtrOutput)
+}
+
+func (in *spaceManagedResourcesPtr) ToSpaceManagedResourcesPtrOutputWithContext(ctx context.Context) SpaceManagedResourcesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpaceManagedResourcesPtrOutput)
+}
+
+// The flag to enable/disable remote access for a space.
+type SpaceRemoteAccess string
+
+const (
+	SpaceRemoteAccessEnabled  = SpaceRemoteAccess("ENABLED")
+	SpaceRemoteAccessDisabled = SpaceRemoteAccess("DISABLED")
+)
+
+func (SpaceRemoteAccess) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceRemoteAccess)(nil)).Elem()
+}
+
+func (e SpaceRemoteAccess) ToSpaceRemoteAccessOutput() SpaceRemoteAccessOutput {
+	return pulumi.ToOutput(e).(SpaceRemoteAccessOutput)
+}
+
+func (e SpaceRemoteAccess) ToSpaceRemoteAccessOutputWithContext(ctx context.Context) SpaceRemoteAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpaceRemoteAccessOutput)
+}
+
+func (e SpaceRemoteAccess) ToSpaceRemoteAccessPtrOutput() SpaceRemoteAccessPtrOutput {
+	return e.ToSpaceRemoteAccessPtrOutputWithContext(context.Background())
+}
+
+func (e SpaceRemoteAccess) ToSpaceRemoteAccessPtrOutputWithContext(ctx context.Context) SpaceRemoteAccessPtrOutput {
+	return SpaceRemoteAccess(e).ToSpaceRemoteAccessOutputWithContext(ctx).ToSpaceRemoteAccessPtrOutputWithContext(ctx)
+}
+
+func (e SpaceRemoteAccess) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpaceRemoteAccess) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpaceRemoteAccess) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpaceRemoteAccess) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpaceRemoteAccessOutput struct{ *pulumi.OutputState }
+
+func (SpaceRemoteAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceRemoteAccess)(nil)).Elem()
+}
+
+func (o SpaceRemoteAccessOutput) ToSpaceRemoteAccessOutput() SpaceRemoteAccessOutput {
+	return o
+}
+
+func (o SpaceRemoteAccessOutput) ToSpaceRemoteAccessOutputWithContext(ctx context.Context) SpaceRemoteAccessOutput {
+	return o
+}
+
+func (o SpaceRemoteAccessOutput) ToSpaceRemoteAccessPtrOutput() SpaceRemoteAccessPtrOutput {
+	return o.ToSpaceRemoteAccessPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceRemoteAccessOutput) ToSpaceRemoteAccessPtrOutputWithContext(ctx context.Context) SpaceRemoteAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceRemoteAccess) *SpaceRemoteAccess {
+		return &v
+	}).(SpaceRemoteAccessPtrOutput)
+}
+
+func (o SpaceRemoteAccessOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpaceRemoteAccessOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpaceRemoteAccess) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpaceRemoteAccessOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceRemoteAccessOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpaceRemoteAccess) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpaceRemoteAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceRemoteAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceRemoteAccess)(nil)).Elem()
+}
+
+func (o SpaceRemoteAccessPtrOutput) ToSpaceRemoteAccessPtrOutput() SpaceRemoteAccessPtrOutput {
+	return o
+}
+
+func (o SpaceRemoteAccessPtrOutput) ToSpaceRemoteAccessPtrOutputWithContext(ctx context.Context) SpaceRemoteAccessPtrOutput {
+	return o
+}
+
+func (o SpaceRemoteAccessPtrOutput) Elem() SpaceRemoteAccessOutput {
+	return o.ApplyT(func(v *SpaceRemoteAccess) SpaceRemoteAccess {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceRemoteAccess
+		return ret
+	}).(SpaceRemoteAccessOutput)
+}
+
+func (o SpaceRemoteAccessPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceRemoteAccessPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpaceRemoteAccess) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpaceRemoteAccessInput is an input type that accepts values of the SpaceRemoteAccess enum
+// A concrete instance of `SpaceRemoteAccessInput` can be one of the following:
+//
+//	SpaceRemoteAccessEnabled
+//	SpaceRemoteAccessDisabled
+type SpaceRemoteAccessInput interface {
+	pulumi.Input
+
+	ToSpaceRemoteAccessOutput() SpaceRemoteAccessOutput
+	ToSpaceRemoteAccessOutputWithContext(context.Context) SpaceRemoteAccessOutput
+}
+
+var spaceRemoteAccessPtrType = reflect.TypeOf((**SpaceRemoteAccess)(nil)).Elem()
+
+type SpaceRemoteAccessPtrInput interface {
+	pulumi.Input
+
+	ToSpaceRemoteAccessPtrOutput() SpaceRemoteAccessPtrOutput
+	ToSpaceRemoteAccessPtrOutputWithContext(context.Context) SpaceRemoteAccessPtrOutput
+}
+
+type spaceRemoteAccessPtr string
+
+func SpaceRemoteAccessPtr(v string) SpaceRemoteAccessPtrInput {
+	return (*spaceRemoteAccessPtr)(&v)
+}
+
+func (*spaceRemoteAccessPtr) ElementType() reflect.Type {
+	return spaceRemoteAccessPtrType
+}
+
+func (in *spaceRemoteAccessPtr) ToSpaceRemoteAccessPtrOutput() SpaceRemoteAccessPtrOutput {
+	return pulumi.ToOutput(in).(SpaceRemoteAccessPtrOutput)
+}
+
+func (in *spaceRemoteAccessPtr) ToSpaceRemoteAccessPtrOutputWithContext(ctx context.Context) SpaceRemoteAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpaceRemoteAccessPtrOutput)
+}
+
 // The instance type that the image version runs on.
 type SpaceResourceSpecInstanceType string
 
@@ -19327,6 +19659,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAppTypePtrInput)(nil)).Elem(), PartnerAppType("lakera-guard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceAppTypeInput)(nil)).Elem(), SpaceAppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceAppTypePtrInput)(nil)).Elem(), SpaceAppType("JupyterServer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceManagedResourcesInput)(nil)).Elem(), SpaceManagedResources("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceManagedResourcesPtrInput)(nil)).Elem(), SpaceManagedResources("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceRemoteAccessInput)(nil)).Elem(), SpaceRemoteAccess("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceRemoteAccessPtrInput)(nil)).Elem(), SpaceRemoteAccess("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourceSpecInstanceTypeInput)(nil)).Elem(), SpaceResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourceSpecInstanceTypePtrInput)(nil)).Elem(), SpaceResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSharingSettingsSharingTypeInput)(nil)).Elem(), SpaceSharingSettingsSharingType("Private"))
@@ -19552,6 +19888,10 @@ func init() {
 	pulumi.RegisterOutputType(ProjectStatusPtrOutput{})
 	pulumi.RegisterOutputType(SpaceAppTypeOutput{})
 	pulumi.RegisterOutputType(SpaceAppTypePtrOutput{})
+	pulumi.RegisterOutputType(SpaceManagedResourcesOutput{})
+	pulumi.RegisterOutputType(SpaceManagedResourcesPtrOutput{})
+	pulumi.RegisterOutputType(SpaceRemoteAccessOutput{})
+	pulumi.RegisterOutputType(SpaceRemoteAccessPtrOutput{})
 	pulumi.RegisterOutputType(SpaceResourceSpecInstanceTypeOutput{})
 	pulumi.RegisterOutputType(SpaceResourceSpecInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(SpaceSharingSettingsSharingTypeOutput{})

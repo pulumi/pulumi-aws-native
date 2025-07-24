@@ -386,6 +386,7 @@ class OriginEndpointDashDvbSettings(dict):
         """
         <p>For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.</p>
         :param Sequence['OriginEndpointDashDvbMetricsReporting'] error_metrics: <p>Playback device error reporting settings.</p>
+        :param 'OriginEndpointDashDvbFontDownload' font_download: Subtitle font settings.
         """
         if error_metrics is not None:
             pulumi.set(__self__, "error_metrics", error_metrics)
@@ -403,6 +404,9 @@ class OriginEndpointDashDvbSettings(dict):
     @property
     @pulumi.getter(name="fontDownload")
     def font_download(self) -> Optional['outputs.OriginEndpointDashDvbFontDownload']:
+        """
+        Subtitle font settings.
+        """
         return pulumi.get(self, "font_download")
 
 
@@ -478,19 +482,25 @@ class OriginEndpointDashManifestConfiguration(dict):
         <p>Retrieve the DASH manifest configuration.</p>
         :param builtins.str manifest_name: <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
         :param Sequence['OriginEndpointDashBaseUrl'] base_urls: <p>The base URL to use for retrieving segments.</p>
+        :param 'OriginEndpointDashCompactness' compactness: The layout of the DASH manifest that MediaPackage produces. `STANDARD` indicates a default manifest, which is compacted. `NONE` indicates a full manifest.
+               
+               For information about compactness, see [DASH manifest compactness](https://docs.aws.amazon.com/mediapackage/latest/userguide/compacted.html) in the *AWS Elemental MediaPackage v2 User Guide* .
         :param 'OriginEndpointDashDrmSignaling' drm_signaling: Determines how the DASH manifest signals the DRM content.
+        :param 'OriginEndpointDashDvbSettings' dvb_settings: For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.
         :param 'OriginEndpointFilterConfiguration' filter_configuration: Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
         :param builtins.int manifest_window_seconds: <p>The total duration (in seconds) of the manifest's content.</p>
         :param builtins.int min_buffer_time_seconds: <p>Minimum amount of content (in seconds) that a player must keep available in the buffer.</p>
         :param builtins.int min_update_period_seconds: <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.</p>
         :param Sequence['OriginEndpointDashPeriodTrigger'] period_triggers: <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period. For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
         :param Sequence['OriginEndpointDashProfile'] profiles: <p>The profile that the output is compliant with.</p>
+        :param 'OriginEndpointDashProgramInformation' program_information: Details about the content that you want MediaPackage to pass through in the manifest to the playback device.
         :param 'OriginEndpointScteDash' scte_dash: The SCTE configuration.
         :param 'OriginEndpointDashSegmentTemplateFormat' segment_template_format: Determines the type of variable used in the `media` URL of the `SegmentTemplate` tag in the manifest. Also specifies if segment timeline information is included in `SegmentTimeline` or `SegmentTemplate` .
                
                Value description:
                
                - `NUMBER_WITH_TIMELINE` - The `$Number$` variable is used in the `media` URL. The value of this variable is the sequential number of the segment. A full `SegmentTimeline` object is presented in each `SegmentTemplate` .
+        :param 'OriginEndpointDashSubtitleConfiguration' subtitle_configuration: The configuration for DASH subtitles.
         :param builtins.int suggested_presentation_delay_seconds: <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
         :param 'OriginEndpointDashUtcTiming' utc_timing: Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).
         """
@@ -547,6 +557,11 @@ class OriginEndpointDashManifestConfiguration(dict):
     @property
     @pulumi.getter
     def compactness(self) -> Optional['OriginEndpointDashCompactness']:
+        """
+        The layout of the DASH manifest that MediaPackage produces. `STANDARD` indicates a default manifest, which is compacted. `NONE` indicates a full manifest.
+
+        For information about compactness, see [DASH manifest compactness](https://docs.aws.amazon.com/mediapackage/latest/userguide/compacted.html) in the *AWS Elemental MediaPackage v2 User Guide* .
+        """
         return pulumi.get(self, "compactness")
 
     @property
@@ -560,6 +575,9 @@ class OriginEndpointDashManifestConfiguration(dict):
     @property
     @pulumi.getter(name="dvbSettings")
     def dvb_settings(self) -> Optional['outputs.OriginEndpointDashDvbSettings']:
+        """
+        For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.
+        """
         return pulumi.get(self, "dvb_settings")
 
     @property
@@ -613,6 +631,9 @@ class OriginEndpointDashManifestConfiguration(dict):
     @property
     @pulumi.getter(name="programInformation")
     def program_information(self) -> Optional['outputs.OriginEndpointDashProgramInformation']:
+        """
+        Details about the content that you want MediaPackage to pass through in the manifest to the playback device.
+        """
         return pulumi.get(self, "program_information")
 
     @property
@@ -638,6 +659,9 @@ class OriginEndpointDashManifestConfiguration(dict):
     @property
     @pulumi.getter(name="subtitleConfiguration")
     def subtitle_configuration(self) -> Optional['outputs.OriginEndpointDashSubtitleConfiguration']:
+        """
+        The configuration for DASH subtitles.
+        """
         return pulumi.get(self, "subtitle_configuration")
 
     @property
@@ -773,6 +797,7 @@ class OriginEndpointDashSubtitleConfiguration(dict):
                  ttml_configuration: Optional['outputs.OriginEndpointDashTtmlConfiguration'] = None):
         """
         <p>The configuration for DASH subtitles.</p>
+        :param 'OriginEndpointDashTtmlConfiguration' ttml_configuration: Settings for TTML subtitles.
         """
         if ttml_configuration is not None:
             pulumi.set(__self__, "ttml_configuration", ttml_configuration)
@@ -780,6 +805,9 @@ class OriginEndpointDashSubtitleConfiguration(dict):
     @property
     @pulumi.getter(name="ttmlConfiguration")
     def ttml_configuration(self) -> Optional['outputs.OriginEndpointDashTtmlConfiguration']:
+        """
+        Settings for TTML subtitles.
+        """
         return pulumi.get(self, "ttml_configuration")
 
 
@@ -809,12 +837,16 @@ class OriginEndpointDashTtmlConfiguration(dict):
                  ttml_profile: 'OriginEndpointDashTtmlProfile'):
         """
         <p>The settings for TTML subtitles.</p>
+        :param 'OriginEndpointDashTtmlProfile' ttml_profile: The profile that MediaPackage uses when signaling subtitles in the manifest. `IMSC` is the default profile. `EBU-TT-D` produces subtitles that are compliant with the EBU-TT-D TTML profile. MediaPackage passes through subtitle styles to the manifest. For more information about EBU-TT-D subtitles, see [EBU-TT-D Subtitling Distribution Format](https://docs.aws.amazon.com/https://tech.ebu.ch/publications/tech3380) .
         """
         pulumi.set(__self__, "ttml_profile", ttml_profile)
 
     @property
     @pulumi.getter(name="ttmlProfile")
     def ttml_profile(self) -> 'OriginEndpointDashTtmlProfile':
+        """
+        The profile that MediaPackage uses when signaling subtitles in the manifest. `IMSC` is the default profile. `EBU-TT-D` produces subtitles that are compliant with the EBU-TT-D TTML profile. MediaPackage passes through subtitle styles to the manifest. For more information about EBU-TT-D subtitles, see [EBU-TT-D Subtitling Distribution Format](https://docs.aws.amazon.com/https://tech.ebu.ch/publications/tech3380) .
+        """
         return pulumi.get(self, "ttml_profile")
 
 

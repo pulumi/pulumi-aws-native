@@ -117,6 +117,8 @@ __all__ = [
     'KnowledgeBaseWebCrawlerConfigurationArgsDict',
     'MessageTemplateAgentAttributesArgs',
     'MessageTemplateAgentAttributesArgsDict',
+    'MessageTemplateAttachmentArgs',
+    'MessageTemplateAttachmentArgsDict',
     'MessageTemplateAttributesArgs',
     'MessageTemplateAttributesArgsDict',
     'MessageTemplateBodyContentProviderArgs',
@@ -2245,6 +2247,53 @@ class MessageTemplateAgentAttributesArgs:
     @last_name.setter
     def last_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "last_name", value)
+
+
+if not MYPY:
+    class MessageTemplateAttachmentArgsDict(TypedDict):
+        attachment_name: pulumi.Input[builtins.str]
+        s3_presigned_url: pulumi.Input[builtins.str]
+        attachment_id: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    MessageTemplateAttachmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MessageTemplateAttachmentArgs:
+    def __init__(__self__, *,
+                 attachment_name: pulumi.Input[builtins.str],
+                 s3_presigned_url: pulumi.Input[builtins.str],
+                 attachment_id: Optional[pulumi.Input[builtins.str]] = None):
+        pulumi.set(__self__, "attachment_name", attachment_name)
+        pulumi.set(__self__, "s3_presigned_url", s3_presigned_url)
+        if attachment_id is not None:
+            pulumi.set(__self__, "attachment_id", attachment_id)
+
+    @property
+    @pulumi.getter(name="attachmentName")
+    def attachment_name(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "attachment_name")
+
+    @attachment_name.setter
+    def attachment_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "attachment_name", value)
+
+    @property
+    @pulumi.getter(name="s3PresignedUrl")
+    def s3_presigned_url(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "s3_presigned_url")
+
+    @s3_presigned_url.setter
+    def s3_presigned_url(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "s3_presigned_url", value)
+
+    @property
+    @pulumi.getter(name="attachmentId")
+    def attachment_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "attachment_id")
+
+    @attachment_id.setter
+    def attachment_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "attachment_id", value)
 
 
 if not MYPY:

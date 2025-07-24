@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPatchBaselineResult:
-    def __init__(__self__, approval_rules=None, approved_patches=None, approved_patches_compliance_level=None, approved_patches_enable_non_security=None, default_baseline=None, description=None, global_filters=None, id=None, name=None, patch_groups=None, rejected_patches=None, rejected_patches_action=None, sources=None, tags=None):
+    def __init__(__self__, approval_rules=None, approved_patches=None, approved_patches_compliance_level=None, approved_patches_enable_non_security=None, available_security_updates_compliance_status=None, default_baseline=None, description=None, global_filters=None, id=None, name=None, patch_groups=None, rejected_patches=None, rejected_patches_action=None, sources=None, tags=None):
         if approval_rules and not isinstance(approval_rules, dict):
             raise TypeError("Expected argument 'approval_rules' to be a dict")
         pulumi.set(__self__, "approval_rules", approval_rules)
@@ -40,6 +40,9 @@ class GetPatchBaselineResult:
         if approved_patches_enable_non_security and not isinstance(approved_patches_enable_non_security, bool):
             raise TypeError("Expected argument 'approved_patches_enable_non_security' to be a bool")
         pulumi.set(__self__, "approved_patches_enable_non_security", approved_patches_enable_non_security)
+        if available_security_updates_compliance_status and not isinstance(available_security_updates_compliance_status, str):
+            raise TypeError("Expected argument 'available_security_updates_compliance_status' to be a str")
+        pulumi.set(__self__, "available_security_updates_compliance_status", available_security_updates_compliance_status)
         if default_baseline and not isinstance(default_baseline, bool):
             raise TypeError("Expected argument 'default_baseline' to be a bool")
         pulumi.set(__self__, "default_baseline", default_baseline)
@@ -102,6 +105,14 @@ class GetPatchBaselineResult:
         Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
         """
         return pulumi.get(self, "approved_patches_enable_non_security")
+
+    @property
+    @pulumi.getter(name="availableSecurityUpdatesComplianceStatus")
+    def available_security_updates_compliance_status(self) -> Optional['PatchBaselineAvailableSecurityUpdatesComplianceStatus']:
+        """
+        The compliance status for vendor recommended security updates that are not approved by this patch baseline.
+        """
+        return pulumi.get(self, "available_security_updates_compliance_status")
 
     @property
     @pulumi.getter(name="defaultBaseline")
@@ -194,6 +205,7 @@ class AwaitableGetPatchBaselineResult(GetPatchBaselineResult):
             approved_patches=self.approved_patches,
             approved_patches_compliance_level=self.approved_patches_compliance_level,
             approved_patches_enable_non_security=self.approved_patches_enable_non_security,
+            available_security_updates_compliance_status=self.available_security_updates_compliance_status,
             default_baseline=self.default_baseline,
             description=self.description,
             global_filters=self.global_filters,
@@ -224,6 +236,7 @@ def get_patch_baseline(id: Optional[builtins.str] = None,
         approved_patches=pulumi.get(__ret__, 'approved_patches'),
         approved_patches_compliance_level=pulumi.get(__ret__, 'approved_patches_compliance_level'),
         approved_patches_enable_non_security=pulumi.get(__ret__, 'approved_patches_enable_non_security'),
+        available_security_updates_compliance_status=pulumi.get(__ret__, 'available_security_updates_compliance_status'),
         default_baseline=pulumi.get(__ret__, 'default_baseline'),
         description=pulumi.get(__ret__, 'description'),
         global_filters=pulumi.get(__ret__, 'global_filters'),
@@ -251,6 +264,7 @@ def get_patch_baseline_output(id: Optional[pulumi.Input[builtins.str]] = None,
         approved_patches=pulumi.get(__response__, 'approved_patches'),
         approved_patches_compliance_level=pulumi.get(__response__, 'approved_patches_compliance_level'),
         approved_patches_enable_non_security=pulumi.get(__response__, 'approved_patches_enable_non_security'),
+        available_security_updates_compliance_status=pulumi.get(__response__, 'available_security_updates_compliance_status'),
         default_baseline=pulumi.get(__response__, 'default_baseline'),
         description=pulumi.get(__response__, 'description'),
         global_filters=pulumi.get(__response__, 'global_filters'),

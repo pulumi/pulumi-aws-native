@@ -75,6 +75,12 @@ namespace Pulumi.AwsNative.GuardDuty
     [OutputType]
     public sealed class GetIpSetResult
     {
+        /// <summary>
+        /// The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
+        /// 
+        /// When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
+        /// </summary>
+        public readonly string? ExpectedBucketOwner;
         public readonly string? Id;
         /// <summary>
         /// The URI of the file that contains the IPSet.
@@ -95,6 +101,8 @@ namespace Pulumi.AwsNative.GuardDuty
 
         [OutputConstructor]
         private GetIpSetResult(
+            string? expectedBucketOwner,
+
             string? id,
 
             string? location,
@@ -103,6 +111,7 @@ namespace Pulumi.AwsNative.GuardDuty
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            ExpectedBucketOwner = expectedBucketOwner;
             Id = id;
             Location = location;
             Name = name;

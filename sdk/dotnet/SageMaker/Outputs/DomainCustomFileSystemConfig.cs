@@ -21,15 +21,19 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The settings for a custom Amazon FSx for Lustre file system.
         /// </summary>
         public readonly Outputs.DomainFSxLustreFileSystemConfig? FSxLustreFileSystemConfig;
+        public readonly Outputs.DomainS3FileSystemConfig? S3FileSystemConfig;
 
         [OutputConstructor]
         private DomainCustomFileSystemConfig(
             Outputs.DomainEfsFileSystemConfig? efsFileSystemConfig,
 
-            Outputs.DomainFSxLustreFileSystemConfig? fSxLustreFileSystemConfig)
+            Outputs.DomainFSxLustreFileSystemConfig? fSxLustreFileSystemConfig,
+
+            Outputs.DomainS3FileSystemConfig? s3FileSystemConfig)
         {
             EfsFileSystemConfig = efsFileSystemConfig;
             FSxLustreFileSystemConfig = fSxLustreFileSystemConfig;
+            S3FileSystemConfig = s3FileSystemConfig;
         }
     }
 }

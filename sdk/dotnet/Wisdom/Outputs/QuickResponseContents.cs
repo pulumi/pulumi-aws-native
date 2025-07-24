@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class QuickResponseContents
     {
+        /// <summary>
+        /// The quick response content in markdown format.
+        /// </summary>
         public readonly Outputs.QuickResponseContentProvider? Markdown;
+        /// <summary>
+        /// The quick response content in plaintext format.
+        /// </summary>
         public readonly Outputs.QuickResponseContentProvider? PlainText;
 
         [OutputConstructor]

@@ -50,6 +50,12 @@ export class IpSet extends pulumi.CustomResource {
      */
     public readonly detectorId!: pulumi.Output<string | undefined>;
     /**
+     * The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
+     *
+     * When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
+     */
+    public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
+    /**
      * The format of the file that contains the IPSet.
      */
     public readonly format!: pulumi.Output<string>;
@@ -89,6 +95,7 @@ export class IpSet extends pulumi.CustomResource {
             }
             resourceInputs["activate"] = args ? args.activate : undefined;
             resourceInputs["detectorId"] = args ? args.detectorId : undefined;
+            resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
             resourceInputs["format"] = args ? args.format : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -98,6 +105,7 @@ export class IpSet extends pulumi.CustomResource {
             resourceInputs["activate"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["detectorId"] = undefined /*out*/;
+            resourceInputs["expectedBucketOwner"] = undefined /*out*/;
             resourceInputs["format"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -125,6 +133,12 @@ export interface IpSetArgs {
      * Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
      */
     detectorId?: pulumi.Input<string>;
+    /**
+     * The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
+     *
+     * When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
+     */
+    expectedBucketOwner?: pulumi.Input<string>;
     /**
      * The format of the file that contains the IPSet.
      */

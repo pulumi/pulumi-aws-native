@@ -568,6 +568,34 @@ namespace Pulumi.AwsNative.Transfer
     }
 
     [EnumType]
+    public readonly struct ServerIpAddressType : IEquatable<ServerIpAddressType>
+    {
+        private readonly string _value;
+
+        private ServerIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerIpAddressType Ipv4 { get; } = new ServerIpAddressType("IPV4");
+        public static ServerIpAddressType Dualstack { get; } = new ServerIpAddressType("DUALSTACK");
+
+        public static bool operator ==(ServerIpAddressType left, ServerIpAddressType right) => left.Equals(right);
+        public static bool operator !=(ServerIpAddressType left, ServerIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(ServerIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerIpAddressType other && Equals(other);
+        public bool Equals(ServerIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ServerProtocol : IEquatable<ServerProtocol>
     {
         private readonly string _value;

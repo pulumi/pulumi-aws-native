@@ -17,14 +17,20 @@ import (
 type BillingView struct {
 	pulumi.CustomResourceState
 
-	Arn             pulumi.StringOutput   `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The type of billing group.
 	BillingViewType BillingViewTypeOutput `pulumi:"billingViewType"`
 	// The time when the billing view was created.
-	CreatedAt            pulumi.Float64Output                    `pulumi:"createdAt"`
+	CreatedAt pulumi.Float64Output `pulumi:"createdAt"`
+	// See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
 	DataFilterExpression DataFilterExpressionPropertiesPtrOutput `pulumi:"dataFilterExpression"`
-	Description          pulumi.StringPtrOutput                  `pulumi:"description"`
-	Name                 pulumi.StringOutput                     `pulumi:"name"`
-	OwnerAccountId       pulumi.StringOutput                     `pulumi:"ownerAccountId"`
+	// The description of the billing view.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name of the billing view.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The account owner of the billing view.
+	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// An array of strings that define the billing view's source.
 	SourceViews pulumi.StringArrayOutput `pulumi:"sourceViews"`
 	// An array of key-value pairs associated to the billing view being created.
@@ -82,9 +88,12 @@ func (BillingViewState) ElementType() reflect.Type {
 }
 
 type billingViewArgs struct {
+	// See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
 	DataFilterExpression *DataFilterExpressionProperties `pulumi:"dataFilterExpression"`
-	Description          *string                         `pulumi:"description"`
-	Name                 *string                         `pulumi:"name"`
+	// The description of the billing view.
+	Description *string `pulumi:"description"`
+	// The name of the billing view.
+	Name *string `pulumi:"name"`
 	// An array of strings that define the billing view's source.
 	SourceViews []string `pulumi:"sourceViews"`
 	// An array of key-value pairs associated to the billing view being created.
@@ -93,9 +102,12 @@ type billingViewArgs struct {
 
 // The set of arguments for constructing a BillingView resource.
 type BillingViewArgs struct {
+	// See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
 	DataFilterExpression DataFilterExpressionPropertiesPtrInput
-	Description          pulumi.StringPtrInput
-	Name                 pulumi.StringPtrInput
+	// The description of the billing view.
+	Description pulumi.StringPtrInput
+	// The name of the billing view.
+	Name pulumi.StringPtrInput
 	// An array of strings that define the billing view's source.
 	SourceViews pulumi.StringArrayInput
 	// An array of key-value pairs associated to the billing view being created.
@@ -139,10 +151,12 @@ func (o BillingViewOutput) ToBillingViewOutputWithContext(ctx context.Context) B
 	return o
 }
 
+// The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
 func (o BillingViewOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BillingView) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The type of billing group.
 func (o BillingViewOutput) BillingViewType() BillingViewTypeOutput {
 	return o.ApplyT(func(v *BillingView) BillingViewTypeOutput { return v.BillingViewType }).(BillingViewTypeOutput)
 }
@@ -152,18 +166,22 @@ func (o BillingViewOutput) CreatedAt() pulumi.Float64Output {
 	return o.ApplyT(func(v *BillingView) pulumi.Float64Output { return v.CreatedAt }).(pulumi.Float64Output)
 }
 
+// See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
 func (o BillingViewOutput) DataFilterExpression() DataFilterExpressionPropertiesPtrOutput {
 	return o.ApplyT(func(v *BillingView) DataFilterExpressionPropertiesPtrOutput { return v.DataFilterExpression }).(DataFilterExpressionPropertiesPtrOutput)
 }
 
+// The description of the billing view.
 func (o BillingViewOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BillingView) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the billing view.
 func (o BillingViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BillingView) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The account owner of the billing view.
 func (o BillingViewOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BillingView) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }

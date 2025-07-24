@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
+
         /// <summary>
         /// The ID for the topic. This ID is unique per AWS Region for each AWS account.
         /// </summary>
@@ -93,6 +96,7 @@ namespace Pulumi.AwsNative.QuickSight
                 {
                     "awsAccountId",
                     "folderArns[*]",
+                    "tags[*]",
                     "topicId",
                 },
             };
@@ -160,6 +164,14 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The ID for the topic. This ID is unique per AWS Region for each AWS account.

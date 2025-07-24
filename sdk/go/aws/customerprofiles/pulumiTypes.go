@@ -409,7 +409,8 @@ type CalculatedAttributeDefinitionRange struct {
 	// The unit of time.
 	Unit CalculatedAttributeDefinitionRangeUnit `pulumi:"unit"`
 	// The amount of time of the specified unit.
-	Value      *int                                     `pulumi:"value"`
+	Value *int `pulumi:"value"`
+	// A structure letting customers specify a relative time window over which over which data is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint is in the past, and negative numbers to indicate it is in the future. ValueRange overrides Value.
 	ValueRange *CalculatedAttributeDefinitionValueRange `pulumi:"valueRange"`
 }
 
@@ -433,7 +434,8 @@ type CalculatedAttributeDefinitionRangeArgs struct {
 	// The unit of time.
 	Unit CalculatedAttributeDefinitionRangeUnitInput `pulumi:"unit"`
 	// The amount of time of the specified unit.
-	Value      pulumi.IntPtrInput                              `pulumi:"value"`
+	Value pulumi.IntPtrInput `pulumi:"value"`
+	// A structure letting customers specify a relative time window over which over which data is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint is in the past, and negative numbers to indicate it is in the future. ValueRange overrides Value.
 	ValueRange CalculatedAttributeDefinitionValueRangePtrInput `pulumi:"valueRange"`
 }
 
@@ -535,6 +537,7 @@ func (o CalculatedAttributeDefinitionRangeOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CalculatedAttributeDefinitionRange) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
+// A structure letting customers specify a relative time window over which over which data is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint is in the past, and negative numbers to indicate it is in the future. ValueRange overrides Value.
 func (o CalculatedAttributeDefinitionRangeOutput) ValueRange() CalculatedAttributeDefinitionValueRangePtrOutput {
 	return o.ApplyT(func(v CalculatedAttributeDefinitionRange) *CalculatedAttributeDefinitionValueRange {
 		return v.ValueRange
@@ -605,6 +608,7 @@ func (o CalculatedAttributeDefinitionRangePtrOutput) Value() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
+// A structure letting customers specify a relative time window over which over which data is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint is in the past, and negative numbers to indicate it is in the future. ValueRange overrides Value.
 func (o CalculatedAttributeDefinitionRangePtrOutput) ValueRange() CalculatedAttributeDefinitionValueRangePtrOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinitionRange) *CalculatedAttributeDefinitionValueRange {
 		if v == nil {

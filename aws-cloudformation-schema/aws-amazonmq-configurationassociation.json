@@ -4,10 +4,12 @@
   "additionalProperties" : false,
   "properties" : {
     "Id" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "The ID of the ConfigurationAssociation Resource"
     },
     "Broker" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "ID of the Broker that the configuration should be applied to"
     },
     "Configuration" : {
       "$ref" : "#/definitions/ConfigurationId"
@@ -19,17 +21,33 @@
       "additionalProperties" : false,
       "properties" : {
         "Revision" : {
-          "type" : "integer"
+          "type" : "integer",
+          "description" : "Revision of the Configuration to apply to a Broker"
         },
         "Id" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "ID of the Configuration to apply to a Broker"
         }
       },
       "required" : [ "Revision", "Id" ]
     }
   },
+  "tagging" : {
+    "taggable" : false
+  },
   "required" : [ "Configuration", "Broker" ],
-  "createOnlyProperties" : [ "/properties/Broker" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "createOnlyProperties" : [ "/properties/Broker" ],
+  "readOnlyProperties" : [ "/properties/Id" ],
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "mq:DescribeBroker", "mq:UpdateBroker", "mq:RebootBroker" ]
+    },
+    "update" : {
+      "permissions" : [ "mq:UpdateBroker", "mq:RebootBroker" ]
+    },
+    "delete" : {
+      "permissions" : [ "mq:UpdateBroker", "mq:RebootBroker" ]
+    }
+  }
 }

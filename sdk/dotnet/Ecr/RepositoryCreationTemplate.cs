@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Ecr
         public Output<Outputs.RepositoryCreationTemplateEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+        /// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
         /// </summary>
         [Output("imageTagMutability")]
         public Output<Pulumi.AwsNative.Ecr.RepositoryCreationTemplateImageTagMutability?> ImageTagMutability { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.AwsNative.Ecr
         public Input<Inputs.RepositoryCreationTemplateEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
-        /// The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+        /// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
         /// </summary>
         [Input("imageTagMutability")]
         public Input<Pulumi.AwsNative.Ecr.RepositoryCreationTemplateImageTagMutability>? ImageTagMutability { get; set; }

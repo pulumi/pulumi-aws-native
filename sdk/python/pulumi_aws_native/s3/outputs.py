@@ -1322,6 +1322,7 @@ class BucketJournalTableConfiguration(dict):
                  table_arn: Optional[builtins.str] = None,
                  table_name: Optional[builtins.str] = None):
         """
+        :param 'BucketRecordExpiration' record_expiration: The journal table record expiration settings for the journal table.
         :param 'BucketMetadataTableEncryptionConfiguration' encryption_configuration: The encryption configuration for the journal table.
         :param builtins.str table_arn: The ARN of the journal table.
         :param builtins.str table_name: The name of the journal table.
@@ -1337,6 +1338,9 @@ class BucketJournalTableConfiguration(dict):
     @property
     @pulumi.getter(name="recordExpiration")
     def record_expiration(self) -> 'outputs.BucketRecordExpiration':
+        """
+        The journal table record expiration settings for the journal table.
+        """
         return pulumi.get(self, "record_expiration")
 
     @property

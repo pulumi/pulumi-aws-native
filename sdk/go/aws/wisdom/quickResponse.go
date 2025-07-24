@@ -19,14 +19,16 @@ type QuickResponse struct {
 
 	// The Amazon Connect contact channels this quick response applies to.
 	Channels QuickResponseChannelTypeArrayOutput `pulumi:"channels"`
-	Content  QuickResponseContentProviderOutput  `pulumi:"content"`
+	// The content of the quick response.
+	Content QuickResponseContentProviderOutput `pulumi:"content"`
 	// The media type of the quick response content.
 	// - Use application/x.quickresponse;format=plain for quick response written in plain text.
 	// - Use application/x.quickresponse;format=markdown for quick response written in richtext.
 	ContentType pulumi.StringPtrOutput      `pulumi:"contentType"`
 	Contents    QuickResponseContentsOutput `pulumi:"contents"`
 	// The description of the quick response.
-	Description           pulumi.StringPtrOutput                      `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The configuration information of the user groups that the quick response is accessible to.
 	GroupingConfiguration QuickResponseGroupingConfigurationPtrOutput `pulumi:"groupingConfiguration"`
 	// Whether the quick response is active.
 	IsActive pulumi.BoolPtrOutput `pulumi:"isActive"`
@@ -41,8 +43,9 @@ type QuickResponse struct {
 	// The identifier of the quick response.
 	QuickResponseId pulumi.StringOutput `pulumi:"quickResponseId"`
 	// The shortcut key of the quick response. The value should be unique across the knowledge base.
-	ShortcutKey pulumi.StringPtrOutput    `pulumi:"shortcutKey"`
-	Status      QuickResponseStatusOutput `pulumi:"status"`
+	ShortcutKey pulumi.StringPtrOutput `pulumi:"shortcutKey"`
+	// The status of the quick response data.
+	Status QuickResponseStatusOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -98,14 +101,16 @@ func (QuickResponseState) ElementType() reflect.Type {
 
 type quickResponseArgs struct {
 	// The Amazon Connect contact channels this quick response applies to.
-	Channels []QuickResponseChannelType   `pulumi:"channels"`
-	Content  QuickResponseContentProvider `pulumi:"content"`
+	Channels []QuickResponseChannelType `pulumi:"channels"`
+	// The content of the quick response.
+	Content QuickResponseContentProvider `pulumi:"content"`
 	// The media type of the quick response content.
 	// - Use application/x.quickresponse;format=plain for quick response written in plain text.
 	// - Use application/x.quickresponse;format=markdown for quick response written in richtext.
 	ContentType *string `pulumi:"contentType"`
 	// The description of the quick response.
-	Description           *string                             `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// The configuration information of the user groups that the quick response is accessible to.
 	GroupingConfiguration *QuickResponseGroupingConfiguration `pulumi:"groupingConfiguration"`
 	// Whether the quick response is active.
 	IsActive *bool `pulumi:"isActive"`
@@ -125,13 +130,15 @@ type quickResponseArgs struct {
 type QuickResponseArgs struct {
 	// The Amazon Connect contact channels this quick response applies to.
 	Channels QuickResponseChannelTypeArrayInput
-	Content  QuickResponseContentProviderInput
+	// The content of the quick response.
+	Content QuickResponseContentProviderInput
 	// The media type of the quick response content.
 	// - Use application/x.quickresponse;format=plain for quick response written in plain text.
 	// - Use application/x.quickresponse;format=markdown for quick response written in richtext.
 	ContentType pulumi.StringPtrInput
 	// The description of the quick response.
-	Description           pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// The configuration information of the user groups that the quick response is accessible to.
 	GroupingConfiguration QuickResponseGroupingConfigurationPtrInput
 	// Whether the quick response is active.
 	IsActive pulumi.BoolPtrInput
@@ -189,6 +196,7 @@ func (o QuickResponseOutput) Channels() QuickResponseChannelTypeArrayOutput {
 	return o.ApplyT(func(v *QuickResponse) QuickResponseChannelTypeArrayOutput { return v.Channels }).(QuickResponseChannelTypeArrayOutput)
 }
 
+// The content of the quick response.
 func (o QuickResponseOutput) Content() QuickResponseContentProviderOutput {
 	return o.ApplyT(func(v *QuickResponse) QuickResponseContentProviderOutput { return v.Content }).(QuickResponseContentProviderOutput)
 }
@@ -209,6 +217,7 @@ func (o QuickResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuickResponse) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The configuration information of the user groups that the quick response is accessible to.
 func (o QuickResponseOutput) GroupingConfiguration() QuickResponseGroupingConfigurationPtrOutput {
 	return o.ApplyT(func(v *QuickResponse) QuickResponseGroupingConfigurationPtrOutput { return v.GroupingConfiguration }).(QuickResponseGroupingConfigurationPtrOutput)
 }
@@ -248,6 +257,7 @@ func (o QuickResponseOutput) ShortcutKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuickResponse) pulumi.StringPtrOutput { return v.ShortcutKey }).(pulumi.StringPtrOutput)
 }
 
+// The status of the quick response data.
 func (o QuickResponseOutput) Status() QuickResponseStatusOutput {
 	return o.ApplyT(func(v *QuickResponse) QuickResponseStatusOutput { return v.Status }).(QuickResponseStatusOutput)
 }

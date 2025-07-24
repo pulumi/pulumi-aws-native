@@ -31833,6 +31833,14 @@ type TrafficMirrorFilterTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A key-value pair to associate with a traffic mirror session resource.
+type TrafficMirrorSessionTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 type TrafficMirrorTargetTag struct {
 	// The tag key.
 	Key string `pulumi:"key"`

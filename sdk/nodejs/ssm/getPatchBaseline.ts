@@ -42,6 +42,10 @@ export interface GetPatchBaselineResult {
      */
     readonly approvedPatchesEnableNonSecurity?: boolean;
     /**
+     * The compliance status for vendor recommended security updates that are not approved by this patch baseline.
+     */
+    readonly availableSecurityUpdatesComplianceStatus?: enums.ssm.PatchBaselineAvailableSecurityUpdatesComplianceStatus;
+    /**
      * Set the baseline as default baseline. Only registering to default patch baseline is allowed.
      */
     readonly defaultBaseline?: boolean;

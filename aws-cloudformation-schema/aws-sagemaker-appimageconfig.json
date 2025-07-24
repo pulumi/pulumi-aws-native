@@ -218,7 +218,7 @@
     }
   },
   "required" : [ "AppImageConfigName" ],
-  "createOnlyProperties" : [ "/properties/AppImageConfigName", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/AppImageConfigName" ],
   "readOnlyProperties" : [ "/properties/AppImageConfigArn" ],
   "primaryIdentifier" : [ "/properties/AppImageConfigName" ],
   "handlers" : {
@@ -244,7 +244,7 @@
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "sagemaker:AddTags", "sagemaker:ListTags", "sagemaker:DeleteTags" ]

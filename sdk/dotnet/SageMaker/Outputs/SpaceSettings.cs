@@ -43,6 +43,14 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly Outputs.SpaceKernelGatewayAppSettings? KernelGatewayAppSettings;
         /// <summary>
+        /// This is a flag used to indicate if remote access is enabled.
+        /// </summary>
+        public readonly Pulumi.AwsNative.SageMaker.SpaceRemoteAccess? RemoteAccess;
+        /// <summary>
+        /// This is a flag used to indicate if space managed resources needs to be created.
+        /// </summary>
+        public readonly Pulumi.AwsNative.SageMaker.SpaceManagedResources? SpaceManagedResources;
+        /// <summary>
         /// Default storage settings for a space.
         /// </summary>
         public readonly Outputs.SpaceStorageSettings? SpaceStorageSettings;
@@ -61,6 +69,10 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Outputs.SpaceKernelGatewayAppSettings? kernelGatewayAppSettings,
 
+            Pulumi.AwsNative.SageMaker.SpaceRemoteAccess? remoteAccess,
+
+            Pulumi.AwsNative.SageMaker.SpaceManagedResources? spaceManagedResources,
+
             Outputs.SpaceStorageSettings? spaceStorageSettings)
         {
             AppType = appType;
@@ -69,6 +81,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             JupyterLabAppSettings = jupyterLabAppSettings;
             JupyterServerAppSettings = jupyterServerAppSettings;
             KernelGatewayAppSettings = kernelGatewayAppSettings;
+            RemoteAccess = remoteAccess;
+            SpaceManagedResources = spaceManagedResources;
             SpaceStorageSettings = spaceStorageSettings;
         }
     }

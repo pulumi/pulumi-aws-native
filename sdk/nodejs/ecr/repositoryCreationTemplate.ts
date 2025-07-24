@@ -58,7 +58,7 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
      */
     public readonly encryptionConfiguration!: pulumi.Output<outputs.ecr.RepositoryCreationTemplateEncryptionConfiguration | undefined>;
     /**
-     * The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+     * The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
      */
     public readonly imageTagMutability!: pulumi.Output<enums.ecr.RepositoryCreationTemplateImageTagMutability | undefined>;
     /**
@@ -151,7 +151,7 @@ export interface RepositoryCreationTemplateArgs {
      */
     encryptionConfiguration?: pulumi.Input<inputs.ecr.RepositoryCreationTemplateEncryptionConfigurationArgs>;
     /**
-     * The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+     * The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
      */
     imageTagMutability?: pulumi.Input<enums.ecr.RepositoryCreationTemplateImageTagMutability>;
     /**

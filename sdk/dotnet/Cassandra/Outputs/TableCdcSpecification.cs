@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.Cassandra.TableCdcStatus Status;
         /// <summary>
+        /// An array of key-value pairs to apply to the CDC stream resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TableTag> Tags;
+        /// <summary>
         /// The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
         /// 
         /// The options are:
@@ -36,9 +40,12 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
         private TableCdcSpecification(
             Pulumi.AwsNative.Cassandra.TableCdcStatus status,
 
+            ImmutableArray<Outputs.TableTag> tags,
+
             Pulumi.AwsNative.Cassandra.TableCdcViewType? viewType)
         {
             Status = status;
+            Tags = tags;
             ViewType = viewType;
         }
     }

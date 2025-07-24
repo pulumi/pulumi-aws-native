@@ -18,17 +18,32 @@ export function getBillingView(args: GetBillingViewArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetBillingViewArgs {
+    /**
+     * The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
+     */
     arn: string;
 }
 
 export interface GetBillingViewResult {
+    /**
+     * The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
+     */
     readonly arn?: string;
+    /**
+     * The type of billing group.
+     */
     readonly billingViewType?: enums.billing.BillingViewType;
     /**
      * The time when the billing view was created.
      */
     readonly createdAt?: number;
+    /**
+     * See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
+     */
     readonly dataFilterExpression?: outputs.billing.DataFilterExpressionProperties;
+    /**
+     * The account owner of the billing view.
+     */
     readonly ownerAccountId?: string;
     /**
      * An array of key-value pairs associated to the billing view being created.
@@ -50,5 +65,8 @@ export function getBillingViewOutput(args: GetBillingViewOutputArgs, opts?: pulu
 }
 
 export interface GetBillingViewOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
+     */
     arn: pulumi.Input<string>;
 }

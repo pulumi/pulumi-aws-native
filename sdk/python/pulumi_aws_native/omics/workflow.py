@@ -41,7 +41,7 @@ class WorkflowArgs:
         :param pulumi.Input[builtins.str] main: The path of the main definition file for the workflow.
         :param pulumi.Input[builtins.str] name: The workflow's name.
         :param pulumi.Input[Mapping[str, pulumi.Input['WorkflowParameterArgs']]] parameter_template: The workflow's parameter template.
-        :param pulumi.Input[builtins.float] storage_capacity: The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
+        :param pulumi.Input[builtins.float] storage_capacity: The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags for the workflow.
         """
         if accelerators is not None:
@@ -150,7 +150,7 @@ class WorkflowArgs:
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> Optional[pulumi.Input[builtins.float]]:
         """
-        The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
+        The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
         """
         return pulumi.get(self, "storage_capacity")
 
@@ -208,7 +208,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] main: The path of the main definition file for the workflow.
         :param pulumi.Input[builtins.str] name: The workflow's name.
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['WorkflowParameterArgs', 'WorkflowParameterArgsDict']]]] parameter_template: The workflow's parameter template.
-        :param pulumi.Input[builtins.float] storage_capacity: The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
+        :param pulumi.Input[builtins.float] storage_capacity: The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags for the workflow.
         """
         ...
@@ -401,7 +401,7 @@ class Workflow(pulumi.CustomResource):
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> pulumi.Output[Optional[builtins.float]]:
         """
-        The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
+        The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
         """
         return pulumi.get(self, "storage_capacity")
 

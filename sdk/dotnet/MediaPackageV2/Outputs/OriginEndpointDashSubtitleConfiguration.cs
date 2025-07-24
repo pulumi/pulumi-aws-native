@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
     [OutputType]
     public sealed class OriginEndpointDashSubtitleConfiguration
     {
+        /// <summary>
+        /// Settings for TTML subtitles.
+        /// </summary>
         public readonly Outputs.OriginEndpointDashTtmlConfiguration? TtmlConfiguration;
 
         [OutputConstructor]

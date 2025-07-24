@@ -32,6 +32,7 @@ class MessageTemplateArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  grouping_configuration: Optional[pulumi.Input['MessageTemplateGroupingConfigurationArgs']] = None,
                  language: Optional[pulumi.Input[builtins.str]] = None,
+                 message_template_attachments: Optional[pulumi.Input[Sequence[pulumi.Input['MessageTemplateAttachmentArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -43,6 +44,7 @@ class MessageTemplateArgs:
         :param pulumi.Input[builtins.str] description: The description of the message template.
         :param pulumi.Input['MessageTemplateGroupingConfigurationArgs'] grouping_configuration: The configuration information of the external data source.
         :param pulumi.Input[builtins.str] language: The language code value for the language in which the message template is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW
+        :param pulumi.Input[Sequence[pulumi.Input['MessageTemplateAttachmentArgs']]] message_template_attachments: List of message template attachments
         :param pulumi.Input[builtins.str] name: The name of the message template.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
@@ -57,6 +59,8 @@ class MessageTemplateArgs:
             pulumi.set(__self__, "grouping_configuration", grouping_configuration)
         if language is not None:
             pulumi.set(__self__, "language", language)
+        if message_template_attachments is not None:
+            pulumi.set(__self__, "message_template_attachments", message_template_attachments)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -147,6 +151,18 @@ class MessageTemplateArgs:
         pulumi.set(self, "language", value)
 
     @property
+    @pulumi.getter(name="messageTemplateAttachments")
+    def message_template_attachments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MessageTemplateAttachmentArgs']]]]:
+        """
+        List of message template attachments
+        """
+        return pulumi.get(self, "message_template_attachments")
+
+    @message_template_attachments.setter
+    def message_template_attachments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MessageTemplateAttachmentArgs']]]]):
+        pulumi.set(self, "message_template_attachments", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -184,6 +200,7 @@ class MessageTemplate(pulumi.CustomResource):
                  grouping_configuration: Optional[pulumi.Input[Union['MessageTemplateGroupingConfigurationArgs', 'MessageTemplateGroupingConfigurationArgsDict']]] = None,
                  knowledge_base_arn: Optional[pulumi.Input[builtins.str]] = None,
                  language: Optional[pulumi.Input[builtins.str]] = None,
+                 message_template_attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MessageTemplateAttachmentArgs', 'MessageTemplateAttachmentArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -199,6 +216,7 @@ class MessageTemplate(pulumi.CustomResource):
         :param pulumi.Input[Union['MessageTemplateGroupingConfigurationArgs', 'MessageTemplateGroupingConfigurationArgsDict']] grouping_configuration: The configuration information of the external data source.
         :param pulumi.Input[builtins.str] knowledge_base_arn: The Amazon Resource Name (ARN) of the knowledge base to which the message template belongs.
         :param pulumi.Input[builtins.str] language: The language code value for the language in which the message template is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MessageTemplateAttachmentArgs', 'MessageTemplateAttachmentArgsDict']]]] message_template_attachments: List of message template attachments
         :param pulumi.Input[builtins.str] name: The name of the message template.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
@@ -233,6 +251,7 @@ class MessageTemplate(pulumi.CustomResource):
                  grouping_configuration: Optional[pulumi.Input[Union['MessageTemplateGroupingConfigurationArgs', 'MessageTemplateGroupingConfigurationArgsDict']]] = None,
                  knowledge_base_arn: Optional[pulumi.Input[builtins.str]] = None,
                  language: Optional[pulumi.Input[builtins.str]] = None,
+                 message_template_attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MessageTemplateAttachmentArgs', 'MessageTemplateAttachmentArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -257,6 +276,7 @@ class MessageTemplate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'knowledge_base_arn'")
             __props__.__dict__["knowledge_base_arn"] = knowledge_base_arn
             __props__.__dict__["language"] = language
+            __props__.__dict__["message_template_attachments"] = message_template_attachments
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["message_template_arn"] = None
@@ -294,6 +314,7 @@ class MessageTemplate(pulumi.CustomResource):
         __props__.__dict__["knowledge_base_arn"] = None
         __props__.__dict__["language"] = None
         __props__.__dict__["message_template_arn"] = None
+        __props__.__dict__["message_template_attachments"] = None
         __props__.__dict__["message_template_content_sha256"] = None
         __props__.__dict__["message_template_id"] = None
         __props__.__dict__["name"] = None
@@ -363,6 +384,14 @@ class MessageTemplate(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the message template.
         """
         return pulumi.get(self, "message_template_arn")
+
+    @property
+    @pulumi.getter(name="messageTemplateAttachments")
+    def message_template_attachments(self) -> pulumi.Output[Optional[Sequence['outputs.MessageTemplateAttachment']]]:
+        """
+        List of message template attachments
+        """
+        return pulumi.get(self, "message_template_attachments")
 
     @property
     @pulumi.getter(name="messageTemplateContentSha256")
