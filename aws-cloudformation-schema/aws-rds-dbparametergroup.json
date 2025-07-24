@@ -65,7 +65,7 @@
       "permissions" : [ "iam:CreateServiceLinkedRole", "rds:AddTagsToResource", "rds:CreateDBParameterGroup", "rds:DescribeDBParameterGroups", "rds:DescribeDBParameters", "rds:DescribeEngineDefaultParameters", "rds:ListTagsForResource", "rds:ModifyDBParameterGroup", "rds:RemoveTagsFromResource" ]
     },
     "read" : {
-      "permissions" : [ "rds:DescribeDBParameterGroups", "rds:DescribeDBParameters", "rds:DescribeEngineDefaultParameters", "rds:ListTagsForResource" ]
+      "permissions" : [ "rds:DescribeDBParameterGroups", "rds:DescribeDBParameters", "rds:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "rds:AddTagsToResource", "rds:DescribeDBParameterGroups", "rds:DescribeDBParameters", "rds:DescribeEngineDefaultParameters", "rds:ListTagsForResource", "rds:ModifyDBParameterGroup", "rds:ResetDBParameterGroup", "rds:RemoveTagsFromResource" ]
