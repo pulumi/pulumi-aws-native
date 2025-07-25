@@ -401,6 +401,7 @@ AWS::EC2::SubnetNetworkAclAssociation
 AWS::EC2::SubnetRouteTableAssociation
 AWS::EC2::TrafficMirrorFilter
 AWS::EC2::TrafficMirrorFilterRule
+AWS::EC2::TrafficMirrorSession
 AWS::EC2::TrafficMirrorTarget
 AWS::EC2::TransitGateway
 AWS::EC2::TransitGatewayAttachment
