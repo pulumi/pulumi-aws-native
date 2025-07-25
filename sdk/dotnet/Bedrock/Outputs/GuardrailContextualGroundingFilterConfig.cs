@@ -16,7 +16,16 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class GuardrailContextualGroundingFilterConfig
     {
+        /// <summary>
+        /// Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:
+        /// 
+        /// - `BLOCK` – Block the content and replace it with blocked messaging.
+        /// - `NONE` – Take no action but return detection information in the trace response.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.GuardrailContextualGroundingAction? Action;
+        /// <summary>
+        /// Specifies whether to enable contextual grounding evaluation. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        /// </summary>
         public readonly bool? Enabled;
         /// <summary>
         /// The threshold for this filter.

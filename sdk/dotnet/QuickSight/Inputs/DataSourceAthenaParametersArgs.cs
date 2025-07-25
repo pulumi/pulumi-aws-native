@@ -16,6 +16,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DataSourceAthenaParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your workgroup.
+        /// 
+        /// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
+        /// </summary>
+        [Input("identityCenterConfiguration")]
+        public Input<Inputs.DataSourceIdentityCenterConfigurationArgs>? IdentityCenterConfiguration { get; set; }
+
+        /// <summary>
         /// &lt;p&gt;Use the &lt;code&gt;RoleArn&lt;/code&gt; structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use &lt;code&gt;RoleArn&lt;/code&gt; to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.&lt;/p&gt;
         /// </summary>
         [Input("roleArn")]

@@ -42,6 +42,11 @@ export interface GetGuardrailResult {
      * Time Stamp
      */
     readonly createdAt?: string;
+    /**
+     * The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination AWS Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.
+     *
+     * For more information, see the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) .
+     */
     readonly crossRegionConfig?: outputs.bedrock.GuardrailCrossRegionConfig;
     /**
      * Description of the guardrail or its version

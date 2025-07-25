@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ProjectTemplateProviderDetail
     {
+        /// <summary>
+        /// Details about a CloudFormation template provider configuration and associated provisioning information.
+        /// </summary>
         public readonly Outputs.ProjectCfnTemplateProviderDetail? CfnTemplateProviderDetail;
 
         [OutputConstructor]

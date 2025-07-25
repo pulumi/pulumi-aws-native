@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         public readonly Outputs.ConfigurationSetSuppressionOptions? SuppressionOptions;
         /// <summary>
+        /// The tags (keys and values) associated with the contact list.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// An object that defines the open and click tracking options for emails that you send using the configuration set.
         /// </summary>
         public readonly Outputs.ConfigurationSetTrackingOptions? TrackingOptions;
@@ -98,6 +102,8 @@ namespace Pulumi.AwsNative.Ses
 
             Outputs.ConfigurationSetSuppressionOptions? suppressionOptions,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             Outputs.ConfigurationSetTrackingOptions? trackingOptions,
 
             Outputs.ConfigurationSetVdmOptions? vdmOptions)
@@ -106,6 +112,7 @@ namespace Pulumi.AwsNative.Ses
             ReputationOptions = reputationOptions;
             SendingOptions = sendingOptions;
             SuppressionOptions = suppressionOptions;
+            Tags = tags;
             TrackingOptions = trackingOptions;
             VdmOptions = vdmOptions;
         }

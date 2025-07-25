@@ -37,15 +37,33 @@ export class BillingView extends pulumi.CustomResource {
         return obj['__pulumiType'] === BillingView.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The type of billing group.
+     */
     public /*out*/ readonly billingViewType!: pulumi.Output<enums.billing.BillingViewType>;
     /**
      * The time when the billing view was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<number>;
+    /**
+     * See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
+     */
     public readonly dataFilterExpression!: pulumi.Output<outputs.billing.DataFilterExpressionProperties | undefined>;
+    /**
+     * The description of the billing view.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the billing view.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The account owner of the billing view.
+     */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
      * An array of strings that define the billing view's source.
@@ -107,8 +125,17 @@ export class BillingView extends pulumi.CustomResource {
  * The set of arguments for constructing a BillingView resource.
  */
 export interface BillingViewArgs {
+    /**
+     * See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
+     */
     dataFilterExpression?: pulumi.Input<inputs.billing.DataFilterExpressionPropertiesArgs>;
+    /**
+     * The description of the billing view.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the billing view.
+     */
     name?: pulumi.Input<string>;
     /**
      * An array of strings that define the billing view's source.

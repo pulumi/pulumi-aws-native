@@ -9725,7 +9725,17 @@ class GuardrailContentFilterConfig(dict):
         :param 'GuardrailFilterStrength' input_strength: The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
         :param 'GuardrailFilterStrength' output_strength: The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
         :param 'GuardrailContentFilterType' type: The harmful category that the content filter is applied to.
+        :param 'GuardrailContentFilterAction' input_action: Specifies the action to take when harmful content is detected. Supported values include:
+               
+               - `BLOCK` – Block the content and replace it with blocked messaging.
+               - `NONE` – Take no action but return detection information in the trace response.
+        :param builtins.bool input_enabled: Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         :param Sequence['GuardrailModality'] input_modalities: List of modalities
+        :param 'GuardrailContentFilterAction' output_action: Specifies the action to take when harmful content is detected in the output. Supported values include:
+               
+               - `BLOCK` – Block the content and replace it with blocked messaging.
+               - `NONE` – Take no action but return detection information in the trace response.
+        :param builtins.bool output_enabled: Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         :param Sequence['GuardrailModality'] output_modalities: List of modalities
         """
         pulumi.set(__self__, "input_strength", input_strength)
@@ -9771,11 +9781,20 @@ class GuardrailContentFilterConfig(dict):
     @property
     @pulumi.getter(name="inputAction")
     def input_action(self) -> Optional['GuardrailContentFilterAction']:
+        """
+        Specifies the action to take when harmful content is detected. Supported values include:
+
+        - `BLOCK` – Block the content and replace it with blocked messaging.
+        - `NONE` – Take no action but return detection information in the trace response.
+        """
         return pulumi.get(self, "input_action")
 
     @property
     @pulumi.getter(name="inputEnabled")
     def input_enabled(self) -> Optional[builtins.bool]:
+        """
+        Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        """
         return pulumi.get(self, "input_enabled")
 
     @property
@@ -9789,11 +9808,20 @@ class GuardrailContentFilterConfig(dict):
     @property
     @pulumi.getter(name="outputAction")
     def output_action(self) -> Optional['GuardrailContentFilterAction']:
+        """
+        Specifies the action to take when harmful content is detected in the output. Supported values include:
+
+        - `BLOCK` – Block the content and replace it with blocked messaging.
+        - `NONE` – Take no action but return detection information in the trace response.
+        """
         return pulumi.get(self, "output_action")
 
     @property
     @pulumi.getter(name="outputEnabled")
     def output_enabled(self) -> Optional[builtins.bool]:
+        """
+        Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        """
         return pulumi.get(self, "output_enabled")
 
     @property
@@ -9907,6 +9935,11 @@ class GuardrailContextualGroundingFilterConfig(dict):
         A config for grounding filter.
         :param builtins.float threshold: The threshold for this filter.
         :param 'GuardrailContextualGroundingFilterType' type: The filter details for the guardrails contextual grounding filter.
+        :param 'GuardrailContextualGroundingAction' action: Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:
+               
+               - `BLOCK` – Block the content and replace it with blocked messaging.
+               - `NONE` – Take no action but return detection information in the trace response.
+        :param builtins.bool enabled: Specifies whether to enable contextual grounding evaluation. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         pulumi.set(__self__, "threshold", threshold)
         pulumi.set(__self__, "type", type)
@@ -9934,11 +9967,20 @@ class GuardrailContextualGroundingFilterConfig(dict):
     @property
     @pulumi.getter
     def action(self) -> Optional['GuardrailContextualGroundingAction']:
+        """
+        Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:
+
+        - `BLOCK` – Block the content and replace it with blocked messaging.
+        - `NONE` – Take no action but return detection information in the trace response.
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[builtins.bool]:
+        """
+        Specifies whether to enable contextual grounding evaluation. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        """
         return pulumi.get(self, "enabled")
 
 
@@ -10057,6 +10099,16 @@ class GuardrailManagedWordsConfig(dict):
         """
         A managed words config.
         :param 'GuardrailManagedWordsType' type: The managed word type to configure for the guardrail.
+        :param 'GuardrailWordAction' input_action: Specifies the action to take when harmful content is detected in the input. Supported values include:
+               
+               - `BLOCK` – Block the content and replace it with blocked messaging.
+               - `NONE` – Take no action but return detection information in the trace response.
+        :param builtins.bool input_enabled: Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        :param 'GuardrailWordAction' output_action: Specifies the action to take when harmful content is detected in the output. Supported values include:
+               
+               - `BLOCK` – Block the content and replace it with blocked messaging.
+               - `NONE` – Take no action but return detection information in the trace response.
+        :param builtins.bool output_enabled: Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         pulumi.set(__self__, "type", type)
         if input_action is not None:
@@ -10079,21 +10131,39 @@ class GuardrailManagedWordsConfig(dict):
     @property
     @pulumi.getter(name="inputAction")
     def input_action(self) -> Optional['GuardrailWordAction']:
+        """
+        Specifies the action to take when harmful content is detected in the input. Supported values include:
+
+        - `BLOCK` – Block the content and replace it with blocked messaging.
+        - `NONE` – Take no action but return detection information in the trace response.
+        """
         return pulumi.get(self, "input_action")
 
     @property
     @pulumi.getter(name="inputEnabled")
     def input_enabled(self) -> Optional[builtins.bool]:
+        """
+        Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        """
         return pulumi.get(self, "input_enabled")
 
     @property
     @pulumi.getter(name="outputAction")
     def output_action(self) -> Optional['GuardrailWordAction']:
+        """
+        Specifies the action to take when harmful content is detected in the output. Supported values include:
+
+        - `BLOCK` – Block the content and replace it with blocked messaging.
+        - `NONE` – Take no action but return detection information in the trace response.
+        """
         return pulumi.get(self, "output_action")
 
     @property
     @pulumi.getter(name="outputEnabled")
     def output_enabled(self) -> Optional[builtins.bool]:
+        """
+        Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        """
         return pulumi.get(self, "output_enabled")
 
 
@@ -10253,6 +10323,18 @@ class GuardrailPiiEntityConfig(dict):
                - *Custom*
                
                - *Regex filter* - You can use a regular expressions to define patterns for a guardrail to recognize and act upon such as serial number, booking ID etc..
+        :param 'GuardrailSensitiveInformationAction' input_action: Specifies the action to take when harmful content is detected in the input. Supported values include:
+               
+               - `BLOCK` – Block the content and replace it with blocked messaging.
+               - `ANONYMIZE` – Mask the content and replace it with identifier tags.
+               - `NONE` – Take no action but return detection information in the trace response.
+        :param builtins.bool input_enabled: Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        :param 'GuardrailSensitiveInformationAction' output_action: Specifies the action to take when harmful content is detected in the output. Supported values include:
+               
+               - `BLOCK` – Block the content and replace it with blocked messaging.
+               - `ANONYMIZE` – Mask the content and replace it with identifier tags.
+               - `NONE` – Take no action but return detection information in the trace response.
+        :param builtins.bool output_enabled: Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "type", type)
@@ -10401,21 +10483,41 @@ class GuardrailPiiEntityConfig(dict):
     @property
     @pulumi.getter(name="inputAction")
     def input_action(self) -> Optional['GuardrailSensitiveInformationAction']:
+        """
+        Specifies the action to take when harmful content is detected in the input. Supported values include:
+
+        - `BLOCK` – Block the content and replace it with blocked messaging.
+        - `ANONYMIZE` – Mask the content and replace it with identifier tags.
+        - `NONE` – Take no action but return detection information in the trace response.
+        """
         return pulumi.get(self, "input_action")
 
     @property
     @pulumi.getter(name="inputEnabled")
     def input_enabled(self) -> Optional[builtins.bool]:
+        """
+        Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        """
         return pulumi.get(self, "input_enabled")
 
     @property
     @pulumi.getter(name="outputAction")
     def output_action(self) -> Optional['GuardrailSensitiveInformationAction']:
+        """
+        Specifies the action to take when harmful content is detected in the output. Supported values include:
+
+        - `BLOCK` – Block the content and replace it with blocked messaging.
+        - `ANONYMIZE` – Mask the content and replace it with identifier tags.
+        - `NONE` – Take no action but return detection information in the trace response.
+        """
         return pulumi.get(self, "output_action")
 
     @property
     @pulumi.getter(name="outputEnabled")
     def output_enabled(self) -> Optional[builtins.bool]:
+        """
+        Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        """
         return pulumi.get(self, "output_enabled")
 
 
@@ -10462,6 +10564,16 @@ class GuardrailRegexConfig(dict):
         :param builtins.str name: The regex name.
         :param builtins.str pattern: The regex pattern.
         :param builtins.str description: The regex description.
+        :param 'GuardrailSensitiveInformationAction' input_action: Specifies the action to take when harmful content is detected in the input. Supported values include:
+               
+               - `BLOCK` – Block the content and replace it with blocked messaging.
+               - `NONE` – Take no action but return detection information in the trace response.
+        :param builtins.bool input_enabled: Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        :param 'GuardrailSensitiveInformationAction' output_action: Specifies the action to take when harmful content is detected in the output. Supported values include:
+               
+               - `BLOCK` – Block the content and replace it with blocked messaging.
+               - `NONE` – Take no action but return detection information in the trace response.
+        :param builtins.bool output_enabled: Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -10512,21 +10624,39 @@ class GuardrailRegexConfig(dict):
     @property
     @pulumi.getter(name="inputAction")
     def input_action(self) -> Optional['GuardrailSensitiveInformationAction']:
+        """
+        Specifies the action to take when harmful content is detected in the input. Supported values include:
+
+        - `BLOCK` – Block the content and replace it with blocked messaging.
+        - `NONE` – Take no action but return detection information in the trace response.
+        """
         return pulumi.get(self, "input_action")
 
     @property
     @pulumi.getter(name="inputEnabled")
     def input_enabled(self) -> Optional[builtins.bool]:
+        """
+        Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        """
         return pulumi.get(self, "input_enabled")
 
     @property
     @pulumi.getter(name="outputAction")
     def output_action(self) -> Optional['GuardrailSensitiveInformationAction']:
+        """
+        Specifies the action to take when harmful content is detected in the output. Supported values include:
+
+        - `BLOCK` – Block the content and replace it with blocked messaging.
+        - `NONE` – Take no action but return detection information in the trace response.
+        """
         return pulumi.get(self, "output_action")
 
     @property
     @pulumi.getter(name="outputEnabled")
     def output_enabled(self) -> Optional[builtins.bool]:
+        """
+        Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        """
         return pulumi.get(self, "output_enabled")
 
 
@@ -10627,6 +10757,16 @@ class GuardrailTopicConfig(dict):
         :param builtins.str name: Name of topic in topic policy
         :param 'GuardrailTopicType' type: Specifies to deny the topic.
         :param Sequence[builtins.str] examples: List of text examples
+        :param 'GuardrailTopicAction' input_action: Specifies the action to take when harmful content is detected in the input. Supported values include:
+               
+               - `BLOCK` – Block the content and replace it with blocked messaging.
+               - `NONE` – Take no action but return detection information in the trace response.
+        :param builtins.bool input_enabled: Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        :param 'GuardrailTopicAction' output_action: Specifies the action to take when harmful content is detected in the output. Supported values include:
+               
+               - `BLOCK` – Block the content and replace it with blocked messaging.
+               - `NONE` – Take no action but return detection information in the trace response.
+        :param builtins.bool output_enabled: Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "name", name)
@@ -10677,21 +10817,39 @@ class GuardrailTopicConfig(dict):
     @property
     @pulumi.getter(name="inputAction")
     def input_action(self) -> Optional['GuardrailTopicAction']:
+        """
+        Specifies the action to take when harmful content is detected in the input. Supported values include:
+
+        - `BLOCK` – Block the content and replace it with blocked messaging.
+        - `NONE` – Take no action but return detection information in the trace response.
+        """
         return pulumi.get(self, "input_action")
 
     @property
     @pulumi.getter(name="inputEnabled")
     def input_enabled(self) -> Optional[builtins.bool]:
+        """
+        Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        """
         return pulumi.get(self, "input_enabled")
 
     @property
     @pulumi.getter(name="outputAction")
     def output_action(self) -> Optional['GuardrailTopicAction']:
+        """
+        Specifies the action to take when harmful content is detected in the output. Supported values include:
+
+        - `BLOCK` – Block the content and replace it with blocked messaging.
+        - `NONE` – Take no action but return detection information in the trace response.
+        """
         return pulumi.get(self, "output_action")
 
     @property
     @pulumi.getter(name="outputEnabled")
     def output_enabled(self) -> Optional[builtins.bool]:
+        """
+        Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        """
         return pulumi.get(self, "output_enabled")
 
 
@@ -10820,6 +10978,16 @@ class GuardrailWordConfig(dict):
         """
         A custom word config.
         :param builtins.str text: The custom word text.
+        :param 'GuardrailWordAction' input_action: Specifies the action to take when harmful content is detected in the input. Supported values include:
+               
+               - `BLOCK` – Block the content and replace it with blocked messaging.
+               - `NONE` – Take no action but return detection information in the trace response.
+        :param builtins.bool input_enabled: Specifies whether to enable guardrail evaluation on the intput. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        :param 'GuardrailWordAction' output_action: Specifies the action to take when harmful content is detected in the output. Supported values include:
+               
+               - `BLOCK` – Block the content and replace it with blocked messaging.
+               - `NONE` – Take no action but return detection information in the trace response.
+        :param builtins.bool output_enabled: Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         pulumi.set(__self__, "text", text)
         if input_action is not None:
@@ -10842,21 +11010,39 @@ class GuardrailWordConfig(dict):
     @property
     @pulumi.getter(name="inputAction")
     def input_action(self) -> Optional['GuardrailWordAction']:
+        """
+        Specifies the action to take when harmful content is detected in the input. Supported values include:
+
+        - `BLOCK` – Block the content and replace it with blocked messaging.
+        - `NONE` – Take no action but return detection information in the trace response.
+        """
         return pulumi.get(self, "input_action")
 
     @property
     @pulumi.getter(name="inputEnabled")
     def input_enabled(self) -> Optional[builtins.bool]:
+        """
+        Specifies whether to enable guardrail evaluation on the intput. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        """
         return pulumi.get(self, "input_enabled")
 
     @property
     @pulumi.getter(name="outputAction")
     def output_action(self) -> Optional['GuardrailWordAction']:
+        """
+        Specifies the action to take when harmful content is detected in the output. Supported values include:
+
+        - `BLOCK` – Block the content and replace it with blocked messaging.
+        - `NONE` – Take no action but return detection information in the trace response.
+        """
         return pulumi.get(self, "output_action")
 
     @property
     @pulumi.getter(name="outputEnabled")
     def output_enabled(self) -> Optional[builtins.bool]:
+        """
+        Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        """
         return pulumi.get(self, "output_enabled")
 
 

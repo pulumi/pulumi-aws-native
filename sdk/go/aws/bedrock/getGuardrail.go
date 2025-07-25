@@ -37,7 +37,10 @@ type LookupGuardrailResult struct {
 	ContentPolicyConfig             *GuardrailContentPolicyConfig             `pulumi:"contentPolicyConfig"`
 	ContextualGroundingPolicyConfig *GuardrailContextualGroundingPolicyConfig `pulumi:"contextualGroundingPolicyConfig"`
 	// Time Stamp
-	CreatedAt         *string                     `pulumi:"createdAt"`
+	CreatedAt *string `pulumi:"createdAt"`
+	// The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination AWS Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.
+	//
+	// For more information, see the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) .
 	CrossRegionConfig *GuardrailCrossRegionConfig `pulumi:"crossRegionConfig"`
 	// Description of the guardrail or its version
 	Description *string `pulumi:"description"`
@@ -127,6 +130,9 @@ func (o LookupGuardrailResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGuardrailResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination AWS Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.
+//
+// For more information, see the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) .
 func (o LookupGuardrailResultOutput) CrossRegionConfig() GuardrailCrossRegionConfigPtrOutput {
 	return o.ApplyT(func(v LookupGuardrailResult) *GuardrailCrossRegionConfig { return v.CrossRegionConfig }).(GuardrailCrossRegionConfigPtrOutput)
 }

@@ -17,6 +17,11 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// Specifies the Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
         /// </summary>
         public readonly string? CatalogArn;
+        /// <summary>
+        /// The warehouse location for Apache Iceberg tables. You must configure this when schema evolution and table creation is enabled.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         public readonly string? WarehouseLocation;
 
         [OutputConstructor]

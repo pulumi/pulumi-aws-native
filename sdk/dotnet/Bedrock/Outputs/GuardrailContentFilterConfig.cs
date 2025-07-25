@@ -16,7 +16,16 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class GuardrailContentFilterConfig
     {
+        /// <summary>
+        /// Specifies the action to take when harmful content is detected. Supported values include:
+        /// 
+        /// - `BLOCK` – Block the content and replace it with blocked messaging.
+        /// - `NONE` – Take no action but return detection information in the trace response.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.GuardrailContentFilterAction? InputAction;
+        /// <summary>
+        /// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        /// </summary>
         public readonly bool? InputEnabled;
         /// <summary>
         /// List of modalities
@@ -26,7 +35,16 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.GuardrailFilterStrength InputStrength;
+        /// <summary>
+        /// Specifies the action to take when harmful content is detected in the output. Supported values include:
+        /// 
+        /// - `BLOCK` – Block the content and replace it with blocked messaging.
+        /// - `NONE` – Take no action but return detection information in the trace response.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.GuardrailContentFilterAction? OutputAction;
+        /// <summary>
+        /// Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        /// </summary>
         public readonly bool? OutputEnabled;
         /// <summary>
         /// List of modalities

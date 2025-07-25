@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class ServiceAdvancedConfiguration
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the alternate target group for Amazon ECS blue/green deployments.
+        /// </summary>
         public readonly string AlternateTargetGroupArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that that identifies the production listener rule (in the case of an Application Load Balancer) or listener (in the case for an Network Load Balancer) for routing production traffic.
+        /// </summary>
         public readonly string? ProductionListenerRule;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call the Elastic Load Balancing APIs for you.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that identifies ) that identifies the test listener rule (in the case of an Application Load Balancer) or listener (in the case for an Network Load Balancer) for routing test traffic.
+        /// </summary>
         public readonly string? TestListenerRule;
 
         [OutputConstructor]

@@ -99,7 +99,7 @@
   "createOnlyProperties" : [ "/properties/IdentitySourceParameters", "/properties/IdentitySourceParameters/IamIdentityCenter", "/properties/IdentitySourceParameters/IamIdentityCenter/InstanceArn", "/properties/IdentitySourceParameters/IamIdentityCenter/Region" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "mpa:CreateIdentitySource", "mpa:TagResource", "mpa:ListTagsForResource", "mpa:GetIdentitySource", "sso:DescribeApplication", "sso:DescribeInstance", "sso:CreateApplication", "sso:PutApplicationAssignmentConfiguration", "sso:PutApplicationGrant", "sso:PutApplicationAuthenticationMethod", "sso:PutApplicationAccessScope" ]
+      "permissions" : [ "mpa:CreateIdentitySource", "mpa:TagResource", "mpa:ListTagsForResource", "mpa:GetIdentitySource", "sso:DescribeApplication", "sso:DescribeInstance", "sso:CreateApplication", "sso:PutApplicationAssignmentConfiguration", "sso:PutApplicationGrant", "sso:PutApplicationAuthenticationMethod", "sso:PutApplicationAccessScope", "kms:Decrypt" ]
     },
     "read" : {
       "permissions" : [ "mpa:GetIdentitySource", "mpa:ListTagsForResource" ]
@@ -108,7 +108,7 @@
       "permissions" : [ "mpa:GetIdentitySource", "mpa:TagResource", "mpa:ListTagsForResource", "mpa:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "mpa:DeleteIdentitySource", "mpa:GetIdentitySource", "mpa:UntagResource", "sso:DeleteApplication" ]
+      "permissions" : [ "mpa:DeleteIdentitySource", "mpa:GetIdentitySource", "mpa:UntagResource", "sso:DeleteApplication", "kms:Decrypt" ]
     },
     "list" : {
       "permissions" : [ "mpa:ListIdentitySources", "mpa:ListTagsForResource" ]

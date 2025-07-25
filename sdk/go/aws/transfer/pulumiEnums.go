@@ -2916,6 +2916,171 @@ func (in *serverIdentityProviderTypePtr) ToServerIdentityProviderTypePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(ServerIdentityProviderTypePtrOutput)
 }
 
+type ServerIpAddressType string
+
+const (
+	ServerIpAddressTypeIpv4      = ServerIpAddressType("IPV4")
+	ServerIpAddressTypeDualstack = ServerIpAddressType("DUALSTACK")
+)
+
+func (ServerIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerIpAddressType)(nil)).Elem()
+}
+
+func (e ServerIpAddressType) ToServerIpAddressTypeOutput() ServerIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(ServerIpAddressTypeOutput)
+}
+
+func (e ServerIpAddressType) ToServerIpAddressTypeOutputWithContext(ctx context.Context) ServerIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerIpAddressTypeOutput)
+}
+
+func (e ServerIpAddressType) ToServerIpAddressTypePtrOutput() ServerIpAddressTypePtrOutput {
+	return e.ToServerIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e ServerIpAddressType) ToServerIpAddressTypePtrOutputWithContext(ctx context.Context) ServerIpAddressTypePtrOutput {
+	return ServerIpAddressType(e).ToServerIpAddressTypeOutputWithContext(ctx).ToServerIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e ServerIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (ServerIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerIpAddressType)(nil)).Elem()
+}
+
+func (o ServerIpAddressTypeOutput) ToServerIpAddressTypeOutput() ServerIpAddressTypeOutput {
+	return o
+}
+
+func (o ServerIpAddressTypeOutput) ToServerIpAddressTypeOutputWithContext(ctx context.Context) ServerIpAddressTypeOutput {
+	return o
+}
+
+func (o ServerIpAddressTypeOutput) ToServerIpAddressTypePtrOutput() ServerIpAddressTypePtrOutput {
+	return o.ToServerIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o ServerIpAddressTypeOutput) ToServerIpAddressTypePtrOutputWithContext(ctx context.Context) ServerIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerIpAddressType) *ServerIpAddressType {
+		return &v
+	}).(ServerIpAddressTypePtrOutput)
+}
+
+func (o ServerIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ServerIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerIpAddressType)(nil)).Elem()
+}
+
+func (o ServerIpAddressTypePtrOutput) ToServerIpAddressTypePtrOutput() ServerIpAddressTypePtrOutput {
+	return o
+}
+
+func (o ServerIpAddressTypePtrOutput) ToServerIpAddressTypePtrOutputWithContext(ctx context.Context) ServerIpAddressTypePtrOutput {
+	return o
+}
+
+func (o ServerIpAddressTypePtrOutput) Elem() ServerIpAddressTypeOutput {
+	return o.ApplyT(func(v *ServerIpAddressType) ServerIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret ServerIpAddressType
+		return ret
+	}).(ServerIpAddressTypeOutput)
+}
+
+func (o ServerIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServerIpAddressTypeInput is an input type that accepts values of the ServerIpAddressType enum
+// A concrete instance of `ServerIpAddressTypeInput` can be one of the following:
+//
+//	ServerIpAddressTypeIpv4
+//	ServerIpAddressTypeDualstack
+type ServerIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToServerIpAddressTypeOutput() ServerIpAddressTypeOutput
+	ToServerIpAddressTypeOutputWithContext(context.Context) ServerIpAddressTypeOutput
+}
+
+var serverIpAddressTypePtrType = reflect.TypeOf((**ServerIpAddressType)(nil)).Elem()
+
+type ServerIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToServerIpAddressTypePtrOutput() ServerIpAddressTypePtrOutput
+	ToServerIpAddressTypePtrOutputWithContext(context.Context) ServerIpAddressTypePtrOutput
+}
+
+type serverIpAddressTypePtr string
+
+func ServerIpAddressTypePtr(v string) ServerIpAddressTypePtrInput {
+	return (*serverIpAddressTypePtr)(&v)
+}
+
+func (*serverIpAddressTypePtr) ElementType() reflect.Type {
+	return serverIpAddressTypePtrType
+}
+
+func (in *serverIpAddressTypePtr) ToServerIpAddressTypePtrOutput() ServerIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(ServerIpAddressTypePtrOutput)
+}
+
+func (in *serverIpAddressTypePtr) ToServerIpAddressTypePtrOutputWithContext(ctx context.Context) ServerIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerIpAddressTypePtrOutput)
+}
+
 type ServerProtocol string
 
 const (
@@ -4921,6 +5086,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointTypePtrInput)(nil)).Elem(), ServerEndpointType("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityProviderTypeInput)(nil)).Elem(), ServerIdentityProviderType("SERVICE_MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityProviderTypePtrInput)(nil)).Elem(), ServerIdentityProviderType("SERVICE_MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerIpAddressTypeInput)(nil)).Elem(), ServerIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerIpAddressTypePtrInput)(nil)).Elem(), ServerIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolInput)(nil)).Elem(), ServerProtocol("SFTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolPtrInput)(nil)).Elem(), ServerProtocol("SFTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolArrayInput)(nil)).Elem(), ServerProtocolArray{})
@@ -4981,6 +5148,8 @@ func init() {
 	pulumi.RegisterOutputType(ServerEndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(ServerIdentityProviderTypeOutput{})
 	pulumi.RegisterOutputType(ServerIdentityProviderTypePtrOutput{})
+	pulumi.RegisterOutputType(ServerIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(ServerIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(ServerProtocolOutput{})
 	pulumi.RegisterOutputType(ServerProtocolPtrOutput{})
 	pulumi.RegisterOutputType(ServerProtocolArrayOutput{})

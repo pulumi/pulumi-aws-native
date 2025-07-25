@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
         /// The amount of time of the specified unit.
         /// </summary>
         public readonly int? Value;
+        /// <summary>
+        /// A structure letting customers specify a relative time window over which over which data is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint is in the past, and negative numbers to indicate it is in the future. ValueRange overrides Value.
+        /// </summary>
         public readonly Outputs.CalculatedAttributeDefinitionValueRange? ValueRange;
 
         [OutputConstructor]

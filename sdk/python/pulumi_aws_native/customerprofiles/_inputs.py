@@ -313,6 +313,9 @@ if not MYPY:
         The amount of time of the specified unit.
         """
         value_range: NotRequired[pulumi.Input['CalculatedAttributeDefinitionValueRangeArgsDict']]
+        """
+        A structure letting customers specify a relative time window over which over which data is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint is in the past, and negative numbers to indicate it is in the future. ValueRange overrides Value.
+        """
 elif False:
     CalculatedAttributeDefinitionRangeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -330,6 +333,7 @@ class CalculatedAttributeDefinitionRangeArgs:
         :param pulumi.Input[builtins.str] timestamp_format: The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
         :param pulumi.Input[builtins.str] timestamp_source: An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \\"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
         :param pulumi.Input[builtins.int] value: The amount of time of the specified unit.
+        :param pulumi.Input['CalculatedAttributeDefinitionValueRangeArgs'] value_range: A structure letting customers specify a relative time window over which over which data is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint is in the past, and negative numbers to indicate it is in the future. ValueRange overrides Value.
         """
         pulumi.set(__self__, "unit", unit)
         if timestamp_format is not None:
@@ -392,6 +396,9 @@ class CalculatedAttributeDefinitionRangeArgs:
     @property
     @pulumi.getter(name="valueRange")
     def value_range(self) -> Optional[pulumi.Input['CalculatedAttributeDefinitionValueRangeArgs']]:
+        """
+        A structure letting customers specify a relative time window over which over which data is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint is in the past, and negative numbers to indicate it is in the future. ValueRange overrides Value.
+        """
         return pulumi.get(self, "value_range")
 
     @value_range.setter

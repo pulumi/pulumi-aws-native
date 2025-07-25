@@ -30,7 +30,7 @@ type CustomerGateway struct {
 	CustomerGatewayId pulumi.StringOutput `pulumi:"customerGatewayId"`
 	// The name of customer gateway device.
 	DeviceName pulumi.StringPtrOutput `pulumi:"deviceName"`
-	// IPv4 address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``PublicIpv4``, you can use a public IPv4 address.
+	// The IP address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``Ipv6``, you can use an IPv6 address.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// One or more tags for the customer gateway.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -104,7 +104,7 @@ type customerGatewayArgs struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The name of customer gateway device.
 	DeviceName *string `pulumi:"deviceName"`
-	// IPv4 address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``PublicIpv4``, you can use a public IPv4 address.
+	// The IP address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``Ipv6``, you can use an IPv6 address.
 	IpAddress string `pulumi:"ipAddress"`
 	// One or more tags for the customer gateway.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -125,7 +125,7 @@ type CustomerGatewayArgs struct {
 	CertificateArn pulumi.StringPtrInput
 	// The name of customer gateway device.
 	DeviceName pulumi.StringPtrInput
-	// IPv4 address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``PublicIpv4``, you can use a public IPv4 address.
+	// The IP address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``Ipv6``, you can use an IPv6 address.
 	IpAddress pulumi.StringInput
 	// One or more tags for the customer gateway.
 	Tags aws.TagArrayInput
@@ -200,7 +200,7 @@ func (o CustomerGatewayOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringPtrOutput { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
-// IPv4 address for the customer gateway device's outside interface. The address must be static. If “OutsideIpAddressType“ in your VPN connection options is set to “PrivateIpv4“, you can use an RFC6598 or RFC1918 private IPv4 address. If “OutsideIpAddressType“ is set to “PublicIpv4“, you can use a public IPv4 address.
+// The IP address for the customer gateway device's outside interface. The address must be static. If “OutsideIpAddressType“ in your VPN connection options is set to “PrivateIpv4“, you can use an RFC6598 or RFC1918 private IPv4 address. If “OutsideIpAddressType“ is set to “Ipv6“, you can use an IPv6 address.
 func (o CustomerGatewayOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }

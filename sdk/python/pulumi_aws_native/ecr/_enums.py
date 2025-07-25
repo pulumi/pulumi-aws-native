@@ -75,7 +75,7 @@ class RepositoryCreationTemplateEncryptionType(builtins.str, Enum):
 @pulumi.type_token("aws-native:ecr:RepositoryCreationTemplateImageTagMutability")
 class RepositoryCreationTemplateImageTagMutability(builtins.str, Enum):
     """
-    The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+    The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
     """
     MUTABLE = "MUTABLE"
     IMMUTABLE = "IMMUTABLE"

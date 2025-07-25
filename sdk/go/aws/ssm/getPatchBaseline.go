@@ -37,6 +37,8 @@ type LookupPatchBaselineResult struct {
 	ApprovedPatchesComplianceLevel *PatchBaselineApprovedPatchesComplianceLevel `pulumi:"approvedPatchesComplianceLevel"`
 	// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
 	ApprovedPatchesEnableNonSecurity *bool `pulumi:"approvedPatchesEnableNonSecurity"`
+	// The compliance status for vendor recommended security updates that are not approved by this patch baseline.
+	AvailableSecurityUpdatesComplianceStatus *PatchBaselineAvailableSecurityUpdatesComplianceStatus `pulumi:"availableSecurityUpdatesComplianceStatus"`
 	// Set the baseline as default baseline. Only registering to default patch baseline is allowed.
 	DefaultBaseline *bool `pulumi:"defaultBaseline"`
 	// The description of the patch baseline.
@@ -111,6 +113,13 @@ func (o LookupPatchBaselineResultOutput) ApprovedPatchesComplianceLevel() PatchB
 // Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
 func (o LookupPatchBaselineResultOutput) ApprovedPatchesEnableNonSecurity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) *bool { return v.ApprovedPatchesEnableNonSecurity }).(pulumi.BoolPtrOutput)
+}
+
+// The compliance status for vendor recommended security updates that are not approved by this patch baseline.
+func (o LookupPatchBaselineResultOutput) AvailableSecurityUpdatesComplianceStatus() PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) *PatchBaselineAvailableSecurityUpdatesComplianceStatus {
+		return v.AvailableSecurityUpdatesComplianceStatus
+	}).(PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput)
 }
 
 // Set the baseline as default baseline. Only registering to default patch baseline is allowed.

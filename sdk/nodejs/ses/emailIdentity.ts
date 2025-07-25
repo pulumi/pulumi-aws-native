@@ -87,6 +87,10 @@ export class EmailIdentity extends pulumi.CustomResource {
      * Used to enable or disable the custom Mail-From domain configuration for an email identity.
      */
     public readonly mailFromAttributes!: pulumi.Output<outputs.ses.EmailIdentityMailFromAttributes | undefined>;
+    /**
+     * The tags (keys and values) associated with the email identity.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a EmailIdentity resource with the given unique name, arguments, and options.
@@ -108,6 +112,7 @@ export class EmailIdentity extends pulumi.CustomResource {
             resourceInputs["emailIdentity"] = args ? args.emailIdentity : undefined;
             resourceInputs["feedbackAttributes"] = args ? args.feedbackAttributes : undefined;
             resourceInputs["mailFromAttributes"] = args ? args.mailFromAttributes : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["dkimDnsTokenName1"] = undefined /*out*/;
             resourceInputs["dkimDnsTokenName2"] = undefined /*out*/;
             resourceInputs["dkimDnsTokenName3"] = undefined /*out*/;
@@ -127,6 +132,7 @@ export class EmailIdentity extends pulumi.CustomResource {
             resourceInputs["emailIdentity"] = undefined /*out*/;
             resourceInputs["feedbackAttributes"] = undefined /*out*/;
             resourceInputs["mailFromAttributes"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["emailIdentity"] };
@@ -165,4 +171,8 @@ export interface EmailIdentityArgs {
      * Used to enable or disable the custom Mail-From domain configuration for an email identity.
      */
     mailFromAttributes?: pulumi.Input<inputs.ses.EmailIdentityMailFromAttributesArgs>;
+    /**
+     * The tags (keys and values) associated with the email identity.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

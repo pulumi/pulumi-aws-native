@@ -29,6 +29,9 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         ///  To avoid changing your applications in client Amazon ECS services, set this to the same port that the client application uses by default. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
         /// </summary>
         public readonly int Port;
+        /// <summary>
+        /// The configuration for test traffic routing rules used during blue/green deployments with Amazon ECS Service Connect. This allows you to route a portion of traffic to the new service revision of your service for testing before shifting all production traffic.
+        /// </summary>
         public readonly Outputs.ServiceConnectTestTrafficRules? TestTrafficRules;
 
         [OutputConstructor]

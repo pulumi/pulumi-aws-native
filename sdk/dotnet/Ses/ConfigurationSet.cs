@@ -216,6 +216,12 @@ namespace Pulumi.AwsNative.Ses
         public Output<Outputs.ConfigurationSetSuppressionOptions?> SuppressionOptions { get; private set; } = null!;
 
         /// <summary>
+        /// The tags (keys and values) associated with the contact list.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// An object that defines the open and click tracking options for emails that you send using the configuration set.
         /// </summary>
         [Output("trackingOptions")]
@@ -305,6 +311,18 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         [Input("suppressionOptions")]
         public Input<Inputs.ConfigurationSetSuppressionOptionsArgs>? SuppressionOptions { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags (keys and values) associated with the contact list.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// An object that defines the open and click tracking options for emails that you send using the configuration set.

@@ -42,6 +42,11 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination AWS Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.
+        /// 
+        /// For more information, see the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) .
+        /// </summary>
         [Output("crossRegionConfig")]
         public Output<Outputs.GuardrailCrossRegionConfig?> CrossRegionConfig { get; private set; } = null!;
 
@@ -195,6 +200,11 @@ namespace Pulumi.AwsNative.Bedrock
         [Input("contextualGroundingPolicyConfig")]
         public Input<Inputs.GuardrailContextualGroundingPolicyConfigArgs>? ContextualGroundingPolicyConfig { get; set; }
 
+        /// <summary>
+        /// The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination AWS Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.
+        /// 
+        /// For more information, see the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) .
+        /// </summary>
         [Input("crossRegionConfig")]
         public Input<Inputs.GuardrailCrossRegionConfigArgs>? CrossRegionConfig { get; set; }
 

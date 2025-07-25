@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetEmailIdentityResult',
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEmailIdentityResult:
-    def __init__(__self__, configuration_set_attributes=None, dkim_attributes=None, dkim_dns_token_name1=None, dkim_dns_token_name2=None, dkim_dns_token_name3=None, dkim_dns_token_value1=None, dkim_dns_token_value2=None, dkim_dns_token_value3=None, dkim_signing_attributes=None, feedback_attributes=None, mail_from_attributes=None):
+    def __init__(__self__, configuration_set_attributes=None, dkim_attributes=None, dkim_dns_token_name1=None, dkim_dns_token_name2=None, dkim_dns_token_name3=None, dkim_dns_token_value1=None, dkim_dns_token_value2=None, dkim_dns_token_value3=None, dkim_signing_attributes=None, feedback_attributes=None, mail_from_attributes=None, tags=None):
         if configuration_set_attributes and not isinstance(configuration_set_attributes, dict):
             raise TypeError("Expected argument 'configuration_set_attributes' to be a dict")
         pulumi.set(__self__, "configuration_set_attributes", configuration_set_attributes)
@@ -59,6 +60,9 @@ class GetEmailIdentityResult:
         if mail_from_attributes and not isinstance(mail_from_attributes, dict):
             raise TypeError("Expected argument 'mail_from_attributes' to be a dict")
         pulumi.set(__self__, "mail_from_attributes", mail_from_attributes)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="configurationSetAttributes")
@@ -150,6 +154,14 @@ class GetEmailIdentityResult:
         """
         return pulumi.get(self, "mail_from_attributes")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags (keys and values) associated with the email identity.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetEmailIdentityResult(GetEmailIdentityResult):
     # pylint: disable=using-constant-test
@@ -167,7 +179,8 @@ class AwaitableGetEmailIdentityResult(GetEmailIdentityResult):
             dkim_dns_token_value3=self.dkim_dns_token_value3,
             dkim_signing_attributes=self.dkim_signing_attributes,
             feedback_attributes=self.feedback_attributes,
-            mail_from_attributes=self.mail_from_attributes)
+            mail_from_attributes=self.mail_from_attributes,
+            tags=self.tags)
 
 
 def get_email_identity(email_identity: Optional[builtins.str] = None,
@@ -194,7 +207,8 @@ def get_email_identity(email_identity: Optional[builtins.str] = None,
         dkim_dns_token_value3=pulumi.get(__ret__, 'dkim_dns_token_value3'),
         dkim_signing_attributes=pulumi.get(__ret__, 'dkim_signing_attributes'),
         feedback_attributes=pulumi.get(__ret__, 'feedback_attributes'),
-        mail_from_attributes=pulumi.get(__ret__, 'mail_from_attributes'))
+        mail_from_attributes=pulumi.get(__ret__, 'mail_from_attributes'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_email_identity_output(email_identity: Optional[pulumi.Input[builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailIdentityResult]:
     """
@@ -218,4 +232,5 @@ def get_email_identity_output(email_identity: Optional[pulumi.Input[builtins.str
         dkim_dns_token_value3=pulumi.get(__response__, 'dkim_dns_token_value3'),
         dkim_signing_attributes=pulumi.get(__response__, 'dkim_signing_attributes'),
         feedback_attributes=pulumi.get(__response__, 'feedback_attributes'),
-        mail_from_attributes=pulumi.get(__response__, 'mail_from_attributes')))
+        mail_from_attributes=pulumi.get(__response__, 'mail_from_attributes'),
+        tags=pulumi.get(__response__, 'tags')))

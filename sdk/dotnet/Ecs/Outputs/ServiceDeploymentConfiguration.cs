@@ -20,12 +20,24 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// Information about the CloudWatch alarms.
         /// </summary>
         public readonly Outputs.ServiceDeploymentAlarms? Alarms;
+        /// <summary>
+        /// The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.
+        /// 
+        /// The following rules apply when you don't specify a value:
+        /// 
+        /// - For rolling deployments, the value is set to 3 hours (180 minutes).
+        /// - When you use an external deployment controller ( `EXTERNAL` ), or the CodeDeploy blue/green deployment controller ( `CODE_DEPLOY` ), the value is set to 3 hours (180 minutes).
+        /// - For all other cases, the value is set to 36 hours (2160 minutes).
+        /// </summary>
         public readonly int? BakeTimeInMinutes;
         /// <summary>
         /// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
         ///   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
         /// </summary>
         public readonly Outputs.ServiceDeploymentCircuitBreaker? DeploymentCircuitBreaker;
+        /// <summary>
+        /// An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ServiceDeploymentLifecycleHook> LifecycleHooks;
         /// <summary>
         /// If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
@@ -54,6 +66,12 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         ///   If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
         /// </summary>
         public readonly int? MinimumHealthyPercent;
+        /// <summary>
+        /// The deployment strategy for the service. Choose from these valid values:
+        /// 
+        /// - `ROLLING` - When you create a service which uses the rolling update ( `ROLLING` ) deployment strategy, the Amazon ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration.
+        /// - `BLUE_GREEN` - A blue/green deployment strategy ( `BLUE_GREEN` ) is a release methodology that reduces downtime and risk by running two identical production environments called blue and green. With Amazon ECS blue/green deployments, you can validate new service revisions before directing production traffic to them. This approach provides a safer way to deploy changes with the ability to quickly roll back if needed.
+        /// </summary>
         public readonly Pulumi.AwsNative.Ecs.ServiceDeploymentConfigurationStrategy? Strategy;
 
         [OutputConstructor]

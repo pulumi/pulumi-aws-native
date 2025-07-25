@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.AiOps
         public Output<string> LastModifiedBy { get; private set; } = null!;
 
         /// <summary>
-        /// Specify either the name or the ARN of the investigation group that you want to view.
+        /// Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.AwsNative.AiOps
         public Input<bool>? IsCloudTrailEventHistoryEnabled { get; set; }
 
         /// <summary>
-        /// Specify either the name or the ARN of the investigation group that you want to view.
+        /// Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

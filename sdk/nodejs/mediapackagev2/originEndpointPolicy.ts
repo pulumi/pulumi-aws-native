@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -34,6 +37,7 @@ export class OriginEndpointPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === OriginEndpointPolicy.__pulumiType;
     }
 
+    public readonly cdnAuthConfiguration!: pulumi.Output<outputs.mediapackagev2.OriginEndpointPolicyCdnAuthConfiguration | undefined>;
     /**
      * The name of the channel group associated with the origin endpoint policy.
      */
@@ -76,11 +80,13 @@ export class OriginEndpointPolicy extends pulumi.CustomResource {
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
+            resourceInputs["cdnAuthConfiguration"] = args ? args.cdnAuthConfiguration : undefined;
             resourceInputs["channelGroupName"] = args ? args.channelGroupName : undefined;
             resourceInputs["channelName"] = args ? args.channelName : undefined;
             resourceInputs["originEndpointName"] = args ? args.originEndpointName : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
         } else {
+            resourceInputs["cdnAuthConfiguration"] = undefined /*out*/;
             resourceInputs["channelGroupName"] = undefined /*out*/;
             resourceInputs["channelName"] = undefined /*out*/;
             resourceInputs["originEndpointName"] = undefined /*out*/;
@@ -97,6 +103,7 @@ export class OriginEndpointPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a OriginEndpointPolicy resource.
  */
 export interface OriginEndpointPolicyArgs {
+    cdnAuthConfiguration?: pulumi.Input<inputs.mediapackagev2.OriginEndpointPolicyCdnAuthConfigurationArgs>;
     /**
      * The name of the channel group associated with the origin endpoint policy.
      */

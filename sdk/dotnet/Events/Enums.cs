@@ -173,6 +173,70 @@ namespace Pulumi.AwsNative.Events
     }
 
     /// <summary>
+    /// Configures whether or not to include event detail, input transformer details, target properties, and target input in the applicable log messages.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventBusLogConfigPropertiesIncludeDetail : IEquatable<EventBusLogConfigPropertiesIncludeDetail>
+    {
+        private readonly string _value;
+
+        private EventBusLogConfigPropertiesIncludeDetail(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventBusLogConfigPropertiesIncludeDetail Full { get; } = new EventBusLogConfigPropertiesIncludeDetail("FULL");
+        public static EventBusLogConfigPropertiesIncludeDetail None { get; } = new EventBusLogConfigPropertiesIncludeDetail("NONE");
+
+        public static bool operator ==(EventBusLogConfigPropertiesIncludeDetail left, EventBusLogConfigPropertiesIncludeDetail right) => left.Equals(right);
+        public static bool operator !=(EventBusLogConfigPropertiesIncludeDetail left, EventBusLogConfigPropertiesIncludeDetail right) => !left.Equals(right);
+
+        public static explicit operator string(EventBusLogConfigPropertiesIncludeDetail value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventBusLogConfigPropertiesIncludeDetail other && Equals(other);
+        public bool Equals(EventBusLogConfigPropertiesIncludeDetail other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Configures the log level of the EventBus and determines which log messages are sent to Ingestion Hub for delivery.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventBusLogConfigPropertiesLevel : IEquatable<EventBusLogConfigPropertiesLevel>
+    {
+        private readonly string _value;
+
+        private EventBusLogConfigPropertiesLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventBusLogConfigPropertiesLevel Info { get; } = new EventBusLogConfigPropertiesLevel("INFO");
+        public static EventBusLogConfigPropertiesLevel Error { get; } = new EventBusLogConfigPropertiesLevel("ERROR");
+        public static EventBusLogConfigPropertiesLevel Trace { get; } = new EventBusLogConfigPropertiesLevel("TRACE");
+        public static EventBusLogConfigPropertiesLevel Off { get; } = new EventBusLogConfigPropertiesLevel("OFF");
+
+        public static bool operator ==(EventBusLogConfigPropertiesLevel left, EventBusLogConfigPropertiesLevel right) => left.Equals(right);
+        public static bool operator !=(EventBusLogConfigPropertiesLevel left, EventBusLogConfigPropertiesLevel right) => !left.Equals(right);
+
+        public static explicit operator string(EventBusLogConfigPropertiesLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventBusLogConfigPropertiesLevel other && Equals(other);
+        public bool Equals(EventBusLogConfigPropertiesLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The state of the rule.
     /// </summary>
     [EnumType]

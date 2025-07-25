@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -52,6 +53,8 @@ type LookupEmailIdentityResult struct {
 	FeedbackAttributes *EmailIdentityFeedbackAttributes `pulumi:"feedbackAttributes"`
 	// Used to enable or disable the custom Mail-From domain configuration for an email identity.
 	MailFromAttributes *EmailIdentityMailFromAttributes `pulumi:"mailFromAttributes"`
+	// The tags (keys and values) associated with the email identity.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupEmailIdentityOutput(ctx *pulumi.Context, args LookupEmailIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupEmailIdentityResultOutput {
@@ -143,6 +146,11 @@ func (o LookupEmailIdentityResultOutput) FeedbackAttributes() EmailIdentityFeedb
 // Used to enable or disable the custom Mail-From domain configuration for an email identity.
 func (o LookupEmailIdentityResultOutput) MailFromAttributes() EmailIdentityMailFromAttributesPtrOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) *EmailIdentityMailFromAttributes { return v.MailFromAttributes }).(EmailIdentityMailFromAttributesPtrOutput)
+}
+
+// The tags (keys and values) associated with the email identity.
+func (o LookupEmailIdentityResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEmailIdentityResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

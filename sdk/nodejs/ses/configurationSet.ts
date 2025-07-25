@@ -176,6 +176,10 @@ export class ConfigurationSet extends pulumi.CustomResource {
      */
     public readonly suppressionOptions!: pulumi.Output<outputs.ses.ConfigurationSetSuppressionOptions | undefined>;
     /**
+     * The tags (keys and values) associated with the contact list.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * An object that defines the open and click tracking options for emails that you send using the configuration set.
      */
     public readonly trackingOptions!: pulumi.Output<outputs.ses.ConfigurationSetTrackingOptions | undefined>;
@@ -200,6 +204,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
             resourceInputs["reputationOptions"] = args ? args.reputationOptions : undefined;
             resourceInputs["sendingOptions"] = args ? args.sendingOptions : undefined;
             resourceInputs["suppressionOptions"] = args ? args.suppressionOptions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trackingOptions"] = args ? args.trackingOptions : undefined;
             resourceInputs["vdmOptions"] = args ? args.vdmOptions : undefined;
         } else {
@@ -208,6 +213,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
             resourceInputs["reputationOptions"] = undefined /*out*/;
             resourceInputs["sendingOptions"] = undefined /*out*/;
             resourceInputs["suppressionOptions"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["trackingOptions"] = undefined /*out*/;
             resourceInputs["vdmOptions"] = undefined /*out*/;
         }
@@ -242,6 +248,10 @@ export interface ConfigurationSetArgs {
      * An object that contains information about the suppression list preferences for your account.
      */
     suppressionOptions?: pulumi.Input<inputs.ses.ConfigurationSetSuppressionOptionsArgs>;
+    /**
+     * The tags (keys and values) associated with the contact list.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * An object that defines the open and click tracking options for emails that you send using the configuration set.
      */

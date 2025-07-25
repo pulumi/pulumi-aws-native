@@ -27,7 +27,7 @@ type AppImageConfig struct {
 	// The KernelGatewayImageConfig.
 	KernelGatewayImageConfig AppImageConfigKernelGatewayImageConfigPtrOutput `pulumi:"kernelGatewayImageConfig"`
 	// A list of tags to apply to the AppImageConfig.
-	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewAppImageConfig registers a new resource with the given unique name, arguments, and options.
@@ -39,7 +39,6 @@ func NewAppImageConfig(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"appImageConfigName",
-		"tags[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -84,7 +83,7 @@ type appImageConfigArgs struct {
 	// The KernelGatewayImageConfig.
 	KernelGatewayImageConfig *AppImageConfigKernelGatewayImageConfig `pulumi:"kernelGatewayImageConfig"`
 	// A list of tags to apply to the AppImageConfig.
-	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AppImageConfig resource.
@@ -98,7 +97,7 @@ type AppImageConfigArgs struct {
 	// The KernelGatewayImageConfig.
 	KernelGatewayImageConfig AppImageConfigKernelGatewayImageConfigPtrInput
 	// A list of tags to apply to the AppImageConfig.
-	Tags aws.CreateOnlyTagArrayInput
+	Tags aws.TagArrayInput
 }
 
 func (AppImageConfigArgs) ElementType() reflect.Type {
@@ -170,8 +169,8 @@ func (o AppImageConfigOutput) KernelGatewayImageConfig() AppImageConfigKernelGat
 }
 
 // A list of tags to apply to the AppImageConfig.
-func (o AppImageConfigOutput) Tags() aws.CreateOnlyTagArrayOutput {
-	return o.ApplyT(func(v *AppImageConfig) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
+func (o AppImageConfigOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *AppImageConfig) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

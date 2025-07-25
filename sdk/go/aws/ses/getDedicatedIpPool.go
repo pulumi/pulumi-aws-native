@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,6 +31,8 @@ type LookupDedicatedIpPoolArgs struct {
 type LookupDedicatedIpPoolResult struct {
 	// Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
 	ScalingMode *string `pulumi:"scalingMode"`
+	// The tags (keys and values) associated with the dedicated IP pool.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDedicatedIpPoolOutput(ctx *pulumi.Context, args LookupDedicatedIpPoolOutputArgs, opts ...pulumi.InvokeOption) LookupDedicatedIpPoolResultOutput {
@@ -67,6 +70,11 @@ func (o LookupDedicatedIpPoolResultOutput) ToLookupDedicatedIpPoolResultOutputWi
 // Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
 func (o LookupDedicatedIpPoolResultOutput) ScalingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDedicatedIpPoolResult) *string { return v.ScalingMode }).(pulumi.StringPtrOutput)
+}
+
+// The tags (keys and values) associated with the dedicated IP pool.
+func (o LookupDedicatedIpPoolResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDedicatedIpPoolResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

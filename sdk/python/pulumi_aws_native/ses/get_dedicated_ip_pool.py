@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetDedicatedIpPoolResult',
@@ -24,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetDedicatedIpPoolResult:
-    def __init__(__self__, scaling_mode=None):
+    def __init__(__self__, scaling_mode=None, tags=None):
         if scaling_mode and not isinstance(scaling_mode, str):
             raise TypeError("Expected argument 'scaling_mode' to be a str")
         pulumi.set(__self__, "scaling_mode", scaling_mode)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="scalingMode")
@@ -37,6 +41,14 @@ class GetDedicatedIpPoolResult:
         """
         return pulumi.get(self, "scaling_mode")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags (keys and values) associated with the dedicated IP pool.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetDedicatedIpPoolResult(GetDedicatedIpPoolResult):
     # pylint: disable=using-constant-test
@@ -44,7 +56,8 @@ class AwaitableGetDedicatedIpPoolResult(GetDedicatedIpPoolResult):
         if False:
             yield self
         return GetDedicatedIpPoolResult(
-            scaling_mode=self.scaling_mode)
+            scaling_mode=self.scaling_mode,
+            tags=self.tags)
 
 
 def get_dedicated_ip_pool(pool_name: Optional[builtins.str] = None,
@@ -61,7 +74,8 @@ def get_dedicated_ip_pool(pool_name: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ses:getDedicatedIpPool', __args__, opts=opts, typ=GetDedicatedIpPoolResult).value
 
     return AwaitableGetDedicatedIpPoolResult(
-        scaling_mode=pulumi.get(__ret__, 'scaling_mode'))
+        scaling_mode=pulumi.get(__ret__, 'scaling_mode'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_dedicated_ip_pool_output(pool_name: Optional[pulumi.Input[builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedIpPoolResult]:
     """
@@ -75,4 +89,5 @@ def get_dedicated_ip_pool_output(pool_name: Optional[pulumi.Input[builtins.str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getDedicatedIpPool', __args__, opts=opts, typ=GetDedicatedIpPoolResult)
     return __ret__.apply(lambda __response__: GetDedicatedIpPoolResult(
-        scaling_mode=pulumi.get(__response__, 'scaling_mode')))
+        scaling_mode=pulumi.get(__response__, 'scaling_mode'),
+        tags=pulumi.get(__response__, 'tags')))

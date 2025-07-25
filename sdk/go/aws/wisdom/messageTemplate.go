@@ -33,6 +33,8 @@ type MessageTemplate struct {
 	Language pulumi.StringPtrOutput `pulumi:"language"`
 	// The Amazon Resource Name (ARN) of the message template.
 	MessageTemplateArn pulumi.StringOutput `pulumi:"messageTemplateArn"`
+	// List of message template attachments
+	MessageTemplateAttachments MessageTemplateAttachmentArrayOutput `pulumi:"messageTemplateAttachments"`
 	// The content SHA256 of the message template.
 	MessageTemplateContentSha256 pulumi.StringOutput `pulumi:"messageTemplateContentSha256"`
 	// The unique identifier of the message template.
@@ -111,6 +113,8 @@ type messageTemplateArgs struct {
 	KnowledgeBaseArn string `pulumi:"knowledgeBaseArn"`
 	// The language code value for the language in which the message template is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW
 	Language *string `pulumi:"language"`
+	// List of message template attachments
+	MessageTemplateAttachments []MessageTemplateAttachment `pulumi:"messageTemplateAttachments"`
 	// The name of the message template.
 	Name *string `pulumi:"name"`
 	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
@@ -133,6 +137,8 @@ type MessageTemplateArgs struct {
 	KnowledgeBaseArn pulumi.StringInput
 	// The language code value for the language in which the message template is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW
 	Language pulumi.StringPtrInput
+	// List of message template attachments
+	MessageTemplateAttachments MessageTemplateAttachmentArrayInput
 	// The name of the message template.
 	Name pulumi.StringPtrInput
 	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
@@ -214,6 +220,11 @@ func (o MessageTemplateOutput) Language() pulumi.StringPtrOutput {
 // The Amazon Resource Name (ARN) of the message template.
 func (o MessageTemplateOutput) MessageTemplateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MessageTemplate) pulumi.StringOutput { return v.MessageTemplateArn }).(pulumi.StringOutput)
+}
+
+// List of message template attachments
+func (o MessageTemplateOutput) MessageTemplateAttachments() MessageTemplateAttachmentArrayOutput {
+	return o.ApplyT(func(v *MessageTemplate) MessageTemplateAttachmentArrayOutput { return v.MessageTemplateAttachments }).(MessageTemplateAttachmentArrayOutput)
 }
 
 // The content SHA256 of the message template.

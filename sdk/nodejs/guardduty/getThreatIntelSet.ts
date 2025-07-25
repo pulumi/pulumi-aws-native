@@ -34,6 +34,12 @@ export interface GetThreatIntelSetArgs {
 
 export interface GetThreatIntelSetResult {
     /**
+     * The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
+     *
+     * When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
+     */
+    readonly expectedBucketOwner?: string;
+    /**
      * The unique ID of the `threatIntelSet` .
      */
     readonly id?: string;

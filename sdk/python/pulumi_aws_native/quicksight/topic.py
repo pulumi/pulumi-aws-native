@@ -15,6 +15,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -29,6 +31,7 @@ class TopicArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
                  topic_id: Optional[pulumi.Input[builtins.str]] = None,
                  user_experience_version: Optional[pulumi.Input['TopicUserExperienceVersion']] = None):
         """
@@ -53,6 +56,8 @@ class TopicArgs:
             pulumi.set(__self__, "folder_arns", folder_arns)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if topic_id is not None:
             pulumi.set(__self__, "topic_id", topic_id)
         if user_experience_version is not None:
@@ -128,6 +133,15 @@ class TopicArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="topicId")
     def topic_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -164,6 +178,7 @@ class Topic(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  topic_id: Optional[pulumi.Input[builtins.str]] = None,
                  user_experience_version: Optional[pulumi.Input['TopicUserExperienceVersion']] = None,
                  __props__=None):
@@ -210,6 +225,7 @@ class Topic(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  topic_id: Optional[pulumi.Input[builtins.str]] = None,
                  user_experience_version: Optional[pulumi.Input['TopicUserExperienceVersion']] = None,
                  __props__=None):
@@ -227,10 +243,11 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["folder_arns"] = folder_arns
             __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["topic_id"] = topic_id
             __props__.__dict__["user_experience_version"] = user_experience_version
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["awsAccountId", "folderArns[*]", "topicId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["awsAccountId", "folderArns[*]", "tags[*]", "topicId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Topic, __self__).__init__(
             'aws-native:quicksight:Topic',
@@ -261,6 +278,7 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["folder_arns"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["topic_id"] = None
         __props__.__dict__["user_experience_version"] = None
         return Topic(resource_name, opts=opts, __props__=__props__)
@@ -317,6 +335,11 @@ class Topic(pulumi.CustomResource):
         The name of the topic.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="topicId")

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -42,6 +45,10 @@ export class DedicatedIpPool extends pulumi.CustomResource {
      * Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
      */
     public readonly scalingMode!: pulumi.Output<string | undefined>;
+    /**
+     * The tags (keys and values) associated with the dedicated IP pool.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DedicatedIpPool resource with the given unique name, arguments, and options.
@@ -56,9 +63,11 @@ export class DedicatedIpPool extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["poolName"] = args ? args.poolName : undefined;
             resourceInputs["scalingMode"] = args ? args.scalingMode : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
             resourceInputs["poolName"] = undefined /*out*/;
             resourceInputs["scalingMode"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["poolName"] };
@@ -79,4 +88,8 @@ export interface DedicatedIpPoolArgs {
      * Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
      */
     scalingMode?: pulumi.Input<string>;
+    /**
+     * The tags (keys and values) associated with the dedicated IP pool.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

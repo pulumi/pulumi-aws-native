@@ -27,6 +27,12 @@ namespace Pulumi.AwsNative.Ses
         [Output("scalingMode")]
         public Output<string?> ScalingMode { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags (keys and values) associated with the dedicated IP pool.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a DedicatedIpPool resource with the given unique name, arguments, and options.
@@ -87,6 +93,18 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         [Input("scalingMode")]
         public Input<string>? ScalingMode { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags (keys and values) associated with the dedicated IP pool.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public DedicatedIpPoolArgs()
         {

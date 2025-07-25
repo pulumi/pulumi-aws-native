@@ -87,6 +87,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
     [OutputType]
     public sealed class GetOriginEndpointPolicyResult
     {
+        public readonly Outputs.OriginEndpointPolicyCdnAuthConfiguration? CdnAuthConfiguration;
         /// <summary>
         /// The policy associated with the origin endpoint.
         /// 
@@ -95,8 +96,12 @@ namespace Pulumi.AwsNative.MediaPackageV2
         public readonly object? Policy;
 
         [OutputConstructor]
-        private GetOriginEndpointPolicyResult(object? policy)
+        private GetOriginEndpointPolicyResult(
+            Outputs.OriginEndpointPolicyCdnAuthConfiguration? cdnAuthConfiguration,
+
+            object? policy)
         {
+            CdnAuthConfiguration = cdnAuthConfiguration;
             Policy = policy;
         }
     }

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,6 +37,8 @@ type LookupConfigurationSetResult struct {
 	SendingOptions *ConfigurationSetSendingOptions `pulumi:"sendingOptions"`
 	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions *ConfigurationSetSuppressionOptions `pulumi:"suppressionOptions"`
+	// The tags (keys and values) associated with the contact list.
+	Tags []aws.Tag `pulumi:"tags"`
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
 	// The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
@@ -92,6 +95,11 @@ func (o LookupConfigurationSetResultOutput) SendingOptions() ConfigurationSetSen
 // An object that contains information about the suppression list preferences for your account.
 func (o LookupConfigurationSetResultOutput) SuppressionOptions() ConfigurationSetSuppressionOptionsPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) *ConfigurationSetSuppressionOptions { return v.SuppressionOptions }).(ConfigurationSetSuppressionOptionsPtrOutput)
+}
+
+// The tags (keys and values) associated with the contact list.
+func (o LookupConfigurationSetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupConfigurationSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // An object that defines the open and click tracking options for emails that you send using the configuration set.

@@ -42,6 +42,10 @@ export interface GetConfigurationSetResult {
      */
     readonly suppressionOptions?: outputs.ses.ConfigurationSetSuppressionOptions;
     /**
+     * The tags (keys and values) associated with the contact list.
+     */
+    readonly tags?: outputs.Tag[];
+    /**
      * An object that defines the open and click tracking options for emails that you send using the configuration set.
      */
     readonly trackingOptions?: outputs.ses.ConfigurationSetTrackingOptions;

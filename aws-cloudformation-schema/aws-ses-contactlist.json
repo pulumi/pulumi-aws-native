@@ -83,18 +83,26 @@
   "additionalProperties" : false,
   "createOnlyProperties" : [ "/properties/ContactListName" ],
   "primaryIdentifier" : [ "/properties/ContactListName" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "ses:TagResource", "ses:UntagResource", "ses:ListTagsForResource" ]
+  },
   "handlers" : {
     "create" : {
-      "permissions" : [ "ses:CreateContactList" ]
+      "permissions" : [ "ses:CreateContactList", "ses:UntagResource", "ses:TagResource", "ses:GetContactList" ]
     },
     "read" : {
-      "permissions" : [ "ses:GetContactList" ]
+      "permissions" : [ "ses:GetContactList", "ses:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "ses:UpdateContactList", "ses:UntagResource", "ses:TagResource" ]
+      "permissions" : [ "ses:UpdateContactList", "ses:UntagResource", "ses:TagResource", "ses:GetContactList" ]
     },
     "delete" : {
-      "permissions" : [ "ses:DeleteContactList" ]
+      "permissions" : [ "ses:DeleteContactList", "ses:GetContactList" ]
     },
     "list" : {
       "permissions" : [ "ses:ListContactLists" ]

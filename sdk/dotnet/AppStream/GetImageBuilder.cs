@@ -137,6 +137,22 @@ namespace Pulumi.AwsNative.AppStream
         /// - stream.graphics-pro.4xlarge
         /// - stream.graphics-pro.8xlarge
         /// - stream.graphics-pro.16xlarge
+        /// - stream.graphics.g5.xlarge
+        /// - stream.graphics.g5.2xlarge
+        /// - stream.graphics.g5.4xlarge
+        /// - stream.graphics.g5.8xlarge
+        /// - stream.graphics.g5.16xlarge
+        /// - stream.graphics.g5.12xlarge
+        /// - stream.graphics.g5.24xlarge
+        /// - stream.graphics.g6.xlarge
+        /// - stream.graphics.g6.2xlarge
+        /// - stream.graphics.g6.4xlarge
+        /// - stream.graphics.g6.8xlarge
+        /// - stream.graphics.g6.16xlarge
+        /// - stream.graphics.g6.12xlarge
+        /// - stream.graphics.g6.24xlarge
+        /// - stream.graphics.gr6.4xlarge
+        /// - stream.graphics.gr6.8xlarge
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>

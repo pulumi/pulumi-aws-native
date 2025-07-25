@@ -32,6 +32,7 @@ type LookupOriginEndpointPolicyArgs struct {
 }
 
 type LookupOriginEndpointPolicyResult struct {
+	CdnAuthConfiguration *OriginEndpointPolicyCdnAuthConfiguration `pulumi:"cdnAuthConfiguration"`
 	// The policy associated with the origin endpoint.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
@@ -72,6 +73,12 @@ func (o LookupOriginEndpointPolicyResultOutput) ToLookupOriginEndpointPolicyResu
 
 func (o LookupOriginEndpointPolicyResultOutput) ToLookupOriginEndpointPolicyResultOutputWithContext(ctx context.Context) LookupOriginEndpointPolicyResultOutput {
 	return o
+}
+
+func (o LookupOriginEndpointPolicyResultOutput) CdnAuthConfiguration() OriginEndpointPolicyCdnAuthConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupOriginEndpointPolicyResult) *OriginEndpointPolicyCdnAuthConfiguration {
+		return v.CdnAuthConfiguration
+	}).(OriginEndpointPolicyCdnAuthConfigurationPtrOutput)
 }
 
 // The policy associated with the origin endpoint.

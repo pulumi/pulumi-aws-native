@@ -345,6 +345,11 @@ export const getTrafficMirrorFilterRule: typeof import("./getTrafficMirrorFilter
 export const getTrafficMirrorFilterRuleOutput: typeof import("./getTrafficMirrorFilterRule").getTrafficMirrorFilterRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getTrafficMirrorFilterRule","getTrafficMirrorFilterRuleOutput"], () => require("./getTrafficMirrorFilterRule"));
 
+export { GetTrafficMirrorSessionArgs, GetTrafficMirrorSessionResult, GetTrafficMirrorSessionOutputArgs } from "./getTrafficMirrorSession";
+export const getTrafficMirrorSession: typeof import("./getTrafficMirrorSession").getTrafficMirrorSession = null as any;
+export const getTrafficMirrorSessionOutput: typeof import("./getTrafficMirrorSession").getTrafficMirrorSessionOutput = null as any;
+utilities.lazyLoad(exports, ["getTrafficMirrorSession","getTrafficMirrorSessionOutput"], () => require("./getTrafficMirrorSession"));
+
 export { GetTrafficMirrorTargetArgs, GetTrafficMirrorTargetResult, GetTrafficMirrorTargetOutputArgs } from "./getTrafficMirrorTarget";
 export const getTrafficMirrorTarget: typeof import("./getTrafficMirrorTarget").getTrafficMirrorTarget = null as any;
 export const getTrafficMirrorTargetOutput: typeof import("./getTrafficMirrorTarget").getTrafficMirrorTargetOutput = null as any;
@@ -720,6 +725,11 @@ export type TrafficMirrorFilterRule = import("./trafficMirrorFilterRule").Traffi
 export const TrafficMirrorFilterRule: typeof import("./trafficMirrorFilterRule").TrafficMirrorFilterRule = null as any;
 utilities.lazyLoad(exports, ["TrafficMirrorFilterRule"], () => require("./trafficMirrorFilterRule"));
 
+export { TrafficMirrorSessionArgs } from "./trafficMirrorSession";
+export type TrafficMirrorSession = import("./trafficMirrorSession").TrafficMirrorSession;
+export const TrafficMirrorSession: typeof import("./trafficMirrorSession").TrafficMirrorSession = null as any;
+utilities.lazyLoad(exports, ["TrafficMirrorSession"], () => require("./trafficMirrorSession"));
+
 export { TrafficMirrorTargetArgs } from "./trafficMirrorTarget";
 export type TrafficMirrorTarget = import("./trafficMirrorTarget").TrafficMirrorTarget;
 export const TrafficMirrorTarget: typeof import("./trafficMirrorTarget").TrafficMirrorTarget = null as any;
@@ -1016,6 +1026,8 @@ const _module = {
                 return new TrafficMirrorFilter(name, <any>undefined, { urn })
             case "aws-native:ec2:TrafficMirrorFilterRule":
                 return new TrafficMirrorFilterRule(name, <any>undefined, { urn })
+            case "aws-native:ec2:TrafficMirrorSession":
+                return new TrafficMirrorSession(name, <any>undefined, { urn })
             case "aws-native:ec2:TrafficMirrorTarget":
                 return new TrafficMirrorTarget(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGateway":

@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetOriginEndpointPolicyResult',
@@ -24,10 +25,18 @@ __all__ = [
 
 @pulumi.output_type
 class GetOriginEndpointPolicyResult:
-    def __init__(__self__, policy=None):
+    def __init__(__self__, cdn_auth_configuration=None, policy=None):
+        if cdn_auth_configuration and not isinstance(cdn_auth_configuration, dict):
+            raise TypeError("Expected argument 'cdn_auth_configuration' to be a dict")
+        pulumi.set(__self__, "cdn_auth_configuration", cdn_auth_configuration)
         if policy and not isinstance(policy, dict):
             raise TypeError("Expected argument 'policy' to be a dict")
         pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter(name="cdnAuthConfiguration")
+    def cdn_auth_configuration(self) -> Optional['outputs.OriginEndpointPolicyCdnAuthConfiguration']:
+        return pulumi.get(self, "cdn_auth_configuration")
 
     @property
     @pulumi.getter
@@ -46,6 +55,7 @@ class AwaitableGetOriginEndpointPolicyResult(GetOriginEndpointPolicyResult):
         if False:
             yield self
         return GetOriginEndpointPolicyResult(
+            cdn_auth_configuration=self.cdn_auth_configuration,
             policy=self.policy)
 
 
@@ -69,6 +79,7 @@ def get_origin_endpoint_policy(channel_group_name: Optional[builtins.str] = None
     __ret__ = pulumi.runtime.invoke('aws-native:mediapackagev2:getOriginEndpointPolicy', __args__, opts=opts, typ=GetOriginEndpointPolicyResult).value
 
     return AwaitableGetOriginEndpointPolicyResult(
+        cdn_auth_configuration=pulumi.get(__ret__, 'cdn_auth_configuration'),
         policy=pulumi.get(__ret__, 'policy'))
 def get_origin_endpoint_policy_output(channel_group_name: Optional[pulumi.Input[builtins.str]] = None,
                                       channel_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -89,4 +100,5 @@ def get_origin_endpoint_policy_output(channel_group_name: Optional[pulumi.Input[
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediapackagev2:getOriginEndpointPolicy', __args__, opts=opts, typ=GetOriginEndpointPolicyResult)
     return __ret__.apply(lambda __response__: GetOriginEndpointPolicyResult(
+        cdn_auth_configuration=pulumi.get(__response__, 'cdn_auth_configuration'),
         policy=pulumi.get(__response__, 'policy')))
