@@ -1,16 +1,16 @@
 module github.com/pulumi/pulumi-aws-native/examples
 
-go 1.23.0
+go 1.23.11
 
-toolchain go1.24.3
+toolchain go1.24.5
 
 require (
 	github.com/aws/aws-sdk-go-v2 v1.32.6
 	github.com/aws/aws-sdk-go-v2/config v1.27.11
 	github.com/aws/aws-sdk-go-v2/service/ssm v1.56.1
 	github.com/pulumi/providertest v0.3.1
-	github.com/pulumi/pulumi/pkg/v3 v3.185.0
-	github.com/pulumi/pulumi/sdk/v3 v3.185.0
+	github.com/pulumi/pulumi/pkg/v3 v3.186.0
+	github.com/pulumi/pulumi/sdk/v3 v3.186.0
 	github.com/stretchr/testify v1.10.0
 )
 
