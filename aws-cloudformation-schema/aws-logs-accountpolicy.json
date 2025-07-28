@@ -31,7 +31,7 @@
     "PolicyType" : {
       "description" : "Type of the policy.",
       "type" : "string",
-      "enum" : [ "DATA_PROTECTION_POLICY", "SUBSCRIPTION_FILTER_POLICY", "FIELD_INDEX_POLICY", "TRANSFORMER_POLICY" ]
+      "enum" : [ "DATA_PROTECTION_POLICY", "SUBSCRIPTION_FILTER_POLICY", "FIELD_INDEX_POLICY", "TRANSFORMER_POLICY", "METRIC_EXTRACTION_POLICY" ]
     },
     "Scope" : {
       "description" : "Scope for policy application",
@@ -45,19 +45,19 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "logs:PutAccountPolicy", "logs:PutIndexPolicy", "logs:PutDataProtectionPolicy", "logs:DescribeAccountPolicies", "logs:CreateLogDelivery", "s3:REST.PUT.OBJECT", "firehose:TagDeliveryStream", "logs:PutSubscriptionFilter", "logs:DeleteSubscriptionFilter", "logs:PutTransformer", "iam:PassRole" ]
+      "permissions" : [ "logs:PutAccountPolicy", "logs:PutIndexPolicy", "logs:PutDataProtectionPolicy", "logs:DescribeAccountPolicies", "logs:CreateLogDelivery", "s3:REST.PUT.OBJECT", "firehose:TagDeliveryStream", "logs:PutSubscriptionFilter", "logs:DeleteSubscriptionFilter", "logs:PutTransformer", "logs:PutMetricExtractionPolicy", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "logs:DescribeAccountPolicies", "logs:GetTransformer" ]
+      "permissions" : [ "logs:DescribeAccountPolicies", "logs:GetTransformer", "logs:GetMetricExtractionPolicy" ]
     },
     "update" : {
-      "permissions" : [ "logs:PutAccountPolicy", "logs:PutIndexPolicy", "logs:PutDataProtectionPolicy", "logs:DescribeAccountPolicies", "logs:DeleteAccountPolicy", "logs:DeleteIndexPolicy", "logs:DeleteDataProtectionPolicy", "logs:CreateLogDelivery", "logs:PutSubscriptionFilter", "logs:DeleteSubscriptionFilter", "logs:PutTransformer", "logs:DeleteTransformer", "s3:REST.PUT.OBJECT", "firehose:TagDeliveryStream", "iam:PassRole" ]
+      "permissions" : [ "logs:PutAccountPolicy", "logs:PutIndexPolicy", "logs:PutDataProtectionPolicy", "logs:DescribeAccountPolicies", "logs:DeleteAccountPolicy", "logs:DeleteIndexPolicy", "logs:DeleteDataProtectionPolicy", "logs:CreateLogDelivery", "logs:PutSubscriptionFilter", "logs:DeleteSubscriptionFilter", "logs:PutTransformer", "logs:DeleteTransformer", "logs:PutMetricExtractionPolicy", "logs:DeleteMetricExtractionPolicy", "s3:REST.PUT.OBJECT", "firehose:TagDeliveryStream", "iam:PassRole" ]
     },
     "delete" : {
-      "permissions" : [ "logs:DeleteAccountPolicy", "logs:DeleteIndexPolicy", "logs:DeleteDataProtectionPolicy", "logs:DescribeAccountPolicies", "logs:DeleteSubscriptionFilter", "logs:DeleteTransformer", "iam:PassRole" ]
+      "permissions" : [ "logs:DeleteAccountPolicy", "logs:DeleteIndexPolicy", "logs:DeleteDataProtectionPolicy", "logs:DescribeAccountPolicies", "logs:DeleteSubscriptionFilter", "logs:DeleteTransformer", "logs:DeleteMetricExtractionPolicy", "iam:PassRole" ]
     },
     "list" : {
-      "permissions" : [ "logs:DescribeAccountPolicies", "logs:GetTransformer" ],
+      "permissions" : [ "logs:DescribeAccountPolicies", "logs:GetTransformer", "logs:GetMetricExtractionPolicy" ],
       "handlerSchema" : {
         "properties" : {
           "PolicyType" : {

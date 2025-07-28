@@ -41,10 +41,6 @@
       "type" : "object",
       "properties" : {
         "CapacityProvider" : {
-          "relationshipRef" : {
-            "typeName" : "AWS::ECS::CapacityProvider",
-            "propertyPath" : "/properties/Name"
-          },
           "description" : "The short name of the capacity provider.",
           "type" : "string"
         },
@@ -72,10 +68,6 @@
           "type" : "boolean"
         },
         "CloudWatchLogGroupName" : {
-          "relationshipRef" : {
-            "typeName" : "AWS::Logs::LogGroup",
-            "propertyPath" : "/properties/LogGroupName"
-          },
           "description" : "The name of the CloudWatch log group to send logs to.\n  The CloudWatch log group must already be created.",
           "type" : "string"
         },
@@ -170,10 +162,6 @@
           "type" : "string"
         },
         "KmsKeyId" : {
-          "relationshipRef" : {
-            "typeName" : "AWS::KMS::Key",
-            "propertyPath" : "/properties/Arn"
-          },
           "description" : "Specify an KMSlong key ID to encrypt the data between the local client and the container.",
           "type" : "string"
         },

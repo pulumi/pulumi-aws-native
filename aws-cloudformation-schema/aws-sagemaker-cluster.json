@@ -196,6 +196,13 @@
         "LifeCycleConfig" : {
           "$ref" : "#/definitions/ClusterLifeCycleConfig"
         },
+        "TrainingPlanArn" : {
+          "minLength" : 50,
+          "pattern" : "^arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:training-plan/.*$",
+          "description" : "The Amazon Resource Name (ARN) of the training plan to use for this cluster instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.",
+          "type" : "string",
+          "maxLength" : 2048
+        },
         "InstanceType" : {
           "$ref" : "#/definitions/InstanceType"
         },
