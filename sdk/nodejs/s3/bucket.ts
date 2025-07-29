@@ -609,6 +609,9 @@ export class Bucket extends pulumi.CustomResource {
      * Settings that define where logs are stored.
      */
     public readonly loggingConfiguration!: pulumi.Output<outputs.s3.BucketLoggingConfiguration | undefined>;
+    /**
+     * The S3 Metadata configuration for a general purpose bucket.
+     */
     public readonly metadataConfiguration!: pulumi.Output<outputs.s3.BucketMetadataConfiguration | undefined>;
     /**
      * The metadata table configuration of an S3 general purpose bucket.
@@ -797,6 +800,9 @@ export interface BucketArgs {
      * Settings that define where logs are stored.
      */
     loggingConfiguration?: pulumi.Input<inputs.s3.BucketLoggingConfigurationArgs>;
+    /**
+     * The S3 Metadata configuration for a general purpose bucket.
+     */
     metadataConfiguration?: pulumi.Input<inputs.s3.BucketMetadataConfigurationArgs>;
     /**
      * The metadata table configuration of an S3 general purpose bucket.

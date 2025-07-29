@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The port.&lt;/p&gt;
         /// </summary>
         public readonly double Port;
+        /// <summary>
+        /// A Boolean value that indicates whether the `Database` uses a service name or an SID. If this value is left blank, the default value is `SID` . If this value is set to `false` , the value is `SID` .
+        /// </summary>
         public readonly bool? UseServiceName;
 
         [OutputConstructor]

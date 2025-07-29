@@ -19,7 +19,13 @@ export function getProjectProfile(args: GetProjectProfileArgs, opts?: pulumi.Inv
 }
 
 export interface GetProjectProfileArgs {
+    /**
+     * A domain ID of the project profile.
+     */
     domainIdentifier: string;
+    /**
+     * Project profile ID.
+     */
     identifier: string;
 }
 
@@ -44,11 +50,17 @@ export interface GetProjectProfileResult {
      * The domain unit ID of the project profile.
      */
     readonly domainUnitId?: string;
+    /**
+     * Environment configurations of a project profile.
+     */
     readonly environmentConfigurations?: outputs.datazone.ProjectProfileEnvironmentConfiguration[];
     /**
      * The ID of the project profile.
      */
     readonly id?: string;
+    /**
+     * Project profile ID.
+     */
     readonly identifier?: string;
     /**
      * The timestamp at which a project profile was last updated.
@@ -75,6 +87,12 @@ export function getProjectProfileOutput(args: GetProjectProfileOutputArgs, opts?
 }
 
 export interface GetProjectProfileOutputArgs {
+    /**
+     * A domain ID of the project profile.
+     */
     domainIdentifier: pulumi.Input<string>;
+    /**
+     * Project profile ID.
+     */
     identifier: pulumi.Input<string>;
 }

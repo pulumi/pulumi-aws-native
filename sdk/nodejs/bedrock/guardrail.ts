@@ -54,6 +54,11 @@ export class Guardrail extends pulumi.CustomResource {
      * Time Stamp
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination AWS Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.
+     *
+     * For more information, see the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) .
+     */
     public readonly crossRegionConfig!: pulumi.Output<outputs.bedrock.GuardrailCrossRegionConfig | undefined>;
     /**
      * Description of the guardrail or its version
@@ -193,6 +198,11 @@ export interface GuardrailArgs {
      */
     contentPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContentPolicyConfigArgs>;
     contextualGroundingPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContextualGroundingPolicyConfigArgs>;
+    /**
+     * The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination AWS Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.
+     *
+     * For more information, see the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) .
+     */
     crossRegionConfig?: pulumi.Input<inputs.bedrock.GuardrailCrossRegionConfigArgs>;
     /**
      * Description of the guardrail or its version

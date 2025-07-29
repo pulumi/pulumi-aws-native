@@ -2332,7 +2332,7 @@
       },
       "settings": {
         "$ref": "pulumi.json#/Any",
-        "description": "A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property."
+        "description": "A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.\n\nThe following components are not currently implemented and reserved for future use:\n\n- `signUp`\n- `instructions`\n- `sessionTimerDisplay`\n- `languageSelector` (for localization, see [Managed login localization)](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization)\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property."
       },
       "useCognitoProvidedValues": {
         "type": "boolean",
@@ -3944,7 +3944,7 @@
       },
       "instanceCount": {
         "type": "integer",
-        "description": "The number of instances for which to reserve capacity.\n\n\u003e You can request future-dated Capacity Reservations for an instance count with a minimum of 100 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ). \n\nValid range: 1 - 1000"
+        "description": "The number of instances for which to reserve capacity.\n\n\u003e You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ). \n\nValid range: 1 - 1000"
       },
       "instanceMatchCriteria": {
         "type": "string",
@@ -3956,7 +3956,7 @@
       },
       "instanceType": {
         "type": "string",
-        "description": "The instance type for which to reserve capacity.\n\n\u003e You can request future-dated Capacity Reservations for instance types in the C, M, R, I, and T instance families only. \n\nFor more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* ."
+        "description": "The instance type for which to reserve capacity.\n\n\u003e You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only. \n\nFor more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* ."
       },
       "outPostArn": {
         "type": "string",
@@ -4067,7 +4067,7 @@
       },
       "ipAddress": {
         "type": "string",
-        "description": "IPv4 address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``PublicIpv4``, you can use a public IPv4 address."
+        "description": "The IP address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``Ipv6``, you can use an IPv6 address."
       },
       "tags": {
         "type": "array",
@@ -5826,6 +5826,50 @@
       }
     }
   },
+  "aws-native:ec2:TrafficMirrorSession": {
+    "cfTypeName": "AWS::EC2::TrafficMirrorSession",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "The description of the Traffic Mirror session."
+      },
+      "networkInterfaceId": {
+        "type": "string",
+        "description": "The ID of the source network interface."
+      },
+      "ownerId": {
+        "type": "string",
+        "description": "The ID of the account that owns the Traffic Mirror session."
+      },
+      "packetLength": {
+        "type": "integer",
+        "description": "The number of bytes in each packet to mirror."
+      },
+      "sessionNumber": {
+        "type": "integer",
+        "description": "The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags assigned to the Traffic Mirror session."
+      },
+      "trafficMirrorFilterId": {
+        "type": "string",
+        "description": "The ID of a Traffic Mirror filter."
+      },
+      "trafficMirrorTargetId": {
+        "type": "string",
+        "description": "The ID of a Traffic Mirror target."
+      },
+      "virtualNetworkId": {
+        "type": "integer",
+        "description": "The VXLAN ID for the Traffic Mirror session."
+      }
+    }
+  },
   "aws-native:ec2:TrafficMirrorTarget": {
     "cfTypeName": "AWS::EC2::TrafficMirrorTarget",
     "properties": {
@@ -6424,7 +6468,7 @@
       },
       "volumeInitializationRate": {
         "type": "integer",
-        "description": "Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization* . Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.\n\nThis parameter is supported only for volumes created from snapshots. Omit this parameter if:\n\n- You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.\n\n\u003e If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.\n- You want to create a volume that is initialized at the default rate.\n\nFor more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide* .\n\nValid range: 100 - 300 MiB/s"
+        "description": "Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization*. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.\n This parameter is supported only for volumes created from snapshots. Omit this parameter if:\n  +  You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.\n  If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.\n   +  You want to create a volume that is initialized at the default rate.\n  \n For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide*.\n Valid range: 100 - 300 MiB/s"
       },
       "volumeType": {
         "type": "string",
@@ -6986,7 +7030,7 @@
       },
       "imageTagMutability": {
         "$ref": "#/types/aws-native:ecr:RepositoryCreationTemplateImageTagMutability",
-        "description": "The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten."
+        "description": "The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten."
       },
       "lifecyclePolicy": {
         "type": "string",
@@ -10049,6 +10093,9 @@
   "aws-native:mediapackagev2:OriginEndpointPolicy": {
     "cfTypeName": "AWS::MediaPackageV2::OriginEndpointPolicy",
     "properties": {
+      "cdnAuthConfiguration": {
+        "$ref": "#/types/aws-native:mediapackagev2:OriginEndpointPolicyCdnAuthConfiguration"
+      },
       "channelGroupName": {
         "type": "string",
         "description": "The name of the channel group associated with the origin endpoint policy."
@@ -11850,7 +11897,7 @@
       },
       "clusterScalabilityType": {
         "type": "string",
-        "description": "Specifies the scalability mode of the Aurora DB cluster. When set to ``limitless``, the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to ``standard`` (the default), the cluster uses normal DB instance creation."
+        "description": "Specifies the scalability mode of the Aurora DB cluster. When set to ``limitless``, the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to ``standard`` (the default), the cluster uses normal DB instance creation.\n *Important:* Automated backup retention isn't supported with Aurora Limitless Database clusters. If you set this property to ``limitless``, you cannot set ``DeleteAutomatedBackups`` to ``false``. To create a backup, use manual snapshots instead."
       },
       "copyTagsToSnapshot": {
         "type": "boolean",
@@ -12037,7 +12084,7 @@
       },
       "sourceDbClusterIdentifier": {
         "type": "string",
-        "description": "When restoring a DB cluster to a point in time, the identifier of the source DB cluster from which to restore.\n Constraints:\n  +  Must match the identifier of an existing DBCluster.\n  \n Valid for: Aurora DB clusters and Multi-AZ DB clusters"
+        "description": "When restoring a DB cluster to a point in time, the identifier of the source DB cluster from which to restore.\n Constraints:\n  +  Must match the identifier of an existing DBCluster.\n  +  Cannot be specified if ``SourceDbClusterResourceId`` is specified. You must specify either ``SourceDBClusterIdentifier`` or ``SourceDbClusterResourceId``, but not both.\n  \n Valid for: Aurora DB clusters and Multi-AZ DB clusters"
       },
       "sourceRegion": {
         "type": "string",
@@ -12119,7 +12166,7 @@
       },
       "backupTarget": {
         "type": "string",
-        "description": "The location for storing automated backups and manual snapshots.\n\nValid Values:\n\n- `local` (Dedicated Local Zone)\n- `outposts` ( AWS Outposts)\n- `region` ( AWS Region )\n\nDefault: `region`\n\nFor more information, see [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide* ."
+        "description": "The location for storing automated backups and manual snapshots.\n Valid Values:\n  +  ``local`` (Dedicated Local Zone)\n  +  ``outposts`` (AWS Outposts)\n  +  ``region`` (AWS-Region)\n  \n Default: ``region``\n For more information, see [Working with Amazon RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide*."
       },
       "caCertificateIdentifier": {
         "type": "string",
@@ -13765,6 +13812,13 @@
       "mailFromAttributes": {
         "$ref": "#/types/aws-native:ses:EmailIdentityMailFromAttributes",
         "description": "Used to enable or disable the custom Mail-From domain configuration for an email identity."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags (keys and values) associated with the email identity."
       }
     }
   },
@@ -14499,6 +14553,10 @@
       "identityProviderType": {
         "$ref": "#/types/aws-native:transfer:ServerIdentityProviderType",
         "description": "The mode of authentication for a server. The default value is `SERVICE_MANAGED` , which allows you to store and access user credentials within the AWS Transfer Family service.\n\nUse `AWS_DIRECTORY_SERVICE` to provide access to Active Directory groups in AWS Directory Service for Microsoft Active Directory or Microsoft Active Directory in your on-premises environment or in AWS using AD Connector. This option also requires you to provide a Directory ID by using the `IdentityProviderDetails` parameter.\n\nUse the `API_GATEWAY` value to integrate with an identity provider of your choosing. The `API_GATEWAY` setting requires you to provide an Amazon API Gateway endpoint URL to call for authentication by using the `IdentityProviderDetails` parameter.\n\nUse the `AWS_LAMBDA` value to directly use an AWS Lambda function as your identity provider. If you choose this value, you must specify the ARN for the Lambda function in the `Function` parameter for the `IdentityProviderDetails` data type."
+      },
+      "ipAddressType": {
+        "$ref": "#/types/aws-native:transfer:ServerIpAddressType",
+        "description": "Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your AWS Transfer Family endpoint. The default value is `IPV4` .\n\n\u003e The `IpAddressType` parameter has the following limitations:\n\u003e \n\u003e - It cannot be changed while the server is online. You must stop the server before modifying this parameter.\n\u003e - It cannot be updated to `DUALSTACK` if the server has `AddressAllocationIds` specified. \u003e When using `DUALSTACK` as the `IpAddressType` , you cannot set the `AddressAllocationIds` parameter for the [EndpointDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_EndpointDetails.html) for the server."
       },
       "loggingRole": {
         "type": "string",

@@ -25,6 +25,7 @@ __all__ = [
     'ServerDomain',
     'ServerEndpointType',
     'ServerIdentityProviderType',
+    'ServerIpAddressType',
     'ServerProtocol',
     'ServerSetStatOption',
     'ServerSftpAuthenticationMethods',
@@ -202,6 +203,12 @@ class ServerIdentityProviderType(builtins.str, Enum):
     API_GATEWAY = "API_GATEWAY"
     AWS_DIRECTORY_SERVICE = "AWS_DIRECTORY_SERVICE"
     AWS_LAMBDA = "AWS_LAMBDA"
+
+
+@pulumi.type_token("aws-native:transfer:ServerIpAddressType")
+class ServerIpAddressType(builtins.str, Enum):
+    IPV4 = "IPV4"
+    DUALSTACK = "DUALSTACK"
 
 
 @pulumi.type_token("aws-native:transfer:ServerProtocol")

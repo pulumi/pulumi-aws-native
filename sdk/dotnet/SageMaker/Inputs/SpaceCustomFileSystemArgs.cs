@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("fSxLustreFileSystem")]
         public Input<Inputs.SpaceFSxLustreFileSystemArgs>? FSxLustreFileSystem { get; set; }
 
+        [Input("s3FileSystem")]
+        public Input<Inputs.SpaceS3FileSystemArgs>? S3FileSystem { get; set; }
+
         public SpaceCustomFileSystemArgs()
         {
         }

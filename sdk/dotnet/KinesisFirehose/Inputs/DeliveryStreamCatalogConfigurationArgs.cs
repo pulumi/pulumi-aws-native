@@ -18,6 +18,11 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("catalogArn")]
         public Input<string>? CatalogArn { get; set; }
 
+        /// <summary>
+        /// The warehouse location for Apache Iceberg tables. You must configure this when schema evolution and table creation is enabled.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         [Input("warehouseLocation")]
         public Input<string>? WarehouseLocation { get; set; }
 

@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("threadsPerCore")]
         public Input<int>? ThreadsPerCore { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the training plan to use for this cluster instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
+        /// </summary>
+        [Input("trainingPlanArn")]
+        public Input<string>? TrainingPlanArn { get; set; }
+
         public ClusterInstanceGroupArgs()
         {
         }

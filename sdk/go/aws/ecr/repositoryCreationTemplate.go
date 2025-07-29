@@ -26,7 +26,7 @@ type RepositoryCreationTemplate struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The encryption configuration associated with the repository creation template.
 	EncryptionConfiguration RepositoryCreationTemplateEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
-	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 	ImageTagMutability RepositoryCreationTemplateImageTagMutabilityPtrOutput `pulumi:"imageTagMutability"`
 	// The lifecycle policy to use for repositories created using the template.
 	LifecyclePolicy pulumi.StringPtrOutput `pulumi:"lifecyclePolicy"`
@@ -98,7 +98,7 @@ type repositoryCreationTemplateArgs struct {
 	Description *string `pulumi:"description"`
 	// The encryption configuration associated with the repository creation template.
 	EncryptionConfiguration *RepositoryCreationTemplateEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 	ImageTagMutability *RepositoryCreationTemplateImageTagMutability `pulumi:"imageTagMutability"`
 	// The lifecycle policy to use for repositories created using the template.
 	LifecyclePolicy *string `pulumi:"lifecyclePolicy"`
@@ -120,7 +120,7 @@ type RepositoryCreationTemplateArgs struct {
 	Description pulumi.StringPtrInput
 	// The encryption configuration associated with the repository creation template.
 	EncryptionConfiguration RepositoryCreationTemplateEncryptionConfigurationPtrInput
-	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 	ImageTagMutability RepositoryCreationTemplateImageTagMutabilityPtrInput
 	// The lifecycle policy to use for repositories created using the template.
 	LifecyclePolicy pulumi.StringPtrInput
@@ -198,7 +198,7 @@ func (o RepositoryCreationTemplateOutput) EncryptionConfiguration() RepositoryCr
 	}).(RepositoryCreationTemplateEncryptionConfigurationPtrOutput)
 }
 
-// The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+// The tag mutability setting for the repository. If this parameter is omitted, the default setting of “MUTABLE“ will be used which will allow image tags to be overwritten. If “IMMUTABLE“ is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 func (o RepositoryCreationTemplateOutput) ImageTagMutability() RepositoryCreationTemplateImageTagMutabilityPtrOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) RepositoryCreationTemplateImageTagMutabilityPtrOutput {
 		return v.ImageTagMutability

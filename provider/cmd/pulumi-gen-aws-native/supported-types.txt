@@ -121,6 +121,7 @@ AWS::Batch::ConsumableResource
 AWS::Batch::JobDefinition
 AWS::Batch::JobQueue
 AWS::Batch::SchedulingPolicy
+AWS::Batch::ServiceEnvironment
 AWS::Bedrock::Agent
 AWS::Bedrock::AgentAlias
 AWS::Bedrock::ApplicationInferenceProfile
@@ -401,6 +402,7 @@ AWS::EC2::SubnetNetworkAclAssociation
 AWS::EC2::SubnetRouteTableAssociation
 AWS::EC2::TrafficMirrorFilter
 AWS::EC2::TrafficMirrorFilterRule
+AWS::EC2::TrafficMirrorSession
 AWS::EC2::TrafficMirrorTarget
 AWS::EC2::TransitGateway
 AWS::EC2::TransitGatewayAttachment

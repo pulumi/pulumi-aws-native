@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.Wisdom
         public Output<string> MessageTemplateArn { get; private set; } = null!;
 
         /// <summary>
+        /// List of message template attachments
+        /// </summary>
+        [Output("messageTemplateAttachments")]
+        public Output<ImmutableArray<Outputs.MessageTemplateAttachment>> MessageTemplateAttachments { get; private set; } = null!;
+
+        /// <summary>
         /// The content SHA256 of the message template.
         /// </summary>
         [Output("messageTemplateContentSha256")]
@@ -178,6 +184,18 @@ namespace Pulumi.AwsNative.Wisdom
         /// </summary>
         [Input("language")]
         public Input<string>? Language { get; set; }
+
+        [Input("messageTemplateAttachments")]
+        private InputList<Inputs.MessageTemplateAttachmentArgs>? _messageTemplateAttachments;
+
+        /// <summary>
+        /// List of message template attachments
+        /// </summary>
+        public InputList<Inputs.MessageTemplateAttachmentArgs> MessageTemplateAttachments
+        {
+            get => _messageTemplateAttachments ?? (_messageTemplateAttachments = new InputList<Inputs.MessageTemplateAttachmentArgs>());
+            set => _messageTemplateAttachments = value;
+        }
 
         /// <summary>
         /// The name of the message template.

@@ -42,6 +42,13 @@ namespace Pulumi.AwsNative.Cognito
         /// <summary>
         /// A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
         /// 
+        /// The following components are not currently implemented and reserved for future use:
+        /// 
+        /// - `signUp`
+        /// - `instructions`
+        /// - `sessionTimerDisplay`
+        /// - `languageSelector` (for localization, see [Managed login localization)](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization)
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
         /// </summary>
         [Output("settings")]
@@ -137,6 +144,13 @@ namespace Pulumi.AwsNative.Cognito
 
         /// <summary>
         /// A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
+        /// 
+        /// The following components are not currently implemented and reserved for future use:
+        /// 
+        /// - `signUp`
+        /// - `instructions`
+        /// - `sessionTimerDisplay`
+        /// - `languageSelector` (for localization, see [Managed login localization)](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization)
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
         /// </summary>

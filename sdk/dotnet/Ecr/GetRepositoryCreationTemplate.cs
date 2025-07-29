@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Ecr
         /// </summary>
         public readonly Outputs.RepositoryCreationTemplateEncryptionConfiguration? EncryptionConfiguration;
         /// <summary>
-        /// The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+        /// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
         /// </summary>
         public readonly Pulumi.AwsNative.Ecr.RepositoryCreationTemplateImageTagMutability? ImageTagMutability;
         /// <summary>

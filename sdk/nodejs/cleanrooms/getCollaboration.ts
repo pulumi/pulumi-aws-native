@@ -29,6 +29,8 @@ export interface GetCollaborationArgs {
 export interface GetCollaborationResult {
     /**
      * The analytics engine for the collaboration.
+     *
+     * > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
      */
     readonly analyticsEngine?: enums.cleanrooms.CollaborationAnalyticsEngine;
     /**

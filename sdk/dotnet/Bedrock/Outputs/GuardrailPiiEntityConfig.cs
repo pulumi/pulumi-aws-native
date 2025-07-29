@@ -20,9 +20,29 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Configure guardrail action when the PII entity is detected.
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction Action;
+        /// <summary>
+        /// Specifies the action to take when harmful content is detected in the input. Supported values include:
+        /// 
+        /// - `BLOCK` – Block the content and replace it with blocked messaging.
+        /// - `ANONYMIZE` – Mask the content and replace it with identifier tags.
+        /// - `NONE` – Take no action but return detection information in the trace response.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction? InputAction;
+        /// <summary>
+        /// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        /// </summary>
         public readonly bool? InputEnabled;
+        /// <summary>
+        /// Specifies the action to take when harmful content is detected in the output. Supported values include:
+        /// 
+        /// - `BLOCK` – Block the content and replace it with blocked messaging.
+        /// - `ANONYMIZE` – Mask the content and replace it with identifier tags.
+        /// - `NONE` – Take no action but return detection information in the trace response.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction? OutputAction;
+        /// <summary>
+        /// Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        /// </summary>
         public readonly bool? OutputEnabled;
         /// <summary>
         /// Configure guardrail type when the PII entity is detected.

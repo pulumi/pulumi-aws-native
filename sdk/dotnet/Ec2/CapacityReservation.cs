@@ -105,7 +105,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The number of instances for which to reserve capacity.
         /// 
-        /// &gt; You can request future-dated Capacity Reservations for an instance count with a minimum of 100 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ). 
+        /// &gt; You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ). 
         /// 
         /// Valid range: 1 - 1000
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The instance type for which to reserve capacity.
         /// 
-        /// &gt; You can request future-dated Capacity Reservations for instance types in the C, M, R, I, and T instance families only. 
+        /// &gt; You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only. 
         /// 
         /// For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
         /// </summary>
@@ -328,7 +328,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The number of instances for which to reserve capacity.
         /// 
-        /// &gt; You can request future-dated Capacity Reservations for an instance count with a minimum of 100 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ). 
+        /// &gt; You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ). 
         /// 
         /// Valid range: 1 - 1000
         /// </summary>
@@ -357,7 +357,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The instance type for which to reserve capacity.
         /// 
-        /// &gt; You can request future-dated Capacity Reservations for instance types in the C, M, R, I, and T instance families only. 
+        /// &gt; You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only. 
         /// 
         /// For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
         /// </summary>

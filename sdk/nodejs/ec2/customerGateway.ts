@@ -61,7 +61,7 @@ export class CustomerGateway extends pulumi.CustomResource {
      */
     public readonly deviceName!: pulumi.Output<string | undefined>;
     /**
-     * IPv4 address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``PublicIpv4``, you can use a public IPv4 address.
+     * The IP address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``Ipv6``, you can use an IPv6 address.
      */
     public readonly ipAddress!: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export interface CustomerGatewayArgs {
      */
     deviceName?: pulumi.Input<string>;
     /**
-     * IPv4 address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``PublicIpv4``, you can use a public IPv4 address.
+     * The IP address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``Ipv6``, you can use an IPv6 address.
      */
     ipAddress: pulumi.Input<string>;
     /**

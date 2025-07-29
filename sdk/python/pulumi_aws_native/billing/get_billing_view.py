@@ -53,11 +53,17 @@ class GetBillingViewResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="billingViewType")
     def billing_view_type(self) -> Optional['BillingViewType']:
+        """
+        The type of billing group.
+        """
         return pulumi.get(self, "billing_view_type")
 
     @property
@@ -71,11 +77,17 @@ class GetBillingViewResult:
     @property
     @pulumi.getter(name="dataFilterExpression")
     def data_filter_expression(self) -> Optional['outputs.DataFilterExpressionProperties']:
+        """
+        See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
+        """
         return pulumi.get(self, "data_filter_expression")
 
     @property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> Optional[builtins.str]:
+        """
+        The account owner of the billing view.
+        """
         return pulumi.get(self, "owner_account_id")
 
     @property
@@ -114,6 +126,9 @@ def get_billing_view(arn: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBillingViewResult:
     """
     A billing view is a container of cost & usage metadata.
+
+
+    :param builtins.str arn: The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -132,6 +147,9 @@ def get_billing_view_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingViewResult]:
     """
     A billing view is a container of cost & usage metadata.
+
+
+    :param builtins.str arn: The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
     """
     __args__ = dict()
     __args__['arn'] = arn

@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Billing.Inputs
 {
 
+    /// <summary>
+    /// See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
+    /// </summary>
     public sealed class DataFilterExpressionPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The specific `Dimension` to use for `Expression` .
+        /// </summary>
         [Input("dimensions")]
         public Input<Inputs.DataFilterExpressionPropertiesDimensionsPropertiesArgs>? Dimensions { get; set; }
 
+        /// <summary>
+        /// The specific `Tag` to use for `Expression` .
+        /// </summary>
         [Input("tags")]
         public Input<Inputs.DataFilterExpressionPropertiesTagsPropertiesArgs>? Tags { get; set; }
 

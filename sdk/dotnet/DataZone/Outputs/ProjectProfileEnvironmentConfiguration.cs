@@ -13,14 +13,41 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     [OutputType]
     public sealed class ProjectProfileEnvironmentConfiguration
     {
+        /// <summary>
+        /// The AWS account of the environment.
+        /// </summary>
         public readonly Outputs.ProjectProfileAwsAccount? AwsAccount;
+        /// <summary>
+        /// The AWS Region of the environment.
+        /// </summary>
         public readonly Outputs.ProjectProfileRegion AwsRegion;
+        /// <summary>
+        /// The configuration parameters of the environment.
+        /// </summary>
         public readonly Outputs.ProjectProfileEnvironmentConfigurationParametersDetails? ConfigurationParameters;
+        /// <summary>
+        /// The deployment mode of the environment.
+        /// </summary>
         public readonly Pulumi.AwsNative.DataZone.ProjectProfileDeploymentMode? DeploymentMode;
+        /// <summary>
+        /// The deployment order of the environment.
+        /// </summary>
         public readonly double? DeploymentOrder;
+        /// <summary>
+        /// The environment description.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The environment blueprint ID.
+        /// </summary>
         public readonly string EnvironmentBlueprintId;
+        /// <summary>
+        /// The environment ID.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The environment name.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

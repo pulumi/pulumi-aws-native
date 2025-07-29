@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetAppImageConfigResult',
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAppImageConfigResult:
-    def __init__(__self__, app_image_config_arn=None, code_editor_app_image_config=None, jupyter_lab_app_image_config=None, kernel_gateway_image_config=None):
+    def __init__(__self__, app_image_config_arn=None, code_editor_app_image_config=None, jupyter_lab_app_image_config=None, kernel_gateway_image_config=None, tags=None):
         if app_image_config_arn and not isinstance(app_image_config_arn, str):
             raise TypeError("Expected argument 'app_image_config_arn' to be a str")
         pulumi.set(__self__, "app_image_config_arn", app_image_config_arn)
@@ -38,6 +39,9 @@ class GetAppImageConfigResult:
         if kernel_gateway_image_config and not isinstance(kernel_gateway_image_config, dict):
             raise TypeError("Expected argument 'kernel_gateway_image_config' to be a dict")
         pulumi.set(__self__, "kernel_gateway_image_config", kernel_gateway_image_config)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="appImageConfigArn")
@@ -71,6 +75,14 @@ class GetAppImageConfigResult:
         """
         return pulumi.get(self, "kernel_gateway_image_config")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of tags to apply to the AppImageConfig.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetAppImageConfigResult(GetAppImageConfigResult):
     # pylint: disable=using-constant-test
@@ -81,7 +93,8 @@ class AwaitableGetAppImageConfigResult(GetAppImageConfigResult):
             app_image_config_arn=self.app_image_config_arn,
             code_editor_app_image_config=self.code_editor_app_image_config,
             jupyter_lab_app_image_config=self.jupyter_lab_app_image_config,
-            kernel_gateway_image_config=self.kernel_gateway_image_config)
+            kernel_gateway_image_config=self.kernel_gateway_image_config,
+            tags=self.tags)
 
 
 def get_app_image_config(app_image_config_name: Optional[builtins.str] = None,
@@ -101,7 +114,8 @@ def get_app_image_config(app_image_config_name: Optional[builtins.str] = None,
         app_image_config_arn=pulumi.get(__ret__, 'app_image_config_arn'),
         code_editor_app_image_config=pulumi.get(__ret__, 'code_editor_app_image_config'),
         jupyter_lab_app_image_config=pulumi.get(__ret__, 'jupyter_lab_app_image_config'),
-        kernel_gateway_image_config=pulumi.get(__ret__, 'kernel_gateway_image_config'))
+        kernel_gateway_image_config=pulumi.get(__ret__, 'kernel_gateway_image_config'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_app_image_config_output(app_image_config_name: Optional[pulumi.Input[builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppImageConfigResult]:
     """
@@ -118,4 +132,5 @@ def get_app_image_config_output(app_image_config_name: Optional[pulumi.Input[bui
         app_image_config_arn=pulumi.get(__response__, 'app_image_config_arn'),
         code_editor_app_image_config=pulumi.get(__response__, 'code_editor_app_image_config'),
         jupyter_lab_app_image_config=pulumi.get(__response__, 'jupyter_lab_app_image_config'),
-        kernel_gateway_image_config=pulumi.get(__response__, 'kernel_gateway_image_config')))
+        kernel_gateway_image_config=pulumi.get(__response__, 'kernel_gateway_image_config'),
+        tags=pulumi.get(__response__, 'tags')))

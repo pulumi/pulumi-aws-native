@@ -210,6 +210,10 @@ export class PatchBaseline extends pulumi.CustomResource {
      */
     public readonly approvedPatchesEnableNonSecurity!: pulumi.Output<boolean | undefined>;
     /**
+     * The compliance status for vendor recommended security updates that are not approved by this patch baseline.
+     */
+    public readonly availableSecurityUpdatesComplianceStatus!: pulumi.Output<enums.ssm.PatchBaselineAvailableSecurityUpdatesComplianceStatus | undefined>;
+    /**
      * The ID of the patch baseline.
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
@@ -269,6 +273,7 @@ export class PatchBaseline extends pulumi.CustomResource {
             resourceInputs["approvedPatches"] = args ? args.approvedPatches : undefined;
             resourceInputs["approvedPatchesComplianceLevel"] = args ? args.approvedPatchesComplianceLevel : undefined;
             resourceInputs["approvedPatchesEnableNonSecurity"] = args ? args.approvedPatchesEnableNonSecurity : undefined;
+            resourceInputs["availableSecurityUpdatesComplianceStatus"] = args ? args.availableSecurityUpdatesComplianceStatus : undefined;
             resourceInputs["defaultBaseline"] = args ? args.defaultBaseline : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["globalFilters"] = args ? args.globalFilters : undefined;
@@ -285,6 +290,7 @@ export class PatchBaseline extends pulumi.CustomResource {
             resourceInputs["approvedPatches"] = undefined /*out*/;
             resourceInputs["approvedPatchesComplianceLevel"] = undefined /*out*/;
             resourceInputs["approvedPatchesEnableNonSecurity"] = undefined /*out*/;
+            resourceInputs["availableSecurityUpdatesComplianceStatus"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["defaultBaseline"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -324,6 +330,10 @@ export interface PatchBaselineArgs {
      * Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
      */
     approvedPatchesEnableNonSecurity?: pulumi.Input<boolean>;
+    /**
+     * The compliance status for vendor recommended security updates that are not approved by this patch baseline.
+     */
+    availableSecurityUpdatesComplianceStatus?: pulumi.Input<enums.ssm.PatchBaselineAvailableSecurityUpdatesComplianceStatus>;
     /**
      * Set the baseline as default baseline. Only registering to default patch baseline is allowed.
      */

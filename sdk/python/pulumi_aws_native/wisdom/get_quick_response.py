@@ -82,6 +82,9 @@ class GetQuickResponseResult:
     @property
     @pulumi.getter
     def content(self) -> Optional['outputs.QuickResponseContentProvider']:
+        """
+        The content of the quick response.
+        """
         return pulumi.get(self, "content")
 
     @property
@@ -110,6 +113,9 @@ class GetQuickResponseResult:
     @property
     @pulumi.getter(name="groupingConfiguration")
     def grouping_configuration(self) -> Optional['outputs.QuickResponseGroupingConfiguration']:
+        """
+        The configuration information of the user groups that the quick response is accessible to.
+        """
         return pulumi.get(self, "grouping_configuration")
 
     @property
@@ -163,6 +169,9 @@ class GetQuickResponseResult:
     @property
     @pulumi.getter
     def status(self) -> Optional['QuickResponseStatus']:
+        """
+        The status of the quick response data.
+        """
         return pulumi.get(self, "status")
 
     @property

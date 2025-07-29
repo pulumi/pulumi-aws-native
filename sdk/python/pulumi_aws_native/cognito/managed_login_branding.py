@@ -37,6 +37,13 @@ class ManagedLoginBrandingArgs:
         :param pulumi.Input[builtins.bool] return_merged_resources: When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
         :param Any settings: A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
                
+               The following components are not currently implemented and reserved for future use:
+               
+               - `signUp`
+               - `instructions`
+               - `sessionTimerDisplay`
+               - `languageSelector` (for localization, see [Managed login localization)](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization)
+               
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
         :param pulumi.Input[builtins.bool] use_cognito_provided_values: When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding editor.
                
@@ -108,6 +115,13 @@ class ManagedLoginBrandingArgs:
         """
         A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
 
+        The following components are not currently implemented and reserved for future use:
+
+        - `signUp`
+        - `instructions`
+        - `sessionTimerDisplay`
+        - `languageSelector` (for localization, see [Managed login localization)](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization)
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "settings")
@@ -153,6 +167,13 @@ class ManagedLoginBranding(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] client_id: The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it.
         :param pulumi.Input[builtins.bool] return_merged_resources: When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
         :param Any settings: A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
+               
+               The following components are not currently implemented and reserved for future use:
+               
+               - `signUp`
+               - `instructions`
+               - `sessionTimerDisplay`
+               - `languageSelector` (for localization, see [Managed login localization)](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization)
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
         :param pulumi.Input[builtins.bool] use_cognito_provided_values: When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding editor.
@@ -278,6 +299,13 @@ class ManagedLoginBranding(pulumi.CustomResource):
     def settings(self) -> pulumi.Output[Optional[Any]]:
         """
         A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
+
+        The following components are not currently implemented and reserved for future use:
+
+        - `signUp`
+        - `instructions`
+        - `sessionTimerDisplay`
+        - `languageSelector` (for localization, see [Managed login localization)](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization)
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
         """

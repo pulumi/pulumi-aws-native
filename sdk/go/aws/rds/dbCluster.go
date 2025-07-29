@@ -61,6 +61,7 @@ type DbCluster struct {
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	BackupRetentionPeriod pulumi.IntPtrOutput `pulumi:"backupRetentionPeriod"`
 	// Specifies the scalability mode of the Aurora DB cluster. When set to ``limitless``, the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to ``standard`` (the default), the cluster uses normal DB instance creation.
+	//  *Important:* Automated backup retention isn't supported with Aurora Limitless Database clusters. If you set this property to ``limitless``, you cannot set ``DeleteAutomatedBackups`` to ``false``. To create a backup, use manual snapshots instead.
 	ClusterScalabilityType pulumi.StringPtrOutput `pulumi:"clusterScalabilityType"`
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -361,6 +362,7 @@ type DbCluster struct {
 	// When restoring a DB cluster to a point in time, the identifier of the source DB cluster from which to restore.
 	//  Constraints:
 	//   +  Must match the identifier of an existing DBCluster.
+	//   +  Cannot be specified if ``SourceDbClusterResourceId`` is specified. You must specify either ``SourceDBClusterIdentifier`` or ``SourceDbClusterResourceId``, but not both.
 	//
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	SourceDbClusterIdentifier pulumi.StringPtrOutput `pulumi:"sourceDbClusterIdentifier"`
@@ -493,6 +495,7 @@ type dbClusterArgs struct {
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
 	// Specifies the scalability mode of the Aurora DB cluster. When set to ``limitless``, the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to ``standard`` (the default), the cluster uses normal DB instance creation.
+	//  *Important:* Automated backup retention isn't supported with Aurora Limitless Database clusters. If you set this property to ``limitless``, you cannot set ``DeleteAutomatedBackups`` to ``false``. To create a backup, use manual snapshots instead.
 	ClusterScalabilityType *string `pulumi:"clusterScalabilityType"`
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -787,6 +790,7 @@ type dbClusterArgs struct {
 	// When restoring a DB cluster to a point in time, the identifier of the source DB cluster from which to restore.
 	//  Constraints:
 	//   +  Must match the identifier of an existing DBCluster.
+	//   +  Cannot be specified if ``SourceDbClusterResourceId`` is specified. You must specify either ``SourceDBClusterIdentifier`` or ``SourceDbClusterResourceId``, but not both.
 	//
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
@@ -858,6 +862,7 @@ type DbClusterArgs struct {
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	BackupRetentionPeriod pulumi.IntPtrInput
 	// Specifies the scalability mode of the Aurora DB cluster. When set to ``limitless``, the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to ``standard`` (the default), the cluster uses normal DB instance creation.
+	//  *Important:* Automated backup retention isn't supported with Aurora Limitless Database clusters. If you set this property to ``limitless``, you cannot set ``DeleteAutomatedBackups`` to ``false``. To create a backup, use manual snapshots instead.
 	ClusterScalabilityType pulumi.StringPtrInput
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -1152,6 +1157,7 @@ type DbClusterArgs struct {
 	// When restoring a DB cluster to a point in time, the identifier of the source DB cluster from which to restore.
 	//  Constraints:
 	//   +  Must match the identifier of an existing DBCluster.
+	//   +  Cannot be specified if ``SourceDbClusterResourceId`` is specified. You must specify either ``SourceDBClusterIdentifier`` or ``SourceDbClusterResourceId``, but not both.
 	//
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	SourceDbClusterIdentifier pulumi.StringPtrInput
@@ -1282,6 +1288,8 @@ func (o DbClusterOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {
 }
 
 // Specifies the scalability mode of the Aurora DB cluster. When set to “limitless“, the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to “standard“ (the default), the cluster uses normal DB instance creation.
+//
+//	*Important:* Automated backup retention isn't supported with Aurora Limitless Database clusters. If you set this property to ``limitless``, you cannot set ``DeleteAutomatedBackups`` to ``false``. To create a backup, use manual snapshots instead.
 func (o DbClusterOutput) ClusterScalabilityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.ClusterScalabilityType }).(pulumi.StringPtrOutput)
 }
@@ -1779,6 +1787,7 @@ func (o DbClusterOutput) SnapshotIdentifier() pulumi.StringPtrOutput {
 //
 //	Constraints:
 //	 +  Must match the identifier of an existing DBCluster.
+//	 +  Cannot be specified if ``SourceDbClusterResourceId`` is specified. You must specify either ``SourceDBClusterIdentifier`` or ``SourceDbClusterResourceId``, but not both.
 //
 //	Valid for: Aurora DB clusters and Multi-AZ DB clusters
 func (o DbClusterOutput) SourceDbClusterIdentifier() pulumi.StringPtrOutput {

@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("configOptions")]
         public Output<Outputs.TopicConfigOptions?> ConfigOptions { get; private set; } = null!;
 
+        [Output("customInstructions")]
+        public Output<Outputs.TopicCustomInstructions?> CustomInstructions { get; private set; } = null!;
+
         /// <summary>
         /// The data sets that the topic is associated with.
         /// </summary>
@@ -53,6 +56,9 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
+
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ID for the topic. This ID is unique per AWS Region for each AWS account.
@@ -93,6 +99,7 @@ namespace Pulumi.AwsNative.QuickSight
                 {
                     "awsAccountId",
                     "folderArns[*]",
+                    "tags[*]",
                     "topicId",
                 },
             };
@@ -129,6 +136,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("configOptions")]
         public Input<Inputs.TopicConfigOptionsArgs>? ConfigOptions { get; set; }
 
+        [Input("customInstructions")]
+        public Input<Inputs.TopicCustomInstructionsArgs>? CustomInstructions { get; set; }
+
         [Input("dataSets")]
         private InputList<Inputs.TopicDatasetMetadataArgs>? _dataSets;
 
@@ -160,6 +170,14 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The ID for the topic. This ID is unique per AWS Region for each AWS account.

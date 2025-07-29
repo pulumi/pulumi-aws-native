@@ -12,6 +12,8 @@ __all__ = [
     'ConnectionOAuthParametersHttpMethod',
     'EndpointReplicationState',
     'EndpointState',
+    'EventBusLogConfigPropertiesIncludeDetail',
+    'EventBusLogConfigPropertiesLevel',
     'RuleState',
 ]
 
@@ -69,6 +71,26 @@ class EndpointState(builtins.str, Enum):
     DELETING = "DELETING"
     CREATE_FAILED = "CREATE_FAILED"
     UPDATE_FAILED = "UPDATE_FAILED"
+
+
+@pulumi.type_token("aws-native:events:EventBusLogConfigPropertiesIncludeDetail")
+class EventBusLogConfigPropertiesIncludeDetail(builtins.str, Enum):
+    """
+    Configures whether or not to include event detail, input transformer details, target properties, and target input in the applicable log messages.
+    """
+    FULL = "FULL"
+    NONE = "NONE"
+
+
+@pulumi.type_token("aws-native:events:EventBusLogConfigPropertiesLevel")
+class EventBusLogConfigPropertiesLevel(builtins.str, Enum):
+    """
+    Configures the log level of the EventBus and determines which log messages are sent to Ingestion Hub for delivery.
+    """
+    INFO = "INFO"
+    ERROR = "ERROR"
+    TRACE = "TRACE"
+    OFF = "OFF"
 
 
 @pulumi.type_token("aws-native:events:RuleState")

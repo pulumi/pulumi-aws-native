@@ -2616,6 +2616,11 @@ class ProjectEnvironmentConfigurationUserParameter(dict):
                  environment_configuration_name: Optional[builtins.str] = None,
                  environment_id: Optional[builtins.str] = None,
                  environment_parameters: Optional[Sequence['outputs.ProjectEnvironmentParameter']] = None):
+        """
+        :param builtins.str environment_configuration_name: The environment configuration name.
+        :param builtins.str environment_id: The ID of the environment.
+        :param Sequence['ProjectEnvironmentParameter'] environment_parameters: The environment parameters.
+        """
         if environment_configuration_name is not None:
             pulumi.set(__self__, "environment_configuration_name", environment_configuration_name)
         if environment_id is not None:
@@ -2626,16 +2631,25 @@ class ProjectEnvironmentConfigurationUserParameter(dict):
     @property
     @pulumi.getter(name="environmentConfigurationName")
     def environment_configuration_name(self) -> Optional[builtins.str]:
+        """
+        The environment configuration name.
+        """
         return pulumi.get(self, "environment_configuration_name")
 
     @property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> Optional[builtins.str]:
+        """
+        The ID of the environment.
+        """
         return pulumi.get(self, "environment_id")
 
     @property
     @pulumi.getter(name="environmentParameters")
     def environment_parameters(self) -> Optional[Sequence['outputs.ProjectEnvironmentParameter']]:
+        """
+        The environment parameters.
+        """
         return pulumi.get(self, "environment_parameters")
 
 
@@ -2644,6 +2658,10 @@ class ProjectEnvironmentParameter(dict):
     def __init__(__self__, *,
                  name: Optional[builtins.str] = None,
                  value: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: The name of an environment profile parameter.
+        :param builtins.str value: The value of an environment profile parameter.
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -2652,11 +2670,17 @@ class ProjectEnvironmentParameter(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[builtins.str]:
+        """
+        The name of an environment profile parameter.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[builtins.str]:
+        """
+        The value of an environment profile parameter.
+        """
         return pulumi.get(self, "value")
 
 
@@ -2739,11 +2763,17 @@ class ProjectProfileAwsAccount(dict):
 
     def __init__(__self__, *,
                  aws_account_id: builtins.str):
+        """
+        :param builtins.str aws_account_id: The account ID of a project.
+        """
         pulumi.set(__self__, "aws_account_id", aws_account_id)
 
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> builtins.str:
+        """
+        The account ID of a project.
+        """
         return pulumi.get(self, "aws_account_id")
 
 
@@ -2786,6 +2816,17 @@ class ProjectProfileEnvironmentConfiguration(dict):
                  deployment_order: Optional[builtins.float] = None,
                  description: Optional[builtins.str] = None,
                  id: Optional[builtins.str] = None):
+        """
+        :param 'ProjectProfileRegion' aws_region: The AWS Region of the environment.
+        :param builtins.str environment_blueprint_id: The environment blueprint ID.
+        :param builtins.str name: The environment name.
+        :param 'ProjectProfileAwsAccount' aws_account: The AWS account of the environment.
+        :param 'ProjectProfileEnvironmentConfigurationParametersDetails' configuration_parameters: The configuration parameters of the environment.
+        :param 'ProjectProfileDeploymentMode' deployment_mode: The deployment mode of the environment.
+        :param builtins.float deployment_order: The deployment order of the environment.
+        :param builtins.str description: The environment description.
+        :param builtins.str id: The environment ID.
+        """
         pulumi.set(__self__, "aws_region", aws_region)
         pulumi.set(__self__, "environment_blueprint_id", environment_blueprint_id)
         pulumi.set(__self__, "name", name)
@@ -2805,46 +2846,73 @@ class ProjectProfileEnvironmentConfiguration(dict):
     @property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> 'outputs.ProjectProfileRegion':
+        """
+        The AWS Region of the environment.
+        """
         return pulumi.get(self, "aws_region")
 
     @property
     @pulumi.getter(name="environmentBlueprintId")
     def environment_blueprint_id(self) -> builtins.str:
+        """
+        The environment blueprint ID.
+        """
         return pulumi.get(self, "environment_blueprint_id")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        The environment name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="awsAccount")
     def aws_account(self) -> Optional['outputs.ProjectProfileAwsAccount']:
+        """
+        The AWS account of the environment.
+        """
         return pulumi.get(self, "aws_account")
 
     @property
     @pulumi.getter(name="configurationParameters")
     def configuration_parameters(self) -> Optional['outputs.ProjectProfileEnvironmentConfigurationParametersDetails']:
+        """
+        The configuration parameters of the environment.
+        """
         return pulumi.get(self, "configuration_parameters")
 
     @property
     @pulumi.getter(name="deploymentMode")
     def deployment_mode(self) -> Optional['ProjectProfileDeploymentMode']:
+        """
+        The deployment mode of the environment.
+        """
         return pulumi.get(self, "deployment_mode")
 
     @property
     @pulumi.getter(name="deploymentOrder")
     def deployment_order(self) -> Optional[builtins.float]:
+        """
+        The deployment order of the environment.
+        """
         return pulumi.get(self, "deployment_order")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[builtins.str]:
+        """
+        The environment description.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[builtins.str]:
+        """
+        The environment ID.
+        """
         return pulumi.get(self, "id")
 
 
@@ -2871,6 +2939,11 @@ class ProjectProfileEnvironmentConfigurationParameter(dict):
                  is_editable: Optional[builtins.bool] = None,
                  name: Optional[builtins.str] = None,
                  value: Optional[builtins.str] = None):
+        """
+        :param builtins.bool is_editable: Specifies whether the environment parameter is editable.
+        :param builtins.str name: The name of the environment configuration parameter.
+        :param builtins.str value: The value of the environment configuration parameter.
+        """
         if is_editable is not None:
             pulumi.set(__self__, "is_editable", is_editable)
         if name is not None:
@@ -2881,16 +2954,25 @@ class ProjectProfileEnvironmentConfigurationParameter(dict):
     @property
     @pulumi.getter(name="isEditable")
     def is_editable(self) -> Optional[builtins.bool]:
+        """
+        Specifies whether the environment parameter is editable.
+        """
         return pulumi.get(self, "is_editable")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[builtins.str]:
+        """
+        The name of the environment configuration parameter.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[builtins.str]:
+        """
+        The value of the environment configuration parameter.
+        """
         return pulumi.get(self, "value")
 
 
@@ -2921,6 +3003,11 @@ class ProjectProfileEnvironmentConfigurationParametersDetails(dict):
                  parameter_overrides: Optional[Sequence['outputs.ProjectProfileEnvironmentConfigurationParameter']] = None,
                  resolved_parameters: Optional[Sequence['outputs.ProjectProfileEnvironmentConfigurationParameter']] = None,
                  ssm_path: Optional[builtins.str] = None):
+        """
+        :param Sequence['ProjectProfileEnvironmentConfigurationParameter'] parameter_overrides: The parameter overrides.
+        :param Sequence['ProjectProfileEnvironmentConfigurationParameter'] resolved_parameters: The resolved environment configuration parameters.
+        :param builtins.str ssm_path: Ssm path environment configuration parameters.
+        """
         if parameter_overrides is not None:
             pulumi.set(__self__, "parameter_overrides", parameter_overrides)
         if resolved_parameters is not None:
@@ -2931,16 +3018,25 @@ class ProjectProfileEnvironmentConfigurationParametersDetails(dict):
     @property
     @pulumi.getter(name="parameterOverrides")
     def parameter_overrides(self) -> Optional[Sequence['outputs.ProjectProfileEnvironmentConfigurationParameter']]:
+        """
+        The parameter overrides.
+        """
         return pulumi.get(self, "parameter_overrides")
 
     @property
     @pulumi.getter(name="resolvedParameters")
     def resolved_parameters(self) -> Optional[Sequence['outputs.ProjectProfileEnvironmentConfigurationParameter']]:
+        """
+        The resolved environment configuration parameters.
+        """
         return pulumi.get(self, "resolved_parameters")
 
     @property
     @pulumi.getter(name="ssmPath")
     def ssm_path(self) -> Optional[builtins.str]:
+        """
+        Ssm path environment configuration parameters.
+        """
         return pulumi.get(self, "ssm_path")
 
 
@@ -2965,11 +3061,17 @@ class ProjectProfileRegion(dict):
 
     def __init__(__self__, *,
                  region_name: builtins.str):
+        """
+        :param builtins.str region_name: The AWS Region name.
+        """
         pulumi.set(__self__, "region_name", region_name)
 
     @property
     @pulumi.getter(name="regionName")
     def region_name(self) -> builtins.str:
+        """
+        The AWS Region name.
+        """
         return pulumi.get(self, "region_name")
 
 

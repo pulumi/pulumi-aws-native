@@ -16,6 +16,7 @@ import (
 type OriginEndpointPolicy struct {
 	pulumi.CustomResourceState
 
+	CdnAuthConfiguration OriginEndpointPolicyCdnAuthConfigurationPtrOutput `pulumi:"cdnAuthConfiguration"`
 	// The name of the channel group associated with the origin endpoint policy.
 	ChannelGroupName pulumi.StringOutput `pulumi:"channelGroupName"`
 	// The channel name associated with the origin endpoint policy.
@@ -86,6 +87,7 @@ func (OriginEndpointPolicyState) ElementType() reflect.Type {
 }
 
 type originEndpointPolicyArgs struct {
+	CdnAuthConfiguration *OriginEndpointPolicyCdnAuthConfiguration `pulumi:"cdnAuthConfiguration"`
 	// The name of the channel group associated with the origin endpoint policy.
 	ChannelGroupName string `pulumi:"channelGroupName"`
 	// The channel name associated with the origin endpoint policy.
@@ -100,6 +102,7 @@ type originEndpointPolicyArgs struct {
 
 // The set of arguments for constructing a OriginEndpointPolicy resource.
 type OriginEndpointPolicyArgs struct {
+	CdnAuthConfiguration OriginEndpointPolicyCdnAuthConfigurationPtrInput
 	// The name of the channel group associated with the origin endpoint policy.
 	ChannelGroupName pulumi.StringInput
 	// The channel name associated with the origin endpoint policy.
@@ -147,6 +150,12 @@ func (o OriginEndpointPolicyOutput) ToOriginEndpointPolicyOutput() OriginEndpoin
 
 func (o OriginEndpointPolicyOutput) ToOriginEndpointPolicyOutputWithContext(ctx context.Context) OriginEndpointPolicyOutput {
 	return o
+}
+
+func (o OriginEndpointPolicyOutput) CdnAuthConfiguration() OriginEndpointPolicyCdnAuthConfigurationPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointPolicy) OriginEndpointPolicyCdnAuthConfigurationPtrOutput {
+		return v.CdnAuthConfiguration
+	}).(OriginEndpointPolicyCdnAuthConfigurationPtrOutput)
 }
 
 // The name of the channel group associated with the origin endpoint policy.

@@ -161,16 +161,13 @@ namespace Pulumi.AwsNative.Rds
 
         /// <summary>
         /// The location for storing automated backups and manual snapshots.
-        /// 
-        /// Valid Values:
-        /// 
-        /// - `local` (Dedicated Local Zone)
-        /// - `outposts` ( AWS Outposts)
-        /// - `region` ( AWS Region )
-        /// 
-        /// Default: `region`
-        /// 
-        /// For more information, see [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide* .
+        ///  Valid Values:
+        ///   +  ``local`` (Dedicated Local Zone)
+        ///   +  ``outposts`` (AWS Outposts)
+        ///   +  ``region`` (AWS-Region)
+        ///   
+        ///  Default: ``region``
+        ///  For more information, see [Working with Amazon RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide*.
         /// </summary>
         [Output("backupTarget")]
         public Output<string?> BackupTarget { get; private set; } = null!;
@@ -272,6 +269,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Output("dbInstanceIdentifier")]
         public Output<string?> DbInstanceIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// The current state of this DB instance.
+        /// </summary>
+        [Output("dbInstanceStatus")]
+        public Output<string> DbInstanceStatus { get; private set; } = null!;
 
         /// <summary>
         /// The meaning of this parameter differs according to the database engine you use.
@@ -578,6 +581,12 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The date and time when the DB instance was created.
+        /// </summary>
+        [Output("instanceCreateTime")]
+        public Output<string> InstanceCreateTime { get; private set; } = null!;
+
+        /// <summary>
         /// The number of I/O operations per second (IOPS) that the database provisions. The value must be equal to or greater than 1000. 
         ///  If you specify this property, you must follow the range of allowed ratios of your requested IOPS rate to the amount of storage that you allocate (IOPS to allocated storage). For example, you can provision an Oracle database instance with 1000 IOPS and 200 GiB of storage (a ratio of 5:1), or specify 2000 IOPS with 200 GiB of storage (a ratio of 10:1). For more information, see [Amazon RDS Provisioned IOPS Storage to Improve Performance](https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/CHAP_Storage.html#USER_PIOPS) in the *Amazon RDS User Guide*.
         ///   If you specify ``io1`` for the ``StorageType`` property, then you must also specify the ``Iops`` property.
@@ -587,6 +596,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Output("iops")]
         public Output<int?> Iops { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether an upgrade is recommended for the storage file system configuration on the DB instance.
+        /// </summary>
+        [Output("isStorageConfigUpgradeAvailable")]
+        public Output<bool> IsStorageConfigUpgradeAvailable { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the AWS KMS key that's used to encrypt the DB instance, such as ``arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef``. If you enable the StorageEncrypted property but don't specify this property, AWS CloudFormation uses the default KMS key. If you specify this property, you must set the StorageEncrypted property to true. 
@@ -600,6 +615,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// The latest time to which a database in this DB instance can be restored with point-in-time restore.
+        /// </summary>
+        [Output("latestRestorableTime")]
+        public Output<string> LatestRestorableTime { get; private set; } = null!;
 
         /// <summary>
         /// License model information for this DB instance.
@@ -617,6 +638,9 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Output("licenseModel")]
         public Output<string?> LicenseModel { get; private set; } = null!;
+
+        [Output("listenerEndpoint")]
+        public Output<Outputs.DbInstanceEndpoint> ListenerEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether to manage the master user password with AWS Secrets Manager.
@@ -846,6 +870,18 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Output("publiclyAccessible")]
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
+
+        /// <summary>
+        /// The identifiers of Aurora DB clusters to which the RDS DB instance is replicated as a read replica.
+        /// </summary>
+        [Output("readReplicaDbClusterIdentifiers")]
+        public Output<ImmutableArray<string>> ReadReplicaDbClusterIdentifiers { get; private set; } = null!;
+
+        /// <summary>
+        /// The identifiers of the read replicas associated with this DB instance.
+        /// </summary>
+        [Output("readReplicaDbInstanceIdentifiers")]
+        public Output<ImmutableArray<string>> ReadReplicaDbInstanceIdentifiers { get; private set; } = null!;
 
         /// <summary>
         /// The open mode of an Oracle read replica. For more information, see [Working with Oracle Read Replicas for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) in the *Amazon RDS User Guide*.
@@ -1185,16 +1221,13 @@ namespace Pulumi.AwsNative.Rds
 
         /// <summary>
         /// The location for storing automated backups and manual snapshots.
-        /// 
-        /// Valid Values:
-        /// 
-        /// - `local` (Dedicated Local Zone)
-        /// - `outposts` ( AWS Outposts)
-        /// - `region` ( AWS Region )
-        /// 
-        /// Default: `region`
-        /// 
-        /// For more information, see [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide* .
+        ///  Valid Values:
+        ///   +  ``local`` (Dedicated Local Zone)
+        ///   +  ``outposts`` (AWS Outposts)
+        ///   +  ``region`` (AWS-Region)
+        ///   
+        ///  Default: ``region``
+        ///  For more information, see [Working with Amazon RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide*.
         /// </summary>
         [Input("backupTarget")]
         public Input<string>? BackupTarget { get; set; }

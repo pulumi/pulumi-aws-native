@@ -89,6 +89,12 @@ namespace Pulumi.AwsNative.Ses
         [Output("mailFromAttributes")]
         public Output<Outputs.EmailIdentityMailFromAttributes?> MailFromAttributes { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags (keys and values) associated with the email identity.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a EmailIdentity resource with the given unique name, arguments, and options.
@@ -175,6 +181,18 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         [Input("mailFromAttributes")]
         public Input<Inputs.EmailIdentityMailFromAttributesArgs>? MailFromAttributes { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags (keys and values) associated with the email identity.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public EmailIdentityArgs()
         {

@@ -38,7 +38,7 @@ type LookupRepositoryCreationTemplateResult struct {
 	Description *string `pulumi:"description"`
 	// The encryption configuration associated with the repository creation template.
 	EncryptionConfiguration *RepositoryCreationTemplateEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 	ImageTagMutability *RepositoryCreationTemplateImageTagMutability `pulumi:"imageTagMutability"`
 	// The lifecycle policy to use for repositories created using the template.
 	LifecyclePolicy *string `pulumi:"lifecyclePolicy"`
@@ -111,7 +111,7 @@ func (o LookupRepositoryCreationTemplateResultOutput) EncryptionConfiguration() 
 	}).(RepositoryCreationTemplateEncryptionConfigurationPtrOutput)
 }
 
-// The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+// The tag mutability setting for the repository. If this parameter is omitted, the default setting of “MUTABLE“ will be used which will allow image tags to be overwritten. If “IMMUTABLE“ is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 func (o LookupRepositoryCreationTemplateResultOutput) ImageTagMutability() RepositoryCreationTemplateImageTagMutabilityPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) *RepositoryCreationTemplateImageTagMutability {
 		return v.ImageTagMutability

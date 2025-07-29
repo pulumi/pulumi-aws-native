@@ -24,13 +24,31 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// List of text examples
         /// </summary>
         public readonly ImmutableArray<string> Examples;
+        /// <summary>
+        /// Specifies the action to take when harmful content is detected in the input. Supported values include:
+        /// 
+        /// - `BLOCK` – Block the content and replace it with blocked messaging.
+        /// - `NONE` – Take no action but return detection information in the trace response.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.GuardrailTopicAction? InputAction;
+        /// <summary>
+        /// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        /// </summary>
         public readonly bool? InputEnabled;
         /// <summary>
         /// Name of topic in topic policy
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Specifies the action to take when harmful content is detected in the output. Supported values include:
+        /// 
+        /// - `BLOCK` – Block the content and replace it with blocked messaging.
+        /// - `NONE` – Take no action but return detection information in the trace response.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.GuardrailTopicAction? OutputAction;
+        /// <summary>
+        /// Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        /// </summary>
         public readonly bool? OutputEnabled;
         /// <summary>
         /// Specifies to deny the topic.

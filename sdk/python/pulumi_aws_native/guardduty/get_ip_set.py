@@ -25,7 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetIpSetResult:
-    def __init__(__self__, id=None, location=None, name=None, tags=None):
+    def __init__(__self__, expected_bucket_owner=None, id=None, location=None, name=None, tags=None):
+        if expected_bucket_owner and not isinstance(expected_bucket_owner, str):
+            raise TypeError("Expected argument 'expected_bucket_owner' to be a str")
+        pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,6 +41,16 @@ class GetIpSetResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="expectedBucketOwner")
+    def expected_bucket_owner(self) -> Optional[builtins.str]:
+        """
+        The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
+
+        When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
+        """
+        return pulumi.get(self, "expected_bucket_owner")
 
     @property
     @pulumi.getter
@@ -79,6 +92,7 @@ class AwaitableGetIpSetResult(GetIpSetResult):
         if False:
             yield self
         return GetIpSetResult(
+            expected_bucket_owner=self.expected_bucket_owner,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -104,6 +118,7 @@ def get_ip_set(detector_id: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:guardduty:getIpSet', __args__, opts=opts, typ=GetIpSetResult).value
 
     return AwaitableGetIpSetResult(
+        expected_bucket_owner=pulumi.get(__ret__, 'expected_bucket_owner'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -126,6 +141,7 @@ def get_ip_set_output(detector_id: Optional[pulumi.Input[builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:guardduty:getIpSet', __args__, opts=opts, typ=GetIpSetResult)
     return __ret__.apply(lambda __response__: GetIpSetResult(
+        expected_bucket_owner=pulumi.get(__response__, 'expected_bucket_owner'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

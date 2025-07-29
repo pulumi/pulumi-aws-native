@@ -84,6 +84,18 @@
       "type" : "string",
       "enum" : [ "SINGULAR", "RANGE", "COLLECTIVE" ]
     },
+    "CustomInstructions" : {
+      "type" : "object",
+      "properties" : {
+        "CustomInstructionsString" : {
+          "type" : "string",
+          "maxLength" : 5000,
+          "minLength" : 0
+        }
+      },
+      "required" : [ "CustomInstructionsString" ],
+      "additionalProperties" : false
+    },
     "DataAggregation" : {
       "type" : "object",
       "properties" : {
@@ -373,6 +385,26 @@
           }
         }
       },
+      "additionalProperties" : false
+    },
+    "Tag" : {
+      "type" : "object",
+      "description" : "<p>The key or keys of the key-value pairs for the resource tag or tags assigned to the\n            resource.</p>",
+      "properties" : {
+        "Key" : {
+          "type" : "string",
+          "maxLength" : 128,
+          "minLength" : 1,
+          "description" : "<p>Tag key.</p>"
+        },
+        "Value" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "minLength" : 1,
+          "description" : "<p>Tag value.</p>"
+        }
+      },
+      "required" : [ "Key", "Value" ],
       "additionalProperties" : false
     },
     "TopicCalculatedField" : {
@@ -823,6 +855,9 @@
     "ConfigOptions" : {
       "$ref" : "#/definitions/TopicConfigOptions"
     },
+    "CustomInstructions" : {
+      "$ref" : "#/definitions/CustomInstructions"
+    },
     "DataSets" : {
       "type" : "array",
       "items" : {
@@ -847,6 +882,14 @@
       "maxLength" : 128,
       "minLength" : 1
     },
+    "Tags" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      },
+      "maxItems" : 200,
+      "minItems" : 1
+    },
     "TopicId" : {
       "type" : "string",
       "maxLength" : 256,
@@ -859,14 +902,14 @@
   },
   "readOnlyProperties" : [ "/properties/Arn" ],
   "writeOnlyProperties" : [ "/properties/FolderArns" ],
-  "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/FolderArns", "/properties/TopicId" ],
+  "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/FolderArns", "/properties/TopicId", "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/TopicId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "quicksight:CreateTopic", "quicksight:PassDataSet", "quicksight:DescribeTopicRefresh" ]
+      "permissions" : [ "quicksight:CreateTopic", "quicksight:PassDataSet", "quicksight:DescribeTopicRefresh", "quicksight:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "quicksight:DescribeTopic" ]
+      "permissions" : [ "quicksight:DescribeTopic", "quicksight:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "quicksight:UpdateTopic", "quicksight:PassDataSet", "quicksight:DescribeTopicRefresh" ]
@@ -880,9 +923,11 @@
   },
   "additionalProperties" : false,
   "tagging" : {
-    "taggable" : false,
-    "tagOnCreate" : false,
+    "taggable" : true,
+    "tagOnCreate" : true,
     "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "quicksight:TagResource", "quicksight:ListTagsForResource" ]
   }
 }

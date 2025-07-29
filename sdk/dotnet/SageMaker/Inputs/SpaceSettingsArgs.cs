@@ -60,6 +60,18 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<Inputs.SpaceKernelGatewayAppSettingsArgs>? KernelGatewayAppSettings { get; set; }
 
         /// <summary>
+        /// This is a flag used to indicate if remote access is enabled.
+        /// </summary>
+        [Input("remoteAccess")]
+        public Input<Pulumi.AwsNative.SageMaker.SpaceRemoteAccess>? RemoteAccess { get; set; }
+
+        /// <summary>
+        /// This is a flag used to indicate if space managed resources needs to be created.
+        /// </summary>
+        [Input("spaceManagedResources")]
+        public Input<Pulumi.AwsNative.SageMaker.SpaceManagedResources>? SpaceManagedResources { get; set; }
+
+        /// <summary>
         /// Default storage settings for a space.
         /// </summary>
         [Input("spaceStorageSettings")]

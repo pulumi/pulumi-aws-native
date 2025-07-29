@@ -32,6 +32,7 @@ class AccountPolicyPolicyType(builtins.str, Enum):
     SUBSCRIPTION_FILTER_POLICY = "SUBSCRIPTION_FILTER_POLICY"
     FIELD_INDEX_POLICY = "FIELD_INDEX_POLICY"
     TRANSFORMER_POLICY = "TRANSFORMER_POLICY"
+    METRIC_EXTRACTION_POLICY = "METRIC_EXTRACTION_POLICY"
 
 
 @pulumi.type_token("aws-native:logs:AccountPolicyScope")

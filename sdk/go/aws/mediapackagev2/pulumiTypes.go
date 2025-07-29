@@ -778,7 +778,8 @@ func (o OriginEndpointDashDvbMetricsReportingArrayOutput) Index(i pulumi.IntInpu
 type OriginEndpointDashDvbSettings struct {
 	// <p>Playback device error reporting settings.</p>
 	ErrorMetrics []OriginEndpointDashDvbMetricsReporting `pulumi:"errorMetrics"`
-	FontDownload *OriginEndpointDashDvbFontDownload      `pulumi:"fontDownload"`
+	// Subtitle font settings.
+	FontDownload *OriginEndpointDashDvbFontDownload `pulumi:"fontDownload"`
 }
 
 // OriginEndpointDashDvbSettingsInput is an input type that accepts OriginEndpointDashDvbSettingsArgs and OriginEndpointDashDvbSettingsOutput values.
@@ -796,7 +797,8 @@ type OriginEndpointDashDvbSettingsInput interface {
 type OriginEndpointDashDvbSettingsArgs struct {
 	// <p>Playback device error reporting settings.</p>
 	ErrorMetrics OriginEndpointDashDvbMetricsReportingArrayInput `pulumi:"errorMetrics"`
-	FontDownload OriginEndpointDashDvbFontDownloadPtrInput       `pulumi:"fontDownload"`
+	// Subtitle font settings.
+	FontDownload OriginEndpointDashDvbFontDownloadPtrInput `pulumi:"fontDownload"`
 }
 
 func (OriginEndpointDashDvbSettingsArgs) ElementType() reflect.Type {
@@ -882,6 +884,7 @@ func (o OriginEndpointDashDvbSettingsOutput) ErrorMetrics() OriginEndpointDashDv
 	return o.ApplyT(func(v OriginEndpointDashDvbSettings) []OriginEndpointDashDvbMetricsReporting { return v.ErrorMetrics }).(OriginEndpointDashDvbMetricsReportingArrayOutput)
 }
 
+// Subtitle font settings.
 func (o OriginEndpointDashDvbSettingsOutput) FontDownload() OriginEndpointDashDvbFontDownloadPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashDvbSettings) *OriginEndpointDashDvbFontDownload { return v.FontDownload }).(OriginEndpointDashDvbFontDownloadPtrOutput)
 }
@@ -920,6 +923,7 @@ func (o OriginEndpointDashDvbSettingsPtrOutput) ErrorMetrics() OriginEndpointDas
 	}).(OriginEndpointDashDvbMetricsReportingArrayOutput)
 }
 
+// Subtitle font settings.
 func (o OriginEndpointDashDvbSettingsPtrOutput) FontDownload() OriginEndpointDashDvbFontDownloadPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashDvbSettings) *OriginEndpointDashDvbFontDownload {
 		if v == nil {
@@ -932,11 +936,15 @@ func (o OriginEndpointDashDvbSettingsPtrOutput) FontDownload() OriginEndpointDas
 // <p>Retrieve the DASH manifest configuration.</p>
 type OriginEndpointDashManifestConfiguration struct {
 	// <p>The base URL to use for retrieving segments.</p>
-	BaseUrls    []OriginEndpointDashBaseUrl    `pulumi:"baseUrls"`
+	BaseUrls []OriginEndpointDashBaseUrl `pulumi:"baseUrls"`
+	// The layout of the DASH manifest that MediaPackage produces. `STANDARD` indicates a default manifest, which is compacted. `NONE` indicates a full manifest.
+	//
+	// For information about compactness, see [DASH manifest compactness](https://docs.aws.amazon.com/mediapackage/latest/userguide/compacted.html) in the *AWS Elemental MediaPackage v2 User Guide* .
 	Compactness *OriginEndpointDashCompactness `pulumi:"compactness"`
 	// Determines how the DASH manifest signals the DRM content.
 	DrmSignaling *OriginEndpointDashDrmSignaling `pulumi:"drmSignaling"`
-	DvbSettings  *OriginEndpointDashDvbSettings  `pulumi:"dvbSettings"`
+	// For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.
+	DvbSettings *OriginEndpointDashDvbSettings `pulumi:"dvbSettings"`
 	// Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
 	FilterConfiguration *OriginEndpointFilterConfiguration `pulumi:"filterConfiguration"`
 	// <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
@@ -950,7 +958,8 @@ type OriginEndpointDashManifestConfiguration struct {
 	// <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period. For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
 	PeriodTriggers []OriginEndpointDashPeriodTrigger `pulumi:"periodTriggers"`
 	// <p>The profile that the output is compliant with.</p>
-	Profiles           []OriginEndpointDashProfile           `pulumi:"profiles"`
+	Profiles []OriginEndpointDashProfile `pulumi:"profiles"`
+	// Details about the content that you want MediaPackage to pass through in the manifest to the playback device.
 	ProgramInformation *OriginEndpointDashProgramInformation `pulumi:"programInformation"`
 	// The SCTE configuration.
 	ScteDash *OriginEndpointScteDash `pulumi:"scteDash"`
@@ -960,6 +969,7 @@ type OriginEndpointDashManifestConfiguration struct {
 	//
 	// - `NUMBER_WITH_TIMELINE` - The `$Number$` variable is used in the `media` URL. The value of this variable is the sequential number of the segment. A full `SegmentTimeline` object is presented in each `SegmentTemplate` .
 	SegmentTemplateFormat *OriginEndpointDashSegmentTemplateFormat `pulumi:"segmentTemplateFormat"`
+	// The configuration for DASH subtitles.
 	SubtitleConfiguration *OriginEndpointDashSubtitleConfiguration `pulumi:"subtitleConfiguration"`
 	// <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
 	SuggestedPresentationDelaySeconds *int `pulumi:"suggestedPresentationDelaySeconds"`
@@ -981,11 +991,15 @@ type OriginEndpointDashManifestConfigurationInput interface {
 // <p>Retrieve the DASH manifest configuration.</p>
 type OriginEndpointDashManifestConfigurationArgs struct {
 	// <p>The base URL to use for retrieving segments.</p>
-	BaseUrls    OriginEndpointDashBaseUrlArrayInput   `pulumi:"baseUrls"`
+	BaseUrls OriginEndpointDashBaseUrlArrayInput `pulumi:"baseUrls"`
+	// The layout of the DASH manifest that MediaPackage produces. `STANDARD` indicates a default manifest, which is compacted. `NONE` indicates a full manifest.
+	//
+	// For information about compactness, see [DASH manifest compactness](https://docs.aws.amazon.com/mediapackage/latest/userguide/compacted.html) in the *AWS Elemental MediaPackage v2 User Guide* .
 	Compactness OriginEndpointDashCompactnessPtrInput `pulumi:"compactness"`
 	// Determines how the DASH manifest signals the DRM content.
 	DrmSignaling OriginEndpointDashDrmSignalingPtrInput `pulumi:"drmSignaling"`
-	DvbSettings  OriginEndpointDashDvbSettingsPtrInput  `pulumi:"dvbSettings"`
+	// For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.
+	DvbSettings OriginEndpointDashDvbSettingsPtrInput `pulumi:"dvbSettings"`
 	// Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
 	FilterConfiguration OriginEndpointFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
 	// <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
@@ -999,7 +1013,8 @@ type OriginEndpointDashManifestConfigurationArgs struct {
 	// <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period. For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
 	PeriodTriggers OriginEndpointDashPeriodTriggerArrayInput `pulumi:"periodTriggers"`
 	// <p>The profile that the output is compliant with.</p>
-	Profiles           OriginEndpointDashProfileArrayInput          `pulumi:"profiles"`
+	Profiles OriginEndpointDashProfileArrayInput `pulumi:"profiles"`
+	// Details about the content that you want MediaPackage to pass through in the manifest to the playback device.
 	ProgramInformation OriginEndpointDashProgramInformationPtrInput `pulumi:"programInformation"`
 	// The SCTE configuration.
 	ScteDash OriginEndpointScteDashPtrInput `pulumi:"scteDash"`
@@ -1009,6 +1024,7 @@ type OriginEndpointDashManifestConfigurationArgs struct {
 	//
 	// - `NUMBER_WITH_TIMELINE` - The `$Number$` variable is used in the `media` URL. The value of this variable is the sequential number of the segment. A full `SegmentTimeline` object is presented in each `SegmentTemplate` .
 	SegmentTemplateFormat OriginEndpointDashSegmentTemplateFormatPtrInput `pulumi:"segmentTemplateFormat"`
+	// The configuration for DASH subtitles.
 	SubtitleConfiguration OriginEndpointDashSubtitleConfigurationPtrInput `pulumi:"subtitleConfiguration"`
 	// <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
 	SuggestedPresentationDelaySeconds pulumi.IntPtrInput `pulumi:"suggestedPresentationDelaySeconds"`
@@ -1073,6 +1089,9 @@ func (o OriginEndpointDashManifestConfigurationOutput) BaseUrls() OriginEndpoint
 	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) []OriginEndpointDashBaseUrl { return v.BaseUrls }).(OriginEndpointDashBaseUrlArrayOutput)
 }
 
+// The layout of the DASH manifest that MediaPackage produces. `STANDARD` indicates a default manifest, which is compacted. `NONE` indicates a full manifest.
+//
+// For information about compactness, see [DASH manifest compactness](https://docs.aws.amazon.com/mediapackage/latest/userguide/compacted.html) in the *AWS Elemental MediaPackage v2 User Guide* .
 func (o OriginEndpointDashManifestConfigurationOutput) Compactness() OriginEndpointDashCompactnessPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *OriginEndpointDashCompactness { return v.Compactness }).(OriginEndpointDashCompactnessPtrOutput)
 }
@@ -1082,6 +1101,7 @@ func (o OriginEndpointDashManifestConfigurationOutput) DrmSignaling() OriginEndp
 	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *OriginEndpointDashDrmSignaling { return v.DrmSignaling }).(OriginEndpointDashDrmSignalingPtrOutput)
 }
 
+// For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.
 func (o OriginEndpointDashManifestConfigurationOutput) DvbSettings() OriginEndpointDashDvbSettingsPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *OriginEndpointDashDvbSettings { return v.DvbSettings }).(OriginEndpointDashDvbSettingsPtrOutput)
 }
@@ -1125,6 +1145,7 @@ func (o OriginEndpointDashManifestConfigurationOutput) Profiles() OriginEndpoint
 	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) []OriginEndpointDashProfile { return v.Profiles }).(OriginEndpointDashProfileArrayOutput)
 }
 
+// Details about the content that you want MediaPackage to pass through in the manifest to the playback device.
 func (o OriginEndpointDashManifestConfigurationOutput) ProgramInformation() OriginEndpointDashProgramInformationPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *OriginEndpointDashProgramInformation {
 		return v.ProgramInformation
@@ -1147,6 +1168,7 @@ func (o OriginEndpointDashManifestConfigurationOutput) SegmentTemplateFormat() O
 	}).(OriginEndpointDashSegmentTemplateFormatPtrOutput)
 }
 
+// The configuration for DASH subtitles.
 func (o OriginEndpointDashManifestConfigurationOutput) SubtitleConfiguration() OriginEndpointDashSubtitleConfigurationPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashManifestConfiguration) *OriginEndpointDashSubtitleConfiguration {
 		return v.SubtitleConfiguration
@@ -1401,6 +1423,7 @@ func (o OriginEndpointDashProgramInformationPtrOutput) Title() pulumi.StringPtrO
 
 // <p>The configuration for DASH subtitles.</p>
 type OriginEndpointDashSubtitleConfiguration struct {
+	// Settings for TTML subtitles.
 	TtmlConfiguration *OriginEndpointDashTtmlConfiguration `pulumi:"ttmlConfiguration"`
 }
 
@@ -1417,6 +1440,7 @@ type OriginEndpointDashSubtitleConfigurationInput interface {
 
 // <p>The configuration for DASH subtitles.</p>
 type OriginEndpointDashSubtitleConfigurationArgs struct {
+	// Settings for TTML subtitles.
 	TtmlConfiguration OriginEndpointDashTtmlConfigurationPtrInput `pulumi:"ttmlConfiguration"`
 }
 
@@ -1498,6 +1522,7 @@ func (o OriginEndpointDashSubtitleConfigurationOutput) ToOriginEndpointDashSubti
 	}).(OriginEndpointDashSubtitleConfigurationPtrOutput)
 }
 
+// Settings for TTML subtitles.
 func (o OriginEndpointDashSubtitleConfigurationOutput) TtmlConfiguration() OriginEndpointDashTtmlConfigurationPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashSubtitleConfiguration) *OriginEndpointDashTtmlConfiguration {
 		return v.TtmlConfiguration
@@ -1528,6 +1553,7 @@ func (o OriginEndpointDashSubtitleConfigurationPtrOutput) Elem() OriginEndpointD
 	}).(OriginEndpointDashSubtitleConfigurationOutput)
 }
 
+// Settings for TTML subtitles.
 func (o OriginEndpointDashSubtitleConfigurationPtrOutput) TtmlConfiguration() OriginEndpointDashTtmlConfigurationPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashSubtitleConfiguration) *OriginEndpointDashTtmlConfiguration {
 		if v == nil {
@@ -1539,6 +1565,7 @@ func (o OriginEndpointDashSubtitleConfigurationPtrOutput) TtmlConfiguration() Or
 
 // <p>The settings for TTML subtitles.</p>
 type OriginEndpointDashTtmlConfiguration struct {
+	// The profile that MediaPackage uses when signaling subtitles in the manifest. `IMSC` is the default profile. `EBU-TT-D` produces subtitles that are compliant with the EBU-TT-D TTML profile. MediaPackage passes through subtitle styles to the manifest. For more information about EBU-TT-D subtitles, see [EBU-TT-D Subtitling Distribution Format](https://docs.aws.amazon.com/https://tech.ebu.ch/publications/tech3380) .
 	TtmlProfile OriginEndpointDashTtmlProfile `pulumi:"ttmlProfile"`
 }
 
@@ -1555,6 +1582,7 @@ type OriginEndpointDashTtmlConfigurationInput interface {
 
 // <p>The settings for TTML subtitles.</p>
 type OriginEndpointDashTtmlConfigurationArgs struct {
+	// The profile that MediaPackage uses when signaling subtitles in the manifest. `IMSC` is the default profile. `EBU-TT-D` produces subtitles that are compliant with the EBU-TT-D TTML profile. MediaPackage passes through subtitle styles to the manifest. For more information about EBU-TT-D subtitles, see [EBU-TT-D Subtitling Distribution Format](https://docs.aws.amazon.com/https://tech.ebu.ch/publications/tech3380) .
 	TtmlProfile OriginEndpointDashTtmlProfileInput `pulumi:"ttmlProfile"`
 }
 
@@ -1636,6 +1664,7 @@ func (o OriginEndpointDashTtmlConfigurationOutput) ToOriginEndpointDashTtmlConfi
 	}).(OriginEndpointDashTtmlConfigurationPtrOutput)
 }
 
+// The profile that MediaPackage uses when signaling subtitles in the manifest. `IMSC` is the default profile. `EBU-TT-D` produces subtitles that are compliant with the EBU-TT-D TTML profile. MediaPackage passes through subtitle styles to the manifest. For more information about EBU-TT-D subtitles, see [EBU-TT-D Subtitling Distribution Format](https://docs.aws.amazon.com/https://tech.ebu.ch/publications/tech3380) .
 func (o OriginEndpointDashTtmlConfigurationOutput) TtmlProfile() OriginEndpointDashTtmlProfileOutput {
 	return o.ApplyT(func(v OriginEndpointDashTtmlConfiguration) OriginEndpointDashTtmlProfile { return v.TtmlProfile }).(OriginEndpointDashTtmlProfileOutput)
 }
@@ -1664,6 +1693,7 @@ func (o OriginEndpointDashTtmlConfigurationPtrOutput) Elem() OriginEndpointDashT
 	}).(OriginEndpointDashTtmlConfigurationOutput)
 }
 
+// The profile that MediaPackage uses when signaling subtitles in the manifest. `IMSC` is the default profile. `EBU-TT-D` produces subtitles that are compliant with the EBU-TT-D TTML profile. MediaPackage passes through subtitle styles to the manifest. For more information about EBU-TT-D subtitles, see [EBU-TT-D Subtitling Distribution Format](https://docs.aws.amazon.com/https://tech.ebu.ch/publications/tech3380) .
 func (o OriginEndpointDashTtmlConfigurationPtrOutput) TtmlProfile() OriginEndpointDashTtmlProfilePtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashTtmlConfiguration) *OriginEndpointDashTtmlProfile {
 		if v == nil {
@@ -3151,6 +3181,154 @@ func (o OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput) Index(i pul
 	}).(OriginEndpointLowLatencyHlsManifestConfigurationOutput)
 }
 
+type OriginEndpointPolicyCdnAuthConfiguration struct {
+	CdnIdentifierSecretArns []string `pulumi:"cdnIdentifierSecretArns"`
+	SecretsRoleArn          string   `pulumi:"secretsRoleArn"`
+}
+
+// OriginEndpointPolicyCdnAuthConfigurationInput is an input type that accepts OriginEndpointPolicyCdnAuthConfigurationArgs and OriginEndpointPolicyCdnAuthConfigurationOutput values.
+// You can construct a concrete instance of `OriginEndpointPolicyCdnAuthConfigurationInput` via:
+//
+//	OriginEndpointPolicyCdnAuthConfigurationArgs{...}
+type OriginEndpointPolicyCdnAuthConfigurationInput interface {
+	pulumi.Input
+
+	ToOriginEndpointPolicyCdnAuthConfigurationOutput() OriginEndpointPolicyCdnAuthConfigurationOutput
+	ToOriginEndpointPolicyCdnAuthConfigurationOutputWithContext(context.Context) OriginEndpointPolicyCdnAuthConfigurationOutput
+}
+
+type OriginEndpointPolicyCdnAuthConfigurationArgs struct {
+	CdnIdentifierSecretArns pulumi.StringArrayInput `pulumi:"cdnIdentifierSecretArns"`
+	SecretsRoleArn          pulumi.StringInput      `pulumi:"secretsRoleArn"`
+}
+
+func (OriginEndpointPolicyCdnAuthConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointPolicyCdnAuthConfiguration)(nil)).Elem()
+}
+
+func (i OriginEndpointPolicyCdnAuthConfigurationArgs) ToOriginEndpointPolicyCdnAuthConfigurationOutput() OriginEndpointPolicyCdnAuthConfigurationOutput {
+	return i.ToOriginEndpointPolicyCdnAuthConfigurationOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointPolicyCdnAuthConfigurationArgs) ToOriginEndpointPolicyCdnAuthConfigurationOutputWithContext(ctx context.Context) OriginEndpointPolicyCdnAuthConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointPolicyCdnAuthConfigurationOutput)
+}
+
+func (i OriginEndpointPolicyCdnAuthConfigurationArgs) ToOriginEndpointPolicyCdnAuthConfigurationPtrOutput() OriginEndpointPolicyCdnAuthConfigurationPtrOutput {
+	return i.ToOriginEndpointPolicyCdnAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointPolicyCdnAuthConfigurationArgs) ToOriginEndpointPolicyCdnAuthConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointPolicyCdnAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointPolicyCdnAuthConfigurationOutput).ToOriginEndpointPolicyCdnAuthConfigurationPtrOutputWithContext(ctx)
+}
+
+// OriginEndpointPolicyCdnAuthConfigurationPtrInput is an input type that accepts OriginEndpointPolicyCdnAuthConfigurationArgs, OriginEndpointPolicyCdnAuthConfigurationPtr and OriginEndpointPolicyCdnAuthConfigurationPtrOutput values.
+// You can construct a concrete instance of `OriginEndpointPolicyCdnAuthConfigurationPtrInput` via:
+//
+//	        OriginEndpointPolicyCdnAuthConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type OriginEndpointPolicyCdnAuthConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointPolicyCdnAuthConfigurationPtrOutput() OriginEndpointPolicyCdnAuthConfigurationPtrOutput
+	ToOriginEndpointPolicyCdnAuthConfigurationPtrOutputWithContext(context.Context) OriginEndpointPolicyCdnAuthConfigurationPtrOutput
+}
+
+type originEndpointPolicyCdnAuthConfigurationPtrType OriginEndpointPolicyCdnAuthConfigurationArgs
+
+func OriginEndpointPolicyCdnAuthConfigurationPtr(v *OriginEndpointPolicyCdnAuthConfigurationArgs) OriginEndpointPolicyCdnAuthConfigurationPtrInput {
+	return (*originEndpointPolicyCdnAuthConfigurationPtrType)(v)
+}
+
+func (*originEndpointPolicyCdnAuthConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointPolicyCdnAuthConfiguration)(nil)).Elem()
+}
+
+func (i *originEndpointPolicyCdnAuthConfigurationPtrType) ToOriginEndpointPolicyCdnAuthConfigurationPtrOutput() OriginEndpointPolicyCdnAuthConfigurationPtrOutput {
+	return i.ToOriginEndpointPolicyCdnAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *originEndpointPolicyCdnAuthConfigurationPtrType) ToOriginEndpointPolicyCdnAuthConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointPolicyCdnAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointPolicyCdnAuthConfigurationPtrOutput)
+}
+
+type OriginEndpointPolicyCdnAuthConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointPolicyCdnAuthConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointPolicyCdnAuthConfiguration)(nil)).Elem()
+}
+
+func (o OriginEndpointPolicyCdnAuthConfigurationOutput) ToOriginEndpointPolicyCdnAuthConfigurationOutput() OriginEndpointPolicyCdnAuthConfigurationOutput {
+	return o
+}
+
+func (o OriginEndpointPolicyCdnAuthConfigurationOutput) ToOriginEndpointPolicyCdnAuthConfigurationOutputWithContext(ctx context.Context) OriginEndpointPolicyCdnAuthConfigurationOutput {
+	return o
+}
+
+func (o OriginEndpointPolicyCdnAuthConfigurationOutput) ToOriginEndpointPolicyCdnAuthConfigurationPtrOutput() OriginEndpointPolicyCdnAuthConfigurationPtrOutput {
+	return o.ToOriginEndpointPolicyCdnAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointPolicyCdnAuthConfigurationOutput) ToOriginEndpointPolicyCdnAuthConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointPolicyCdnAuthConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointPolicyCdnAuthConfiguration) *OriginEndpointPolicyCdnAuthConfiguration {
+		return &v
+	}).(OriginEndpointPolicyCdnAuthConfigurationPtrOutput)
+}
+
+func (o OriginEndpointPolicyCdnAuthConfigurationOutput) CdnIdentifierSecretArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OriginEndpointPolicyCdnAuthConfiguration) []string { return v.CdnIdentifierSecretArns }).(pulumi.StringArrayOutput)
+}
+
+func (o OriginEndpointPolicyCdnAuthConfigurationOutput) SecretsRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginEndpointPolicyCdnAuthConfiguration) string { return v.SecretsRoleArn }).(pulumi.StringOutput)
+}
+
+type OriginEndpointPolicyCdnAuthConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointPolicyCdnAuthConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointPolicyCdnAuthConfiguration)(nil)).Elem()
+}
+
+func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) ToOriginEndpointPolicyCdnAuthConfigurationPtrOutput() OriginEndpointPolicyCdnAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) ToOriginEndpointPolicyCdnAuthConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointPolicyCdnAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) Elem() OriginEndpointPolicyCdnAuthConfigurationOutput {
+	return o.ApplyT(func(v *OriginEndpointPolicyCdnAuthConfiguration) OriginEndpointPolicyCdnAuthConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointPolicyCdnAuthConfiguration
+		return ret
+	}).(OriginEndpointPolicyCdnAuthConfigurationOutput)
+}
+
+func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) CdnIdentifierSecretArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OriginEndpointPolicyCdnAuthConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CdnIdentifierSecretArns
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) SecretsRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointPolicyCdnAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretsRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // <p>The SCTE configuration.</p>
 type OriginEndpointScte struct {
 	// <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
@@ -4266,6 +4444,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointHlsManifestConfigurationArrayInput)(nil)).Elem(), OriginEndpointHlsManifestConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointLowLatencyHlsManifestConfigurationInput)(nil)).Elem(), OriginEndpointLowLatencyHlsManifestConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointLowLatencyHlsManifestConfigurationArrayInput)(nil)).Elem(), OriginEndpointLowLatencyHlsManifestConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointPolicyCdnAuthConfigurationInput)(nil)).Elem(), OriginEndpointPolicyCdnAuthConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointPolicyCdnAuthConfigurationPtrInput)(nil)).Elem(), OriginEndpointPolicyCdnAuthConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteInput)(nil)).Elem(), OriginEndpointScteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointSctePtrInput)(nil)).Elem(), OriginEndpointScteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteDashInput)(nil)).Elem(), OriginEndpointScteDashArgs{})
@@ -4316,6 +4496,8 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointHlsManifestConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(OriginEndpointLowLatencyHlsManifestConfigurationOutput{})
 	pulumi.RegisterOutputType(OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(OriginEndpointPolicyCdnAuthConfigurationOutput{})
+	pulumi.RegisterOutputType(OriginEndpointPolicyCdnAuthConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointScteOutput{})
 	pulumi.RegisterOutputType(OriginEndpointSctePtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointScteDashOutput{})

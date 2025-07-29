@@ -62,6 +62,28 @@ export const EndpointState = {
  */
 export type EndpointState = (typeof EndpointState)[keyof typeof EndpointState];
 
+export const EventBusLogConfigPropertiesIncludeDetail = {
+    Full: "FULL",
+    None: "NONE",
+} as const;
+
+/**
+ * Configures whether or not to include event detail, input transformer details, target properties, and target input in the applicable log messages.
+ */
+export type EventBusLogConfigPropertiesIncludeDetail = (typeof EventBusLogConfigPropertiesIncludeDetail)[keyof typeof EventBusLogConfigPropertiesIncludeDetail];
+
+export const EventBusLogConfigPropertiesLevel = {
+    Info: "INFO",
+    Error: "ERROR",
+    Trace: "TRACE",
+    Off: "OFF",
+} as const;
+
+/**
+ * Configures the log level of the EventBus and determines which log messages are sent to Ingestion Hub for delivery.
+ */
+export type EventBusLogConfigPropertiesLevel = (typeof EventBusLogConfigPropertiesLevel)[keyof typeof EventBusLogConfigPropertiesLevel];
+
 export const RuleState = {
     Disabled: "DISABLED",
     Enabled: "ENABLED",

@@ -203,6 +203,9 @@ class GetBucketResult:
     @property
     @pulumi.getter(name="metadataConfiguration")
     def metadata_configuration(self) -> Optional['outputs.BucketMetadataConfiguration']:
+        """
+        The S3 Metadata configuration for a general purpose bucket.
+        """
         return pulumi.get(self, "metadata_configuration")
 
     @property

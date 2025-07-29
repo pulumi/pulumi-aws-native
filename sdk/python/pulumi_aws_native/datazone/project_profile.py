@@ -32,6 +32,9 @@ class ProjectProfileArgs:
         """
         The set of arguments for constructing a ProjectProfile resource.
         :param pulumi.Input[builtins.str] description: The description of the project profile.
+        :param pulumi.Input[builtins.str] domain_identifier: A domain ID of the project profile.
+        :param pulumi.Input[builtins.str] domain_unit_identifier: A domain unit ID of the project profile.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationArgs']]] environment_configurations: Environment configurations of a project profile.
         :param pulumi.Input[builtins.str] name: The name of a project profile.
         :param pulumi.Input['ProjectProfileStatus'] status: The status of a project profile.
         """
@@ -63,6 +66,9 @@ class ProjectProfileArgs:
     @property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A domain ID of the project profile.
+        """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
@@ -72,6 +78,9 @@ class ProjectProfileArgs:
     @property
     @pulumi.getter(name="domainUnitIdentifier")
     def domain_unit_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A domain unit ID of the project profile.
+        """
         return pulumi.get(self, "domain_unit_identifier")
 
     @domain_unit_identifier.setter
@@ -81,6 +90,9 @@ class ProjectProfileArgs:
     @property
     @pulumi.getter(name="environmentConfigurations")
     def environment_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationArgs']]]]:
+        """
+        Environment configurations of a project profile.
+        """
         return pulumi.get(self, "environment_configurations")
 
     @environment_configurations.setter
@@ -131,6 +143,9 @@ class ProjectProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: The description of the project profile.
+        :param pulumi.Input[builtins.str] domain_identifier: A domain ID of the project profile.
+        :param pulumi.Input[builtins.str] domain_unit_identifier: A domain unit ID of the project profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectProfileEnvironmentConfigurationArgs', 'ProjectProfileEnvironmentConfigurationArgsDict']]]] environment_configurations: Environment configurations of a project profile.
         :param pulumi.Input[builtins.str] name: The name of a project profile.
         :param pulumi.Input['ProjectProfileStatus'] status: The status of a project profile.
         """
@@ -268,6 +283,9 @@ class ProjectProfile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        A domain ID of the project profile.
+        """
         return pulumi.get(self, "domain_identifier")
 
     @property
@@ -281,16 +299,25 @@ class ProjectProfile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="domainUnitIdentifier")
     def domain_unit_identifier(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        A domain unit ID of the project profile.
+        """
         return pulumi.get(self, "domain_unit_identifier")
 
     @property
     @pulumi.getter(name="environmentConfigurations")
     def environment_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectProfileEnvironmentConfiguration']]]:
+        """
+        Environment configurations of a project profile.
+        """
         return pulumi.get(self, "environment_configurations")
 
     @property
     @pulumi.getter
     def identifier(self) -> pulumi.Output[builtins.str]:
+        """
+        Project profile ID.
+        """
         return pulumi.get(self, "identifier")
 
     @property

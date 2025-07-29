@@ -24,6 +24,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("fSxLustreFileSystemConfig")]
         public Input<Inputs.DomainFSxLustreFileSystemConfigArgs>? FSxLustreFileSystemConfig { get; set; }
 
+        /// <summary>
+        /// Configuration settings for a custom Amazon S3 file system.
+        /// </summary>
+        [Input("s3FileSystemConfig")]
+        public Input<Inputs.DomainS3FileSystemConfigArgs>? S3FileSystemConfig { get; set; }
+
         public DomainCustomFileSystemConfigArgs()
         {
         }

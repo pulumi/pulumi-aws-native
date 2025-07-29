@@ -79,6 +79,10 @@ namespace Pulumi.AwsNative.SageMaker
         /// The KernelGatewayImageConfig.
         /// </summary>
         public readonly Outputs.AppImageConfigKernelGatewayImageConfig? KernelGatewayImageConfig;
+        /// <summary>
+        /// A list of tags to apply to the AppImageConfig.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAppImageConfigResult(
@@ -88,12 +92,15 @@ namespace Pulumi.AwsNative.SageMaker
 
             Outputs.AppImageConfigJupyterLabAppImageConfig? jupyterLabAppImageConfig,
 
-            Outputs.AppImageConfigKernelGatewayImageConfig? kernelGatewayImageConfig)
+            Outputs.AppImageConfigKernelGatewayImageConfig? kernelGatewayImageConfig,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AppImageConfigArn = appImageConfigArn;
             CodeEditorAppImageConfig = codeEditorAppImageConfig;
             JupyterLabAppImageConfig = jupyterLabAppImageConfig;
             KernelGatewayImageConfig = kernelGatewayImageConfig;
+            Tags = tags;
         }
     }
 }

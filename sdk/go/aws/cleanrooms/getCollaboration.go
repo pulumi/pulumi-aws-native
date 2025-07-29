@@ -32,6 +32,8 @@ type LookupCollaborationArgs struct {
 
 type LookupCollaborationResult struct {
 	// The analytics engine for the collaboration.
+	//
+	// > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
 	AnalyticsEngine *CollaborationAnalyticsEngine `pulumi:"analyticsEngine"`
 	// Returns the Amazon Resource Name (ARN) of the specified collaboration.
 	//
@@ -84,6 +86,8 @@ func (o LookupCollaborationResultOutput) ToLookupCollaborationResultOutputWithCo
 }
 
 // The analytics engine for the collaboration.
+//
+// > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
 func (o LookupCollaborationResultOutput) AnalyticsEngine() CollaborationAnalyticsEnginePtrOutput {
 	return o.ApplyT(func(v LookupCollaborationResult) *CollaborationAnalyticsEngine { return v.AnalyticsEngine }).(CollaborationAnalyticsEnginePtrOutput)
 }

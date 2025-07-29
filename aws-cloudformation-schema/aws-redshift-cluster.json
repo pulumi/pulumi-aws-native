@@ -49,10 +49,6 @@
       "type" : "object",
       "properties" : {
         "BucketName" : {
-          "relationshipRef" : {
-            "typeName" : "AWS::S3::Bucket",
-            "propertyPath" : "/properties/BucketName"
-          },
           "type" : "string"
         },
         "S3KeyPrefix" : {

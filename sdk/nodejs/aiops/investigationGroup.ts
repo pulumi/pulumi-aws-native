@@ -78,7 +78,7 @@ export class InvestigationGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastModifiedBy!: pulumi.Output<string>;
     /**
-     * Specify either the name or the ARN of the investigation group that you want to view.
+     * Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -173,7 +173,7 @@ export interface InvestigationGroupArgs {
      */
     isCloudTrailEventHistoryEnabled?: pulumi.Input<boolean>;
     /**
-     * Specify either the name or the ARN of the investigation group that you want to view.
+     * Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.
      */
     name?: pulumi.Input<string>;
     /**

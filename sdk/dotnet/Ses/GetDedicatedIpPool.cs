@@ -67,11 +67,19 @@ namespace Pulumi.AwsNative.Ses
         /// Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
         /// </summary>
         public readonly string? ScalingMode;
+        /// <summary>
+        /// The tags (keys and values) associated with the dedicated IP pool.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
-        private GetDedicatedIpPoolResult(string? scalingMode)
+        private GetDedicatedIpPoolResult(
+            string? scalingMode,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ScalingMode = scalingMode;
+            Tags = tags;
         }
     }
 }

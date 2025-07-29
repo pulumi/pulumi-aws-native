@@ -26,6 +26,7 @@ class IpSetArgs:
                  location: pulumi.Input[builtins.str],
                  activate: Optional[pulumi.Input[builtins.bool]] = None,
                  detector_id: Optional[pulumi.Input[builtins.str]] = None,
+                 expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -37,6 +38,9 @@ class IpSetArgs:
                
                To find the `detectorId` in the current Region, see the
                Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
+        :param pulumi.Input[builtins.str] expected_bucket_owner: The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
+               
+               When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
         :param pulumi.Input[builtins.str] name: The user-friendly name to identify the IPSet.
                
                Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
@@ -50,6 +54,8 @@ class IpSetArgs:
             pulumi.set(__self__, "activate", activate)
         if detector_id is not None:
             pulumi.set(__self__, "detector_id", detector_id)
+        if expected_bucket_owner is not None:
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -107,6 +113,20 @@ class IpSetArgs:
         pulumi.set(self, "detector_id", value)
 
     @property
+    @pulumi.getter(name="expectedBucketOwner")
+    def expected_bucket_owner(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
+
+        When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
+        """
+        return pulumi.get(self, "expected_bucket_owner")
+
+    @expected_bucket_owner.setter
+    def expected_bucket_owner(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "expected_bucket_owner", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -143,6 +163,7 @@ class IpSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activate: Optional[pulumi.Input[builtins.bool]] = None,
                  detector_id: Optional[pulumi.Input[builtins.str]] = None,
+                 expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
                  format: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -158,6 +179,9 @@ class IpSet(pulumi.CustomResource):
                
                To find the `detectorId` in the current Region, see the
                Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
+        :param pulumi.Input[builtins.str] expected_bucket_owner: The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
+               
+               When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
         :param pulumi.Input[builtins.str] format: The format of the file that contains the IPSet.
         :param pulumi.Input[builtins.str] location: The URI of the file that contains the IPSet.
         :param pulumi.Input[builtins.str] name: The user-friendly name to identify the IPSet.
@@ -193,6 +217,7 @@ class IpSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activate: Optional[pulumi.Input[builtins.bool]] = None,
                  detector_id: Optional[pulumi.Input[builtins.str]] = None,
+                 expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
                  format: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -208,6 +233,7 @@ class IpSet(pulumi.CustomResource):
 
             __props__.__dict__["activate"] = activate
             __props__.__dict__["detector_id"] = detector_id
+            __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
             if format is None and not opts.urn:
                 raise TypeError("Missing required property 'format'")
             __props__.__dict__["format"] = format
@@ -244,6 +270,7 @@ class IpSet(pulumi.CustomResource):
         __props__.__dict__["activate"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["detector_id"] = None
+        __props__.__dict__["expected_bucket_owner"] = None
         __props__.__dict__["format"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -273,6 +300,16 @@ class IpSet(pulumi.CustomResource):
         Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
         """
         return pulumi.get(self, "detector_id")
+
+    @property
+    @pulumi.getter(name="expectedBucketOwner")
+    def expected_bucket_owner(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
+
+        When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
+        """
+        return pulumi.get(self, "expected_bucket_owner")
 
     @property
     @pulumi.getter

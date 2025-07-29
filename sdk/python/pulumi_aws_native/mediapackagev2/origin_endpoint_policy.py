@@ -14,6 +14,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['OriginEndpointPolicyArgs', 'OriginEndpointPolicy']
 
@@ -23,7 +25,8 @@ class OriginEndpointPolicyArgs:
                  channel_group_name: pulumi.Input[builtins.str],
                  channel_name: pulumi.Input[builtins.str],
                  origin_endpoint_name: pulumi.Input[builtins.str],
-                 policy: Any):
+                 policy: Any,
+                 cdn_auth_configuration: Optional[pulumi.Input['OriginEndpointPolicyCdnAuthConfigurationArgs']] = None):
         """
         The set of arguments for constructing a OriginEndpointPolicy resource.
         :param pulumi.Input[builtins.str] channel_group_name: The name of the channel group associated with the origin endpoint policy.
@@ -37,6 +40,8 @@ class OriginEndpointPolicyArgs:
         pulumi.set(__self__, "channel_name", channel_name)
         pulumi.set(__self__, "origin_endpoint_name", origin_endpoint_name)
         pulumi.set(__self__, "policy", policy)
+        if cdn_auth_configuration is not None:
+            pulumi.set(__self__, "cdn_auth_configuration", cdn_auth_configuration)
 
     @property
     @pulumi.getter(name="channelGroupName")
@@ -88,6 +93,15 @@ class OriginEndpointPolicyArgs:
     def policy(self, value: Any):
         pulumi.set(self, "policy", value)
 
+    @property
+    @pulumi.getter(name="cdnAuthConfiguration")
+    def cdn_auth_configuration(self) -> Optional[pulumi.Input['OriginEndpointPolicyCdnAuthConfigurationArgs']]:
+        return pulumi.get(self, "cdn_auth_configuration")
+
+    @cdn_auth_configuration.setter
+    def cdn_auth_configuration(self, value: Optional[pulumi.Input['OriginEndpointPolicyCdnAuthConfigurationArgs']]):
+        pulumi.set(self, "cdn_auth_configuration", value)
+
 
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointPolicy")
 class OriginEndpointPolicy(pulumi.CustomResource):
@@ -95,6 +109,7 @@ class OriginEndpointPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cdn_auth_configuration: Optional[pulumi.Input[Union['OriginEndpointPolicyCdnAuthConfigurationArgs', 'OriginEndpointPolicyCdnAuthConfigurationArgsDict']]] = None,
                  channel_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  channel_name: Optional[pulumi.Input[builtins.str]] = None,
                  origin_endpoint_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -136,6 +151,7 @@ class OriginEndpointPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cdn_auth_configuration: Optional[pulumi.Input[Union['OriginEndpointPolicyCdnAuthConfigurationArgs', 'OriginEndpointPolicyCdnAuthConfigurationArgsDict']]] = None,
                  channel_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  channel_name: Optional[pulumi.Input[builtins.str]] = None,
                  origin_endpoint_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -149,6 +165,7 @@ class OriginEndpointPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OriginEndpointPolicyArgs.__new__(OriginEndpointPolicyArgs)
 
+            __props__.__dict__["cdn_auth_configuration"] = cdn_auth_configuration
             if channel_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'channel_group_name'")
             __props__.__dict__["channel_group_name"] = channel_group_name
@@ -185,11 +202,17 @@ class OriginEndpointPolicy(pulumi.CustomResource):
 
         __props__ = OriginEndpointPolicyArgs.__new__(OriginEndpointPolicyArgs)
 
+        __props__.__dict__["cdn_auth_configuration"] = None
         __props__.__dict__["channel_group_name"] = None
         __props__.__dict__["channel_name"] = None
         __props__.__dict__["origin_endpoint_name"] = None
         __props__.__dict__["policy"] = None
         return OriginEndpointPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="cdnAuthConfiguration")
+    def cdn_auth_configuration(self) -> pulumi.Output[Optional['outputs.OriginEndpointPolicyCdnAuthConfiguration']]:
+        return pulumi.get(self, "cdn_auth_configuration")
 
     @property
     @pulumi.getter(name="channelGroupName")

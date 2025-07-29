@@ -252,6 +252,10 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly string? DbInstanceClass;
         /// <summary>
+        /// The current state of this DB instance.
+        /// </summary>
+        public readonly string? DbInstanceStatus;
+        /// <summary>
         /// The name of an existing DB parameter group or a reference to an [AWS::RDS::DBParameterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html) resource created in the template.
         ///  To list all of the available DB parameter group names, use the following command:
         ///   ``aws rds describe-db-parameter-groups --query "DBParameterGroups[].DBParameterGroupName" --output text`` 
@@ -430,6 +434,10 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly string? EngineVersion;
         /// <summary>
+        /// The date and time when the DB instance was created.
+        /// </summary>
+        public readonly string? InstanceCreateTime;
+        /// <summary>
         /// The number of I/O operations per second (IOPS) that the database provisions. The value must be equal to or greater than 1000. 
         ///  If you specify this property, you must follow the range of allowed ratios of your requested IOPS rate to the amount of storage that you allocate (IOPS to allocated storage). For example, you can provision an Oracle database instance with 1000 IOPS and 200 GiB of storage (a ratio of 5:1), or specify 2000 IOPS with 200 GiB of storage (a ratio of 10:1). For more information, see [Amazon RDS Provisioned IOPS Storage to Improve Performance](https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/CHAP_Storage.html#USER_PIOPS) in the *Amazon RDS User Guide*.
         ///   If you specify ``io1`` for the ``StorageType`` property, then you must also specify the ``Iops`` property.
@@ -438,6 +446,14 @@ namespace Pulumi.AwsNative.Rds
         ///   +  For RDS for SQL Server - Must be a multiple between 1 and 50 of the storage amount for the DB instance.
         /// </summary>
         public readonly int? Iops;
+        /// <summary>
+        /// Indicates whether an upgrade is recommended for the storage file system configuration on the DB instance.
+        /// </summary>
+        public readonly bool? IsStorageConfigUpgradeAvailable;
+        /// <summary>
+        /// The latest time to which a database in this DB instance can be restored with point-in-time restore.
+        /// </summary>
+        public readonly string? LatestRestorableTime;
         /// <summary>
         /// License model information for this DB instance.
         ///   Valid Values:
@@ -453,6 +469,7 @@ namespace Pulumi.AwsNative.Rds
         ///   If you've specified ``DBSecurityGroups`` and then you update the license model, AWS CloudFormation replaces the underlying DB instance. This will incur some interruptions to database availability.
         /// </summary>
         public readonly string? LicenseModel;
+        public readonly Outputs.DbInstanceEndpoint? ListenerEndpoint;
         /// <summary>
         /// Specifies whether to manage the master user password with AWS Secrets Manager.
         ///  For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.*
@@ -580,6 +597,14 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly bool? PubliclyAccessible;
         /// <summary>
+        /// The identifiers of Aurora DB clusters to which the RDS DB instance is replicated as a read replica.
+        /// </summary>
+        public readonly ImmutableArray<string> ReadReplicaDbClusterIdentifiers;
+        /// <summary>
+        /// The identifiers of the read replicas associated with this DB instance.
+        /// </summary>
+        public readonly ImmutableArray<string> ReadReplicaDbInstanceIdentifiers;
+        /// <summary>
         /// The open mode of an Oracle read replica. For more information, see [Working with Oracle Read Replicas for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) in the *Amazon RDS User Guide*.
         ///  This setting is only supported in RDS for Oracle.
         ///  Default: ``open-read-only``
@@ -658,6 +683,8 @@ namespace Pulumi.AwsNative.Rds
 
             string? dbInstanceClass,
 
+            string? dbInstanceStatus,
+
             string? dbParameterGroupName,
 
             ImmutableArray<string> dbSecurityGroups,
@@ -694,9 +721,17 @@ namespace Pulumi.AwsNative.Rds
 
             string? engineVersion,
 
+            string? instanceCreateTime,
+
             int? iops,
 
+            bool? isStorageConfigUpgradeAvailable,
+
+            string? latestRestorableTime,
+
             string? licenseModel,
+
+            Outputs.DbInstanceEndpoint? listenerEndpoint,
 
             bool? manageMasterUserPassword,
 
@@ -730,6 +765,10 @@ namespace Pulumi.AwsNative.Rds
 
             bool? publiclyAccessible,
 
+            ImmutableArray<string> readReplicaDbClusterIdentifiers,
+
+            ImmutableArray<string> readReplicaDbInstanceIdentifiers,
+
             string? replicaMode,
 
             string? sourceDbClusterIdentifier,
@@ -758,6 +797,7 @@ namespace Pulumi.AwsNative.Rds
             DbClusterSnapshotIdentifier = dbClusterSnapshotIdentifier;
             DbInstanceArn = dbInstanceArn;
             DbInstanceClass = dbInstanceClass;
+            DbInstanceStatus = dbInstanceStatus;
             DbParameterGroupName = dbParameterGroupName;
             DbSecurityGroups = dbSecurityGroups;
             DbiResourceId = dbiResourceId;
@@ -776,8 +816,12 @@ namespace Pulumi.AwsNative.Rds
             Engine = engine;
             EngineLifecycleSupport = engineLifecycleSupport;
             EngineVersion = engineVersion;
+            InstanceCreateTime = instanceCreateTime;
             Iops = iops;
+            IsStorageConfigUpgradeAvailable = isStorageConfigUpgradeAvailable;
+            LatestRestorableTime = latestRestorableTime;
             LicenseModel = licenseModel;
+            ListenerEndpoint = listenerEndpoint;
             ManageMasterUserPassword = manageMasterUserPassword;
             MasterUserSecret = masterUserSecret;
             MaxAllocatedStorage = maxAllocatedStorage;
@@ -794,6 +838,8 @@ namespace Pulumi.AwsNative.Rds
             ProcessorFeatures = processorFeatures;
             PromotionTier = promotionTier;
             PubliclyAccessible = publiclyAccessible;
+            ReadReplicaDbClusterIdentifiers = readReplicaDbClusterIdentifiers;
+            ReadReplicaDbInstanceIdentifiers = readReplicaDbInstanceIdentifiers;
             ReplicaMode = replicaMode;
             SourceDbClusterIdentifier = sourceDbClusterIdentifier;
             StorageThroughput = storageThroughput;

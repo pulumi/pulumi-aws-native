@@ -34,6 +34,10 @@ type LookupThreatIntelSetArgs struct {
 }
 
 type LookupThreatIntelSetResult struct {
+	// The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
+	//
+	// When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
+	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// The unique ID of the `threatIntelSet` .
 	Id *string `pulumi:"id"`
 	// The URI of the file that contains the ThreatIntelSet.
@@ -81,6 +85,13 @@ func (o LookupThreatIntelSetResultOutput) ToLookupThreatIntelSetResultOutput() L
 
 func (o LookupThreatIntelSetResultOutput) ToLookupThreatIntelSetResultOutputWithContext(ctx context.Context) LookupThreatIntelSetResultOutput {
 	return o
+}
+
+// The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
+//
+// When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
+func (o LookupThreatIntelSetResultOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupThreatIntelSetResult) *string { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
 // The unique ID of the `threatIntelSet` .

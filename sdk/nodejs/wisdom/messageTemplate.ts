@@ -70,6 +70,10 @@ export class MessageTemplate extends pulumi.CustomResource {
      */
     public /*out*/ readonly messageTemplateArn!: pulumi.Output<string>;
     /**
+     * List of message template attachments
+     */
+    public readonly messageTemplateAttachments!: pulumi.Output<outputs.wisdom.MessageTemplateAttachment[] | undefined>;
+    /**
      * The content SHA256 of the message template.
      */
     public /*out*/ readonly messageTemplateContentSha256!: pulumi.Output<string>;
@@ -113,6 +117,7 @@ export class MessageTemplate extends pulumi.CustomResource {
             resourceInputs["groupingConfiguration"] = args ? args.groupingConfiguration : undefined;
             resourceInputs["knowledgeBaseArn"] = args ? args.knowledgeBaseArn : undefined;
             resourceInputs["language"] = args ? args.language : undefined;
+            resourceInputs["messageTemplateAttachments"] = args ? args.messageTemplateAttachments : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["messageTemplateArn"] = undefined /*out*/;
@@ -127,6 +132,7 @@ export class MessageTemplate extends pulumi.CustomResource {
             resourceInputs["knowledgeBaseArn"] = undefined /*out*/;
             resourceInputs["language"] = undefined /*out*/;
             resourceInputs["messageTemplateArn"] = undefined /*out*/;
+            resourceInputs["messageTemplateAttachments"] = undefined /*out*/;
             resourceInputs["messageTemplateContentSha256"] = undefined /*out*/;
             resourceInputs["messageTemplateId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -171,6 +177,10 @@ export interface MessageTemplateArgs {
      * The language code value for the language in which the message template is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW
      */
     language?: pulumi.Input<string>;
+    /**
+     * List of message template attachments
+     */
+    messageTemplateAttachments?: pulumi.Input<pulumi.Input<inputs.wisdom.MessageTemplateAttachmentArgs>[]>;
     /**
      * The name of the message template.
      */

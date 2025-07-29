@@ -29,6 +29,7 @@ __all__ = [
     'TableProvisionedThroughput',
     'TableReplicaSpecification',
     'TableScalingPolicy',
+    'TableTag',
     'TableTargetTrackingScalingPolicyConfiguration',
     'TypeField',
 ]
@@ -318,10 +319,12 @@ class TableCdcSpecification(dict):
 
     def __init__(__self__, *,
                  status: 'TableCdcStatus',
+                 tags: Optional[Sequence['outputs.TableTag']] = None,
                  view_type: Optional['TableCdcViewType'] = None):
         """
         Represents the CDC configuration for the table
         :param 'TableCdcStatus' status: The status of the CDC stream. You can enable or disable a stream for a table.
+        :param Sequence['TableTag'] tags: An array of key-value pairs to apply to the CDC stream resource
         :param 'TableCdcViewType' view_type: The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
                
                The options are:
@@ -332,6 +335,8 @@ class TableCdcSpecification(dict):
                - `KEYS_ONLY` - the partition and clustering keys of the row that was changed.
         """
         pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if view_type is not None:
             pulumi.set(__self__, "view_type", view_type)
 
@@ -342,6 +347,14 @@ class TableCdcSpecification(dict):
         The status of the CDC stream. You can enable or disable a stream for a table.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.TableTag']]:
+        """
+        An array of key-value pairs to apply to the CDC stream resource
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="viewType")
@@ -682,6 +695,39 @@ class TableScalingPolicy(dict):
         The auto scaling policy that scales a table based on the ratio of consumed to provisioned capacity.
         """
         return pulumi.get(self, "target_tracking_scaling_policy_configuration")
+
+
+@pulumi.output_type
+class TableTag(dict):
+    """
+    A key-value pair to apply to the resource
+    """
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 value: builtins.str):
+        """
+        A key-value pair to apply to the resource
+        :param builtins.str key: The key of the tag. Tag keys are case sensitive. Each Amazon Keyspaces resource can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+        :param builtins.str value: The value of the tag. Tag values are case-sensitive and can be null.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        The key of the tag. Tag keys are case sensitive. Each Amazon Keyspaces resource can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        The value of the tag. Tag values are case-sensitive and can be null.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

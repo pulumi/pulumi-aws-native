@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetMessageTemplateResult:
-    def __init__(__self__, content=None, default_attributes=None, description=None, grouping_configuration=None, language=None, message_template_arn=None, message_template_content_sha256=None, message_template_id=None, name=None, tags=None):
+    def __init__(__self__, content=None, default_attributes=None, description=None, grouping_configuration=None, language=None, message_template_arn=None, message_template_attachments=None, message_template_content_sha256=None, message_template_id=None, name=None, tags=None):
         if content and not isinstance(content, dict):
             raise TypeError("Expected argument 'content' to be a dict")
         pulumi.set(__self__, "content", content)
@@ -45,6 +45,9 @@ class GetMessageTemplateResult:
         if message_template_arn and not isinstance(message_template_arn, str):
             raise TypeError("Expected argument 'message_template_arn' to be a str")
         pulumi.set(__self__, "message_template_arn", message_template_arn)
+        if message_template_attachments and not isinstance(message_template_attachments, list):
+            raise TypeError("Expected argument 'message_template_attachments' to be a list")
+        pulumi.set(__self__, "message_template_attachments", message_template_attachments)
         if message_template_content_sha256 and not isinstance(message_template_content_sha256, str):
             raise TypeError("Expected argument 'message_template_content_sha256' to be a str")
         pulumi.set(__self__, "message_template_content_sha256", message_template_content_sha256)
@@ -107,6 +110,14 @@ class GetMessageTemplateResult:
         return pulumi.get(self, "message_template_arn")
 
     @property
+    @pulumi.getter(name="messageTemplateAttachments")
+    def message_template_attachments(self) -> Optional[Sequence['outputs.MessageTemplateAttachment']]:
+        """
+        List of message template attachments
+        """
+        return pulumi.get(self, "message_template_attachments")
+
+    @property
     @pulumi.getter(name="messageTemplateContentSha256")
     def message_template_content_sha256(self) -> Optional[builtins.str]:
         """
@@ -151,6 +162,7 @@ class AwaitableGetMessageTemplateResult(GetMessageTemplateResult):
             grouping_configuration=self.grouping_configuration,
             language=self.language,
             message_template_arn=self.message_template_arn,
+            message_template_attachments=self.message_template_attachments,
             message_template_content_sha256=self.message_template_content_sha256,
             message_template_id=self.message_template_id,
             name=self.name,
@@ -177,6 +189,7 @@ def get_message_template(message_template_arn: Optional[builtins.str] = None,
         grouping_configuration=pulumi.get(__ret__, 'grouping_configuration'),
         language=pulumi.get(__ret__, 'language'),
         message_template_arn=pulumi.get(__ret__, 'message_template_arn'),
+        message_template_attachments=pulumi.get(__ret__, 'message_template_attachments'),
         message_template_content_sha256=pulumi.get(__ret__, 'message_template_content_sha256'),
         message_template_id=pulumi.get(__ret__, 'message_template_id'),
         name=pulumi.get(__ret__, 'name'),
@@ -200,6 +213,7 @@ def get_message_template_output(message_template_arn: Optional[pulumi.Input[buil
         grouping_configuration=pulumi.get(__response__, 'grouping_configuration'),
         language=pulumi.get(__response__, 'language'),
         message_template_arn=pulumi.get(__response__, 'message_template_arn'),
+        message_template_attachments=pulumi.get(__response__, 'message_template_attachments'),
         message_template_content_sha256=pulumi.get(__response__, 'message_template_content_sha256'),
         message_template_id=pulumi.get(__response__, 'message_template_id'),
         name=pulumi.get(__response__, 'name'),

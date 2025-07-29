@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     [OutputType]
     public sealed class ProjectProfileEnvironmentConfigurationParameter
     {
+        /// <summary>
+        /// Specifies whether the environment parameter is editable.
+        /// </summary>
         public readonly bool? IsEditable;
+        /// <summary>
+        /// The name of the environment configuration parameter.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The value of the environment configuration parameter.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

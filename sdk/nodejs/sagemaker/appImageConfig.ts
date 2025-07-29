@@ -60,7 +60,7 @@ export class AppImageConfig extends pulumi.CustomResource {
     /**
      * A list of tags to apply to the AppImageConfig.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a AppImageConfig resource with the given unique name, arguments, and options.
@@ -88,7 +88,7 @@ export class AppImageConfig extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["appImageConfigName", "tags[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["appImageConfigName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AppImageConfig.__pulumiType, name, resourceInputs, opts);
     }
@@ -117,5 +117,5 @@ export interface AppImageConfigArgs {
     /**
      * A list of tags to apply to the AppImageConfig.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

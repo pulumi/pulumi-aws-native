@@ -17,6 +17,7 @@ __all__ = [
     'ParameterTier',
     'ParameterType',
     'PatchBaselineApprovedPatchesComplianceLevel',
+    'PatchBaselineAvailableSecurityUpdatesComplianceStatus',
     'PatchBaselineOperatingSystem',
     'PatchBaselinePatchFilterKey',
     'PatchBaselineRejectedPatchesAction',
@@ -139,6 +140,15 @@ class PatchBaselineApprovedPatchesComplianceLevel(builtins.str, Enum):
     LOW = "LOW"
     INFORMATIONAL = "INFORMATIONAL"
     UNSPECIFIED = "UNSPECIFIED"
+
+
+@pulumi.type_token("aws-native:ssm:PatchBaselineAvailableSecurityUpdatesComplianceStatus")
+class PatchBaselineAvailableSecurityUpdatesComplianceStatus(builtins.str, Enum):
+    """
+    The compliance status for vendor recommended security updates that are not approved by this patch baseline.
+    """
+    NON_COMPLIANT = "NON_COMPLIANT"
+    COMPLIANT = "COMPLIANT"
 
 
 @pulumi.type_token("aws-native:ssm:PatchBaselineOperatingSystem")

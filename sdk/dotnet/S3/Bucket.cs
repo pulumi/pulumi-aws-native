@@ -948,6 +948,9 @@ namespace Pulumi.AwsNative.S3
         [Output("loggingConfiguration")]
         public Output<Outputs.BucketLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The S3 Metadata configuration for a general purpose bucket.
+        /// </summary>
         [Output("metadataConfiguration")]
         public Output<Outputs.BucketMetadataConfiguration?> MetadataConfiguration { get; private set; } = null!;
 
@@ -1173,6 +1176,9 @@ namespace Pulumi.AwsNative.S3
         [Input("loggingConfiguration")]
         public Input<Inputs.BucketLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
+        /// <summary>
+        /// The S3 Metadata configuration for a general purpose bucket.
+        /// </summary>
         [Input("metadataConfiguration")]
         public Input<Inputs.BucketMetadataConfigurationArgs>? MetadataConfiguration { get; set; }
 

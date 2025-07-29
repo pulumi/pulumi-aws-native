@@ -76,6 +76,7 @@ __all__ = [
     'JobQueueJobStateTimeLimitAction',
     'SchedulingPolicyFairsharePolicy',
     'SchedulingPolicyShareAttributes',
+    'ServiceEnvironmentCapacityLimit',
 ]
 
 @pulumi.output_type
@@ -5260,5 +5261,45 @@ class SchedulingPolicyShareAttributes(dict):
         The smallest supported value is 0.0001, and the largest supported value is 999.9999.
         """
         return pulumi.get(self, "weight_factor")
+
+
+@pulumi.output_type
+class ServiceEnvironmentCapacityLimit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityUnit":
+            suggest = "capacity_unit"
+        elif key == "maxCapacity":
+            suggest = "max_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEnvironmentCapacityLimit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEnvironmentCapacityLimit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEnvironmentCapacityLimit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_unit: Optional[builtins.str] = None,
+                 max_capacity: Optional[builtins.int] = None):
+        if capacity_unit is not None:
+            pulumi.set(__self__, "capacity_unit", capacity_unit)
+        if max_capacity is not None:
+            pulumi.set(__self__, "max_capacity", max_capacity)
+
+    @property
+    @pulumi.getter(name="capacityUnit")
+    def capacity_unit(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "capacity_unit")
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "max_capacity")
 
 

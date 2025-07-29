@@ -784,6 +784,342 @@ func (o EndpointStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configures whether or not to include event detail, input transformer details, target properties, and target input in the applicable log messages.
+type EventBusLogConfigPropertiesIncludeDetail string
+
+const (
+	EventBusLogConfigPropertiesIncludeDetailFull = EventBusLogConfigPropertiesIncludeDetail("FULL")
+	EventBusLogConfigPropertiesIncludeDetailNone = EventBusLogConfigPropertiesIncludeDetail("NONE")
+)
+
+func (EventBusLogConfigPropertiesIncludeDetail) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventBusLogConfigPropertiesIncludeDetail)(nil)).Elem()
+}
+
+func (e EventBusLogConfigPropertiesIncludeDetail) ToEventBusLogConfigPropertiesIncludeDetailOutput() EventBusLogConfigPropertiesIncludeDetailOutput {
+	return pulumi.ToOutput(e).(EventBusLogConfigPropertiesIncludeDetailOutput)
+}
+
+func (e EventBusLogConfigPropertiesIncludeDetail) ToEventBusLogConfigPropertiesIncludeDetailOutputWithContext(ctx context.Context) EventBusLogConfigPropertiesIncludeDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventBusLogConfigPropertiesIncludeDetailOutput)
+}
+
+func (e EventBusLogConfigPropertiesIncludeDetail) ToEventBusLogConfigPropertiesIncludeDetailPtrOutput() EventBusLogConfigPropertiesIncludeDetailPtrOutput {
+	return e.ToEventBusLogConfigPropertiesIncludeDetailPtrOutputWithContext(context.Background())
+}
+
+func (e EventBusLogConfigPropertiesIncludeDetail) ToEventBusLogConfigPropertiesIncludeDetailPtrOutputWithContext(ctx context.Context) EventBusLogConfigPropertiesIncludeDetailPtrOutput {
+	return EventBusLogConfigPropertiesIncludeDetail(e).ToEventBusLogConfigPropertiesIncludeDetailOutputWithContext(ctx).ToEventBusLogConfigPropertiesIncludeDetailPtrOutputWithContext(ctx)
+}
+
+func (e EventBusLogConfigPropertiesIncludeDetail) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventBusLogConfigPropertiesIncludeDetail) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventBusLogConfigPropertiesIncludeDetail) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventBusLogConfigPropertiesIncludeDetail) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventBusLogConfigPropertiesIncludeDetailOutput struct{ *pulumi.OutputState }
+
+func (EventBusLogConfigPropertiesIncludeDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventBusLogConfigPropertiesIncludeDetail)(nil)).Elem()
+}
+
+func (o EventBusLogConfigPropertiesIncludeDetailOutput) ToEventBusLogConfigPropertiesIncludeDetailOutput() EventBusLogConfigPropertiesIncludeDetailOutput {
+	return o
+}
+
+func (o EventBusLogConfigPropertiesIncludeDetailOutput) ToEventBusLogConfigPropertiesIncludeDetailOutputWithContext(ctx context.Context) EventBusLogConfigPropertiesIncludeDetailOutput {
+	return o
+}
+
+func (o EventBusLogConfigPropertiesIncludeDetailOutput) ToEventBusLogConfigPropertiesIncludeDetailPtrOutput() EventBusLogConfigPropertiesIncludeDetailPtrOutput {
+	return o.ToEventBusLogConfigPropertiesIncludeDetailPtrOutputWithContext(context.Background())
+}
+
+func (o EventBusLogConfigPropertiesIncludeDetailOutput) ToEventBusLogConfigPropertiesIncludeDetailPtrOutputWithContext(ctx context.Context) EventBusLogConfigPropertiesIncludeDetailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventBusLogConfigPropertiesIncludeDetail) *EventBusLogConfigPropertiesIncludeDetail {
+		return &v
+	}).(EventBusLogConfigPropertiesIncludeDetailPtrOutput)
+}
+
+func (o EventBusLogConfigPropertiesIncludeDetailOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventBusLogConfigPropertiesIncludeDetailOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventBusLogConfigPropertiesIncludeDetail) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventBusLogConfigPropertiesIncludeDetailOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventBusLogConfigPropertiesIncludeDetailOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventBusLogConfigPropertiesIncludeDetail) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventBusLogConfigPropertiesIncludeDetailPtrOutput struct{ *pulumi.OutputState }
+
+func (EventBusLogConfigPropertiesIncludeDetailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventBusLogConfigPropertiesIncludeDetail)(nil)).Elem()
+}
+
+func (o EventBusLogConfigPropertiesIncludeDetailPtrOutput) ToEventBusLogConfigPropertiesIncludeDetailPtrOutput() EventBusLogConfigPropertiesIncludeDetailPtrOutput {
+	return o
+}
+
+func (o EventBusLogConfigPropertiesIncludeDetailPtrOutput) ToEventBusLogConfigPropertiesIncludeDetailPtrOutputWithContext(ctx context.Context) EventBusLogConfigPropertiesIncludeDetailPtrOutput {
+	return o
+}
+
+func (o EventBusLogConfigPropertiesIncludeDetailPtrOutput) Elem() EventBusLogConfigPropertiesIncludeDetailOutput {
+	return o.ApplyT(func(v *EventBusLogConfigPropertiesIncludeDetail) EventBusLogConfigPropertiesIncludeDetail {
+		if v != nil {
+			return *v
+		}
+		var ret EventBusLogConfigPropertiesIncludeDetail
+		return ret
+	}).(EventBusLogConfigPropertiesIncludeDetailOutput)
+}
+
+func (o EventBusLogConfigPropertiesIncludeDetailPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventBusLogConfigPropertiesIncludeDetailPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventBusLogConfigPropertiesIncludeDetail) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventBusLogConfigPropertiesIncludeDetailInput is an input type that accepts values of the EventBusLogConfigPropertiesIncludeDetail enum
+// A concrete instance of `EventBusLogConfigPropertiesIncludeDetailInput` can be one of the following:
+//
+//	EventBusLogConfigPropertiesIncludeDetailFull
+//	EventBusLogConfigPropertiesIncludeDetailNone
+type EventBusLogConfigPropertiesIncludeDetailInput interface {
+	pulumi.Input
+
+	ToEventBusLogConfigPropertiesIncludeDetailOutput() EventBusLogConfigPropertiesIncludeDetailOutput
+	ToEventBusLogConfigPropertiesIncludeDetailOutputWithContext(context.Context) EventBusLogConfigPropertiesIncludeDetailOutput
+}
+
+var eventBusLogConfigPropertiesIncludeDetailPtrType = reflect.TypeOf((**EventBusLogConfigPropertiesIncludeDetail)(nil)).Elem()
+
+type EventBusLogConfigPropertiesIncludeDetailPtrInput interface {
+	pulumi.Input
+
+	ToEventBusLogConfigPropertiesIncludeDetailPtrOutput() EventBusLogConfigPropertiesIncludeDetailPtrOutput
+	ToEventBusLogConfigPropertiesIncludeDetailPtrOutputWithContext(context.Context) EventBusLogConfigPropertiesIncludeDetailPtrOutput
+}
+
+type eventBusLogConfigPropertiesIncludeDetailPtr string
+
+func EventBusLogConfigPropertiesIncludeDetailPtr(v string) EventBusLogConfigPropertiesIncludeDetailPtrInput {
+	return (*eventBusLogConfigPropertiesIncludeDetailPtr)(&v)
+}
+
+func (*eventBusLogConfigPropertiesIncludeDetailPtr) ElementType() reflect.Type {
+	return eventBusLogConfigPropertiesIncludeDetailPtrType
+}
+
+func (in *eventBusLogConfigPropertiesIncludeDetailPtr) ToEventBusLogConfigPropertiesIncludeDetailPtrOutput() EventBusLogConfigPropertiesIncludeDetailPtrOutput {
+	return pulumi.ToOutput(in).(EventBusLogConfigPropertiesIncludeDetailPtrOutput)
+}
+
+func (in *eventBusLogConfigPropertiesIncludeDetailPtr) ToEventBusLogConfigPropertiesIncludeDetailPtrOutputWithContext(ctx context.Context) EventBusLogConfigPropertiesIncludeDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventBusLogConfigPropertiesIncludeDetailPtrOutput)
+}
+
+// Configures the log level of the EventBus and determines which log messages are sent to Ingestion Hub for delivery.
+type EventBusLogConfigPropertiesLevel string
+
+const (
+	EventBusLogConfigPropertiesLevelInfo  = EventBusLogConfigPropertiesLevel("INFO")
+	EventBusLogConfigPropertiesLevelError = EventBusLogConfigPropertiesLevel("ERROR")
+	EventBusLogConfigPropertiesLevelTrace = EventBusLogConfigPropertiesLevel("TRACE")
+	EventBusLogConfigPropertiesLevelOff   = EventBusLogConfigPropertiesLevel("OFF")
+)
+
+func (EventBusLogConfigPropertiesLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventBusLogConfigPropertiesLevel)(nil)).Elem()
+}
+
+func (e EventBusLogConfigPropertiesLevel) ToEventBusLogConfigPropertiesLevelOutput() EventBusLogConfigPropertiesLevelOutput {
+	return pulumi.ToOutput(e).(EventBusLogConfigPropertiesLevelOutput)
+}
+
+func (e EventBusLogConfigPropertiesLevel) ToEventBusLogConfigPropertiesLevelOutputWithContext(ctx context.Context) EventBusLogConfigPropertiesLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventBusLogConfigPropertiesLevelOutput)
+}
+
+func (e EventBusLogConfigPropertiesLevel) ToEventBusLogConfigPropertiesLevelPtrOutput() EventBusLogConfigPropertiesLevelPtrOutput {
+	return e.ToEventBusLogConfigPropertiesLevelPtrOutputWithContext(context.Background())
+}
+
+func (e EventBusLogConfigPropertiesLevel) ToEventBusLogConfigPropertiesLevelPtrOutputWithContext(ctx context.Context) EventBusLogConfigPropertiesLevelPtrOutput {
+	return EventBusLogConfigPropertiesLevel(e).ToEventBusLogConfigPropertiesLevelOutputWithContext(ctx).ToEventBusLogConfigPropertiesLevelPtrOutputWithContext(ctx)
+}
+
+func (e EventBusLogConfigPropertiesLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventBusLogConfigPropertiesLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventBusLogConfigPropertiesLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventBusLogConfigPropertiesLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventBusLogConfigPropertiesLevelOutput struct{ *pulumi.OutputState }
+
+func (EventBusLogConfigPropertiesLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventBusLogConfigPropertiesLevel)(nil)).Elem()
+}
+
+func (o EventBusLogConfigPropertiesLevelOutput) ToEventBusLogConfigPropertiesLevelOutput() EventBusLogConfigPropertiesLevelOutput {
+	return o
+}
+
+func (o EventBusLogConfigPropertiesLevelOutput) ToEventBusLogConfigPropertiesLevelOutputWithContext(ctx context.Context) EventBusLogConfigPropertiesLevelOutput {
+	return o
+}
+
+func (o EventBusLogConfigPropertiesLevelOutput) ToEventBusLogConfigPropertiesLevelPtrOutput() EventBusLogConfigPropertiesLevelPtrOutput {
+	return o.ToEventBusLogConfigPropertiesLevelPtrOutputWithContext(context.Background())
+}
+
+func (o EventBusLogConfigPropertiesLevelOutput) ToEventBusLogConfigPropertiesLevelPtrOutputWithContext(ctx context.Context) EventBusLogConfigPropertiesLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventBusLogConfigPropertiesLevel) *EventBusLogConfigPropertiesLevel {
+		return &v
+	}).(EventBusLogConfigPropertiesLevelPtrOutput)
+}
+
+func (o EventBusLogConfigPropertiesLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventBusLogConfigPropertiesLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventBusLogConfigPropertiesLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventBusLogConfigPropertiesLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventBusLogConfigPropertiesLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventBusLogConfigPropertiesLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventBusLogConfigPropertiesLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (EventBusLogConfigPropertiesLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventBusLogConfigPropertiesLevel)(nil)).Elem()
+}
+
+func (o EventBusLogConfigPropertiesLevelPtrOutput) ToEventBusLogConfigPropertiesLevelPtrOutput() EventBusLogConfigPropertiesLevelPtrOutput {
+	return o
+}
+
+func (o EventBusLogConfigPropertiesLevelPtrOutput) ToEventBusLogConfigPropertiesLevelPtrOutputWithContext(ctx context.Context) EventBusLogConfigPropertiesLevelPtrOutput {
+	return o
+}
+
+func (o EventBusLogConfigPropertiesLevelPtrOutput) Elem() EventBusLogConfigPropertiesLevelOutput {
+	return o.ApplyT(func(v *EventBusLogConfigPropertiesLevel) EventBusLogConfigPropertiesLevel {
+		if v != nil {
+			return *v
+		}
+		var ret EventBusLogConfigPropertiesLevel
+		return ret
+	}).(EventBusLogConfigPropertiesLevelOutput)
+}
+
+func (o EventBusLogConfigPropertiesLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventBusLogConfigPropertiesLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventBusLogConfigPropertiesLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventBusLogConfigPropertiesLevelInput is an input type that accepts values of the EventBusLogConfigPropertiesLevel enum
+// A concrete instance of `EventBusLogConfigPropertiesLevelInput` can be one of the following:
+//
+//	EventBusLogConfigPropertiesLevelInfo
+//	EventBusLogConfigPropertiesLevelError
+//	EventBusLogConfigPropertiesLevelTrace
+//	EventBusLogConfigPropertiesLevelOff
+type EventBusLogConfigPropertiesLevelInput interface {
+	pulumi.Input
+
+	ToEventBusLogConfigPropertiesLevelOutput() EventBusLogConfigPropertiesLevelOutput
+	ToEventBusLogConfigPropertiesLevelOutputWithContext(context.Context) EventBusLogConfigPropertiesLevelOutput
+}
+
+var eventBusLogConfigPropertiesLevelPtrType = reflect.TypeOf((**EventBusLogConfigPropertiesLevel)(nil)).Elem()
+
+type EventBusLogConfigPropertiesLevelPtrInput interface {
+	pulumi.Input
+
+	ToEventBusLogConfigPropertiesLevelPtrOutput() EventBusLogConfigPropertiesLevelPtrOutput
+	ToEventBusLogConfigPropertiesLevelPtrOutputWithContext(context.Context) EventBusLogConfigPropertiesLevelPtrOutput
+}
+
+type eventBusLogConfigPropertiesLevelPtr string
+
+func EventBusLogConfigPropertiesLevelPtr(v string) EventBusLogConfigPropertiesLevelPtrInput {
+	return (*eventBusLogConfigPropertiesLevelPtr)(&v)
+}
+
+func (*eventBusLogConfigPropertiesLevelPtr) ElementType() reflect.Type {
+	return eventBusLogConfigPropertiesLevelPtrType
+}
+
+func (in *eventBusLogConfigPropertiesLevelPtr) ToEventBusLogConfigPropertiesLevelPtrOutput() EventBusLogConfigPropertiesLevelPtrOutput {
+	return pulumi.ToOutput(in).(EventBusLogConfigPropertiesLevelPtrOutput)
+}
+
+func (in *eventBusLogConfigPropertiesLevelPtr) ToEventBusLogConfigPropertiesLevelPtrOutputWithContext(ctx context.Context) EventBusLogConfigPropertiesLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventBusLogConfigPropertiesLevelPtrOutput)
+}
+
 // The state of the rule.
 type RuleStateEnum string
 
@@ -961,6 +1297,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuthParametersHttpMethodPtrInput)(nil)).Elem(), ConnectionOAuthParametersHttpMethod("GET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointReplicationStateInput)(nil)).Elem(), EndpointReplicationState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointReplicationStatePtrInput)(nil)).Elem(), EndpointReplicationState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusLogConfigPropertiesIncludeDetailInput)(nil)).Elem(), EventBusLogConfigPropertiesIncludeDetail("FULL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusLogConfigPropertiesIncludeDetailPtrInput)(nil)).Elem(), EventBusLogConfigPropertiesIncludeDetail("FULL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusLogConfigPropertiesLevelInput)(nil)).Elem(), EventBusLogConfigPropertiesLevel("INFO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusLogConfigPropertiesLevelPtrInput)(nil)).Elem(), EventBusLogConfigPropertiesLevel("INFO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleStateEnumInput)(nil)).Elem(), RuleStateEnum("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleStateEnumPtrInput)(nil)).Elem(), RuleStateEnum("DISABLED"))
 	pulumi.RegisterOutputType(ApiDestinationHttpMethodOutput{})
@@ -973,6 +1313,10 @@ func init() {
 	pulumi.RegisterOutputType(EndpointReplicationStatePtrOutput{})
 	pulumi.RegisterOutputType(EndpointStateEnumOutput{})
 	pulumi.RegisterOutputType(EndpointStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(EventBusLogConfigPropertiesIncludeDetailOutput{})
+	pulumi.RegisterOutputType(EventBusLogConfigPropertiesIncludeDetailPtrOutput{})
+	pulumi.RegisterOutputType(EventBusLogConfigPropertiesLevelOutput{})
+	pulumi.RegisterOutputType(EventBusLogConfigPropertiesLevelPtrOutput{})
 	pulumi.RegisterOutputType(RuleStateEnumOutput{})
 	pulumi.RegisterOutputType(RuleStateEnumPtrOutput{})
 }

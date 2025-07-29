@@ -24,13 +24,17 @@ type ProjectProfile struct {
 	// The description of the project profile.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The domain ID of the project profile.
-	DomainId         pulumi.StringOutput    `pulumi:"domainId"`
+	DomainId pulumi.StringOutput `pulumi:"domainId"`
+	// A domain ID of the project profile.
 	DomainIdentifier pulumi.StringPtrOutput `pulumi:"domainIdentifier"`
 	// The domain unit ID of the project profile.
-	DomainUnitId              pulumi.StringOutput                               `pulumi:"domainUnitId"`
-	DomainUnitIdentifier      pulumi.StringPtrOutput                            `pulumi:"domainUnitIdentifier"`
+	DomainUnitId pulumi.StringOutput `pulumi:"domainUnitId"`
+	// A domain unit ID of the project profile.
+	DomainUnitIdentifier pulumi.StringPtrOutput `pulumi:"domainUnitIdentifier"`
+	// Environment configurations of a project profile.
 	EnvironmentConfigurations ProjectProfileEnvironmentConfigurationArrayOutput `pulumi:"environmentConfigurations"`
-	Identifier                pulumi.StringOutput                               `pulumi:"identifier"`
+	// Project profile ID.
+	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// The timestamp at which a project profile was last updated.
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
 	// The name of a project profile.
@@ -84,9 +88,12 @@ func (ProjectProfileState) ElementType() reflect.Type {
 
 type projectProfileArgs struct {
 	// The description of the project profile.
-	Description               *string                                  `pulumi:"description"`
-	DomainIdentifier          *string                                  `pulumi:"domainIdentifier"`
-	DomainUnitIdentifier      *string                                  `pulumi:"domainUnitIdentifier"`
+	Description *string `pulumi:"description"`
+	// A domain ID of the project profile.
+	DomainIdentifier *string `pulumi:"domainIdentifier"`
+	// A domain unit ID of the project profile.
+	DomainUnitIdentifier *string `pulumi:"domainUnitIdentifier"`
+	// Environment configurations of a project profile.
 	EnvironmentConfigurations []ProjectProfileEnvironmentConfiguration `pulumi:"environmentConfigurations"`
 	// The name of a project profile.
 	Name *string `pulumi:"name"`
@@ -97,9 +104,12 @@ type projectProfileArgs struct {
 // The set of arguments for constructing a ProjectProfile resource.
 type ProjectProfileArgs struct {
 	// The description of the project profile.
-	Description               pulumi.StringPtrInput
-	DomainIdentifier          pulumi.StringPtrInput
-	DomainUnitIdentifier      pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// A domain ID of the project profile.
+	DomainIdentifier pulumi.StringPtrInput
+	// A domain unit ID of the project profile.
+	DomainUnitIdentifier pulumi.StringPtrInput
+	// Environment configurations of a project profile.
 	EnvironmentConfigurations ProjectProfileEnvironmentConfigurationArrayInput
 	// The name of a project profile.
 	Name pulumi.StringPtrInput
@@ -169,6 +179,7 @@ func (o ProjectProfileOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProjectProfile) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
 }
 
+// A domain ID of the project profile.
 func (o ProjectProfileOutput) DomainIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectProfile) pulumi.StringPtrOutput { return v.DomainIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -178,16 +189,19 @@ func (o ProjectProfileOutput) DomainUnitId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProjectProfile) pulumi.StringOutput { return v.DomainUnitId }).(pulumi.StringOutput)
 }
 
+// A domain unit ID of the project profile.
 func (o ProjectProfileOutput) DomainUnitIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectProfile) pulumi.StringPtrOutput { return v.DomainUnitIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// Environment configurations of a project profile.
 func (o ProjectProfileOutput) EnvironmentConfigurations() ProjectProfileEnvironmentConfigurationArrayOutput {
 	return o.ApplyT(func(v *ProjectProfile) ProjectProfileEnvironmentConfigurationArrayOutput {
 		return v.EnvironmentConfigurations
 	}).(ProjectProfileEnvironmentConfigurationArrayOutput)
 }
 
+// Project profile ID.
 func (o ProjectProfileOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProjectProfile) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
 }

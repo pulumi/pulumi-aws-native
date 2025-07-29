@@ -33,9 +33,15 @@ namespace Pulumi.AwsNative.DataZone
 
     public sealed class GetProjectProfileArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A domain ID of the project profile.
+        /// </summary>
         [Input("domainIdentifier", required: true)]
         public string DomainIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// Project profile ID.
+        /// </summary>
         [Input("identifier", required: true)]
         public string Identifier { get; set; } = null!;
 
@@ -47,9 +53,15 @@ namespace Pulumi.AwsNative.DataZone
 
     public sealed class GetProjectProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A domain ID of the project profile.
+        /// </summary>
         [Input("domainIdentifier", required: true)]
         public Input<string> DomainIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// Project profile ID.
+        /// </summary>
         [Input("identifier", required: true)]
         public Input<string> Identifier { get; set; } = null!;
 
@@ -83,11 +95,17 @@ namespace Pulumi.AwsNative.DataZone
         /// The domain unit ID of the project profile.
         /// </summary>
         public readonly string? DomainUnitId;
+        /// <summary>
+        /// Environment configurations of a project profile.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ProjectProfileEnvironmentConfiguration> EnvironmentConfigurations;
         /// <summary>
         /// The ID of the project profile.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Project profile ID.
+        /// </summary>
         public readonly string? Identifier;
         /// <summary>
         /// The timestamp at which a project profile was last updated.

@@ -25,9 +25,17 @@ __all__ = [
 
 @pulumi.output_type
 class DataFilterExpressionProperties(dict):
+    """
+    See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
+    """
     def __init__(__self__, *,
                  dimensions: Optional['outputs.DataFilterExpressionPropertiesDimensionsProperties'] = None,
                  tags: Optional['outputs.DataFilterExpressionPropertiesTagsProperties'] = None):
+        """
+        See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
+        :param 'DataFilterExpressionPropertiesDimensionsProperties' dimensions: The specific `Dimension` to use for `Expression` .
+        :param 'DataFilterExpressionPropertiesTagsProperties' tags: The specific `Tag` to use for `Expression` .
+        """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
         if tags is not None:
@@ -36,19 +44,31 @@ class DataFilterExpressionProperties(dict):
     @property
     @pulumi.getter
     def dimensions(self) -> Optional['outputs.DataFilterExpressionPropertiesDimensionsProperties']:
+        """
+        The specific `Dimension` to use for `Expression` .
+        """
         return pulumi.get(self, "dimensions")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional['outputs.DataFilterExpressionPropertiesTagsProperties']:
+        """
+        The specific `Tag` to use for `Expression` .
+        """
         return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
 class DataFilterExpressionPropertiesDimensionsProperties(dict):
+    """
+    The specific `Dimension` to use for `Expression` .
+    """
     def __init__(__self__, *,
                  key: Optional['BillingViewDimensionKey'] = None,
                  values: Optional[Sequence[builtins.str]] = None):
+        """
+        The specific `Dimension` to use for `Expression` .
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if values is not None:
@@ -67,9 +87,15 @@ class DataFilterExpressionPropertiesDimensionsProperties(dict):
 
 @pulumi.output_type
 class DataFilterExpressionPropertiesTagsProperties(dict):
+    """
+    The specific `Tag` to use for `Expression` .
+    """
     def __init__(__self__, *,
                  key: Optional[builtins.str] = None,
                  values: Optional[Sequence[builtins.str]] = None):
+        """
+        The specific `Tag` to use for `Expression` .
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if values is not None:

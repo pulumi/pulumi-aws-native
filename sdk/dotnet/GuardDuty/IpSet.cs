@@ -34,6 +34,14 @@ namespace Pulumi.AwsNative.GuardDuty
         public Output<string?> DetectorId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
+        /// 
+        /// When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
+        /// </summary>
+        [Output("expectedBucketOwner")]
+        public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
+
+        /// <summary>
         /// The format of the file that contains the IPSet.
         /// </summary>
         [Output("format")]
@@ -125,6 +133,14 @@ namespace Pulumi.AwsNative.GuardDuty
         /// </summary>
         [Input("detectorId")]
         public Input<string>? DetectorId { get; set; }
+
+        /// <summary>
+        /// The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
+        /// 
+        /// When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
+        /// </summary>
+        [Input("expectedBucketOwner")]
+        public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
         /// The format of the file that contains the IPSet.

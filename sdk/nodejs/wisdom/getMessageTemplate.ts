@@ -50,6 +50,10 @@ export interface GetMessageTemplateResult {
      */
     readonly messageTemplateArn?: string;
     /**
+     * List of message template attachments
+     */
+    readonly messageTemplateAttachments?: outputs.wisdom.MessageTemplateAttachment[];
+    /**
      * The content SHA256 of the message template.
      */
     readonly messageTemplateContentSha256?: string;

@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Billing
 
     public sealed class GetBillingViewArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.Billing
 
     public sealed class GetBillingViewInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -57,13 +63,25 @@ namespace Pulumi.AwsNative.Billing
     [OutputType]
     public sealed class GetBillingViewResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The type of billing group.
+        /// </summary>
         public readonly Pulumi.AwsNative.Billing.BillingViewType? BillingViewType;
         /// <summary>
         /// The time when the billing view was created.
         /// </summary>
         public readonly double? CreatedAt;
+        /// <summary>
+        /// See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
+        /// </summary>
         public readonly Outputs.DataFilterExpressionProperties? DataFilterExpression;
+        /// <summary>
+        /// The account owner of the billing view.
+        /// </summary>
         public readonly string? OwnerAccountId;
         /// <summary>
         /// An array of key-value pairs associated to the billing view being created.

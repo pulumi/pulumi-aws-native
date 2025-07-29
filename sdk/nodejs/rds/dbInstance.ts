@@ -163,16 +163,13 @@ export class DbInstance extends pulumi.CustomResource {
     public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
      * The location for storing automated backups and manual snapshots.
-     *
-     * Valid Values:
-     *
-     * - `local` (Dedicated Local Zone)
-     * - `outposts` ( AWS Outposts)
-     * - `region` ( AWS Region )
-     *
-     * Default: `region`
-     *
-     * For more information, see [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide* .
+     *  Valid Values:
+     *   +  ``local`` (Dedicated Local Zone)
+     *   +  ``outposts`` (AWS Outposts)
+     *   +  ``region`` (AWS-Region)
+     *   
+     *  Default: ``region``
+     *  For more information, see [Working with Amazon RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide*.
      */
     public readonly backupTarget!: pulumi.Output<string | undefined>;
     /**
@@ -249,6 +246,10 @@ export class DbInstance extends pulumi.CustomResource {
      *   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     public readonly dbInstanceIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The current state of this DB instance.
+     */
+    public /*out*/ readonly dbInstanceStatus!: pulumi.Output<string>;
     /**
      * The meaning of this parameter differs according to the database engine you use.
      *   If you specify the ``DBSnapshotIdentifier`` property, this property only applies to RDS for Oracle.
@@ -508,6 +509,10 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
+     * The date and time when the DB instance was created.
+     */
+    public /*out*/ readonly instanceCreateTime!: pulumi.Output<string>;
+    /**
      * The number of I/O operations per second (IOPS) that the database provisions. The value must be equal to or greater than 1000. 
      *  If you specify this property, you must follow the range of allowed ratios of your requested IOPS rate to the amount of storage that you allocate (IOPS to allocated storage). For example, you can provision an Oracle database instance with 1000 IOPS and 200 GiB of storage (a ratio of 5:1), or specify 2000 IOPS with 200 GiB of storage (a ratio of 10:1). For more information, see [Amazon RDS Provisioned IOPS Storage to Improve Performance](https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/CHAP_Storage.html#USER_PIOPS) in the *Amazon RDS User Guide*.
      *   If you specify ``io1`` for the ``StorageType`` property, then you must also specify the ``Iops`` property.
@@ -516,6 +521,10 @@ export class DbInstance extends pulumi.CustomResource {
      *   +  For RDS for SQL Server - Must be a multiple between 1 and 50 of the storage amount for the DB instance.
      */
     public readonly iops!: pulumi.Output<number | undefined>;
+    /**
+     * Indicates whether an upgrade is recommended for the storage file system configuration on the DB instance.
+     */
+    public /*out*/ readonly isStorageConfigUpgradeAvailable!: pulumi.Output<boolean>;
     /**
      * The ARN of the AWS KMS key that's used to encrypt the DB instance, such as ``arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef``. If you enable the StorageEncrypted property but don't specify this property, AWS CloudFormation uses the default KMS key. If you specify this property, you must set the StorageEncrypted property to true. 
      *  If you specify the ``SourceDBInstanceIdentifier`` or ``SourceDbiResourceId`` property, don't specify this property. The value is inherited from the source DB instance, and if the DB instance is encrypted, the specified ``KmsKeyId`` property is used. However, if the source DB instance is in a different AWS Region, you must specify a KMS key ID.
@@ -527,6 +536,10 @@ export class DbInstance extends pulumi.CustomResource {
      *  Not applicable. The KMS key identifier is managed by the DB cluster.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * The latest time to which a database in this DB instance can be restored with point-in-time restore.
+     */
+    public /*out*/ readonly latestRestorableTime!: pulumi.Output<string>;
     /**
      * License model information for this DB instance.
      *   Valid Values:
@@ -542,6 +555,7 @@ export class DbInstance extends pulumi.CustomResource {
      *   If you've specified ``DBSecurityGroups`` and then you update the license model, AWS CloudFormation replaces the underlying DB instance. This will incur some interruptions to database availability.
      */
     public readonly licenseModel!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly listenerEndpoint!: pulumi.Output<outputs.rds.DbInstanceEndpoint>;
     /**
      * Specifies whether to manage the master user password with AWS Secrets Manager.
      *  For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.*
@@ -733,6 +747,14 @@ export class DbInstance extends pulumi.CustomResource {
      *  The default behavior value depends on your VPC setup and the database subnet group. For more information, see the ``PubliclyAccessible`` parameter in the [CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) in the *Amazon RDS API Reference*.
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
+    /**
+     * The identifiers of Aurora DB clusters to which the RDS DB instance is replicated as a read replica.
+     */
+    public /*out*/ readonly readReplicaDbClusterIdentifiers!: pulumi.Output<string[]>;
+    /**
+     * The identifiers of the read replicas associated with this DB instance.
+     */
+    public /*out*/ readonly readReplicaDbInstanceIdentifiers!: pulumi.Output<string[]>;
     /**
      * The open mode of an Oracle read replica. For more information, see [Working with Oracle Read Replicas for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) in the *Amazon RDS User Guide*.
      *  This setting is only supported in RDS for Oracle.
@@ -938,8 +960,15 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["vpcSecurityGroups"] = args ? args.vpcSecurityGroups : undefined;
             resourceInputs["certificateDetails"] = undefined /*out*/;
             resourceInputs["dbInstanceArn"] = undefined /*out*/;
+            resourceInputs["dbInstanceStatus"] = undefined /*out*/;
             resourceInputs["dbiResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["instanceCreateTime"] = undefined /*out*/;
+            resourceInputs["isStorageConfigUpgradeAvailable"] = undefined /*out*/;
+            resourceInputs["latestRestorableTime"] = undefined /*out*/;
+            resourceInputs["listenerEndpoint"] = undefined /*out*/;
+            resourceInputs["readReplicaDbClusterIdentifiers"] = undefined /*out*/;
+            resourceInputs["readReplicaDbInstanceIdentifiers"] = undefined /*out*/;
         } else {
             resourceInputs["allocatedStorage"] = undefined /*out*/;
             resourceInputs["allowMajorVersionUpgrade"] = undefined /*out*/;
@@ -964,6 +993,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["dbInstanceArn"] = undefined /*out*/;
             resourceInputs["dbInstanceClass"] = undefined /*out*/;
             resourceInputs["dbInstanceIdentifier"] = undefined /*out*/;
+            resourceInputs["dbInstanceStatus"] = undefined /*out*/;
             resourceInputs["dbName"] = undefined /*out*/;
             resourceInputs["dbParameterGroupName"] = undefined /*out*/;
             resourceInputs["dbSecurityGroups"] = undefined /*out*/;
@@ -987,9 +1017,13 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["engine"] = undefined /*out*/;
             resourceInputs["engineLifecycleSupport"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
+            resourceInputs["instanceCreateTime"] = undefined /*out*/;
             resourceInputs["iops"] = undefined /*out*/;
+            resourceInputs["isStorageConfigUpgradeAvailable"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["latestRestorableTime"] = undefined /*out*/;
             resourceInputs["licenseModel"] = undefined /*out*/;
+            resourceInputs["listenerEndpoint"] = undefined /*out*/;
             resourceInputs["manageMasterUserPassword"] = undefined /*out*/;
             resourceInputs["masterUserPassword"] = undefined /*out*/;
             resourceInputs["masterUserSecret"] = undefined /*out*/;
@@ -1009,6 +1043,8 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["processorFeatures"] = undefined /*out*/;
             resourceInputs["promotionTier"] = undefined /*out*/;
             resourceInputs["publiclyAccessible"] = undefined /*out*/;
+            resourceInputs["readReplicaDbClusterIdentifiers"] = undefined /*out*/;
+            resourceInputs["readReplicaDbInstanceIdentifiers"] = undefined /*out*/;
             resourceInputs["replicaMode"] = undefined /*out*/;
             resourceInputs["restoreTime"] = undefined /*out*/;
             resourceInputs["sourceDbClusterIdentifier"] = undefined /*out*/;
@@ -1144,16 +1180,13 @@ export interface DbInstanceArgs {
     backupRetentionPeriod?: pulumi.Input<number>;
     /**
      * The location for storing automated backups and manual snapshots.
-     *
-     * Valid Values:
-     *
-     * - `local` (Dedicated Local Zone)
-     * - `outposts` ( AWS Outposts)
-     * - `region` ( AWS Region )
-     *
-     * Default: `region`
-     *
-     * For more information, see [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide* .
+     *  Valid Values:
+     *   +  ``local`` (Dedicated Local Zone)
+     *   +  ``outposts`` (AWS Outposts)
+     *   +  ``region`` (AWS-Region)
+     *   
+     *  Default: ``region``
+     *  For more information, see [Working with Amazon RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide*.
      */
     backupTarget?: pulumi.Input<string>;
     /**

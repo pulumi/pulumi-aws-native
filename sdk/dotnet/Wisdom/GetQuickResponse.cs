@@ -67,6 +67,9 @@ namespace Pulumi.AwsNative.Wisdom
         /// The Amazon Connect contact channels this quick response applies to.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Wisdom.QuickResponseChannelType> Channels;
+        /// <summary>
+        /// The content of the quick response.
+        /// </summary>
         public readonly Outputs.QuickResponseContentProvider? Content;
         /// <summary>
         /// The media type of the quick response content.
@@ -79,6 +82,9 @@ namespace Pulumi.AwsNative.Wisdom
         /// The description of the quick response.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The configuration information of the user groups that the quick response is accessible to.
+        /// </summary>
         public readonly Outputs.QuickResponseGroupingConfiguration? GroupingConfiguration;
         /// <summary>
         /// Whether the quick response is active.
@@ -104,6 +110,9 @@ namespace Pulumi.AwsNative.Wisdom
         /// The shortcut key of the quick response. The value should be unique across the knowledge base.
         /// </summary>
         public readonly string? ShortcutKey;
+        /// <summary>
+        /// The status of the quick response data.
+        /// </summary>
         public readonly Pulumi.AwsNative.Wisdom.QuickResponseStatus? Status;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

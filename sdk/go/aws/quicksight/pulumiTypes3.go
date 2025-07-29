@@ -13,6 +13,143 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateListControlSelectAllOptions struct {
+	// The visibility configuration of the `Select all` options in a list control.
+	Visibility interface{} `pulumi:"visibility"`
+}
+
+// TemplateListControlSelectAllOptionsInput is an input type that accepts TemplateListControlSelectAllOptionsArgs and TemplateListControlSelectAllOptionsOutput values.
+// You can construct a concrete instance of `TemplateListControlSelectAllOptionsInput` via:
+//
+//	TemplateListControlSelectAllOptionsArgs{...}
+type TemplateListControlSelectAllOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateListControlSelectAllOptionsOutput() TemplateListControlSelectAllOptionsOutput
+	ToTemplateListControlSelectAllOptionsOutputWithContext(context.Context) TemplateListControlSelectAllOptionsOutput
+}
+
+type TemplateListControlSelectAllOptionsArgs struct {
+	// The visibility configuration of the `Select all` options in a list control.
+	Visibility pulumi.Input `pulumi:"visibility"`
+}
+
+func (TemplateListControlSelectAllOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateListControlSelectAllOptions)(nil)).Elem()
+}
+
+func (i TemplateListControlSelectAllOptionsArgs) ToTemplateListControlSelectAllOptionsOutput() TemplateListControlSelectAllOptionsOutput {
+	return i.ToTemplateListControlSelectAllOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateListControlSelectAllOptionsArgs) ToTemplateListControlSelectAllOptionsOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlSelectAllOptionsOutput)
+}
+
+func (i TemplateListControlSelectAllOptionsArgs) ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput {
+	return i.ToTemplateListControlSelectAllOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateListControlSelectAllOptionsArgs) ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlSelectAllOptionsOutput).ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateListControlSelectAllOptionsPtrInput is an input type that accepts TemplateListControlSelectAllOptionsArgs, TemplateListControlSelectAllOptionsPtr and TemplateListControlSelectAllOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateListControlSelectAllOptionsPtrInput` via:
+//
+//	        TemplateListControlSelectAllOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateListControlSelectAllOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput
+	ToTemplateListControlSelectAllOptionsPtrOutputWithContext(context.Context) TemplateListControlSelectAllOptionsPtrOutput
+}
+
+type templateListControlSelectAllOptionsPtrType TemplateListControlSelectAllOptionsArgs
+
+func TemplateListControlSelectAllOptionsPtr(v *TemplateListControlSelectAllOptionsArgs) TemplateListControlSelectAllOptionsPtrInput {
+	return (*templateListControlSelectAllOptionsPtrType)(v)
+}
+
+func (*templateListControlSelectAllOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateListControlSelectAllOptions)(nil)).Elem()
+}
+
+func (i *templateListControlSelectAllOptionsPtrType) ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput {
+	return i.ToTemplateListControlSelectAllOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateListControlSelectAllOptionsPtrType) ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateListControlSelectAllOptionsPtrOutput)
+}
+
+type TemplateListControlSelectAllOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateListControlSelectAllOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateListControlSelectAllOptions)(nil)).Elem()
+}
+
+func (o TemplateListControlSelectAllOptionsOutput) ToTemplateListControlSelectAllOptionsOutput() TemplateListControlSelectAllOptionsOutput {
+	return o
+}
+
+func (o TemplateListControlSelectAllOptionsOutput) ToTemplateListControlSelectAllOptionsOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsOutput {
+	return o
+}
+
+func (o TemplateListControlSelectAllOptionsOutput) ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput {
+	return o.ToTemplateListControlSelectAllOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateListControlSelectAllOptionsOutput) ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateListControlSelectAllOptions) *TemplateListControlSelectAllOptions {
+		return &v
+	}).(TemplateListControlSelectAllOptionsPtrOutput)
+}
+
+// The visibility configuration of the `Select all` options in a list control.
+func (o TemplateListControlSelectAllOptionsOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateListControlSelectAllOptions) interface{} { return v.Visibility }).(pulumi.AnyOutput)
+}
+
+type TemplateListControlSelectAllOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateListControlSelectAllOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateListControlSelectAllOptions)(nil)).Elem()
+}
+
+func (o TemplateListControlSelectAllOptionsPtrOutput) ToTemplateListControlSelectAllOptionsPtrOutput() TemplateListControlSelectAllOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateListControlSelectAllOptionsPtrOutput) ToTemplateListControlSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateListControlSelectAllOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateListControlSelectAllOptionsPtrOutput) Elem() TemplateListControlSelectAllOptionsOutput {
+	return o.ApplyT(func(v *TemplateListControlSelectAllOptions) TemplateListControlSelectAllOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateListControlSelectAllOptions
+		return ret
+	}).(TemplateListControlSelectAllOptionsOutput)
+}
+
+// The visibility configuration of the `Select all` options in a list control.
+func (o TemplateListControlSelectAllOptionsPtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateListControlSelectAllOptions) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Visibility
+	}).(pulumi.AnyOutput)
+}
+
 type TemplateLoadingAnimation struct {
 	// The visibility configuration of `LoadingAnimation` .
 	Visibility interface{} `pulumi:"visibility"`
@@ -45868,6 +46005,139 @@ func (o TopicConfigOptionsPtrOutput) QBusinessInsightsEnabled() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
+type TopicCustomInstructions struct {
+	CustomInstructionsString string `pulumi:"customInstructionsString"`
+}
+
+// TopicCustomInstructionsInput is an input type that accepts TopicCustomInstructionsArgs and TopicCustomInstructionsOutput values.
+// You can construct a concrete instance of `TopicCustomInstructionsInput` via:
+//
+//	TopicCustomInstructionsArgs{...}
+type TopicCustomInstructionsInput interface {
+	pulumi.Input
+
+	ToTopicCustomInstructionsOutput() TopicCustomInstructionsOutput
+	ToTopicCustomInstructionsOutputWithContext(context.Context) TopicCustomInstructionsOutput
+}
+
+type TopicCustomInstructionsArgs struct {
+	CustomInstructionsString pulumi.StringInput `pulumi:"customInstructionsString"`
+}
+
+func (TopicCustomInstructionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicCustomInstructions)(nil)).Elem()
+}
+
+func (i TopicCustomInstructionsArgs) ToTopicCustomInstructionsOutput() TopicCustomInstructionsOutput {
+	return i.ToTopicCustomInstructionsOutputWithContext(context.Background())
+}
+
+func (i TopicCustomInstructionsArgs) ToTopicCustomInstructionsOutputWithContext(ctx context.Context) TopicCustomInstructionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicCustomInstructionsOutput)
+}
+
+func (i TopicCustomInstructionsArgs) ToTopicCustomInstructionsPtrOutput() TopicCustomInstructionsPtrOutput {
+	return i.ToTopicCustomInstructionsPtrOutputWithContext(context.Background())
+}
+
+func (i TopicCustomInstructionsArgs) ToTopicCustomInstructionsPtrOutputWithContext(ctx context.Context) TopicCustomInstructionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicCustomInstructionsOutput).ToTopicCustomInstructionsPtrOutputWithContext(ctx)
+}
+
+// TopicCustomInstructionsPtrInput is an input type that accepts TopicCustomInstructionsArgs, TopicCustomInstructionsPtr and TopicCustomInstructionsPtrOutput values.
+// You can construct a concrete instance of `TopicCustomInstructionsPtrInput` via:
+//
+//	        TopicCustomInstructionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TopicCustomInstructionsPtrInput interface {
+	pulumi.Input
+
+	ToTopicCustomInstructionsPtrOutput() TopicCustomInstructionsPtrOutput
+	ToTopicCustomInstructionsPtrOutputWithContext(context.Context) TopicCustomInstructionsPtrOutput
+}
+
+type topicCustomInstructionsPtrType TopicCustomInstructionsArgs
+
+func TopicCustomInstructionsPtr(v *TopicCustomInstructionsArgs) TopicCustomInstructionsPtrInput {
+	return (*topicCustomInstructionsPtrType)(v)
+}
+
+func (*topicCustomInstructionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicCustomInstructions)(nil)).Elem()
+}
+
+func (i *topicCustomInstructionsPtrType) ToTopicCustomInstructionsPtrOutput() TopicCustomInstructionsPtrOutput {
+	return i.ToTopicCustomInstructionsPtrOutputWithContext(context.Background())
+}
+
+func (i *topicCustomInstructionsPtrType) ToTopicCustomInstructionsPtrOutputWithContext(ctx context.Context) TopicCustomInstructionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicCustomInstructionsPtrOutput)
+}
+
+type TopicCustomInstructionsOutput struct{ *pulumi.OutputState }
+
+func (TopicCustomInstructionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicCustomInstructions)(nil)).Elem()
+}
+
+func (o TopicCustomInstructionsOutput) ToTopicCustomInstructionsOutput() TopicCustomInstructionsOutput {
+	return o
+}
+
+func (o TopicCustomInstructionsOutput) ToTopicCustomInstructionsOutputWithContext(ctx context.Context) TopicCustomInstructionsOutput {
+	return o
+}
+
+func (o TopicCustomInstructionsOutput) ToTopicCustomInstructionsPtrOutput() TopicCustomInstructionsPtrOutput {
+	return o.ToTopicCustomInstructionsPtrOutputWithContext(context.Background())
+}
+
+func (o TopicCustomInstructionsOutput) ToTopicCustomInstructionsPtrOutputWithContext(ctx context.Context) TopicCustomInstructionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicCustomInstructions) *TopicCustomInstructions {
+		return &v
+	}).(TopicCustomInstructionsPtrOutput)
+}
+
+func (o TopicCustomInstructionsOutput) CustomInstructionsString() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicCustomInstructions) string { return v.CustomInstructionsString }).(pulumi.StringOutput)
+}
+
+type TopicCustomInstructionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicCustomInstructionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicCustomInstructions)(nil)).Elem()
+}
+
+func (o TopicCustomInstructionsPtrOutput) ToTopicCustomInstructionsPtrOutput() TopicCustomInstructionsPtrOutput {
+	return o
+}
+
+func (o TopicCustomInstructionsPtrOutput) ToTopicCustomInstructionsPtrOutputWithContext(ctx context.Context) TopicCustomInstructionsPtrOutput {
+	return o
+}
+
+func (o TopicCustomInstructionsPtrOutput) Elem() TopicCustomInstructionsOutput {
+	return o.ApplyT(func(v *TopicCustomInstructions) TopicCustomInstructions {
+		if v != nil {
+			return *v
+		}
+		var ret TopicCustomInstructions
+		return ret
+	}).(TopicCustomInstructionsOutput)
+}
+
+func (o TopicCustomInstructionsPtrOutput) CustomInstructionsString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicCustomInstructions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CustomInstructionsString
+	}).(pulumi.StringPtrOutput)
+}
+
 type TopicDataAggregation struct {
 	// The level of time precision that is used to aggregate `DateTime` values.
 	DatasetRowDateGranularity *TopicTimeGranularity `pulumi:"datasetRowDateGranularity"`
@@ -49007,6 +49277,16 @@ func (o TopicSingularFilterConstantPtrOutput) SingularConstant() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//
+//	resource.</p>
+type TopicTag struct {
+	// <p>Tag key.</p>
+	Key string `pulumi:"key"`
+	// <p>Tag value.</p>
+	Value string `pulumi:"value"`
+}
+
 // <p>The structure that contains information about a network interface.</p>
 type VpcConnectionNetworkInterface struct {
 	// <p>The availability zone that the network interface resides in.</p>
@@ -49092,6 +49372,8 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSelectAllOptionsInput)(nil)).Elem(), TemplateListControlSelectAllOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateListControlSelectAllOptionsPtrInput)(nil)).Elem(), TemplateListControlSelectAllOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLoadingAnimationInput)(nil)).Elem(), TemplateLoadingAnimationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLoadingAnimationPtrInput)(nil)).Elem(), TemplateLoadingAnimationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLocalNavigationConfigurationInput)(nil)).Elem(), TemplateLocalNavigationConfigurationArgs{})
@@ -49602,6 +49884,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicComparativeOrderPtrInput)(nil)).Elem(), TopicComparativeOrderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicConfigOptionsInput)(nil)).Elem(), TopicConfigOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicConfigOptionsPtrInput)(nil)).Elem(), TopicConfigOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicCustomInstructionsInput)(nil)).Elem(), TopicCustomInstructionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicCustomInstructionsPtrInput)(nil)).Elem(), TopicCustomInstructionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicDataAggregationInput)(nil)).Elem(), TopicDataAggregationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicDataAggregationPtrInput)(nil)).Elem(), TopicDataAggregationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicDatasetMetadataInput)(nil)).Elem(), TopicDatasetMetadataArgs{})
@@ -49638,6 +49922,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateListControlSelectAllOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateListControlSelectAllOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateLoadingAnimationOutput{})
 	pulumi.RegisterOutputType(TemplateLoadingAnimationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateLocalNavigationConfigurationOutput{})
@@ -50157,6 +50443,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicComparativeOrderPtrOutput{})
 	pulumi.RegisterOutputType(TopicConfigOptionsOutput{})
 	pulumi.RegisterOutputType(TopicConfigOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TopicCustomInstructionsOutput{})
+	pulumi.RegisterOutputType(TopicCustomInstructionsPtrOutput{})
 	pulumi.RegisterOutputType(TopicDataAggregationOutput{})
 	pulumi.RegisterOutputType(TopicDataAggregationPtrOutput{})
 	pulumi.RegisterOutputType(TopicDatasetMetadataOutput{})

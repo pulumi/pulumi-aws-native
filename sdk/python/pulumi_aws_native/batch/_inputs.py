@@ -133,6 +133,8 @@ __all__ = [
     'SchedulingPolicyFairsharePolicyArgsDict',
     'SchedulingPolicyShareAttributesArgs',
     'SchedulingPolicyShareAttributesArgsDict',
+    'ServiceEnvironmentCapacityLimitArgs',
+    'ServiceEnvironmentCapacityLimitArgsDict',
 ]
 
 MYPY = False
@@ -6909,5 +6911,41 @@ class SchedulingPolicyShareAttributesArgs:
     @weight_factor.setter
     def weight_factor(self, value: Optional[pulumi.Input[builtins.float]]):
         pulumi.set(self, "weight_factor", value)
+
+
+if not MYPY:
+    class ServiceEnvironmentCapacityLimitArgsDict(TypedDict):
+        capacity_unit: NotRequired[pulumi.Input[builtins.str]]
+        max_capacity: NotRequired[pulumi.Input[builtins.int]]
+elif False:
+    ServiceEnvironmentCapacityLimitArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceEnvironmentCapacityLimitArgs:
+    def __init__(__self__, *,
+                 capacity_unit: Optional[pulumi.Input[builtins.str]] = None,
+                 max_capacity: Optional[pulumi.Input[builtins.int]] = None):
+        if capacity_unit is not None:
+            pulumi.set(__self__, "capacity_unit", capacity_unit)
+        if max_capacity is not None:
+            pulumi.set(__self__, "max_capacity", max_capacity)
+
+    @property
+    @pulumi.getter(name="capacityUnit")
+    def capacity_unit(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "capacity_unit")
+
+    @capacity_unit.setter
+    def capacity_unit(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "capacity_unit", value)
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "max_capacity")
+
+    @max_capacity.setter
+    def max_capacity(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_capacity", value)
 
 

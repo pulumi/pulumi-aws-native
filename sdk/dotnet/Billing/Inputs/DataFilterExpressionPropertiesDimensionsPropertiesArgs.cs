@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Billing.Inputs
 {
 
+    /// <summary>
+    /// The specific `Dimension` to use for `Expression` .
+    /// </summary>
     public sealed class DataFilterExpressionPropertiesDimensionsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]

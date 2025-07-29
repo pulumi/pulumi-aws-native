@@ -27,6 +27,11 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
             set => _baseUrls = value;
         }
 
+        /// <summary>
+        /// The layout of the DASH manifest that MediaPackage produces. `STANDARD` indicates a default manifest, which is compacted. `NONE` indicates a full manifest.
+        /// 
+        /// For information about compactness, see [DASH manifest compactness](https://docs.aws.amazon.com/mediapackage/latest/userguide/compacted.html) in the *AWS Elemental MediaPackage v2 User Guide* .
+        /// </summary>
         [Input("compactness")]
         public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashCompactness>? Compactness { get; set; }
 
@@ -36,6 +41,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         [Input("drmSignaling")]
         public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashDrmSignaling>? DrmSignaling { get; set; }
 
+        /// <summary>
+        /// For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.
+        /// </summary>
         [Input("dvbSettings")]
         public Input<Inputs.OriginEndpointDashDvbSettingsArgs>? DvbSettings { get; set; }
 
@@ -93,6 +101,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
             set => _profiles = value;
         }
 
+        /// <summary>
+        /// Details about the content that you want MediaPackage to pass through in the manifest to the playback device.
+        /// </summary>
         [Input("programInformation")]
         public Input<Inputs.OriginEndpointDashProgramInformationArgs>? ProgramInformation { get; set; }
 
@@ -112,6 +123,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         [Input("segmentTemplateFormat")]
         public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashSegmentTemplateFormat>? SegmentTemplateFormat { get; set; }
 
+        /// <summary>
+        /// The configuration for DASH subtitles.
+        /// </summary>
         [Input("subtitleConfiguration")]
         public Input<Inputs.OriginEndpointDashSubtitleConfigurationArgs>? SubtitleConfiguration { get; set; }
 

@@ -26,6 +26,8 @@ type EventBus struct {
 	EventSourceName pulumi.StringPtrOutput `pulumi:"eventSourceName"`
 	// Kms Key Identifier used to encrypt events at rest in the event bus.
 	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
+	// The logging configuration settings for vended logs.
+	LogConfig LogConfigPropertiesPtrOutput `pulumi:"logConfig"`
 	// The name of the event bus.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A JSON string that describes the permission policy statement for the event bus.
@@ -88,6 +90,8 @@ type eventBusArgs struct {
 	EventSourceName *string `pulumi:"eventSourceName"`
 	// Kms Key Identifier used to encrypt events at rest in the event bus.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
+	// The logging configuration settings for vended logs.
+	LogConfig *LogConfigProperties `pulumi:"logConfig"`
 	// The name of the event bus.
 	Name *string `pulumi:"name"`
 	// A JSON string that describes the permission policy statement for the event bus.
@@ -108,6 +112,8 @@ type EventBusArgs struct {
 	EventSourceName pulumi.StringPtrInput
 	// Kms Key Identifier used to encrypt events at rest in the event bus.
 	KmsKeyIdentifier pulumi.StringPtrInput
+	// The logging configuration settings for vended logs.
+	LogConfig LogConfigPropertiesPtrInput
 	// The name of the event bus.
 	Name pulumi.StringPtrInput
 	// A JSON string that describes the permission policy statement for the event bus.
@@ -178,6 +184,11 @@ func (o EventBusOutput) EventSourceName() pulumi.StringPtrOutput {
 // Kms Key Identifier used to encrypt events at rest in the event bus.
 func (o EventBusOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The logging configuration settings for vended logs.
+func (o EventBusOutput) LogConfig() LogConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v *EventBus) LogConfigPropertiesPtrOutput { return v.LogConfig }).(LogConfigPropertiesPtrOutput)
 }
 
 // The name of the event bus.

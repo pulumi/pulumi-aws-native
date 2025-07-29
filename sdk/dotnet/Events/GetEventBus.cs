@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.Events
         /// </summary>
         public readonly string? KmsKeyIdentifier;
         /// <summary>
+        /// The logging configuration settings for vended logs.
+        /// </summary>
+        public readonly Outputs.LogConfigProperties? LogConfig;
+        /// <summary>
         /// A JSON string that describes the permission policy statement for the event bus.
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
@@ -100,6 +104,8 @@ namespace Pulumi.AwsNative.Events
 
             string? kmsKeyIdentifier,
 
+            Outputs.LogConfigProperties? logConfig,
+
             object? policy,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
@@ -108,6 +114,7 @@ namespace Pulumi.AwsNative.Events
             DeadLetterConfig = deadLetterConfig;
             Description = description;
             KmsKeyIdentifier = kmsKeyIdentifier;
+            LogConfig = logConfig;
             Policy = policy;
             Tags = tags;
         }

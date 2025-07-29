@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration for test traffic routing rules used during blue/green deployments with Amazon ECS Service Connect. This allows you to route a portion of traffic to the new service revision of your service for testing before shifting all production traffic.
+        /// </summary>
         [Input("testTrafficRules")]
         public Input<Inputs.ServiceConnectTestTrafficRulesArgs>? TestTrafficRules { get; set; }
 

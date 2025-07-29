@@ -36,7 +36,7 @@ type InvestigationGroup struct {
 	LastModifiedAt pulumi.StringOutput `pulumi:"lastModifiedAt"`
 	// The name of the user who created the investigation group.
 	LastModifiedBy pulumi.StringOutput `pulumi:"lastModifiedBy"`
-	// Specify either the name or the ARN of the investigation group that you want to view.
+	// Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of days to retain the investigation group
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
@@ -103,7 +103,7 @@ type investigationGroupArgs struct {
 	InvestigationGroupPolicy *string `pulumi:"investigationGroupPolicy"`
 	// Flag to enable cloud trail history
 	IsCloudTrailEventHistoryEnabled *bool `pulumi:"isCloudTrailEventHistoryEnabled"`
-	// Specify either the name or the ARN of the investigation group that you want to view.
+	// Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.
 	Name *string `pulumi:"name"`
 	// The number of days to retain the investigation group
 	RetentionInDays *int `pulumi:"retentionInDays"`
@@ -127,7 +127,7 @@ type InvestigationGroupArgs struct {
 	InvestigationGroupPolicy pulumi.StringPtrInput
 	// Flag to enable cloud trail history
 	IsCloudTrailEventHistoryEnabled pulumi.BoolPtrInput
-	// Specify either the name or the ARN of the investigation group that you want to view.
+	// Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.
 	Name pulumi.StringPtrInput
 	// The number of days to retain the investigation group
 	RetentionInDays pulumi.IntPtrInput
@@ -230,7 +230,7 @@ func (o InvestigationGroupOutput) LastModifiedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvestigationGroup) pulumi.StringOutput { return v.LastModifiedBy }).(pulumi.StringOutput)
 }
 
-// Specify either the name or the ARN of the investigation group that you want to view.
+// Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.
 func (o InvestigationGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvestigationGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

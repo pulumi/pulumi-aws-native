@@ -15,15 +15,19 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     {
         public readonly Outputs.SpaceEfsFileSystem? EfsFileSystem;
         public readonly Outputs.SpaceFSxLustreFileSystem? FSxLustreFileSystem;
+        public readonly Outputs.SpaceS3FileSystem? S3FileSystem;
 
         [OutputConstructor]
         private SpaceCustomFileSystem(
             Outputs.SpaceEfsFileSystem? efsFileSystem,
 
-            Outputs.SpaceFSxLustreFileSystem? fSxLustreFileSystem)
+            Outputs.SpaceFSxLustreFileSystem? fSxLustreFileSystem,
+
+            Outputs.SpaceS3FileSystem? s3FileSystem)
         {
             EfsFileSystem = efsFileSystem;
             FSxLustreFileSystem = fSxLustreFileSystem;
+            S3FileSystem = s3FileSystem;
         }
     }
 }

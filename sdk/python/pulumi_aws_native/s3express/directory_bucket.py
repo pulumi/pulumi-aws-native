@@ -38,6 +38,7 @@ class DirectoryBucketArgs:
         :param pulumi.Input['DirectoryBucketBucketEncryptionArgs'] bucket_encryption: Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
         :param pulumi.Input[builtins.str] bucket_name: Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
         :param pulumi.Input['DirectoryBucketLifecycleConfigurationArgs'] lifecycle_configuration: Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
         """
         pulumi.set(__self__, "data_redundancy", data_redundancy)
         pulumi.set(__self__, "location_name", location_name)
@@ -113,6 +114,9 @@ class DirectoryBucketArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -143,6 +147,7 @@ class DirectoryBucket(pulumi.CustomResource):
         :param pulumi.Input['DirectoryBucketDataRedundancy'] data_redundancy: Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
         :param pulumi.Input[Union['DirectoryBucketLifecycleConfigurationArgs', 'DirectoryBucketLifecycleConfigurationArgsDict']] lifecycle_configuration: Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
         :param pulumi.Input[builtins.str] location_name: Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
         """
         ...
     @overload
@@ -288,5 +293,8 @@ class DirectoryBucket(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
+        """
         return pulumi.get(self, "tags")
 

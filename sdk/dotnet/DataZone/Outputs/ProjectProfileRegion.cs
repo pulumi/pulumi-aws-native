@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     [OutputType]
     public sealed class ProjectProfileRegion
     {
+        /// <summary>
+        /// The AWS Region name.
+        /// </summary>
         public readonly string RegionName;
 
         [OutputConstructor]

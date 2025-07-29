@@ -1251,6 +1251,8 @@ type ClusterInstanceGroup struct {
 	OverrideVpcConfig       *ClusterVpcConfig              `pulumi:"overrideVpcConfig"`
 	// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
 	ThreadsPerCore *int `pulumi:"threadsPerCore"`
+	// The Amazon Resource Name (ARN) of the training plan to use for this cluster instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
+	TrainingPlanArn *string `pulumi:"trainingPlanArn"`
 }
 
 // ClusterInstanceGroupInput is an input type that accepts ClusterInstanceGroupArgs and ClusterInstanceGroupOutput values.
@@ -1279,6 +1281,8 @@ type ClusterInstanceGroupArgs struct {
 	OverrideVpcConfig       ClusterVpcConfigPtrInput               `pulumi:"overrideVpcConfig"`
 	// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
 	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
+	// The Amazon Resource Name (ARN) of the training plan to use for this cluster instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
+	TrainingPlanArn pulumi.StringPtrInput `pulumi:"trainingPlanArn"`
 }
 
 func (ClusterInstanceGroupArgs) ElementType() reflect.Type {
@@ -1374,6 +1378,11 @@ func (o ClusterInstanceGroupOutput) OverrideVpcConfig() ClusterVpcConfigPtrOutpu
 // The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
 func (o ClusterInstanceGroupOutput) ThreadsPerCore() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterInstanceGroup) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the training plan to use for this cluster instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
+func (o ClusterInstanceGroupOutput) TrainingPlanArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) *string { return v.TrainingPlanArn }).(pulumi.StringPtrOutput)
 }
 
 type ClusterInstanceGroupArrayOutput struct{ *pulumi.OutputState }
@@ -5157,6 +5166,8 @@ type DomainCustomFileSystemConfig struct {
 	EfsFileSystemConfig *DomainEfsFileSystemConfig `pulumi:"efsFileSystemConfig"`
 	// The settings for a custom Amazon FSx for Lustre file system.
 	FSxLustreFileSystemConfig *DomainFSxLustreFileSystemConfig `pulumi:"fSxLustreFileSystemConfig"`
+	// Configuration settings for a custom Amazon S3 file system.
+	S3FileSystemConfig *DomainS3FileSystemConfig `pulumi:"s3FileSystemConfig"`
 }
 
 // DomainCustomFileSystemConfigInput is an input type that accepts DomainCustomFileSystemConfigArgs and DomainCustomFileSystemConfigOutput values.
@@ -5175,6 +5186,8 @@ type DomainCustomFileSystemConfigArgs struct {
 	EfsFileSystemConfig DomainEfsFileSystemConfigPtrInput `pulumi:"efsFileSystemConfig"`
 	// The settings for a custom Amazon FSx for Lustre file system.
 	FSxLustreFileSystemConfig DomainFSxLustreFileSystemConfigPtrInput `pulumi:"fSxLustreFileSystemConfig"`
+	// Configuration settings for a custom Amazon S3 file system.
+	S3FileSystemConfig DomainS3FileSystemConfigPtrInput `pulumi:"s3FileSystemConfig"`
 }
 
 func (DomainCustomFileSystemConfigArgs) ElementType() reflect.Type {
@@ -5238,6 +5251,11 @@ func (o DomainCustomFileSystemConfigOutput) FSxLustreFileSystemConfig() DomainFS
 	return o.ApplyT(func(v DomainCustomFileSystemConfig) *DomainFSxLustreFileSystemConfig {
 		return v.FSxLustreFileSystemConfig
 	}).(DomainFSxLustreFileSystemConfigPtrOutput)
+}
+
+// Configuration settings for a custom Amazon S3 file system.
+func (o DomainCustomFileSystemConfigOutput) S3FileSystemConfig() DomainS3FileSystemConfigPtrOutput {
+	return o.ApplyT(func(v DomainCustomFileSystemConfig) *DomainS3FileSystemConfig { return v.S3FileSystemConfig }).(DomainS3FileSystemConfigPtrOutput)
 }
 
 type DomainCustomFileSystemConfigArrayOutput struct{ *pulumi.OutputState }
@@ -8163,6 +8181,162 @@ func (o DomainResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtr
 			return nil
 		}
 		return v.SageMakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainS3FileSystemConfig struct {
+	// The file system path where the Amazon S3 storage location will be mounted within the Amazon SageMaker Studio environment.
+	MountPath *string `pulumi:"mountPath"`
+	// The Amazon S3 URI of the S3 file system configuration.
+	S3Uri *string `pulumi:"s3Uri"`
+}
+
+// DomainS3FileSystemConfigInput is an input type that accepts DomainS3FileSystemConfigArgs and DomainS3FileSystemConfigOutput values.
+// You can construct a concrete instance of `DomainS3FileSystemConfigInput` via:
+//
+//	DomainS3FileSystemConfigArgs{...}
+type DomainS3FileSystemConfigInput interface {
+	pulumi.Input
+
+	ToDomainS3FileSystemConfigOutput() DomainS3FileSystemConfigOutput
+	ToDomainS3FileSystemConfigOutputWithContext(context.Context) DomainS3FileSystemConfigOutput
+}
+
+type DomainS3FileSystemConfigArgs struct {
+	// The file system path where the Amazon S3 storage location will be mounted within the Amazon SageMaker Studio environment.
+	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
+	// The Amazon S3 URI of the S3 file system configuration.
+	S3Uri pulumi.StringPtrInput `pulumi:"s3Uri"`
+}
+
+func (DomainS3FileSystemConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainS3FileSystemConfig)(nil)).Elem()
+}
+
+func (i DomainS3FileSystemConfigArgs) ToDomainS3FileSystemConfigOutput() DomainS3FileSystemConfigOutput {
+	return i.ToDomainS3FileSystemConfigOutputWithContext(context.Background())
+}
+
+func (i DomainS3FileSystemConfigArgs) ToDomainS3FileSystemConfigOutputWithContext(ctx context.Context) DomainS3FileSystemConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainS3FileSystemConfigOutput)
+}
+
+func (i DomainS3FileSystemConfigArgs) ToDomainS3FileSystemConfigPtrOutput() DomainS3FileSystemConfigPtrOutput {
+	return i.ToDomainS3FileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DomainS3FileSystemConfigArgs) ToDomainS3FileSystemConfigPtrOutputWithContext(ctx context.Context) DomainS3FileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainS3FileSystemConfigOutput).ToDomainS3FileSystemConfigPtrOutputWithContext(ctx)
+}
+
+// DomainS3FileSystemConfigPtrInput is an input type that accepts DomainS3FileSystemConfigArgs, DomainS3FileSystemConfigPtr and DomainS3FileSystemConfigPtrOutput values.
+// You can construct a concrete instance of `DomainS3FileSystemConfigPtrInput` via:
+//
+//	        DomainS3FileSystemConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainS3FileSystemConfigPtrInput interface {
+	pulumi.Input
+
+	ToDomainS3FileSystemConfigPtrOutput() DomainS3FileSystemConfigPtrOutput
+	ToDomainS3FileSystemConfigPtrOutputWithContext(context.Context) DomainS3FileSystemConfigPtrOutput
+}
+
+type domainS3FileSystemConfigPtrType DomainS3FileSystemConfigArgs
+
+func DomainS3FileSystemConfigPtr(v *DomainS3FileSystemConfigArgs) DomainS3FileSystemConfigPtrInput {
+	return (*domainS3FileSystemConfigPtrType)(v)
+}
+
+func (*domainS3FileSystemConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainS3FileSystemConfig)(nil)).Elem()
+}
+
+func (i *domainS3FileSystemConfigPtrType) ToDomainS3FileSystemConfigPtrOutput() DomainS3FileSystemConfigPtrOutput {
+	return i.ToDomainS3FileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *domainS3FileSystemConfigPtrType) ToDomainS3FileSystemConfigPtrOutputWithContext(ctx context.Context) DomainS3FileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainS3FileSystemConfigPtrOutput)
+}
+
+type DomainS3FileSystemConfigOutput struct{ *pulumi.OutputState }
+
+func (DomainS3FileSystemConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainS3FileSystemConfig)(nil)).Elem()
+}
+
+func (o DomainS3FileSystemConfigOutput) ToDomainS3FileSystemConfigOutput() DomainS3FileSystemConfigOutput {
+	return o
+}
+
+func (o DomainS3FileSystemConfigOutput) ToDomainS3FileSystemConfigOutputWithContext(ctx context.Context) DomainS3FileSystemConfigOutput {
+	return o
+}
+
+func (o DomainS3FileSystemConfigOutput) ToDomainS3FileSystemConfigPtrOutput() DomainS3FileSystemConfigPtrOutput {
+	return o.ToDomainS3FileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DomainS3FileSystemConfigOutput) ToDomainS3FileSystemConfigPtrOutputWithContext(ctx context.Context) DomainS3FileSystemConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainS3FileSystemConfig) *DomainS3FileSystemConfig {
+		return &v
+	}).(DomainS3FileSystemConfigPtrOutput)
+}
+
+// The file system path where the Amazon S3 storage location will be mounted within the Amazon SageMaker Studio environment.
+func (o DomainS3FileSystemConfigOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainS3FileSystemConfig) *string { return v.MountPath }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 URI of the S3 file system configuration.
+func (o DomainS3FileSystemConfigOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainS3FileSystemConfig) *string { return v.S3Uri }).(pulumi.StringPtrOutput)
+}
+
+type DomainS3FileSystemConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainS3FileSystemConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainS3FileSystemConfig)(nil)).Elem()
+}
+
+func (o DomainS3FileSystemConfigPtrOutput) ToDomainS3FileSystemConfigPtrOutput() DomainS3FileSystemConfigPtrOutput {
+	return o
+}
+
+func (o DomainS3FileSystemConfigPtrOutput) ToDomainS3FileSystemConfigPtrOutputWithContext(ctx context.Context) DomainS3FileSystemConfigPtrOutput {
+	return o
+}
+
+func (o DomainS3FileSystemConfigPtrOutput) Elem() DomainS3FileSystemConfigOutput {
+	return o.ApplyT(func(v *DomainS3FileSystemConfig) DomainS3FileSystemConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DomainS3FileSystemConfig
+		return ret
+	}).(DomainS3FileSystemConfigOutput)
+}
+
+// The file system path where the Amazon S3 storage location will be mounted within the Amazon SageMaker Studio environment.
+func (o DomainS3FileSystemConfigPtrOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainS3FileSystemConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MountPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 URI of the S3 file system configuration.
+func (o DomainS3FileSystemConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainS3FileSystemConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Uri
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -36328,6 +36502,7 @@ func (o ProjectCfnStackParameterArrayOutput) Index(i pulumi.IntInput) ProjectCfn
 
 // CloudFormation template provider details for a SageMaker project.
 type ProjectCfnTemplateProviderDetail struct {
+	// An array of CloudFormation stack parameters.
 	Parameters []ProjectCfnStackParameter `pulumi:"parameters"`
 	// The Amazon Resource Name (ARN) of the IAM role used by the template provider.
 	RoleArn *string `pulumi:"roleArn"`
@@ -36350,6 +36525,7 @@ type ProjectCfnTemplateProviderDetailInput interface {
 
 // CloudFormation template provider details for a SageMaker project.
 type ProjectCfnTemplateProviderDetailArgs struct {
+	// An array of CloudFormation stack parameters.
 	Parameters ProjectCfnStackParameterArrayInput `pulumi:"parameters"`
 	// The Amazon Resource Name (ARN) of the IAM role used by the template provider.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
@@ -36437,6 +36613,7 @@ func (o ProjectCfnTemplateProviderDetailOutput) ToProjectCfnTemplateProviderDeta
 	}).(ProjectCfnTemplateProviderDetailPtrOutput)
 }
 
+// An array of CloudFormation stack parameters.
 func (o ProjectCfnTemplateProviderDetailOutput) Parameters() ProjectCfnStackParameterArrayOutput {
 	return o.ApplyT(func(v ProjectCfnTemplateProviderDetail) []ProjectCfnStackParameter { return v.Parameters }).(ProjectCfnStackParameterArrayOutput)
 }
@@ -36480,6 +36657,7 @@ func (o ProjectCfnTemplateProviderDetailPtrOutput) Elem() ProjectCfnTemplateProv
 	}).(ProjectCfnTemplateProviderDetailOutput)
 }
 
+// An array of CloudFormation stack parameters.
 func (o ProjectCfnTemplateProviderDetailPtrOutput) Parameters() ProjectCfnStackParameterArrayOutput {
 	return o.ApplyT(func(v *ProjectCfnTemplateProviderDetail) []ProjectCfnStackParameter {
 		if v == nil {
@@ -36638,6 +36816,7 @@ type ProjectTag struct {
 
 // Details about the template provider for the SageMaker project.
 type ProjectTemplateProviderDetail struct {
+	// Details about a CloudFormation template provider configuration and associated provisioning information.
 	CfnTemplateProviderDetail *ProjectCfnTemplateProviderDetail `pulumi:"cfnTemplateProviderDetail"`
 }
 
@@ -36654,6 +36833,7 @@ type ProjectTemplateProviderDetailInput interface {
 
 // Details about the template provider for the SageMaker project.
 type ProjectTemplateProviderDetailArgs struct {
+	// Details about a CloudFormation template provider configuration and associated provisioning information.
 	CfnTemplateProviderDetail ProjectCfnTemplateProviderDetailPtrInput `pulumi:"cfnTemplateProviderDetail"`
 }
 
@@ -36709,6 +36889,7 @@ func (o ProjectTemplateProviderDetailOutput) ToProjectTemplateProviderDetailOutp
 	return o
 }
 
+// Details about a CloudFormation template provider configuration and associated provisioning information.
 func (o ProjectTemplateProviderDetailOutput) CfnTemplateProviderDetail() ProjectCfnTemplateProviderDetailPtrOutput {
 	return o.ApplyT(func(v ProjectTemplateProviderDetail) *ProjectCfnTemplateProviderDetail {
 		return v.CfnTemplateProviderDetail
@@ -37515,6 +37696,7 @@ func (o SpaceCodeRepositoryArrayOutput) Index(i pulumi.IntInput) SpaceCodeReposi
 type SpaceCustomFileSystem struct {
 	EfsFileSystem       *SpaceEfsFileSystem       `pulumi:"efsFileSystem"`
 	FSxLustreFileSystem *SpaceFSxLustreFileSystem `pulumi:"fSxLustreFileSystem"`
+	S3FileSystem        *SpaceS3FileSystem        `pulumi:"s3FileSystem"`
 }
 
 // SpaceCustomFileSystemInput is an input type that accepts SpaceCustomFileSystemArgs and SpaceCustomFileSystemOutput values.
@@ -37531,6 +37713,7 @@ type SpaceCustomFileSystemInput interface {
 type SpaceCustomFileSystemArgs struct {
 	EfsFileSystem       SpaceEfsFileSystemPtrInput       `pulumi:"efsFileSystem"`
 	FSxLustreFileSystem SpaceFSxLustreFileSystemPtrInput `pulumi:"fSxLustreFileSystem"`
+	S3FileSystem        SpaceS3FileSystemPtrInput        `pulumi:"s3FileSystem"`
 }
 
 func (SpaceCustomFileSystemArgs) ElementType() reflect.Type {
@@ -37590,6 +37773,10 @@ func (o SpaceCustomFileSystemOutput) EfsFileSystem() SpaceEfsFileSystemPtrOutput
 
 func (o SpaceCustomFileSystemOutput) FSxLustreFileSystem() SpaceFSxLustreFileSystemPtrOutput {
 	return o.ApplyT(func(v SpaceCustomFileSystem) *SpaceFSxLustreFileSystem { return v.FSxLustreFileSystem }).(SpaceFSxLustreFileSystemPtrOutput)
+}
+
+func (o SpaceCustomFileSystemOutput) S3FileSystem() SpaceS3FileSystemPtrOutput {
+	return o.ApplyT(func(v SpaceCustomFileSystem) *SpaceS3FileSystem { return v.S3FileSystem }).(SpaceS3FileSystemPtrOutput)
 }
 
 type SpaceCustomFileSystemArrayOutput struct{ *pulumi.OutputState }
@@ -39119,6 +39306,139 @@ func (o SpaceResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type SpaceS3FileSystem struct {
+	S3Uri *string `pulumi:"s3Uri"`
+}
+
+// SpaceS3FileSystemInput is an input type that accepts SpaceS3FileSystemArgs and SpaceS3FileSystemOutput values.
+// You can construct a concrete instance of `SpaceS3FileSystemInput` via:
+//
+//	SpaceS3FileSystemArgs{...}
+type SpaceS3FileSystemInput interface {
+	pulumi.Input
+
+	ToSpaceS3FileSystemOutput() SpaceS3FileSystemOutput
+	ToSpaceS3FileSystemOutputWithContext(context.Context) SpaceS3FileSystemOutput
+}
+
+type SpaceS3FileSystemArgs struct {
+	S3Uri pulumi.StringPtrInput `pulumi:"s3Uri"`
+}
+
+func (SpaceS3FileSystemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceS3FileSystem)(nil)).Elem()
+}
+
+func (i SpaceS3FileSystemArgs) ToSpaceS3FileSystemOutput() SpaceS3FileSystemOutput {
+	return i.ToSpaceS3FileSystemOutputWithContext(context.Background())
+}
+
+func (i SpaceS3FileSystemArgs) ToSpaceS3FileSystemOutputWithContext(ctx context.Context) SpaceS3FileSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceS3FileSystemOutput)
+}
+
+func (i SpaceS3FileSystemArgs) ToSpaceS3FileSystemPtrOutput() SpaceS3FileSystemPtrOutput {
+	return i.ToSpaceS3FileSystemPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceS3FileSystemArgs) ToSpaceS3FileSystemPtrOutputWithContext(ctx context.Context) SpaceS3FileSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceS3FileSystemOutput).ToSpaceS3FileSystemPtrOutputWithContext(ctx)
+}
+
+// SpaceS3FileSystemPtrInput is an input type that accepts SpaceS3FileSystemArgs, SpaceS3FileSystemPtr and SpaceS3FileSystemPtrOutput values.
+// You can construct a concrete instance of `SpaceS3FileSystemPtrInput` via:
+//
+//	        SpaceS3FileSystemArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceS3FileSystemPtrInput interface {
+	pulumi.Input
+
+	ToSpaceS3FileSystemPtrOutput() SpaceS3FileSystemPtrOutput
+	ToSpaceS3FileSystemPtrOutputWithContext(context.Context) SpaceS3FileSystemPtrOutput
+}
+
+type spaceS3FileSystemPtrType SpaceS3FileSystemArgs
+
+func SpaceS3FileSystemPtr(v *SpaceS3FileSystemArgs) SpaceS3FileSystemPtrInput {
+	return (*spaceS3FileSystemPtrType)(v)
+}
+
+func (*spaceS3FileSystemPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceS3FileSystem)(nil)).Elem()
+}
+
+func (i *spaceS3FileSystemPtrType) ToSpaceS3FileSystemPtrOutput() SpaceS3FileSystemPtrOutput {
+	return i.ToSpaceS3FileSystemPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceS3FileSystemPtrType) ToSpaceS3FileSystemPtrOutputWithContext(ctx context.Context) SpaceS3FileSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceS3FileSystemPtrOutput)
+}
+
+type SpaceS3FileSystemOutput struct{ *pulumi.OutputState }
+
+func (SpaceS3FileSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceS3FileSystem)(nil)).Elem()
+}
+
+func (o SpaceS3FileSystemOutput) ToSpaceS3FileSystemOutput() SpaceS3FileSystemOutput {
+	return o
+}
+
+func (o SpaceS3FileSystemOutput) ToSpaceS3FileSystemOutputWithContext(ctx context.Context) SpaceS3FileSystemOutput {
+	return o
+}
+
+func (o SpaceS3FileSystemOutput) ToSpaceS3FileSystemPtrOutput() SpaceS3FileSystemPtrOutput {
+	return o.ToSpaceS3FileSystemPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceS3FileSystemOutput) ToSpaceS3FileSystemPtrOutputWithContext(ctx context.Context) SpaceS3FileSystemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceS3FileSystem) *SpaceS3FileSystem {
+		return &v
+	}).(SpaceS3FileSystemPtrOutput)
+}
+
+func (o SpaceS3FileSystemOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceS3FileSystem) *string { return v.S3Uri }).(pulumi.StringPtrOutput)
+}
+
+type SpaceS3FileSystemPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceS3FileSystemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceS3FileSystem)(nil)).Elem()
+}
+
+func (o SpaceS3FileSystemPtrOutput) ToSpaceS3FileSystemPtrOutput() SpaceS3FileSystemPtrOutput {
+	return o
+}
+
+func (o SpaceS3FileSystemPtrOutput) ToSpaceS3FileSystemPtrOutputWithContext(ctx context.Context) SpaceS3FileSystemPtrOutput {
+	return o
+}
+
+func (o SpaceS3FileSystemPtrOutput) Elem() SpaceS3FileSystemOutput {
+	return o.ApplyT(func(v *SpaceS3FileSystem) SpaceS3FileSystem {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceS3FileSystem
+		return ret
+	}).(SpaceS3FileSystemOutput)
+}
+
+func (o SpaceS3FileSystemPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceS3FileSystem) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
 // A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
 type SpaceSettings struct {
 	// The type of app created within the space.
@@ -39135,6 +39455,10 @@ type SpaceSettings struct {
 	JupyterServerAppSettings *SpaceJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
 	KernelGatewayAppSettings *SpaceKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
+	// This is a flag used to indicate if remote access is enabled.
+	RemoteAccess *SpaceRemoteAccess `pulumi:"remoteAccess"`
+	// This is a flag used to indicate if space managed resources needs to be created.
+	SpaceManagedResources *SpaceManagedResources `pulumi:"spaceManagedResources"`
 	// Default storage settings for a space.
 	SpaceStorageSettings *SpaceStorageSettings `pulumi:"spaceStorageSettings"`
 }
@@ -39166,6 +39490,10 @@ type SpaceSettingsArgs struct {
 	JupyterServerAppSettings SpaceJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
 	KernelGatewayAppSettings SpaceKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
+	// This is a flag used to indicate if remote access is enabled.
+	RemoteAccess SpaceRemoteAccessPtrInput `pulumi:"remoteAccess"`
+	// This is a flag used to indicate if space managed resources needs to be created.
+	SpaceManagedResources SpaceManagedResourcesPtrInput `pulumi:"spaceManagedResources"`
 	// Default storage settings for a space.
 	SpaceStorageSettings SpaceStorageSettingsPtrInput `pulumi:"spaceStorageSettings"`
 }
@@ -39280,6 +39608,16 @@ func (o SpaceSettingsOutput) KernelGatewayAppSettings() SpaceKernelGatewayAppSet
 	return o.ApplyT(func(v SpaceSettings) *SpaceKernelGatewayAppSettings { return v.KernelGatewayAppSettings }).(SpaceKernelGatewayAppSettingsPtrOutput)
 }
 
+// This is a flag used to indicate if remote access is enabled.
+func (o SpaceSettingsOutput) RemoteAccess() SpaceRemoteAccessPtrOutput {
+	return o.ApplyT(func(v SpaceSettings) *SpaceRemoteAccess { return v.RemoteAccess }).(SpaceRemoteAccessPtrOutput)
+}
+
+// This is a flag used to indicate if space managed resources needs to be created.
+func (o SpaceSettingsOutput) SpaceManagedResources() SpaceManagedResourcesPtrOutput {
+	return o.ApplyT(func(v SpaceSettings) *SpaceManagedResources { return v.SpaceManagedResources }).(SpaceManagedResourcesPtrOutput)
+}
+
 // Default storage settings for a space.
 func (o SpaceSettingsOutput) SpaceStorageSettings() SpaceStorageSettingsPtrOutput {
 	return o.ApplyT(func(v SpaceSettings) *SpaceStorageSettings { return v.SpaceStorageSettings }).(SpaceStorageSettingsPtrOutput)
@@ -39369,6 +39707,26 @@ func (o SpaceSettingsPtrOutput) KernelGatewayAppSettings() SpaceKernelGatewayApp
 		}
 		return v.KernelGatewayAppSettings
 	}).(SpaceKernelGatewayAppSettingsPtrOutput)
+}
+
+// This is a flag used to indicate if remote access is enabled.
+func (o SpaceSettingsPtrOutput) RemoteAccess() SpaceRemoteAccessPtrOutput {
+	return o.ApplyT(func(v *SpaceSettings) *SpaceRemoteAccess {
+		if v == nil {
+			return nil
+		}
+		return v.RemoteAccess
+	}).(SpaceRemoteAccessPtrOutput)
+}
+
+// This is a flag used to indicate if space managed resources needs to be created.
+func (o SpaceSettingsPtrOutput) SpaceManagedResources() SpaceManagedResourcesPtrOutput {
+	return o.ApplyT(func(v *SpaceSettings) *SpaceManagedResources {
+		if v == nil {
+			return nil
+		}
+		return v.SpaceManagedResources
+	}).(SpaceManagedResourcesPtrOutput)
 }
 
 // Default storage settings for a space.
@@ -40126,6 +40484,8 @@ type UserProfileCustomFileSystemConfig struct {
 	EfsFileSystemConfig *UserProfileEfsFileSystemConfig `pulumi:"efsFileSystemConfig"`
 	// The settings for a custom Amazon FSx for Lustre file system.
 	FSxLustreFileSystemConfig *UserProfileFSxLustreFileSystemConfig `pulumi:"fSxLustreFileSystemConfig"`
+	// Configuration settings for a custom Amazon S3 file system.
+	S3FileSystemConfig *UserProfileS3FileSystemConfig `pulumi:"s3FileSystemConfig"`
 }
 
 // UserProfileCustomFileSystemConfigInput is an input type that accepts UserProfileCustomFileSystemConfigArgs and UserProfileCustomFileSystemConfigOutput values.
@@ -40144,6 +40504,8 @@ type UserProfileCustomFileSystemConfigArgs struct {
 	EfsFileSystemConfig UserProfileEfsFileSystemConfigPtrInput `pulumi:"efsFileSystemConfig"`
 	// The settings for a custom Amazon FSx for Lustre file system.
 	FSxLustreFileSystemConfig UserProfileFSxLustreFileSystemConfigPtrInput `pulumi:"fSxLustreFileSystemConfig"`
+	// Configuration settings for a custom Amazon S3 file system.
+	S3FileSystemConfig UserProfileS3FileSystemConfigPtrInput `pulumi:"s3FileSystemConfig"`
 }
 
 func (UserProfileCustomFileSystemConfigArgs) ElementType() reflect.Type {
@@ -40209,6 +40571,11 @@ func (o UserProfileCustomFileSystemConfigOutput) FSxLustreFileSystemConfig() Use
 	return o.ApplyT(func(v UserProfileCustomFileSystemConfig) *UserProfileFSxLustreFileSystemConfig {
 		return v.FSxLustreFileSystemConfig
 	}).(UserProfileFSxLustreFileSystemConfigPtrOutput)
+}
+
+// Configuration settings for a custom Amazon S3 file system.
+func (o UserProfileCustomFileSystemConfigOutput) S3FileSystemConfig() UserProfileS3FileSystemConfigPtrOutput {
+	return o.ApplyT(func(v UserProfileCustomFileSystemConfig) *UserProfileS3FileSystemConfig { return v.S3FileSystemConfig }).(UserProfileS3FileSystemConfigPtrOutput)
 }
 
 type UserProfileCustomFileSystemConfigArrayOutput struct{ *pulumi.OutputState }
@@ -42351,6 +42718,162 @@ func (o UserProfileResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserProfileS3FileSystemConfig struct {
+	// The file system path where the Amazon S3 storage location will be mounted within the Amazon SageMaker Studio environment.
+	MountPath *string `pulumi:"mountPath"`
+	// The Amazon S3 URI of the S3 file system configuration.
+	S3Uri *string `pulumi:"s3Uri"`
+}
+
+// UserProfileS3FileSystemConfigInput is an input type that accepts UserProfileS3FileSystemConfigArgs and UserProfileS3FileSystemConfigOutput values.
+// You can construct a concrete instance of `UserProfileS3FileSystemConfigInput` via:
+//
+//	UserProfileS3FileSystemConfigArgs{...}
+type UserProfileS3FileSystemConfigInput interface {
+	pulumi.Input
+
+	ToUserProfileS3FileSystemConfigOutput() UserProfileS3FileSystemConfigOutput
+	ToUserProfileS3FileSystemConfigOutputWithContext(context.Context) UserProfileS3FileSystemConfigOutput
+}
+
+type UserProfileS3FileSystemConfigArgs struct {
+	// The file system path where the Amazon S3 storage location will be mounted within the Amazon SageMaker Studio environment.
+	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
+	// The Amazon S3 URI of the S3 file system configuration.
+	S3Uri pulumi.StringPtrInput `pulumi:"s3Uri"`
+}
+
+func (UserProfileS3FileSystemConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileS3FileSystemConfig)(nil)).Elem()
+}
+
+func (i UserProfileS3FileSystemConfigArgs) ToUserProfileS3FileSystemConfigOutput() UserProfileS3FileSystemConfigOutput {
+	return i.ToUserProfileS3FileSystemConfigOutputWithContext(context.Background())
+}
+
+func (i UserProfileS3FileSystemConfigArgs) ToUserProfileS3FileSystemConfigOutputWithContext(ctx context.Context) UserProfileS3FileSystemConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileS3FileSystemConfigOutput)
+}
+
+func (i UserProfileS3FileSystemConfigArgs) ToUserProfileS3FileSystemConfigPtrOutput() UserProfileS3FileSystemConfigPtrOutput {
+	return i.ToUserProfileS3FileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileS3FileSystemConfigArgs) ToUserProfileS3FileSystemConfigPtrOutputWithContext(ctx context.Context) UserProfileS3FileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileS3FileSystemConfigOutput).ToUserProfileS3FileSystemConfigPtrOutputWithContext(ctx)
+}
+
+// UserProfileS3FileSystemConfigPtrInput is an input type that accepts UserProfileS3FileSystemConfigArgs, UserProfileS3FileSystemConfigPtr and UserProfileS3FileSystemConfigPtrOutput values.
+// You can construct a concrete instance of `UserProfileS3FileSystemConfigPtrInput` via:
+//
+//	        UserProfileS3FileSystemConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileS3FileSystemConfigPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileS3FileSystemConfigPtrOutput() UserProfileS3FileSystemConfigPtrOutput
+	ToUserProfileS3FileSystemConfigPtrOutputWithContext(context.Context) UserProfileS3FileSystemConfigPtrOutput
+}
+
+type userProfileS3FileSystemConfigPtrType UserProfileS3FileSystemConfigArgs
+
+func UserProfileS3FileSystemConfigPtr(v *UserProfileS3FileSystemConfigArgs) UserProfileS3FileSystemConfigPtrInput {
+	return (*userProfileS3FileSystemConfigPtrType)(v)
+}
+
+func (*userProfileS3FileSystemConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileS3FileSystemConfig)(nil)).Elem()
+}
+
+func (i *userProfileS3FileSystemConfigPtrType) ToUserProfileS3FileSystemConfigPtrOutput() UserProfileS3FileSystemConfigPtrOutput {
+	return i.ToUserProfileS3FileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileS3FileSystemConfigPtrType) ToUserProfileS3FileSystemConfigPtrOutputWithContext(ctx context.Context) UserProfileS3FileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileS3FileSystemConfigPtrOutput)
+}
+
+type UserProfileS3FileSystemConfigOutput struct{ *pulumi.OutputState }
+
+func (UserProfileS3FileSystemConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileS3FileSystemConfig)(nil)).Elem()
+}
+
+func (o UserProfileS3FileSystemConfigOutput) ToUserProfileS3FileSystemConfigOutput() UserProfileS3FileSystemConfigOutput {
+	return o
+}
+
+func (o UserProfileS3FileSystemConfigOutput) ToUserProfileS3FileSystemConfigOutputWithContext(ctx context.Context) UserProfileS3FileSystemConfigOutput {
+	return o
+}
+
+func (o UserProfileS3FileSystemConfigOutput) ToUserProfileS3FileSystemConfigPtrOutput() UserProfileS3FileSystemConfigPtrOutput {
+	return o.ToUserProfileS3FileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileS3FileSystemConfigOutput) ToUserProfileS3FileSystemConfigPtrOutputWithContext(ctx context.Context) UserProfileS3FileSystemConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileS3FileSystemConfig) *UserProfileS3FileSystemConfig {
+		return &v
+	}).(UserProfileS3FileSystemConfigPtrOutput)
+}
+
+// The file system path where the Amazon S3 storage location will be mounted within the Amazon SageMaker Studio environment.
+func (o UserProfileS3FileSystemConfigOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileS3FileSystemConfig) *string { return v.MountPath }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 URI of the S3 file system configuration.
+func (o UserProfileS3FileSystemConfigOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileS3FileSystemConfig) *string { return v.S3Uri }).(pulumi.StringPtrOutput)
+}
+
+type UserProfileS3FileSystemConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileS3FileSystemConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileS3FileSystemConfig)(nil)).Elem()
+}
+
+func (o UserProfileS3FileSystemConfigPtrOutput) ToUserProfileS3FileSystemConfigPtrOutput() UserProfileS3FileSystemConfigPtrOutput {
+	return o
+}
+
+func (o UserProfileS3FileSystemConfigPtrOutput) ToUserProfileS3FileSystemConfigPtrOutputWithContext(ctx context.Context) UserProfileS3FileSystemConfigPtrOutput {
+	return o
+}
+
+func (o UserProfileS3FileSystemConfigPtrOutput) Elem() UserProfileS3FileSystemConfigOutput {
+	return o.ApplyT(func(v *UserProfileS3FileSystemConfig) UserProfileS3FileSystemConfig {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileS3FileSystemConfig
+		return ret
+	}).(UserProfileS3FileSystemConfigOutput)
+}
+
+// The file system path where the Amazon S3 storage location will be mounted within the Amazon SageMaker Studio environment.
+func (o UserProfileS3FileSystemConfigPtrOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileS3FileSystemConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MountPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 URI of the S3 file system configuration.
+func (o UserProfileS3FileSystemConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileS3FileSystemConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
 type UserProfileSharingSettings struct {
 	// Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
@@ -43292,6 +43815,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProDomainSettingsPtrInput)(nil)).Elem(), DomainRStudioServerProDomainSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainResourceSpecInput)(nil)).Elem(), DomainResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainResourceSpecPtrInput)(nil)).Elem(), DomainResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainS3FileSystemConfigInput)(nil)).Elem(), DomainS3FileSystemConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainS3FileSystemConfigPtrInput)(nil)).Elem(), DomainS3FileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSettingsInput)(nil)).Elem(), DomainSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSettingsPtrInput)(nil)).Elem(), DomainSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSharingSettingsInput)(nil)).Elem(), DomainSharingSettingsArgs{})
@@ -43658,6 +44183,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceOwnershipSettingsPtrInput)(nil)).Elem(), SpaceOwnershipSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourceSpecInput)(nil)).Elem(), SpaceResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourceSpecPtrInput)(nil)).Elem(), SpaceResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceS3FileSystemInput)(nil)).Elem(), SpaceS3FileSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceS3FileSystemPtrInput)(nil)).Elem(), SpaceS3FileSystemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSettingsInput)(nil)).Elem(), SpaceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSettingsPtrInput)(nil)).Elem(), SpaceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSharingSettingsInput)(nil)).Elem(), SpaceSharingSettingsArgs{})
@@ -43698,6 +44225,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileRStudioServerProAppSettingsPtrInput)(nil)).Elem(), UserProfileRStudioServerProAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileResourceSpecInput)(nil)).Elem(), UserProfileResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileResourceSpecPtrInput)(nil)).Elem(), UserProfileResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileS3FileSystemConfigInput)(nil)).Elem(), UserProfileS3FileSystemConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileS3FileSystemConfigPtrInput)(nil)).Elem(), UserProfileS3FileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileSharingSettingsInput)(nil)).Elem(), UserProfileSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileSharingSettingsPtrInput)(nil)).Elem(), UserProfileSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileStudioWebPortalSettingsInput)(nil)).Elem(), UserProfileStudioWebPortalSettingsArgs{})
@@ -43807,6 +44336,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainRStudioServerProDomainSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainResourceSpecOutput{})
 	pulumi.RegisterOutputType(DomainResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(DomainS3FileSystemConfigOutput{})
+	pulumi.RegisterOutputType(DomainS3FileSystemConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainSettingsOutput{})
 	pulumi.RegisterOutputType(DomainSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSharingSettingsOutput{})
@@ -44182,6 +44713,8 @@ func init() {
 	pulumi.RegisterOutputType(SpaceOwnershipSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SpaceResourceSpecOutput{})
 	pulumi.RegisterOutputType(SpaceResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(SpaceS3FileSystemOutput{})
+	pulumi.RegisterOutputType(SpaceS3FileSystemPtrOutput{})
 	pulumi.RegisterOutputType(SpaceSettingsOutput{})
 	pulumi.RegisterOutputType(SpaceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SpaceSharingSettingsOutput{})
@@ -44222,6 +44755,8 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileRStudioServerProAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileResourceSpecOutput{})
 	pulumi.RegisterOutputType(UserProfileResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileS3FileSystemConfigOutput{})
+	pulumi.RegisterOutputType(UserProfileS3FileSystemConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileSharingSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileSharingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileStudioWebPortalSettingsOutput{})

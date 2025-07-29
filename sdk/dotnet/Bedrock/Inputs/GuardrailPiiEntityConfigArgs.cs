@@ -21,15 +21,35 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("action", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction> Action { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the action to take when harmful content is detected in the input. Supported values include:
+        /// 
+        /// - `BLOCK` – Block the content and replace it with blocked messaging.
+        /// - `ANONYMIZE` – Mask the content and replace it with identifier tags.
+        /// - `NONE` – Take no action but return detection information in the trace response.
+        /// </summary>
         [Input("inputAction")]
         public Input<Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction>? InputAction { get; set; }
 
+        /// <summary>
+        /// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        /// </summary>
         [Input("inputEnabled")]
         public Input<bool>? InputEnabled { get; set; }
 
+        /// <summary>
+        /// Specifies the action to take when harmful content is detected in the output. Supported values include:
+        /// 
+        /// - `BLOCK` – Block the content and replace it with blocked messaging.
+        /// - `ANONYMIZE` – Mask the content and replace it with identifier tags.
+        /// - `NONE` – Take no action but return detection information in the trace response.
+        /// </summary>
         [Input("outputAction")]
         public Input<Pulumi.AwsNative.Bedrock.GuardrailSensitiveInformationAction>? OutputAction { get; set; }
 
+        /// <summary>
+        /// Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+        /// </summary>
         [Input("outputEnabled")]
         public Input<bool>? OutputEnabled { get; set; }
 

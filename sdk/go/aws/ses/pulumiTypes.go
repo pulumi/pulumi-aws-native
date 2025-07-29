@@ -1806,6 +1806,11 @@ func (o ConfigurationSetSuppressionOptionsPtrOutput) SuppressedReasons() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
+type ConfigurationSetTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // An object that defines the open and click tracking options for emails that you send using the configuration set.
 type ConfigurationSetTrackingOptions struct {
 	// The domain to use for tracking open and click events.
@@ -2253,6 +2258,11 @@ func (o ContactListTopicArrayOutput) Index(i pulumi.IntInput) ContactListTopicOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContactListTopic {
 		return vs[0].([]ContactListTopic)[vs[1].(int)]
 	}).(ContactListTopicOutput)
+}
+
+type DedicatedIpPoolTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // Used to associate a configuration set with an email identity.
@@ -3010,6 +3020,11 @@ func (o EmailIdentityMailFromAttributesPtrOutput) MailFromDomain() pulumi.String
 		}
 		return v.MailFromDomain
 	}).(pulumi.StringPtrOutput)
+}
+
+type EmailIdentityTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 type MailManagerAddonInstanceTag struct {

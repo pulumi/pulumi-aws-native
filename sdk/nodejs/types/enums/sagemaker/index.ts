@@ -1305,6 +1305,26 @@ export const SpaceAppType = {
 
 export type SpaceAppType = (typeof SpaceAppType)[keyof typeof SpaceAppType];
 
+export const SpaceManagedResources = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The flag to enable/disable creation of space managed resources.
+ */
+export type SpaceManagedResources = (typeof SpaceManagedResources)[keyof typeof SpaceManagedResources];
+
+export const SpaceRemoteAccess = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The flag to enable/disable remote access for a space.
+ */
+export type SpaceRemoteAccess = (typeof SpaceRemoteAccess)[keyof typeof SpaceRemoteAccess];
+
 export const SpaceResourceSpecInstanceType = {
     System: "system",
     MlT3Micro: "ml.t3.micro",

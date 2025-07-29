@@ -33,7 +33,8 @@ type LookupTopicResult struct {
 	// The Amazon Resource Name (ARN) of the topic.
 	Arn *string `pulumi:"arn"`
 	// Configuration options for a `Topic` .
-	ConfigOptions *TopicConfigOptions `pulumi:"configOptions"`
+	ConfigOptions      *TopicConfigOptions      `pulumi:"configOptions"`
+	CustomInstructions *TopicCustomInstructions `pulumi:"customInstructions"`
 	// The data sets that the topic is associated with.
 	DataSets []TopicDatasetMetadata `pulumi:"dataSets"`
 	// The description of the topic.
@@ -86,6 +87,10 @@ func (o LookupTopicResultOutput) Arn() pulumi.StringPtrOutput {
 // Configuration options for a `Topic` .
 func (o LookupTopicResultOutput) ConfigOptions() TopicConfigOptionsPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *TopicConfigOptions { return v.ConfigOptions }).(TopicConfigOptionsPtrOutput)
+}
+
+func (o LookupTopicResultOutput) CustomInstructions() TopicCustomInstructionsPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *TopicCustomInstructions { return v.CustomInstructions }).(TopicCustomInstructionsPtrOutput)
 }
 
 // The data sets that the topic is associated with.

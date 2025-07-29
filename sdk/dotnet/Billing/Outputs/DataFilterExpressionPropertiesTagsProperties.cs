@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Billing.Outputs
 {
 
+    /// <summary>
+    /// The specific `Tag` to use for `Expression` .
+    /// </summary>
     [OutputType]
     public sealed class DataFilterExpressionPropertiesTagsProperties
     {

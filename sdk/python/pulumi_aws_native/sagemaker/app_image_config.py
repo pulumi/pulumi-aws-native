@@ -28,14 +28,14 @@ class AppImageConfigArgs:
                  code_editor_app_image_config: Optional[pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs']] = None,
                  jupyter_lab_app_image_config: Optional[pulumi.Input['AppImageConfigJupyterLabAppImageConfigArgs']] = None,
                  kernel_gateway_image_config: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AppImageConfig resource.
         :param pulumi.Input[builtins.str] app_image_config_name: The Name of the AppImageConfig.
         :param pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs'] code_editor_app_image_config: The CodeEditorAppImageConfig.
         :param pulumi.Input['AppImageConfigJupyterLabAppImageConfigArgs'] jupyter_lab_app_image_config: The JupyterLabAppImageConfig.
         :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs'] kernel_gateway_image_config: The KernelGatewayImageConfig.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A list of tags to apply to the AppImageConfig.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags to apply to the AppImageConfig.
         """
         if app_image_config_name is not None:
             pulumi.set(__self__, "app_image_config_name", app_image_config_name)
@@ -98,14 +98,14 @@ class AppImageConfigArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags to apply to the AppImageConfig.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -119,7 +119,7 @@ class AppImageConfig(pulumi.CustomResource):
                  code_editor_app_image_config: Optional[pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']]] = None,
                  jupyter_lab_app_image_config: Optional[pulumi.Input[Union['AppImageConfigJupyterLabAppImageConfigArgs', 'AppImageConfigJupyterLabAppImageConfigArgsDict']]] = None,
                  kernel_gateway_image_config: Optional[pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::AppImageConfig
@@ -130,7 +130,7 @@ class AppImageConfig(pulumi.CustomResource):
         :param pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']] code_editor_app_image_config: The CodeEditorAppImageConfig.
         :param pulumi.Input[Union['AppImageConfigJupyterLabAppImageConfigArgs', 'AppImageConfigJupyterLabAppImageConfigArgsDict']] jupyter_lab_app_image_config: The JupyterLabAppImageConfig.
         :param pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']] kernel_gateway_image_config: The KernelGatewayImageConfig.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: A list of tags to apply to the AppImageConfig.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to apply to the AppImageConfig.
         """
         ...
     @overload
@@ -160,7 +160,7 @@ class AppImageConfig(pulumi.CustomResource):
                  code_editor_app_image_config: Optional[pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']]] = None,
                  jupyter_lab_app_image_config: Optional[pulumi.Input[Union['AppImageConfigJupyterLabAppImageConfigArgs', 'AppImageConfigJupyterLabAppImageConfigArgsDict']]] = None,
                  kernel_gateway_image_config: Optional[pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -176,7 +176,7 @@ class AppImageConfig(pulumi.CustomResource):
             __props__.__dict__["kernel_gateway_image_config"] = kernel_gateway_image_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["app_image_config_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["appImageConfigName", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["appImageConfigName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AppImageConfig, __self__).__init__(
             'aws-native:sagemaker:AppImageConfig',
@@ -250,7 +250,7 @@ class AppImageConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of tags to apply to the AppImageConfig.
         """

@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetConfigurationSetResult',
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetConfigurationSetResult:
-    def __init__(__self__, delivery_options=None, reputation_options=None, sending_options=None, suppression_options=None, tracking_options=None, vdm_options=None):
+    def __init__(__self__, delivery_options=None, reputation_options=None, sending_options=None, suppression_options=None, tags=None, tracking_options=None, vdm_options=None):
         if delivery_options and not isinstance(delivery_options, dict):
             raise TypeError("Expected argument 'delivery_options' to be a dict")
         pulumi.set(__self__, "delivery_options", delivery_options)
@@ -38,6 +39,9 @@ class GetConfigurationSetResult:
         if suppression_options and not isinstance(suppression_options, dict):
             raise TypeError("Expected argument 'suppression_options' to be a dict")
         pulumi.set(__self__, "suppression_options", suppression_options)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if tracking_options and not isinstance(tracking_options, dict):
             raise TypeError("Expected argument 'tracking_options' to be a dict")
         pulumi.set(__self__, "tracking_options", tracking_options)
@@ -78,6 +82,14 @@ class GetConfigurationSetResult:
         return pulumi.get(self, "suppression_options")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags (keys and values) associated with the contact list.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="trackingOptions")
     def tracking_options(self) -> Optional['outputs.ConfigurationSetTrackingOptions']:
         """
@@ -104,6 +116,7 @@ class AwaitableGetConfigurationSetResult(GetConfigurationSetResult):
             reputation_options=self.reputation_options,
             sending_options=self.sending_options,
             suppression_options=self.suppression_options,
+            tags=self.tags,
             tracking_options=self.tracking_options,
             vdm_options=self.vdm_options)
 
@@ -126,6 +139,7 @@ def get_configuration_set(name: Optional[builtins.str] = None,
         reputation_options=pulumi.get(__ret__, 'reputation_options'),
         sending_options=pulumi.get(__ret__, 'sending_options'),
         suppression_options=pulumi.get(__ret__, 'suppression_options'),
+        tags=pulumi.get(__ret__, 'tags'),
         tracking_options=pulumi.get(__ret__, 'tracking_options'),
         vdm_options=pulumi.get(__ret__, 'vdm_options'))
 def get_configuration_set_output(name: Optional[pulumi.Input[builtins.str]] = None,
@@ -145,5 +159,6 @@ def get_configuration_set_output(name: Optional[pulumi.Input[builtins.str]] = No
         reputation_options=pulumi.get(__response__, 'reputation_options'),
         sending_options=pulumi.get(__response__, 'sending_options'),
         suppression_options=pulumi.get(__response__, 'suppression_options'),
+        tags=pulumi.get(__response__, 'tags'),
         tracking_options=pulumi.get(__response__, 'tracking_options'),
         vdm_options=pulumi.get(__response__, 'vdm_options')))

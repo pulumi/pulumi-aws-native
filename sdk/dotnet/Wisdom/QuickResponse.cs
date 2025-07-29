@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Wisdom
         [Output("channels")]
         public Output<ImmutableArray<Pulumi.AwsNative.Wisdom.QuickResponseChannelType>> Channels { get; private set; } = null!;
 
+        /// <summary>
+        /// The content of the quick response.
+        /// </summary>
         [Output("content")]
         public Output<Outputs.QuickResponseContentProvider> Content { get; private set; } = null!;
 
@@ -41,6 +44,9 @@ namespace Pulumi.AwsNative.Wisdom
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration information of the user groups that the quick response is accessible to.
+        /// </summary>
         [Output("groupingConfiguration")]
         public Output<Outputs.QuickResponseGroupingConfiguration?> GroupingConfiguration { get; private set; } = null!;
 
@@ -86,6 +92,9 @@ namespace Pulumi.AwsNative.Wisdom
         [Output("shortcutKey")]
         public Output<string?> ShortcutKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the quick response data.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Wisdom.QuickResponseStatus> Status { get; private set; } = null!;
 
@@ -156,6 +165,9 @@ namespace Pulumi.AwsNative.Wisdom
             set => _channels = value;
         }
 
+        /// <summary>
+        /// The content of the quick response.
+        /// </summary>
         [Input("content", required: true)]
         public Input<Inputs.QuickResponseContentProviderArgs> Content { get; set; } = null!;
 
@@ -173,6 +185,9 @@ namespace Pulumi.AwsNative.Wisdom
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The configuration information of the user groups that the quick response is accessible to.
+        /// </summary>
         [Input("groupingConfiguration")]
         public Input<Inputs.QuickResponseGroupingConfigurationArgs>? GroupingConfiguration { get; set; }
 

@@ -2805,8 +2805,17 @@ class OwnerPropertiesArgs:
 if not MYPY:
     class ProjectEnvironmentConfigurationUserParameterArgsDict(TypedDict):
         environment_configuration_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The environment configuration name.
+        """
         environment_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The ID of the environment.
+        """
         environment_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentParameterArgsDict']]]]
+        """
+        The environment parameters.
+        """
 elif False:
     ProjectEnvironmentConfigurationUserParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2816,6 +2825,11 @@ class ProjectEnvironmentConfigurationUserParameterArgs:
                  environment_configuration_name: Optional[pulumi.Input[builtins.str]] = None,
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
                  environment_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentParameterArgs']]]] = None):
+        """
+        :param pulumi.Input[builtins.str] environment_configuration_name: The environment configuration name.
+        :param pulumi.Input[builtins.str] environment_id: The ID of the environment.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentParameterArgs']]] environment_parameters: The environment parameters.
+        """
         if environment_configuration_name is not None:
             pulumi.set(__self__, "environment_configuration_name", environment_configuration_name)
         if environment_id is not None:
@@ -2826,6 +2840,9 @@ class ProjectEnvironmentConfigurationUserParameterArgs:
     @property
     @pulumi.getter(name="environmentConfigurationName")
     def environment_configuration_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The environment configuration name.
+        """
         return pulumi.get(self, "environment_configuration_name")
 
     @environment_configuration_name.setter
@@ -2835,6 +2852,9 @@ class ProjectEnvironmentConfigurationUserParameterArgs:
     @property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ID of the environment.
+        """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
@@ -2844,6 +2864,9 @@ class ProjectEnvironmentConfigurationUserParameterArgs:
     @property
     @pulumi.getter(name="environmentParameters")
     def environment_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentParameterArgs']]]]:
+        """
+        The environment parameters.
+        """
         return pulumi.get(self, "environment_parameters")
 
     @environment_parameters.setter
@@ -2854,7 +2877,13 @@ class ProjectEnvironmentConfigurationUserParameterArgs:
 if not MYPY:
     class ProjectEnvironmentParameterArgsDict(TypedDict):
         name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The name of an environment profile parameter.
+        """
         value: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The value of an environment profile parameter.
+        """
 elif False:
     ProjectEnvironmentParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2863,6 +2892,10 @@ class ProjectEnvironmentParameterArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] name: The name of an environment profile parameter.
+        :param pulumi.Input[builtins.str] value: The value of an environment profile parameter.
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -2871,6 +2904,9 @@ class ProjectEnvironmentParameterArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of an environment profile parameter.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2880,6 +2916,9 @@ class ProjectEnvironmentParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The value of an environment profile parameter.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2934,6 +2973,9 @@ class ProjectMembershipMember1PropertiesArgs:
 if not MYPY:
     class ProjectProfileAwsAccountArgsDict(TypedDict):
         aws_account_id: pulumi.Input[builtins.str]
+        """
+        The account ID of a project.
+        """
 elif False:
     ProjectProfileAwsAccountArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2941,11 +2983,17 @@ elif False:
 class ProjectProfileAwsAccountArgs:
     def __init__(__self__, *,
                  aws_account_id: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] aws_account_id: The account ID of a project.
+        """
         pulumi.set(__self__, "aws_account_id", aws_account_id)
 
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The account ID of a project.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -2956,8 +3004,17 @@ class ProjectProfileAwsAccountArgs:
 if not MYPY:
     class ProjectProfileEnvironmentConfigurationParametersDetailsArgsDict(TypedDict):
         parameter_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgsDict']]]]
+        """
+        The parameter overrides.
+        """
         resolved_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgsDict']]]]
+        """
+        The resolved environment configuration parameters.
+        """
         ssm_path: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Ssm path environment configuration parameters.
+        """
 elif False:
     ProjectProfileEnvironmentConfigurationParametersDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2967,6 +3024,11 @@ class ProjectProfileEnvironmentConfigurationParametersDetailsArgs:
                  parameter_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]] = None,
                  resolved_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]] = None,
                  ssm_path: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]] parameter_overrides: The parameter overrides.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]] resolved_parameters: The resolved environment configuration parameters.
+        :param pulumi.Input[builtins.str] ssm_path: Ssm path environment configuration parameters.
+        """
         if parameter_overrides is not None:
             pulumi.set(__self__, "parameter_overrides", parameter_overrides)
         if resolved_parameters is not None:
@@ -2977,6 +3039,9 @@ class ProjectProfileEnvironmentConfigurationParametersDetailsArgs:
     @property
     @pulumi.getter(name="parameterOverrides")
     def parameter_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]]:
+        """
+        The parameter overrides.
+        """
         return pulumi.get(self, "parameter_overrides")
 
     @parameter_overrides.setter
@@ -2986,6 +3051,9 @@ class ProjectProfileEnvironmentConfigurationParametersDetailsArgs:
     @property
     @pulumi.getter(name="resolvedParameters")
     def resolved_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationParameterArgs']]]]:
+        """
+        The resolved environment configuration parameters.
+        """
         return pulumi.get(self, "resolved_parameters")
 
     @resolved_parameters.setter
@@ -2995,6 +3063,9 @@ class ProjectProfileEnvironmentConfigurationParametersDetailsArgs:
     @property
     @pulumi.getter(name="ssmPath")
     def ssm_path(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Ssm path environment configuration parameters.
+        """
         return pulumi.get(self, "ssm_path")
 
     @ssm_path.setter
@@ -3005,8 +3076,17 @@ class ProjectProfileEnvironmentConfigurationParametersDetailsArgs:
 if not MYPY:
     class ProjectProfileEnvironmentConfigurationParameterArgsDict(TypedDict):
         is_editable: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Specifies whether the environment parameter is editable.
+        """
         name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The name of the environment configuration parameter.
+        """
         value: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The value of the environment configuration parameter.
+        """
 elif False:
     ProjectProfileEnvironmentConfigurationParameterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3016,6 +3096,11 @@ class ProjectProfileEnvironmentConfigurationParameterArgs:
                  is_editable: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.bool] is_editable: Specifies whether the environment parameter is editable.
+        :param pulumi.Input[builtins.str] name: The name of the environment configuration parameter.
+        :param pulumi.Input[builtins.str] value: The value of the environment configuration parameter.
+        """
         if is_editable is not None:
             pulumi.set(__self__, "is_editable", is_editable)
         if name is not None:
@@ -3026,6 +3111,9 @@ class ProjectProfileEnvironmentConfigurationParameterArgs:
     @property
     @pulumi.getter(name="isEditable")
     def is_editable(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Specifies whether the environment parameter is editable.
+        """
         return pulumi.get(self, "is_editable")
 
     @is_editable.setter
@@ -3035,6 +3123,9 @@ class ProjectProfileEnvironmentConfigurationParameterArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the environment configuration parameter.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -3044,6 +3135,9 @@ class ProjectProfileEnvironmentConfigurationParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The value of the environment configuration parameter.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3054,14 +3148,41 @@ class ProjectProfileEnvironmentConfigurationParameterArgs:
 if not MYPY:
     class ProjectProfileEnvironmentConfigurationArgsDict(TypedDict):
         aws_region: pulumi.Input['ProjectProfileRegionArgsDict']
+        """
+        The AWS Region of the environment.
+        """
         environment_blueprint_id: pulumi.Input[builtins.str]
+        """
+        The environment blueprint ID.
+        """
         name: pulumi.Input[builtins.str]
+        """
+        The environment name.
+        """
         aws_account: NotRequired[pulumi.Input['ProjectProfileAwsAccountArgsDict']]
+        """
+        The AWS account of the environment.
+        """
         configuration_parameters: NotRequired[pulumi.Input['ProjectProfileEnvironmentConfigurationParametersDetailsArgsDict']]
+        """
+        The configuration parameters of the environment.
+        """
         deployment_mode: NotRequired[pulumi.Input['ProjectProfileDeploymentMode']]
+        """
+        The deployment mode of the environment.
+        """
         deployment_order: NotRequired[pulumi.Input[builtins.float]]
+        """
+        The deployment order of the environment.
+        """
         description: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The environment description.
+        """
         id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The environment ID.
+        """
 elif False:
     ProjectProfileEnvironmentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3077,6 +3198,17 @@ class ProjectProfileEnvironmentConfigurationArgs:
                  deployment_order: Optional[pulumi.Input[builtins.float]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input['ProjectProfileRegionArgs'] aws_region: The AWS Region of the environment.
+        :param pulumi.Input[builtins.str] environment_blueprint_id: The environment blueprint ID.
+        :param pulumi.Input[builtins.str] name: The environment name.
+        :param pulumi.Input['ProjectProfileAwsAccountArgs'] aws_account: The AWS account of the environment.
+        :param pulumi.Input['ProjectProfileEnvironmentConfigurationParametersDetailsArgs'] configuration_parameters: The configuration parameters of the environment.
+        :param pulumi.Input['ProjectProfileDeploymentMode'] deployment_mode: The deployment mode of the environment.
+        :param pulumi.Input[builtins.float] deployment_order: The deployment order of the environment.
+        :param pulumi.Input[builtins.str] description: The environment description.
+        :param pulumi.Input[builtins.str] id: The environment ID.
+        """
         pulumi.set(__self__, "aws_region", aws_region)
         pulumi.set(__self__, "environment_blueprint_id", environment_blueprint_id)
         pulumi.set(__self__, "name", name)
@@ -3096,6 +3228,9 @@ class ProjectProfileEnvironmentConfigurationArgs:
     @property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> pulumi.Input['ProjectProfileRegionArgs']:
+        """
+        The AWS Region of the environment.
+        """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
@@ -3105,6 +3240,9 @@ class ProjectProfileEnvironmentConfigurationArgs:
     @property
     @pulumi.getter(name="environmentBlueprintId")
     def environment_blueprint_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The environment blueprint ID.
+        """
         return pulumi.get(self, "environment_blueprint_id")
 
     @environment_blueprint_id.setter
@@ -3114,6 +3252,9 @@ class ProjectProfileEnvironmentConfigurationArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
+        """
+        The environment name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -3123,6 +3264,9 @@ class ProjectProfileEnvironmentConfigurationArgs:
     @property
     @pulumi.getter(name="awsAccount")
     def aws_account(self) -> Optional[pulumi.Input['ProjectProfileAwsAccountArgs']]:
+        """
+        The AWS account of the environment.
+        """
         return pulumi.get(self, "aws_account")
 
     @aws_account.setter
@@ -3132,6 +3276,9 @@ class ProjectProfileEnvironmentConfigurationArgs:
     @property
     @pulumi.getter(name="configurationParameters")
     def configuration_parameters(self) -> Optional[pulumi.Input['ProjectProfileEnvironmentConfigurationParametersDetailsArgs']]:
+        """
+        The configuration parameters of the environment.
+        """
         return pulumi.get(self, "configuration_parameters")
 
     @configuration_parameters.setter
@@ -3141,6 +3288,9 @@ class ProjectProfileEnvironmentConfigurationArgs:
     @property
     @pulumi.getter(name="deploymentMode")
     def deployment_mode(self) -> Optional[pulumi.Input['ProjectProfileDeploymentMode']]:
+        """
+        The deployment mode of the environment.
+        """
         return pulumi.get(self, "deployment_mode")
 
     @deployment_mode.setter
@@ -3150,6 +3300,9 @@ class ProjectProfileEnvironmentConfigurationArgs:
     @property
     @pulumi.getter(name="deploymentOrder")
     def deployment_order(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        The deployment order of the environment.
+        """
         return pulumi.get(self, "deployment_order")
 
     @deployment_order.setter
@@ -3159,6 +3312,9 @@ class ProjectProfileEnvironmentConfigurationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The environment description.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -3168,6 +3324,9 @@ class ProjectProfileEnvironmentConfigurationArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The environment ID.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -3178,6 +3337,9 @@ class ProjectProfileEnvironmentConfigurationArgs:
 if not MYPY:
     class ProjectProfileRegionArgsDict(TypedDict):
         region_name: pulumi.Input[builtins.str]
+        """
+        The AWS Region name.
+        """
 elif False:
     ProjectProfileRegionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3185,11 +3347,17 @@ elif False:
 class ProjectProfileRegionArgs:
     def __init__(__self__, *,
                  region_name: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] region_name: The AWS Region name.
+        """
         pulumi.set(__self__, "region_name", region_name)
 
     @property
     @pulumi.getter(name="regionName")
     def region_name(self) -> pulumi.Input[builtins.str]:
+        """
+        The AWS Region name.
+        """
         return pulumi.get(self, "region_name")
 
     @region_name.setter

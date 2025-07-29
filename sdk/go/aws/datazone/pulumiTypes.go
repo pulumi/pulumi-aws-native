@@ -8185,9 +8185,12 @@ func (o OwnerPropertiesOutput) ToOwnerPropertiesOutputWithContext(ctx context.Co
 }
 
 type ProjectEnvironmentConfigurationUserParameter struct {
-	EnvironmentConfigurationName *string                       `pulumi:"environmentConfigurationName"`
-	EnvironmentId                *string                       `pulumi:"environmentId"`
-	EnvironmentParameters        []ProjectEnvironmentParameter `pulumi:"environmentParameters"`
+	// The environment configuration name.
+	EnvironmentConfigurationName *string `pulumi:"environmentConfigurationName"`
+	// The ID of the environment.
+	EnvironmentId *string `pulumi:"environmentId"`
+	// The environment parameters.
+	EnvironmentParameters []ProjectEnvironmentParameter `pulumi:"environmentParameters"`
 }
 
 // ProjectEnvironmentConfigurationUserParameterInput is an input type that accepts ProjectEnvironmentConfigurationUserParameterArgs and ProjectEnvironmentConfigurationUserParameterOutput values.
@@ -8202,9 +8205,12 @@ type ProjectEnvironmentConfigurationUserParameterInput interface {
 }
 
 type ProjectEnvironmentConfigurationUserParameterArgs struct {
-	EnvironmentConfigurationName pulumi.StringPtrInput                 `pulumi:"environmentConfigurationName"`
-	EnvironmentId                pulumi.StringPtrInput                 `pulumi:"environmentId"`
-	EnvironmentParameters        ProjectEnvironmentParameterArrayInput `pulumi:"environmentParameters"`
+	// The environment configuration name.
+	EnvironmentConfigurationName pulumi.StringPtrInput `pulumi:"environmentConfigurationName"`
+	// The ID of the environment.
+	EnvironmentId pulumi.StringPtrInput `pulumi:"environmentId"`
+	// The environment parameters.
+	EnvironmentParameters ProjectEnvironmentParameterArrayInput `pulumi:"environmentParameters"`
 }
 
 func (ProjectEnvironmentConfigurationUserParameterArgs) ElementType() reflect.Type {
@@ -8258,14 +8264,17 @@ func (o ProjectEnvironmentConfigurationUserParameterOutput) ToProjectEnvironment
 	return o
 }
 
+// The environment configuration name.
 func (o ProjectEnvironmentConfigurationUserParameterOutput) EnvironmentConfigurationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectEnvironmentConfigurationUserParameter) *string { return v.EnvironmentConfigurationName }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the environment.
 func (o ProjectEnvironmentConfigurationUserParameterOutput) EnvironmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectEnvironmentConfigurationUserParameter) *string { return v.EnvironmentId }).(pulumi.StringPtrOutput)
 }
 
+// The environment parameters.
 func (o ProjectEnvironmentConfigurationUserParameterOutput) EnvironmentParameters() ProjectEnvironmentParameterArrayOutput {
 	return o.ApplyT(func(v ProjectEnvironmentConfigurationUserParameter) []ProjectEnvironmentParameter {
 		return v.EnvironmentParameters
@@ -8293,7 +8302,9 @@ func (o ProjectEnvironmentConfigurationUserParameterArrayOutput) Index(i pulumi.
 }
 
 type ProjectEnvironmentParameter struct {
-	Name  *string `pulumi:"name"`
+	// The name of an environment profile parameter.
+	Name *string `pulumi:"name"`
+	// The value of an environment profile parameter.
 	Value *string `pulumi:"value"`
 }
 
@@ -8309,7 +8320,9 @@ type ProjectEnvironmentParameterInput interface {
 }
 
 type ProjectEnvironmentParameterArgs struct {
-	Name  pulumi.StringPtrInput `pulumi:"name"`
+	// The name of an environment profile parameter.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value of an environment profile parameter.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -8364,10 +8377,12 @@ func (o ProjectEnvironmentParameterOutput) ToProjectEnvironmentParameterOutputWi
 	return o
 }
 
+// The name of an environment profile parameter.
 func (o ProjectEnvironmentParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectEnvironmentParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The value of an environment profile parameter.
 func (o ProjectEnvironmentParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectEnvironmentParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -8491,6 +8506,7 @@ func (o ProjectMembershipMember1PropertiesOutput) GroupIdentifier() pulumi.Strin
 }
 
 type ProjectProfileAwsAccount struct {
+	// The account ID of a project.
 	AwsAccountId string `pulumi:"awsAccountId"`
 }
 
@@ -8506,6 +8522,7 @@ type ProjectProfileAwsAccountInput interface {
 }
 
 type ProjectProfileAwsAccountArgs struct {
+	// The account ID of a project.
 	AwsAccountId pulumi.StringInput `pulumi:"awsAccountId"`
 }
 
@@ -8586,6 +8603,7 @@ func (o ProjectProfileAwsAccountOutput) ToProjectProfileAwsAccountPtrOutputWithC
 	}).(ProjectProfileAwsAccountPtrOutput)
 }
 
+// The account ID of a project.
 func (o ProjectProfileAwsAccountOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectProfileAwsAccount) string { return v.AwsAccountId }).(pulumi.StringOutput)
 }
@@ -8614,6 +8632,7 @@ func (o ProjectProfileAwsAccountPtrOutput) Elem() ProjectProfileAwsAccountOutput
 	}).(ProjectProfileAwsAccountOutput)
 }
 
+// The account ID of a project.
 func (o ProjectProfileAwsAccountPtrOutput) AwsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectProfileAwsAccount) *string {
 		if v == nil {
@@ -8624,15 +8643,24 @@ func (o ProjectProfileAwsAccountPtrOutput) AwsAccountId() pulumi.StringPtrOutput
 }
 
 type ProjectProfileEnvironmentConfiguration struct {
-	AwsAccount              *ProjectProfileAwsAccount                                `pulumi:"awsAccount"`
-	AwsRegion               ProjectProfileRegion                                     `pulumi:"awsRegion"`
+	// The AWS account of the environment.
+	AwsAccount *ProjectProfileAwsAccount `pulumi:"awsAccount"`
+	// The AWS Region of the environment.
+	AwsRegion ProjectProfileRegion `pulumi:"awsRegion"`
+	// The configuration parameters of the environment.
 	ConfigurationParameters *ProjectProfileEnvironmentConfigurationParametersDetails `pulumi:"configurationParameters"`
-	DeploymentMode          *ProjectProfileDeploymentMode                            `pulumi:"deploymentMode"`
-	DeploymentOrder         *float64                                                 `pulumi:"deploymentOrder"`
-	Description             *string                                                  `pulumi:"description"`
-	EnvironmentBlueprintId  string                                                   `pulumi:"environmentBlueprintId"`
-	Id                      *string                                                  `pulumi:"id"`
-	Name                    string                                                   `pulumi:"name"`
+	// The deployment mode of the environment.
+	DeploymentMode *ProjectProfileDeploymentMode `pulumi:"deploymentMode"`
+	// The deployment order of the environment.
+	DeploymentOrder *float64 `pulumi:"deploymentOrder"`
+	// The environment description.
+	Description *string `pulumi:"description"`
+	// The environment blueprint ID.
+	EnvironmentBlueprintId string `pulumi:"environmentBlueprintId"`
+	// The environment ID.
+	Id *string `pulumi:"id"`
+	// The environment name.
+	Name string `pulumi:"name"`
 }
 
 // ProjectProfileEnvironmentConfigurationInput is an input type that accepts ProjectProfileEnvironmentConfigurationArgs and ProjectProfileEnvironmentConfigurationOutput values.
@@ -8647,15 +8675,24 @@ type ProjectProfileEnvironmentConfigurationInput interface {
 }
 
 type ProjectProfileEnvironmentConfigurationArgs struct {
-	AwsAccount              ProjectProfileAwsAccountPtrInput                                `pulumi:"awsAccount"`
-	AwsRegion               ProjectProfileRegionInput                                       `pulumi:"awsRegion"`
+	// The AWS account of the environment.
+	AwsAccount ProjectProfileAwsAccountPtrInput `pulumi:"awsAccount"`
+	// The AWS Region of the environment.
+	AwsRegion ProjectProfileRegionInput `pulumi:"awsRegion"`
+	// The configuration parameters of the environment.
 	ConfigurationParameters ProjectProfileEnvironmentConfigurationParametersDetailsPtrInput `pulumi:"configurationParameters"`
-	DeploymentMode          ProjectProfileDeploymentModePtrInput                            `pulumi:"deploymentMode"`
-	DeploymentOrder         pulumi.Float64PtrInput                                          `pulumi:"deploymentOrder"`
-	Description             pulumi.StringPtrInput                                           `pulumi:"description"`
-	EnvironmentBlueprintId  pulumi.StringInput                                              `pulumi:"environmentBlueprintId"`
-	Id                      pulumi.StringPtrInput                                           `pulumi:"id"`
-	Name                    pulumi.StringInput                                              `pulumi:"name"`
+	// The deployment mode of the environment.
+	DeploymentMode ProjectProfileDeploymentModePtrInput `pulumi:"deploymentMode"`
+	// The deployment order of the environment.
+	DeploymentOrder pulumi.Float64PtrInput `pulumi:"deploymentOrder"`
+	// The environment description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The environment blueprint ID.
+	EnvironmentBlueprintId pulumi.StringInput `pulumi:"environmentBlueprintId"`
+	// The environment ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The environment name.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (ProjectProfileEnvironmentConfigurationArgs) ElementType() reflect.Type {
@@ -8709,40 +8746,49 @@ func (o ProjectProfileEnvironmentConfigurationOutput) ToProjectProfileEnvironmen
 	return o
 }
 
+// The AWS account of the environment.
 func (o ProjectProfileEnvironmentConfigurationOutput) AwsAccount() ProjectProfileAwsAccountPtrOutput {
 	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) *ProjectProfileAwsAccount { return v.AwsAccount }).(ProjectProfileAwsAccountPtrOutput)
 }
 
+// The AWS Region of the environment.
 func (o ProjectProfileEnvironmentConfigurationOutput) AwsRegion() ProjectProfileRegionOutput {
 	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) ProjectProfileRegion { return v.AwsRegion }).(ProjectProfileRegionOutput)
 }
 
+// The configuration parameters of the environment.
 func (o ProjectProfileEnvironmentConfigurationOutput) ConfigurationParameters() ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput {
 	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) *ProjectProfileEnvironmentConfigurationParametersDetails {
 		return v.ConfigurationParameters
 	}).(ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput)
 }
 
+// The deployment mode of the environment.
 func (o ProjectProfileEnvironmentConfigurationOutput) DeploymentMode() ProjectProfileDeploymentModePtrOutput {
 	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) *ProjectProfileDeploymentMode { return v.DeploymentMode }).(ProjectProfileDeploymentModePtrOutput)
 }
 
+// The deployment order of the environment.
 func (o ProjectProfileEnvironmentConfigurationOutput) DeploymentOrder() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) *float64 { return v.DeploymentOrder }).(pulumi.Float64PtrOutput)
 }
 
+// The environment description.
 func (o ProjectProfileEnvironmentConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The environment blueprint ID.
 func (o ProjectProfileEnvironmentConfigurationOutput) EnvironmentBlueprintId() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) string { return v.EnvironmentBlueprintId }).(pulumi.StringOutput)
 }
 
+// The environment ID.
 func (o ProjectProfileEnvironmentConfigurationOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The environment name.
 func (o ProjectProfileEnvironmentConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectProfileEnvironmentConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8768,9 +8814,12 @@ func (o ProjectProfileEnvironmentConfigurationArrayOutput) Index(i pulumi.IntInp
 }
 
 type ProjectProfileEnvironmentConfigurationParameter struct {
-	IsEditable *bool   `pulumi:"isEditable"`
-	Name       *string `pulumi:"name"`
-	Value      *string `pulumi:"value"`
+	// Specifies whether the environment parameter is editable.
+	IsEditable *bool `pulumi:"isEditable"`
+	// The name of the environment configuration parameter.
+	Name *string `pulumi:"name"`
+	// The value of the environment configuration parameter.
+	Value *string `pulumi:"value"`
 }
 
 // ProjectProfileEnvironmentConfigurationParameterInput is an input type that accepts ProjectProfileEnvironmentConfigurationParameterArgs and ProjectProfileEnvironmentConfigurationParameterOutput values.
@@ -8785,9 +8834,12 @@ type ProjectProfileEnvironmentConfigurationParameterInput interface {
 }
 
 type ProjectProfileEnvironmentConfigurationParameterArgs struct {
-	IsEditable pulumi.BoolPtrInput   `pulumi:"isEditable"`
-	Name       pulumi.StringPtrInput `pulumi:"name"`
-	Value      pulumi.StringPtrInput `pulumi:"value"`
+	// Specifies whether the environment parameter is editable.
+	IsEditable pulumi.BoolPtrInput `pulumi:"isEditable"`
+	// The name of the environment configuration parameter.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value of the environment configuration parameter.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ProjectProfileEnvironmentConfigurationParameterArgs) ElementType() reflect.Type {
@@ -8841,14 +8893,17 @@ func (o ProjectProfileEnvironmentConfigurationParameterOutput) ToProjectProfileE
 	return o
 }
 
+// Specifies whether the environment parameter is editable.
 func (o ProjectProfileEnvironmentConfigurationParameterOutput) IsEditable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProjectProfileEnvironmentConfigurationParameter) *bool { return v.IsEditable }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the environment configuration parameter.
 func (o ProjectProfileEnvironmentConfigurationParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectProfileEnvironmentConfigurationParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The value of the environment configuration parameter.
 func (o ProjectProfileEnvironmentConfigurationParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectProfileEnvironmentConfigurationParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -8874,9 +8929,12 @@ func (o ProjectProfileEnvironmentConfigurationParameterArrayOutput) Index(i pulu
 }
 
 type ProjectProfileEnvironmentConfigurationParametersDetails struct {
+	// The parameter overrides.
 	ParameterOverrides []ProjectProfileEnvironmentConfigurationParameter `pulumi:"parameterOverrides"`
+	// The resolved environment configuration parameters.
 	ResolvedParameters []ProjectProfileEnvironmentConfigurationParameter `pulumi:"resolvedParameters"`
-	SsmPath            *string                                           `pulumi:"ssmPath"`
+	// Ssm path environment configuration parameters.
+	SsmPath *string `pulumi:"ssmPath"`
 }
 
 // ProjectProfileEnvironmentConfigurationParametersDetailsInput is an input type that accepts ProjectProfileEnvironmentConfigurationParametersDetailsArgs and ProjectProfileEnvironmentConfigurationParametersDetailsOutput values.
@@ -8891,9 +8949,12 @@ type ProjectProfileEnvironmentConfigurationParametersDetailsInput interface {
 }
 
 type ProjectProfileEnvironmentConfigurationParametersDetailsArgs struct {
+	// The parameter overrides.
 	ParameterOverrides ProjectProfileEnvironmentConfigurationParameterArrayInput `pulumi:"parameterOverrides"`
+	// The resolved environment configuration parameters.
 	ResolvedParameters ProjectProfileEnvironmentConfigurationParameterArrayInput `pulumi:"resolvedParameters"`
-	SsmPath            pulumi.StringPtrInput                                     `pulumi:"ssmPath"`
+	// Ssm path environment configuration parameters.
+	SsmPath pulumi.StringPtrInput `pulumi:"ssmPath"`
 }
 
 func (ProjectProfileEnvironmentConfigurationParametersDetailsArgs) ElementType() reflect.Type {
@@ -8973,18 +9034,21 @@ func (o ProjectProfileEnvironmentConfigurationParametersDetailsOutput) ToProject
 	}).(ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput)
 }
 
+// The parameter overrides.
 func (o ProjectProfileEnvironmentConfigurationParametersDetailsOutput) ParameterOverrides() ProjectProfileEnvironmentConfigurationParameterArrayOutput {
 	return o.ApplyT(func(v ProjectProfileEnvironmentConfigurationParametersDetails) []ProjectProfileEnvironmentConfigurationParameter {
 		return v.ParameterOverrides
 	}).(ProjectProfileEnvironmentConfigurationParameterArrayOutput)
 }
 
+// The resolved environment configuration parameters.
 func (o ProjectProfileEnvironmentConfigurationParametersDetailsOutput) ResolvedParameters() ProjectProfileEnvironmentConfigurationParameterArrayOutput {
 	return o.ApplyT(func(v ProjectProfileEnvironmentConfigurationParametersDetails) []ProjectProfileEnvironmentConfigurationParameter {
 		return v.ResolvedParameters
 	}).(ProjectProfileEnvironmentConfigurationParameterArrayOutput)
 }
 
+// Ssm path environment configuration parameters.
 func (o ProjectProfileEnvironmentConfigurationParametersDetailsOutput) SsmPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectProfileEnvironmentConfigurationParametersDetails) *string { return v.SsmPath }).(pulumi.StringPtrOutput)
 }
@@ -9013,6 +9077,7 @@ func (o ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput) Elem()
 	}).(ProjectProfileEnvironmentConfigurationParametersDetailsOutput)
 }
 
+// The parameter overrides.
 func (o ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput) ParameterOverrides() ProjectProfileEnvironmentConfigurationParameterArrayOutput {
 	return o.ApplyT(func(v *ProjectProfileEnvironmentConfigurationParametersDetails) []ProjectProfileEnvironmentConfigurationParameter {
 		if v == nil {
@@ -9022,6 +9087,7 @@ func (o ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput) Parame
 	}).(ProjectProfileEnvironmentConfigurationParameterArrayOutput)
 }
 
+// The resolved environment configuration parameters.
 func (o ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput) ResolvedParameters() ProjectProfileEnvironmentConfigurationParameterArrayOutput {
 	return o.ApplyT(func(v *ProjectProfileEnvironmentConfigurationParametersDetails) []ProjectProfileEnvironmentConfigurationParameter {
 		if v == nil {
@@ -9031,6 +9097,7 @@ func (o ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput) Resolv
 	}).(ProjectProfileEnvironmentConfigurationParameterArrayOutput)
 }
 
+// Ssm path environment configuration parameters.
 func (o ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput) SsmPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectProfileEnvironmentConfigurationParametersDetails) *string {
 		if v == nil {
@@ -9041,6 +9108,7 @@ func (o ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput) SsmPat
 }
 
 type ProjectProfileRegion struct {
+	// The AWS Region name.
 	RegionName string `pulumi:"regionName"`
 }
 
@@ -9056,6 +9124,7 @@ type ProjectProfileRegionInput interface {
 }
 
 type ProjectProfileRegionArgs struct {
+	// The AWS Region name.
 	RegionName pulumi.StringInput `pulumi:"regionName"`
 }
 
@@ -9085,6 +9154,7 @@ func (o ProjectProfileRegionOutput) ToProjectProfileRegionOutputWithContext(ctx 
 	return o
 }
 
+// The AWS Region name.
 func (o ProjectProfileRegionOutput) RegionName() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectProfileRegion) string { return v.RegionName }).(pulumi.StringOutput)
 }

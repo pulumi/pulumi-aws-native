@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         [Input("value")]
         public Input<int>? Value { get; set; }
 
+        /// <summary>
+        /// A structure letting customers specify a relative time window over which over which data is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint is in the past, and negative numbers to indicate it is in the future. ValueRange overrides Value.
+        /// </summary>
         [Input("valueRange")]
         public Input<Inputs.CalculatedAttributeDefinitionValueRangeArgs>? ValueRange { get; set; }
 

@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Omics
         public Output<Pulumi.AwsNative.Omics.WorkflowStatus> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
+        /// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
         /// </summary>
         [Output("storageCapacity")]
         public Output<double?> StorageCapacity { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.AwsNative.Omics
         }
 
         /// <summary>
-        /// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
+        /// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
         /// </summary>
         [Input("storageCapacity")]
         public Input<double>? StorageCapacity { get; set; }

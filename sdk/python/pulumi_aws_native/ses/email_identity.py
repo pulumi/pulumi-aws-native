@@ -15,6 +15,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['EmailIdentityArgs', 'EmailIdentity']
@@ -27,7 +29,8 @@ class EmailIdentityArgs:
                  dkim_attributes: Optional[pulumi.Input['EmailIdentityDkimAttributesArgs']] = None,
                  dkim_signing_attributes: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']] = None,
                  feedback_attributes: Optional[pulumi.Input['EmailIdentityFeedbackAttributesArgs']] = None,
-                 mail_from_attributes: Optional[pulumi.Input['EmailIdentityMailFromAttributesArgs']] = None):
+                 mail_from_attributes: Optional[pulumi.Input['EmailIdentityMailFromAttributesArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EmailIdentity resource.
         :param pulumi.Input[builtins.str] email_identity: The email address or domain to verify.
@@ -38,6 +41,7 @@ class EmailIdentityArgs:
                You can only specify this object if the email identity is a domain, as opposed to an address.
         :param pulumi.Input['EmailIdentityFeedbackAttributesArgs'] feedback_attributes: Used to enable or disable feedback forwarding for an identity.
         :param pulumi.Input['EmailIdentityMailFromAttributesArgs'] mail_from_attributes: Used to enable or disable the custom Mail-From domain configuration for an email identity.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the email identity.
         """
         pulumi.set(__self__, "email_identity", email_identity)
         if configuration_set_attributes is not None:
@@ -50,6 +54,8 @@ class EmailIdentityArgs:
             pulumi.set(__self__, "feedback_attributes", feedback_attributes)
         if mail_from_attributes is not None:
             pulumi.set(__self__, "mail_from_attributes", mail_from_attributes)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="emailIdentity")
@@ -125,6 +131,18 @@ class EmailIdentityArgs:
     def mail_from_attributes(self, value: Optional[pulumi.Input['EmailIdentityMailFromAttributesArgs']]):
         pulumi.set(self, "mail_from_attributes", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags (keys and values) associated with the email identity.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:ses:EmailIdentity")
 class EmailIdentity(pulumi.CustomResource):
@@ -138,6 +156,7 @@ class EmailIdentity(pulumi.CustomResource):
                  email_identity: Optional[pulumi.Input[builtins.str]] = None,
                  feedback_attributes: Optional[pulumi.Input[Union['EmailIdentityFeedbackAttributesArgs', 'EmailIdentityFeedbackAttributesArgsDict']]] = None,
                  mail_from_attributes: Optional[pulumi.Input[Union['EmailIdentityMailFromAttributesArgs', 'EmailIdentityMailFromAttributesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SES::EmailIdentity
@@ -152,6 +171,7 @@ class EmailIdentity(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] email_identity: The email address or domain to verify.
         :param pulumi.Input[Union['EmailIdentityFeedbackAttributesArgs', 'EmailIdentityFeedbackAttributesArgsDict']] feedback_attributes: Used to enable or disable feedback forwarding for an identity.
         :param pulumi.Input[Union['EmailIdentityMailFromAttributesArgs', 'EmailIdentityMailFromAttributesArgsDict']] mail_from_attributes: Used to enable or disable the custom Mail-From domain configuration for an email identity.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the email identity.
         """
         ...
     @overload
@@ -183,6 +203,7 @@ class EmailIdentity(pulumi.CustomResource):
                  email_identity: Optional[pulumi.Input[builtins.str]] = None,
                  feedback_attributes: Optional[pulumi.Input[Union['EmailIdentityFeedbackAttributesArgs', 'EmailIdentityFeedbackAttributesArgsDict']]] = None,
                  mail_from_attributes: Optional[pulumi.Input[Union['EmailIdentityMailFromAttributesArgs', 'EmailIdentityMailFromAttributesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -200,6 +221,7 @@ class EmailIdentity(pulumi.CustomResource):
             __props__.__dict__["email_identity"] = email_identity
             __props__.__dict__["feedback_attributes"] = feedback_attributes
             __props__.__dict__["mail_from_attributes"] = mail_from_attributes
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["dkim_dns_token_name1"] = None
             __props__.__dict__["dkim_dns_token_name2"] = None
             __props__.__dict__["dkim_dns_token_name3"] = None
@@ -242,6 +264,7 @@ class EmailIdentity(pulumi.CustomResource):
         __props__.__dict__["email_identity"] = None
         __props__.__dict__["feedback_attributes"] = None
         __props__.__dict__["mail_from_attributes"] = None
+        __props__.__dict__["tags"] = None
         return EmailIdentity(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -341,4 +364,12 @@ class EmailIdentity(pulumi.CustomResource):
         Used to enable or disable the custom Mail-From domain configuration for an email identity.
         """
         return pulumi.get(self, "mail_from_attributes")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags (keys and values) associated with the email identity.
+        """
+        return pulumi.get(self, "tags")
 

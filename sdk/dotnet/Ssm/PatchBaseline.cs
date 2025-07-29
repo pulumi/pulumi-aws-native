@@ -284,6 +284,12 @@ namespace Pulumi.AwsNative.Ssm
         public Output<bool?> ApprovedPatchesEnableNonSecurity { get; private set; } = null!;
 
         /// <summary>
+        /// The compliance status for vendor recommended security updates that are not approved by this patch baseline.
+        /// </summary>
+        [Output("availableSecurityUpdatesComplianceStatus")]
+        public Output<Pulumi.AwsNative.Ssm.PatchBaselineAvailableSecurityUpdatesComplianceStatus?> AvailableSecurityUpdatesComplianceStatus { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the patch baseline.
         /// </summary>
         [Output("awsId")]
@@ -427,6 +433,12 @@ namespace Pulumi.AwsNative.Ssm
         /// </summary>
         [Input("approvedPatchesEnableNonSecurity")]
         public Input<bool>? ApprovedPatchesEnableNonSecurity { get; set; }
+
+        /// <summary>
+        /// The compliance status for vendor recommended security updates that are not approved by this patch baseline.
+        /// </summary>
+        [Input("availableSecurityUpdatesComplianceStatus")]
+        public Input<Pulumi.AwsNative.Ssm.PatchBaselineAvailableSecurityUpdatesComplianceStatus>? AvailableSecurityUpdatesComplianceStatus { get; set; }
 
         /// <summary>
         /// Set the baseline as default baseline. Only registering to default patch baseline is allowed.

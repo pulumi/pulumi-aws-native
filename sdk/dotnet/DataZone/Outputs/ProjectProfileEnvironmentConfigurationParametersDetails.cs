@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     [OutputType]
     public sealed class ProjectProfileEnvironmentConfigurationParametersDetails
     {
+        /// <summary>
+        /// The parameter overrides.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ProjectProfileEnvironmentConfigurationParameter> ParameterOverrides;
+        /// <summary>
+        /// The resolved environment configuration parameters.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ProjectProfileEnvironmentConfigurationParameter> ResolvedParameters;
+        /// <summary>
+        /// Ssm path environment configuration parameters.
+        /// </summary>
         public readonly string? SsmPath;
 
         [OutputConstructor]

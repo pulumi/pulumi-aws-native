@@ -29,6 +29,9 @@ export interface GetQuickResponseResult {
      * The Amazon Connect contact channels this quick response applies to.
      */
     readonly channels?: enums.wisdom.QuickResponseChannelType[];
+    /**
+     * The content of the quick response.
+     */
     readonly content?: outputs.wisdom.QuickResponseContentProvider;
     /**
      * The media type of the quick response content.
@@ -41,6 +44,9 @@ export interface GetQuickResponseResult {
      * The description of the quick response.
      */
     readonly description?: string;
+    /**
+     * The configuration information of the user groups that the quick response is accessible to.
+     */
     readonly groupingConfiguration?: outputs.wisdom.QuickResponseGroupingConfiguration;
     /**
      * Whether the quick response is active.
@@ -66,6 +72,9 @@ export interface GetQuickResponseResult {
      * The shortcut key of the quick response. The value should be unique across the knowledge base.
      */
     readonly shortcutKey?: string;
+    /**
+     * The status of the quick response data.
+     */
     readonly status?: enums.wisdom.QuickResponseStatus;
     /**
      * An array of key-value pairs to apply to this resource.

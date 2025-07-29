@@ -63,6 +63,12 @@ type LookupServerResult struct {
 	EndpointType *ServerEndpointType `pulumi:"endpointType"`
 	// Required when `IdentityProviderType` is set to `AWS_DIRECTORY_SERVICE` , `AWS _LAMBDA` or `API_GATEWAY` . Accepts an array containing all of the information required to use a directory in `AWS_DIRECTORY_SERVICE` or invoke a customer-supplied authentication API, including the API Gateway URL. Cannot be specified when `IdentityProviderType` is set to `SERVICE_MANAGED` .
 	IdentityProviderDetails *ServerIdentityProviderDetails `pulumi:"identityProviderDetails"`
+	// Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your AWS Transfer Family endpoint. The default value is `IPV4` .
+	//
+	// > The `IpAddressType` parameter has the following limitations:
+	// > - It cannot be changed while the server is online. You must stop the server before modifying this parameter.
+	// > - It cannot be updated to `DUALSTACK` if the server has `AddressAllocationIds` specified. > When using `DUALSTACK` as the `IpAddressType` , you cannot set the `AddressAllocationIds` parameter for the [EndpointDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_EndpointDetails.html) for the server.
+	IpAddressType *ServerIpAddressType `pulumi:"ipAddressType"`
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.
 	LoggingRole *string `pulumi:"loggingRole"`
 	// Specifies a string to display when users connect to a server. This string is displayed after the user authenticates.
@@ -218,6 +224,15 @@ func (o LookupServerResultOutput) EndpointType() ServerEndpointTypePtrOutput {
 // Required when `IdentityProviderType` is set to `AWS_DIRECTORY_SERVICE` , `AWS _LAMBDA` or `API_GATEWAY` . Accepts an array containing all of the information required to use a directory in `AWS_DIRECTORY_SERVICE` or invoke a customer-supplied authentication API, including the API Gateway URL. Cannot be specified when `IdentityProviderType` is set to `SERVICE_MANAGED` .
 func (o LookupServerResultOutput) IdentityProviderDetails() ServerIdentityProviderDetailsPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *ServerIdentityProviderDetails { return v.IdentityProviderDetails }).(ServerIdentityProviderDetailsPtrOutput)
+}
+
+// Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your AWS Transfer Family endpoint. The default value is `IPV4` .
+//
+// > The `IpAddressType` parameter has the following limitations:
+// > - It cannot be changed while the server is online. You must stop the server before modifying this parameter.
+// > - It cannot be updated to `DUALSTACK` if the server has `AddressAllocationIds` specified. > When using `DUALSTACK` as the `IpAddressType` , you cannot set the `AddressAllocationIds` parameter for the [EndpointDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_EndpointDetails.html) for the server.
+func (o LookupServerResultOutput) IpAddressType() ServerIpAddressTypePtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *ServerIpAddressType { return v.IpAddressType }).(ServerIpAddressTypePtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.

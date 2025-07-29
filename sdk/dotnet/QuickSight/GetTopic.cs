@@ -83,6 +83,7 @@ namespace Pulumi.AwsNative.QuickSight
         /// Configuration options for a `Topic` .
         /// </summary>
         public readonly Outputs.TopicConfigOptions? ConfigOptions;
+        public readonly Outputs.TopicCustomInstructions? CustomInstructions;
         /// <summary>
         /// The data sets that the topic is associated with.
         /// </summary>
@@ -106,6 +107,8 @@ namespace Pulumi.AwsNative.QuickSight
 
             Outputs.TopicConfigOptions? configOptions,
 
+            Outputs.TopicCustomInstructions? customInstructions,
+
             ImmutableArray<Outputs.TopicDatasetMetadata> dataSets,
 
             string? description,
@@ -116,6 +119,7 @@ namespace Pulumi.AwsNative.QuickSight
         {
             Arn = arn;
             ConfigOptions = configOptions;
+            CustomInstructions = customInstructions;
             DataSets = dataSets;
             Description = description;
             Name = name;

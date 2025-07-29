@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> DeviceName { get; private set; } = null!;
 
         /// <summary>
-        /// IPv4 address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``PublicIpv4``, you can use a public IPv4 address.
+        /// The IP address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``Ipv6``, you can use an IPv6 address.
         /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
-        /// IPv4 address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``PublicIpv4``, you can use a public IPv4 address.
+        /// The IP address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``Ipv6``, you can use an IPv6 address.
         /// </summary>
         [Input("ipAddress", required: true)]
         public Input<string> IpAddress { get; set; } = null!;

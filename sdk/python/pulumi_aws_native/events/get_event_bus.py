@@ -16,6 +16,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetEventBusResult',
@@ -26,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventBusResult:
-    def __init__(__self__, arn=None, dead_letter_config=None, description=None, kms_key_identifier=None, policy=None, tags=None):
+    def __init__(__self__, arn=None, dead_letter_config=None, description=None, kms_key_identifier=None, log_config=None, policy=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +40,9 @@ class GetEventBusResult:
         if kms_key_identifier and not isinstance(kms_key_identifier, str):
             raise TypeError("Expected argument 'kms_key_identifier' to be a str")
         pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
+        if log_config and not isinstance(log_config, dict):
+            raise TypeError("Expected argument 'log_config' to be a dict")
+        pulumi.set(__self__, "log_config", log_config)
         if policy and not isinstance(policy, dict):
             raise TypeError("Expected argument 'policy' to be a dict")
         pulumi.set(__self__, "policy", policy)
@@ -79,6 +83,14 @@ class GetEventBusResult:
         return pulumi.get(self, "kms_key_identifier")
 
     @property
+    @pulumi.getter(name="logConfig")
+    def log_config(self) -> Optional['outputs.LogConfigProperties']:
+        """
+        The logging configuration settings for vended logs.
+        """
+        return pulumi.get(self, "log_config")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional[Any]:
         """
@@ -107,6 +119,7 @@ class AwaitableGetEventBusResult(GetEventBusResult):
             dead_letter_config=self.dead_letter_config,
             description=self.description,
             kms_key_identifier=self.kms_key_identifier,
+            log_config=self.log_config,
             policy=self.policy,
             tags=self.tags)
 
@@ -129,6 +142,7 @@ def get_event_bus(name: Optional[builtins.str] = None,
         dead_letter_config=pulumi.get(__ret__, 'dead_letter_config'),
         description=pulumi.get(__ret__, 'description'),
         kms_key_identifier=pulumi.get(__ret__, 'kms_key_identifier'),
+        log_config=pulumi.get(__ret__, 'log_config'),
         policy=pulumi.get(__ret__, 'policy'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_event_bus_output(name: Optional[pulumi.Input[builtins.str]] = None,
@@ -148,5 +162,6 @@ def get_event_bus_output(name: Optional[pulumi.Input[builtins.str]] = None,
         dead_letter_config=pulumi.get(__response__, 'dead_letter_config'),
         description=pulumi.get(__response__, 'description'),
         kms_key_identifier=pulumi.get(__response__, 'kms_key_identifier'),
+        log_config=pulumi.get(__response__, 'log_config'),
         policy=pulumi.get(__response__, 'policy'),
         tags=pulumi.get(__response__, 'tags')))

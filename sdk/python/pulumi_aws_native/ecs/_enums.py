@@ -108,6 +108,12 @@ class ServiceAwsVpcConfigurationAssignPublicIp(builtins.str, Enum):
 
 @pulumi.type_token("aws-native:ecs:ServiceDeploymentConfigurationStrategy")
 class ServiceDeploymentConfigurationStrategy(builtins.str, Enum):
+    """
+    The deployment strategy for the service. Choose from these valid values:
+
+    - `ROLLING` - When you create a service which uses the rolling update ( `ROLLING` ) deployment strategy, the Amazon ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration.
+    - `BLUE_GREEN` - A blue/green deployment strategy ( `BLUE_GREEN` ) is a release methodology that reduces downtime and risk by running two identical production environments called blue and green. With Amazon ECS blue/green deployments, you can validate new service revisions before directing production traffic to them. This approach provides a safer way to deploy changes with the ability to quickly roll back if needed.
+    """
     ROLLING = "ROLLING"
     BLUE_GREEN = "BLUE_GREEN"
 

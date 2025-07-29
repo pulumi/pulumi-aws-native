@@ -109,6 +109,10 @@ namespace Pulumi.AwsNative.Ses
         /// Used to enable or disable the custom Mail-From domain configuration for an email identity.
         /// </summary>
         public readonly Outputs.EmailIdentityMailFromAttributes? MailFromAttributes;
+        /// <summary>
+        /// The tags (keys and values) associated with the email identity.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetEmailIdentityResult(
@@ -132,7 +136,9 @@ namespace Pulumi.AwsNative.Ses
 
             Outputs.EmailIdentityFeedbackAttributes? feedbackAttributes,
 
-            Outputs.EmailIdentityMailFromAttributes? mailFromAttributes)
+            Outputs.EmailIdentityMailFromAttributes? mailFromAttributes,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ConfigurationSetAttributes = configurationSetAttributes;
             DkimAttributes = dkimAttributes;
@@ -145,6 +151,7 @@ namespace Pulumi.AwsNative.Ses
             DkimSigningAttributes = dkimSigningAttributes;
             FeedbackAttributes = feedbackAttributes;
             MailFromAttributes = mailFromAttributes;
+            Tags = tags;
         }
     }
 }

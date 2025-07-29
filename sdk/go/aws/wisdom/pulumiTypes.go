@@ -6591,6 +6591,121 @@ func (o MessageTemplateAgentAttributesPtrOutput) LastName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type MessageTemplateAttachment struct {
+	// The identifier of the attachment file.
+	AttachmentId *string `pulumi:"attachmentId"`
+	// The name of the attachment file being uploaded. The name should include the file extension.
+	AttachmentName string `pulumi:"attachmentName"`
+	// The S3 Presigned URL for the attachment file. When generating the PreSignedUrl, please ensure that the expires-in time is set to 30 minutes. The URL can be generated through the AWS Console or through the AWS CLI. For more information, see [Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html) .
+	S3PresignedUrl string `pulumi:"s3PresignedUrl"`
+}
+
+// MessageTemplateAttachmentInput is an input type that accepts MessageTemplateAttachmentArgs and MessageTemplateAttachmentOutput values.
+// You can construct a concrete instance of `MessageTemplateAttachmentInput` via:
+//
+//	MessageTemplateAttachmentArgs{...}
+type MessageTemplateAttachmentInput interface {
+	pulumi.Input
+
+	ToMessageTemplateAttachmentOutput() MessageTemplateAttachmentOutput
+	ToMessageTemplateAttachmentOutputWithContext(context.Context) MessageTemplateAttachmentOutput
+}
+
+type MessageTemplateAttachmentArgs struct {
+	// The identifier of the attachment file.
+	AttachmentId pulumi.StringPtrInput `pulumi:"attachmentId"`
+	// The name of the attachment file being uploaded. The name should include the file extension.
+	AttachmentName pulumi.StringInput `pulumi:"attachmentName"`
+	// The S3 Presigned URL for the attachment file. When generating the PreSignedUrl, please ensure that the expires-in time is set to 30 minutes. The URL can be generated through the AWS Console or through the AWS CLI. For more information, see [Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html) .
+	S3PresignedUrl pulumi.StringInput `pulumi:"s3PresignedUrl"`
+}
+
+func (MessageTemplateAttachmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateAttachment)(nil)).Elem()
+}
+
+func (i MessageTemplateAttachmentArgs) ToMessageTemplateAttachmentOutput() MessageTemplateAttachmentOutput {
+	return i.ToMessageTemplateAttachmentOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateAttachmentArgs) ToMessageTemplateAttachmentOutputWithContext(ctx context.Context) MessageTemplateAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateAttachmentOutput)
+}
+
+// MessageTemplateAttachmentArrayInput is an input type that accepts MessageTemplateAttachmentArray and MessageTemplateAttachmentArrayOutput values.
+// You can construct a concrete instance of `MessageTemplateAttachmentArrayInput` via:
+//
+//	MessageTemplateAttachmentArray{ MessageTemplateAttachmentArgs{...} }
+type MessageTemplateAttachmentArrayInput interface {
+	pulumi.Input
+
+	ToMessageTemplateAttachmentArrayOutput() MessageTemplateAttachmentArrayOutput
+	ToMessageTemplateAttachmentArrayOutputWithContext(context.Context) MessageTemplateAttachmentArrayOutput
+}
+
+type MessageTemplateAttachmentArray []MessageTemplateAttachmentInput
+
+func (MessageTemplateAttachmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MessageTemplateAttachment)(nil)).Elem()
+}
+
+func (i MessageTemplateAttachmentArray) ToMessageTemplateAttachmentArrayOutput() MessageTemplateAttachmentArrayOutput {
+	return i.ToMessageTemplateAttachmentArrayOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateAttachmentArray) ToMessageTemplateAttachmentArrayOutputWithContext(ctx context.Context) MessageTemplateAttachmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateAttachmentArrayOutput)
+}
+
+type MessageTemplateAttachmentOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateAttachment)(nil)).Elem()
+}
+
+func (o MessageTemplateAttachmentOutput) ToMessageTemplateAttachmentOutput() MessageTemplateAttachmentOutput {
+	return o
+}
+
+func (o MessageTemplateAttachmentOutput) ToMessageTemplateAttachmentOutputWithContext(ctx context.Context) MessageTemplateAttachmentOutput {
+	return o
+}
+
+// The identifier of the attachment file.
+func (o MessageTemplateAttachmentOutput) AttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateAttachment) *string { return v.AttachmentId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the attachment file being uploaded. The name should include the file extension.
+func (o MessageTemplateAttachmentOutput) AttachmentName() pulumi.StringOutput {
+	return o.ApplyT(func(v MessageTemplateAttachment) string { return v.AttachmentName }).(pulumi.StringOutput)
+}
+
+// The S3 Presigned URL for the attachment file. When generating the PreSignedUrl, please ensure that the expires-in time is set to 30 minutes. The URL can be generated through the AWS Console or through the AWS CLI. For more information, see [Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html) .
+func (o MessageTemplateAttachmentOutput) S3PresignedUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v MessageTemplateAttachment) string { return v.S3PresignedUrl }).(pulumi.StringOutput)
+}
+
+type MessageTemplateAttachmentArrayOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateAttachmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MessageTemplateAttachment)(nil)).Elem()
+}
+
+func (o MessageTemplateAttachmentArrayOutput) ToMessageTemplateAttachmentArrayOutput() MessageTemplateAttachmentArrayOutput {
+	return o
+}
+
+func (o MessageTemplateAttachmentArrayOutput) ToMessageTemplateAttachmentArrayOutputWithContext(ctx context.Context) MessageTemplateAttachmentArrayOutput {
+	return o
+}
+
+func (o MessageTemplateAttachmentArrayOutput) Index(i pulumi.IntInput) MessageTemplateAttachmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MessageTemplateAttachment {
+		return vs[0].([]MessageTemplateAttachment)[vs[1].(int)]
+	}).(MessageTemplateAttachmentOutput)
+}
+
 // An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
 type MessageTemplateAttributes struct {
 	// The agent attributes that are used with the message template.
@@ -9583,7 +9698,9 @@ func (o QuickResponseContentProviderPtrOutput) Content() pulumi.StringPtrOutput 
 
 // The content of the quick response stored in different media types.
 type QuickResponseContents struct {
-	Markdown  *QuickResponseContentProvider `pulumi:"markdown"`
+	// The quick response content in markdown format.
+	Markdown *QuickResponseContentProvider `pulumi:"markdown"`
+	// The quick response content in plaintext format.
 	PlainText *QuickResponseContentProvider `pulumi:"plainText"`
 }
 
@@ -9602,10 +9719,12 @@ func (o QuickResponseContentsOutput) ToQuickResponseContentsOutputWithContext(ct
 	return o
 }
 
+// The quick response content in markdown format.
 func (o QuickResponseContentsOutput) Markdown() QuickResponseContentProviderPtrOutput {
 	return o.ApplyT(func(v QuickResponseContents) *QuickResponseContentProvider { return v.Markdown }).(QuickResponseContentProviderPtrOutput)
 }
 
+// The quick response content in plaintext format.
 func (o QuickResponseContentsOutput) PlainText() QuickResponseContentProviderPtrOutput {
 	return o.ApplyT(func(v QuickResponseContents) *QuickResponseContentProvider { return v.PlainText }).(QuickResponseContentProviderPtrOutput)
 }
@@ -9634,6 +9753,7 @@ func (o QuickResponseContentsPtrOutput) Elem() QuickResponseContentsOutput {
 	}).(QuickResponseContentsOutput)
 }
 
+// The quick response content in markdown format.
 func (o QuickResponseContentsPtrOutput) Markdown() QuickResponseContentProviderPtrOutput {
 	return o.ApplyT(func(v *QuickResponseContents) *QuickResponseContentProvider {
 		if v == nil {
@@ -9643,6 +9763,7 @@ func (o QuickResponseContentsPtrOutput) Markdown() QuickResponseContentProviderP
 	}).(QuickResponseContentProviderPtrOutput)
 }
 
+// The quick response content in plaintext format.
 func (o QuickResponseContentsPtrOutput) PlainText() QuickResponseContentProviderPtrOutput {
 	return o.ApplyT(func(v *QuickResponseContents) *QuickResponseContentProvider {
 		if v == nil {
@@ -9911,6 +10032,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrInput)(nil)).Elem(), KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateAgentAttributesInput)(nil)).Elem(), MessageTemplateAgentAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateAgentAttributesPtrInput)(nil)).Elem(), MessageTemplateAgentAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateAttachmentInput)(nil)).Elem(), MessageTemplateAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateAttachmentArrayInput)(nil)).Elem(), MessageTemplateAttachmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateAttributesInput)(nil)).Elem(), MessageTemplateAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateAttributesPtrInput)(nil)).Elem(), MessageTemplateAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateBodyContentProviderInput)(nil)).Elem(), MessageTemplateBodyContentProviderArgs{})
@@ -10035,6 +10158,8 @@ func init() {
 	pulumi.RegisterOutputType(KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MessageTemplateAgentAttributesOutput{})
 	pulumi.RegisterOutputType(MessageTemplateAgentAttributesPtrOutput{})
+	pulumi.RegisterOutputType(MessageTemplateAttachmentOutput{})
+	pulumi.RegisterOutputType(MessageTemplateAttachmentArrayOutput{})
 	pulumi.RegisterOutputType(MessageTemplateAttributesOutput{})
 	pulumi.RegisterOutputType(MessageTemplateAttributesPtrOutput{})
 	pulumi.RegisterOutputType(MessageTemplateBodyContentProviderOutput{})

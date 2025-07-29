@@ -184,6 +184,13 @@ export const ServerIdentityProviderType = {
 
 export type ServerIdentityProviderType = (typeof ServerIdentityProviderType)[keyof typeof ServerIdentityProviderType];
 
+export const ServerIpAddressType = {
+    Ipv4: "IPV4",
+    Dualstack: "DUALSTACK",
+} as const;
+
+export type ServerIpAddressType = (typeof ServerIpAddressType)[keyof typeof ServerIpAddressType];
+
 export const ServerProtocol = {
     Sftp: "SFTP",
     Ftp: "FTP",

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.DataZone.Inputs
 
     public sealed class ProjectProfileAwsAccountArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The account ID of a project.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 

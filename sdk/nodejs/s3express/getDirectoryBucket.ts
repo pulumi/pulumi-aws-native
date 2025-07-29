@@ -41,6 +41,9 @@ export interface GetDirectoryBucketResult {
      * Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
      */
     readonly lifecycleConfiguration?: outputs.s3express.DirectoryBucketLifecycleConfiguration;
+    /**
+     * An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

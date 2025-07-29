@@ -65,9 +65,19 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("s3Configuration", required: true)]
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs> S3Configuration { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration to enable automatic schema evolution.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         [Input("schemaEvolutionConfiguration")]
         public Input<Inputs.DeliveryStreamSchemaEvolutionConfigurationArgs>? SchemaEvolutionConfiguration { get; set; }
 
+        /// <summary>
+        /// The configuration to enable automatic table creation.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         [Input("tableCreationConfiguration")]
         public Input<Inputs.DeliveryStreamTableCreationConfigurationArgs>? TableCreationConfiguration { get; set; }
 

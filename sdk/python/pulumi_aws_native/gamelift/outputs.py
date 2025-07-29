@@ -516,7 +516,7 @@ class ContainerFleetLocationCapacity(dict):
                  min_size: builtins.int):
         """
         Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
-        :param builtins.int desired_ec2_instances: The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+        :param builtins.int desired_ec2_instances: The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
         :param builtins.int max_size: The maximum value that is allowed for the fleet's instance count for a location.
         :param builtins.int min_size: The minimum value allowed for the fleet's instance count for a location.
         """
@@ -528,7 +528,7 @@ class ContainerFleetLocationCapacity(dict):
     @pulumi.getter(name="desiredEc2Instances")
     def desired_ec2_instances(self) -> builtins.int:
         """
-        The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+        The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
         """
         return pulumi.get(self, "desired_ec2_instances")
 

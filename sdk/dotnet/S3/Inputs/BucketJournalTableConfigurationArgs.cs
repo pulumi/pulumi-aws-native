@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("encryptionConfiguration")]
         public Input<Inputs.BucketMetadataTableEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
+        /// <summary>
+        /// The journal table record expiration settings for the journal table.
+        /// </summary>
         [Input("recordExpiration", required: true)]
         public Input<Inputs.BucketRecordExpirationArgs> RecordExpiration { get; set; } = null!;
 

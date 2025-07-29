@@ -129,6 +129,11 @@ class GetGuardrailResult:
     @property
     @pulumi.getter(name="crossRegionConfig")
     def cross_region_config(self) -> Optional['outputs.GuardrailCrossRegionConfig']:
+        """
+        The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination AWS Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.
+
+        For more information, see the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) .
+        """
         return pulumi.get(self, "cross_region_config")
 
     @property

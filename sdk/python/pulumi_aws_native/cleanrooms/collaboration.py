@@ -45,6 +45,8 @@ class CollaborationArgs:
                
                When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
         :param pulumi.Input['CollaborationAnalyticsEngine'] analytics_engine: The analytics engine for the collaboration.
+               
+               > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
         :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]] creator_member_abilities: The abilities granted to the collaboration creator.
                
                *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
@@ -123,6 +125,8 @@ class CollaborationArgs:
     def analytics_engine(self) -> Optional[pulumi.Input['CollaborationAnalyticsEngine']]:
         """
         The analytics engine for the collaboration.
+
+        > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
         """
         return pulumi.get(self, "analytics_engine")
 
@@ -256,6 +260,8 @@ class Collaboration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['CollaborationAnalyticsEngine'] analytics_engine: The analytics engine for the collaboration.
+               
+               > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
         :param pulumi.Input[builtins.str] creator_display_name: A display name of the collaboration creator.
         :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]] creator_member_abilities: The abilities granted to the collaboration creator.
                
@@ -384,6 +390,8 @@ class Collaboration(pulumi.CustomResource):
     def analytics_engine(self) -> pulumi.Output[Optional['CollaborationAnalyticsEngine']]:
         """
         The analytics engine for the collaboration.
+
+        > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
         """
         return pulumi.get(self, "analytics_engine")
 

@@ -71,6 +71,10 @@ export interface GetEmailIdentityResult {
      * Used to enable or disable the custom Mail-From domain configuration for an email identity.
      */
     readonly mailFromAttributes?: outputs.ses.EmailIdentityMailFromAttributes;
+    /**
+     * The tags (keys and values) associated with the email identity.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::SES::EmailIdentity

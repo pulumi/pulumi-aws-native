@@ -51,6 +51,8 @@ class GetCollaborationResult:
     def analytics_engine(self) -> Optional['CollaborationAnalyticsEngine']:
         """
         The analytics engine for the collaboration.
+
+        > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
         """
         return pulumi.get(self, "analytics_engine")
 

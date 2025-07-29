@@ -129,6 +129,16 @@ export const PatchBaselineApprovedPatchesComplianceLevel = {
  */
 export type PatchBaselineApprovedPatchesComplianceLevel = (typeof PatchBaselineApprovedPatchesComplianceLevel)[keyof typeof PatchBaselineApprovedPatchesComplianceLevel];
 
+export const PatchBaselineAvailableSecurityUpdatesComplianceStatus = {
+    NonCompliant: "NON_COMPLIANT",
+    Compliant: "COMPLIANT",
+} as const;
+
+/**
+ * The compliance status for vendor recommended security updates that are not approved by this patch baseline.
+ */
+export type PatchBaselineAvailableSecurityUpdatesComplianceStatus = (typeof PatchBaselineAvailableSecurityUpdatesComplianceStatus)[keyof typeof PatchBaselineAvailableSecurityUpdatesComplianceStatus];
+
 export const PatchBaselineOperatingSystem = {
     Windows: "WINDOWS",
     AmazonLinux: "AMAZON_LINUX",

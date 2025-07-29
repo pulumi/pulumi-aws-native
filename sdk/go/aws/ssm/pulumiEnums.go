@@ -1720,6 +1720,172 @@ func (in *patchBaselineApprovedPatchesComplianceLevelPtr) ToPatchBaselineApprove
 	return pulumi.ToOutputWithContext(ctx, in).(PatchBaselineApprovedPatchesComplianceLevelPtrOutput)
 }
 
+// The compliance status for vendor recommended security updates that are not approved by this patch baseline.
+type PatchBaselineAvailableSecurityUpdatesComplianceStatus string
+
+const (
+	PatchBaselineAvailableSecurityUpdatesComplianceStatusNonCompliant = PatchBaselineAvailableSecurityUpdatesComplianceStatus("NON_COMPLIANT")
+	PatchBaselineAvailableSecurityUpdatesComplianceStatusCompliant    = PatchBaselineAvailableSecurityUpdatesComplianceStatus("COMPLIANT")
+)
+
+func (PatchBaselineAvailableSecurityUpdatesComplianceStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineAvailableSecurityUpdatesComplianceStatus)(nil)).Elem()
+}
+
+func (e PatchBaselineAvailableSecurityUpdatesComplianceStatus) ToPatchBaselineAvailableSecurityUpdatesComplianceStatusOutput() PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput {
+	return pulumi.ToOutput(e).(PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput)
+}
+
+func (e PatchBaselineAvailableSecurityUpdatesComplianceStatus) ToPatchBaselineAvailableSecurityUpdatesComplianceStatusOutputWithContext(ctx context.Context) PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput)
+}
+
+func (e PatchBaselineAvailableSecurityUpdatesComplianceStatus) ToPatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput() PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput {
+	return e.ToPatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutputWithContext(context.Background())
+}
+
+func (e PatchBaselineAvailableSecurityUpdatesComplianceStatus) ToPatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutputWithContext(ctx context.Context) PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput {
+	return PatchBaselineAvailableSecurityUpdatesComplianceStatus(e).ToPatchBaselineAvailableSecurityUpdatesComplianceStatusOutputWithContext(ctx).ToPatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutputWithContext(ctx)
+}
+
+func (e PatchBaselineAvailableSecurityUpdatesComplianceStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PatchBaselineAvailableSecurityUpdatesComplianceStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PatchBaselineAvailableSecurityUpdatesComplianceStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PatchBaselineAvailableSecurityUpdatesComplianceStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineAvailableSecurityUpdatesComplianceStatus)(nil)).Elem()
+}
+
+func (o PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput) ToPatchBaselineAvailableSecurityUpdatesComplianceStatusOutput() PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput {
+	return o
+}
+
+func (o PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput) ToPatchBaselineAvailableSecurityUpdatesComplianceStatusOutputWithContext(ctx context.Context) PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput {
+	return o
+}
+
+func (o PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput) ToPatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput() PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput {
+	return o.ToPatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput) ToPatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutputWithContext(ctx context.Context) PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PatchBaselineAvailableSecurityUpdatesComplianceStatus) *PatchBaselineAvailableSecurityUpdatesComplianceStatus {
+		return &v
+	}).(PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput)
+}
+
+func (o PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PatchBaselineAvailableSecurityUpdatesComplianceStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PatchBaselineAvailableSecurityUpdatesComplianceStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaselineAvailableSecurityUpdatesComplianceStatus)(nil)).Elem()
+}
+
+func (o PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput) ToPatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput() PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput {
+	return o
+}
+
+func (o PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput) ToPatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutputWithContext(ctx context.Context) PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput {
+	return o
+}
+
+func (o PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput) Elem() PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput {
+	return o.ApplyT(func(v *PatchBaselineAvailableSecurityUpdatesComplianceStatus) PatchBaselineAvailableSecurityUpdatesComplianceStatus {
+		if v != nil {
+			return *v
+		}
+		var ret PatchBaselineAvailableSecurityUpdatesComplianceStatus
+		return ret
+	}).(PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput)
+}
+
+func (o PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PatchBaselineAvailableSecurityUpdatesComplianceStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PatchBaselineAvailableSecurityUpdatesComplianceStatusInput is an input type that accepts values of the PatchBaselineAvailableSecurityUpdatesComplianceStatus enum
+// A concrete instance of `PatchBaselineAvailableSecurityUpdatesComplianceStatusInput` can be one of the following:
+//
+//	PatchBaselineAvailableSecurityUpdatesComplianceStatusNonCompliant
+//	PatchBaselineAvailableSecurityUpdatesComplianceStatusCompliant
+type PatchBaselineAvailableSecurityUpdatesComplianceStatusInput interface {
+	pulumi.Input
+
+	ToPatchBaselineAvailableSecurityUpdatesComplianceStatusOutput() PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput
+	ToPatchBaselineAvailableSecurityUpdatesComplianceStatusOutputWithContext(context.Context) PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput
+}
+
+var patchBaselineAvailableSecurityUpdatesComplianceStatusPtrType = reflect.TypeOf((**PatchBaselineAvailableSecurityUpdatesComplianceStatus)(nil)).Elem()
+
+type PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrInput interface {
+	pulumi.Input
+
+	ToPatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput() PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput
+	ToPatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutputWithContext(context.Context) PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput
+}
+
+type patchBaselineAvailableSecurityUpdatesComplianceStatusPtr string
+
+func PatchBaselineAvailableSecurityUpdatesComplianceStatusPtr(v string) PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrInput {
+	return (*patchBaselineAvailableSecurityUpdatesComplianceStatusPtr)(&v)
+}
+
+func (*patchBaselineAvailableSecurityUpdatesComplianceStatusPtr) ElementType() reflect.Type {
+	return patchBaselineAvailableSecurityUpdatesComplianceStatusPtrType
+}
+
+func (in *patchBaselineAvailableSecurityUpdatesComplianceStatusPtr) ToPatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput() PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput {
+	return pulumi.ToOutput(in).(PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput)
+}
+
+func (in *patchBaselineAvailableSecurityUpdatesComplianceStatusPtr) ToPatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutputWithContext(ctx context.Context) PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput)
+}
+
 // Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
 type PatchBaselineOperatingSystem string
 
@@ -2475,6 +2641,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterTypePtrInput)(nil)).Elem(), ParameterType("String"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineApprovedPatchesComplianceLevelInput)(nil)).Elem(), PatchBaselineApprovedPatchesComplianceLevel("CRITICAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineApprovedPatchesComplianceLevelPtrInput)(nil)).Elem(), PatchBaselineApprovedPatchesComplianceLevel("CRITICAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineAvailableSecurityUpdatesComplianceStatusInput)(nil)).Elem(), PatchBaselineAvailableSecurityUpdatesComplianceStatus("NON_COMPLIANT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrInput)(nil)).Elem(), PatchBaselineAvailableSecurityUpdatesComplianceStatus("NON_COMPLIANT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineOperatingSystemInput)(nil)).Elem(), PatchBaselineOperatingSystem("WINDOWS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineOperatingSystemPtrInput)(nil)).Elem(), PatchBaselineOperatingSystem("WINDOWS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselinePatchFilterKeyInput)(nil)).Elem(), PatchBaselinePatchFilterKey("ADVISORY_ID"))
@@ -2503,6 +2671,8 @@ func init() {
 	pulumi.RegisterOutputType(ParameterTypePtrOutput{})
 	pulumi.RegisterOutputType(PatchBaselineApprovedPatchesComplianceLevelOutput{})
 	pulumi.RegisterOutputType(PatchBaselineApprovedPatchesComplianceLevelPtrOutput{})
+	pulumi.RegisterOutputType(PatchBaselineAvailableSecurityUpdatesComplianceStatusOutput{})
+	pulumi.RegisterOutputType(PatchBaselineAvailableSecurityUpdatesComplianceStatusPtrOutput{})
 	pulumi.RegisterOutputType(PatchBaselineOperatingSystemOutput{})
 	pulumi.RegisterOutputType(PatchBaselineOperatingSystemPtrOutput{})
 	pulumi.RegisterOutputType(PatchBaselinePatchFilterKeyOutput{})

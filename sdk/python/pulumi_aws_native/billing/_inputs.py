@@ -29,6 +29,9 @@ MYPY = False
 
 if not MYPY:
     class DataFilterExpressionPropertiesDimensionsPropertiesArgsDict(TypedDict):
+        """
+        The specific `Dimension` to use for `Expression` .
+        """
         key: NotRequired[pulumi.Input['BillingViewDimensionKey']]
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
 elif False:
@@ -39,6 +42,9 @@ class DataFilterExpressionPropertiesDimensionsPropertiesArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input['BillingViewDimensionKey']] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        """
+        The specific `Dimension` to use for `Expression` .
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if values is not None:
@@ -65,6 +71,9 @@ class DataFilterExpressionPropertiesDimensionsPropertiesArgs:
 
 if not MYPY:
     class DataFilterExpressionPropertiesTagsPropertiesArgsDict(TypedDict):
+        """
+        The specific `Tag` to use for `Expression` .
+        """
         key: NotRequired[pulumi.Input[builtins.str]]
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
 elif False:
@@ -75,6 +84,9 @@ class DataFilterExpressionPropertiesTagsPropertiesArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[builtins.str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        """
+        The specific `Tag` to use for `Expression` .
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if values is not None:
@@ -101,8 +113,17 @@ class DataFilterExpressionPropertiesTagsPropertiesArgs:
 
 if not MYPY:
     class DataFilterExpressionPropertiesArgsDict(TypedDict):
+        """
+        See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
+        """
         dimensions: NotRequired[pulumi.Input['DataFilterExpressionPropertiesDimensionsPropertiesArgsDict']]
+        """
+        The specific `Dimension` to use for `Expression` .
+        """
         tags: NotRequired[pulumi.Input['DataFilterExpressionPropertiesTagsPropertiesArgsDict']]
+        """
+        The specific `Tag` to use for `Expression` .
+        """
 elif False:
     DataFilterExpressionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -111,6 +132,11 @@ class DataFilterExpressionPropertiesArgs:
     def __init__(__self__, *,
                  dimensions: Optional[pulumi.Input['DataFilterExpressionPropertiesDimensionsPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input['DataFilterExpressionPropertiesTagsPropertiesArgs']] = None):
+        """
+        See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
+        :param pulumi.Input['DataFilterExpressionPropertiesDimensionsPropertiesArgs'] dimensions: The specific `Dimension` to use for `Expression` .
+        :param pulumi.Input['DataFilterExpressionPropertiesTagsPropertiesArgs'] tags: The specific `Tag` to use for `Expression` .
+        """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
         if tags is not None:
@@ -119,6 +145,9 @@ class DataFilterExpressionPropertiesArgs:
     @property
     @pulumi.getter
     def dimensions(self) -> Optional[pulumi.Input['DataFilterExpressionPropertiesDimensionsPropertiesArgs']]:
+        """
+        The specific `Dimension` to use for `Expression` .
+        """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
@@ -128,6 +157,9 @@ class DataFilterExpressionPropertiesArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['DataFilterExpressionPropertiesTagsPropertiesArgs']]:
+        """
+        The specific `Tag` to use for `Expression` .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter

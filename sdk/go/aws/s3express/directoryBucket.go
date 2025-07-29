@@ -31,7 +31,8 @@ type DirectoryBucket struct {
 	LifecycleConfiguration DirectoryBucketLifecycleConfigurationPtrOutput `pulumi:"lifecycleConfiguration"`
 	// Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
 	LocationName pulumi.StringOutput `pulumi:"locationName"`
-	Tags         aws.TagArrayOutput  `pulumi:"tags"`
+	// An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDirectoryBucket registers a new resource with the given unique name, arguments, and options.
@@ -95,8 +96,9 @@ type directoryBucketArgs struct {
 	// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
 	LifecycleConfiguration *DirectoryBucketLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 	// Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
-	LocationName string    `pulumi:"locationName"`
-	Tags         []aws.Tag `pulumi:"tags"`
+	LocationName string `pulumi:"locationName"`
+	// An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DirectoryBucket resource.
@@ -111,7 +113,8 @@ type DirectoryBucketArgs struct {
 	LifecycleConfiguration DirectoryBucketLifecycleConfigurationPtrInput
 	// Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
 	LocationName pulumi.StringInput
-	Tags         aws.TagArrayInput
+	// An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
+	Tags aws.TagArrayInput
 }
 
 func (DirectoryBucketArgs) ElementType() reflect.Type {
@@ -188,6 +191,7 @@ func (o DirectoryBucketOutput) LocationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.LocationName }).(pulumi.StringOutput)
 }
 
+// An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
 func (o DirectoryBucketOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DirectoryBucket) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

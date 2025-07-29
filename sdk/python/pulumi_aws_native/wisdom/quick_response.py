@@ -38,12 +38,14 @@ class QuickResponseArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a QuickResponse resource.
+        :param pulumi.Input['QuickResponseContentProviderArgs'] content: The content of the quick response.
         :param pulumi.Input[builtins.str] knowledge_base_arn: The Amazon Resource Name (ARN) of the knowledge base.
         :param pulumi.Input[Sequence[pulumi.Input['QuickResponseChannelType']]] channels: The Amazon Connect contact channels this quick response applies to.
         :param pulumi.Input[builtins.str] content_type: The media type of the quick response content.
                - Use application/x.quickresponse;format=plain for quick response written in plain text.
                - Use application/x.quickresponse;format=markdown for quick response written in richtext.
         :param pulumi.Input[builtins.str] description: The description of the quick response.
+        :param pulumi.Input['QuickResponseGroupingConfigurationArgs'] grouping_configuration: The configuration information of the user groups that the quick response is accessible to.
         :param pulumi.Input[builtins.bool] is_active: Whether the quick response is active.
         :param pulumi.Input[builtins.str] language: The language code value for the language in which the quick response is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW
         :param pulumi.Input[builtins.str] name: The name of the quick response.
@@ -74,6 +76,9 @@ class QuickResponseArgs:
     @property
     @pulumi.getter
     def content(self) -> pulumi.Input['QuickResponseContentProviderArgs']:
+        """
+        The content of the quick response.
+        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -133,6 +138,9 @@ class QuickResponseArgs:
     @property
     @pulumi.getter(name="groupingConfiguration")
     def grouping_configuration(self) -> Optional[pulumi.Input['QuickResponseGroupingConfigurationArgs']]:
+        """
+        The configuration information of the user groups that the quick response is accessible to.
+        """
         return pulumi.get(self, "grouping_configuration")
 
     @grouping_configuration.setter
@@ -224,10 +232,12 @@ class QuickResponse(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['QuickResponseChannelType']]] channels: The Amazon Connect contact channels this quick response applies to.
+        :param pulumi.Input[Union['QuickResponseContentProviderArgs', 'QuickResponseContentProviderArgsDict']] content: The content of the quick response.
         :param pulumi.Input[builtins.str] content_type: The media type of the quick response content.
                - Use application/x.quickresponse;format=plain for quick response written in plain text.
                - Use application/x.quickresponse;format=markdown for quick response written in richtext.
         :param pulumi.Input[builtins.str] description: The description of the quick response.
+        :param pulumi.Input[Union['QuickResponseGroupingConfigurationArgs', 'QuickResponseGroupingConfigurationArgsDict']] grouping_configuration: The configuration information of the user groups that the quick response is accessible to.
         :param pulumi.Input[builtins.bool] is_active: Whether the quick response is active.
         :param pulumi.Input[builtins.str] knowledge_base_arn: The Amazon Resource Name (ARN) of the knowledge base.
         :param pulumi.Input[builtins.str] language: The language code value for the language in which the quick response is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW
@@ -350,6 +360,9 @@ class QuickResponse(pulumi.CustomResource):
     @property
     @pulumi.getter
     def content(self) -> pulumi.Output['outputs.QuickResponseContentProvider']:
+        """
+        The content of the quick response.
+        """
         return pulumi.get(self, "content")
 
     @property
@@ -378,6 +391,9 @@ class QuickResponse(pulumi.CustomResource):
     @property
     @pulumi.getter(name="groupingConfiguration")
     def grouping_configuration(self) -> pulumi.Output[Optional['outputs.QuickResponseGroupingConfiguration']]:
+        """
+        The configuration information of the user groups that the quick response is accessible to.
+        """
         return pulumi.get(self, "grouping_configuration")
 
     @property
@@ -439,6 +455,9 @@ class QuickResponse(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['QuickResponseStatus']:
+        """
+        The status of the quick response data.
+        """
         return pulumi.get(self, "status")
 
     @property

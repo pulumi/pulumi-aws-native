@@ -33,6 +33,9 @@ class BillingViewArgs:
         """
         The set of arguments for constructing a BillingView resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_views: An array of strings that define the billing view's source.
+        :param pulumi.Input['DataFilterExpressionPropertiesArgs'] data_filter_expression: See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
+        :param pulumi.Input[builtins.str] description: The description of the billing view.
+        :param pulumi.Input[builtins.str] name: The name of the billing view.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs associated to the billing view being created.
         """
         pulumi.set(__self__, "source_views", source_views)
@@ -60,6 +63,9 @@ class BillingViewArgs:
     @property
     @pulumi.getter(name="dataFilterExpression")
     def data_filter_expression(self) -> Optional[pulumi.Input['DataFilterExpressionPropertiesArgs']]:
+        """
+        See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
+        """
         return pulumi.get(self, "data_filter_expression")
 
     @data_filter_expression.setter
@@ -69,6 +75,9 @@ class BillingViewArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The description of the billing view.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -78,6 +87,9 @@ class BillingViewArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the billing view.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -114,6 +126,9 @@ class BillingView(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['DataFilterExpressionPropertiesArgs', 'DataFilterExpressionPropertiesArgsDict']] data_filter_expression: See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
+        :param pulumi.Input[builtins.str] description: The description of the billing view.
+        :param pulumi.Input[builtins.str] name: The name of the billing view.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_views: An array of strings that define the billing view's source.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs associated to the billing view being created.
         """
@@ -206,11 +221,17 @@ class BillingView(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="billingViewType")
     def billing_view_type(self) -> pulumi.Output['BillingViewType']:
+        """
+        The type of billing group.
+        """
         return pulumi.get(self, "billing_view_type")
 
     @property
@@ -224,21 +245,33 @@ class BillingView(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dataFilterExpression")
     def data_filter_expression(self) -> pulumi.Output[Optional['outputs.DataFilterExpressionProperties']]:
+        """
+        See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
+        """
         return pulumi.get(self, "data_filter_expression")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The description of the billing view.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
+        """
+        The name of the billing view.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The account owner of the billing view.
+        """
         return pulumi.get(self, "owner_account_id")
 
     @property

@@ -122,16 +122,13 @@ type DbInstance struct {
 	//   +  Can't be set to 0 if the DB instance is a source to read replicas
 	BackupRetentionPeriod pulumi.IntPtrOutput `pulumi:"backupRetentionPeriod"`
 	// The location for storing automated backups and manual snapshots.
+	//  Valid Values:
+	//   +  ``local`` (Dedicated Local Zone)
+	//   +  ``outposts`` (AWS Outposts)
+	//   +  ``region`` (AWS-Region)
 	//
-	// Valid Values:
-	//
-	// - `local` (Dedicated Local Zone)
-	// - `outposts` ( AWS Outposts)
-	// - `region` ( AWS Region )
-	//
-	// Default: `region`
-	//
-	// For more information, see [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide* .
+	//  Default: ``region``
+	//  For more information, see [Working with Amazon RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide*.
 	BackupTarget pulumi.StringPtrOutput `pulumi:"backupTarget"`
 	// The identifier of the CA certificate for this DB instance.
 	//  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
@@ -185,6 +182,8 @@ type DbInstance struct {
 	//  For information about constraints that apply to DB instance identifiers, see [Naming constraints in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon RDS User Guide*.
 	//   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	DbInstanceIdentifier pulumi.StringPtrOutput `pulumi:"dbInstanceIdentifier"`
+	// The current state of this DB instance.
+	DbInstanceStatus pulumi.StringOutput `pulumi:"dbInstanceStatus"`
 	// The meaning of this parameter differs according to the database engine you use.
 	//   If you specify the ``DBSnapshotIdentifier`` property, this property only applies to RDS for Oracle.
 	//    *Amazon Aurora*
@@ -399,6 +398,8 @@ type DbInstance struct {
 	//   *PostgreSQL*
 	//  See [Supported PostgreSQL Database Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions) in the *Amazon RDS User Guide.*
 	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
+	// The date and time when the DB instance was created.
+	InstanceCreateTime pulumi.StringOutput `pulumi:"instanceCreateTime"`
 	// The number of I/O operations per second (IOPS) that the database provisions. The value must be equal to or greater than 1000.
 	//  If you specify this property, you must follow the range of allowed ratios of your requested IOPS rate to the amount of storage that you allocate (IOPS to allocated storage). For example, you can provision an Oracle database instance with 1000 IOPS and 200 GiB of storage (a ratio of 5:1), or specify 2000 IOPS with 200 GiB of storage (a ratio of 10:1). For more information, see [Amazon RDS Provisioned IOPS Storage to Improve Performance](https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/CHAP_Storage.html#USER_PIOPS) in the *Amazon RDS User Guide*.
 	//   If you specify ``io1`` for the ``StorageType`` property, then you must also specify the ``Iops`` property.
@@ -406,6 +407,8 @@ type DbInstance struct {
 	//   +  For RDS for Db2, MariaDB, MySQL, Oracle, and PostgreSQL - Must be a multiple between .5 and 50 of the storage amount for the DB instance.
 	//   +  For RDS for SQL Server - Must be a multiple between 1 and 50 of the storage amount for the DB instance.
 	Iops pulumi.IntPtrOutput `pulumi:"iops"`
+	// Indicates whether an upgrade is recommended for the storage file system configuration on the DB instance.
+	IsStorageConfigUpgradeAvailable pulumi.BoolOutput `pulumi:"isStorageConfigUpgradeAvailable"`
 	// The ARN of the AWS KMS key that's used to encrypt the DB instance, such as ``arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef``. If you enable the StorageEncrypted property but don't specify this property, AWS CloudFormation uses the default KMS key. If you specify this property, you must set the StorageEncrypted property to true.
 	//  If you specify the ``SourceDBInstanceIdentifier`` or ``SourceDbiResourceId`` property, don't specify this property. The value is inherited from the source DB instance, and if the DB instance is encrypted, the specified ``KmsKeyId`` property is used. However, if the source DB instance is in a different AWS Region, you must specify a KMS key ID.
 	//  If you specify the ``SourceDBInstanceAutomatedBackupsArn`` property, don't specify this property. The value is inherited from the source DB instance automated backup, and if the automated backup is encrypted, the specified ``KmsKeyId`` property is used.
@@ -415,6 +418,8 @@ type DbInstance struct {
 	//   *Amazon Aurora*
 	//  Not applicable. The KMS key identifier is managed by the DB cluster.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	// The latest time to which a database in this DB instance can be restored with point-in-time restore.
+	LatestRestorableTime pulumi.StringOutput `pulumi:"latestRestorableTime"`
 	// License model information for this DB instance.
 	//   Valid Values:
 	//   +  Aurora MySQL - ``general-public-license``
@@ -427,7 +432,8 @@ type DbInstance struct {
 	//   +  RDS for PostgreSQL - ``postgresql-license``
 	//
 	//   If you've specified ``DBSecurityGroups`` and then you update the license model, AWS CloudFormation replaces the underlying DB instance. This will incur some interruptions to database availability.
-	LicenseModel pulumi.StringPtrOutput `pulumi:"licenseModel"`
+	LicenseModel     pulumi.StringPtrOutput   `pulumi:"licenseModel"`
+	ListenerEndpoint DbInstanceEndpointOutput `pulumi:"listenerEndpoint"`
 	// Specifies whether to manage the master user password with AWS Secrets Manager.
 	//  For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.*
 	//  Constraints:
@@ -581,6 +587,10 @@ type DbInstance struct {
 	// Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
 	//  The default behavior value depends on your VPC setup and the database subnet group. For more information, see the ``PubliclyAccessible`` parameter in the [CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) in the *Amazon RDS API Reference*.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
+	// The identifiers of Aurora DB clusters to which the RDS DB instance is replicated as a read replica.
+	ReadReplicaDbClusterIdentifiers pulumi.StringArrayOutput `pulumi:"readReplicaDbClusterIdentifiers"`
+	// The identifiers of the read replicas associated with this DB instance.
+	ReadReplicaDbInstanceIdentifiers pulumi.StringArrayOutput `pulumi:"readReplicaDbInstanceIdentifiers"`
 	// The open mode of an Oracle read replica. For more information, see [Working with Oracle Read Replicas for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) in the *Amazon RDS User Guide*.
 	//  This setting is only supported in RDS for Oracle.
 	//  Default: ``open-read-only``
@@ -805,16 +815,13 @@ type dbInstanceArgs struct {
 	//   +  Can't be set to 0 if the DB instance is a source to read replicas
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
 	// The location for storing automated backups and manual snapshots.
+	//  Valid Values:
+	//   +  ``local`` (Dedicated Local Zone)
+	//   +  ``outposts`` (AWS Outposts)
+	//   +  ``region`` (AWS-Region)
 	//
-	// Valid Values:
-	//
-	// - `local` (Dedicated Local Zone)
-	// - `outposts` ( AWS Outposts)
-	// - `region` ( AWS Region )
-	//
-	// Default: `region`
-	//
-	// For more information, see [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide* .
+	//  Default: ``region``
+	//  For more information, see [Working with Amazon RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide*.
 	BackupTarget *string `pulumi:"backupTarget"`
 	// The identifier of the CA certificate for this DB instance.
 	//  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
@@ -1427,16 +1434,13 @@ type DbInstanceArgs struct {
 	//   +  Can't be set to 0 if the DB instance is a source to read replicas
 	BackupRetentionPeriod pulumi.IntPtrInput
 	// The location for storing automated backups and manual snapshots.
+	//  Valid Values:
+	//   +  ``local`` (Dedicated Local Zone)
+	//   +  ``outposts`` (AWS Outposts)
+	//   +  ``region`` (AWS-Region)
 	//
-	// Valid Values:
-	//
-	// - `local` (Dedicated Local Zone)
-	// - `outposts` ( AWS Outposts)
-	// - `region` ( AWS Region )
-	//
-	// Default: `region`
-	//
-	// For more information, see [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide* .
+	//  Default: ``region``
+	//  For more information, see [Working with Amazon RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide*.
 	BackupTarget pulumi.StringPtrInput
 	// The identifier of the CA certificate for this DB instance.
 	//  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
@@ -2122,15 +2126,13 @@ func (o DbInstanceOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {
 
 // The location for storing automated backups and manual snapshots.
 //
-// Valid Values:
+//	Valid Values:
+//	 +  ``local`` (Dedicated Local Zone)
+//	 +  ``outposts`` (AWS Outposts)
+//	 +  ``region`` (AWS-Region)
 //
-// - `local` (Dedicated Local Zone)
-// - `outposts` ( AWS Outposts)
-// - `region` ( AWS Region )
-//
-// Default: `region`
-//
-// For more information, see [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide* .
+//	Default: ``region``
+//	For more information, see [Working with Amazon RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide*.
 func (o DbInstanceOutput) BackupTarget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.BackupTarget }).(pulumi.StringPtrOutput)
 }
@@ -2230,6 +2232,11 @@ func (o DbInstanceOutput) DbInstanceClass() pulumi.StringPtrOutput {
 //	 If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 func (o DbInstanceOutput) DbInstanceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.DbInstanceIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The current state of this DB instance.
+func (o DbInstanceOutput) DbInstanceStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringOutput { return v.DbInstanceStatus }).(pulumi.StringOutput)
 }
 
 // The meaning of this parameter differs according to the database engine you use.
@@ -2534,6 +2541,11 @@ func (o DbInstanceOutput) EngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
+// The date and time when the DB instance was created.
+func (o DbInstanceOutput) InstanceCreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringOutput { return v.InstanceCreateTime }).(pulumi.StringOutput)
+}
+
 // The number of I/O operations per second (IOPS) that the database provisions. The value must be equal to or greater than 1000.
 //
 //	If you specify this property, you must follow the range of allowed ratios of your requested IOPS rate to the amount of storage that you allocate (IOPS to allocated storage). For example, you can provision an Oracle database instance with 1000 IOPS and 200 GiB of storage (a ratio of 5:1), or specify 2000 IOPS with 200 GiB of storage (a ratio of 10:1). For more information, see [Amazon RDS Provisioned IOPS Storage to Improve Performance](https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/CHAP_Storage.html#USER_PIOPS) in the *Amazon RDS User Guide*.
@@ -2543,6 +2555,11 @@ func (o DbInstanceOutput) EngineVersion() pulumi.StringPtrOutput {
 //	 +  For RDS for SQL Server - Must be a multiple between 1 and 50 of the storage amount for the DB instance.
 func (o DbInstanceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.IntPtrOutput { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether an upgrade is recommended for the storage file system configuration on the DB instance.
+func (o DbInstanceOutput) IsStorageConfigUpgradeAvailable() pulumi.BoolOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.BoolOutput { return v.IsStorageConfigUpgradeAvailable }).(pulumi.BoolOutput)
 }
 
 // The ARN of the AWS KMS key that's used to encrypt the DB instance, such as “arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef“. If you enable the StorageEncrypted property but don't specify this property, AWS CloudFormation uses the default KMS key. If you specify this property, you must set the StorageEncrypted property to true.
@@ -2556,6 +2573,11 @@ func (o DbInstanceOutput) Iops() pulumi.IntPtrOutput {
 //	Not applicable. The KMS key identifier is managed by the DB cluster.
 func (o DbInstanceOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The latest time to which a database in this DB instance can be restored with point-in-time restore.
+func (o DbInstanceOutput) LatestRestorableTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringOutput { return v.LatestRestorableTime }).(pulumi.StringOutput)
 }
 
 // License model information for this DB instance.
@@ -2573,6 +2595,10 @@ func (o DbInstanceOutput) KmsKeyId() pulumi.StringPtrOutput {
 //	If you've specified ``DBSecurityGroups`` and then you update the license model, AWS CloudFormation replaces the underlying DB instance. This will incur some interruptions to database availability.
 func (o DbInstanceOutput) LicenseModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.LicenseModel }).(pulumi.StringPtrOutput)
+}
+
+func (o DbInstanceOutput) ListenerEndpoint() DbInstanceEndpointOutput {
+	return o.ApplyT(func(v *DbInstance) DbInstanceEndpointOutput { return v.ListenerEndpoint }).(DbInstanceEndpointOutput)
 }
 
 // Specifies whether to manage the master user password with AWS Secrets Manager.
@@ -2802,6 +2828,16 @@ func (o DbInstanceOutput) PromotionTier() pulumi.IntPtrOutput {
 //	The default behavior value depends on your VPC setup and the database subnet group. For more information, see the ``PubliclyAccessible`` parameter in the [CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) in the *Amazon RDS API Reference*.
 func (o DbInstanceOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
+}
+
+// The identifiers of Aurora DB clusters to which the RDS DB instance is replicated as a read replica.
+func (o DbInstanceOutput) ReadReplicaDbClusterIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringArrayOutput { return v.ReadReplicaDbClusterIdentifiers }).(pulumi.StringArrayOutput)
+}
+
+// The identifiers of the read replicas associated with this DB instance.
+func (o DbInstanceOutput) ReadReplicaDbInstanceIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringArrayOutput { return v.ReadReplicaDbInstanceIdentifiers }).(pulumi.StringArrayOutput)
 }
 
 // The open mode of an Oracle read replica. For more information, see [Working with Oracle Read Replicas for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) in the *Amazon RDS User Guide*.

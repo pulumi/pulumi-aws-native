@@ -18,6 +18,7 @@ const (
 	AccountPolicyPolicyTypeSubscriptionFilterPolicy = AccountPolicyPolicyType("SUBSCRIPTION_FILTER_POLICY")
 	AccountPolicyPolicyTypeFieldIndexPolicy         = AccountPolicyPolicyType("FIELD_INDEX_POLICY")
 	AccountPolicyPolicyTypeTransformerPolicy        = AccountPolicyPolicyType("TRANSFORMER_POLICY")
+	AccountPolicyPolicyTypeMetricExtractionPolicy   = AccountPolicyPolicyType("METRIC_EXTRACTION_POLICY")
 )
 
 func (AccountPolicyPolicyType) ElementType() reflect.Type {
@@ -146,6 +147,7 @@ func (o AccountPolicyPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 //	AccountPolicyPolicyTypeSubscriptionFilterPolicy
 //	AccountPolicyPolicyTypeFieldIndexPolicy
 //	AccountPolicyPolicyTypeTransformerPolicy
+//	AccountPolicyPolicyTypeMetricExtractionPolicy
 type AccountPolicyPolicyTypeInput interface {
 	pulumi.Input
 

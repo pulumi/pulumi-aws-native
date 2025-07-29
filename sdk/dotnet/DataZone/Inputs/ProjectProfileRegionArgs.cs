@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.DataZone.Inputs
 
     public sealed class ProjectProfileRegionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region name.
+        /// </summary>
         [Input("regionName", required: true)]
         public Input<string> RegionName { get; set; } = null!;
 

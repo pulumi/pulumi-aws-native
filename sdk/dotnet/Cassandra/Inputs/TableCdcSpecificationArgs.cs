@@ -21,6 +21,18 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
         [Input("status", required: true)]
         public Input<Pulumi.AwsNative.Cassandra.TableCdcStatus> Status { get; set; } = null!;
 
+        [Input("tags")]
+        private InputList<Inputs.TableTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to the CDC stream resource
+        /// </summary>
+        public InputList<Inputs.TableTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.TableTagArgs>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
         /// 

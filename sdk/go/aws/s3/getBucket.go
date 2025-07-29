@@ -62,7 +62,8 @@ type LookupBucketResult struct {
 	// Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
 	LifecycleConfiguration *BucketLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 	// Settings that define where logs are stored.
-	LoggingConfiguration  *BucketLoggingConfiguration  `pulumi:"loggingConfiguration"`
+	LoggingConfiguration *BucketLoggingConfiguration `pulumi:"loggingConfiguration"`
+	// The S3 Metadata configuration for a general purpose bucket.
 	MetadataConfiguration *BucketMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// The metadata table configuration of an S3 general purpose bucket.
 	MetadataTableConfiguration *BucketMetadataTableConfiguration `pulumi:"metadataTableConfiguration"`
@@ -202,6 +203,7 @@ func (o LookupBucketResultOutput) LoggingConfiguration() BucketLoggingConfigurat
 	return o.ApplyT(func(v LookupBucketResult) *BucketLoggingConfiguration { return v.LoggingConfiguration }).(BucketLoggingConfigurationPtrOutput)
 }
 
+// The S3 Metadata configuration for a general purpose bucket.
 func (o LookupBucketResultOutput) MetadataConfiguration() BucketMetadataConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupBucketResult) *BucketMetadataConfiguration { return v.MetadataConfiguration }).(BucketMetadataConfigurationPtrOutput)
 }

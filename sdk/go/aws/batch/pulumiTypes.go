@@ -11214,6 +11214,106 @@ func (o SchedulingPolicyShareAttributesArrayOutput) Index(i pulumi.IntInput) Sch
 	}).(SchedulingPolicyShareAttributesOutput)
 }
 
+type ServiceEnvironmentCapacityLimit struct {
+	CapacityUnit *string `pulumi:"capacityUnit"`
+	MaxCapacity  *int    `pulumi:"maxCapacity"`
+}
+
+// ServiceEnvironmentCapacityLimitInput is an input type that accepts ServiceEnvironmentCapacityLimitArgs and ServiceEnvironmentCapacityLimitOutput values.
+// You can construct a concrete instance of `ServiceEnvironmentCapacityLimitInput` via:
+//
+//	ServiceEnvironmentCapacityLimitArgs{...}
+type ServiceEnvironmentCapacityLimitInput interface {
+	pulumi.Input
+
+	ToServiceEnvironmentCapacityLimitOutput() ServiceEnvironmentCapacityLimitOutput
+	ToServiceEnvironmentCapacityLimitOutputWithContext(context.Context) ServiceEnvironmentCapacityLimitOutput
+}
+
+type ServiceEnvironmentCapacityLimitArgs struct {
+	CapacityUnit pulumi.StringPtrInput `pulumi:"capacityUnit"`
+	MaxCapacity  pulumi.IntPtrInput    `pulumi:"maxCapacity"`
+}
+
+func (ServiceEnvironmentCapacityLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEnvironmentCapacityLimit)(nil)).Elem()
+}
+
+func (i ServiceEnvironmentCapacityLimitArgs) ToServiceEnvironmentCapacityLimitOutput() ServiceEnvironmentCapacityLimitOutput {
+	return i.ToServiceEnvironmentCapacityLimitOutputWithContext(context.Background())
+}
+
+func (i ServiceEnvironmentCapacityLimitArgs) ToServiceEnvironmentCapacityLimitOutputWithContext(ctx context.Context) ServiceEnvironmentCapacityLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEnvironmentCapacityLimitOutput)
+}
+
+// ServiceEnvironmentCapacityLimitArrayInput is an input type that accepts ServiceEnvironmentCapacityLimitArray and ServiceEnvironmentCapacityLimitArrayOutput values.
+// You can construct a concrete instance of `ServiceEnvironmentCapacityLimitArrayInput` via:
+//
+//	ServiceEnvironmentCapacityLimitArray{ ServiceEnvironmentCapacityLimitArgs{...} }
+type ServiceEnvironmentCapacityLimitArrayInput interface {
+	pulumi.Input
+
+	ToServiceEnvironmentCapacityLimitArrayOutput() ServiceEnvironmentCapacityLimitArrayOutput
+	ToServiceEnvironmentCapacityLimitArrayOutputWithContext(context.Context) ServiceEnvironmentCapacityLimitArrayOutput
+}
+
+type ServiceEnvironmentCapacityLimitArray []ServiceEnvironmentCapacityLimitInput
+
+func (ServiceEnvironmentCapacityLimitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEnvironmentCapacityLimit)(nil)).Elem()
+}
+
+func (i ServiceEnvironmentCapacityLimitArray) ToServiceEnvironmentCapacityLimitArrayOutput() ServiceEnvironmentCapacityLimitArrayOutput {
+	return i.ToServiceEnvironmentCapacityLimitArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEnvironmentCapacityLimitArray) ToServiceEnvironmentCapacityLimitArrayOutputWithContext(ctx context.Context) ServiceEnvironmentCapacityLimitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEnvironmentCapacityLimitArrayOutput)
+}
+
+type ServiceEnvironmentCapacityLimitOutput struct{ *pulumi.OutputState }
+
+func (ServiceEnvironmentCapacityLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEnvironmentCapacityLimit)(nil)).Elem()
+}
+
+func (o ServiceEnvironmentCapacityLimitOutput) ToServiceEnvironmentCapacityLimitOutput() ServiceEnvironmentCapacityLimitOutput {
+	return o
+}
+
+func (o ServiceEnvironmentCapacityLimitOutput) ToServiceEnvironmentCapacityLimitOutputWithContext(ctx context.Context) ServiceEnvironmentCapacityLimitOutput {
+	return o
+}
+
+func (o ServiceEnvironmentCapacityLimitOutput) CapacityUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEnvironmentCapacityLimit) *string { return v.CapacityUnit }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceEnvironmentCapacityLimitOutput) MaxCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceEnvironmentCapacityLimit) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
+}
+
+type ServiceEnvironmentCapacityLimitArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEnvironmentCapacityLimitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEnvironmentCapacityLimit)(nil)).Elem()
+}
+
+func (o ServiceEnvironmentCapacityLimitArrayOutput) ToServiceEnvironmentCapacityLimitArrayOutput() ServiceEnvironmentCapacityLimitArrayOutput {
+	return o
+}
+
+func (o ServiceEnvironmentCapacityLimitArrayOutput) ToServiceEnvironmentCapacityLimitArrayOutputWithContext(ctx context.Context) ServiceEnvironmentCapacityLimitArrayOutput {
+	return o
+}
+
+func (o ServiceEnvironmentCapacityLimitArrayOutput) Index(i pulumi.IntInput) ServiceEnvironmentCapacityLimitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEnvironmentCapacityLimit {
+		return vs[0].([]ServiceEnvironmentCapacityLimit)[vs[1].(int)]
+	}).(ServiceEnvironmentCapacityLimitOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentComputeResourcesInput)(nil)).Elem(), ComputeEnvironmentComputeResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentComputeResourcesPtrInput)(nil)).Elem(), ComputeEnvironmentComputeResourcesArgs{})
@@ -11331,6 +11431,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyFairsharePolicyPtrInput)(nil)).Elem(), SchedulingPolicyFairsharePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyShareAttributesInput)(nil)).Elem(), SchedulingPolicyShareAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyShareAttributesArrayInput)(nil)).Elem(), SchedulingPolicyShareAttributesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEnvironmentCapacityLimitInput)(nil)).Elem(), ServiceEnvironmentCapacityLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEnvironmentCapacityLimitArrayInput)(nil)).Elem(), ServiceEnvironmentCapacityLimitArray{})
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesPtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentEc2ConfigurationObjectOutput{})
@@ -11447,4 +11549,6 @@ func init() {
 	pulumi.RegisterOutputType(SchedulingPolicyFairsharePolicyPtrOutput{})
 	pulumi.RegisterOutputType(SchedulingPolicyShareAttributesOutput{})
 	pulumi.RegisterOutputType(SchedulingPolicyShareAttributesArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEnvironmentCapacityLimitOutput{})
+	pulumi.RegisterOutputType(ServiceEnvironmentCapacityLimitArrayOutput{})
 }

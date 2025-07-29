@@ -40,6 +40,11 @@ export const getSchedulingPolicy: typeof import("./getSchedulingPolicy").getSche
 export const getSchedulingPolicyOutput: typeof import("./getSchedulingPolicy").getSchedulingPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getSchedulingPolicy","getSchedulingPolicyOutput"], () => require("./getSchedulingPolicy"));
 
+export { GetServiceEnvironmentArgs, GetServiceEnvironmentResult, GetServiceEnvironmentOutputArgs } from "./getServiceEnvironment";
+export const getServiceEnvironment: typeof import("./getServiceEnvironment").getServiceEnvironment = null as any;
+export const getServiceEnvironmentOutput: typeof import("./getServiceEnvironment").getServiceEnvironmentOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceEnvironment","getServiceEnvironmentOutput"], () => require("./getServiceEnvironment"));
+
 export { JobDefinitionArgs } from "./jobDefinition";
 export type JobDefinition = import("./jobDefinition").JobDefinition;
 export const JobDefinition: typeof import("./jobDefinition").JobDefinition = null as any;
@@ -54,6 +59,11 @@ export { SchedulingPolicyArgs } from "./schedulingPolicy";
 export type SchedulingPolicy = import("./schedulingPolicy").SchedulingPolicy;
 export const SchedulingPolicy: typeof import("./schedulingPolicy").SchedulingPolicy = null as any;
 utilities.lazyLoad(exports, ["SchedulingPolicy"], () => require("./schedulingPolicy"));
+
+export { ServiceEnvironmentArgs } from "./serviceEnvironment";
+export type ServiceEnvironment = import("./serviceEnvironment").ServiceEnvironment;
+export const ServiceEnvironment: typeof import("./serviceEnvironment").ServiceEnvironment = null as any;
+utilities.lazyLoad(exports, ["ServiceEnvironment"], () => require("./serviceEnvironment"));
 
 
 // Export enums:
@@ -73,6 +83,8 @@ const _module = {
                 return new JobQueue(name, <any>undefined, { urn })
             case "aws-native:batch:SchedulingPolicy":
                 return new SchedulingPolicy(name, <any>undefined, { urn })
+            case "aws-native:batch:ServiceEnvironment":
+                return new ServiceEnvironment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -49,6 +49,7 @@ export class Topic extends pulumi.CustomResource {
      * Configuration options for a `Topic` .
      */
     public readonly configOptions!: pulumi.Output<outputs.quicksight.TopicConfigOptions | undefined>;
+    public readonly customInstructions!: pulumi.Output<outputs.quicksight.TopicCustomInstructions | undefined>;
     /**
      * The data sets that the topic is associated with.
      */
@@ -62,6 +63,7 @@ export class Topic extends pulumi.CustomResource {
      * The name of the topic.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The ID for the topic. This ID is unique per AWS Region for each AWS account.
      */
@@ -84,10 +86,12 @@ export class Topic extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
             resourceInputs["configOptions"] = args ? args.configOptions : undefined;
+            resourceInputs["customInstructions"] = args ? args.customInstructions : undefined;
             resourceInputs["dataSets"] = args ? args.dataSets : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["folderArns"] = args ? args.folderArns : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["topicId"] = args ? args.topicId : undefined;
             resourceInputs["userExperienceVersion"] = args ? args.userExperienceVersion : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -95,15 +99,17 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsAccountId"] = undefined /*out*/;
             resourceInputs["configOptions"] = undefined /*out*/;
+            resourceInputs["customInstructions"] = undefined /*out*/;
             resourceInputs["dataSets"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["folderArns"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["topicId"] = undefined /*out*/;
             resourceInputs["userExperienceVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["awsAccountId", "folderArns[*]", "topicId"] };
+        const replaceOnChanges = { replaceOnChanges: ["awsAccountId", "folderArns[*]", "tags[*]", "topicId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Topic.__pulumiType, name, resourceInputs, opts);
     }
@@ -121,6 +127,7 @@ export interface TopicArgs {
      * Configuration options for a `Topic` .
      */
     configOptions?: pulumi.Input<inputs.quicksight.TopicConfigOptionsArgs>;
+    customInstructions?: pulumi.Input<inputs.quicksight.TopicCustomInstructionsArgs>;
     /**
      * The data sets that the topic is associated with.
      */
@@ -134,6 +141,7 @@ export interface TopicArgs {
      * The name of the topic.
      */
     name?: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     /**
      * The ID for the topic. This ID is unique per AWS Region for each AWS account.
      */

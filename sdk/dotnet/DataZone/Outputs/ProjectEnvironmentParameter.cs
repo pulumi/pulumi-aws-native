@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     [OutputType]
     public sealed class ProjectEnvironmentParameter
     {
+        /// <summary>
+        /// The name of an environment profile parameter.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The value of an environment profile parameter.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

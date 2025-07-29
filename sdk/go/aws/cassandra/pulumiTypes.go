@@ -750,6 +750,8 @@ func (o TableBillingModePtrOutput) ProvisionedThroughput() TableProvisionedThrou
 type TableCdcSpecification struct {
 	// The status of the CDC stream. You can enable or disable a stream for a table.
 	Status TableCdcStatus `pulumi:"status"`
+	// An array of key-value pairs to apply to the CDC stream resource
+	Tags []TableTag `pulumi:"tags"`
 	// The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
 	//
 	// The options are:
@@ -776,6 +778,8 @@ type TableCdcSpecificationInput interface {
 type TableCdcSpecificationArgs struct {
 	// The status of the CDC stream. You can enable or disable a stream for a table.
 	Status TableCdcStatusInput `pulumi:"status"`
+	// An array of key-value pairs to apply to the CDC stream resource
+	Tags TableTagArrayInput `pulumi:"tags"`
 	// The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
 	//
 	// The options are:
@@ -870,6 +874,11 @@ func (o TableCdcSpecificationOutput) Status() TableCdcStatusOutput {
 	return o.ApplyT(func(v TableCdcSpecification) TableCdcStatus { return v.Status }).(TableCdcStatusOutput)
 }
 
+// An array of key-value pairs to apply to the CDC stream resource
+func (o TableCdcSpecificationOutput) Tags() TableTagArrayOutput {
+	return o.ApplyT(func(v TableCdcSpecification) []TableTag { return v.Tags }).(TableTagArrayOutput)
+}
+
 // The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
 //
 // The options are:
@@ -914,6 +923,16 @@ func (o TableCdcSpecificationPtrOutput) Status() TableCdcStatusPtrOutput {
 		}
 		return &v.Status
 	}).(TableCdcStatusPtrOutput)
+}
+
+// An array of key-value pairs to apply to the CDC stream resource
+func (o TableCdcSpecificationPtrOutput) Tags() TableTagArrayOutput {
+	return o.ApplyT(func(v *TableCdcSpecification) []TableTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(TableTagArrayOutput)
 }
 
 // The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
@@ -1768,6 +1787,107 @@ type TableTag struct {
 	Value string `pulumi:"value"`
 }
 
+// TableTagInput is an input type that accepts TableTagArgs and TableTagOutput values.
+// You can construct a concrete instance of `TableTagInput` via:
+//
+//	TableTagArgs{...}
+type TableTagInput interface {
+	pulumi.Input
+
+	ToTableTagOutput() TableTagOutput
+	ToTableTagOutputWithContext(context.Context) TableTagOutput
+}
+
+// A key-value pair to apply to the resource
+type TableTagArgs struct {
+	// The key of the tag. Tag keys are case sensitive. Each Amazon Keyspaces resource can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the tag. Tag values are case-sensitive and can be null.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TableTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableTag)(nil)).Elem()
+}
+
+func (i TableTagArgs) ToTableTagOutput() TableTagOutput {
+	return i.ToTableTagOutputWithContext(context.Background())
+}
+
+func (i TableTagArgs) ToTableTagOutputWithContext(ctx context.Context) TableTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTagOutput)
+}
+
+// TableTagArrayInput is an input type that accepts TableTagArray and TableTagArrayOutput values.
+// You can construct a concrete instance of `TableTagArrayInput` via:
+//
+//	TableTagArray{ TableTagArgs{...} }
+type TableTagArrayInput interface {
+	pulumi.Input
+
+	ToTableTagArrayOutput() TableTagArrayOutput
+	ToTableTagArrayOutputWithContext(context.Context) TableTagArrayOutput
+}
+
+type TableTagArray []TableTagInput
+
+func (TableTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableTag)(nil)).Elem()
+}
+
+func (i TableTagArray) ToTableTagArrayOutput() TableTagArrayOutput {
+	return i.ToTableTagArrayOutputWithContext(context.Background())
+}
+
+func (i TableTagArray) ToTableTagArrayOutputWithContext(ctx context.Context) TableTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTagArrayOutput)
+}
+
+// A key-value pair to apply to the resource
+type TableTagOutput struct{ *pulumi.OutputState }
+
+func (TableTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableTag)(nil)).Elem()
+}
+
+func (o TableTagOutput) ToTableTagOutput() TableTagOutput {
+	return o
+}
+
+func (o TableTagOutput) ToTableTagOutputWithContext(ctx context.Context) TableTagOutput {
+	return o
+}
+
+// The key of the tag. Tag keys are case sensitive. Each Amazon Keyspaces resource can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+func (o TableTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TableTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the tag. Tag values are case-sensitive and can be null.
+func (o TableTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TableTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TableTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TableTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableTag)(nil)).Elem()
+}
+
+func (o TableTagArrayOutput) ToTableTagArrayOutput() TableTagArrayOutput {
+	return o
+}
+
+func (o TableTagArrayOutput) ToTableTagArrayOutputWithContext(ctx context.Context) TableTagArrayOutput {
+	return o
+}
+
+func (o TableTagArrayOutput) Index(i pulumi.IntInput) TableTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableTag {
+		return vs[0].([]TableTag)[vs[1].(int)]
+	}).(TableTagOutput)
+}
+
 // Represents configuration for target tracking scaling policy.
 type TableTargetTrackingScalingPolicyConfiguration struct {
 	// Specifies if `scale-in` is enabled.
@@ -2126,6 +2246,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableReplicaSpecificationArrayInput)(nil)).Elem(), TableReplicaSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableScalingPolicyInput)(nil)).Elem(), TableScalingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableScalingPolicyPtrInput)(nil)).Elem(), TableScalingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableTagInput)(nil)).Elem(), TableTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableTagArrayInput)(nil)).Elem(), TableTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTargetTrackingScalingPolicyConfigurationInput)(nil)).Elem(), TableTargetTrackingScalingPolicyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTargetTrackingScalingPolicyConfigurationPtrInput)(nil)).Elem(), TableTargetTrackingScalingPolicyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeFieldInput)(nil)).Elem(), TypeFieldArgs{})
@@ -2152,6 +2274,8 @@ func init() {
 	pulumi.RegisterOutputType(TableReplicaSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(TableScalingPolicyOutput{})
 	pulumi.RegisterOutputType(TableScalingPolicyPtrOutput{})
+	pulumi.RegisterOutputType(TableTagOutput{})
+	pulumi.RegisterOutputType(TableTagArrayOutput{})
 	pulumi.RegisterOutputType(TableTargetTrackingScalingPolicyConfigurationOutput{})
 	pulumi.RegisterOutputType(TableTargetTrackingScalingPolicyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TypeFieldOutput{})

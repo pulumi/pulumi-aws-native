@@ -26,6 +26,13 @@ type ManagedLoginBranding struct {
 	ReturnMergedResources pulumi.BoolPtrOutput `pulumi:"returnMergedResources"`
 	// A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
 	//
+	// The following components are not currently implemented and reserved for future use:
+	//
+	// - `signUp`
+	// - `instructions`
+	// - `sessionTimerDisplay`
+	// - `languageSelector` (for localization, see [Managed login localization)](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization)
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
 	Settings pulumi.AnyOutput `pulumi:"settings"`
 	// When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding editor.
@@ -92,6 +99,13 @@ type managedLoginBrandingArgs struct {
 	ReturnMergedResources *bool `pulumi:"returnMergedResources"`
 	// A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
 	//
+	// The following components are not currently implemented and reserved for future use:
+	//
+	// - `signUp`
+	// - `instructions`
+	// - `sessionTimerDisplay`
+	// - `languageSelector` (for localization, see [Managed login localization)](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization)
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
 	Settings interface{} `pulumi:"settings"`
 	// When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding editor.
@@ -111,6 +125,13 @@ type ManagedLoginBrandingArgs struct {
 	// When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
 	ReturnMergedResources pulumi.BoolPtrInput
 	// A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
+	//
+	// The following components are not currently implemented and reserved for future use:
+	//
+	// - `signUp`
+	// - `instructions`
+	// - `sessionTimerDisplay`
+	// - `languageSelector` (for localization, see [Managed login localization)](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization)
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
 	Settings pulumi.Input
@@ -180,6 +201,13 @@ func (o ManagedLoginBrandingOutput) ReturnMergedResources() pulumi.BoolPtrOutput
 }
 
 // A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
+//
+// The following components are not currently implemented and reserved for future use:
+//
+// - `signUp`
+// - `instructions`
+// - `sessionTimerDisplay`
+// - `languageSelector` (for localization, see [Managed login localization)](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization)
 //
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
 func (o ManagedLoginBrandingOutput) Settings() pulumi.AnyOutput {

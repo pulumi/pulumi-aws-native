@@ -139,6 +139,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TrafficMirrorFilter{}
 	case "aws-native:ec2:TrafficMirrorFilterRule":
 		r = &TrafficMirrorFilterRule{}
+	case "aws-native:ec2:TrafficMirrorSession":
+		r = &TrafficMirrorSession{}
 	case "aws-native:ec2:TrafficMirrorTarget":
 		r = &TrafficMirrorTarget{}
 	case "aws-native:ec2:TransitGateway":

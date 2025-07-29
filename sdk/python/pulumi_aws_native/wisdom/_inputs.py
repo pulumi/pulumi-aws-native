@@ -117,6 +117,8 @@ __all__ = [
     'KnowledgeBaseWebCrawlerConfigurationArgsDict',
     'MessageTemplateAgentAttributesArgs',
     'MessageTemplateAgentAttributesArgsDict',
+    'MessageTemplateAttachmentArgs',
+    'MessageTemplateAttachmentArgsDict',
     'MessageTemplateAttributesArgs',
     'MessageTemplateAttributesArgsDict',
     'MessageTemplateBodyContentProviderArgs',
@@ -2245,6 +2247,76 @@ class MessageTemplateAgentAttributesArgs:
     @last_name.setter
     def last_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "last_name", value)
+
+
+if not MYPY:
+    class MessageTemplateAttachmentArgsDict(TypedDict):
+        attachment_name: pulumi.Input[builtins.str]
+        """
+        The name of the attachment file being uploaded. The name should include the file extension.
+        """
+        s3_presigned_url: pulumi.Input[builtins.str]
+        """
+        The S3 Presigned URL for the attachment file. When generating the PreSignedUrl, please ensure that the expires-in time is set to 30 minutes. The URL can be generated through the AWS Console or through the AWS CLI. For more information, see [Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html) .
+        """
+        attachment_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The identifier of the attachment file.
+        """
+elif False:
+    MessageTemplateAttachmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MessageTemplateAttachmentArgs:
+    def __init__(__self__, *,
+                 attachment_name: pulumi.Input[builtins.str],
+                 s3_presigned_url: pulumi.Input[builtins.str],
+                 attachment_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] attachment_name: The name of the attachment file being uploaded. The name should include the file extension.
+        :param pulumi.Input[builtins.str] s3_presigned_url: The S3 Presigned URL for the attachment file. When generating the PreSignedUrl, please ensure that the expires-in time is set to 30 minutes. The URL can be generated through the AWS Console or through the AWS CLI. For more information, see [Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html) .
+        :param pulumi.Input[builtins.str] attachment_id: The identifier of the attachment file.
+        """
+        pulumi.set(__self__, "attachment_name", attachment_name)
+        pulumi.set(__self__, "s3_presigned_url", s3_presigned_url)
+        if attachment_id is not None:
+            pulumi.set(__self__, "attachment_id", attachment_id)
+
+    @property
+    @pulumi.getter(name="attachmentName")
+    def attachment_name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the attachment file being uploaded. The name should include the file extension.
+        """
+        return pulumi.get(self, "attachment_name")
+
+    @attachment_name.setter
+    def attachment_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "attachment_name", value)
+
+    @property
+    @pulumi.getter(name="s3PresignedUrl")
+    def s3_presigned_url(self) -> pulumi.Input[builtins.str]:
+        """
+        The S3 Presigned URL for the attachment file. When generating the PreSignedUrl, please ensure that the expires-in time is set to 30 minutes. The URL can be generated through the AWS Console or through the AWS CLI. For more information, see [Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html) .
+        """
+        return pulumi.get(self, "s3_presigned_url")
+
+    @s3_presigned_url.setter
+    def s3_presigned_url(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "s3_presigned_url", value)
+
+    @property
+    @pulumi.getter(name="attachmentId")
+    def attachment_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The identifier of the attachment file.
+        """
+        return pulumi.get(self, "attachment_id")
+
+    @attachment_id.setter
+    def attachment_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "attachment_id", value)
 
 
 if not MYPY:

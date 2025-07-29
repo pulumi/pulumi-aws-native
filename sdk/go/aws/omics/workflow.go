@@ -36,7 +36,7 @@ type Workflow struct {
 	ParameterTemplate WorkflowParameterMapOutput `pulumi:"parameterTemplate"`
 	// The workflow's status.
 	Status WorkflowStatusOutput `pulumi:"status"`
-	// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
+	// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
 	StorageCapacity pulumi.Float64PtrOutput      `pulumi:"storageCapacity"`
 	StorageType     WorkflowStorageTypePtrOutput `pulumi:"storageType"`
 	// Tags for the workflow.
@@ -108,7 +108,7 @@ type workflowArgs struct {
 	Name *string `pulumi:"name"`
 	// The workflow's parameter template.
 	ParameterTemplate map[string]WorkflowParameter `pulumi:"parameterTemplate"`
-	// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
+	// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
 	StorageCapacity *float64             `pulumi:"storageCapacity"`
 	StorageType     *WorkflowStorageType `pulumi:"storageType"`
 	// Tags for the workflow.
@@ -130,7 +130,7 @@ type WorkflowArgs struct {
 	Name pulumi.StringPtrInput
 	// The workflow's parameter template.
 	ParameterTemplate WorkflowParameterMapInput
-	// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
+	// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
 	StorageCapacity pulumi.Float64PtrInput
 	StorageType     WorkflowStorageTypePtrInput
 	// Tags for the workflow.
@@ -228,7 +228,7 @@ func (o WorkflowOutput) Status() WorkflowStatusOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowStatusOutput { return v.Status }).(WorkflowStatusOutput)
 }
 
-// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version.
+// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
 func (o WorkflowOutput) StorageCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.Float64PtrOutput { return v.StorageCapacity }).(pulumi.Float64PtrOutput)
 }

@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.DataZone.Inputs
     {
         [Input("parameterOverrides")]
         private InputList<Inputs.ProjectProfileEnvironmentConfigurationParameterArgs>? _parameterOverrides;
+
+        /// <summary>
+        /// The parameter overrides.
+        /// </summary>
         public InputList<Inputs.ProjectProfileEnvironmentConfigurationParameterArgs> ParameterOverrides
         {
             get => _parameterOverrides ?? (_parameterOverrides = new InputList<Inputs.ProjectProfileEnvironmentConfigurationParameterArgs>());
@@ -22,12 +26,19 @@ namespace Pulumi.AwsNative.DataZone.Inputs
 
         [Input("resolvedParameters")]
         private InputList<Inputs.ProjectProfileEnvironmentConfigurationParameterArgs>? _resolvedParameters;
+
+        /// <summary>
+        /// The resolved environment configuration parameters.
+        /// </summary>
         public InputList<Inputs.ProjectProfileEnvironmentConfigurationParameterArgs> ResolvedParameters
         {
             get => _resolvedParameters ?? (_resolvedParameters = new InputList<Inputs.ProjectProfileEnvironmentConfigurationParameterArgs>());
             set => _resolvedParameters = value;
         }
 
+        /// <summary>
+        /// Ssm path environment configuration parameters.
+        /// </summary>
         [Input("ssmPath")]
         public Input<string>? SsmPath { get; set; }
 

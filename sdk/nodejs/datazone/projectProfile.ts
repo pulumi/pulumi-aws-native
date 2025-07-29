@@ -57,13 +57,25 @@ export class ProjectProfile extends pulumi.CustomResource {
      * The domain ID of the project profile.
      */
     public /*out*/ readonly domainId!: pulumi.Output<string>;
+    /**
+     * A domain ID of the project profile.
+     */
     public readonly domainIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The domain unit ID of the project profile.
      */
     public /*out*/ readonly domainUnitId!: pulumi.Output<string>;
+    /**
+     * A domain unit ID of the project profile.
+     */
     public readonly domainUnitIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * Environment configurations of a project profile.
+     */
     public readonly environmentConfigurations!: pulumi.Output<outputs.datazone.ProjectProfileEnvironmentConfiguration[] | undefined>;
+    /**
+     * Project profile ID.
+     */
     public /*out*/ readonly identifier!: pulumi.Output<string>;
     /**
      * The timestamp at which a project profile was last updated.
@@ -132,8 +144,17 @@ export interface ProjectProfileArgs {
      * The description of the project profile.
      */
     description?: pulumi.Input<string>;
+    /**
+     * A domain ID of the project profile.
+     */
     domainIdentifier?: pulumi.Input<string>;
+    /**
+     * A domain unit ID of the project profile.
+     */
     domainUnitIdentifier?: pulumi.Input<string>;
+    /**
+     * Environment configurations of a project profile.
+     */
     environmentConfigurations?: pulumi.Input<pulumi.Input<inputs.datazone.ProjectProfileEnvironmentConfigurationArgs>[]>;
     /**
      * The name of a project profile.

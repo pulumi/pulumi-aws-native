@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("port", required: true)]
         public Input<double> Port { get; set; } = null!;
 
+        /// <summary>
+        /// A Boolean value that indicates whether the `Database` uses a service name or an SID. If this value is left blank, the default value is `SID` . If this value is set to `false` , the value is `SID` .
+        /// </summary>
         [Input("useServiceName")]
         public Input<bool>? UseServiceName { get; set; }
 

@@ -80,6 +80,9 @@ export interface GetBucketResult {
      * Settings that define where logs are stored.
      */
     readonly loggingConfiguration?: outputs.s3.BucketLoggingConfiguration;
+    /**
+     * The S3 Metadata configuration for a general purpose bucket.
+     */
     readonly metadataConfiguration?: outputs.s3.BucketMetadataConfiguration;
     /**
      * The metadata table configuration of an S3 general purpose bucket.

@@ -12,14 +12,24 @@ namespace Pulumi.AwsNative.DataZone.Inputs
 
     public sealed class ProjectEnvironmentConfigurationUserParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The environment configuration name.
+        /// </summary>
         [Input("environmentConfigurationName")]
         public Input<string>? EnvironmentConfigurationName { get; set; }
 
+        /// <summary>
+        /// The ID of the environment.
+        /// </summary>
         [Input("environmentId")]
         public Input<string>? EnvironmentId { get; set; }
 
         [Input("environmentParameters")]
         private InputList<Inputs.ProjectEnvironmentParameterArgs>? _environmentParameters;
+
+        /// <summary>
+        /// The environment parameters.
+        /// </summary>
         public InputList<Inputs.ProjectEnvironmentParameterArgs> EnvironmentParameters
         {
             get => _environmentParameters ?? (_environmentParameters = new InputList<Inputs.ProjectEnvironmentParameterArgs>());

@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
         /// </summary>
         [Input("identityCenterConfiguration")]
-        public Input<object>? IdentityCenterConfiguration { get; set; }
+        public Input<Inputs.DataSourceIdentityCenterConfigurationArgs>? IdentityCenterConfiguration { get; set; }
 
         /// <summary>
         /// &lt;p&gt;Port. This field can be blank if the &lt;code&gt;ClusterId&lt;/code&gt; is provided.&lt;/p&gt;

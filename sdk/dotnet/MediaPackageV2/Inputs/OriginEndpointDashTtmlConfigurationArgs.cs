@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
     /// </summary>
     public sealed class OriginEndpointDashTtmlConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The profile that MediaPackage uses when signaling subtitles in the manifest. `IMSC` is the default profile. `EBU-TT-D` produces subtitles that are compliant with the EBU-TT-D TTML profile. MediaPackage passes through subtitle styles to the manifest. For more information about EBU-TT-D subtitles, see [EBU-TT-D Subtitling Distribution Format](https://docs.aws.amazon.com/https://tech.ebu.ch/publications/tech3380) .
+        /// </summary>
         [Input("ttmlProfile", required: true)]
         public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashTtmlProfile> TtmlProfile { get; set; } = null!;
 

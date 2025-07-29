@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.DataZone
         [Output("domainId")]
         public Output<string> DomainId { get; private set; } = null!;
 
+        /// <summary>
+        /// A domain ID of the project profile.
+        /// </summary>
         [Output("domainIdentifier")]
         public Output<string?> DomainIdentifier { get; private set; } = null!;
 
@@ -54,12 +57,21 @@ namespace Pulumi.AwsNative.DataZone
         [Output("domainUnitId")]
         public Output<string> DomainUnitId { get; private set; } = null!;
 
+        /// <summary>
+        /// A domain unit ID of the project profile.
+        /// </summary>
         [Output("domainUnitIdentifier")]
         public Output<string?> DomainUnitIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// Environment configurations of a project profile.
+        /// </summary>
         [Output("environmentConfigurations")]
         public Output<ImmutableArray<Outputs.ProjectProfileEnvironmentConfiguration>> EnvironmentConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// Project profile ID.
+        /// </summary>
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
 
@@ -136,14 +148,24 @@ namespace Pulumi.AwsNative.DataZone
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A domain ID of the project profile.
+        /// </summary>
         [Input("domainIdentifier")]
         public Input<string>? DomainIdentifier { get; set; }
 
+        /// <summary>
+        /// A domain unit ID of the project profile.
+        /// </summary>
         [Input("domainUnitIdentifier")]
         public Input<string>? DomainUnitIdentifier { get; set; }
 
         [Input("environmentConfigurations")]
         private InputList<Inputs.ProjectProfileEnvironmentConfigurationArgs>? _environmentConfigurations;
+
+        /// <summary>
+        /// Environment configurations of a project profile.
+        /// </summary>
         public InputList<Inputs.ProjectProfileEnvironmentConfigurationArgs> EnvironmentConfigurations
         {
             get => _environmentConfigurations ?? (_environmentConfigurations = new InputList<Inputs.ProjectProfileEnvironmentConfigurationArgs>());

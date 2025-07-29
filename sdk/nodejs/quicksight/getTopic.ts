@@ -38,6 +38,7 @@ export interface GetTopicResult {
      * Configuration options for a `Topic` .
      */
     readonly configOptions?: outputs.quicksight.TopicConfigOptions;
+    readonly customInstructions?: outputs.quicksight.TopicCustomInstructions;
     /**
      * The data sets that the topic is associated with.
      */

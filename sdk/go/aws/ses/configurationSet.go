@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -217,6 +218,8 @@ type ConfigurationSet struct {
 	SendingOptions ConfigurationSetSendingOptionsPtrOutput `pulumi:"sendingOptions"`
 	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions ConfigurationSetSuppressionOptionsPtrOutput `pulumi:"suppressionOptions"`
+	// The tags (keys and values) associated with the contact list.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions ConfigurationSetTrackingOptionsPtrOutput `pulumi:"trackingOptions"`
 	// The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
@@ -277,6 +280,8 @@ type configurationSetArgs struct {
 	SendingOptions *ConfigurationSetSendingOptions `pulumi:"sendingOptions"`
 	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions *ConfigurationSetSuppressionOptions `pulumi:"suppressionOptions"`
+	// The tags (keys and values) associated with the contact list.
+	Tags []aws.Tag `pulumi:"tags"`
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
 	// The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
@@ -295,6 +300,8 @@ type ConfigurationSetArgs struct {
 	SendingOptions ConfigurationSetSendingOptionsPtrInput
 	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions ConfigurationSetSuppressionOptionsPtrInput
+	// The tags (keys and values) associated with the contact list.
+	Tags aws.TagArrayInput
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions ConfigurationSetTrackingOptionsPtrInput
 	// The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
@@ -361,6 +368,11 @@ func (o ConfigurationSetOutput) SendingOptions() ConfigurationSetSendingOptionsP
 // An object that contains information about the suppression list preferences for your account.
 func (o ConfigurationSetOutput) SuppressionOptions() ConfigurationSetSuppressionOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetSuppressionOptionsPtrOutput { return v.SuppressionOptions }).(ConfigurationSetSuppressionOptionsPtrOutput)
+}
+
+// The tags (keys and values) associated with the contact list.
+func (o ConfigurationSetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ConfigurationSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // An object that defines the open and click tracking options for emails that you send using the configuration set.

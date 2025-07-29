@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,6 +37,8 @@ type LookupAppImageConfigResult struct {
 	JupyterLabAppImageConfig *AppImageConfigJupyterLabAppImageConfig `pulumi:"jupyterLabAppImageConfig"`
 	// The KernelGatewayImageConfig.
 	KernelGatewayImageConfig *AppImageConfigKernelGatewayImageConfig `pulumi:"kernelGatewayImageConfig"`
+	// A list of tags to apply to the AppImageConfig.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAppImageConfigOutput(ctx *pulumi.Context, args LookupAppImageConfigOutputArgs, opts ...pulumi.InvokeOption) LookupAppImageConfigResultOutput {
@@ -94,6 +97,11 @@ func (o LookupAppImageConfigResultOutput) KernelGatewayImageConfig() AppImageCon
 	return o.ApplyT(func(v LookupAppImageConfigResult) *AppImageConfigKernelGatewayImageConfig {
 		return v.KernelGatewayImageConfig
 	}).(AppImageConfigKernelGatewayImageConfigPtrOutput)
+}
+
+// A list of tags to apply to the AppImageConfig.
+func (o LookupAppImageConfigResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAppImageConfigResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

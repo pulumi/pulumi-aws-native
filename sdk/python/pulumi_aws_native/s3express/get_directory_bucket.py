@@ -79,6 +79,9 @@ class GetDirectoryBucketResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
+        """
         return pulumi.get(self, "tags")
 
 

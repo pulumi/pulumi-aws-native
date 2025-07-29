@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -19,6 +20,8 @@ type DedicatedIpPool struct {
 	PoolName pulumi.StringPtrOutput `pulumi:"poolName"`
 	// Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
 	ScalingMode pulumi.StringPtrOutput `pulumi:"scalingMode"`
+	// The tags (keys and values) associated with the dedicated IP pool.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDedicatedIpPool registers a new resource with the given unique name, arguments, and options.
@@ -69,6 +72,8 @@ type dedicatedIpPoolArgs struct {
 	PoolName *string `pulumi:"poolName"`
 	// Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
 	ScalingMode *string `pulumi:"scalingMode"`
+	// The tags (keys and values) associated with the dedicated IP pool.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DedicatedIpPool resource.
@@ -77,6 +82,8 @@ type DedicatedIpPoolArgs struct {
 	PoolName pulumi.StringPtrInput
 	// Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
 	ScalingMode pulumi.StringPtrInput
+	// The tags (keys and values) associated with the dedicated IP pool.
+	Tags aws.TagArrayInput
 }
 
 func (DedicatedIpPoolArgs) ElementType() reflect.Type {
@@ -124,6 +131,11 @@ func (o DedicatedIpPoolOutput) PoolName() pulumi.StringPtrOutput {
 // Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
 func (o DedicatedIpPoolOutput) ScalingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringPtrOutput { return v.ScalingMode }).(pulumi.StringPtrOutput)
+}
+
+// The tags (keys and values) associated with the dedicated IP pool.
+func (o DedicatedIpPoolOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DedicatedIpPool) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ProjectTemplateProviderDetailArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Details about a CloudFormation template provider configuration and associated provisioning information.
+        /// </summary>
         [Input("cfnTemplateProviderDetail")]
         public Input<Inputs.ProjectCfnTemplateProviderDetailArgs>? CfnTemplateProviderDetail { get; set; }
 

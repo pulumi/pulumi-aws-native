@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     [OutputType]
     public sealed class ProjectProfileAwsAccount
     {
+        /// <summary>
+        /// The account ID of a project.
+        /// </summary>
         public readonly string AwsAccountId;
 
         [OutputConstructor]

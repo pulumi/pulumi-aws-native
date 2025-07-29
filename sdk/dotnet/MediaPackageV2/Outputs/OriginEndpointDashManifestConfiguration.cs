@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// &lt;p&gt;The base URL to use for retrieving segments.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.OriginEndpointDashBaseUrl> BaseUrls;
+        /// <summary>
+        /// The layout of the DASH manifest that MediaPackage produces. `STANDARD` indicates a default manifest, which is compacted. `NONE` indicates a full manifest.
+        /// 
+        /// For information about compactness, see [DASH manifest compactness](https://docs.aws.amazon.com/mediapackage/latest/userguide/compacted.html) in the *AWS Elemental MediaPackage v2 User Guide* .
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashCompactness? Compactness;
         /// <summary>
         /// Determines how the DASH manifest signals the DRM content.
         /// </summary>
         public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashDrmSignaling? DrmSignaling;
+        /// <summary>
+        /// For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.
+        /// </summary>
         public readonly Outputs.OriginEndpointDashDvbSettings? DvbSettings;
         /// <summary>
         /// Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
@@ -54,6 +62,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// &lt;p&gt;The profile that the output is compliant with.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashProfile> Profiles;
+        /// <summary>
+        /// Details about the content that you want MediaPackage to pass through in the manifest to the playback device.
+        /// </summary>
         public readonly Outputs.OriginEndpointDashProgramInformation? ProgramInformation;
         /// <summary>
         /// The SCTE configuration.
@@ -67,6 +78,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// - `NUMBER_WITH_TIMELINE` - The `$Number$` variable is used in the `media` URL. The value of this variable is the sequential number of the segment. A full `SegmentTimeline` object is presented in each `SegmentTemplate` .
         /// </summary>
         public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointDashSegmentTemplateFormat? SegmentTemplateFormat;
+        /// <summary>
+        /// The configuration for DASH subtitles.
+        /// </summary>
         public readonly Outputs.OriginEndpointDashSubtitleConfiguration? SubtitleConfiguration;
         /// <summary>
         /// &lt;p&gt;The amount of time (in seconds) that the player should be from the end of the manifest.&lt;/p&gt;

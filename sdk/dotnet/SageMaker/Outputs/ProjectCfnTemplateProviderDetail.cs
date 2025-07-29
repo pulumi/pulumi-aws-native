@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ProjectCfnTemplateProviderDetail
     {
+        /// <summary>
+        /// An array of CloudFormation stack parameters.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ProjectCfnStackParameter> Parameters;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role used by the template provider.

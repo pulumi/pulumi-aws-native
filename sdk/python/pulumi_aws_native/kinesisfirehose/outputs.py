@@ -742,6 +742,9 @@ class DeliveryStreamCatalogConfiguration(dict):
                  warehouse_location: Optional[builtins.str] = None):
         """
         :param builtins.str catalog_arn: Specifies the Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
+        :param builtins.str warehouse_location: The warehouse location for Apache Iceberg tables. You must configure this when schema evolution and table creation is enabled.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
         """
         if catalog_arn is not None:
             pulumi.set(__self__, "catalog_arn", catalog_arn)
@@ -759,6 +762,11 @@ class DeliveryStreamCatalogConfiguration(dict):
     @property
     @pulumi.getter(name="warehouseLocation")
     def warehouse_location(self) -> Optional[builtins.str]:
+        """
+        The warehouse location for Apache Iceberg tables. You must configure this when schema evolution and table creation is enabled.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "warehouse_location")
 
 
@@ -2641,6 +2649,12 @@ class DeliveryStreamIcebergDestinationConfiguration(dict):
                The default value is false. If you set this value to true, Firehose automatically increases the throughput limit of a stream based on the throttling levels of the stream. If you set this parameter to true for a stream with updates and deletes, you will see out of order delivery.
         :param Sequence['DeliveryStreamDestinationTableConfiguration'] destination_table_configuration_list: Provides a list of `DestinationTableConfigurations` which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided here.
         :param 'DeliveryStreamIcebergDestinationConfigurations3BackupMode' s3_backup_mode: Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` .
+        :param 'DeliveryStreamSchemaEvolutionConfiguration' schema_evolution_configuration: The configuration to enable automatic schema evolution.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        :param 'DeliveryStreamTableCreationConfiguration' table_creation_configuration: The configuration to enable automatic table creation.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
         """
         pulumi.set(__self__, "catalog_configuration", catalog_configuration)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -2734,11 +2748,21 @@ class DeliveryStreamIcebergDestinationConfiguration(dict):
     @property
     @pulumi.getter(name="schemaEvolutionConfiguration")
     def schema_evolution_configuration(self) -> Optional['outputs.DeliveryStreamSchemaEvolutionConfiguration']:
+        """
+        The configuration to enable automatic schema evolution.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "schema_evolution_configuration")
 
     @property
     @pulumi.getter(name="tableCreationConfiguration")
     def table_creation_configuration(self) -> Optional['outputs.DeliveryStreamTableCreationConfiguration']:
+        """
+        The configuration to enable automatic table creation.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "table_creation_configuration")
 
 
@@ -3924,12 +3948,22 @@ class DeliveryStreamSchemaConfiguration(dict):
 class DeliveryStreamSchemaEvolutionConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[builtins.bool] = None):
+        """
+        :param builtins.bool enabled: Specify whether you want to enable schema evolution.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[builtins.bool]:
+        """
+        Specify whether you want to enable schema evolution.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "enabled")
 
 
@@ -4772,12 +4806,22 @@ class DeliveryStreamSplunkRetryOptions(dict):
 class DeliveryStreamTableCreationConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[builtins.bool] = None):
+        """
+        :param builtins.bool enabled: Specify whether you want to enable automatic table creation.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[builtins.bool]:
+        """
+        Specify whether you want to enable automatic table creation.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "enabled")
 
 

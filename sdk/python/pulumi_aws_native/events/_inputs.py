@@ -51,6 +51,8 @@ __all__ = [
     'EndpointSecondaryArgsDict',
     'InvocationConnectivityParametersPropertiesArgs',
     'InvocationConnectivityParametersPropertiesArgsDict',
+    'LogConfigPropertiesArgs',
+    'LogConfigPropertiesArgsDict',
     'RuleAppSyncParametersArgs',
     'RuleAppSyncParametersArgsDict',
     'RuleAwsVpcConfigurationArgs',
@@ -953,6 +955,62 @@ class InvocationConnectivityParametersPropertiesArgs:
     @resource_parameters.setter
     def resource_parameters(self, value: pulumi.Input['ConnectionResourceParametersArgs']):
         pulumi.set(self, "resource_parameters", value)
+
+
+if not MYPY:
+    class LogConfigPropertiesArgsDict(TypedDict):
+        """
+        The logging configuration settings for vended logs.
+        """
+        include_detail: NotRequired[pulumi.Input['EventBusLogConfigPropertiesIncludeDetail']]
+        """
+        Configures whether or not to include event detail, input transformer details, target properties, and target input in the applicable log messages.
+        """
+        level: NotRequired[pulumi.Input['EventBusLogConfigPropertiesLevel']]
+        """
+        Configures the log level of the EventBus and determines which log messages are sent to Ingestion Hub for delivery.
+        """
+elif False:
+    LogConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 include_detail: Optional[pulumi.Input['EventBusLogConfigPropertiesIncludeDetail']] = None,
+                 level: Optional[pulumi.Input['EventBusLogConfigPropertiesLevel']] = None):
+        """
+        The logging configuration settings for vended logs.
+        :param pulumi.Input['EventBusLogConfigPropertiesIncludeDetail'] include_detail: Configures whether or not to include event detail, input transformer details, target properties, and target input in the applicable log messages.
+        :param pulumi.Input['EventBusLogConfigPropertiesLevel'] level: Configures the log level of the EventBus and determines which log messages are sent to Ingestion Hub for delivery.
+        """
+        if include_detail is not None:
+            pulumi.set(__self__, "include_detail", include_detail)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter(name="includeDetail")
+    def include_detail(self) -> Optional[pulumi.Input['EventBusLogConfigPropertiesIncludeDetail']]:
+        """
+        Configures whether or not to include event detail, input transformer details, target properties, and target input in the applicable log messages.
+        """
+        return pulumi.get(self, "include_detail")
+
+    @include_detail.setter
+    def include_detail(self, value: Optional[pulumi.Input['EventBusLogConfigPropertiesIncludeDetail']]):
+        pulumi.set(self, "include_detail", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input['EventBusLogConfigPropertiesLevel']]:
+        """
+        Configures the log level of the EventBus and determines which log messages are sent to Ingestion Hub for delivery.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input['EventBusLogConfigPropertiesLevel']]):
+        pulumi.set(self, "level", value)
 
 
 if not MYPY:

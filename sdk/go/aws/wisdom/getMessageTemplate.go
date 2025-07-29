@@ -41,6 +41,8 @@ type LookupMessageTemplateResult struct {
 	Language *string `pulumi:"language"`
 	// The Amazon Resource Name (ARN) of the message template.
 	MessageTemplateArn *string `pulumi:"messageTemplateArn"`
+	// List of message template attachments
+	MessageTemplateAttachments []MessageTemplateAttachment `pulumi:"messageTemplateAttachments"`
 	// The content SHA256 of the message template.
 	MessageTemplateContentSha256 *string `pulumi:"messageTemplateContentSha256"`
 	// The unique identifier of the message template.
@@ -113,6 +115,11 @@ func (o LookupMessageTemplateResultOutput) Language() pulumi.StringPtrOutput {
 // The Amazon Resource Name (ARN) of the message template.
 func (o LookupMessageTemplateResultOutput) MessageTemplateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMessageTemplateResult) *string { return v.MessageTemplateArn }).(pulumi.StringPtrOutput)
+}
+
+// List of message template attachments
+func (o LookupMessageTemplateResultOutput) MessageTemplateAttachments() MessageTemplateAttachmentArrayOutput {
+	return o.ApplyT(func(v LookupMessageTemplateResult) []MessageTemplateAttachment { return v.MessageTemplateAttachments }).(MessageTemplateAttachmentArrayOutput)
 }
 
 // The content SHA256 of the message template.

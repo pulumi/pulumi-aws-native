@@ -29224,14 +29224,24 @@ func (o FlowVersionVectorSearchRerankingConfigurationPtrOutput) Type() FlowVersi
 
 // Content filter config in content policy.
 type GuardrailContentFilterConfig struct {
-	InputAction  *GuardrailContentFilterAction `pulumi:"inputAction"`
-	InputEnabled *bool                         `pulumi:"inputEnabled"`
+	// Specifies the action to take when harmful content is detected. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	InputAction *GuardrailContentFilterAction `pulumi:"inputAction"`
+	// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	InputEnabled *bool `pulumi:"inputEnabled"`
 	// List of modalities
 	InputModalities []GuardrailModality `pulumi:"inputModalities"`
 	// The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
-	InputStrength GuardrailFilterStrength       `pulumi:"inputStrength"`
-	OutputAction  *GuardrailContentFilterAction `pulumi:"outputAction"`
-	OutputEnabled *bool                         `pulumi:"outputEnabled"`
+	InputStrength GuardrailFilterStrength `pulumi:"inputStrength"`
+	// Specifies the action to take when harmful content is detected in the output. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	OutputAction *GuardrailContentFilterAction `pulumi:"outputAction"`
+	// Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	OutputEnabled *bool `pulumi:"outputEnabled"`
 	// List of modalities
 	OutputModalities []GuardrailModality `pulumi:"outputModalities"`
 	// The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
@@ -29253,14 +29263,24 @@ type GuardrailContentFilterConfigInput interface {
 
 // Content filter config in content policy.
 type GuardrailContentFilterConfigArgs struct {
-	InputAction  GuardrailContentFilterActionPtrInput `pulumi:"inputAction"`
-	InputEnabled pulumi.BoolPtrInput                  `pulumi:"inputEnabled"`
+	// Specifies the action to take when harmful content is detected. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	InputAction GuardrailContentFilterActionPtrInput `pulumi:"inputAction"`
+	// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	InputEnabled pulumi.BoolPtrInput `pulumi:"inputEnabled"`
 	// List of modalities
 	InputModalities GuardrailModalityArrayInput `pulumi:"inputModalities"`
 	// The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
-	InputStrength GuardrailFilterStrengthInput         `pulumi:"inputStrength"`
-	OutputAction  GuardrailContentFilterActionPtrInput `pulumi:"outputAction"`
-	OutputEnabled pulumi.BoolPtrInput                  `pulumi:"outputEnabled"`
+	InputStrength GuardrailFilterStrengthInput `pulumi:"inputStrength"`
+	// Specifies the action to take when harmful content is detected in the output. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	OutputAction GuardrailContentFilterActionPtrInput `pulumi:"outputAction"`
+	// Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	OutputEnabled pulumi.BoolPtrInput `pulumi:"outputEnabled"`
 	// List of modalities
 	OutputModalities GuardrailModalityArrayInput `pulumi:"outputModalities"`
 	// The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
@@ -29321,10 +29341,15 @@ func (o GuardrailContentFilterConfigOutput) ToGuardrailContentFilterConfigOutput
 	return o
 }
 
+// Specifies the action to take when harmful content is detected. Supported values include:
+//
+// - `BLOCK` – Block the content and replace it with blocked messaging.
+// - `NONE` – Take no action but return detection information in the trace response.
 func (o GuardrailContentFilterConfigOutput) InputAction() GuardrailContentFilterActionPtrOutput {
 	return o.ApplyT(func(v GuardrailContentFilterConfig) *GuardrailContentFilterAction { return v.InputAction }).(GuardrailContentFilterActionPtrOutput)
 }
 
+// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
 func (o GuardrailContentFilterConfigOutput) InputEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GuardrailContentFilterConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -29339,10 +29364,15 @@ func (o GuardrailContentFilterConfigOutput) InputStrength() GuardrailFilterStren
 	return o.ApplyT(func(v GuardrailContentFilterConfig) GuardrailFilterStrength { return v.InputStrength }).(GuardrailFilterStrengthOutput)
 }
 
+// Specifies the action to take when harmful content is detected in the output. Supported values include:
+//
+// - `BLOCK` – Block the content and replace it with blocked messaging.
+// - `NONE` – Take no action but return detection information in the trace response.
 func (o GuardrailContentFilterConfigOutput) OutputAction() GuardrailContentFilterActionPtrOutput {
 	return o.ApplyT(func(v GuardrailContentFilterConfig) *GuardrailContentFilterAction { return v.OutputAction }).(GuardrailContentFilterActionPtrOutput)
 }
 
+// Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
 func (o GuardrailContentFilterConfigOutput) OutputEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GuardrailContentFilterConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -29683,8 +29713,13 @@ func (o GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesPtrOutput)
 
 // A config for grounding filter.
 type GuardrailContextualGroundingFilterConfig struct {
-	Action  *GuardrailContextualGroundingAction `pulumi:"action"`
-	Enabled *bool                               `pulumi:"enabled"`
+	// Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	Action *GuardrailContextualGroundingAction `pulumi:"action"`
+	// Specifies whether to enable contextual grounding evaluation. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	Enabled *bool `pulumi:"enabled"`
 	// The threshold for this filter.
 	Threshold float64 `pulumi:"threshold"`
 	// The filter details for the guardrails contextual grounding filter.
@@ -29704,8 +29739,13 @@ type GuardrailContextualGroundingFilterConfigInput interface {
 
 // A config for grounding filter.
 type GuardrailContextualGroundingFilterConfigArgs struct {
-	Action  GuardrailContextualGroundingActionPtrInput `pulumi:"action"`
-	Enabled pulumi.BoolPtrInput                        `pulumi:"enabled"`
+	// Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	Action GuardrailContextualGroundingActionPtrInput `pulumi:"action"`
+	// Specifies whether to enable contextual grounding evaluation. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The threshold for this filter.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// The filter details for the guardrails contextual grounding filter.
@@ -29764,10 +29804,15 @@ func (o GuardrailContextualGroundingFilterConfigOutput) ToGuardrailContextualGro
 	return o
 }
 
+// Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:
+//
+// - `BLOCK` – Block the content and replace it with blocked messaging.
+// - `NONE` – Take no action but return detection information in the trace response.
 func (o GuardrailContextualGroundingFilterConfigOutput) Action() GuardrailContextualGroundingActionPtrOutput {
 	return o.ApplyT(func(v GuardrailContextualGroundingFilterConfig) *GuardrailContextualGroundingAction { return v.Action }).(GuardrailContextualGroundingActionPtrOutput)
 }
 
+// Specifies whether to enable contextual grounding evaluation. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
 func (o GuardrailContextualGroundingFilterConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GuardrailContextualGroundingFilterConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -30086,10 +30131,20 @@ func (o GuardrailCrossRegionConfigPtrOutput) GuardrailProfileArn() pulumi.String
 
 // A managed words config.
 type GuardrailManagedWordsConfig struct {
-	InputAction   *GuardrailWordAction `pulumi:"inputAction"`
-	InputEnabled  *bool                `pulumi:"inputEnabled"`
-	OutputAction  *GuardrailWordAction `pulumi:"outputAction"`
-	OutputEnabled *bool                `pulumi:"outputEnabled"`
+	// Specifies the action to take when harmful content is detected in the input. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	InputAction *GuardrailWordAction `pulumi:"inputAction"`
+	// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	InputEnabled *bool `pulumi:"inputEnabled"`
+	// Specifies the action to take when harmful content is detected in the output. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	OutputAction *GuardrailWordAction `pulumi:"outputAction"`
+	// Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	OutputEnabled *bool `pulumi:"outputEnabled"`
 	// The managed word type to configure for the guardrail.
 	Type GuardrailManagedWordsType `pulumi:"type"`
 }
@@ -30107,10 +30162,20 @@ type GuardrailManagedWordsConfigInput interface {
 
 // A managed words config.
 type GuardrailManagedWordsConfigArgs struct {
-	InputAction   GuardrailWordActionPtrInput `pulumi:"inputAction"`
-	InputEnabled  pulumi.BoolPtrInput         `pulumi:"inputEnabled"`
-	OutputAction  GuardrailWordActionPtrInput `pulumi:"outputAction"`
-	OutputEnabled pulumi.BoolPtrInput         `pulumi:"outputEnabled"`
+	// Specifies the action to take when harmful content is detected in the input. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	InputAction GuardrailWordActionPtrInput `pulumi:"inputAction"`
+	// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	InputEnabled pulumi.BoolPtrInput `pulumi:"inputEnabled"`
+	// Specifies the action to take when harmful content is detected in the output. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	OutputAction GuardrailWordActionPtrInput `pulumi:"outputAction"`
+	// Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	OutputEnabled pulumi.BoolPtrInput `pulumi:"outputEnabled"`
 	// The managed word type to configure for the guardrail.
 	Type GuardrailManagedWordsTypeInput `pulumi:"type"`
 }
@@ -30167,18 +30232,28 @@ func (o GuardrailManagedWordsConfigOutput) ToGuardrailManagedWordsConfigOutputWi
 	return o
 }
 
+// Specifies the action to take when harmful content is detected in the input. Supported values include:
+//
+// - `BLOCK` – Block the content and replace it with blocked messaging.
+// - `NONE` – Take no action but return detection information in the trace response.
 func (o GuardrailManagedWordsConfigOutput) InputAction() GuardrailWordActionPtrOutput {
 	return o.ApplyT(func(v GuardrailManagedWordsConfig) *GuardrailWordAction { return v.InputAction }).(GuardrailWordActionPtrOutput)
 }
 
+// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
 func (o GuardrailManagedWordsConfigOutput) InputEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GuardrailManagedWordsConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the action to take when harmful content is detected in the output. Supported values include:
+//
+// - `BLOCK` – Block the content and replace it with blocked messaging.
+// - `NONE` – Take no action but return detection information in the trace response.
 func (o GuardrailManagedWordsConfigOutput) OutputAction() GuardrailWordActionPtrOutput {
 	return o.ApplyT(func(v GuardrailManagedWordsConfig) *GuardrailWordAction { return v.OutputAction }).(GuardrailWordActionPtrOutput)
 }
 
+// Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
 func (o GuardrailManagedWordsConfigOutput) OutputEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GuardrailManagedWordsConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -30211,11 +30286,23 @@ func (o GuardrailManagedWordsConfigArrayOutput) Index(i pulumi.IntInput) Guardra
 // Pii entity configuration.
 type GuardrailPiiEntityConfig struct {
 	// Configure guardrail action when the PII entity is detected.
-	Action        GuardrailSensitiveInformationAction  `pulumi:"action"`
-	InputAction   *GuardrailSensitiveInformationAction `pulumi:"inputAction"`
-	InputEnabled  *bool                                `pulumi:"inputEnabled"`
-	OutputAction  *GuardrailSensitiveInformationAction `pulumi:"outputAction"`
-	OutputEnabled *bool                                `pulumi:"outputEnabled"`
+	Action GuardrailSensitiveInformationAction `pulumi:"action"`
+	// Specifies the action to take when harmful content is detected in the input. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `ANONYMIZE` – Mask the content and replace it with identifier tags.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	InputAction *GuardrailSensitiveInformationAction `pulumi:"inputAction"`
+	// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	InputEnabled *bool `pulumi:"inputEnabled"`
+	// Specifies the action to take when harmful content is detected in the output. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `ANONYMIZE` – Mask the content and replace it with identifier tags.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	OutputAction *GuardrailSensitiveInformationAction `pulumi:"outputAction"`
+	// Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	OutputEnabled *bool `pulumi:"outputEnabled"`
 	// Configure guardrail type when the PII entity is detected.
 	//
 	// The following PIIs are used to block or mask sensitive information:
@@ -30351,11 +30438,23 @@ type GuardrailPiiEntityConfigInput interface {
 // Pii entity configuration.
 type GuardrailPiiEntityConfigArgs struct {
 	// Configure guardrail action when the PII entity is detected.
-	Action        GuardrailSensitiveInformationActionInput    `pulumi:"action"`
-	InputAction   GuardrailSensitiveInformationActionPtrInput `pulumi:"inputAction"`
-	InputEnabled  pulumi.BoolPtrInput                         `pulumi:"inputEnabled"`
-	OutputAction  GuardrailSensitiveInformationActionPtrInput `pulumi:"outputAction"`
-	OutputEnabled pulumi.BoolPtrInput                         `pulumi:"outputEnabled"`
+	Action GuardrailSensitiveInformationActionInput `pulumi:"action"`
+	// Specifies the action to take when harmful content is detected in the input. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `ANONYMIZE` – Mask the content and replace it with identifier tags.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	InputAction GuardrailSensitiveInformationActionPtrInput `pulumi:"inputAction"`
+	// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	InputEnabled pulumi.BoolPtrInput `pulumi:"inputEnabled"`
+	// Specifies the action to take when harmful content is detected in the output. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `ANONYMIZE` – Mask the content and replace it with identifier tags.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	OutputAction GuardrailSensitiveInformationActionPtrInput `pulumi:"outputAction"`
+	// Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	OutputEnabled pulumi.BoolPtrInput `pulumi:"outputEnabled"`
 	// Configure guardrail type when the PII entity is detected.
 	//
 	// The following PIIs are used to block or mask sensitive information:
@@ -30534,18 +30633,30 @@ func (o GuardrailPiiEntityConfigOutput) Action() GuardrailSensitiveInformationAc
 	return o.ApplyT(func(v GuardrailPiiEntityConfig) GuardrailSensitiveInformationAction { return v.Action }).(GuardrailSensitiveInformationActionOutput)
 }
 
+// Specifies the action to take when harmful content is detected in the input. Supported values include:
+//
+// - `BLOCK` – Block the content and replace it with blocked messaging.
+// - `ANONYMIZE` – Mask the content and replace it with identifier tags.
+// - `NONE` – Take no action but return detection information in the trace response.
 func (o GuardrailPiiEntityConfigOutput) InputAction() GuardrailSensitiveInformationActionPtrOutput {
 	return o.ApplyT(func(v GuardrailPiiEntityConfig) *GuardrailSensitiveInformationAction { return v.InputAction }).(GuardrailSensitiveInformationActionPtrOutput)
 }
 
+// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
 func (o GuardrailPiiEntityConfigOutput) InputEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GuardrailPiiEntityConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the action to take when harmful content is detected in the output. Supported values include:
+//
+// - `BLOCK` – Block the content and replace it with blocked messaging.
+// - `ANONYMIZE` – Mask the content and replace it with identifier tags.
+// - `NONE` – Take no action but return detection information in the trace response.
 func (o GuardrailPiiEntityConfigOutput) OutputAction() GuardrailSensitiveInformationActionPtrOutput {
 	return o.ApplyT(func(v GuardrailPiiEntityConfig) *GuardrailSensitiveInformationAction { return v.OutputAction }).(GuardrailSensitiveInformationActionPtrOutput)
 }
 
+// Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
 func (o GuardrailPiiEntityConfigOutput) OutputEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GuardrailPiiEntityConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -30697,13 +30808,23 @@ type GuardrailRegexConfig struct {
 	// The guardrail action to configure when matching regular expression is detected.
 	Action GuardrailSensitiveInformationAction `pulumi:"action"`
 	// The regex description.
-	Description  *string                              `pulumi:"description"`
-	InputAction  *GuardrailSensitiveInformationAction `pulumi:"inputAction"`
-	InputEnabled *bool                                `pulumi:"inputEnabled"`
+	Description *string `pulumi:"description"`
+	// Specifies the action to take when harmful content is detected in the input. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	InputAction *GuardrailSensitiveInformationAction `pulumi:"inputAction"`
+	// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	InputEnabled *bool `pulumi:"inputEnabled"`
 	// The regex name.
-	Name          string                               `pulumi:"name"`
-	OutputAction  *GuardrailSensitiveInformationAction `pulumi:"outputAction"`
-	OutputEnabled *bool                                `pulumi:"outputEnabled"`
+	Name string `pulumi:"name"`
+	// Specifies the action to take when harmful content is detected in the output. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	OutputAction *GuardrailSensitiveInformationAction `pulumi:"outputAction"`
+	// Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	OutputEnabled *bool `pulumi:"outputEnabled"`
 	// The regex pattern.
 	Pattern string `pulumi:"pattern"`
 }
@@ -30724,13 +30845,23 @@ type GuardrailRegexConfigArgs struct {
 	// The guardrail action to configure when matching regular expression is detected.
 	Action GuardrailSensitiveInformationActionInput `pulumi:"action"`
 	// The regex description.
-	Description  pulumi.StringPtrInput                       `pulumi:"description"`
-	InputAction  GuardrailSensitiveInformationActionPtrInput `pulumi:"inputAction"`
-	InputEnabled pulumi.BoolPtrInput                         `pulumi:"inputEnabled"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Specifies the action to take when harmful content is detected in the input. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	InputAction GuardrailSensitiveInformationActionPtrInput `pulumi:"inputAction"`
+	// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	InputEnabled pulumi.BoolPtrInput `pulumi:"inputEnabled"`
 	// The regex name.
-	Name          pulumi.StringInput                          `pulumi:"name"`
-	OutputAction  GuardrailSensitiveInformationActionPtrInput `pulumi:"outputAction"`
-	OutputEnabled pulumi.BoolPtrInput                         `pulumi:"outputEnabled"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the action to take when harmful content is detected in the output. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	OutputAction GuardrailSensitiveInformationActionPtrInput `pulumi:"outputAction"`
+	// Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	OutputEnabled pulumi.BoolPtrInput `pulumi:"outputEnabled"`
 	// The regex pattern.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
@@ -30797,10 +30928,15 @@ func (o GuardrailRegexConfigOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GuardrailRegexConfig) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the action to take when harmful content is detected in the input. Supported values include:
+//
+// - `BLOCK` – Block the content and replace it with blocked messaging.
+// - `NONE` – Take no action but return detection information in the trace response.
 func (o GuardrailRegexConfigOutput) InputAction() GuardrailSensitiveInformationActionPtrOutput {
 	return o.ApplyT(func(v GuardrailRegexConfig) *GuardrailSensitiveInformationAction { return v.InputAction }).(GuardrailSensitiveInformationActionPtrOutput)
 }
 
+// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
 func (o GuardrailRegexConfigOutput) InputEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GuardrailRegexConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -30810,10 +30946,15 @@ func (o GuardrailRegexConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GuardrailRegexConfig) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the action to take when harmful content is detected in the output. Supported values include:
+//
+// - `BLOCK` – Block the content and replace it with blocked messaging.
+// - `NONE` – Take no action but return detection information in the trace response.
 func (o GuardrailRegexConfigOutput) OutputAction() GuardrailSensitiveInformationActionPtrOutput {
 	return o.ApplyT(func(v GuardrailRegexConfig) *GuardrailSensitiveInformationAction { return v.OutputAction }).(GuardrailSensitiveInformationActionPtrOutput)
 }
 
+// Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
 func (o GuardrailRegexConfigOutput) OutputEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GuardrailRegexConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -31017,13 +31158,23 @@ type GuardrailTopicConfig struct {
 	// Definition of topic in topic policy
 	Definition string `pulumi:"definition"`
 	// List of text examples
-	Examples     []string              `pulumi:"examples"`
-	InputAction  *GuardrailTopicAction `pulumi:"inputAction"`
-	InputEnabled *bool                 `pulumi:"inputEnabled"`
+	Examples []string `pulumi:"examples"`
+	// Specifies the action to take when harmful content is detected in the input. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	InputAction *GuardrailTopicAction `pulumi:"inputAction"`
+	// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	InputEnabled *bool `pulumi:"inputEnabled"`
 	// Name of topic in topic policy
-	Name          string                `pulumi:"name"`
-	OutputAction  *GuardrailTopicAction `pulumi:"outputAction"`
-	OutputEnabled *bool                 `pulumi:"outputEnabled"`
+	Name string `pulumi:"name"`
+	// Specifies the action to take when harmful content is detected in the output. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	OutputAction *GuardrailTopicAction `pulumi:"outputAction"`
+	// Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	OutputEnabled *bool `pulumi:"outputEnabled"`
 	// Specifies to deny the topic.
 	Type GuardrailTopicType `pulumi:"type"`
 }
@@ -31044,13 +31195,23 @@ type GuardrailTopicConfigArgs struct {
 	// Definition of topic in topic policy
 	Definition pulumi.StringInput `pulumi:"definition"`
 	// List of text examples
-	Examples     pulumi.StringArrayInput      `pulumi:"examples"`
-	InputAction  GuardrailTopicActionPtrInput `pulumi:"inputAction"`
-	InputEnabled pulumi.BoolPtrInput          `pulumi:"inputEnabled"`
+	Examples pulumi.StringArrayInput `pulumi:"examples"`
+	// Specifies the action to take when harmful content is detected in the input. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	InputAction GuardrailTopicActionPtrInput `pulumi:"inputAction"`
+	// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	InputEnabled pulumi.BoolPtrInput `pulumi:"inputEnabled"`
 	// Name of topic in topic policy
-	Name          pulumi.StringInput           `pulumi:"name"`
-	OutputAction  GuardrailTopicActionPtrInput `pulumi:"outputAction"`
-	OutputEnabled pulumi.BoolPtrInput          `pulumi:"outputEnabled"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the action to take when harmful content is detected in the output. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	OutputAction GuardrailTopicActionPtrInput `pulumi:"outputAction"`
+	// Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	OutputEnabled pulumi.BoolPtrInput `pulumi:"outputEnabled"`
 	// Specifies to deny the topic.
 	Type GuardrailTopicTypeInput `pulumi:"type"`
 }
@@ -31117,10 +31278,15 @@ func (o GuardrailTopicConfigOutput) Examples() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GuardrailTopicConfig) []string { return v.Examples }).(pulumi.StringArrayOutput)
 }
 
+// Specifies the action to take when harmful content is detected in the input. Supported values include:
+//
+// - `BLOCK` – Block the content and replace it with blocked messaging.
+// - `NONE` – Take no action but return detection information in the trace response.
 func (o GuardrailTopicConfigOutput) InputAction() GuardrailTopicActionPtrOutput {
 	return o.ApplyT(func(v GuardrailTopicConfig) *GuardrailTopicAction { return v.InputAction }).(GuardrailTopicActionPtrOutput)
 }
 
+// Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
 func (o GuardrailTopicConfigOutput) InputEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GuardrailTopicConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -31130,10 +31296,15 @@ func (o GuardrailTopicConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GuardrailTopicConfig) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the action to take when harmful content is detected in the output. Supported values include:
+//
+// - `BLOCK` – Block the content and replace it with blocked messaging.
+// - `NONE` – Take no action but return detection information in the trace response.
 func (o GuardrailTopicConfigOutput) OutputAction() GuardrailTopicActionPtrOutput {
 	return o.ApplyT(func(v GuardrailTopicConfig) *GuardrailTopicAction { return v.OutputAction }).(GuardrailTopicActionPtrOutput)
 }
 
+// Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
 func (o GuardrailTopicConfigOutput) OutputEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GuardrailTopicConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -31464,10 +31635,20 @@ func (o GuardrailTopicPolicyConfigTopicsTierConfigPropertiesPtrOutput) TierName(
 
 // A custom word config.
 type GuardrailWordConfig struct {
-	InputAction   *GuardrailWordAction `pulumi:"inputAction"`
-	InputEnabled  *bool                `pulumi:"inputEnabled"`
-	OutputAction  *GuardrailWordAction `pulumi:"outputAction"`
-	OutputEnabled *bool                `pulumi:"outputEnabled"`
+	// Specifies the action to take when harmful content is detected in the input. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	InputAction *GuardrailWordAction `pulumi:"inputAction"`
+	// Specifies whether to enable guardrail evaluation on the intput. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	InputEnabled *bool `pulumi:"inputEnabled"`
+	// Specifies the action to take when harmful content is detected in the output. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	OutputAction *GuardrailWordAction `pulumi:"outputAction"`
+	// Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	OutputEnabled *bool `pulumi:"outputEnabled"`
 	// The custom word text.
 	Text string `pulumi:"text"`
 }
@@ -31485,10 +31666,20 @@ type GuardrailWordConfigInput interface {
 
 // A custom word config.
 type GuardrailWordConfigArgs struct {
-	InputAction   GuardrailWordActionPtrInput `pulumi:"inputAction"`
-	InputEnabled  pulumi.BoolPtrInput         `pulumi:"inputEnabled"`
-	OutputAction  GuardrailWordActionPtrInput `pulumi:"outputAction"`
-	OutputEnabled pulumi.BoolPtrInput         `pulumi:"outputEnabled"`
+	// Specifies the action to take when harmful content is detected in the input. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	InputAction GuardrailWordActionPtrInput `pulumi:"inputAction"`
+	// Specifies whether to enable guardrail evaluation on the intput. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	InputEnabled pulumi.BoolPtrInput `pulumi:"inputEnabled"`
+	// Specifies the action to take when harmful content is detected in the output. Supported values include:
+	//
+	// - `BLOCK` – Block the content and replace it with blocked messaging.
+	// - `NONE` – Take no action but return detection information in the trace response.
+	OutputAction GuardrailWordActionPtrInput `pulumi:"outputAction"`
+	// Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+	OutputEnabled pulumi.BoolPtrInput `pulumi:"outputEnabled"`
 	// The custom word text.
 	Text pulumi.StringInput `pulumi:"text"`
 }
@@ -31545,18 +31736,28 @@ func (o GuardrailWordConfigOutput) ToGuardrailWordConfigOutputWithContext(ctx co
 	return o
 }
 
+// Specifies the action to take when harmful content is detected in the input. Supported values include:
+//
+// - `BLOCK` – Block the content and replace it with blocked messaging.
+// - `NONE` – Take no action but return detection information in the trace response.
 func (o GuardrailWordConfigOutput) InputAction() GuardrailWordActionPtrOutput {
 	return o.ApplyT(func(v GuardrailWordConfig) *GuardrailWordAction { return v.InputAction }).(GuardrailWordActionPtrOutput)
 }
 
+// Specifies whether to enable guardrail evaluation on the intput. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
 func (o GuardrailWordConfigOutput) InputEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GuardrailWordConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the action to take when harmful content is detected in the output. Supported values include:
+//
+// - `BLOCK` – Block the content and replace it with blocked messaging.
+// - `NONE` – Take no action but return detection information in the trace response.
 func (o GuardrailWordConfigOutput) OutputAction() GuardrailWordActionPtrOutput {
 	return o.ApplyT(func(v GuardrailWordConfig) *GuardrailWordAction { return v.OutputAction }).(GuardrailWordActionPtrOutput)
 }
 
+// Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
 func (o GuardrailWordConfigOutput) OutputEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GuardrailWordConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
 }

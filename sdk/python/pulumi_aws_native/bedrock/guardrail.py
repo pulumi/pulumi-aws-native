@@ -42,6 +42,9 @@ class GuardrailArgs:
         :param pulumi.Input[builtins.str] blocked_input_messaging: Messaging for when violations are detected in text
         :param pulumi.Input[builtins.str] blocked_outputs_messaging: Messaging for when violations are detected in text
         :param pulumi.Input['GuardrailContentPolicyConfigArgs'] content_policy_config: The content filter policies to configure for the guardrail.
+        :param pulumi.Input['GuardrailCrossRegionConfigArgs'] cross_region_config: The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination AWS Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.
+               
+               For more information, see the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) .
         :param pulumi.Input[builtins.str] description: Description of the guardrail or its version
         :param pulumi.Input[builtins.str] kms_key_arn: The KMS key with which the guardrail was encrypted at rest
         :param pulumi.Input[builtins.str] name: Name of the guardrail
@@ -121,6 +124,11 @@ class GuardrailArgs:
     @property
     @pulumi.getter(name="crossRegionConfig")
     def cross_region_config(self) -> Optional[pulumi.Input['GuardrailCrossRegionConfigArgs']]:
+        """
+        The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination AWS Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.
+
+        For more information, see the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) .
+        """
         return pulumi.get(self, "cross_region_config")
 
     @cross_region_config.setter
@@ -239,6 +247,9 @@ class Guardrail(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] blocked_input_messaging: Messaging for when violations are detected in text
         :param pulumi.Input[builtins.str] blocked_outputs_messaging: Messaging for when violations are detected in text
         :param pulumi.Input[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict']] content_policy_config: The content filter policies to configure for the guardrail.
+        :param pulumi.Input[Union['GuardrailCrossRegionConfigArgs', 'GuardrailCrossRegionConfigArgsDict']] cross_region_config: The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination AWS Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.
+               
+               For more information, see the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) .
         :param pulumi.Input[builtins.str] description: Description of the guardrail or its version
         :param pulumi.Input[builtins.str] kms_key_arn: The KMS key with which the guardrail was encrypted at rest
         :param pulumi.Input[builtins.str] name: Name of the guardrail
@@ -400,6 +411,11 @@ class Guardrail(pulumi.CustomResource):
     @property
     @pulumi.getter(name="crossRegionConfig")
     def cross_region_config(self) -> pulumi.Output[Optional['outputs.GuardrailCrossRegionConfig']]:
+        """
+        The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination AWS Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.
+
+        For more information, see the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) .
+        """
         return pulumi.get(self, "cross_region_config")
 
     @property

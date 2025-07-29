@@ -7,6 +7,7 @@ export const AccountPolicyPolicyType = {
     SubscriptionFilterPolicy: "SUBSCRIPTION_FILTER_POLICY",
     FieldIndexPolicy: "FIELD_INDEX_POLICY",
     TransformerPolicy: "TRANSFORMER_POLICY",
+    MetricExtractionPolicy: "METRIC_EXTRACTION_POLICY",
 } as const;
 
 /**

@@ -58,6 +58,10 @@ export class EventBus extends pulumi.CustomResource {
      */
     public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
     /**
+     * The logging configuration settings for vended logs.
+     */
+    public readonly logConfig!: pulumi.Output<outputs.events.LogConfigProperties | undefined>;
+    /**
      * The name of the event bus.
      */
     public readonly name!: pulumi.Output<string>;
@@ -87,6 +91,7 @@ export class EventBus extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["eventSourceName"] = args ? args.eventSourceName : undefined;
             resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
+            resourceInputs["logConfig"] = args ? args.logConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -97,6 +102,7 @@ export class EventBus extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["eventSourceName"] = undefined /*out*/;
             resourceInputs["kmsKeyIdentifier"] = undefined /*out*/;
+            resourceInputs["logConfig"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policy"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -128,6 +134,10 @@ export interface EventBusArgs {
      * Kms Key Identifier used to encrypt events at rest in the event bus.
      */
     kmsKeyIdentifier?: pulumi.Input<string>;
+    /**
+     * The logging configuration settings for vended logs.
+     */
+    logConfig?: pulumi.Input<inputs.events.LogConfigPropertiesArgs>;
     /**
      * The name of the event bus.
      */

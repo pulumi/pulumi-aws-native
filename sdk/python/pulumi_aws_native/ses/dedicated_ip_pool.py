@@ -14,6 +14,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['DedicatedIpPoolArgs', 'DedicatedIpPool']
 
@@ -21,16 +23,20 @@ __all__ = ['DedicatedIpPoolArgs', 'DedicatedIpPool']
 class DedicatedIpPoolArgs:
     def __init__(__self__, *,
                  pool_name: Optional[pulumi.Input[builtins.str]] = None,
-                 scaling_mode: Optional[pulumi.Input[builtins.str]] = None):
+                 scaling_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DedicatedIpPool resource.
         :param pulumi.Input[builtins.str] pool_name: The name of the dedicated IP pool.
         :param pulumi.Input[builtins.str] scaling_mode: Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the dedicated IP pool.
         """
         if pool_name is not None:
             pulumi.set(__self__, "pool_name", pool_name)
         if scaling_mode is not None:
             pulumi.set(__self__, "scaling_mode", scaling_mode)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="poolName")
@@ -56,6 +62,18 @@ class DedicatedIpPoolArgs:
     def scaling_mode(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "scaling_mode", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags (keys and values) associated with the dedicated IP pool.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:ses:DedicatedIpPool")
 class DedicatedIpPool(pulumi.CustomResource):
@@ -65,6 +83,7 @@ class DedicatedIpPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  pool_name: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SES::DedicatedIpPool
@@ -73,6 +92,7 @@ class DedicatedIpPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] pool_name: The name of the dedicated IP pool.
         :param pulumi.Input[builtins.str] scaling_mode: Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the dedicated IP pool.
         """
         ...
     @overload
@@ -100,6 +120,7 @@ class DedicatedIpPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  pool_name: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -111,6 +132,7 @@ class DedicatedIpPool(pulumi.CustomResource):
 
             __props__.__dict__["pool_name"] = pool_name
             __props__.__dict__["scaling_mode"] = scaling_mode
+            __props__.__dict__["tags"] = tags
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["poolName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DedicatedIpPool, __self__).__init__(
@@ -137,6 +159,7 @@ class DedicatedIpPool(pulumi.CustomResource):
 
         __props__.__dict__["pool_name"] = None
         __props__.__dict__["scaling_mode"] = None
+        __props__.__dict__["tags"] = None
         return DedicatedIpPool(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -154,4 +177,12 @@ class DedicatedIpPool(pulumi.CustomResource):
         Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
         """
         return pulumi.get(self, "scaling_mode")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags (keys and values) associated with the dedicated IP pool.
+        """
+        return pulumi.get(self, "tags")
 

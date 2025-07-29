@@ -110,6 +110,15 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         public readonly Outputs.ServerIdentityProviderDetails? IdentityProviderDetails;
         /// <summary>
+        /// Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your AWS Transfer Family endpoint. The default value is `IPV4` .
+        /// 
+        /// &gt; The `IpAddressType` parameter has the following limitations:
+        /// &gt; 
+        /// &gt; - It cannot be changed while the server is online. You must stop the server before modifying this parameter.
+        /// &gt; - It cannot be updated to `DUALSTACK` if the server has `AddressAllocationIds` specified. &gt; When using `DUALSTACK` as the `IpAddressType` , you cannot set the `AddressAllocationIds` parameter for the [EndpointDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_EndpointDetails.html) for the server.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Transfer.ServerIpAddressType? IpAddressType;
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.
         /// </summary>
         public readonly string? LoggingRole;
@@ -219,6 +228,8 @@ namespace Pulumi.AwsNative.Transfer
 
             Outputs.ServerIdentityProviderDetails? identityProviderDetails,
 
+            Pulumi.AwsNative.Transfer.ServerIpAddressType? ipAddressType,
+
             string? loggingRole,
 
             string? postAuthenticationLoginBanner,
@@ -249,6 +260,7 @@ namespace Pulumi.AwsNative.Transfer
             EndpointDetails = endpointDetails;
             EndpointType = endpointType;
             IdentityProviderDetails = identityProviderDetails;
+            IpAddressType = ipAddressType;
             LoggingRole = loggingRole;
             PostAuthenticationLoginBanner = postAuthenticationLoginBanner;
             PreAuthenticationLoginBanner = preAuthenticationLoginBanner;

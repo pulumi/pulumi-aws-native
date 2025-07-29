@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -42,6 +43,8 @@ type EmailIdentity struct {
 	FeedbackAttributes EmailIdentityFeedbackAttributesPtrOutput `pulumi:"feedbackAttributes"`
 	// Used to enable or disable the custom Mail-From domain configuration for an email identity.
 	MailFromAttributes EmailIdentityMailFromAttributesPtrOutput `pulumi:"mailFromAttributes"`
+	// The tags (keys and values) associated with the email identity.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewEmailIdentity registers a new resource with the given unique name, arguments, and options.
@@ -105,6 +108,8 @@ type emailIdentityArgs struct {
 	FeedbackAttributes *EmailIdentityFeedbackAttributes `pulumi:"feedbackAttributes"`
 	// Used to enable or disable the custom Mail-From domain configuration for an email identity.
 	MailFromAttributes *EmailIdentityMailFromAttributes `pulumi:"mailFromAttributes"`
+	// The tags (keys and values) associated with the email identity.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EmailIdentity resource.
@@ -123,6 +128,8 @@ type EmailIdentityArgs struct {
 	FeedbackAttributes EmailIdentityFeedbackAttributesPtrInput
 	// Used to enable or disable the custom Mail-From domain configuration for an email identity.
 	MailFromAttributes EmailIdentityMailFromAttributesPtrInput
+	// The tags (keys and values) associated with the email identity.
+	Tags aws.TagArrayInput
 }
 
 func (EmailIdentityArgs) ElementType() reflect.Type {
@@ -224,6 +231,11 @@ func (o EmailIdentityOutput) FeedbackAttributes() EmailIdentityFeedbackAttribute
 // Used to enable or disable the custom Mail-From domain configuration for an email identity.
 func (o EmailIdentityOutput) MailFromAttributes() EmailIdentityMailFromAttributesPtrOutput {
 	return o.ApplyT(func(v *EmailIdentity) EmailIdentityMailFromAttributesPtrOutput { return v.MailFromAttributes }).(EmailIdentityMailFromAttributesPtrOutput)
+}
+
+// The tags (keys and values) associated with the email identity.
+func (o EmailIdentityOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *EmailIdentity) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

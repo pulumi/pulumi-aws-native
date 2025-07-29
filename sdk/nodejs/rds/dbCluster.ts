@@ -94,6 +94,7 @@ export class DbCluster extends pulumi.CustomResource {
     public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
      * Specifies the scalability mode of the Aurora DB cluster. When set to ``limitless``, the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to ``standard`` (the default), the cluster uses normal DB instance creation.
+     *  *Important:* Automated backup retention isn't supported with Aurora Limitless Database clusters. If you set this property to ``limitless``, you cannot set ``DeleteAutomatedBackups`` to ``false``. To create a backup, use manual snapshots instead.
      */
     public readonly clusterScalabilityType!: pulumi.Output<string | undefined>;
     /**
@@ -491,6 +492,7 @@ export class DbCluster extends pulumi.CustomResource {
      * When restoring a DB cluster to a point in time, the identifier of the source DB cluster from which to restore.
      *  Constraints:
      *   +  Must match the identifier of an existing DBCluster.
+     *   +  Cannot be specified if ``SourceDbClusterResourceId`` is specified. You must specify either ``SourceDBClusterIdentifier`` or ``SourceDbClusterResourceId``, but not both.
      *   
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
@@ -743,6 +745,7 @@ export interface DbClusterArgs {
     backupRetentionPeriod?: pulumi.Input<number>;
     /**
      * Specifies the scalability mode of the Aurora DB cluster. When set to ``limitless``, the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to ``standard`` (the default), the cluster uses normal DB instance creation.
+     *  *Important:* Automated backup retention isn't supported with Aurora Limitless Database clusters. If you set this property to ``limitless``, you cannot set ``DeleteAutomatedBackups`` to ``false``. To create a backup, use manual snapshots instead.
      */
     clusterScalabilityType?: pulumi.Input<string>;
     /**
@@ -1130,6 +1133,7 @@ export interface DbClusterArgs {
      * When restoring a DB cluster to a point in time, the identifier of the source DB cluster from which to restore.
      *  Constraints:
      *   +  Must match the identifier of an existing DBCluster.
+     *   +  Cannot be specified if ``SourceDbClusterResourceId`` is specified. You must specify either ``SourceDBClusterIdentifier`` or ``SourceDbClusterResourceId``, but not both.
      *   
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */

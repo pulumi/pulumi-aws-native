@@ -41,6 +41,9 @@ export class QuickResponse extends pulumi.CustomResource {
      * The Amazon Connect contact channels this quick response applies to.
      */
     public readonly channels!: pulumi.Output<enums.wisdom.QuickResponseChannelType[] | undefined>;
+    /**
+     * The content of the quick response.
+     */
     public readonly content!: pulumi.Output<outputs.wisdom.QuickResponseContentProvider>;
     /**
      * The media type of the quick response content.
@@ -53,6 +56,9 @@ export class QuickResponse extends pulumi.CustomResource {
      * The description of the quick response.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The configuration information of the user groups that the quick response is accessible to.
+     */
     public readonly groupingConfiguration!: pulumi.Output<outputs.wisdom.QuickResponseGroupingConfiguration | undefined>;
     /**
      * Whether the quick response is active.
@@ -82,6 +88,9 @@ export class QuickResponse extends pulumi.CustomResource {
      * The shortcut key of the quick response. The value should be unique across the knowledge base.
      */
     public readonly shortcutKey!: pulumi.Output<string | undefined>;
+    /**
+     * The status of the quick response data.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.wisdom.QuickResponseStatus>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -152,6 +161,9 @@ export interface QuickResponseArgs {
      * The Amazon Connect contact channels this quick response applies to.
      */
     channels?: pulumi.Input<pulumi.Input<enums.wisdom.QuickResponseChannelType>[]>;
+    /**
+     * The content of the quick response.
+     */
     content: pulumi.Input<inputs.wisdom.QuickResponseContentProviderArgs>;
     /**
      * The media type of the quick response content.
@@ -163,6 +175,9 @@ export interface QuickResponseArgs {
      * The description of the quick response.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The configuration information of the user groups that the quick response is accessible to.
+     */
     groupingConfiguration?: pulumi.Input<inputs.wisdom.QuickResponseGroupingConfigurationArgs>;
     /**
      * Whether the quick response is active.

@@ -390,6 +390,17 @@ namespace Pulumi.AwsNative.Transfer
         public Output<Pulumi.AwsNative.Transfer.ServerIdentityProviderType?> IdentityProviderType { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your AWS Transfer Family endpoint. The default value is `IPV4` .
+        /// 
+        /// &gt; The `IpAddressType` parameter has the following limitations:
+        /// &gt; 
+        /// &gt; - It cannot be changed while the server is online. You must stop the server before modifying this parameter.
+        /// &gt; - It cannot be updated to `DUALSTACK` if the server has `AddressAllocationIds` specified. &gt; When using `DUALSTACK` as the `IpAddressType` , you cannot set the `AddressAllocationIds` parameter for the [EndpointDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_EndpointDetails.html) for the server.
+        /// </summary>
+        [Output("ipAddressType")]
+        public Output<Pulumi.AwsNative.Transfer.ServerIpAddressType?> IpAddressType { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.
         /// </summary>
         [Output("loggingRole")]
@@ -621,6 +632,17 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         [Input("identityProviderType")]
         public Input<Pulumi.AwsNative.Transfer.ServerIdentityProviderType>? IdentityProviderType { get; set; }
+
+        /// <summary>
+        /// Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your AWS Transfer Family endpoint. The default value is `IPV4` .
+        /// 
+        /// &gt; The `IpAddressType` parameter has the following limitations:
+        /// &gt; 
+        /// &gt; - It cannot be changed while the server is online. You must stop the server before modifying this parameter.
+        /// &gt; - It cannot be updated to `DUALSTACK` if the server has `AddressAllocationIds` specified. &gt; When using `DUALSTACK` as the `IpAddressType` , you cannot set the `AddressAllocationIds` parameter for the [EndpointDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_EndpointDetails.html) for the server.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<Pulumi.AwsNative.Transfer.ServerIpAddressType>? IpAddressType { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.

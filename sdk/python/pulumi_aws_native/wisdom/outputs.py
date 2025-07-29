@@ -68,6 +68,7 @@ __all__ = [
     'KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties',
     'KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties',
     'MessageTemplateAgentAttributes',
+    'MessageTemplateAttachment',
     'MessageTemplateAttributes',
     'MessageTemplateBodyContentProvider',
     'MessageTemplateContent',
@@ -2094,6 +2095,68 @@ class MessageTemplateAgentAttributes(dict):
 
 
 @pulumi.output_type
+class MessageTemplateAttachment(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attachmentName":
+            suggest = "attachment_name"
+        elif key == "s3PresignedUrl":
+            suggest = "s3_presigned_url"
+        elif key == "attachmentId":
+            suggest = "attachment_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MessageTemplateAttachment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MessageTemplateAttachment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MessageTemplateAttachment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attachment_name: builtins.str,
+                 s3_presigned_url: builtins.str,
+                 attachment_id: Optional[builtins.str] = None):
+        """
+        :param builtins.str attachment_name: The name of the attachment file being uploaded. The name should include the file extension.
+        :param builtins.str s3_presigned_url: The S3 Presigned URL for the attachment file. When generating the PreSignedUrl, please ensure that the expires-in time is set to 30 minutes. The URL can be generated through the AWS Console or through the AWS CLI. For more information, see [Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html) .
+        :param builtins.str attachment_id: The identifier of the attachment file.
+        """
+        pulumi.set(__self__, "attachment_name", attachment_name)
+        pulumi.set(__self__, "s3_presigned_url", s3_presigned_url)
+        if attachment_id is not None:
+            pulumi.set(__self__, "attachment_id", attachment_id)
+
+    @property
+    @pulumi.getter(name="attachmentName")
+    def attachment_name(self) -> builtins.str:
+        """
+        The name of the attachment file being uploaded. The name should include the file extension.
+        """
+        return pulumi.get(self, "attachment_name")
+
+    @property
+    @pulumi.getter(name="s3PresignedUrl")
+    def s3_presigned_url(self) -> builtins.str:
+        """
+        The S3 Presigned URL for the attachment file. When generating the PreSignedUrl, please ensure that the expires-in time is set to 30 minutes. The URL can be generated through the AWS Console or through the AWS CLI. For more information, see [Sharing objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html) .
+        """
+        return pulumi.get(self, "s3_presigned_url")
+
+    @property
+    @pulumi.getter(name="attachmentId")
+    def attachment_id(self) -> Optional[builtins.str]:
+        """
+        The identifier of the attachment file.
+        """
+        return pulumi.get(self, "attachment_id")
+
+
+@pulumi.output_type
 class MessageTemplateAttributes(dict):
     """
     An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
@@ -3433,6 +3496,8 @@ class QuickResponseContents(dict):
                  plain_text: Optional['outputs.QuickResponseContentProvider'] = None):
         """
         The content of the quick response stored in different media types.
+        :param 'QuickResponseContentProvider' markdown: The quick response content in markdown format.
+        :param 'QuickResponseContentProvider' plain_text: The quick response content in plaintext format.
         """
         if markdown is not None:
             pulumi.set(__self__, "markdown", markdown)
@@ -3442,11 +3507,17 @@ class QuickResponseContents(dict):
     @property
     @pulumi.getter
     def markdown(self) -> Optional['outputs.QuickResponseContentProvider']:
+        """
+        The quick response content in markdown format.
+        """
         return pulumi.get(self, "markdown")
 
     @property
     @pulumi.getter(name="plainText")
     def plain_text(self) -> Optional['outputs.QuickResponseContentProvider']:
+        """
+        The quick response content in plaintext format.
+        """
         return pulumi.get(self, "plain_text")
 
 

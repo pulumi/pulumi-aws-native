@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,14 +21,16 @@ type Topic struct {
 	// The ID of the AWS account that you want to create a topic in.
 	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// Configuration options for a `Topic` .
-	ConfigOptions TopicConfigOptionsPtrOutput `pulumi:"configOptions"`
+	ConfigOptions      TopicConfigOptionsPtrOutput      `pulumi:"configOptions"`
+	CustomInstructions TopicCustomInstructionsPtrOutput `pulumi:"customInstructions"`
 	// The data sets that the topic is associated with.
 	DataSets TopicDatasetMetadataArrayOutput `pulumi:"dataSets"`
 	// The description of the topic.
 	Description pulumi.StringPtrOutput   `pulumi:"description"`
 	FolderArns  pulumi.StringArrayOutput `pulumi:"folderArns"`
 	// The name of the topic.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringPtrOutput       `pulumi:"name"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 	// The ID for the topic. This ID is unique per AWS Region for each AWS account.
 	TopicId pulumi.StringPtrOutput `pulumi:"topicId"`
 	// The user experience version of the topic.
@@ -44,6 +47,7 @@ func NewTopic(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"awsAccountId",
 		"folderArns[*]",
+		"tags[*]",
 		"topicId",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -83,14 +87,16 @@ type topicArgs struct {
 	// The ID of the AWS account that you want to create a topic in.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Configuration options for a `Topic` .
-	ConfigOptions *TopicConfigOptions `pulumi:"configOptions"`
+	ConfigOptions      *TopicConfigOptions      `pulumi:"configOptions"`
+	CustomInstructions *TopicCustomInstructions `pulumi:"customInstructions"`
 	// The data sets that the topic is associated with.
 	DataSets []TopicDatasetMetadata `pulumi:"dataSets"`
 	// The description of the topic.
 	Description *string  `pulumi:"description"`
 	FolderArns  []string `pulumi:"folderArns"`
 	// The name of the topic.
-	Name *string `pulumi:"name"`
+	Name *string             `pulumi:"name"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 	// The ID for the topic. This ID is unique per AWS Region for each AWS account.
 	TopicId *string `pulumi:"topicId"`
 	// The user experience version of the topic.
@@ -102,7 +108,8 @@ type TopicArgs struct {
 	// The ID of the AWS account that you want to create a topic in.
 	AwsAccountId pulumi.StringPtrInput
 	// Configuration options for a `Topic` .
-	ConfigOptions TopicConfigOptionsPtrInput
+	ConfigOptions      TopicConfigOptionsPtrInput
+	CustomInstructions TopicCustomInstructionsPtrInput
 	// The data sets that the topic is associated with.
 	DataSets TopicDatasetMetadataArrayInput
 	// The description of the topic.
@@ -110,6 +117,7 @@ type TopicArgs struct {
 	FolderArns  pulumi.StringArrayInput
 	// The name of the topic.
 	Name pulumi.StringPtrInput
+	Tags aws.CreateOnlyTagArrayInput
 	// The ID for the topic. This ID is unique per AWS Region for each AWS account.
 	TopicId pulumi.StringPtrInput
 	// The user experience version of the topic.
@@ -168,6 +176,10 @@ func (o TopicOutput) ConfigOptions() TopicConfigOptionsPtrOutput {
 	return o.ApplyT(func(v *Topic) TopicConfigOptionsPtrOutput { return v.ConfigOptions }).(TopicConfigOptionsPtrOutput)
 }
 
+func (o TopicOutput) CustomInstructions() TopicCustomInstructionsPtrOutput {
+	return o.ApplyT(func(v *Topic) TopicCustomInstructionsPtrOutput { return v.CustomInstructions }).(TopicCustomInstructionsPtrOutput)
+}
+
 // The data sets that the topic is associated with.
 func (o TopicOutput) DataSets() TopicDatasetMetadataArrayOutput {
 	return o.ApplyT(func(v *Topic) TopicDatasetMetadataArrayOutput { return v.DataSets }).(TopicDatasetMetadataArrayOutput)
@@ -185,6 +197,10 @@ func (o TopicOutput) FolderArns() pulumi.StringArrayOutput {
 // The name of the topic.
 func (o TopicOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Topic) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 // The ID for the topic. This ID is unique per AWS Region for each AWS account.

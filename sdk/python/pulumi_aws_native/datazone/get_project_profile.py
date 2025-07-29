@@ -104,6 +104,9 @@ class GetProjectProfileResult:
     @property
     @pulumi.getter(name="environmentConfigurations")
     def environment_configurations(self) -> Optional[Sequence['outputs.ProjectProfileEnvironmentConfiguration']]:
+        """
+        Environment configurations of a project profile.
+        """
         return pulumi.get(self, "environment_configurations")
 
     @property
@@ -117,6 +120,9 @@ class GetProjectProfileResult:
     @property
     @pulumi.getter
     def identifier(self) -> Optional[builtins.str]:
+        """
+        Project profile ID.
+        """
         return pulumi.get(self, "identifier")
 
     @property
@@ -168,6 +174,10 @@ def get_project_profile(domain_identifier: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectProfileResult:
     """
     Definition of AWS::DataZone::ProjectProfile Resource Type
+
+
+    :param builtins.str domain_identifier: A domain ID of the project profile.
+    :param builtins.str identifier: Project profile ID.
     """
     __args__ = dict()
     __args__['domainIdentifier'] = domain_identifier
@@ -192,6 +202,10 @@ def get_project_profile_output(domain_identifier: Optional[pulumi.Input[builtins
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectProfileResult]:
     """
     Definition of AWS::DataZone::ProjectProfile Resource Type
+
+
+    :param builtins.str domain_identifier: A domain ID of the project profile.
+    :param builtins.str identifier: Project profile ID.
     """
     __args__ = dict()
     __args__['domainIdentifier'] = domain_identifier

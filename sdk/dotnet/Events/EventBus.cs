@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.Events
         public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The logging configuration settings for vended logs.
+        /// </summary>
+        [Output("logConfig")]
+        public Output<Outputs.LogConfigProperties?> LogConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the event bus.
         /// </summary>
         [Output("name")]
@@ -137,6 +143,12 @@ namespace Pulumi.AwsNative.Events
         /// </summary>
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }
+
+        /// <summary>
+        /// The logging configuration settings for vended logs.
+        /// </summary>
+        [Input("logConfig")]
+        public Input<Inputs.LogConfigPropertiesArgs>? LogConfig { get; set; }
 
         /// <summary>
         /// The name of the event bus.

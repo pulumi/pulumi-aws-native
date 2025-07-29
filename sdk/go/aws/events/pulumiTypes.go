@@ -2370,6 +2370,165 @@ func (o InvocationConnectivityParametersPropertiesPtrOutput) ResourceParameters(
 	}).(ConnectionResourceParametersPtrOutput)
 }
 
+// The logging configuration settings for vended logs.
+type LogConfigProperties struct {
+	// Configures whether or not to include event detail, input transformer details, target properties, and target input in the applicable log messages.
+	IncludeDetail *EventBusLogConfigPropertiesIncludeDetail `pulumi:"includeDetail"`
+	// Configures the log level of the EventBus and determines which log messages are sent to Ingestion Hub for delivery.
+	Level *EventBusLogConfigPropertiesLevel `pulumi:"level"`
+}
+
+// LogConfigPropertiesInput is an input type that accepts LogConfigPropertiesArgs and LogConfigPropertiesOutput values.
+// You can construct a concrete instance of `LogConfigPropertiesInput` via:
+//
+//	LogConfigPropertiesArgs{...}
+type LogConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToLogConfigPropertiesOutput() LogConfigPropertiesOutput
+	ToLogConfigPropertiesOutputWithContext(context.Context) LogConfigPropertiesOutput
+}
+
+// The logging configuration settings for vended logs.
+type LogConfigPropertiesArgs struct {
+	// Configures whether or not to include event detail, input transformer details, target properties, and target input in the applicable log messages.
+	IncludeDetail EventBusLogConfigPropertiesIncludeDetailPtrInput `pulumi:"includeDetail"`
+	// Configures the log level of the EventBus and determines which log messages are sent to Ingestion Hub for delivery.
+	Level EventBusLogConfigPropertiesLevelPtrInput `pulumi:"level"`
+}
+
+func (LogConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogConfigProperties)(nil)).Elem()
+}
+
+func (i LogConfigPropertiesArgs) ToLogConfigPropertiesOutput() LogConfigPropertiesOutput {
+	return i.ToLogConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i LogConfigPropertiesArgs) ToLogConfigPropertiesOutputWithContext(ctx context.Context) LogConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogConfigPropertiesOutput)
+}
+
+func (i LogConfigPropertiesArgs) ToLogConfigPropertiesPtrOutput() LogConfigPropertiesPtrOutput {
+	return i.ToLogConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i LogConfigPropertiesArgs) ToLogConfigPropertiesPtrOutputWithContext(ctx context.Context) LogConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogConfigPropertiesOutput).ToLogConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// LogConfigPropertiesPtrInput is an input type that accepts LogConfigPropertiesArgs, LogConfigPropertiesPtr and LogConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `LogConfigPropertiesPtrInput` via:
+//
+//	        LogConfigPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToLogConfigPropertiesPtrOutput() LogConfigPropertiesPtrOutput
+	ToLogConfigPropertiesPtrOutputWithContext(context.Context) LogConfigPropertiesPtrOutput
+}
+
+type logConfigPropertiesPtrType LogConfigPropertiesArgs
+
+func LogConfigPropertiesPtr(v *LogConfigPropertiesArgs) LogConfigPropertiesPtrInput {
+	return (*logConfigPropertiesPtrType)(v)
+}
+
+func (*logConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogConfigProperties)(nil)).Elem()
+}
+
+func (i *logConfigPropertiesPtrType) ToLogConfigPropertiesPtrOutput() LogConfigPropertiesPtrOutput {
+	return i.ToLogConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *logConfigPropertiesPtrType) ToLogConfigPropertiesPtrOutputWithContext(ctx context.Context) LogConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogConfigPropertiesPtrOutput)
+}
+
+// The logging configuration settings for vended logs.
+type LogConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (LogConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogConfigProperties)(nil)).Elem()
+}
+
+func (o LogConfigPropertiesOutput) ToLogConfigPropertiesOutput() LogConfigPropertiesOutput {
+	return o
+}
+
+func (o LogConfigPropertiesOutput) ToLogConfigPropertiesOutputWithContext(ctx context.Context) LogConfigPropertiesOutput {
+	return o
+}
+
+func (o LogConfigPropertiesOutput) ToLogConfigPropertiesPtrOutput() LogConfigPropertiesPtrOutput {
+	return o.ToLogConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o LogConfigPropertiesOutput) ToLogConfigPropertiesPtrOutputWithContext(ctx context.Context) LogConfigPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogConfigProperties) *LogConfigProperties {
+		return &v
+	}).(LogConfigPropertiesPtrOutput)
+}
+
+// Configures whether or not to include event detail, input transformer details, target properties, and target input in the applicable log messages.
+func (o LogConfigPropertiesOutput) IncludeDetail() EventBusLogConfigPropertiesIncludeDetailPtrOutput {
+	return o.ApplyT(func(v LogConfigProperties) *EventBusLogConfigPropertiesIncludeDetail { return v.IncludeDetail }).(EventBusLogConfigPropertiesIncludeDetailPtrOutput)
+}
+
+// Configures the log level of the EventBus and determines which log messages are sent to Ingestion Hub for delivery.
+func (o LogConfigPropertiesOutput) Level() EventBusLogConfigPropertiesLevelPtrOutput {
+	return o.ApplyT(func(v LogConfigProperties) *EventBusLogConfigPropertiesLevel { return v.Level }).(EventBusLogConfigPropertiesLevelPtrOutput)
+}
+
+type LogConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LogConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogConfigProperties)(nil)).Elem()
+}
+
+func (o LogConfigPropertiesPtrOutput) ToLogConfigPropertiesPtrOutput() LogConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o LogConfigPropertiesPtrOutput) ToLogConfigPropertiesPtrOutputWithContext(ctx context.Context) LogConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o LogConfigPropertiesPtrOutput) Elem() LogConfigPropertiesOutput {
+	return o.ApplyT(func(v *LogConfigProperties) LogConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret LogConfigProperties
+		return ret
+	}).(LogConfigPropertiesOutput)
+}
+
+// Configures whether or not to include event detail, input transformer details, target properties, and target input in the applicable log messages.
+func (o LogConfigPropertiesPtrOutput) IncludeDetail() EventBusLogConfigPropertiesIncludeDetailPtrOutput {
+	return o.ApplyT(func(v *LogConfigProperties) *EventBusLogConfigPropertiesIncludeDetail {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeDetail
+	}).(EventBusLogConfigPropertiesIncludeDetailPtrOutput)
+}
+
+// Configures the log level of the EventBus and determines which log messages are sent to Ingestion Hub for delivery.
+func (o LogConfigPropertiesPtrOutput) Level() EventBusLogConfigPropertiesLevelPtrOutput {
+	return o.ApplyT(func(v *LogConfigProperties) *EventBusLogConfigPropertiesLevel {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(EventBusLogConfigPropertiesLevelPtrOutput)
+}
+
 type RuleAppSyncParameters struct {
 	// The GraphQL operation; that is, the query, mutation, or subscription to be parsed and executed by the GraphQL service.
 	//
@@ -6245,6 +6404,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointSecondaryInput)(nil)).Elem(), EndpointSecondaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InvocationConnectivityParametersPropertiesInput)(nil)).Elem(), InvocationConnectivityParametersPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InvocationConnectivityParametersPropertiesPtrInput)(nil)).Elem(), InvocationConnectivityParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogConfigPropertiesInput)(nil)).Elem(), LogConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogConfigPropertiesPtrInput)(nil)).Elem(), LogConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAppSyncParametersInput)(nil)).Elem(), RuleAppSyncParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAppSyncParametersPtrInput)(nil)).Elem(), RuleAppSyncParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAwsVpcConfigurationInput)(nil)).Elem(), RuleAwsVpcConfigurationArgs{})
@@ -6325,6 +6486,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointSecondaryPtrOutput{})
 	pulumi.RegisterOutputType(InvocationConnectivityParametersPropertiesOutput{})
 	pulumi.RegisterOutputType(InvocationConnectivityParametersPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(LogConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(LogConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RuleAppSyncParametersOutput{})
 	pulumi.RegisterOutputType(RuleAppSyncParametersPtrOutput{})
 	pulumi.RegisterOutputType(RuleAwsVpcConfigurationOutput{})

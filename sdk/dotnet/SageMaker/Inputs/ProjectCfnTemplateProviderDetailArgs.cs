@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     {
         [Input("parameters")]
         private InputList<Inputs.ProjectCfnStackParameterArgs>? _parameters;
+
+        /// <summary>
+        /// An array of CloudFormation stack parameters.
+        /// </summary>
         public InputList<Inputs.ProjectCfnStackParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.ProjectCfnStackParameterArgs>());

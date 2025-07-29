@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// &lt;p&gt;Playback device error reporting settings.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.OriginEndpointDashDvbMetricsReporting> ErrorMetrics;
+        /// <summary>
+        /// Subtitle font settings.
+        /// </summary>
         public readonly Outputs.OriginEndpointDashDvbFontDownload? FontDownload;
 
         [OutputConstructor]

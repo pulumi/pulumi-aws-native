@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.DataZone.Inputs
 
     public sealed class ProjectProfileEnvironmentConfigurationParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether the environment parameter is editable.
+        /// </summary>
         [Input("isEditable")]
         public Input<bool>? IsEditable { get; set; }
 
+        /// <summary>
+        /// The name of the environment configuration parameter.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The value of the environment configuration parameter.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

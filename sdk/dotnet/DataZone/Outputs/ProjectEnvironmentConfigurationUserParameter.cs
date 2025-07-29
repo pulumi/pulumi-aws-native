@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     [OutputType]
     public sealed class ProjectEnvironmentConfigurationUserParameter
     {
+        /// <summary>
+        /// The environment configuration name.
+        /// </summary>
         public readonly string? EnvironmentConfigurationName;
+        /// <summary>
+        /// The ID of the environment.
+        /// </summary>
         public readonly string? EnvironmentId;
+        /// <summary>
+        /// The environment parameters.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ProjectEnvironmentParameter> EnvironmentParameters;
 
         [OutputConstructor]

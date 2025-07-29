@@ -35,6 +35,10 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
         /// </summary>
         public readonly int? ThreadsPerCore;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the training plan to use for this cluster instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
+        /// </summary>
+        public readonly string? TrainingPlanArn;
 
         [OutputConstructor]
         private ClusterInstanceGroup(
@@ -56,7 +60,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Outputs.ClusterVpcConfig? overrideVpcConfig,
 
-            int? threadsPerCore)
+            int? threadsPerCore,
+
+            string? trainingPlanArn)
         {
             CurrentCount = currentCount;
             ExecutionRole = executionRole;
@@ -68,6 +74,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             OnStartDeepHealthChecks = onStartDeepHealthChecks;
             OverrideVpcConfig = overrideVpcConfig;
             ThreadsPerCore = threadsPerCore;
+            TrainingPlanArn = trainingPlanArn;
         }
     }
 }

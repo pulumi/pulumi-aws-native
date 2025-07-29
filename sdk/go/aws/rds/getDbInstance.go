@@ -150,6 +150,8 @@ type LookupDbInstanceResult struct {
 	DbInstanceArn *string `pulumi:"dbInstanceArn"`
 	// The compute and memory capacity of the DB instance, for example ``db.m5.large``. Not all DB instance classes are available in all AWS-Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see [DB instance classes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the *Amazon RDS User Guide* or [Aurora DB instance classes](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html) in the *Amazon Aurora User Guide*.
 	DbInstanceClass *string `pulumi:"dbInstanceClass"`
+	// The current state of this DB instance.
+	DbInstanceStatus *string `pulumi:"dbInstanceStatus"`
 	// The name of an existing DB parameter group or a reference to an [AWS::RDS::DBParameterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html) resource created in the template.
 	//  To list all of the available DB parameter group names, use the following command:
 	//   ``aws rds describe-db-parameter-groups --query "DBParameterGroups[].DBParameterGroupName" --output text``
@@ -294,6 +296,8 @@ type LookupDbInstanceResult struct {
 	//   *PostgreSQL*
 	//  See [Supported PostgreSQL Database Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions) in the *Amazon RDS User Guide.*
 	EngineVersion *string `pulumi:"engineVersion"`
+	// The date and time when the DB instance was created.
+	InstanceCreateTime *string `pulumi:"instanceCreateTime"`
 	// The number of I/O operations per second (IOPS) that the database provisions. The value must be equal to or greater than 1000.
 	//  If you specify this property, you must follow the range of allowed ratios of your requested IOPS rate to the amount of storage that you allocate (IOPS to allocated storage). For example, you can provision an Oracle database instance with 1000 IOPS and 200 GiB of storage (a ratio of 5:1), or specify 2000 IOPS with 200 GiB of storage (a ratio of 10:1). For more information, see [Amazon RDS Provisioned IOPS Storage to Improve Performance](https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/CHAP_Storage.html#USER_PIOPS) in the *Amazon RDS User Guide*.
 	//   If you specify ``io1`` for the ``StorageType`` property, then you must also specify the ``Iops`` property.
@@ -301,6 +305,10 @@ type LookupDbInstanceResult struct {
 	//   +  For RDS for Db2, MariaDB, MySQL, Oracle, and PostgreSQL - Must be a multiple between .5 and 50 of the storage amount for the DB instance.
 	//   +  For RDS for SQL Server - Must be a multiple between 1 and 50 of the storage amount for the DB instance.
 	Iops *int `pulumi:"iops"`
+	// Indicates whether an upgrade is recommended for the storage file system configuration on the DB instance.
+	IsStorageConfigUpgradeAvailable *bool `pulumi:"isStorageConfigUpgradeAvailable"`
+	// The latest time to which a database in this DB instance can be restored with point-in-time restore.
+	LatestRestorableTime *string `pulumi:"latestRestorableTime"`
 	// License model information for this DB instance.
 	//   Valid Values:
 	//   +  Aurora MySQL - ``general-public-license``
@@ -313,7 +321,8 @@ type LookupDbInstanceResult struct {
 	//   +  RDS for PostgreSQL - ``postgresql-license``
 	//
 	//   If you've specified ``DBSecurityGroups`` and then you update the license model, AWS CloudFormation replaces the underlying DB instance. This will incur some interruptions to database availability.
-	LicenseModel *string `pulumi:"licenseModel"`
+	LicenseModel     *string             `pulumi:"licenseModel"`
+	ListenerEndpoint *DbInstanceEndpoint `pulumi:"listenerEndpoint"`
 	// Specifies whether to manage the master user password with AWS Secrets Manager.
 	//  For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.*
 	//  Constraints:
@@ -408,6 +417,10 @@ type LookupDbInstanceResult struct {
 	// Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
 	//  The default behavior value depends on your VPC setup and the database subnet group. For more information, see the ``PubliclyAccessible`` parameter in the [CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) in the *Amazon RDS API Reference*.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// The identifiers of Aurora DB clusters to which the RDS DB instance is replicated as a read replica.
+	ReadReplicaDbClusterIdentifiers []string `pulumi:"readReplicaDbClusterIdentifiers"`
+	// The identifiers of the read replicas associated with this DB instance.
+	ReadReplicaDbInstanceIdentifiers []string `pulumi:"readReplicaDbInstanceIdentifiers"`
 	// The open mode of an Oracle read replica. For more information, see [Working with Oracle Read Replicas for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) in the *Amazon RDS User Guide*.
 	//  This setting is only supported in RDS for Oracle.
 	//  Default: ``open-read-only``
@@ -629,6 +642,11 @@ func (o LookupDbInstanceResultOutput) DbInstanceClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.DbInstanceClass }).(pulumi.StringPtrOutput)
 }
 
+// The current state of this DB instance.
+func (o LookupDbInstanceResultOutput) DbInstanceStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.DbInstanceStatus }).(pulumi.StringPtrOutput)
+}
+
 // The name of an existing DB parameter group or a reference to an [AWS::RDS::DBParameterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html) resource created in the template.
 //
 //	To list all of the available DB parameter group names, use the following command:
@@ -842,6 +860,11 @@ func (o LookupDbInstanceResultOutput) EngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
+// The date and time when the DB instance was created.
+func (o LookupDbInstanceResultOutput) InstanceCreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.InstanceCreateTime }).(pulumi.StringPtrOutput)
+}
+
 // The number of I/O operations per second (IOPS) that the database provisions. The value must be equal to or greater than 1000.
 //
 //	If you specify this property, you must follow the range of allowed ratios of your requested IOPS rate to the amount of storage that you allocate (IOPS to allocated storage). For example, you can provision an Oracle database instance with 1000 IOPS and 200 GiB of storage (a ratio of 5:1), or specify 2000 IOPS with 200 GiB of storage (a ratio of 10:1). For more information, see [Amazon RDS Provisioned IOPS Storage to Improve Performance](https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/CHAP_Storage.html#USER_PIOPS) in the *Amazon RDS User Guide*.
@@ -851,6 +874,16 @@ func (o LookupDbInstanceResultOutput) EngineVersion() pulumi.StringPtrOutput {
 //	 +  For RDS for SQL Server - Must be a multiple between 1 and 50 of the storage amount for the DB instance.
 func (o LookupDbInstanceResultOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether an upgrade is recommended for the storage file system configuration on the DB instance.
+func (o LookupDbInstanceResultOutput) IsStorageConfigUpgradeAvailable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) *bool { return v.IsStorageConfigUpgradeAvailable }).(pulumi.BoolPtrOutput)
+}
+
+// The latest time to which a database in this DB instance can be restored with point-in-time restore.
+func (o LookupDbInstanceResultOutput) LatestRestorableTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.LatestRestorableTime }).(pulumi.StringPtrOutput)
 }
 
 // License model information for this DB instance.
@@ -868,6 +901,10 @@ func (o LookupDbInstanceResultOutput) Iops() pulumi.IntPtrOutput {
 //	If you've specified ``DBSecurityGroups`` and then you update the license model, AWS CloudFormation replaces the underlying DB instance. This will incur some interruptions to database availability.
 func (o LookupDbInstanceResultOutput) LicenseModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.LicenseModel }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDbInstanceResultOutput) ListenerEndpoint() DbInstanceEndpointPtrOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) *DbInstanceEndpoint { return v.ListenerEndpoint }).(DbInstanceEndpointPtrOutput)
 }
 
 // Specifies whether to manage the master user password with AWS Secrets Manager.
@@ -1026,6 +1063,16 @@ func (o LookupDbInstanceResultOutput) PromotionTier() pulumi.IntPtrOutput {
 //	The default behavior value depends on your VPC setup and the database subnet group. For more information, see the ``PubliclyAccessible`` parameter in the [CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) in the *Amazon RDS API Reference*.
 func (o LookupDbInstanceResultOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *bool { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
+}
+
+// The identifiers of Aurora DB clusters to which the RDS DB instance is replicated as a read replica.
+func (o LookupDbInstanceResultOutput) ReadReplicaDbClusterIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) []string { return v.ReadReplicaDbClusterIdentifiers }).(pulumi.StringArrayOutput)
+}
+
+// The identifiers of the read replicas associated with this DB instance.
+func (o LookupDbInstanceResultOutput) ReadReplicaDbInstanceIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) []string { return v.ReadReplicaDbInstanceIdentifiers }).(pulumi.StringArrayOutput)
 }
 
 // The open mode of an Oracle read replica. For more information, see [Working with Oracle Read Replicas for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) in the *Amazon RDS User Guide*.

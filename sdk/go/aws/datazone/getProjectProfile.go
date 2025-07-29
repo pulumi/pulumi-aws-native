@@ -23,8 +23,10 @@ func LookupProjectProfile(ctx *pulumi.Context, args *LookupProjectProfileArgs, o
 }
 
 type LookupProjectProfileArgs struct {
+	// A domain ID of the project profile.
 	DomainIdentifier string `pulumi:"domainIdentifier"`
-	Identifier       string `pulumi:"identifier"`
+	// Project profile ID.
+	Identifier string `pulumi:"identifier"`
 }
 
 type LookupProjectProfileResult struct {
@@ -37,10 +39,12 @@ type LookupProjectProfileResult struct {
 	// The domain ID of the project profile.
 	DomainId *string `pulumi:"domainId"`
 	// The domain unit ID of the project profile.
-	DomainUnitId              *string                                  `pulumi:"domainUnitId"`
+	DomainUnitId *string `pulumi:"domainUnitId"`
+	// Environment configurations of a project profile.
 	EnvironmentConfigurations []ProjectProfileEnvironmentConfiguration `pulumi:"environmentConfigurations"`
 	// The ID of the project profile.
-	Id         *string `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Project profile ID.
 	Identifier *string `pulumi:"identifier"`
 	// The timestamp at which a project profile was last updated.
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
@@ -60,8 +64,10 @@ func LookupProjectProfileOutput(ctx *pulumi.Context, args LookupProjectProfileOu
 }
 
 type LookupProjectProfileOutputArgs struct {
+	// A domain ID of the project profile.
 	DomainIdentifier pulumi.StringInput `pulumi:"domainIdentifier"`
-	Identifier       pulumi.StringInput `pulumi:"identifier"`
+	// Project profile ID.
+	Identifier pulumi.StringInput `pulumi:"identifier"`
 }
 
 func (LookupProjectProfileOutputArgs) ElementType() reflect.Type {
@@ -107,6 +113,7 @@ func (o LookupProjectProfileResultOutput) DomainUnitId() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupProjectProfileResult) *string { return v.DomainUnitId }).(pulumi.StringPtrOutput)
 }
 
+// Environment configurations of a project profile.
 func (o LookupProjectProfileResultOutput) EnvironmentConfigurations() ProjectProfileEnvironmentConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupProjectProfileResult) []ProjectProfileEnvironmentConfiguration {
 		return v.EnvironmentConfigurations
@@ -118,6 +125,7 @@ func (o LookupProjectProfileResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectProfileResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Project profile ID.
 func (o LookupProjectProfileResultOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectProfileResult) *string { return v.Identifier }).(pulumi.StringPtrOutput)
 }

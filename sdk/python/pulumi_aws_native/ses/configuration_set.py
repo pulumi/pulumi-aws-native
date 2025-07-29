@@ -15,6 +15,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ConfigurationSetArgs', 'ConfigurationSet']
@@ -27,6 +29,7 @@ class ConfigurationSetArgs:
                  reputation_options: Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']] = None,
                  sending_options: Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']] = None,
                  suppression_options: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None,
                  vdm_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']] = None):
         """
@@ -36,6 +39,7 @@ class ConfigurationSetArgs:
         :param pulumi.Input['ConfigurationSetReputationOptionsArgs'] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
         :param pulumi.Input['ConfigurationSetSendingOptionsArgs'] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
         :param pulumi.Input['ConfigurationSetSuppressionOptionsArgs'] suppression_options: An object that contains information about the suppression list preferences for your account.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the contact list.
         :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
         :param pulumi.Input['ConfigurationSetVdmOptionsArgs'] vdm_options: The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
         """
@@ -49,6 +53,8 @@ class ConfigurationSetArgs:
             pulumi.set(__self__, "sending_options", sending_options)
         if suppression_options is not None:
             pulumi.set(__self__, "suppression_options", suppression_options)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if tracking_options is not None:
             pulumi.set(__self__, "tracking_options", tracking_options)
         if vdm_options is not None:
@@ -115,6 +121,18 @@ class ConfigurationSetArgs:
         pulumi.set(self, "suppression_options", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags (keys and values) associated with the contact list.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="trackingOptions")
     def tracking_options(self) -> Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']]:
         """
@@ -150,6 +168,7 @@ class ConfigurationSet(pulumi.CustomResource):
                  reputation_options: Optional[pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']]] = None,
                  sending_options: Optional[pulumi.Input[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']]] = None,
                  suppression_options: Optional[pulumi.Input[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tracking_options: Optional[pulumi.Input[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']]] = None,
                  vdm_options: Optional[pulumi.Input[Union['ConfigurationSetVdmOptionsArgs', 'ConfigurationSetVdmOptionsArgsDict']]] = None,
                  __props__=None):
@@ -279,6 +298,7 @@ class ConfigurationSet(pulumi.CustomResource):
         :param pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
         :param pulumi.Input[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
         :param pulumi.Input[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']] suppression_options: An object that contains information about the suppression list preferences for your account.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the contact list.
         :param pulumi.Input[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
         :param pulumi.Input[Union['ConfigurationSetVdmOptionsArgs', 'ConfigurationSetVdmOptionsArgsDict']] vdm_options: The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
         """
@@ -427,6 +447,7 @@ class ConfigurationSet(pulumi.CustomResource):
                  reputation_options: Optional[pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']]] = None,
                  sending_options: Optional[pulumi.Input[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']]] = None,
                  suppression_options: Optional[pulumi.Input[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  tracking_options: Optional[pulumi.Input[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']]] = None,
                  vdm_options: Optional[pulumi.Input[Union['ConfigurationSetVdmOptionsArgs', 'ConfigurationSetVdmOptionsArgsDict']]] = None,
                  __props__=None):
@@ -443,6 +464,7 @@ class ConfigurationSet(pulumi.CustomResource):
             __props__.__dict__["reputation_options"] = reputation_options
             __props__.__dict__["sending_options"] = sending_options
             __props__.__dict__["suppression_options"] = suppression_options
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["tracking_options"] = tracking_options
             __props__.__dict__["vdm_options"] = vdm_options
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
@@ -474,6 +496,7 @@ class ConfigurationSet(pulumi.CustomResource):
         __props__.__dict__["reputation_options"] = None
         __props__.__dict__["sending_options"] = None
         __props__.__dict__["suppression_options"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["tracking_options"] = None
         __props__.__dict__["vdm_options"] = None
         return ConfigurationSet(resource_name, opts=opts, __props__=__props__)
@@ -517,6 +540,14 @@ class ConfigurationSet(pulumi.CustomResource):
         An object that contains information about the suppression list preferences for your account.
         """
         return pulumi.get(self, "suppression_options")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags (keys and values) associated with the contact list.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="trackingOptions")

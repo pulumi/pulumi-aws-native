@@ -12,6 +12,11 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamSchemaEvolutionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specify whether you want to enable schema evolution.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

@@ -41,13 +41,13 @@ class CapacityReservationArgs:
         The set of arguments for constructing a CapacityReservation resource.
         :param pulumi.Input[builtins.int] instance_count: The number of instances for which to reserve capacity.
                
-               > You can request future-dated Capacity Reservations for an instance count with a minimum of 100 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ). 
+               > You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ). 
                
                Valid range: 1 - 1000
         :param pulumi.Input[builtins.str] instance_platform: The type of operating system for which to reserve capacity.
         :param pulumi.Input[builtins.str] instance_type: The instance type for which to reserve capacity.
                
-               > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, and T instance families only. 
+               > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only. 
                
                For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
         :param pulumi.Input[builtins.str] availability_zone: The Availability Zone in which to create the Capacity Reservation.
@@ -122,7 +122,7 @@ class CapacityReservationArgs:
         """
         The number of instances for which to reserve capacity.
 
-        > You can request future-dated Capacity Reservations for an instance count with a minimum of 100 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ). 
+        > You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ). 
 
         Valid range: 1 - 1000
         """
@@ -150,7 +150,7 @@ class CapacityReservationArgs:
         """
         The instance type for which to reserve capacity.
 
-        > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, and T instance families only. 
+        > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only. 
 
         For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
         """
@@ -374,7 +374,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] ephemeral_storage: *Deprecated.*
         :param pulumi.Input[builtins.int] instance_count: The number of instances for which to reserve capacity.
                
-               > You can request future-dated Capacity Reservations for an instance count with a minimum of 100 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ). 
+               > You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ). 
                
                Valid range: 1 - 1000
         :param pulumi.Input[builtins.str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
@@ -388,7 +388,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] instance_platform: The type of operating system for which to reserve capacity.
         :param pulumi.Input[builtins.str] instance_type: The instance type for which to reserve capacity.
                
-               > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, and T instance families only. 
+               > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only. 
                
                For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
         :param pulumi.Input[builtins.str] out_post_arn: > Not supported for future-dated Capacity Reservations. 
@@ -663,7 +663,7 @@ class CapacityReservation(pulumi.CustomResource):
         """
         The number of instances for which to reserve capacity.
 
-        > You can request future-dated Capacity Reservations for an instance count with a minimum of 100 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ). 
+        > You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ). 
 
         Valid range: 1 - 1000
         """
@@ -698,7 +698,7 @@ class CapacityReservation(pulumi.CustomResource):
         """
         The instance type for which to reserve capacity.
 
-        > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, and T instance families only. 
+        > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only. 
 
         For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
         """

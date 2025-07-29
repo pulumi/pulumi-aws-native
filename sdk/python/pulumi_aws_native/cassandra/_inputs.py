@@ -39,6 +39,8 @@ __all__ = [
     'TableReplicaSpecificationArgsDict',
     'TableScalingPolicyArgs',
     'TableScalingPolicyArgsDict',
+    'TableTagArgs',
+    'TableTagArgsDict',
     'TableTargetTrackingScalingPolicyConfigurationArgs',
     'TableTargetTrackingScalingPolicyConfigurationArgsDict',
     'TypeFieldArgs',
@@ -353,6 +355,10 @@ if not MYPY:
         """
         The status of the CDC stream. You can enable or disable a stream for a table.
         """
+        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableTagArgsDict']]]]
+        """
+        An array of key-value pairs to apply to the CDC stream resource
+        """
         view_type: NotRequired[pulumi.Input['TableCdcViewType']]
         """
         The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
@@ -371,10 +377,12 @@ elif False:
 class TableCdcSpecificationArgs:
     def __init__(__self__, *,
                  status: pulumi.Input['TableCdcStatus'],
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None,
                  view_type: Optional[pulumi.Input['TableCdcViewType']] = None):
         """
         Represents the CDC configuration for the table
         :param pulumi.Input['TableCdcStatus'] status: The status of the CDC stream. You can enable or disable a stream for a table.
+        :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: An array of key-value pairs to apply to the CDC stream resource
         :param pulumi.Input['TableCdcViewType'] view_type: The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
                
                The options are:
@@ -385,6 +393,8 @@ class TableCdcSpecificationArgs:
                - `KEYS_ONLY` - the partition and clustering keys of the row that was changed.
         """
         pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if view_type is not None:
             pulumi.set(__self__, "view_type", view_type)
 
@@ -399,6 +409,18 @@ class TableCdcSpecificationArgs:
     @status.setter
     def status(self, value: pulumi.Input['TableCdcStatus']):
         pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]:
+        """
+        An array of key-value pairs to apply to the CDC stream resource
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="viewType")
@@ -769,6 +791,60 @@ class TableScalingPolicyArgs:
     @target_tracking_scaling_policy_configuration.setter
     def target_tracking_scaling_policy_configuration(self, value: Optional[pulumi.Input['TableTargetTrackingScalingPolicyConfigurationArgs']]):
         pulumi.set(self, "target_tracking_scaling_policy_configuration", value)
+
+
+if not MYPY:
+    class TableTagArgsDict(TypedDict):
+        """
+        A key-value pair to apply to the resource
+        """
+        key: pulumi.Input[builtins.str]
+        """
+        The key of the tag. Tag keys are case sensitive. Each Amazon Keyspaces resource can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+        """
+        value: pulumi.Input[builtins.str]
+        """
+        The value of the tag. Tag values are case-sensitive and can be null.
+        """
+elif False:
+    TableTagArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[builtins.str],
+                 value: pulumi.Input[builtins.str]):
+        """
+        A key-value pair to apply to the resource
+        :param pulumi.Input[builtins.str] key: The key of the tag. Tag keys are case sensitive. Each Amazon Keyspaces resource can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+        :param pulumi.Input[builtins.str] value: The value of the tag. Tag values are case-sensitive and can be null.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[builtins.str]:
+        """
+        The key of the tag. Tag keys are case sensitive. Each Amazon Keyspaces resource can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[builtins.str]:
+        """
+        The value of the tag. Tag values are case-sensitive and can be null.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:

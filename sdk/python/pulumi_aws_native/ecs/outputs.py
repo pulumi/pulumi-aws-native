@@ -798,6 +798,12 @@ class ServiceAdvancedConfiguration(dict):
                  production_listener_rule: Optional[builtins.str] = None,
                  role_arn: Optional[builtins.str] = None,
                  test_listener_rule: Optional[builtins.str] = None):
+        """
+        :param builtins.str alternate_target_group_arn: The Amazon Resource Name (ARN) of the alternate target group for Amazon ECS blue/green deployments.
+        :param builtins.str production_listener_rule: The Amazon Resource Name (ARN) that that identifies the production listener rule (in the case of an Application Load Balancer) or listener (in the case for an Network Load Balancer) for routing production traffic.
+        :param builtins.str role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call the Elastic Load Balancing APIs for you.
+        :param builtins.str test_listener_rule: The Amazon Resource Name (ARN) that identifies ) that identifies the test listener rule (in the case of an Application Load Balancer) or listener (in the case for an Network Load Balancer) for routing test traffic.
+        """
         pulumi.set(__self__, "alternate_target_group_arn", alternate_target_group_arn)
         if production_listener_rule is not None:
             pulumi.set(__self__, "production_listener_rule", production_listener_rule)
@@ -809,21 +815,33 @@ class ServiceAdvancedConfiguration(dict):
     @property
     @pulumi.getter(name="alternateTargetGroupArn")
     def alternate_target_group_arn(self) -> builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the alternate target group for Amazon ECS blue/green deployments.
+        """
         return pulumi.get(self, "alternate_target_group_arn")
 
     @property
     @pulumi.getter(name="productionListenerRule")
     def production_listener_rule(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) that that identifies the production listener rule (in the case of an Application Load Balancer) or listener (in the case for an Network Load Balancer) for routing production traffic.
+        """
         return pulumi.get(self, "production_listener_rule")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call the Elastic Load Balancing APIs for you.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="testListenerRule")
     def test_listener_rule(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) that identifies ) that identifies the test listener rule (in the case of an Application Load Balancer) or listener (in the case for an Network Load Balancer) for routing test traffic.
+        """
         return pulumi.get(self, "test_listener_rule")
 
 
@@ -1016,6 +1034,7 @@ class ServiceConnectClientAlias(dict):
         :param builtins.str dns_name: The ``dnsName`` is the name that you use in the applications of client tasks to connect to this service. The name must be a valid DNS name but doesn't need to be fully-qualified. The name can include up to 127 characters. The name can include lowercase letters, numbers, underscores (_), hyphens (-), and periods (.). The name can't start with a hyphen.
                 If this parameter isn't specified, the default value of ``discoveryName.namespace`` is used. If the ``discoveryName`` isn't specified, the port mapping name from the task definition is used in ``portName.namespace``.
                 To avoid changing your applications in client Amazon ECS services, set this to the same name that the client application uses by default. For example, a few common names are ``database``, ``db``, or the lowercase name of a database, such as ``mysql`` or ``redis``. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
+        :param 'ServiceConnectTestTrafficRules' test_traffic_rules: The configuration for test traffic routing rules used during blue/green deployments with Amazon ECS Service Connect. This allows you to route a portion of traffic to the new service revision of your service for testing before shifting all production traffic.
         """
         pulumi.set(__self__, "port", port)
         if dns_name is not None:
@@ -1045,6 +1064,9 @@ class ServiceConnectClientAlias(dict):
     @property
     @pulumi.getter(name="testTrafficRules")
     def test_traffic_rules(self) -> Optional['outputs.ServiceConnectTestTrafficRules']:
+        """
+        The configuration for test traffic routing rules used during blue/green deployments with Amazon ECS Service Connect. This allows you to route a portion of traffic to the new service revision of your service for testing before shifting all production traffic.
+        """
         return pulumi.get(self, "test_traffic_rules")
 
 
@@ -1266,11 +1288,17 @@ class ServiceConnectService(dict):
 class ServiceConnectTestTrafficRules(dict):
     def __init__(__self__, *,
                  header: 'outputs.ServiceConnectTestTrafficRulesHeader'):
+        """
+        :param 'ServiceConnectTestTrafficRulesHeader' header: The HTTP header-based routing rules that determine which requests should be routed to the new service version during blue/green deployment testing. These rules provide fine-grained control over test traffic routing based on request headers.
+        """
         pulumi.set(__self__, "header", header)
 
     @property
     @pulumi.getter
     def header(self) -> 'outputs.ServiceConnectTestTrafficRulesHeader':
+        """
+        The HTTP header-based routing rules that determine which requests should be routed to the new service version during blue/green deployment testing. These rules provide fine-grained control over test traffic routing based on request headers.
+        """
         return pulumi.get(self, "header")
 
 
@@ -1558,8 +1586,16 @@ class ServiceDeploymentConfiguration(dict):
         """
         Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
         :param 'ServiceDeploymentAlarms' alarms: Information about the CloudWatch alarms.
+        :param builtins.int bake_time_in_minutes: The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.
+               
+               The following rules apply when you don't specify a value:
+               
+               - For rolling deployments, the value is set to 3 hours (180 minutes).
+               - When you use an external deployment controller ( `EXTERNAL` ), or the CodeDeploy blue/green deployment controller ( `CODE_DEPLOY` ), the value is set to 3 hours (180 minutes).
+               - For all other cases, the value is set to 36 hours (2160 minutes).
         :param 'ServiceDeploymentCircuitBreaker' deployment_circuit_breaker: The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
                  The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
+        :param Sequence['ServiceDeploymentLifecycleHook'] lifecycle_hooks: An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
         :param builtins.int maximum_percent: If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
                 The Amazon ECS scheduler uses this parameter to replace unhealthy tasks by starting replacement tasks first and then stopping the unhealthy tasks, as long as cluster resources for starting replacement tasks are available. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
                 If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types, and tasks in the service use the EC2 launch type, the *maximum percent* value is set to the default value. The *maximum percent* value is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state.
@@ -1581,6 +1617,10 @@ class ServiceDeploymentConfiguration(dict):
                 If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the EC2 launch type, the *minimum healthy percent* value is set to the default value. The *minimum healthy percent* value is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state.
                  You can't specify a custom ``minimumHealthyPercent`` value for a service that uses either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and has tasks that use the EC2 launch type.
                  If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
+        :param 'ServiceDeploymentConfigurationStrategy' strategy: The deployment strategy for the service. Choose from these valid values:
+               
+               - `ROLLING` - When you create a service which uses the rolling update ( `ROLLING` ) deployment strategy, the Amazon ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration.
+               - `BLUE_GREEN` - A blue/green deployment strategy ( `BLUE_GREEN` ) is a release methodology that reduces downtime and risk by running two identical production environments called blue and green. With Amazon ECS blue/green deployments, you can validate new service revisions before directing production traffic to them. This approach provides a safer way to deploy changes with the ability to quickly roll back if needed.
         """
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
@@ -1608,6 +1648,15 @@ class ServiceDeploymentConfiguration(dict):
     @property
     @pulumi.getter(name="bakeTimeInMinutes")
     def bake_time_in_minutes(self) -> Optional[builtins.int]:
+        """
+        The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.
+
+        The following rules apply when you don't specify a value:
+
+        - For rolling deployments, the value is set to 3 hours (180 minutes).
+        - When you use an external deployment controller ( `EXTERNAL` ), or the CodeDeploy blue/green deployment controller ( `CODE_DEPLOY` ), the value is set to 3 hours (180 minutes).
+        - For all other cases, the value is set to 36 hours (2160 minutes).
+        """
         return pulumi.get(self, "bake_time_in_minutes")
 
     @property
@@ -1622,6 +1671,9 @@ class ServiceDeploymentConfiguration(dict):
     @property
     @pulumi.getter(name="lifecycleHooks")
     def lifecycle_hooks(self) -> Optional[Sequence['outputs.ServiceDeploymentLifecycleHook']]:
+        """
+        An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
+        """
         return pulumi.get(self, "lifecycle_hooks")
 
     @property
@@ -1662,6 +1714,12 @@ class ServiceDeploymentConfiguration(dict):
     @property
     @pulumi.getter
     def strategy(self) -> Optional['ServiceDeploymentConfigurationStrategy']:
+        """
+        The deployment strategy for the service. Choose from these valid values:
+
+        - `ROLLING` - When you create a service which uses the rolling update ( `ROLLING` ) deployment strategy, the Amazon ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration.
+        - `BLUE_GREEN` - A blue/green deployment strategy ( `BLUE_GREEN` ) is a release methodology that reduces downtime and risk by running two identical production environments called blue and green. With Amazon ECS blue/green deployments, you can validate new service revisions before directing production traffic to them. This approach provides a safer way to deploy changes with the ability to quickly roll back if needed.
+        """
         return pulumi.get(self, "strategy")
 
 
@@ -1717,6 +1775,53 @@ class ServiceDeploymentLifecycleHook(dict):
                  hook_target_arn: builtins.str,
                  lifecycle_stages: Sequence['ServiceDeploymentLifecycleHookLifecycleStagesItem'],
                  role_arn: builtins.str):
+        """
+        :param builtins.str hook_target_arn: The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
+               
+               You must provide this parameter when configuring a deployment lifecycle hook.
+        :param Sequence['ServiceDeploymentLifecycleHookLifecycleStagesItem'] lifecycle_stages: The lifecycle stages at which to run the hook. Choose from these valid values:
+               
+               - RECONCILE_SERVICE
+               
+               The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.
+               
+               You can use a lifecycle hook for this stage.
+               - PRE_SCALE_UP
+               
+               The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
+               
+               You can use a lifecycle hook for this stage.
+               - POST_SCALE_UP
+               
+               The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
+               
+               You can use a lifecycle hook for this stage.
+               - TEST_TRAFFIC_SHIFT
+               
+               The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic.
+               
+               You can use a lifecycle hook for this stage.
+               - POST_TEST_TRAFFIC_SHIFT
+               
+               The test traffic shift is complete. The green service revision handles 100% of the test traffic.
+               
+               You can use a lifecycle hook for this stage.
+               - PRODUCTION_TRAFFIC_SHIFT
+               
+               Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.
+               
+               You can use a lifecycle hook for this stage.
+               - POST_PRODUCTION_TRAFFIC_SHIFT
+               
+               The production traffic shift is complete.
+               
+               You can use a lifecycle hook for this stage.
+               
+               You must provide this parameter when configuring a deployment lifecycle hook.
+        :param builtins.str role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
+               
+               For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide* .
+        """
         pulumi.set(__self__, "hook_target_arn", hook_target_arn)
         pulumi.set(__self__, "lifecycle_stages", lifecycle_stages)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -1724,16 +1829,67 @@ class ServiceDeploymentLifecycleHook(dict):
     @property
     @pulumi.getter(name="hookTargetArn")
     def hook_target_arn(self) -> builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
+
+        You must provide this parameter when configuring a deployment lifecycle hook.
+        """
         return pulumi.get(self, "hook_target_arn")
 
     @property
     @pulumi.getter(name="lifecycleStages")
     def lifecycle_stages(self) -> Sequence['ServiceDeploymentLifecycleHookLifecycleStagesItem']:
+        """
+        The lifecycle stages at which to run the hook. Choose from these valid values:
+
+        - RECONCILE_SERVICE
+
+        The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.
+
+        You can use a lifecycle hook for this stage.
+        - PRE_SCALE_UP
+
+        The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
+
+        You can use a lifecycle hook for this stage.
+        - POST_SCALE_UP
+
+        The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
+
+        You can use a lifecycle hook for this stage.
+        - TEST_TRAFFIC_SHIFT
+
+        The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic.
+
+        You can use a lifecycle hook for this stage.
+        - POST_TEST_TRAFFIC_SHIFT
+
+        The test traffic shift is complete. The green service revision handles 100% of the test traffic.
+
+        You can use a lifecycle hook for this stage.
+        - PRODUCTION_TRAFFIC_SHIFT
+
+        Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.
+
+        You can use a lifecycle hook for this stage.
+        - POST_PRODUCTION_TRAFFIC_SHIFT
+
+        The production traffic shift is complete.
+
+        You can use a lifecycle hook for this stage.
+
+        You must provide this parameter when configuring a deployment lifecycle hook.
+        """
         return pulumi.get(self, "lifecycle_stages")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
+
+        For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide* .
+        """
         return pulumi.get(self, "role_arn")
 
 
@@ -1850,6 +2006,7 @@ class ServiceLoadBalancer(dict):
         The ``LoadBalancer`` property specifies details on a load balancer that is used with a service.
          If the service is using the ``CODE_DEPLOY`` deployment controller, the service is required to use either an Application Load Balancer or Network Load Balancer. When you are creating an ACDlong deployment group, you specify two target groups (referred to as a ``targetGroupPair``). Each target group binds to a separate task set in the deployment. The load balancer can also have up to two listeners, a required listener for production traffic and an optional listener that allows you to test new revisions of the service before routing production traffic to it.
          Services with tasks that use the ``awsvpc`` network mode (for example, those with the Fargate launch type) only support Application Load Balancers and Network Load Balancers. Classic Load Balancers are not supported. Also, when you create any target groups for these services, you must choose ``ip`` as the target type, not ``instance``. Tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+        :param 'ServiceAdvancedConfiguration' advanced_configuration: The advanced settings for the load balancer used in blue/green deployments. Specify the alternate target group, listener rules, and IAM role required for traffic shifting during blue/green deployments.
         :param builtins.str container_name: The name of the container (as it appears in a container definition) to associate with the load balancer.
                 You need to specify the container name when configuring the target group for an Amazon ECS load balancer.
         :param builtins.int container_port: The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they're launched on must allow ingress traffic on the ``hostPort`` of the port mapping.
@@ -1875,6 +2032,9 @@ class ServiceLoadBalancer(dict):
     @property
     @pulumi.getter(name="advancedConfiguration")
     def advanced_configuration(self) -> Optional['outputs.ServiceAdvancedConfiguration']:
+        """
+        The advanced settings for the load balancer used in blue/green deployments. Specify the alternate target group, listener rules, and IAM role required for traffic shifting during blue/green deployments.
+        """
         return pulumi.get(self, "advanced_configuration")
 
     @property

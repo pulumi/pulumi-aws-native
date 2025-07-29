@@ -47,6 +47,9 @@
         "type" : "string"
       }
     },
+    "NetworkType" : {
+      "type" : "string"
+    },
     "NodeType" : {
       "type" : "string"
     },
@@ -78,7 +81,7 @@
     }
   },
   "required" : [ "ReplicationFactor", "IAMRoleARN", "NodeType" ],
-  "createOnlyProperties" : [ "/properties/IAMRoleARN", "/properties/SSESpecification", "/properties/ClusterEndpointEncryptionType", "/properties/ClusterName", "/properties/NodeType", "/properties/SubnetGroupName" ],
+  "createOnlyProperties" : [ "/properties/IAMRoleARN", "/properties/SSESpecification", "/properties/ClusterEndpointEncryptionType", "/properties/NetworkType", "/properties/ClusterName", "/properties/NodeType", "/properties/SubnetGroupName" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/ClusterDiscoveryEndpoint", "/properties/Arn", "/properties/ClusterDiscoveryEndpointURL" ]
 }
