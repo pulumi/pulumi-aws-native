@@ -43,6 +43,9 @@
   "readOnlyProperties" : [ "/properties/Id" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "createOnlyProperties" : [ "/properties/Template/TemplateName" ],
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "ses:CreateEmailTemplate", "ses:GetEmailTemplate", "ses:CreateTemplate", "ses:GetTemplate" ]
