@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
     [OutputType]
     public sealed class OriginEndpointPolicyCdnAuthConfiguration
     {
+        /// <summary>
+        /// The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> CdnIdentifierSecretArns;
+        /// <summary>
+        /// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+        /// </summary>
         public readonly string SecretsRoleArn;
 
         [OutputConstructor]

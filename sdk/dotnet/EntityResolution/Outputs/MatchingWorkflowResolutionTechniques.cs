@@ -25,6 +25,7 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         /// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
         /// </summary>
         public readonly Outputs.MatchingWorkflowRuleBasedProperties? RuleBasedProperties;
+        public readonly Outputs.MatchingWorkflowRuleConditionProperties? RuleConditionProperties;
 
         [OutputConstructor]
         private MatchingWorkflowResolutionTechniques(
@@ -32,11 +33,14 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
 
             Pulumi.AwsNative.EntityResolution.MatchingWorkflowResolutionType? resolutionType,
 
-            Outputs.MatchingWorkflowRuleBasedProperties? ruleBasedProperties)
+            Outputs.MatchingWorkflowRuleBasedProperties? ruleBasedProperties,
+
+            Outputs.MatchingWorkflowRuleConditionProperties? ruleConditionProperties)
         {
             ProviderProperties = providerProperties;
             ResolutionType = resolutionType;
             RuleBasedProperties = ruleBasedProperties;
+            RuleConditionProperties = ruleConditionProperties;
         }
     }
 }

@@ -91,6 +91,8 @@ class ChannelInputSwitchConfiguration(dict):
         suggest = None
         if key == "mqcsInputSwitching":
             suggest = "mqcs_input_switching"
+        elif key == "preferredInput":
+            suggest = "preferred_input"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ChannelInputSwitchConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -104,13 +106,16 @@ class ChannelInputSwitchConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 mqcs_input_switching: Optional[builtins.bool] = None):
+                 mqcs_input_switching: Optional[builtins.bool] = None,
+                 preferred_input: Optional[builtins.int] = None):
         """
         <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
         :param builtins.bool mqcs_input_switching: <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
         """
         if mqcs_input_switching is not None:
             pulumi.set(__self__, "mqcs_input_switching", mqcs_input_switching)
+        if preferred_input is not None:
+            pulumi.set(__self__, "preferred_input", preferred_input)
 
     @property
     @pulumi.getter(name="mqcsInputSwitching")
@@ -119,6 +124,11 @@ class ChannelInputSwitchConfiguration(dict):
         <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
         """
         return pulumi.get(self, "mqcs_input_switching")
+
+    @property
+    @pulumi.getter(name="preferredInput")
+    def preferred_input(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "preferred_input")
 
 
 @pulumi.output_type
@@ -1591,17 +1601,27 @@ class OriginEndpointPolicyCdnAuthConfiguration(dict):
     def __init__(__self__, *,
                  cdn_identifier_secret_arns: Sequence[builtins.str],
                  secrets_role_arn: builtins.str):
+        """
+        :param Sequence[builtins.str] cdn_identifier_secret_arns: The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
+        :param builtins.str secrets_role_arn: The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+        """
         pulumi.set(__self__, "cdn_identifier_secret_arns", cdn_identifier_secret_arns)
         pulumi.set(__self__, "secrets_role_arn", secrets_role_arn)
 
     @property
     @pulumi.getter(name="cdnIdentifierSecretArns")
     def cdn_identifier_secret_arns(self) -> Sequence[builtins.str]:
+        """
+        The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
+        """
         return pulumi.get(self, "cdn_identifier_secret_arns")
 
     @property
     @pulumi.getter(name="secretsRoleArn")
     def secrets_role_arn(self) -> builtins.str:
+        """
+        The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+        """
         return pulumi.get(self, "secrets_role_arn")
 
 

@@ -111,7 +111,7 @@
       "permissions" : [ "lambda:GetCodeSigningConfig", "lambda:ListTags" ]
     },
     "update" : {
-      "permissions" : [ "lambda:UpdateCodeSigningConfig", "lambda:ListTags", "lambda:TagResource", "lambda:UntagResource" ]
+      "permissions" : [ "lambda:UpdateCodeSigningConfig", "lambda:TagResource", "lambda:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "lambda:DeleteCodeSigningConfig" ]

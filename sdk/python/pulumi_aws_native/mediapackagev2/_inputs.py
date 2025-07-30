@@ -80,19 +80,23 @@ if not MYPY:
         """
         <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
         """
+        preferred_input: NotRequired[pulumi.Input[builtins.int]]
 elif False:
     ChannelInputSwitchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ChannelInputSwitchConfigurationArgs:
     def __init__(__self__, *,
-                 mqcs_input_switching: Optional[pulumi.Input[builtins.bool]] = None):
+                 mqcs_input_switching: Optional[pulumi.Input[builtins.bool]] = None,
+                 preferred_input: Optional[pulumi.Input[builtins.int]] = None):
         """
         <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
         :param pulumi.Input[builtins.bool] mqcs_input_switching: <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
         """
         if mqcs_input_switching is not None:
             pulumi.set(__self__, "mqcs_input_switching", mqcs_input_switching)
+        if preferred_input is not None:
+            pulumi.set(__self__, "preferred_input", preferred_input)
 
     @property
     @pulumi.getter(name="mqcsInputSwitching")
@@ -105,6 +109,15 @@ class ChannelInputSwitchConfigurationArgs:
     @mqcs_input_switching.setter
     def mqcs_input_switching(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "mqcs_input_switching", value)
+
+    @property
+    @pulumi.getter(name="preferredInput")
+    def preferred_input(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "preferred_input")
+
+    @preferred_input.setter
+    def preferred_input(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "preferred_input", value)
 
 
 if not MYPY:
@@ -1859,7 +1872,13 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
 if not MYPY:
     class OriginEndpointPolicyCdnAuthConfigurationArgsDict(TypedDict):
         cdn_identifier_secret_arns: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+        """
+        The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
+        """
         secrets_role_arn: pulumi.Input[builtins.str]
+        """
+        The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+        """
 elif False:
     OriginEndpointPolicyCdnAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1868,12 +1887,19 @@ class OriginEndpointPolicyCdnAuthConfigurationArgs:
     def __init__(__self__, *,
                  cdn_identifier_secret_arns: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  secrets_role_arn: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cdn_identifier_secret_arns: The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
+        :param pulumi.Input[builtins.str] secrets_role_arn: The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+        """
         pulumi.set(__self__, "cdn_identifier_secret_arns", cdn_identifier_secret_arns)
         pulumi.set(__self__, "secrets_role_arn", secrets_role_arn)
 
     @property
     @pulumi.getter(name="cdnIdentifierSecretArns")
     def cdn_identifier_secret_arns(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        """
+        The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
+        """
         return pulumi.get(self, "cdn_identifier_secret_arns")
 
     @cdn_identifier_secret_arns.setter
@@ -1883,6 +1909,9 @@ class OriginEndpointPolicyCdnAuthConfigurationArgs:
     @property
     @pulumi.getter(name="secretsRoleArn")
     def secrets_role_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+        """
         return pulumi.get(self, "secrets_role_arn")
 
     @secrets_role_arn.setter

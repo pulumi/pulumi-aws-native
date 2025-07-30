@@ -1561,7 +1561,7 @@ class ListenerRuleHostHeaderConfig(dict):
                  values: Optional[Sequence[builtins.str]] = None):
         """
         Information about a host header condition.
-        :param Sequence[builtins.str] values: The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+        :param Sequence[builtins.str] values: The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
                 If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
         """
         if values is not None:
@@ -1571,7 +1571,7 @@ class ListenerRuleHostHeaderConfig(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[builtins.str]]:
         """
-        The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+        The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
          If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
         """
         return pulumi.get(self, "values")
@@ -2090,7 +2090,7 @@ class ListenerRuleTargetGroupStickinessConfig(dict):
                  enabled: Optional[builtins.bool] = None):
         """
         Information about the target group stickiness for a rule.
-        :param builtins.int duration_seconds: The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+        :param builtins.int duration_seconds: The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         :param builtins.bool enabled: Indicates whether target group stickiness is enabled.
         """
         if duration_seconds is not None:
@@ -2102,7 +2102,7 @@ class ListenerRuleTargetGroupStickinessConfig(dict):
     @pulumi.getter(name="durationSeconds")
     def duration_seconds(self) -> Optional[builtins.int]:
         """
-        The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+        The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         """
         return pulumi.get(self, "duration_seconds")
 
@@ -2194,7 +2194,7 @@ class ListenerTargetGroupStickinessConfig(dict):
                  enabled: Optional[builtins.bool] = None):
         """
         Information about the target group stickiness for a rule.
-        :param builtins.int duration_seconds: The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+        :param builtins.int duration_seconds: The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         :param builtins.bool enabled: Indicates whether target group stickiness is enabled.
         """
         if duration_seconds is not None:
@@ -2206,7 +2206,7 @@ class ListenerTargetGroupStickinessConfig(dict):
     @pulumi.getter(name="durationSeconds")
     def duration_seconds(self) -> Optional[builtins.int]:
         """
-        The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+        The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         """
         return pulumi.get(self, "duration_seconds")
 

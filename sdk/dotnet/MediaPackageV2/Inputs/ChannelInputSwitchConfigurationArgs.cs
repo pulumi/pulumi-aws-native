@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         [Input("mqcsInputSwitching")]
         public Input<bool>? MqcsInputSwitching { get; set; }
 
+        [Input("preferredInput")]
+        public Input<int>? PreferredInput { get; set; }
+
         public ChannelInputSwitchConfigurationArgs()
         {
         }

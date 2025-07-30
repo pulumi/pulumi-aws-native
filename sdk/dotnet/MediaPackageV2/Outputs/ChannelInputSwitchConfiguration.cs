@@ -20,11 +20,16 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// &lt;p&gt;When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when &lt;code&gt;InputType&lt;/code&gt; is &lt;code&gt;CMAF&lt;/code&gt;.&lt;/p&gt;
         /// </summary>
         public readonly bool? MqcsInputSwitching;
+        public readonly int? PreferredInput;
 
         [OutputConstructor]
-        private ChannelInputSwitchConfiguration(bool? mqcsInputSwitching)
+        private ChannelInputSwitchConfiguration(
+            bool? mqcsInputSwitching,
+
+            int? preferredInput)
         {
             MqcsInputSwitching = mqcsInputSwitching;
+            PreferredInput = preferredInput;
         }
     }
 }
