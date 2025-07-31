@@ -39,6 +39,8 @@ __all__ = [
     'MatchingWorkflowResolutionTechniques',
     'MatchingWorkflowRule',
     'MatchingWorkflowRuleBasedProperties',
+    'MatchingWorkflowRuleCondition',
+    'MatchingWorkflowRuleConditionProperties',
     'SchemaMappingSchemaInputAttribute',
 ]
 
@@ -1075,6 +1077,8 @@ class MatchingWorkflowResolutionTechniques(dict):
             suggest = "resolution_type"
         elif key == "ruleBasedProperties":
             suggest = "rule_based_properties"
+        elif key == "ruleConditionProperties":
+            suggest = "rule_condition_properties"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MatchingWorkflowResolutionTechniques. Access the value via the '{suggest}' property getter instead.")
@@ -1090,7 +1094,8 @@ class MatchingWorkflowResolutionTechniques(dict):
     def __init__(__self__, *,
                  provider_properties: Optional['outputs.MatchingWorkflowProviderProperties'] = None,
                  resolution_type: Optional['MatchingWorkflowResolutionType'] = None,
-                 rule_based_properties: Optional['outputs.MatchingWorkflowRuleBasedProperties'] = None):
+                 rule_based_properties: Optional['outputs.MatchingWorkflowRuleBasedProperties'] = None,
+                 rule_condition_properties: Optional['outputs.MatchingWorkflowRuleConditionProperties'] = None):
         """
         :param 'MatchingWorkflowProviderProperties' provider_properties: The properties of the provider service.
         :param 'MatchingWorkflowResolutionType' resolution_type: The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
@@ -1102,6 +1107,8 @@ class MatchingWorkflowResolutionTechniques(dict):
             pulumi.set(__self__, "resolution_type", resolution_type)
         if rule_based_properties is not None:
             pulumi.set(__self__, "rule_based_properties", rule_based_properties)
+        if rule_condition_properties is not None:
+            pulumi.set(__self__, "rule_condition_properties", rule_condition_properties)
 
     @property
     @pulumi.getter(name="providerProperties")
@@ -1126,6 +1133,11 @@ class MatchingWorkflowResolutionTechniques(dict):
         An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
         """
         return pulumi.get(self, "rule_based_properties")
+
+    @property
+    @pulumi.getter(name="ruleConditionProperties")
+    def rule_condition_properties(self) -> Optional['outputs.MatchingWorkflowRuleConditionProperties']:
+        return pulumi.get(self, "rule_condition_properties")
 
 
 @pulumi.output_type
@@ -1250,6 +1262,56 @@ class MatchingWorkflowRuleBasedProperties(dict):
         If you choose `INDEXING` , the process indexes the data without generating IDs.
         """
         return pulumi.get(self, "match_purpose")
+
+
+@pulumi.output_type
+class MatchingWorkflowRuleCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleName":
+            suggest = "rule_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MatchingWorkflowRuleCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MatchingWorkflowRuleCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MatchingWorkflowRuleCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition: Optional[builtins.str] = None,
+                 rule_name: Optional[builtins.str] = None):
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if rule_name is not None:
+            pulumi.set(__self__, "rule_name", rule_name)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "rule_name")
+
+
+@pulumi.output_type
+class MatchingWorkflowRuleConditionProperties(dict):
+    def __init__(__self__, *,
+                 rules: Sequence['outputs.MatchingWorkflowRuleCondition']):
+        pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Sequence['outputs.MatchingWorkflowRuleCondition']:
+        return pulumi.get(self, "rules")
 
 
 @pulumi.output_type

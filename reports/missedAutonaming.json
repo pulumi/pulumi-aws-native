@@ -7032,6 +7032,12 @@
         "$ref": "#/types/aws-native:ecr:RepositoryCreationTemplateImageTagMutability",
         "description": "The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten."
       },
+      "imageTagMutabilityExclusionFilters": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:ecr:RepositoryCreationTemplateImageTagMutabilityExclusionFilter"
+        }
+      },
       "lifecyclePolicy": {
         "type": "string",
         "description": "The lifecycle policy to use for repositories created using the template."
@@ -7660,7 +7666,7 @@
         "items": {
           "$ref": "#/types/aws-native:elasticloadbalancingv2:ListenerCertificate"
         },
-        "description": "The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.\n To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html)."
+        "description": "The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.\n For an HTTPS listener, update requires some interruptions. For a TLS listener, update requires no interruption.\n To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html)."
       },
       "defaultActions": {
         "type": "array",
@@ -7674,7 +7680,7 @@
         "items": {
           "$ref": "#/types/aws-native:elasticloadbalancingv2:ListenerAttribute"
         },
-        "description": "The listener attributes."
+        "description": "The listener attributes. Attributes that you do not modify retain their current values."
       },
       "loadBalancerArn": {
         "type": "string",
@@ -7694,7 +7700,7 @@
       },
       "sslPolicy": {
         "type": "string",
-        "description": "[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.\n Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation."
+        "description": "[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.\n [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation."
       }
     }
   },
@@ -10094,7 +10100,8 @@
     "cfTypeName": "AWS::MediaPackageV2::OriginEndpointPolicy",
     "properties": {
       "cdnAuthConfiguration": {
-        "$ref": "#/types/aws-native:mediapackagev2:OriginEndpointPolicyCdnAuthConfiguration"
+        "$ref": "#/types/aws-native:mediapackagev2:OriginEndpointPolicyCdnAuthConfiguration",
+        "description": "The settings to enable CDN authorization headers in MediaPackage."
       },
       "channelGroupName": {
         "type": "string",
@@ -12419,6 +12426,12 @@
       "sourceRegion": {
         "type": "string",
         "description": "The ID of the region that contains the source DB instance for the read replica."
+      },
+      "statusInfos": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:rds:DbInstanceDbInstanceStatusInfo"
+        }
       },
       "storageEncrypted": {
         "type": "boolean",

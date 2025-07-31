@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.Ecr
         [Output("imageTagMutability")]
         public Output<Pulumi.AwsNative.Ecr.RepositoryCreationTemplateImageTagMutability?> ImageTagMutability { get; private set; } = null!;
 
+        [Output("imageTagMutabilityExclusionFilters")]
+        public Output<ImmutableArray<Outputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilter>> ImageTagMutabilityExclusionFilters { get; private set; } = null!;
+
         /// <summary>
         /// The lifecycle policy to use for repositories created using the template.
         /// </summary>
@@ -165,6 +168,14 @@ namespace Pulumi.AwsNative.Ecr
         /// </summary>
         [Input("imageTagMutability")]
         public Input<Pulumi.AwsNative.Ecr.RepositoryCreationTemplateImageTagMutability>? ImageTagMutability { get; set; }
+
+        [Input("imageTagMutabilityExclusionFilters")]
+        private InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs>? _imageTagMutabilityExclusionFilters;
+        public InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs> ImageTagMutabilityExclusionFilters
+        {
+            get => _imageTagMutabilityExclusionFilters ?? (_imageTagMutabilityExclusionFilters = new InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs>());
+            set => _imageTagMutabilityExclusionFilters = value;
+        }
 
         /// <summary>
         /// The lifecycle policy to use for repositories created using the template.

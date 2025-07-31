@@ -57,6 +57,10 @@ __all__ = [
     'MatchingWorkflowResolutionTechniquesArgsDict',
     'MatchingWorkflowRuleBasedPropertiesArgs',
     'MatchingWorkflowRuleBasedPropertiesArgsDict',
+    'MatchingWorkflowRuleConditionPropertiesArgs',
+    'MatchingWorkflowRuleConditionPropertiesArgsDict',
+    'MatchingWorkflowRuleConditionArgs',
+    'MatchingWorkflowRuleConditionArgsDict',
     'MatchingWorkflowRuleArgs',
     'MatchingWorkflowRuleArgsDict',
     'SchemaMappingSchemaInputAttributeArgs',
@@ -1240,6 +1244,7 @@ if not MYPY:
         """
         An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
         """
+        rule_condition_properties: NotRequired[pulumi.Input['MatchingWorkflowRuleConditionPropertiesArgsDict']]
 elif False:
     MatchingWorkflowResolutionTechniquesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1248,7 +1253,8 @@ class MatchingWorkflowResolutionTechniquesArgs:
     def __init__(__self__, *,
                  provider_properties: Optional[pulumi.Input['MatchingWorkflowProviderPropertiesArgs']] = None,
                  resolution_type: Optional[pulumi.Input['MatchingWorkflowResolutionType']] = None,
-                 rule_based_properties: Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgs']] = None):
+                 rule_based_properties: Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgs']] = None,
+                 rule_condition_properties: Optional[pulumi.Input['MatchingWorkflowRuleConditionPropertiesArgs']] = None):
         """
         :param pulumi.Input['MatchingWorkflowProviderPropertiesArgs'] provider_properties: The properties of the provider service.
         :param pulumi.Input['MatchingWorkflowResolutionType'] resolution_type: The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
@@ -1260,6 +1266,8 @@ class MatchingWorkflowResolutionTechniquesArgs:
             pulumi.set(__self__, "resolution_type", resolution_type)
         if rule_based_properties is not None:
             pulumi.set(__self__, "rule_based_properties", rule_based_properties)
+        if rule_condition_properties is not None:
+            pulumi.set(__self__, "rule_condition_properties", rule_condition_properties)
 
     @property
     @pulumi.getter(name="providerProperties")
@@ -1296,6 +1304,15 @@ class MatchingWorkflowResolutionTechniquesArgs:
     @rule_based_properties.setter
     def rule_based_properties(self, value: Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgs']]):
         pulumi.set(self, "rule_based_properties", value)
+
+    @property
+    @pulumi.getter(name="ruleConditionProperties")
+    def rule_condition_properties(self) -> Optional[pulumi.Input['MatchingWorkflowRuleConditionPropertiesArgs']]:
+        return pulumi.get(self, "rule_condition_properties")
+
+    @rule_condition_properties.setter
+    def rule_condition_properties(self, value: Optional[pulumi.Input['MatchingWorkflowRuleConditionPropertiesArgs']]):
+        pulumi.set(self, "rule_condition_properties", value)
 
 
 if not MYPY:
@@ -1390,6 +1407,64 @@ class MatchingWorkflowRuleBasedPropertiesArgs:
     @match_purpose.setter
     def match_purpose(self, value: Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesMatchPurpose']]):
         pulumi.set(self, "match_purpose", value)
+
+
+if not MYPY:
+    class MatchingWorkflowRuleConditionPropertiesArgsDict(TypedDict):
+        rules: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleConditionArgsDict']]]
+elif False:
+    MatchingWorkflowRuleConditionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MatchingWorkflowRuleConditionPropertiesArgs:
+    def __init__(__self__, *,
+                 rules: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleConditionArgs']]]):
+        pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleConditionArgs']]]:
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleConditionArgs']]]):
+        pulumi.set(self, "rules", value)
+
+
+if not MYPY:
+    class MatchingWorkflowRuleConditionArgsDict(TypedDict):
+        condition: NotRequired[pulumi.Input[builtins.str]]
+        rule_name: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    MatchingWorkflowRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MatchingWorkflowRuleConditionArgs:
+    def __init__(__self__, *,
+                 condition: Optional[pulumi.Input[builtins.str]] = None,
+                 rule_name: Optional[pulumi.Input[builtins.str]] = None):
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if rule_name is not None:
+            pulumi.set(__self__, "rule_name", rule_name)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "rule_name", value)
 
 
 if not MYPY:

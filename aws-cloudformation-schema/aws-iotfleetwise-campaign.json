@@ -579,7 +579,7 @@
   },
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Status", "/properties/CreationTime", "/properties/LastModificationTime" ],
   "writeOnlyProperties" : [ "/properties/Action" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/TargetArn", "/properties/SignalCatalogArn", "/properties/PostTriggerCollectionDuration", "/properties/DiagnosticsMode", "/properties/SpoolingMode", "/properties/CollectionScheme", "/properties/Priority", "/properties/Compression", "/properties/StartTime", "/properties/ExpiryTime", "/properties/DataPartitions" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/TargetArn", "/properties/SignalCatalogArn", "/properties/PostTriggerCollectionDuration", "/properties/DiagnosticsMode", "/properties/SpoolingMode", "/properties/CollectionScheme", "/properties/Priority", "/properties/Compression", "/properties/StartTime", "/properties/ExpiryTime", "/properties/DataPartitions", "/properties/SignalsToCollect", "/properties/SignalsToFetch", "/properties/DataDestinationConfigs" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Name" ],
   "required" : [ "Name", "CollectionScheme", "SignalCatalogArn", "TargetArn" ],

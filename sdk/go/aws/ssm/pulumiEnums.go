@@ -1381,6 +1381,8 @@ func (in *parameterTierPtr) ToParameterTierPtrOutputWithContext(ctx context.Cont
 }
 
 // The type of parameter.
+//
+//	Parameters of type ``SecureString`` are not supported by CFNlong.
 type ParameterType string
 
 const (

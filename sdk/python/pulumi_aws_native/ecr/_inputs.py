@@ -31,6 +31,8 @@ __all__ = [
     'ReplicationConfigurationArgsDict',
     'RepositoryCreationTemplateEncryptionConfigurationArgs',
     'RepositoryCreationTemplateEncryptionConfigurationArgsDict',
+    'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs',
+    'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict',
     'RepositoryCreationTemplateTagArgs',
     'RepositoryCreationTemplateTagArgsDict',
     'RepositoryEncryptionConfigurationArgs',
@@ -418,6 +420,56 @@ class RepositoryCreationTemplateEncryptionConfigurationArgs:
     @kms_key.setter
     def kms_key(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "kms_key", value)
+
+
+if not MYPY:
+    class RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict(TypedDict):
+        image_tag_mutability_exclusion_filter_type: pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType']
+        """
+        Specifies the type of filter to use for excluding image tags from the repository's mutability setting.
+        """
+        image_tag_mutability_exclusion_filter_value: pulumi.Input[builtins.str]
+        """
+        The value to use when filtering image tags.
+        """
+elif False:
+    RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs:
+    def __init__(__self__, *,
+                 image_tag_mutability_exclusion_filter_type: pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType'],
+                 image_tag_mutability_exclusion_filter_value: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType'] image_tag_mutability_exclusion_filter_type: Specifies the type of filter to use for excluding image tags from the repository's mutability setting.
+        :param pulumi.Input[builtins.str] image_tag_mutability_exclusion_filter_value: The value to use when filtering image tags.
+        """
+        pulumi.set(__self__, "image_tag_mutability_exclusion_filter_type", image_tag_mutability_exclusion_filter_type)
+        pulumi.set(__self__, "image_tag_mutability_exclusion_filter_value", image_tag_mutability_exclusion_filter_value)
+
+    @property
+    @pulumi.getter(name="imageTagMutabilityExclusionFilterType")
+    def image_tag_mutability_exclusion_filter_type(self) -> pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType']:
+        """
+        Specifies the type of filter to use for excluding image tags from the repository's mutability setting.
+        """
+        return pulumi.get(self, "image_tag_mutability_exclusion_filter_type")
+
+    @image_tag_mutability_exclusion_filter_type.setter
+    def image_tag_mutability_exclusion_filter_type(self, value: pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType']):
+        pulumi.set(self, "image_tag_mutability_exclusion_filter_type", value)
+
+    @property
+    @pulumi.getter(name="imageTagMutabilityExclusionFilterValue")
+    def image_tag_mutability_exclusion_filter_value(self) -> pulumi.Input[builtins.str]:
+        """
+        The value to use when filtering image tags.
+        """
+        return pulumi.get(self, "image_tag_mutability_exclusion_filter_value")
+
+    @image_tag_mutability_exclusion_filter_value.setter
+    def image_tag_mutability_exclusion_filter_value(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "image_tag_mutability_exclusion_filter_value", value)
 
 
 if not MYPY:

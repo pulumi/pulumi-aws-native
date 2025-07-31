@@ -27,7 +27,8 @@ type RepositoryCreationTemplate struct {
 	// The encryption configuration associated with the repository creation template.
 	EncryptionConfiguration RepositoryCreationTemplateEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
-	ImageTagMutability RepositoryCreationTemplateImageTagMutabilityPtrOutput `pulumi:"imageTagMutability"`
+	ImageTagMutability                 RepositoryCreationTemplateImageTagMutabilityPtrOutput                  `pulumi:"imageTagMutability"`
+	ImageTagMutabilityExclusionFilters RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput `pulumi:"imageTagMutabilityExclusionFilters"`
 	// The lifecycle policy to use for repositories created using the template.
 	LifecyclePolicy pulumi.StringPtrOutput `pulumi:"lifecyclePolicy"`
 	// The repository namespace prefix associated with the repository creation template.
@@ -99,7 +100,8 @@ type repositoryCreationTemplateArgs struct {
 	// The encryption configuration associated with the repository creation template.
 	EncryptionConfiguration *RepositoryCreationTemplateEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
-	ImageTagMutability *RepositoryCreationTemplateImageTagMutability `pulumi:"imageTagMutability"`
+	ImageTagMutability                 *RepositoryCreationTemplateImageTagMutability                 `pulumi:"imageTagMutability"`
+	ImageTagMutabilityExclusionFilters []RepositoryCreationTemplateImageTagMutabilityExclusionFilter `pulumi:"imageTagMutabilityExclusionFilters"`
 	// The lifecycle policy to use for repositories created using the template.
 	LifecyclePolicy *string `pulumi:"lifecyclePolicy"`
 	// The repository namespace prefix associated with the repository creation template.
@@ -121,7 +123,8 @@ type RepositoryCreationTemplateArgs struct {
 	// The encryption configuration associated with the repository creation template.
 	EncryptionConfiguration RepositoryCreationTemplateEncryptionConfigurationPtrInput
 	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
-	ImageTagMutability RepositoryCreationTemplateImageTagMutabilityPtrInput
+	ImageTagMutability                 RepositoryCreationTemplateImageTagMutabilityPtrInput
+	ImageTagMutabilityExclusionFilters RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayInput
 	// The lifecycle policy to use for repositories created using the template.
 	LifecyclePolicy pulumi.StringPtrInput
 	// The repository namespace prefix associated with the repository creation template.
@@ -203,6 +206,12 @@ func (o RepositoryCreationTemplateOutput) ImageTagMutability() RepositoryCreatio
 	return o.ApplyT(func(v *RepositoryCreationTemplate) RepositoryCreationTemplateImageTagMutabilityPtrOutput {
 		return v.ImageTagMutability
 	}).(RepositoryCreationTemplateImageTagMutabilityPtrOutput)
+}
+
+func (o RepositoryCreationTemplateOutput) ImageTagMutabilityExclusionFilters() RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput {
+	return o.ApplyT(func(v *RepositoryCreationTemplate) RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput {
+		return v.ImageTagMutabilityExclusionFilters
+	}).(RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput)
 }
 
 // The lifecycle policy to use for repositories created using the template.

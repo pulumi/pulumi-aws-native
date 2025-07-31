@@ -10,6 +10,12 @@ export const JobWorkerType = {
     G4x: "G.4X",
     G8x: "G.8X",
     Z2x: "Z.2X",
+    G12x: "G.12X",
+    G16x: "G.16X",
+    R1x: "R.1X",
+    R2x: "R.2X",
+    R4x: "R.4X",
+    R8x: "R.8X",
 } as const;
 
 /**

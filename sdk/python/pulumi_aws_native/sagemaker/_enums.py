@@ -100,6 +100,19 @@ __all__ = [
     'MonitoringScheduleStatus',
     'PartnerAppAuthType',
     'PartnerAppType',
+    'ProcessingJobAthenaDatasetDefinitionOutputCompression',
+    'ProcessingJobAthenaDatasetDefinitionOutputFormat',
+    'ProcessingJobClusterConfigInstanceType',
+    'ProcessingJobDatasetDefinitionDataDistributionType',
+    'ProcessingJobDatasetDefinitionInputMode',
+    'ProcessingJobRedshiftDatasetDefinitionOutputCompression',
+    'ProcessingJobRedshiftDatasetDefinitionOutputFormat',
+    'ProcessingJobS3InputS3CompressionType',
+    'ProcessingJobS3InputS3DataDistributionType',
+    'ProcessingJobS3InputS3DataType',
+    'ProcessingJobS3InputS3InputMode',
+    'ProcessingJobS3OutputS3UploadMode',
+    'ProcessingJobStatus',
     'ProjectStatus',
     'SpaceAppType',
     'SpaceManagedResources',
@@ -1302,6 +1315,245 @@ class PartnerAppType(builtins.str, Enum):
     COMET = "comet"
     DEEPCHECKS_LLM_EVALUATION = "deepchecks-llm-evaluation"
     FIDDLER = "fiddler"
+
+
+@pulumi.type_token("aws-native:sagemaker:ProcessingJobAthenaDatasetDefinitionOutputCompression")
+class ProcessingJobAthenaDatasetDefinitionOutputCompression(builtins.str, Enum):
+    """
+    The compression used for Athena query results.
+    """
+    GZIP = "GZIP"
+    SNAPPY = "SNAPPY"
+    ZLIB = "ZLIB"
+
+
+@pulumi.type_token("aws-native:sagemaker:ProcessingJobAthenaDatasetDefinitionOutputFormat")
+class ProcessingJobAthenaDatasetDefinitionOutputFormat(builtins.str, Enum):
+    """
+    The data storage format for Athena query results.
+    """
+    PARQUET = "PARQUET"
+    AVRO = "AVRO"
+    ORC = "ORC"
+    JSON = "JSON"
+    TEXTFILE = "TEXTFILE"
+
+
+@pulumi.type_token("aws-native:sagemaker:ProcessingJobClusterConfigInstanceType")
+class ProcessingJobClusterConfigInstanceType(builtins.str, Enum):
+    """
+    The ML compute instance type for the processing job.
+    """
+    ML_T3_MEDIUM = "ml.t3.medium"
+    ML_T3_LARGE = "ml.t3.large"
+    ML_T3_XLARGE = "ml.t3.xlarge"
+    ML_T32XLARGE = "ml.t3.2xlarge"
+    ML_M4_XLARGE = "ml.m4.xlarge"
+    ML_M42XLARGE = "ml.m4.2xlarge"
+    ML_M44XLARGE = "ml.m4.4xlarge"
+    ML_M410XLARGE = "ml.m4.10xlarge"
+    ML_M416XLARGE = "ml.m4.16xlarge"
+    ML_C4_XLARGE = "ml.c4.xlarge"
+    ML_C42XLARGE = "ml.c4.2xlarge"
+    ML_C44XLARGE = "ml.c4.4xlarge"
+    ML_C48XLARGE = "ml.c4.8xlarge"
+    ML_C5_XLARGE = "ml.c5.xlarge"
+    ML_C52XLARGE = "ml.c5.2xlarge"
+    ML_C54XLARGE = "ml.c5.4xlarge"
+    ML_C59XLARGE = "ml.c5.9xlarge"
+    ML_C518XLARGE = "ml.c5.18xlarge"
+    ML_M5_LARGE = "ml.m5.large"
+    ML_M5_XLARGE = "ml.m5.xlarge"
+    ML_M52XLARGE = "ml.m5.2xlarge"
+    ML_M54XLARGE = "ml.m5.4xlarge"
+    ML_M512XLARGE = "ml.m5.12xlarge"
+    ML_M524XLARGE = "ml.m5.24xlarge"
+    ML_R5_LARGE = "ml.r5.large"
+    ML_R5_XLARGE = "ml.r5.xlarge"
+    ML_R52XLARGE = "ml.r5.2xlarge"
+    ML_R54XLARGE = "ml.r5.4xlarge"
+    ML_R58XLARGE = "ml.r5.8xlarge"
+    ML_R512XLARGE = "ml.r5.12xlarge"
+    ML_R516XLARGE = "ml.r5.16xlarge"
+    ML_R524XLARGE = "ml.r5.24xlarge"
+    ML_G4DN_XLARGE = "ml.g4dn.xlarge"
+    ML_G4DN2XLARGE = "ml.g4dn.2xlarge"
+    ML_G4DN4XLARGE = "ml.g4dn.4xlarge"
+    ML_G4DN8XLARGE = "ml.g4dn.8xlarge"
+    ML_G4DN12XLARGE = "ml.g4dn.12xlarge"
+    ML_G4DN16XLARGE = "ml.g4dn.16xlarge"
+    ML_G5_XLARGE = "ml.g5.xlarge"
+    ML_G52XLARGE = "ml.g5.2xlarge"
+    ML_G54XLARGE = "ml.g5.4xlarge"
+    ML_G58XLARGE = "ml.g5.8xlarge"
+    ML_G516XLARGE = "ml.g5.16xlarge"
+    ML_G512XLARGE = "ml.g5.12xlarge"
+    ML_G524XLARGE = "ml.g5.24xlarge"
+    ML_G548XLARGE = "ml.g5.48xlarge"
+    ML_R5D_LARGE = "ml.r5d.large"
+    ML_R5D_XLARGE = "ml.r5d.xlarge"
+    ML_R5D2XLARGE = "ml.r5d.2xlarge"
+    ML_R5D4XLARGE = "ml.r5d.4xlarge"
+    ML_R5D8XLARGE = "ml.r5d.8xlarge"
+    ML_R5D12XLARGE = "ml.r5d.12xlarge"
+    ML_R5D16XLARGE = "ml.r5d.16xlarge"
+    ML_R5D24XLARGE = "ml.r5d.24xlarge"
+    ML_G6_XLARGE = "ml.g6.xlarge"
+    ML_G62XLARGE = "ml.g6.2xlarge"
+    ML_G64XLARGE = "ml.g6.4xlarge"
+    ML_G68XLARGE = "ml.g6.8xlarge"
+    ML_G612XLARGE = "ml.g6.12xlarge"
+    ML_G616XLARGE = "ml.g6.16xlarge"
+    ML_G624XLARGE = "ml.g6.24xlarge"
+    ML_G648XLARGE = "ml.g6.48xlarge"
+    ML_G6E_XLARGE = "ml.g6e.xlarge"
+    ML_G6E2XLARGE = "ml.g6e.2xlarge"
+    ML_G6E4XLARGE = "ml.g6e.4xlarge"
+    ML_G6E8XLARGE = "ml.g6e.8xlarge"
+    ML_G6E12XLARGE = "ml.g6e.12xlarge"
+    ML_G6E16XLARGE = "ml.g6e.16xlarge"
+    ML_G6E24XLARGE = "ml.g6e.24xlarge"
+    ML_G6E48XLARGE = "ml.g6e.48xlarge"
+    ML_M6I_LARGE = "ml.m6i.large"
+    ML_M6I_XLARGE = "ml.m6i.xlarge"
+    ML_M6I2XLARGE = "ml.m6i.2xlarge"
+    ML_M6I4XLARGE = "ml.m6i.4xlarge"
+    ML_M6I8XLARGE = "ml.m6i.8xlarge"
+    ML_M6I12XLARGE = "ml.m6i.12xlarge"
+    ML_M6I16XLARGE = "ml.m6i.16xlarge"
+    ML_M6I24XLARGE = "ml.m6i.24xlarge"
+    ML_M6I32XLARGE = "ml.m6i.32xlarge"
+    ML_C6I_XLARGE = "ml.c6i.xlarge"
+    ML_C6I2XLARGE = "ml.c6i.2xlarge"
+    ML_C6I4XLARGE = "ml.c6i.4xlarge"
+    ML_C6I8XLARGE = "ml.c6i.8xlarge"
+    ML_C6I12XLARGE = "ml.c6i.12xlarge"
+    ML_C6I16XLARGE = "ml.c6i.16xlarge"
+    ML_C6I24XLARGE = "ml.c6i.24xlarge"
+    ML_C6I32XLARGE = "ml.c6i.32xlarge"
+    ML_M7I_LARGE = "ml.m7i.large"
+    ML_M7I_XLARGE = "ml.m7i.xlarge"
+    ML_M7I2XLARGE = "ml.m7i.2xlarge"
+    ML_M7I4XLARGE = "ml.m7i.4xlarge"
+    ML_M7I8XLARGE = "ml.m7i.8xlarge"
+    ML_M7I12XLARGE = "ml.m7i.12xlarge"
+    ML_M7I16XLARGE = "ml.m7i.16xlarge"
+    ML_M7I24XLARGE = "ml.m7i.24xlarge"
+    ML_M7I48XLARGE = "ml.m7i.48xlarge"
+    ML_C7I_LARGE = "ml.c7i.large"
+    ML_C7I_XLARGE = "ml.c7i.xlarge"
+    ML_C7I2XLARGE = "ml.c7i.2xlarge"
+    ML_C7I4XLARGE = "ml.c7i.4xlarge"
+    ML_C7I8XLARGE = "ml.c7i.8xlarge"
+    ML_C7I12XLARGE = "ml.c7i.12xlarge"
+    ML_C7I16XLARGE = "ml.c7i.16xlarge"
+    ML_C7I24XLARGE = "ml.c7i.24xlarge"
+    ML_C7I48XLARGE = "ml.c7i.48xlarge"
+    ML_R7I_LARGE = "ml.r7i.large"
+    ML_R7I_XLARGE = "ml.r7i.xlarge"
+    ML_R7I2XLARGE = "ml.r7i.2xlarge"
+    ML_R7I4XLARGE = "ml.r7i.4xlarge"
+    ML_R7I8XLARGE = "ml.r7i.8xlarge"
+    ML_R7I12XLARGE = "ml.r7i.12xlarge"
+    ML_R7I16XLARGE = "ml.r7i.16xlarge"
+    ML_R7I24XLARGE = "ml.r7i.24xlarge"
+    ML_R7I48XLARGE = "ml.r7i.48xlarge"
+
+
+@pulumi.type_token("aws-native:sagemaker:ProcessingJobDatasetDefinitionDataDistributionType")
+class ProcessingJobDatasetDefinitionDataDistributionType(builtins.str, Enum):
+    """
+    Whether the generated dataset is FullyReplicated or ShardedByS3Key (default).
+    """
+    FULLY_REPLICATED = "FullyReplicated"
+    SHARDED_BY_S3_KEY = "ShardedByS3Key"
+
+
+@pulumi.type_token("aws-native:sagemaker:ProcessingJobDatasetDefinitionInputMode")
+class ProcessingJobDatasetDefinitionInputMode(builtins.str, Enum):
+    """
+    Whether to use File or Pipe input mode. In File (default) mode, Amazon SageMaker copies the data from the input source onto the local Amazon Elastic Block Store (Amazon EBS) volumes before starting your training algorithm. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your algorithm without using the EBS volume.
+    """
+    FILE = "File"
+    PIPE = "Pipe"
+
+
+@pulumi.type_token("aws-native:sagemaker:ProcessingJobRedshiftDatasetDefinitionOutputCompression")
+class ProcessingJobRedshiftDatasetDefinitionOutputCompression(builtins.str, Enum):
+    """
+    The compression used for Redshift query results.
+    """
+    NONE = "None"
+    GZIP = "GZIP"
+    SNAPPY = "SNAPPY"
+    ZSTD = "ZSTD"
+    BZIP2 = "BZIP2"
+
+
+@pulumi.type_token("aws-native:sagemaker:ProcessingJobRedshiftDatasetDefinitionOutputFormat")
+class ProcessingJobRedshiftDatasetDefinitionOutputFormat(builtins.str, Enum):
+    """
+    The data storage format for Redshift query results.
+    """
+    PARQUET = "PARQUET"
+    CSV = "CSV"
+
+
+@pulumi.type_token("aws-native:sagemaker:ProcessingJobS3InputS3CompressionType")
+class ProcessingJobS3InputS3CompressionType(builtins.str, Enum):
+    """
+    Whether to GZIP-decompress the data in Amazon S3 as it is streamed into the processing container. `Gzip` can only be used when `Pipe` mode is specified as the `S3InputMode`. In `Pipe` mode, Amazon SageMaker streams input data from the source directly to your container without using the EBS volume.
+    """
+    NONE = "None"
+    GZIP = "Gzip"
+
+
+@pulumi.type_token("aws-native:sagemaker:ProcessingJobS3InputS3DataDistributionType")
+class ProcessingJobS3InputS3DataDistributionType(builtins.str, Enum):
+    """
+    Whether to distribute the data from Amazon S3 to all processing instances with `FullyReplicated`, or whether the data from Amazon S3 is shared by Amazon S3 key, downloading one shard of data to each processing instance.
+    """
+    FULLY_REPLICATED = "FullyReplicated"
+    SHARDED_BY_S3_KEY = "ShardedByS3Key"
+
+
+@pulumi.type_token("aws-native:sagemaker:ProcessingJobS3InputS3DataType")
+class ProcessingJobS3InputS3DataType(builtins.str, Enum):
+    """
+    Whether you use an S3Prefix or a ManifestFile for the data type. If you choose S3Prefix, S3Uri identifies a key name prefix. Amazon SageMaker uses all objects with the specified key name prefix for the processing job. If you choose ManifestFile, S3Uri identifies an object that is a manifest file containing a list of object keys that you want Amazon SageMaker to use for the processing job.
+    """
+    MANIFEST_FILE = "ManifestFile"
+    S3_PREFIX = "S3Prefix"
+
+
+@pulumi.type_token("aws-native:sagemaker:ProcessingJobS3InputS3InputMode")
+class ProcessingJobS3InputS3InputMode(builtins.str, Enum):
+    """
+    Whether to use File or Pipe input mode. In File mode, Amazon SageMaker copies the data from the input source onto the local ML storage volume before starting your processing container. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your processing container into named pipes without using the ML storage volume.
+    """
+    FILE = "File"
+    PIPE = "Pipe"
+
+
+@pulumi.type_token("aws-native:sagemaker:ProcessingJobS3OutputS3UploadMode")
+class ProcessingJobS3OutputS3UploadMode(builtins.str, Enum):
+    """
+    Whether to upload the results of the processing job continuously or after the job completes.
+    """
+    CONTINUOUS = "Continuous"
+    END_OF_JOB = "EndOfJob"
+
+
+@pulumi.type_token("aws-native:sagemaker:ProcessingJobStatus")
+class ProcessingJobStatus(builtins.str, Enum):
+    """
+    Provides the status of a processing job.
+    """
+    COMPLETED = "Completed"
+    IN_PROGRESS = "InProgress"
+    STOPPING = "Stopping"
+    STOPPED = "Stopped"
+    FAILED = "Failed"
 
 
 @pulumi.type_token("aws-native:sagemaker:ProjectStatus")

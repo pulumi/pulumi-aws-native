@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
         [Input("ruleBasedProperties")]
         public Input<Inputs.MatchingWorkflowRuleBasedPropertiesArgs>? RuleBasedProperties { get; set; }
 
+        [Input("ruleConditionProperties")]
+        public Input<Inputs.MatchingWorkflowRuleConditionPropertiesArgs>? RuleConditionProperties { get; set; }
+
         public MatchingWorkflowResolutionTechniquesArgs()
         {
         }

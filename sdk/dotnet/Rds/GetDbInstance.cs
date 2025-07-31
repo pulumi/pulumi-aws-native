@@ -195,6 +195,7 @@ namespace Pulumi.AwsNative.Rds
         ///  If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
         /// </summary>
         public readonly int? AutomaticBackupReplicationRetentionPeriod;
+        public readonly string? AutomaticRestartTime;
         /// <summary>
         /// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
         ///  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
@@ -524,6 +525,7 @@ namespace Pulumi.AwsNative.Rds
         ///  Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group. Also, that option group can't be removed from a DB instance once it is associated with a DB instance.
         /// </summary>
         public readonly string? OptionGroupName;
+        public readonly string? PercentProgress;
         /// <summary>
         /// The AWS KMS key identifier for encryption of Performance Insights data.
         ///  The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
@@ -611,6 +613,8 @@ namespace Pulumi.AwsNative.Rds
         ///  Valid Values: ``open-read-only`` or ``mounted``
         /// </summary>
         public readonly string? ReplicaMode;
+        public readonly string? ResumeFullAutomationModeTime;
+        public readonly string? SecondaryAvailabilityZone;
         /// <summary>
         /// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
         ///  Constraints:
@@ -620,6 +624,7 @@ namespace Pulumi.AwsNative.Rds
         ///   +  The source DB cluster must be in the same AWS-Region as the read replica. Cross-Region replication isn't supported.
         /// </summary>
         public readonly string? SourceDbClusterIdentifier;
+        public readonly ImmutableArray<Outputs.DbInstanceDbInstanceStatusInfo> StatusInfos;
         /// <summary>
         /// Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the ``gp3`` storage type. 
         ///  This setting doesn't apply to RDS Custom or Amazon Aurora.
@@ -664,6 +669,8 @@ namespace Pulumi.AwsNative.Rds
             string? automaticBackupReplicationRegion,
 
             int? automaticBackupReplicationRetentionPeriod,
+
+            string? automaticRestartTime,
 
             string? availabilityZone,
 
@@ -749,6 +756,8 @@ namespace Pulumi.AwsNative.Rds
 
             string? optionGroupName,
 
+            string? percentProgress,
+
             string? performanceInsightsKmsKeyId,
 
             int? performanceInsightsRetentionPeriod,
@@ -771,7 +780,13 @@ namespace Pulumi.AwsNative.Rds
 
             string? replicaMode,
 
+            string? resumeFullAutomationModeTime,
+
+            string? secondaryAvailabilityZone,
+
             string? sourceDbClusterIdentifier,
+
+            ImmutableArray<Outputs.DbInstanceDbInstanceStatusInfo> statusInfos,
 
             int? storageThroughput,
 
@@ -788,6 +803,7 @@ namespace Pulumi.AwsNative.Rds
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;
             AutomaticBackupReplicationRegion = automaticBackupReplicationRegion;
             AutomaticBackupReplicationRetentionPeriod = automaticBackupReplicationRetentionPeriod;
+            AutomaticRestartTime = automaticRestartTime;
             AvailabilityZone = availabilityZone;
             BackupRetentionPeriod = backupRetentionPeriod;
             CaCertificateIdentifier = caCertificateIdentifier;
@@ -830,6 +846,7 @@ namespace Pulumi.AwsNative.Rds
             MultiAz = multiAz;
             NetworkType = networkType;
             OptionGroupName = optionGroupName;
+            PercentProgress = percentProgress;
             PerformanceInsightsKmsKeyId = performanceInsightsKmsKeyId;
             PerformanceInsightsRetentionPeriod = performanceInsightsRetentionPeriod;
             Port = port;
@@ -841,7 +858,10 @@ namespace Pulumi.AwsNative.Rds
             ReadReplicaDbClusterIdentifiers = readReplicaDbClusterIdentifiers;
             ReadReplicaDbInstanceIdentifiers = readReplicaDbInstanceIdentifiers;
             ReplicaMode = replicaMode;
+            ResumeFullAutomationModeTime = resumeFullAutomationModeTime;
+            SecondaryAvailabilityZone = secondaryAvailabilityZone;
             SourceDbClusterIdentifier = sourceDbClusterIdentifier;
+            StatusInfos = statusInfos;
             StorageThroughput = storageThroughput;
             StorageType = storageType;
             Tags = tags;

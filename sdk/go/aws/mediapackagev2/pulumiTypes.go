@@ -77,6 +77,7 @@ func (o ChannelIngestEndpointArrayOutput) Index(i pulumi.IntInput) ChannelIngest
 type ChannelInputSwitchConfiguration struct {
 	// <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
 	MqcsInputSwitching *bool `pulumi:"mqcsInputSwitching"`
+	PreferredInput     *int  `pulumi:"preferredInput"`
 }
 
 // ChannelInputSwitchConfigurationInput is an input type that accepts ChannelInputSwitchConfigurationArgs and ChannelInputSwitchConfigurationOutput values.
@@ -94,6 +95,7 @@ type ChannelInputSwitchConfigurationInput interface {
 type ChannelInputSwitchConfigurationArgs struct {
 	// <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
 	MqcsInputSwitching pulumi.BoolPtrInput `pulumi:"mqcsInputSwitching"`
+	PreferredInput     pulumi.IntPtrInput  `pulumi:"preferredInput"`
 }
 
 func (ChannelInputSwitchConfigurationArgs) ElementType() reflect.Type {
@@ -179,6 +181,10 @@ func (o ChannelInputSwitchConfigurationOutput) MqcsInputSwitching() pulumi.BoolP
 	return o.ApplyT(func(v ChannelInputSwitchConfiguration) *bool { return v.MqcsInputSwitching }).(pulumi.BoolPtrOutput)
 }
 
+func (o ChannelInputSwitchConfigurationOutput) PreferredInput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelInputSwitchConfiguration) *int { return v.PreferredInput }).(pulumi.IntPtrOutput)
+}
+
 type ChannelInputSwitchConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelInputSwitchConfigurationPtrOutput) ElementType() reflect.Type {
@@ -211,6 +217,15 @@ func (o ChannelInputSwitchConfigurationPtrOutput) MqcsInputSwitching() pulumi.Bo
 		}
 		return v.MqcsInputSwitching
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ChannelInputSwitchConfigurationPtrOutput) PreferredInput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelInputSwitchConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PreferredInput
+	}).(pulumi.IntPtrOutput)
 }
 
 // <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
@@ -3182,8 +3197,10 @@ func (o OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput) Index(i pul
 }
 
 type OriginEndpointPolicyCdnAuthConfiguration struct {
+	// The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
 	CdnIdentifierSecretArns []string `pulumi:"cdnIdentifierSecretArns"`
-	SecretsRoleArn          string   `pulumi:"secretsRoleArn"`
+	// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+	SecretsRoleArn string `pulumi:"secretsRoleArn"`
 }
 
 // OriginEndpointPolicyCdnAuthConfigurationInput is an input type that accepts OriginEndpointPolicyCdnAuthConfigurationArgs and OriginEndpointPolicyCdnAuthConfigurationOutput values.
@@ -3198,8 +3215,10 @@ type OriginEndpointPolicyCdnAuthConfigurationInput interface {
 }
 
 type OriginEndpointPolicyCdnAuthConfigurationArgs struct {
+	// The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
 	CdnIdentifierSecretArns pulumi.StringArrayInput `pulumi:"cdnIdentifierSecretArns"`
-	SecretsRoleArn          pulumi.StringInput      `pulumi:"secretsRoleArn"`
+	// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+	SecretsRoleArn pulumi.StringInput `pulumi:"secretsRoleArn"`
 }
 
 func (OriginEndpointPolicyCdnAuthConfigurationArgs) ElementType() reflect.Type {
@@ -3279,10 +3298,12 @@ func (o OriginEndpointPolicyCdnAuthConfigurationOutput) ToOriginEndpointPolicyCd
 	}).(OriginEndpointPolicyCdnAuthConfigurationPtrOutput)
 }
 
+// The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
 func (o OriginEndpointPolicyCdnAuthConfigurationOutput) CdnIdentifierSecretArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginEndpointPolicyCdnAuthConfiguration) []string { return v.CdnIdentifierSecretArns }).(pulumi.StringArrayOutput)
 }
 
+// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
 func (o OriginEndpointPolicyCdnAuthConfigurationOutput) SecretsRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginEndpointPolicyCdnAuthConfiguration) string { return v.SecretsRoleArn }).(pulumi.StringOutput)
 }
@@ -3311,6 +3332,7 @@ func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) Elem() OriginEndpoint
 	}).(OriginEndpointPolicyCdnAuthConfigurationOutput)
 }
 
+// The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
 func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) CdnIdentifierSecretArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OriginEndpointPolicyCdnAuthConfiguration) []string {
 		if v == nil {
@@ -3320,6 +3342,7 @@ func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) CdnIdentifierSecretAr
 	}).(pulumi.StringArrayOutput)
 }
 
+// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
 func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) SecretsRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointPolicyCdnAuthConfiguration) *string {
 		if v == nil {

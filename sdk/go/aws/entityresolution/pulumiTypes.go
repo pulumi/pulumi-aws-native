@@ -2577,7 +2577,8 @@ type MatchingWorkflowResolutionTechniques struct {
 	// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
 	ResolutionType *MatchingWorkflowResolutionType `pulumi:"resolutionType"`
 	// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
-	RuleBasedProperties *MatchingWorkflowRuleBasedProperties `pulumi:"ruleBasedProperties"`
+	RuleBasedProperties     *MatchingWorkflowRuleBasedProperties     `pulumi:"ruleBasedProperties"`
+	RuleConditionProperties *MatchingWorkflowRuleConditionProperties `pulumi:"ruleConditionProperties"`
 }
 
 // MatchingWorkflowResolutionTechniquesInput is an input type that accepts MatchingWorkflowResolutionTechniquesArgs and MatchingWorkflowResolutionTechniquesOutput values.
@@ -2597,7 +2598,8 @@ type MatchingWorkflowResolutionTechniquesArgs struct {
 	// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
 	ResolutionType MatchingWorkflowResolutionTypePtrInput `pulumi:"resolutionType"`
 	// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
-	RuleBasedProperties MatchingWorkflowRuleBasedPropertiesPtrInput `pulumi:"ruleBasedProperties"`
+	RuleBasedProperties     MatchingWorkflowRuleBasedPropertiesPtrInput     `pulumi:"ruleBasedProperties"`
+	RuleConditionProperties MatchingWorkflowRuleConditionPropertiesPtrInput `pulumi:"ruleConditionProperties"`
 }
 
 func (MatchingWorkflowResolutionTechniquesArgs) ElementType() reflect.Type {
@@ -2643,6 +2645,12 @@ func (o MatchingWorkflowResolutionTechniquesOutput) RuleBasedProperties() Matchi
 	return o.ApplyT(func(v MatchingWorkflowResolutionTechniques) *MatchingWorkflowRuleBasedProperties {
 		return v.RuleBasedProperties
 	}).(MatchingWorkflowRuleBasedPropertiesPtrOutput)
+}
+
+func (o MatchingWorkflowResolutionTechniquesOutput) RuleConditionProperties() MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return o.ApplyT(func(v MatchingWorkflowResolutionTechniques) *MatchingWorkflowRuleConditionProperties {
+		return v.RuleConditionProperties
+	}).(MatchingWorkflowRuleConditionPropertiesPtrOutput)
 }
 
 type MatchingWorkflowResolutionTechniquesPtrOutput struct{ *pulumi.OutputState }
@@ -2697,6 +2705,15 @@ func (o MatchingWorkflowResolutionTechniquesPtrOutput) RuleBasedProperties() Mat
 		}
 		return v.RuleBasedProperties
 	}).(MatchingWorkflowRuleBasedPropertiesPtrOutput)
+}
+
+func (o MatchingWorkflowResolutionTechniquesPtrOutput) RuleConditionProperties() MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return o.ApplyT(func(v *MatchingWorkflowResolutionTechniques) *MatchingWorkflowRuleConditionProperties {
+		if v == nil {
+			return nil
+		}
+		return v.RuleConditionProperties
+	}).(MatchingWorkflowRuleConditionPropertiesPtrOutput)
 }
 
 type MatchingWorkflowRule struct {
@@ -3016,6 +3033,239 @@ func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) Rules() MatchingWorkflowRu
 	}).(MatchingWorkflowRuleArrayOutput)
 }
 
+type MatchingWorkflowRuleCondition struct {
+	Condition *string `pulumi:"condition"`
+	RuleName  *string `pulumi:"ruleName"`
+}
+
+// MatchingWorkflowRuleConditionInput is an input type that accepts MatchingWorkflowRuleConditionArgs and MatchingWorkflowRuleConditionOutput values.
+// You can construct a concrete instance of `MatchingWorkflowRuleConditionInput` via:
+//
+//	MatchingWorkflowRuleConditionArgs{...}
+type MatchingWorkflowRuleConditionInput interface {
+	pulumi.Input
+
+	ToMatchingWorkflowRuleConditionOutput() MatchingWorkflowRuleConditionOutput
+	ToMatchingWorkflowRuleConditionOutputWithContext(context.Context) MatchingWorkflowRuleConditionOutput
+}
+
+type MatchingWorkflowRuleConditionArgs struct {
+	Condition pulumi.StringPtrInput `pulumi:"condition"`
+	RuleName  pulumi.StringPtrInput `pulumi:"ruleName"`
+}
+
+func (MatchingWorkflowRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchingWorkflowRuleCondition)(nil)).Elem()
+}
+
+func (i MatchingWorkflowRuleConditionArgs) ToMatchingWorkflowRuleConditionOutput() MatchingWorkflowRuleConditionOutput {
+	return i.ToMatchingWorkflowRuleConditionOutputWithContext(context.Background())
+}
+
+func (i MatchingWorkflowRuleConditionArgs) ToMatchingWorkflowRuleConditionOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowRuleConditionOutput)
+}
+
+// MatchingWorkflowRuleConditionArrayInput is an input type that accepts MatchingWorkflowRuleConditionArray and MatchingWorkflowRuleConditionArrayOutput values.
+// You can construct a concrete instance of `MatchingWorkflowRuleConditionArrayInput` via:
+//
+//	MatchingWorkflowRuleConditionArray{ MatchingWorkflowRuleConditionArgs{...} }
+type MatchingWorkflowRuleConditionArrayInput interface {
+	pulumi.Input
+
+	ToMatchingWorkflowRuleConditionArrayOutput() MatchingWorkflowRuleConditionArrayOutput
+	ToMatchingWorkflowRuleConditionArrayOutputWithContext(context.Context) MatchingWorkflowRuleConditionArrayOutput
+}
+
+type MatchingWorkflowRuleConditionArray []MatchingWorkflowRuleConditionInput
+
+func (MatchingWorkflowRuleConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchingWorkflowRuleCondition)(nil)).Elem()
+}
+
+func (i MatchingWorkflowRuleConditionArray) ToMatchingWorkflowRuleConditionArrayOutput() MatchingWorkflowRuleConditionArrayOutput {
+	return i.ToMatchingWorkflowRuleConditionArrayOutputWithContext(context.Background())
+}
+
+func (i MatchingWorkflowRuleConditionArray) ToMatchingWorkflowRuleConditionArrayOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowRuleConditionArrayOutput)
+}
+
+type MatchingWorkflowRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (MatchingWorkflowRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchingWorkflowRuleCondition)(nil)).Elem()
+}
+
+func (o MatchingWorkflowRuleConditionOutput) ToMatchingWorkflowRuleConditionOutput() MatchingWorkflowRuleConditionOutput {
+	return o
+}
+
+func (o MatchingWorkflowRuleConditionOutput) ToMatchingWorkflowRuleConditionOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionOutput {
+	return o
+}
+
+func (o MatchingWorkflowRuleConditionOutput) Condition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MatchingWorkflowRuleCondition) *string { return v.Condition }).(pulumi.StringPtrOutput)
+}
+
+func (o MatchingWorkflowRuleConditionOutput) RuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MatchingWorkflowRuleCondition) *string { return v.RuleName }).(pulumi.StringPtrOutput)
+}
+
+type MatchingWorkflowRuleConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (MatchingWorkflowRuleConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchingWorkflowRuleCondition)(nil)).Elem()
+}
+
+func (o MatchingWorkflowRuleConditionArrayOutput) ToMatchingWorkflowRuleConditionArrayOutput() MatchingWorkflowRuleConditionArrayOutput {
+	return o
+}
+
+func (o MatchingWorkflowRuleConditionArrayOutput) ToMatchingWorkflowRuleConditionArrayOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionArrayOutput {
+	return o
+}
+
+func (o MatchingWorkflowRuleConditionArrayOutput) Index(i pulumi.IntInput) MatchingWorkflowRuleConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MatchingWorkflowRuleCondition {
+		return vs[0].([]MatchingWorkflowRuleCondition)[vs[1].(int)]
+	}).(MatchingWorkflowRuleConditionOutput)
+}
+
+type MatchingWorkflowRuleConditionProperties struct {
+	Rules []MatchingWorkflowRuleCondition `pulumi:"rules"`
+}
+
+// MatchingWorkflowRuleConditionPropertiesInput is an input type that accepts MatchingWorkflowRuleConditionPropertiesArgs and MatchingWorkflowRuleConditionPropertiesOutput values.
+// You can construct a concrete instance of `MatchingWorkflowRuleConditionPropertiesInput` via:
+//
+//	MatchingWorkflowRuleConditionPropertiesArgs{...}
+type MatchingWorkflowRuleConditionPropertiesInput interface {
+	pulumi.Input
+
+	ToMatchingWorkflowRuleConditionPropertiesOutput() MatchingWorkflowRuleConditionPropertiesOutput
+	ToMatchingWorkflowRuleConditionPropertiesOutputWithContext(context.Context) MatchingWorkflowRuleConditionPropertiesOutput
+}
+
+type MatchingWorkflowRuleConditionPropertiesArgs struct {
+	Rules MatchingWorkflowRuleConditionArrayInput `pulumi:"rules"`
+}
+
+func (MatchingWorkflowRuleConditionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchingWorkflowRuleConditionProperties)(nil)).Elem()
+}
+
+func (i MatchingWorkflowRuleConditionPropertiesArgs) ToMatchingWorkflowRuleConditionPropertiesOutput() MatchingWorkflowRuleConditionPropertiesOutput {
+	return i.ToMatchingWorkflowRuleConditionPropertiesOutputWithContext(context.Background())
+}
+
+func (i MatchingWorkflowRuleConditionPropertiesArgs) ToMatchingWorkflowRuleConditionPropertiesOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowRuleConditionPropertiesOutput)
+}
+
+func (i MatchingWorkflowRuleConditionPropertiesArgs) ToMatchingWorkflowRuleConditionPropertiesPtrOutput() MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return i.ToMatchingWorkflowRuleConditionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MatchingWorkflowRuleConditionPropertiesArgs) ToMatchingWorkflowRuleConditionPropertiesPtrOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowRuleConditionPropertiesOutput).ToMatchingWorkflowRuleConditionPropertiesPtrOutputWithContext(ctx)
+}
+
+// MatchingWorkflowRuleConditionPropertiesPtrInput is an input type that accepts MatchingWorkflowRuleConditionPropertiesArgs, MatchingWorkflowRuleConditionPropertiesPtr and MatchingWorkflowRuleConditionPropertiesPtrOutput values.
+// You can construct a concrete instance of `MatchingWorkflowRuleConditionPropertiesPtrInput` via:
+//
+//	        MatchingWorkflowRuleConditionPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MatchingWorkflowRuleConditionPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMatchingWorkflowRuleConditionPropertiesPtrOutput() MatchingWorkflowRuleConditionPropertiesPtrOutput
+	ToMatchingWorkflowRuleConditionPropertiesPtrOutputWithContext(context.Context) MatchingWorkflowRuleConditionPropertiesPtrOutput
+}
+
+type matchingWorkflowRuleConditionPropertiesPtrType MatchingWorkflowRuleConditionPropertiesArgs
+
+func MatchingWorkflowRuleConditionPropertiesPtr(v *MatchingWorkflowRuleConditionPropertiesArgs) MatchingWorkflowRuleConditionPropertiesPtrInput {
+	return (*matchingWorkflowRuleConditionPropertiesPtrType)(v)
+}
+
+func (*matchingWorkflowRuleConditionPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MatchingWorkflowRuleConditionProperties)(nil)).Elem()
+}
+
+func (i *matchingWorkflowRuleConditionPropertiesPtrType) ToMatchingWorkflowRuleConditionPropertiesPtrOutput() MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return i.ToMatchingWorkflowRuleConditionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *matchingWorkflowRuleConditionPropertiesPtrType) ToMatchingWorkflowRuleConditionPropertiesPtrOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowRuleConditionPropertiesPtrOutput)
+}
+
+type MatchingWorkflowRuleConditionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MatchingWorkflowRuleConditionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchingWorkflowRuleConditionProperties)(nil)).Elem()
+}
+
+func (o MatchingWorkflowRuleConditionPropertiesOutput) ToMatchingWorkflowRuleConditionPropertiesOutput() MatchingWorkflowRuleConditionPropertiesOutput {
+	return o
+}
+
+func (o MatchingWorkflowRuleConditionPropertiesOutput) ToMatchingWorkflowRuleConditionPropertiesOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionPropertiesOutput {
+	return o
+}
+
+func (o MatchingWorkflowRuleConditionPropertiesOutput) ToMatchingWorkflowRuleConditionPropertiesPtrOutput() MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return o.ToMatchingWorkflowRuleConditionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MatchingWorkflowRuleConditionPropertiesOutput) ToMatchingWorkflowRuleConditionPropertiesPtrOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MatchingWorkflowRuleConditionProperties) *MatchingWorkflowRuleConditionProperties {
+		return &v
+	}).(MatchingWorkflowRuleConditionPropertiesPtrOutput)
+}
+
+func (o MatchingWorkflowRuleConditionPropertiesOutput) Rules() MatchingWorkflowRuleConditionArrayOutput {
+	return o.ApplyT(func(v MatchingWorkflowRuleConditionProperties) []MatchingWorkflowRuleCondition { return v.Rules }).(MatchingWorkflowRuleConditionArrayOutput)
+}
+
+type MatchingWorkflowRuleConditionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MatchingWorkflowRuleConditionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MatchingWorkflowRuleConditionProperties)(nil)).Elem()
+}
+
+func (o MatchingWorkflowRuleConditionPropertiesPtrOutput) ToMatchingWorkflowRuleConditionPropertiesPtrOutput() MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return o
+}
+
+func (o MatchingWorkflowRuleConditionPropertiesPtrOutput) ToMatchingWorkflowRuleConditionPropertiesPtrOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return o
+}
+
+func (o MatchingWorkflowRuleConditionPropertiesPtrOutput) Elem() MatchingWorkflowRuleConditionPropertiesOutput {
+	return o.ApplyT(func(v *MatchingWorkflowRuleConditionProperties) MatchingWorkflowRuleConditionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MatchingWorkflowRuleConditionProperties
+		return ret
+	}).(MatchingWorkflowRuleConditionPropertiesOutput)
+}
+
+func (o MatchingWorkflowRuleConditionPropertiesPtrOutput) Rules() MatchingWorkflowRuleConditionArrayOutput {
+	return o.ApplyT(func(v *MatchingWorkflowRuleConditionProperties) []MatchingWorkflowRuleCondition {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(MatchingWorkflowRuleConditionArrayOutput)
+}
+
 // A key-value pair to associate with a resource
 type MatchingWorkflowTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -3200,6 +3450,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleArrayInput)(nil)).Elem(), MatchingWorkflowRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleBasedPropertiesInput)(nil)).Elem(), MatchingWorkflowRuleBasedPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleBasedPropertiesPtrInput)(nil)).Elem(), MatchingWorkflowRuleBasedPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleConditionInput)(nil)).Elem(), MatchingWorkflowRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleConditionArrayInput)(nil)).Elem(), MatchingWorkflowRuleConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleConditionPropertiesInput)(nil)).Elem(), MatchingWorkflowRuleConditionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleConditionPropertiesPtrInput)(nil)).Elem(), MatchingWorkflowRuleConditionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMappingSchemaInputAttributeInput)(nil)).Elem(), SchemaMappingSchemaInputAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMappingSchemaInputAttributeArrayInput)(nil)).Elem(), SchemaMappingSchemaInputAttributeArray{})
 	pulumi.RegisterOutputType(IdMappingWorkflowIdMappingRuleBasedPropertiesOutput{})
@@ -3244,6 +3498,10 @@ func init() {
 	pulumi.RegisterOutputType(MatchingWorkflowRuleArrayOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowRuleBasedPropertiesOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowRuleBasedPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MatchingWorkflowRuleConditionOutput{})
+	pulumi.RegisterOutputType(MatchingWorkflowRuleConditionArrayOutput{})
+	pulumi.RegisterOutputType(MatchingWorkflowRuleConditionPropertiesOutput{})
+	pulumi.RegisterOutputType(MatchingWorkflowRuleConditionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SchemaMappingSchemaInputAttributeOutput{})
 	pulumi.RegisterOutputType(SchemaMappingSchemaInputAttributeArrayOutput{})
 }

@@ -124,6 +124,7 @@ class ParameterTier(builtins.str, Enum):
 class ParameterType(builtins.str, Enum):
     """
     The type of parameter.
+      Parameters of type ``SecureString`` are not supported by CFNlong.
     """
     STRING = "String"
     STRING_LIST = "StringList"

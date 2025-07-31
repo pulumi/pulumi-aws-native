@@ -25,6 +25,7 @@ __all__ = [
     'ReplicationConfigurationReplicationRule',
     'ReplicationConfigurationRepositoryFilter',
     'RepositoryCreationTemplateEncryptionConfiguration',
+    'RepositoryCreationTemplateImageTagMutabilityExclusionFilter',
     'RepositoryCreationTemplateTag',
     'RepositoryEncryptionConfiguration',
     'RepositoryImageScanningConfiguration',
@@ -369,6 +370,54 @@ class RepositoryCreationTemplateEncryptionConfiguration(dict):
         If you use the ``KMS`` encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used.
         """
         return pulumi.get(self, "kms_key")
+
+
+@pulumi.output_type
+class RepositoryCreationTemplateImageTagMutabilityExclusionFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageTagMutabilityExclusionFilterType":
+            suggest = "image_tag_mutability_exclusion_filter_type"
+        elif key == "imageTagMutabilityExclusionFilterValue":
+            suggest = "image_tag_mutability_exclusion_filter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryCreationTemplateImageTagMutabilityExclusionFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryCreationTemplateImageTagMutabilityExclusionFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryCreationTemplateImageTagMutabilityExclusionFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_tag_mutability_exclusion_filter_type: 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType',
+                 image_tag_mutability_exclusion_filter_value: builtins.str):
+        """
+        :param 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType' image_tag_mutability_exclusion_filter_type: Specifies the type of filter to use for excluding image tags from the repository's mutability setting.
+        :param builtins.str image_tag_mutability_exclusion_filter_value: The value to use when filtering image tags.
+        """
+        pulumi.set(__self__, "image_tag_mutability_exclusion_filter_type", image_tag_mutability_exclusion_filter_type)
+        pulumi.set(__self__, "image_tag_mutability_exclusion_filter_value", image_tag_mutability_exclusion_filter_value)
+
+    @property
+    @pulumi.getter(name="imageTagMutabilityExclusionFilterType")
+    def image_tag_mutability_exclusion_filter_type(self) -> 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType':
+        """
+        Specifies the type of filter to use for excluding image tags from the repository's mutability setting.
+        """
+        return pulumi.get(self, "image_tag_mutability_exclusion_filter_type")
+
+    @property
+    @pulumi.getter(name="imageTagMutabilityExclusionFilterValue")
+    def image_tag_mutability_exclusion_filter_value(self) -> builtins.str:
+        """
+        The value to use when filtering image tags.
+        """
+        return pulumi.get(self, "image_tag_mutability_exclusion_filter_value")
 
 
 @pulumi.output_type

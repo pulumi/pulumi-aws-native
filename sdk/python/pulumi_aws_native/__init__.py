@@ -3117,6 +3117,7 @@ _utilities.register(
    "aws-native:sagemaker:MonitoringSchedule": "MonitoringSchedule",
    "aws-native:sagemaker:PartnerApp": "PartnerApp",
    "aws-native:sagemaker:Pipeline": "Pipeline",
+   "aws-native:sagemaker:ProcessingJob": "ProcessingJob",
    "aws-native:sagemaker:Project": "Project",
    "aws-native:sagemaker:Space": "Space",
    "aws-native:sagemaker:StudioLifecycleConfig": "StudioLifecycleConfig",

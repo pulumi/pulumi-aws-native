@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     public sealed class InstanceElasticGpuSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of Elastic Graphics accelerator.
+        /// The type of Elastic Graphics accelerator. Amazon Elastic Graphics is no longer available.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

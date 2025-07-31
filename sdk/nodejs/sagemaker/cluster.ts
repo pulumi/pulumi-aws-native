@@ -60,7 +60,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
      */
-    public readonly instanceGroups!: pulumi.Output<outputs.sagemaker.ClusterInstanceGroup[]>;
+    public readonly instanceGroups!: pulumi.Output<outputs.sagemaker.ClusterInstanceGroup[] | undefined>;
     /**
      * If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
      */
@@ -69,6 +69,7 @@ export class Cluster extends pulumi.CustomResource {
      * The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
      */
     public readonly orchestrator!: pulumi.Output<outputs.sagemaker.ClusterOrchestrator | undefined>;
+    public readonly restrictedInstanceGroups!: pulumi.Output<outputs.sagemaker.ClusterRestrictedInstanceGroup[] | undefined>;
     /**
      * Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
      */
@@ -85,17 +86,15 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceGroups === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'instanceGroups'");
-            }
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["instanceGroups"] = args ? args.instanceGroups : undefined;
             resourceInputs["nodeRecovery"] = args ? args.nodeRecovery : undefined;
             resourceInputs["orchestrator"] = args ? args.orchestrator : undefined;
+            resourceInputs["restrictedInstanceGroups"] = args ? args.restrictedInstanceGroups : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["clusterArn"] = undefined /*out*/;
@@ -111,11 +110,12 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["instanceGroups"] = undefined /*out*/;
             resourceInputs["nodeRecovery"] = undefined /*out*/;
             resourceInputs["orchestrator"] = undefined /*out*/;
+            resourceInputs["restrictedInstanceGroups"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["clusterName", "instanceGroups[*].executionRole", "instanceGroups[*].instanceGroupName", "instanceGroups[*].instanceType", "instanceGroups[*].overrideVpcConfig", "instanceGroups[*].threadsPerCore", "orchestrator", "vpcConfig"] };
+        const replaceOnChanges = { replaceOnChanges: ["clusterName", "instanceGroups[*].executionRole", "instanceGroups[*].instanceGroupName", "instanceGroups[*].instanceType", "instanceGroups[*].overrideVpcConfig", "instanceGroups[*].threadsPerCore", "orchestrator", "restrictedInstanceGroups[*].executionRole", "restrictedInstanceGroups[*].instanceGroupName", "restrictedInstanceGroups[*].instanceType", "restrictedInstanceGroups[*].overrideVpcConfig", "restrictedInstanceGroups[*].threadsPerCore", "vpcConfig"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -132,7 +132,7 @@ export interface ClusterArgs {
     /**
      * The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
      */
-    instanceGroups: pulumi.Input<pulumi.Input<inputs.sagemaker.ClusterInstanceGroupArgs>[]>;
+    instanceGroups?: pulumi.Input<pulumi.Input<inputs.sagemaker.ClusterInstanceGroupArgs>[]>;
     /**
      * If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
      */
@@ -141,6 +141,7 @@ export interface ClusterArgs {
      * The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
      */
     orchestrator?: pulumi.Input<inputs.sagemaker.ClusterOrchestratorArgs>;
+    restrictedInstanceGroups?: pulumi.Input<pulumi.Input<inputs.sagemaker.ClusterRestrictedInstanceGroupArgs>[]>;
     /**
      * Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
      */

@@ -115,6 +115,7 @@ export interface GetDbInstanceResult {
      *  If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
      */
     readonly automaticBackupReplicationRetentionPeriod?: number;
+    readonly automaticRestartTime?: string;
     /**
      * The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
      *  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
@@ -444,6 +445,7 @@ export interface GetDbInstanceResult {
      *  Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group. Also, that option group can't be removed from a DB instance once it is associated with a DB instance.
      */
     readonly optionGroupName?: string;
+    readonly percentProgress?: string;
     /**
      * The AWS KMS key identifier for encryption of Performance Insights data.
      *  The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
@@ -531,6 +533,8 @@ export interface GetDbInstanceResult {
      *  Valid Values: ``open-read-only`` or ``mounted``
      */
     readonly replicaMode?: string;
+    readonly resumeFullAutomationModeTime?: string;
+    readonly secondaryAvailabilityZone?: string;
     /**
      * The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
      *  Constraints:
@@ -540,6 +544,7 @@ export interface GetDbInstanceResult {
      *   +  The source DB cluster must be in the same AWS-Region as the read replica. Cross-Region replication isn't supported.
      */
     readonly sourceDbClusterIdentifier?: string;
+    readonly statusInfos?: outputs.rds.DbInstanceDbInstanceStatusInfo[];
     /**
      * Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the ``gp3`` storage type. 
      *  This setting doesn't apply to RDS Custom or Amazon Aurora.

@@ -140,6 +140,7 @@ export class DbInstance extends pulumi.CustomResource {
      *  If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
      */
     public readonly automaticBackupReplicationRetentionPeriod!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly automaticRestartTime!: pulumi.Output<string>;
     /**
      * The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
      *  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
@@ -675,6 +676,7 @@ export class DbInstance extends pulumi.CustomResource {
      *  Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group. Also, that option group can't be removed from a DB instance once it is associated with a DB instance.
      */
     public readonly optionGroupName!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly percentProgress!: pulumi.Output<string>;
     /**
      * The AWS KMS key identifier for encryption of Performance Insights data.
      *  The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
@@ -772,6 +774,8 @@ export class DbInstance extends pulumi.CustomResource {
      *  Example: ``2009-09-07T23:45:00Z``
      */
     public readonly restoreTime!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly resumeFullAutomationModeTime!: pulumi.Output<string>;
+    public /*out*/ readonly secondaryAvailabilityZone!: pulumi.Output<string>;
     /**
      * The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
      *  Constraints:
@@ -807,6 +811,7 @@ export class DbInstance extends pulumi.CustomResource {
      * The ID of the region that contains the source DB instance for the read replica.
      */
     public readonly sourceRegion!: pulumi.Output<string | undefined>;
+    public readonly statusInfos!: pulumi.Output<outputs.rds.DbInstanceDbInstanceStatusInfo[] | undefined>;
     /**
      * A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
      *  If you specify the ``KmsKeyId`` property, then you must enable encryption.
@@ -948,6 +953,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["sourceDbInstanceIdentifier"] = args ? args.sourceDbInstanceIdentifier : undefined;
             resourceInputs["sourceDbiResourceId"] = args ? args.sourceDbiResourceId : undefined;
             resourceInputs["sourceRegion"] = args ? args.sourceRegion : undefined;
+            resourceInputs["statusInfos"] = args ? args.statusInfos : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             resourceInputs["storageThroughput"] = args ? args.storageThroughput : undefined;
             resourceInputs["storageType"] = args ? args.storageType : undefined;
@@ -958,6 +964,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["useDefaultProcessorFeatures"] = args ? args.useDefaultProcessorFeatures : undefined;
             resourceInputs["useLatestRestorableTime"] = args ? args.useLatestRestorableTime : undefined;
             resourceInputs["vpcSecurityGroups"] = args ? args.vpcSecurityGroups : undefined;
+            resourceInputs["automaticRestartTime"] = undefined /*out*/;
             resourceInputs["certificateDetails"] = undefined /*out*/;
             resourceInputs["dbInstanceArn"] = undefined /*out*/;
             resourceInputs["dbInstanceStatus"] = undefined /*out*/;
@@ -967,8 +974,11 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["isStorageConfigUpgradeAvailable"] = undefined /*out*/;
             resourceInputs["latestRestorableTime"] = undefined /*out*/;
             resourceInputs["listenerEndpoint"] = undefined /*out*/;
+            resourceInputs["percentProgress"] = undefined /*out*/;
             resourceInputs["readReplicaDbClusterIdentifiers"] = undefined /*out*/;
             resourceInputs["readReplicaDbInstanceIdentifiers"] = undefined /*out*/;
+            resourceInputs["resumeFullAutomationModeTime"] = undefined /*out*/;
+            resourceInputs["secondaryAvailabilityZone"] = undefined /*out*/;
         } else {
             resourceInputs["allocatedStorage"] = undefined /*out*/;
             resourceInputs["allowMajorVersionUpgrade"] = undefined /*out*/;
@@ -978,6 +988,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["automaticBackupReplicationKmsKeyId"] = undefined /*out*/;
             resourceInputs["automaticBackupReplicationRegion"] = undefined /*out*/;
             resourceInputs["automaticBackupReplicationRetentionPeriod"] = undefined /*out*/;
+            resourceInputs["automaticRestartTime"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["backupRetentionPeriod"] = undefined /*out*/;
             resourceInputs["backupTarget"] = undefined /*out*/;
@@ -1035,6 +1046,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["ncharCharacterSetName"] = undefined /*out*/;
             resourceInputs["networkType"] = undefined /*out*/;
             resourceInputs["optionGroupName"] = undefined /*out*/;
+            resourceInputs["percentProgress"] = undefined /*out*/;
             resourceInputs["performanceInsightsKmsKeyId"] = undefined /*out*/;
             resourceInputs["performanceInsightsRetentionPeriod"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
@@ -1047,11 +1059,14 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["readReplicaDbInstanceIdentifiers"] = undefined /*out*/;
             resourceInputs["replicaMode"] = undefined /*out*/;
             resourceInputs["restoreTime"] = undefined /*out*/;
+            resourceInputs["resumeFullAutomationModeTime"] = undefined /*out*/;
+            resourceInputs["secondaryAvailabilityZone"] = undefined /*out*/;
             resourceInputs["sourceDbClusterIdentifier"] = undefined /*out*/;
             resourceInputs["sourceDbInstanceAutomatedBackupsArn"] = undefined /*out*/;
             resourceInputs["sourceDbInstanceIdentifier"] = undefined /*out*/;
             resourceInputs["sourceDbiResourceId"] = undefined /*out*/;
             resourceInputs["sourceRegion"] = undefined /*out*/;
+            resourceInputs["statusInfos"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
             resourceInputs["storageThroughput"] = undefined /*out*/;
             resourceInputs["storageType"] = undefined /*out*/;
@@ -1789,6 +1804,7 @@ export interface DbInstanceArgs {
      * The ID of the region that contains the source DB instance for the read replica.
      */
     sourceRegion?: pulumi.Input<string>;
+    statusInfos?: pulumi.Input<pulumi.Input<inputs.rds.DbInstanceDbInstanceStatusInfoArgs>[]>;
     /**
      * A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
      *  If you specify the ``KmsKeyId`` property, then you must enable encryption.

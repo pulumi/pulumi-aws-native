@@ -83,16 +83,16 @@
   "primaryIdentifier" : [ "/properties/TemplateName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:GetRole", "iam:PassRole", "iot:CreateProvisioningTemplate", "iot:DescribeProvisioningTemplate", "iot:TagResource", "iot:ListTagsForResource" ]
+      "permissions" : [ "iam:GetRole", "iam:PassRole", "iot:CreateProvisioningTemplate", "iot:DescribeProvisioningTemplate", "iot:TagResource", "iot:ListTagsForResource", "kms:Decrypt" ]
     },
     "read" : {
-      "permissions" : [ "iot:DescribeProvisioningTemplate", "iot:ListTagsForResource" ]
+      "permissions" : [ "iot:DescribeProvisioningTemplate", "iot:ListTagsForResource", "kms:Decrypt" ]
     },
     "update" : {
-      "permissions" : [ "iam:GetRole", "iam:PassRole", "iot:UpdateProvisioningTemplate", "iot:CreateProvisioningTemplateVersion", "iot:ListProvisioningTemplateVersions", "iot:DeleteProvisioningTemplateVersion", "iot:DescribeProvisioningTemplate", "iot:TagResource", "iot:UntagResource", "iot:ListTagsForResource" ]
+      "permissions" : [ "iam:GetRole", "iam:PassRole", "iot:UpdateProvisioningTemplate", "iot:CreateProvisioningTemplateVersion", "iot:ListProvisioningTemplateVersions", "iot:DeleteProvisioningTemplateVersion", "iot:DescribeProvisioningTemplate", "iot:TagResource", "iot:UntagResource", "iot:ListTagsForResource", "kms:Decrypt" ]
     },
     "delete" : {
-      "permissions" : [ "iot:DeleteProvisioningTemplate", "iot:DescribeProvisioningTemplate" ]
+      "permissions" : [ "iot:DeleteProvisioningTemplate", "iot:DescribeProvisioningTemplate", "kms:Decrypt" ]
     },
     "list" : {
       "permissions" : [ "iot:ListProvisioningTemplates" ]

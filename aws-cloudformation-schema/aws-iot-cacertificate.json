@@ -112,16 +112,16 @@
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:GetRole", "iam:PassRole", "iot:RegisterCACertificate", "iot:DescribeCACertificate", "iot:TagResource", "iot:ListTagsForResource" ]
+      "permissions" : [ "iam:GetRole", "iam:PassRole", "iot:RegisterCACertificate", "iot:DescribeCACertificate", "iot:TagResource", "iot:ListTagsForResource", "kms:Decrypt" ]
     },
     "read" : {
-      "permissions" : [ "iot:DescribeCACertificate", "iot:ListTagsForResource" ]
+      "permissions" : [ "iot:DescribeCACertificate", "iot:ListTagsForResource", "kms:Decrypt" ]
     },
     "update" : {
-      "permissions" : [ "iam:GetRole", "iam:PassRole", "iot:UpdateCACertificate", "iot:DescribeCACertificate", "iot:TagResource", "iot:UntagResource", "iot:ListTagsForResource" ]
+      "permissions" : [ "iam:GetRole", "iam:PassRole", "iot:UpdateCACertificate", "iot:DescribeCACertificate", "iot:TagResource", "iot:UntagResource", "iot:ListTagsForResource", "kms:Decrypt" ]
     },
     "delete" : {
-      "permissions" : [ "iot:UpdateCACertificate", "iot:DeleteCACertificate", "iot:DescribeCACertificate" ]
+      "permissions" : [ "iot:UpdateCACertificate", "iot:DeleteCACertificate", "iot:DescribeCACertificate", "kms:Decrypt" ]
     },
     "list" : {
       "permissions" : [ "iot:ListCACertificates" ]

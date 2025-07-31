@@ -280,6 +280,7 @@ namespace Pulumi.AwsNative.Ssm
 
     /// <summary>
     /// The type of parameter.
+    ///   Parameters of type ``SecureString`` are not supported by CFNlong.
     /// </summary>
     [EnumType]
     public readonly struct ParameterType : IEquatable<ParameterType>

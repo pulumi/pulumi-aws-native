@@ -87,6 +87,7 @@ namespace Pulumi.AwsNative.Ecr
         /// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
         /// </summary>
         public readonly Pulumi.AwsNative.Ecr.RepositoryCreationTemplateImageTagMutability? ImageTagMutability;
+        public readonly ImmutableArray<Outputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilter> ImageTagMutabilityExclusionFilters;
         /// <summary>
         /// The lifecycle policy to use for repositories created using the template.
         /// </summary>
@@ -118,6 +119,8 @@ namespace Pulumi.AwsNative.Ecr
 
             Pulumi.AwsNative.Ecr.RepositoryCreationTemplateImageTagMutability? imageTagMutability,
 
+            ImmutableArray<Outputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilter> imageTagMutabilityExclusionFilters,
+
             string? lifecyclePolicy,
 
             string? repositoryPolicy,
@@ -132,6 +135,7 @@ namespace Pulumi.AwsNative.Ecr
             Description = description;
             EncryptionConfiguration = encryptionConfiguration;
             ImageTagMutability = imageTagMutability;
+            ImageTagMutabilityExclusionFilters = imageTagMutabilityExclusionFilters;
             LifecyclePolicy = lifecyclePolicy;
             RepositoryPolicy = repositoryPolicy;
             ResourceTags = resourceTags;
