@@ -107,7 +107,7 @@
       "type" : "object",
       "properties" : {
         "Type" : {
-          "description" : "The type of Elastic Graphics accelerator.",
+          "description" : "The type of Elastic Graphics accelerator. Amazon Elastic Graphics is no longer available.",
           "type" : "string"
         }
       },
@@ -225,11 +225,11 @@
       "type" : "object",
       "properties" : {
         "Type" : {
-          "description" : "The type of elastic inference accelerator.",
+          "description" : "The type of elastic inference accelerator. Amazon Elastic Inference is no longer available.",
           "type" : "string"
         },
         "Count" : {
-          "description" : "The number of elastic inference accelerators to attach to the instance.",
+          "description" : "The number of elastic inference accelerators to attach to the instance. Amazon Elastic Inference is no longer available.",
           "type" : "integer",
           "minimum" : 0
         }
