@@ -17,6 +17,7 @@ from .command import *
 from .custom_metric import *
 from .dimension import *
 from .domain_configuration import *
+from .encryption_configuration import *
 from .fleet_metric import *
 from .get_account_audit_configuration import *
 from .get_authorizer import *
@@ -28,6 +29,7 @@ from .get_command import *
 from .get_custom_metric import *
 from .get_dimension import *
 from .get_domain_configuration import *
+from .get_encryption_configuration import *
 from .get_fleet_metric import *
 from .get_job_template import *
 from .get_logging import *

@@ -129,6 +129,8 @@ __all__ = [
     'JobQueueComputeEnvironmentOrderArgsDict',
     'JobQueueJobStateTimeLimitActionArgs',
     'JobQueueJobStateTimeLimitActionArgsDict',
+    'JobQueueServiceEnvironmentOrderArgs',
+    'JobQueueServiceEnvironmentOrderArgsDict',
     'SchedulingPolicyFairsharePolicyArgs',
     'SchedulingPolicyFairsharePolicyArgsDict',
     'SchedulingPolicyShareAttributesArgs',
@@ -6741,6 +6743,40 @@ class JobQueueJobStateTimeLimitActionArgs:
     @state.setter
     def state(self, value: pulumi.Input['JobQueueJobStateTimeLimitActionState']):
         pulumi.set(self, "state", value)
+
+
+if not MYPY:
+    class JobQueueServiceEnvironmentOrderArgsDict(TypedDict):
+        order: pulumi.Input[builtins.int]
+        service_environment: pulumi.Input[builtins.str]
+elif False:
+    JobQueueServiceEnvironmentOrderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobQueueServiceEnvironmentOrderArgs:
+    def __init__(__self__, *,
+                 order: pulumi.Input[builtins.int],
+                 service_environment: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "order", order)
+        pulumi.set(__self__, "service_environment", service_environment)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[builtins.int]:
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter(name="serviceEnvironment")
+    def service_environment(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "service_environment")
+
+    @service_environment.setter
+    def service_environment(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "service_environment", value)
 
 
 if not MYPY:

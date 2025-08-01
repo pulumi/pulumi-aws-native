@@ -109,7 +109,8 @@ type LookupDbInstanceResult struct {
 	AutomaticBackupReplicationRegion *string `pulumi:"automaticBackupReplicationRegion"`
 	// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the ``AutomaticBackupReplicationRegion`` parameter.
 	//  If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
-	AutomaticBackupReplicationRetentionPeriod *int `pulumi:"automaticBackupReplicationRetentionPeriod"`
+	AutomaticBackupReplicationRetentionPeriod *int    `pulumi:"automaticBackupReplicationRetentionPeriod"`
+	AutomaticRestartTime                      *string `pulumi:"automaticRestartTime"`
 	// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
 	//  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
 	//  Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.
@@ -361,6 +362,7 @@ type LookupDbInstanceResult struct {
 	// Indicates that the DB instance should be associated with the specified option group.
 	//  Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group. Also, that option group can't be removed from a DB instance once it is associated with a DB instance.
 	OptionGroupName *string `pulumi:"optionGroupName"`
+	PercentProgress *string `pulumi:"percentProgress"`
 	// The AWS KMS key identifier for encryption of Performance Insights data.
 	//  The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
 	//  If you do not specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS account. Your AWS account has a different default KMS key for each AWS Region.
@@ -425,14 +427,17 @@ type LookupDbInstanceResult struct {
 	//  This setting is only supported in RDS for Oracle.
 	//  Default: ``open-read-only``
 	//  Valid Values: ``open-read-only`` or ``mounted``
-	ReplicaMode *string `pulumi:"replicaMode"`
+	ReplicaMode                  *string `pulumi:"replicaMode"`
+	ResumeFullAutomationModeTime *string `pulumi:"resumeFullAutomationModeTime"`
+	SecondaryAvailabilityZone    *string `pulumi:"secondaryAvailabilityZone"`
 	// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
 	//  Constraints:
 	//   +  Must be the identifier of an existing Multi-AZ DB cluster.
 	//   +  Can't be specified if the ``SourceDBInstanceIdentifier`` parameter is also specified.
 	//   +  The specified DB cluster must have automatic backups enabled, that is, its backup retention period must be greater than 0.
 	//   +  The source DB cluster must be in the same AWS-Region as the read replica. Cross-Region replication isn't supported.
-	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
+	SourceDbClusterIdentifier *string                          `pulumi:"sourceDbClusterIdentifier"`
+	StatusInfos               []DbInstanceDbInstanceStatusInfo `pulumi:"statusInfos"`
 	// Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the ``gp3`` storage type.
 	//  This setting doesn't apply to RDS Custom or Amazon Aurora.
 	StorageThroughput *int `pulumi:"storageThroughput"`
@@ -567,6 +572,10 @@ func (o LookupDbInstanceResultOutput) AutomaticBackupReplicationRegion() pulumi.
 //	If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
 func (o LookupDbInstanceResultOutput) AutomaticBackupReplicationRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *int { return v.AutomaticBackupReplicationRetentionPeriod }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupDbInstanceResultOutput) AutomaticRestartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.AutomaticRestartTime }).(pulumi.StringPtrOutput)
 }
 
 // The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
@@ -977,6 +986,10 @@ func (o LookupDbInstanceResultOutput) OptionGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.OptionGroupName }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupDbInstanceResultOutput) PercentProgress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.PercentProgress }).(pulumi.StringPtrOutput)
+}
+
 // The AWS KMS key identifier for encryption of Performance Insights data.
 //
 //	The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
@@ -1084,6 +1097,14 @@ func (o LookupDbInstanceResultOutput) ReplicaMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.ReplicaMode }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupDbInstanceResultOutput) ResumeFullAutomationModeTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.ResumeFullAutomationModeTime }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDbInstanceResultOutput) SecondaryAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.SecondaryAvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
 // The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
 //
 //	Constraints:
@@ -1093,6 +1114,10 @@ func (o LookupDbInstanceResultOutput) ReplicaMode() pulumi.StringPtrOutput {
 //	 +  The source DB cluster must be in the same AWS-Region as the read replica. Cross-Region replication isn't supported.
 func (o LookupDbInstanceResultOutput) SourceDbClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.SourceDbClusterIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDbInstanceResultOutput) StatusInfos() DbInstanceDbInstanceStatusInfoArrayOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) []DbInstanceDbInstanceStatusInfo { return v.StatusInfos }).(DbInstanceDbInstanceStatusInfoArrayOutput)
 }
 
 // Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the “gp3“ storage type.

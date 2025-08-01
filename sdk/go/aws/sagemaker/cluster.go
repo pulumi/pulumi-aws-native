@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -32,7 +31,8 @@ type Cluster struct {
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 	NodeRecovery ClusterNodeRecoveryPtrOutput `pulumi:"nodeRecovery"`
 	// The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
-	Orchestrator ClusterOrchestratorPtrOutput `pulumi:"orchestrator"`
+	Orchestrator             ClusterOrchestratorPtrOutput              `pulumi:"orchestrator"`
+	RestrictedInstanceGroups ClusterRestrictedInstanceGroupArrayOutput `pulumi:"restrictedInstanceGroups"`
 	// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
@@ -43,12 +43,9 @@ type Cluster struct {
 func NewCluster(ctx *pulumi.Context,
 	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ClusterArgs{}
 	}
 
-	if args.InstanceGroups == nil {
-		return nil, errors.New("invalid value for required argument 'InstanceGroups'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"clusterName",
 		"instanceGroups[*].executionRole",
@@ -57,6 +54,11 @@ func NewCluster(ctx *pulumi.Context,
 		"instanceGroups[*].overrideVpcConfig",
 		"instanceGroups[*].threadsPerCore",
 		"orchestrator",
+		"restrictedInstanceGroups[*].executionRole",
+		"restrictedInstanceGroups[*].instanceGroupName",
+		"restrictedInstanceGroups[*].instanceType",
+		"restrictedInstanceGroups[*].overrideVpcConfig",
+		"restrictedInstanceGroups[*].threadsPerCore",
 		"vpcConfig",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -100,7 +102,8 @@ type clusterArgs struct {
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 	NodeRecovery *ClusterNodeRecovery `pulumi:"nodeRecovery"`
 	// The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
-	Orchestrator *ClusterOrchestrator `pulumi:"orchestrator"`
+	Orchestrator             *ClusterOrchestrator             `pulumi:"orchestrator"`
+	RestrictedInstanceGroups []ClusterRestrictedInstanceGroup `pulumi:"restrictedInstanceGroups"`
 	// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
@@ -116,7 +119,8 @@ type ClusterArgs struct {
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 	NodeRecovery ClusterNodeRecoveryPtrInput
 	// The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
-	Orchestrator ClusterOrchestratorPtrInput
+	Orchestrator             ClusterOrchestratorPtrInput
+	RestrictedInstanceGroups ClusterRestrictedInstanceGroupArrayInput
 	// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
 	Tags aws.TagArrayInput
 	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
@@ -198,6 +202,10 @@ func (o ClusterOutput) NodeRecovery() ClusterNodeRecoveryPtrOutput {
 // The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
 func (o ClusterOutput) Orchestrator() ClusterOrchestratorPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterOrchestratorPtrOutput { return v.Orchestrator }).(ClusterOrchestratorPtrOutput)
+}
+
+func (o ClusterOutput) RestrictedInstanceGroups() ClusterRestrictedInstanceGroupArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterRestrictedInstanceGroupArrayOutput { return v.RestrictedInstanceGroups }).(ClusterRestrictedInstanceGroupArrayOutput)
 }
 
 // Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.

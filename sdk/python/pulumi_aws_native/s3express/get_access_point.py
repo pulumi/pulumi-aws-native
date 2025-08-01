@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -26,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAccessPointResult:
-    def __init__(__self__, arn=None, network_origin=None, policy=None, public_access_block_configuration=None, scope=None):
+    def __init__(__self__, arn=None, network_origin=None, policy=None, public_access_block_configuration=None, scope=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +43,9 @@ class GetAccessPointResult:
         if scope and not isinstance(scope, dict):
             raise TypeError("Expected argument 'scope' to be a dict")
         pulumi.set(__self__, "scope", scope)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -85,6 +89,11 @@ class GetAccessPointResult:
         """
         return pulumi.get(self, "scope")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetAccessPointResult(GetAccessPointResult):
     # pylint: disable=using-constant-test
@@ -96,7 +105,8 @@ class AwaitableGetAccessPointResult(GetAccessPointResult):
             network_origin=self.network_origin,
             policy=self.policy,
             public_access_block_configuration=self.public_access_block_configuration,
-            scope=self.scope)
+            scope=self.scope,
+            tags=self.tags)
 
 
 def get_access_point(name: Optional[builtins.str] = None,
@@ -117,7 +127,8 @@ def get_access_point(name: Optional[builtins.str] = None,
         network_origin=pulumi.get(__ret__, 'network_origin'),
         policy=pulumi.get(__ret__, 'policy'),
         public_access_block_configuration=pulumi.get(__ret__, 'public_access_block_configuration'),
-        scope=pulumi.get(__ret__, 'scope'))
+        scope=pulumi.get(__ret__, 'scope'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_access_point_output(name: Optional[pulumi.Input[builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointResult]:
     """
@@ -135,4 +146,5 @@ def get_access_point_output(name: Optional[pulumi.Input[builtins.str]] = None,
         network_origin=pulumi.get(__response__, 'network_origin'),
         policy=pulumi.get(__response__, 'policy'),
         public_access_block_configuration=pulumi.get(__response__, 'public_access_block_configuration'),
-        scope=pulumi.get(__response__, 'scope')))
+        scope=pulumi.get(__response__, 'scope'),
+        tags=pulumi.get(__response__, 'tags')))

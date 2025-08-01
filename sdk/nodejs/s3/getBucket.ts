@@ -69,7 +69,7 @@ export interface GetBucketResult {
      */
     readonly intelligentTieringConfigurations?: outputs.s3.BucketIntelligentTieringConfiguration[];
     /**
-     * Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+     * Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
      */
     readonly inventoryConfigurations?: outputs.s3.BucketInventoryConfiguration[];
     /**

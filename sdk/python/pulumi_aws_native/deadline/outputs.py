@@ -36,6 +36,7 @@ __all__ = [
     'FleetServiceManagedEc2InstanceCapabilities',
     'FleetServiceManagedEc2InstanceMarketOptions',
     'FleetVCpuCountRange',
+    'FleetVpcConfiguration',
     'QueueJobAttachmentSettings',
     'QueueJobRunAsUser',
     'QueuePosixUser',
@@ -588,6 +589,8 @@ class FleetServiceManagedEc2FleetConfiguration(dict):
             suggest = "instance_market_options"
         elif key == "storageProfileId":
             suggest = "storage_profile_id"
+        elif key == "vpcConfiguration":
+            suggest = "vpc_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FleetServiceManagedEc2FleetConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -603,11 +606,14 @@ class FleetServiceManagedEc2FleetConfiguration(dict):
     def __init__(__self__, *,
                  instance_capabilities: 'outputs.FleetServiceManagedEc2InstanceCapabilities',
                  instance_market_options: 'outputs.FleetServiceManagedEc2InstanceMarketOptions',
-                 storage_profile_id: Optional[builtins.str] = None):
+                 storage_profile_id: Optional[builtins.str] = None,
+                 vpc_configuration: Optional['outputs.FleetVpcConfiguration'] = None):
         pulumi.set(__self__, "instance_capabilities", instance_capabilities)
         pulumi.set(__self__, "instance_market_options", instance_market_options)
         if storage_profile_id is not None:
             pulumi.set(__self__, "storage_profile_id", storage_profile_id)
+        if vpc_configuration is not None:
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter(name="instanceCapabilities")
@@ -623,6 +629,11 @@ class FleetServiceManagedEc2FleetConfiguration(dict):
     @pulumi.getter(name="storageProfileId")
     def storage_profile_id(self) -> Optional[builtins.str]:
         return pulumi.get(self, "storage_profile_id")
+
+    @property
+    @pulumi.getter(name="vpcConfiguration")
+    def vpc_configuration(self) -> Optional['outputs.FleetVpcConfiguration']:
+        return pulumi.get(self, "vpc_configuration")
 
 
 @pulumi.output_type
@@ -771,6 +782,36 @@ class FleetVCpuCountRange(dict):
     @pulumi.getter
     def max(self) -> Optional[builtins.int]:
         return pulumi.get(self, "max")
+
+
+@pulumi.output_type
+class FleetVpcConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationArns":
+            suggest = "resource_configuration_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetVpcConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetVpcConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_arns: Optional[Sequence[builtins.str]] = None):
+        if resource_configuration_arns is not None:
+            pulumi.set(__self__, "resource_configuration_arns", resource_configuration_arns)
+
+    @property
+    @pulumi.getter(name="resourceConfigurationArns")
+    def resource_configuration_arns(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "resource_configuration_arns")
 
 
 @pulumi.output_type

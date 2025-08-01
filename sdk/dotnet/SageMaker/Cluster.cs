@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("orchestrator")]
         public Output<Outputs.ClusterOrchestrator?> Orchestrator { get; private set; } = null!;
 
+        [Output("restrictedInstanceGroups")]
+        public Output<ImmutableArray<Outputs.ClusterRestrictedInstanceGroup>> RestrictedInstanceGroups { get; private set; } = null!;
+
         /// <summary>
         /// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
         /// </summary>
@@ -83,7 +86,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
+        public Cluster(string name, ClusterArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:sagemaker:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -107,6 +110,11 @@ namespace Pulumi.AwsNative.SageMaker
                     "instanceGroups[*].overrideVpcConfig",
                     "instanceGroups[*].threadsPerCore",
                     "orchestrator",
+                    "restrictedInstanceGroups[*].executionRole",
+                    "restrictedInstanceGroups[*].instanceGroupName",
+                    "restrictedInstanceGroups[*].instanceType",
+                    "restrictedInstanceGroups[*].overrideVpcConfig",
+                    "restrictedInstanceGroups[*].threadsPerCore",
                     "vpcConfig",
                 },
             };
@@ -137,7 +145,7 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
-        [Input("instanceGroups", required: true)]
+        [Input("instanceGroups")]
         private InputList<Inputs.ClusterInstanceGroupArgs>? _instanceGroups;
 
         /// <summary>
@@ -160,6 +168,14 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         [Input("orchestrator")]
         public Input<Inputs.ClusterOrchestratorArgs>? Orchestrator { get; set; }
+
+        [Input("restrictedInstanceGroups")]
+        private InputList<Inputs.ClusterRestrictedInstanceGroupArgs>? _restrictedInstanceGroups;
+        public InputList<Inputs.ClusterRestrictedInstanceGroupArgs> RestrictedInstanceGroups
+        {
+            get => _restrictedInstanceGroups ?? (_restrictedInstanceGroups = new InputList<Inputs.ClusterRestrictedInstanceGroupArgs>());
+            set => _restrictedInstanceGroups = value;
+        }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

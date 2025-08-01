@@ -29,6 +29,7 @@ class RepositoryArgs:
                  encryption_configuration: Optional[pulumi.Input['RepositoryEncryptionConfigurationArgs']] = None,
                  image_scanning_configuration: Optional[pulumi.Input['RepositoryImageScanningConfigurationArgs']] = None,
                  image_tag_mutability: Optional[pulumi.Input['RepositoryImageTagMutability']] = None,
+                 image_tag_mutability_exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryImageTagMutabilityExclusionFilterArgs']]]] = None,
                  lifecycle_policy: Optional[pulumi.Input['RepositoryLifecyclePolicyArgs']] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  repository_policy_text: Optional[Any] = None,
@@ -56,6 +57,8 @@ class RepositoryArgs:
             pulumi.set(__self__, "image_scanning_configuration", image_scanning_configuration)
         if image_tag_mutability is not None:
             pulumi.set(__self__, "image_tag_mutability", image_tag_mutability)
+        if image_tag_mutability_exclusion_filters is not None:
+            pulumi.set(__self__, "image_tag_mutability_exclusion_filters", image_tag_mutability_exclusion_filters)
         if lifecycle_policy is not None:
             pulumi.set(__self__, "lifecycle_policy", lifecycle_policy)
         if repository_name is not None:
@@ -112,6 +115,15 @@ class RepositoryArgs:
     @image_tag_mutability.setter
     def image_tag_mutability(self, value: Optional[pulumi.Input['RepositoryImageTagMutability']]):
         pulumi.set(self, "image_tag_mutability", value)
+
+    @property
+    @pulumi.getter(name="imageTagMutabilityExclusionFilters")
+    def image_tag_mutability_exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryImageTagMutabilityExclusionFilterArgs']]]]:
+        return pulumi.get(self, "image_tag_mutability_exclusion_filters")
+
+    @image_tag_mutability_exclusion_filters.setter
+    def image_tag_mutability_exclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryImageTagMutabilityExclusionFilterArgs']]]]):
+        pulumi.set(self, "image_tag_mutability_exclusion_filters", value)
 
     @property
     @pulumi.getter(name="lifecyclePolicy")
@@ -176,6 +188,7 @@ class Repository(pulumi.CustomResource):
                  encryption_configuration: Optional[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]] = None,
                  image_scanning_configuration: Optional[pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']]] = None,
                  image_tag_mutability: Optional[pulumi.Input['RepositoryImageTagMutability']] = None,
+                 image_tag_mutability_exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict']]]]] = None,
                  lifecycle_policy: Optional[pulumi.Input[Union['RepositoryLifecyclePolicyArgs', 'RepositoryLifecyclePolicyArgsDict']]] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  repository_policy_text: Optional[Any] = None,
@@ -307,6 +320,7 @@ class Repository(pulumi.CustomResource):
                  encryption_configuration: Optional[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]] = None,
                  image_scanning_configuration: Optional[pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']]] = None,
                  image_tag_mutability: Optional[pulumi.Input['RepositoryImageTagMutability']] = None,
+                 image_tag_mutability_exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict']]]]] = None,
                  lifecycle_policy: Optional[pulumi.Input[Union['RepositoryLifecyclePolicyArgs', 'RepositoryLifecyclePolicyArgsDict']]] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  repository_policy_text: Optional[Any] = None,
@@ -324,6 +338,7 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
             __props__.__dict__["image_tag_mutability"] = image_tag_mutability
+            __props__.__dict__["image_tag_mutability_exclusion_filters"] = image_tag_mutability_exclusion_filters
             __props__.__dict__["lifecycle_policy"] = lifecycle_policy
             __props__.__dict__["repository_name"] = repository_name
             __props__.__dict__["repository_policy_text"] = repository_policy_text
@@ -359,6 +374,7 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["encryption_configuration"] = None
         __props__.__dict__["image_scanning_configuration"] = None
         __props__.__dict__["image_tag_mutability"] = None
+        __props__.__dict__["image_tag_mutability_exclusion_filters"] = None
         __props__.__dict__["lifecycle_policy"] = None
         __props__.__dict__["repository_name"] = None
         __props__.__dict__["repository_policy_text"] = None
@@ -405,6 +421,11 @@ class Repository(pulumi.CustomResource):
         The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
         """
         return pulumi.get(self, "image_tag_mutability")
+
+    @property
+    @pulumi.getter(name="imageTagMutabilityExclusionFilters")
+    def image_tag_mutability_exclusion_filters(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryImageTagMutabilityExclusionFilter']]]:
+        return pulumi.get(self, "image_tag_mutability_exclusion_filters")
 
     @property
     @pulumi.getter(name="lifecyclePolicy")

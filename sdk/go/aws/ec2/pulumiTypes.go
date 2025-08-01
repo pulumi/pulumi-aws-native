@@ -8060,7 +8060,7 @@ func (o InstanceEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 }
 
 type InstanceElasticGpuSpecification struct {
-	// The type of Elastic Graphics accelerator.
+	// The type of Elastic Graphics accelerator. Amazon Elastic Graphics is no longer available.
 	Type string `pulumi:"type"`
 }
 
@@ -8076,7 +8076,7 @@ type InstanceElasticGpuSpecificationInput interface {
 }
 
 type InstanceElasticGpuSpecificationArgs struct {
-	// The type of Elastic Graphics accelerator.
+	// The type of Elastic Graphics accelerator. Amazon Elastic Graphics is no longer available.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8131,7 +8131,7 @@ func (o InstanceElasticGpuSpecificationOutput) ToInstanceElasticGpuSpecification
 	return o
 }
 
-// The type of Elastic Graphics accelerator.
+// The type of Elastic Graphics accelerator. Amazon Elastic Graphics is no longer available.
 func (o InstanceElasticGpuSpecificationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceElasticGpuSpecification) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8157,9 +8157,9 @@ func (o InstanceElasticGpuSpecificationArrayOutput) Index(i pulumi.IntInput) Ins
 }
 
 type InstanceElasticInferenceAccelerator struct {
-	// The number of elastic inference accelerators to attach to the instance.
+	// The number of elastic inference accelerators to attach to the instance. Amazon Elastic Inference is no longer available.
 	Count *int `pulumi:"count"`
-	// The type of elastic inference accelerator.
+	// The type of elastic inference accelerator. Amazon Elastic Inference is no longer available.
 	Type string `pulumi:"type"`
 }
 
@@ -8175,9 +8175,9 @@ type InstanceElasticInferenceAcceleratorInput interface {
 }
 
 type InstanceElasticInferenceAcceleratorArgs struct {
-	// The number of elastic inference accelerators to attach to the instance.
+	// The number of elastic inference accelerators to attach to the instance. Amazon Elastic Inference is no longer available.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The type of elastic inference accelerator.
+	// The type of elastic inference accelerator. Amazon Elastic Inference is no longer available.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8232,12 +8232,12 @@ func (o InstanceElasticInferenceAcceleratorOutput) ToInstanceElasticInferenceAcc
 	return o
 }
 
-// The number of elastic inference accelerators to attach to the instance.
+// The number of elastic inference accelerators to attach to the instance. Amazon Elastic Inference is no longer available.
 func (o InstanceElasticInferenceAcceleratorOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceElasticInferenceAccelerator) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// The type of elastic inference accelerator.
+// The type of elastic inference accelerator. Amazon Elastic Inference is no longer available.
 func (o InstanceElasticInferenceAcceleratorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceElasticInferenceAccelerator) string { return v.Type }).(pulumi.StringOutput)
 }

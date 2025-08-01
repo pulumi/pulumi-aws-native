@@ -134,6 +134,9 @@ namespace Pulumi.AwsNative.Rds
         [Output("automaticBackupReplicationRetentionPeriod")]
         public Output<int?> AutomaticBackupReplicationRetentionPeriod { get; private set; } = null!;
 
+        [Output("automaticRestartTime")]
+        public Output<string> AutomaticRestartTime { get; private set; } = null!;
+
         /// <summary>
         /// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
         ///  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
@@ -783,6 +786,9 @@ namespace Pulumi.AwsNative.Rds
         [Output("optionGroupName")]
         public Output<string?> OptionGroupName { get; private set; } = null!;
 
+        [Output("percentProgress")]
+        public Output<string> PercentProgress { get; private set; } = null!;
+
         /// <summary>
         /// The AWS KMS key identifier for encryption of Performance Insights data.
         ///  The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
@@ -904,6 +910,12 @@ namespace Pulumi.AwsNative.Rds
         [Output("restoreTime")]
         public Output<string?> RestoreTime { get; private set; } = null!;
 
+        [Output("resumeFullAutomationModeTime")]
+        public Output<string> ResumeFullAutomationModeTime { get; private set; } = null!;
+
+        [Output("secondaryAvailabilityZone")]
+        public Output<string> SecondaryAvailabilityZone { get; private set; } = null!;
+
         /// <summary>
         /// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
         ///  Constraints:
@@ -948,6 +960,9 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Output("sourceRegion")]
         public Output<string?> SourceRegion { get; private set; } = null!;
+
+        [Output("statusInfos")]
+        public Output<ImmutableArray<Outputs.DbInstanceDbInstanceStatusInfo>> StatusInfos { get; private set; } = null!;
 
         /// <summary>
         /// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
@@ -1975,6 +1990,14 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("sourceRegion")]
         public Input<string>? SourceRegion { get; set; }
+
+        [Input("statusInfos")]
+        private InputList<Inputs.DbInstanceDbInstanceStatusInfoArgs>? _statusInfos;
+        public InputList<Inputs.DbInstanceDbInstanceStatusInfoArgs> StatusInfos
+        {
+            get => _statusInfos ?? (_statusInfos = new InputList<Inputs.DbInstanceDbInstanceStatusInfoArgs>());
+            set => _statusInfos = value;
+        }
 
         /// <summary>
         /// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.

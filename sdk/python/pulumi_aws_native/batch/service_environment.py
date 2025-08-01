@@ -29,6 +29,10 @@ class ServiceEnvironmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceEnvironment resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceEnvironmentCapacityLimitArgs']]] capacity_limits: The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
+        :param pulumi.Input[builtins.str] service_environment_type: The type of service environment. For SageMaker Training jobs, this value is `SAGEMAKER_TRAINING` .
+        :param pulumi.Input[builtins.str] service_environment_name: The name of the service environment.
+        :param pulumi.Input[builtins.str] state: The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A key-value pair to associate with a resource.
         """
         pulumi.set(__self__, "capacity_limits", capacity_limits)
@@ -43,6 +47,9 @@ class ServiceEnvironmentArgs:
     @property
     @pulumi.getter(name="capacityLimits")
     def capacity_limits(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceEnvironmentCapacityLimitArgs']]]:
+        """
+        The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
+        """
         return pulumi.get(self, "capacity_limits")
 
     @capacity_limits.setter
@@ -52,6 +59,9 @@ class ServiceEnvironmentArgs:
     @property
     @pulumi.getter(name="serviceEnvironmentType")
     def service_environment_type(self) -> pulumi.Input[builtins.str]:
+        """
+        The type of service environment. For SageMaker Training jobs, this value is `SAGEMAKER_TRAINING` .
+        """
         return pulumi.get(self, "service_environment_type")
 
     @service_environment_type.setter
@@ -61,6 +71,9 @@ class ServiceEnvironmentArgs:
     @property
     @pulumi.getter(name="serviceEnvironmentName")
     def service_environment_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the service environment.
+        """
         return pulumi.get(self, "service_environment_name")
 
     @service_environment_name.setter
@@ -70,6 +83,9 @@ class ServiceEnvironmentArgs:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -106,6 +122,10 @@ class ServiceEnvironment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEnvironmentCapacityLimitArgs', 'ServiceEnvironmentCapacityLimitArgsDict']]]] capacity_limits: The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
+        :param pulumi.Input[builtins.str] service_environment_name: The name of the service environment.
+        :param pulumi.Input[builtins.str] service_environment_type: The type of service environment. For SageMaker Training jobs, this value is `SAGEMAKER_TRAINING` .
+        :param pulumi.Input[builtins.str] state: The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A key-value pair to associate with a resource.
         """
         ...
@@ -191,26 +211,41 @@ class ServiceEnvironment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="capacityLimits")
     def capacity_limits(self) -> pulumi.Output[Sequence['outputs.ServiceEnvironmentCapacityLimit']]:
+        """
+        The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
+        """
         return pulumi.get(self, "capacity_limits")
 
     @property
     @pulumi.getter(name="serviceEnvironmentArn")
     def service_environment_arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the service environment.
+        """
         return pulumi.get(self, "service_environment_arn")
 
     @property
     @pulumi.getter(name="serviceEnvironmentName")
     def service_environment_name(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The name of the service environment.
+        """
         return pulumi.get(self, "service_environment_name")
 
     @property
     @pulumi.getter(name="serviceEnvironmentType")
     def service_environment_type(self) -> pulumi.Output[builtins.str]:
+        """
+        The type of service environment. For SageMaker Training jobs, this value is `SAGEMAKER_TRAINING` .
+        """
         return pulumi.get(self, "service_environment_type")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
+        """
         return pulumi.get(self, "state")
 
     @property

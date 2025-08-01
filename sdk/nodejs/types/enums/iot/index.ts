@@ -189,6 +189,20 @@ export const DomainConfigurationStatus = {
  */
 export type DomainConfigurationStatus = (typeof DomainConfigurationStatus)[keyof typeof DomainConfigurationStatus];
 
+export const EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus = {
+    Healthy: "HEALTHY",
+    Unhealthy: "UNHEALTHY",
+} as const;
+
+export type EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus = (typeof EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus)[keyof typeof EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus];
+
+export const EncryptionConfigurationEncryptionType = {
+    CustomerManagedKmsKey: "CUSTOMER_MANAGED_KMS_KEY",
+    AwsOwnedKmsKey: "AWS_OWNED_KMS_KEY",
+} as const;
+
+export type EncryptionConfigurationEncryptionType = (typeof EncryptionConfigurationEncryptionType)[keyof typeof EncryptionConfigurationEncryptionType];
+
 export const JobTemplateAction = {
     Cancel: "CANCEL",
 } as const;

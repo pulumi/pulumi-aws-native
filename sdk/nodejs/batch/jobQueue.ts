@@ -42,7 +42,7 @@ export class JobQueue extends pulumi.CustomResource {
      *
      * > All compute environments that are associated with a job queue must share the same architecture. AWS Batch doesn't support mixing compute environment architecture types in a single job queue.
      */
-    public readonly computeEnvironmentOrder!: pulumi.Output<outputs.batch.JobQueueComputeEnvironmentOrder[]>;
+    public readonly computeEnvironmentOrder!: pulumi.Output<outputs.batch.JobQueueComputeEnvironmentOrder[] | undefined>;
     /**
      * Returns the job queue ARN, such as `batch: *us-east-1* : *111122223333* :job-queue/ *JobQueueName*` .
      */
@@ -51,6 +51,7 @@ export class JobQueue extends pulumi.CustomResource {
      * The name of the job queue. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      */
     public readonly jobQueueName!: pulumi.Output<string | undefined>;
+    public readonly jobQueueType!: pulumi.Output<string | undefined>;
     /**
      * The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. AWS Batch will perform each action after `maxTimeSeconds` has passed.
      */
@@ -63,6 +64,7 @@ export class JobQueue extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the scheduling policy. The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
      */
     public readonly schedulingPolicyArn!: pulumi.Output<string | undefined>;
+    public readonly serviceEnvironmentOrder!: pulumi.Output<outputs.batch.JobQueueServiceEnvironmentOrder[] | undefined>;
     /**
      * The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
      */
@@ -83,17 +85,16 @@ export class JobQueue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.computeEnvironmentOrder === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'computeEnvironmentOrder'");
-            }
             if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
             resourceInputs["computeEnvironmentOrder"] = args ? args.computeEnvironmentOrder : undefined;
             resourceInputs["jobQueueName"] = args ? args.jobQueueName : undefined;
+            resourceInputs["jobQueueType"] = args ? args.jobQueueType : undefined;
             resourceInputs["jobStateTimeLimitActions"] = args ? args.jobStateTimeLimitActions : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["schedulingPolicyArn"] = args ? args.schedulingPolicyArn : undefined;
+            resourceInputs["serviceEnvironmentOrder"] = args ? args.serviceEnvironmentOrder : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["jobQueueArn"] = undefined /*out*/;
@@ -101,14 +102,16 @@ export class JobQueue extends pulumi.CustomResource {
             resourceInputs["computeEnvironmentOrder"] = undefined /*out*/;
             resourceInputs["jobQueueArn"] = undefined /*out*/;
             resourceInputs["jobQueueName"] = undefined /*out*/;
+            resourceInputs["jobQueueType"] = undefined /*out*/;
             resourceInputs["jobStateTimeLimitActions"] = undefined /*out*/;
             resourceInputs["priority"] = undefined /*out*/;
             resourceInputs["schedulingPolicyArn"] = undefined /*out*/;
+            resourceInputs["serviceEnvironmentOrder"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["jobQueueName", "tags.*"] };
+        const replaceOnChanges = { replaceOnChanges: ["jobQueueName", "jobQueueType", "tags.*"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(JobQueue.__pulumiType, name, resourceInputs, opts);
     }
@@ -123,11 +126,12 @@ export interface JobQueueArgs {
      *
      * > All compute environments that are associated with a job queue must share the same architecture. AWS Batch doesn't support mixing compute environment architecture types in a single job queue.
      */
-    computeEnvironmentOrder: pulumi.Input<pulumi.Input<inputs.batch.JobQueueComputeEnvironmentOrderArgs>[]>;
+    computeEnvironmentOrder?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueComputeEnvironmentOrderArgs>[]>;
     /**
      * The name of the job queue. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      */
     jobQueueName?: pulumi.Input<string>;
+    jobQueueType?: pulumi.Input<string>;
     /**
      * The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. AWS Batch will perform each action after `maxTimeSeconds` has passed.
      */
@@ -140,6 +144,7 @@ export interface JobQueueArgs {
      * The Amazon Resource Name (ARN) of the scheduling policy. The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
      */
     schedulingPolicyArn?: pulumi.Input<string>;
+    serviceEnvironmentOrder?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueServiceEnvironmentOrderArgs>[]>;
     /**
      * The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
      */

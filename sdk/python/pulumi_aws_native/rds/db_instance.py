@@ -96,6 +96,7 @@ class DbInstanceArgs:
                  source_db_instance_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  source_dbi_resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  source_region: Optional[pulumi.Input[builtins.str]] = None,
+                 status_infos: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceDbInstanceStatusInfoArgs']]]] = None,
                  storage_encrypted: Optional[pulumi.Input[builtins.bool]] = None,
                  storage_throughput: Optional[pulumi.Input[builtins.int]] = None,
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -785,6 +786,8 @@ class DbInstanceArgs:
             pulumi.set(__self__, "source_dbi_resource_id", source_dbi_resource_id)
         if source_region is not None:
             pulumi.set(__self__, "source_region", source_region)
+        if status_infos is not None:
+            pulumi.set(__self__, "status_infos", status_infos)
         if storage_encrypted is not None:
             pulumi.set(__self__, "storage_encrypted", storage_encrypted)
         if storage_throughput is not None:
@@ -2090,6 +2093,15 @@ class DbInstanceArgs:
         pulumi.set(self, "source_region", value)
 
     @property
+    @pulumi.getter(name="statusInfos")
+    def status_infos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceDbInstanceStatusInfoArgs']]]]:
+        return pulumi.get(self, "status_infos")
+
+    @status_infos.setter
+    def status_infos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceDbInstanceStatusInfoArgs']]]]):
+        pulumi.set(self, "status_infos", value)
+
+    @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -2305,6 +2317,7 @@ class DbInstance(pulumi.CustomResource):
                  source_db_instance_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  source_dbi_resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  source_region: Optional[pulumi.Input[builtins.str]] = None,
+                 status_infos: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceDbInstanceStatusInfoArgs', 'DbInstanceDbInstanceStatusInfoArgsDict']]]]] = None,
                  storage_encrypted: Optional[pulumi.Input[builtins.bool]] = None,
                  storage_throughput: Optional[pulumi.Input[builtins.int]] = None,
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -2991,6 +3004,7 @@ class DbInstance(pulumi.CustomResource):
                  source_db_instance_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  source_dbi_resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  source_region: Optional[pulumi.Input[builtins.str]] = None,
+                 status_infos: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceDbInstanceStatusInfoArgs', 'DbInstanceDbInstanceStatusInfoArgsDict']]]]] = None,
                  storage_encrypted: Optional[pulumi.Input[builtins.bool]] = None,
                  storage_throughput: Optional[pulumi.Input[builtins.int]] = None,
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -3081,6 +3095,7 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["source_db_instance_identifier"] = source_db_instance_identifier
             __props__.__dict__["source_dbi_resource_id"] = source_dbi_resource_id
             __props__.__dict__["source_region"] = source_region
+            __props__.__dict__["status_infos"] = status_infos
             __props__.__dict__["storage_encrypted"] = storage_encrypted
             __props__.__dict__["storage_throughput"] = storage_throughput
             __props__.__dict__["storage_type"] = storage_type
@@ -3091,6 +3106,7 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["use_default_processor_features"] = use_default_processor_features
             __props__.__dict__["use_latest_restorable_time"] = use_latest_restorable_time
             __props__.__dict__["vpc_security_groups"] = vpc_security_groups
+            __props__.__dict__["automatic_restart_time"] = None
             __props__.__dict__["certificate_details"] = None
             __props__.__dict__["db_instance_arn"] = None
             __props__.__dict__["db_instance_status"] = None
@@ -3100,8 +3116,11 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["is_storage_config_upgrade_available"] = None
             __props__.__dict__["latest_restorable_time"] = None
             __props__.__dict__["listener_endpoint"] = None
+            __props__.__dict__["percent_progress"] = None
             __props__.__dict__["read_replica_db_cluster_identifiers"] = None
             __props__.__dict__["read_replica_db_instance_identifiers"] = None
+            __props__.__dict__["resume_full_automation_mode_time"] = None
+            __props__.__dict__["secondary_availability_zone"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["backupTarget", "characterSetName", "customIamInstanceProfile", "dbClusterIdentifier", "dbInstanceIdentifier", "dbName", "dbSubnetGroupName", "dbSystemId", "kmsKeyId", "masterUsername", "ncharCharacterSetName", "sourceRegion", "storageEncrypted", "timezone"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbInstance, __self__).__init__(
@@ -3134,6 +3153,7 @@ class DbInstance(pulumi.CustomResource):
         __props__.__dict__["automatic_backup_replication_kms_key_id"] = None
         __props__.__dict__["automatic_backup_replication_region"] = None
         __props__.__dict__["automatic_backup_replication_retention_period"] = None
+        __props__.__dict__["automatic_restart_time"] = None
         __props__.__dict__["availability_zone"] = None
         __props__.__dict__["backup_retention_period"] = None
         __props__.__dict__["backup_target"] = None
@@ -3191,6 +3211,7 @@ class DbInstance(pulumi.CustomResource):
         __props__.__dict__["nchar_character_set_name"] = None
         __props__.__dict__["network_type"] = None
         __props__.__dict__["option_group_name"] = None
+        __props__.__dict__["percent_progress"] = None
         __props__.__dict__["performance_insights_kms_key_id"] = None
         __props__.__dict__["performance_insights_retention_period"] = None
         __props__.__dict__["port"] = None
@@ -3203,11 +3224,14 @@ class DbInstance(pulumi.CustomResource):
         __props__.__dict__["read_replica_db_instance_identifiers"] = None
         __props__.__dict__["replica_mode"] = None
         __props__.__dict__["restore_time"] = None
+        __props__.__dict__["resume_full_automation_mode_time"] = None
+        __props__.__dict__["secondary_availability_zone"] = None
         __props__.__dict__["source_db_cluster_identifier"] = None
         __props__.__dict__["source_db_instance_automated_backups_arn"] = None
         __props__.__dict__["source_db_instance_identifier"] = None
         __props__.__dict__["source_dbi_resource_id"] = None
         __props__.__dict__["source_region"] = None
+        __props__.__dict__["status_infos"] = None
         __props__.__dict__["storage_encrypted"] = None
         __props__.__dict__["storage_throughput"] = None
         __props__.__dict__["storage_type"] = None
@@ -3334,6 +3358,11 @@ class DbInstance(pulumi.CustomResource):
          If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
         """
         return pulumi.get(self, "automatic_backup_replication_retention_period")
+
+    @property
+    @pulumi.getter(name="automaticRestartTime")
+    def automatic_restart_time(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "automatic_restart_time")
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -4099,6 +4128,11 @@ class DbInstance(pulumi.CustomResource):
         return pulumi.get(self, "option_group_name")
 
     @property
+    @pulumi.getter(name="percentProgress")
+    def percent_progress(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "percent_progress")
+
+    @property
     @pulumi.getter(name="performanceInsightsKmsKeyId")
     def performance_insights_kms_key_id(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -4244,6 +4278,16 @@ class DbInstance(pulumi.CustomResource):
         return pulumi.get(self, "restore_time")
 
     @property
+    @pulumi.getter(name="resumeFullAutomationModeTime")
+    def resume_full_automation_mode_time(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "resume_full_automation_mode_time")
+
+    @property
+    @pulumi.getter(name="secondaryAvailabilityZone")
+    def secondary_availability_zone(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "secondary_availability_zone")
+
+    @property
     @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -4297,6 +4341,11 @@ class DbInstance(pulumi.CustomResource):
         The ID of the region that contains the source DB instance for the read replica.
         """
         return pulumi.get(self, "source_region")
+
+    @property
+    @pulumi.getter(name="statusInfos")
+    def status_infos(self) -> pulumi.Output[Optional[Sequence['outputs.DbInstanceDbInstanceStatusInfo']]]:
+        return pulumi.get(self, "status_infos")
 
     @property
     @pulumi.getter(name="storageEncrypted")

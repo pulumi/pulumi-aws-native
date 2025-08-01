@@ -15808,6 +15808,2330 @@ func (in *partnerAppTypePtr) ToPartnerAppTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(PartnerAppTypePtrOutput)
 }
 
+// The compression used for Athena query results.
+type ProcessingJobAthenaDatasetDefinitionOutputCompression string
+
+const (
+	ProcessingJobAthenaDatasetDefinitionOutputCompressionGzip   = ProcessingJobAthenaDatasetDefinitionOutputCompression("GZIP")
+	ProcessingJobAthenaDatasetDefinitionOutputCompressionSnappy = ProcessingJobAthenaDatasetDefinitionOutputCompression("SNAPPY")
+	ProcessingJobAthenaDatasetDefinitionOutputCompressionZlib   = ProcessingJobAthenaDatasetDefinitionOutputCompression("ZLIB")
+)
+
+func (ProcessingJobAthenaDatasetDefinitionOutputCompression) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobAthenaDatasetDefinitionOutputCompression)(nil)).Elem()
+}
+
+func (e ProcessingJobAthenaDatasetDefinitionOutputCompression) ToProcessingJobAthenaDatasetDefinitionOutputCompressionOutput() ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput {
+	return pulumi.ToOutput(e).(ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput)
+}
+
+func (e ProcessingJobAthenaDatasetDefinitionOutputCompression) ToProcessingJobAthenaDatasetDefinitionOutputCompressionOutputWithContext(ctx context.Context) ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput)
+}
+
+func (e ProcessingJobAthenaDatasetDefinitionOutputCompression) ToProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput() ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput {
+	return e.ToProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobAthenaDatasetDefinitionOutputCompression) ToProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutputWithContext(ctx context.Context) ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput {
+	return ProcessingJobAthenaDatasetDefinitionOutputCompression(e).ToProcessingJobAthenaDatasetDefinitionOutputCompressionOutputWithContext(ctx).ToProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutputWithContext(ctx)
+}
+
+func (e ProcessingJobAthenaDatasetDefinitionOutputCompression) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobAthenaDatasetDefinitionOutputCompression) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobAthenaDatasetDefinitionOutputCompression) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobAthenaDatasetDefinitionOutputCompression) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobAthenaDatasetDefinitionOutputCompression)(nil)).Elem()
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput) ToProcessingJobAthenaDatasetDefinitionOutputCompressionOutput() ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput {
+	return o
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput) ToProcessingJobAthenaDatasetDefinitionOutputCompressionOutputWithContext(ctx context.Context) ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput {
+	return o
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput) ToProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput() ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput {
+	return o.ToProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput) ToProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutputWithContext(ctx context.Context) ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobAthenaDatasetDefinitionOutputCompression) *ProcessingJobAthenaDatasetDefinitionOutputCompression {
+		return &v
+	}).(ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput)
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobAthenaDatasetDefinitionOutputCompression) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobAthenaDatasetDefinitionOutputCompression) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobAthenaDatasetDefinitionOutputCompression)(nil)).Elem()
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput) ToProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput() ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput {
+	return o
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput) ToProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutputWithContext(ctx context.Context) ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput {
+	return o
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput) Elem() ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput {
+	return o.ApplyT(func(v *ProcessingJobAthenaDatasetDefinitionOutputCompression) ProcessingJobAthenaDatasetDefinitionOutputCompression {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobAthenaDatasetDefinitionOutputCompression
+		return ret
+	}).(ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput)
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProcessingJobAthenaDatasetDefinitionOutputCompression) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProcessingJobAthenaDatasetDefinitionOutputCompressionInput is an input type that accepts values of the ProcessingJobAthenaDatasetDefinitionOutputCompression enum
+// A concrete instance of `ProcessingJobAthenaDatasetDefinitionOutputCompressionInput` can be one of the following:
+//
+//	ProcessingJobAthenaDatasetDefinitionOutputCompressionGzip
+//	ProcessingJobAthenaDatasetDefinitionOutputCompressionSnappy
+//	ProcessingJobAthenaDatasetDefinitionOutputCompressionZlib
+type ProcessingJobAthenaDatasetDefinitionOutputCompressionInput interface {
+	pulumi.Input
+
+	ToProcessingJobAthenaDatasetDefinitionOutputCompressionOutput() ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput
+	ToProcessingJobAthenaDatasetDefinitionOutputCompressionOutputWithContext(context.Context) ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput
+}
+
+var processingJobAthenaDatasetDefinitionOutputCompressionPtrType = reflect.TypeOf((**ProcessingJobAthenaDatasetDefinitionOutputCompression)(nil)).Elem()
+
+type ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput() ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput
+	ToProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutputWithContext(context.Context) ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput
+}
+
+type processingJobAthenaDatasetDefinitionOutputCompressionPtr string
+
+func ProcessingJobAthenaDatasetDefinitionOutputCompressionPtr(v string) ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrInput {
+	return (*processingJobAthenaDatasetDefinitionOutputCompressionPtr)(&v)
+}
+
+func (*processingJobAthenaDatasetDefinitionOutputCompressionPtr) ElementType() reflect.Type {
+	return processingJobAthenaDatasetDefinitionOutputCompressionPtrType
+}
+
+func (in *processingJobAthenaDatasetDefinitionOutputCompressionPtr) ToProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput() ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput {
+	return pulumi.ToOutput(in).(ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput)
+}
+
+func (in *processingJobAthenaDatasetDefinitionOutputCompressionPtr) ToProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutputWithContext(ctx context.Context) ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput)
+}
+
+// The data storage format for Athena query results.
+type ProcessingJobAthenaDatasetDefinitionOutputFormat string
+
+const (
+	ProcessingJobAthenaDatasetDefinitionOutputFormatParquet  = ProcessingJobAthenaDatasetDefinitionOutputFormat("PARQUET")
+	ProcessingJobAthenaDatasetDefinitionOutputFormatAvro     = ProcessingJobAthenaDatasetDefinitionOutputFormat("AVRO")
+	ProcessingJobAthenaDatasetDefinitionOutputFormatOrc      = ProcessingJobAthenaDatasetDefinitionOutputFormat("ORC")
+	ProcessingJobAthenaDatasetDefinitionOutputFormatJson     = ProcessingJobAthenaDatasetDefinitionOutputFormat("JSON")
+	ProcessingJobAthenaDatasetDefinitionOutputFormatTextfile = ProcessingJobAthenaDatasetDefinitionOutputFormat("TEXTFILE")
+)
+
+func (ProcessingJobAthenaDatasetDefinitionOutputFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobAthenaDatasetDefinitionOutputFormat)(nil)).Elem()
+}
+
+func (e ProcessingJobAthenaDatasetDefinitionOutputFormat) ToProcessingJobAthenaDatasetDefinitionOutputFormatOutput() ProcessingJobAthenaDatasetDefinitionOutputFormatOutput {
+	return pulumi.ToOutput(e).(ProcessingJobAthenaDatasetDefinitionOutputFormatOutput)
+}
+
+func (e ProcessingJobAthenaDatasetDefinitionOutputFormat) ToProcessingJobAthenaDatasetDefinitionOutputFormatOutputWithContext(ctx context.Context) ProcessingJobAthenaDatasetDefinitionOutputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProcessingJobAthenaDatasetDefinitionOutputFormatOutput)
+}
+
+func (e ProcessingJobAthenaDatasetDefinitionOutputFormat) ToProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput() ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput {
+	return e.ToProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobAthenaDatasetDefinitionOutputFormat) ToProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutputWithContext(ctx context.Context) ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput {
+	return ProcessingJobAthenaDatasetDefinitionOutputFormat(e).ToProcessingJobAthenaDatasetDefinitionOutputFormatOutputWithContext(ctx).ToProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutputWithContext(ctx)
+}
+
+func (e ProcessingJobAthenaDatasetDefinitionOutputFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobAthenaDatasetDefinitionOutputFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobAthenaDatasetDefinitionOutputFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobAthenaDatasetDefinitionOutputFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProcessingJobAthenaDatasetDefinitionOutputFormatOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobAthenaDatasetDefinitionOutputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobAthenaDatasetDefinitionOutputFormat)(nil)).Elem()
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputFormatOutput) ToProcessingJobAthenaDatasetDefinitionOutputFormatOutput() ProcessingJobAthenaDatasetDefinitionOutputFormatOutput {
+	return o
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputFormatOutput) ToProcessingJobAthenaDatasetDefinitionOutputFormatOutputWithContext(ctx context.Context) ProcessingJobAthenaDatasetDefinitionOutputFormatOutput {
+	return o
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputFormatOutput) ToProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput() ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput {
+	return o.ToProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputFormatOutput) ToProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutputWithContext(ctx context.Context) ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobAthenaDatasetDefinitionOutputFormat) *ProcessingJobAthenaDatasetDefinitionOutputFormat {
+		return &v
+	}).(ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput)
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobAthenaDatasetDefinitionOutputFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobAthenaDatasetDefinitionOutputFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobAthenaDatasetDefinitionOutputFormat)(nil)).Elem()
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput) ToProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput() ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput {
+	return o
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput) ToProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutputWithContext(ctx context.Context) ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput {
+	return o
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput) Elem() ProcessingJobAthenaDatasetDefinitionOutputFormatOutput {
+	return o.ApplyT(func(v *ProcessingJobAthenaDatasetDefinitionOutputFormat) ProcessingJobAthenaDatasetDefinitionOutputFormat {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobAthenaDatasetDefinitionOutputFormat
+		return ret
+	}).(ProcessingJobAthenaDatasetDefinitionOutputFormatOutput)
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProcessingJobAthenaDatasetDefinitionOutputFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProcessingJobAthenaDatasetDefinitionOutputFormatInput is an input type that accepts values of the ProcessingJobAthenaDatasetDefinitionOutputFormat enum
+// A concrete instance of `ProcessingJobAthenaDatasetDefinitionOutputFormatInput` can be one of the following:
+//
+//	ProcessingJobAthenaDatasetDefinitionOutputFormatParquet
+//	ProcessingJobAthenaDatasetDefinitionOutputFormatAvro
+//	ProcessingJobAthenaDatasetDefinitionOutputFormatOrc
+//	ProcessingJobAthenaDatasetDefinitionOutputFormatJson
+//	ProcessingJobAthenaDatasetDefinitionOutputFormatTextfile
+type ProcessingJobAthenaDatasetDefinitionOutputFormatInput interface {
+	pulumi.Input
+
+	ToProcessingJobAthenaDatasetDefinitionOutputFormatOutput() ProcessingJobAthenaDatasetDefinitionOutputFormatOutput
+	ToProcessingJobAthenaDatasetDefinitionOutputFormatOutputWithContext(context.Context) ProcessingJobAthenaDatasetDefinitionOutputFormatOutput
+}
+
+var processingJobAthenaDatasetDefinitionOutputFormatPtrType = reflect.TypeOf((**ProcessingJobAthenaDatasetDefinitionOutputFormat)(nil)).Elem()
+
+type ProcessingJobAthenaDatasetDefinitionOutputFormatPtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput() ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput
+	ToProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutputWithContext(context.Context) ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput
+}
+
+type processingJobAthenaDatasetDefinitionOutputFormatPtr string
+
+func ProcessingJobAthenaDatasetDefinitionOutputFormatPtr(v string) ProcessingJobAthenaDatasetDefinitionOutputFormatPtrInput {
+	return (*processingJobAthenaDatasetDefinitionOutputFormatPtr)(&v)
+}
+
+func (*processingJobAthenaDatasetDefinitionOutputFormatPtr) ElementType() reflect.Type {
+	return processingJobAthenaDatasetDefinitionOutputFormatPtrType
+}
+
+func (in *processingJobAthenaDatasetDefinitionOutputFormatPtr) ToProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput() ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput {
+	return pulumi.ToOutput(in).(ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput)
+}
+
+func (in *processingJobAthenaDatasetDefinitionOutputFormatPtr) ToProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutputWithContext(ctx context.Context) ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput)
+}
+
+// The ML compute instance type for the processing job.
+type ProcessingJobClusterConfigInstanceType string
+
+const (
+	ProcessingJobClusterConfigInstanceTypeMlT3Medium     = ProcessingJobClusterConfigInstanceType("ml.t3.medium")
+	ProcessingJobClusterConfigInstanceTypeMlT3Large      = ProcessingJobClusterConfigInstanceType("ml.t3.large")
+	ProcessingJobClusterConfigInstanceTypeMlT3Xlarge     = ProcessingJobClusterConfigInstanceType("ml.t3.xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlT32xlarge    = ProcessingJobClusterConfigInstanceType("ml.t3.2xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM4Xlarge     = ProcessingJobClusterConfigInstanceType("ml.m4.xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM42xlarge    = ProcessingJobClusterConfigInstanceType("ml.m4.2xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM44xlarge    = ProcessingJobClusterConfigInstanceType("ml.m4.4xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM410xlarge   = ProcessingJobClusterConfigInstanceType("ml.m4.10xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM416xlarge   = ProcessingJobClusterConfigInstanceType("ml.m4.16xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC4Xlarge     = ProcessingJobClusterConfigInstanceType("ml.c4.xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC42xlarge    = ProcessingJobClusterConfigInstanceType("ml.c4.2xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC44xlarge    = ProcessingJobClusterConfigInstanceType("ml.c4.4xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC48xlarge    = ProcessingJobClusterConfigInstanceType("ml.c4.8xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC5Xlarge     = ProcessingJobClusterConfigInstanceType("ml.c5.xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC52xlarge    = ProcessingJobClusterConfigInstanceType("ml.c5.2xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC54xlarge    = ProcessingJobClusterConfigInstanceType("ml.c5.4xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC59xlarge    = ProcessingJobClusterConfigInstanceType("ml.c5.9xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC518xlarge   = ProcessingJobClusterConfigInstanceType("ml.c5.18xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM5Large      = ProcessingJobClusterConfigInstanceType("ml.m5.large")
+	ProcessingJobClusterConfigInstanceTypeMlM5Xlarge     = ProcessingJobClusterConfigInstanceType("ml.m5.xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM52xlarge    = ProcessingJobClusterConfigInstanceType("ml.m5.2xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM54xlarge    = ProcessingJobClusterConfigInstanceType("ml.m5.4xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM512xlarge   = ProcessingJobClusterConfigInstanceType("ml.m5.12xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM524xlarge   = ProcessingJobClusterConfigInstanceType("ml.m5.24xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR5Large      = ProcessingJobClusterConfigInstanceType("ml.r5.large")
+	ProcessingJobClusterConfigInstanceTypeMlR5Xlarge     = ProcessingJobClusterConfigInstanceType("ml.r5.xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR52xlarge    = ProcessingJobClusterConfigInstanceType("ml.r5.2xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR54xlarge    = ProcessingJobClusterConfigInstanceType("ml.r5.4xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR58xlarge    = ProcessingJobClusterConfigInstanceType("ml.r5.8xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR512xlarge   = ProcessingJobClusterConfigInstanceType("ml.r5.12xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR516xlarge   = ProcessingJobClusterConfigInstanceType("ml.r5.16xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR524xlarge   = ProcessingJobClusterConfigInstanceType("ml.r5.24xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG4dnXlarge   = ProcessingJobClusterConfigInstanceType("ml.g4dn.xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG4dn2xlarge  = ProcessingJobClusterConfigInstanceType("ml.g4dn.2xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG4dn4xlarge  = ProcessingJobClusterConfigInstanceType("ml.g4dn.4xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG4dn8xlarge  = ProcessingJobClusterConfigInstanceType("ml.g4dn.8xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG4dn12xlarge = ProcessingJobClusterConfigInstanceType("ml.g4dn.12xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG4dn16xlarge = ProcessingJobClusterConfigInstanceType("ml.g4dn.16xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG5Xlarge     = ProcessingJobClusterConfigInstanceType("ml.g5.xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG52xlarge    = ProcessingJobClusterConfigInstanceType("ml.g5.2xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG54xlarge    = ProcessingJobClusterConfigInstanceType("ml.g5.4xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG58xlarge    = ProcessingJobClusterConfigInstanceType("ml.g5.8xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG516xlarge   = ProcessingJobClusterConfigInstanceType("ml.g5.16xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG512xlarge   = ProcessingJobClusterConfigInstanceType("ml.g5.12xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG524xlarge   = ProcessingJobClusterConfigInstanceType("ml.g5.24xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG548xlarge   = ProcessingJobClusterConfigInstanceType("ml.g5.48xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR5dLarge     = ProcessingJobClusterConfigInstanceType("ml.r5d.large")
+	ProcessingJobClusterConfigInstanceTypeMlR5dXlarge    = ProcessingJobClusterConfigInstanceType("ml.r5d.xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR5d2xlarge   = ProcessingJobClusterConfigInstanceType("ml.r5d.2xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR5d4xlarge   = ProcessingJobClusterConfigInstanceType("ml.r5d.4xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR5d8xlarge   = ProcessingJobClusterConfigInstanceType("ml.r5d.8xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR5d12xlarge  = ProcessingJobClusterConfigInstanceType("ml.r5d.12xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR5d16xlarge  = ProcessingJobClusterConfigInstanceType("ml.r5d.16xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR5d24xlarge  = ProcessingJobClusterConfigInstanceType("ml.r5d.24xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG6Xlarge     = ProcessingJobClusterConfigInstanceType("ml.g6.xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG62xlarge    = ProcessingJobClusterConfigInstanceType("ml.g6.2xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG64xlarge    = ProcessingJobClusterConfigInstanceType("ml.g6.4xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG68xlarge    = ProcessingJobClusterConfigInstanceType("ml.g6.8xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG612xlarge   = ProcessingJobClusterConfigInstanceType("ml.g6.12xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG616xlarge   = ProcessingJobClusterConfigInstanceType("ml.g6.16xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG624xlarge   = ProcessingJobClusterConfigInstanceType("ml.g6.24xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG648xlarge   = ProcessingJobClusterConfigInstanceType("ml.g6.48xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG6eXlarge    = ProcessingJobClusterConfigInstanceType("ml.g6e.xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG6e2xlarge   = ProcessingJobClusterConfigInstanceType("ml.g6e.2xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG6e4xlarge   = ProcessingJobClusterConfigInstanceType("ml.g6e.4xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG6e8xlarge   = ProcessingJobClusterConfigInstanceType("ml.g6e.8xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG6e12xlarge  = ProcessingJobClusterConfigInstanceType("ml.g6e.12xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG6e16xlarge  = ProcessingJobClusterConfigInstanceType("ml.g6e.16xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG6e24xlarge  = ProcessingJobClusterConfigInstanceType("ml.g6e.24xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlG6e48xlarge  = ProcessingJobClusterConfigInstanceType("ml.g6e.48xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM6iLarge     = ProcessingJobClusterConfigInstanceType("ml.m6i.large")
+	ProcessingJobClusterConfigInstanceTypeMlM6iXlarge    = ProcessingJobClusterConfigInstanceType("ml.m6i.xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM6i2xlarge   = ProcessingJobClusterConfigInstanceType("ml.m6i.2xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM6i4xlarge   = ProcessingJobClusterConfigInstanceType("ml.m6i.4xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM6i8xlarge   = ProcessingJobClusterConfigInstanceType("ml.m6i.8xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM6i12xlarge  = ProcessingJobClusterConfigInstanceType("ml.m6i.12xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM6i16xlarge  = ProcessingJobClusterConfigInstanceType("ml.m6i.16xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM6i24xlarge  = ProcessingJobClusterConfigInstanceType("ml.m6i.24xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM6i32xlarge  = ProcessingJobClusterConfigInstanceType("ml.m6i.32xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC6iXlarge    = ProcessingJobClusterConfigInstanceType("ml.c6i.xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC6i2xlarge   = ProcessingJobClusterConfigInstanceType("ml.c6i.2xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC6i4xlarge   = ProcessingJobClusterConfigInstanceType("ml.c6i.4xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC6i8xlarge   = ProcessingJobClusterConfigInstanceType("ml.c6i.8xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC6i12xlarge  = ProcessingJobClusterConfigInstanceType("ml.c6i.12xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC6i16xlarge  = ProcessingJobClusterConfigInstanceType("ml.c6i.16xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC6i24xlarge  = ProcessingJobClusterConfigInstanceType("ml.c6i.24xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC6i32xlarge  = ProcessingJobClusterConfigInstanceType("ml.c6i.32xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM7iLarge     = ProcessingJobClusterConfigInstanceType("ml.m7i.large")
+	ProcessingJobClusterConfigInstanceTypeMlM7iXlarge    = ProcessingJobClusterConfigInstanceType("ml.m7i.xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM7i2xlarge   = ProcessingJobClusterConfigInstanceType("ml.m7i.2xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM7i4xlarge   = ProcessingJobClusterConfigInstanceType("ml.m7i.4xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM7i8xlarge   = ProcessingJobClusterConfigInstanceType("ml.m7i.8xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM7i12xlarge  = ProcessingJobClusterConfigInstanceType("ml.m7i.12xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM7i16xlarge  = ProcessingJobClusterConfigInstanceType("ml.m7i.16xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM7i24xlarge  = ProcessingJobClusterConfigInstanceType("ml.m7i.24xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlM7i48xlarge  = ProcessingJobClusterConfigInstanceType("ml.m7i.48xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC7iLarge     = ProcessingJobClusterConfigInstanceType("ml.c7i.large")
+	ProcessingJobClusterConfigInstanceTypeMlC7iXlarge    = ProcessingJobClusterConfigInstanceType("ml.c7i.xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC7i2xlarge   = ProcessingJobClusterConfigInstanceType("ml.c7i.2xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC7i4xlarge   = ProcessingJobClusterConfigInstanceType("ml.c7i.4xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC7i8xlarge   = ProcessingJobClusterConfigInstanceType("ml.c7i.8xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC7i12xlarge  = ProcessingJobClusterConfigInstanceType("ml.c7i.12xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC7i16xlarge  = ProcessingJobClusterConfigInstanceType("ml.c7i.16xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC7i24xlarge  = ProcessingJobClusterConfigInstanceType("ml.c7i.24xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlC7i48xlarge  = ProcessingJobClusterConfigInstanceType("ml.c7i.48xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR7iLarge     = ProcessingJobClusterConfigInstanceType("ml.r7i.large")
+	ProcessingJobClusterConfigInstanceTypeMlR7iXlarge    = ProcessingJobClusterConfigInstanceType("ml.r7i.xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR7i2xlarge   = ProcessingJobClusterConfigInstanceType("ml.r7i.2xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR7i4xlarge   = ProcessingJobClusterConfigInstanceType("ml.r7i.4xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR7i8xlarge   = ProcessingJobClusterConfigInstanceType("ml.r7i.8xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR7i12xlarge  = ProcessingJobClusterConfigInstanceType("ml.r7i.12xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR7i16xlarge  = ProcessingJobClusterConfigInstanceType("ml.r7i.16xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR7i24xlarge  = ProcessingJobClusterConfigInstanceType("ml.r7i.24xlarge")
+	ProcessingJobClusterConfigInstanceTypeMlR7i48xlarge  = ProcessingJobClusterConfigInstanceType("ml.r7i.48xlarge")
+)
+
+func (ProcessingJobClusterConfigInstanceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobClusterConfigInstanceType)(nil)).Elem()
+}
+
+func (e ProcessingJobClusterConfigInstanceType) ToProcessingJobClusterConfigInstanceTypeOutput() ProcessingJobClusterConfigInstanceTypeOutput {
+	return pulumi.ToOutput(e).(ProcessingJobClusterConfigInstanceTypeOutput)
+}
+
+func (e ProcessingJobClusterConfigInstanceType) ToProcessingJobClusterConfigInstanceTypeOutputWithContext(ctx context.Context) ProcessingJobClusterConfigInstanceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProcessingJobClusterConfigInstanceTypeOutput)
+}
+
+func (e ProcessingJobClusterConfigInstanceType) ToProcessingJobClusterConfigInstanceTypePtrOutput() ProcessingJobClusterConfigInstanceTypePtrOutput {
+	return e.ToProcessingJobClusterConfigInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobClusterConfigInstanceType) ToProcessingJobClusterConfigInstanceTypePtrOutputWithContext(ctx context.Context) ProcessingJobClusterConfigInstanceTypePtrOutput {
+	return ProcessingJobClusterConfigInstanceType(e).ToProcessingJobClusterConfigInstanceTypeOutputWithContext(ctx).ToProcessingJobClusterConfigInstanceTypePtrOutputWithContext(ctx)
+}
+
+func (e ProcessingJobClusterConfigInstanceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobClusterConfigInstanceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobClusterConfigInstanceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobClusterConfigInstanceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProcessingJobClusterConfigInstanceTypeOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobClusterConfigInstanceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobClusterConfigInstanceType)(nil)).Elem()
+}
+
+func (o ProcessingJobClusterConfigInstanceTypeOutput) ToProcessingJobClusterConfigInstanceTypeOutput() ProcessingJobClusterConfigInstanceTypeOutput {
+	return o
+}
+
+func (o ProcessingJobClusterConfigInstanceTypeOutput) ToProcessingJobClusterConfigInstanceTypeOutputWithContext(ctx context.Context) ProcessingJobClusterConfigInstanceTypeOutput {
+	return o
+}
+
+func (o ProcessingJobClusterConfigInstanceTypeOutput) ToProcessingJobClusterConfigInstanceTypePtrOutput() ProcessingJobClusterConfigInstanceTypePtrOutput {
+	return o.ToProcessingJobClusterConfigInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobClusterConfigInstanceTypeOutput) ToProcessingJobClusterConfigInstanceTypePtrOutputWithContext(ctx context.Context) ProcessingJobClusterConfigInstanceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobClusterConfigInstanceType) *ProcessingJobClusterConfigInstanceType {
+		return &v
+	}).(ProcessingJobClusterConfigInstanceTypePtrOutput)
+}
+
+func (o ProcessingJobClusterConfigInstanceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobClusterConfigInstanceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobClusterConfigInstanceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProcessingJobClusterConfigInstanceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobClusterConfigInstanceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobClusterConfigInstanceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProcessingJobClusterConfigInstanceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobClusterConfigInstanceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobClusterConfigInstanceType)(nil)).Elem()
+}
+
+func (o ProcessingJobClusterConfigInstanceTypePtrOutput) ToProcessingJobClusterConfigInstanceTypePtrOutput() ProcessingJobClusterConfigInstanceTypePtrOutput {
+	return o
+}
+
+func (o ProcessingJobClusterConfigInstanceTypePtrOutput) ToProcessingJobClusterConfigInstanceTypePtrOutputWithContext(ctx context.Context) ProcessingJobClusterConfigInstanceTypePtrOutput {
+	return o
+}
+
+func (o ProcessingJobClusterConfigInstanceTypePtrOutput) Elem() ProcessingJobClusterConfigInstanceTypeOutput {
+	return o.ApplyT(func(v *ProcessingJobClusterConfigInstanceType) ProcessingJobClusterConfigInstanceType {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobClusterConfigInstanceType
+		return ret
+	}).(ProcessingJobClusterConfigInstanceTypeOutput)
+}
+
+func (o ProcessingJobClusterConfigInstanceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobClusterConfigInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProcessingJobClusterConfigInstanceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProcessingJobClusterConfigInstanceTypeInput is an input type that accepts values of the ProcessingJobClusterConfigInstanceType enum
+// A concrete instance of `ProcessingJobClusterConfigInstanceTypeInput` can be one of the following:
+//
+//	ProcessingJobClusterConfigInstanceTypeMlT3Medium
+//	ProcessingJobClusterConfigInstanceTypeMlT3Large
+//	ProcessingJobClusterConfigInstanceTypeMlT3Xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlT32xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM4Xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM42xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM44xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM410xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM416xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC4Xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC42xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC44xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC48xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC5Xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC52xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC54xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC59xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC518xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM5Large
+//	ProcessingJobClusterConfigInstanceTypeMlM5Xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM52xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM54xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM512xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM524xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR5Large
+//	ProcessingJobClusterConfigInstanceTypeMlR5Xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR52xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR54xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR58xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR512xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR516xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR524xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG4dnXlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG4dn2xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG4dn4xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG4dn8xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG4dn12xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG4dn16xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG5Xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG52xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG54xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG58xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG516xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG512xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG524xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG548xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR5dLarge
+//	ProcessingJobClusterConfigInstanceTypeMlR5dXlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR5d2xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR5d4xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR5d8xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR5d12xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR5d16xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR5d24xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG6Xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG62xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG64xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG68xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG612xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG616xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG624xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG648xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG6eXlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG6e2xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG6e4xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG6e8xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG6e12xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG6e16xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG6e24xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlG6e48xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM6iLarge
+//	ProcessingJobClusterConfigInstanceTypeMlM6iXlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM6i2xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM6i4xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM6i8xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM6i12xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM6i16xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM6i24xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM6i32xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC6iXlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC6i2xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC6i4xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC6i8xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC6i12xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC6i16xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC6i24xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC6i32xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM7iLarge
+//	ProcessingJobClusterConfigInstanceTypeMlM7iXlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM7i2xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM7i4xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM7i8xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM7i12xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM7i16xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM7i24xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlM7i48xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC7iLarge
+//	ProcessingJobClusterConfigInstanceTypeMlC7iXlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC7i2xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC7i4xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC7i8xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC7i12xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC7i16xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC7i24xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlC7i48xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR7iLarge
+//	ProcessingJobClusterConfigInstanceTypeMlR7iXlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR7i2xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR7i4xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR7i8xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR7i12xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR7i16xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR7i24xlarge
+//	ProcessingJobClusterConfigInstanceTypeMlR7i48xlarge
+type ProcessingJobClusterConfigInstanceTypeInput interface {
+	pulumi.Input
+
+	ToProcessingJobClusterConfigInstanceTypeOutput() ProcessingJobClusterConfigInstanceTypeOutput
+	ToProcessingJobClusterConfigInstanceTypeOutputWithContext(context.Context) ProcessingJobClusterConfigInstanceTypeOutput
+}
+
+var processingJobClusterConfigInstanceTypePtrType = reflect.TypeOf((**ProcessingJobClusterConfigInstanceType)(nil)).Elem()
+
+type ProcessingJobClusterConfigInstanceTypePtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobClusterConfigInstanceTypePtrOutput() ProcessingJobClusterConfigInstanceTypePtrOutput
+	ToProcessingJobClusterConfigInstanceTypePtrOutputWithContext(context.Context) ProcessingJobClusterConfigInstanceTypePtrOutput
+}
+
+type processingJobClusterConfigInstanceTypePtr string
+
+func ProcessingJobClusterConfigInstanceTypePtr(v string) ProcessingJobClusterConfigInstanceTypePtrInput {
+	return (*processingJobClusterConfigInstanceTypePtr)(&v)
+}
+
+func (*processingJobClusterConfigInstanceTypePtr) ElementType() reflect.Type {
+	return processingJobClusterConfigInstanceTypePtrType
+}
+
+func (in *processingJobClusterConfigInstanceTypePtr) ToProcessingJobClusterConfigInstanceTypePtrOutput() ProcessingJobClusterConfigInstanceTypePtrOutput {
+	return pulumi.ToOutput(in).(ProcessingJobClusterConfigInstanceTypePtrOutput)
+}
+
+func (in *processingJobClusterConfigInstanceTypePtr) ToProcessingJobClusterConfigInstanceTypePtrOutputWithContext(ctx context.Context) ProcessingJobClusterConfigInstanceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProcessingJobClusterConfigInstanceTypePtrOutput)
+}
+
+// Whether the generated dataset is FullyReplicated or ShardedByS3Key (default).
+type ProcessingJobDatasetDefinitionDataDistributionType string
+
+const (
+	ProcessingJobDatasetDefinitionDataDistributionTypeFullyReplicated = ProcessingJobDatasetDefinitionDataDistributionType("FullyReplicated")
+	ProcessingJobDatasetDefinitionDataDistributionTypeShardedByS3Key  = ProcessingJobDatasetDefinitionDataDistributionType("ShardedByS3Key")
+)
+
+func (ProcessingJobDatasetDefinitionDataDistributionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobDatasetDefinitionDataDistributionType)(nil)).Elem()
+}
+
+func (e ProcessingJobDatasetDefinitionDataDistributionType) ToProcessingJobDatasetDefinitionDataDistributionTypeOutput() ProcessingJobDatasetDefinitionDataDistributionTypeOutput {
+	return pulumi.ToOutput(e).(ProcessingJobDatasetDefinitionDataDistributionTypeOutput)
+}
+
+func (e ProcessingJobDatasetDefinitionDataDistributionType) ToProcessingJobDatasetDefinitionDataDistributionTypeOutputWithContext(ctx context.Context) ProcessingJobDatasetDefinitionDataDistributionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProcessingJobDatasetDefinitionDataDistributionTypeOutput)
+}
+
+func (e ProcessingJobDatasetDefinitionDataDistributionType) ToProcessingJobDatasetDefinitionDataDistributionTypePtrOutput() ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput {
+	return e.ToProcessingJobDatasetDefinitionDataDistributionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobDatasetDefinitionDataDistributionType) ToProcessingJobDatasetDefinitionDataDistributionTypePtrOutputWithContext(ctx context.Context) ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput {
+	return ProcessingJobDatasetDefinitionDataDistributionType(e).ToProcessingJobDatasetDefinitionDataDistributionTypeOutputWithContext(ctx).ToProcessingJobDatasetDefinitionDataDistributionTypePtrOutputWithContext(ctx)
+}
+
+func (e ProcessingJobDatasetDefinitionDataDistributionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobDatasetDefinitionDataDistributionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobDatasetDefinitionDataDistributionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobDatasetDefinitionDataDistributionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProcessingJobDatasetDefinitionDataDistributionTypeOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobDatasetDefinitionDataDistributionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobDatasetDefinitionDataDistributionType)(nil)).Elem()
+}
+
+func (o ProcessingJobDatasetDefinitionDataDistributionTypeOutput) ToProcessingJobDatasetDefinitionDataDistributionTypeOutput() ProcessingJobDatasetDefinitionDataDistributionTypeOutput {
+	return o
+}
+
+func (o ProcessingJobDatasetDefinitionDataDistributionTypeOutput) ToProcessingJobDatasetDefinitionDataDistributionTypeOutputWithContext(ctx context.Context) ProcessingJobDatasetDefinitionDataDistributionTypeOutput {
+	return o
+}
+
+func (o ProcessingJobDatasetDefinitionDataDistributionTypeOutput) ToProcessingJobDatasetDefinitionDataDistributionTypePtrOutput() ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput {
+	return o.ToProcessingJobDatasetDefinitionDataDistributionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobDatasetDefinitionDataDistributionTypeOutput) ToProcessingJobDatasetDefinitionDataDistributionTypePtrOutputWithContext(ctx context.Context) ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobDatasetDefinitionDataDistributionType) *ProcessingJobDatasetDefinitionDataDistributionType {
+		return &v
+	}).(ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput)
+}
+
+func (o ProcessingJobDatasetDefinitionDataDistributionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobDatasetDefinitionDataDistributionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobDatasetDefinitionDataDistributionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProcessingJobDatasetDefinitionDataDistributionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobDatasetDefinitionDataDistributionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobDatasetDefinitionDataDistributionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobDatasetDefinitionDataDistributionType)(nil)).Elem()
+}
+
+func (o ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput) ToProcessingJobDatasetDefinitionDataDistributionTypePtrOutput() ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput {
+	return o
+}
+
+func (o ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput) ToProcessingJobDatasetDefinitionDataDistributionTypePtrOutputWithContext(ctx context.Context) ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput {
+	return o
+}
+
+func (o ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput) Elem() ProcessingJobDatasetDefinitionDataDistributionTypeOutput {
+	return o.ApplyT(func(v *ProcessingJobDatasetDefinitionDataDistributionType) ProcessingJobDatasetDefinitionDataDistributionType {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobDatasetDefinitionDataDistributionType
+		return ret
+	}).(ProcessingJobDatasetDefinitionDataDistributionTypeOutput)
+}
+
+func (o ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProcessingJobDatasetDefinitionDataDistributionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProcessingJobDatasetDefinitionDataDistributionTypeInput is an input type that accepts values of the ProcessingJobDatasetDefinitionDataDistributionType enum
+// A concrete instance of `ProcessingJobDatasetDefinitionDataDistributionTypeInput` can be one of the following:
+//
+//	ProcessingJobDatasetDefinitionDataDistributionTypeFullyReplicated
+//	ProcessingJobDatasetDefinitionDataDistributionTypeShardedByS3Key
+type ProcessingJobDatasetDefinitionDataDistributionTypeInput interface {
+	pulumi.Input
+
+	ToProcessingJobDatasetDefinitionDataDistributionTypeOutput() ProcessingJobDatasetDefinitionDataDistributionTypeOutput
+	ToProcessingJobDatasetDefinitionDataDistributionTypeOutputWithContext(context.Context) ProcessingJobDatasetDefinitionDataDistributionTypeOutput
+}
+
+var processingJobDatasetDefinitionDataDistributionTypePtrType = reflect.TypeOf((**ProcessingJobDatasetDefinitionDataDistributionType)(nil)).Elem()
+
+type ProcessingJobDatasetDefinitionDataDistributionTypePtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobDatasetDefinitionDataDistributionTypePtrOutput() ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput
+	ToProcessingJobDatasetDefinitionDataDistributionTypePtrOutputWithContext(context.Context) ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput
+}
+
+type processingJobDatasetDefinitionDataDistributionTypePtr string
+
+func ProcessingJobDatasetDefinitionDataDistributionTypePtr(v string) ProcessingJobDatasetDefinitionDataDistributionTypePtrInput {
+	return (*processingJobDatasetDefinitionDataDistributionTypePtr)(&v)
+}
+
+func (*processingJobDatasetDefinitionDataDistributionTypePtr) ElementType() reflect.Type {
+	return processingJobDatasetDefinitionDataDistributionTypePtrType
+}
+
+func (in *processingJobDatasetDefinitionDataDistributionTypePtr) ToProcessingJobDatasetDefinitionDataDistributionTypePtrOutput() ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput {
+	return pulumi.ToOutput(in).(ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput)
+}
+
+func (in *processingJobDatasetDefinitionDataDistributionTypePtr) ToProcessingJobDatasetDefinitionDataDistributionTypePtrOutputWithContext(ctx context.Context) ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput)
+}
+
+// Whether to use File or Pipe input mode. In File (default) mode, Amazon SageMaker copies the data from the input source onto the local Amazon Elastic Block Store (Amazon EBS) volumes before starting your training algorithm. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your algorithm without using the EBS volume.
+type ProcessingJobDatasetDefinitionInputMode string
+
+const (
+	ProcessingJobDatasetDefinitionInputModeFile = ProcessingJobDatasetDefinitionInputMode("File")
+	ProcessingJobDatasetDefinitionInputModePipe = ProcessingJobDatasetDefinitionInputMode("Pipe")
+)
+
+func (ProcessingJobDatasetDefinitionInputMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobDatasetDefinitionInputMode)(nil)).Elem()
+}
+
+func (e ProcessingJobDatasetDefinitionInputMode) ToProcessingJobDatasetDefinitionInputModeOutput() ProcessingJobDatasetDefinitionInputModeOutput {
+	return pulumi.ToOutput(e).(ProcessingJobDatasetDefinitionInputModeOutput)
+}
+
+func (e ProcessingJobDatasetDefinitionInputMode) ToProcessingJobDatasetDefinitionInputModeOutputWithContext(ctx context.Context) ProcessingJobDatasetDefinitionInputModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProcessingJobDatasetDefinitionInputModeOutput)
+}
+
+func (e ProcessingJobDatasetDefinitionInputMode) ToProcessingJobDatasetDefinitionInputModePtrOutput() ProcessingJobDatasetDefinitionInputModePtrOutput {
+	return e.ToProcessingJobDatasetDefinitionInputModePtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobDatasetDefinitionInputMode) ToProcessingJobDatasetDefinitionInputModePtrOutputWithContext(ctx context.Context) ProcessingJobDatasetDefinitionInputModePtrOutput {
+	return ProcessingJobDatasetDefinitionInputMode(e).ToProcessingJobDatasetDefinitionInputModeOutputWithContext(ctx).ToProcessingJobDatasetDefinitionInputModePtrOutputWithContext(ctx)
+}
+
+func (e ProcessingJobDatasetDefinitionInputMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobDatasetDefinitionInputMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobDatasetDefinitionInputMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobDatasetDefinitionInputMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProcessingJobDatasetDefinitionInputModeOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobDatasetDefinitionInputModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobDatasetDefinitionInputMode)(nil)).Elem()
+}
+
+func (o ProcessingJobDatasetDefinitionInputModeOutput) ToProcessingJobDatasetDefinitionInputModeOutput() ProcessingJobDatasetDefinitionInputModeOutput {
+	return o
+}
+
+func (o ProcessingJobDatasetDefinitionInputModeOutput) ToProcessingJobDatasetDefinitionInputModeOutputWithContext(ctx context.Context) ProcessingJobDatasetDefinitionInputModeOutput {
+	return o
+}
+
+func (o ProcessingJobDatasetDefinitionInputModeOutput) ToProcessingJobDatasetDefinitionInputModePtrOutput() ProcessingJobDatasetDefinitionInputModePtrOutput {
+	return o.ToProcessingJobDatasetDefinitionInputModePtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobDatasetDefinitionInputModeOutput) ToProcessingJobDatasetDefinitionInputModePtrOutputWithContext(ctx context.Context) ProcessingJobDatasetDefinitionInputModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobDatasetDefinitionInputMode) *ProcessingJobDatasetDefinitionInputMode {
+		return &v
+	}).(ProcessingJobDatasetDefinitionInputModePtrOutput)
+}
+
+func (o ProcessingJobDatasetDefinitionInputModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobDatasetDefinitionInputModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobDatasetDefinitionInputMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProcessingJobDatasetDefinitionInputModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobDatasetDefinitionInputModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobDatasetDefinitionInputMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProcessingJobDatasetDefinitionInputModePtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobDatasetDefinitionInputModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobDatasetDefinitionInputMode)(nil)).Elem()
+}
+
+func (o ProcessingJobDatasetDefinitionInputModePtrOutput) ToProcessingJobDatasetDefinitionInputModePtrOutput() ProcessingJobDatasetDefinitionInputModePtrOutput {
+	return o
+}
+
+func (o ProcessingJobDatasetDefinitionInputModePtrOutput) ToProcessingJobDatasetDefinitionInputModePtrOutputWithContext(ctx context.Context) ProcessingJobDatasetDefinitionInputModePtrOutput {
+	return o
+}
+
+func (o ProcessingJobDatasetDefinitionInputModePtrOutput) Elem() ProcessingJobDatasetDefinitionInputModeOutput {
+	return o.ApplyT(func(v *ProcessingJobDatasetDefinitionInputMode) ProcessingJobDatasetDefinitionInputMode {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobDatasetDefinitionInputMode
+		return ret
+	}).(ProcessingJobDatasetDefinitionInputModeOutput)
+}
+
+func (o ProcessingJobDatasetDefinitionInputModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobDatasetDefinitionInputModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProcessingJobDatasetDefinitionInputMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProcessingJobDatasetDefinitionInputModeInput is an input type that accepts values of the ProcessingJobDatasetDefinitionInputMode enum
+// A concrete instance of `ProcessingJobDatasetDefinitionInputModeInput` can be one of the following:
+//
+//	ProcessingJobDatasetDefinitionInputModeFile
+//	ProcessingJobDatasetDefinitionInputModePipe
+type ProcessingJobDatasetDefinitionInputModeInput interface {
+	pulumi.Input
+
+	ToProcessingJobDatasetDefinitionInputModeOutput() ProcessingJobDatasetDefinitionInputModeOutput
+	ToProcessingJobDatasetDefinitionInputModeOutputWithContext(context.Context) ProcessingJobDatasetDefinitionInputModeOutput
+}
+
+var processingJobDatasetDefinitionInputModePtrType = reflect.TypeOf((**ProcessingJobDatasetDefinitionInputMode)(nil)).Elem()
+
+type ProcessingJobDatasetDefinitionInputModePtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobDatasetDefinitionInputModePtrOutput() ProcessingJobDatasetDefinitionInputModePtrOutput
+	ToProcessingJobDatasetDefinitionInputModePtrOutputWithContext(context.Context) ProcessingJobDatasetDefinitionInputModePtrOutput
+}
+
+type processingJobDatasetDefinitionInputModePtr string
+
+func ProcessingJobDatasetDefinitionInputModePtr(v string) ProcessingJobDatasetDefinitionInputModePtrInput {
+	return (*processingJobDatasetDefinitionInputModePtr)(&v)
+}
+
+func (*processingJobDatasetDefinitionInputModePtr) ElementType() reflect.Type {
+	return processingJobDatasetDefinitionInputModePtrType
+}
+
+func (in *processingJobDatasetDefinitionInputModePtr) ToProcessingJobDatasetDefinitionInputModePtrOutput() ProcessingJobDatasetDefinitionInputModePtrOutput {
+	return pulumi.ToOutput(in).(ProcessingJobDatasetDefinitionInputModePtrOutput)
+}
+
+func (in *processingJobDatasetDefinitionInputModePtr) ToProcessingJobDatasetDefinitionInputModePtrOutputWithContext(ctx context.Context) ProcessingJobDatasetDefinitionInputModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProcessingJobDatasetDefinitionInputModePtrOutput)
+}
+
+// The compression used for Redshift query results.
+type ProcessingJobRedshiftDatasetDefinitionOutputCompression string
+
+const (
+	ProcessingJobRedshiftDatasetDefinitionOutputCompressionNone   = ProcessingJobRedshiftDatasetDefinitionOutputCompression("None")
+	ProcessingJobRedshiftDatasetDefinitionOutputCompressionGzip   = ProcessingJobRedshiftDatasetDefinitionOutputCompression("GZIP")
+	ProcessingJobRedshiftDatasetDefinitionOutputCompressionSnappy = ProcessingJobRedshiftDatasetDefinitionOutputCompression("SNAPPY")
+	ProcessingJobRedshiftDatasetDefinitionOutputCompressionZstd   = ProcessingJobRedshiftDatasetDefinitionOutputCompression("ZSTD")
+	ProcessingJobRedshiftDatasetDefinitionOutputCompressionBzip2  = ProcessingJobRedshiftDatasetDefinitionOutputCompression("BZIP2")
+)
+
+func (ProcessingJobRedshiftDatasetDefinitionOutputCompression) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobRedshiftDatasetDefinitionOutputCompression)(nil)).Elem()
+}
+
+func (e ProcessingJobRedshiftDatasetDefinitionOutputCompression) ToProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput() ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput {
+	return pulumi.ToOutput(e).(ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput)
+}
+
+func (e ProcessingJobRedshiftDatasetDefinitionOutputCompression) ToProcessingJobRedshiftDatasetDefinitionOutputCompressionOutputWithContext(ctx context.Context) ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput)
+}
+
+func (e ProcessingJobRedshiftDatasetDefinitionOutputCompression) ToProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput() ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput {
+	return e.ToProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobRedshiftDatasetDefinitionOutputCompression) ToProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutputWithContext(ctx context.Context) ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput {
+	return ProcessingJobRedshiftDatasetDefinitionOutputCompression(e).ToProcessingJobRedshiftDatasetDefinitionOutputCompressionOutputWithContext(ctx).ToProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutputWithContext(ctx)
+}
+
+func (e ProcessingJobRedshiftDatasetDefinitionOutputCompression) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobRedshiftDatasetDefinitionOutputCompression) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobRedshiftDatasetDefinitionOutputCompression) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobRedshiftDatasetDefinitionOutputCompression) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobRedshiftDatasetDefinitionOutputCompression)(nil)).Elem()
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput) ToProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput() ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput {
+	return o
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput) ToProcessingJobRedshiftDatasetDefinitionOutputCompressionOutputWithContext(ctx context.Context) ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput {
+	return o
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput) ToProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput() ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput {
+	return o.ToProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput) ToProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutputWithContext(ctx context.Context) ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobRedshiftDatasetDefinitionOutputCompression) *ProcessingJobRedshiftDatasetDefinitionOutputCompression {
+		return &v
+	}).(ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput)
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobRedshiftDatasetDefinitionOutputCompression) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobRedshiftDatasetDefinitionOutputCompression) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobRedshiftDatasetDefinitionOutputCompression)(nil)).Elem()
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput) ToProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput() ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput {
+	return o
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput) ToProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutputWithContext(ctx context.Context) ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput {
+	return o
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput) Elem() ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput {
+	return o.ApplyT(func(v *ProcessingJobRedshiftDatasetDefinitionOutputCompression) ProcessingJobRedshiftDatasetDefinitionOutputCompression {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobRedshiftDatasetDefinitionOutputCompression
+		return ret
+	}).(ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput)
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProcessingJobRedshiftDatasetDefinitionOutputCompression) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProcessingJobRedshiftDatasetDefinitionOutputCompressionInput is an input type that accepts values of the ProcessingJobRedshiftDatasetDefinitionOutputCompression enum
+// A concrete instance of `ProcessingJobRedshiftDatasetDefinitionOutputCompressionInput` can be one of the following:
+//
+//	ProcessingJobRedshiftDatasetDefinitionOutputCompressionNone
+//	ProcessingJobRedshiftDatasetDefinitionOutputCompressionGzip
+//	ProcessingJobRedshiftDatasetDefinitionOutputCompressionSnappy
+//	ProcessingJobRedshiftDatasetDefinitionOutputCompressionZstd
+//	ProcessingJobRedshiftDatasetDefinitionOutputCompressionBzip2
+type ProcessingJobRedshiftDatasetDefinitionOutputCompressionInput interface {
+	pulumi.Input
+
+	ToProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput() ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput
+	ToProcessingJobRedshiftDatasetDefinitionOutputCompressionOutputWithContext(context.Context) ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput
+}
+
+var processingJobRedshiftDatasetDefinitionOutputCompressionPtrType = reflect.TypeOf((**ProcessingJobRedshiftDatasetDefinitionOutputCompression)(nil)).Elem()
+
+type ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput() ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput
+	ToProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutputWithContext(context.Context) ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput
+}
+
+type processingJobRedshiftDatasetDefinitionOutputCompressionPtr string
+
+func ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtr(v string) ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrInput {
+	return (*processingJobRedshiftDatasetDefinitionOutputCompressionPtr)(&v)
+}
+
+func (*processingJobRedshiftDatasetDefinitionOutputCompressionPtr) ElementType() reflect.Type {
+	return processingJobRedshiftDatasetDefinitionOutputCompressionPtrType
+}
+
+func (in *processingJobRedshiftDatasetDefinitionOutputCompressionPtr) ToProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput() ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput {
+	return pulumi.ToOutput(in).(ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput)
+}
+
+func (in *processingJobRedshiftDatasetDefinitionOutputCompressionPtr) ToProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutputWithContext(ctx context.Context) ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput)
+}
+
+// The data storage format for Redshift query results.
+type ProcessingJobRedshiftDatasetDefinitionOutputFormat string
+
+const (
+	ProcessingJobRedshiftDatasetDefinitionOutputFormatParquet = ProcessingJobRedshiftDatasetDefinitionOutputFormat("PARQUET")
+	ProcessingJobRedshiftDatasetDefinitionOutputFormatCsv     = ProcessingJobRedshiftDatasetDefinitionOutputFormat("CSV")
+)
+
+func (ProcessingJobRedshiftDatasetDefinitionOutputFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobRedshiftDatasetDefinitionOutputFormat)(nil)).Elem()
+}
+
+func (e ProcessingJobRedshiftDatasetDefinitionOutputFormat) ToProcessingJobRedshiftDatasetDefinitionOutputFormatOutput() ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput {
+	return pulumi.ToOutput(e).(ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput)
+}
+
+func (e ProcessingJobRedshiftDatasetDefinitionOutputFormat) ToProcessingJobRedshiftDatasetDefinitionOutputFormatOutputWithContext(ctx context.Context) ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput)
+}
+
+func (e ProcessingJobRedshiftDatasetDefinitionOutputFormat) ToProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput() ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput {
+	return e.ToProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobRedshiftDatasetDefinitionOutputFormat) ToProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutputWithContext(ctx context.Context) ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput {
+	return ProcessingJobRedshiftDatasetDefinitionOutputFormat(e).ToProcessingJobRedshiftDatasetDefinitionOutputFormatOutputWithContext(ctx).ToProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutputWithContext(ctx)
+}
+
+func (e ProcessingJobRedshiftDatasetDefinitionOutputFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobRedshiftDatasetDefinitionOutputFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobRedshiftDatasetDefinitionOutputFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobRedshiftDatasetDefinitionOutputFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobRedshiftDatasetDefinitionOutputFormat)(nil)).Elem()
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput) ToProcessingJobRedshiftDatasetDefinitionOutputFormatOutput() ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput {
+	return o
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput) ToProcessingJobRedshiftDatasetDefinitionOutputFormatOutputWithContext(ctx context.Context) ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput {
+	return o
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput) ToProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput() ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput {
+	return o.ToProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput) ToProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutputWithContext(ctx context.Context) ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobRedshiftDatasetDefinitionOutputFormat) *ProcessingJobRedshiftDatasetDefinitionOutputFormat {
+		return &v
+	}).(ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput)
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobRedshiftDatasetDefinitionOutputFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobRedshiftDatasetDefinitionOutputFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobRedshiftDatasetDefinitionOutputFormat)(nil)).Elem()
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput) ToProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput() ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput {
+	return o
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput) ToProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutputWithContext(ctx context.Context) ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput {
+	return o
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput) Elem() ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput {
+	return o.ApplyT(func(v *ProcessingJobRedshiftDatasetDefinitionOutputFormat) ProcessingJobRedshiftDatasetDefinitionOutputFormat {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobRedshiftDatasetDefinitionOutputFormat
+		return ret
+	}).(ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput)
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProcessingJobRedshiftDatasetDefinitionOutputFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProcessingJobRedshiftDatasetDefinitionOutputFormatInput is an input type that accepts values of the ProcessingJobRedshiftDatasetDefinitionOutputFormat enum
+// A concrete instance of `ProcessingJobRedshiftDatasetDefinitionOutputFormatInput` can be one of the following:
+//
+//	ProcessingJobRedshiftDatasetDefinitionOutputFormatParquet
+//	ProcessingJobRedshiftDatasetDefinitionOutputFormatCsv
+type ProcessingJobRedshiftDatasetDefinitionOutputFormatInput interface {
+	pulumi.Input
+
+	ToProcessingJobRedshiftDatasetDefinitionOutputFormatOutput() ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput
+	ToProcessingJobRedshiftDatasetDefinitionOutputFormatOutputWithContext(context.Context) ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput
+}
+
+var processingJobRedshiftDatasetDefinitionOutputFormatPtrType = reflect.TypeOf((**ProcessingJobRedshiftDatasetDefinitionOutputFormat)(nil)).Elem()
+
+type ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput() ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput
+	ToProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutputWithContext(context.Context) ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput
+}
+
+type processingJobRedshiftDatasetDefinitionOutputFormatPtr string
+
+func ProcessingJobRedshiftDatasetDefinitionOutputFormatPtr(v string) ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrInput {
+	return (*processingJobRedshiftDatasetDefinitionOutputFormatPtr)(&v)
+}
+
+func (*processingJobRedshiftDatasetDefinitionOutputFormatPtr) ElementType() reflect.Type {
+	return processingJobRedshiftDatasetDefinitionOutputFormatPtrType
+}
+
+func (in *processingJobRedshiftDatasetDefinitionOutputFormatPtr) ToProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput() ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput {
+	return pulumi.ToOutput(in).(ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput)
+}
+
+func (in *processingJobRedshiftDatasetDefinitionOutputFormatPtr) ToProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutputWithContext(ctx context.Context) ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput)
+}
+
+// Whether to GZIP-decompress the data in Amazon S3 as it is streamed into the processing container. `Gzip` can only be used when `Pipe` mode is specified as the `S3InputMode`. In `Pipe` mode, Amazon SageMaker streams input data from the source directly to your container without using the EBS volume.
+type ProcessingJobS3InputS3CompressionType string
+
+const (
+	ProcessingJobS3InputS3CompressionTypeNone = ProcessingJobS3InputS3CompressionType("None")
+	ProcessingJobS3InputS3CompressionTypeGzip = ProcessingJobS3InputS3CompressionType("Gzip")
+)
+
+func (ProcessingJobS3InputS3CompressionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobS3InputS3CompressionType)(nil)).Elem()
+}
+
+func (e ProcessingJobS3InputS3CompressionType) ToProcessingJobS3InputS3CompressionTypeOutput() ProcessingJobS3InputS3CompressionTypeOutput {
+	return pulumi.ToOutput(e).(ProcessingJobS3InputS3CompressionTypeOutput)
+}
+
+func (e ProcessingJobS3InputS3CompressionType) ToProcessingJobS3InputS3CompressionTypeOutputWithContext(ctx context.Context) ProcessingJobS3InputS3CompressionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProcessingJobS3InputS3CompressionTypeOutput)
+}
+
+func (e ProcessingJobS3InputS3CompressionType) ToProcessingJobS3InputS3CompressionTypePtrOutput() ProcessingJobS3InputS3CompressionTypePtrOutput {
+	return e.ToProcessingJobS3InputS3CompressionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobS3InputS3CompressionType) ToProcessingJobS3InputS3CompressionTypePtrOutputWithContext(ctx context.Context) ProcessingJobS3InputS3CompressionTypePtrOutput {
+	return ProcessingJobS3InputS3CompressionType(e).ToProcessingJobS3InputS3CompressionTypeOutputWithContext(ctx).ToProcessingJobS3InputS3CompressionTypePtrOutputWithContext(ctx)
+}
+
+func (e ProcessingJobS3InputS3CompressionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobS3InputS3CompressionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobS3InputS3CompressionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobS3InputS3CompressionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProcessingJobS3InputS3CompressionTypeOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobS3InputS3CompressionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobS3InputS3CompressionType)(nil)).Elem()
+}
+
+func (o ProcessingJobS3InputS3CompressionTypeOutput) ToProcessingJobS3InputS3CompressionTypeOutput() ProcessingJobS3InputS3CompressionTypeOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputS3CompressionTypeOutput) ToProcessingJobS3InputS3CompressionTypeOutputWithContext(ctx context.Context) ProcessingJobS3InputS3CompressionTypeOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputS3CompressionTypeOutput) ToProcessingJobS3InputS3CompressionTypePtrOutput() ProcessingJobS3InputS3CompressionTypePtrOutput {
+	return o.ToProcessingJobS3InputS3CompressionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3InputS3CompressionTypeOutput) ToProcessingJobS3InputS3CompressionTypePtrOutputWithContext(ctx context.Context) ProcessingJobS3InputS3CompressionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobS3InputS3CompressionType) *ProcessingJobS3InputS3CompressionType {
+		return &v
+	}).(ProcessingJobS3InputS3CompressionTypePtrOutput)
+}
+
+func (o ProcessingJobS3InputS3CompressionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3InputS3CompressionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobS3InputS3CompressionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProcessingJobS3InputS3CompressionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3InputS3CompressionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobS3InputS3CompressionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProcessingJobS3InputS3CompressionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobS3InputS3CompressionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobS3InputS3CompressionType)(nil)).Elem()
+}
+
+func (o ProcessingJobS3InputS3CompressionTypePtrOutput) ToProcessingJobS3InputS3CompressionTypePtrOutput() ProcessingJobS3InputS3CompressionTypePtrOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputS3CompressionTypePtrOutput) ToProcessingJobS3InputS3CompressionTypePtrOutputWithContext(ctx context.Context) ProcessingJobS3InputS3CompressionTypePtrOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputS3CompressionTypePtrOutput) Elem() ProcessingJobS3InputS3CompressionTypeOutput {
+	return o.ApplyT(func(v *ProcessingJobS3InputS3CompressionType) ProcessingJobS3InputS3CompressionType {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobS3InputS3CompressionType
+		return ret
+	}).(ProcessingJobS3InputS3CompressionTypeOutput)
+}
+
+func (o ProcessingJobS3InputS3CompressionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3InputS3CompressionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProcessingJobS3InputS3CompressionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProcessingJobS3InputS3CompressionTypeInput is an input type that accepts values of the ProcessingJobS3InputS3CompressionType enum
+// A concrete instance of `ProcessingJobS3InputS3CompressionTypeInput` can be one of the following:
+//
+//	ProcessingJobS3InputS3CompressionTypeNone
+//	ProcessingJobS3InputS3CompressionTypeGzip
+type ProcessingJobS3InputS3CompressionTypeInput interface {
+	pulumi.Input
+
+	ToProcessingJobS3InputS3CompressionTypeOutput() ProcessingJobS3InputS3CompressionTypeOutput
+	ToProcessingJobS3InputS3CompressionTypeOutputWithContext(context.Context) ProcessingJobS3InputS3CompressionTypeOutput
+}
+
+var processingJobS3InputS3CompressionTypePtrType = reflect.TypeOf((**ProcessingJobS3InputS3CompressionType)(nil)).Elem()
+
+type ProcessingJobS3InputS3CompressionTypePtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobS3InputS3CompressionTypePtrOutput() ProcessingJobS3InputS3CompressionTypePtrOutput
+	ToProcessingJobS3InputS3CompressionTypePtrOutputWithContext(context.Context) ProcessingJobS3InputS3CompressionTypePtrOutput
+}
+
+type processingJobS3InputS3CompressionTypePtr string
+
+func ProcessingJobS3InputS3CompressionTypePtr(v string) ProcessingJobS3InputS3CompressionTypePtrInput {
+	return (*processingJobS3InputS3CompressionTypePtr)(&v)
+}
+
+func (*processingJobS3InputS3CompressionTypePtr) ElementType() reflect.Type {
+	return processingJobS3InputS3CompressionTypePtrType
+}
+
+func (in *processingJobS3InputS3CompressionTypePtr) ToProcessingJobS3InputS3CompressionTypePtrOutput() ProcessingJobS3InputS3CompressionTypePtrOutput {
+	return pulumi.ToOutput(in).(ProcessingJobS3InputS3CompressionTypePtrOutput)
+}
+
+func (in *processingJobS3InputS3CompressionTypePtr) ToProcessingJobS3InputS3CompressionTypePtrOutputWithContext(ctx context.Context) ProcessingJobS3InputS3CompressionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProcessingJobS3InputS3CompressionTypePtrOutput)
+}
+
+// Whether to distribute the data from Amazon S3 to all processing instances with `FullyReplicated`, or whether the data from Amazon S3 is shared by Amazon S3 key, downloading one shard of data to each processing instance.
+type ProcessingJobS3InputS3DataDistributionType string
+
+const (
+	ProcessingJobS3InputS3DataDistributionTypeFullyReplicated = ProcessingJobS3InputS3DataDistributionType("FullyReplicated")
+	ProcessingJobS3InputS3DataDistributionTypeShardedByS3Key  = ProcessingJobS3InputS3DataDistributionType("ShardedByS3Key")
+)
+
+func (ProcessingJobS3InputS3DataDistributionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobS3InputS3DataDistributionType)(nil)).Elem()
+}
+
+func (e ProcessingJobS3InputS3DataDistributionType) ToProcessingJobS3InputS3DataDistributionTypeOutput() ProcessingJobS3InputS3DataDistributionTypeOutput {
+	return pulumi.ToOutput(e).(ProcessingJobS3InputS3DataDistributionTypeOutput)
+}
+
+func (e ProcessingJobS3InputS3DataDistributionType) ToProcessingJobS3InputS3DataDistributionTypeOutputWithContext(ctx context.Context) ProcessingJobS3InputS3DataDistributionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProcessingJobS3InputS3DataDistributionTypeOutput)
+}
+
+func (e ProcessingJobS3InputS3DataDistributionType) ToProcessingJobS3InputS3DataDistributionTypePtrOutput() ProcessingJobS3InputS3DataDistributionTypePtrOutput {
+	return e.ToProcessingJobS3InputS3DataDistributionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobS3InputS3DataDistributionType) ToProcessingJobS3InputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ProcessingJobS3InputS3DataDistributionTypePtrOutput {
+	return ProcessingJobS3InputS3DataDistributionType(e).ToProcessingJobS3InputS3DataDistributionTypeOutputWithContext(ctx).ToProcessingJobS3InputS3DataDistributionTypePtrOutputWithContext(ctx)
+}
+
+func (e ProcessingJobS3InputS3DataDistributionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobS3InputS3DataDistributionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobS3InputS3DataDistributionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobS3InputS3DataDistributionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProcessingJobS3InputS3DataDistributionTypeOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobS3InputS3DataDistributionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobS3InputS3DataDistributionType)(nil)).Elem()
+}
+
+func (o ProcessingJobS3InputS3DataDistributionTypeOutput) ToProcessingJobS3InputS3DataDistributionTypeOutput() ProcessingJobS3InputS3DataDistributionTypeOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputS3DataDistributionTypeOutput) ToProcessingJobS3InputS3DataDistributionTypeOutputWithContext(ctx context.Context) ProcessingJobS3InputS3DataDistributionTypeOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputS3DataDistributionTypeOutput) ToProcessingJobS3InputS3DataDistributionTypePtrOutput() ProcessingJobS3InputS3DataDistributionTypePtrOutput {
+	return o.ToProcessingJobS3InputS3DataDistributionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3InputS3DataDistributionTypeOutput) ToProcessingJobS3InputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ProcessingJobS3InputS3DataDistributionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobS3InputS3DataDistributionType) *ProcessingJobS3InputS3DataDistributionType {
+		return &v
+	}).(ProcessingJobS3InputS3DataDistributionTypePtrOutput)
+}
+
+func (o ProcessingJobS3InputS3DataDistributionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3InputS3DataDistributionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobS3InputS3DataDistributionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProcessingJobS3InputS3DataDistributionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3InputS3DataDistributionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobS3InputS3DataDistributionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProcessingJobS3InputS3DataDistributionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobS3InputS3DataDistributionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobS3InputS3DataDistributionType)(nil)).Elem()
+}
+
+func (o ProcessingJobS3InputS3DataDistributionTypePtrOutput) ToProcessingJobS3InputS3DataDistributionTypePtrOutput() ProcessingJobS3InputS3DataDistributionTypePtrOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputS3DataDistributionTypePtrOutput) ToProcessingJobS3InputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ProcessingJobS3InputS3DataDistributionTypePtrOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputS3DataDistributionTypePtrOutput) Elem() ProcessingJobS3InputS3DataDistributionTypeOutput {
+	return o.ApplyT(func(v *ProcessingJobS3InputS3DataDistributionType) ProcessingJobS3InputS3DataDistributionType {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobS3InputS3DataDistributionType
+		return ret
+	}).(ProcessingJobS3InputS3DataDistributionTypeOutput)
+}
+
+func (o ProcessingJobS3InputS3DataDistributionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3InputS3DataDistributionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProcessingJobS3InputS3DataDistributionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProcessingJobS3InputS3DataDistributionTypeInput is an input type that accepts values of the ProcessingJobS3InputS3DataDistributionType enum
+// A concrete instance of `ProcessingJobS3InputS3DataDistributionTypeInput` can be one of the following:
+//
+//	ProcessingJobS3InputS3DataDistributionTypeFullyReplicated
+//	ProcessingJobS3InputS3DataDistributionTypeShardedByS3Key
+type ProcessingJobS3InputS3DataDistributionTypeInput interface {
+	pulumi.Input
+
+	ToProcessingJobS3InputS3DataDistributionTypeOutput() ProcessingJobS3InputS3DataDistributionTypeOutput
+	ToProcessingJobS3InputS3DataDistributionTypeOutputWithContext(context.Context) ProcessingJobS3InputS3DataDistributionTypeOutput
+}
+
+var processingJobS3InputS3DataDistributionTypePtrType = reflect.TypeOf((**ProcessingJobS3InputS3DataDistributionType)(nil)).Elem()
+
+type ProcessingJobS3InputS3DataDistributionTypePtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobS3InputS3DataDistributionTypePtrOutput() ProcessingJobS3InputS3DataDistributionTypePtrOutput
+	ToProcessingJobS3InputS3DataDistributionTypePtrOutputWithContext(context.Context) ProcessingJobS3InputS3DataDistributionTypePtrOutput
+}
+
+type processingJobS3InputS3DataDistributionTypePtr string
+
+func ProcessingJobS3InputS3DataDistributionTypePtr(v string) ProcessingJobS3InputS3DataDistributionTypePtrInput {
+	return (*processingJobS3InputS3DataDistributionTypePtr)(&v)
+}
+
+func (*processingJobS3InputS3DataDistributionTypePtr) ElementType() reflect.Type {
+	return processingJobS3InputS3DataDistributionTypePtrType
+}
+
+func (in *processingJobS3InputS3DataDistributionTypePtr) ToProcessingJobS3InputS3DataDistributionTypePtrOutput() ProcessingJobS3InputS3DataDistributionTypePtrOutput {
+	return pulumi.ToOutput(in).(ProcessingJobS3InputS3DataDistributionTypePtrOutput)
+}
+
+func (in *processingJobS3InputS3DataDistributionTypePtr) ToProcessingJobS3InputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ProcessingJobS3InputS3DataDistributionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProcessingJobS3InputS3DataDistributionTypePtrOutput)
+}
+
+// Whether you use an S3Prefix or a ManifestFile for the data type. If you choose S3Prefix, S3Uri identifies a key name prefix. Amazon SageMaker uses all objects with the specified key name prefix for the processing job. If you choose ManifestFile, S3Uri identifies an object that is a manifest file containing a list of object keys that you want Amazon SageMaker to use for the processing job.
+type ProcessingJobS3InputS3DataType string
+
+const (
+	ProcessingJobS3InputS3DataTypeManifestFile = ProcessingJobS3InputS3DataType("ManifestFile")
+	ProcessingJobS3InputS3DataTypeS3Prefix     = ProcessingJobS3InputS3DataType("S3Prefix")
+)
+
+func (ProcessingJobS3InputS3DataType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobS3InputS3DataType)(nil)).Elem()
+}
+
+func (e ProcessingJobS3InputS3DataType) ToProcessingJobS3InputS3DataTypeOutput() ProcessingJobS3InputS3DataTypeOutput {
+	return pulumi.ToOutput(e).(ProcessingJobS3InputS3DataTypeOutput)
+}
+
+func (e ProcessingJobS3InputS3DataType) ToProcessingJobS3InputS3DataTypeOutputWithContext(ctx context.Context) ProcessingJobS3InputS3DataTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProcessingJobS3InputS3DataTypeOutput)
+}
+
+func (e ProcessingJobS3InputS3DataType) ToProcessingJobS3InputS3DataTypePtrOutput() ProcessingJobS3InputS3DataTypePtrOutput {
+	return e.ToProcessingJobS3InputS3DataTypePtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobS3InputS3DataType) ToProcessingJobS3InputS3DataTypePtrOutputWithContext(ctx context.Context) ProcessingJobS3InputS3DataTypePtrOutput {
+	return ProcessingJobS3InputS3DataType(e).ToProcessingJobS3InputS3DataTypeOutputWithContext(ctx).ToProcessingJobS3InputS3DataTypePtrOutputWithContext(ctx)
+}
+
+func (e ProcessingJobS3InputS3DataType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobS3InputS3DataType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobS3InputS3DataType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobS3InputS3DataType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProcessingJobS3InputS3DataTypeOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobS3InputS3DataTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobS3InputS3DataType)(nil)).Elem()
+}
+
+func (o ProcessingJobS3InputS3DataTypeOutput) ToProcessingJobS3InputS3DataTypeOutput() ProcessingJobS3InputS3DataTypeOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputS3DataTypeOutput) ToProcessingJobS3InputS3DataTypeOutputWithContext(ctx context.Context) ProcessingJobS3InputS3DataTypeOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputS3DataTypeOutput) ToProcessingJobS3InputS3DataTypePtrOutput() ProcessingJobS3InputS3DataTypePtrOutput {
+	return o.ToProcessingJobS3InputS3DataTypePtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3InputS3DataTypeOutput) ToProcessingJobS3InputS3DataTypePtrOutputWithContext(ctx context.Context) ProcessingJobS3InputS3DataTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobS3InputS3DataType) *ProcessingJobS3InputS3DataType {
+		return &v
+	}).(ProcessingJobS3InputS3DataTypePtrOutput)
+}
+
+func (o ProcessingJobS3InputS3DataTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3InputS3DataTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobS3InputS3DataType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProcessingJobS3InputS3DataTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3InputS3DataTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobS3InputS3DataType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProcessingJobS3InputS3DataTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobS3InputS3DataTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobS3InputS3DataType)(nil)).Elem()
+}
+
+func (o ProcessingJobS3InputS3DataTypePtrOutput) ToProcessingJobS3InputS3DataTypePtrOutput() ProcessingJobS3InputS3DataTypePtrOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputS3DataTypePtrOutput) ToProcessingJobS3InputS3DataTypePtrOutputWithContext(ctx context.Context) ProcessingJobS3InputS3DataTypePtrOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputS3DataTypePtrOutput) Elem() ProcessingJobS3InputS3DataTypeOutput {
+	return o.ApplyT(func(v *ProcessingJobS3InputS3DataType) ProcessingJobS3InputS3DataType {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobS3InputS3DataType
+		return ret
+	}).(ProcessingJobS3InputS3DataTypeOutput)
+}
+
+func (o ProcessingJobS3InputS3DataTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3InputS3DataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProcessingJobS3InputS3DataType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProcessingJobS3InputS3DataTypeInput is an input type that accepts values of the ProcessingJobS3InputS3DataType enum
+// A concrete instance of `ProcessingJobS3InputS3DataTypeInput` can be one of the following:
+//
+//	ProcessingJobS3InputS3DataTypeManifestFile
+//	ProcessingJobS3InputS3DataTypeS3Prefix
+type ProcessingJobS3InputS3DataTypeInput interface {
+	pulumi.Input
+
+	ToProcessingJobS3InputS3DataTypeOutput() ProcessingJobS3InputS3DataTypeOutput
+	ToProcessingJobS3InputS3DataTypeOutputWithContext(context.Context) ProcessingJobS3InputS3DataTypeOutput
+}
+
+var processingJobS3InputS3DataTypePtrType = reflect.TypeOf((**ProcessingJobS3InputS3DataType)(nil)).Elem()
+
+type ProcessingJobS3InputS3DataTypePtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobS3InputS3DataTypePtrOutput() ProcessingJobS3InputS3DataTypePtrOutput
+	ToProcessingJobS3InputS3DataTypePtrOutputWithContext(context.Context) ProcessingJobS3InputS3DataTypePtrOutput
+}
+
+type processingJobS3InputS3DataTypePtr string
+
+func ProcessingJobS3InputS3DataTypePtr(v string) ProcessingJobS3InputS3DataTypePtrInput {
+	return (*processingJobS3InputS3DataTypePtr)(&v)
+}
+
+func (*processingJobS3InputS3DataTypePtr) ElementType() reflect.Type {
+	return processingJobS3InputS3DataTypePtrType
+}
+
+func (in *processingJobS3InputS3DataTypePtr) ToProcessingJobS3InputS3DataTypePtrOutput() ProcessingJobS3InputS3DataTypePtrOutput {
+	return pulumi.ToOutput(in).(ProcessingJobS3InputS3DataTypePtrOutput)
+}
+
+func (in *processingJobS3InputS3DataTypePtr) ToProcessingJobS3InputS3DataTypePtrOutputWithContext(ctx context.Context) ProcessingJobS3InputS3DataTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProcessingJobS3InputS3DataTypePtrOutput)
+}
+
+// Whether to use File or Pipe input mode. In File mode, Amazon SageMaker copies the data from the input source onto the local ML storage volume before starting your processing container. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your processing container into named pipes without using the ML storage volume.
+type ProcessingJobS3InputS3InputMode string
+
+const (
+	ProcessingJobS3InputS3InputModeFile = ProcessingJobS3InputS3InputMode("File")
+	ProcessingJobS3InputS3InputModePipe = ProcessingJobS3InputS3InputMode("Pipe")
+)
+
+func (ProcessingJobS3InputS3InputMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobS3InputS3InputMode)(nil)).Elem()
+}
+
+func (e ProcessingJobS3InputS3InputMode) ToProcessingJobS3InputS3InputModeOutput() ProcessingJobS3InputS3InputModeOutput {
+	return pulumi.ToOutput(e).(ProcessingJobS3InputS3InputModeOutput)
+}
+
+func (e ProcessingJobS3InputS3InputMode) ToProcessingJobS3InputS3InputModeOutputWithContext(ctx context.Context) ProcessingJobS3InputS3InputModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProcessingJobS3InputS3InputModeOutput)
+}
+
+func (e ProcessingJobS3InputS3InputMode) ToProcessingJobS3InputS3InputModePtrOutput() ProcessingJobS3InputS3InputModePtrOutput {
+	return e.ToProcessingJobS3InputS3InputModePtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobS3InputS3InputMode) ToProcessingJobS3InputS3InputModePtrOutputWithContext(ctx context.Context) ProcessingJobS3InputS3InputModePtrOutput {
+	return ProcessingJobS3InputS3InputMode(e).ToProcessingJobS3InputS3InputModeOutputWithContext(ctx).ToProcessingJobS3InputS3InputModePtrOutputWithContext(ctx)
+}
+
+func (e ProcessingJobS3InputS3InputMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobS3InputS3InputMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobS3InputS3InputMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobS3InputS3InputMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProcessingJobS3InputS3InputModeOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobS3InputS3InputModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobS3InputS3InputMode)(nil)).Elem()
+}
+
+func (o ProcessingJobS3InputS3InputModeOutput) ToProcessingJobS3InputS3InputModeOutput() ProcessingJobS3InputS3InputModeOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputS3InputModeOutput) ToProcessingJobS3InputS3InputModeOutputWithContext(ctx context.Context) ProcessingJobS3InputS3InputModeOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputS3InputModeOutput) ToProcessingJobS3InputS3InputModePtrOutput() ProcessingJobS3InputS3InputModePtrOutput {
+	return o.ToProcessingJobS3InputS3InputModePtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3InputS3InputModeOutput) ToProcessingJobS3InputS3InputModePtrOutputWithContext(ctx context.Context) ProcessingJobS3InputS3InputModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobS3InputS3InputMode) *ProcessingJobS3InputS3InputMode {
+		return &v
+	}).(ProcessingJobS3InputS3InputModePtrOutput)
+}
+
+func (o ProcessingJobS3InputS3InputModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3InputS3InputModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobS3InputS3InputMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProcessingJobS3InputS3InputModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3InputS3InputModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobS3InputS3InputMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProcessingJobS3InputS3InputModePtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobS3InputS3InputModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobS3InputS3InputMode)(nil)).Elem()
+}
+
+func (o ProcessingJobS3InputS3InputModePtrOutput) ToProcessingJobS3InputS3InputModePtrOutput() ProcessingJobS3InputS3InputModePtrOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputS3InputModePtrOutput) ToProcessingJobS3InputS3InputModePtrOutputWithContext(ctx context.Context) ProcessingJobS3InputS3InputModePtrOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputS3InputModePtrOutput) Elem() ProcessingJobS3InputS3InputModeOutput {
+	return o.ApplyT(func(v *ProcessingJobS3InputS3InputMode) ProcessingJobS3InputS3InputMode {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobS3InputS3InputMode
+		return ret
+	}).(ProcessingJobS3InputS3InputModeOutput)
+}
+
+func (o ProcessingJobS3InputS3InputModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3InputS3InputModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProcessingJobS3InputS3InputMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProcessingJobS3InputS3InputModeInput is an input type that accepts values of the ProcessingJobS3InputS3InputMode enum
+// A concrete instance of `ProcessingJobS3InputS3InputModeInput` can be one of the following:
+//
+//	ProcessingJobS3InputS3InputModeFile
+//	ProcessingJobS3InputS3InputModePipe
+type ProcessingJobS3InputS3InputModeInput interface {
+	pulumi.Input
+
+	ToProcessingJobS3InputS3InputModeOutput() ProcessingJobS3InputS3InputModeOutput
+	ToProcessingJobS3InputS3InputModeOutputWithContext(context.Context) ProcessingJobS3InputS3InputModeOutput
+}
+
+var processingJobS3InputS3InputModePtrType = reflect.TypeOf((**ProcessingJobS3InputS3InputMode)(nil)).Elem()
+
+type ProcessingJobS3InputS3InputModePtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobS3InputS3InputModePtrOutput() ProcessingJobS3InputS3InputModePtrOutput
+	ToProcessingJobS3InputS3InputModePtrOutputWithContext(context.Context) ProcessingJobS3InputS3InputModePtrOutput
+}
+
+type processingJobS3InputS3InputModePtr string
+
+func ProcessingJobS3InputS3InputModePtr(v string) ProcessingJobS3InputS3InputModePtrInput {
+	return (*processingJobS3InputS3InputModePtr)(&v)
+}
+
+func (*processingJobS3InputS3InputModePtr) ElementType() reflect.Type {
+	return processingJobS3InputS3InputModePtrType
+}
+
+func (in *processingJobS3InputS3InputModePtr) ToProcessingJobS3InputS3InputModePtrOutput() ProcessingJobS3InputS3InputModePtrOutput {
+	return pulumi.ToOutput(in).(ProcessingJobS3InputS3InputModePtrOutput)
+}
+
+func (in *processingJobS3InputS3InputModePtr) ToProcessingJobS3InputS3InputModePtrOutputWithContext(ctx context.Context) ProcessingJobS3InputS3InputModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProcessingJobS3InputS3InputModePtrOutput)
+}
+
+// Whether to upload the results of the processing job continuously or after the job completes.
+type ProcessingJobS3OutputS3UploadMode string
+
+const (
+	ProcessingJobS3OutputS3UploadModeContinuous = ProcessingJobS3OutputS3UploadMode("Continuous")
+	ProcessingJobS3OutputS3UploadModeEndOfJob   = ProcessingJobS3OutputS3UploadMode("EndOfJob")
+)
+
+func (ProcessingJobS3OutputS3UploadMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobS3OutputS3UploadMode)(nil)).Elem()
+}
+
+func (e ProcessingJobS3OutputS3UploadMode) ToProcessingJobS3OutputS3UploadModeOutput() ProcessingJobS3OutputS3UploadModeOutput {
+	return pulumi.ToOutput(e).(ProcessingJobS3OutputS3UploadModeOutput)
+}
+
+func (e ProcessingJobS3OutputS3UploadMode) ToProcessingJobS3OutputS3UploadModeOutputWithContext(ctx context.Context) ProcessingJobS3OutputS3UploadModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProcessingJobS3OutputS3UploadModeOutput)
+}
+
+func (e ProcessingJobS3OutputS3UploadMode) ToProcessingJobS3OutputS3UploadModePtrOutput() ProcessingJobS3OutputS3UploadModePtrOutput {
+	return e.ToProcessingJobS3OutputS3UploadModePtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobS3OutputS3UploadMode) ToProcessingJobS3OutputS3UploadModePtrOutputWithContext(ctx context.Context) ProcessingJobS3OutputS3UploadModePtrOutput {
+	return ProcessingJobS3OutputS3UploadMode(e).ToProcessingJobS3OutputS3UploadModeOutputWithContext(ctx).ToProcessingJobS3OutputS3UploadModePtrOutputWithContext(ctx)
+}
+
+func (e ProcessingJobS3OutputS3UploadMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobS3OutputS3UploadMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProcessingJobS3OutputS3UploadMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProcessingJobS3OutputS3UploadMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProcessingJobS3OutputS3UploadModeOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobS3OutputS3UploadModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobS3OutputS3UploadMode)(nil)).Elem()
+}
+
+func (o ProcessingJobS3OutputS3UploadModeOutput) ToProcessingJobS3OutputS3UploadModeOutput() ProcessingJobS3OutputS3UploadModeOutput {
+	return o
+}
+
+func (o ProcessingJobS3OutputS3UploadModeOutput) ToProcessingJobS3OutputS3UploadModeOutputWithContext(ctx context.Context) ProcessingJobS3OutputS3UploadModeOutput {
+	return o
+}
+
+func (o ProcessingJobS3OutputS3UploadModeOutput) ToProcessingJobS3OutputS3UploadModePtrOutput() ProcessingJobS3OutputS3UploadModePtrOutput {
+	return o.ToProcessingJobS3OutputS3UploadModePtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3OutputS3UploadModeOutput) ToProcessingJobS3OutputS3UploadModePtrOutputWithContext(ctx context.Context) ProcessingJobS3OutputS3UploadModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobS3OutputS3UploadMode) *ProcessingJobS3OutputS3UploadMode {
+		return &v
+	}).(ProcessingJobS3OutputS3UploadModePtrOutput)
+}
+
+func (o ProcessingJobS3OutputS3UploadModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3OutputS3UploadModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobS3OutputS3UploadMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProcessingJobS3OutputS3UploadModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3OutputS3UploadModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobS3OutputS3UploadMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProcessingJobS3OutputS3UploadModePtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobS3OutputS3UploadModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobS3OutputS3UploadMode)(nil)).Elem()
+}
+
+func (o ProcessingJobS3OutputS3UploadModePtrOutput) ToProcessingJobS3OutputS3UploadModePtrOutput() ProcessingJobS3OutputS3UploadModePtrOutput {
+	return o
+}
+
+func (o ProcessingJobS3OutputS3UploadModePtrOutput) ToProcessingJobS3OutputS3UploadModePtrOutputWithContext(ctx context.Context) ProcessingJobS3OutputS3UploadModePtrOutput {
+	return o
+}
+
+func (o ProcessingJobS3OutputS3UploadModePtrOutput) Elem() ProcessingJobS3OutputS3UploadModeOutput {
+	return o.ApplyT(func(v *ProcessingJobS3OutputS3UploadMode) ProcessingJobS3OutputS3UploadMode {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobS3OutputS3UploadMode
+		return ret
+	}).(ProcessingJobS3OutputS3UploadModeOutput)
+}
+
+func (o ProcessingJobS3OutputS3UploadModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3OutputS3UploadModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProcessingJobS3OutputS3UploadMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProcessingJobS3OutputS3UploadModeInput is an input type that accepts values of the ProcessingJobS3OutputS3UploadMode enum
+// A concrete instance of `ProcessingJobS3OutputS3UploadModeInput` can be one of the following:
+//
+//	ProcessingJobS3OutputS3UploadModeContinuous
+//	ProcessingJobS3OutputS3UploadModeEndOfJob
+type ProcessingJobS3OutputS3UploadModeInput interface {
+	pulumi.Input
+
+	ToProcessingJobS3OutputS3UploadModeOutput() ProcessingJobS3OutputS3UploadModeOutput
+	ToProcessingJobS3OutputS3UploadModeOutputWithContext(context.Context) ProcessingJobS3OutputS3UploadModeOutput
+}
+
+var processingJobS3OutputS3UploadModePtrType = reflect.TypeOf((**ProcessingJobS3OutputS3UploadMode)(nil)).Elem()
+
+type ProcessingJobS3OutputS3UploadModePtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobS3OutputS3UploadModePtrOutput() ProcessingJobS3OutputS3UploadModePtrOutput
+	ToProcessingJobS3OutputS3UploadModePtrOutputWithContext(context.Context) ProcessingJobS3OutputS3UploadModePtrOutput
+}
+
+type processingJobS3OutputS3UploadModePtr string
+
+func ProcessingJobS3OutputS3UploadModePtr(v string) ProcessingJobS3OutputS3UploadModePtrInput {
+	return (*processingJobS3OutputS3UploadModePtr)(&v)
+}
+
+func (*processingJobS3OutputS3UploadModePtr) ElementType() reflect.Type {
+	return processingJobS3OutputS3UploadModePtrType
+}
+
+func (in *processingJobS3OutputS3UploadModePtr) ToProcessingJobS3OutputS3UploadModePtrOutput() ProcessingJobS3OutputS3UploadModePtrOutput {
+	return pulumi.ToOutput(in).(ProcessingJobS3OutputS3UploadModePtrOutput)
+}
+
+func (in *processingJobS3OutputS3UploadModePtr) ToProcessingJobS3OutputS3UploadModePtrOutputWithContext(ctx context.Context) ProcessingJobS3OutputS3UploadModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProcessingJobS3OutputS3UploadModePtrOutput)
+}
+
+// Provides the status of a processing job.
+type ProcessingJobStatus string
+
+const (
+	ProcessingJobStatusCompleted  = ProcessingJobStatus("Completed")
+	ProcessingJobStatusInProgress = ProcessingJobStatus("InProgress")
+	ProcessingJobStatusStopping   = ProcessingJobStatus("Stopping")
+	ProcessingJobStatusStopped    = ProcessingJobStatus("Stopped")
+	ProcessingJobStatusFailed     = ProcessingJobStatus("Failed")
+)
+
+type ProcessingJobStatusOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobStatus)(nil)).Elem()
+}
+
+func (o ProcessingJobStatusOutput) ToProcessingJobStatusOutput() ProcessingJobStatusOutput {
+	return o
+}
+
+func (o ProcessingJobStatusOutput) ToProcessingJobStatusOutputWithContext(ctx context.Context) ProcessingJobStatusOutput {
+	return o
+}
+
+func (o ProcessingJobStatusOutput) ToProcessingJobStatusPtrOutput() ProcessingJobStatusPtrOutput {
+	return o.ToProcessingJobStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobStatusOutput) ToProcessingJobStatusPtrOutputWithContext(ctx context.Context) ProcessingJobStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobStatus) *ProcessingJobStatus {
+		return &v
+	}).(ProcessingJobStatusPtrOutput)
+}
+
+func (o ProcessingJobStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProcessingJobStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProcessingJobStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProcessingJobStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobStatus)(nil)).Elem()
+}
+
+func (o ProcessingJobStatusPtrOutput) ToProcessingJobStatusPtrOutput() ProcessingJobStatusPtrOutput {
+	return o
+}
+
+func (o ProcessingJobStatusPtrOutput) ToProcessingJobStatusPtrOutputWithContext(ctx context.Context) ProcessingJobStatusPtrOutput {
+	return o
+}
+
+func (o ProcessingJobStatusPtrOutput) Elem() ProcessingJobStatusOutput {
+	return o.ApplyT(func(v *ProcessingJobStatus) ProcessingJobStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobStatus
+		return ret
+	}).(ProcessingJobStatusOutput)
+}
+
+func (o ProcessingJobStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProcessingJobStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The status of a project.
 type ProjectStatus string
 
@@ -19657,6 +21981,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAppAuthTypePtrInput)(nil)).Elem(), PartnerAppAuthType("IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAppTypeInput)(nil)).Elem(), PartnerAppType("lakera-guard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAppTypePtrInput)(nil)).Elem(), PartnerAppType("lakera-guard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobAthenaDatasetDefinitionOutputCompressionInput)(nil)).Elem(), ProcessingJobAthenaDatasetDefinitionOutputCompression("GZIP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrInput)(nil)).Elem(), ProcessingJobAthenaDatasetDefinitionOutputCompression("GZIP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobAthenaDatasetDefinitionOutputFormatInput)(nil)).Elem(), ProcessingJobAthenaDatasetDefinitionOutputFormat("PARQUET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobAthenaDatasetDefinitionOutputFormatPtrInput)(nil)).Elem(), ProcessingJobAthenaDatasetDefinitionOutputFormat("PARQUET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobClusterConfigInstanceTypeInput)(nil)).Elem(), ProcessingJobClusterConfigInstanceType("ml.t3.medium"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobClusterConfigInstanceTypePtrInput)(nil)).Elem(), ProcessingJobClusterConfigInstanceType("ml.t3.medium"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobDatasetDefinitionDataDistributionTypeInput)(nil)).Elem(), ProcessingJobDatasetDefinitionDataDistributionType("FullyReplicated"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobDatasetDefinitionDataDistributionTypePtrInput)(nil)).Elem(), ProcessingJobDatasetDefinitionDataDistributionType("FullyReplicated"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobDatasetDefinitionInputModeInput)(nil)).Elem(), ProcessingJobDatasetDefinitionInputMode("File"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobDatasetDefinitionInputModePtrInput)(nil)).Elem(), ProcessingJobDatasetDefinitionInputMode("File"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobRedshiftDatasetDefinitionOutputCompressionInput)(nil)).Elem(), ProcessingJobRedshiftDatasetDefinitionOutputCompression("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrInput)(nil)).Elem(), ProcessingJobRedshiftDatasetDefinitionOutputCompression("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobRedshiftDatasetDefinitionOutputFormatInput)(nil)).Elem(), ProcessingJobRedshiftDatasetDefinitionOutputFormat("PARQUET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrInput)(nil)).Elem(), ProcessingJobRedshiftDatasetDefinitionOutputFormat("PARQUET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobS3InputS3CompressionTypeInput)(nil)).Elem(), ProcessingJobS3InputS3CompressionType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobS3InputS3CompressionTypePtrInput)(nil)).Elem(), ProcessingJobS3InputS3CompressionType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobS3InputS3DataDistributionTypeInput)(nil)).Elem(), ProcessingJobS3InputS3DataDistributionType("FullyReplicated"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobS3InputS3DataDistributionTypePtrInput)(nil)).Elem(), ProcessingJobS3InputS3DataDistributionType("FullyReplicated"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobS3InputS3DataTypeInput)(nil)).Elem(), ProcessingJobS3InputS3DataType("ManifestFile"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobS3InputS3DataTypePtrInput)(nil)).Elem(), ProcessingJobS3InputS3DataType("ManifestFile"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobS3InputS3InputModeInput)(nil)).Elem(), ProcessingJobS3InputS3InputMode("File"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobS3InputS3InputModePtrInput)(nil)).Elem(), ProcessingJobS3InputS3InputMode("File"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobS3OutputS3UploadModeInput)(nil)).Elem(), ProcessingJobS3OutputS3UploadMode("Continuous"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobS3OutputS3UploadModePtrInput)(nil)).Elem(), ProcessingJobS3OutputS3UploadMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceAppTypeInput)(nil)).Elem(), SpaceAppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceAppTypePtrInput)(nil)).Elem(), SpaceAppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceManagedResourcesInput)(nil)).Elem(), SpaceManagedResources("ENABLED"))
@@ -19884,6 +22232,32 @@ func init() {
 	pulumi.RegisterOutputType(PartnerAppAuthTypePtrOutput{})
 	pulumi.RegisterOutputType(PartnerAppTypeOutput{})
 	pulumi.RegisterOutputType(PartnerAppTypePtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobAthenaDatasetDefinitionOutputCompressionOutput{})
+	pulumi.RegisterOutputType(ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobAthenaDatasetDefinitionOutputFormatOutput{})
+	pulumi.RegisterOutputType(ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobClusterConfigInstanceTypeOutput{})
+	pulumi.RegisterOutputType(ProcessingJobClusterConfigInstanceTypePtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobDatasetDefinitionDataDistributionTypeOutput{})
+	pulumi.RegisterOutputType(ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobDatasetDefinitionInputModeOutput{})
+	pulumi.RegisterOutputType(ProcessingJobDatasetDefinitionInputModePtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobRedshiftDatasetDefinitionOutputCompressionOutput{})
+	pulumi.RegisterOutputType(ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput{})
+	pulumi.RegisterOutputType(ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobS3InputS3CompressionTypeOutput{})
+	pulumi.RegisterOutputType(ProcessingJobS3InputS3CompressionTypePtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobS3InputS3DataDistributionTypeOutput{})
+	pulumi.RegisterOutputType(ProcessingJobS3InputS3DataDistributionTypePtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobS3InputS3DataTypeOutput{})
+	pulumi.RegisterOutputType(ProcessingJobS3InputS3DataTypePtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobS3InputS3InputModeOutput{})
+	pulumi.RegisterOutputType(ProcessingJobS3InputS3InputModePtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobS3OutputS3UploadModeOutput{})
+	pulumi.RegisterOutputType(ProcessingJobS3OutputS3UploadModePtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobStatusOutput{})
+	pulumi.RegisterOutputType(ProcessingJobStatusPtrOutput{})
 	pulumi.RegisterOutputType(ProjectStatusOutput{})
 	pulumi.RegisterOutputType(ProjectStatusPtrOutput{})
 	pulumi.RegisterOutputType(SpaceAppTypeOutput{})

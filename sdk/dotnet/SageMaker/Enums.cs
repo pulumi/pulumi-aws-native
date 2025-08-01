@@ -3237,6 +3237,531 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The compression used for Athena query results.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProcessingJobAthenaDatasetDefinitionOutputCompression : IEquatable<ProcessingJobAthenaDatasetDefinitionOutputCompression>
+    {
+        private readonly string _value;
+
+        private ProcessingJobAthenaDatasetDefinitionOutputCompression(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProcessingJobAthenaDatasetDefinitionOutputCompression Gzip { get; } = new ProcessingJobAthenaDatasetDefinitionOutputCompression("GZIP");
+        public static ProcessingJobAthenaDatasetDefinitionOutputCompression Snappy { get; } = new ProcessingJobAthenaDatasetDefinitionOutputCompression("SNAPPY");
+        public static ProcessingJobAthenaDatasetDefinitionOutputCompression Zlib { get; } = new ProcessingJobAthenaDatasetDefinitionOutputCompression("ZLIB");
+
+        public static bool operator ==(ProcessingJobAthenaDatasetDefinitionOutputCompression left, ProcessingJobAthenaDatasetDefinitionOutputCompression right) => left.Equals(right);
+        public static bool operator !=(ProcessingJobAthenaDatasetDefinitionOutputCompression left, ProcessingJobAthenaDatasetDefinitionOutputCompression right) => !left.Equals(right);
+
+        public static explicit operator string(ProcessingJobAthenaDatasetDefinitionOutputCompression value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProcessingJobAthenaDatasetDefinitionOutputCompression other && Equals(other);
+        public bool Equals(ProcessingJobAthenaDatasetDefinitionOutputCompression other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The data storage format for Athena query results.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProcessingJobAthenaDatasetDefinitionOutputFormat : IEquatable<ProcessingJobAthenaDatasetDefinitionOutputFormat>
+    {
+        private readonly string _value;
+
+        private ProcessingJobAthenaDatasetDefinitionOutputFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProcessingJobAthenaDatasetDefinitionOutputFormat Parquet { get; } = new ProcessingJobAthenaDatasetDefinitionOutputFormat("PARQUET");
+        public static ProcessingJobAthenaDatasetDefinitionOutputFormat Avro { get; } = new ProcessingJobAthenaDatasetDefinitionOutputFormat("AVRO");
+        public static ProcessingJobAthenaDatasetDefinitionOutputFormat Orc { get; } = new ProcessingJobAthenaDatasetDefinitionOutputFormat("ORC");
+        public static ProcessingJobAthenaDatasetDefinitionOutputFormat Json { get; } = new ProcessingJobAthenaDatasetDefinitionOutputFormat("JSON");
+        public static ProcessingJobAthenaDatasetDefinitionOutputFormat Textfile { get; } = new ProcessingJobAthenaDatasetDefinitionOutputFormat("TEXTFILE");
+
+        public static bool operator ==(ProcessingJobAthenaDatasetDefinitionOutputFormat left, ProcessingJobAthenaDatasetDefinitionOutputFormat right) => left.Equals(right);
+        public static bool operator !=(ProcessingJobAthenaDatasetDefinitionOutputFormat left, ProcessingJobAthenaDatasetDefinitionOutputFormat right) => !left.Equals(right);
+
+        public static explicit operator string(ProcessingJobAthenaDatasetDefinitionOutputFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProcessingJobAthenaDatasetDefinitionOutputFormat other && Equals(other);
+        public bool Equals(ProcessingJobAthenaDatasetDefinitionOutputFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The ML compute instance type for the processing job.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProcessingJobClusterConfigInstanceType : IEquatable<ProcessingJobClusterConfigInstanceType>
+    {
+        private readonly string _value;
+
+        private ProcessingJobClusterConfigInstanceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProcessingJobClusterConfigInstanceType MlT3Medium { get; } = new ProcessingJobClusterConfigInstanceType("ml.t3.medium");
+        public static ProcessingJobClusterConfigInstanceType MlT3Large { get; } = new ProcessingJobClusterConfigInstanceType("ml.t3.large");
+        public static ProcessingJobClusterConfigInstanceType MlT3Xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.t3.xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlT32xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.t3.2xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM4Xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m4.xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM42xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m4.2xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM44xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m4.4xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM410xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m4.10xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM416xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m4.16xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC4Xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c4.xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC42xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c4.2xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC44xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c4.4xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC48xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c4.8xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC5Xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c5.xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC52xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c5.2xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC54xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c5.4xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC59xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c5.9xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC518xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c5.18xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM5Large { get; } = new ProcessingJobClusterConfigInstanceType("ml.m5.large");
+        public static ProcessingJobClusterConfigInstanceType MlM5Xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m5.xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM52xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m5.2xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM54xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m5.4xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM512xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m5.12xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM524xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m5.24xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR5Large { get; } = new ProcessingJobClusterConfigInstanceType("ml.r5.large");
+        public static ProcessingJobClusterConfigInstanceType MlR5Xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r5.xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR52xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r5.2xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR54xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r5.4xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR58xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r5.8xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR512xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r5.12xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR516xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r5.16xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR524xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r5.24xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG4dnXlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g4dn.xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG4dn2xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g4dn.2xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG4dn4xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g4dn.4xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG4dn8xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g4dn.8xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG4dn12xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g4dn.12xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG4dn16xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g4dn.16xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG5Xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g5.xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG52xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g5.2xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG54xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g5.4xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG58xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g5.8xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG516xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g5.16xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG512xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g5.12xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG524xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g5.24xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG548xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g5.48xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR5dLarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r5d.large");
+        public static ProcessingJobClusterConfigInstanceType MlR5dXlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r5d.xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR5d2xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r5d.2xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR5d4xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r5d.4xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR5d8xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r5d.8xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR5d12xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r5d.12xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR5d16xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r5d.16xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR5d24xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r5d.24xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG6Xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g6.xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG62xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g6.2xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG64xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g6.4xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG68xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g6.8xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG612xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g6.12xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG616xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g6.16xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG624xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g6.24xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG648xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g6.48xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG6eXlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g6e.xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG6e2xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g6e.2xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG6e4xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g6e.4xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG6e8xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g6e.8xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG6e12xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g6e.12xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG6e16xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g6e.16xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG6e24xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g6e.24xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlG6e48xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.g6e.48xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM6iLarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m6i.large");
+        public static ProcessingJobClusterConfigInstanceType MlM6iXlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m6i.xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM6i2xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m6i.2xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM6i4xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m6i.4xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM6i8xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m6i.8xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM6i12xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m6i.12xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM6i16xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m6i.16xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM6i24xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m6i.24xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM6i32xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m6i.32xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC6iXlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c6i.xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC6i2xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c6i.2xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC6i4xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c6i.4xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC6i8xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c6i.8xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC6i12xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c6i.12xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC6i16xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c6i.16xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC6i24xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c6i.24xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC6i32xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c6i.32xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM7iLarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m7i.large");
+        public static ProcessingJobClusterConfigInstanceType MlM7iXlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m7i.xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM7i2xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m7i.2xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM7i4xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m7i.4xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM7i8xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m7i.8xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM7i12xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m7i.12xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM7i16xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m7i.16xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM7i24xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m7i.24xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlM7i48xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.m7i.48xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC7iLarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c7i.large");
+        public static ProcessingJobClusterConfigInstanceType MlC7iXlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c7i.xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC7i2xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c7i.2xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC7i4xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c7i.4xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC7i8xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c7i.8xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC7i12xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c7i.12xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC7i16xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c7i.16xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC7i24xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c7i.24xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlC7i48xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.c7i.48xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR7iLarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r7i.large");
+        public static ProcessingJobClusterConfigInstanceType MlR7iXlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r7i.xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR7i2xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r7i.2xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR7i4xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r7i.4xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR7i8xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r7i.8xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR7i12xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r7i.12xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR7i16xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r7i.16xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR7i24xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r7i.24xlarge");
+        public static ProcessingJobClusterConfigInstanceType MlR7i48xlarge { get; } = new ProcessingJobClusterConfigInstanceType("ml.r7i.48xlarge");
+
+        public static bool operator ==(ProcessingJobClusterConfigInstanceType left, ProcessingJobClusterConfigInstanceType right) => left.Equals(right);
+        public static bool operator !=(ProcessingJobClusterConfigInstanceType left, ProcessingJobClusterConfigInstanceType right) => !left.Equals(right);
+
+        public static explicit operator string(ProcessingJobClusterConfigInstanceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProcessingJobClusterConfigInstanceType other && Equals(other);
+        public bool Equals(ProcessingJobClusterConfigInstanceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the generated dataset is FullyReplicated or ShardedByS3Key (default).
+    /// </summary>
+    [EnumType]
+    public readonly struct ProcessingJobDatasetDefinitionDataDistributionType : IEquatable<ProcessingJobDatasetDefinitionDataDistributionType>
+    {
+        private readonly string _value;
+
+        private ProcessingJobDatasetDefinitionDataDistributionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProcessingJobDatasetDefinitionDataDistributionType FullyReplicated { get; } = new ProcessingJobDatasetDefinitionDataDistributionType("FullyReplicated");
+        public static ProcessingJobDatasetDefinitionDataDistributionType ShardedByS3Key { get; } = new ProcessingJobDatasetDefinitionDataDistributionType("ShardedByS3Key");
+
+        public static bool operator ==(ProcessingJobDatasetDefinitionDataDistributionType left, ProcessingJobDatasetDefinitionDataDistributionType right) => left.Equals(right);
+        public static bool operator !=(ProcessingJobDatasetDefinitionDataDistributionType left, ProcessingJobDatasetDefinitionDataDistributionType right) => !left.Equals(right);
+
+        public static explicit operator string(ProcessingJobDatasetDefinitionDataDistributionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProcessingJobDatasetDefinitionDataDistributionType other && Equals(other);
+        public bool Equals(ProcessingJobDatasetDefinitionDataDistributionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether to use File or Pipe input mode. In File (default) mode, Amazon SageMaker copies the data from the input source onto the local Amazon Elastic Block Store (Amazon EBS) volumes before starting your training algorithm. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your algorithm without using the EBS volume.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProcessingJobDatasetDefinitionInputMode : IEquatable<ProcessingJobDatasetDefinitionInputMode>
+    {
+        private readonly string _value;
+
+        private ProcessingJobDatasetDefinitionInputMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProcessingJobDatasetDefinitionInputMode File { get; } = new ProcessingJobDatasetDefinitionInputMode("File");
+        public static ProcessingJobDatasetDefinitionInputMode Pipe { get; } = new ProcessingJobDatasetDefinitionInputMode("Pipe");
+
+        public static bool operator ==(ProcessingJobDatasetDefinitionInputMode left, ProcessingJobDatasetDefinitionInputMode right) => left.Equals(right);
+        public static bool operator !=(ProcessingJobDatasetDefinitionInputMode left, ProcessingJobDatasetDefinitionInputMode right) => !left.Equals(right);
+
+        public static explicit operator string(ProcessingJobDatasetDefinitionInputMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProcessingJobDatasetDefinitionInputMode other && Equals(other);
+        public bool Equals(ProcessingJobDatasetDefinitionInputMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The compression used for Redshift query results.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProcessingJobRedshiftDatasetDefinitionOutputCompression : IEquatable<ProcessingJobRedshiftDatasetDefinitionOutputCompression>
+    {
+        private readonly string _value;
+
+        private ProcessingJobRedshiftDatasetDefinitionOutputCompression(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProcessingJobRedshiftDatasetDefinitionOutputCompression None { get; } = new ProcessingJobRedshiftDatasetDefinitionOutputCompression("None");
+        public static ProcessingJobRedshiftDatasetDefinitionOutputCompression Gzip { get; } = new ProcessingJobRedshiftDatasetDefinitionOutputCompression("GZIP");
+        public static ProcessingJobRedshiftDatasetDefinitionOutputCompression Snappy { get; } = new ProcessingJobRedshiftDatasetDefinitionOutputCompression("SNAPPY");
+        public static ProcessingJobRedshiftDatasetDefinitionOutputCompression Zstd { get; } = new ProcessingJobRedshiftDatasetDefinitionOutputCompression("ZSTD");
+        public static ProcessingJobRedshiftDatasetDefinitionOutputCompression Bzip2 { get; } = new ProcessingJobRedshiftDatasetDefinitionOutputCompression("BZIP2");
+
+        public static bool operator ==(ProcessingJobRedshiftDatasetDefinitionOutputCompression left, ProcessingJobRedshiftDatasetDefinitionOutputCompression right) => left.Equals(right);
+        public static bool operator !=(ProcessingJobRedshiftDatasetDefinitionOutputCompression left, ProcessingJobRedshiftDatasetDefinitionOutputCompression right) => !left.Equals(right);
+
+        public static explicit operator string(ProcessingJobRedshiftDatasetDefinitionOutputCompression value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProcessingJobRedshiftDatasetDefinitionOutputCompression other && Equals(other);
+        public bool Equals(ProcessingJobRedshiftDatasetDefinitionOutputCompression other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The data storage format for Redshift query results.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProcessingJobRedshiftDatasetDefinitionOutputFormat : IEquatable<ProcessingJobRedshiftDatasetDefinitionOutputFormat>
+    {
+        private readonly string _value;
+
+        private ProcessingJobRedshiftDatasetDefinitionOutputFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProcessingJobRedshiftDatasetDefinitionOutputFormat Parquet { get; } = new ProcessingJobRedshiftDatasetDefinitionOutputFormat("PARQUET");
+        public static ProcessingJobRedshiftDatasetDefinitionOutputFormat Csv { get; } = new ProcessingJobRedshiftDatasetDefinitionOutputFormat("CSV");
+
+        public static bool operator ==(ProcessingJobRedshiftDatasetDefinitionOutputFormat left, ProcessingJobRedshiftDatasetDefinitionOutputFormat right) => left.Equals(right);
+        public static bool operator !=(ProcessingJobRedshiftDatasetDefinitionOutputFormat left, ProcessingJobRedshiftDatasetDefinitionOutputFormat right) => !left.Equals(right);
+
+        public static explicit operator string(ProcessingJobRedshiftDatasetDefinitionOutputFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProcessingJobRedshiftDatasetDefinitionOutputFormat other && Equals(other);
+        public bool Equals(ProcessingJobRedshiftDatasetDefinitionOutputFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether to GZIP-decompress the data in Amazon S3 as it is streamed into the processing container. `Gzip` can only be used when `Pipe` mode is specified as the `S3InputMode`. In `Pipe` mode, Amazon SageMaker streams input data from the source directly to your container without using the EBS volume.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProcessingJobS3InputS3CompressionType : IEquatable<ProcessingJobS3InputS3CompressionType>
+    {
+        private readonly string _value;
+
+        private ProcessingJobS3InputS3CompressionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProcessingJobS3InputS3CompressionType None { get; } = new ProcessingJobS3InputS3CompressionType("None");
+        public static ProcessingJobS3InputS3CompressionType Gzip { get; } = new ProcessingJobS3InputS3CompressionType("Gzip");
+
+        public static bool operator ==(ProcessingJobS3InputS3CompressionType left, ProcessingJobS3InputS3CompressionType right) => left.Equals(right);
+        public static bool operator !=(ProcessingJobS3InputS3CompressionType left, ProcessingJobS3InputS3CompressionType right) => !left.Equals(right);
+
+        public static explicit operator string(ProcessingJobS3InputS3CompressionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProcessingJobS3InputS3CompressionType other && Equals(other);
+        public bool Equals(ProcessingJobS3InputS3CompressionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether to distribute the data from Amazon S3 to all processing instances with `FullyReplicated`, or whether the data from Amazon S3 is shared by Amazon S3 key, downloading one shard of data to each processing instance.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProcessingJobS3InputS3DataDistributionType : IEquatable<ProcessingJobS3InputS3DataDistributionType>
+    {
+        private readonly string _value;
+
+        private ProcessingJobS3InputS3DataDistributionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProcessingJobS3InputS3DataDistributionType FullyReplicated { get; } = new ProcessingJobS3InputS3DataDistributionType("FullyReplicated");
+        public static ProcessingJobS3InputS3DataDistributionType ShardedByS3Key { get; } = new ProcessingJobS3InputS3DataDistributionType("ShardedByS3Key");
+
+        public static bool operator ==(ProcessingJobS3InputS3DataDistributionType left, ProcessingJobS3InputS3DataDistributionType right) => left.Equals(right);
+        public static bool operator !=(ProcessingJobS3InputS3DataDistributionType left, ProcessingJobS3InputS3DataDistributionType right) => !left.Equals(right);
+
+        public static explicit operator string(ProcessingJobS3InputS3DataDistributionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProcessingJobS3InputS3DataDistributionType other && Equals(other);
+        public bool Equals(ProcessingJobS3InputS3DataDistributionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether you use an S3Prefix or a ManifestFile for the data type. If you choose S3Prefix, S3Uri identifies a key name prefix. Amazon SageMaker uses all objects with the specified key name prefix for the processing job. If you choose ManifestFile, S3Uri identifies an object that is a manifest file containing a list of object keys that you want Amazon SageMaker to use for the processing job.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProcessingJobS3InputS3DataType : IEquatable<ProcessingJobS3InputS3DataType>
+    {
+        private readonly string _value;
+
+        private ProcessingJobS3InputS3DataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProcessingJobS3InputS3DataType ManifestFile { get; } = new ProcessingJobS3InputS3DataType("ManifestFile");
+        public static ProcessingJobS3InputS3DataType S3Prefix { get; } = new ProcessingJobS3InputS3DataType("S3Prefix");
+
+        public static bool operator ==(ProcessingJobS3InputS3DataType left, ProcessingJobS3InputS3DataType right) => left.Equals(right);
+        public static bool operator !=(ProcessingJobS3InputS3DataType left, ProcessingJobS3InputS3DataType right) => !left.Equals(right);
+
+        public static explicit operator string(ProcessingJobS3InputS3DataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProcessingJobS3InputS3DataType other && Equals(other);
+        public bool Equals(ProcessingJobS3InputS3DataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether to use File or Pipe input mode. In File mode, Amazon SageMaker copies the data from the input source onto the local ML storage volume before starting your processing container. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your processing container into named pipes without using the ML storage volume.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProcessingJobS3InputS3InputMode : IEquatable<ProcessingJobS3InputS3InputMode>
+    {
+        private readonly string _value;
+
+        private ProcessingJobS3InputS3InputMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProcessingJobS3InputS3InputMode File { get; } = new ProcessingJobS3InputS3InputMode("File");
+        public static ProcessingJobS3InputS3InputMode Pipe { get; } = new ProcessingJobS3InputS3InputMode("Pipe");
+
+        public static bool operator ==(ProcessingJobS3InputS3InputMode left, ProcessingJobS3InputS3InputMode right) => left.Equals(right);
+        public static bool operator !=(ProcessingJobS3InputS3InputMode left, ProcessingJobS3InputS3InputMode right) => !left.Equals(right);
+
+        public static explicit operator string(ProcessingJobS3InputS3InputMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProcessingJobS3InputS3InputMode other && Equals(other);
+        public bool Equals(ProcessingJobS3InputS3InputMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether to upload the results of the processing job continuously or after the job completes.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProcessingJobS3OutputS3UploadMode : IEquatable<ProcessingJobS3OutputS3UploadMode>
+    {
+        private readonly string _value;
+
+        private ProcessingJobS3OutputS3UploadMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProcessingJobS3OutputS3UploadMode Continuous { get; } = new ProcessingJobS3OutputS3UploadMode("Continuous");
+        public static ProcessingJobS3OutputS3UploadMode EndOfJob { get; } = new ProcessingJobS3OutputS3UploadMode("EndOfJob");
+
+        public static bool operator ==(ProcessingJobS3OutputS3UploadMode left, ProcessingJobS3OutputS3UploadMode right) => left.Equals(right);
+        public static bool operator !=(ProcessingJobS3OutputS3UploadMode left, ProcessingJobS3OutputS3UploadMode right) => !left.Equals(right);
+
+        public static explicit operator string(ProcessingJobS3OutputS3UploadMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProcessingJobS3OutputS3UploadMode other && Equals(other);
+        public bool Equals(ProcessingJobS3OutputS3UploadMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Provides the status of a processing job.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProcessingJobStatus : IEquatable<ProcessingJobStatus>
+    {
+        private readonly string _value;
+
+        private ProcessingJobStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProcessingJobStatus Completed { get; } = new ProcessingJobStatus("Completed");
+        public static ProcessingJobStatus InProgress { get; } = new ProcessingJobStatus("InProgress");
+        public static ProcessingJobStatus Stopping { get; } = new ProcessingJobStatus("Stopping");
+        public static ProcessingJobStatus Stopped { get; } = new ProcessingJobStatus("Stopped");
+        public static ProcessingJobStatus Failed { get; } = new ProcessingJobStatus("Failed");
+
+        public static bool operator ==(ProcessingJobStatus left, ProcessingJobStatus right) => left.Equals(right);
+        public static bool operator !=(ProcessingJobStatus left, ProcessingJobStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ProcessingJobStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProcessingJobStatus other && Equals(other);
+        public bool Equals(ProcessingJobStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of a project.
     /// </summary>
     [EnumType]

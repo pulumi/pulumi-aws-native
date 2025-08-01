@@ -36,13 +36,13 @@ class MatchingWorkflowArgs:
         """
         The set of arguments for constructing a MatchingWorkflow resource.
         :param pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowInputSourceArgs']]] input_source_config: A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
-        :param pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowOutputSourceArgs']]] output_source_config: A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+        :param pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowOutputSourceArgs']]] output_source_config: A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
         :param pulumi.Input['MatchingWorkflowResolutionTechniquesArgs'] resolution_techniques: An object which defines the `resolutionType` and the `ruleBasedProperties` .
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
         :param pulumi.Input[builtins.str] description: The description of the MatchingWorkflow
         :param pulumi.Input['MatchingWorkflowIncrementalRunConfigArgs'] incremental_run_config: Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
                
-               > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+               > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         :param pulumi.Input[builtins.str] workflow_name: The name of the MatchingWorkflow
         """
@@ -75,7 +75,7 @@ class MatchingWorkflowArgs:
     @pulumi.getter(name="outputSourceConfig")
     def output_source_config(self) -> pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowOutputSourceArgs']]]:
         """
-        A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+        A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
         """
         return pulumi.get(self, "output_source_config")
 
@@ -125,7 +125,7 @@ class MatchingWorkflowArgs:
         """
         Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
 
-        > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+        > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
         """
         return pulumi.get(self, "incremental_run_config")
 
@@ -181,9 +181,9 @@ class MatchingWorkflow(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The description of the MatchingWorkflow
         :param pulumi.Input[Union['MatchingWorkflowIncrementalRunConfigArgs', 'MatchingWorkflowIncrementalRunConfigArgsDict']] incremental_run_config: Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
                
-               > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+               > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowInputSourceArgs', 'MatchingWorkflowInputSourceArgsDict']]]] input_source_config: A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowOutputSourceArgs', 'MatchingWorkflowOutputSourceArgsDict']]]] output_source_config: A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowOutputSourceArgs', 'MatchingWorkflowOutputSourceArgsDict']]]] output_source_config: A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
         :param pulumi.Input[Union['MatchingWorkflowResolutionTechniquesArgs', 'MatchingWorkflowResolutionTechniquesArgsDict']] resolution_techniques: An object which defines the `resolutionType` and the `ruleBasedProperties` .
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
@@ -305,7 +305,7 @@ class MatchingWorkflow(pulumi.CustomResource):
         """
         Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
 
-        > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+        > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
         """
         return pulumi.get(self, "incremental_run_config")
 
@@ -321,7 +321,7 @@ class MatchingWorkflow(pulumi.CustomResource):
     @pulumi.getter(name="outputSourceConfig")
     def output_source_config(self) -> pulumi.Output[Sequence['outputs.MatchingWorkflowOutputSource']]:
         """
-        A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+        A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
         """
         return pulumi.get(self, "output_source_config")
 

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,6 +35,8 @@ type AccessPoint struct {
 	Policy pulumi.AnyOutput `pulumi:"policy"`
 	// The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
 	PublicAccessBlockConfiguration AccessPointPublicAccessBlockConfigurationPtrOutput `pulumi:"publicAccessBlockConfiguration"`
+	// An arbitrary set of tags (key-value pairs) for this S3 Access Point.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
 	VpcConfiguration AccessPointVpcConfigurationPtrOutput `pulumi:"vpcConfiguration"`
 }
@@ -100,6 +103,8 @@ type accessPointArgs struct {
 	Policy interface{} `pulumi:"policy"`
 	// The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
 	PublicAccessBlockConfiguration *AccessPointPublicAccessBlockConfiguration `pulumi:"publicAccessBlockConfiguration"`
+	// An arbitrary set of tags (key-value pairs) for this S3 Access Point.
+	Tags []aws.Tag `pulumi:"tags"`
 	// If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
 	VpcConfiguration *AccessPointVpcConfiguration `pulumi:"vpcConfiguration"`
 }
@@ -118,6 +123,8 @@ type AccessPointArgs struct {
 	Policy pulumi.Input
 	// The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
 	PublicAccessBlockConfiguration AccessPointPublicAccessBlockConfigurationPtrInput
+	// An arbitrary set of tags (key-value pairs) for this S3 Access Point.
+	Tags aws.TagArrayInput
 	// If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
 	VpcConfiguration AccessPointVpcConfigurationPtrInput
 }
@@ -201,6 +208,11 @@ func (o AccessPointOutput) PublicAccessBlockConfiguration() AccessPointPublicAcc
 	return o.ApplyT(func(v *AccessPoint) AccessPointPublicAccessBlockConfigurationPtrOutput {
 		return v.PublicAccessBlockConfiguration
 	}).(AccessPointPublicAccessBlockConfigurationPtrOutput)
+}
+
+// An arbitrary set of tags (key-value pairs) for this S3 Access Point.
+func (o AccessPointOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *AccessPoint) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).

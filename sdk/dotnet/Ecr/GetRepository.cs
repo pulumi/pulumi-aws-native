@@ -79,6 +79,7 @@ namespace Pulumi.AwsNative.Ecr
         /// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
         /// </summary>
         public readonly Pulumi.AwsNative.Ecr.RepositoryImageTagMutability? ImageTagMutability;
+        public readonly ImmutableArray<Outputs.RepositoryImageTagMutabilityExclusionFilter> ImageTagMutabilityExclusionFilters;
         /// <summary>
         /// Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
         /// </summary>
@@ -106,6 +107,8 @@ namespace Pulumi.AwsNative.Ecr
 
             Pulumi.AwsNative.Ecr.RepositoryImageTagMutability? imageTagMutability,
 
+            ImmutableArray<Outputs.RepositoryImageTagMutabilityExclusionFilter> imageTagMutabilityExclusionFilters,
+
             Outputs.RepositoryLifecyclePolicy? lifecyclePolicy,
 
             object? repositoryPolicyText,
@@ -117,6 +120,7 @@ namespace Pulumi.AwsNative.Ecr
             Arn = arn;
             ImageScanningConfiguration = imageScanningConfiguration;
             ImageTagMutability = imageTagMutability;
+            ImageTagMutabilityExclusionFilters = imageTagMutabilityExclusionFilters;
             LifecyclePolicy = lifecyclePolicy;
             RepositoryPolicyText = repositoryPolicyText;
             RepositoryUri = repositoryUri;

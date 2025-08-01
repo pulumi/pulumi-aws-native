@@ -531,6 +531,62 @@ namespace Pulumi.AwsNative.IoT
     }
 
     [EnumType]
+    public readonly struct EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus : IEquatable<EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus>
+    {
+        private readonly string _value;
+
+        private EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus Healthy { get; } = new EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus("HEALTHY");
+        public static EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus Unhealthy { get; } = new EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus("UNHEALTHY");
+
+        public static bool operator ==(EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus left, EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus right) => left.Equals(right);
+        public static bool operator !=(EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus left, EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus other && Equals(other);
+        public bool Equals(EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct EncryptionConfigurationEncryptionType : IEquatable<EncryptionConfigurationEncryptionType>
+    {
+        private readonly string _value;
+
+        private EncryptionConfigurationEncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EncryptionConfigurationEncryptionType CustomerManagedKmsKey { get; } = new EncryptionConfigurationEncryptionType("CUSTOMER_MANAGED_KMS_KEY");
+        public static EncryptionConfigurationEncryptionType AwsOwnedKmsKey { get; } = new EncryptionConfigurationEncryptionType("AWS_OWNED_KMS_KEY");
+
+        public static bool operator ==(EncryptionConfigurationEncryptionType left, EncryptionConfigurationEncryptionType right) => left.Equals(right);
+        public static bool operator !=(EncryptionConfigurationEncryptionType left, EncryptionConfigurationEncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(EncryptionConfigurationEncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EncryptionConfigurationEncryptionType other && Equals(other);
+        public bool Equals(EncryptionConfigurationEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct JobTemplateAction : IEquatable<JobTemplateAction>
     {
         private readonly string _value;

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -40,6 +41,8 @@ type LookupAccessPointResult struct {
 	Policy interface{} `pulumi:"policy"`
 	// The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
 	PublicAccessBlockConfiguration *AccessPointPublicAccessBlockConfiguration `pulumi:"publicAccessBlockConfiguration"`
+	// An arbitrary set of tags (key-value pairs) for this S3 Access Point.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAccessPointOutput(ctx *pulumi.Context, args LookupAccessPointOutputArgs, opts ...pulumi.InvokeOption) LookupAccessPointResultOutput {
@@ -101,6 +104,11 @@ func (o LookupAccessPointResultOutput) PublicAccessBlockConfiguration() AccessPo
 	return o.ApplyT(func(v LookupAccessPointResult) *AccessPointPublicAccessBlockConfiguration {
 		return v.PublicAccessBlockConfiguration
 	}).(AccessPointPublicAccessBlockConfigurationPtrOutput)
+}
+
+// An arbitrary set of tags (key-value pairs) for this S3 Access Point.
+func (o LookupAccessPointResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAccessPointResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -46,16 +46,16 @@
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iot:CreateCertificateFromCsr", "iot:RegisterCertificate", "iot:RegisterCertificateWithoutCA", "iot:DescribeCertificate" ]
+      "permissions" : [ "iot:CreateCertificateFromCsr", "iot:RegisterCertificate", "iot:RegisterCertificateWithoutCA", "iot:DescribeCertificate", "kms:Decrypt" ]
     },
     "read" : {
-      "permissions" : [ "iot:DescribeCertificate" ]
+      "permissions" : [ "iot:DescribeCertificate", "kms:Decrypt" ]
     },
     "update" : {
-      "permissions" : [ "iot:UpdateCertificate", "iot:DescribeCertificate" ]
+      "permissions" : [ "iot:UpdateCertificate", "iot:DescribeCertificate", "kms:Decrypt" ]
     },
     "delete" : {
-      "permissions" : [ "iot:DeleteCertificate", "iot:UpdateCertificate", "iot:DescribeCertificate" ]
+      "permissions" : [ "iot:DeleteCertificate", "iot:UpdateCertificate", "iot:DescribeCertificate", "kms:Decrypt" ]
     },
     "list" : {
       "permissions" : [ "iot:ListCertificates" ]

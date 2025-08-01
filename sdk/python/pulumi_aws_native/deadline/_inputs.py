@@ -51,6 +51,8 @@ __all__ = [
     'FleetServiceManagedEc2InstanceMarketOptionsArgsDict',
     'FleetVCpuCountRangeArgs',
     'FleetVCpuCountRangeArgsDict',
+    'FleetVpcConfigurationArgs',
+    'FleetVpcConfigurationArgsDict',
     'QueueJobAttachmentSettingsArgs',
     'QueueJobAttachmentSettingsArgsDict',
     'QueueJobRunAsUserArgs',
@@ -716,6 +718,7 @@ if not MYPY:
         instance_capabilities: pulumi.Input['FleetServiceManagedEc2InstanceCapabilitiesArgsDict']
         instance_market_options: pulumi.Input['FleetServiceManagedEc2InstanceMarketOptionsArgsDict']
         storage_profile_id: NotRequired[pulumi.Input[builtins.str]]
+        vpc_configuration: NotRequired[pulumi.Input['FleetVpcConfigurationArgsDict']]
 elif False:
     FleetServiceManagedEc2FleetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -724,11 +727,14 @@ class FleetServiceManagedEc2FleetConfigurationArgs:
     def __init__(__self__, *,
                  instance_capabilities: pulumi.Input['FleetServiceManagedEc2InstanceCapabilitiesArgs'],
                  instance_market_options: pulumi.Input['FleetServiceManagedEc2InstanceMarketOptionsArgs'],
-                 storage_profile_id: Optional[pulumi.Input[builtins.str]] = None):
+                 storage_profile_id: Optional[pulumi.Input[builtins.str]] = None,
+                 vpc_configuration: Optional[pulumi.Input['FleetVpcConfigurationArgs']] = None):
         pulumi.set(__self__, "instance_capabilities", instance_capabilities)
         pulumi.set(__self__, "instance_market_options", instance_market_options)
         if storage_profile_id is not None:
             pulumi.set(__self__, "storage_profile_id", storage_profile_id)
+        if vpc_configuration is not None:
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter(name="instanceCapabilities")
@@ -756,6 +762,15 @@ class FleetServiceManagedEc2FleetConfigurationArgs:
     @storage_profile_id.setter
     def storage_profile_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "storage_profile_id", value)
+
+    @property
+    @pulumi.getter(name="vpcConfiguration")
+    def vpc_configuration(self) -> Optional[pulumi.Input['FleetVpcConfigurationArgs']]:
+        return pulumi.get(self, "vpc_configuration")
+
+    @vpc_configuration.setter
+    def vpc_configuration(self, value: Optional[pulumi.Input['FleetVpcConfigurationArgs']]):
+        pulumi.set(self, "vpc_configuration", value)
 
 
 if not MYPY:
@@ -949,6 +964,29 @@ class FleetVCpuCountRangeArgs:
     @max.setter
     def max(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "max", value)
+
+
+if not MYPY:
+    class FleetVpcConfigurationArgsDict(TypedDict):
+        resource_configuration_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+elif False:
+    FleetVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FleetVpcConfigurationArgs:
+    def __init__(__self__, *,
+                 resource_configuration_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        if resource_configuration_arns is not None:
+            pulumi.set(__self__, "resource_configuration_arns", resource_configuration_arns)
+
+    @property
+    @pulumi.getter(name="resourceConfigurationArns")
+    def resource_configuration_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "resource_configuration_arns")
+
+    @resource_configuration_arns.setter
+    def resource_configuration_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "resource_configuration_arns", value)
 
 
 if not MYPY:

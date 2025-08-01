@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.Batch
         [Output("jobQueueName")]
         public Output<string?> JobQueueName { get; private set; } = null!;
 
+        [Output("jobQueueType")]
+        public Output<string?> JobQueueType { get; private set; } = null!;
+
         /// <summary>
         /// The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. AWS Batch will perform each action after `maxTimeSeconds` has passed.
         /// </summary>
@@ -52,6 +55,9 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         [Output("schedulingPolicyArn")]
         public Output<string?> SchedulingPolicyArn { get; private set; } = null!;
+
+        [Output("serviceEnvironmentOrder")]
+        public Output<ImmutableArray<Outputs.JobQueueServiceEnvironmentOrder>> ServiceEnvironmentOrder { get; private set; } = null!;
 
         /// <summary>
         /// The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
@@ -91,6 +97,7 @@ namespace Pulumi.AwsNative.Batch
                 ReplaceOnChanges =
                 {
                     "jobQueueName",
+                    "jobQueueType",
                     "tags.*",
                 },
             };
@@ -115,7 +122,7 @@ namespace Pulumi.AwsNative.Batch
 
     public sealed class JobQueueArgs : global::Pulumi.ResourceArgs
     {
-        [Input("computeEnvironmentOrder", required: true)]
+        [Input("computeEnvironmentOrder")]
         private InputList<Inputs.JobQueueComputeEnvironmentOrderArgs>? _computeEnvironmentOrder;
 
         /// <summary>
@@ -134,6 +141,9 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         [Input("jobQueueName")]
         public Input<string>? JobQueueName { get; set; }
+
+        [Input("jobQueueType")]
+        public Input<string>? JobQueueType { get; set; }
 
         [Input("jobStateTimeLimitActions")]
         private InputList<Inputs.JobQueueJobStateTimeLimitActionArgs>? _jobStateTimeLimitActions;
@@ -158,6 +168,14 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         [Input("schedulingPolicyArn")]
         public Input<string>? SchedulingPolicyArn { get; set; }
+
+        [Input("serviceEnvironmentOrder")]
+        private InputList<Inputs.JobQueueServiceEnvironmentOrderArgs>? _serviceEnvironmentOrder;
+        public InputList<Inputs.JobQueueServiceEnvironmentOrderArgs> ServiceEnvironmentOrder
+        {
+            get => _serviceEnvironmentOrder ?? (_serviceEnvironmentOrder = new InputList<Inputs.JobQueueServiceEnvironmentOrderArgs>());
+            set => _serviceEnvironmentOrder = value;
+        }
 
         /// <summary>
         /// The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.

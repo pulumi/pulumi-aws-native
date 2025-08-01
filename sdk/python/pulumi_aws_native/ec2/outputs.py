@@ -3498,7 +3498,7 @@ class InstanceElasticGpuSpecification(dict):
     def __init__(__self__, *,
                  type: builtins.str):
         """
-        :param builtins.str type: The type of Elastic Graphics accelerator.
+        :param builtins.str type: The type of Elastic Graphics accelerator. Amazon Elastic Graphics is no longer available.
         """
         pulumi.set(__self__, "type", type)
 
@@ -3506,7 +3506,7 @@ class InstanceElasticGpuSpecification(dict):
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        The type of Elastic Graphics accelerator.
+        The type of Elastic Graphics accelerator. Amazon Elastic Graphics is no longer available.
         """
         return pulumi.get(self, "type")
 
@@ -3517,8 +3517,8 @@ class InstanceElasticInferenceAccelerator(dict):
                  type: builtins.str,
                  count: Optional[builtins.int] = None):
         """
-        :param builtins.str type: The type of elastic inference accelerator.
-        :param builtins.int count: The number of elastic inference accelerators to attach to the instance.
+        :param builtins.str type: The type of elastic inference accelerator. Amazon Elastic Inference is no longer available.
+        :param builtins.int count: The number of elastic inference accelerators to attach to the instance. Amazon Elastic Inference is no longer available.
         """
         pulumi.set(__self__, "type", type)
         if count is not None:
@@ -3528,7 +3528,7 @@ class InstanceElasticInferenceAccelerator(dict):
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        The type of elastic inference accelerator.
+        The type of elastic inference accelerator. Amazon Elastic Inference is no longer available.
         """
         return pulumi.get(self, "type")
 
@@ -3536,7 +3536,7 @@ class InstanceElasticInferenceAccelerator(dict):
     @pulumi.getter
     def count(self) -> Optional[builtins.int]:
         """
-        The number of elastic inference accelerators to attach to the instance.
+        The number of elastic inference accelerators to attach to the instance. Amazon Elastic Inference is no longer available.
         """
         return pulumi.get(self, "count")
 

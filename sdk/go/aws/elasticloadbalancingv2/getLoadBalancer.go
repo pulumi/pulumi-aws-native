@@ -47,7 +47,7 @@ type LookupLoadBalancerResult struct {
 	Ipv4IpamPoolId *string `pulumi:"ipv4IpamPoolId"`
 	// The Amazon Resource Name (ARN) of the load balancer.
 	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
-	// The load balancer attributes.
+	// The load balancer attributes. Attributes that you do not modify retain their current values.
 	LoadBalancerAttributes []LoadBalancerAttribute `pulumi:"loadBalancerAttributes"`
 	// The full name of the load balancer. For example, `app/my-load-balancer/50dc6c495c0c9188` .
 	LoadBalancerFullName *string `pulumi:"loadBalancerFullName"`
@@ -149,7 +149,7 @@ func (o LookupLoadBalancerResultOutput) LoadBalancerArn() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.LoadBalancerArn }).(pulumi.StringPtrOutput)
 }
 
-// The load balancer attributes.
+// The load balancer attributes. Attributes that you do not modify retain their current values.
 func (o LookupLoadBalancerResultOutput) LoadBalancerAttributes() LoadBalancerAttributeArrayOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) []LoadBalancerAttribute { return v.LoadBalancerAttributes }).(LoadBalancerAttributeArrayOutput)
 }

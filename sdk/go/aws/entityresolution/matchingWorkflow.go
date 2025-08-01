@@ -22,11 +22,11 @@ type MatchingWorkflow struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
 	//
-	// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+	// > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
 	IncrementalRunConfig MatchingWorkflowIncrementalRunConfigPtrOutput `pulumi:"incrementalRunConfig"`
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig MatchingWorkflowInputSourceArrayOutput `pulumi:"inputSourceConfig"`
-	// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+	// A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
 	OutputSourceConfig MatchingWorkflowOutputSourceArrayOutput `pulumi:"outputSourceConfig"`
 	// An object which defines the `resolutionType` and the `ruleBasedProperties` .
 	ResolutionTechniques MatchingWorkflowResolutionTechniquesOutput `pulumi:"resolutionTechniques"`
@@ -100,11 +100,11 @@ type matchingWorkflowArgs struct {
 	Description *string `pulumi:"description"`
 	// Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
 	//
-	// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+	// > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
 	IncrementalRunConfig *MatchingWorkflowIncrementalRunConfig `pulumi:"incrementalRunConfig"`
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig []MatchingWorkflowInputSource `pulumi:"inputSourceConfig"`
-	// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+	// A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
 	OutputSourceConfig []MatchingWorkflowOutputSource `pulumi:"outputSourceConfig"`
 	// An object which defines the `resolutionType` and the `ruleBasedProperties` .
 	ResolutionTechniques MatchingWorkflowResolutionTechniques `pulumi:"resolutionTechniques"`
@@ -122,11 +122,11 @@ type MatchingWorkflowArgs struct {
 	Description pulumi.StringPtrInput
 	// Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
 	//
-	// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+	// > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
 	IncrementalRunConfig MatchingWorkflowIncrementalRunConfigPtrInput
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig MatchingWorkflowInputSourceArrayInput
-	// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+	// A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
 	OutputSourceConfig MatchingWorkflowOutputSourceArrayInput
 	// An object which defines the `resolutionType` and the `ruleBasedProperties` .
 	ResolutionTechniques MatchingWorkflowResolutionTechniquesInput
@@ -186,7 +186,7 @@ func (o MatchingWorkflowOutput) Description() pulumi.StringPtrOutput {
 
 // Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
 //
-// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+// > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
 func (o MatchingWorkflowOutput) IncrementalRunConfig() MatchingWorkflowIncrementalRunConfigPtrOutput {
 	return o.ApplyT(func(v *MatchingWorkflow) MatchingWorkflowIncrementalRunConfigPtrOutput { return v.IncrementalRunConfig }).(MatchingWorkflowIncrementalRunConfigPtrOutput)
 }
@@ -196,7 +196,7 @@ func (o MatchingWorkflowOutput) InputSourceConfig() MatchingWorkflowInputSourceA
 	return o.ApplyT(func(v *MatchingWorkflow) MatchingWorkflowInputSourceArrayOutput { return v.InputSourceConfig }).(MatchingWorkflowInputSourceArrayOutput)
 }
 
-// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+// A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
 func (o MatchingWorkflowOutput) OutputSourceConfig() MatchingWorkflowOutputSourceArrayOutput {
 	return o.ApplyT(func(v *MatchingWorkflow) MatchingWorkflowOutputSourceArrayOutput { return v.OutputSourceConfig }).(MatchingWorkflowOutputSourceArrayOutput)
 }

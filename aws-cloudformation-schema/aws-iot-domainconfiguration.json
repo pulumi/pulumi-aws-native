@@ -187,16 +187,16 @@
   "primaryIdentifier" : [ "/properties/DomainConfigurationName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iot:CreateDomainConfiguration", "iot:UpdateDomainConfiguration", "iot:DescribeDomainConfiguration", "iot:TagResource", "iot:ListTagsForResource", "acm:GetCertificate" ]
+      "permissions" : [ "iot:CreateDomainConfiguration", "iot:UpdateDomainConfiguration", "iot:DescribeDomainConfiguration", "iot:TagResource", "iot:ListTagsForResource", "acm:GetCertificate", "kms:Decrypt" ]
     },
     "read" : {
-      "permissions" : [ "iot:DescribeDomainConfiguration", "iot:ListTagsForResource" ]
+      "permissions" : [ "iot:DescribeDomainConfiguration", "iot:ListTagsForResource", "kms:Decrypt" ]
     },
     "update" : {
-      "permissions" : [ "iot:UpdateDomainConfiguration", "iot:DescribeDomainConfiguration", "iot:ListTagsForResource", "iot:TagResource", "iot:UntagResource" ]
+      "permissions" : [ "iot:UpdateDomainConfiguration", "iot:DescribeDomainConfiguration", "iot:ListTagsForResource", "iot:TagResource", "iot:UntagResource", "kms:Decrypt" ]
     },
     "delete" : {
-      "permissions" : [ "iot:DescribeDomainConfiguration", "iot:DeleteDomainConfiguration", "iot:UpdateDomainConfiguration" ]
+      "permissions" : [ "iot:DescribeDomainConfiguration", "iot:DeleteDomainConfiguration", "iot:UpdateDomainConfiguration", "kms:Decrypt" ]
     },
     "list" : {
       "permissions" : [ "iot:ListDomainConfigurations" ]

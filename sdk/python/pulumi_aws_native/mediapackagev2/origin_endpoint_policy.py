@@ -35,6 +35,7 @@ class OriginEndpointPolicyArgs:
         :param Any policy: The policy associated with the origin endpoint.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
+        :param pulumi.Input['OriginEndpointPolicyCdnAuthConfigurationArgs'] cdn_auth_configuration: The settings to enable CDN authorization headers in MediaPackage.
         """
         pulumi.set(__self__, "channel_group_name", channel_group_name)
         pulumi.set(__self__, "channel_name", channel_name)
@@ -96,6 +97,9 @@ class OriginEndpointPolicyArgs:
     @property
     @pulumi.getter(name="cdnAuthConfiguration")
     def cdn_auth_configuration(self) -> Optional[pulumi.Input['OriginEndpointPolicyCdnAuthConfigurationArgs']]:
+        """
+        The settings to enable CDN authorization headers in MediaPackage.
+        """
         return pulumi.get(self, "cdn_auth_configuration")
 
     @cdn_auth_configuration.setter
@@ -120,6 +124,7 @@ class OriginEndpointPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['OriginEndpointPolicyCdnAuthConfigurationArgs', 'OriginEndpointPolicyCdnAuthConfigurationArgsDict']] cdn_auth_configuration: The settings to enable CDN authorization headers in MediaPackage.
         :param pulumi.Input[builtins.str] channel_group_name: The name of the channel group associated with the origin endpoint policy.
         :param pulumi.Input[builtins.str] channel_name: The channel name associated with the origin endpoint policy.
         :param pulumi.Input[builtins.str] origin_endpoint_name: The name of the origin endpoint associated with the origin endpoint policy.
@@ -212,6 +217,9 @@ class OriginEndpointPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cdnAuthConfiguration")
     def cdn_auth_configuration(self) -> pulumi.Output[Optional['outputs.OriginEndpointPolicyCdnAuthConfiguration']]:
+        """
+        The settings to enable CDN authorization headers in MediaPackage.
+        """
         return pulumi.get(self, "cdn_auth_configuration")
 
     @property

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,6 +35,7 @@ type AccessPoint struct {
 	PublicAccessBlockConfiguration AccessPointPublicAccessBlockConfigurationPtrOutput `pulumi:"publicAccessBlockConfiguration"`
 	// For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
 	Scope AccessPointScopePtrOutput `pulumi:"scope"`
+	Tags  aws.TagArrayOutput        `pulumi:"tags"`
 	// If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
 	VpcConfiguration AccessPointVpcConfigurationPtrOutput `pulumi:"vpcConfiguration"`
 }
@@ -102,6 +104,7 @@ type accessPointArgs struct {
 	PublicAccessBlockConfiguration *AccessPointPublicAccessBlockConfiguration `pulumi:"publicAccessBlockConfiguration"`
 	// For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
 	Scope *AccessPointScope `pulumi:"scope"`
+	Tags  []aws.Tag         `pulumi:"tags"`
 	// If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
 	VpcConfiguration *AccessPointVpcConfiguration `pulumi:"vpcConfiguration"`
 }
@@ -122,6 +125,7 @@ type AccessPointArgs struct {
 	PublicAccessBlockConfiguration AccessPointPublicAccessBlockConfigurationPtrInput
 	// For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
 	Scope AccessPointScopePtrInput
+	Tags  aws.TagArrayInput
 	// If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
 	VpcConfiguration AccessPointVpcConfigurationPtrInput
 }
@@ -205,6 +209,10 @@ func (o AccessPointOutput) PublicAccessBlockConfiguration() AccessPointPublicAcc
 // For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
 func (o AccessPointOutput) Scope() AccessPointScopePtrOutput {
 	return o.ApplyT(func(v *AccessPoint) AccessPointScopePtrOutput { return v.Scope }).(AccessPointScopePtrOutput)
+}
+
+func (o AccessPointOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *AccessPoint) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).

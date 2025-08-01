@@ -2599,6 +2599,261 @@ func (in *domainConfigurationStatusPtr) ToDomainConfigurationStatusPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(DomainConfigurationStatusPtrOutput)
 }
 
+type EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus string
+
+const (
+	EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusHealthy   = EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus("HEALTHY")
+	EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusUnhealthy = EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus("UNHEALTHY")
+)
+
+type EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusOutput struct{ *pulumi.OutputState }
+
+func (EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus)(nil)).Elem()
+}
+
+func (o EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusOutput) ToEncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusOutput() EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusOutput {
+	return o
+}
+
+func (o EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusOutput) ToEncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusOutputWithContext(ctx context.Context) EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusOutput {
+	return o
+}
+
+func (o EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusOutput) ToEncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput() EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput {
+	return o.ToEncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusOutput) ToEncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutputWithContext(ctx context.Context) EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus) *EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus {
+		return &v
+	}).(EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput)
+}
+
+func (o EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus)(nil)).Elem()
+}
+
+func (o EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput) ToEncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput() EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput) ToEncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutputWithContext(ctx context.Context) EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput) Elem() EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusOutput {
+	return o.ApplyT(func(v *EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus) EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus
+		return ret
+	}).(EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusOutput)
+}
+
+func (o EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EncryptionConfigurationEncryptionType string
+
+const (
+	EncryptionConfigurationEncryptionTypeCustomerManagedKmsKey = EncryptionConfigurationEncryptionType("CUSTOMER_MANAGED_KMS_KEY")
+	EncryptionConfigurationEncryptionTypeAwsOwnedKmsKey        = EncryptionConfigurationEncryptionType("AWS_OWNED_KMS_KEY")
+)
+
+func (EncryptionConfigurationEncryptionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionConfigurationEncryptionType)(nil)).Elem()
+}
+
+func (e EncryptionConfigurationEncryptionType) ToEncryptionConfigurationEncryptionTypeOutput() EncryptionConfigurationEncryptionTypeOutput {
+	return pulumi.ToOutput(e).(EncryptionConfigurationEncryptionTypeOutput)
+}
+
+func (e EncryptionConfigurationEncryptionType) ToEncryptionConfigurationEncryptionTypeOutputWithContext(ctx context.Context) EncryptionConfigurationEncryptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EncryptionConfigurationEncryptionTypeOutput)
+}
+
+func (e EncryptionConfigurationEncryptionType) ToEncryptionConfigurationEncryptionTypePtrOutput() EncryptionConfigurationEncryptionTypePtrOutput {
+	return e.ToEncryptionConfigurationEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (e EncryptionConfigurationEncryptionType) ToEncryptionConfigurationEncryptionTypePtrOutputWithContext(ctx context.Context) EncryptionConfigurationEncryptionTypePtrOutput {
+	return EncryptionConfigurationEncryptionType(e).ToEncryptionConfigurationEncryptionTypeOutputWithContext(ctx).ToEncryptionConfigurationEncryptionTypePtrOutputWithContext(ctx)
+}
+
+func (e EncryptionConfigurationEncryptionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EncryptionConfigurationEncryptionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EncryptionConfigurationEncryptionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EncryptionConfigurationEncryptionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EncryptionConfigurationEncryptionTypeOutput struct{ *pulumi.OutputState }
+
+func (EncryptionConfigurationEncryptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionConfigurationEncryptionType)(nil)).Elem()
+}
+
+func (o EncryptionConfigurationEncryptionTypeOutput) ToEncryptionConfigurationEncryptionTypeOutput() EncryptionConfigurationEncryptionTypeOutput {
+	return o
+}
+
+func (o EncryptionConfigurationEncryptionTypeOutput) ToEncryptionConfigurationEncryptionTypeOutputWithContext(ctx context.Context) EncryptionConfigurationEncryptionTypeOutput {
+	return o
+}
+
+func (o EncryptionConfigurationEncryptionTypeOutput) ToEncryptionConfigurationEncryptionTypePtrOutput() EncryptionConfigurationEncryptionTypePtrOutput {
+	return o.ToEncryptionConfigurationEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionConfigurationEncryptionTypeOutput) ToEncryptionConfigurationEncryptionTypePtrOutputWithContext(ctx context.Context) EncryptionConfigurationEncryptionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionConfigurationEncryptionType) *EncryptionConfigurationEncryptionType {
+		return &v
+	}).(EncryptionConfigurationEncryptionTypePtrOutput)
+}
+
+func (o EncryptionConfigurationEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EncryptionConfigurationEncryptionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EncryptionConfigurationEncryptionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EncryptionConfigurationEncryptionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionConfigurationEncryptionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EncryptionConfigurationEncryptionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EncryptionConfigurationEncryptionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionConfigurationEncryptionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionConfigurationEncryptionType)(nil)).Elem()
+}
+
+func (o EncryptionConfigurationEncryptionTypePtrOutput) ToEncryptionConfigurationEncryptionTypePtrOutput() EncryptionConfigurationEncryptionTypePtrOutput {
+	return o
+}
+
+func (o EncryptionConfigurationEncryptionTypePtrOutput) ToEncryptionConfigurationEncryptionTypePtrOutputWithContext(ctx context.Context) EncryptionConfigurationEncryptionTypePtrOutput {
+	return o
+}
+
+func (o EncryptionConfigurationEncryptionTypePtrOutput) Elem() EncryptionConfigurationEncryptionTypeOutput {
+	return o.ApplyT(func(v *EncryptionConfigurationEncryptionType) EncryptionConfigurationEncryptionType {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionConfigurationEncryptionType
+		return ret
+	}).(EncryptionConfigurationEncryptionTypeOutput)
+}
+
+func (o EncryptionConfigurationEncryptionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionConfigurationEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EncryptionConfigurationEncryptionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EncryptionConfigurationEncryptionTypeInput is an input type that accepts values of the EncryptionConfigurationEncryptionType enum
+// A concrete instance of `EncryptionConfigurationEncryptionTypeInput` can be one of the following:
+//
+//	EncryptionConfigurationEncryptionTypeCustomerManagedKmsKey
+//	EncryptionConfigurationEncryptionTypeAwsOwnedKmsKey
+type EncryptionConfigurationEncryptionTypeInput interface {
+	pulumi.Input
+
+	ToEncryptionConfigurationEncryptionTypeOutput() EncryptionConfigurationEncryptionTypeOutput
+	ToEncryptionConfigurationEncryptionTypeOutputWithContext(context.Context) EncryptionConfigurationEncryptionTypeOutput
+}
+
+var encryptionConfigurationEncryptionTypePtrType = reflect.TypeOf((**EncryptionConfigurationEncryptionType)(nil)).Elem()
+
+type EncryptionConfigurationEncryptionTypePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionConfigurationEncryptionTypePtrOutput() EncryptionConfigurationEncryptionTypePtrOutput
+	ToEncryptionConfigurationEncryptionTypePtrOutputWithContext(context.Context) EncryptionConfigurationEncryptionTypePtrOutput
+}
+
+type encryptionConfigurationEncryptionTypePtr string
+
+func EncryptionConfigurationEncryptionTypePtr(v string) EncryptionConfigurationEncryptionTypePtrInput {
+	return (*encryptionConfigurationEncryptionTypePtr)(&v)
+}
+
+func (*encryptionConfigurationEncryptionTypePtr) ElementType() reflect.Type {
+	return encryptionConfigurationEncryptionTypePtrType
+}
+
+func (in *encryptionConfigurationEncryptionTypePtr) ToEncryptionConfigurationEncryptionTypePtrOutput() EncryptionConfigurationEncryptionTypePtrOutput {
+	return pulumi.ToOutput(in).(EncryptionConfigurationEncryptionTypePtrOutput)
+}
+
+func (in *encryptionConfigurationEncryptionTypePtr) ToEncryptionConfigurationEncryptionTypePtrOutputWithContext(ctx context.Context) EncryptionConfigurationEncryptionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EncryptionConfigurationEncryptionTypePtrOutput)
+}
+
 type JobTemplateAction string
 
 const (
@@ -6224,6 +6479,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationServiceTypePtrInput)(nil)).Elem(), DomainConfigurationServiceType("DATA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationStatusInput)(nil)).Elem(), DomainConfigurationStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationStatusPtrInput)(nil)).Elem(), DomainConfigurationStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionConfigurationEncryptionTypeInput)(nil)).Elem(), EncryptionConfigurationEncryptionType("CUSTOMER_MANAGED_KMS_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionConfigurationEncryptionTypePtrInput)(nil)).Elem(), EncryptionConfigurationEncryptionType("CUSTOMER_MANAGED_KMS_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateActionInput)(nil)).Elem(), JobTemplateAction("CANCEL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateActionPtrInput)(nil)).Elem(), JobTemplateAction("CANCEL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateFailureTypeInput)(nil)).Elem(), JobTemplateFailureType("FAILED"))
@@ -6297,6 +6554,10 @@ func init() {
 	pulumi.RegisterOutputType(DomainConfigurationServiceTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationStatusOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationStatusPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusOutput{})
+	pulumi.RegisterOutputType(EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionConfigurationEncryptionTypeOutput{})
+	pulumi.RegisterOutputType(EncryptionConfigurationEncryptionTypePtrOutput{})
 	pulumi.RegisterOutputType(JobTemplateActionOutput{})
 	pulumi.RegisterOutputType(JobTemplateActionPtrOutput{})
 	pulumi.RegisterOutputType(JobTemplateFailureTypeOutput{})

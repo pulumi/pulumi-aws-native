@@ -38,13 +38,14 @@ class ListenerArgs:
         :param pulumi.Input[builtins.str] load_balancer_arn: The Amazon Resource Name (ARN) of the load balancer.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] alpn_policy: [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
         :param pulumi.Input[Sequence[pulumi.Input['ListenerCertificateArgs']]] certificates: The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+                For an HTTPS listener, update requires some interruptions. For a TLS listener, update requires no interruption.
                 To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerAttributeArgs']]] listener_attributes: The listener attributes.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerAttributeArgs']]] listener_attributes: The listener attributes. Attributes that you do not modify retain their current values.
         :param pulumi.Input['ListenerMutualAuthenticationArgs'] mutual_authentication: The mutual authentication configuration information.
         :param pulumi.Input[builtins.int] port: The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer.
         :param pulumi.Input[builtins.str] protocol: The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
         :param pulumi.Input[builtins.str] ssl_policy: [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.
-                Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
+                [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
         """
         pulumi.set(__self__, "default_actions", default_actions)
         pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
@@ -105,6 +106,7 @@ class ListenerArgs:
     def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerCertificateArgs']]]]:
         """
         The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+         For an HTTPS listener, update requires some interruptions. For a TLS listener, update requires no interruption.
          To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
         """
         return pulumi.get(self, "certificates")
@@ -117,7 +119,7 @@ class ListenerArgs:
     @pulumi.getter(name="listenerAttributes")
     def listener_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerAttributeArgs']]]]:
         """
-        The listener attributes.
+        The listener attributes. Attributes that you do not modify retain their current values.
         """
         return pulumi.get(self, "listener_attributes")
 
@@ -166,7 +168,7 @@ class ListenerArgs:
     def ssl_policy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.
-         Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
+         [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
         """
         return pulumi.get(self, "ssl_policy")
 
@@ -198,16 +200,17 @@ class Listener(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] alpn_policy: [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerCertificateArgs', 'ListenerCertificateArgsDict']]]] certificates: The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+                For an HTTPS listener, update requires some interruptions. For a TLS listener, update requires no interruption.
                 To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerActionArgs', 'ListenerActionArgsDict']]]] default_actions: The actions for the default rule. You cannot define a condition for a default rule.
                 To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerAttributeArgs', 'ListenerAttributeArgsDict']]]] listener_attributes: The listener attributes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerAttributeArgs', 'ListenerAttributeArgsDict']]]] listener_attributes: The listener attributes. Attributes that you do not modify retain their current values.
         :param pulumi.Input[builtins.str] load_balancer_arn: The Amazon Resource Name (ARN) of the load balancer.
         :param pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']] mutual_authentication: The mutual authentication configuration information.
         :param pulumi.Input[builtins.int] port: The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer.
         :param pulumi.Input[builtins.str] protocol: The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
         :param pulumi.Input[builtins.str] ssl_policy: [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.
-                Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
+                [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
         """
         ...
     @overload
@@ -314,6 +317,7 @@ class Listener(pulumi.CustomResource):
     def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.ListenerCertificate']]]:
         """
         The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+         For an HTTPS listener, update requires some interruptions. For a TLS listener, update requires no interruption.
          To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
         """
         return pulumi.get(self, "certificates")
@@ -339,7 +343,7 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter(name="listenerAttributes")
     def listener_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.ListenerAttribute']]]:
         """
-        The listener attributes.
+        The listener attributes. Attributes that you do not modify retain their current values.
         """
         return pulumi.get(self, "listener_attributes")
 
@@ -380,7 +384,7 @@ class Listener(pulumi.CustomResource):
     def ssl_policy(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.
-         Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
+         [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
         """
         return pulumi.get(self, "ssl_policy")
 

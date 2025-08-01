@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
     [AwsNativeResourceType("aws-native:mediapackagev2:OriginEndpointPolicy")]
     public partial class OriginEndpointPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The settings to enable CDN authorization headers in MediaPackage.
+        /// </summary>
         [Output("cdnAuthConfiguration")]
         public Output<Outputs.OriginEndpointPolicyCdnAuthConfiguration?> CdnAuthConfiguration { get; private set; } = null!;
 
@@ -95,6 +98,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
     public sealed class OriginEndpointPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The settings to enable CDN authorization headers in MediaPackage.
+        /// </summary>
         [Input("cdnAuthConfiguration")]
         public Input<Inputs.OriginEndpointPolicyCdnAuthConfigurationArgs>? CdnAuthConfiguration { get; set; }
 

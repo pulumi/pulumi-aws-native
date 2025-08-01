@@ -15,6 +15,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -28,6 +30,7 @@ class AccessPointArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[Any] = None,
                  public_access_block_configuration: Optional[pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_configuration: Optional[pulumi.Input['AccessPointVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a AccessPoint resource.
@@ -38,6 +41,7 @@ class AccessPointArgs:
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::AccessPoint` for more information about the expected schema for this property.
         :param pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs'] public_access_block_configuration: The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this S3 Access Point.
         :param pulumi.Input['AccessPointVpcConfigurationArgs'] vpc_configuration: If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -49,6 +53,8 @@ class AccessPointArgs:
             pulumi.set(__self__, "policy", policy)
         if public_access_block_configuration is not None:
             pulumi.set(__self__, "public_access_block_configuration", public_access_block_configuration)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if vpc_configuration is not None:
             pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
@@ -115,6 +121,18 @@ class AccessPointArgs:
         pulumi.set(self, "public_access_block_configuration", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An arbitrary set of tags (key-value pairs) for this S3 Access Point.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['AccessPointVpcConfigurationArgs']]:
         """
@@ -138,6 +156,7 @@ class AccessPoint(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[Any] = None,
                  public_access_block_configuration: Optional[pulumi.Input[Union['AccessPointPublicAccessBlockConfigurationArgs', 'AccessPointPublicAccessBlockConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_configuration: Optional[pulumi.Input[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         """
@@ -152,6 +171,7 @@ class AccessPoint(pulumi.CustomResource):
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3::AccessPoint` for more information about the expected schema for this property.
         :param pulumi.Input[Union['AccessPointPublicAccessBlockConfigurationArgs', 'AccessPointPublicAccessBlockConfigurationArgsDict']] public_access_block_configuration: The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this S3 Access Point.
         :param pulumi.Input[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']] vpc_configuration: If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
         """
         ...
@@ -183,6 +203,7 @@ class AccessPoint(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[Any] = None,
                  public_access_block_configuration: Optional[pulumi.Input[Union['AccessPointPublicAccessBlockConfigurationArgs', 'AccessPointPublicAccessBlockConfigurationArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_configuration: Optional[pulumi.Input[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -200,6 +221,7 @@ class AccessPoint(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["policy"] = policy
             __props__.__dict__["public_access_block_configuration"] = public_access_block_configuration
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_configuration"] = vpc_configuration
             __props__.__dict__["alias"] = None
             __props__.__dict__["arn"] = None
@@ -236,6 +258,7 @@ class AccessPoint(pulumi.CustomResource):
         __props__.__dict__["network_origin"] = None
         __props__.__dict__["policy"] = None
         __props__.__dict__["public_access_block_configuration"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_configuration"] = None
         return AccessPoint(resource_name, opts=opts, __props__=__props__)
 
@@ -304,6 +327,14 @@ class AccessPoint(pulumi.CustomResource):
         The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
         """
         return pulumi.get(self, "public_access_block_configuration")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An arbitrary set of tags (key-value pairs) for this S3 Access Point.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcConfiguration")

@@ -180,7 +180,7 @@ class GetBucketResult:
     @pulumi.getter(name="inventoryConfigurations")
     def inventory_configurations(self) -> Optional[Sequence['outputs.BucketInventoryConfiguration']]:
         """
-        Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+        Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
         """
         return pulumi.get(self, "inventory_configurations")
 

@@ -25,9 +25,11 @@ __all__ = [
     'ReplicationConfigurationReplicationRule',
     'ReplicationConfigurationRepositoryFilter',
     'RepositoryCreationTemplateEncryptionConfiguration',
+    'RepositoryCreationTemplateImageTagMutabilityExclusionFilter',
     'RepositoryCreationTemplateTag',
     'RepositoryEncryptionConfiguration',
     'RepositoryImageScanningConfiguration',
+    'RepositoryImageTagMutabilityExclusionFilter',
     'RepositoryLifecyclePolicy',
 ]
 
@@ -372,6 +374,54 @@ class RepositoryCreationTemplateEncryptionConfiguration(dict):
 
 
 @pulumi.output_type
+class RepositoryCreationTemplateImageTagMutabilityExclusionFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageTagMutabilityExclusionFilterType":
+            suggest = "image_tag_mutability_exclusion_filter_type"
+        elif key == "imageTagMutabilityExclusionFilterValue":
+            suggest = "image_tag_mutability_exclusion_filter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryCreationTemplateImageTagMutabilityExclusionFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryCreationTemplateImageTagMutabilityExclusionFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryCreationTemplateImageTagMutabilityExclusionFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_tag_mutability_exclusion_filter_type: 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType',
+                 image_tag_mutability_exclusion_filter_value: builtins.str):
+        """
+        :param 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType' image_tag_mutability_exclusion_filter_type: Specifies the type of filter to use for excluding image tags from the repository's mutability setting.
+        :param builtins.str image_tag_mutability_exclusion_filter_value: The value to use when filtering image tags.
+        """
+        pulumi.set(__self__, "image_tag_mutability_exclusion_filter_type", image_tag_mutability_exclusion_filter_type)
+        pulumi.set(__self__, "image_tag_mutability_exclusion_filter_value", image_tag_mutability_exclusion_filter_value)
+
+    @property
+    @pulumi.getter(name="imageTagMutabilityExclusionFilterType")
+    def image_tag_mutability_exclusion_filter_type(self) -> 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType':
+        """
+        Specifies the type of filter to use for excluding image tags from the repository's mutability setting.
+        """
+        return pulumi.get(self, "image_tag_mutability_exclusion_filter_type")
+
+    @property
+    @pulumi.getter(name="imageTagMutabilityExclusionFilterValue")
+    def image_tag_mutability_exclusion_filter_value(self) -> builtins.str:
+        """
+        The value to use when filtering image tags.
+        """
+        return pulumi.get(self, "image_tag_mutability_exclusion_filter_value")
+
+
+@pulumi.output_type
 class RepositoryCreationTemplateTag(dict):
     """
     The metadata to apply to a resource to help you categorize and organize them. Each tag consists of a key and a value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
@@ -515,6 +565,44 @@ class RepositoryImageScanningConfiguration(dict):
         The setting that determines whether images are scanned after being pushed to a repository. If set to ``true``, images will be scanned after being pushed. If this parameter is not specified, it will default to ``false`` and images will not be scanned unless a scan is manually started.
         """
         return pulumi.get(self, "scan_on_push")
+
+
+@pulumi.output_type
+class RepositoryImageTagMutabilityExclusionFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageTagMutabilityExclusionFilterType":
+            suggest = "image_tag_mutability_exclusion_filter_type"
+        elif key == "imageTagMutabilityExclusionFilterValue":
+            suggest = "image_tag_mutability_exclusion_filter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryImageTagMutabilityExclusionFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryImageTagMutabilityExclusionFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryImageTagMutabilityExclusionFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_tag_mutability_exclusion_filter_type: 'RepositoryImageTagMutabilityExclusionFilterType',
+                 image_tag_mutability_exclusion_filter_value: builtins.str):
+        pulumi.set(__self__, "image_tag_mutability_exclusion_filter_type", image_tag_mutability_exclusion_filter_type)
+        pulumi.set(__self__, "image_tag_mutability_exclusion_filter_value", image_tag_mutability_exclusion_filter_value)
+
+    @property
+    @pulumi.getter(name="imageTagMutabilityExclusionFilterType")
+    def image_tag_mutability_exclusion_filter_type(self) -> 'RepositoryImageTagMutabilityExclusionFilterType':
+        return pulumi.get(self, "image_tag_mutability_exclusion_filter_type")
+
+    @property
+    @pulumi.getter(name="imageTagMutabilityExclusionFilterValue")
+    def image_tag_mutability_exclusion_filter_value(self) -> builtins.str:
+        return pulumi.get(self, "image_tag_mutability_exclusion_filter_value")
 
 
 @pulumi.output_type

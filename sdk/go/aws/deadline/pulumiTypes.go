@@ -1814,6 +1814,7 @@ type FleetServiceManagedEc2FleetConfiguration struct {
 	InstanceCapabilities  FleetServiceManagedEc2InstanceCapabilities  `pulumi:"instanceCapabilities"`
 	InstanceMarketOptions FleetServiceManagedEc2InstanceMarketOptions `pulumi:"instanceMarketOptions"`
 	StorageProfileId      *string                                     `pulumi:"storageProfileId"`
+	VpcConfiguration      *FleetVpcConfiguration                      `pulumi:"vpcConfiguration"`
 }
 
 // FleetServiceManagedEc2FleetConfigurationInput is an input type that accepts FleetServiceManagedEc2FleetConfigurationArgs and FleetServiceManagedEc2FleetConfigurationOutput values.
@@ -1831,6 +1832,7 @@ type FleetServiceManagedEc2FleetConfigurationArgs struct {
 	InstanceCapabilities  FleetServiceManagedEc2InstanceCapabilitiesInput  `pulumi:"instanceCapabilities"`
 	InstanceMarketOptions FleetServiceManagedEc2InstanceMarketOptionsInput `pulumi:"instanceMarketOptions"`
 	StorageProfileId      pulumi.StringPtrInput                            `pulumi:"storageProfileId"`
+	VpcConfiguration      FleetVpcConfigurationPtrInput                    `pulumi:"vpcConfiguration"`
 }
 
 func (FleetServiceManagedEc2FleetConfigurationArgs) ElementType() reflect.Type {
@@ -1873,6 +1875,10 @@ func (o FleetServiceManagedEc2FleetConfigurationOutput) InstanceMarketOptions() 
 
 func (o FleetServiceManagedEc2FleetConfigurationOutput) StorageProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetServiceManagedEc2FleetConfiguration) *string { return v.StorageProfileId }).(pulumi.StringPtrOutput)
+}
+
+func (o FleetServiceManagedEc2FleetConfigurationOutput) VpcConfiguration() FleetVpcConfigurationPtrOutput {
+	return o.ApplyT(func(v FleetServiceManagedEc2FleetConfiguration) *FleetVpcConfiguration { return v.VpcConfiguration }).(FleetVpcConfigurationPtrOutput)
 }
 
 type FleetServiceManagedEc2FleetConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1924,6 +1930,15 @@ func (o FleetServiceManagedEc2FleetConfigurationPtrOutput) StorageProfileId() pu
 		}
 		return v.StorageProfileId
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o FleetServiceManagedEc2FleetConfigurationPtrOutput) VpcConfiguration() FleetVpcConfigurationPtrOutput {
+	return o.ApplyT(func(v *FleetServiceManagedEc2FleetConfiguration) *FleetVpcConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.VpcConfiguration
+	}).(FleetVpcConfigurationPtrOutput)
 }
 
 type FleetServiceManagedEc2InstanceCapabilities struct {
@@ -2336,6 +2351,139 @@ func (o FleetVCpuCountRangePtrOutput) Min() pulumi.IntPtrOutput {
 		}
 		return &v.Min
 	}).(pulumi.IntPtrOutput)
+}
+
+type FleetVpcConfiguration struct {
+	ResourceConfigurationArns []string `pulumi:"resourceConfigurationArns"`
+}
+
+// FleetVpcConfigurationInput is an input type that accepts FleetVpcConfigurationArgs and FleetVpcConfigurationOutput values.
+// You can construct a concrete instance of `FleetVpcConfigurationInput` via:
+//
+//	FleetVpcConfigurationArgs{...}
+type FleetVpcConfigurationInput interface {
+	pulumi.Input
+
+	ToFleetVpcConfigurationOutput() FleetVpcConfigurationOutput
+	ToFleetVpcConfigurationOutputWithContext(context.Context) FleetVpcConfigurationOutput
+}
+
+type FleetVpcConfigurationArgs struct {
+	ResourceConfigurationArns pulumi.StringArrayInput `pulumi:"resourceConfigurationArns"`
+}
+
+func (FleetVpcConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetVpcConfiguration)(nil)).Elem()
+}
+
+func (i FleetVpcConfigurationArgs) ToFleetVpcConfigurationOutput() FleetVpcConfigurationOutput {
+	return i.ToFleetVpcConfigurationOutputWithContext(context.Background())
+}
+
+func (i FleetVpcConfigurationArgs) ToFleetVpcConfigurationOutputWithContext(ctx context.Context) FleetVpcConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetVpcConfigurationOutput)
+}
+
+func (i FleetVpcConfigurationArgs) ToFleetVpcConfigurationPtrOutput() FleetVpcConfigurationPtrOutput {
+	return i.ToFleetVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FleetVpcConfigurationArgs) ToFleetVpcConfigurationPtrOutputWithContext(ctx context.Context) FleetVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetVpcConfigurationOutput).ToFleetVpcConfigurationPtrOutputWithContext(ctx)
+}
+
+// FleetVpcConfigurationPtrInput is an input type that accepts FleetVpcConfigurationArgs, FleetVpcConfigurationPtr and FleetVpcConfigurationPtrOutput values.
+// You can construct a concrete instance of `FleetVpcConfigurationPtrInput` via:
+//
+//	        FleetVpcConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetVpcConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFleetVpcConfigurationPtrOutput() FleetVpcConfigurationPtrOutput
+	ToFleetVpcConfigurationPtrOutputWithContext(context.Context) FleetVpcConfigurationPtrOutput
+}
+
+type fleetVpcConfigurationPtrType FleetVpcConfigurationArgs
+
+func FleetVpcConfigurationPtr(v *FleetVpcConfigurationArgs) FleetVpcConfigurationPtrInput {
+	return (*fleetVpcConfigurationPtrType)(v)
+}
+
+func (*fleetVpcConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetVpcConfiguration)(nil)).Elem()
+}
+
+func (i *fleetVpcConfigurationPtrType) ToFleetVpcConfigurationPtrOutput() FleetVpcConfigurationPtrOutput {
+	return i.ToFleetVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetVpcConfigurationPtrType) ToFleetVpcConfigurationPtrOutputWithContext(ctx context.Context) FleetVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetVpcConfigurationPtrOutput)
+}
+
+type FleetVpcConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FleetVpcConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetVpcConfiguration)(nil)).Elem()
+}
+
+func (o FleetVpcConfigurationOutput) ToFleetVpcConfigurationOutput() FleetVpcConfigurationOutput {
+	return o
+}
+
+func (o FleetVpcConfigurationOutput) ToFleetVpcConfigurationOutputWithContext(ctx context.Context) FleetVpcConfigurationOutput {
+	return o
+}
+
+func (o FleetVpcConfigurationOutput) ToFleetVpcConfigurationPtrOutput() FleetVpcConfigurationPtrOutput {
+	return o.ToFleetVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FleetVpcConfigurationOutput) ToFleetVpcConfigurationPtrOutputWithContext(ctx context.Context) FleetVpcConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetVpcConfiguration) *FleetVpcConfiguration {
+		return &v
+	}).(FleetVpcConfigurationPtrOutput)
+}
+
+func (o FleetVpcConfigurationOutput) ResourceConfigurationArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetVpcConfiguration) []string { return v.ResourceConfigurationArns }).(pulumi.StringArrayOutput)
+}
+
+type FleetVpcConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetVpcConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetVpcConfiguration)(nil)).Elem()
+}
+
+func (o FleetVpcConfigurationPtrOutput) ToFleetVpcConfigurationPtrOutput() FleetVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetVpcConfigurationPtrOutput) ToFleetVpcConfigurationPtrOutputWithContext(ctx context.Context) FleetVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetVpcConfigurationPtrOutput) Elem() FleetVpcConfigurationOutput {
+	return o.ApplyT(func(v *FleetVpcConfiguration) FleetVpcConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FleetVpcConfiguration
+		return ret
+	}).(FleetVpcConfigurationOutput)
+}
+
+func (o FleetVpcConfigurationPtrOutput) ResourceConfigurationArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FleetVpcConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceConfigurationArns
+	}).(pulumi.StringArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -3138,6 +3286,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedEc2InstanceCapabilitiesInput)(nil)).Elem(), FleetServiceManagedEc2InstanceCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedEc2InstanceMarketOptionsInput)(nil)).Elem(), FleetServiceManagedEc2InstanceMarketOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetVCpuCountRangeInput)(nil)).Elem(), FleetVCpuCountRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetVpcConfigurationInput)(nil)).Elem(), FleetVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetVpcConfigurationPtrInput)(nil)).Elem(), FleetVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueJobAttachmentSettingsInput)(nil)).Elem(), QueueJobAttachmentSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueJobAttachmentSettingsPtrInput)(nil)).Elem(), QueueJobAttachmentSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueJobRunAsUserInput)(nil)).Elem(), QueueJobRunAsUserArgs{})
@@ -3184,6 +3334,8 @@ func init() {
 	pulumi.RegisterOutputType(FleetServiceManagedEc2InstanceMarketOptionsPtrOutput{})
 	pulumi.RegisterOutputType(FleetVCpuCountRangeOutput{})
 	pulumi.RegisterOutputType(FleetVCpuCountRangePtrOutput{})
+	pulumi.RegisterOutputType(FleetVpcConfigurationOutput{})
+	pulumi.RegisterOutputType(FleetVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(QueueJobAttachmentSettingsOutput{})
 	pulumi.RegisterOutputType(QueueJobAttachmentSettingsPtrOutput{})
 	pulumi.RegisterOutputType(QueueJobRunAsUserOutput{})

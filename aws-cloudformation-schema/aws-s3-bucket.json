@@ -43,7 +43,7 @@
       "insertionOrder" : true
     },
     "InventoryConfigurations" : {
-      "description" : "Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.",
+      "description" : "Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.",
       "items" : {
         "$ref" : "#/definitions/InventoryConfiguration"
       },
@@ -74,7 +74,7 @@
     },
     "MetadataConfiguration" : {
       "$ref" : "#/definitions/MetadataConfiguration",
-      "description" : ""
+      "description" : "The S3 Metadata configuration for a general purpose bucket."
     },
     "NotificationConfiguration" : {
       "$ref" : "#/definitions/NotificationConfiguration",
@@ -475,7 +475,7 @@
         }
       },
       "required" : [ "Destination", "Enabled", "Id", "IncludedObjectVersions", "ScheduleFrequency" ],
-      "description" : "Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*."
+      "description" : "Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*."
     },
     "LifecycleConfiguration" : {
       "type" : "object",
@@ -1115,7 +1115,7 @@
           "description" : "A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a ``Metrics`` block."
         },
         "StorageClass" : {
-          "description" : "The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica. \n For valid values, see the ``StorageClass`` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.",
+          "description" : "The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica. \n For valid values, see the ``StorageClass`` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.\n ``FSX_OPENZFS`` is not an accepted value when replicating objects.",
           "type" : "string",
           "enum" : [ "DEEP_ARCHIVE", "GLACIER", "GLACIER_IR", "INTELLIGENT_TIERING", "ONEZONE_IA", "REDUCED_REDUNDANCY", "STANDARD", "STANDARD_IA" ]
         }
@@ -1423,7 +1423,7 @@
         }
       },
       "required" : [ "S3TablesDestination" ],
-      "description" : "The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html)."
+      "description" : "We recommend that you create your S3 Metadata configurations by using the V2 [MetadataConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3-bucket-metadataconfiguration.html) resource type. We no longer recommend using the V1 ``MetadataTableConfiguration`` resource type. \n If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using the [MetadataConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3-bucket-metadataconfiguration.html) resource type so that you can expire journal table records and create a live inventory table.\n  Creates a V1 S3 Metadata configuration for a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*."
     },
     "S3TablesDestination" : {
       "type" : "object",
@@ -1447,7 +1447,7 @@
         }
       },
       "required" : [ "TableBucketArn", "TableName" ],
-      "description" : "The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket."
+      "description" : "The destination information for a V1 S3 Metadata configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket."
     },
     "RecordExpiration" : {
       "type" : "object",
@@ -1456,15 +1456,15 @@
         "Expiration" : {
           "type" : "string",
           "enum" : [ "ENABLED", "DISABLED" ],
-          "description" : "Specifies whether record expiration is enabled or disabled."
+          "description" : "Specifies whether journal table record expiration is enabled or disabled."
         },
         "Days" : {
           "type" : "integer",
-          "description" : "The number of days after which records expire. Required if Expiration is ENABLED."
+          "description" : "If you enable journal table record expiration, you can set the number of days to retain your journal table records. Journal table records must be retained for a minimum of 7 days. To set this value, specify any whole number from ``7`` to ``2147483647``. For example, to retain your journal table records for one year, set this value to ``365``."
         }
       },
       "required" : [ "Expiration" ],
-      "description" : ""
+      "description" : "The journal table record expiration settings for a journal table in an S3 Metadata configuration."
     },
     "MetadataTableEncryptionConfiguration" : {
       "type" : "object",
@@ -1473,15 +1473,15 @@
         "SseAlgorithm" : {
           "type" : "string",
           "enum" : [ "aws:kms", "AES256" ],
-          "description" : "Specifies the server-side encryption algorithm to use for encrypting tables."
+          "description" : "The encryption type specified for a metadata table. To specify server-side encryption with KMSlong (KMS) keys (SSE-KMS), use the ``aws:kms`` value. To specify server-side encryption with Amazon S3 managed keys (SSE-S3), use the ``AES256`` value."
         },
         "KmsKeyArn" : {
           "type" : "string",
-          "description" : "The ARN of the KMS key. Required if SseAlgorithm is aws:kms."
+          "description" : "If server-side encryption with KMSlong (KMS) keys (SSE-KMS) is specified, you must also specify the KMS key Amazon Resource Name (ARN). You must specify a customer-managed KMS key that's located in the same Region as the general purpose bucket that corresponds to the metadata table configuration."
         }
       },
       "required" : [ "SseAlgorithm" ],
-      "description" : ""
+      "description" : "The encryption settings for an S3 Metadata journal table or inventory table configuration."
     },
     "MetadataDestination" : {
       "type" : "object",
@@ -1490,19 +1490,19 @@
         "TableBucketType" : {
           "type" : "string",
           "enum" : [ "aws", "customer" ],
-          "description" : "The type of the table bucket."
+          "description" : "The type of the table bucket where the metadata configuration is stored. The ``aws`` value indicates an AWS managed table bucket, and the ``customer`` value indicates a customer-managed table bucket. V2 metadata configurations are stored in AWS managed table buckets, and V1 metadata configurations are stored in customer-managed table buckets."
         },
         "TableBucketArn" : {
           "type" : "string",
-          "description" : "The ARN of the table bucket."
+          "description" : "The Amazon Resource Name (ARN) of the table bucket where the metadata configuration is stored."
         },
         "TableNamespace" : {
           "type" : "string",
-          "description" : "The namespace of the table."
+          "description" : "The namespace in the table bucket where the metadata tables for a metadata configuration are stored."
         }
       },
       "required" : [ "TableBucketType" ],
-      "description" : ""
+      "description" : "The destination information for the S3 Metadata configuration."
     },
     "JournalTableConfiguration" : {
       "type" : "object",
@@ -1514,10 +1514,11 @@
         },
         "TableArn" : {
           "type" : "string",
-          "description" : "The ARN of the journal table."
+          "description" : "The Amazon Resource Name (ARN) for the journal table."
         },
         "RecordExpiration" : {
-          "$ref" : "#/definitions/RecordExpiration"
+          "$ref" : "#/definitions/RecordExpiration",
+          "description" : "The journal table record expiration settings for the journal table."
         },
         "EncryptionConfiguration" : {
           "$ref" : "#/definitions/MetadataTableEncryptionConfiguration",
@@ -1525,7 +1526,7 @@
         }
       },
       "required" : [ "RecordExpiration" ],
-      "description" : ""
+      "description" : "The journal table configuration for an S3 Metadata configuration."
     },
     "InventoryTableConfiguration" : {
       "type" : "object",
@@ -1537,12 +1538,12 @@
         },
         "TableArn" : {
           "type" : "string",
-          "description" : "The ARN of the inventory table."
+          "description" : "The Amazon Resource Name (ARN) for the inventory table."
         },
         "ConfigurationState" : {
           "type" : "string",
           "enum" : [ "ENABLED", "DISABLED" ],
-          "description" : "Specifies whether inventory table configuration is enabled or disabled."
+          "description" : "The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled."
         },
         "EncryptionConfiguration" : {
           "$ref" : "#/definitions/MetadataTableEncryptionConfiguration",
@@ -1550,24 +1551,24 @@
         }
       },
       "required" : [ "ConfigurationState" ],
-      "description" : ""
+      "description" : "The inventory table configuration for an S3 Metadata configuration."
     },
     "MetadataConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
-      "description" : "",
+      "description" : "Creates a V2 S3 Metadata configuration of a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.",
       "properties" : {
         "Destination" : {
           "$ref" : "#/definitions/MetadataDestination",
-          "description" : "The destination information for the metadata configuration."
+          "description" : "The destination information for the S3 Metadata configuration."
         },
         "JournalTableConfiguration" : {
           "$ref" : "#/definitions/JournalTableConfiguration",
-          "description" : "The configuration for the journal table."
+          "description" : "The journal table configuration for a metadata configuration."
         },
         "InventoryTableConfiguration" : {
           "$ref" : "#/definitions/InventoryTableConfiguration",
-          "description" : "The configuration for the inventory table."
+          "description" : "The inventory table configuration for a metadata configuration."
         }
       },
       "required" : [ "JournalTableConfiguration" ]

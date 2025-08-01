@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.Deadline.Outputs
         public readonly Outputs.FleetServiceManagedEc2InstanceCapabilities InstanceCapabilities;
         public readonly Outputs.FleetServiceManagedEc2InstanceMarketOptions InstanceMarketOptions;
         public readonly string? StorageProfileId;
+        public readonly Outputs.FleetVpcConfiguration? VpcConfiguration;
 
         [OutputConstructor]
         private FleetServiceManagedEc2FleetConfiguration(
@@ -23,11 +24,14 @@ namespace Pulumi.AwsNative.Deadline.Outputs
 
             Outputs.FleetServiceManagedEc2InstanceMarketOptions instanceMarketOptions,
 
-            string? storageProfileId)
+            string? storageProfileId,
+
+            Outputs.FleetVpcConfiguration? vpcConfiguration)
         {
             InstanceCapabilities = instanceCapabilities;
             InstanceMarketOptions = instanceMarketOptions;
             StorageProfileId = storageProfileId;
+            VpcConfiguration = vpcConfiguration;
         }
     }
 }

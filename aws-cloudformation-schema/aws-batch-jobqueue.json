@@ -20,13 +20,26 @@
       },
       "required" : [ "ComputeEnvironment", "Order" ]
     },
+    "ServiceEnvironmentOrder" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ServiceEnvironment" : {
+          "type" : "string"
+        },
+        "Order" : {
+          "type" : "integer"
+        }
+      },
+      "required" : [ "ServiceEnvironment", "Order" ]
+    },
     "JobStateTimeLimitAction" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "Action" : {
           "type" : "string",
-          "enum" : [ "CANCEL" ]
+          "enum" : [ "CANCEL", "TERMINATE" ]
         },
         "MaxTimeSeconds" : {
           "type" : "integer",
@@ -53,12 +66,23 @@
     "JobQueueArn" : {
       "$ref" : "#/definitions/ResourceArn"
     },
+    "JobQueueType" : {
+      "type" : "string"
+    },
     "ComputeEnvironmentOrder" : {
       "type" : "array",
       "insertionOrder" : true,
       "uniqueItems" : false,
       "items" : {
         "$ref" : "#/definitions/ComputeEnvironmentOrder"
+      }
+    },
+    "ServiceEnvironmentOrder" : {
+      "type" : "array",
+      "insertionOrder" : true,
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/ServiceEnvironmentOrder"
       }
     },
     "JobStateTimeLimitActions" : {
@@ -100,9 +124,14 @@
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "Batch:TagResource", "Batch:UntagResource" ]
   },
-  "required" : [ "ComputeEnvironmentOrder", "Priority" ],
+  "required" : [ "Priority" ],
+  "oneOf" : [ {
+    "required" : [ "ComputeEnvironmentOrder" ]
+  }, {
+    "required" : [ "ServiceEnvironmentOrder" ]
+  } ],
   "primaryIdentifier" : [ "/properties/JobQueueArn" ],
-  "createOnlyProperties" : [ "/properties/Tags", "/properties/JobQueueName" ],
+  "createOnlyProperties" : [ "/properties/Tags", "/properties/JobQueueName", "/properties/JobQueueType" ],
   "readOnlyProperties" : [ "/properties/JobQueueArn" ],
   "handlers" : {
     "create" : {

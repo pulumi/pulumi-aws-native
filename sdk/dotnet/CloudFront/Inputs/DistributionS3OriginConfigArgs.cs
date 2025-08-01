@@ -28,6 +28,11 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("originAccessIdentity")]
         public Input<string>? OriginAccessIdentity { get; set; }
 
+        /// <summary>
+        /// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout* . The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+        /// 
+        /// For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide* .
+        /// </summary>
         [Input("originReadTimeout")]
         public Input<int>? OriginReadTimeout { get; set; }
 

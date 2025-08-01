@@ -32,6 +32,7 @@ __all__ = [
     'CommandParameter',
     'CommandParameterValue',
     'CommandPayload',
+    'ConfigurationDetailsProperties',
     'DomainConfigurationAuthorizerConfig',
     'DomainConfigurationClientCertificateConfig',
     'DomainConfigurationServerCertificateConfig',
@@ -930,6 +931,56 @@ class CommandPayload(dict):
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[builtins.str]:
         return pulumi.get(self, "content_type")
+
+
+@pulumi.output_type
+class ConfigurationDetailsProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationStatus":
+            suggest = "configuration_status"
+        elif key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorMessage":
+            suggest = "error_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationDetailsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationDetailsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationDetailsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration_status: Optional['EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus'] = None,
+                 error_code: Optional[builtins.str] = None,
+                 error_message: Optional[builtins.str] = None):
+        if configuration_status is not None:
+            pulumi.set(__self__, "configuration_status", configuration_status)
+        if error_code is not None:
+            pulumi.set(__self__, "error_code", error_code)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+
+    @property
+    @pulumi.getter(name="configurationStatus")
+    def configuration_status(self) -> Optional['EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus']:
+        return pulumi.get(self, "configuration_status")
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "error_message")
 
 
 @pulumi.output_type

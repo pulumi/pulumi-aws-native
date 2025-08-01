@@ -26,6 +26,7 @@ __all__ = [
     'DbClusterServerlessV2ScalingConfiguration',
     'DbInstanceCertificateDetails',
     'DbInstanceDbInstanceRole',
+    'DbInstanceDbInstanceStatusInfo',
     'DbInstanceEndpoint',
     'DbInstanceMasterUserSecret',
     'DbInstanceProcessorFeature',
@@ -537,6 +538,78 @@ class DbInstanceDbInstanceRole(dict):
         The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
         """
         return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class DbInstanceDbInstanceStatusInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusType":
+            suggest = "status_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DbInstanceDbInstanceStatusInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DbInstanceDbInstanceStatusInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DbInstanceDbInstanceStatusInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 message: Optional[builtins.str] = None,
+                 normal: Optional[builtins.bool] = None,
+                 status: Optional[builtins.str] = None,
+                 status_type: Optional[builtins.str] = None):
+        """
+        :param builtins.str message: Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
+        :param builtins.bool normal: Indicates whether the instance is operating normally (TRUE) or is in an error state (FALSE).
+        :param builtins.str status: The status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+        :param builtins.str status_type: The status type of the DB instance.
+        """
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if normal is not None:
+            pulumi.set(__self__, "normal", normal)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if status_type is not None:
+            pulumi.set(__self__, "status_type", status_type)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[builtins.str]:
+        """
+        Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def normal(self) -> Optional[builtins.bool]:
+        """
+        Indicates whether the instance is operating normally (TRUE) or is in an error state (FALSE).
+        """
+        return pulumi.get(self, "normal")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[builtins.str]:
+        """
+        The status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusType")
+    def status_type(self) -> Optional[builtins.str]:
+        """
+        The status type of the DB instance.
+        """
+        return pulumi.get(self, "status_type")
 
 
 @pulumi.output_type

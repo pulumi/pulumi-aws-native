@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
 
     /// <summary>
     /// This structure defines the metric to be returned, along with the statistics, period, and units.
-    ///   ``MetricStat`` is a property of the [MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html) property type.
+    ///  ``MetricStat`` is a property of the [MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html) property type.
     /// </summary>
     public sealed class AlarmMetricStatArgs : global::Pulumi.ResourceArgs
     {
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
         public Input<Inputs.AlarmMetricArgs> Metric { get; set; } = null!;
 
         /// <summary>
-        /// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` call that includes a ``StorageResolution`` of 1 second.
+        /// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 20, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` call that includes a ``StorageResolution`` of 1 second.
         ///  If the ``StartTime`` parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:
         ///   +  Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).
         ///   +  Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).

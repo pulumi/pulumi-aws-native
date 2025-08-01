@@ -45,7 +45,7 @@ export class MatchingWorkflow extends pulumi.CustomResource {
     /**
      * Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
      *
-     * > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+     * > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
      */
     public readonly incrementalRunConfig!: pulumi.Output<outputs.entityresolution.MatchingWorkflowIncrementalRunConfig | undefined>;
     /**
@@ -53,7 +53,7 @@ export class MatchingWorkflow extends pulumi.CustomResource {
      */
     public readonly inputSourceConfig!: pulumi.Output<outputs.entityresolution.MatchingWorkflowInputSource[]>;
     /**
-     * A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+     * A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
      */
     public readonly outputSourceConfig!: pulumi.Output<outputs.entityresolution.MatchingWorkflowOutputSource[]>;
     /**
@@ -140,7 +140,7 @@ export interface MatchingWorkflowArgs {
     /**
      * Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
      *
-     * > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+     * > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
      */
     incrementalRunConfig?: pulumi.Input<inputs.entityresolution.MatchingWorkflowIncrementalRunConfigArgs>;
     /**
@@ -148,7 +148,7 @@ export interface MatchingWorkflowArgs {
      */
     inputSourceConfig: pulumi.Input<pulumi.Input<inputs.entityresolution.MatchingWorkflowInputSourceArgs>[]>;
     /**
-     * A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+     * A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
      */
     outputSourceConfig: pulumi.Input<pulumi.Input<inputs.entityresolution.MatchingWorkflowOutputSourceArgs>[]>;
     /**

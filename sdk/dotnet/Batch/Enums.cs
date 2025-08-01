@@ -114,6 +114,7 @@ namespace Pulumi.AwsNative.Batch
         }
 
         public static JobQueueJobStateTimeLimitActionAction Cancel { get; } = new JobQueueJobStateTimeLimitActionAction("CANCEL");
+        public static JobQueueJobStateTimeLimitActionAction Terminate { get; } = new JobQueueJobStateTimeLimitActionAction("TERMINATE");
 
         public static bool operator ==(JobQueueJobStateTimeLimitActionAction left, JobQueueJobStateTimeLimitActionAction right) => left.Equals(right);
         public static bool operator !=(JobQueueJobStateTimeLimitActionAction left, JobQueueJobStateTimeLimitActionAction right) => !left.Equals(right);

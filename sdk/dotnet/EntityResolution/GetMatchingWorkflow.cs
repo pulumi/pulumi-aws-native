@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.EntityResolution
         /// <summary>
         /// Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
         /// 
-        /// &gt; For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+        /// &gt; For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
         /// </summary>
         public readonly Outputs.MatchingWorkflowIncrementalRunConfig? IncrementalRunConfig;
         /// <summary>
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.EntityResolution
         /// </summary>
         public readonly ImmutableArray<Outputs.MatchingWorkflowInputSource> InputSourceConfig;
         /// <summary>
-        /// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+        /// A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
         /// </summary>
         public readonly ImmutableArray<Outputs.MatchingWorkflowOutputSource> OutputSourceConfig;
         /// <summary>

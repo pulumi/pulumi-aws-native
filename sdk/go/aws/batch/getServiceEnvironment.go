@@ -23,13 +23,17 @@ func LookupServiceEnvironment(ctx *pulumi.Context, args *LookupServiceEnvironmen
 }
 
 type LookupServiceEnvironmentArgs struct {
+	// The Amazon Resource Name (ARN) of the service environment.
 	ServiceEnvironmentArn string `pulumi:"serviceEnvironmentArn"`
 }
 
 type LookupServiceEnvironmentResult struct {
-	CapacityLimits        []ServiceEnvironmentCapacityLimit `pulumi:"capacityLimits"`
-	ServiceEnvironmentArn *string                           `pulumi:"serviceEnvironmentArn"`
-	State                 *string                           `pulumi:"state"`
+	// The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
+	CapacityLimits []ServiceEnvironmentCapacityLimit `pulumi:"capacityLimits"`
+	// The Amazon Resource Name (ARN) of the service environment.
+	ServiceEnvironmentArn *string `pulumi:"serviceEnvironmentArn"`
+	// The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
+	State *string `pulumi:"state"`
 	// A key-value pair to associate with a resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -44,6 +48,7 @@ func LookupServiceEnvironmentOutput(ctx *pulumi.Context, args LookupServiceEnvir
 }
 
 type LookupServiceEnvironmentOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the service environment.
 	ServiceEnvironmentArn pulumi.StringInput `pulumi:"serviceEnvironmentArn"`
 }
 
@@ -65,14 +70,17 @@ func (o LookupServiceEnvironmentResultOutput) ToLookupServiceEnvironmentResultOu
 	return o
 }
 
+// The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
 func (o LookupServiceEnvironmentResultOutput) CapacityLimits() ServiceEnvironmentCapacityLimitArrayOutput {
 	return o.ApplyT(func(v LookupServiceEnvironmentResult) []ServiceEnvironmentCapacityLimit { return v.CapacityLimits }).(ServiceEnvironmentCapacityLimitArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the service environment.
 func (o LookupServiceEnvironmentResultOutput) ServiceEnvironmentArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceEnvironmentResult) *string { return v.ServiceEnvironmentArn }).(pulumi.StringPtrOutput)
 }
 
+// The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
 func (o LookupServiceEnvironmentResultOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceEnvironmentResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }

@@ -2480,6 +2480,91 @@ type CommandTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ConfigurationDetailsProperties struct {
+	ConfigurationStatus *EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus `pulumi:"configurationStatus"`
+	ErrorCode           *string                                                                   `pulumi:"errorCode"`
+	ErrorMessage        *string                                                                   `pulumi:"errorMessage"`
+}
+
+type ConfigurationDetailsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationDetailsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationDetailsProperties)(nil)).Elem()
+}
+
+func (o ConfigurationDetailsPropertiesOutput) ToConfigurationDetailsPropertiesOutput() ConfigurationDetailsPropertiesOutput {
+	return o
+}
+
+func (o ConfigurationDetailsPropertiesOutput) ToConfigurationDetailsPropertiesOutputWithContext(ctx context.Context) ConfigurationDetailsPropertiesOutput {
+	return o
+}
+
+func (o ConfigurationDetailsPropertiesOutput) ConfigurationStatus() EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput {
+	return o.ApplyT(func(v ConfigurationDetailsProperties) *EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus {
+		return v.ConfigurationStatus
+	}).(EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput)
+}
+
+func (o ConfigurationDetailsPropertiesOutput) ErrorCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationDetailsProperties) *string { return v.ErrorCode }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationDetailsPropertiesOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationDetailsProperties) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationDetailsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationDetailsProperties)(nil)).Elem()
+}
+
+func (o ConfigurationDetailsPropertiesPtrOutput) ToConfigurationDetailsPropertiesPtrOutput() ConfigurationDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o ConfigurationDetailsPropertiesPtrOutput) ToConfigurationDetailsPropertiesPtrOutputWithContext(ctx context.Context) ConfigurationDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o ConfigurationDetailsPropertiesPtrOutput) Elem() ConfigurationDetailsPropertiesOutput {
+	return o.ApplyT(func(v *ConfigurationDetailsProperties) ConfigurationDetailsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationDetailsProperties
+		return ret
+	}).(ConfigurationDetailsPropertiesOutput)
+}
+
+func (o ConfigurationDetailsPropertiesPtrOutput) ConfigurationStatus() EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput {
+	return o.ApplyT(func(v *ConfigurationDetailsProperties) *EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationStatus
+	}).(EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput)
+}
+
+func (o ConfigurationDetailsPropertiesPtrOutput) ErrorCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorCode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationDetailsPropertiesPtrOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorMessage
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type CustomMetricTag struct {
 	// The tag's key.
@@ -16322,6 +16407,8 @@ func init() {
 	pulumi.RegisterOutputType(CommandParameterValuePtrOutput{})
 	pulumi.RegisterOutputType(CommandPayloadOutput{})
 	pulumi.RegisterOutputType(CommandPayloadPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(ConfigurationDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationAuthorizerConfigOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationAuthorizerConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationClientCertificateConfigOutput{})

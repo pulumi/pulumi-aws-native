@@ -47,6 +47,7 @@ export interface GetJobQueueResult {
      * The Amazon Resource Name (ARN) of the scheduling policy. The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
      */
     readonly schedulingPolicyArn?: string;
+    readonly serviceEnvironmentOrder?: outputs.batch.JobQueueServiceEnvironmentOrder[];
     /**
      * The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
      */

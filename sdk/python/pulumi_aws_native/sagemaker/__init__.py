@@ -38,6 +38,7 @@ from .get_model_quality_job_definition import *
 from .get_monitoring_schedule import *
 from .get_partner_app import *
 from .get_pipeline import *
+from .get_processing_job import *
 from .get_project import *
 from .get_space import *
 from .get_studio_lifecycle_config import *
@@ -56,6 +57,7 @@ from .model_quality_job_definition import *
 from .monitoring_schedule import *
 from .partner_app import *
 from .pipeline import *
+from .processing_job import *
 from .project import *
 from .space import *
 from .studio_lifecycle_config import *

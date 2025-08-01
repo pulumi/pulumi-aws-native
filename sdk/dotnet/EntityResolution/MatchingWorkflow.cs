@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.EntityResolution
         /// <summary>
         /// Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
         /// 
-        /// &gt; For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+        /// &gt; For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
         /// </summary>
         [Output("incrementalRunConfig")]
         public Output<Outputs.MatchingWorkflowIncrementalRunConfig?> IncrementalRunConfig { get; private set; } = null!;
@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.EntityResolution
         public Output<ImmutableArray<Outputs.MatchingWorkflowInputSource>> InputSourceConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+        /// A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
         /// </summary>
         [Output("outputSourceConfig")]
         public Output<ImmutableArray<Outputs.MatchingWorkflowOutputSource>> OutputSourceConfig { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.AwsNative.EntityResolution
         /// <summary>
         /// Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
         /// 
-        /// &gt; For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+        /// &gt; For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
         /// </summary>
         [Input("incrementalRunConfig")]
         public Input<Inputs.MatchingWorkflowIncrementalRunConfigArgs>? IncrementalRunConfig { get; set; }
@@ -153,7 +153,7 @@ namespace Pulumi.AwsNative.EntityResolution
         private InputList<Inputs.MatchingWorkflowOutputSourceArgs>? _outputSourceConfig;
 
         /// <summary>
-        /// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+        /// A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
         /// </summary>
         public InputList<Inputs.MatchingWorkflowOutputSourceArgs> OutputSourceConfig
         {
