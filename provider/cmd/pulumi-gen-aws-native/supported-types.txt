@@ -618,6 +618,7 @@ AWS::IoT::Command
 AWS::IoT::CustomMetric
 AWS::IoT::Dimension
 AWS::IoT::DomainConfiguration
+AWS::IoT::EncryptionConfiguration
 AWS::IoT::FleetMetric
 AWS::IoT::JobTemplate
 AWS::IoT::Logging
@@ -1068,6 +1069,7 @@ AWS::SageMaker::ModelQualityJobDefinition
 AWS::SageMaker::MonitoringSchedule
 AWS::SageMaker::PartnerApp
 AWS::SageMaker::Pipeline
+AWS::SageMaker::ProcessingJob
 AWS::SageMaker::Project
 AWS::SageMaker::Space
 AWS::SageMaker::StudioLifecycleConfig
