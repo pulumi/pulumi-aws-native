@@ -75,6 +75,10 @@
     "Arn" : {
       "description" : "",
       "type" : "string"
+    },
+    "ResourcePolicyDocument" : {
+      "description" : "",
+      "type" : "object"
     }
   },
   "handlers" : {
@@ -82,10 +86,10 @@
       "permissions" : [ "logs:DescribeLogGroups", "logs:CreateLogGroup", "logs:PutRetentionPolicy", "logs:TagResource", "logs:GetDataProtectionPolicy", "logs:PutDataProtectionPolicy", "logs:CreateLogDelivery", "s3:REST.PUT.OBJECT", "firehose:TagDeliveryStream", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:PutIndexPolicy", "logs:DescribeIndexPolicies" ]
     },
     "read" : {
-      "permissions" : [ "logs:DescribeLogGroups", "logs:ListTagsForResource", "logs:GetDataProtectionPolicy", "logs:DescribeIndexPolicies" ]
+      "permissions" : [ "logs:DescribeLogGroups", "logs:ListTagsForResource", "logs:GetDataProtectionPolicy", "logs:DescribeIndexPolicies", "logs:DescribeResourcePolicies" ]
     },
     "update" : {
-      "permissions" : [ "logs:DescribeLogGroups", "logs:AssociateKmsKey", "logs:DisassociateKmsKey", "logs:PutRetentionPolicy", "logs:DeleteRetentionPolicy", "logs:TagResource", "logs:UntagResource", "logs:ListTagsForResource", "logs:GetDataProtectionPolicy", "logs:PutDataProtectionPolicy", "logs:CreateLogDelivery", "s3:REST.PUT.OBJECT", "firehose:TagDeliveryStream", "logs:PutIndexPolicy", "logs:DeleteIndexPolicy" ]
+      "permissions" : [ "logs:DescribeLogGroups", "logs:AssociateKmsKey", "logs:DisassociateKmsKey", "logs:PutRetentionPolicy", "logs:DeleteRetentionPolicy", "logs:TagResource", "logs:UntagResource", "logs:ListTagsForResource", "logs:GetDataProtectionPolicy", "logs:PutDataProtectionPolicy", "logs:CreateLogDelivery", "s3:REST.PUT.OBJECT", "firehose:TagDeliveryStream", "logs:PutIndexPolicy", "logs:DeleteIndexPolicy", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DeleteResourcePolicy" ]
     },
     "delete" : {
       "permissions" : [ "logs:DescribeLogGroups", "logs:DeleteLogGroup", "logs:DeleteDataProtectionPolicy" ]
