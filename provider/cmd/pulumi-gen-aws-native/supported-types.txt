@@ -6,6 +6,7 @@ AWS::AIOps::InvestigationGroup
 AWS::APS::RuleGroupsNamespace
 AWS::APS::Scraper
 AWS::APS::Workspace
+AWS::ARCRegionSwitch::Plan
 AWS::ARCZonalShift::AutoshiftObserverNotificationStatus
 AWS::ARCZonalShift::ZonalAutoshiftConfiguration
 AWS::AccessAnalyzer::Analyzer
@@ -618,6 +619,7 @@ AWS::IoT::Command
 AWS::IoT::CustomMetric
 AWS::IoT::Dimension
 AWS::IoT::DomainConfiguration
+AWS::IoT::EncryptionConfiguration
 AWS::IoT::FleetMetric
 AWS::IoT::JobTemplate
 AWS::IoT::Logging
@@ -1068,6 +1070,7 @@ AWS::SageMaker::ModelQualityJobDefinition
 AWS::SageMaker::MonitoringSchedule
 AWS::SageMaker::PartnerApp
 AWS::SageMaker::Pipeline
+AWS::SageMaker::ProcessingJob
 AWS::SageMaker::Project
 AWS::SageMaker::Space
 AWS::SageMaker::StudioLifecycleConfig
@@ -1177,6 +1180,7 @@ AWS::WorkSpacesWeb::IdentityProvider
 AWS::WorkSpacesWeb::IpAccessSettings
 AWS::WorkSpacesWeb::NetworkSettings
 AWS::WorkSpacesWeb::Portal
+AWS::WorkSpacesWeb::SessionLogger
 AWS::WorkSpacesWeb::TrustStore
 AWS::WorkSpacesWeb::UserAccessLoggingSettings
 AWS::WorkSpacesWeb::UserSettings

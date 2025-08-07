@@ -145,7 +145,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "codepipeline:TagResource", "codepipeline:UntagResource", "codepipeline:ListTagsForResource" ]
   },
   "required" : [ "Category", "InputArtifactDetails", "OutputArtifactDetails", "Provider", "Version" ],
   "createOnlyProperties" : [ "/properties/Category", "/properties/ConfigurationProperties", "/properties/InputArtifactDetails", "/properties/OutputArtifactDetails", "/properties/Provider", "/properties/Settings", "/properties/Version" ],

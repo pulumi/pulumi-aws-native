@@ -106,7 +106,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : false,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "apigateway:PUT", "apigateway:PATCH", "apigateway:GET", "apigateway:DELETE" ]
   },
   "handlers" : {
     "create" : {

@@ -8,7 +8,7 @@
     "cloudFormationSystemTags" : true
   },
   "typeName" : "AWS::AppConfig::Deployment",
-  "readOnlyProperties" : [ "/properties/DeploymentNumber" ],
+  "readOnlyProperties" : [ "/properties/DeploymentNumber", "/properties/State" ],
   "description" : "Resource Type definition for AWS::AppConfig::Deployment",
   "createOnlyProperties" : [ "/properties/ApplicationId", "/properties/ConfigurationProfileId", "/properties/DeploymentStrategyId", "/properties/EnvironmentId", "/properties/Description", "/properties/ConfigurationVersion", "/properties/KmsKeyIdentifier", "/properties/DynamicExtensionParameters", "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/ApplicationId", "/properties/EnvironmentId", "/properties/DeploymentNumber" ],
@@ -99,6 +99,11 @@
     "ConfigurationVersion" : {
       "description" : "The configuration version to deploy. If deploying an AWS AppConfig hosted configuration version, you can specify either the version number or version label. For all other configurations, you must specify the version number.",
       "type" : "string"
+    },
+    "State" : {
+      "description" : "The state of the deployment.",
+      "type" : "string",
+      "enum" : [ "BAKING", "VALIDATING", "DEPLOYING", "COMPLETE", "ROLLING_BACK", "ROLLED_BACK", "REVERTED" ]
     },
     "DeploymentNumber" : {
       "description" : "The sequence number of the deployment.",

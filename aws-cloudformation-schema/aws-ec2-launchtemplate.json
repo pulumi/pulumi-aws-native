@@ -83,22 +83,6 @@
           "description" : "Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.",
           "type" : "boolean"
         },
-        "ElasticGpuSpecifications" : {
-          "uniqueItems" : false,
-          "description" : "Deprecated.\n  Amazon Elastic Graphics reached end of life on January 8, 2024.",
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/ElasticGpuSpecification"
-          }
-        },
-        "ElasticInferenceAccelerators" : {
-          "uniqueItems" : false,
-          "description" : "Amazon Elastic Inference is no longer available.\n  An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.\n You cannot specify accelerators from different generations in the same request.",
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/LaunchTemplateElasticInferenceAccelerator"
-          }
-        },
         "Placement" : {
           "description" : "The placement for the instance.",
           "$ref" : "#/definitions/Placement"
@@ -237,17 +221,6 @@
       "properties" : {
         "AutoRecovery" : {
           "description" : "Disables the automatic recovery behavior of your instance or sets it to default.",
-          "type" : "string"
-        }
-      }
-    },
-    "ElasticGpuSpecification" : {
-      "description" : "Amazon Elastic Graphics reached end of life on January 8, 2024.\n  Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.\n ``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "Type" : {
-          "description" : "The type of Elastic Graphics accelerator.",
           "type" : "string"
         }
       }
@@ -640,6 +613,10 @@
           "description" : "The number of IPv4 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the ``Ipv4Prefix`` option.",
           "type" : "integer"
         },
+        "EnaQueueCount" : {
+          "description" : "",
+          "type" : "integer"
+        },
         "Ipv6Prefixes" : {
           "uniqueItems" : false,
           "description" : "One or more IPv6 prefixes to be assigned to the network interface. You cannot use this option if you use the ``Ipv6PrefixCount`` option.",
@@ -862,21 +839,6 @@
         "Cpu" : {
           "description" : "The CPU performance to consider, using an instance family as the baseline reference.",
           "$ref" : "#/definitions/Cpu"
-        }
-      }
-    },
-    "LaunchTemplateElasticInferenceAccelerator" : {
-      "description" : "Amazon Elastic Inference is no longer available.\n  Specifies an elastic inference accelerator.\n ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "Type" : {
-          "description" : "The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.",
-          "type" : "string"
-        },
-        "Count" : {
-          "description" : "The number of elastic inference accelerators to attach to the instance. \n Default: 1",
-          "type" : "integer"
         }
       }
     },
