@@ -57,6 +57,10 @@ __all__ = [
     'MatchingWorkflowResolutionTechniquesArgsDict',
     'MatchingWorkflowRuleBasedPropertiesArgs',
     'MatchingWorkflowRuleBasedPropertiesArgsDict',
+    'MatchingWorkflowRuleConditionPropertiesArgs',
+    'MatchingWorkflowRuleConditionPropertiesArgsDict',
+    'MatchingWorkflowRuleConditionArgs',
+    'MatchingWorkflowRuleConditionArgsDict',
     'MatchingWorkflowRuleArgs',
     'MatchingWorkflowRuleArgsDict',
     'SchemaMappingSchemaInputAttributeArgs',
@@ -71,9 +75,9 @@ if not MYPY:
         """
         The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 
-        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
-
         If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+
+        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
         """
         record_matching_model: pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel']
         """
@@ -104,9 +108,9 @@ class IdMappingWorkflowIdMappingRuleBasedPropertiesArgs:
         """
         :param pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel'] attribute_matching_model: The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
                
-               If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
-               
                If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+               
+               If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
         :param pulumi.Input['IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel'] record_matching_model: The type of matching record that is allowed to be used in an ID mapping workflow.
                
                If the value is set to `ONE_SOURCE_TO_ONE_TARGET` , only one record in the source can be matched to the same record in the target.
@@ -128,9 +132,9 @@ class IdMappingWorkflowIdMappingRuleBasedPropertiesArgs:
         """
         The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 
-        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
-
         If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+
+        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
         """
         return pulumi.get(self, "attribute_matching_model")
 
@@ -716,9 +720,9 @@ if not MYPY:
         """
         The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 
-        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
-
         If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+
+        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
         """
         record_matching_models: NotRequired[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRecordMatchingModel']]]]
         """
@@ -749,9 +753,9 @@ class IdNamespaceNamespaceRuleBasedPropertiesArgs:
         """
         :param pulumi.Input['IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel'] attribute_matching_model: The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
                
-               If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
-               
                If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+               
+               If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
         :param pulumi.Input[Sequence[pulumi.Input['IdNamespaceRecordMatchingModel']]] record_matching_models: The type of matching record that is allowed to be used in an ID mapping workflow.
                
                If the value is set to `ONE_SOURCE_TO_ONE_TARGET` , only one record in the source is matched to one record in the target.
@@ -775,9 +779,9 @@ class IdNamespaceNamespaceRuleBasedPropertiesArgs:
         """
         The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 
-        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
-
         If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+
+        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
         """
         return pulumi.get(self, "attribute_matching_model")
 
@@ -882,7 +886,7 @@ if not MYPY:
         """
         The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
 
-        > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+        > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
         """
 elif False:
     MatchingWorkflowIncrementalRunConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -894,7 +898,7 @@ class MatchingWorkflowIncrementalRunConfigArgs:
         """
         :param pulumi.Input['MatchingWorkflowIncrementalRunConfigIncrementalRunType'] incremental_run_type: The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
                
-               > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+               > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
         """
         pulumi.set(__self__, "incremental_run_type", incremental_run_type)
 
@@ -904,7 +908,7 @@ class MatchingWorkflowIncrementalRunConfigArgs:
         """
         The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
 
-        > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+        > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
         """
         return pulumi.get(self, "incremental_run_type")
 
@@ -1234,11 +1238,19 @@ if not MYPY:
         """
         resolution_type: NotRequired[pulumi.Input['MatchingWorkflowResolutionType']]
         """
-        The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
+        The type of matching workflow to create. Specify one of the following types:
+
+        - `RULE_MATCHING` : Match records using configurable rule-based criteria
+        - `ML_MATCHING` : Match records using machine learning models
+        - `PROVIDER` : Match records using a third-party matching provider
         """
         rule_based_properties: NotRequired[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgsDict']]
         """
-        An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
+        An object which defines the list of matching rules to run and has a field `rules` , which is a list of rule objects.
+        """
+        rule_condition_properties: NotRequired[pulumi.Input['MatchingWorkflowRuleConditionPropertiesArgsDict']]
+        """
+        An object containing the `rules` for a matching workflow.
         """
 elif False:
     MatchingWorkflowResolutionTechniquesArgsDict: TypeAlias = Mapping[str, Any]
@@ -1248,11 +1260,17 @@ class MatchingWorkflowResolutionTechniquesArgs:
     def __init__(__self__, *,
                  provider_properties: Optional[pulumi.Input['MatchingWorkflowProviderPropertiesArgs']] = None,
                  resolution_type: Optional[pulumi.Input['MatchingWorkflowResolutionType']] = None,
-                 rule_based_properties: Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgs']] = None):
+                 rule_based_properties: Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgs']] = None,
+                 rule_condition_properties: Optional[pulumi.Input['MatchingWorkflowRuleConditionPropertiesArgs']] = None):
         """
         :param pulumi.Input['MatchingWorkflowProviderPropertiesArgs'] provider_properties: The properties of the provider service.
-        :param pulumi.Input['MatchingWorkflowResolutionType'] resolution_type: The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
-        :param pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgs'] rule_based_properties: An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
+        :param pulumi.Input['MatchingWorkflowResolutionType'] resolution_type: The type of matching workflow to create. Specify one of the following types:
+               
+               - `RULE_MATCHING` : Match records using configurable rule-based criteria
+               - `ML_MATCHING` : Match records using machine learning models
+               - `PROVIDER` : Match records using a third-party matching provider
+        :param pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgs'] rule_based_properties: An object which defines the list of matching rules to run and has a field `rules` , which is a list of rule objects.
+        :param pulumi.Input['MatchingWorkflowRuleConditionPropertiesArgs'] rule_condition_properties: An object containing the `rules` for a matching workflow.
         """
         if provider_properties is not None:
             pulumi.set(__self__, "provider_properties", provider_properties)
@@ -1260,6 +1278,8 @@ class MatchingWorkflowResolutionTechniquesArgs:
             pulumi.set(__self__, "resolution_type", resolution_type)
         if rule_based_properties is not None:
             pulumi.set(__self__, "rule_based_properties", rule_based_properties)
+        if rule_condition_properties is not None:
+            pulumi.set(__self__, "rule_condition_properties", rule_condition_properties)
 
     @property
     @pulumi.getter(name="providerProperties")
@@ -1277,7 +1297,11 @@ class MatchingWorkflowResolutionTechniquesArgs:
     @pulumi.getter(name="resolutionType")
     def resolution_type(self) -> Optional[pulumi.Input['MatchingWorkflowResolutionType']]:
         """
-        The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
+        The type of matching workflow to create. Specify one of the following types:
+
+        - `RULE_MATCHING` : Match records using configurable rule-based criteria
+        - `ML_MATCHING` : Match records using machine learning models
+        - `PROVIDER` : Match records using a third-party matching provider
         """
         return pulumi.get(self, "resolution_type")
 
@@ -1289,7 +1313,7 @@ class MatchingWorkflowResolutionTechniquesArgs:
     @pulumi.getter(name="ruleBasedProperties")
     def rule_based_properties(self) -> Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgs']]:
         """
-        An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
+        An object which defines the list of matching rules to run and has a field `rules` , which is a list of rule objects.
         """
         return pulumi.get(self, "rule_based_properties")
 
@@ -1297,16 +1321,28 @@ class MatchingWorkflowResolutionTechniquesArgs:
     def rule_based_properties(self, value: Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgs']]):
         pulumi.set(self, "rule_based_properties", value)
 
+    @property
+    @pulumi.getter(name="ruleConditionProperties")
+    def rule_condition_properties(self) -> Optional[pulumi.Input['MatchingWorkflowRuleConditionPropertiesArgs']]:
+        """
+        An object containing the `rules` for a matching workflow.
+        """
+        return pulumi.get(self, "rule_condition_properties")
+
+    @rule_condition_properties.setter
+    def rule_condition_properties(self, value: Optional[pulumi.Input['MatchingWorkflowRuleConditionPropertiesArgs']]):
+        pulumi.set(self, "rule_condition_properties", value)
+
 
 if not MYPY:
     class MatchingWorkflowRuleBasedPropertiesArgsDict(TypedDict):
         attribute_matching_model: pulumi.Input['MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel']
         """
-        The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
-
-        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
+        The comparison type. You can choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 
         If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+
+        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
         """
         rules: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleArgsDict']]]
         """
@@ -1330,11 +1366,11 @@ class MatchingWorkflowRuleBasedPropertiesArgs:
                  rules: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleArgs']]],
                  match_purpose: Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesMatchPurpose']] = None):
         """
-        :param pulumi.Input['MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel'] attribute_matching_model: The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
-               
-               If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
+        :param pulumi.Input['MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel'] attribute_matching_model: The comparison type. You can choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
                
                If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+               
+               If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
         :param pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleArgs']]] rules: A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
         :param pulumi.Input['MatchingWorkflowRuleBasedPropertiesMatchPurpose'] match_purpose: An indicator of whether to generate IDs and index the data or not.
                
@@ -1351,11 +1387,11 @@ class MatchingWorkflowRuleBasedPropertiesArgs:
     @pulumi.getter(name="attributeMatchingModel")
     def attribute_matching_model(self) -> pulumi.Input['MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel']:
         """
-        The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
-
-        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
+        The comparison type. You can choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 
         If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+
+        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
         """
         return pulumi.get(self, "attribute_matching_model")
 
@@ -1390,6 +1426,119 @@ class MatchingWorkflowRuleBasedPropertiesArgs:
     @match_purpose.setter
     def match_purpose(self, value: Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesMatchPurpose']]):
         pulumi.set(self, "match_purpose", value)
+
+
+if not MYPY:
+    class MatchingWorkflowRuleConditionPropertiesArgsDict(TypedDict):
+        rules: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleConditionArgsDict']]]
+        """
+        A list of rule objects, each of which have fields `ruleName` and `condition` .
+        """
+elif False:
+    MatchingWorkflowRuleConditionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MatchingWorkflowRuleConditionPropertiesArgs:
+    def __init__(__self__, *,
+                 rules: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleConditionArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleConditionArgs']]] rules: A list of rule objects, each of which have fields `ruleName` and `condition` .
+        """
+        pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleConditionArgs']]]:
+        """
+        A list of rule objects, each of which have fields `ruleName` and `condition` .
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleConditionArgs']]]):
+        pulumi.set(self, "rules", value)
+
+
+if not MYPY:
+    class MatchingWorkflowRuleConditionArgsDict(TypedDict):
+        condition: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A statement that specifies the conditions for a matching rule.
+
+        If your data is accurate, use an Exact matching function: `Exact` or `ExactManyToMany` .
+
+        If your data has variations in spelling or pronunciation, use a Fuzzy matching function: `Cosine` , `Levenshtein` , or `Soundex` .
+
+        Use operators if you want to combine ( `AND` ), separate ( `OR` ), or group matching functions `(...)` .
+
+        For example: `(Cosine(a, 10) AND Exact(b, true)) OR ExactManyToMany(c, d)`
+        """
+        rule_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A name for the matching rule.
+
+        For example: `Rule1`
+        """
+elif False:
+    MatchingWorkflowRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MatchingWorkflowRuleConditionArgs:
+    def __init__(__self__, *,
+                 condition: Optional[pulumi.Input[builtins.str]] = None,
+                 rule_name: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] condition: A statement that specifies the conditions for a matching rule.
+               
+               If your data is accurate, use an Exact matching function: `Exact` or `ExactManyToMany` .
+               
+               If your data has variations in spelling or pronunciation, use a Fuzzy matching function: `Cosine` , `Levenshtein` , or `Soundex` .
+               
+               Use operators if you want to combine ( `AND` ), separate ( `OR` ), or group matching functions `(...)` .
+               
+               For example: `(Cosine(a, 10) AND Exact(b, true)) OR ExactManyToMany(c, d)`
+        :param pulumi.Input[builtins.str] rule_name: A name for the matching rule.
+               
+               For example: `Rule1`
+        """
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if rule_name is not None:
+            pulumi.set(__self__, "rule_name", rule_name)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A statement that specifies the conditions for a matching rule.
+
+        If your data is accurate, use an Exact matching function: `Exact` or `ExactManyToMany` .
+
+        If your data has variations in spelling or pronunciation, use a Fuzzy matching function: `Cosine` , `Levenshtein` , or `Soundex` .
+
+        Use operators if you want to combine ( `AND` ), separate ( `OR` ), or group matching functions `(...)` .
+
+        For example: `(Cosine(a, 10) AND Exact(b, true)) OR ExactManyToMany(c, d)`
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A name for the matching rule.
+
+        For example: `Rule1`
+        """
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "rule_name", value)
 
 
 if not MYPY:

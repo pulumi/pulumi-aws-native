@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Logs
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
         /// </summary>
         [Output("targetArn")]
@@ -111,6 +117,18 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)

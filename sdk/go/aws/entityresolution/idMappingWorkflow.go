@@ -24,7 +24,7 @@ type IdMappingWorkflow struct {
 	IdMappingTechniques IdMappingWorkflowIdMappingTechniquesOutput `pulumi:"idMappingTechniques"`
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig IdMappingWorkflowInputSourceArrayOutput `pulumi:"inputSourceConfig"`
-	// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+	// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `outputS3Path` and `KMSArn` .
 	OutputSourceConfig IdMappingWorkflowOutputSourceArrayOutput `pulumi:"outputSourceConfig"`
 	// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -95,7 +95,7 @@ type idMappingWorkflowArgs struct {
 	IdMappingTechniques IdMappingWorkflowIdMappingTechniques `pulumi:"idMappingTechniques"`
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig []IdMappingWorkflowInputSource `pulumi:"inputSourceConfig"`
-	// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+	// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `outputS3Path` and `KMSArn` .
 	OutputSourceConfig []IdMappingWorkflowOutputSource `pulumi:"outputSourceConfig"`
 	// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
 	RoleArn string `pulumi:"roleArn"`
@@ -113,7 +113,7 @@ type IdMappingWorkflowArgs struct {
 	IdMappingTechniques IdMappingWorkflowIdMappingTechniquesInput
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig IdMappingWorkflowInputSourceArrayInput
-	// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+	// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `outputS3Path` and `KMSArn` .
 	OutputSourceConfig IdMappingWorkflowOutputSourceArrayInput
 	// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
 	RoleArn pulumi.StringInput
@@ -179,7 +179,7 @@ func (o IdMappingWorkflowOutput) InputSourceConfig() IdMappingWorkflowInputSourc
 	return o.ApplyT(func(v *IdMappingWorkflow) IdMappingWorkflowInputSourceArrayOutput { return v.InputSourceConfig }).(IdMappingWorkflowInputSourceArrayOutput)
 }
 
-// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `outputS3Path` and `KMSArn` .
 func (o IdMappingWorkflowOutput) OutputSourceConfig() IdMappingWorkflowOutputSourceArrayOutput {
 	return o.ApplyT(func(v *IdMappingWorkflow) IdMappingWorkflowOutputSourceArrayOutput { return v.OutputSourceConfig }).(IdMappingWorkflowOutputSourceArrayOutput)
 }

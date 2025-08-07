@@ -34,11 +34,11 @@ type LookupMatchingWorkflowResult struct {
 	Description *string `pulumi:"description"`
 	// Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
 	//
-	// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+	// > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
 	IncrementalRunConfig *MatchingWorkflowIncrementalRunConfig `pulumi:"incrementalRunConfig"`
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig []MatchingWorkflowInputSource `pulumi:"inputSourceConfig"`
-	// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+	// A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
 	OutputSourceConfig []MatchingWorkflowOutputSource `pulumi:"outputSourceConfig"`
 	// An object which defines the `resolutionType` and the `ruleBasedProperties` .
 	ResolutionTechniques *MatchingWorkflowResolutionTechniques `pulumi:"resolutionTechniques"`
@@ -93,7 +93,7 @@ func (o LookupMatchingWorkflowResultOutput) Description() pulumi.StringPtrOutput
 
 // Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
 //
-// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+// > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
 func (o LookupMatchingWorkflowResultOutput) IncrementalRunConfig() MatchingWorkflowIncrementalRunConfigPtrOutput {
 	return o.ApplyT(func(v LookupMatchingWorkflowResult) *MatchingWorkflowIncrementalRunConfig {
 		return v.IncrementalRunConfig
@@ -105,7 +105,7 @@ func (o LookupMatchingWorkflowResultOutput) InputSourceConfig() MatchingWorkflow
 	return o.ApplyT(func(v LookupMatchingWorkflowResult) []MatchingWorkflowInputSource { return v.InputSourceConfig }).(MatchingWorkflowInputSourceArrayOutput)
 }
 
-// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+// A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
 func (o LookupMatchingWorkflowResultOutput) OutputSourceConfig() MatchingWorkflowOutputSourceArrayOutput {
 	return o.ApplyT(func(v LookupMatchingWorkflowResult) []MatchingWorkflowOutputSource { return v.OutputSourceConfig }).(MatchingWorkflowOutputSourceArrayOutput)
 }

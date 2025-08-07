@@ -331,12 +331,12 @@ namespace Pulumi.AwsNative.NetworkFirewall
     /// The actions for a stateful rule are defined as follows:
     /// 
     /// - *PASS* - Permits the packets to go to the intended destination.
-    /// - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+    /// - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the firewall logging configuration.
     /// - *REJECT* - Drops traffic that matches the conditions of the stateful rule and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. `REJECT` is available only for TCP traffic.
-    /// - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+    /// - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the firewall logging configuration.
     /// 
     /// You can use this action to test a rule that you intend to use to drop traffic. You can enable the rule with `ALERT` action, verify in the logs that the rule is filtering as you want, then change the action to `DROP` .
-    /// - *REJECT* - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+    /// - *REJECT* - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the firewall logging configuration.
     /// 
     /// `REJECT` isn't currently available for use with IMAP and FTP protocols.
     /// </summary>
@@ -363,6 +363,35 @@ namespace Pulumi.AwsNative.NetworkFirewall
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RuleGroupStatefulRuleAction other && Equals(other);
         public bool Equals(RuleGroupStatefulRuleAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RuleGroupSummaryRuleOption : IEquatable<RuleGroupSummaryRuleOption>
+    {
+        private readonly string _value;
+
+        private RuleGroupSummaryRuleOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleGroupSummaryRuleOption Sid { get; } = new RuleGroupSummaryRuleOption("SID");
+        public static RuleGroupSummaryRuleOption Msg { get; } = new RuleGroupSummaryRuleOption("MSG");
+        public static RuleGroupSummaryRuleOption Metadata { get; } = new RuleGroupSummaryRuleOption("METADATA");
+
+        public static bool operator ==(RuleGroupSummaryRuleOption left, RuleGroupSummaryRuleOption right) => left.Equals(right);
+        public static bool operator !=(RuleGroupSummaryRuleOption left, RuleGroupSummaryRuleOption right) => !left.Equals(right);
+
+        public static explicit operator string(RuleGroupSummaryRuleOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleGroupSummaryRuleOption other && Equals(other);
+        public bool Equals(RuleGroupSummaryRuleOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

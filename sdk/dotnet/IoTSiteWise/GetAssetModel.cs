@@ -96,6 +96,10 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// </summary>
         public readonly ImmutableArray<Outputs.AssetModelProperty> AssetModelProperties;
         /// <summary>
+        /// a list of asset model and interface relationships
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AssetModelEnforcedAssetModelInterfaceRelationship> EnforcedAssetModelInterfaceRelationships;
+        /// <summary>
         /// A list of key-value pairs that contain metadata for the asset model.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -118,6 +122,8 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
             ImmutableArray<Outputs.AssetModelProperty> assetModelProperties,
 
+            ImmutableArray<Outputs.AssetModelEnforcedAssetModelInterfaceRelationship> enforcedAssetModelInterfaceRelationships,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AssetModelArn = assetModelArn;
@@ -128,6 +134,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
             AssetModelId = assetModelId;
             AssetModelName = assetModelName;
             AssetModelProperties = assetModelProperties;
+            EnforcedAssetModelInterfaceRelationships = enforcedAssetModelInterfaceRelationships;
             Tags = tags;
         }
     }

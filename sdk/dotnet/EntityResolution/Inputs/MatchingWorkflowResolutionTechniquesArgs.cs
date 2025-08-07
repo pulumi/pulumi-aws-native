@@ -19,16 +19,26 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
         public Input<Inputs.MatchingWorkflowProviderPropertiesArgs>? ProviderProperties { get; set; }
 
         /// <summary>
-        /// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
+        /// The type of matching workflow to create. Specify one of the following types:
+        /// 
+        /// - `RULE_MATCHING` : Match records using configurable rule-based criteria
+        /// - `ML_MATCHING` : Match records using machine learning models
+        /// - `PROVIDER` : Match records using a third-party matching provider
         /// </summary>
         [Input("resolutionType")]
         public Input<Pulumi.AwsNative.EntityResolution.MatchingWorkflowResolutionType>? ResolutionType { get; set; }
 
         /// <summary>
-        /// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
+        /// An object which defines the list of matching rules to run and has a field `rules` , which is a list of rule objects.
         /// </summary>
         [Input("ruleBasedProperties")]
         public Input<Inputs.MatchingWorkflowRuleBasedPropertiesArgs>? RuleBasedProperties { get; set; }
+
+        /// <summary>
+        /// An object containing the `rules` for a matching workflow.
+        /// </summary>
+        [Input("ruleConditionProperties")]
+        public Input<Inputs.MatchingWorkflowRuleConditionPropertiesArgs>? RuleConditionProperties { get; set; }
 
         public MatchingWorkflowResolutionTechniquesArgs()
         {

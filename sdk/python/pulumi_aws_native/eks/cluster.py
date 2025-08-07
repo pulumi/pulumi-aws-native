@@ -30,6 +30,7 @@ class ClusterArgs:
                  access_config: Optional[pulumi.Input['ClusterAccessConfigArgs']] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[builtins.bool]] = None,
                  compute_config: Optional[pulumi.Input['ClusterComputeConfigArgs']] = None,
+                 deletion_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]]] = None,
                  force: Optional[pulumi.Input[builtins.bool]] = None,
                  kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
@@ -49,6 +50,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterAccessConfigArgs'] access_config: The access configuration for the cluster.
         :param pulumi.Input[builtins.bool] bootstrap_self_managed_addons: Set this value to false to avoid creating the default networking add-ons when the cluster is created.
         :param pulumi.Input['ClusterComputeConfigArgs'] compute_config: Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
+        :param pulumi.Input[builtins.bool] deletion_protection: Set this value to true to enable deletion protection for the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]] encryption_config: The encryption configuration for the cluster.
         :param pulumi.Input[builtins.bool] force: Force cluster version update
         :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: The Kubernetes network configuration for the cluster.
@@ -72,6 +74,8 @@ class ClusterArgs:
             pulumi.set(__self__, "bootstrap_self_managed_addons", bootstrap_self_managed_addons)
         if compute_config is not None:
             pulumi.set(__self__, "compute_config", compute_config)
+        if deletion_protection is not None:
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
         if encryption_config is not None:
             pulumi.set(__self__, "encryption_config", encryption_config)
         if force is not None:
@@ -156,6 +160,18 @@ class ClusterArgs:
     @compute_config.setter
     def compute_config(self, value: Optional[pulumi.Input['ClusterComputeConfigArgs']]):
         pulumi.set(self, "compute_config", value)
+
+    @property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Set this value to true to enable deletion protection for the cluster.
+        """
+        return pulumi.get(self, "deletion_protection")
+
+    @deletion_protection.setter
+    def deletion_protection(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "deletion_protection", value)
 
     @property
     @pulumi.getter(name="encryptionConfig")
@@ -313,6 +329,7 @@ class Cluster(pulumi.CustomResource):
                  access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[builtins.bool]] = None,
                  compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
+                 deletion_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]]]] = None,
                  force: Optional[pulumi.Input[builtins.bool]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
@@ -336,6 +353,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']] access_config: The access configuration for the cluster.
         :param pulumi.Input[builtins.bool] bootstrap_self_managed_addons: Set this value to false to avoid creating the default networking add-ons when the cluster is created.
         :param pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']] compute_config: Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
+        :param pulumi.Input[builtins.bool] deletion_protection: Set this value to true to enable deletion protection for the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]]] encryption_config: The encryption configuration for the cluster.
         :param pulumi.Input[builtins.bool] force: Force cluster version update
         :param pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']] kubernetes_network_config: The Kubernetes network configuration for the cluster.
@@ -380,6 +398,7 @@ class Cluster(pulumi.CustomResource):
                  access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[builtins.bool]] = None,
                  compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
+                 deletion_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]]]] = None,
                  force: Optional[pulumi.Input[builtins.bool]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
@@ -406,6 +425,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["access_config"] = access_config
             __props__.__dict__["bootstrap_self_managed_addons"] = bootstrap_self_managed_addons
             __props__.__dict__["compute_config"] = compute_config
+            __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["encryption_config"] = encryption_config
             __props__.__dict__["force"] = force
             __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
@@ -462,6 +482,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["certificate_authority_data"] = None
         __props__.__dict__["cluster_security_group_id"] = None
         __props__.__dict__["compute_config"] = None
+        __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["encryption_config"] = None
         __props__.__dict__["encryption_config_key_arn"] = None
         __props__.__dict__["endpoint"] = None
@@ -536,6 +557,14 @@ class Cluster(pulumi.CustomResource):
         Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
         """
         return pulumi.get(self, "compute_config")
+
+    @property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Set this value to true to enable deletion protection for the cluster.
+        """
+        return pulumi.get(self, "deletion_protection")
 
     @property
     @pulumi.getter(name="encryptionConfig")

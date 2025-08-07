@@ -25,6 +25,9 @@ export interface GetVpcEndpointAssociationArgs {
 }
 
 export interface GetVpcEndpointAssociationResult {
+    /**
+     * The unique ID of the firewall endpoint for the subnet that you attached to the firewall.For example: "vpce-111122223333"
+     */
     readonly endpointId?: string;
     /**
      * The key:value pairs to associate with the resource.

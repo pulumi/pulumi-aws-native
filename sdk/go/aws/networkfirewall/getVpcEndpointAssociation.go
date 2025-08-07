@@ -29,6 +29,7 @@ type LookupVpcEndpointAssociationArgs struct {
 }
 
 type LookupVpcEndpointAssociationResult struct {
+	// The unique ID of the firewall endpoint for the subnet that you attached to the firewall.For example: "vpce-111122223333"
 	EndpointId *string `pulumi:"endpointId"`
 	// The key:value pairs to associate with the resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -70,6 +71,7 @@ func (o LookupVpcEndpointAssociationResultOutput) ToLookupVpcEndpointAssociation
 	return o
 }
 
+// The unique ID of the firewall endpoint for the subnet that you attached to the firewall.For example: "vpce-111122223333"
 func (o LookupVpcEndpointAssociationResultOutput) EndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcEndpointAssociationResult) *string { return v.EndpointId }).(pulumi.StringPtrOutput)
 }

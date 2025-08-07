@@ -40,7 +40,8 @@ type LookupClusterResult struct {
 	// The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
 	InstanceGroups []ClusterInstanceGroup `pulumi:"instanceGroups"`
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
-	NodeRecovery *ClusterNodeRecovery `pulumi:"nodeRecovery"`
+	NodeRecovery             *ClusterNodeRecovery             `pulumi:"nodeRecovery"`
+	RestrictedInstanceGroups []ClusterRestrictedInstanceGroup `pulumi:"restrictedInstanceGroups"`
 	// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -105,6 +106,10 @@ func (o LookupClusterResultOutput) InstanceGroups() ClusterInstanceGroupArrayOut
 // If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 func (o LookupClusterResultOutput) NodeRecovery() ClusterNodeRecoveryPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterNodeRecovery { return v.NodeRecovery }).(ClusterNodeRecoveryPtrOutput)
+}
+
+func (o LookupClusterResultOutput) RestrictedInstanceGroups() ClusterRestrictedInstanceGroupArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []ClusterRestrictedInstanceGroup { return v.RestrictedInstanceGroups }).(ClusterRestrictedInstanceGroupArrayOutput)
 }
 
 // Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.

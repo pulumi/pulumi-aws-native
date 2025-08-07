@@ -89,7 +89,7 @@ class GetIdMappingWorkflowResult:
     @pulumi.getter(name="outputSourceConfig")
     def output_source_config(self) -> Optional[Sequence['outputs.IdMappingWorkflowOutputSource']]:
         """
-        A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+        A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `outputS3Path` and `KMSArn` .
         """
         return pulumi.get(self, "output_source_config")
 

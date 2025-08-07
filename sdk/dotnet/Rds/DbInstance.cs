@@ -135,6 +135,12 @@ namespace Pulumi.AwsNative.Rds
         public Output<int?> AutomaticBackupReplicationRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
+        /// The time when a stopped DB instance is restarted automatically.
+        /// </summary>
+        [Output("automaticRestartTime")]
+        public Output<string> AutomaticRestartTime { get; private set; } = null!;
+
+        /// <summary>
         /// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
         ///  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
         ///  Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.
@@ -784,6 +790,12 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> OptionGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The progress of the storage optimization operation as a percentage.
+        /// </summary>
+        [Output("percentProgress")]
+        public Output<string> PercentProgress { get; private set; } = null!;
+
+        /// <summary>
         /// The AWS KMS key identifier for encryption of Performance Insights data.
         ///  The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
         ///  If you do not specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS account. Your AWS account has a different default KMS key for each AWS Region.
@@ -905,6 +917,18 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> RestoreTime { get; private set; } = null!;
 
         /// <summary>
+        /// The number of minutes to pause the automation. When the time period ends, RDS Custom resumes full automation. The minimum value is 60 (default). The maximum value is 1,440.
+        /// </summary>
+        [Output("resumeFullAutomationModeTime")]
+        public Output<string> ResumeFullAutomationModeTime { get; private set; } = null!;
+
+        /// <summary>
+        /// If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
+        /// </summary>
+        [Output("secondaryAvailabilityZone")]
+        public Output<string> SecondaryAvailabilityZone { get; private set; } = null!;
+
+        /// <summary>
         /// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
         ///  Constraints:
         ///   +  Must be the identifier of an existing Multi-AZ DB cluster.
@@ -948,6 +972,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Output("sourceRegion")]
         public Output<string?> SourceRegion { get; private set; } = null!;
+
+        /// <summary>
+        /// The status of a read replica. If the DB instance isn't a read replica, the value is blank.
+        /// </summary>
+        [Output("statusInfos")]
+        public Output<ImmutableArray<Outputs.DbInstanceDbInstanceStatusInfo>> StatusInfos { get; private set; } = null!;
 
         /// <summary>
         /// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
@@ -1975,6 +2005,18 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("sourceRegion")]
         public Input<string>? SourceRegion { get; set; }
+
+        [Input("statusInfos")]
+        private InputList<Inputs.DbInstanceDbInstanceStatusInfoArgs>? _statusInfos;
+
+        /// <summary>
+        /// The status of a read replica. If the DB instance isn't a read replica, the value is blank.
+        /// </summary>
+        public InputList<Inputs.DbInstanceDbInstanceStatusInfoArgs> StatusInfos
+        {
+            get => _statusInfos ?? (_statusInfos = new InputList<Inputs.DbInstanceDbInstanceStatusInfoArgs>());
+            set => _statusInfos = value;
+        }
 
         /// <summary>
         /// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.

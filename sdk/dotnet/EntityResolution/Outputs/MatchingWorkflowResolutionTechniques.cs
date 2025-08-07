@@ -18,13 +18,21 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         /// </summary>
         public readonly Outputs.MatchingWorkflowProviderProperties? ProviderProperties;
         /// <summary>
-        /// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
+        /// The type of matching workflow to create. Specify one of the following types:
+        /// 
+        /// - `RULE_MATCHING` : Match records using configurable rule-based criteria
+        /// - `ML_MATCHING` : Match records using machine learning models
+        /// - `PROVIDER` : Match records using a third-party matching provider
         /// </summary>
         public readonly Pulumi.AwsNative.EntityResolution.MatchingWorkflowResolutionType? ResolutionType;
         /// <summary>
-        /// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
+        /// An object which defines the list of matching rules to run and has a field `rules` , which is a list of rule objects.
         /// </summary>
         public readonly Outputs.MatchingWorkflowRuleBasedProperties? RuleBasedProperties;
+        /// <summary>
+        /// An object containing the `rules` for a matching workflow.
+        /// </summary>
+        public readonly Outputs.MatchingWorkflowRuleConditionProperties? RuleConditionProperties;
 
         [OutputConstructor]
         private MatchingWorkflowResolutionTechniques(
@@ -32,11 +40,14 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
 
             Pulumi.AwsNative.EntityResolution.MatchingWorkflowResolutionType? resolutionType,
 
-            Outputs.MatchingWorkflowRuleBasedProperties? ruleBasedProperties)
+            Outputs.MatchingWorkflowRuleBasedProperties? ruleBasedProperties,
+
+            Outputs.MatchingWorkflowRuleConditionProperties? ruleConditionProperties)
         {
             ProviderProperties = providerProperties;
             ResolutionType = resolutionType;
             RuleBasedProperties = ruleBasedProperties;
+            RuleConditionProperties = ruleConditionProperties;
         }
     }
 }

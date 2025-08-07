@@ -207,6 +207,8 @@ namespace Pulumi.AwsNative.Ecr
 
         public static RepositoryCreationTemplateImageTagMutability Mutable { get; } = new RepositoryCreationTemplateImageTagMutability("MUTABLE");
         public static RepositoryCreationTemplateImageTagMutability Immutable { get; } = new RepositoryCreationTemplateImageTagMutability("IMMUTABLE");
+        public static RepositoryCreationTemplateImageTagMutability ImmutableWithExclusion { get; } = new RepositoryCreationTemplateImageTagMutability("IMMUTABLE_WITH_EXCLUSION");
+        public static RepositoryCreationTemplateImageTagMutability MutableWithExclusion { get; } = new RepositoryCreationTemplateImageTagMutability("MUTABLE_WITH_EXCLUSION");
 
         public static bool operator ==(RepositoryCreationTemplateImageTagMutability left, RepositoryCreationTemplateImageTagMutability right) => left.Equals(right);
         public static bool operator !=(RepositoryCreationTemplateImageTagMutability left, RepositoryCreationTemplateImageTagMutability right) => !left.Equals(right);
@@ -216,6 +218,33 @@ namespace Pulumi.AwsNative.Ecr
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RepositoryCreationTemplateImageTagMutability other && Equals(other);
         public bool Equals(RepositoryCreationTemplateImageTagMutability other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType : IEquatable<RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType>
+    {
+        private readonly string _value;
+
+        private RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType Wildcard { get; } = new RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType("WILDCARD");
+
+        public static bool operator ==(RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType left, RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType right) => left.Equals(right);
+        public static bool operator !=(RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType left, RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType right) => !left.Equals(right);
+
+        public static explicit operator string(RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType other && Equals(other);
+        public bool Equals(RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -270,6 +299,8 @@ namespace Pulumi.AwsNative.Ecr
 
         public static RepositoryImageTagMutability Mutable { get; } = new RepositoryImageTagMutability("MUTABLE");
         public static RepositoryImageTagMutability Immutable { get; } = new RepositoryImageTagMutability("IMMUTABLE");
+        public static RepositoryImageTagMutability MutableWithExclusion { get; } = new RepositoryImageTagMutability("MUTABLE_WITH_EXCLUSION");
+        public static RepositoryImageTagMutability ImmutableWithExclusion { get; } = new RepositoryImageTagMutability("IMMUTABLE_WITH_EXCLUSION");
 
         public static bool operator ==(RepositoryImageTagMutability left, RepositoryImageTagMutability right) => left.Equals(right);
         public static bool operator !=(RepositoryImageTagMutability left, RepositoryImageTagMutability right) => !left.Equals(right);
@@ -279,6 +310,36 @@ namespace Pulumi.AwsNative.Ecr
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RepositoryImageTagMutability other && Equals(other);
         public bool Equals(RepositoryImageTagMutability other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the type of filter to use for excluding image tags from the repository's mutability setting.
+    /// </summary>
+    [EnumType]
+    public readonly struct RepositoryImageTagMutabilityExclusionFilterType : IEquatable<RepositoryImageTagMutabilityExclusionFilterType>
+    {
+        private readonly string _value;
+
+        private RepositoryImageTagMutabilityExclusionFilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RepositoryImageTagMutabilityExclusionFilterType Wildcard { get; } = new RepositoryImageTagMutabilityExclusionFilterType("WILDCARD");
+
+        public static bool operator ==(RepositoryImageTagMutabilityExclusionFilterType left, RepositoryImageTagMutabilityExclusionFilterType right) => left.Equals(right);
+        public static bool operator !=(RepositoryImageTagMutabilityExclusionFilterType left, RepositoryImageTagMutabilityExclusionFilterType right) => !left.Equals(right);
+
+        public static explicit operator string(RepositoryImageTagMutabilityExclusionFilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RepositoryImageTagMutabilityExclusionFilterType other && Equals(other);
+        public bool Equals(RepositoryImageTagMutabilityExclusionFilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

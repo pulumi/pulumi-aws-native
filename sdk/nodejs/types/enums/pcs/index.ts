@@ -22,6 +22,16 @@ export const ClusterEndpointType = {
  */
 export type ClusterEndpointType = (typeof ClusterEndpointType)[keyof typeof ClusterEndpointType];
 
+export const ClusterNetworkingPropertiesNetworkType = {
+    Ipv4: "IPV4",
+    Ipv6: "IPV6",
+} as const;
+
+/**
+ * The IP of the cluster (IPV4 or IPV6)
+ */
+export type ClusterNetworkingPropertiesNetworkType = (typeof ClusterNetworkingPropertiesNetworkType)[keyof typeof ClusterNetworkingPropertiesNetworkType];
+
 export const ClusterSchedulerPropertiesType = {
     Slurm: "SLURM",
 } as const;

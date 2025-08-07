@@ -590,6 +590,12 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> SourceDbClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The resource ID of the source DB cluster from which to restore.
+        /// </summary>
+        [Output("sourceDbClusterResourceId")]
+        public Output<string?> SourceDbClusterResourceId { get; private set; } = null!;
+
+        /// <summary>
         /// The AWS Region which contains the source DB cluster when replicating a DB cluster. For example, ``us-east-1``. 
         ///  Valid for: Aurora DB clusters only
         /// </summary>
@@ -695,6 +701,7 @@ namespace Pulumi.AwsNative.Rds
                     "restoreType",
                     "snapshotIdentifier",
                     "sourceDbClusterIdentifier",
+                    "sourceDbClusterResourceId",
                     "sourceRegion",
                     "storageEncrypted",
                     "useLatestRestorableTime",
@@ -1278,6 +1285,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("sourceDbClusterIdentifier")]
         public Input<string>? SourceDbClusterIdentifier { get; set; }
+
+        /// <summary>
+        /// The resource ID of the source DB cluster from which to restore.
+        /// </summary>
+        [Input("sourceDbClusterResourceId")]
+        public Input<string>? SourceDbClusterResourceId { get; set; }
 
         /// <summary>
         /// The AWS Region which contains the source DB cluster when replicating a DB cluster. For example, ``us-east-1``. 

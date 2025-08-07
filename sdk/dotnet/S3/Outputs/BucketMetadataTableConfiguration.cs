@@ -11,7 +11,9 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
+    /// We recommend that you create your S3 Metadata configurations by using the V2 [MetadataConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3-bucket-metadataconfiguration.html) resource type. We no longer recommend using the V1 ``MetadataTableConfiguration`` resource type. 
+    ///  If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using the [MetadataConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3-bucket-metadataconfiguration.html) resource type so that you can expire journal table records and create a live inventory table.
+    ///   Creates a V1 S3 Metadata configuration for a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
     /// </summary>
     [OutputType]
     public sealed class BucketMetadataTableConfiguration

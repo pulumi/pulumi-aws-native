@@ -40,6 +40,10 @@ export interface GetRepositoryResult {
      */
     readonly imageTagMutability?: enums.ecr.RepositoryImageTagMutability;
     /**
+     * The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+     */
+    readonly imageTagMutabilityExclusionFilters?: outputs.ecr.RepositoryImageTagMutabilityExclusionFilter[];
+    /**
      * Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
      */
     readonly lifecyclePolicy?: outputs.ecr.RepositoryLifecyclePolicy;

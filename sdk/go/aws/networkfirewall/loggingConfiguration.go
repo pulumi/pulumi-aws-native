@@ -17,11 +17,11 @@ type LoggingConfiguration struct {
 	pulumi.CustomResourceState
 
 	EnableMonitoringDashboard pulumi.BoolPtrOutput `pulumi:"enableMonitoringDashboard"`
-	// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+	// The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
 	FirewallArn pulumi.StringOutput `pulumi:"firewallArn"`
 	// The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
 	FirewallName pulumi.StringPtrOutput `pulumi:"firewallName"`
-	// Defines how AWS Network Firewall performs logging for a `Firewall` .
+	// Defines how AWS Network Firewall performs logging for a firewall.
 	LoggingConfiguration LoggingConfigurationTypeOutput `pulumi:"loggingConfiguration"`
 }
 
@@ -77,22 +77,22 @@ func (LoggingConfigurationState) ElementType() reflect.Type {
 
 type loggingConfigurationArgs struct {
 	EnableMonitoringDashboard *bool `pulumi:"enableMonitoringDashboard"`
-	// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+	// The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
 	FirewallArn string `pulumi:"firewallArn"`
 	// The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
 	FirewallName *string `pulumi:"firewallName"`
-	// Defines how AWS Network Firewall performs logging for a `Firewall` .
+	// Defines how AWS Network Firewall performs logging for a firewall.
 	LoggingConfiguration LoggingConfigurationType `pulumi:"loggingConfiguration"`
 }
 
 // The set of arguments for constructing a LoggingConfiguration resource.
 type LoggingConfigurationArgs struct {
 	EnableMonitoringDashboard pulumi.BoolPtrInput
-	// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+	// The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
 	FirewallArn pulumi.StringInput
 	// The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
 	FirewallName pulumi.StringPtrInput
-	// Defines how AWS Network Firewall performs logging for a `Firewall` .
+	// Defines how AWS Network Firewall performs logging for a firewall.
 	LoggingConfiguration LoggingConfigurationTypeInput
 }
 
@@ -137,7 +137,7 @@ func (o LoggingConfigurationOutput) EnableMonitoringDashboard() pulumi.BoolPtrOu
 	return o.ApplyT(func(v *LoggingConfiguration) pulumi.BoolPtrOutput { return v.EnableMonitoringDashboard }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+// The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
 func (o LoggingConfigurationOutput) FirewallArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringOutput { return v.FirewallArn }).(pulumi.StringOutput)
 }
@@ -147,7 +147,7 @@ func (o LoggingConfigurationOutput) FirewallName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringPtrOutput { return v.FirewallName }).(pulumi.StringPtrOutput)
 }
 
-// Defines how AWS Network Firewall performs logging for a `Firewall` .
+// Defines how AWS Network Firewall performs logging for a firewall.
 func (o LoggingConfigurationOutput) LoggingConfiguration() LoggingConfigurationTypeOutput {
 	return o.ApplyT(func(v *LoggingConfiguration) LoggingConfigurationTypeOutput { return v.LoggingConfiguration }).(LoggingConfigurationTypeOutput)
 }

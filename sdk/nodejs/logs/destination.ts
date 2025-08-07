@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -51,6 +54,10 @@ export class Destination extends pulumi.CustomResource {
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
      */
     public readonly targetArn!: pulumi.Output<string>;
@@ -75,6 +82,7 @@ export class Destination extends pulumi.CustomResource {
             resourceInputs["destinationName"] = args ? args.destinationName : undefined;
             resourceInputs["destinationPolicy"] = args ? args.destinationPolicy : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetArn"] = args ? args.targetArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
@@ -82,6 +90,7 @@ export class Destination extends pulumi.CustomResource {
             resourceInputs["destinationName"] = undefined /*out*/;
             resourceInputs["destinationPolicy"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targetArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -107,6 +116,10 @@ export interface DestinationArgs {
      * The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
      */
     roleArn: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
      */

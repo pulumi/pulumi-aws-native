@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.Ecr
         /// </summary>
         public readonly Pulumi.AwsNative.Ecr.RepositoryImageTagMutability? ImageTagMutability;
         /// <summary>
+        /// The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RepositoryImageTagMutabilityExclusionFilter> ImageTagMutabilityExclusionFilters;
+        /// <summary>
         /// Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
         /// </summary>
         public readonly Outputs.RepositoryLifecyclePolicy? LifecyclePolicy;
@@ -106,6 +110,8 @@ namespace Pulumi.AwsNative.Ecr
 
             Pulumi.AwsNative.Ecr.RepositoryImageTagMutability? imageTagMutability,
 
+            ImmutableArray<Outputs.RepositoryImageTagMutabilityExclusionFilter> imageTagMutabilityExclusionFilters,
+
             Outputs.RepositoryLifecyclePolicy? lifecyclePolicy,
 
             object? repositoryPolicyText,
@@ -117,6 +123,7 @@ namespace Pulumi.AwsNative.Ecr
             Arn = arn;
             ImageScanningConfiguration = imageScanningConfiguration;
             ImageTagMutability = imageTagMutability;
+            ImageTagMutabilityExclusionFilters = imageTagMutabilityExclusionFilters;
             LifecyclePolicy = lifecyclePolicy;
             RepositoryPolicyText = repositoryPolicyText;
             RepositoryUri = repositoryUri;

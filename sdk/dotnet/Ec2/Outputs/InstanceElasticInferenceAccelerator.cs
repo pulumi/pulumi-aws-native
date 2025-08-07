@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     public sealed class InstanceElasticInferenceAccelerator
     {
         /// <summary>
-        /// The number of elastic inference accelerators to attach to the instance.
+        /// The number of elastic inference accelerators to attach to the instance. Amazon Elastic Inference is no longer available.
         /// </summary>
         public readonly int? Count;
         /// <summary>
-        /// The type of elastic inference accelerator.
+        /// The type of elastic inference accelerator. Amazon Elastic Inference is no longer available.
         /// </summary>
         public readonly string Type;
 

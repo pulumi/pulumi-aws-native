@@ -108,6 +108,10 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public readonly Pulumi.AwsNative.Logs.LogGroupClass? LogGroupClass;
         /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
+        /// </summary>
+        public readonly object? ResourcePolicyDocument;
+        /// <summary>
         /// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.
         ///  To set a log group so that its log events do not expire, use [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html).
         /// </summary>
@@ -130,6 +134,8 @@ namespace Pulumi.AwsNative.Logs
 
             Pulumi.AwsNative.Logs.LogGroupClass? logGroupClass,
 
+            object? resourcePolicyDocument,
+
             int? retentionInDays,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
@@ -139,6 +145,7 @@ namespace Pulumi.AwsNative.Logs
             FieldIndexPolicies = fieldIndexPolicies;
             KmsKeyId = kmsKeyId;
             LogGroupClass = logGroupClass;
+            ResourcePolicyDocument = resourcePolicyDocument;
             RetentionInDays = retentionInDays;
             Tags = tags;
         }

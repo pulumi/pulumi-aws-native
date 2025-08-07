@@ -58,7 +58,7 @@ export interface GetLoadBalancerResult {
      */
     readonly loadBalancerArn?: string;
     /**
-     * The load balancer attributes.
+     * The load balancer attributes. Attributes that you do not modify retain their current values.
      */
     readonly loadBalancerAttributes?: outputs.elasticloadbalancingv2.LoadBalancerAttribute[];
     /**

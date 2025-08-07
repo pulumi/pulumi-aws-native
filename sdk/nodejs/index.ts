@@ -83,6 +83,7 @@ import * as apprunner from "./apprunner";
 import * as appstream from "./appstream";
 import * as appsync from "./appsync";
 import * as aps from "./aps";
+import * as arcregionswitch from "./arcregionswitch";
 import * as arczonalshift from "./arczonalshift";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
@@ -316,6 +317,7 @@ export {
     appstream,
     appsync,
     aps,
+    arcregionswitch,
     arczonalshift,
     athena,
     auditmanager,

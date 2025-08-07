@@ -39,6 +39,8 @@ type LookupClusterResult struct {
 	ClusterSecurityGroupId *string `pulumi:"clusterSecurityGroupId"`
 	// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
 	ComputeConfig *ClusterComputeConfig `pulumi:"computeConfig"`
+	// Set this value to true to enable deletion protection for the cluster.
+	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
 	EncryptionConfigKeyArn *string `pulumi:"encryptionConfigKeyArn"`
 	// The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
@@ -124,6 +126,11 @@ func (o LookupClusterResultOutput) ClusterSecurityGroupId() pulumi.StringPtrOutp
 // Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
 func (o LookupClusterResultOutput) ComputeConfig() ClusterComputeConfigPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterComputeConfig { return v.ComputeConfig }).(ClusterComputeConfigPtrOutput)
+}
+
+// Set this value to true to enable deletion protection for the cluster.
+func (o LookupClusterResultOutput) DeletionProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *bool { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
 }
 
 // Amazon Resource Name (ARN) or alias of the customer master key (CMK).

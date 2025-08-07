@@ -207,6 +207,105 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     }
 
     [EnumType]
+    public readonly struct SessionLoggerEvent : IEquatable<SessionLoggerEvent>
+    {
+        private readonly string _value;
+
+        private SessionLoggerEvent(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SessionLoggerEvent WebsiteInteract { get; } = new SessionLoggerEvent("WebsiteInteract");
+        public static SessionLoggerEvent FileDownloadFromSecureBrowserToRemoteDisk { get; } = new SessionLoggerEvent("FileDownloadFromSecureBrowserToRemoteDisk");
+        public static SessionLoggerEvent FileTransferFromRemoteToLocalDisk { get; } = new SessionLoggerEvent("FileTransferFromRemoteToLocalDisk");
+        public static SessionLoggerEvent FileTransferFromLocalToRemoteDisk { get; } = new SessionLoggerEvent("FileTransferFromLocalToRemoteDisk");
+        public static SessionLoggerEvent FileUploadFromRemoteDiskToSecureBrowser { get; } = new SessionLoggerEvent("FileUploadFromRemoteDiskToSecureBrowser");
+        public static SessionLoggerEvent ContentPasteToWebsite { get; } = new SessionLoggerEvent("ContentPasteToWebsite");
+        public static SessionLoggerEvent ContentTransferFromLocalToRemoteClipboard { get; } = new SessionLoggerEvent("ContentTransferFromLocalToRemoteClipboard");
+        public static SessionLoggerEvent ContentCopyFromWebsite { get; } = new SessionLoggerEvent("ContentCopyFromWebsite");
+        public static SessionLoggerEvent UrlLoad { get; } = new SessionLoggerEvent("UrlLoad");
+        public static SessionLoggerEvent TabOpen { get; } = new SessionLoggerEvent("TabOpen");
+        public static SessionLoggerEvent TabClose { get; } = new SessionLoggerEvent("TabClose");
+        public static SessionLoggerEvent PrintJobSubmit { get; } = new SessionLoggerEvent("PrintJobSubmit");
+        public static SessionLoggerEvent SessionConnect { get; } = new SessionLoggerEvent("SessionConnect");
+        public static SessionLoggerEvent SessionStart { get; } = new SessionLoggerEvent("SessionStart");
+        public static SessionLoggerEvent SessionDisconnect { get; } = new SessionLoggerEvent("SessionDisconnect");
+        public static SessionLoggerEvent SessionEnd { get; } = new SessionLoggerEvent("SessionEnd");
+        public static SessionLoggerEvent UrlBlockByContentFilter { get; } = new SessionLoggerEvent("UrlBlockByContentFilter");
+
+        public static bool operator ==(SessionLoggerEvent left, SessionLoggerEvent right) => left.Equals(right);
+        public static bool operator !=(SessionLoggerEvent left, SessionLoggerEvent right) => !left.Equals(right);
+
+        public static explicit operator string(SessionLoggerEvent value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SessionLoggerEvent other && Equals(other);
+        public bool Equals(SessionLoggerEvent other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SessionLoggerFolderStructure : IEquatable<SessionLoggerFolderStructure>
+    {
+        private readonly string _value;
+
+        private SessionLoggerFolderStructure(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SessionLoggerFolderStructure Flat { get; } = new SessionLoggerFolderStructure("Flat");
+        public static SessionLoggerFolderStructure NestedByDate { get; } = new SessionLoggerFolderStructure("NestedByDate");
+
+        public static bool operator ==(SessionLoggerFolderStructure left, SessionLoggerFolderStructure right) => left.Equals(right);
+        public static bool operator !=(SessionLoggerFolderStructure left, SessionLoggerFolderStructure right) => !left.Equals(right);
+
+        public static explicit operator string(SessionLoggerFolderStructure value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SessionLoggerFolderStructure other && Equals(other);
+        public bool Equals(SessionLoggerFolderStructure other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SessionLoggerLogFileFormat : IEquatable<SessionLoggerLogFileFormat>
+    {
+        private readonly string _value;
+
+        private SessionLoggerLogFileFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SessionLoggerLogFileFormat JsonLines { get; } = new SessionLoggerLogFileFormat("JSONLines");
+        public static SessionLoggerLogFileFormat Json { get; } = new SessionLoggerLogFileFormat("Json");
+
+        public static bool operator ==(SessionLoggerLogFileFormat left, SessionLoggerLogFileFormat right) => left.Equals(right);
+        public static bool operator !=(SessionLoggerLogFileFormat left, SessionLoggerLogFileFormat right) => !left.Equals(right);
+
+        public static explicit operator string(SessionLoggerLogFileFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SessionLoggerLogFileFormat other && Equals(other);
+        public bool Equals(SessionLoggerLogFileFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct UserSettingsEnabledType : IEquatable<UserSettingsEnabledType>
     {
         private readonly string _value;

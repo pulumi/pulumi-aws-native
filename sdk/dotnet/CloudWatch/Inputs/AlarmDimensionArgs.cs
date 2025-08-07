@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
 {
 
     /// <summary>
-    /// Dimension is an embedded property of the ``AWS::CloudWatch::Alarm`` type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 10 dimensions for a given metric.
+    /// Dimension is an embedded property of the ``AWS::CloudWatch::Alarm`` type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 30 dimensions for a given metric.
     /// </summary>
     public sealed class AlarmDimensionArgs : global::Pulumi.ResourceArgs
     {

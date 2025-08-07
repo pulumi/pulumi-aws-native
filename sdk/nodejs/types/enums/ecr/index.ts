@@ -64,12 +64,20 @@ export type RepositoryCreationTemplateEncryptionType = (typeof RepositoryCreatio
 export const RepositoryCreationTemplateImageTagMutability = {
     Mutable: "MUTABLE",
     Immutable: "IMMUTABLE",
+    ImmutableWithExclusion: "IMMUTABLE_WITH_EXCLUSION",
+    MutableWithExclusion: "MUTABLE_WITH_EXCLUSION",
 } as const;
 
 /**
  * The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
  */
 export type RepositoryCreationTemplateImageTagMutability = (typeof RepositoryCreationTemplateImageTagMutability)[keyof typeof RepositoryCreationTemplateImageTagMutability];
+
+export const RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType = {
+    Wildcard: "WILDCARD",
+} as const;
+
+export type RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType = (typeof RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType)[keyof typeof RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType];
 
 export const RepositoryEncryptionType = {
     Aes256: "AES256",
@@ -85,9 +93,20 @@ export type RepositoryEncryptionType = (typeof RepositoryEncryptionType)[keyof t
 export const RepositoryImageTagMutability = {
     Mutable: "MUTABLE",
     Immutable: "IMMUTABLE",
+    MutableWithExclusion: "MUTABLE_WITH_EXCLUSION",
+    ImmutableWithExclusion: "IMMUTABLE_WITH_EXCLUSION",
 } as const;
 
 /**
  * The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
  */
 export type RepositoryImageTagMutability = (typeof RepositoryImageTagMutability)[keyof typeof RepositoryImageTagMutability];
+
+export const RepositoryImageTagMutabilityExclusionFilterType = {
+    Wildcard: "WILDCARD",
+} as const;
+
+/**
+ * Specifies the type of filter to use for excluding image tags from the repository's mutability setting.
+ */
+export type RepositoryImageTagMutabilityExclusionFilterType = (typeof RepositoryImageTagMutabilityExclusionFilterType)[keyof typeof RepositoryImageTagMutabilityExclusionFilterType];

@@ -40,6 +40,8 @@ type LookupJobQueueResult struct {
 	Priority *int `pulumi:"priority"`
 	// The Amazon Resource Name (ARN) of the scheduling policy. The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
 	SchedulingPolicyArn *string `pulumi:"schedulingPolicyArn"`
+	// The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.
+	ServiceEnvironmentOrder []JobQueueServiceEnvironmentOrder `pulumi:"serviceEnvironmentOrder"`
 	// The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
 	State *JobQueueStateEnum `pulumi:"state"`
 }
@@ -101,6 +103,11 @@ func (o LookupJobQueueResultOutput) Priority() pulumi.IntPtrOutput {
 // The Amazon Resource Name (ARN) of the scheduling policy. The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
 func (o LookupJobQueueResultOutput) SchedulingPolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) *string { return v.SchedulingPolicyArn }).(pulumi.StringPtrOutput)
+}
+
+// The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.
+func (o LookupJobQueueResultOutput) ServiceEnvironmentOrder() JobQueueServiceEnvironmentOrderArrayOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) []JobQueueServiceEnvironmentOrder { return v.ServiceEnvironmentOrder }).(JobQueueServiceEnvironmentOrderArrayOutput)
 }
 
 // The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.

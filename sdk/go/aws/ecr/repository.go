@@ -98,6 +98,8 @@ type Repository struct {
 	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrOutput `pulumi:"imageScanningConfiguration"`
 	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 	ImageTagMutability RepositoryImageTagMutabilityPtrOutput `pulumi:"imageTagMutability"`
+	// The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+	ImageTagMutabilityExclusionFilters RepositoryImageTagMutabilityExclusionFilterArrayOutput `pulumi:"imageTagMutabilityExclusionFilters"`
 	// Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
 	LifecyclePolicy RepositoryLifecyclePolicyPtrOutput `pulumi:"lifecyclePolicy"`
 	// The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
@@ -167,6 +169,8 @@ type repositoryArgs struct {
 	ImageScanningConfiguration *RepositoryImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 	ImageTagMutability *RepositoryImageTagMutability `pulumi:"imageTagMutability"`
+	// The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+	ImageTagMutabilityExclusionFilters []RepositoryImageTagMutabilityExclusionFilter `pulumi:"imageTagMutabilityExclusionFilters"`
 	// Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
 	LifecyclePolicy *RepositoryLifecyclePolicy `pulumi:"lifecyclePolicy"`
 	// The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
@@ -191,6 +195,8 @@ type RepositoryArgs struct {
 	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrInput
 	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 	ImageTagMutability RepositoryImageTagMutabilityPtrInput
+	// The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+	ImageTagMutabilityExclusionFilters RepositoryImageTagMutabilityExclusionFilterArrayInput
 	// Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
 	LifecyclePolicy RepositoryLifecyclePolicyPtrInput
 	// The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
@@ -265,6 +271,13 @@ func (o RepositoryOutput) ImageScanningConfiguration() RepositoryImageScanningCo
 // The tag mutability setting for the repository. If this parameter is omitted, the default setting of “MUTABLE“ will be used which will allow image tags to be overwritten. If “IMMUTABLE“ is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 func (o RepositoryOutput) ImageTagMutability() RepositoryImageTagMutabilityPtrOutput {
 	return o.ApplyT(func(v *Repository) RepositoryImageTagMutabilityPtrOutput { return v.ImageTagMutability }).(RepositoryImageTagMutabilityPtrOutput)
+}
+
+// The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+func (o RepositoryOutput) ImageTagMutabilityExclusionFilters() RepositoryImageTagMutabilityExclusionFilterArrayOutput {
+	return o.ApplyT(func(v *Repository) RepositoryImageTagMutabilityExclusionFilterArrayOutput {
+		return v.ImageTagMutabilityExclusionFilters
+	}).(RepositoryImageTagMutabilityExclusionFilterArrayOutput)
 }
 
 // Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).

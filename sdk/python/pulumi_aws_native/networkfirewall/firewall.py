@@ -26,39 +26,47 @@ __all__ = ['FirewallArgs', 'Firewall']
 class FirewallArgs:
     def __init__(__self__, *,
                  firewall_policy_arn: pulumi.Input[builtins.str],
-                 subnet_mappings: pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]],
-                 vpc_id: pulumi.Input[builtins.str],
+                 availability_zone_change_protection: Optional[pulumi.Input[builtins.bool]] = None,
+                 availability_zone_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]]] = None,
                  delete_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enabled_analysis_types: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]] = None,
                  firewall_name: Optional[pulumi.Input[builtins.str]] = None,
                  firewall_policy_change_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  subnet_change_protection: Optional[pulumi.Input[builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
+                 vpc_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Firewall resource.
         :param pulumi.Input[builtins.str] firewall_policy_arn: The Amazon Resource Name (ARN) of the firewall policy.
                
                The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]] subnet_mappings: The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
-               
-               These subnets are all defined for a single, primary VPC, and each must belong to a different Availability Zone. Each of these subnets establishes the availability of the firewall in its Availability Zone.
-               
-               In addition to these subnets, you can define other endpoints for the firewall in `VpcEndpointAssociation` resources. You can define these additional endpoints for any VPC, and for any of the Availability Zones where the firewall resource already has a subnet mapping. VPC endpoint associations give you the ability to protect multiple VPCs using a single firewall, and to define multiple firewall endpoints for a VPC in a single Availability Zone.
-        :param pulumi.Input[builtins.str] vpc_id: The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
+        :param pulumi.Input[builtins.bool] availability_zone_change_protection: A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `TRUE` , you must first disable this protection before adding or removing Availability Zones.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]] availability_zone_mappings: The Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall. Each mapping specifies an Availability Zone where the firewall processes traffic.
         :param pulumi.Input[builtins.bool] delete_protection: A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
         :param pulumi.Input[builtins.str] description: A description of the firewall.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]] enabled_analysis_types: The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
         :param pulumi.Input[builtins.str] firewall_name: The descriptive name of the firewall. You can't change the name of a firewall after you create it.
         :param pulumi.Input[builtins.bool] firewall_policy_change_protection: A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
         :param pulumi.Input[builtins.bool] subnet_change_protection: A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]] subnet_mappings: The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
+               
+               These subnets are all defined for a single, primary VPC, and each must belong to a different Availability Zone. Each of these subnets establishes the availability of the firewall in its Availability Zone.
+               
+               In addition to these subnets, you can define other endpoints for the firewall in `VpcEndpointAssociation` resources. You can define these additional endpoints for any VPC, and for any of the Availability Zones where the firewall resource already has a subnet mapping. VPC endpoint associations give you the ability to protect multiple VPCs using a single firewall, and to define multiple firewall endpoints for a VPC in a single Availability Zone.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        :param pulumi.Input[builtins.str] transit_gateway_id: The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
+        :param pulumi.Input[builtins.str] vpc_id: The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
         """
         pulumi.set(__self__, "firewall_policy_arn", firewall_policy_arn)
-        pulumi.set(__self__, "subnet_mappings", subnet_mappings)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        if availability_zone_change_protection is not None:
+            pulumi.set(__self__, "availability_zone_change_protection", availability_zone_change_protection)
+        if availability_zone_mappings is not None:
+            pulumi.set(__self__, "availability_zone_mappings", availability_zone_mappings)
         if delete_protection is not None:
             pulumi.set(__self__, "delete_protection", delete_protection)
         if description is not None:
@@ -71,8 +79,14 @@ class FirewallArgs:
             pulumi.set(__self__, "firewall_policy_change_protection", firewall_policy_change_protection)
         if subnet_change_protection is not None:
             pulumi.set(__self__, "subnet_change_protection", subnet_change_protection)
+        if subnet_mappings is not None:
+            pulumi.set(__self__, "subnet_mappings", subnet_mappings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if transit_gateway_id is not None:
+            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="firewallPolicyArn")
@@ -89,32 +103,28 @@ class FirewallArgs:
         pulumi.set(self, "firewall_policy_arn", value)
 
     @property
-    @pulumi.getter(name="subnetMappings")
-    def subnet_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]:
+    @pulumi.getter(name="availabilityZoneChangeProtection")
+    def availability_zone_change_protection(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
-
-        These subnets are all defined for a single, primary VPC, and each must belong to a different Availability Zone. Each of these subnets establishes the availability of the firewall in its Availability Zone.
-
-        In addition to these subnets, you can define other endpoints for the firewall in `VpcEndpointAssociation` resources. You can define these additional endpoints for any VPC, and for any of the Availability Zones where the firewall resource already has a subnet mapping. VPC endpoint associations give you the ability to protect multiple VPCs using a single firewall, and to define multiple firewall endpoints for a VPC in a single Availability Zone.
+        A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `TRUE` , you must first disable this protection before adding or removing Availability Zones.
         """
-        return pulumi.get(self, "subnet_mappings")
+        return pulumi.get(self, "availability_zone_change_protection")
 
-    @subnet_mappings.setter
-    def subnet_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]):
-        pulumi.set(self, "subnet_mappings", value)
+    @availability_zone_change_protection.setter
+    def availability_zone_change_protection(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "availability_zone_change_protection", value)
 
     @property
-    @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Input[builtins.str]:
+    @pulumi.getter(name="availabilityZoneMappings")
+    def availability_zone_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]]]:
         """
-        The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
+        The Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall. Each mapping specifies an Availability Zone where the firewall processes traffic.
         """
-        return pulumi.get(self, "vpc_id")
+        return pulumi.get(self, "availability_zone_mappings")
 
-    @vpc_id.setter
-    def vpc_id(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "vpc_id", value)
+    @availability_zone_mappings.setter
+    def availability_zone_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]]]):
+        pulumi.set(self, "availability_zone_mappings", value)
 
     @property
     @pulumi.getter(name="deleteProtection")
@@ -189,6 +199,22 @@ class FirewallArgs:
         pulumi.set(self, "subnet_change_protection", value)
 
     @property
+    @pulumi.getter(name="subnetMappings")
+    def subnet_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]]:
+        """
+        The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
+
+        These subnets are all defined for a single, primary VPC, and each must belong to a different Availability Zone. Each of these subnets establishes the availability of the firewall in its Availability Zone.
+
+        In addition to these subnets, you can define other endpoints for the firewall in `VpcEndpointAssociation` resources. You can define these additional endpoints for any VPC, and for any of the Availability Zones where the firewall resource already has a subnet mapping. VPC endpoint associations give you the ability to protect multiple VPCs using a single firewall, and to define multiple firewall endpoints for a VPC in a single Availability Zone.
+        """
+        return pulumi.get(self, "subnet_mappings")
+
+    @subnet_mappings.setter
+    def subnet_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]]):
+        pulumi.set(self, "subnet_mappings", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -202,6 +228,30 @@ class FirewallArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="transitGatewayId")
+    def transit_gateway_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
+        """
+        return pulumi.get(self, "transit_gateway_id")
+
+    @transit_gateway_id.setter
+    def transit_gateway_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "transit_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "vpc_id", value)
+
 
 @pulumi.type_token("aws-native:networkfirewall:Firewall")
 class Firewall(pulumi.CustomResource):
@@ -209,6 +259,8 @@ class Firewall(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_zone_change_protection: Optional[pulumi.Input[builtins.bool]] = None,
+                 availability_zone_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallAvailabilityZoneMappingArgs', 'FirewallAvailabilityZoneMappingArgsDict']]]]] = None,
                  delete_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enabled_analysis_types: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]] = None,
@@ -218,6 +270,7 @@ class Firewall(pulumi.CustomResource):
                  subnet_change_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallSubnetMappingArgs', 'FirewallSubnetMappingArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -225,6 +278,8 @@ class Firewall(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.bool] availability_zone_change_protection: A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `TRUE` , you must first disable this protection before adding or removing Availability Zones.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallAvailabilityZoneMappingArgs', 'FirewallAvailabilityZoneMappingArgsDict']]]] availability_zone_mappings: The Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall. Each mapping specifies an Availability Zone where the firewall processes traffic.
         :param pulumi.Input[builtins.bool] delete_protection: A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
         :param pulumi.Input[builtins.str] description: A description of the firewall.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]] enabled_analysis_types: The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
@@ -242,6 +297,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        :param pulumi.Input[builtins.str] transit_gateway_id: The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
         :param pulumi.Input[builtins.str] vpc_id: The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
         """
         ...
@@ -268,6 +324,8 @@ class Firewall(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_zone_change_protection: Optional[pulumi.Input[builtins.bool]] = None,
+                 availability_zone_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallAvailabilityZoneMappingArgs', 'FirewallAvailabilityZoneMappingArgsDict']]]]] = None,
                  delete_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enabled_analysis_types: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]] = None,
@@ -277,6 +335,7 @@ class Firewall(pulumi.CustomResource):
                  subnet_change_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallSubnetMappingArgs', 'FirewallSubnetMappingArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -287,6 +346,8 @@ class Firewall(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FirewallArgs.__new__(FirewallArgs)
 
+            __props__.__dict__["availability_zone_change_protection"] = availability_zone_change_protection
+            __props__.__dict__["availability_zone_mappings"] = availability_zone_mappings
             __props__.__dict__["delete_protection"] = delete_protection
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled_analysis_types"] = enabled_analysis_types
@@ -296,12 +357,9 @@ class Firewall(pulumi.CustomResource):
             __props__.__dict__["firewall_policy_arn"] = firewall_policy_arn
             __props__.__dict__["firewall_policy_change_protection"] = firewall_policy_change_protection
             __props__.__dict__["subnet_change_protection"] = subnet_change_protection
-            if subnet_mappings is None and not opts.urn:
-                raise TypeError("Missing required property 'subnet_mappings'")
             __props__.__dict__["subnet_mappings"] = subnet_mappings
             __props__.__dict__["tags"] = tags
-            if vpc_id is None and not opts.urn:
-                raise TypeError("Missing required property 'vpc_id'")
+            __props__.__dict__["transit_gateway_id"] = transit_gateway_id
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["endpoint_ids"] = None
             __props__.__dict__["firewall_arn"] = None
@@ -330,6 +388,8 @@ class Firewall(pulumi.CustomResource):
 
         __props__ = FirewallArgs.__new__(FirewallArgs)
 
+        __props__.__dict__["availability_zone_change_protection"] = None
+        __props__.__dict__["availability_zone_mappings"] = None
         __props__.__dict__["delete_protection"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["enabled_analysis_types"] = None
@@ -342,8 +402,25 @@ class Firewall(pulumi.CustomResource):
         __props__.__dict__["subnet_change_protection"] = None
         __props__.__dict__["subnet_mappings"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["transit_gateway_id"] = None
         __props__.__dict__["vpc_id"] = None
         return Firewall(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="availabilityZoneChangeProtection")
+    def availability_zone_change_protection(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `TRUE` , you must first disable this protection before adding or removing Availability Zones.
+        """
+        return pulumi.get(self, "availability_zone_change_protection")
+
+    @property
+    @pulumi.getter(name="availabilityZoneMappings")
+    def availability_zone_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.FirewallAvailabilityZoneMapping']]]:
+        """
+        The Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall. Each mapping specifies an Availability Zone where the firewall processes traffic.
+        """
+        return pulumi.get(self, "availability_zone_mappings")
 
     @property
     @pulumi.getter(name="deleteProtection")
@@ -381,7 +458,7 @@ class Firewall(pulumi.CustomResource):
     @pulumi.getter(name="firewallArn")
     def firewall_arn(self) -> pulumi.Output[builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the `Firewall` .
+        The Amazon Resource Name (ARN) of the firewall.
         """
         return pulumi.get(self, "firewall_arn")
 
@@ -389,7 +466,7 @@ class Firewall(pulumi.CustomResource):
     @pulumi.getter(name="firewallId")
     def firewall_id(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the `Firewall` resource.
+        The name of the firewallresource.
         """
         return pulumi.get(self, "firewall_id")
 
@@ -429,7 +506,7 @@ class Firewall(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetMappings")
-    def subnet_mappings(self) -> pulumi.Output[Sequence['outputs.FirewallSubnetMapping']]:
+    def subnet_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.FirewallSubnetMapping']]]:
         """
         The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
 
@@ -450,8 +527,16 @@ class Firewall(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="transitGatewayId")
+    def transit_gateway_id(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
+        """
+        return pulumi.get(self, "transit_gateway_id")
+
+    @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> pulumi.Output[builtins.str]:
+    def vpc_id(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
         """

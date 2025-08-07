@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'ConfigurationProfileDeletionProtectionCheck',
+    'DeploymentState',
     'DeploymentStrategyGrowthType',
     'DeploymentStrategyReplicateTo',
     'EnvironmentDeletionProtectionCheck',
@@ -22,6 +23,20 @@ class ConfigurationProfileDeletionProtectionCheck(builtins.str, Enum):
     ACCOUNT_DEFAULT = "ACCOUNT_DEFAULT"
     APPLY = "APPLY"
     BYPASS = "BYPASS"
+
+
+@pulumi.type_token("aws-native:appconfig:DeploymentState")
+class DeploymentState(builtins.str, Enum):
+    """
+    The state of the deployment.
+    """
+    BAKING = "BAKING"
+    VALIDATING = "VALIDATING"
+    DEPLOYING = "DEPLOYING"
+    COMPLETE = "COMPLETE"
+    ROLLING_BACK = "ROLLING_BACK"
+    ROLLED_BACK = "ROLLED_BACK"
+    REVERTED = "REVERTED"
 
 
 @pulumi.type_token("aws-native:appconfig:DeploymentStrategyGrowthType")

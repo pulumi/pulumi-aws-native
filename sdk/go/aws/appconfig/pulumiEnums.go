@@ -178,6 +178,102 @@ func (in *configurationProfileDeletionProtectionCheckPtr) ToConfigurationProfile
 	return pulumi.ToOutputWithContext(ctx, in).(ConfigurationProfileDeletionProtectionCheckPtrOutput)
 }
 
+// The state of the deployment.
+type DeploymentStateEnum string
+
+const (
+	DeploymentStateEnumBaking      = DeploymentStateEnum("BAKING")
+	DeploymentStateEnumValidating  = DeploymentStateEnum("VALIDATING")
+	DeploymentStateEnumDeploying   = DeploymentStateEnum("DEPLOYING")
+	DeploymentStateEnumComplete    = DeploymentStateEnum("COMPLETE")
+	DeploymentStateEnumRollingBack = DeploymentStateEnum("ROLLING_BACK")
+	DeploymentStateEnumRolledBack  = DeploymentStateEnum("ROLLED_BACK")
+	DeploymentStateEnumReverted    = DeploymentStateEnum("REVERTED")
+)
+
+type DeploymentStateEnumOutput struct{ *pulumi.OutputState }
+
+func (DeploymentStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentStateEnum)(nil)).Elem()
+}
+
+func (o DeploymentStateEnumOutput) ToDeploymentStateEnumOutput() DeploymentStateEnumOutput {
+	return o
+}
+
+func (o DeploymentStateEnumOutput) ToDeploymentStateEnumOutputWithContext(ctx context.Context) DeploymentStateEnumOutput {
+	return o
+}
+
+func (o DeploymentStateEnumOutput) ToDeploymentStateEnumPtrOutput() DeploymentStateEnumPtrOutput {
+	return o.ToDeploymentStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentStateEnumOutput) ToDeploymentStateEnumPtrOutputWithContext(ctx context.Context) DeploymentStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentStateEnum) *DeploymentStateEnum {
+		return &v
+	}).(DeploymentStateEnumPtrOutput)
+}
+
+func (o DeploymentStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeploymentStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeploymentStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeploymentStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeploymentStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeploymentStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentStateEnum)(nil)).Elem()
+}
+
+func (o DeploymentStateEnumPtrOutput) ToDeploymentStateEnumPtrOutput() DeploymentStateEnumPtrOutput {
+	return o
+}
+
+func (o DeploymentStateEnumPtrOutput) ToDeploymentStateEnumPtrOutputWithContext(ctx context.Context) DeploymentStateEnumPtrOutput {
+	return o
+}
+
+func (o DeploymentStateEnumPtrOutput) Elem() DeploymentStateEnumOutput {
+	return o.ApplyT(func(v *DeploymentStateEnum) DeploymentStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentStateEnum
+		return ret
+	}).(DeploymentStateEnumOutput)
+}
+
+func (o DeploymentStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeploymentStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The algorithm used to define how percentage grows over time. AWS AppConfig supports the following growth types:
 //
 // Linear: For this type, AWS AppConfig processes the deployment by dividing the total number of targets by the value specified for Step percentage. For example, a linear deployment that uses a Step percentage of 10 deploys the configuration to 10 percent of the hosts. After those deployments are complete, the system deploys the configuration to the next 10 percent. This continues until 100% of the targets have successfully received the configuration.
@@ -701,6 +797,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentDeletionProtectionCheckPtrInput)(nil)).Elem(), EnvironmentDeletionProtectionCheck("ACCOUNT_DEFAULT"))
 	pulumi.RegisterOutputType(ConfigurationProfileDeletionProtectionCheckOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileDeletionProtectionCheckPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentStateEnumOutput{})
+	pulumi.RegisterOutputType(DeploymentStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentStrategyGrowthTypeOutput{})
 	pulumi.RegisterOutputType(DeploymentStrategyGrowthTypePtrOutput{})
 	pulumi.RegisterOutputType(DeploymentStrategyReplicateToOutput{})

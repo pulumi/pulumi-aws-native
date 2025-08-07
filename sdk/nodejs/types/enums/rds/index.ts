@@ -34,6 +34,7 @@ export type DbProxyAuthFormatAuthScheme = (typeof DbProxyAuthFormatAuthScheme)[k
 
 export const DbProxyAuthFormatClientPasswordAuthType = {
     MysqlNativePassword: "MYSQL_NATIVE_PASSWORD",
+    MysqlCachingSha2Password: "MYSQL_CACHING_SHA2_PASSWORD",
     PostgresScramSha256: "POSTGRES_SCRAM_SHA_256",
     PostgresMd5: "POSTGRES_MD5",
     SqlServerAuthentication: "SQL_SERVER_AUTHENTICATION",

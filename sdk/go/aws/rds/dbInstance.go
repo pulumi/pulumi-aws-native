@@ -104,6 +104,8 @@ type DbInstance struct {
 	// The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the ``AutomaticBackupReplicationRegion`` parameter.
 	//  If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
 	AutomaticBackupReplicationRetentionPeriod pulumi.IntPtrOutput `pulumi:"automaticBackupReplicationRetentionPeriod"`
+	// The time when a stopped DB instance is restarted automatically.
+	AutomaticRestartTime pulumi.StringOutput `pulumi:"automaticRestartTime"`
 	// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
 	//  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
 	//  Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.
@@ -531,6 +533,8 @@ type DbInstance struct {
 	// Indicates that the DB instance should be associated with the specified option group.
 	//  Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group. Also, that option group can't be removed from a DB instance once it is associated with a DB instance.
 	OptionGroupName pulumi.StringPtrOutput `pulumi:"optionGroupName"`
+	// The progress of the storage optimization operation as a percentage.
+	PercentProgress pulumi.StringOutput `pulumi:"percentProgress"`
 	// The AWS KMS key identifier for encryption of Performance Insights data.
 	//  The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
 	//  If you do not specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS account. Your AWS account has a different default KMS key for each AWS Region.
@@ -604,6 +608,10 @@ type DbInstance struct {
 	//
 	//  Example: ``2009-09-07T23:45:00Z``
 	RestoreTime pulumi.StringPtrOutput `pulumi:"restoreTime"`
+	// The number of minutes to pause the automation. When the time period ends, RDS Custom resumes full automation. The minimum value is 60 (default). The maximum value is 1,440.
+	ResumeFullAutomationModeTime pulumi.StringOutput `pulumi:"resumeFullAutomationModeTime"`
+	// If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
+	SecondaryAvailabilityZone pulumi.StringOutput `pulumi:"secondaryAvailabilityZone"`
 	// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
 	//  Constraints:
 	//   +  Must be the identifier of an existing Multi-AZ DB cluster.
@@ -629,6 +637,8 @@ type DbInstance struct {
 	SourceDbiResourceId pulumi.StringPtrOutput `pulumi:"sourceDbiResourceId"`
 	// The ID of the region that contains the source DB instance for the read replica.
 	SourceRegion pulumi.StringPtrOutput `pulumi:"sourceRegion"`
+	// The status of a read replica. If the DB instance isn't a read replica, the value is blank.
+	StatusInfos DbInstanceDbInstanceStatusInfoArrayOutput `pulumi:"statusInfos"`
 	// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
 	//  If you specify the ``KmsKeyId`` property, then you must enable encryption.
 	//  If you specify the ``SourceDBInstanceIdentifier`` or ``SourceDbiResourceId`` property, don't specify this property. The value is inherited from the source DB instance, and if the DB instance is encrypted, the specified ``KmsKeyId`` property is used.
@@ -1303,6 +1313,8 @@ type dbInstanceArgs struct {
 	SourceDbiResourceId *string `pulumi:"sourceDbiResourceId"`
 	// The ID of the region that contains the source DB instance for the read replica.
 	SourceRegion *string `pulumi:"sourceRegion"`
+	// The status of a read replica. If the DB instance isn't a read replica, the value is blank.
+	StatusInfos []DbInstanceDbInstanceStatusInfo `pulumi:"statusInfos"`
 	// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
 	//  If you specify the ``KmsKeyId`` property, then you must enable encryption.
 	//  If you specify the ``SourceDBInstanceIdentifier`` or ``SourceDbiResourceId`` property, don't specify this property. The value is inherited from the source DB instance, and if the DB instance is encrypted, the specified ``KmsKeyId`` property is used.
@@ -1922,6 +1934,8 @@ type DbInstanceArgs struct {
 	SourceDbiResourceId pulumi.StringPtrInput
 	// The ID of the region that contains the source DB instance for the read replica.
 	SourceRegion pulumi.StringPtrInput
+	// The status of a read replica. If the DB instance isn't a read replica, the value is blank.
+	StatusInfos DbInstanceDbInstanceStatusInfoArrayInput
 	// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
 	//  If you specify the ``KmsKeyId`` property, then you must enable encryption.
 	//  If you specify the ``SourceDBInstanceIdentifier`` or ``SourceDbiResourceId`` property, don't specify this property. The value is inherited from the source DB instance, and if the DB instance is encrypted, the specified ``KmsKeyId`` property is used.
@@ -2097,6 +2111,11 @@ func (o DbInstanceOutput) AutomaticBackupReplicationRegion() pulumi.StringPtrOut
 //	If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
 func (o DbInstanceOutput) AutomaticBackupReplicationRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.IntPtrOutput { return v.AutomaticBackupReplicationRetentionPeriod }).(pulumi.IntPtrOutput)
+}
+
+// The time when a stopped DB instance is restarted automatically.
+func (o DbInstanceOutput) AutomaticRestartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringOutput { return v.AutomaticRestartTime }).(pulumi.StringOutput)
 }
 
 // The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
@@ -2742,6 +2761,11 @@ func (o DbInstanceOutput) OptionGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.OptionGroupName }).(pulumi.StringPtrOutput)
 }
 
+// The progress of the storage optimization operation as a percentage.
+func (o DbInstanceOutput) PercentProgress() pulumi.StringOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringOutput { return v.PercentProgress }).(pulumi.StringOutput)
+}
+
 // The AWS KMS key identifier for encryption of Performance Insights data.
 //
 //	The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
@@ -2861,6 +2885,16 @@ func (o DbInstanceOutput) RestoreTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.RestoreTime }).(pulumi.StringPtrOutput)
 }
 
+// The number of minutes to pause the automation. When the time period ends, RDS Custom resumes full automation. The minimum value is 60 (default). The maximum value is 1,440.
+func (o DbInstanceOutput) ResumeFullAutomationModeTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringOutput { return v.ResumeFullAutomationModeTime }).(pulumi.StringOutput)
+}
+
+// If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
+func (o DbInstanceOutput) SecondaryAvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringOutput { return v.SecondaryAvailabilityZone }).(pulumi.StringOutput)
+}
+
 // The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
 //
 //	Constraints:
@@ -2902,6 +2936,11 @@ func (o DbInstanceOutput) SourceDbiResourceId() pulumi.StringPtrOutput {
 // The ID of the region that contains the source DB instance for the read replica.
 func (o DbInstanceOutput) SourceRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.SourceRegion }).(pulumi.StringPtrOutput)
+}
+
+// The status of a read replica. If the DB instance isn't a read replica, the value is blank.
+func (o DbInstanceOutput) StatusInfos() DbInstanceDbInstanceStatusInfoArrayOutput {
+	return o.ApplyT(func(v *DbInstance) DbInstanceDbInstanceStatusInfoArrayOutput { return v.StatusInfos }).(DbInstanceDbInstanceStatusInfoArrayOutput)
 }
 
 // A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.

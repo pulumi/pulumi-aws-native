@@ -59,7 +59,7 @@ type Environment struct {
 	StateDetails pulumi.StringOutput `pulumi:"stateDetails"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+	// Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance. Amazon EVS does not validate license keys. To validate license keys, visit the Broadcom support portal.
 	TermsAccepted pulumi.BoolOutput `pulumi:"termsAccepted"`
 	// The DNS hostnames to be used by the VCF management appliances in your environment.
 	//
@@ -171,7 +171,7 @@ type environmentArgs struct {
 	SiteId string `pulumi:"siteId"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
-	// Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+	// Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance. Amazon EVS does not validate license keys. To validate license keys, visit the Broadcom support portal.
 	TermsAccepted bool `pulumi:"termsAccepted"`
 	// The DNS hostnames to be used by the VCF management appliances in your environment.
 	//
@@ -207,7 +207,7 @@ type EnvironmentArgs struct {
 	SiteId pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
-	// Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+	// Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance. Amazon EVS does not validate license keys. To validate license keys, visit the Broadcom support portal.
 	TermsAccepted pulumi.BoolInput
 	// The DNS hostnames to be used by the VCF management appliances in your environment.
 	//
@@ -354,7 +354,7 @@ func (o EnvironmentOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Environment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+// Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance. Amazon EVS does not validate license keys. To validate license keys, visit the Broadcom support portal.
 func (o EnvironmentOutput) TermsAccepted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Environment) pulumi.BoolOutput { return v.TermsAccepted }).(pulumi.BoolOutput)
 }

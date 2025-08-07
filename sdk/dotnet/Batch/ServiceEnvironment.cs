@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.Batch
     [AwsNativeResourceType("aws-native:batch:ServiceEnvironment")]
     public partial class ServiceEnvironment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
+        /// </summary>
         [Output("capacityLimits")]
         public Output<ImmutableArray<Outputs.ServiceEnvironmentCapacityLimit>> CapacityLimits { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service environment.
+        /// </summary>
         [Output("serviceEnvironmentArn")]
         public Output<string> ServiceEnvironmentArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the service environment.
+        /// </summary>
         [Output("serviceEnvironmentName")]
         public Output<string?> ServiceEnvironmentName { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of service environment. For SageMaker Training jobs, this value is `SAGEMAKER_TRAINING` .
+        /// </summary>
         [Output("serviceEnvironmentType")]
         public Output<string> ServiceEnvironmentType { get; private set; } = null!;
 
+        /// <summary>
+        /// The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
+        /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
@@ -88,18 +103,31 @@ namespace Pulumi.AwsNative.Batch
     {
         [Input("capacityLimits", required: true)]
         private InputList<Inputs.ServiceEnvironmentCapacityLimitArgs>? _capacityLimits;
+
+        /// <summary>
+        /// The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
+        /// </summary>
         public InputList<Inputs.ServiceEnvironmentCapacityLimitArgs> CapacityLimits
         {
             get => _capacityLimits ?? (_capacityLimits = new InputList<Inputs.ServiceEnvironmentCapacityLimitArgs>());
             set => _capacityLimits = value;
         }
 
+        /// <summary>
+        /// The name of the service environment.
+        /// </summary>
         [Input("serviceEnvironmentName")]
         public Input<string>? ServiceEnvironmentName { get; set; }
 
+        /// <summary>
+        /// The type of service environment. For SageMaker Training jobs, this value is `SAGEMAKER_TRAINING` .
+        /// </summary>
         [Input("serviceEnvironmentType", required: true)]
         public Input<string> ServiceEnvironmentType { get; set; } = null!;
 
+        /// <summary>
+        /// The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
+        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 

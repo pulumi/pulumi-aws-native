@@ -72,6 +72,10 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     public readonly publicAccessBlockConfiguration!: pulumi.Output<outputs.s3.AccessPointPublicAccessBlockConfiguration | undefined>;
     /**
+     * An arbitrary set of tags (key-value pairs) for this S3 Access Point.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
      */
     public readonly vpcConfiguration!: pulumi.Output<outputs.s3.AccessPointVpcConfiguration | undefined>;
@@ -95,6 +99,7 @@ export class AccessPoint extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -108,6 +113,7 @@ export class AccessPoint extends pulumi.CustomResource {
             resourceInputs["networkOrigin"] = undefined /*out*/;
             resourceInputs["policy"] = undefined /*out*/;
             resourceInputs["publicAccessBlockConfiguration"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -143,6 +149,10 @@ export interface AccessPointArgs {
      * The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
      */
     publicAccessBlockConfiguration?: pulumi.Input<inputs.s3.AccessPointPublicAccessBlockConfigurationArgs>;
+    /**
+     * An arbitrary set of tags (key-value pairs) for this S3 Access Point.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
      */

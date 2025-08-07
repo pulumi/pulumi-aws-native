@@ -23,6 +23,8 @@ __all__ = [
     'DomainConfigurationServerCertificateSummaryServerCertificateStatus',
     'DomainConfigurationServiceType',
     'DomainConfigurationStatus',
+    'EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus',
+    'EncryptionConfigurationEncryptionType',
     'JobTemplateAction',
     'JobTemplateFailureType',
     'JobTemplateJobRetryFailureType',
@@ -217,6 +219,18 @@ class DomainConfigurationStatus(builtins.str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:iot:EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus")
+class EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus(builtins.str, Enum):
+    HEALTHY = "HEALTHY"
+    UNHEALTHY = "UNHEALTHY"
+
+
+@pulumi.type_token("aws-native:iot:EncryptionConfigurationEncryptionType")
+class EncryptionConfigurationEncryptionType(builtins.str, Enum):
+    CUSTOMER_MANAGED_KMS_KEY = "CUSTOMER_MANAGED_KMS_KEY"
+    AWS_OWNED_KMS_KEY = "AWS_OWNED_KMS_KEY"
 
 
 @pulumi.type_token("aws-native:iot:JobTemplateAction")

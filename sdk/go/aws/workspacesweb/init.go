@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkSettings{}
 	case "aws-native:workspacesweb:Portal":
 		r = &Portal{}
+	case "aws-native:workspacesweb:SessionLogger":
+		r = &SessionLogger{}
 	case "aws-native:workspacesweb:TrustStore":
 		r = &TrustStore{}
 	case "aws-native:workspacesweb:UserAccessLoggingSettings":

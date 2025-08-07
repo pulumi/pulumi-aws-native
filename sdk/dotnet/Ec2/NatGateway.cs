@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The ID of the subnet in which the NAT gateway is located.
         /// </summary>
         [Output("subnetId")]
-        public Output<string> SubnetId { get; private set; } = null!;
+        public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
         /// The tags for the NAT gateway.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public NatGateway(string name, NatGatewayArgs args, CustomResourceOptions? options = null)
+        public NatGateway(string name, NatGatewayArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:ec2:NatGateway", name, args ?? new NatGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -191,8 +191,8 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The ID of the subnet in which the NAT gateway is located.
         /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

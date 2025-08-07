@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -40,7 +39,7 @@ type NatGateway struct {
 	//  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
 	SecondaryPrivateIpAddresses pulumi.StringArrayOutput `pulumi:"secondaryPrivateIpAddresses"`
 	// The ID of the subnet in which the NAT gateway is located.
-	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// The tags for the NAT gateway.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -49,12 +48,9 @@ type NatGateway struct {
 func NewNatGateway(ctx *pulumi.Context,
 	name string, args *NatGatewayArgs, opts ...pulumi.ResourceOption) (*NatGateway, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &NatGatewayArgs{}
 	}
 
-	if args.SubnetId == nil {
-		return nil, errors.New("invalid value for required argument 'SubnetId'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"allocationId",
 		"connectivityType",
@@ -112,7 +108,7 @@ type natGatewayArgs struct {
 	//  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
 	SecondaryPrivateIpAddresses []string `pulumi:"secondaryPrivateIpAddresses"`
 	// The ID of the subnet in which the NAT gateway is located.
-	SubnetId string `pulumi:"subnetId"`
+	SubnetId *string `pulumi:"subnetId"`
 	// The tags for the NAT gateway.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -136,7 +132,7 @@ type NatGatewayArgs struct {
 	//  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
 	SecondaryPrivateIpAddresses pulumi.StringArrayInput
 	// The ID of the subnet in which the NAT gateway is located.
-	SubnetId pulumi.StringInput
+	SubnetId pulumi.StringPtrInput
 	// The tags for the NAT gateway.
 	Tags aws.TagArrayInput
 }
@@ -223,8 +219,8 @@ func (o NatGatewayOutput) SecondaryPrivateIpAddresses() pulumi.StringArrayOutput
 }
 
 // The ID of the subnet in which the NAT gateway is located.
-func (o NatGatewayOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+func (o NatGatewayOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // The tags for the NAT gateway.

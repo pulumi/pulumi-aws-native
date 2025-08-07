@@ -110,6 +110,12 @@ namespace Pulumi.AwsNative.Ecr
         public Output<Pulumi.AwsNative.Ecr.RepositoryImageTagMutability?> ImageTagMutability { get; private set; } = null!;
 
         /// <summary>
+        /// The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+        /// </summary>
+        [Output("imageTagMutabilityExclusionFilters")]
+        public Output<ImmutableArray<Outputs.RepositoryImageTagMutabilityExclusionFilter>> ImageTagMutabilityExclusionFilters { get; private set; } = null!;
+
+        /// <summary>
         /// Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
         /// </summary>
         [Output("lifecyclePolicy")]
@@ -216,6 +222,18 @@ namespace Pulumi.AwsNative.Ecr
         /// </summary>
         [Input("imageTagMutability")]
         public Input<Pulumi.AwsNative.Ecr.RepositoryImageTagMutability>? ImageTagMutability { get; set; }
+
+        [Input("imageTagMutabilityExclusionFilters")]
+        private InputList<Inputs.RepositoryImageTagMutabilityExclusionFilterArgs>? _imageTagMutabilityExclusionFilters;
+
+        /// <summary>
+        /// The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+        /// </summary>
+        public InputList<Inputs.RepositoryImageTagMutabilityExclusionFilterArgs> ImageTagMutabilityExclusionFilters
+        {
+            get => _imageTagMutabilityExclusionFilters ?? (_imageTagMutabilityExclusionFilters = new InputList<Inputs.RepositoryImageTagMutabilityExclusionFilterArgs>());
+            set => _imageTagMutabilityExclusionFilters = value;
+        }
 
         /// <summary>
         /// Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -34,6 +37,10 @@ export interface GetDestinationResult {
      * The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
      */
     readonly roleArn?: string;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    readonly tags?: outputs.Tag[];
     /**
      * The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
      */

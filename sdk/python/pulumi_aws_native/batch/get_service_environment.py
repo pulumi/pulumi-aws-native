@@ -42,16 +42,25 @@ class GetServiceEnvironmentResult:
     @property
     @pulumi.getter(name="capacityLimits")
     def capacity_limits(self) -> Optional[Sequence['outputs.ServiceEnvironmentCapacityLimit']]:
+        """
+        The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
+        """
         return pulumi.get(self, "capacity_limits")
 
     @property
     @pulumi.getter(name="serviceEnvironmentArn")
     def service_environment_arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the service environment.
+        """
         return pulumi.get(self, "service_environment_arn")
 
     @property
     @pulumi.getter
     def state(self) -> Optional[builtins.str]:
+        """
+        The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
+        """
         return pulumi.get(self, "state")
 
     @property
@@ -79,6 +88,9 @@ def get_service_environment(service_environment_arn: Optional[builtins.str] = No
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceEnvironmentResult:
     """
     Resource Type definition for AWS::Batch::ServiceEnvironment
+
+
+    :param builtins.str service_environment_arn: The Amazon Resource Name (ARN) of the service environment.
     """
     __args__ = dict()
     __args__['serviceEnvironmentArn'] = service_environment_arn
@@ -94,6 +106,9 @@ def get_service_environment_output(service_environment_arn: Optional[pulumi.Inpu
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceEnvironmentResult]:
     """
     Resource Type definition for AWS::Batch::ServiceEnvironment
+
+
+    :param builtins.str service_environment_arn: The Amazon Resource Name (ARN) of the service environment.
     """
     __args__ = dict()
     __args__['serviceEnvironmentArn'] = service_environment_arn

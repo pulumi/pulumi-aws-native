@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
     public sealed class GetFirewallPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+        /// The Amazon Resource Name (ARN) of the firewall policy.
         /// </summary>
         [Input("firewallPolicyArn", required: true)]
         public string FirewallPolicyArn { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
     public sealed class GetFirewallPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+        /// The Amazon Resource Name (ARN) of the firewall policy.
         /// </summary>
         [Input("firewallPolicyArn", required: true)]
         public Input<string> FirewallPolicyArn { get; set; } = null!;
@@ -72,11 +72,11 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// </summary>
         public readonly Outputs.FirewallPolicy? FirewallPolicyValue;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+        /// The Amazon Resource Name (ARN) of the firewall policy.
         /// </summary>
         public readonly string? FirewallPolicyArn;
         /// <summary>
-        /// The unique ID of the `FirewallPolicy` resource.
+        /// The unique ID of the firewall policy resource.
         /// </summary>
         public readonly string? FirewallPolicyId;
         /// <summary>

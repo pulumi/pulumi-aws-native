@@ -66,6 +66,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly computeConfig!: pulumi.Output<outputs.eks.ClusterComputeConfig | undefined>;
     /**
+     * Set this value to true to enable deletion protection for the cluster.
+     */
+    public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
+    /**
      * The encryption configuration for the cluster.
      */
     public readonly encryptionConfig!: pulumi.Output<outputs.eks.ClusterEncryptionConfig[] | undefined>;
@@ -156,6 +160,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["accessConfig"] = args ? args.accessConfig : undefined;
             resourceInputs["bootstrapSelfManagedAddons"] = args ? args.bootstrapSelfManagedAddons : undefined;
             resourceInputs["computeConfig"] = args ? args.computeConfig : undefined;
+            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
             resourceInputs["force"] = args ? args.force : undefined;
             resourceInputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
@@ -185,6 +190,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["certificateAuthorityData"] = undefined /*out*/;
             resourceInputs["clusterSecurityGroupId"] = undefined /*out*/;
             resourceInputs["computeConfig"] = undefined /*out*/;
+            resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["encryptionConfig"] = undefined /*out*/;
             resourceInputs["encryptionConfigKeyArn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
@@ -226,6 +232,10 @@ export interface ClusterArgs {
      * Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
      */
     computeConfig?: pulumi.Input<inputs.eks.ClusterComputeConfigArgs>;
+    /**
+     * Set this value to true to enable deletion protection for the cluster.
+     */
+    deletionProtection?: pulumi.Input<boolean>;
     /**
      * The encryption configuration for the cluster.
      */

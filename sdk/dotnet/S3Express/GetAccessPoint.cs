@@ -85,6 +85,7 @@ namespace Pulumi.AwsNative.S3Express
         /// For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
         /// </summary>
         public readonly Outputs.AccessPointScope? Scope;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAccessPointResult(
@@ -96,13 +97,16 @@ namespace Pulumi.AwsNative.S3Express
 
             Outputs.AccessPointPublicAccessBlockConfiguration? publicAccessBlockConfiguration,
 
-            Outputs.AccessPointScope? scope)
+            Outputs.AccessPointScope? scope,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             NetworkOrigin = networkOrigin;
             Policy = policy;
             PublicAccessBlockConfiguration = publicAccessBlockConfiguration;
             Scope = scope;
+            Tags = tags;
         }
     }
 }

@@ -51,7 +51,7 @@ export class IdMappingWorkflow extends pulumi.CustomResource {
      */
     public readonly inputSourceConfig!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowInputSource[]>;
     /**
-     * A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+     * A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `outputS3Path` and `KMSArn` .
      */
     public readonly outputSourceConfig!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowOutputSource[] | undefined>;
     /**
@@ -135,7 +135,7 @@ export interface IdMappingWorkflowArgs {
      */
     inputSourceConfig: pulumi.Input<pulumi.Input<inputs.entityresolution.IdMappingWorkflowInputSourceArgs>[]>;
     /**
-     * A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+     * A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `outputS3Path` and `KMSArn` .
      */
     outputSourceConfig?: pulumi.Input<pulumi.Input<inputs.entityresolution.IdMappingWorkflowOutputSourceArgs>[]>;
     /**

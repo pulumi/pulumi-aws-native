@@ -29,13 +29,13 @@ __all__ = [
 @pulumi.output_type
 class AlarmDimension(dict):
     """
-    Dimension is an embedded property of the ``AWS::CloudWatch::Alarm`` type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 10 dimensions for a given metric.
+    Dimension is an embedded property of the ``AWS::CloudWatch::Alarm`` type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 30 dimensions for a given metric.
     """
     def __init__(__self__, *,
                  name: builtins.str,
                  value: builtins.str):
         """
-        Dimension is an embedded property of the ``AWS::CloudWatch::Alarm`` type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 10 dimensions for a given metric.
+        Dimension is an embedded property of the ``AWS::CloudWatch::Alarm`` type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 30 dimensions for a given metric.
         :param builtins.str name: The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
         :param builtins.str value: The value for the dimension, from 1–255 characters in length.
         """
@@ -168,7 +168,7 @@ class AlarmMetricDataQuery(dict):
         :param builtins.str label: A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents. If the metric or expression is shown in a CW dashboard widget, the label is shown. If ``Label`` is omitted, CW generates a default.
         :param 'AlarmMetricStat' metric_stat: The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
                 Within one MetricDataQuery object, you must specify either ``Expression`` or ``MetricStat`` but not both.
-        :param builtins.int period: The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` operation that includes a ``StorageResolution of 1 second``.
+        :param builtins.int period: The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 20, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` operation that includes a ``StorageResolution of 1 second``.
         :param builtins.bool return_data: This option indicates whether to return the timestamps and raw data values of this metric.
                 When you create an alarm based on a metric math expression, specify ``True`` for this value for only the one math expression that the alarm is based on. You must specify ``False`` for ``ReturnData`` for all the other metrics and expressions used in the alarm.
                 This field is required.
@@ -233,7 +233,7 @@ class AlarmMetricDataQuery(dict):
     @pulumi.getter
     def period(self) -> Optional[builtins.int]:
         """
-        The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` operation that includes a ``StorageResolution of 1 second``.
+        The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 20, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` operation that includes a ``StorageResolution of 1 second``.
         """
         return pulumi.get(self, "period")
 
@@ -252,7 +252,7 @@ class AlarmMetricDataQuery(dict):
 class AlarmMetricStat(dict):
     """
     This structure defines the metric to be returned, along with the statistics, period, and units.
-      ``MetricStat`` is a property of the [MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html) property type.
+     ``MetricStat`` is a property of the [MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html) property type.
     """
     def __init__(__self__, *,
                  metric: 'outputs.AlarmMetric',
@@ -261,9 +261,9 @@ class AlarmMetricStat(dict):
                  unit: Optional[builtins.str] = None):
         """
         This structure defines the metric to be returned, along with the statistics, period, and units.
-          ``MetricStat`` is a property of the [MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html) property type.
+         ``MetricStat`` is a property of the [MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html) property type.
         :param 'AlarmMetric' metric: The metric to return, including the metric name, namespace, and dimensions.
-        :param builtins.int period: The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` call that includes a ``StorageResolution`` of 1 second.
+        :param builtins.int period: The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 20, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` call that includes a ``StorageResolution`` of 1 second.
                 If the ``StartTime`` parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:
                  +  Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).
                  +  Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).
@@ -290,7 +290,7 @@ class AlarmMetricStat(dict):
     @pulumi.getter
     def period(self) -> builtins.int:
         """
-        The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` call that includes a ``StorageResolution`` of 1 second.
+        The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 20, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` call that includes a ``StorageResolution`` of 1 second.
          If the ``StartTime`` parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:
           +  Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).
           +  Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).

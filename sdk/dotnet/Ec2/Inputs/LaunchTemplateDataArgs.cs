@@ -64,33 +64,6 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("ebsOptimized")]
         public Input<bool>? EbsOptimized { get; set; }
 
-        [Input("elasticGpuSpecifications")]
-        private InputList<Inputs.LaunchTemplateElasticGpuSpecificationArgs>? _elasticGpuSpecifications;
-
-        /// <summary>
-        /// Deprecated.
-        ///   Amazon Elastic Graphics reached end of life on January 8, 2024.
-        /// </summary>
-        public InputList<Inputs.LaunchTemplateElasticGpuSpecificationArgs> ElasticGpuSpecifications
-        {
-            get => _elasticGpuSpecifications ?? (_elasticGpuSpecifications = new InputList<Inputs.LaunchTemplateElasticGpuSpecificationArgs>());
-            set => _elasticGpuSpecifications = value;
-        }
-
-        [Input("elasticInferenceAccelerators")]
-        private InputList<Inputs.LaunchTemplateElasticInferenceAcceleratorArgs>? _elasticInferenceAccelerators;
-
-        /// <summary>
-        /// Amazon Elastic Inference is no longer available.
-        ///   An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
-        ///  You cannot specify accelerators from different generations in the same request.
-        /// </summary>
-        public InputList<Inputs.LaunchTemplateElasticInferenceAcceleratorArgs> ElasticInferenceAccelerators
-        {
-            get => _elasticInferenceAccelerators ?? (_elasticInferenceAccelerators = new InputList<Inputs.LaunchTemplateElasticInferenceAcceleratorArgs>());
-            set => _elasticInferenceAccelerators = value;
-        }
-
         /// <summary>
         /// Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
         ///  You can't enable AWS Nitro Enclaves and hibernation on the same instance.

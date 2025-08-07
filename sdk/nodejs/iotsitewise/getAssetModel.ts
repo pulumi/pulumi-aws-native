@@ -58,6 +58,10 @@ export interface GetAssetModelResult {
      */
     readonly assetModelProperties?: outputs.iotsitewise.AssetModelProperty[];
     /**
+     * a list of asset model and interface relationships
+     */
+    readonly enforcedAssetModelInterfaceRelationships?: outputs.iotsitewise.AssetModelEnforcedAssetModelInterfaceRelationship[];
+    /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
     readonly tags?: outputs.Tag[];

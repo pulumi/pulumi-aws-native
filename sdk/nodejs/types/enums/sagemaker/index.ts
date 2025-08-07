@@ -1278,6 +1278,258 @@ export const PartnerAppType = {
  */
 export type PartnerAppType = (typeof PartnerAppType)[keyof typeof PartnerAppType];
 
+export const ProcessingJobAthenaDatasetDefinitionOutputCompression = {
+    Gzip: "GZIP",
+    Snappy: "SNAPPY",
+    Zlib: "ZLIB",
+} as const;
+
+/**
+ * The compression used for Athena query results.
+ */
+export type ProcessingJobAthenaDatasetDefinitionOutputCompression = (typeof ProcessingJobAthenaDatasetDefinitionOutputCompression)[keyof typeof ProcessingJobAthenaDatasetDefinitionOutputCompression];
+
+export const ProcessingJobAthenaDatasetDefinitionOutputFormat = {
+    Parquet: "PARQUET",
+    Avro: "AVRO",
+    Orc: "ORC",
+    Json: "JSON",
+    Textfile: "TEXTFILE",
+} as const;
+
+/**
+ * The data storage format for Athena query results.
+ */
+export type ProcessingJobAthenaDatasetDefinitionOutputFormat = (typeof ProcessingJobAthenaDatasetDefinitionOutputFormat)[keyof typeof ProcessingJobAthenaDatasetDefinitionOutputFormat];
+
+export const ProcessingJobClusterConfigInstanceType = {
+    MlT3Medium: "ml.t3.medium",
+    MlT3Large: "ml.t3.large",
+    MlT3Xlarge: "ml.t3.xlarge",
+    MlT32xlarge: "ml.t3.2xlarge",
+    MlM4Xlarge: "ml.m4.xlarge",
+    MlM42xlarge: "ml.m4.2xlarge",
+    MlM44xlarge: "ml.m4.4xlarge",
+    MlM410xlarge: "ml.m4.10xlarge",
+    MlM416xlarge: "ml.m4.16xlarge",
+    MlC4Xlarge: "ml.c4.xlarge",
+    MlC42xlarge: "ml.c4.2xlarge",
+    MlC44xlarge: "ml.c4.4xlarge",
+    MlC48xlarge: "ml.c4.8xlarge",
+    MlC5Xlarge: "ml.c5.xlarge",
+    MlC52xlarge: "ml.c5.2xlarge",
+    MlC54xlarge: "ml.c5.4xlarge",
+    MlC59xlarge: "ml.c5.9xlarge",
+    MlC518xlarge: "ml.c5.18xlarge",
+    MlM5Large: "ml.m5.large",
+    MlM5Xlarge: "ml.m5.xlarge",
+    MlM52xlarge: "ml.m5.2xlarge",
+    MlM54xlarge: "ml.m5.4xlarge",
+    MlM512xlarge: "ml.m5.12xlarge",
+    MlM524xlarge: "ml.m5.24xlarge",
+    MlR5Large: "ml.r5.large",
+    MlR5Xlarge: "ml.r5.xlarge",
+    MlR52xlarge: "ml.r5.2xlarge",
+    MlR54xlarge: "ml.r5.4xlarge",
+    MlR58xlarge: "ml.r5.8xlarge",
+    MlR512xlarge: "ml.r5.12xlarge",
+    MlR516xlarge: "ml.r5.16xlarge",
+    MlR524xlarge: "ml.r5.24xlarge",
+    MlG4dnXlarge: "ml.g4dn.xlarge",
+    MlG4dn2xlarge: "ml.g4dn.2xlarge",
+    MlG4dn4xlarge: "ml.g4dn.4xlarge",
+    MlG4dn8xlarge: "ml.g4dn.8xlarge",
+    MlG4dn12xlarge: "ml.g4dn.12xlarge",
+    MlG4dn16xlarge: "ml.g4dn.16xlarge",
+    MlG5Xlarge: "ml.g5.xlarge",
+    MlG52xlarge: "ml.g5.2xlarge",
+    MlG54xlarge: "ml.g5.4xlarge",
+    MlG58xlarge: "ml.g5.8xlarge",
+    MlG516xlarge: "ml.g5.16xlarge",
+    MlG512xlarge: "ml.g5.12xlarge",
+    MlG524xlarge: "ml.g5.24xlarge",
+    MlG548xlarge: "ml.g5.48xlarge",
+    MlR5dLarge: "ml.r5d.large",
+    MlR5dXlarge: "ml.r5d.xlarge",
+    MlR5d2xlarge: "ml.r5d.2xlarge",
+    MlR5d4xlarge: "ml.r5d.4xlarge",
+    MlR5d8xlarge: "ml.r5d.8xlarge",
+    MlR5d12xlarge: "ml.r5d.12xlarge",
+    MlR5d16xlarge: "ml.r5d.16xlarge",
+    MlR5d24xlarge: "ml.r5d.24xlarge",
+    MlG6Xlarge: "ml.g6.xlarge",
+    MlG62xlarge: "ml.g6.2xlarge",
+    MlG64xlarge: "ml.g6.4xlarge",
+    MlG68xlarge: "ml.g6.8xlarge",
+    MlG612xlarge: "ml.g6.12xlarge",
+    MlG616xlarge: "ml.g6.16xlarge",
+    MlG624xlarge: "ml.g6.24xlarge",
+    MlG648xlarge: "ml.g6.48xlarge",
+    MlG6eXlarge: "ml.g6e.xlarge",
+    MlG6e2xlarge: "ml.g6e.2xlarge",
+    MlG6e4xlarge: "ml.g6e.4xlarge",
+    MlG6e8xlarge: "ml.g6e.8xlarge",
+    MlG6e12xlarge: "ml.g6e.12xlarge",
+    MlG6e16xlarge: "ml.g6e.16xlarge",
+    MlG6e24xlarge: "ml.g6e.24xlarge",
+    MlG6e48xlarge: "ml.g6e.48xlarge",
+    MlM6iLarge: "ml.m6i.large",
+    MlM6iXlarge: "ml.m6i.xlarge",
+    MlM6i2xlarge: "ml.m6i.2xlarge",
+    MlM6i4xlarge: "ml.m6i.4xlarge",
+    MlM6i8xlarge: "ml.m6i.8xlarge",
+    MlM6i12xlarge: "ml.m6i.12xlarge",
+    MlM6i16xlarge: "ml.m6i.16xlarge",
+    MlM6i24xlarge: "ml.m6i.24xlarge",
+    MlM6i32xlarge: "ml.m6i.32xlarge",
+    MlC6iXlarge: "ml.c6i.xlarge",
+    MlC6i2xlarge: "ml.c6i.2xlarge",
+    MlC6i4xlarge: "ml.c6i.4xlarge",
+    MlC6i8xlarge: "ml.c6i.8xlarge",
+    MlC6i12xlarge: "ml.c6i.12xlarge",
+    MlC6i16xlarge: "ml.c6i.16xlarge",
+    MlC6i24xlarge: "ml.c6i.24xlarge",
+    MlC6i32xlarge: "ml.c6i.32xlarge",
+    MlM7iLarge: "ml.m7i.large",
+    MlM7iXlarge: "ml.m7i.xlarge",
+    MlM7i2xlarge: "ml.m7i.2xlarge",
+    MlM7i4xlarge: "ml.m7i.4xlarge",
+    MlM7i8xlarge: "ml.m7i.8xlarge",
+    MlM7i12xlarge: "ml.m7i.12xlarge",
+    MlM7i16xlarge: "ml.m7i.16xlarge",
+    MlM7i24xlarge: "ml.m7i.24xlarge",
+    MlM7i48xlarge: "ml.m7i.48xlarge",
+    MlC7iLarge: "ml.c7i.large",
+    MlC7iXlarge: "ml.c7i.xlarge",
+    MlC7i2xlarge: "ml.c7i.2xlarge",
+    MlC7i4xlarge: "ml.c7i.4xlarge",
+    MlC7i8xlarge: "ml.c7i.8xlarge",
+    MlC7i12xlarge: "ml.c7i.12xlarge",
+    MlC7i16xlarge: "ml.c7i.16xlarge",
+    MlC7i24xlarge: "ml.c7i.24xlarge",
+    MlC7i48xlarge: "ml.c7i.48xlarge",
+    MlR7iLarge: "ml.r7i.large",
+    MlR7iXlarge: "ml.r7i.xlarge",
+    MlR7i2xlarge: "ml.r7i.2xlarge",
+    MlR7i4xlarge: "ml.r7i.4xlarge",
+    MlR7i8xlarge: "ml.r7i.8xlarge",
+    MlR7i12xlarge: "ml.r7i.12xlarge",
+    MlR7i16xlarge: "ml.r7i.16xlarge",
+    MlR7i24xlarge: "ml.r7i.24xlarge",
+    MlR7i48xlarge: "ml.r7i.48xlarge",
+} as const;
+
+/**
+ * The ML compute instance type for the processing job.
+ */
+export type ProcessingJobClusterConfigInstanceType = (typeof ProcessingJobClusterConfigInstanceType)[keyof typeof ProcessingJobClusterConfigInstanceType];
+
+export const ProcessingJobDatasetDefinitionDataDistributionType = {
+    FullyReplicated: "FullyReplicated",
+    ShardedByS3Key: "ShardedByS3Key",
+} as const;
+
+/**
+ * Whether the generated dataset is FullyReplicated or ShardedByS3Key (default).
+ */
+export type ProcessingJobDatasetDefinitionDataDistributionType = (typeof ProcessingJobDatasetDefinitionDataDistributionType)[keyof typeof ProcessingJobDatasetDefinitionDataDistributionType];
+
+export const ProcessingJobDatasetDefinitionInputMode = {
+    File: "File",
+    Pipe: "Pipe",
+} as const;
+
+/**
+ * Whether to use File or Pipe input mode. In File (default) mode, Amazon SageMaker copies the data from the input source onto the local Amazon Elastic Block Store (Amazon EBS) volumes before starting your training algorithm. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your algorithm without using the EBS volume.
+ */
+export type ProcessingJobDatasetDefinitionInputMode = (typeof ProcessingJobDatasetDefinitionInputMode)[keyof typeof ProcessingJobDatasetDefinitionInputMode];
+
+export const ProcessingJobRedshiftDatasetDefinitionOutputCompression = {
+    None: "None",
+    Gzip: "GZIP",
+    Snappy: "SNAPPY",
+    Zstd: "ZSTD",
+    Bzip2: "BZIP2",
+} as const;
+
+/**
+ * The compression used for Redshift query results.
+ */
+export type ProcessingJobRedshiftDatasetDefinitionOutputCompression = (typeof ProcessingJobRedshiftDatasetDefinitionOutputCompression)[keyof typeof ProcessingJobRedshiftDatasetDefinitionOutputCompression];
+
+export const ProcessingJobRedshiftDatasetDefinitionOutputFormat = {
+    Parquet: "PARQUET",
+    Csv: "CSV",
+} as const;
+
+/**
+ * The data storage format for Redshift query results.
+ */
+export type ProcessingJobRedshiftDatasetDefinitionOutputFormat = (typeof ProcessingJobRedshiftDatasetDefinitionOutputFormat)[keyof typeof ProcessingJobRedshiftDatasetDefinitionOutputFormat];
+
+export const ProcessingJobS3InputS3CompressionType = {
+    None: "None",
+    Gzip: "Gzip",
+} as const;
+
+/**
+ * Whether to GZIP-decompress the data in Amazon S3 as it is streamed into the processing container. `Gzip` can only be used when `Pipe` mode is specified as the `S3InputMode`. In `Pipe` mode, Amazon SageMaker streams input data from the source directly to your container without using the EBS volume.
+ */
+export type ProcessingJobS3InputS3CompressionType = (typeof ProcessingJobS3InputS3CompressionType)[keyof typeof ProcessingJobS3InputS3CompressionType];
+
+export const ProcessingJobS3InputS3DataDistributionType = {
+    FullyReplicated: "FullyReplicated",
+    ShardedByS3Key: "ShardedByS3Key",
+} as const;
+
+/**
+ * Whether to distribute the data from Amazon S3 to all processing instances with `FullyReplicated`, or whether the data from Amazon S3 is shared by Amazon S3 key, downloading one shard of data to each processing instance.
+ */
+export type ProcessingJobS3InputS3DataDistributionType = (typeof ProcessingJobS3InputS3DataDistributionType)[keyof typeof ProcessingJobS3InputS3DataDistributionType];
+
+export const ProcessingJobS3InputS3DataType = {
+    ManifestFile: "ManifestFile",
+    S3Prefix: "S3Prefix",
+} as const;
+
+/**
+ * Whether you use an S3Prefix or a ManifestFile for the data type. If you choose S3Prefix, S3Uri identifies a key name prefix. Amazon SageMaker uses all objects with the specified key name prefix for the processing job. If you choose ManifestFile, S3Uri identifies an object that is a manifest file containing a list of object keys that you want Amazon SageMaker to use for the processing job.
+ */
+export type ProcessingJobS3InputS3DataType = (typeof ProcessingJobS3InputS3DataType)[keyof typeof ProcessingJobS3InputS3DataType];
+
+export const ProcessingJobS3InputS3InputMode = {
+    File: "File",
+    Pipe: "Pipe",
+} as const;
+
+/**
+ * Whether to use File or Pipe input mode. In File mode, Amazon SageMaker copies the data from the input source onto the local ML storage volume before starting your processing container. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your processing container into named pipes without using the ML storage volume.
+ */
+export type ProcessingJobS3InputS3InputMode = (typeof ProcessingJobS3InputS3InputMode)[keyof typeof ProcessingJobS3InputS3InputMode];
+
+export const ProcessingJobS3OutputS3UploadMode = {
+    Continuous: "Continuous",
+    EndOfJob: "EndOfJob",
+} as const;
+
+/**
+ * Whether to upload the results of the processing job continuously or after the job completes.
+ */
+export type ProcessingJobS3OutputS3UploadMode = (typeof ProcessingJobS3OutputS3UploadMode)[keyof typeof ProcessingJobS3OutputS3UploadMode];
+
+export const ProcessingJobStatus = {
+    Completed: "Completed",
+    InProgress: "InProgress",
+    Stopping: "Stopping",
+    Stopped: "Stopped",
+    Failed: "Failed",
+} as const;
+
+/**
+ * Provides the status of a processing job.
+ */
+export type ProcessingJobStatus = (typeof ProcessingJobStatus)[keyof typeof ProcessingJobStatus];
+
 export const ProjectStatus = {
     Pending: "Pending",
     CreateInProgress: "CreateInProgress",

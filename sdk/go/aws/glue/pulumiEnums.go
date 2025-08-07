@@ -21,6 +21,12 @@ const (
 	JobWorkerTypeG4x      = JobWorkerType("G.4X")
 	JobWorkerTypeG8x      = JobWorkerType("G.8X")
 	JobWorkerTypeZ2x      = JobWorkerType("Z.2X")
+	JobWorkerTypeG12x     = JobWorkerType("G.12X")
+	JobWorkerTypeG16x     = JobWorkerType("G.16X")
+	JobWorkerTypeR1x      = JobWorkerType("R.1X")
+	JobWorkerTypeR2x      = JobWorkerType("R.2X")
+	JobWorkerTypeR4x      = JobWorkerType("R.4X")
+	JobWorkerTypeR8x      = JobWorkerType("R.8X")
 )
 
 func (JobWorkerType) ElementType() reflect.Type {
@@ -152,6 +158,12 @@ func (o JobWorkerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	JobWorkerTypeG4x
 //	JobWorkerTypeG8x
 //	JobWorkerTypeZ2x
+//	JobWorkerTypeG12x
+//	JobWorkerTypeG16x
+//	JobWorkerTypeR1x
+//	JobWorkerTypeR2x
+//	JobWorkerTypeR4x
+//	JobWorkerTypeR8x
 type JobWorkerTypeInput interface {
 	pulumi.Input
 

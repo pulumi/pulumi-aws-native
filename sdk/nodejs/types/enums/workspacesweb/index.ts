@@ -54,6 +54,42 @@ export const PortalStatus = {
 
 export type PortalStatus = (typeof PortalStatus)[keyof typeof PortalStatus];
 
+export const SessionLoggerEvent = {
+    WebsiteInteract: "WebsiteInteract",
+    FileDownloadFromSecureBrowserToRemoteDisk: "FileDownloadFromSecureBrowserToRemoteDisk",
+    FileTransferFromRemoteToLocalDisk: "FileTransferFromRemoteToLocalDisk",
+    FileTransferFromLocalToRemoteDisk: "FileTransferFromLocalToRemoteDisk",
+    FileUploadFromRemoteDiskToSecureBrowser: "FileUploadFromRemoteDiskToSecureBrowser",
+    ContentPasteToWebsite: "ContentPasteToWebsite",
+    ContentTransferFromLocalToRemoteClipboard: "ContentTransferFromLocalToRemoteClipboard",
+    ContentCopyFromWebsite: "ContentCopyFromWebsite",
+    UrlLoad: "UrlLoad",
+    TabOpen: "TabOpen",
+    TabClose: "TabClose",
+    PrintJobSubmit: "PrintJobSubmit",
+    SessionConnect: "SessionConnect",
+    SessionStart: "SessionStart",
+    SessionDisconnect: "SessionDisconnect",
+    SessionEnd: "SessionEnd",
+    UrlBlockByContentFilter: "UrlBlockByContentFilter",
+} as const;
+
+export type SessionLoggerEvent = (typeof SessionLoggerEvent)[keyof typeof SessionLoggerEvent];
+
+export const SessionLoggerFolderStructure = {
+    Flat: "Flat",
+    NestedByDate: "NestedByDate",
+} as const;
+
+export type SessionLoggerFolderStructure = (typeof SessionLoggerFolderStructure)[keyof typeof SessionLoggerFolderStructure];
+
+export const SessionLoggerLogFileFormat = {
+    JsonLines: "JSONLines",
+    Json: "Json",
+} as const;
+
+export type SessionLoggerLogFileFormat = (typeof SessionLoggerLogFileFormat)[keyof typeof SessionLoggerLogFileFormat];
+
 export const UserSettingsEnabledType = {
     Disabled: "Disabled",
     Enabled: "Enabled",

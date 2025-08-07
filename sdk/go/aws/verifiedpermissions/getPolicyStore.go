@@ -40,7 +40,7 @@ type LookupPolicyStoreResult struct {
 	// The unique ID of the new or updated policy store.
 	PolicyStoreId *string `pulumi:"policyStoreId"`
 	// Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
-	Schema *PolicyStoreSchemaDefinition `pulumi:"schema"`
+	Schema interface{} `pulumi:"schema"`
 	// The tags to add to the policy store
 	Tags []aws.Tag `pulumi:"tags"`
 	// Specifies the validation setting for this policy store.
@@ -106,8 +106,8 @@ func (o LookupPolicyStoreResultOutput) PolicyStoreId() pulumi.StringPtrOutput {
 }
 
 // Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
-func (o LookupPolicyStoreResultOutput) Schema() PolicyStoreSchemaDefinitionPtrOutput {
-	return o.ApplyT(func(v LookupPolicyStoreResult) *PolicyStoreSchemaDefinition { return v.Schema }).(PolicyStoreSchemaDefinitionPtrOutput)
+func (o LookupPolicyStoreResultOutput) Schema() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupPolicyStoreResult) interface{} { return v.Schema }).(pulumi.AnyOutput)
 }
 
 // The tags to add to the policy store

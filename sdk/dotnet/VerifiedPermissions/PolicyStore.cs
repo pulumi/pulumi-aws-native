@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     /// {
     ///     var myPolicyStore = new AwsNative.VerifiedPermissions.PolicyStore("myPolicyStore", new()
     ///     {
-    ///         Schema = new AwsNative.VerifiedPermissions.Inputs.PolicyStoreSchemaDefinitionArgs
+    ///         Schema = new AwsNative.VerifiedPermissions.Inputs.PolicyStoreSchemaDefinition0PropertiesArgs
     ///         {
     ///             CedarJson = "{\"PhotoApp\":{\"commonTypes\":{\"PersonType\":{\"type\":\"Record\",\"attributes\":{\"age\":{\"type\":\"Long\"},\"name\":{\"type\":\"String\"}}},\"ContextType\":{\"type\":\"Record\",\"attributes\":{\"ip\":{\"type\":\"Extension\",\"name\":\"ipaddr\",\"required\":false},\"authenticated\":{\"type\":\"Boolean\",\"required\":true}}}},\"entityTypes\":{\"User\":{\"shape\":{\"type\":\"Record\",\"attributes\":{\"userId\":{\"type\":\"String\"},\"personInformation\":{\"type\":\"PersonType\"}}},\"memberOfTypes\":[\"UserGroup\"]},\"UserGroup\":{\"shape\":{\"type\":\"Record\",\"attributes\":{}}},\"Photo\":{\"shape\":{\"type\":\"Record\",\"attributes\":{\"account\":{\"type\":\"Entity\",\"name\":\"Account\",\"required\":true},\"private\":{\"type\":\"Boolean\",\"required\":true}}},\"memberOfTypes\":[\"Album\",\"Account\"]},\"Album\":{\"shape\":{\"type\":\"Record\",\"attributes\":{}}},\"Account\":{\"shape\":{\"type\":\"Record\",\"attributes\":{}}}},\"actions\":{\"viewPhoto\":{\"appliesTo\":{\"principalTypes\":[\"User\",\"UserGroup\"],\"resourceTypes\":[\"Photo\"],\"context\":{\"type\":\"ContextType\"}}},\"createPhoto\":{\"appliesTo\":{\"principalTypes\":[\"User\",\"UserGroup\"],\"resourceTypes\":[\"Photo\"],\"context\":{\"type\":\"ContextType\"}}},\"listPhotos\":{\"appliesTo\":{\"principalTypes\":[\"User\",\"UserGroup\"],\"resourceTypes\":[\"Photo\"],\"context\":{\"type\":\"ContextType\"}}}}}}",
     ///         },
@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         /// Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
         /// </summary>
         [Output("schema")]
-        public Output<Outputs.PolicyStoreSchemaDefinition?> Schema { get; private set; } = null!;
+        public Output<Union<Outputs.PolicyStoreSchemaDefinition0Properties, Outputs.PolicyStoreSchemaDefinition1Properties>?> Schema { get; private set; } = null!;
 
         /// <summary>
         /// The tags to add to the policy store
@@ -153,7 +153,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         /// Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
         /// </summary>
         [Input("schema")]
-        public Input<Inputs.PolicyStoreSchemaDefinitionArgs>? Schema { get; set; }
+        public InputUnion<Inputs.PolicyStoreSchemaDefinition0PropertiesArgs, Inputs.PolicyStoreSchemaDefinition1PropertiesArgs>? Schema { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

@@ -19,7 +19,8 @@ type VpcEndpointAssociation struct {
 
 	// A description of the VPC endpoint association.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	EndpointId  pulumi.StringOutput    `pulumi:"endpointId"`
+	// The unique ID of the firewall endpoint for the subnet that you attached to the firewall.For example: "vpce-111122223333"
+	EndpointId pulumi.StringOutput `pulumi:"endpointId"`
 	// The Amazon Resource Name (ARN) of the firewall.
 	FirewallArn pulumi.StringOutput `pulumi:"firewallArn"`
 	// The ID for a subnet that's used in an association with a firewall. This is used in `CreateFirewall` , `AssociateSubnets` , and `CreateVpcEndpointAssociation` . AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
@@ -158,6 +159,7 @@ func (o VpcEndpointAssociationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEndpointAssociation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The unique ID of the firewall endpoint for the subnet that you attached to the firewall.For example: "vpce-111122223333"
 func (o VpcEndpointAssociationOutput) EndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointAssociation) pulumi.StringOutput { return v.EndpointId }).(pulumi.StringOutput)
 }

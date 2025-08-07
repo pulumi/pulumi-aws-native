@@ -49,6 +49,7 @@ class JobQueueJobStateTimeLimitActionAction(builtins.str, Enum):
     The action to take when a job is at the head of the job queue in the specified state for the specified period of time. The only supported value is `CANCEL` , which will cancel the job.
     """
     CANCEL = "CANCEL"
+    TERMINATE = "TERMINATE"
 
 
 @pulumi.type_token("aws-native:batch:JobQueueJobStateTimeLimitActionState")

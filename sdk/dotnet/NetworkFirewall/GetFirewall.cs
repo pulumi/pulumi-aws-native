@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
     public sealed class GetFirewallArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the `Firewall` .
+        /// The Amazon Resource Name (ARN) of the firewall.
         /// </summary>
         [Input("firewallArn", required: true)]
         public string FirewallArn { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
     public sealed class GetFirewallInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the `Firewall` .
+        /// The Amazon Resource Name (ARN) of the firewall.
         /// </summary>
         [Input("firewallArn", required: true)]
         public Input<string> FirewallArn { get; set; } = null!;
@@ -63,6 +63,14 @@ namespace Pulumi.AwsNative.NetworkFirewall
     [OutputType]
     public sealed class GetFirewallResult
     {
+        /// <summary>
+        /// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `TRUE` , you must first disable this protection before adding or removing Availability Zones.
+        /// </summary>
+        public readonly bool? AvailabilityZoneChangeProtection;
+        /// <summary>
+        /// The Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall. Each mapping specifies an Availability Zone where the firewall processes traffic.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FirewallAvailabilityZoneMapping> AvailabilityZoneMappings;
         /// <summary>
         /// A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
         /// </summary>
@@ -80,11 +88,11 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// </summary>
         public readonly ImmutableArray<string> EndpointIds;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the `Firewall` .
+        /// The Amazon Resource Name (ARN) of the firewall.
         /// </summary>
         public readonly string? FirewallArn;
         /// <summary>
-        /// The name of the `Firewall` resource.
+        /// The name of the firewallresource.
         /// </summary>
         public readonly string? FirewallId;
         /// <summary>
@@ -115,9 +123,17 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
+        /// </summary>
+        public readonly string? TransitGatewayId;
 
         [OutputConstructor]
         private GetFirewallResult(
+            bool? availabilityZoneChangeProtection,
+
+            ImmutableArray<Outputs.FirewallAvailabilityZoneMapping> availabilityZoneMappings,
+
             bool? deleteProtection,
 
             string? description,
@@ -138,8 +154,12 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
             ImmutableArray<Outputs.FirewallSubnetMapping> subnetMappings,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            string? transitGatewayId)
         {
+            AvailabilityZoneChangeProtection = availabilityZoneChangeProtection;
+            AvailabilityZoneMappings = availabilityZoneMappings;
             DeleteProtection = deleteProtection;
             Description = description;
             EnabledAnalysisTypes = enabledAnalysisTypes;
@@ -151,6 +171,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
             SubnetChangeProtection = subnetChangeProtection;
             SubnetMappings = subnetMappings;
             Tags = tags;
+            TransitGatewayId = transitGatewayId;
         }
     }
 }

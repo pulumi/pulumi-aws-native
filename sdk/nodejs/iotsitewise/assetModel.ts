@@ -70,9 +70,13 @@ export class AssetModel extends pulumi.CustomResource {
      */
     public readonly assetModelProperties!: pulumi.Output<outputs.iotsitewise.AssetModelProperty[] | undefined>;
     /**
-     * The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+     * The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL or INTERFACE)
      */
     public readonly assetModelType!: pulumi.Output<string | undefined>;
+    /**
+     * a list of asset model and interface relationships
+     */
+    public readonly enforcedAssetModelInterfaceRelationships!: pulumi.Output<outputs.iotsitewise.AssetModelEnforcedAssetModelInterfaceRelationship[] | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
@@ -96,6 +100,7 @@ export class AssetModel extends pulumi.CustomResource {
             resourceInputs["assetModelName"] = args ? args.assetModelName : undefined;
             resourceInputs["assetModelProperties"] = args ? args.assetModelProperties : undefined;
             resourceInputs["assetModelType"] = args ? args.assetModelType : undefined;
+            resourceInputs["enforcedAssetModelInterfaceRelationships"] = args ? args.enforcedAssetModelInterfaceRelationships : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["assetModelArn"] = undefined /*out*/;
             resourceInputs["assetModelId"] = undefined /*out*/;
@@ -109,6 +114,7 @@ export class AssetModel extends pulumi.CustomResource {
             resourceInputs["assetModelName"] = undefined /*out*/;
             resourceInputs["assetModelProperties"] = undefined /*out*/;
             resourceInputs["assetModelType"] = undefined /*out*/;
+            resourceInputs["enforcedAssetModelInterfaceRelationships"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -147,9 +153,13 @@ export interface AssetModelArgs {
      */
     assetModelProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelPropertyArgs>[]>;
     /**
-     * The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+     * The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL or INTERFACE)
      */
     assetModelType?: pulumi.Input<string>;
+    /**
+     * a list of asset model and interface relationships
+     */
+    enforcedAssetModelInterfaceRelationships?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelEnforcedAssetModelInterfaceRelationshipArgs>[]>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */

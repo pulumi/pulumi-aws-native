@@ -55,6 +55,11 @@ export type DomainConfiguration = import("./domainConfiguration").DomainConfigur
 export const DomainConfiguration: typeof import("./domainConfiguration").DomainConfiguration = null as any;
 utilities.lazyLoad(exports, ["DomainConfiguration"], () => require("./domainConfiguration"));
 
+export { EncryptionConfigurationArgs } from "./encryptionConfiguration";
+export type EncryptionConfiguration = import("./encryptionConfiguration").EncryptionConfiguration;
+export const EncryptionConfiguration: typeof import("./encryptionConfiguration").EncryptionConfiguration = null as any;
+utilities.lazyLoad(exports, ["EncryptionConfiguration"], () => require("./encryptionConfiguration"));
+
 export { FleetMetricArgs } from "./fleetMetric";
 export type FleetMetric = import("./fleetMetric").FleetMetric;
 export const FleetMetric: typeof import("./fleetMetric").FleetMetric = null as any;
@@ -109,6 +114,11 @@ export { GetDomainConfigurationArgs, GetDomainConfigurationResult, GetDomainConf
 export const getDomainConfiguration: typeof import("./getDomainConfiguration").getDomainConfiguration = null as any;
 export const getDomainConfigurationOutput: typeof import("./getDomainConfiguration").getDomainConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getDomainConfiguration","getDomainConfigurationOutput"], () => require("./getDomainConfiguration"));
+
+export { GetEncryptionConfigurationArgs, GetEncryptionConfigurationResult, GetEncryptionConfigurationOutputArgs } from "./getEncryptionConfiguration";
+export const getEncryptionConfiguration: typeof import("./getEncryptionConfiguration").getEncryptionConfiguration = null as any;
+export const getEncryptionConfigurationOutput: typeof import("./getEncryptionConfiguration").getEncryptionConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getEncryptionConfiguration","getEncryptionConfigurationOutput"], () => require("./getEncryptionConfiguration"));
 
 export { GetFleetMetricArgs, GetFleetMetricResult, GetFleetMetricOutputArgs } from "./getFleetMetric";
 export const getFleetMetric: typeof import("./getFleetMetric").getFleetMetric = null as any;
@@ -303,6 +313,8 @@ const _module = {
                 return new Dimension(name, <any>undefined, { urn })
             case "aws-native:iot:DomainConfiguration":
                 return new DomainConfiguration(name, <any>undefined, { urn })
+            case "aws-native:iot:EncryptionConfiguration":
+                return new EncryptionConfiguration(name, <any>undefined, { urn })
             case "aws-native:iot:FleetMetric":
                 return new FleetMetric(name, <any>undefined, { urn })
             case "aws-native:iot:JobTemplate":

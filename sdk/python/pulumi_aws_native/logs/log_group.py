@@ -28,6 +28,7 @@ class LogGroupArgs:
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  log_group_class: Optional[pulumi.Input['LogGroupClass']] = None,
                  log_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 resource_policy_document: Optional[Any] = None,
                  retention_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -49,6 +50,7 @@ class LogGroupArgs:
                  
                 For details about the features supported by each class, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html)
         :param pulumi.Input[builtins.str] log_group_name: The name of the log group. If you don't specify a name, CFNlong generates a unique ID for the log group.
+        :param Any resource_policy_document: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
         :param pulumi.Input[builtins.int] retention_in_days: The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.
                 To set a log group so that its log events do not expire, use [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html).
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to the log group.
@@ -64,6 +66,8 @@ class LogGroupArgs:
             pulumi.set(__self__, "log_group_class", log_group_class)
         if log_group_name is not None:
             pulumi.set(__self__, "log_group_name", log_group_name)
+        if resource_policy_document is not None:
+            pulumi.set(__self__, "resource_policy_document", resource_policy_document)
         if retention_in_days is not None:
             pulumi.set(__self__, "retention_in_days", retention_in_days)
         if tags is not None:
@@ -142,6 +146,18 @@ class LogGroupArgs:
         pulumi.set(self, "log_group_name", value)
 
     @property
+    @pulumi.getter(name="resourcePolicyDocument")
+    def resource_policy_document(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "resource_policy_document")
+
+    @resource_policy_document.setter
+    def resource_policy_document(self, value: Optional[Any]):
+        pulumi.set(self, "resource_policy_document", value)
+
+    @property
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -179,6 +195,7 @@ class LogGroup(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  log_group_class: Optional[pulumi.Input['LogGroupClass']] = None,
                  log_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 resource_policy_document: Optional[Any] = None,
                  retention_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -208,6 +225,7 @@ class LogGroup(pulumi.CustomResource):
                  
                 For details about the features supported by each class, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html)
         :param pulumi.Input[builtins.str] log_group_name: The name of the log group. If you don't specify a name, CFNlong generates a unique ID for the log group.
+        :param Any resource_policy_document: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
         :param pulumi.Input[builtins.int] retention_in_days: The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.
                 To set a log group so that its log events do not expire, use [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html).
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to the log group.
@@ -246,6 +264,7 @@ class LogGroup(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  log_group_class: Optional[pulumi.Input['LogGroupClass']] = None,
                  log_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 resource_policy_document: Optional[Any] = None,
                  retention_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -262,6 +281,7 @@ class LogGroup(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["log_group_class"] = log_group_class
             __props__.__dict__["log_group_name"] = log_group_name
+            __props__.__dict__["resource_policy_document"] = resource_policy_document
             __props__.__dict__["retention_in_days"] = retention_in_days
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -295,6 +315,7 @@ class LogGroup(pulumi.CustomResource):
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["log_group_class"] = None
         __props__.__dict__["log_group_name"] = None
+        __props__.__dict__["resource_policy_document"] = None
         __props__.__dict__["retention_in_days"] = None
         __props__.__dict__["tags"] = None
         return LogGroup(resource_name, opts=opts, __props__=__props__)
@@ -358,6 +379,14 @@ class LogGroup(pulumi.CustomResource):
         The name of the log group. If you don't specify a name, CFNlong generates a unique ID for the log group.
         """
         return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="resourcePolicyDocument")
+    def resource_policy_document(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "resource_policy_document")
 
     @property
     @pulumi.getter(name="retentionInDays")

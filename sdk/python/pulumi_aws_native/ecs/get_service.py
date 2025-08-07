@@ -121,7 +121,7 @@ class GetServiceResult:
     @pulumi.getter(name="deploymentController")
     def deployment_controller(self) -> Optional['outputs.ServiceDeploymentController']:
         """
-        The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
+        The deployment controller to use for the service.
         """
         return pulumi.get(self, "deployment_controller")
 
@@ -140,7 +140,7 @@ class GetServiceResult:
     def enable_ecs_managed_tags(self) -> Optional[builtins.bool]:
         """
         Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide*.
-         When you use Amazon ECS managed tags, you need to set the ``propagateTags`` request parameter.
+         When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
         """
         return pulumi.get(self, "enable_ecs_managed_tags")
 

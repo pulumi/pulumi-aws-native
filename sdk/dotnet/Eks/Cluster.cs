@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.Eks
         public Output<Outputs.ClusterComputeConfig?> ComputeConfig { get; private set; } = null!;
 
         /// <summary>
+        /// Set this value to true to enable deletion protection for the cluster.
+        /// </summary>
+        [Output("deletionProtection")]
+        public Output<bool?> DeletionProtection { get; private set; } = null!;
+
+        /// <summary>
         /// The encryption configuration for the cluster.
         /// </summary>
         [Output("encryptionConfig")]
@@ -234,6 +240,12 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         [Input("computeConfig")]
         public Input<Inputs.ClusterComputeConfigArgs>? ComputeConfig { get; set; }
+
+        /// <summary>
+        /// Set this value to true to enable deletion protection for the cluster.
+        /// </summary>
+        [Input("deletionProtection")]
+        public Input<bool>? DeletionProtection { get; set; }
 
         [Input("encryptionConfig")]
         private InputList<Inputs.ClusterEncryptionConfigArgs>? _encryptionConfig;

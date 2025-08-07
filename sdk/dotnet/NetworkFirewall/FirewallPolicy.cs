@@ -28,13 +28,13 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public Output<Outputs.FirewallPolicy> FirewallPolicyValue { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+        /// The Amazon Resource Name (ARN) of the firewall policy.
         /// </summary>
         [Output("firewallPolicyArn")]
         public Output<string> FirewallPolicyArn { get; private set; } = null!;
 
         /// <summary>
-        /// The unique ID of the `FirewallPolicy` resource.
+        /// The unique ID of the firewall policy resource.
         /// </summary>
         [Output("firewallPolicyId")]
         public Output<string> FirewallPolicyId { get; private set; } = null!;

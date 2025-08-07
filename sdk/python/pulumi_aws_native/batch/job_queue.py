@@ -23,51 +23,46 @@ __all__ = ['JobQueueArgs', 'JobQueue']
 @pulumi.input_type
 class JobQueueArgs:
     def __init__(__self__, *,
-                 compute_environment_order: pulumi.Input[Sequence[pulumi.Input['JobQueueComputeEnvironmentOrderArgs']]],
                  priority: pulumi.Input[builtins.int],
+                 compute_environment_order: Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueComputeEnvironmentOrderArgs']]]] = None,
                  job_queue_name: Optional[pulumi.Input[builtins.str]] = None,
+                 job_queue_type: Optional[pulumi.Input[builtins.str]] = None,
                  job_state_time_limit_actions: Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueJobStateTimeLimitActionArgs']]]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 service_environment_order: Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueServiceEnvironmentOrderArgs']]]] = None,
                  state: Optional[pulumi.Input['JobQueueState']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a JobQueue resource.
+        :param pulumi.Input[builtins.int] priority: The priority of the job queue. Job queues with a higher priority (or a higher integer value for the `priority` parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order. For example, a job queue with a priority value of `10` is given scheduling preference over a job queue with a priority value of `1` . All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
         :param pulumi.Input[Sequence[pulumi.Input['JobQueueComputeEnvironmentOrderArgs']]] compute_environment_order: The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the `VALID` state before you can associate them with a job queue. You can associate up to three compute environments with a job queue. All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
                
                > All compute environments that are associated with a job queue must share the same architecture. AWS Batch doesn't support mixing compute environment architecture types in a single job queue.
-        :param pulumi.Input[builtins.int] priority: The priority of the job queue. Job queues with a higher priority (or a higher integer value for the `priority` parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order. For example, a job queue with a priority value of `10` is given scheduling preference over a job queue with a priority value of `1` . All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
         :param pulumi.Input[builtins.str] job_queue_name: The name of the job queue. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+        :param pulumi.Input[builtins.str] job_queue_type: The type of job queue. For service jobs that run on SageMaker AI , this value is `SAGEMAKER_TRAINING` . For regular container jobs, this value is `EKS` , `ECS` , or `ECS_FARGATE` depending on the compute environment.
         :param pulumi.Input[Sequence[pulumi.Input['JobQueueJobStateTimeLimitActionArgs']]] job_state_time_limit_actions: The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. AWS Batch will perform each action after `maxTimeSeconds` has passed.
         :param pulumi.Input[builtins.str] scheduling_policy_arn: The Amazon Resource Name (ARN) of the scheduling policy. The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
+        :param pulumi.Input[Sequence[pulumi.Input['JobQueueServiceEnvironmentOrderArgs']]] service_environment_order: The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.
         :param pulumi.Input['JobQueueState'] state: The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A key-value pair to associate with a resource.
         """
-        pulumi.set(__self__, "compute_environment_order", compute_environment_order)
         pulumi.set(__self__, "priority", priority)
+        if compute_environment_order is not None:
+            pulumi.set(__self__, "compute_environment_order", compute_environment_order)
         if job_queue_name is not None:
             pulumi.set(__self__, "job_queue_name", job_queue_name)
+        if job_queue_type is not None:
+            pulumi.set(__self__, "job_queue_type", job_queue_type)
         if job_state_time_limit_actions is not None:
             pulumi.set(__self__, "job_state_time_limit_actions", job_state_time_limit_actions)
         if scheduling_policy_arn is not None:
             pulumi.set(__self__, "scheduling_policy_arn", scheduling_policy_arn)
+        if service_environment_order is not None:
+            pulumi.set(__self__, "service_environment_order", service_environment_order)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="computeEnvironmentOrder")
-    def compute_environment_order(self) -> pulumi.Input[Sequence[pulumi.Input['JobQueueComputeEnvironmentOrderArgs']]]:
-        """
-        The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the `VALID` state before you can associate them with a job queue. You can associate up to three compute environments with a job queue. All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
-
-        > All compute environments that are associated with a job queue must share the same architecture. AWS Batch doesn't support mixing compute environment architecture types in a single job queue.
-        """
-        return pulumi.get(self, "compute_environment_order")
-
-    @compute_environment_order.setter
-    def compute_environment_order(self, value: pulumi.Input[Sequence[pulumi.Input['JobQueueComputeEnvironmentOrderArgs']]]):
-        pulumi.set(self, "compute_environment_order", value)
 
     @property
     @pulumi.getter
@@ -82,6 +77,20 @@ class JobQueueArgs:
         pulumi.set(self, "priority", value)
 
     @property
+    @pulumi.getter(name="computeEnvironmentOrder")
+    def compute_environment_order(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueComputeEnvironmentOrderArgs']]]]:
+        """
+        The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the `VALID` state before you can associate them with a job queue. You can associate up to three compute environments with a job queue. All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
+
+        > All compute environments that are associated with a job queue must share the same architecture. AWS Batch doesn't support mixing compute environment architecture types in a single job queue.
+        """
+        return pulumi.get(self, "compute_environment_order")
+
+    @compute_environment_order.setter
+    def compute_environment_order(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueComputeEnvironmentOrderArgs']]]]):
+        pulumi.set(self, "compute_environment_order", value)
+
+    @property
     @pulumi.getter(name="jobQueueName")
     def job_queue_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -92,6 +101,18 @@ class JobQueueArgs:
     @job_queue_name.setter
     def job_queue_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "job_queue_name", value)
+
+    @property
+    @pulumi.getter(name="jobQueueType")
+    def job_queue_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The type of job queue. For service jobs that run on SageMaker AI , this value is `SAGEMAKER_TRAINING` . For regular container jobs, this value is `EKS` , `ECS` , or `ECS_FARGATE` depending on the compute environment.
+        """
+        return pulumi.get(self, "job_queue_type")
+
+    @job_queue_type.setter
+    def job_queue_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "job_queue_type", value)
 
     @property
     @pulumi.getter(name="jobStateTimeLimitActions")
@@ -116,6 +137,18 @@ class JobQueueArgs:
     @scheduling_policy_arn.setter
     def scheduling_policy_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "scheduling_policy_arn", value)
+
+    @property
+    @pulumi.getter(name="serviceEnvironmentOrder")
+    def service_environment_order(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueServiceEnvironmentOrderArgs']]]]:
+        """
+        The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.
+        """
+        return pulumi.get(self, "service_environment_order")
+
+    @service_environment_order.setter
+    def service_environment_order(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueServiceEnvironmentOrderArgs']]]]):
+        pulumi.set(self, "service_environment_order", value)
 
     @property
     @pulumi.getter
@@ -150,9 +183,11 @@ class JobQueue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_environment_order: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict']]]]] = None,
                  job_queue_name: Optional[pulumi.Input[builtins.str]] = None,
+                 job_queue_type: Optional[pulumi.Input[builtins.str]] = None,
                  job_state_time_limit_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict']]]]] = None,
                  priority: Optional[pulumi.Input[builtins.int]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 service_environment_order: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobQueueServiceEnvironmentOrderArgs', 'JobQueueServiceEnvironmentOrderArgsDict']]]]] = None,
                  state: Optional[pulumi.Input['JobQueueState']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -165,9 +200,11 @@ class JobQueue(pulumi.CustomResource):
                
                > All compute environments that are associated with a job queue must share the same architecture. AWS Batch doesn't support mixing compute environment architecture types in a single job queue.
         :param pulumi.Input[builtins.str] job_queue_name: The name of the job queue. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+        :param pulumi.Input[builtins.str] job_queue_type: The type of job queue. For service jobs that run on SageMaker AI , this value is `SAGEMAKER_TRAINING` . For regular container jobs, this value is `EKS` , `ECS` , or `ECS_FARGATE` depending on the compute environment.
         :param pulumi.Input[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict']]]] job_state_time_limit_actions: The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. AWS Batch will perform each action after `maxTimeSeconds` has passed.
         :param pulumi.Input[builtins.int] priority: The priority of the job queue. Job queues with a higher priority (or a higher integer value for the `priority` parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order. For example, a job queue with a priority value of `10` is given scheduling preference over a job queue with a priority value of `1` . All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
         :param pulumi.Input[builtins.str] scheduling_policy_arn: The Amazon Resource Name (ARN) of the scheduling policy. The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobQueueServiceEnvironmentOrderArgs', 'JobQueueServiceEnvironmentOrderArgsDict']]]] service_environment_order: The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.
         :param pulumi.Input['JobQueueState'] state: The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A key-value pair to associate with a resource.
         """
@@ -197,9 +234,11 @@ class JobQueue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_environment_order: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict']]]]] = None,
                  job_queue_name: Optional[pulumi.Input[builtins.str]] = None,
+                 job_queue_type: Optional[pulumi.Input[builtins.str]] = None,
                  job_state_time_limit_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict']]]]] = None,
                  priority: Optional[pulumi.Input[builtins.int]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 service_environment_order: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobQueueServiceEnvironmentOrderArgs', 'JobQueueServiceEnvironmentOrderArgsDict']]]]] = None,
                  state: Optional[pulumi.Input['JobQueueState']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -211,19 +250,19 @@ class JobQueue(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JobQueueArgs.__new__(JobQueueArgs)
 
-            if compute_environment_order is None and not opts.urn:
-                raise TypeError("Missing required property 'compute_environment_order'")
             __props__.__dict__["compute_environment_order"] = compute_environment_order
             __props__.__dict__["job_queue_name"] = job_queue_name
+            __props__.__dict__["job_queue_type"] = job_queue_type
             __props__.__dict__["job_state_time_limit_actions"] = job_state_time_limit_actions
             if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
             __props__.__dict__["priority"] = priority
             __props__.__dict__["scheduling_policy_arn"] = scheduling_policy_arn
+            __props__.__dict__["service_environment_order"] = service_environment_order
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
             __props__.__dict__["job_queue_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["jobQueueName", "tags.*"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["jobQueueName", "jobQueueType", "tags.*"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(JobQueue, __self__).__init__(
             'aws-native:batch:JobQueue',
@@ -250,16 +289,18 @@ class JobQueue(pulumi.CustomResource):
         __props__.__dict__["compute_environment_order"] = None
         __props__.__dict__["job_queue_arn"] = None
         __props__.__dict__["job_queue_name"] = None
+        __props__.__dict__["job_queue_type"] = None
         __props__.__dict__["job_state_time_limit_actions"] = None
         __props__.__dict__["priority"] = None
         __props__.__dict__["scheduling_policy_arn"] = None
+        __props__.__dict__["service_environment_order"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
         return JobQueue(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="computeEnvironmentOrder")
-    def compute_environment_order(self) -> pulumi.Output[Sequence['outputs.JobQueueComputeEnvironmentOrder']]:
+    def compute_environment_order(self) -> pulumi.Output[Optional[Sequence['outputs.JobQueueComputeEnvironmentOrder']]]:
         """
         The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the `VALID` state before you can associate them with a job queue. You can associate up to three compute environments with a job queue. All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
 
@@ -284,6 +325,14 @@ class JobQueue(pulumi.CustomResource):
         return pulumi.get(self, "job_queue_name")
 
     @property
+    @pulumi.getter(name="jobQueueType")
+    def job_queue_type(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The type of job queue. For service jobs that run on SageMaker AI , this value is `SAGEMAKER_TRAINING` . For regular container jobs, this value is `EKS` , `ECS` , or `ECS_FARGATE` depending on the compute environment.
+        """
+        return pulumi.get(self, "job_queue_type")
+
+    @property
     @pulumi.getter(name="jobStateTimeLimitActions")
     def job_state_time_limit_actions(self) -> pulumi.Output[Optional[Sequence['outputs.JobQueueJobStateTimeLimitAction']]]:
         """
@@ -306,6 +355,14 @@ class JobQueue(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the scheduling policy. The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
         """
         return pulumi.get(self, "scheduling_policy_arn")
+
+    @property
+    @pulumi.getter(name="serviceEnvironmentOrder")
+    def service_environment_order(self) -> pulumi.Output[Optional[Sequence['outputs.JobQueueServiceEnvironmentOrder']]]:
+        """
+        The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.
+        """
+        return pulumi.get(self, "service_environment_order")
 
     @property
     @pulumi.getter

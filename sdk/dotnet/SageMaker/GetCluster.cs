@@ -87,6 +87,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.ClusterNodeRecovery? NodeRecovery;
+        public readonly ImmutableArray<Outputs.ClusterRestrictedInstanceGroup> RestrictedInstanceGroups;
         /// <summary>
         /// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
         /// </summary>
@@ -106,6 +107,8 @@ namespace Pulumi.AwsNative.SageMaker
 
             Pulumi.AwsNative.SageMaker.ClusterNodeRecovery? nodeRecovery,
 
+            ImmutableArray<Outputs.ClusterRestrictedInstanceGroup> restrictedInstanceGroups,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ClusterArn = clusterArn;
@@ -114,6 +117,7 @@ namespace Pulumi.AwsNative.SageMaker
             FailureMessage = failureMessage;
             InstanceGroups = instanceGroups;
             NodeRecovery = nodeRecovery;
+            RestrictedInstanceGroups = restrictedInstanceGroups;
             Tags = tags;
         }
     }

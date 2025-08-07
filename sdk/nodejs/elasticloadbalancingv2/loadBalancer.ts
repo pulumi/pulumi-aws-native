@@ -70,7 +70,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public /*out*/ readonly loadBalancerArn!: pulumi.Output<string>;
     /**
-     * The load balancer attributes.
+     * The load balancer attributes. Attributes that you do not modify retain their current values.
      */
     public readonly loadBalancerAttributes!: pulumi.Output<outputs.elasticloadbalancingv2.LoadBalancerAttribute[] | undefined>;
     /**
@@ -208,7 +208,7 @@ export interface LoadBalancerArgs {
      */
     ipv4IpamPoolId?: pulumi.Input<string>;
     /**
-     * The load balancer attributes.
+     * The load balancer attributes. Attributes that you do not modify retain their current values.
      */
     loadBalancerAttributes?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.LoadBalancerAttributeArgs>[]>;
     /**

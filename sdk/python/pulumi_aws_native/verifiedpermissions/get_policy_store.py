@@ -86,7 +86,7 @@ class GetPolicyStoreResult:
 
     @property
     @pulumi.getter
-    def schema(self) -> Optional['outputs.PolicyStoreSchemaDefinition']:
+    def schema(self) -> Optional[Any]:
         """
         Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
         """

@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Batch
 
     public sealed class GetServiceEnvironmentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service environment.
+        /// </summary>
         [Input("serviceEnvironmentArn", required: true)]
         public string ServiceEnvironmentArn { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.Batch
 
     public sealed class GetServiceEnvironmentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service environment.
+        /// </summary>
         [Input("serviceEnvironmentArn", required: true)]
         public Input<string> ServiceEnvironmentArn { get; set; } = null!;
 
@@ -57,8 +63,17 @@ namespace Pulumi.AwsNative.Batch
     [OutputType]
     public sealed class GetServiceEnvironmentResult
     {
+        /// <summary>
+        /// The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ServiceEnvironmentCapacityLimit> CapacityLimits;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service environment.
+        /// </summary>
         public readonly string? ServiceEnvironmentArn;
+        /// <summary>
+        /// The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
+        /// </summary>
         public readonly string? State;
         /// <summary>
         /// A key-value pair to associate with a resource.

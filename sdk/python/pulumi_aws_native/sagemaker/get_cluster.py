@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, cluster_arn=None, cluster_status=None, creation_time=None, failure_message=None, instance_groups=None, node_recovery=None, tags=None):
+    def __init__(__self__, cluster_arn=None, cluster_status=None, creation_time=None, failure_message=None, instance_groups=None, node_recovery=None, restricted_instance_groups=None, tags=None):
         if cluster_arn and not isinstance(cluster_arn, str):
             raise TypeError("Expected argument 'cluster_arn' to be a str")
         pulumi.set(__self__, "cluster_arn", cluster_arn)
@@ -46,6 +46,9 @@ class GetClusterResult:
         if node_recovery and not isinstance(node_recovery, str):
             raise TypeError("Expected argument 'node_recovery' to be a str")
         pulumi.set(__self__, "node_recovery", node_recovery)
+        if restricted_instance_groups and not isinstance(restricted_instance_groups, list):
+            raise TypeError("Expected argument 'restricted_instance_groups' to be a list")
+        pulumi.set(__self__, "restricted_instance_groups", restricted_instance_groups)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -99,6 +102,11 @@ class GetClusterResult:
         return pulumi.get(self, "node_recovery")
 
     @property
+    @pulumi.getter(name="restrictedInstanceGroups")
+    def restricted_instance_groups(self) -> Optional[Sequence['outputs.ClusterRestrictedInstanceGroup']]:
+        return pulumi.get(self, "restricted_instance_groups")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -119,6 +127,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             failure_message=self.failure_message,
             instance_groups=self.instance_groups,
             node_recovery=self.node_recovery,
+            restricted_instance_groups=self.restricted_instance_groups,
             tags=self.tags)
 
 
@@ -142,6 +151,7 @@ def get_cluster(cluster_arn: Optional[builtins.str] = None,
         failure_message=pulumi.get(__ret__, 'failure_message'),
         instance_groups=pulumi.get(__ret__, 'instance_groups'),
         node_recovery=pulumi.get(__ret__, 'node_recovery'),
+        restricted_instance_groups=pulumi.get(__ret__, 'restricted_instance_groups'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_cluster_output(cluster_arn: Optional[pulumi.Input[builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
@@ -162,4 +172,5 @@ def get_cluster_output(cluster_arn: Optional[pulumi.Input[builtins.str]] = None,
         failure_message=pulumi.get(__response__, 'failure_message'),
         instance_groups=pulumi.get(__response__, 'instance_groups'),
         node_recovery=pulumi.get(__response__, 'node_recovery'),
+        restricted_instance_groups=pulumi.get(__response__, 'restricted_instance_groups'),
         tags=pulumi.get(__response__, 'tags')))

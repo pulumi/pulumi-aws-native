@@ -383,6 +383,11 @@ func (o AccessPointScopePtrOutput) Prefixes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type AccessPointTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // The Virtual Private Cloud (VPC) configuration for a bucket access point.
 type AccessPointVpcConfiguration struct {
 	// If this field is specified, this access point will only allow connections from the specified VPC ID.

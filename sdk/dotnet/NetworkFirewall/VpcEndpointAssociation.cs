@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the firewall endpoint for the subnet that you attached to the firewall.For example: "vpce-111122223333"
+        /// </summary>
         [Output("endpointId")]
         public Output<string> EndpointId { get; private set; } = null!;
 

@@ -23,13 +23,13 @@ func LookupLoggingConfiguration(ctx *pulumi.Context, args *LookupLoggingConfigur
 }
 
 type LookupLoggingConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+	// The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
 	FirewallArn string `pulumi:"firewallArn"`
 }
 
 type LookupLoggingConfigurationResult struct {
 	EnableMonitoringDashboard *bool `pulumi:"enableMonitoringDashboard"`
-	// Defines how AWS Network Firewall performs logging for a `Firewall` .
+	// Defines how AWS Network Firewall performs logging for a firewall.
 	LoggingConfiguration *LoggingConfigurationType `pulumi:"loggingConfiguration"`
 }
 
@@ -43,7 +43,7 @@ func LookupLoggingConfigurationOutput(ctx *pulumi.Context, args LookupLoggingCon
 }
 
 type LookupLoggingConfigurationOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+	// The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
 	FirewallArn pulumi.StringInput `pulumi:"firewallArn"`
 }
 
@@ -69,7 +69,7 @@ func (o LookupLoggingConfigurationResultOutput) EnableMonitoringDashboard() pulu
 	return o.ApplyT(func(v LookupLoggingConfigurationResult) *bool { return v.EnableMonitoringDashboard }).(pulumi.BoolPtrOutput)
 }
 
-// Defines how AWS Network Firewall performs logging for a `Firewall` .
+// Defines how AWS Network Firewall performs logging for a firewall.
 func (o LookupLoggingConfigurationResultOutput) LoggingConfiguration() LoggingConfigurationTypePtrOutput {
 	return o.ApplyT(func(v LookupLoggingConfigurationResult) *LoggingConfigurationType { return v.LoggingConfiguration }).(LoggingConfigurationTypePtrOutput)
 }

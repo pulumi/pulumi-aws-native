@@ -37,10 +37,25 @@ export class ServiceEnvironment extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEnvironment.__pulumiType;
     }
 
+    /**
+     * The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
+     */
     public readonly capacityLimits!: pulumi.Output<outputs.batch.ServiceEnvironmentCapacityLimit[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the service environment.
+     */
     public /*out*/ readonly serviceEnvironmentArn!: pulumi.Output<string>;
+    /**
+     * The name of the service environment.
+     */
     public readonly serviceEnvironmentName!: pulumi.Output<string | undefined>;
+    /**
+     * The type of service environment. For SageMaker Training jobs, this value is `SAGEMAKER_TRAINING` .
+     */
     public readonly serviceEnvironmentType!: pulumi.Output<string>;
+    /**
+     * The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
+     */
     public readonly state!: pulumi.Output<string | undefined>;
     /**
      * A key-value pair to associate with a resource.
@@ -89,9 +104,21 @@ export class ServiceEnvironment extends pulumi.CustomResource {
  * The set of arguments for constructing a ServiceEnvironment resource.
  */
 export interface ServiceEnvironmentArgs {
+    /**
+     * The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
+     */
     capacityLimits: pulumi.Input<pulumi.Input<inputs.batch.ServiceEnvironmentCapacityLimitArgs>[]>;
+    /**
+     * The name of the service environment.
+     */
     serviceEnvironmentName?: pulumi.Input<string>;
+    /**
+     * The type of service environment. For SageMaker Training jobs, this value is `SAGEMAKER_TRAINING` .
+     */
     serviceEnvironmentType: pulumi.Input<string>;
+    /**
+     * The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
+     */
     state?: pulumi.Input<string>;
     /**
      * A key-value pair to associate with a resource.

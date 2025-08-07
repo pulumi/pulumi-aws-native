@@ -1236,6 +1236,217 @@ type AppTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The configuration for the restricted instance groups (RIG) environment.
+type ClusterEnvironmentConfig struct {
+	FSxLustreConfig *ClusterFSxLustreConfig `pulumi:"fSxLustreConfig"`
+}
+
+// ClusterEnvironmentConfigInput is an input type that accepts ClusterEnvironmentConfigArgs and ClusterEnvironmentConfigOutput values.
+// You can construct a concrete instance of `ClusterEnvironmentConfigInput` via:
+//
+//	ClusterEnvironmentConfigArgs{...}
+type ClusterEnvironmentConfigInput interface {
+	pulumi.Input
+
+	ToClusterEnvironmentConfigOutput() ClusterEnvironmentConfigOutput
+	ToClusterEnvironmentConfigOutputWithContext(context.Context) ClusterEnvironmentConfigOutput
+}
+
+// The configuration for the restricted instance groups (RIG) environment.
+type ClusterEnvironmentConfigArgs struct {
+	FSxLustreConfig ClusterFSxLustreConfigPtrInput `pulumi:"fSxLustreConfig"`
+}
+
+func (ClusterEnvironmentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEnvironmentConfig)(nil)).Elem()
+}
+
+func (i ClusterEnvironmentConfigArgs) ToClusterEnvironmentConfigOutput() ClusterEnvironmentConfigOutput {
+	return i.ToClusterEnvironmentConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterEnvironmentConfigArgs) ToClusterEnvironmentConfigOutputWithContext(ctx context.Context) ClusterEnvironmentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEnvironmentConfigOutput)
+}
+
+// The configuration for the restricted instance groups (RIG) environment.
+type ClusterEnvironmentConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterEnvironmentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEnvironmentConfig)(nil)).Elem()
+}
+
+func (o ClusterEnvironmentConfigOutput) ToClusterEnvironmentConfigOutput() ClusterEnvironmentConfigOutput {
+	return o
+}
+
+func (o ClusterEnvironmentConfigOutput) ToClusterEnvironmentConfigOutputWithContext(ctx context.Context) ClusterEnvironmentConfigOutput {
+	return o
+}
+
+func (o ClusterEnvironmentConfigOutput) FSxLustreConfig() ClusterFSxLustreConfigPtrOutput {
+	return o.ApplyT(func(v ClusterEnvironmentConfig) *ClusterFSxLustreConfig { return v.FSxLustreConfig }).(ClusterFSxLustreConfigPtrOutput)
+}
+
+// Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.
+type ClusterFSxLustreConfig struct {
+	// The throughput capacity of the FSx for Lustre file system, measured in MB/s per TiB of storage.
+	PerUnitStorageThroughput int `pulumi:"perUnitStorageThroughput"`
+	// The storage capacity of the FSx for Lustre file system, specified in gibibytes (GiB).
+	SizeInGiB int `pulumi:"sizeInGiB"`
+}
+
+// ClusterFSxLustreConfigInput is an input type that accepts ClusterFSxLustreConfigArgs and ClusterFSxLustreConfigOutput values.
+// You can construct a concrete instance of `ClusterFSxLustreConfigInput` via:
+//
+//	ClusterFSxLustreConfigArgs{...}
+type ClusterFSxLustreConfigInput interface {
+	pulumi.Input
+
+	ToClusterFSxLustreConfigOutput() ClusterFSxLustreConfigOutput
+	ToClusterFSxLustreConfigOutputWithContext(context.Context) ClusterFSxLustreConfigOutput
+}
+
+// Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.
+type ClusterFSxLustreConfigArgs struct {
+	// The throughput capacity of the FSx for Lustre file system, measured in MB/s per TiB of storage.
+	PerUnitStorageThroughput pulumi.IntInput `pulumi:"perUnitStorageThroughput"`
+	// The storage capacity of the FSx for Lustre file system, specified in gibibytes (GiB).
+	SizeInGiB pulumi.IntInput `pulumi:"sizeInGiB"`
+}
+
+func (ClusterFSxLustreConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterFSxLustreConfig)(nil)).Elem()
+}
+
+func (i ClusterFSxLustreConfigArgs) ToClusterFSxLustreConfigOutput() ClusterFSxLustreConfigOutput {
+	return i.ToClusterFSxLustreConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterFSxLustreConfigArgs) ToClusterFSxLustreConfigOutputWithContext(ctx context.Context) ClusterFSxLustreConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterFSxLustreConfigOutput)
+}
+
+func (i ClusterFSxLustreConfigArgs) ToClusterFSxLustreConfigPtrOutput() ClusterFSxLustreConfigPtrOutput {
+	return i.ToClusterFSxLustreConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterFSxLustreConfigArgs) ToClusterFSxLustreConfigPtrOutputWithContext(ctx context.Context) ClusterFSxLustreConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterFSxLustreConfigOutput).ToClusterFSxLustreConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterFSxLustreConfigPtrInput is an input type that accepts ClusterFSxLustreConfigArgs, ClusterFSxLustreConfigPtr and ClusterFSxLustreConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterFSxLustreConfigPtrInput` via:
+//
+//	        ClusterFSxLustreConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterFSxLustreConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterFSxLustreConfigPtrOutput() ClusterFSxLustreConfigPtrOutput
+	ToClusterFSxLustreConfigPtrOutputWithContext(context.Context) ClusterFSxLustreConfigPtrOutput
+}
+
+type clusterFSxLustreConfigPtrType ClusterFSxLustreConfigArgs
+
+func ClusterFSxLustreConfigPtr(v *ClusterFSxLustreConfigArgs) ClusterFSxLustreConfigPtrInput {
+	return (*clusterFSxLustreConfigPtrType)(v)
+}
+
+func (*clusterFSxLustreConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterFSxLustreConfig)(nil)).Elem()
+}
+
+func (i *clusterFSxLustreConfigPtrType) ToClusterFSxLustreConfigPtrOutput() ClusterFSxLustreConfigPtrOutput {
+	return i.ToClusterFSxLustreConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterFSxLustreConfigPtrType) ToClusterFSxLustreConfigPtrOutputWithContext(ctx context.Context) ClusterFSxLustreConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterFSxLustreConfigPtrOutput)
+}
+
+// Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.
+type ClusterFSxLustreConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterFSxLustreConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterFSxLustreConfig)(nil)).Elem()
+}
+
+func (o ClusterFSxLustreConfigOutput) ToClusterFSxLustreConfigOutput() ClusterFSxLustreConfigOutput {
+	return o
+}
+
+func (o ClusterFSxLustreConfigOutput) ToClusterFSxLustreConfigOutputWithContext(ctx context.Context) ClusterFSxLustreConfigOutput {
+	return o
+}
+
+func (o ClusterFSxLustreConfigOutput) ToClusterFSxLustreConfigPtrOutput() ClusterFSxLustreConfigPtrOutput {
+	return o.ToClusterFSxLustreConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterFSxLustreConfigOutput) ToClusterFSxLustreConfigPtrOutputWithContext(ctx context.Context) ClusterFSxLustreConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterFSxLustreConfig) *ClusterFSxLustreConfig {
+		return &v
+	}).(ClusterFSxLustreConfigPtrOutput)
+}
+
+// The throughput capacity of the FSx for Lustre file system, measured in MB/s per TiB of storage.
+func (o ClusterFSxLustreConfigOutput) PerUnitStorageThroughput() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterFSxLustreConfig) int { return v.PerUnitStorageThroughput }).(pulumi.IntOutput)
+}
+
+// The storage capacity of the FSx for Lustre file system, specified in gibibytes (GiB).
+func (o ClusterFSxLustreConfigOutput) SizeInGiB() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterFSxLustreConfig) int { return v.SizeInGiB }).(pulumi.IntOutput)
+}
+
+type ClusterFSxLustreConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterFSxLustreConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterFSxLustreConfig)(nil)).Elem()
+}
+
+func (o ClusterFSxLustreConfigPtrOutput) ToClusterFSxLustreConfigPtrOutput() ClusterFSxLustreConfigPtrOutput {
+	return o
+}
+
+func (o ClusterFSxLustreConfigPtrOutput) ToClusterFSxLustreConfigPtrOutputWithContext(ctx context.Context) ClusterFSxLustreConfigPtrOutput {
+	return o
+}
+
+func (o ClusterFSxLustreConfigPtrOutput) Elem() ClusterFSxLustreConfigOutput {
+	return o.ApplyT(func(v *ClusterFSxLustreConfig) ClusterFSxLustreConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterFSxLustreConfig
+		return ret
+	}).(ClusterFSxLustreConfigOutput)
+}
+
+// The throughput capacity of the FSx for Lustre file system, measured in MB/s per TiB of storage.
+func (o ClusterFSxLustreConfigPtrOutput) PerUnitStorageThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterFSxLustreConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.PerUnitStorageThroughput
+	}).(pulumi.IntPtrOutput)
+}
+
+// The storage capacity of the FSx for Lustre file system, specified in gibibytes (GiB).
+func (o ClusterFSxLustreConfigPtrOutput) SizeInGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterFSxLustreConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SizeInGiB
+	}).(pulumi.IntPtrOutput)
+}
+
 // Details of an instance group in a SageMaker HyperPod cluster.
 type ClusterInstanceGroup struct {
 	// The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
@@ -1838,6 +2049,175 @@ func (o ClusterOrchestratorEksConfigPtrOutput) ClusterArn() pulumi.StringPtrOutp
 		}
 		return &v.ClusterArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// Details of a restricted instance group in a SageMaker HyperPod cluster.
+type ClusterRestrictedInstanceGroup struct {
+	// The number of instances that are currently in the restricted instance group of a SageMaker HyperPod cluster.
+	CurrentCount      *int                     `pulumi:"currentCount"`
+	EnvironmentConfig ClusterEnvironmentConfig `pulumi:"environmentConfig"`
+	ExecutionRole     string                   `pulumi:"executionRole"`
+	// The number of instances you specified to add to the restricted instance group of a SageMaker HyperPod cluster.
+	InstanceCount           int                            `pulumi:"instanceCount"`
+	InstanceGroupName       string                         `pulumi:"instanceGroupName"`
+	InstanceStorageConfigs  []ClusterInstanceStorageConfig `pulumi:"instanceStorageConfigs"`
+	InstanceType            string                         `pulumi:"instanceType"`
+	OnStartDeepHealthChecks []ClusterDeepHealthCheckType   `pulumi:"onStartDeepHealthChecks"`
+	OverrideVpcConfig       *ClusterVpcConfig              `pulumi:"overrideVpcConfig"`
+	// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
+	ThreadsPerCore *int `pulumi:"threadsPerCore"`
+	// The Amazon Resource Name (ARN) of the training plan to use for this cluster restricted instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
+	TrainingPlanArn *string `pulumi:"trainingPlanArn"`
+}
+
+// ClusterRestrictedInstanceGroupInput is an input type that accepts ClusterRestrictedInstanceGroupArgs and ClusterRestrictedInstanceGroupOutput values.
+// You can construct a concrete instance of `ClusterRestrictedInstanceGroupInput` via:
+//
+//	ClusterRestrictedInstanceGroupArgs{...}
+type ClusterRestrictedInstanceGroupInput interface {
+	pulumi.Input
+
+	ToClusterRestrictedInstanceGroupOutput() ClusterRestrictedInstanceGroupOutput
+	ToClusterRestrictedInstanceGroupOutputWithContext(context.Context) ClusterRestrictedInstanceGroupOutput
+}
+
+// Details of a restricted instance group in a SageMaker HyperPod cluster.
+type ClusterRestrictedInstanceGroupArgs struct {
+	// The number of instances that are currently in the restricted instance group of a SageMaker HyperPod cluster.
+	CurrentCount      pulumi.IntPtrInput            `pulumi:"currentCount"`
+	EnvironmentConfig ClusterEnvironmentConfigInput `pulumi:"environmentConfig"`
+	ExecutionRole     pulumi.StringInput            `pulumi:"executionRole"`
+	// The number of instances you specified to add to the restricted instance group of a SageMaker HyperPod cluster.
+	InstanceCount           pulumi.IntInput                        `pulumi:"instanceCount"`
+	InstanceGroupName       pulumi.StringInput                     `pulumi:"instanceGroupName"`
+	InstanceStorageConfigs  ClusterInstanceStorageConfigArrayInput `pulumi:"instanceStorageConfigs"`
+	InstanceType            pulumi.StringInput                     `pulumi:"instanceType"`
+	OnStartDeepHealthChecks ClusterDeepHealthCheckTypeArrayInput   `pulumi:"onStartDeepHealthChecks"`
+	OverrideVpcConfig       ClusterVpcConfigPtrInput               `pulumi:"overrideVpcConfig"`
+	// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
+	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
+	// The Amazon Resource Name (ARN) of the training plan to use for this cluster restricted instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
+	TrainingPlanArn pulumi.StringPtrInput `pulumi:"trainingPlanArn"`
+}
+
+func (ClusterRestrictedInstanceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRestrictedInstanceGroup)(nil)).Elem()
+}
+
+func (i ClusterRestrictedInstanceGroupArgs) ToClusterRestrictedInstanceGroupOutput() ClusterRestrictedInstanceGroupOutput {
+	return i.ToClusterRestrictedInstanceGroupOutputWithContext(context.Background())
+}
+
+func (i ClusterRestrictedInstanceGroupArgs) ToClusterRestrictedInstanceGroupOutputWithContext(ctx context.Context) ClusterRestrictedInstanceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestrictedInstanceGroupOutput)
+}
+
+// ClusterRestrictedInstanceGroupArrayInput is an input type that accepts ClusterRestrictedInstanceGroupArray and ClusterRestrictedInstanceGroupArrayOutput values.
+// You can construct a concrete instance of `ClusterRestrictedInstanceGroupArrayInput` via:
+//
+//	ClusterRestrictedInstanceGroupArray{ ClusterRestrictedInstanceGroupArgs{...} }
+type ClusterRestrictedInstanceGroupArrayInput interface {
+	pulumi.Input
+
+	ToClusterRestrictedInstanceGroupArrayOutput() ClusterRestrictedInstanceGroupArrayOutput
+	ToClusterRestrictedInstanceGroupArrayOutputWithContext(context.Context) ClusterRestrictedInstanceGroupArrayOutput
+}
+
+type ClusterRestrictedInstanceGroupArray []ClusterRestrictedInstanceGroupInput
+
+func (ClusterRestrictedInstanceGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterRestrictedInstanceGroup)(nil)).Elem()
+}
+
+func (i ClusterRestrictedInstanceGroupArray) ToClusterRestrictedInstanceGroupArrayOutput() ClusterRestrictedInstanceGroupArrayOutput {
+	return i.ToClusterRestrictedInstanceGroupArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterRestrictedInstanceGroupArray) ToClusterRestrictedInstanceGroupArrayOutputWithContext(ctx context.Context) ClusterRestrictedInstanceGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestrictedInstanceGroupArrayOutput)
+}
+
+// Details of a restricted instance group in a SageMaker HyperPod cluster.
+type ClusterRestrictedInstanceGroupOutput struct{ *pulumi.OutputState }
+
+func (ClusterRestrictedInstanceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRestrictedInstanceGroup)(nil)).Elem()
+}
+
+func (o ClusterRestrictedInstanceGroupOutput) ToClusterRestrictedInstanceGroupOutput() ClusterRestrictedInstanceGroupOutput {
+	return o
+}
+
+func (o ClusterRestrictedInstanceGroupOutput) ToClusterRestrictedInstanceGroupOutputWithContext(ctx context.Context) ClusterRestrictedInstanceGroupOutput {
+	return o
+}
+
+// The number of instances that are currently in the restricted instance group of a SageMaker HyperPod cluster.
+func (o ClusterRestrictedInstanceGroupOutput) CurrentCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterRestrictedInstanceGroup) *int { return v.CurrentCount }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterRestrictedInstanceGroupOutput) EnvironmentConfig() ClusterEnvironmentConfigOutput {
+	return o.ApplyT(func(v ClusterRestrictedInstanceGroup) ClusterEnvironmentConfig { return v.EnvironmentConfig }).(ClusterEnvironmentConfigOutput)
+}
+
+func (o ClusterRestrictedInstanceGroupOutput) ExecutionRole() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterRestrictedInstanceGroup) string { return v.ExecutionRole }).(pulumi.StringOutput)
+}
+
+// The number of instances you specified to add to the restricted instance group of a SageMaker HyperPod cluster.
+func (o ClusterRestrictedInstanceGroupOutput) InstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterRestrictedInstanceGroup) int { return v.InstanceCount }).(pulumi.IntOutput)
+}
+
+func (o ClusterRestrictedInstanceGroupOutput) InstanceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterRestrictedInstanceGroup) string { return v.InstanceGroupName }).(pulumi.StringOutput)
+}
+
+func (o ClusterRestrictedInstanceGroupOutput) InstanceStorageConfigs() ClusterInstanceStorageConfigArrayOutput {
+	return o.ApplyT(func(v ClusterRestrictedInstanceGroup) []ClusterInstanceStorageConfig { return v.InstanceStorageConfigs }).(ClusterInstanceStorageConfigArrayOutput)
+}
+
+func (o ClusterRestrictedInstanceGroupOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterRestrictedInstanceGroup) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+func (o ClusterRestrictedInstanceGroupOutput) OnStartDeepHealthChecks() ClusterDeepHealthCheckTypeArrayOutput {
+	return o.ApplyT(func(v ClusterRestrictedInstanceGroup) []ClusterDeepHealthCheckType { return v.OnStartDeepHealthChecks }).(ClusterDeepHealthCheckTypeArrayOutput)
+}
+
+func (o ClusterRestrictedInstanceGroupOutput) OverrideVpcConfig() ClusterVpcConfigPtrOutput {
+	return o.ApplyT(func(v ClusterRestrictedInstanceGroup) *ClusterVpcConfig { return v.OverrideVpcConfig }).(ClusterVpcConfigPtrOutput)
+}
+
+// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
+func (o ClusterRestrictedInstanceGroupOutput) ThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterRestrictedInstanceGroup) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the training plan to use for this cluster restricted instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
+func (o ClusterRestrictedInstanceGroupOutput) TrainingPlanArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRestrictedInstanceGroup) *string { return v.TrainingPlanArn }).(pulumi.StringPtrOutput)
+}
+
+type ClusterRestrictedInstanceGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterRestrictedInstanceGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterRestrictedInstanceGroup)(nil)).Elem()
+}
+
+func (o ClusterRestrictedInstanceGroupArrayOutput) ToClusterRestrictedInstanceGroupArrayOutput() ClusterRestrictedInstanceGroupArrayOutput {
+	return o
+}
+
+func (o ClusterRestrictedInstanceGroupArrayOutput) ToClusterRestrictedInstanceGroupArrayOutputWithContext(ctx context.Context) ClusterRestrictedInstanceGroupArrayOutput {
+	return o
+}
+
+func (o ClusterRestrictedInstanceGroupArrayOutput) Index(i pulumi.IntInput) ClusterRestrictedInstanceGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterRestrictedInstanceGroup {
+		return vs[0].([]ClusterRestrictedInstanceGroup)[vs[1].(int)]
+	}).(ClusterRestrictedInstanceGroupOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -36394,6 +36774,2788 @@ type PipelineTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Configures the processing job to run a specified Docker container image.
+type ProcessingJobAppSpecification struct {
+	// The arguments for a container used to run a processing job.
+	ContainerArguments []string `pulumi:"containerArguments"`
+	// The entrypoint for a container used to run a processing job.
+	ContainerEntrypoint []string `pulumi:"containerEntrypoint"`
+	// The container image to be run by the processing job.
+	ImageUri string `pulumi:"imageUri"`
+}
+
+// ProcessingJobAppSpecificationInput is an input type that accepts ProcessingJobAppSpecificationArgs and ProcessingJobAppSpecificationOutput values.
+// You can construct a concrete instance of `ProcessingJobAppSpecificationInput` via:
+//
+//	ProcessingJobAppSpecificationArgs{...}
+type ProcessingJobAppSpecificationInput interface {
+	pulumi.Input
+
+	ToProcessingJobAppSpecificationOutput() ProcessingJobAppSpecificationOutput
+	ToProcessingJobAppSpecificationOutputWithContext(context.Context) ProcessingJobAppSpecificationOutput
+}
+
+// Configures the processing job to run a specified Docker container image.
+type ProcessingJobAppSpecificationArgs struct {
+	// The arguments for a container used to run a processing job.
+	ContainerArguments pulumi.StringArrayInput `pulumi:"containerArguments"`
+	// The entrypoint for a container used to run a processing job.
+	ContainerEntrypoint pulumi.StringArrayInput `pulumi:"containerEntrypoint"`
+	// The container image to be run by the processing job.
+	ImageUri pulumi.StringInput `pulumi:"imageUri"`
+}
+
+func (ProcessingJobAppSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobAppSpecification)(nil)).Elem()
+}
+
+func (i ProcessingJobAppSpecificationArgs) ToProcessingJobAppSpecificationOutput() ProcessingJobAppSpecificationOutput {
+	return i.ToProcessingJobAppSpecificationOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobAppSpecificationArgs) ToProcessingJobAppSpecificationOutputWithContext(ctx context.Context) ProcessingJobAppSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobAppSpecificationOutput)
+}
+
+// Configures the processing job to run a specified Docker container image.
+type ProcessingJobAppSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobAppSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobAppSpecification)(nil)).Elem()
+}
+
+func (o ProcessingJobAppSpecificationOutput) ToProcessingJobAppSpecificationOutput() ProcessingJobAppSpecificationOutput {
+	return o
+}
+
+func (o ProcessingJobAppSpecificationOutput) ToProcessingJobAppSpecificationOutputWithContext(ctx context.Context) ProcessingJobAppSpecificationOutput {
+	return o
+}
+
+// The arguments for a container used to run a processing job.
+func (o ProcessingJobAppSpecificationOutput) ContainerArguments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProcessingJobAppSpecification) []string { return v.ContainerArguments }).(pulumi.StringArrayOutput)
+}
+
+// The entrypoint for a container used to run a processing job.
+func (o ProcessingJobAppSpecificationOutput) ContainerEntrypoint() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProcessingJobAppSpecification) []string { return v.ContainerEntrypoint }).(pulumi.StringArrayOutput)
+}
+
+// The container image to be run by the processing job.
+func (o ProcessingJobAppSpecificationOutput) ImageUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessingJobAppSpecification) string { return v.ImageUri }).(pulumi.StringOutput)
+}
+
+// Configuration for Athena Dataset Definition input.
+type ProcessingJobAthenaDatasetDefinition struct {
+	// The name of the data catalog used in Athena query execution.
+	Catalog string `pulumi:"catalog"`
+	// The name of the database used in the Athena query execution.
+	Database string `pulumi:"database"`
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data generated from an Athena query execution.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The compression used for Athena query results.
+	OutputCompression *ProcessingJobAthenaDatasetDefinitionOutputCompression `pulumi:"outputCompression"`
+	// The data storage format for Athena query results.
+	OutputFormat ProcessingJobAthenaDatasetDefinitionOutputFormat `pulumi:"outputFormat"`
+	// The location in Amazon S3 where Athena query results are stored.
+	OutputS3Uri string `pulumi:"outputS3Uri"`
+	// The SQL query statements, to be executed.
+	QueryString string `pulumi:"queryString"`
+	// The name of the workgroup in which the Athena query is being started.
+	WorkGroup *string `pulumi:"workGroup"`
+}
+
+// ProcessingJobAthenaDatasetDefinitionInput is an input type that accepts ProcessingJobAthenaDatasetDefinitionArgs and ProcessingJobAthenaDatasetDefinitionOutput values.
+// You can construct a concrete instance of `ProcessingJobAthenaDatasetDefinitionInput` via:
+//
+//	ProcessingJobAthenaDatasetDefinitionArgs{...}
+type ProcessingJobAthenaDatasetDefinitionInput interface {
+	pulumi.Input
+
+	ToProcessingJobAthenaDatasetDefinitionOutput() ProcessingJobAthenaDatasetDefinitionOutput
+	ToProcessingJobAthenaDatasetDefinitionOutputWithContext(context.Context) ProcessingJobAthenaDatasetDefinitionOutput
+}
+
+// Configuration for Athena Dataset Definition input.
+type ProcessingJobAthenaDatasetDefinitionArgs struct {
+	// The name of the data catalog used in Athena query execution.
+	Catalog pulumi.StringInput `pulumi:"catalog"`
+	// The name of the database used in the Athena query execution.
+	Database pulumi.StringInput `pulumi:"database"`
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data generated from an Athena query execution.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The compression used for Athena query results.
+	OutputCompression ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrInput `pulumi:"outputCompression"`
+	// The data storage format for Athena query results.
+	OutputFormat ProcessingJobAthenaDatasetDefinitionOutputFormatInput `pulumi:"outputFormat"`
+	// The location in Amazon S3 where Athena query results are stored.
+	OutputS3Uri pulumi.StringInput `pulumi:"outputS3Uri"`
+	// The SQL query statements, to be executed.
+	QueryString pulumi.StringInput `pulumi:"queryString"`
+	// The name of the workgroup in which the Athena query is being started.
+	WorkGroup pulumi.StringPtrInput `pulumi:"workGroup"`
+}
+
+func (ProcessingJobAthenaDatasetDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobAthenaDatasetDefinition)(nil)).Elem()
+}
+
+func (i ProcessingJobAthenaDatasetDefinitionArgs) ToProcessingJobAthenaDatasetDefinitionOutput() ProcessingJobAthenaDatasetDefinitionOutput {
+	return i.ToProcessingJobAthenaDatasetDefinitionOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobAthenaDatasetDefinitionArgs) ToProcessingJobAthenaDatasetDefinitionOutputWithContext(ctx context.Context) ProcessingJobAthenaDatasetDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobAthenaDatasetDefinitionOutput)
+}
+
+func (i ProcessingJobAthenaDatasetDefinitionArgs) ToProcessingJobAthenaDatasetDefinitionPtrOutput() ProcessingJobAthenaDatasetDefinitionPtrOutput {
+	return i.ToProcessingJobAthenaDatasetDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobAthenaDatasetDefinitionArgs) ToProcessingJobAthenaDatasetDefinitionPtrOutputWithContext(ctx context.Context) ProcessingJobAthenaDatasetDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobAthenaDatasetDefinitionOutput).ToProcessingJobAthenaDatasetDefinitionPtrOutputWithContext(ctx)
+}
+
+// ProcessingJobAthenaDatasetDefinitionPtrInput is an input type that accepts ProcessingJobAthenaDatasetDefinitionArgs, ProcessingJobAthenaDatasetDefinitionPtr and ProcessingJobAthenaDatasetDefinitionPtrOutput values.
+// You can construct a concrete instance of `ProcessingJobAthenaDatasetDefinitionPtrInput` via:
+//
+//	        ProcessingJobAthenaDatasetDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProcessingJobAthenaDatasetDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobAthenaDatasetDefinitionPtrOutput() ProcessingJobAthenaDatasetDefinitionPtrOutput
+	ToProcessingJobAthenaDatasetDefinitionPtrOutputWithContext(context.Context) ProcessingJobAthenaDatasetDefinitionPtrOutput
+}
+
+type processingJobAthenaDatasetDefinitionPtrType ProcessingJobAthenaDatasetDefinitionArgs
+
+func ProcessingJobAthenaDatasetDefinitionPtr(v *ProcessingJobAthenaDatasetDefinitionArgs) ProcessingJobAthenaDatasetDefinitionPtrInput {
+	return (*processingJobAthenaDatasetDefinitionPtrType)(v)
+}
+
+func (*processingJobAthenaDatasetDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobAthenaDatasetDefinition)(nil)).Elem()
+}
+
+func (i *processingJobAthenaDatasetDefinitionPtrType) ToProcessingJobAthenaDatasetDefinitionPtrOutput() ProcessingJobAthenaDatasetDefinitionPtrOutput {
+	return i.ToProcessingJobAthenaDatasetDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *processingJobAthenaDatasetDefinitionPtrType) ToProcessingJobAthenaDatasetDefinitionPtrOutputWithContext(ctx context.Context) ProcessingJobAthenaDatasetDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobAthenaDatasetDefinitionPtrOutput)
+}
+
+// Configuration for Athena Dataset Definition input.
+type ProcessingJobAthenaDatasetDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobAthenaDatasetDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobAthenaDatasetDefinition)(nil)).Elem()
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutput) ToProcessingJobAthenaDatasetDefinitionOutput() ProcessingJobAthenaDatasetDefinitionOutput {
+	return o
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutput) ToProcessingJobAthenaDatasetDefinitionOutputWithContext(ctx context.Context) ProcessingJobAthenaDatasetDefinitionOutput {
+	return o
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutput) ToProcessingJobAthenaDatasetDefinitionPtrOutput() ProcessingJobAthenaDatasetDefinitionPtrOutput {
+	return o.ToProcessingJobAthenaDatasetDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionOutput) ToProcessingJobAthenaDatasetDefinitionPtrOutputWithContext(ctx context.Context) ProcessingJobAthenaDatasetDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobAthenaDatasetDefinition) *ProcessingJobAthenaDatasetDefinition {
+		return &v
+	}).(ProcessingJobAthenaDatasetDefinitionPtrOutput)
+}
+
+// The name of the data catalog used in Athena query execution.
+func (o ProcessingJobAthenaDatasetDefinitionOutput) Catalog() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessingJobAthenaDatasetDefinition) string { return v.Catalog }).(pulumi.StringOutput)
+}
+
+// The name of the database used in the Athena query execution.
+func (o ProcessingJobAthenaDatasetDefinitionOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessingJobAthenaDatasetDefinition) string { return v.Database }).(pulumi.StringOutput)
+}
+
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data generated from an Athena query execution.
+func (o ProcessingJobAthenaDatasetDefinitionOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcessingJobAthenaDatasetDefinition) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The compression used for Athena query results.
+func (o ProcessingJobAthenaDatasetDefinitionOutput) OutputCompression() ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput {
+	return o.ApplyT(func(v ProcessingJobAthenaDatasetDefinition) *ProcessingJobAthenaDatasetDefinitionOutputCompression {
+		return v.OutputCompression
+	}).(ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput)
+}
+
+// The data storage format for Athena query results.
+func (o ProcessingJobAthenaDatasetDefinitionOutput) OutputFormat() ProcessingJobAthenaDatasetDefinitionOutputFormatOutput {
+	return o.ApplyT(func(v ProcessingJobAthenaDatasetDefinition) ProcessingJobAthenaDatasetDefinitionOutputFormat {
+		return v.OutputFormat
+	}).(ProcessingJobAthenaDatasetDefinitionOutputFormatOutput)
+}
+
+// The location in Amazon S3 where Athena query results are stored.
+func (o ProcessingJobAthenaDatasetDefinitionOutput) OutputS3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessingJobAthenaDatasetDefinition) string { return v.OutputS3Uri }).(pulumi.StringOutput)
+}
+
+// The SQL query statements, to be executed.
+func (o ProcessingJobAthenaDatasetDefinitionOutput) QueryString() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessingJobAthenaDatasetDefinition) string { return v.QueryString }).(pulumi.StringOutput)
+}
+
+// The name of the workgroup in which the Athena query is being started.
+func (o ProcessingJobAthenaDatasetDefinitionOutput) WorkGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcessingJobAthenaDatasetDefinition) *string { return v.WorkGroup }).(pulumi.StringPtrOutput)
+}
+
+type ProcessingJobAthenaDatasetDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobAthenaDatasetDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobAthenaDatasetDefinition)(nil)).Elem()
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionPtrOutput) ToProcessingJobAthenaDatasetDefinitionPtrOutput() ProcessingJobAthenaDatasetDefinitionPtrOutput {
+	return o
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionPtrOutput) ToProcessingJobAthenaDatasetDefinitionPtrOutputWithContext(ctx context.Context) ProcessingJobAthenaDatasetDefinitionPtrOutput {
+	return o
+}
+
+func (o ProcessingJobAthenaDatasetDefinitionPtrOutput) Elem() ProcessingJobAthenaDatasetDefinitionOutput {
+	return o.ApplyT(func(v *ProcessingJobAthenaDatasetDefinition) ProcessingJobAthenaDatasetDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobAthenaDatasetDefinition
+		return ret
+	}).(ProcessingJobAthenaDatasetDefinitionOutput)
+}
+
+// The name of the data catalog used in Athena query execution.
+func (o ProcessingJobAthenaDatasetDefinitionPtrOutput) Catalog() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobAthenaDatasetDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Catalog
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the database used in the Athena query execution.
+func (o ProcessingJobAthenaDatasetDefinitionPtrOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobAthenaDatasetDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data generated from an Athena query execution.
+func (o ProcessingJobAthenaDatasetDefinitionPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobAthenaDatasetDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The compression used for Athena query results.
+func (o ProcessingJobAthenaDatasetDefinitionPtrOutput) OutputCompression() ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobAthenaDatasetDefinition) *ProcessingJobAthenaDatasetDefinitionOutputCompression {
+		if v == nil {
+			return nil
+		}
+		return v.OutputCompression
+	}).(ProcessingJobAthenaDatasetDefinitionOutputCompressionPtrOutput)
+}
+
+// The data storage format for Athena query results.
+func (o ProcessingJobAthenaDatasetDefinitionPtrOutput) OutputFormat() ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobAthenaDatasetDefinition) *ProcessingJobAthenaDatasetDefinitionOutputFormat {
+		if v == nil {
+			return nil
+		}
+		return &v.OutputFormat
+	}).(ProcessingJobAthenaDatasetDefinitionOutputFormatPtrOutput)
+}
+
+// The location in Amazon S3 where Athena query results are stored.
+func (o ProcessingJobAthenaDatasetDefinitionPtrOutput) OutputS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobAthenaDatasetDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OutputS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SQL query statements, to be executed.
+func (o ProcessingJobAthenaDatasetDefinitionPtrOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobAthenaDatasetDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryString
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the workgroup in which the Athena query is being started.
+func (o ProcessingJobAthenaDatasetDefinitionPtrOutput) WorkGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobAthenaDatasetDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for the cluster used to run a processing job.
+type ProcessingJobClusterConfig struct {
+	// The number of ML compute instances to use in the processing job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
+	InstanceCount int `pulumi:"instanceCount"`
+	// The ML compute instance type for the processing job.
+	InstanceType ProcessingJobClusterConfigInstanceType `pulumi:"instanceType"`
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the processing job.
+	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
+	// The size of the ML storage volume in gigabytes that you want to provision. You must specify sufficient ML storage for your scenario.
+	VolumeSizeInGb int `pulumi:"volumeSizeInGb"`
+}
+
+// ProcessingJobClusterConfigInput is an input type that accepts ProcessingJobClusterConfigArgs and ProcessingJobClusterConfigOutput values.
+// You can construct a concrete instance of `ProcessingJobClusterConfigInput` via:
+//
+//	ProcessingJobClusterConfigArgs{...}
+type ProcessingJobClusterConfigInput interface {
+	pulumi.Input
+
+	ToProcessingJobClusterConfigOutput() ProcessingJobClusterConfigOutput
+	ToProcessingJobClusterConfigOutputWithContext(context.Context) ProcessingJobClusterConfigOutput
+}
+
+// Configuration for the cluster used to run a processing job.
+type ProcessingJobClusterConfigArgs struct {
+	// The number of ML compute instances to use in the processing job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
+	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
+	// The ML compute instance type for the processing job.
+	InstanceType ProcessingJobClusterConfigInstanceTypeInput `pulumi:"instanceType"`
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the processing job.
+	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
+	// The size of the ML storage volume in gigabytes that you want to provision. You must specify sufficient ML storage for your scenario.
+	VolumeSizeInGb pulumi.IntInput `pulumi:"volumeSizeInGb"`
+}
+
+func (ProcessingJobClusterConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobClusterConfig)(nil)).Elem()
+}
+
+func (i ProcessingJobClusterConfigArgs) ToProcessingJobClusterConfigOutput() ProcessingJobClusterConfigOutput {
+	return i.ToProcessingJobClusterConfigOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobClusterConfigArgs) ToProcessingJobClusterConfigOutputWithContext(ctx context.Context) ProcessingJobClusterConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobClusterConfigOutput)
+}
+
+// Configuration for the cluster used to run a processing job.
+type ProcessingJobClusterConfigOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobClusterConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobClusterConfig)(nil)).Elem()
+}
+
+func (o ProcessingJobClusterConfigOutput) ToProcessingJobClusterConfigOutput() ProcessingJobClusterConfigOutput {
+	return o
+}
+
+func (o ProcessingJobClusterConfigOutput) ToProcessingJobClusterConfigOutputWithContext(ctx context.Context) ProcessingJobClusterConfigOutput {
+	return o
+}
+
+// The number of ML compute instances to use in the processing job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
+func (o ProcessingJobClusterConfigOutput) InstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ProcessingJobClusterConfig) int { return v.InstanceCount }).(pulumi.IntOutput)
+}
+
+// The ML compute instance type for the processing job.
+func (o ProcessingJobClusterConfigOutput) InstanceType() ProcessingJobClusterConfigInstanceTypeOutput {
+	return o.ApplyT(func(v ProcessingJobClusterConfig) ProcessingJobClusterConfigInstanceType { return v.InstanceType }).(ProcessingJobClusterConfigInstanceTypeOutput)
+}
+
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the processing job.
+func (o ProcessingJobClusterConfigOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcessingJobClusterConfig) *string { return v.VolumeKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The size of the ML storage volume in gigabytes that you want to provision. You must specify sufficient ML storage for your scenario.
+func (o ProcessingJobClusterConfigOutput) VolumeSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v ProcessingJobClusterConfig) int { return v.VolumeSizeInGb }).(pulumi.IntOutput)
+}
+
+// Configuration for Dataset Definition inputs. The Dataset Definition input must specify exactly one of either `AthenaDatasetDefinition` or `RedshiftDatasetDefinition` types.
+type ProcessingJobDatasetDefinition struct {
+	// Configuration for Athena Dataset Definition input.
+	AthenaDatasetDefinition *ProcessingJobAthenaDatasetDefinition `pulumi:"athenaDatasetDefinition"`
+	// Whether the generated dataset is FullyReplicated or ShardedByS3Key (default).
+	DataDistributionType *ProcessingJobDatasetDefinitionDataDistributionType `pulumi:"dataDistributionType"`
+	// Whether to use File or Pipe input mode. In File (default) mode, Amazon SageMaker copies the data from the input source onto the local Amazon Elastic Block Store (Amazon EBS) volumes before starting your training algorithm. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your algorithm without using the EBS volume.
+	InputMode *ProcessingJobDatasetDefinitionInputMode `pulumi:"inputMode"`
+	// The local path where you want Amazon SageMaker to download the Dataset Definition inputs to run a processing job. LocalPath is an absolute path to the input data. This is a required parameter when AppManaged is False (default).
+	LocalPath *string `pulumi:"localPath"`
+	// Configuration for Redshift Dataset Definition input.
+	RedshiftDatasetDefinition *ProcessingJobRedshiftDatasetDefinition `pulumi:"redshiftDatasetDefinition"`
+}
+
+// ProcessingJobDatasetDefinitionInput is an input type that accepts ProcessingJobDatasetDefinitionArgs and ProcessingJobDatasetDefinitionOutput values.
+// You can construct a concrete instance of `ProcessingJobDatasetDefinitionInput` via:
+//
+//	ProcessingJobDatasetDefinitionArgs{...}
+type ProcessingJobDatasetDefinitionInput interface {
+	pulumi.Input
+
+	ToProcessingJobDatasetDefinitionOutput() ProcessingJobDatasetDefinitionOutput
+	ToProcessingJobDatasetDefinitionOutputWithContext(context.Context) ProcessingJobDatasetDefinitionOutput
+}
+
+// Configuration for Dataset Definition inputs. The Dataset Definition input must specify exactly one of either `AthenaDatasetDefinition` or `RedshiftDatasetDefinition` types.
+type ProcessingJobDatasetDefinitionArgs struct {
+	// Configuration for Athena Dataset Definition input.
+	AthenaDatasetDefinition ProcessingJobAthenaDatasetDefinitionPtrInput `pulumi:"athenaDatasetDefinition"`
+	// Whether the generated dataset is FullyReplicated or ShardedByS3Key (default).
+	DataDistributionType ProcessingJobDatasetDefinitionDataDistributionTypePtrInput `pulumi:"dataDistributionType"`
+	// Whether to use File or Pipe input mode. In File (default) mode, Amazon SageMaker copies the data from the input source onto the local Amazon Elastic Block Store (Amazon EBS) volumes before starting your training algorithm. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your algorithm without using the EBS volume.
+	InputMode ProcessingJobDatasetDefinitionInputModePtrInput `pulumi:"inputMode"`
+	// The local path where you want Amazon SageMaker to download the Dataset Definition inputs to run a processing job. LocalPath is an absolute path to the input data. This is a required parameter when AppManaged is False (default).
+	LocalPath pulumi.StringPtrInput `pulumi:"localPath"`
+	// Configuration for Redshift Dataset Definition input.
+	RedshiftDatasetDefinition ProcessingJobRedshiftDatasetDefinitionPtrInput `pulumi:"redshiftDatasetDefinition"`
+}
+
+func (ProcessingJobDatasetDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobDatasetDefinition)(nil)).Elem()
+}
+
+func (i ProcessingJobDatasetDefinitionArgs) ToProcessingJobDatasetDefinitionOutput() ProcessingJobDatasetDefinitionOutput {
+	return i.ToProcessingJobDatasetDefinitionOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobDatasetDefinitionArgs) ToProcessingJobDatasetDefinitionOutputWithContext(ctx context.Context) ProcessingJobDatasetDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobDatasetDefinitionOutput)
+}
+
+func (i ProcessingJobDatasetDefinitionArgs) ToProcessingJobDatasetDefinitionPtrOutput() ProcessingJobDatasetDefinitionPtrOutput {
+	return i.ToProcessingJobDatasetDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobDatasetDefinitionArgs) ToProcessingJobDatasetDefinitionPtrOutputWithContext(ctx context.Context) ProcessingJobDatasetDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobDatasetDefinitionOutput).ToProcessingJobDatasetDefinitionPtrOutputWithContext(ctx)
+}
+
+// ProcessingJobDatasetDefinitionPtrInput is an input type that accepts ProcessingJobDatasetDefinitionArgs, ProcessingJobDatasetDefinitionPtr and ProcessingJobDatasetDefinitionPtrOutput values.
+// You can construct a concrete instance of `ProcessingJobDatasetDefinitionPtrInput` via:
+//
+//	        ProcessingJobDatasetDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProcessingJobDatasetDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobDatasetDefinitionPtrOutput() ProcessingJobDatasetDefinitionPtrOutput
+	ToProcessingJobDatasetDefinitionPtrOutputWithContext(context.Context) ProcessingJobDatasetDefinitionPtrOutput
+}
+
+type processingJobDatasetDefinitionPtrType ProcessingJobDatasetDefinitionArgs
+
+func ProcessingJobDatasetDefinitionPtr(v *ProcessingJobDatasetDefinitionArgs) ProcessingJobDatasetDefinitionPtrInput {
+	return (*processingJobDatasetDefinitionPtrType)(v)
+}
+
+func (*processingJobDatasetDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobDatasetDefinition)(nil)).Elem()
+}
+
+func (i *processingJobDatasetDefinitionPtrType) ToProcessingJobDatasetDefinitionPtrOutput() ProcessingJobDatasetDefinitionPtrOutput {
+	return i.ToProcessingJobDatasetDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *processingJobDatasetDefinitionPtrType) ToProcessingJobDatasetDefinitionPtrOutputWithContext(ctx context.Context) ProcessingJobDatasetDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobDatasetDefinitionPtrOutput)
+}
+
+// Configuration for Dataset Definition inputs. The Dataset Definition input must specify exactly one of either `AthenaDatasetDefinition` or `RedshiftDatasetDefinition` types.
+type ProcessingJobDatasetDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobDatasetDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobDatasetDefinition)(nil)).Elem()
+}
+
+func (o ProcessingJobDatasetDefinitionOutput) ToProcessingJobDatasetDefinitionOutput() ProcessingJobDatasetDefinitionOutput {
+	return o
+}
+
+func (o ProcessingJobDatasetDefinitionOutput) ToProcessingJobDatasetDefinitionOutputWithContext(ctx context.Context) ProcessingJobDatasetDefinitionOutput {
+	return o
+}
+
+func (o ProcessingJobDatasetDefinitionOutput) ToProcessingJobDatasetDefinitionPtrOutput() ProcessingJobDatasetDefinitionPtrOutput {
+	return o.ToProcessingJobDatasetDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobDatasetDefinitionOutput) ToProcessingJobDatasetDefinitionPtrOutputWithContext(ctx context.Context) ProcessingJobDatasetDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobDatasetDefinition) *ProcessingJobDatasetDefinition {
+		return &v
+	}).(ProcessingJobDatasetDefinitionPtrOutput)
+}
+
+// Configuration for Athena Dataset Definition input.
+func (o ProcessingJobDatasetDefinitionOutput) AthenaDatasetDefinition() ProcessingJobAthenaDatasetDefinitionPtrOutput {
+	return o.ApplyT(func(v ProcessingJobDatasetDefinition) *ProcessingJobAthenaDatasetDefinition {
+		return v.AthenaDatasetDefinition
+	}).(ProcessingJobAthenaDatasetDefinitionPtrOutput)
+}
+
+// Whether the generated dataset is FullyReplicated or ShardedByS3Key (default).
+func (o ProcessingJobDatasetDefinitionOutput) DataDistributionType() ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput {
+	return o.ApplyT(func(v ProcessingJobDatasetDefinition) *ProcessingJobDatasetDefinitionDataDistributionType {
+		return v.DataDistributionType
+	}).(ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput)
+}
+
+// Whether to use File or Pipe input mode. In File (default) mode, Amazon SageMaker copies the data from the input source onto the local Amazon Elastic Block Store (Amazon EBS) volumes before starting your training algorithm. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your algorithm without using the EBS volume.
+func (o ProcessingJobDatasetDefinitionOutput) InputMode() ProcessingJobDatasetDefinitionInputModePtrOutput {
+	return o.ApplyT(func(v ProcessingJobDatasetDefinition) *ProcessingJobDatasetDefinitionInputMode { return v.InputMode }).(ProcessingJobDatasetDefinitionInputModePtrOutput)
+}
+
+// The local path where you want Amazon SageMaker to download the Dataset Definition inputs to run a processing job. LocalPath is an absolute path to the input data. This is a required parameter when AppManaged is False (default).
+func (o ProcessingJobDatasetDefinitionOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcessingJobDatasetDefinition) *string { return v.LocalPath }).(pulumi.StringPtrOutput)
+}
+
+// Configuration for Redshift Dataset Definition input.
+func (o ProcessingJobDatasetDefinitionOutput) RedshiftDatasetDefinition() ProcessingJobRedshiftDatasetDefinitionPtrOutput {
+	return o.ApplyT(func(v ProcessingJobDatasetDefinition) *ProcessingJobRedshiftDatasetDefinition {
+		return v.RedshiftDatasetDefinition
+	}).(ProcessingJobRedshiftDatasetDefinitionPtrOutput)
+}
+
+type ProcessingJobDatasetDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobDatasetDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobDatasetDefinition)(nil)).Elem()
+}
+
+func (o ProcessingJobDatasetDefinitionPtrOutput) ToProcessingJobDatasetDefinitionPtrOutput() ProcessingJobDatasetDefinitionPtrOutput {
+	return o
+}
+
+func (o ProcessingJobDatasetDefinitionPtrOutput) ToProcessingJobDatasetDefinitionPtrOutputWithContext(ctx context.Context) ProcessingJobDatasetDefinitionPtrOutput {
+	return o
+}
+
+func (o ProcessingJobDatasetDefinitionPtrOutput) Elem() ProcessingJobDatasetDefinitionOutput {
+	return o.ApplyT(func(v *ProcessingJobDatasetDefinition) ProcessingJobDatasetDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobDatasetDefinition
+		return ret
+	}).(ProcessingJobDatasetDefinitionOutput)
+}
+
+// Configuration for Athena Dataset Definition input.
+func (o ProcessingJobDatasetDefinitionPtrOutput) AthenaDatasetDefinition() ProcessingJobAthenaDatasetDefinitionPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobDatasetDefinition) *ProcessingJobAthenaDatasetDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.AthenaDatasetDefinition
+	}).(ProcessingJobAthenaDatasetDefinitionPtrOutput)
+}
+
+// Whether the generated dataset is FullyReplicated or ShardedByS3Key (default).
+func (o ProcessingJobDatasetDefinitionPtrOutput) DataDistributionType() ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput {
+	return o.ApplyT(func(v *ProcessingJobDatasetDefinition) *ProcessingJobDatasetDefinitionDataDistributionType {
+		if v == nil {
+			return nil
+		}
+		return v.DataDistributionType
+	}).(ProcessingJobDatasetDefinitionDataDistributionTypePtrOutput)
+}
+
+// Whether to use File or Pipe input mode. In File (default) mode, Amazon SageMaker copies the data from the input source onto the local Amazon Elastic Block Store (Amazon EBS) volumes before starting your training algorithm. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your algorithm without using the EBS volume.
+func (o ProcessingJobDatasetDefinitionPtrOutput) InputMode() ProcessingJobDatasetDefinitionInputModePtrOutput {
+	return o.ApplyT(func(v *ProcessingJobDatasetDefinition) *ProcessingJobDatasetDefinitionInputMode {
+		if v == nil {
+			return nil
+		}
+		return v.InputMode
+	}).(ProcessingJobDatasetDefinitionInputModePtrOutput)
+}
+
+// The local path where you want Amazon SageMaker to download the Dataset Definition inputs to run a processing job. LocalPath is an absolute path to the input data. This is a required parameter when AppManaged is False (default).
+func (o ProcessingJobDatasetDefinitionPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobDatasetDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for Redshift Dataset Definition input.
+func (o ProcessingJobDatasetDefinitionPtrOutput) RedshiftDatasetDefinition() ProcessingJobRedshiftDatasetDefinitionPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobDatasetDefinition) *ProcessingJobRedshiftDatasetDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.RedshiftDatasetDefinition
+	}).(ProcessingJobRedshiftDatasetDefinitionPtrOutput)
+}
+
+// Sets the environment variables in the Docker container
+type ProcessingJobEnvironment struct {
+}
+
+// ProcessingJobEnvironmentInput is an input type that accepts ProcessingJobEnvironmentArgs and ProcessingJobEnvironmentOutput values.
+// You can construct a concrete instance of `ProcessingJobEnvironmentInput` via:
+//
+//	ProcessingJobEnvironmentArgs{...}
+type ProcessingJobEnvironmentInput interface {
+	pulumi.Input
+
+	ToProcessingJobEnvironmentOutput() ProcessingJobEnvironmentOutput
+	ToProcessingJobEnvironmentOutputWithContext(context.Context) ProcessingJobEnvironmentOutput
+}
+
+// Sets the environment variables in the Docker container
+type ProcessingJobEnvironmentArgs struct {
+}
+
+func (ProcessingJobEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobEnvironment)(nil)).Elem()
+}
+
+func (i ProcessingJobEnvironmentArgs) ToProcessingJobEnvironmentOutput() ProcessingJobEnvironmentOutput {
+	return i.ToProcessingJobEnvironmentOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobEnvironmentArgs) ToProcessingJobEnvironmentOutputWithContext(ctx context.Context) ProcessingJobEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobEnvironmentOutput)
+}
+
+func (i ProcessingJobEnvironmentArgs) ToProcessingJobEnvironmentPtrOutput() ProcessingJobEnvironmentPtrOutput {
+	return i.ToProcessingJobEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobEnvironmentArgs) ToProcessingJobEnvironmentPtrOutputWithContext(ctx context.Context) ProcessingJobEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobEnvironmentOutput).ToProcessingJobEnvironmentPtrOutputWithContext(ctx)
+}
+
+// ProcessingJobEnvironmentPtrInput is an input type that accepts ProcessingJobEnvironmentArgs, ProcessingJobEnvironmentPtr and ProcessingJobEnvironmentPtrOutput values.
+// You can construct a concrete instance of `ProcessingJobEnvironmentPtrInput` via:
+//
+//	        ProcessingJobEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProcessingJobEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobEnvironmentPtrOutput() ProcessingJobEnvironmentPtrOutput
+	ToProcessingJobEnvironmentPtrOutputWithContext(context.Context) ProcessingJobEnvironmentPtrOutput
+}
+
+type processingJobEnvironmentPtrType ProcessingJobEnvironmentArgs
+
+func ProcessingJobEnvironmentPtr(v *ProcessingJobEnvironmentArgs) ProcessingJobEnvironmentPtrInput {
+	return (*processingJobEnvironmentPtrType)(v)
+}
+
+func (*processingJobEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobEnvironment)(nil)).Elem()
+}
+
+func (i *processingJobEnvironmentPtrType) ToProcessingJobEnvironmentPtrOutput() ProcessingJobEnvironmentPtrOutput {
+	return i.ToProcessingJobEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *processingJobEnvironmentPtrType) ToProcessingJobEnvironmentPtrOutputWithContext(ctx context.Context) ProcessingJobEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobEnvironmentPtrOutput)
+}
+
+// Sets the environment variables in the Docker container
+type ProcessingJobEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobEnvironment)(nil)).Elem()
+}
+
+func (o ProcessingJobEnvironmentOutput) ToProcessingJobEnvironmentOutput() ProcessingJobEnvironmentOutput {
+	return o
+}
+
+func (o ProcessingJobEnvironmentOutput) ToProcessingJobEnvironmentOutputWithContext(ctx context.Context) ProcessingJobEnvironmentOutput {
+	return o
+}
+
+func (o ProcessingJobEnvironmentOutput) ToProcessingJobEnvironmentPtrOutput() ProcessingJobEnvironmentPtrOutput {
+	return o.ToProcessingJobEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobEnvironmentOutput) ToProcessingJobEnvironmentPtrOutputWithContext(ctx context.Context) ProcessingJobEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobEnvironment) *ProcessingJobEnvironment {
+		return &v
+	}).(ProcessingJobEnvironmentPtrOutput)
+}
+
+type ProcessingJobEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobEnvironment)(nil)).Elem()
+}
+
+func (o ProcessingJobEnvironmentPtrOutput) ToProcessingJobEnvironmentPtrOutput() ProcessingJobEnvironmentPtrOutput {
+	return o
+}
+
+func (o ProcessingJobEnvironmentPtrOutput) ToProcessingJobEnvironmentPtrOutputWithContext(ctx context.Context) ProcessingJobEnvironmentPtrOutput {
+	return o
+}
+
+func (o ProcessingJobEnvironmentPtrOutput) Elem() ProcessingJobEnvironmentOutput {
+	return o.ApplyT(func(v *ProcessingJobEnvironment) ProcessingJobEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobEnvironment
+		return ret
+	}).(ProcessingJobEnvironmentOutput)
+}
+
+// Associates a SageMaker job as a trial component with an experiment and trial.
+type ProcessingJobExperimentConfig struct {
+	// The name of an existing experiment to associate with the trial component.
+	ExperimentName *string `pulumi:"experimentName"`
+	// The name of the experiment run to associate with the trial component.
+	RunName *string `pulumi:"runName"`
+	// The display name for the trial component. If this key isn't specified, the display name is the trial component name.
+	TrialComponentDisplayName *string `pulumi:"trialComponentDisplayName"`
+	// The name of an existing trial to associate the trial component with. If not specified, a new trial is created.
+	TrialName *string `pulumi:"trialName"`
+}
+
+// ProcessingJobExperimentConfigInput is an input type that accepts ProcessingJobExperimentConfigArgs and ProcessingJobExperimentConfigOutput values.
+// You can construct a concrete instance of `ProcessingJobExperimentConfigInput` via:
+//
+//	ProcessingJobExperimentConfigArgs{...}
+type ProcessingJobExperimentConfigInput interface {
+	pulumi.Input
+
+	ToProcessingJobExperimentConfigOutput() ProcessingJobExperimentConfigOutput
+	ToProcessingJobExperimentConfigOutputWithContext(context.Context) ProcessingJobExperimentConfigOutput
+}
+
+// Associates a SageMaker job as a trial component with an experiment and trial.
+type ProcessingJobExperimentConfigArgs struct {
+	// The name of an existing experiment to associate with the trial component.
+	ExperimentName pulumi.StringPtrInput `pulumi:"experimentName"`
+	// The name of the experiment run to associate with the trial component.
+	RunName pulumi.StringPtrInput `pulumi:"runName"`
+	// The display name for the trial component. If this key isn't specified, the display name is the trial component name.
+	TrialComponentDisplayName pulumi.StringPtrInput `pulumi:"trialComponentDisplayName"`
+	// The name of an existing trial to associate the trial component with. If not specified, a new trial is created.
+	TrialName pulumi.StringPtrInput `pulumi:"trialName"`
+}
+
+func (ProcessingJobExperimentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobExperimentConfig)(nil)).Elem()
+}
+
+func (i ProcessingJobExperimentConfigArgs) ToProcessingJobExperimentConfigOutput() ProcessingJobExperimentConfigOutput {
+	return i.ToProcessingJobExperimentConfigOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobExperimentConfigArgs) ToProcessingJobExperimentConfigOutputWithContext(ctx context.Context) ProcessingJobExperimentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobExperimentConfigOutput)
+}
+
+func (i ProcessingJobExperimentConfigArgs) ToProcessingJobExperimentConfigPtrOutput() ProcessingJobExperimentConfigPtrOutput {
+	return i.ToProcessingJobExperimentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobExperimentConfigArgs) ToProcessingJobExperimentConfigPtrOutputWithContext(ctx context.Context) ProcessingJobExperimentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobExperimentConfigOutput).ToProcessingJobExperimentConfigPtrOutputWithContext(ctx)
+}
+
+// ProcessingJobExperimentConfigPtrInput is an input type that accepts ProcessingJobExperimentConfigArgs, ProcessingJobExperimentConfigPtr and ProcessingJobExperimentConfigPtrOutput values.
+// You can construct a concrete instance of `ProcessingJobExperimentConfigPtrInput` via:
+//
+//	        ProcessingJobExperimentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProcessingJobExperimentConfigPtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobExperimentConfigPtrOutput() ProcessingJobExperimentConfigPtrOutput
+	ToProcessingJobExperimentConfigPtrOutputWithContext(context.Context) ProcessingJobExperimentConfigPtrOutput
+}
+
+type processingJobExperimentConfigPtrType ProcessingJobExperimentConfigArgs
+
+func ProcessingJobExperimentConfigPtr(v *ProcessingJobExperimentConfigArgs) ProcessingJobExperimentConfigPtrInput {
+	return (*processingJobExperimentConfigPtrType)(v)
+}
+
+func (*processingJobExperimentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobExperimentConfig)(nil)).Elem()
+}
+
+func (i *processingJobExperimentConfigPtrType) ToProcessingJobExperimentConfigPtrOutput() ProcessingJobExperimentConfigPtrOutput {
+	return i.ToProcessingJobExperimentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *processingJobExperimentConfigPtrType) ToProcessingJobExperimentConfigPtrOutputWithContext(ctx context.Context) ProcessingJobExperimentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobExperimentConfigPtrOutput)
+}
+
+// Associates a SageMaker job as a trial component with an experiment and trial.
+type ProcessingJobExperimentConfigOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobExperimentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobExperimentConfig)(nil)).Elem()
+}
+
+func (o ProcessingJobExperimentConfigOutput) ToProcessingJobExperimentConfigOutput() ProcessingJobExperimentConfigOutput {
+	return o
+}
+
+func (o ProcessingJobExperimentConfigOutput) ToProcessingJobExperimentConfigOutputWithContext(ctx context.Context) ProcessingJobExperimentConfigOutput {
+	return o
+}
+
+func (o ProcessingJobExperimentConfigOutput) ToProcessingJobExperimentConfigPtrOutput() ProcessingJobExperimentConfigPtrOutput {
+	return o.ToProcessingJobExperimentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobExperimentConfigOutput) ToProcessingJobExperimentConfigPtrOutputWithContext(ctx context.Context) ProcessingJobExperimentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobExperimentConfig) *ProcessingJobExperimentConfig {
+		return &v
+	}).(ProcessingJobExperimentConfigPtrOutput)
+}
+
+// The name of an existing experiment to associate with the trial component.
+func (o ProcessingJobExperimentConfigOutput) ExperimentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcessingJobExperimentConfig) *string { return v.ExperimentName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the experiment run to associate with the trial component.
+func (o ProcessingJobExperimentConfigOutput) RunName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcessingJobExperimentConfig) *string { return v.RunName }).(pulumi.StringPtrOutput)
+}
+
+// The display name for the trial component. If this key isn't specified, the display name is the trial component name.
+func (o ProcessingJobExperimentConfigOutput) TrialComponentDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcessingJobExperimentConfig) *string { return v.TrialComponentDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The name of an existing trial to associate the trial component with. If not specified, a new trial is created.
+func (o ProcessingJobExperimentConfigOutput) TrialName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcessingJobExperimentConfig) *string { return v.TrialName }).(pulumi.StringPtrOutput)
+}
+
+type ProcessingJobExperimentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobExperimentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobExperimentConfig)(nil)).Elem()
+}
+
+func (o ProcessingJobExperimentConfigPtrOutput) ToProcessingJobExperimentConfigPtrOutput() ProcessingJobExperimentConfigPtrOutput {
+	return o
+}
+
+func (o ProcessingJobExperimentConfigPtrOutput) ToProcessingJobExperimentConfigPtrOutputWithContext(ctx context.Context) ProcessingJobExperimentConfigPtrOutput {
+	return o
+}
+
+func (o ProcessingJobExperimentConfigPtrOutput) Elem() ProcessingJobExperimentConfigOutput {
+	return o.ApplyT(func(v *ProcessingJobExperimentConfig) ProcessingJobExperimentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobExperimentConfig
+		return ret
+	}).(ProcessingJobExperimentConfigOutput)
+}
+
+// The name of an existing experiment to associate with the trial component.
+func (o ProcessingJobExperimentConfigPtrOutput) ExperimentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobExperimentConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExperimentName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the experiment run to associate with the trial component.
+func (o ProcessingJobExperimentConfigPtrOutput) RunName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobExperimentConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The display name for the trial component. If this key isn't specified, the display name is the trial component name.
+func (o ProcessingJobExperimentConfigPtrOutput) TrialComponentDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobExperimentConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrialComponentDisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of an existing trial to associate the trial component with. If not specified, a new trial is created.
+func (o ProcessingJobExperimentConfigPtrOutput) TrialName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobExperimentConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrialName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for processing job outputs in Amazon SageMaker Feature Store.
+type ProcessingJobFeatureStoreOutput struct {
+	// The name of the Amazon SageMaker FeatureGroup to use as the destination for processing job output. Note that your processing script is responsible for putting records into your Feature Store.
+	FeatureGroupName string `pulumi:"featureGroupName"`
+}
+
+// ProcessingJobFeatureStoreOutputInput is an input type that accepts ProcessingJobFeatureStoreOutputArgs and ProcessingJobFeatureStoreOutputOutput values.
+// You can construct a concrete instance of `ProcessingJobFeatureStoreOutputInput` via:
+//
+//	ProcessingJobFeatureStoreOutputArgs{...}
+type ProcessingJobFeatureStoreOutputInput interface {
+	pulumi.Input
+
+	ToProcessingJobFeatureStoreOutputOutput() ProcessingJobFeatureStoreOutputOutput
+	ToProcessingJobFeatureStoreOutputOutputWithContext(context.Context) ProcessingJobFeatureStoreOutputOutput
+}
+
+// Configuration for processing job outputs in Amazon SageMaker Feature Store.
+type ProcessingJobFeatureStoreOutputArgs struct {
+	// The name of the Amazon SageMaker FeatureGroup to use as the destination for processing job output. Note that your processing script is responsible for putting records into your Feature Store.
+	FeatureGroupName pulumi.StringInput `pulumi:"featureGroupName"`
+}
+
+func (ProcessingJobFeatureStoreOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobFeatureStoreOutput)(nil)).Elem()
+}
+
+func (i ProcessingJobFeatureStoreOutputArgs) ToProcessingJobFeatureStoreOutputOutput() ProcessingJobFeatureStoreOutputOutput {
+	return i.ToProcessingJobFeatureStoreOutputOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobFeatureStoreOutputArgs) ToProcessingJobFeatureStoreOutputOutputWithContext(ctx context.Context) ProcessingJobFeatureStoreOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobFeatureStoreOutputOutput)
+}
+
+func (i ProcessingJobFeatureStoreOutputArgs) ToProcessingJobFeatureStoreOutputPtrOutput() ProcessingJobFeatureStoreOutputPtrOutput {
+	return i.ToProcessingJobFeatureStoreOutputPtrOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobFeatureStoreOutputArgs) ToProcessingJobFeatureStoreOutputPtrOutputWithContext(ctx context.Context) ProcessingJobFeatureStoreOutputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobFeatureStoreOutputOutput).ToProcessingJobFeatureStoreOutputPtrOutputWithContext(ctx)
+}
+
+// ProcessingJobFeatureStoreOutputPtrInput is an input type that accepts ProcessingJobFeatureStoreOutputArgs, ProcessingJobFeatureStoreOutputPtr and ProcessingJobFeatureStoreOutputPtrOutput values.
+// You can construct a concrete instance of `ProcessingJobFeatureStoreOutputPtrInput` via:
+//
+//	        ProcessingJobFeatureStoreOutputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProcessingJobFeatureStoreOutputPtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobFeatureStoreOutputPtrOutput() ProcessingJobFeatureStoreOutputPtrOutput
+	ToProcessingJobFeatureStoreOutputPtrOutputWithContext(context.Context) ProcessingJobFeatureStoreOutputPtrOutput
+}
+
+type processingJobFeatureStoreOutputPtrType ProcessingJobFeatureStoreOutputArgs
+
+func ProcessingJobFeatureStoreOutputPtr(v *ProcessingJobFeatureStoreOutputArgs) ProcessingJobFeatureStoreOutputPtrInput {
+	return (*processingJobFeatureStoreOutputPtrType)(v)
+}
+
+func (*processingJobFeatureStoreOutputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobFeatureStoreOutput)(nil)).Elem()
+}
+
+func (i *processingJobFeatureStoreOutputPtrType) ToProcessingJobFeatureStoreOutputPtrOutput() ProcessingJobFeatureStoreOutputPtrOutput {
+	return i.ToProcessingJobFeatureStoreOutputPtrOutputWithContext(context.Background())
+}
+
+func (i *processingJobFeatureStoreOutputPtrType) ToProcessingJobFeatureStoreOutputPtrOutputWithContext(ctx context.Context) ProcessingJobFeatureStoreOutputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobFeatureStoreOutputPtrOutput)
+}
+
+// Configuration for processing job outputs in Amazon SageMaker Feature Store.
+type ProcessingJobFeatureStoreOutputOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobFeatureStoreOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobFeatureStoreOutput)(nil)).Elem()
+}
+
+func (o ProcessingJobFeatureStoreOutputOutput) ToProcessingJobFeatureStoreOutputOutput() ProcessingJobFeatureStoreOutputOutput {
+	return o
+}
+
+func (o ProcessingJobFeatureStoreOutputOutput) ToProcessingJobFeatureStoreOutputOutputWithContext(ctx context.Context) ProcessingJobFeatureStoreOutputOutput {
+	return o
+}
+
+func (o ProcessingJobFeatureStoreOutputOutput) ToProcessingJobFeatureStoreOutputPtrOutput() ProcessingJobFeatureStoreOutputPtrOutput {
+	return o.ToProcessingJobFeatureStoreOutputPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobFeatureStoreOutputOutput) ToProcessingJobFeatureStoreOutputPtrOutputWithContext(ctx context.Context) ProcessingJobFeatureStoreOutputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobFeatureStoreOutput) *ProcessingJobFeatureStoreOutput {
+		return &v
+	}).(ProcessingJobFeatureStoreOutputPtrOutput)
+}
+
+// The name of the Amazon SageMaker FeatureGroup to use as the destination for processing job output. Note that your processing script is responsible for putting records into your Feature Store.
+func (o ProcessingJobFeatureStoreOutputOutput) FeatureGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessingJobFeatureStoreOutput) string { return v.FeatureGroupName }).(pulumi.StringOutput)
+}
+
+type ProcessingJobFeatureStoreOutputPtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobFeatureStoreOutputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobFeatureStoreOutput)(nil)).Elem()
+}
+
+func (o ProcessingJobFeatureStoreOutputPtrOutput) ToProcessingJobFeatureStoreOutputPtrOutput() ProcessingJobFeatureStoreOutputPtrOutput {
+	return o
+}
+
+func (o ProcessingJobFeatureStoreOutputPtrOutput) ToProcessingJobFeatureStoreOutputPtrOutputWithContext(ctx context.Context) ProcessingJobFeatureStoreOutputPtrOutput {
+	return o
+}
+
+func (o ProcessingJobFeatureStoreOutputPtrOutput) Elem() ProcessingJobFeatureStoreOutputOutput {
+	return o.ApplyT(func(v *ProcessingJobFeatureStoreOutput) ProcessingJobFeatureStoreOutput {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobFeatureStoreOutput
+		return ret
+	}).(ProcessingJobFeatureStoreOutputOutput)
+}
+
+// The name of the Amazon SageMaker FeatureGroup to use as the destination for processing job output. Note that your processing script is responsible for putting records into your Feature Store.
+func (o ProcessingJobFeatureStoreOutputPtrOutput) FeatureGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobFeatureStoreOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FeatureGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+type ProcessingJobNetworkConfig struct {
+	// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
+	EnableInterContainerTrafficEncryption *bool `pulumi:"enableInterContainerTrafficEncryption"`
+	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+	EnableNetworkIsolation *bool `pulumi:"enableNetworkIsolation"`
+	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+	VpcConfig *ProcessingJobVpcConfig `pulumi:"vpcConfig"`
+}
+
+// ProcessingJobNetworkConfigInput is an input type that accepts ProcessingJobNetworkConfigArgs and ProcessingJobNetworkConfigOutput values.
+// You can construct a concrete instance of `ProcessingJobNetworkConfigInput` via:
+//
+//	ProcessingJobNetworkConfigArgs{...}
+type ProcessingJobNetworkConfigInput interface {
+	pulumi.Input
+
+	ToProcessingJobNetworkConfigOutput() ProcessingJobNetworkConfigOutput
+	ToProcessingJobNetworkConfigOutputWithContext(context.Context) ProcessingJobNetworkConfigOutput
+}
+
+// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+type ProcessingJobNetworkConfigArgs struct {
+	// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
+	EnableInterContainerTrafficEncryption pulumi.BoolPtrInput `pulumi:"enableInterContainerTrafficEncryption"`
+	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+	EnableNetworkIsolation pulumi.BoolPtrInput `pulumi:"enableNetworkIsolation"`
+	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+	VpcConfig ProcessingJobVpcConfigPtrInput `pulumi:"vpcConfig"`
+}
+
+func (ProcessingJobNetworkConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobNetworkConfig)(nil)).Elem()
+}
+
+func (i ProcessingJobNetworkConfigArgs) ToProcessingJobNetworkConfigOutput() ProcessingJobNetworkConfigOutput {
+	return i.ToProcessingJobNetworkConfigOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobNetworkConfigArgs) ToProcessingJobNetworkConfigOutputWithContext(ctx context.Context) ProcessingJobNetworkConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobNetworkConfigOutput)
+}
+
+func (i ProcessingJobNetworkConfigArgs) ToProcessingJobNetworkConfigPtrOutput() ProcessingJobNetworkConfigPtrOutput {
+	return i.ToProcessingJobNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobNetworkConfigArgs) ToProcessingJobNetworkConfigPtrOutputWithContext(ctx context.Context) ProcessingJobNetworkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobNetworkConfigOutput).ToProcessingJobNetworkConfigPtrOutputWithContext(ctx)
+}
+
+// ProcessingJobNetworkConfigPtrInput is an input type that accepts ProcessingJobNetworkConfigArgs, ProcessingJobNetworkConfigPtr and ProcessingJobNetworkConfigPtrOutput values.
+// You can construct a concrete instance of `ProcessingJobNetworkConfigPtrInput` via:
+//
+//	        ProcessingJobNetworkConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProcessingJobNetworkConfigPtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobNetworkConfigPtrOutput() ProcessingJobNetworkConfigPtrOutput
+	ToProcessingJobNetworkConfigPtrOutputWithContext(context.Context) ProcessingJobNetworkConfigPtrOutput
+}
+
+type processingJobNetworkConfigPtrType ProcessingJobNetworkConfigArgs
+
+func ProcessingJobNetworkConfigPtr(v *ProcessingJobNetworkConfigArgs) ProcessingJobNetworkConfigPtrInput {
+	return (*processingJobNetworkConfigPtrType)(v)
+}
+
+func (*processingJobNetworkConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobNetworkConfig)(nil)).Elem()
+}
+
+func (i *processingJobNetworkConfigPtrType) ToProcessingJobNetworkConfigPtrOutput() ProcessingJobNetworkConfigPtrOutput {
+	return i.ToProcessingJobNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *processingJobNetworkConfigPtrType) ToProcessingJobNetworkConfigPtrOutputWithContext(ctx context.Context) ProcessingJobNetworkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobNetworkConfigPtrOutput)
+}
+
+// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+type ProcessingJobNetworkConfigOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobNetworkConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobNetworkConfig)(nil)).Elem()
+}
+
+func (o ProcessingJobNetworkConfigOutput) ToProcessingJobNetworkConfigOutput() ProcessingJobNetworkConfigOutput {
+	return o
+}
+
+func (o ProcessingJobNetworkConfigOutput) ToProcessingJobNetworkConfigOutputWithContext(ctx context.Context) ProcessingJobNetworkConfigOutput {
+	return o
+}
+
+func (o ProcessingJobNetworkConfigOutput) ToProcessingJobNetworkConfigPtrOutput() ProcessingJobNetworkConfigPtrOutput {
+	return o.ToProcessingJobNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobNetworkConfigOutput) ToProcessingJobNetworkConfigPtrOutputWithContext(ctx context.Context) ProcessingJobNetworkConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobNetworkConfig) *ProcessingJobNetworkConfig {
+		return &v
+	}).(ProcessingJobNetworkConfigPtrOutput)
+}
+
+// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
+func (o ProcessingJobNetworkConfigOutput) EnableInterContainerTrafficEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProcessingJobNetworkConfig) *bool { return v.EnableInterContainerTrafficEncryption }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+func (o ProcessingJobNetworkConfigOutput) EnableNetworkIsolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProcessingJobNetworkConfig) *bool { return v.EnableNetworkIsolation }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+func (o ProcessingJobNetworkConfigOutput) VpcConfig() ProcessingJobVpcConfigPtrOutput {
+	return o.ApplyT(func(v ProcessingJobNetworkConfig) *ProcessingJobVpcConfig { return v.VpcConfig }).(ProcessingJobVpcConfigPtrOutput)
+}
+
+type ProcessingJobNetworkConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobNetworkConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobNetworkConfig)(nil)).Elem()
+}
+
+func (o ProcessingJobNetworkConfigPtrOutput) ToProcessingJobNetworkConfigPtrOutput() ProcessingJobNetworkConfigPtrOutput {
+	return o
+}
+
+func (o ProcessingJobNetworkConfigPtrOutput) ToProcessingJobNetworkConfigPtrOutputWithContext(ctx context.Context) ProcessingJobNetworkConfigPtrOutput {
+	return o
+}
+
+func (o ProcessingJobNetworkConfigPtrOutput) Elem() ProcessingJobNetworkConfigOutput {
+	return o.ApplyT(func(v *ProcessingJobNetworkConfig) ProcessingJobNetworkConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobNetworkConfig
+		return ret
+	}).(ProcessingJobNetworkConfigOutput)
+}
+
+// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
+func (o ProcessingJobNetworkConfigPtrOutput) EnableInterContainerTrafficEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobNetworkConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableInterContainerTrafficEncryption
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+func (o ProcessingJobNetworkConfigPtrOutput) EnableNetworkIsolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobNetworkConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableNetworkIsolation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+func (o ProcessingJobNetworkConfigPtrOutput) VpcConfig() ProcessingJobVpcConfigPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobNetworkConfig) *ProcessingJobVpcConfig {
+		if v == nil {
+			return nil
+		}
+		return v.VpcConfig
+	}).(ProcessingJobVpcConfigPtrOutput)
+}
+
+// The inputs for a processing job. The processing input must specify exactly one of either S3Input or DatasetDefinition types.
+type ProcessingJobProcessingInputsObject struct {
+	// When True, input operations such as data download are managed natively by the processing job application. When False (default), input operations are managed by Amazon SageMaker.
+	AppManaged *bool `pulumi:"appManaged"`
+	// Configuration for Dataset Definition inputs. The Dataset Definition input must specify exactly one of either `AthenaDatasetDefinition` or `RedshiftDatasetDefinition` types.
+	DatasetDefinition *ProcessingJobDatasetDefinition `pulumi:"datasetDefinition"`
+	// The name for the processing job input.
+	InputName string `pulumi:"inputName"`
+	// Configuration for downloading input data from Amazon S3 into the processing container.
+	S3Input *ProcessingJobS3Input `pulumi:"s3Input"`
+}
+
+// ProcessingJobProcessingInputsObjectInput is an input type that accepts ProcessingJobProcessingInputsObjectArgs and ProcessingJobProcessingInputsObjectOutput values.
+// You can construct a concrete instance of `ProcessingJobProcessingInputsObjectInput` via:
+//
+//	ProcessingJobProcessingInputsObjectArgs{...}
+type ProcessingJobProcessingInputsObjectInput interface {
+	pulumi.Input
+
+	ToProcessingJobProcessingInputsObjectOutput() ProcessingJobProcessingInputsObjectOutput
+	ToProcessingJobProcessingInputsObjectOutputWithContext(context.Context) ProcessingJobProcessingInputsObjectOutput
+}
+
+// The inputs for a processing job. The processing input must specify exactly one of either S3Input or DatasetDefinition types.
+type ProcessingJobProcessingInputsObjectArgs struct {
+	// When True, input operations such as data download are managed natively by the processing job application. When False (default), input operations are managed by Amazon SageMaker.
+	AppManaged pulumi.BoolPtrInput `pulumi:"appManaged"`
+	// Configuration for Dataset Definition inputs. The Dataset Definition input must specify exactly one of either `AthenaDatasetDefinition` or `RedshiftDatasetDefinition` types.
+	DatasetDefinition ProcessingJobDatasetDefinitionPtrInput `pulumi:"datasetDefinition"`
+	// The name for the processing job input.
+	InputName pulumi.StringInput `pulumi:"inputName"`
+	// Configuration for downloading input data from Amazon S3 into the processing container.
+	S3Input ProcessingJobS3InputPtrInput `pulumi:"s3Input"`
+}
+
+func (ProcessingJobProcessingInputsObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobProcessingInputsObject)(nil)).Elem()
+}
+
+func (i ProcessingJobProcessingInputsObjectArgs) ToProcessingJobProcessingInputsObjectOutput() ProcessingJobProcessingInputsObjectOutput {
+	return i.ToProcessingJobProcessingInputsObjectOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobProcessingInputsObjectArgs) ToProcessingJobProcessingInputsObjectOutputWithContext(ctx context.Context) ProcessingJobProcessingInputsObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobProcessingInputsObjectOutput)
+}
+
+// ProcessingJobProcessingInputsObjectArrayInput is an input type that accepts ProcessingJobProcessingInputsObjectArray and ProcessingJobProcessingInputsObjectArrayOutput values.
+// You can construct a concrete instance of `ProcessingJobProcessingInputsObjectArrayInput` via:
+//
+//	ProcessingJobProcessingInputsObjectArray{ ProcessingJobProcessingInputsObjectArgs{...} }
+type ProcessingJobProcessingInputsObjectArrayInput interface {
+	pulumi.Input
+
+	ToProcessingJobProcessingInputsObjectArrayOutput() ProcessingJobProcessingInputsObjectArrayOutput
+	ToProcessingJobProcessingInputsObjectArrayOutputWithContext(context.Context) ProcessingJobProcessingInputsObjectArrayOutput
+}
+
+type ProcessingJobProcessingInputsObjectArray []ProcessingJobProcessingInputsObjectInput
+
+func (ProcessingJobProcessingInputsObjectArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProcessingJobProcessingInputsObject)(nil)).Elem()
+}
+
+func (i ProcessingJobProcessingInputsObjectArray) ToProcessingJobProcessingInputsObjectArrayOutput() ProcessingJobProcessingInputsObjectArrayOutput {
+	return i.ToProcessingJobProcessingInputsObjectArrayOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobProcessingInputsObjectArray) ToProcessingJobProcessingInputsObjectArrayOutputWithContext(ctx context.Context) ProcessingJobProcessingInputsObjectArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobProcessingInputsObjectArrayOutput)
+}
+
+// The inputs for a processing job. The processing input must specify exactly one of either S3Input or DatasetDefinition types.
+type ProcessingJobProcessingInputsObjectOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobProcessingInputsObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobProcessingInputsObject)(nil)).Elem()
+}
+
+func (o ProcessingJobProcessingInputsObjectOutput) ToProcessingJobProcessingInputsObjectOutput() ProcessingJobProcessingInputsObjectOutput {
+	return o
+}
+
+func (o ProcessingJobProcessingInputsObjectOutput) ToProcessingJobProcessingInputsObjectOutputWithContext(ctx context.Context) ProcessingJobProcessingInputsObjectOutput {
+	return o
+}
+
+// When True, input operations such as data download are managed natively by the processing job application. When False (default), input operations are managed by Amazon SageMaker.
+func (o ProcessingJobProcessingInputsObjectOutput) AppManaged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProcessingJobProcessingInputsObject) *bool { return v.AppManaged }).(pulumi.BoolPtrOutput)
+}
+
+// Configuration for Dataset Definition inputs. The Dataset Definition input must specify exactly one of either `AthenaDatasetDefinition` or `RedshiftDatasetDefinition` types.
+func (o ProcessingJobProcessingInputsObjectOutput) DatasetDefinition() ProcessingJobDatasetDefinitionPtrOutput {
+	return o.ApplyT(func(v ProcessingJobProcessingInputsObject) *ProcessingJobDatasetDefinition {
+		return v.DatasetDefinition
+	}).(ProcessingJobDatasetDefinitionPtrOutput)
+}
+
+// The name for the processing job input.
+func (o ProcessingJobProcessingInputsObjectOutput) InputName() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessingJobProcessingInputsObject) string { return v.InputName }).(pulumi.StringOutput)
+}
+
+// Configuration for downloading input data from Amazon S3 into the processing container.
+func (o ProcessingJobProcessingInputsObjectOutput) S3Input() ProcessingJobS3InputPtrOutput {
+	return o.ApplyT(func(v ProcessingJobProcessingInputsObject) *ProcessingJobS3Input { return v.S3Input }).(ProcessingJobS3InputPtrOutput)
+}
+
+type ProcessingJobProcessingInputsObjectArrayOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobProcessingInputsObjectArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProcessingJobProcessingInputsObject)(nil)).Elem()
+}
+
+func (o ProcessingJobProcessingInputsObjectArrayOutput) ToProcessingJobProcessingInputsObjectArrayOutput() ProcessingJobProcessingInputsObjectArrayOutput {
+	return o
+}
+
+func (o ProcessingJobProcessingInputsObjectArrayOutput) ToProcessingJobProcessingInputsObjectArrayOutputWithContext(ctx context.Context) ProcessingJobProcessingInputsObjectArrayOutput {
+	return o
+}
+
+func (o ProcessingJobProcessingInputsObjectArrayOutput) Index(i pulumi.IntInput) ProcessingJobProcessingInputsObjectOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcessingJobProcessingInputsObject {
+		return vs[0].([]ProcessingJobProcessingInputsObject)[vs[1].(int)]
+	}).(ProcessingJobProcessingInputsObjectOutput)
+}
+
+// Configuration for uploading output from the processing container.
+type ProcessingJobProcessingOutputConfig struct {
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the processing job output. KmsKeyId can be an ID of a KMS key, ARN of a KMS key, or alias of a KMS key. The KmsKeyId is applied to all outputs.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// An array of outputs configuring the data to upload from the processing container.
+	Outputs []ProcessingJobProcessingOutputsObject `pulumi:"outputs"`
+}
+
+// ProcessingJobProcessingOutputConfigInput is an input type that accepts ProcessingJobProcessingOutputConfigArgs and ProcessingJobProcessingOutputConfigOutput values.
+// You can construct a concrete instance of `ProcessingJobProcessingOutputConfigInput` via:
+//
+//	ProcessingJobProcessingOutputConfigArgs{...}
+type ProcessingJobProcessingOutputConfigInput interface {
+	pulumi.Input
+
+	ToProcessingJobProcessingOutputConfigOutput() ProcessingJobProcessingOutputConfigOutput
+	ToProcessingJobProcessingOutputConfigOutputWithContext(context.Context) ProcessingJobProcessingOutputConfigOutput
+}
+
+// Configuration for uploading output from the processing container.
+type ProcessingJobProcessingOutputConfigArgs struct {
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the processing job output. KmsKeyId can be an ID of a KMS key, ARN of a KMS key, or alias of a KMS key. The KmsKeyId is applied to all outputs.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// An array of outputs configuring the data to upload from the processing container.
+	Outputs ProcessingJobProcessingOutputsObjectArrayInput `pulumi:"outputs"`
+}
+
+func (ProcessingJobProcessingOutputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobProcessingOutputConfig)(nil)).Elem()
+}
+
+func (i ProcessingJobProcessingOutputConfigArgs) ToProcessingJobProcessingOutputConfigOutput() ProcessingJobProcessingOutputConfigOutput {
+	return i.ToProcessingJobProcessingOutputConfigOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobProcessingOutputConfigArgs) ToProcessingJobProcessingOutputConfigOutputWithContext(ctx context.Context) ProcessingJobProcessingOutputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobProcessingOutputConfigOutput)
+}
+
+func (i ProcessingJobProcessingOutputConfigArgs) ToProcessingJobProcessingOutputConfigPtrOutput() ProcessingJobProcessingOutputConfigPtrOutput {
+	return i.ToProcessingJobProcessingOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobProcessingOutputConfigArgs) ToProcessingJobProcessingOutputConfigPtrOutputWithContext(ctx context.Context) ProcessingJobProcessingOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobProcessingOutputConfigOutput).ToProcessingJobProcessingOutputConfigPtrOutputWithContext(ctx)
+}
+
+// ProcessingJobProcessingOutputConfigPtrInput is an input type that accepts ProcessingJobProcessingOutputConfigArgs, ProcessingJobProcessingOutputConfigPtr and ProcessingJobProcessingOutputConfigPtrOutput values.
+// You can construct a concrete instance of `ProcessingJobProcessingOutputConfigPtrInput` via:
+//
+//	        ProcessingJobProcessingOutputConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProcessingJobProcessingOutputConfigPtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobProcessingOutputConfigPtrOutput() ProcessingJobProcessingOutputConfigPtrOutput
+	ToProcessingJobProcessingOutputConfigPtrOutputWithContext(context.Context) ProcessingJobProcessingOutputConfigPtrOutput
+}
+
+type processingJobProcessingOutputConfigPtrType ProcessingJobProcessingOutputConfigArgs
+
+func ProcessingJobProcessingOutputConfigPtr(v *ProcessingJobProcessingOutputConfigArgs) ProcessingJobProcessingOutputConfigPtrInput {
+	return (*processingJobProcessingOutputConfigPtrType)(v)
+}
+
+func (*processingJobProcessingOutputConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobProcessingOutputConfig)(nil)).Elem()
+}
+
+func (i *processingJobProcessingOutputConfigPtrType) ToProcessingJobProcessingOutputConfigPtrOutput() ProcessingJobProcessingOutputConfigPtrOutput {
+	return i.ToProcessingJobProcessingOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *processingJobProcessingOutputConfigPtrType) ToProcessingJobProcessingOutputConfigPtrOutputWithContext(ctx context.Context) ProcessingJobProcessingOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobProcessingOutputConfigPtrOutput)
+}
+
+// Configuration for uploading output from the processing container.
+type ProcessingJobProcessingOutputConfigOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobProcessingOutputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobProcessingOutputConfig)(nil)).Elem()
+}
+
+func (o ProcessingJobProcessingOutputConfigOutput) ToProcessingJobProcessingOutputConfigOutput() ProcessingJobProcessingOutputConfigOutput {
+	return o
+}
+
+func (o ProcessingJobProcessingOutputConfigOutput) ToProcessingJobProcessingOutputConfigOutputWithContext(ctx context.Context) ProcessingJobProcessingOutputConfigOutput {
+	return o
+}
+
+func (o ProcessingJobProcessingOutputConfigOutput) ToProcessingJobProcessingOutputConfigPtrOutput() ProcessingJobProcessingOutputConfigPtrOutput {
+	return o.ToProcessingJobProcessingOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobProcessingOutputConfigOutput) ToProcessingJobProcessingOutputConfigPtrOutputWithContext(ctx context.Context) ProcessingJobProcessingOutputConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobProcessingOutputConfig) *ProcessingJobProcessingOutputConfig {
+		return &v
+	}).(ProcessingJobProcessingOutputConfigPtrOutput)
+}
+
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the processing job output. KmsKeyId can be an ID of a KMS key, ARN of a KMS key, or alias of a KMS key. The KmsKeyId is applied to all outputs.
+func (o ProcessingJobProcessingOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcessingJobProcessingOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// An array of outputs configuring the data to upload from the processing container.
+func (o ProcessingJobProcessingOutputConfigOutput) Outputs() ProcessingJobProcessingOutputsObjectArrayOutput {
+	return o.ApplyT(func(v ProcessingJobProcessingOutputConfig) []ProcessingJobProcessingOutputsObject { return v.Outputs }).(ProcessingJobProcessingOutputsObjectArrayOutput)
+}
+
+type ProcessingJobProcessingOutputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobProcessingOutputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobProcessingOutputConfig)(nil)).Elem()
+}
+
+func (o ProcessingJobProcessingOutputConfigPtrOutput) ToProcessingJobProcessingOutputConfigPtrOutput() ProcessingJobProcessingOutputConfigPtrOutput {
+	return o
+}
+
+func (o ProcessingJobProcessingOutputConfigPtrOutput) ToProcessingJobProcessingOutputConfigPtrOutputWithContext(ctx context.Context) ProcessingJobProcessingOutputConfigPtrOutput {
+	return o
+}
+
+func (o ProcessingJobProcessingOutputConfigPtrOutput) Elem() ProcessingJobProcessingOutputConfigOutput {
+	return o.ApplyT(func(v *ProcessingJobProcessingOutputConfig) ProcessingJobProcessingOutputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobProcessingOutputConfig
+		return ret
+	}).(ProcessingJobProcessingOutputConfigOutput)
+}
+
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the processing job output. KmsKeyId can be an ID of a KMS key, ARN of a KMS key, or alias of a KMS key. The KmsKeyId is applied to all outputs.
+func (o ProcessingJobProcessingOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobProcessingOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// An array of outputs configuring the data to upload from the processing container.
+func (o ProcessingJobProcessingOutputConfigPtrOutput) Outputs() ProcessingJobProcessingOutputsObjectArrayOutput {
+	return o.ApplyT(func(v *ProcessingJobProcessingOutputConfig) []ProcessingJobProcessingOutputsObject {
+		if v == nil {
+			return nil
+		}
+		return v.Outputs
+	}).(ProcessingJobProcessingOutputsObjectArrayOutput)
+}
+
+// Describes the results of a processing job. The processing output must specify exactly one of either S3Output or FeatureStoreOutput types.
+type ProcessingJobProcessingOutputsObject struct {
+	// When True, output operations such as data upload are managed natively by the processing job application. When False (default), output operations are managed by Amazon SageMaker.
+	AppManaged *bool `pulumi:"appManaged"`
+	// Configuration for processing job outputs in Amazon SageMaker Feature Store.
+	FeatureStoreOutput *ProcessingJobFeatureStoreOutput `pulumi:"featureStoreOutput"`
+	// The name for the processing job output.
+	OutputName string `pulumi:"outputName"`
+	// Configuration for uploading output data to Amazon S3 from the processing container.
+	S3Output *ProcessingJobS3Output `pulumi:"s3Output"`
+}
+
+// ProcessingJobProcessingOutputsObjectInput is an input type that accepts ProcessingJobProcessingOutputsObjectArgs and ProcessingJobProcessingOutputsObjectOutput values.
+// You can construct a concrete instance of `ProcessingJobProcessingOutputsObjectInput` via:
+//
+//	ProcessingJobProcessingOutputsObjectArgs{...}
+type ProcessingJobProcessingOutputsObjectInput interface {
+	pulumi.Input
+
+	ToProcessingJobProcessingOutputsObjectOutput() ProcessingJobProcessingOutputsObjectOutput
+	ToProcessingJobProcessingOutputsObjectOutputWithContext(context.Context) ProcessingJobProcessingOutputsObjectOutput
+}
+
+// Describes the results of a processing job. The processing output must specify exactly one of either S3Output or FeatureStoreOutput types.
+type ProcessingJobProcessingOutputsObjectArgs struct {
+	// When True, output operations such as data upload are managed natively by the processing job application. When False (default), output operations are managed by Amazon SageMaker.
+	AppManaged pulumi.BoolPtrInput `pulumi:"appManaged"`
+	// Configuration for processing job outputs in Amazon SageMaker Feature Store.
+	FeatureStoreOutput ProcessingJobFeatureStoreOutputPtrInput `pulumi:"featureStoreOutput"`
+	// The name for the processing job output.
+	OutputName pulumi.StringInput `pulumi:"outputName"`
+	// Configuration for uploading output data to Amazon S3 from the processing container.
+	S3Output ProcessingJobS3OutputPtrInput `pulumi:"s3Output"`
+}
+
+func (ProcessingJobProcessingOutputsObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobProcessingOutputsObject)(nil)).Elem()
+}
+
+func (i ProcessingJobProcessingOutputsObjectArgs) ToProcessingJobProcessingOutputsObjectOutput() ProcessingJobProcessingOutputsObjectOutput {
+	return i.ToProcessingJobProcessingOutputsObjectOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobProcessingOutputsObjectArgs) ToProcessingJobProcessingOutputsObjectOutputWithContext(ctx context.Context) ProcessingJobProcessingOutputsObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobProcessingOutputsObjectOutput)
+}
+
+// ProcessingJobProcessingOutputsObjectArrayInput is an input type that accepts ProcessingJobProcessingOutputsObjectArray and ProcessingJobProcessingOutputsObjectArrayOutput values.
+// You can construct a concrete instance of `ProcessingJobProcessingOutputsObjectArrayInput` via:
+//
+//	ProcessingJobProcessingOutputsObjectArray{ ProcessingJobProcessingOutputsObjectArgs{...} }
+type ProcessingJobProcessingOutputsObjectArrayInput interface {
+	pulumi.Input
+
+	ToProcessingJobProcessingOutputsObjectArrayOutput() ProcessingJobProcessingOutputsObjectArrayOutput
+	ToProcessingJobProcessingOutputsObjectArrayOutputWithContext(context.Context) ProcessingJobProcessingOutputsObjectArrayOutput
+}
+
+type ProcessingJobProcessingOutputsObjectArray []ProcessingJobProcessingOutputsObjectInput
+
+func (ProcessingJobProcessingOutputsObjectArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProcessingJobProcessingOutputsObject)(nil)).Elem()
+}
+
+func (i ProcessingJobProcessingOutputsObjectArray) ToProcessingJobProcessingOutputsObjectArrayOutput() ProcessingJobProcessingOutputsObjectArrayOutput {
+	return i.ToProcessingJobProcessingOutputsObjectArrayOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobProcessingOutputsObjectArray) ToProcessingJobProcessingOutputsObjectArrayOutputWithContext(ctx context.Context) ProcessingJobProcessingOutputsObjectArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobProcessingOutputsObjectArrayOutput)
+}
+
+// Describes the results of a processing job. The processing output must specify exactly one of either S3Output or FeatureStoreOutput types.
+type ProcessingJobProcessingOutputsObjectOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobProcessingOutputsObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobProcessingOutputsObject)(nil)).Elem()
+}
+
+func (o ProcessingJobProcessingOutputsObjectOutput) ToProcessingJobProcessingOutputsObjectOutput() ProcessingJobProcessingOutputsObjectOutput {
+	return o
+}
+
+func (o ProcessingJobProcessingOutputsObjectOutput) ToProcessingJobProcessingOutputsObjectOutputWithContext(ctx context.Context) ProcessingJobProcessingOutputsObjectOutput {
+	return o
+}
+
+// When True, output operations such as data upload are managed natively by the processing job application. When False (default), output operations are managed by Amazon SageMaker.
+func (o ProcessingJobProcessingOutputsObjectOutput) AppManaged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProcessingJobProcessingOutputsObject) *bool { return v.AppManaged }).(pulumi.BoolPtrOutput)
+}
+
+// Configuration for processing job outputs in Amazon SageMaker Feature Store.
+func (o ProcessingJobProcessingOutputsObjectOutput) FeatureStoreOutput() ProcessingJobFeatureStoreOutputPtrOutput {
+	return o.ApplyT(func(v ProcessingJobProcessingOutputsObject) *ProcessingJobFeatureStoreOutput {
+		return v.FeatureStoreOutput
+	}).(ProcessingJobFeatureStoreOutputPtrOutput)
+}
+
+// The name for the processing job output.
+func (o ProcessingJobProcessingOutputsObjectOutput) OutputName() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessingJobProcessingOutputsObject) string { return v.OutputName }).(pulumi.StringOutput)
+}
+
+// Configuration for uploading output data to Amazon S3 from the processing container.
+func (o ProcessingJobProcessingOutputsObjectOutput) S3Output() ProcessingJobS3OutputPtrOutput {
+	return o.ApplyT(func(v ProcessingJobProcessingOutputsObject) *ProcessingJobS3Output { return v.S3Output }).(ProcessingJobS3OutputPtrOutput)
+}
+
+type ProcessingJobProcessingOutputsObjectArrayOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobProcessingOutputsObjectArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProcessingJobProcessingOutputsObject)(nil)).Elem()
+}
+
+func (o ProcessingJobProcessingOutputsObjectArrayOutput) ToProcessingJobProcessingOutputsObjectArrayOutput() ProcessingJobProcessingOutputsObjectArrayOutput {
+	return o
+}
+
+func (o ProcessingJobProcessingOutputsObjectArrayOutput) ToProcessingJobProcessingOutputsObjectArrayOutputWithContext(ctx context.Context) ProcessingJobProcessingOutputsObjectArrayOutput {
+	return o
+}
+
+func (o ProcessingJobProcessingOutputsObjectArrayOutput) Index(i pulumi.IntInput) ProcessingJobProcessingOutputsObjectOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcessingJobProcessingOutputsObject {
+		return vs[0].([]ProcessingJobProcessingOutputsObject)[vs[1].(int)]
+	}).(ProcessingJobProcessingOutputsObjectOutput)
+}
+
+// Identifies the resources, ML compute instances, and ML storage volumes to deploy for a processing job. In distributed training, you specify more than one instance.
+type ProcessingJobProcessingResources struct {
+	// The configuration for the resources in a cluster used to run the processing job.
+	ClusterConfig ProcessingJobClusterConfig `pulumi:"clusterConfig"`
+}
+
+// ProcessingJobProcessingResourcesInput is an input type that accepts ProcessingJobProcessingResourcesArgs and ProcessingJobProcessingResourcesOutput values.
+// You can construct a concrete instance of `ProcessingJobProcessingResourcesInput` via:
+//
+//	ProcessingJobProcessingResourcesArgs{...}
+type ProcessingJobProcessingResourcesInput interface {
+	pulumi.Input
+
+	ToProcessingJobProcessingResourcesOutput() ProcessingJobProcessingResourcesOutput
+	ToProcessingJobProcessingResourcesOutputWithContext(context.Context) ProcessingJobProcessingResourcesOutput
+}
+
+// Identifies the resources, ML compute instances, and ML storage volumes to deploy for a processing job. In distributed training, you specify more than one instance.
+type ProcessingJobProcessingResourcesArgs struct {
+	// The configuration for the resources in a cluster used to run the processing job.
+	ClusterConfig ProcessingJobClusterConfigInput `pulumi:"clusterConfig"`
+}
+
+func (ProcessingJobProcessingResourcesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobProcessingResources)(nil)).Elem()
+}
+
+func (i ProcessingJobProcessingResourcesArgs) ToProcessingJobProcessingResourcesOutput() ProcessingJobProcessingResourcesOutput {
+	return i.ToProcessingJobProcessingResourcesOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobProcessingResourcesArgs) ToProcessingJobProcessingResourcesOutputWithContext(ctx context.Context) ProcessingJobProcessingResourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobProcessingResourcesOutput)
+}
+
+// Identifies the resources, ML compute instances, and ML storage volumes to deploy for a processing job. In distributed training, you specify more than one instance.
+type ProcessingJobProcessingResourcesOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobProcessingResourcesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobProcessingResources)(nil)).Elem()
+}
+
+func (o ProcessingJobProcessingResourcesOutput) ToProcessingJobProcessingResourcesOutput() ProcessingJobProcessingResourcesOutput {
+	return o
+}
+
+func (o ProcessingJobProcessingResourcesOutput) ToProcessingJobProcessingResourcesOutputWithContext(ctx context.Context) ProcessingJobProcessingResourcesOutput {
+	return o
+}
+
+// The configuration for the resources in a cluster used to run the processing job.
+func (o ProcessingJobProcessingResourcesOutput) ClusterConfig() ProcessingJobClusterConfigOutput {
+	return o.ApplyT(func(v ProcessingJobProcessingResources) ProcessingJobClusterConfig { return v.ClusterConfig }).(ProcessingJobClusterConfigOutput)
+}
+
+// Configuration for Redshift Dataset Definition input.
+type ProcessingJobRedshiftDatasetDefinition struct {
+	// The Redshift cluster Identifier.
+	ClusterId string `pulumi:"clusterId"`
+	// The IAM role attached to your Redshift cluster that Amazon SageMaker uses to generate datasets.
+	ClusterRoleArn string `pulumi:"clusterRoleArn"`
+	// The name of the Redshift database used in Redshift query execution.
+	Database string `pulumi:"database"`
+	// The database user name used in Redshift query execution.
+	DbUser string `pulumi:"dbUser"`
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data from a Redshift execution.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The compression used for Redshift query results.
+	OutputCompression *ProcessingJobRedshiftDatasetDefinitionOutputCompression `pulumi:"outputCompression"`
+	// The data storage format for Redshift query results.
+	OutputFormat ProcessingJobRedshiftDatasetDefinitionOutputFormat `pulumi:"outputFormat"`
+	// The location in Amazon S3 where the Redshift query results are stored.
+	OutputS3Uri string `pulumi:"outputS3Uri"`
+	// The SQL query statements to be executed.
+	QueryString string `pulumi:"queryString"`
+}
+
+// ProcessingJobRedshiftDatasetDefinitionInput is an input type that accepts ProcessingJobRedshiftDatasetDefinitionArgs and ProcessingJobRedshiftDatasetDefinitionOutput values.
+// You can construct a concrete instance of `ProcessingJobRedshiftDatasetDefinitionInput` via:
+//
+//	ProcessingJobRedshiftDatasetDefinitionArgs{...}
+type ProcessingJobRedshiftDatasetDefinitionInput interface {
+	pulumi.Input
+
+	ToProcessingJobRedshiftDatasetDefinitionOutput() ProcessingJobRedshiftDatasetDefinitionOutput
+	ToProcessingJobRedshiftDatasetDefinitionOutputWithContext(context.Context) ProcessingJobRedshiftDatasetDefinitionOutput
+}
+
+// Configuration for Redshift Dataset Definition input.
+type ProcessingJobRedshiftDatasetDefinitionArgs struct {
+	// The Redshift cluster Identifier.
+	ClusterId pulumi.StringInput `pulumi:"clusterId"`
+	// The IAM role attached to your Redshift cluster that Amazon SageMaker uses to generate datasets.
+	ClusterRoleArn pulumi.StringInput `pulumi:"clusterRoleArn"`
+	// The name of the Redshift database used in Redshift query execution.
+	Database pulumi.StringInput `pulumi:"database"`
+	// The database user name used in Redshift query execution.
+	DbUser pulumi.StringInput `pulumi:"dbUser"`
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data from a Redshift execution.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The compression used for Redshift query results.
+	OutputCompression ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrInput `pulumi:"outputCompression"`
+	// The data storage format for Redshift query results.
+	OutputFormat ProcessingJobRedshiftDatasetDefinitionOutputFormatInput `pulumi:"outputFormat"`
+	// The location in Amazon S3 where the Redshift query results are stored.
+	OutputS3Uri pulumi.StringInput `pulumi:"outputS3Uri"`
+	// The SQL query statements to be executed.
+	QueryString pulumi.StringInput `pulumi:"queryString"`
+}
+
+func (ProcessingJobRedshiftDatasetDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobRedshiftDatasetDefinition)(nil)).Elem()
+}
+
+func (i ProcessingJobRedshiftDatasetDefinitionArgs) ToProcessingJobRedshiftDatasetDefinitionOutput() ProcessingJobRedshiftDatasetDefinitionOutput {
+	return i.ToProcessingJobRedshiftDatasetDefinitionOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobRedshiftDatasetDefinitionArgs) ToProcessingJobRedshiftDatasetDefinitionOutputWithContext(ctx context.Context) ProcessingJobRedshiftDatasetDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobRedshiftDatasetDefinitionOutput)
+}
+
+func (i ProcessingJobRedshiftDatasetDefinitionArgs) ToProcessingJobRedshiftDatasetDefinitionPtrOutput() ProcessingJobRedshiftDatasetDefinitionPtrOutput {
+	return i.ToProcessingJobRedshiftDatasetDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobRedshiftDatasetDefinitionArgs) ToProcessingJobRedshiftDatasetDefinitionPtrOutputWithContext(ctx context.Context) ProcessingJobRedshiftDatasetDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobRedshiftDatasetDefinitionOutput).ToProcessingJobRedshiftDatasetDefinitionPtrOutputWithContext(ctx)
+}
+
+// ProcessingJobRedshiftDatasetDefinitionPtrInput is an input type that accepts ProcessingJobRedshiftDatasetDefinitionArgs, ProcessingJobRedshiftDatasetDefinitionPtr and ProcessingJobRedshiftDatasetDefinitionPtrOutput values.
+// You can construct a concrete instance of `ProcessingJobRedshiftDatasetDefinitionPtrInput` via:
+//
+//	        ProcessingJobRedshiftDatasetDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProcessingJobRedshiftDatasetDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobRedshiftDatasetDefinitionPtrOutput() ProcessingJobRedshiftDatasetDefinitionPtrOutput
+	ToProcessingJobRedshiftDatasetDefinitionPtrOutputWithContext(context.Context) ProcessingJobRedshiftDatasetDefinitionPtrOutput
+}
+
+type processingJobRedshiftDatasetDefinitionPtrType ProcessingJobRedshiftDatasetDefinitionArgs
+
+func ProcessingJobRedshiftDatasetDefinitionPtr(v *ProcessingJobRedshiftDatasetDefinitionArgs) ProcessingJobRedshiftDatasetDefinitionPtrInput {
+	return (*processingJobRedshiftDatasetDefinitionPtrType)(v)
+}
+
+func (*processingJobRedshiftDatasetDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobRedshiftDatasetDefinition)(nil)).Elem()
+}
+
+func (i *processingJobRedshiftDatasetDefinitionPtrType) ToProcessingJobRedshiftDatasetDefinitionPtrOutput() ProcessingJobRedshiftDatasetDefinitionPtrOutput {
+	return i.ToProcessingJobRedshiftDatasetDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *processingJobRedshiftDatasetDefinitionPtrType) ToProcessingJobRedshiftDatasetDefinitionPtrOutputWithContext(ctx context.Context) ProcessingJobRedshiftDatasetDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobRedshiftDatasetDefinitionPtrOutput)
+}
+
+// Configuration for Redshift Dataset Definition input.
+type ProcessingJobRedshiftDatasetDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobRedshiftDatasetDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobRedshiftDatasetDefinition)(nil)).Elem()
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutput) ToProcessingJobRedshiftDatasetDefinitionOutput() ProcessingJobRedshiftDatasetDefinitionOutput {
+	return o
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutput) ToProcessingJobRedshiftDatasetDefinitionOutputWithContext(ctx context.Context) ProcessingJobRedshiftDatasetDefinitionOutput {
+	return o
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutput) ToProcessingJobRedshiftDatasetDefinitionPtrOutput() ProcessingJobRedshiftDatasetDefinitionPtrOutput {
+	return o.ToProcessingJobRedshiftDatasetDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionOutput) ToProcessingJobRedshiftDatasetDefinitionPtrOutputWithContext(ctx context.Context) ProcessingJobRedshiftDatasetDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobRedshiftDatasetDefinition) *ProcessingJobRedshiftDatasetDefinition {
+		return &v
+	}).(ProcessingJobRedshiftDatasetDefinitionPtrOutput)
+}
+
+// The Redshift cluster Identifier.
+func (o ProcessingJobRedshiftDatasetDefinitionOutput) ClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessingJobRedshiftDatasetDefinition) string { return v.ClusterId }).(pulumi.StringOutput)
+}
+
+// The IAM role attached to your Redshift cluster that Amazon SageMaker uses to generate datasets.
+func (o ProcessingJobRedshiftDatasetDefinitionOutput) ClusterRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessingJobRedshiftDatasetDefinition) string { return v.ClusterRoleArn }).(pulumi.StringOutput)
+}
+
+// The name of the Redshift database used in Redshift query execution.
+func (o ProcessingJobRedshiftDatasetDefinitionOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessingJobRedshiftDatasetDefinition) string { return v.Database }).(pulumi.StringOutput)
+}
+
+// The database user name used in Redshift query execution.
+func (o ProcessingJobRedshiftDatasetDefinitionOutput) DbUser() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessingJobRedshiftDatasetDefinition) string { return v.DbUser }).(pulumi.StringOutput)
+}
+
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data from a Redshift execution.
+func (o ProcessingJobRedshiftDatasetDefinitionOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcessingJobRedshiftDatasetDefinition) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The compression used for Redshift query results.
+func (o ProcessingJobRedshiftDatasetDefinitionOutput) OutputCompression() ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput {
+	return o.ApplyT(func(v ProcessingJobRedshiftDatasetDefinition) *ProcessingJobRedshiftDatasetDefinitionOutputCompression {
+		return v.OutputCompression
+	}).(ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput)
+}
+
+// The data storage format for Redshift query results.
+func (o ProcessingJobRedshiftDatasetDefinitionOutput) OutputFormat() ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput {
+	return o.ApplyT(func(v ProcessingJobRedshiftDatasetDefinition) ProcessingJobRedshiftDatasetDefinitionOutputFormat {
+		return v.OutputFormat
+	}).(ProcessingJobRedshiftDatasetDefinitionOutputFormatOutput)
+}
+
+// The location in Amazon S3 where the Redshift query results are stored.
+func (o ProcessingJobRedshiftDatasetDefinitionOutput) OutputS3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessingJobRedshiftDatasetDefinition) string { return v.OutputS3Uri }).(pulumi.StringOutput)
+}
+
+// The SQL query statements to be executed.
+func (o ProcessingJobRedshiftDatasetDefinitionOutput) QueryString() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessingJobRedshiftDatasetDefinition) string { return v.QueryString }).(pulumi.StringOutput)
+}
+
+type ProcessingJobRedshiftDatasetDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobRedshiftDatasetDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobRedshiftDatasetDefinition)(nil)).Elem()
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionPtrOutput) ToProcessingJobRedshiftDatasetDefinitionPtrOutput() ProcessingJobRedshiftDatasetDefinitionPtrOutput {
+	return o
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionPtrOutput) ToProcessingJobRedshiftDatasetDefinitionPtrOutputWithContext(ctx context.Context) ProcessingJobRedshiftDatasetDefinitionPtrOutput {
+	return o
+}
+
+func (o ProcessingJobRedshiftDatasetDefinitionPtrOutput) Elem() ProcessingJobRedshiftDatasetDefinitionOutput {
+	return o.ApplyT(func(v *ProcessingJobRedshiftDatasetDefinition) ProcessingJobRedshiftDatasetDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobRedshiftDatasetDefinition
+		return ret
+	}).(ProcessingJobRedshiftDatasetDefinitionOutput)
+}
+
+// The Redshift cluster Identifier.
+func (o ProcessingJobRedshiftDatasetDefinitionPtrOutput) ClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobRedshiftDatasetDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IAM role attached to your Redshift cluster that Amazon SageMaker uses to generate datasets.
+func (o ProcessingJobRedshiftDatasetDefinitionPtrOutput) ClusterRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobRedshiftDatasetDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Redshift database used in Redshift query execution.
+func (o ProcessingJobRedshiftDatasetDefinitionPtrOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobRedshiftDatasetDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+// The database user name used in Redshift query execution.
+func (o ProcessingJobRedshiftDatasetDefinitionPtrOutput) DbUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobRedshiftDatasetDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DbUser
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data from a Redshift execution.
+func (o ProcessingJobRedshiftDatasetDefinitionPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobRedshiftDatasetDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The compression used for Redshift query results.
+func (o ProcessingJobRedshiftDatasetDefinitionPtrOutput) OutputCompression() ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobRedshiftDatasetDefinition) *ProcessingJobRedshiftDatasetDefinitionOutputCompression {
+		if v == nil {
+			return nil
+		}
+		return v.OutputCompression
+	}).(ProcessingJobRedshiftDatasetDefinitionOutputCompressionPtrOutput)
+}
+
+// The data storage format for Redshift query results.
+func (o ProcessingJobRedshiftDatasetDefinitionPtrOutput) OutputFormat() ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobRedshiftDatasetDefinition) *ProcessingJobRedshiftDatasetDefinitionOutputFormat {
+		if v == nil {
+			return nil
+		}
+		return &v.OutputFormat
+	}).(ProcessingJobRedshiftDatasetDefinitionOutputFormatPtrOutput)
+}
+
+// The location in Amazon S3 where the Redshift query results are stored.
+func (o ProcessingJobRedshiftDatasetDefinitionPtrOutput) OutputS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobRedshiftDatasetDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OutputS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SQL query statements to be executed.
+func (o ProcessingJobRedshiftDatasetDefinitionPtrOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobRedshiftDatasetDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryString
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for downloading input data from Amazon S3 into the processing container.
+type ProcessingJobS3Input struct {
+	// The local path in your container where you want Amazon SageMaker to write input data to. `LocalPath` is an absolute path to the input data and must begin with `/opt/ml/processing/`. LocalPath is a required parameter when `AppManaged` is `False` (default).
+	LocalPath *string `pulumi:"localPath"`
+	// Whether to GZIP-decompress the data in Amazon S3 as it is streamed into the processing container. `Gzip` can only be used when `Pipe` mode is specified as the `S3InputMode`. In `Pipe` mode, Amazon SageMaker streams input data from the source directly to your container without using the EBS volume.
+	S3CompressionType *ProcessingJobS3InputS3CompressionType `pulumi:"s3CompressionType"`
+	// Whether to distribute the data from Amazon S3 to all processing instances with `FullyReplicated`, or whether the data from Amazon S3 is shared by Amazon S3 key, downloading one shard of data to each processing instance.
+	S3DataDistributionType *ProcessingJobS3InputS3DataDistributionType `pulumi:"s3DataDistributionType"`
+	// Whether you use an S3Prefix or a ManifestFile for the data type. If you choose S3Prefix, S3Uri identifies a key name prefix. Amazon SageMaker uses all objects with the specified key name prefix for the processing job. If you choose ManifestFile, S3Uri identifies an object that is a manifest file containing a list of object keys that you want Amazon SageMaker to use for the processing job.
+	S3DataType ProcessingJobS3InputS3DataType `pulumi:"s3DataType"`
+	// Whether to use File or Pipe input mode. In File mode, Amazon SageMaker copies the data from the input source onto the local ML storage volume before starting your processing container. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your processing container into named pipes without using the ML storage volume.
+	S3InputMode *ProcessingJobS3InputS3InputMode `pulumi:"s3InputMode"`
+	// The URI of the Amazon S3 prefix Amazon SageMaker downloads data required to run a processing job.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// ProcessingJobS3InputInput is an input type that accepts ProcessingJobS3InputArgs and ProcessingJobS3InputOutput values.
+// You can construct a concrete instance of `ProcessingJobS3InputInput` via:
+//
+//	ProcessingJobS3InputArgs{...}
+type ProcessingJobS3InputInput interface {
+	pulumi.Input
+
+	ToProcessingJobS3InputOutput() ProcessingJobS3InputOutput
+	ToProcessingJobS3InputOutputWithContext(context.Context) ProcessingJobS3InputOutput
+}
+
+// Configuration for downloading input data from Amazon S3 into the processing container.
+type ProcessingJobS3InputArgs struct {
+	// The local path in your container where you want Amazon SageMaker to write input data to. `LocalPath` is an absolute path to the input data and must begin with `/opt/ml/processing/`. LocalPath is a required parameter when `AppManaged` is `False` (default).
+	LocalPath pulumi.StringPtrInput `pulumi:"localPath"`
+	// Whether to GZIP-decompress the data in Amazon S3 as it is streamed into the processing container. `Gzip` can only be used when `Pipe` mode is specified as the `S3InputMode`. In `Pipe` mode, Amazon SageMaker streams input data from the source directly to your container without using the EBS volume.
+	S3CompressionType ProcessingJobS3InputS3CompressionTypePtrInput `pulumi:"s3CompressionType"`
+	// Whether to distribute the data from Amazon S3 to all processing instances with `FullyReplicated`, or whether the data from Amazon S3 is shared by Amazon S3 key, downloading one shard of data to each processing instance.
+	S3DataDistributionType ProcessingJobS3InputS3DataDistributionTypePtrInput `pulumi:"s3DataDistributionType"`
+	// Whether you use an S3Prefix or a ManifestFile for the data type. If you choose S3Prefix, S3Uri identifies a key name prefix. Amazon SageMaker uses all objects with the specified key name prefix for the processing job. If you choose ManifestFile, S3Uri identifies an object that is a manifest file containing a list of object keys that you want Amazon SageMaker to use for the processing job.
+	S3DataType ProcessingJobS3InputS3DataTypeInput `pulumi:"s3DataType"`
+	// Whether to use File or Pipe input mode. In File mode, Amazon SageMaker copies the data from the input source onto the local ML storage volume before starting your processing container. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your processing container into named pipes without using the ML storage volume.
+	S3InputMode ProcessingJobS3InputS3InputModePtrInput `pulumi:"s3InputMode"`
+	// The URI of the Amazon S3 prefix Amazon SageMaker downloads data required to run a processing job.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (ProcessingJobS3InputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobS3Input)(nil)).Elem()
+}
+
+func (i ProcessingJobS3InputArgs) ToProcessingJobS3InputOutput() ProcessingJobS3InputOutput {
+	return i.ToProcessingJobS3InputOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobS3InputArgs) ToProcessingJobS3InputOutputWithContext(ctx context.Context) ProcessingJobS3InputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobS3InputOutput)
+}
+
+func (i ProcessingJobS3InputArgs) ToProcessingJobS3InputPtrOutput() ProcessingJobS3InputPtrOutput {
+	return i.ToProcessingJobS3InputPtrOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobS3InputArgs) ToProcessingJobS3InputPtrOutputWithContext(ctx context.Context) ProcessingJobS3InputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobS3InputOutput).ToProcessingJobS3InputPtrOutputWithContext(ctx)
+}
+
+// ProcessingJobS3InputPtrInput is an input type that accepts ProcessingJobS3InputArgs, ProcessingJobS3InputPtr and ProcessingJobS3InputPtrOutput values.
+// You can construct a concrete instance of `ProcessingJobS3InputPtrInput` via:
+//
+//	        ProcessingJobS3InputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProcessingJobS3InputPtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobS3InputPtrOutput() ProcessingJobS3InputPtrOutput
+	ToProcessingJobS3InputPtrOutputWithContext(context.Context) ProcessingJobS3InputPtrOutput
+}
+
+type processingJobS3InputPtrType ProcessingJobS3InputArgs
+
+func ProcessingJobS3InputPtr(v *ProcessingJobS3InputArgs) ProcessingJobS3InputPtrInput {
+	return (*processingJobS3InputPtrType)(v)
+}
+
+func (*processingJobS3InputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobS3Input)(nil)).Elem()
+}
+
+func (i *processingJobS3InputPtrType) ToProcessingJobS3InputPtrOutput() ProcessingJobS3InputPtrOutput {
+	return i.ToProcessingJobS3InputPtrOutputWithContext(context.Background())
+}
+
+func (i *processingJobS3InputPtrType) ToProcessingJobS3InputPtrOutputWithContext(ctx context.Context) ProcessingJobS3InputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobS3InputPtrOutput)
+}
+
+// Configuration for downloading input data from Amazon S3 into the processing container.
+type ProcessingJobS3InputOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobS3InputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobS3Input)(nil)).Elem()
+}
+
+func (o ProcessingJobS3InputOutput) ToProcessingJobS3InputOutput() ProcessingJobS3InputOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputOutput) ToProcessingJobS3InputOutputWithContext(ctx context.Context) ProcessingJobS3InputOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputOutput) ToProcessingJobS3InputPtrOutput() ProcessingJobS3InputPtrOutput {
+	return o.ToProcessingJobS3InputPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3InputOutput) ToProcessingJobS3InputPtrOutputWithContext(ctx context.Context) ProcessingJobS3InputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobS3Input) *ProcessingJobS3Input {
+		return &v
+	}).(ProcessingJobS3InputPtrOutput)
+}
+
+// The local path in your container where you want Amazon SageMaker to write input data to. `LocalPath` is an absolute path to the input data and must begin with `/opt/ml/processing/`. LocalPath is a required parameter when `AppManaged` is `False` (default).
+func (o ProcessingJobS3InputOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcessingJobS3Input) *string { return v.LocalPath }).(pulumi.StringPtrOutput)
+}
+
+// Whether to GZIP-decompress the data in Amazon S3 as it is streamed into the processing container. `Gzip` can only be used when `Pipe` mode is specified as the `S3InputMode`. In `Pipe` mode, Amazon SageMaker streams input data from the source directly to your container without using the EBS volume.
+func (o ProcessingJobS3InputOutput) S3CompressionType() ProcessingJobS3InputS3CompressionTypePtrOutput {
+	return o.ApplyT(func(v ProcessingJobS3Input) *ProcessingJobS3InputS3CompressionType { return v.S3CompressionType }).(ProcessingJobS3InputS3CompressionTypePtrOutput)
+}
+
+// Whether to distribute the data from Amazon S3 to all processing instances with `FullyReplicated`, or whether the data from Amazon S3 is shared by Amazon S3 key, downloading one shard of data to each processing instance.
+func (o ProcessingJobS3InputOutput) S3DataDistributionType() ProcessingJobS3InputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v ProcessingJobS3Input) *ProcessingJobS3InputS3DataDistributionType {
+		return v.S3DataDistributionType
+	}).(ProcessingJobS3InputS3DataDistributionTypePtrOutput)
+}
+
+// Whether you use an S3Prefix or a ManifestFile for the data type. If you choose S3Prefix, S3Uri identifies a key name prefix. Amazon SageMaker uses all objects with the specified key name prefix for the processing job. If you choose ManifestFile, S3Uri identifies an object that is a manifest file containing a list of object keys that you want Amazon SageMaker to use for the processing job.
+func (o ProcessingJobS3InputOutput) S3DataType() ProcessingJobS3InputS3DataTypeOutput {
+	return o.ApplyT(func(v ProcessingJobS3Input) ProcessingJobS3InputS3DataType { return v.S3DataType }).(ProcessingJobS3InputS3DataTypeOutput)
+}
+
+// Whether to use File or Pipe input mode. In File mode, Amazon SageMaker copies the data from the input source onto the local ML storage volume before starting your processing container. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your processing container into named pipes without using the ML storage volume.
+func (o ProcessingJobS3InputOutput) S3InputMode() ProcessingJobS3InputS3InputModePtrOutput {
+	return o.ApplyT(func(v ProcessingJobS3Input) *ProcessingJobS3InputS3InputMode { return v.S3InputMode }).(ProcessingJobS3InputS3InputModePtrOutput)
+}
+
+// The URI of the Amazon S3 prefix Amazon SageMaker downloads data required to run a processing job.
+func (o ProcessingJobS3InputOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessingJobS3Input) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type ProcessingJobS3InputPtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobS3InputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobS3Input)(nil)).Elem()
+}
+
+func (o ProcessingJobS3InputPtrOutput) ToProcessingJobS3InputPtrOutput() ProcessingJobS3InputPtrOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputPtrOutput) ToProcessingJobS3InputPtrOutputWithContext(ctx context.Context) ProcessingJobS3InputPtrOutput {
+	return o
+}
+
+func (o ProcessingJobS3InputPtrOutput) Elem() ProcessingJobS3InputOutput {
+	return o.ApplyT(func(v *ProcessingJobS3Input) ProcessingJobS3Input {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobS3Input
+		return ret
+	}).(ProcessingJobS3InputOutput)
+}
+
+// The local path in your container where you want Amazon SageMaker to write input data to. `LocalPath` is an absolute path to the input data and must begin with `/opt/ml/processing/`. LocalPath is a required parameter when `AppManaged` is `False` (default).
+func (o ProcessingJobS3InputPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobS3Input) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to GZIP-decompress the data in Amazon S3 as it is streamed into the processing container. `Gzip` can only be used when `Pipe` mode is specified as the `S3InputMode`. In `Pipe` mode, Amazon SageMaker streams input data from the source directly to your container without using the EBS volume.
+func (o ProcessingJobS3InputPtrOutput) S3CompressionType() ProcessingJobS3InputS3CompressionTypePtrOutput {
+	return o.ApplyT(func(v *ProcessingJobS3Input) *ProcessingJobS3InputS3CompressionType {
+		if v == nil {
+			return nil
+		}
+		return v.S3CompressionType
+	}).(ProcessingJobS3InputS3CompressionTypePtrOutput)
+}
+
+// Whether to distribute the data from Amazon S3 to all processing instances with `FullyReplicated`, or whether the data from Amazon S3 is shared by Amazon S3 key, downloading one shard of data to each processing instance.
+func (o ProcessingJobS3InputPtrOutput) S3DataDistributionType() ProcessingJobS3InputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v *ProcessingJobS3Input) *ProcessingJobS3InputS3DataDistributionType {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataDistributionType
+	}).(ProcessingJobS3InputS3DataDistributionTypePtrOutput)
+}
+
+// Whether you use an S3Prefix or a ManifestFile for the data type. If you choose S3Prefix, S3Uri identifies a key name prefix. Amazon SageMaker uses all objects with the specified key name prefix for the processing job. If you choose ManifestFile, S3Uri identifies an object that is a manifest file containing a list of object keys that you want Amazon SageMaker to use for the processing job.
+func (o ProcessingJobS3InputPtrOutput) S3DataType() ProcessingJobS3InputS3DataTypePtrOutput {
+	return o.ApplyT(func(v *ProcessingJobS3Input) *ProcessingJobS3InputS3DataType {
+		if v == nil {
+			return nil
+		}
+		return &v.S3DataType
+	}).(ProcessingJobS3InputS3DataTypePtrOutput)
+}
+
+// Whether to use File or Pipe input mode. In File mode, Amazon SageMaker copies the data from the input source onto the local ML storage volume before starting your processing container. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your processing container into named pipes without using the ML storage volume.
+func (o ProcessingJobS3InputPtrOutput) S3InputMode() ProcessingJobS3InputS3InputModePtrOutput {
+	return o.ApplyT(func(v *ProcessingJobS3Input) *ProcessingJobS3InputS3InputMode {
+		if v == nil {
+			return nil
+		}
+		return v.S3InputMode
+	}).(ProcessingJobS3InputS3InputModePtrOutput)
+}
+
+// The URI of the Amazon S3 prefix Amazon SageMaker downloads data required to run a processing job.
+func (o ProcessingJobS3InputPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobS3Input) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for uploading output data to Amazon S3 from the processing container.
+type ProcessingJobS3Output struct {
+	// The local path of a directory where you want Amazon SageMaker to upload its contents to Amazon S3. LocalPath is an absolute path to a directory containing output files. This directory will be created by the platform and exist when your container's entrypoint is invoked.
+	LocalPath *string `pulumi:"localPath"`
+	// Whether to upload the results of the processing job continuously or after the job completes.
+	S3UploadMode ProcessingJobS3OutputS3UploadMode `pulumi:"s3UploadMode"`
+	// A URI that identifies the Amazon S3 bucket where you want Amazon SageMaker to save the results of a processing job.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// ProcessingJobS3OutputInput is an input type that accepts ProcessingJobS3OutputArgs and ProcessingJobS3OutputOutput values.
+// You can construct a concrete instance of `ProcessingJobS3OutputInput` via:
+//
+//	ProcessingJobS3OutputArgs{...}
+type ProcessingJobS3OutputInput interface {
+	pulumi.Input
+
+	ToProcessingJobS3OutputOutput() ProcessingJobS3OutputOutput
+	ToProcessingJobS3OutputOutputWithContext(context.Context) ProcessingJobS3OutputOutput
+}
+
+// Configuration for uploading output data to Amazon S3 from the processing container.
+type ProcessingJobS3OutputArgs struct {
+	// The local path of a directory where you want Amazon SageMaker to upload its contents to Amazon S3. LocalPath is an absolute path to a directory containing output files. This directory will be created by the platform and exist when your container's entrypoint is invoked.
+	LocalPath pulumi.StringPtrInput `pulumi:"localPath"`
+	// Whether to upload the results of the processing job continuously or after the job completes.
+	S3UploadMode ProcessingJobS3OutputS3UploadModeInput `pulumi:"s3UploadMode"`
+	// A URI that identifies the Amazon S3 bucket where you want Amazon SageMaker to save the results of a processing job.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (ProcessingJobS3OutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobS3Output)(nil)).Elem()
+}
+
+func (i ProcessingJobS3OutputArgs) ToProcessingJobS3OutputOutput() ProcessingJobS3OutputOutput {
+	return i.ToProcessingJobS3OutputOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobS3OutputArgs) ToProcessingJobS3OutputOutputWithContext(ctx context.Context) ProcessingJobS3OutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobS3OutputOutput)
+}
+
+func (i ProcessingJobS3OutputArgs) ToProcessingJobS3OutputPtrOutput() ProcessingJobS3OutputPtrOutput {
+	return i.ToProcessingJobS3OutputPtrOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobS3OutputArgs) ToProcessingJobS3OutputPtrOutputWithContext(ctx context.Context) ProcessingJobS3OutputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobS3OutputOutput).ToProcessingJobS3OutputPtrOutputWithContext(ctx)
+}
+
+// ProcessingJobS3OutputPtrInput is an input type that accepts ProcessingJobS3OutputArgs, ProcessingJobS3OutputPtr and ProcessingJobS3OutputPtrOutput values.
+// You can construct a concrete instance of `ProcessingJobS3OutputPtrInput` via:
+//
+//	        ProcessingJobS3OutputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProcessingJobS3OutputPtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobS3OutputPtrOutput() ProcessingJobS3OutputPtrOutput
+	ToProcessingJobS3OutputPtrOutputWithContext(context.Context) ProcessingJobS3OutputPtrOutput
+}
+
+type processingJobS3OutputPtrType ProcessingJobS3OutputArgs
+
+func ProcessingJobS3OutputPtr(v *ProcessingJobS3OutputArgs) ProcessingJobS3OutputPtrInput {
+	return (*processingJobS3OutputPtrType)(v)
+}
+
+func (*processingJobS3OutputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobS3Output)(nil)).Elem()
+}
+
+func (i *processingJobS3OutputPtrType) ToProcessingJobS3OutputPtrOutput() ProcessingJobS3OutputPtrOutput {
+	return i.ToProcessingJobS3OutputPtrOutputWithContext(context.Background())
+}
+
+func (i *processingJobS3OutputPtrType) ToProcessingJobS3OutputPtrOutputWithContext(ctx context.Context) ProcessingJobS3OutputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobS3OutputPtrOutput)
+}
+
+// Configuration for uploading output data to Amazon S3 from the processing container.
+type ProcessingJobS3OutputOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobS3OutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobS3Output)(nil)).Elem()
+}
+
+func (o ProcessingJobS3OutputOutput) ToProcessingJobS3OutputOutput() ProcessingJobS3OutputOutput {
+	return o
+}
+
+func (o ProcessingJobS3OutputOutput) ToProcessingJobS3OutputOutputWithContext(ctx context.Context) ProcessingJobS3OutputOutput {
+	return o
+}
+
+func (o ProcessingJobS3OutputOutput) ToProcessingJobS3OutputPtrOutput() ProcessingJobS3OutputPtrOutput {
+	return o.ToProcessingJobS3OutputPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobS3OutputOutput) ToProcessingJobS3OutputPtrOutputWithContext(ctx context.Context) ProcessingJobS3OutputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobS3Output) *ProcessingJobS3Output {
+		return &v
+	}).(ProcessingJobS3OutputPtrOutput)
+}
+
+// The local path of a directory where you want Amazon SageMaker to upload its contents to Amazon S3. LocalPath is an absolute path to a directory containing output files. This directory will be created by the platform and exist when your container's entrypoint is invoked.
+func (o ProcessingJobS3OutputOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcessingJobS3Output) *string { return v.LocalPath }).(pulumi.StringPtrOutput)
+}
+
+// Whether to upload the results of the processing job continuously or after the job completes.
+func (o ProcessingJobS3OutputOutput) S3UploadMode() ProcessingJobS3OutputS3UploadModeOutput {
+	return o.ApplyT(func(v ProcessingJobS3Output) ProcessingJobS3OutputS3UploadMode { return v.S3UploadMode }).(ProcessingJobS3OutputS3UploadModeOutput)
+}
+
+// A URI that identifies the Amazon S3 bucket where you want Amazon SageMaker to save the results of a processing job.
+func (o ProcessingJobS3OutputOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ProcessingJobS3Output) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type ProcessingJobS3OutputPtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobS3OutputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobS3Output)(nil)).Elem()
+}
+
+func (o ProcessingJobS3OutputPtrOutput) ToProcessingJobS3OutputPtrOutput() ProcessingJobS3OutputPtrOutput {
+	return o
+}
+
+func (o ProcessingJobS3OutputPtrOutput) ToProcessingJobS3OutputPtrOutputWithContext(ctx context.Context) ProcessingJobS3OutputPtrOutput {
+	return o
+}
+
+func (o ProcessingJobS3OutputPtrOutput) Elem() ProcessingJobS3OutputOutput {
+	return o.ApplyT(func(v *ProcessingJobS3Output) ProcessingJobS3Output {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobS3Output
+		return ret
+	}).(ProcessingJobS3OutputOutput)
+}
+
+// The local path of a directory where you want Amazon SageMaker to upload its contents to Amazon S3. LocalPath is an absolute path to a directory containing output files. This directory will be created by the platform and exist when your container's entrypoint is invoked.
+func (o ProcessingJobS3OutputPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobS3Output) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to upload the results of the processing job continuously or after the job completes.
+func (o ProcessingJobS3OutputPtrOutput) S3UploadMode() ProcessingJobS3OutputS3UploadModePtrOutput {
+	return o.ApplyT(func(v *ProcessingJobS3Output) *ProcessingJobS3OutputS3UploadMode {
+		if v == nil {
+			return nil
+		}
+		return &v.S3UploadMode
+	}).(ProcessingJobS3OutputS3UploadModePtrOutput)
+}
+
+// A URI that identifies the Amazon S3 bucket where you want Amazon SageMaker to save the results of a processing job.
+func (o ProcessingJobS3OutputPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobS3Output) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configures conditions under which the processing job should be stopped, such as how long the processing job has been running. After the condition is met, the processing job is stopped.
+type ProcessingJobStoppingCondition struct {
+	// Specifies the maximum runtime in seconds.
+	MaxRuntimeInSeconds int `pulumi:"maxRuntimeInSeconds"`
+}
+
+// ProcessingJobStoppingConditionInput is an input type that accepts ProcessingJobStoppingConditionArgs and ProcessingJobStoppingConditionOutput values.
+// You can construct a concrete instance of `ProcessingJobStoppingConditionInput` via:
+//
+//	ProcessingJobStoppingConditionArgs{...}
+type ProcessingJobStoppingConditionInput interface {
+	pulumi.Input
+
+	ToProcessingJobStoppingConditionOutput() ProcessingJobStoppingConditionOutput
+	ToProcessingJobStoppingConditionOutputWithContext(context.Context) ProcessingJobStoppingConditionOutput
+}
+
+// Configures conditions under which the processing job should be stopped, such as how long the processing job has been running. After the condition is met, the processing job is stopped.
+type ProcessingJobStoppingConditionArgs struct {
+	// Specifies the maximum runtime in seconds.
+	MaxRuntimeInSeconds pulumi.IntInput `pulumi:"maxRuntimeInSeconds"`
+}
+
+func (ProcessingJobStoppingConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobStoppingCondition)(nil)).Elem()
+}
+
+func (i ProcessingJobStoppingConditionArgs) ToProcessingJobStoppingConditionOutput() ProcessingJobStoppingConditionOutput {
+	return i.ToProcessingJobStoppingConditionOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobStoppingConditionArgs) ToProcessingJobStoppingConditionOutputWithContext(ctx context.Context) ProcessingJobStoppingConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobStoppingConditionOutput)
+}
+
+func (i ProcessingJobStoppingConditionArgs) ToProcessingJobStoppingConditionPtrOutput() ProcessingJobStoppingConditionPtrOutput {
+	return i.ToProcessingJobStoppingConditionPtrOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobStoppingConditionArgs) ToProcessingJobStoppingConditionPtrOutputWithContext(ctx context.Context) ProcessingJobStoppingConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobStoppingConditionOutput).ToProcessingJobStoppingConditionPtrOutputWithContext(ctx)
+}
+
+// ProcessingJobStoppingConditionPtrInput is an input type that accepts ProcessingJobStoppingConditionArgs, ProcessingJobStoppingConditionPtr and ProcessingJobStoppingConditionPtrOutput values.
+// You can construct a concrete instance of `ProcessingJobStoppingConditionPtrInput` via:
+//
+//	        ProcessingJobStoppingConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProcessingJobStoppingConditionPtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobStoppingConditionPtrOutput() ProcessingJobStoppingConditionPtrOutput
+	ToProcessingJobStoppingConditionPtrOutputWithContext(context.Context) ProcessingJobStoppingConditionPtrOutput
+}
+
+type processingJobStoppingConditionPtrType ProcessingJobStoppingConditionArgs
+
+func ProcessingJobStoppingConditionPtr(v *ProcessingJobStoppingConditionArgs) ProcessingJobStoppingConditionPtrInput {
+	return (*processingJobStoppingConditionPtrType)(v)
+}
+
+func (*processingJobStoppingConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobStoppingCondition)(nil)).Elem()
+}
+
+func (i *processingJobStoppingConditionPtrType) ToProcessingJobStoppingConditionPtrOutput() ProcessingJobStoppingConditionPtrOutput {
+	return i.ToProcessingJobStoppingConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *processingJobStoppingConditionPtrType) ToProcessingJobStoppingConditionPtrOutputWithContext(ctx context.Context) ProcessingJobStoppingConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobStoppingConditionPtrOutput)
+}
+
+// Configures conditions under which the processing job should be stopped, such as how long the processing job has been running. After the condition is met, the processing job is stopped.
+type ProcessingJobStoppingConditionOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobStoppingConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobStoppingCondition)(nil)).Elem()
+}
+
+func (o ProcessingJobStoppingConditionOutput) ToProcessingJobStoppingConditionOutput() ProcessingJobStoppingConditionOutput {
+	return o
+}
+
+func (o ProcessingJobStoppingConditionOutput) ToProcessingJobStoppingConditionOutputWithContext(ctx context.Context) ProcessingJobStoppingConditionOutput {
+	return o
+}
+
+func (o ProcessingJobStoppingConditionOutput) ToProcessingJobStoppingConditionPtrOutput() ProcessingJobStoppingConditionPtrOutput {
+	return o.ToProcessingJobStoppingConditionPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobStoppingConditionOutput) ToProcessingJobStoppingConditionPtrOutputWithContext(ctx context.Context) ProcessingJobStoppingConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobStoppingCondition) *ProcessingJobStoppingCondition {
+		return &v
+	}).(ProcessingJobStoppingConditionPtrOutput)
+}
+
+// Specifies the maximum runtime in seconds.
+func (o ProcessingJobStoppingConditionOutput) MaxRuntimeInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v ProcessingJobStoppingCondition) int { return v.MaxRuntimeInSeconds }).(pulumi.IntOutput)
+}
+
+type ProcessingJobStoppingConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobStoppingConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobStoppingCondition)(nil)).Elem()
+}
+
+func (o ProcessingJobStoppingConditionPtrOutput) ToProcessingJobStoppingConditionPtrOutput() ProcessingJobStoppingConditionPtrOutput {
+	return o
+}
+
+func (o ProcessingJobStoppingConditionPtrOutput) ToProcessingJobStoppingConditionPtrOutputWithContext(ctx context.Context) ProcessingJobStoppingConditionPtrOutput {
+	return o
+}
+
+func (o ProcessingJobStoppingConditionPtrOutput) Elem() ProcessingJobStoppingConditionOutput {
+	return o.ApplyT(func(v *ProcessingJobStoppingCondition) ProcessingJobStoppingCondition {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobStoppingCondition
+		return ret
+	}).(ProcessingJobStoppingConditionOutput)
+}
+
+// Specifies the maximum runtime in seconds.
+func (o ProcessingJobStoppingConditionPtrOutput) MaxRuntimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProcessingJobStoppingCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxRuntimeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// A tag object that consists of a key and an optional value, used to manage metadata for SageMaker AWS resources.
+// You can add tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and endpoints. For more information on adding tags to SageMaker resources, see AddTags(https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html).
+// For more information on adding metadata to your AWS resources with tagging, see Tagging AWS resources(https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html). For advice on best practices for managing AWS resources with tagging, see Tagging Best Practices: Implement an Effective AWS Resource Tagging Strategy(https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf).
+type ProcessingJobTag struct {
+	// The tag key. Tag keys must be unique per resource.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
+// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html
+type ProcessingJobVpcConfig struct {
+	// The VPC security group IDs, in the form 'sg-xxxxxxxx'. Specify the security groups for the VPC that is specified in the 'Subnets' field.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see https://docs.aws.amazon.com/sagemaker/latest/dg/regions-quotas.html
+	Subnets []string `pulumi:"subnets"`
+}
+
+// ProcessingJobVpcConfigInput is an input type that accepts ProcessingJobVpcConfigArgs and ProcessingJobVpcConfigOutput values.
+// You can construct a concrete instance of `ProcessingJobVpcConfigInput` via:
+//
+//	ProcessingJobVpcConfigArgs{...}
+type ProcessingJobVpcConfigInput interface {
+	pulumi.Input
+
+	ToProcessingJobVpcConfigOutput() ProcessingJobVpcConfigOutput
+	ToProcessingJobVpcConfigOutputWithContext(context.Context) ProcessingJobVpcConfigOutput
+}
+
+// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html
+type ProcessingJobVpcConfigArgs struct {
+	// The VPC security group IDs, in the form 'sg-xxxxxxxx'. Specify the security groups for the VPC that is specified in the 'Subnets' field.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see https://docs.aws.amazon.com/sagemaker/latest/dg/regions-quotas.html
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (ProcessingJobVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobVpcConfig)(nil)).Elem()
+}
+
+func (i ProcessingJobVpcConfigArgs) ToProcessingJobVpcConfigOutput() ProcessingJobVpcConfigOutput {
+	return i.ToProcessingJobVpcConfigOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobVpcConfigArgs) ToProcessingJobVpcConfigOutputWithContext(ctx context.Context) ProcessingJobVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobVpcConfigOutput)
+}
+
+func (i ProcessingJobVpcConfigArgs) ToProcessingJobVpcConfigPtrOutput() ProcessingJobVpcConfigPtrOutput {
+	return i.ToProcessingJobVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProcessingJobVpcConfigArgs) ToProcessingJobVpcConfigPtrOutputWithContext(ctx context.Context) ProcessingJobVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobVpcConfigOutput).ToProcessingJobVpcConfigPtrOutputWithContext(ctx)
+}
+
+// ProcessingJobVpcConfigPtrInput is an input type that accepts ProcessingJobVpcConfigArgs, ProcessingJobVpcConfigPtr and ProcessingJobVpcConfigPtrOutput values.
+// You can construct a concrete instance of `ProcessingJobVpcConfigPtrInput` via:
+//
+//	        ProcessingJobVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProcessingJobVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToProcessingJobVpcConfigPtrOutput() ProcessingJobVpcConfigPtrOutput
+	ToProcessingJobVpcConfigPtrOutputWithContext(context.Context) ProcessingJobVpcConfigPtrOutput
+}
+
+type processingJobVpcConfigPtrType ProcessingJobVpcConfigArgs
+
+func ProcessingJobVpcConfigPtr(v *ProcessingJobVpcConfigArgs) ProcessingJobVpcConfigPtrInput {
+	return (*processingJobVpcConfigPtrType)(v)
+}
+
+func (*processingJobVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobVpcConfig)(nil)).Elem()
+}
+
+func (i *processingJobVpcConfigPtrType) ToProcessingJobVpcConfigPtrOutput() ProcessingJobVpcConfigPtrOutput {
+	return i.ToProcessingJobVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *processingJobVpcConfigPtrType) ToProcessingJobVpcConfigPtrOutputWithContext(ctx context.Context) ProcessingJobVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcessingJobVpcConfigPtrOutput)
+}
+
+// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html
+type ProcessingJobVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcessingJobVpcConfig)(nil)).Elem()
+}
+
+func (o ProcessingJobVpcConfigOutput) ToProcessingJobVpcConfigOutput() ProcessingJobVpcConfigOutput {
+	return o
+}
+
+func (o ProcessingJobVpcConfigOutput) ToProcessingJobVpcConfigOutputWithContext(ctx context.Context) ProcessingJobVpcConfigOutput {
+	return o
+}
+
+func (o ProcessingJobVpcConfigOutput) ToProcessingJobVpcConfigPtrOutput() ProcessingJobVpcConfigPtrOutput {
+	return o.ToProcessingJobVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProcessingJobVpcConfigOutput) ToProcessingJobVpcConfigPtrOutputWithContext(ctx context.Context) ProcessingJobVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcessingJobVpcConfig) *ProcessingJobVpcConfig {
+		return &v
+	}).(ProcessingJobVpcConfigPtrOutput)
+}
+
+// The VPC security group IDs, in the form 'sg-xxxxxxxx'. Specify the security groups for the VPC that is specified in the 'Subnets' field.
+func (o ProcessingJobVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProcessingJobVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see https://docs.aws.amazon.com/sagemaker/latest/dg/regions-quotas.html
+func (o ProcessingJobVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProcessingJobVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type ProcessingJobVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProcessingJobVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcessingJobVpcConfig)(nil)).Elem()
+}
+
+func (o ProcessingJobVpcConfigPtrOutput) ToProcessingJobVpcConfigPtrOutput() ProcessingJobVpcConfigPtrOutput {
+	return o
+}
+
+func (o ProcessingJobVpcConfigPtrOutput) ToProcessingJobVpcConfigPtrOutputWithContext(ctx context.Context) ProcessingJobVpcConfigPtrOutput {
+	return o
+}
+
+func (o ProcessingJobVpcConfigPtrOutput) Elem() ProcessingJobVpcConfigOutput {
+	return o.ApplyT(func(v *ProcessingJobVpcConfig) ProcessingJobVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProcessingJobVpcConfig
+		return ret
+	}).(ProcessingJobVpcConfigOutput)
+}
+
+// The VPC security group IDs, in the form 'sg-xxxxxxxx'. Specify the security groups for the VPC that is specified in the 'Subnets' field.
+func (o ProcessingJobVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProcessingJobVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see https://docs.aws.amazon.com/sagemaker/latest/dg/regions-quotas.html
+func (o ProcessingJobVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProcessingJobVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
 type ProjectCfnStackParameter struct {
 	// The key of the parameter.
 	Key string `pulumi:"key"`
@@ -43729,6 +46891,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigKernelSpecArrayInput)(nil)).Elem(), AppImageConfigKernelSpecArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecInput)(nil)).Elem(), AppResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecPtrInput)(nil)).Elem(), AppResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEnvironmentConfigInput)(nil)).Elem(), ClusterEnvironmentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFSxLustreConfigInput)(nil)).Elem(), ClusterFSxLustreConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFSxLustreConfigPtrInput)(nil)).Elem(), ClusterFSxLustreConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceGroupInput)(nil)).Elem(), ClusterInstanceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceGroupArrayInput)(nil)).Elem(), ClusterInstanceGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceStorageConfigInput)(nil)).Elem(), ClusterInstanceStorageConfigArgs{})
@@ -43738,6 +46903,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorPtrInput)(nil)).Elem(), ClusterOrchestratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorEksConfigInput)(nil)).Elem(), ClusterOrchestratorEksConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorEksConfigPtrInput)(nil)).Elem(), ClusterOrchestratorEksConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestrictedInstanceGroupInput)(nil)).Elem(), ClusterRestrictedInstanceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestrictedInstanceGroupArrayInput)(nil)).Elem(), ClusterRestrictedInstanceGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigInput)(nil)).Elem(), ClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigPtrInput)(nil)).Elem(), ClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputArgs{})
@@ -44143,6 +47310,37 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineDefinition0PropertiesInput)(nil)).Elem(), PipelineDefinition0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineDefinition1PropertiesInput)(nil)).Elem(), PipelineDefinition1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineS3LocationInput)(nil)).Elem(), PipelineS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobAppSpecificationInput)(nil)).Elem(), ProcessingJobAppSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobAthenaDatasetDefinitionInput)(nil)).Elem(), ProcessingJobAthenaDatasetDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobAthenaDatasetDefinitionPtrInput)(nil)).Elem(), ProcessingJobAthenaDatasetDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobClusterConfigInput)(nil)).Elem(), ProcessingJobClusterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobDatasetDefinitionInput)(nil)).Elem(), ProcessingJobDatasetDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobDatasetDefinitionPtrInput)(nil)).Elem(), ProcessingJobDatasetDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobEnvironmentInput)(nil)).Elem(), ProcessingJobEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobEnvironmentPtrInput)(nil)).Elem(), ProcessingJobEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobExperimentConfigInput)(nil)).Elem(), ProcessingJobExperimentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobExperimentConfigPtrInput)(nil)).Elem(), ProcessingJobExperimentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobFeatureStoreOutputInput)(nil)).Elem(), ProcessingJobFeatureStoreOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobFeatureStoreOutputPtrInput)(nil)).Elem(), ProcessingJobFeatureStoreOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobNetworkConfigInput)(nil)).Elem(), ProcessingJobNetworkConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobNetworkConfigPtrInput)(nil)).Elem(), ProcessingJobNetworkConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobProcessingInputsObjectInput)(nil)).Elem(), ProcessingJobProcessingInputsObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobProcessingInputsObjectArrayInput)(nil)).Elem(), ProcessingJobProcessingInputsObjectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobProcessingOutputConfigInput)(nil)).Elem(), ProcessingJobProcessingOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobProcessingOutputConfigPtrInput)(nil)).Elem(), ProcessingJobProcessingOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobProcessingOutputsObjectInput)(nil)).Elem(), ProcessingJobProcessingOutputsObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobProcessingOutputsObjectArrayInput)(nil)).Elem(), ProcessingJobProcessingOutputsObjectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobProcessingResourcesInput)(nil)).Elem(), ProcessingJobProcessingResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobRedshiftDatasetDefinitionInput)(nil)).Elem(), ProcessingJobRedshiftDatasetDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobRedshiftDatasetDefinitionPtrInput)(nil)).Elem(), ProcessingJobRedshiftDatasetDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobS3InputInput)(nil)).Elem(), ProcessingJobS3InputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobS3InputPtrInput)(nil)).Elem(), ProcessingJobS3InputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobS3OutputInput)(nil)).Elem(), ProcessingJobS3OutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobS3OutputPtrInput)(nil)).Elem(), ProcessingJobS3OutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobStoppingConditionInput)(nil)).Elem(), ProcessingJobStoppingConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobStoppingConditionPtrInput)(nil)).Elem(), ProcessingJobStoppingConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobVpcConfigInput)(nil)).Elem(), ProcessingJobVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcessingJobVpcConfigPtrInput)(nil)).Elem(), ProcessingJobVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectCfnStackParameterInput)(nil)).Elem(), ProjectCfnStackParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectCfnStackParameterArrayInput)(nil)).Elem(), ProjectCfnStackParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectCfnTemplateProviderDetailInput)(nil)).Elem(), ProjectCfnTemplateProviderDetailArgs{})
@@ -44249,6 +47447,9 @@ func init() {
 	pulumi.RegisterOutputType(AppImageConfigKernelSpecArrayOutput{})
 	pulumi.RegisterOutputType(AppResourceSpecOutput{})
 	pulumi.RegisterOutputType(AppResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(ClusterEnvironmentConfigOutput{})
+	pulumi.RegisterOutputType(ClusterFSxLustreConfigOutput{})
+	pulumi.RegisterOutputType(ClusterFSxLustreConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceGroupOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceGroupArrayOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceStorageConfigOutput{})
@@ -44258,6 +47459,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterOrchestratorPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOrchestratorEksConfigOutput{})
 	pulumi.RegisterOutputType(ClusterOrchestratorEksConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterRestrictedInstanceGroupOutput{})
+	pulumi.RegisterOutputType(ClusterRestrictedInstanceGroupArrayOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputOutput{})
@@ -44673,6 +47876,37 @@ func init() {
 	pulumi.RegisterOutputType(PipelineDefinition1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PipelineS3LocationOutput{})
 	pulumi.RegisterOutputType(PipelineS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobAppSpecificationOutput{})
+	pulumi.RegisterOutputType(ProcessingJobAthenaDatasetDefinitionOutput{})
+	pulumi.RegisterOutputType(ProcessingJobAthenaDatasetDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobClusterConfigOutput{})
+	pulumi.RegisterOutputType(ProcessingJobDatasetDefinitionOutput{})
+	pulumi.RegisterOutputType(ProcessingJobDatasetDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobEnvironmentOutput{})
+	pulumi.RegisterOutputType(ProcessingJobEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobExperimentConfigOutput{})
+	pulumi.RegisterOutputType(ProcessingJobExperimentConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobFeatureStoreOutputOutput{})
+	pulumi.RegisterOutputType(ProcessingJobFeatureStoreOutputPtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobNetworkConfigOutput{})
+	pulumi.RegisterOutputType(ProcessingJobNetworkConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobProcessingInputsObjectOutput{})
+	pulumi.RegisterOutputType(ProcessingJobProcessingInputsObjectArrayOutput{})
+	pulumi.RegisterOutputType(ProcessingJobProcessingOutputConfigOutput{})
+	pulumi.RegisterOutputType(ProcessingJobProcessingOutputConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobProcessingOutputsObjectOutput{})
+	pulumi.RegisterOutputType(ProcessingJobProcessingOutputsObjectArrayOutput{})
+	pulumi.RegisterOutputType(ProcessingJobProcessingResourcesOutput{})
+	pulumi.RegisterOutputType(ProcessingJobRedshiftDatasetDefinitionOutput{})
+	pulumi.RegisterOutputType(ProcessingJobRedshiftDatasetDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobS3InputOutput{})
+	pulumi.RegisterOutputType(ProcessingJobS3InputPtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobS3OutputOutput{})
+	pulumi.RegisterOutputType(ProcessingJobS3OutputPtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobStoppingConditionOutput{})
+	pulumi.RegisterOutputType(ProcessingJobStoppingConditionPtrOutput{})
+	pulumi.RegisterOutputType(ProcessingJobVpcConfigOutput{})
+	pulumi.RegisterOutputType(ProcessingJobVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectCfnStackParameterOutput{})
 	pulumi.RegisterOutputType(ProjectCfnStackParameterArrayOutput{})
 	pulumi.RegisterOutputType(ProjectCfnTemplateProviderDetailOutput{})

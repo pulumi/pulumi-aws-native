@@ -67,6 +67,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PartnerApp{}
 	case "aws-native:sagemaker:Pipeline":
 		r = &Pipeline{}
+	case "aws-native:sagemaker:ProcessingJob":
+		r = &ProcessingJob{}
 	case "aws-native:sagemaker:Project":
 		r = &Project{}
 	case "aws-native:sagemaker:Space":

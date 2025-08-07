@@ -3055,6 +3055,11 @@ class DistributionOrigin(dict):
                 For more information, see [Origin Path](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginPath) in the *Amazon CloudFront Developer Guide*.
         :param 'DistributionOriginShield' origin_shield: CloudFront Origin Shield. Using Origin Shield can help reduce the load on your origin.
                 For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide*.
+        :param builtins.int response_completion_timeout: The time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. If the complete response isn't received from the origin by this time, CloudFront ends the connection.
+               
+               The value for `ResponseCompletionTimeout` must be equal to or greater than the value for `OriginReadTimeout` . If you don't set a value for `ResponseCompletionTimeout` , CloudFront doesn't enforce a maximum value.
+               
+               For more information, see [Response completion timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#response-completion-timeout) in the *Amazon CloudFront Developer Guide* .
         :param 'DistributionS3OriginConfig' s3_origin_config: Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead.
         :param 'DistributionVpcOriginConfig' vpc_origin_config: The VPC origin configuration.
         """
@@ -3165,6 +3170,13 @@ class DistributionOrigin(dict):
     @property
     @pulumi.getter(name="responseCompletionTimeout")
     def response_completion_timeout(self) -> Optional[builtins.int]:
+        """
+        The time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. If the complete response isn't received from the origin by this time, CloudFront ends the connection.
+
+        The value for `ResponseCompletionTimeout` must be equal to or greater than the value for `OriginReadTimeout` . If you don't set a value for `ResponseCompletionTimeout` , CloudFront doesn't enforce a maximum value.
+
+        For more information, see [Response completion timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#response-completion-timeout) in the *Amazon CloudFront Developer Guide* .
+        """
         return pulumi.get(self, "response_completion_timeout")
 
     @property
@@ -3708,6 +3720,9 @@ class DistributionS3OriginConfig(dict):
                 To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty ``OriginAccessIdentity`` element.
                 To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
                 For more information about the origin access identity, see [Serving Private Content through CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
+        :param builtins.int origin_read_timeout: Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout* . The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+               
+               For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide* .
         """
         if origin_access_identity is not None:
             pulumi.set(__self__, "origin_access_identity", origin_access_identity)
@@ -3732,6 +3747,11 @@ class DistributionS3OriginConfig(dict):
     @property
     @pulumi.getter(name="originReadTimeout")
     def origin_read_timeout(self) -> Optional[builtins.int]:
+        """
+        Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout* . The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+
+        For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide* .
+        """
         return pulumi.get(self, "origin_read_timeout")
 
 

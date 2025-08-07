@@ -33,6 +33,7 @@ class PortalArgs:
                  ip_access_settings_arn: Optional[pulumi.Input[builtins.str]] = None,
                  max_concurrent_sessions: Optional[pulumi.Input[builtins.float]] = None,
                  network_settings_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 session_logger_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  trust_store_arn: Optional[pulumi.Input[builtins.str]] = None,
                  user_access_logging_settings_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -88,6 +89,8 @@ class PortalArgs:
             pulumi.set(__self__, "max_concurrent_sessions", max_concurrent_sessions)
         if network_settings_arn is not None:
             pulumi.set(__self__, "network_settings_arn", network_settings_arn)
+        if session_logger_arn is not None:
+            pulumi.set(__self__, "session_logger_arn", session_logger_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if trust_store_arn is not None:
@@ -232,6 +235,15 @@ class PortalArgs:
         pulumi.set(self, "network_settings_arn", value)
 
     @property
+    @pulumi.getter(name="sessionLoggerArn")
+    def session_logger_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "session_logger_arn")
+
+    @session_logger_arn.setter
+    def session_logger_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "session_logger_arn", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -296,6 +308,7 @@ class Portal(pulumi.CustomResource):
                  ip_access_settings_arn: Optional[pulumi.Input[builtins.str]] = None,
                  max_concurrent_sessions: Optional[pulumi.Input[builtins.float]] = None,
                  network_settings_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 session_logger_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  trust_store_arn: Optional[pulumi.Input[builtins.str]] = None,
                  user_access_logging_settings_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -369,6 +382,7 @@ class Portal(pulumi.CustomResource):
                  ip_access_settings_arn: Optional[pulumi.Input[builtins.str]] = None,
                  max_concurrent_sessions: Optional[pulumi.Input[builtins.float]] = None,
                  network_settings_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 session_logger_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  trust_store_arn: Optional[pulumi.Input[builtins.str]] = None,
                  user_access_logging_settings_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -392,6 +406,7 @@ class Portal(pulumi.CustomResource):
             __props__.__dict__["ip_access_settings_arn"] = ip_access_settings_arn
             __props__.__dict__["max_concurrent_sessions"] = max_concurrent_sessions
             __props__.__dict__["network_settings_arn"] = network_settings_arn
+            __props__.__dict__["session_logger_arn"] = session_logger_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trust_store_arn"] = trust_store_arn
             __props__.__dict__["user_access_logging_settings_arn"] = user_access_logging_settings_arn
@@ -445,6 +460,7 @@ class Portal(pulumi.CustomResource):
         __props__.__dict__["portal_status"] = None
         __props__.__dict__["renderer_type"] = None
         __props__.__dict__["service_provider_saml_metadata"] = None
+        __props__.__dict__["session_logger_arn"] = None
         __props__.__dict__["status_reason"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["trust_store_arn"] = None
@@ -601,6 +617,11 @@ class Portal(pulumi.CustomResource):
         The SAML metadata of the service provider.
         """
         return pulumi.get(self, "service_provider_saml_metadata")
+
+    @property
+    @pulumi.getter(name="sessionLoggerArn")
+    def session_logger_arn(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "session_logger_arn")
 
     @property
     @pulumi.getter(name="statusReason")

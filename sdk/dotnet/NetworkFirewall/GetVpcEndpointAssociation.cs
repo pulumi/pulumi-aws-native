@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
     [OutputType]
     public sealed class GetVpcEndpointAssociationResult
     {
+        /// <summary>
+        /// The unique ID of the firewall endpoint for the subnet that you attached to the firewall.For example: "vpce-111122223333"
+        /// </summary>
         public readonly string? EndpointId;
         /// <summary>
         /// The key:value pairs to associate with the resource.

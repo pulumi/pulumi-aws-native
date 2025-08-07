@@ -17,6 +17,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'FirewallAvailabilityZoneMappingArgs',
+    'FirewallAvailabilityZoneMappingArgsDict',
     'FirewallPolicyActionDefinitionArgs',
     'FirewallPolicyActionDefinitionArgsDict',
     'FirewallPolicyCustomActionArgs',
@@ -93,6 +95,8 @@ __all__ = [
     'RuleGroupTcpFlagFieldArgsDict',
     'RuleGroupArgs',
     'RuleGroupArgsDict',
+    'SummaryConfigurationPropertiesArgs',
+    'SummaryConfigurationPropertiesArgsDict',
     'TlsInspectionConfigurationAddressArgs',
     'TlsInspectionConfigurationAddressArgsDict',
     'TlsInspectionConfigurationPortRangeArgs',
@@ -112,6 +116,37 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class FirewallAvailabilityZoneMappingArgsDict(TypedDict):
+        availability_zone: pulumi.Input[builtins.str]
+        """
+        A AvailabilityZone
+        """
+elif False:
+    FirewallAvailabilityZoneMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FirewallAvailabilityZoneMappingArgs:
+    def __init__(__self__, *,
+                 availability_zone: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] availability_zone: A AvailabilityZone
+        """
+        pulumi.set(__self__, "availability_zone", availability_zone)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> pulumi.Input[builtins.str]:
+        """
+        A AvailabilityZone
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "availability_zone", value)
+
 
 if not MYPY:
     class FirewallPolicyActionDefinitionArgsDict(TypedDict):
@@ -466,13 +501,19 @@ if not MYPY:
         """
         The Amazon Resource Name (ARN) of the stateful rule group.
         """
+        deep_threat_inspection: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        AWS Network Firewall plans to augment the active threat defense managed rule group with an additional deep threat inspection capability. When this capability is released, AWS will analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services.
+
+        > Customers can opt-out of deep threat inspection at any time through the AWS Network Firewall console or API. When customers opt out, AWS Network Firewall will not use the network traffic processed by those customers' active threat defense rule groups for rule group improvement.
+        """
         override: NotRequired[pulumi.Input['FirewallPolicyStatefulRuleGroupOverrideArgsDict']]
         """
         The action that allows the policy owner to override the behavior of the rule group within a policy.
         """
         priority: NotRequired[pulumi.Input[builtins.int]]
         """
-        An integer setting that indicates the order in which to run the stateful rule groups in a single `FirewallPolicy` . This setting only applies to firewall policies that specify the `STRICT_ORDER` rule order in the stateful engine options settings.
+        An integer setting that indicates the order in which to run the stateful rule groups in a single firewall policy. This setting only applies to firewall policies that specify the `STRICT_ORDER` rule order in the stateful engine options settings.
 
         Network Firewall evalutes each stateful rule group against a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
 
@@ -485,18 +526,24 @@ elif False:
 class FirewallPolicyStatefulRuleGroupReferenceArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[builtins.str],
+                 deep_threat_inspection: Optional[pulumi.Input[builtins.bool]] = None,
                  override: Optional[pulumi.Input['FirewallPolicyStatefulRuleGroupOverrideArgs']] = None,
                  priority: Optional[pulumi.Input[builtins.int]] = None):
         """
         :param pulumi.Input[builtins.str] resource_arn: The Amazon Resource Name (ARN) of the stateful rule group.
+        :param pulumi.Input[builtins.bool] deep_threat_inspection: AWS Network Firewall plans to augment the active threat defense managed rule group with an additional deep threat inspection capability. When this capability is released, AWS will analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services.
+               
+               > Customers can opt-out of deep threat inspection at any time through the AWS Network Firewall console or API. When customers opt out, AWS Network Firewall will not use the network traffic processed by those customers' active threat defense rule groups for rule group improvement.
         :param pulumi.Input['FirewallPolicyStatefulRuleGroupOverrideArgs'] override: The action that allows the policy owner to override the behavior of the rule group within a policy.
-        :param pulumi.Input[builtins.int] priority: An integer setting that indicates the order in which to run the stateful rule groups in a single `FirewallPolicy` . This setting only applies to firewall policies that specify the `STRICT_ORDER` rule order in the stateful engine options settings.
+        :param pulumi.Input[builtins.int] priority: An integer setting that indicates the order in which to run the stateful rule groups in a single firewall policy. This setting only applies to firewall policies that specify the `STRICT_ORDER` rule order in the stateful engine options settings.
                
                Network Firewall evalutes each stateful rule group against a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
                
                You can change the priority settings of your rule groups at any time. To make it easier to insert rule groups later, number them so there's a wide range in between, for example use 100, 200, and so on.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
+        if deep_threat_inspection is not None:
+            pulumi.set(__self__, "deep_threat_inspection", deep_threat_inspection)
         if override is not None:
             pulumi.set(__self__, "override", override)
         if priority is not None:
@@ -515,6 +562,20 @@ class FirewallPolicyStatefulRuleGroupReferenceArgs:
         pulumi.set(self, "resource_arn", value)
 
     @property
+    @pulumi.getter(name="deepThreatInspection")
+    def deep_threat_inspection(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        AWS Network Firewall plans to augment the active threat defense managed rule group with an additional deep threat inspection capability. When this capability is released, AWS will analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services.
+
+        > Customers can opt-out of deep threat inspection at any time through the AWS Network Firewall console or API. When customers opt out, AWS Network Firewall will not use the network traffic processed by those customers' active threat defense rule groups for rule group improvement.
+        """
+        return pulumi.get(self, "deep_threat_inspection")
+
+    @deep_threat_inspection.setter
+    def deep_threat_inspection(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "deep_threat_inspection", value)
+
+    @property
     @pulumi.getter
     def override(self) -> Optional[pulumi.Input['FirewallPolicyStatefulRuleGroupOverrideArgs']]:
         """
@@ -530,7 +591,7 @@ class FirewallPolicyStatefulRuleGroupReferenceArgs:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        An integer setting that indicates the order in which to run the stateful rule groups in a single `FirewallPolicy` . This setting only applies to firewall policies that specify the `STRICT_ORDER` rule order in the stateful engine options settings.
+        An integer setting that indicates the order in which to run the stateful rule groups in a single firewall policy. This setting only applies to firewall policies that specify the `STRICT_ORDER` rule order in the stateful engine options settings.
 
         Network Firewall evalutes each stateful rule group against a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
 
@@ -547,7 +608,7 @@ if not MYPY:
     class FirewallPolicyStatelessRuleGroupReferenceArgsDict(TypedDict):
         priority: pulumi.Input[builtins.int]
         """
-        An integer setting that indicates the order in which to run the stateless rule groups in a single `FirewallPolicy` . Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
+        An integer setting that indicates the order in which to run the stateless rule groups in a single firewall policy. Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
         """
         resource_arn: pulumi.Input[builtins.str]
         """
@@ -562,7 +623,7 @@ class FirewallPolicyStatelessRuleGroupReferenceArgs:
                  priority: pulumi.Input[builtins.int],
                  resource_arn: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input[builtins.int] priority: An integer setting that indicates the order in which to run the stateless rule groups in a single `FirewallPolicy` . Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
+        :param pulumi.Input[builtins.int] priority: An integer setting that indicates the order in which to run the stateless rule groups in a single firewall policy. Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
         :param pulumi.Input[builtins.str] resource_arn: The Amazon Resource Name (ARN) of the stateless rule group.
         """
         pulumi.set(__self__, "priority", priority)
@@ -572,7 +633,7 @@ class FirewallPolicyStatelessRuleGroupReferenceArgs:
     @pulumi.getter
     def priority(self) -> pulumi.Input[builtins.int]:
         """
-        An integer setting that indicates the order in which to run the stateless rule groups in a single `FirewallPolicy` . Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
+        An integer setting that indicates the order in which to run the stateless rule groups in a single firewall policy. Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
         """
         return pulumi.get(self, "priority")
 
@@ -1695,7 +1756,7 @@ if not MYPY:
         """
         The actions to take on a packet that matches one of the stateless rule definition's match attributes. You must specify a standard action and you can add custom actions.
 
-        > Network Firewall only forwards a packet for stateful rule inspection if you specify `aws:forward_to_sfe` for a rule that the packet matches, or if the packet doesn't match any stateless rule and you specify `aws:forward_to_sfe` for the `StatelessDefaultActions` setting for the `FirewallPolicy` . 
+        > Network Firewall only forwards a packet for stateful rule inspection if you specify `aws:forward_to_sfe` for a rule that the packet matches, or if the packet doesn't match any stateless rule and you specify `aws:forward_to_sfe` for the `StatelessDefaultActions` setting for the firewall policy. 
 
         For every rule, you must specify exactly one of the following standard actions.
 
@@ -1722,7 +1783,7 @@ class RuleGroupRuleDefinitionArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] actions: The actions to take on a packet that matches one of the stateless rule definition's match attributes. You must specify a standard action and you can add custom actions.
                
-               > Network Firewall only forwards a packet for stateful rule inspection if you specify `aws:forward_to_sfe` for a rule that the packet matches, or if the packet doesn't match any stateless rule and you specify `aws:forward_to_sfe` for the `StatelessDefaultActions` setting for the `FirewallPolicy` . 
+               > Network Firewall only forwards a packet for stateful rule inspection if you specify `aws:forward_to_sfe` for a rule that the packet matches, or if the packet doesn't match any stateless rule and you specify `aws:forward_to_sfe` for the `StatelessDefaultActions` setting for the firewall policy. 
                
                For every rule, you must specify exactly one of the following standard actions.
                
@@ -1744,7 +1805,7 @@ class RuleGroupRuleDefinitionArgs:
         """
         The actions to take on a packet that matches one of the stateless rule definition's match attributes. You must specify a standard action and you can add custom actions.
 
-        > Network Firewall only forwards a packet for stateful rule inspection if you specify `aws:forward_to_sfe` for a rule that the packet matches, or if the packet doesn't match any stateless rule and you specify `aws:forward_to_sfe` for the `StatelessDefaultActions` setting for the `FirewallPolicy` . 
+        > Network Firewall only forwards a packet for stateful rule inspection if you specify `aws:forward_to_sfe` for a rule that the packet matches, or if the packet doesn't match any stateless rule and you specify `aws:forward_to_sfe` for the `StatelessDefaultActions` setting for the firewall policy. 
 
         For every rule, you must specify exactly one of the following standard actions.
 
@@ -1968,7 +2029,7 @@ if not MYPY:
 
         These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn't have a separate action setting.
 
-        > You can't use the `priority` keyword if the `RuleOrder` option in `StatefulRuleOptions` is set to `STRICT_ORDER` .
+        > You can't use the `priority` keyword if the `RuleOrder` option in StatefulRuleOptions is set to `STRICT_ORDER` .
         """
         stateful_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatefulRuleArgsDict']]]]
         """
@@ -1994,7 +2055,7 @@ class RuleGroupRulesSourceArgs:
                
                These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn't have a separate action setting.
                
-               > You can't use the `priority` keyword if the `RuleOrder` option in `StatefulRuleOptions` is set to `STRICT_ORDER` .
+               > You can't use the `priority` keyword if the `RuleOrder` option in StatefulRuleOptions is set to `STRICT_ORDER` .
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupStatefulRuleArgs']]] stateful_rules: An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-7.0.3/rules/intro.html) .
         :param pulumi.Input['RuleGroupStatelessRulesAndCustomActionsArgs'] stateless_rules_and_custom_actions: Stateless inspection criteria to be used in a stateless rule group.
         """
@@ -2027,7 +2088,7 @@ class RuleGroupRulesSourceArgs:
 
         These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn't have a separate action setting.
 
-        > You can't use the `priority` keyword if the `RuleOrder` option in `StatefulRuleOptions` is set to `STRICT_ORDER` .
+        > You can't use the `priority` keyword if the `RuleOrder` option in StatefulRuleOptions is set to `STRICT_ORDER` .
         """
         return pulumi.get(self, "rules_string")
 
@@ -2101,12 +2162,12 @@ if not MYPY:
         The actions for a stateful rule are defined as follows:
 
         - *PASS* - Permits the packets to go to the intended destination.
-        - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+        - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the firewall logging configuration.
         - *REJECT* - Drops traffic that matches the conditions of the stateful rule and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. `REJECT` is available only for TCP traffic.
-        - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+        - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the firewall logging configuration.
 
         You can use this action to test a rule that you intend to use to drop traffic. You can enable the rule with `ALERT` action, verify in the logs that the rule is filtering as you want, then change the action to `DROP` .
-        - *REJECT* - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+        - *REJECT* - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the firewall logging configuration.
 
         `REJECT` isn't currently available for use with IMAP and FTP protocols.
         """
@@ -2133,12 +2194,12 @@ class RuleGroupStatefulRuleArgs:
                The actions for a stateful rule are defined as follows:
                
                - *PASS* - Permits the packets to go to the intended destination.
-               - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+               - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the firewall logging configuration.
                - *REJECT* - Drops traffic that matches the conditions of the stateful rule and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. `REJECT` is available only for TCP traffic.
-               - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+               - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the firewall logging configuration.
                
                You can use this action to test a rule that you intend to use to drop traffic. You can enable the rule with `ALERT` action, verify in the logs that the rule is filtering as you want, then change the action to `DROP` .
-               - *REJECT* - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+               - *REJECT* - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the firewall logging configuration.
                
                `REJECT` isn't currently available for use with IMAP and FTP protocols.
         :param pulumi.Input['RuleGroupHeaderArgs'] header: The stateful inspection criteria for this rule, used to inspect traffic flows.
@@ -2157,12 +2218,12 @@ class RuleGroupStatefulRuleArgs:
         The actions for a stateful rule are defined as follows:
 
         - *PASS* - Permits the packets to go to the intended destination.
-        - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+        - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the firewall logging configuration.
         - *REJECT* - Drops traffic that matches the conditions of the stateful rule and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. `REJECT` is available only for TCP traffic.
-        - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+        - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the firewall logging configuration.
 
         You can use this action to test a rule that you intend to use to drop traffic. You can enable the rule with `ALERT` action, verify in the logs that the rule is filtering as you want, then change the action to `DROP` .
-        - *REJECT* - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+        - *REJECT* - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the firewall logging configuration.
 
         `REJECT` isn't currently available for use with IMAP and FTP protocols.
         """
@@ -2205,7 +2266,7 @@ if not MYPY:
         """
         custom_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgsDict']]]]
         """
-        Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification. You name each custom action that you define, and then you can use it by name in your stateless rule `RuleGroup.RuleDefinition` `Actions` specification.
+        Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification. You name each custom action that you define, and then you can use it by name in your stateless rule definition `Actions` specification.
         """
 elif False:
     RuleGroupStatelessRulesAndCustomActionsArgsDict: TypeAlias = Mapping[str, Any]
@@ -2217,7 +2278,7 @@ class RuleGroupStatelessRulesAndCustomActionsArgs:
                  custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupStatelessRuleArgs']]] stateless_rules: Defines the set of stateless rules for use in a stateless rule group.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]] custom_actions: Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification. You name each custom action that you define, and then you can use it by name in your stateless rule `RuleGroup.RuleDefinition` `Actions` specification.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]] custom_actions: Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification. You name each custom action that you define, and then you can use it by name in your stateless rule definition `Actions` specification.
         """
         pulumi.set(__self__, "stateless_rules", stateless_rules)
         if custom_actions is not None:
@@ -2239,7 +2300,7 @@ class RuleGroupStatelessRulesAndCustomActionsArgs:
     @pulumi.getter(name="customActions")
     def custom_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]]]:
         """
-        Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification. You name each custom action that you define, and then you can use it by name in your stateless rule `RuleGroup.RuleDefinition` `Actions` specification.
+        Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification. You name each custom action that you define, and then you can use it by name in your stateless rule definition `Actions` specification.
         """
         return pulumi.get(self, "custom_actions")
 
@@ -2465,6 +2526,48 @@ class RuleGroupArgs:
     @stateful_rule_options.setter
     def stateful_rule_options(self, value: Optional[pulumi.Input['RuleGroupStatefulRuleOptionsArgs']]):
         pulumi.set(self, "stateful_rule_options", value)
+
+
+if not MYPY:
+    class SummaryConfigurationPropertiesArgsDict(TypedDict):
+        """
+        A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+
+        - The `RuleOptions` specified in `SummaryConfiguration`
+        - Rule metadata organization preferences
+        """
+        rule_options: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupSummaryRuleOption']]]]
+        """
+        Specifies the selected rule options returned by `DescribeRuleGroupSummary` .
+        """
+elif False:
+    SummaryConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SummaryConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 rule_options: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupSummaryRuleOption']]]] = None):
+        """
+        A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+
+        - The `RuleOptions` specified in `SummaryConfiguration`
+        - Rule metadata organization preferences
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupSummaryRuleOption']]] rule_options: Specifies the selected rule options returned by `DescribeRuleGroupSummary` .
+        """
+        if rule_options is not None:
+            pulumi.set(__self__, "rule_options", rule_options)
+
+    @property
+    @pulumi.getter(name="ruleOptions")
+    def rule_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupSummaryRuleOption']]]]:
+        """
+        Specifies the selected rule options returned by `DescribeRuleGroupSummary` .
+        """
+        return pulumi.get(self, "rule_options")
+
+    @rule_options.setter
+    def rule_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupSummaryRuleOption']]]]):
+        pulumi.set(self, "rule_options", value)
 
 
 if not MYPY:

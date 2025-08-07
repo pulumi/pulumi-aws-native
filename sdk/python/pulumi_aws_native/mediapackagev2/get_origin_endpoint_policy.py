@@ -36,6 +36,9 @@ class GetOriginEndpointPolicyResult:
     @property
     @pulumi.getter(name="cdnAuthConfiguration")
     def cdn_auth_configuration(self) -> Optional['outputs.OriginEndpointPolicyCdnAuthConfiguration']:
+        """
+        The settings to enable CDN authorization headers in MediaPackage.
+        """
         return pulumi.get(self, "cdn_auth_configuration")
 
     @property

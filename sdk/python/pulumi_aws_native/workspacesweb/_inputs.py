@@ -27,6 +27,16 @@ __all__ = [
     'DataProtectionSettingsRedactionPlaceHolderArgsDict',
     'IpAccessSettingsIpRuleArgs',
     'IpAccessSettingsIpRuleArgsDict',
+    'SessionLoggerEventFilter0PropertiesArgs',
+    'SessionLoggerEventFilter0PropertiesArgsDict',
+    'SessionLoggerEventFilter1PropertiesArgs',
+    'SessionLoggerEventFilter1PropertiesArgsDict',
+    'SessionLoggerLogConfigurationArgs',
+    'SessionLoggerLogConfigurationArgsDict',
+    'SessionLoggerS3LogConfigurationArgs',
+    'SessionLoggerS3LogConfigurationArgsDict',
+    'SessionLoggerUnitArgs',
+    'SessionLoggerUnitArgsDict',
     'UserSettingsCookieSpecificationArgs',
     'UserSettingsCookieSpecificationArgsDict',
     'UserSettingsCookieSynchronizationConfigurationArgs',
@@ -449,6 +459,157 @@ class IpAccessSettingsIpRuleArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
+
+
+if not MYPY:
+    class SessionLoggerEventFilter0PropertiesArgsDict(TypedDict):
+        all: pulumi.Input['SessionLoggerUnitArgsDict']
+elif False:
+    SessionLoggerEventFilter0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SessionLoggerEventFilter0PropertiesArgs:
+    def __init__(__self__, *,
+                 all: pulumi.Input['SessionLoggerUnitArgs']):
+        pulumi.set(__self__, "all", all)
+
+    @property
+    @pulumi.getter
+    def all(self) -> pulumi.Input['SessionLoggerUnitArgs']:
+        return pulumi.get(self, "all")
+
+    @all.setter
+    def all(self, value: pulumi.Input['SessionLoggerUnitArgs']):
+        pulumi.set(self, "all", value)
+
+
+if not MYPY:
+    class SessionLoggerEventFilter1PropertiesArgsDict(TypedDict):
+        include: pulumi.Input[Sequence[pulumi.Input['SessionLoggerEvent']]]
+elif False:
+    SessionLoggerEventFilter1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SessionLoggerEventFilter1PropertiesArgs:
+    def __init__(__self__, *,
+                 include: pulumi.Input[Sequence[pulumi.Input['SessionLoggerEvent']]]):
+        pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter
+    def include(self) -> pulumi.Input[Sequence[pulumi.Input['SessionLoggerEvent']]]:
+        return pulumi.get(self, "include")
+
+    @include.setter
+    def include(self, value: pulumi.Input[Sequence[pulumi.Input['SessionLoggerEvent']]]):
+        pulumi.set(self, "include", value)
+
+
+if not MYPY:
+    class SessionLoggerLogConfigurationArgsDict(TypedDict):
+        s3: NotRequired[pulumi.Input['SessionLoggerS3LogConfigurationArgsDict']]
+elif False:
+    SessionLoggerLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SessionLoggerLogConfigurationArgs:
+    def __init__(__self__, *,
+                 s3: Optional[pulumi.Input['SessionLoggerS3LogConfigurationArgs']] = None):
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['SessionLoggerS3LogConfigurationArgs']]:
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['SessionLoggerS3LogConfigurationArgs']]):
+        pulumi.set(self, "s3", value)
+
+
+if not MYPY:
+    class SessionLoggerS3LogConfigurationArgsDict(TypedDict):
+        bucket: pulumi.Input[builtins.str]
+        folder_structure: pulumi.Input['SessionLoggerFolderStructure']
+        log_file_format: pulumi.Input['SessionLoggerLogFileFormat']
+        bucket_owner: NotRequired[pulumi.Input[builtins.str]]
+        key_prefix: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    SessionLoggerS3LogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SessionLoggerS3LogConfigurationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[builtins.str],
+                 folder_structure: pulumi.Input['SessionLoggerFolderStructure'],
+                 log_file_format: pulumi.Input['SessionLoggerLogFileFormat'],
+                 bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 key_prefix: Optional[pulumi.Input[builtins.str]] = None):
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "folder_structure", folder_structure)
+        pulumi.set(__self__, "log_file_format", log_file_format)
+        if bucket_owner is not None:
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
+        if key_prefix is not None:
+            pulumi.set(__self__, "key_prefix", key_prefix)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter(name="folderStructure")
+    def folder_structure(self) -> pulumi.Input['SessionLoggerFolderStructure']:
+        return pulumi.get(self, "folder_structure")
+
+    @folder_structure.setter
+    def folder_structure(self, value: pulumi.Input['SessionLoggerFolderStructure']):
+        pulumi.set(self, "folder_structure", value)
+
+    @property
+    @pulumi.getter(name="logFileFormat")
+    def log_file_format(self) -> pulumi.Input['SessionLoggerLogFileFormat']:
+        return pulumi.get(self, "log_file_format")
+
+    @log_file_format.setter
+    def log_file_format(self, value: pulumi.Input['SessionLoggerLogFileFormat']):
+        pulumi.set(self, "log_file_format", value)
+
+    @property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "bucket_owner")
+
+    @bucket_owner.setter
+    def bucket_owner(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "bucket_owner", value)
+
+    @property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "key_prefix")
+
+    @key_prefix.setter
+    def key_prefix(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "key_prefix", value)
+
+
+if not MYPY:
+    class SessionLoggerUnitArgsDict(TypedDict):
+        pass
+elif False:
+    SessionLoggerUnitArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SessionLoggerUnitArgs:
+    def __init__(__self__):
+        pass
 
 
 if not MYPY:

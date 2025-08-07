@@ -116,6 +116,10 @@ export interface GetDbInstanceResult {
      */
     readonly automaticBackupReplicationRetentionPeriod?: number;
     /**
+     * The time when a stopped DB instance is restarted automatically.
+     */
+    readonly automaticRestartTime?: string;
+    /**
      * The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
      *  For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
      *  Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.
@@ -445,6 +449,10 @@ export interface GetDbInstanceResult {
      */
     readonly optionGroupName?: string;
     /**
+     * The progress of the storage optimization operation as a percentage.
+     */
+    readonly percentProgress?: string;
+    /**
      * The AWS KMS key identifier for encryption of Performance Insights data.
      *  The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
      *  If you do not specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS account. Your AWS account has a different default KMS key for each AWS Region.
@@ -532,6 +540,14 @@ export interface GetDbInstanceResult {
      */
     readonly replicaMode?: string;
     /**
+     * The number of minutes to pause the automation. When the time period ends, RDS Custom resumes full automation. The minimum value is 60 (default). The maximum value is 1,440.
+     */
+    readonly resumeFullAutomationModeTime?: string;
+    /**
+     * If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
+     */
+    readonly secondaryAvailabilityZone?: string;
+    /**
      * The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
      *  Constraints:
      *   +  Must be the identifier of an existing Multi-AZ DB cluster.
@@ -540,6 +556,10 @@ export interface GetDbInstanceResult {
      *   +  The source DB cluster must be in the same AWS-Region as the read replica. Cross-Region replication isn't supported.
      */
     readonly sourceDbClusterIdentifier?: string;
+    /**
+     * The status of a read replica. If the DB instance isn't a read replica, the value is blank.
+     */
+    readonly statusInfos?: outputs.rds.DbInstanceDbInstanceStatusInfo[];
     /**
      * Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the ``gp3`` storage type. 
      *  This setting doesn't apply to RDS Custom or Amazon Aurora.

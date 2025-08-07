@@ -70,9 +70,9 @@ class AlarmArgs:
         :param pulumi.Input[builtins.str] namespace: The namespace of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you can't specify ``Namespace`` and you use ``Metrics`` instead.
                 For a list of namespaces for metrics from AWS services, see [Services That Publish Metrics.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html)
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ok_actions: The actions to execute when this alarm transitions to the ``OK`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-        :param pulumi.Input[builtins.int] period: The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
+        :param pulumi.Input[builtins.int] period: The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 20, 30, 60, and any multiple of 60.
                 For an alarm based on a math expression, you can't specify ``Period``, and instead you use the ``Metrics`` parameter.
-                 *Minimum:* 10
+                *Minimum:* 10
         :param pulumi.Input[builtins.str] statistic: The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use ``ExtendedStatistic``.
                 For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
                 For an alarm based on a math expression, you can't specify ``Statistic``. Instead, you use ``Metrics``.
@@ -319,9 +319,9 @@ class AlarmArgs:
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
+        The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 20, 30, 60, and any multiple of 60.
          For an alarm based on a math expression, you can't specify ``Period``, and instead you use the ``Metrics`` parameter.
-          *Minimum:* 10
+         *Minimum:* 10
         """
         return pulumi.get(self, "period")
 
@@ -465,9 +465,9 @@ class Alarm(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] namespace: The namespace of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you can't specify ``Namespace`` and you use ``Metrics`` instead.
                 For a list of namespaces for metrics from AWS services, see [Services That Publish Metrics.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html)
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ok_actions: The actions to execute when this alarm transitions to the ``OK`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-        :param pulumi.Input[builtins.int] period: The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
+        :param pulumi.Input[builtins.int] period: The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 20, 30, 60, and any multiple of 60.
                 For an alarm based on a math expression, you can't specify ``Period``, and instead you use the ``Metrics`` parameter.
-                 *Minimum:* 10
+                *Minimum:* 10
         :param pulumi.Input[builtins.str] statistic: The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use ``ExtendedStatistic``.
                 For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
                 For an alarm based on a math expression, you can't specify ``Statistic``. Instead, you use ``Metrics``.
@@ -752,9 +752,9 @@ class Alarm(pulumi.CustomResource):
     @pulumi.getter
     def period(self) -> pulumi.Output[Optional[builtins.int]]:
         """
-        The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
+        The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 20, 30, 60, and any multiple of 60.
          For an alarm based on a math expression, you can't specify ``Period``, and instead you use the ``Metrics`` parameter.
-          *Minimum:* 10
+         *Minimum:* 10
         """
         return pulumi.get(self, "period")
 

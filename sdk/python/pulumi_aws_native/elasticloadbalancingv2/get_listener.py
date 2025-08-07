@@ -67,6 +67,7 @@ class GetListenerResult:
     def certificates(self) -> Optional[Sequence['outputs.ListenerCertificate']]:
         """
         The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+         For an HTTPS listener, update requires some interruptions. For a TLS listener, update requires no interruption.
          To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
         """
         return pulumi.get(self, "certificates")
@@ -92,7 +93,7 @@ class GetListenerResult:
     @pulumi.getter(name="listenerAttributes")
     def listener_attributes(self) -> Optional[Sequence['outputs.ListenerAttribute']]:
         """
-        The listener attributes.
+        The listener attributes. Attributes that you do not modify retain their current values.
         """
         return pulumi.get(self, "listener_attributes")
 
@@ -125,7 +126,7 @@ class GetListenerResult:
     def ssl_policy(self) -> Optional[builtins.str]:
         """
         [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.
-         Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
+         [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
         """
         return pulumi.get(self, "ssl_policy")
 

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         private InputList<Inputs.RuleGroupCustomActionArgs>? _customActions;
 
         /// <summary>
-        /// Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification. You name each custom action that you define, and then you can use it by name in your stateless rule `RuleGroup.RuleDefinition` `Actions` specification.
+        /// Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification. You name each custom action that you define, and then you can use it by name in your stateless rule definition `Actions` specification.
         /// </summary>
         public InputList<Inputs.RuleGroupCustomActionArgs> CustomActions
         {

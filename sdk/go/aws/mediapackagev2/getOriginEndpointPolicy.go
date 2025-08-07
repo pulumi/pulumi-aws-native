@@ -32,6 +32,7 @@ type LookupOriginEndpointPolicyArgs struct {
 }
 
 type LookupOriginEndpointPolicyResult struct {
+	// The settings to enable CDN authorization headers in MediaPackage.
 	CdnAuthConfiguration *OriginEndpointPolicyCdnAuthConfiguration `pulumi:"cdnAuthConfiguration"`
 	// The policy associated with the origin endpoint.
 	//
@@ -75,6 +76,7 @@ func (o LookupOriginEndpointPolicyResultOutput) ToLookupOriginEndpointPolicyResu
 	return o
 }
 
+// The settings to enable CDN authorization headers in MediaPackage.
 func (o LookupOriginEndpointPolicyResultOutput) CdnAuthConfiguration() OriginEndpointPolicyCdnAuthConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointPolicyResult) *OriginEndpointPolicyCdnAuthConfiguration {
 		return v.CdnAuthConfiguration

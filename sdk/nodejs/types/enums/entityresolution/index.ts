@@ -10,9 +10,9 @@ export const IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel
 /**
  * The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
  *
- * If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
- *
  * If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+ *
+ * If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
  */
 export type IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel = (typeof IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel)[keyof typeof IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel];
 
@@ -82,9 +82,9 @@ export const IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel = {
 /**
  * The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
  *
- * If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
- *
  * If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+ *
+ * If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
  */
 export type IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel = (typeof IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel)[keyof typeof IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel];
 
@@ -123,7 +123,7 @@ export const MatchingWorkflowIncrementalRunConfigIncrementalRunType = {
 /**
  * The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
  *
- * > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+ * > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
  */
 export type MatchingWorkflowIncrementalRunConfigIncrementalRunType = (typeof MatchingWorkflowIncrementalRunConfigIncrementalRunType)[keyof typeof MatchingWorkflowIncrementalRunConfigIncrementalRunType];
 
@@ -141,11 +141,11 @@ export const MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel = {
 } as const;
 
 /**
- * The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
- *
- * If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
+ * The comparison type. You can choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
  *
  * If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+ *
+ * If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
  */
 export type MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel = (typeof MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel)[keyof typeof MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel];
 

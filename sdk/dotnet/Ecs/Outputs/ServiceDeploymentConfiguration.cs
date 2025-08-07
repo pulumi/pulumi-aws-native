@@ -22,12 +22,10 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         public readonly Outputs.ServiceDeploymentAlarms? Alarms;
         /// <summary>
         /// The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.
-        /// 
-        /// The following rules apply when you don't specify a value:
-        /// 
-        /// - For rolling deployments, the value is set to 3 hours (180 minutes).
-        /// - When you use an external deployment controller ( `EXTERNAL` ), or the CodeDeploy blue/green deployment controller ( `CODE_DEPLOY` ), the value is set to 3 hours (180 minutes).
-        /// - For all other cases, the value is set to 36 hours (2160 minutes).
+        ///  The following rules apply when you don't specify a value:
+        ///   +  For rolling deployments, the value is set to 3 hours (180 minutes).
+        ///   +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
+        ///   +  For all other cases, the value is set to 36 hours (2160 minutes).
         /// </summary>
         public readonly int? BakeTimeInMinutes;
         /// <summary>
@@ -68,9 +66,8 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         public readonly int? MinimumHealthyPercent;
         /// <summary>
         /// The deployment strategy for the service. Choose from these valid values:
-        /// 
-        /// - `ROLLING` - When you create a service which uses the rolling update ( `ROLLING` ) deployment strategy, the Amazon ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration.
-        /// - `BLUE_GREEN` - A blue/green deployment strategy ( `BLUE_GREEN` ) is a release methodology that reduces downtime and risk by running two identical production environments called blue and green. With Amazon ECS blue/green deployments, you can validate new service revisions before directing production traffic to them. This approach provides a safer way to deploy changes with the ability to quickly roll back if needed.
+        ///   +  ``ROLLING`` - When you create a service which uses the rolling update (``ROLLING``) deployment strategy, the Amazon ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration.
+        ///   +  ``BLUE_GREEN`` - A blue/green deployment strategy (``BLUE_GREEN``) is a release methodology that reduces downtime and risk by running two identical production environments called blue and green. With Amazon ECS blue/green deployments, you can validate new service revisions before directing production traffic to them. This approach provides a safer way to deploy changes with the ability to quickly roll back if needed.
         /// </summary>
         public readonly Pulumi.AwsNative.Ecs.ServiceDeploymentConfigurationStrategy? Strategy;
 

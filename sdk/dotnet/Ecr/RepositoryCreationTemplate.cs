@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.Ecr
         public Output<Pulumi.AwsNative.Ecr.RepositoryCreationTemplateImageTagMutability?> ImageTagMutability { get; private set; } = null!;
 
         /// <summary>
+        /// Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.
+        /// </summary>
+        [Output("imageTagMutabilityExclusionFilters")]
+        public Output<ImmutableArray<Outputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilter>> ImageTagMutabilityExclusionFilters { get; private set; } = null!;
+
+        /// <summary>
         /// The lifecycle policy to use for repositories created using the template.
         /// </summary>
         [Output("lifecyclePolicy")]
@@ -165,6 +171,18 @@ namespace Pulumi.AwsNative.Ecr
         /// </summary>
         [Input("imageTagMutability")]
         public Input<Pulumi.AwsNative.Ecr.RepositoryCreationTemplateImageTagMutability>? ImageTagMutability { get; set; }
+
+        [Input("imageTagMutabilityExclusionFilters")]
+        private InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs>? _imageTagMutabilityExclusionFilters;
+
+        /// <summary>
+        /// Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.
+        /// </summary>
+        public InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs> ImageTagMutabilityExclusionFilters
+        {
+            get => _imageTagMutabilityExclusionFilters ?? (_imageTagMutabilityExclusionFilters = new InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs>());
+            set => _imageTagMutabilityExclusionFilters = value;
+        }
 
         /// <summary>
         /// The lifecycle policy to use for repositories created using the template.

@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.Evs
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+        /// Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance. Amazon EVS does not validate license keys. To validate license keys, visit the Broadcom support portal.
         /// </summary>
         [Output("termsAccepted")]
         public Output<bool> TermsAccepted { get; private set; } = null!;
@@ -289,7 +289,7 @@ namespace Pulumi.AwsNative.Evs
         }
 
         /// <summary>
-        /// Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+        /// Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance. Amazon EVS does not validate license keys. To validate license keys, visit the Broadcom support portal.
         /// </summary>
         [Input("termsAccepted", required: true)]
         public Input<bool> TermsAccepted { get; set; } = null!;

@@ -45,6 +45,11 @@ export const getPortal: typeof import("./getPortal").getPortal = null as any;
 export const getPortalOutput: typeof import("./getPortal").getPortalOutput = null as any;
 utilities.lazyLoad(exports, ["getPortal","getPortalOutput"], () => require("./getPortal"));
 
+export { GetSessionLoggerArgs, GetSessionLoggerResult, GetSessionLoggerOutputArgs } from "./getSessionLogger";
+export const getSessionLogger: typeof import("./getSessionLogger").getSessionLogger = null as any;
+export const getSessionLoggerOutput: typeof import("./getSessionLogger").getSessionLoggerOutput = null as any;
+utilities.lazyLoad(exports, ["getSessionLogger","getSessionLoggerOutput"], () => require("./getSessionLogger"));
+
 export { GetTrustStoreArgs, GetTrustStoreResult, GetTrustStoreOutputArgs } from "./getTrustStore";
 export const getTrustStore: typeof import("./getTrustStore").getTrustStore = null as any;
 export const getTrustStoreOutput: typeof import("./getTrustStore").getTrustStoreOutput = null as any;
@@ -79,6 +84,11 @@ export { PortalArgs } from "./portal";
 export type Portal = import("./portal").Portal;
 export const Portal: typeof import("./portal").Portal = null as any;
 utilities.lazyLoad(exports, ["Portal"], () => require("./portal"));
+
+export { SessionLoggerArgs } from "./sessionLogger";
+export type SessionLogger = import("./sessionLogger").SessionLogger;
+export const SessionLogger: typeof import("./sessionLogger").SessionLogger = null as any;
+utilities.lazyLoad(exports, ["SessionLogger"], () => require("./sessionLogger"));
 
 export { TrustStoreArgs } from "./trustStore";
 export type TrustStore = import("./trustStore").TrustStore;
@@ -115,6 +125,8 @@ const _module = {
                 return new NetworkSettings(name, <any>undefined, { urn })
             case "aws-native:workspacesweb:Portal":
                 return new Portal(name, <any>undefined, { urn })
+            case "aws-native:workspacesweb:SessionLogger":
+                return new SessionLogger(name, <any>undefined, { urn })
             case "aws-native:workspacesweb:TrustStore":
                 return new TrustStore(name, <any>undefined, { urn })
             case "aws-native:workspacesweb:UserAccessLoggingSettings":

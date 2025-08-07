@@ -121,9 +121,9 @@ namespace Pulumi.AwsNative.CloudWatch
         public Output<ImmutableArray<string>> OkActions { get; private set; } = null!;
 
         /// <summary>
-        /// The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
+        /// The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 20, 30, 60, and any multiple of 60.
         ///  For an alarm based on a math expression, you can't specify ``Period``, and instead you use the ``Metrics`` parameter.
-        ///   *Minimum:* 10
+        ///  *Minimum:* 10
         /// </summary>
         [Output("period")]
         public Output<int?> Period { get; private set; } = null!;
@@ -346,9 +346,9 @@ namespace Pulumi.AwsNative.CloudWatch
         }
 
         /// <summary>
-        /// The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
+        /// The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 20, 30, 60, and any multiple of 60.
         ///  For an alarm based on a math expression, you can't specify ``Period``, and instead you use the ``Metrics`` parameter.
-        ///   *Minimum:* 10
+        ///  *Minimum:* 10
         /// </summary>
         [Input("period")]
         public Input<int>? Period { get; set; }

@@ -167,7 +167,7 @@ namespace Pulumi.AwsNative.Ecs
         /// </summary>
         public readonly Outputs.ServiceDeploymentConfiguration? DeploymentConfiguration;
         /// <summary>
-        /// The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
+        /// The deployment controller to use for the service.
         /// </summary>
         public readonly Outputs.ServiceDeploymentController? DeploymentController;
         /// <summary>
@@ -178,7 +178,7 @@ namespace Pulumi.AwsNative.Ecs
         public readonly int? DesiredCount;
         /// <summary>
         /// Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide*.
-        ///  When you use Amazon ECS managed tags, you need to set the ``propagateTags`` request parameter.
+        ///  When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
         /// </summary>
         public readonly bool? EnableEcsManagedTags;
         /// <summary>

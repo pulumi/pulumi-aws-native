@@ -35,6 +35,9 @@ export interface GetOriginEndpointPolicyArgs {
 }
 
 export interface GetOriginEndpointPolicyResult {
+    /**
+     * The settings to enable CDN authorization headers in MediaPackage.
+     */
     readonly cdnAuthConfiguration?: outputs.mediapackagev2.OriginEndpointPolicyCdnAuthConfiguration;
     /**
      * The policy associated with the origin endpoint.

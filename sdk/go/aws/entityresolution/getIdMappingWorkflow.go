@@ -36,7 +36,7 @@ type LookupIdMappingWorkflowResult struct {
 	IdMappingTechniques *IdMappingWorkflowIdMappingTechniques `pulumi:"idMappingTechniques"`
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig []IdMappingWorkflowInputSource `pulumi:"inputSourceConfig"`
-	// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+	// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `outputS3Path` and `KMSArn` .
 	OutputSourceConfig []IdMappingWorkflowOutputSource `pulumi:"outputSourceConfig"`
 	// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
 	RoleArn *string `pulumi:"roleArn"`
@@ -99,7 +99,7 @@ func (o LookupIdMappingWorkflowResultOutput) InputSourceConfig() IdMappingWorkfl
 	return o.ApplyT(func(v LookupIdMappingWorkflowResult) []IdMappingWorkflowInputSource { return v.InputSourceConfig }).(IdMappingWorkflowInputSourceArrayOutput)
 }
 
-// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `outputS3Path` and `KMSArn` .
 func (o LookupIdMappingWorkflowResultOutput) OutputSourceConfig() IdMappingWorkflowOutputSourceArrayOutput {
 	return o.ApplyT(func(v LookupIdMappingWorkflowResult) []IdMappingWorkflowOutputSource { return v.OutputSourceConfig }).(IdMappingWorkflowOutputSourceArrayOutput)
 }

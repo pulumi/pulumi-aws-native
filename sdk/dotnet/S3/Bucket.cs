@@ -931,7 +931,7 @@ namespace Pulumi.AwsNative.S3
         public Output<ImmutableArray<Outputs.BucketIntelligentTieringConfiguration>> IntelligentTieringConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+        /// Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
         /// </summary>
         [Output("inventoryConfigurations")]
         public Output<ImmutableArray<Outputs.BucketInventoryConfiguration>> InventoryConfigurations { get; private set; } = null!;
@@ -1156,7 +1156,7 @@ namespace Pulumi.AwsNative.S3
         private InputList<Inputs.BucketInventoryConfigurationArgs>? _inventoryConfigurations;
 
         /// <summary>
-        /// Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+        /// Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
         /// </summary>
         public InputList<Inputs.BucketInventoryConfigurationArgs> InventoryConfigurations
         {

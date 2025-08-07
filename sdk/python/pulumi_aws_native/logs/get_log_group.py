@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLogGroupResult:
-    def __init__(__self__, arn=None, data_protection_policy=None, field_index_policies=None, kms_key_id=None, log_group_class=None, retention_in_days=None, tags=None):
+    def __init__(__self__, arn=None, data_protection_policy=None, field_index_policies=None, kms_key_id=None, log_group_class=None, resource_policy_document=None, retention_in_days=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,9 @@ class GetLogGroupResult:
         if log_group_class and not isinstance(log_group_class, str):
             raise TypeError("Expected argument 'log_group_class' to be a str")
         pulumi.set(__self__, "log_group_class", log_group_class)
+        if resource_policy_document and not isinstance(resource_policy_document, dict):
+            raise TypeError("Expected argument 'resource_policy_document' to be a dict")
+        pulumi.set(__self__, "resource_policy_document", resource_policy_document)
         if retention_in_days and not isinstance(retention_in_days, int):
             raise TypeError("Expected argument 'retention_in_days' to be a int")
         pulumi.set(__self__, "retention_in_days", retention_in_days)
@@ -102,6 +105,14 @@ class GetLogGroupResult:
         return pulumi.get(self, "log_group_class")
 
     @property
+    @pulumi.getter(name="resourcePolicyDocument")
+    def resource_policy_document(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "resource_policy_document")
+
+    @property
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[builtins.int]:
         """
@@ -131,6 +142,7 @@ class AwaitableGetLogGroupResult(GetLogGroupResult):
             field_index_policies=self.field_index_policies,
             kms_key_id=self.kms_key_id,
             log_group_class=self.log_group_class,
+            resource_policy_document=self.resource_policy_document,
             retention_in_days=self.retention_in_days,
             tags=self.tags)
 
@@ -158,6 +170,7 @@ def get_log_group(log_group_name: Optional[builtins.str] = None,
         field_index_policies=pulumi.get(__ret__, 'field_index_policies'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         log_group_class=pulumi.get(__ret__, 'log_group_class'),
+        resource_policy_document=pulumi.get(__ret__, 'resource_policy_document'),
         retention_in_days=pulumi.get(__ret__, 'retention_in_days'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_log_group_output(log_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -182,5 +195,6 @@ def get_log_group_output(log_group_name: Optional[pulumi.Input[builtins.str]] = 
         field_index_policies=pulumi.get(__response__, 'field_index_policies'),
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
         log_group_class=pulumi.get(__response__, 'log_group_class'),
+        resource_policy_document=pulumi.get(__response__, 'resource_policy_document'),
         retention_in_days=pulumi.get(__response__, 'retention_in_days'),
         tags=pulumi.get(__response__, 'tags')))

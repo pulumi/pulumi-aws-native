@@ -70,6 +70,12 @@ namespace Pulumi.AwsNative.AppConfig
         public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The state of the deployment.
+        /// </summary>
+        [Output("state")]
+        public Output<Pulumi.AwsNative.AppConfig.DeploymentState> State { get; private set; } = null!;
+
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]

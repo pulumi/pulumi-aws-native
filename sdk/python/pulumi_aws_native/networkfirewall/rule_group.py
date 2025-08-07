@@ -30,6 +30,7 @@ class RuleGroupInitArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  rule_group: Optional[pulumi.Input['RuleGroupArgs']] = None,
                  rule_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 summary_configuration: Optional[pulumi.Input['SummaryConfigurationPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RuleGroup resource.
@@ -39,6 +40,10 @@ class RuleGroupInitArgs:
         :param pulumi.Input[builtins.str] description: A description of the rule group.
         :param pulumi.Input['RuleGroupArgs'] rule_group: An object that defines the rule group rules.
         :param pulumi.Input[builtins.str] rule_group_name: The descriptive name of the rule group. You can't change the name of a rule group after you create it.
+        :param pulumi.Input['SummaryConfigurationPropertiesArgs'] summary_configuration: A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+               
+               - The `RuleOptions` specified in `SummaryConfiguration`
+               - Rule metadata organization preferences
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
@@ -51,6 +56,8 @@ class RuleGroupInitArgs:
             pulumi.set(__self__, "rule_group", rule_group)
         if rule_group_name is not None:
             pulumi.set(__self__, "rule_group_name", rule_group_name)
+        if summary_configuration is not None:
+            pulumi.set(__self__, "summary_configuration", summary_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -116,6 +123,21 @@ class RuleGroupInitArgs:
         pulumi.set(self, "rule_group_name", value)
 
     @property
+    @pulumi.getter(name="summaryConfiguration")
+    def summary_configuration(self) -> Optional[pulumi.Input['SummaryConfigurationPropertiesArgs']]:
+        """
+        A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+
+        - The `RuleOptions` specified in `SummaryConfiguration`
+        - Rule metadata organization preferences
+        """
+        return pulumi.get(self, "summary_configuration")
+
+    @summary_configuration.setter
+    def summary_configuration(self, value: Optional[pulumi.Input['SummaryConfigurationPropertiesArgs']]):
+        pulumi.set(self, "summary_configuration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -140,6 +162,7 @@ class RuleGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  rule_group: Optional[pulumi.Input[Union['RuleGroupArgs', 'RuleGroupArgsDict']]] = None,
                  rule_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 summary_configuration: Optional[pulumi.Input[Union['SummaryConfigurationPropertiesArgs', 'SummaryConfigurationPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['RuleGroupTypeEnum']] = None,
                  __props__=None):
@@ -152,6 +175,10 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description of the rule group.
         :param pulumi.Input[Union['RuleGroupArgs', 'RuleGroupArgsDict']] rule_group: An object that defines the rule group rules.
         :param pulumi.Input[builtins.str] rule_group_name: The descriptive name of the rule group. You can't change the name of a rule group after you create it.
+        :param pulumi.Input[Union['SummaryConfigurationPropertiesArgs', 'SummaryConfigurationPropertiesArgsDict']] summary_configuration: A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+               
+               - The `RuleOptions` specified in `SummaryConfiguration`
+               - Rule metadata organization preferences
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
@@ -186,6 +213,7 @@ class RuleGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  rule_group: Optional[pulumi.Input[Union['RuleGroupArgs', 'RuleGroupArgsDict']]] = None,
                  rule_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 summary_configuration: Optional[pulumi.Input[Union['SummaryConfigurationPropertiesArgs', 'SummaryConfigurationPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['RuleGroupTypeEnum']] = None,
                  __props__=None):
@@ -203,6 +231,7 @@ class RuleGroup(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["rule_group"] = rule_group
             __props__.__dict__["rule_group_name"] = rule_group_name
+            __props__.__dict__["summary_configuration"] = summary_configuration
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -239,6 +268,7 @@ class RuleGroup(pulumi.CustomResource):
         __props__.__dict__["rule_group_arn"] = None
         __props__.__dict__["rule_group_id"] = None
         __props__.__dict__["rule_group_name"] = None
+        __props__.__dict__["summary_configuration"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return RuleGroup(resource_name, opts=opts, __props__=__props__)
@@ -271,7 +301,7 @@ class RuleGroup(pulumi.CustomResource):
     @pulumi.getter(name="ruleGroupArn")
     def rule_group_arn(self) -> pulumi.Output[builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the `RuleGroup` .
+        The Amazon Resource Name (ARN) of the rule group.
         """
         return pulumi.get(self, "rule_group_arn")
 
@@ -279,7 +309,7 @@ class RuleGroup(pulumi.CustomResource):
     @pulumi.getter(name="ruleGroupId")
     def rule_group_id(self) -> pulumi.Output[builtins.str]:
         """
-        The unique ID of the `RuleGroup` resource.
+        The unique ID of the rule group resource.
         """
         return pulumi.get(self, "rule_group_id")
 
@@ -290,6 +320,17 @@ class RuleGroup(pulumi.CustomResource):
         The descriptive name of the rule group. You can't change the name of a rule group after you create it.
         """
         return pulumi.get(self, "rule_group_name")
+
+    @property
+    @pulumi.getter(name="summaryConfiguration")
+    def summary_configuration(self) -> pulumi.Output[Optional['outputs.SummaryConfigurationProperties']]:
+        """
+        A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+
+        - The `RuleOptions` specified in `SummaryConfiguration`
+        - Rule metadata organization preferences
+        """
+        return pulumi.get(self, "summary_configuration")
 
     @property
     @pulumi.getter

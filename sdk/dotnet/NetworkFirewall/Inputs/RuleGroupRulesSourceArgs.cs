@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// 
         /// These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn't have a separate action setting.
         /// 
-        /// &gt; You can't use the `priority` keyword if the `RuleOrder` option in `StatefulRuleOptions` is set to `STRICT_ORDER` .
+        /// &gt; You can't use the `priority` keyword if the `RuleOrder` option in StatefulRuleOptions is set to `STRICT_ORDER` .
         /// </summary>
         [Input("rulesString")]
         public Input<string>? RulesString { get; set; }

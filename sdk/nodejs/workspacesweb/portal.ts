@@ -119,6 +119,7 @@ export class Portal extends pulumi.CustomResource {
      * The SAML metadata of the service provider.
      */
     public /*out*/ readonly serviceProviderSamlMetadata!: pulumi.Output<string>;
+    public readonly sessionLoggerArn!: pulumi.Output<string | undefined>;
     /**
      * A message that explains why the web portal is in its current status.
      */
@@ -161,6 +162,7 @@ export class Portal extends pulumi.CustomResource {
             resourceInputs["ipAccessSettingsArn"] = args ? args.ipAccessSettingsArn : undefined;
             resourceInputs["maxConcurrentSessions"] = args ? args.maxConcurrentSessions : undefined;
             resourceInputs["networkSettingsArn"] = args ? args.networkSettingsArn : undefined;
+            resourceInputs["sessionLoggerArn"] = args ? args.sessionLoggerArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trustStoreArn"] = args ? args.trustStoreArn : undefined;
             resourceInputs["userAccessLoggingSettingsArn"] = args ? args.userAccessLoggingSettingsArn : undefined;
@@ -191,6 +193,7 @@ export class Portal extends pulumi.CustomResource {
             resourceInputs["portalStatus"] = undefined /*out*/;
             resourceInputs["rendererType"] = undefined /*out*/;
             resourceInputs["serviceProviderSamlMetadata"] = undefined /*out*/;
+            resourceInputs["sessionLoggerArn"] = undefined /*out*/;
             resourceInputs["statusReason"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["trustStoreArn"] = undefined /*out*/;
@@ -262,6 +265,7 @@ export interface PortalArgs {
      * The ARN of the network settings that is associated with the web portal.
      */
     networkSettingsArn?: pulumi.Input<string>;
+    sessionLoggerArn?: pulumi.Input<string>;
     /**
      * The tags to add to the web portal. A tag is a key-value pair.
      */

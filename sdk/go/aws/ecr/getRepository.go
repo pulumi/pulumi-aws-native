@@ -37,6 +37,8 @@ type LookupRepositoryResult struct {
 	ImageScanningConfiguration *RepositoryImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 	ImageTagMutability *RepositoryImageTagMutability `pulumi:"imageTagMutability"`
+	// The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+	ImageTagMutabilityExclusionFilters []RepositoryImageTagMutabilityExclusionFilter `pulumi:"imageTagMutabilityExclusionFilters"`
 	// Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
 	LifecyclePolicy *RepositoryLifecyclePolicy `pulumi:"lifecyclePolicy"`
 	// The JSON repository policy text to apply to the repository. For more information, see [Amazon ECR repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html) in the *Amazon Elastic Container Registry User Guide*.
@@ -98,6 +100,13 @@ func (o LookupRepositoryResultOutput) ImageScanningConfiguration() RepositoryIma
 // The tag mutability setting for the repository. If this parameter is omitted, the default setting of “MUTABLE“ will be used which will allow image tags to be overwritten. If “IMMUTABLE“ is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 func (o LookupRepositoryResultOutput) ImageTagMutability() RepositoryImageTagMutabilityPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) *RepositoryImageTagMutability { return v.ImageTagMutability }).(RepositoryImageTagMutabilityPtrOutput)
+}
+
+// The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+func (o LookupRepositoryResultOutput) ImageTagMutabilityExclusionFilters() RepositoryImageTagMutabilityExclusionFilterArrayOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) []RepositoryImageTagMutabilityExclusionFilter {
+		return v.ImageTagMutabilityExclusionFilters
+	}).(RepositoryImageTagMutabilityExclusionFilterArrayOutput)
 }
 
 // Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).

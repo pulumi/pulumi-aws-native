@@ -37,6 +37,9 @@ export class OriginEndpointPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === OriginEndpointPolicy.__pulumiType;
     }
 
+    /**
+     * The settings to enable CDN authorization headers in MediaPackage.
+     */
     public readonly cdnAuthConfiguration!: pulumi.Output<outputs.mediapackagev2.OriginEndpointPolicyCdnAuthConfiguration | undefined>;
     /**
      * The name of the channel group associated with the origin endpoint policy.
@@ -103,6 +106,9 @@ export class OriginEndpointPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a OriginEndpointPolicy resource.
  */
 export interface OriginEndpointPolicyArgs {
+    /**
+     * The settings to enable CDN authorization headers in MediaPackage.
+     */
     cdnAuthConfiguration?: pulumi.Input<inputs.mediapackagev2.OriginEndpointPolicyCdnAuthConfigurationArgs>;
     /**
      * The name of the channel group associated with the origin endpoint policy.

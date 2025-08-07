@@ -28,6 +28,8 @@ type RepositoryCreationTemplate struct {
 	EncryptionConfiguration RepositoryCreationTemplateEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 	ImageTagMutability RepositoryCreationTemplateImageTagMutabilityPtrOutput `pulumi:"imageTagMutability"`
+	// Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.
+	ImageTagMutabilityExclusionFilters RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput `pulumi:"imageTagMutabilityExclusionFilters"`
 	// The lifecycle policy to use for repositories created using the template.
 	LifecyclePolicy pulumi.StringPtrOutput `pulumi:"lifecyclePolicy"`
 	// The repository namespace prefix associated with the repository creation template.
@@ -100,6 +102,8 @@ type repositoryCreationTemplateArgs struct {
 	EncryptionConfiguration *RepositoryCreationTemplateEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 	ImageTagMutability *RepositoryCreationTemplateImageTagMutability `pulumi:"imageTagMutability"`
+	// Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.
+	ImageTagMutabilityExclusionFilters []RepositoryCreationTemplateImageTagMutabilityExclusionFilter `pulumi:"imageTagMutabilityExclusionFilters"`
 	// The lifecycle policy to use for repositories created using the template.
 	LifecyclePolicy *string `pulumi:"lifecyclePolicy"`
 	// The repository namespace prefix associated with the repository creation template.
@@ -122,6 +126,8 @@ type RepositoryCreationTemplateArgs struct {
 	EncryptionConfiguration RepositoryCreationTemplateEncryptionConfigurationPtrInput
 	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 	ImageTagMutability RepositoryCreationTemplateImageTagMutabilityPtrInput
+	// Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.
+	ImageTagMutabilityExclusionFilters RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayInput
 	// The lifecycle policy to use for repositories created using the template.
 	LifecyclePolicy pulumi.StringPtrInput
 	// The repository namespace prefix associated with the repository creation template.
@@ -203,6 +209,13 @@ func (o RepositoryCreationTemplateOutput) ImageTagMutability() RepositoryCreatio
 	return o.ApplyT(func(v *RepositoryCreationTemplate) RepositoryCreationTemplateImageTagMutabilityPtrOutput {
 		return v.ImageTagMutability
 	}).(RepositoryCreationTemplateImageTagMutabilityPtrOutput)
+}
+
+// Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.
+func (o RepositoryCreationTemplateOutput) ImageTagMutabilityExclusionFilters() RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput {
+	return o.ApplyT(func(v *RepositoryCreationTemplate) RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput {
+		return v.ImageTagMutabilityExclusionFilters
+	}).(RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput)
 }
 
 // The lifecycle policy to use for repositories created using the template.

@@ -114,6 +114,7 @@ namespace Pulumi.AwsNative.Rds
         }
 
         public static DbProxyAuthFormatClientPasswordAuthType MysqlNativePassword { get; } = new DbProxyAuthFormatClientPasswordAuthType("MYSQL_NATIVE_PASSWORD");
+        public static DbProxyAuthFormatClientPasswordAuthType MysqlCachingSha2Password { get; } = new DbProxyAuthFormatClientPasswordAuthType("MYSQL_CACHING_SHA2_PASSWORD");
         public static DbProxyAuthFormatClientPasswordAuthType PostgresScramSha256 { get; } = new DbProxyAuthFormatClientPasswordAuthType("POSTGRES_SCRAM_SHA_256");
         public static DbProxyAuthFormatClientPasswordAuthType PostgresMd5 { get; } = new DbProxyAuthFormatClientPasswordAuthType("POSTGRES_MD5");
         public static DbProxyAuthFormatClientPasswordAuthType SqlServerAuthentication { get; } = new DbProxyAuthFormatClientPasswordAuthType("SQL_SERVER_AUTHENTICATION");

@@ -100,6 +100,10 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly imageTagMutability!: pulumi.Output<enums.ecr.RepositoryImageTagMutability | undefined>;
     /**
+     * The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+     */
+    public readonly imageTagMutabilityExclusionFilters!: pulumi.Output<outputs.ecr.RepositoryImageTagMutabilityExclusionFilter[] | undefined>;
+    /**
      * Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
      */
     public readonly lifecyclePolicy!: pulumi.Output<outputs.ecr.RepositoryLifecyclePolicy | undefined>;
@@ -139,6 +143,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
             resourceInputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
+            resourceInputs["imageTagMutabilityExclusionFilters"] = args ? args.imageTagMutabilityExclusionFilters : undefined;
             resourceInputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
             resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
             resourceInputs["repositoryPolicyText"] = args ? args.repositoryPolicyText : undefined;
@@ -151,6 +156,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;
             resourceInputs["imageScanningConfiguration"] = undefined /*out*/;
             resourceInputs["imageTagMutability"] = undefined /*out*/;
+            resourceInputs["imageTagMutabilityExclusionFilters"] = undefined /*out*/;
             resourceInputs["lifecyclePolicy"] = undefined /*out*/;
             resourceInputs["repositoryName"] = undefined /*out*/;
             resourceInputs["repositoryPolicyText"] = undefined /*out*/;
@@ -184,6 +190,10 @@ export interface RepositoryArgs {
      * The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
      */
     imageTagMutability?: pulumi.Input<enums.ecr.RepositoryImageTagMutability>;
+    /**
+     * The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+     */
+    imageTagMutabilityExclusionFilters?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryImageTagMutabilityExclusionFilterArgs>[]>;
     /**
      * Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
      */

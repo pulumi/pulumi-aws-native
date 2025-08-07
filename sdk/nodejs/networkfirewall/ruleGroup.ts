@@ -50,17 +50,24 @@ export class RuleGroup extends pulumi.CustomResource {
      */
     public readonly ruleGroup!: pulumi.Output<outputs.networkfirewall.RuleGroup | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the `RuleGroup` .
+     * The Amazon Resource Name (ARN) of the rule group.
      */
     public /*out*/ readonly ruleGroupArn!: pulumi.Output<string>;
     /**
-     * The unique ID of the `RuleGroup` resource.
+     * The unique ID of the rule group resource.
      */
     public /*out*/ readonly ruleGroupId!: pulumi.Output<string>;
     /**
      * The descriptive name of the rule group. You can't change the name of a rule group after you create it.
      */
     public readonly ruleGroupName!: pulumi.Output<string>;
+    /**
+     * A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+     *
+     * - The `RuleOptions` specified in `SummaryConfiguration`
+     * - Rule metadata organization preferences
+     */
+    public readonly summaryConfiguration!: pulumi.Output<outputs.networkfirewall.SummaryConfigurationProperties | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
@@ -94,6 +101,7 @@ export class RuleGroup extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["ruleGroup"] = args ? args.ruleGroup : undefined;
             resourceInputs["ruleGroupName"] = args ? args.ruleGroupName : undefined;
+            resourceInputs["summaryConfiguration"] = args ? args.summaryConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["ruleGroupArn"] = undefined /*out*/;
@@ -105,6 +113,7 @@ export class RuleGroup extends pulumi.CustomResource {
             resourceInputs["ruleGroupArn"] = undefined /*out*/;
             resourceInputs["ruleGroupId"] = undefined /*out*/;
             resourceInputs["ruleGroupName"] = undefined /*out*/;
+            resourceInputs["summaryConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -135,6 +144,13 @@ export interface RuleGroupArgs {
      * The descriptive name of the rule group. You can't change the name of a rule group after you create it.
      */
     ruleGroupName?: pulumi.Input<string>;
+    /**
+     * A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+     *
+     * - The `RuleOptions` specified in `SummaryConfiguration`
+     * - Rule metadata organization preferences
+     */
+    summaryConfiguration?: pulumi.Input<inputs.networkfirewall.SummaryConfigurationPropertiesArgs>;
     /**
      * An array of key-value pairs to apply to this resource.
      *

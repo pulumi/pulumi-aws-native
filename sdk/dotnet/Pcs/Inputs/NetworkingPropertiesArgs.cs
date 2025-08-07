@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.Pcs.Inputs
     /// </summary>
     public sealed class NetworkingPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IP of the cluster (IPV4 or IPV6)
+        /// </summary>
+        [Input("networkType")]
+        public Input<Pulumi.AwsNative.Pcs.ClusterNetworkingPropertiesNetworkType>? NetworkType { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 

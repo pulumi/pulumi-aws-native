@@ -27,6 +27,12 @@ namespace Pulumi.AwsNative.Glue
         public static JobWorkerType G4x { get; } = new JobWorkerType("G.4X");
         public static JobWorkerType G8x { get; } = new JobWorkerType("G.8X");
         public static JobWorkerType Z2x { get; } = new JobWorkerType("Z.2X");
+        public static JobWorkerType G12x { get; } = new JobWorkerType("G.12X");
+        public static JobWorkerType G16x { get; } = new JobWorkerType("G.16X");
+        public static JobWorkerType R1x { get; } = new JobWorkerType("R.1X");
+        public static JobWorkerType R2x { get; } = new JobWorkerType("R.2X");
+        public static JobWorkerType R4x { get; } = new JobWorkerType("R.4X");
+        public static JobWorkerType R8x { get; } = new JobWorkerType("R.8X");
 
         public static bool operator ==(JobWorkerType left, JobWorkerType right) => left.Equals(right);
         public static bool operator !=(JobWorkerType left, JobWorkerType right) => !left.Equals(right);

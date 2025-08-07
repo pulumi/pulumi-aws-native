@@ -17,6 +17,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DeploymentArgs', 'Deployment']
@@ -261,6 +262,7 @@ class Deployment(pulumi.CustomResource):
             __props__.__dict__["kms_key_identifier"] = kms_key_identifier
             __props__.__dict__["tags"] = tags
             __props__.__dict__["deployment_number"] = None
+            __props__.__dict__["state"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["applicationId", "configurationProfileId", "configurationVersion", "deploymentStrategyId", "description", "dynamicExtensionParameters[*]", "environmentId", "kmsKeyIdentifier", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Deployment, __self__).__init__(
@@ -294,6 +296,7 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["dynamic_extension_parameters"] = None
         __props__.__dict__["environment_id"] = None
         __props__.__dict__["kms_key_identifier"] = None
+        __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
         return Deployment(resource_name, opts=opts, __props__=__props__)
 
@@ -368,6 +371,14 @@ class Deployment(pulumi.CustomResource):
         The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
         """
         return pulumi.get(self, "kms_key_identifier")
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Output['DeploymentState']:
+        """
+        The state of the deployment.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter

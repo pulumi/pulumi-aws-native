@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAssetModelResult:
-    def __init__(__self__, asset_model_arn=None, asset_model_composite_models=None, asset_model_description=None, asset_model_external_id=None, asset_model_hierarchies=None, asset_model_id=None, asset_model_name=None, asset_model_properties=None, tags=None):
+    def __init__(__self__, asset_model_arn=None, asset_model_composite_models=None, asset_model_description=None, asset_model_external_id=None, asset_model_hierarchies=None, asset_model_id=None, asset_model_name=None, asset_model_properties=None, enforced_asset_model_interface_relationships=None, tags=None):
         if asset_model_arn and not isinstance(asset_model_arn, str):
             raise TypeError("Expected argument 'asset_model_arn' to be a str")
         pulumi.set(__self__, "asset_model_arn", asset_model_arn)
@@ -52,6 +52,9 @@ class GetAssetModelResult:
         if asset_model_properties and not isinstance(asset_model_properties, list):
             raise TypeError("Expected argument 'asset_model_properties' to be a list")
         pulumi.set(__self__, "asset_model_properties", asset_model_properties)
+        if enforced_asset_model_interface_relationships and not isinstance(enforced_asset_model_interface_relationships, list):
+            raise TypeError("Expected argument 'enforced_asset_model_interface_relationships' to be a list")
+        pulumi.set(__self__, "enforced_asset_model_interface_relationships", enforced_asset_model_interface_relationships)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -121,6 +124,14 @@ class GetAssetModelResult:
         return pulumi.get(self, "asset_model_properties")
 
     @property
+    @pulumi.getter(name="enforcedAssetModelInterfaceRelationships")
+    def enforced_asset_model_interface_relationships(self) -> Optional[Sequence['outputs.AssetModelEnforcedAssetModelInterfaceRelationship']]:
+        """
+        a list of asset model and interface relationships
+        """
+        return pulumi.get(self, "enforced_asset_model_interface_relationships")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -143,6 +154,7 @@ class AwaitableGetAssetModelResult(GetAssetModelResult):
             asset_model_id=self.asset_model_id,
             asset_model_name=self.asset_model_name,
             asset_model_properties=self.asset_model_properties,
+            enforced_asset_model_interface_relationships=self.enforced_asset_model_interface_relationships,
             tags=self.tags)
 
 
@@ -168,6 +180,7 @@ def get_asset_model(asset_model_id: Optional[builtins.str] = None,
         asset_model_id=pulumi.get(__ret__, 'asset_model_id'),
         asset_model_name=pulumi.get(__ret__, 'asset_model_name'),
         asset_model_properties=pulumi.get(__ret__, 'asset_model_properties'),
+        enforced_asset_model_interface_relationships=pulumi.get(__ret__, 'enforced_asset_model_interface_relationships'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_asset_model_output(asset_model_id: Optional[pulumi.Input[builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetModelResult]:
@@ -190,4 +203,5 @@ def get_asset_model_output(asset_model_id: Optional[pulumi.Input[builtins.str]] 
         asset_model_id=pulumi.get(__response__, 'asset_model_id'),
         asset_model_name=pulumi.get(__response__, 'asset_model_name'),
         asset_model_properties=pulumi.get(__response__, 'asset_model_properties'),
+        enforced_asset_model_interface_relationships=pulumi.get(__response__, 'enforced_asset_model_interface_relationships'),
         tags=pulumi.get(__response__, 'tags')))

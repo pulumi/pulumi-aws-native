@@ -10,16 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// The encryption settings for an S3 Metadata journal table or inventory table configuration.
+    /// </summary>
     public sealed class BucketMetadataTableEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the KMS key. Required if SseAlgorithm is aws:kms.
+        /// If server-side encryption with KMSlong (KMS) keys (SSE-KMS) is specified, you must also specify the KMS key Amazon Resource Name (ARN). You must specify a customer-managed KMS key that's located in the same Region as the general purpose bucket that corresponds to the metadata table configuration.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Specifies the server-side encryption algorithm to use for encrypting tables.
+        /// The encryption type specified for a metadata table. To specify server-side encryption with KMSlong (KMS) keys (SSE-KMS), use the ``aws:kms`` value. To specify server-side encryption with Amazon S3 managed keys (SSE-S3), use the ``AES256`` value.
         /// </summary>
         [Input("sseAlgorithm", required: true)]
         public Input<Pulumi.AwsNative.S3.BucketMetadataTableEncryptionConfigurationSseAlgorithm> SseAlgorithm { get; set; } = null!;

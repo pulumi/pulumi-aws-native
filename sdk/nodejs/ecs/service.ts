@@ -82,7 +82,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly deploymentConfiguration!: pulumi.Output<outputs.ecs.ServiceDeploymentConfiguration | undefined>;
     /**
-     * The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
+     * The deployment controller to use for the service.
      */
     public readonly deploymentController!: pulumi.Output<outputs.ecs.ServiceDeploymentController | undefined>;
     /**
@@ -93,7 +93,7 @@ export class Service extends pulumi.CustomResource {
     public readonly desiredCount!: pulumi.Output<number | undefined>;
     /**
      * Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide*.
-     *  When you use Amazon ECS managed tags, you need to set the ``propagateTags`` request parameter.
+     *  When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
      */
     public readonly enableEcsManagedTags!: pulumi.Output<boolean | undefined>;
     /**
@@ -303,7 +303,7 @@ export interface ServiceArgs {
      */
     deploymentConfiguration?: pulumi.Input<inputs.ecs.ServiceDeploymentConfigurationArgs>;
     /**
-     * The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
+     * The deployment controller to use for the service.
      */
     deploymentController?: pulumi.Input<inputs.ecs.ServiceDeploymentControllerArgs>;
     /**
@@ -314,7 +314,7 @@ export interface ServiceArgs {
     desiredCount?: pulumi.Input<number>;
     /**
      * Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide*.
-     *  When you use Amazon ECS managed tags, you need to set the ``propagateTags`` request parameter.
+     *  When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
      */
     enableEcsManagedTags?: pulumi.Input<boolean>;
     /**

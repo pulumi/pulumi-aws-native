@@ -34,7 +34,7 @@ type LoadBalancer struct {
 	Ipv4IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv4IpamPoolId"`
 	// The Amazon Resource Name (ARN) of the load balancer.
 	LoadBalancerArn pulumi.StringOutput `pulumi:"loadBalancerArn"`
-	// The load balancer attributes.
+	// The load balancer attributes. Attributes that you do not modify retain their current values.
 	LoadBalancerAttributes LoadBalancerAttributeArrayOutput `pulumi:"loadBalancerAttributes"`
 	// The full name of the load balancer. For example, `app/my-load-balancer/50dc6c495c0c9188` .
 	LoadBalancerFullName pulumi.StringOutput `pulumi:"loadBalancerFullName"`
@@ -129,7 +129,7 @@ type loadBalancerArgs struct {
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The ID of the IPv4 IPAM pool.
 	Ipv4IpamPoolId *string `pulumi:"ipv4IpamPoolId"`
-	// The load balancer attributes.
+	// The load balancer attributes. Attributes that you do not modify retain their current values.
 	LoadBalancerAttributes []LoadBalancerAttribute `pulumi:"loadBalancerAttributes"`
 	// The minimum capacity for a load balancer.
 	MinimumLoadBalancerCapacity *LoadBalancerMinimumLoadBalancerCapacity `pulumi:"minimumLoadBalancerCapacity"`
@@ -176,7 +176,7 @@ type LoadBalancerArgs struct {
 	IpAddressType pulumi.StringPtrInput
 	// The ID of the IPv4 IPAM pool.
 	Ipv4IpamPoolId pulumi.StringPtrInput
-	// The load balancer attributes.
+	// The load balancer attributes. Attributes that you do not modify retain their current values.
 	LoadBalancerAttributes LoadBalancerAttributeArrayInput
 	// The minimum capacity for a load balancer.
 	MinimumLoadBalancerCapacity LoadBalancerMinimumLoadBalancerCapacityPtrInput
@@ -289,7 +289,7 @@ func (o LoadBalancerOutput) LoadBalancerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.LoadBalancerArn }).(pulumi.StringOutput)
 }
 
-// The load balancer attributes.
+// The load balancer attributes. Attributes that you do not modify retain their current values.
 func (o LoadBalancerOutput) LoadBalancerAttributes() LoadBalancerAttributeArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerAttributeArrayOutput { return v.LoadBalancerAttributes }).(LoadBalancerAttributeArrayOutput)
 }

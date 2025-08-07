@@ -77,6 +77,8 @@ func (o ChannelIngestEndpointArrayOutput) Index(i pulumi.IntInput) ChannelIngest
 type ChannelInputSwitchConfiguration struct {
 	// <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
 	MqcsInputSwitching *bool `pulumi:"mqcsInputSwitching"`
+	// For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
+	PreferredInput *int `pulumi:"preferredInput"`
 }
 
 // ChannelInputSwitchConfigurationInput is an input type that accepts ChannelInputSwitchConfigurationArgs and ChannelInputSwitchConfigurationOutput values.
@@ -94,6 +96,8 @@ type ChannelInputSwitchConfigurationInput interface {
 type ChannelInputSwitchConfigurationArgs struct {
 	// <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
 	MqcsInputSwitching pulumi.BoolPtrInput `pulumi:"mqcsInputSwitching"`
+	// For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
+	PreferredInput pulumi.IntPtrInput `pulumi:"preferredInput"`
 }
 
 func (ChannelInputSwitchConfigurationArgs) ElementType() reflect.Type {
@@ -179,6 +183,11 @@ func (o ChannelInputSwitchConfigurationOutput) MqcsInputSwitching() pulumi.BoolP
 	return o.ApplyT(func(v ChannelInputSwitchConfiguration) *bool { return v.MqcsInputSwitching }).(pulumi.BoolPtrOutput)
 }
 
+// For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
+func (o ChannelInputSwitchConfigurationOutput) PreferredInput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelInputSwitchConfiguration) *int { return v.PreferredInput }).(pulumi.IntPtrOutput)
+}
+
 type ChannelInputSwitchConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelInputSwitchConfigurationPtrOutput) ElementType() reflect.Type {
@@ -211,6 +220,16 @@ func (o ChannelInputSwitchConfigurationPtrOutput) MqcsInputSwitching() pulumi.Bo
 		}
 		return v.MqcsInputSwitching
 	}).(pulumi.BoolPtrOutput)
+}
+
+// For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
+func (o ChannelInputSwitchConfigurationPtrOutput) PreferredInput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelInputSwitchConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PreferredInput
+	}).(pulumi.IntPtrOutput)
 }
 
 // <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
@@ -1864,6 +1883,8 @@ func (o OriginEndpointDashUtcTimingPtrOutput) TimingSource() pulumi.StringPtrOut
 
 // <p>The parameters for encrypting content.</p>
 type OriginEndpointEncryption struct {
+	// <p>Excludes SEIG and SGPD boxes from segment metadata in CMAF containers.</p> <p>When set to <code>true</code>, MediaPackage omits these DRM metadata boxes from CMAF segments, which can improve compatibility with certain devices and players that don't support these boxes.</p> <p>Important considerations:</p> <ul> <li> <p>This setting only affects CMAF container formats</p> </li> <li> <p>Key rotation can still be handled through media playlist signaling</p> </li> <li> <p>PSSH and TENC boxes remain unaffected</p> </li> <li> <p>Default behavior is preserved when this setting is disabled</p> </li> </ul> <p>Valid values: <code>true</code> | <code>false</code> </p> <p>Default: <code>false</code> </p>
+	CmafExcludeSegmentDrmMetadata *bool `pulumi:"cmafExcludeSegmentDrmMetadata"`
 	// <p>A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
 	ConstantInitializationVector *string `pulumi:"constantInitializationVector"`
 	// The encryption method to use.
@@ -1887,6 +1908,8 @@ type OriginEndpointEncryptionInput interface {
 
 // <p>The parameters for encrypting content.</p>
 type OriginEndpointEncryptionArgs struct {
+	// <p>Excludes SEIG and SGPD boxes from segment metadata in CMAF containers.</p> <p>When set to <code>true</code>, MediaPackage omits these DRM metadata boxes from CMAF segments, which can improve compatibility with certain devices and players that don't support these boxes.</p> <p>Important considerations:</p> <ul> <li> <p>This setting only affects CMAF container formats</p> </li> <li> <p>Key rotation can still be handled through media playlist signaling</p> </li> <li> <p>PSSH and TENC boxes remain unaffected</p> </li> <li> <p>Default behavior is preserved when this setting is disabled</p> </li> </ul> <p>Valid values: <code>true</code> | <code>false</code> </p> <p>Default: <code>false</code> </p>
+	CmafExcludeSegmentDrmMetadata pulumi.BoolPtrInput `pulumi:"cmafExcludeSegmentDrmMetadata"`
 	// <p>A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
 	ConstantInitializationVector pulumi.StringPtrInput `pulumi:"constantInitializationVector"`
 	// The encryption method to use.
@@ -1975,6 +1998,11 @@ func (o OriginEndpointEncryptionOutput) ToOriginEndpointEncryptionPtrOutputWithC
 	}).(OriginEndpointEncryptionPtrOutput)
 }
 
+// <p>Excludes SEIG and SGPD boxes from segment metadata in CMAF containers.</p> <p>When set to <code>true</code>, MediaPackage omits these DRM metadata boxes from CMAF segments, which can improve compatibility with certain devices and players that don't support these boxes.</p> <p>Important considerations:</p> <ul> <li> <p>This setting only affects CMAF container formats</p> </li> <li> <p>Key rotation can still be handled through media playlist signaling</p> </li> <li> <p>PSSH and TENC boxes remain unaffected</p> </li> <li> <p>Default behavior is preserved when this setting is disabled</p> </li> </ul> <p>Valid values: <code>true</code> | <code>false</code> </p> <p>Default: <code>false</code> </p>
+func (o OriginEndpointEncryptionOutput) CmafExcludeSegmentDrmMetadata() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OriginEndpointEncryption) *bool { return v.CmafExcludeSegmentDrmMetadata }).(pulumi.BoolPtrOutput)
+}
+
 // <p>A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
 func (o OriginEndpointEncryptionOutput) ConstantInitializationVector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointEncryption) *string { return v.ConstantInitializationVector }).(pulumi.StringPtrOutput)
@@ -2017,6 +2045,16 @@ func (o OriginEndpointEncryptionPtrOutput) Elem() OriginEndpointEncryptionOutput
 		var ret OriginEndpointEncryption
 		return ret
 	}).(OriginEndpointEncryptionOutput)
+}
+
+// <p>Excludes SEIG and SGPD boxes from segment metadata in CMAF containers.</p> <p>When set to <code>true</code>, MediaPackage omits these DRM metadata boxes from CMAF segments, which can improve compatibility with certain devices and players that don't support these boxes.</p> <p>Important considerations:</p> <ul> <li> <p>This setting only affects CMAF container formats</p> </li> <li> <p>Key rotation can still be handled through media playlist signaling</p> </li> <li> <p>PSSH and TENC boxes remain unaffected</p> </li> <li> <p>Default behavior is preserved when this setting is disabled</p> </li> </ul> <p>Valid values: <code>true</code> | <code>false</code> </p> <p>Default: <code>false</code> </p>
+func (o OriginEndpointEncryptionPtrOutput) CmafExcludeSegmentDrmMetadata() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointEncryption) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CmafExcludeSegmentDrmMetadata
+	}).(pulumi.BoolPtrOutput)
 }
 
 // <p>A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
@@ -3182,8 +3220,10 @@ func (o OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput) Index(i pul
 }
 
 type OriginEndpointPolicyCdnAuthConfiguration struct {
+	// The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
 	CdnIdentifierSecretArns []string `pulumi:"cdnIdentifierSecretArns"`
-	SecretsRoleArn          string   `pulumi:"secretsRoleArn"`
+	// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+	SecretsRoleArn string `pulumi:"secretsRoleArn"`
 }
 
 // OriginEndpointPolicyCdnAuthConfigurationInput is an input type that accepts OriginEndpointPolicyCdnAuthConfigurationArgs and OriginEndpointPolicyCdnAuthConfigurationOutput values.
@@ -3198,8 +3238,10 @@ type OriginEndpointPolicyCdnAuthConfigurationInput interface {
 }
 
 type OriginEndpointPolicyCdnAuthConfigurationArgs struct {
+	// The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
 	CdnIdentifierSecretArns pulumi.StringArrayInput `pulumi:"cdnIdentifierSecretArns"`
-	SecretsRoleArn          pulumi.StringInput      `pulumi:"secretsRoleArn"`
+	// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+	SecretsRoleArn pulumi.StringInput `pulumi:"secretsRoleArn"`
 }
 
 func (OriginEndpointPolicyCdnAuthConfigurationArgs) ElementType() reflect.Type {
@@ -3279,10 +3321,12 @@ func (o OriginEndpointPolicyCdnAuthConfigurationOutput) ToOriginEndpointPolicyCd
 	}).(OriginEndpointPolicyCdnAuthConfigurationPtrOutput)
 }
 
+// The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
 func (o OriginEndpointPolicyCdnAuthConfigurationOutput) CdnIdentifierSecretArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginEndpointPolicyCdnAuthConfiguration) []string { return v.CdnIdentifierSecretArns }).(pulumi.StringArrayOutput)
 }
 
+// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
 func (o OriginEndpointPolicyCdnAuthConfigurationOutput) SecretsRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginEndpointPolicyCdnAuthConfiguration) string { return v.SecretsRoleArn }).(pulumi.StringOutput)
 }
@@ -3311,6 +3355,7 @@ func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) Elem() OriginEndpoint
 	}).(OriginEndpointPolicyCdnAuthConfigurationOutput)
 }
 
+// The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
 func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) CdnIdentifierSecretArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OriginEndpointPolicyCdnAuthConfiguration) []string {
 		if v == nil {
@@ -3320,6 +3365,7 @@ func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) CdnIdentifierSecretAr
 	}).(pulumi.StringArrayOutput)
 }
 
+// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
 func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) SecretsRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointPolicyCdnAuthConfiguration) *string {
 		if v == nil {

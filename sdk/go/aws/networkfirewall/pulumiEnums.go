@@ -1757,12 +1757,12 @@ func (in *ruleGroupRuleOrderPtr) ToRuleGroupRuleOrderPtrOutputWithContext(ctx co
 // The actions for a stateful rule are defined as follows:
 //
 // - *PASS* - Permits the packets to go to the intended destination.
-// - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+// - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the firewall logging configuration.
 // - *REJECT* - Drops traffic that matches the conditions of the stateful rule and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. `REJECT` is available only for TCP traffic.
-// - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+// - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the firewall logging configuration.
 //
 // You can use this action to test a rule that you intend to use to drop traffic. You can enable the rule with `ALERT` action, verify in the logs that the rule is filtering as you want, then change the action to `DROP` .
-// - *REJECT* - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+// - *REJECT* - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the firewall logging configuration.
 //
 // `REJECT` isn't currently available for use with IMAP and FTP protocols.
 type RuleGroupStatefulRuleAction string
@@ -1932,6 +1932,218 @@ func (in *ruleGroupStatefulRuleActionPtr) ToRuleGroupStatefulRuleActionPtrOutput
 
 func (in *ruleGroupStatefulRuleActionPtr) ToRuleGroupStatefulRuleActionPtrOutputWithContext(ctx context.Context) RuleGroupStatefulRuleActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupStatefulRuleActionPtrOutput)
+}
+
+type RuleGroupSummaryRuleOption string
+
+const (
+	RuleGroupSummaryRuleOptionSid      = RuleGroupSummaryRuleOption("SID")
+	RuleGroupSummaryRuleOptionMsg      = RuleGroupSummaryRuleOption("MSG")
+	RuleGroupSummaryRuleOptionMetadata = RuleGroupSummaryRuleOption("METADATA")
+)
+
+func (RuleGroupSummaryRuleOption) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupSummaryRuleOption)(nil)).Elem()
+}
+
+func (e RuleGroupSummaryRuleOption) ToRuleGroupSummaryRuleOptionOutput() RuleGroupSummaryRuleOptionOutput {
+	return pulumi.ToOutput(e).(RuleGroupSummaryRuleOptionOutput)
+}
+
+func (e RuleGroupSummaryRuleOption) ToRuleGroupSummaryRuleOptionOutputWithContext(ctx context.Context) RuleGroupSummaryRuleOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupSummaryRuleOptionOutput)
+}
+
+func (e RuleGroupSummaryRuleOption) ToRuleGroupSummaryRuleOptionPtrOutput() RuleGroupSummaryRuleOptionPtrOutput {
+	return e.ToRuleGroupSummaryRuleOptionPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupSummaryRuleOption) ToRuleGroupSummaryRuleOptionPtrOutputWithContext(ctx context.Context) RuleGroupSummaryRuleOptionPtrOutput {
+	return RuleGroupSummaryRuleOption(e).ToRuleGroupSummaryRuleOptionOutputWithContext(ctx).ToRuleGroupSummaryRuleOptionPtrOutputWithContext(ctx)
+}
+
+func (e RuleGroupSummaryRuleOption) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupSummaryRuleOption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupSummaryRuleOption) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupSummaryRuleOption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleGroupSummaryRuleOptionOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupSummaryRuleOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupSummaryRuleOption)(nil)).Elem()
+}
+
+func (o RuleGroupSummaryRuleOptionOutput) ToRuleGroupSummaryRuleOptionOutput() RuleGroupSummaryRuleOptionOutput {
+	return o
+}
+
+func (o RuleGroupSummaryRuleOptionOutput) ToRuleGroupSummaryRuleOptionOutputWithContext(ctx context.Context) RuleGroupSummaryRuleOptionOutput {
+	return o
+}
+
+func (o RuleGroupSummaryRuleOptionOutput) ToRuleGroupSummaryRuleOptionPtrOutput() RuleGroupSummaryRuleOptionPtrOutput {
+	return o.ToRuleGroupSummaryRuleOptionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupSummaryRuleOptionOutput) ToRuleGroupSummaryRuleOptionPtrOutputWithContext(ctx context.Context) RuleGroupSummaryRuleOptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupSummaryRuleOption) *RuleGroupSummaryRuleOption {
+		return &v
+	}).(RuleGroupSummaryRuleOptionPtrOutput)
+}
+
+func (o RuleGroupSummaryRuleOptionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleGroupSummaryRuleOptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupSummaryRuleOption) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleGroupSummaryRuleOptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupSummaryRuleOptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupSummaryRuleOption) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupSummaryRuleOptionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupSummaryRuleOptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupSummaryRuleOption)(nil)).Elem()
+}
+
+func (o RuleGroupSummaryRuleOptionPtrOutput) ToRuleGroupSummaryRuleOptionPtrOutput() RuleGroupSummaryRuleOptionPtrOutput {
+	return o
+}
+
+func (o RuleGroupSummaryRuleOptionPtrOutput) ToRuleGroupSummaryRuleOptionPtrOutputWithContext(ctx context.Context) RuleGroupSummaryRuleOptionPtrOutput {
+	return o
+}
+
+func (o RuleGroupSummaryRuleOptionPtrOutput) Elem() RuleGroupSummaryRuleOptionOutput {
+	return o.ApplyT(func(v *RuleGroupSummaryRuleOption) RuleGroupSummaryRuleOption {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupSummaryRuleOption
+		return ret
+	}).(RuleGroupSummaryRuleOptionOutput)
+}
+
+func (o RuleGroupSummaryRuleOptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupSummaryRuleOptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupSummaryRuleOption) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleGroupSummaryRuleOptionInput is an input type that accepts values of the RuleGroupSummaryRuleOption enum
+// A concrete instance of `RuleGroupSummaryRuleOptionInput` can be one of the following:
+//
+//	RuleGroupSummaryRuleOptionSid
+//	RuleGroupSummaryRuleOptionMsg
+//	RuleGroupSummaryRuleOptionMetadata
+type RuleGroupSummaryRuleOptionInput interface {
+	pulumi.Input
+
+	ToRuleGroupSummaryRuleOptionOutput() RuleGroupSummaryRuleOptionOutput
+	ToRuleGroupSummaryRuleOptionOutputWithContext(context.Context) RuleGroupSummaryRuleOptionOutput
+}
+
+var ruleGroupSummaryRuleOptionPtrType = reflect.TypeOf((**RuleGroupSummaryRuleOption)(nil)).Elem()
+
+type RuleGroupSummaryRuleOptionPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupSummaryRuleOptionPtrOutput() RuleGroupSummaryRuleOptionPtrOutput
+	ToRuleGroupSummaryRuleOptionPtrOutputWithContext(context.Context) RuleGroupSummaryRuleOptionPtrOutput
+}
+
+type ruleGroupSummaryRuleOptionPtr string
+
+func RuleGroupSummaryRuleOptionPtr(v string) RuleGroupSummaryRuleOptionPtrInput {
+	return (*ruleGroupSummaryRuleOptionPtr)(&v)
+}
+
+func (*ruleGroupSummaryRuleOptionPtr) ElementType() reflect.Type {
+	return ruleGroupSummaryRuleOptionPtrType
+}
+
+func (in *ruleGroupSummaryRuleOptionPtr) ToRuleGroupSummaryRuleOptionPtrOutput() RuleGroupSummaryRuleOptionPtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupSummaryRuleOptionPtrOutput)
+}
+
+func (in *ruleGroupSummaryRuleOptionPtr) ToRuleGroupSummaryRuleOptionPtrOutputWithContext(ctx context.Context) RuleGroupSummaryRuleOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupSummaryRuleOptionPtrOutput)
+}
+
+// RuleGroupSummaryRuleOptionArrayInput is an input type that accepts RuleGroupSummaryRuleOptionArray and RuleGroupSummaryRuleOptionArrayOutput values.
+// You can construct a concrete instance of `RuleGroupSummaryRuleOptionArrayInput` via:
+//
+//	RuleGroupSummaryRuleOptionArray{ RuleGroupSummaryRuleOptionArgs{...} }
+type RuleGroupSummaryRuleOptionArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupSummaryRuleOptionArrayOutput() RuleGroupSummaryRuleOptionArrayOutput
+	ToRuleGroupSummaryRuleOptionArrayOutputWithContext(context.Context) RuleGroupSummaryRuleOptionArrayOutput
+}
+
+type RuleGroupSummaryRuleOptionArray []RuleGroupSummaryRuleOption
+
+func (RuleGroupSummaryRuleOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupSummaryRuleOption)(nil)).Elem()
+}
+
+func (i RuleGroupSummaryRuleOptionArray) ToRuleGroupSummaryRuleOptionArrayOutput() RuleGroupSummaryRuleOptionArrayOutput {
+	return i.ToRuleGroupSummaryRuleOptionArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupSummaryRuleOptionArray) ToRuleGroupSummaryRuleOptionArrayOutputWithContext(ctx context.Context) RuleGroupSummaryRuleOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupSummaryRuleOptionArrayOutput)
+}
+
+type RuleGroupSummaryRuleOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupSummaryRuleOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupSummaryRuleOption)(nil)).Elem()
+}
+
+func (o RuleGroupSummaryRuleOptionArrayOutput) ToRuleGroupSummaryRuleOptionArrayOutput() RuleGroupSummaryRuleOptionArrayOutput {
+	return o
+}
+
+func (o RuleGroupSummaryRuleOptionArrayOutput) ToRuleGroupSummaryRuleOptionArrayOutputWithContext(ctx context.Context) RuleGroupSummaryRuleOptionArrayOutput {
+	return o
+}
+
+func (o RuleGroupSummaryRuleOptionArrayOutput) Index(i pulumi.IntInput) RuleGroupSummaryRuleOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupSummaryRuleOption {
+		return vs[0].([]RuleGroupSummaryRuleOption)[vs[1].(int)]
+	}).(RuleGroupSummaryRuleOptionOutput)
 }
 
 type RuleGroupTargetType string
@@ -2891,6 +3103,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleOrderPtrInput)(nil)).Elem(), RuleGroupRuleOrder("DEFAULT_ACTION_ORDER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupStatefulRuleActionInput)(nil)).Elem(), RuleGroupStatefulRuleAction("PASS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupStatefulRuleActionPtrInput)(nil)).Elem(), RuleGroupStatefulRuleAction("PASS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupSummaryRuleOptionInput)(nil)).Elem(), RuleGroupSummaryRuleOption("SID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupSummaryRuleOptionPtrInput)(nil)).Elem(), RuleGroupSummaryRuleOption("SID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupSummaryRuleOptionArrayInput)(nil)).Elem(), RuleGroupSummaryRuleOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTargetTypeInput)(nil)).Elem(), RuleGroupTargetType("TLS_SNI"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTargetTypePtrInput)(nil)).Elem(), RuleGroupTargetType("TLS_SNI"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTargetTypeArrayInput)(nil)).Elem(), RuleGroupTargetTypeArray{})
@@ -2926,6 +3141,9 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupRuleOrderPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatefulRuleActionOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatefulRuleActionPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupSummaryRuleOptionOutput{})
+	pulumi.RegisterOutputType(RuleGroupSummaryRuleOptionPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupSummaryRuleOptionArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupTargetTypeOutput{})
 	pulumi.RegisterOutputType(RuleGroupTargetTypePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupTargetTypeArrayOutput{})

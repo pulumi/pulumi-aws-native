@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPortalResult:
-    def __init__(__self__, authentication_type=None, browser_settings_arn=None, browser_type=None, creation_date=None, data_protection_settings_arn=None, display_name=None, instance_type=None, ip_access_settings_arn=None, max_concurrent_sessions=None, network_settings_arn=None, portal_arn=None, portal_endpoint=None, portal_status=None, renderer_type=None, service_provider_saml_metadata=None, status_reason=None, tags=None, trust_store_arn=None, user_access_logging_settings_arn=None, user_settings_arn=None):
+    def __init__(__self__, authentication_type=None, browser_settings_arn=None, browser_type=None, creation_date=None, data_protection_settings_arn=None, display_name=None, instance_type=None, ip_access_settings_arn=None, max_concurrent_sessions=None, network_settings_arn=None, portal_arn=None, portal_endpoint=None, portal_status=None, renderer_type=None, service_provider_saml_metadata=None, session_logger_arn=None, status_reason=None, tags=None, trust_store_arn=None, user_access_logging_settings_arn=None, user_settings_arn=None):
         if authentication_type and not isinstance(authentication_type, str):
             raise TypeError("Expected argument 'authentication_type' to be a str")
         pulumi.set(__self__, "authentication_type", authentication_type)
@@ -72,6 +72,9 @@ class GetPortalResult:
         if service_provider_saml_metadata and not isinstance(service_provider_saml_metadata, str):
             raise TypeError("Expected argument 'service_provider_saml_metadata' to be a str")
         pulumi.set(__self__, "service_provider_saml_metadata", service_provider_saml_metadata)
+        if session_logger_arn and not isinstance(session_logger_arn, str):
+            raise TypeError("Expected argument 'session_logger_arn' to be a str")
+        pulumi.set(__self__, "session_logger_arn", session_logger_arn)
         if status_reason and not isinstance(status_reason, str):
             raise TypeError("Expected argument 'status_reason' to be a str")
         pulumi.set(__self__, "status_reason", status_reason)
@@ -221,6 +224,11 @@ class GetPortalResult:
         return pulumi.get(self, "service_provider_saml_metadata")
 
     @property
+    @pulumi.getter(name="sessionLoggerArn")
+    def session_logger_arn(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "session_logger_arn")
+
+    @property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> Optional[builtins.str]:
         """
@@ -282,6 +290,7 @@ class AwaitableGetPortalResult(GetPortalResult):
             portal_status=self.portal_status,
             renderer_type=self.renderer_type,
             service_provider_saml_metadata=self.service_provider_saml_metadata,
+            session_logger_arn=self.session_logger_arn,
             status_reason=self.status_reason,
             tags=self.tags,
             trust_store_arn=self.trust_store_arn,
@@ -318,6 +327,7 @@ def get_portal(portal_arn: Optional[builtins.str] = None,
         portal_status=pulumi.get(__ret__, 'portal_status'),
         renderer_type=pulumi.get(__ret__, 'renderer_type'),
         service_provider_saml_metadata=pulumi.get(__ret__, 'service_provider_saml_metadata'),
+        session_logger_arn=pulumi.get(__ret__, 'session_logger_arn'),
         status_reason=pulumi.get(__ret__, 'status_reason'),
         tags=pulumi.get(__ret__, 'tags'),
         trust_store_arn=pulumi.get(__ret__, 'trust_store_arn'),
@@ -351,6 +361,7 @@ def get_portal_output(portal_arn: Optional[pulumi.Input[builtins.str]] = None,
         portal_status=pulumi.get(__response__, 'portal_status'),
         renderer_type=pulumi.get(__response__, 'renderer_type'),
         service_provider_saml_metadata=pulumi.get(__response__, 'service_provider_saml_metadata'),
+        session_logger_arn=pulumi.get(__response__, 'session_logger_arn'),
         status_reason=pulumi.get(__response__, 'status_reason'),
         tags=pulumi.get(__response__, 'tags'),
         trust_store_arn=pulumi.get(__response__, 'trust_store_arn'),

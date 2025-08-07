@@ -64,10 +64,16 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public Output<ImmutableArray<Outputs.AssetModelProperty>> AssetModelProperties { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+        /// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL or INTERFACE)
         /// </summary>
         [Output("assetModelType")]
         public Output<string?> AssetModelType { get; private set; } = null!;
+
+        /// <summary>
+        /// a list of asset model and interface relationships
+        /// </summary>
+        [Output("enforcedAssetModelInterfaceRelationships")]
+        public Output<ImmutableArray<Outputs.AssetModelEnforcedAssetModelInterfaceRelationship>> EnforcedAssetModelInterfaceRelationships { get; private set; } = null!;
 
         /// <summary>
         /// A list of key-value pairs that contain metadata for the asset model.
@@ -179,10 +185,22 @@ namespace Pulumi.AwsNative.IoTSiteWise
         }
 
         /// <summary>
-        /// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+        /// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL or INTERFACE)
         /// </summary>
         [Input("assetModelType")]
         public Input<string>? AssetModelType { get; set; }
+
+        [Input("enforcedAssetModelInterfaceRelationships")]
+        private InputList<Inputs.AssetModelEnforcedAssetModelInterfaceRelationshipArgs>? _enforcedAssetModelInterfaceRelationships;
+
+        /// <summary>
+        /// a list of asset model and interface relationships
+        /// </summary>
+        public InputList<Inputs.AssetModelEnforcedAssetModelInterfaceRelationshipArgs> EnforcedAssetModelInterfaceRelationships
+        {
+            get => _enforcedAssetModelInterfaceRelationships ?? (_enforcedAssetModelInterfaceRelationships = new InputList<Inputs.AssetModelEnforcedAssetModelInterfaceRelationshipArgs>());
+            set => _enforcedAssetModelInterfaceRelationships = value;
+        }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

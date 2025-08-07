@@ -59,6 +59,8 @@ if typing.TYPE_CHECKING:
     appsync = __appsync
     import pulumi_aws_native.aps as __aps
     aps = __aps
+    import pulumi_aws_native.arcregionswitch as __arcregionswitch
+    arcregionswitch = __arcregionswitch
     import pulumi_aws_native.arczonalshift as __arczonalshift
     arczonalshift = __arczonalshift
     import pulumi_aws_native.athena as __athena
@@ -502,6 +504,7 @@ else:
     appstream = _utilities.lazy_import('pulumi_aws_native.appstream')
     appsync = _utilities.lazy_import('pulumi_aws_native.appsync')
     aps = _utilities.lazy_import('pulumi_aws_native.aps')
+    arcregionswitch = _utilities.lazy_import('pulumi_aws_native.arcregionswitch')
     arczonalshift = _utilities.lazy_import('pulumi_aws_native.arczonalshift')
     athena = _utilities.lazy_import('pulumi_aws_native.athena')
     auditmanager = _utilities.lazy_import('pulumi_aws_native.auditmanager')
@@ -933,6 +936,14 @@ _utilities.register(
    "aws-native:aps:RuleGroupsNamespace": "RuleGroupsNamespace",
    "aws-native:aps:Scraper": "Scraper",
    "aws-native:aps:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "arcregionswitch",
+  "fqn": "pulumi_aws_native.arcregionswitch",
+  "classes": {
+   "aws-native:arcregionswitch:Plan": "Plan"
   }
  },
  {
@@ -2094,6 +2105,7 @@ _utilities.register(
    "aws-native:iot:CustomMetric": "CustomMetric",
    "aws-native:iot:Dimension": "Dimension",
    "aws-native:iot:DomainConfiguration": "DomainConfiguration",
+   "aws-native:iot:EncryptionConfiguration": "EncryptionConfiguration",
    "aws-native:iot:FleetMetric": "FleetMetric",
    "aws-native:iot:JobTemplate": "JobTemplate",
    "aws-native:iot:Logging": "Logging",
@@ -3117,6 +3129,7 @@ _utilities.register(
    "aws-native:sagemaker:MonitoringSchedule": "MonitoringSchedule",
    "aws-native:sagemaker:PartnerApp": "PartnerApp",
    "aws-native:sagemaker:Pipeline": "Pipeline",
+   "aws-native:sagemaker:ProcessingJob": "ProcessingJob",
    "aws-native:sagemaker:Project": "Project",
    "aws-native:sagemaker:Space": "Space",
    "aws-native:sagemaker:StudioLifecycleConfig": "StudioLifecycleConfig",
@@ -3501,6 +3514,7 @@ _utilities.register(
    "aws-native:workspacesweb:IpAccessSettings": "IpAccessSettings",
    "aws-native:workspacesweb:NetworkSettings": "NetworkSettings",
    "aws-native:workspacesweb:Portal": "Portal",
+   "aws-native:workspacesweb:SessionLogger": "SessionLogger",
    "aws-native:workspacesweb:TrustStore": "TrustStore",
    "aws-native:workspacesweb:UserAccessLoggingSettings": "UserAccessLoggingSettings",
    "aws-native:workspacesweb:UserSettings": "UserSettings"

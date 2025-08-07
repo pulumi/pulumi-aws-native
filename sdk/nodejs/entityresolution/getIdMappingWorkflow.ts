@@ -39,7 +39,7 @@ export interface GetIdMappingWorkflowResult {
      */
     readonly inputSourceConfig?: outputs.entityresolution.IdMappingWorkflowInputSource[];
     /**
-     * A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+     * A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `outputS3Path` and `KMSArn` .
      */
     readonly outputSourceConfig?: outputs.entityresolution.IdMappingWorkflowOutputSource[];
     /**

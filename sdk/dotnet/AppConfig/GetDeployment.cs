@@ -91,11 +91,19 @@ namespace Pulumi.AwsNative.AppConfig
         /// The sequence number of the deployment.
         /// </summary>
         public readonly string? DeploymentNumber;
+        /// <summary>
+        /// The state of the deployment.
+        /// </summary>
+        public readonly Pulumi.AwsNative.AppConfig.DeploymentState? State;
 
         [OutputConstructor]
-        private GetDeploymentResult(string? deploymentNumber)
+        private GetDeploymentResult(
+            string? deploymentNumber,
+
+            Pulumi.AwsNative.AppConfig.DeploymentState? state)
         {
             DeploymentNumber = deploymentNumber;
+            State = state;
         }
     }
 }

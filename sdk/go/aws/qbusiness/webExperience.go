@@ -35,7 +35,7 @@ type WebExperience struct {
 	Origins pulumi.StringArrayOutput `pulumi:"origins"`
 	// The Amazon Resource Name (ARN) of the service role attached to your web experience.
 	//
-	// > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
+	// > The `roleArn` parameter is required when your Amazon Q Business application is created with IAM Identity Center. It is not required for SAML-based applications.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// Determines whether sample prompts are enabled in the web experience for an end user.
 	SamplePromptsControlMode WebExperienceSamplePromptsControlModePtrOutput `pulumi:"samplePromptsControlMode"`
@@ -118,7 +118,7 @@ type webExperienceArgs struct {
 	Origins []string `pulumi:"origins"`
 	// The Amazon Resource Name (ARN) of the service role attached to your web experience.
 	//
-	// > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
+	// > The `roleArn` parameter is required when your Amazon Q Business application is created with IAM Identity Center. It is not required for SAML-based applications.
 	RoleArn *string `pulumi:"roleArn"`
 	// Determines whether sample prompts are enabled in the web experience for an end user.
 	SamplePromptsControlMode *WebExperienceSamplePromptsControlMode `pulumi:"samplePromptsControlMode"`
@@ -148,7 +148,7 @@ type WebExperienceArgs struct {
 	Origins pulumi.StringArrayInput
 	// The Amazon Resource Name (ARN) of the service role attached to your web experience.
 	//
-	// > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
+	// > The `roleArn` parameter is required when your Amazon Q Business application is created with IAM Identity Center. It is not required for SAML-based applications.
 	RoleArn pulumi.StringPtrInput
 	// Determines whether sample prompts are enabled in the web experience for an end user.
 	SamplePromptsControlMode WebExperienceSamplePromptsControlModePtrInput
@@ -242,7 +242,7 @@ func (o WebExperienceOutput) Origins() pulumi.StringArrayOutput {
 
 // The Amazon Resource Name (ARN) of the service role attached to your web experience.
 //
-// > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
+// > The `roleArn` parameter is required when your Amazon Q Business application is created with IAM Identity Center. It is not required for SAML-based applications.
 func (o WebExperienceOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebExperience) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

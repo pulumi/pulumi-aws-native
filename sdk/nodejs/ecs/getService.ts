@@ -71,7 +71,7 @@ export interface GetServiceResult {
      */
     readonly deploymentConfiguration?: outputs.ecs.ServiceDeploymentConfiguration;
     /**
-     * The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
+     * The deployment controller to use for the service.
      */
     readonly deploymentController?: outputs.ecs.ServiceDeploymentController;
     /**
@@ -82,7 +82,7 @@ export interface GetServiceResult {
     readonly desiredCount?: number;
     /**
      * Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide*.
-     *  When you use Amazon ECS managed tags, you need to set the ``propagateTags`` request parameter.
+     *  When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
      */
     readonly enableEcsManagedTags?: boolean;
     /**

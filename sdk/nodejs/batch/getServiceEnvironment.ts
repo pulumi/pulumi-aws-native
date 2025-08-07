@@ -18,12 +18,24 @@ export function getServiceEnvironment(args: GetServiceEnvironmentArgs, opts?: pu
 }
 
 export interface GetServiceEnvironmentArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the service environment.
+     */
     serviceEnvironmentArn: string;
 }
 
 export interface GetServiceEnvironmentResult {
+    /**
+     * The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
+     */
     readonly capacityLimits?: outputs.batch.ServiceEnvironmentCapacityLimit[];
+    /**
+     * The Amazon Resource Name (ARN) of the service environment.
+     */
     readonly serviceEnvironmentArn?: string;
+    /**
+     * The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
+     */
     readonly state?: string;
     /**
      * A key-value pair to associate with a resource.
@@ -41,5 +53,8 @@ export function getServiceEnvironmentOutput(args: GetServiceEnvironmentOutputArg
 }
 
 export interface GetServiceEnvironmentOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the service environment.
+     */
     serviceEnvironmentArn: pulumi.Input<string>;
 }

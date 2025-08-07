@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'GetDeploymentResult',
@@ -24,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeploymentResult:
-    def __init__(__self__, deployment_number=None):
+    def __init__(__self__, deployment_number=None, state=None):
         if deployment_number and not isinstance(deployment_number, str):
             raise TypeError("Expected argument 'deployment_number' to be a str")
         pulumi.set(__self__, "deployment_number", deployment_number)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter(name="deploymentNumber")
@@ -37,6 +41,14 @@ class GetDeploymentResult:
         """
         return pulumi.get(self, "deployment_number")
 
+    @property
+    @pulumi.getter
+    def state(self) -> Optional['DeploymentState']:
+        """
+        The state of the deployment.
+        """
+        return pulumi.get(self, "state")
+
 
 class AwaitableGetDeploymentResult(GetDeploymentResult):
     # pylint: disable=using-constant-test
@@ -44,7 +56,8 @@ class AwaitableGetDeploymentResult(GetDeploymentResult):
         if False:
             yield self
         return GetDeploymentResult(
-            deployment_number=self.deployment_number)
+            deployment_number=self.deployment_number,
+            state=self.state)
 
 
 def get_deployment(application_id: Optional[builtins.str] = None,
@@ -67,7 +80,8 @@ def get_deployment(application_id: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appconfig:getDeployment', __args__, opts=opts, typ=GetDeploymentResult).value
 
     return AwaitableGetDeploymentResult(
-        deployment_number=pulumi.get(__ret__, 'deployment_number'))
+        deployment_number=pulumi.get(__ret__, 'deployment_number'),
+        state=pulumi.get(__ret__, 'state'))
 def get_deployment_output(application_id: Optional[pulumi.Input[builtins.str]] = None,
                           deployment_number: Optional[pulumi.Input[builtins.str]] = None,
                           environment_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -87,4 +101,5 @@ def get_deployment_output(application_id: Optional[pulumi.Input[builtins.str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appconfig:getDeployment', __args__, opts=opts, typ=GetDeploymentResult)
     return __ret__.apply(lambda __response__: GetDeploymentResult(
-        deployment_number=pulumi.get(__response__, 'deployment_number')))
+        deployment_number=pulumi.get(__response__, 'deployment_number'),
+        state=pulumi.get(__response__, 'state')))

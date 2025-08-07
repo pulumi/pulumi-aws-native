@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Deadline.Inputs
         [Input("storageProfileId")]
         public Input<string>? StorageProfileId { get; set; }
 
+        [Input("vpcConfiguration")]
+        public Input<Inputs.FleetVpcConfigurationArgs>? VpcConfiguration { get; set; }
+
         public FleetServiceManagedEc2FleetConfigurationArgs()
         {
         }

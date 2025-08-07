@@ -512,7 +512,8 @@ func (in *consumableResourceResourceTypePtr) ToConsumableResourceResourceTypePtr
 type JobQueueJobStateTimeLimitActionAction string
 
 const (
-	JobQueueJobStateTimeLimitActionActionCancel = JobQueueJobStateTimeLimitActionAction("CANCEL")
+	JobQueueJobStateTimeLimitActionActionCancel    = JobQueueJobStateTimeLimitActionAction("CANCEL")
+	JobQueueJobStateTimeLimitActionActionTerminate = JobQueueJobStateTimeLimitActionAction("TERMINATE")
 )
 
 func (JobQueueJobStateTimeLimitActionAction) ElementType() reflect.Type {
@@ -638,6 +639,7 @@ func (o JobQueueJobStateTimeLimitActionActionPtrOutput) ToStringPtrOutputWithCon
 // A concrete instance of `JobQueueJobStateTimeLimitActionActionInput` can be one of the following:
 //
 //	JobQueueJobStateTimeLimitActionActionCancel
+//	JobQueueJobStateTimeLimitActionActionTerminate
 type JobQueueJobStateTimeLimitActionActionInput interface {
 	pulumi.Input
 

@@ -84,6 +84,10 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         public readonly Outputs.ClusterComputeConfig? ComputeConfig;
         /// <summary>
+        /// Set this value to true to enable deletion protection for the cluster.
+        /// </summary>
+        public readonly bool? DeletionProtection;
+        /// <summary>
         /// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
         /// </summary>
         public readonly string? EncryptionConfigKeyArn;
@@ -150,6 +154,8 @@ namespace Pulumi.AwsNative.Eks
 
             Outputs.ClusterComputeConfig? computeConfig,
 
+            bool? deletionProtection,
+
             string? encryptionConfigKeyArn,
 
             string? endpoint,
@@ -181,6 +187,7 @@ namespace Pulumi.AwsNative.Eks
             CertificateAuthorityData = certificateAuthorityData;
             ClusterSecurityGroupId = clusterSecurityGroupId;
             ComputeConfig = computeConfig;
+            DeletionProtection = deletionProtection;
             EncryptionConfigKeyArn = encryptionConfigKeyArn;
             Endpoint = endpoint;
             Id = id;

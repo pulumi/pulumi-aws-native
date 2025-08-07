@@ -46,17 +46,6 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly bool? EbsOptimized;
         /// <summary>
-        /// Deprecated.
-        ///   Amazon Elastic Graphics reached end of life on January 8, 2024.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.LaunchTemplateElasticGpuSpecification> ElasticGpuSpecifications;
-        /// <summary>
-        /// Amazon Elastic Inference is no longer available.
-        ///   An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
-        ///  You cannot specify accelerators from different generations in the same request.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.LaunchTemplateElasticInferenceAccelerator> ElasticInferenceAccelerators;
-        /// <summary>
         /// Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
         ///  You can't enable AWS Nitro Enclaves and hibernation on the same instance.
         /// </summary>
@@ -191,10 +180,6 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             bool? ebsOptimized,
 
-            ImmutableArray<Outputs.LaunchTemplateElasticGpuSpecification> elasticGpuSpecifications,
-
-            ImmutableArray<Outputs.LaunchTemplateElasticInferenceAccelerator> elasticInferenceAccelerators,
-
             Outputs.LaunchTemplateEnclaveOptions? enclaveOptions,
 
             Outputs.LaunchTemplateHibernationOptions? hibernationOptions,
@@ -248,8 +233,6 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             DisableApiStop = disableApiStop;
             DisableApiTermination = disableApiTermination;
             EbsOptimized = ebsOptimized;
-            ElasticGpuSpecifications = elasticGpuSpecifications;
-            ElasticInferenceAccelerators = elasticInferenceAccelerators;
             EnclaveOptions = enclaveOptions;
             HibernationOptions = hibernationOptions;
             IamInstanceProfile = iamInstanceProfile;

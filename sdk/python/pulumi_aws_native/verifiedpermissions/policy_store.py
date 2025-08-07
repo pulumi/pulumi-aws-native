@@ -28,7 +28,7 @@ class PolicyStoreArgs:
                  validation_settings: pulumi.Input['PolicyStoreValidationSettingsArgs'],
                  deletion_protection: Optional[pulumi.Input['PolicyStoreDeletionProtectionArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 schema: Optional[pulumi.Input['PolicyStoreSchemaDefinitionArgs']] = None,
+                 schema: Optional[pulumi.Input[Union['PolicyStoreSchemaDefinition0PropertiesArgs', 'PolicyStoreSchemaDefinition1PropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PolicyStore resource.
@@ -41,7 +41,7 @@ class PolicyStoreArgs:
                
                The default state is `DISABLED` .
         :param pulumi.Input[builtins.str] description: Descriptive text that you can provide to help with identification of the current policy store.
-        :param pulumi.Input['PolicyStoreSchemaDefinitionArgs'] schema: Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
+        :param pulumi.Input[Union['PolicyStoreSchemaDefinition0PropertiesArgs', 'PolicyStoreSchemaDefinition1PropertiesArgs']] schema: Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the policy store
         """
         pulumi.set(__self__, "validation_settings", validation_settings)
@@ -98,14 +98,14 @@ class PolicyStoreArgs:
 
     @property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input['PolicyStoreSchemaDefinitionArgs']]:
+    def schema(self) -> Optional[pulumi.Input[Union['PolicyStoreSchemaDefinition0PropertiesArgs', 'PolicyStoreSchemaDefinition1PropertiesArgs']]]:
         """
         Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input['PolicyStoreSchemaDefinitionArgs']]):
+    def schema(self, value: Optional[pulumi.Input[Union['PolicyStoreSchemaDefinition0PropertiesArgs', 'PolicyStoreSchemaDefinition1PropertiesArgs']]]):
         pulumi.set(self, "schema", value)
 
     @property
@@ -129,7 +129,7 @@ class PolicyStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protection: Optional[pulumi.Input[Union['PolicyStoreDeletionProtectionArgs', 'PolicyStoreDeletionProtectionArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 schema: Optional[pulumi.Input[Union['PolicyStoreSchemaDefinitionArgs', 'PolicyStoreSchemaDefinitionArgsDict']]] = None,
+                 schema: Optional[pulumi.Input[Union[Union['PolicyStoreSchemaDefinition0PropertiesArgs', 'PolicyStoreSchemaDefinition0PropertiesArgsDict'], Union['PolicyStoreSchemaDefinition1PropertiesArgs', 'PolicyStoreSchemaDefinition1PropertiesArgsDict']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  validation_settings: Optional[pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']]] = None,
                  __props__=None):
@@ -159,7 +159,7 @@ class PolicyStore(pulumi.CustomResource):
                
                The default state is `DISABLED` .
         :param pulumi.Input[builtins.str] description: Descriptive text that you can provide to help with identification of the current policy store.
-        :param pulumi.Input[Union['PolicyStoreSchemaDefinitionArgs', 'PolicyStoreSchemaDefinitionArgsDict']] schema: Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
+        :param pulumi.Input[Union[Union['PolicyStoreSchemaDefinition0PropertiesArgs', 'PolicyStoreSchemaDefinition0PropertiesArgsDict'], Union['PolicyStoreSchemaDefinition1PropertiesArgs', 'PolicyStoreSchemaDefinition1PropertiesArgsDict']]] schema: Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the policy store
         :param pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']] validation_settings: Specifies the validation setting for this policy store.
                
@@ -210,7 +210,7 @@ class PolicyStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protection: Optional[pulumi.Input[Union['PolicyStoreDeletionProtectionArgs', 'PolicyStoreDeletionProtectionArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 schema: Optional[pulumi.Input[Union['PolicyStoreSchemaDefinitionArgs', 'PolicyStoreSchemaDefinitionArgsDict']]] = None,
+                 schema: Optional[pulumi.Input[Union[Union['PolicyStoreSchemaDefinition0PropertiesArgs', 'PolicyStoreSchemaDefinition0PropertiesArgsDict'], Union['PolicyStoreSchemaDefinition1PropertiesArgs', 'PolicyStoreSchemaDefinition1PropertiesArgsDict']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  validation_settings: Optional[pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']]] = None,
                  __props__=None):
@@ -298,7 +298,7 @@ class PolicyStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schema(self) -> pulumi.Output[Optional['outputs.PolicyStoreSchemaDefinition']]:
+    def schema(self) -> pulumi.Output[Optional[Any]]:
         """
         Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
         """

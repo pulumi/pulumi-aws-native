@@ -63,7 +63,8 @@ type Portal struct {
 	// The renderer that is used in streaming sessions.
 	RendererType PortalRendererTypeOutput `pulumi:"rendererType"`
 	// The SAML metadata of the service provider.
-	ServiceProviderSamlMetadata pulumi.StringOutput `pulumi:"serviceProviderSamlMetadata"`
+	ServiceProviderSamlMetadata pulumi.StringOutput    `pulumi:"serviceProviderSamlMetadata"`
+	SessionLoggerArn            pulumi.StringPtrOutput `pulumi:"sessionLoggerArn"`
 	// A message that explains why the web portal is in its current status.
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
 	// The tags to add to the web portal. A tag is a key-value pair.
@@ -155,6 +156,7 @@ type portalArgs struct {
 	MaxConcurrentSessions *float64 `pulumi:"maxConcurrentSessions"`
 	// The ARN of the network settings that is associated with the web portal.
 	NetworkSettingsArn *string `pulumi:"networkSettingsArn"`
+	SessionLoggerArn   *string `pulumi:"sessionLoggerArn"`
 	// The tags to add to the web portal. A tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the trust store that is associated with the web portal.
@@ -201,6 +203,7 @@ type PortalArgs struct {
 	MaxConcurrentSessions pulumi.Float64PtrInput
 	// The ARN of the network settings that is associated with the web portal.
 	NetworkSettingsArn pulumi.StringPtrInput
+	SessionLoggerArn   pulumi.StringPtrInput
 	// The tags to add to the web portal. A tag is a key-value pair.
 	Tags aws.TagArrayInput
 	// The ARN of the trust store that is associated with the web portal.
@@ -345,6 +348,10 @@ func (o PortalOutput) RendererType() PortalRendererTypeOutput {
 // The SAML metadata of the service provider.
 func (o PortalOutput) ServiceProviderSamlMetadata() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.ServiceProviderSamlMetadata }).(pulumi.StringOutput)
+}
+
+func (o PortalOutput) SessionLoggerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Portal) pulumi.StringPtrOutput { return v.SessionLoggerArn }).(pulumi.StringPtrOutput)
 }
 
 // A message that explains why the web portal is in its current status.

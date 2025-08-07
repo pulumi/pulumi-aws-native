@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'ClusterAccountingMode',
     'ClusterEndpointType',
+    'ClusterNetworkingPropertiesNetworkType',
     'ClusterSchedulerPropertiesType',
     'ClusterSize',
     'ClusterStatus',
@@ -35,6 +36,15 @@ class ClusterEndpointType(builtins.str, Enum):
     """
     SLURMCTLD = "SLURMCTLD"
     SLURMDBD = "SLURMDBD"
+
+
+@pulumi.type_token("aws-native:pcs:ClusterNetworkingPropertiesNetworkType")
+class ClusterNetworkingPropertiesNetworkType(builtins.str, Enum):
+    """
+    The IP of the cluster (IPV4 or IPV6)
+    """
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
 
 
 @pulumi.type_token("aws-native:pcs:ClusterSchedulerPropertiesType")

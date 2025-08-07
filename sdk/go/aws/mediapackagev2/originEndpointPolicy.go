@@ -16,6 +16,7 @@ import (
 type OriginEndpointPolicy struct {
 	pulumi.CustomResourceState
 
+	// The settings to enable CDN authorization headers in MediaPackage.
 	CdnAuthConfiguration OriginEndpointPolicyCdnAuthConfigurationPtrOutput `pulumi:"cdnAuthConfiguration"`
 	// The name of the channel group associated with the origin endpoint policy.
 	ChannelGroupName pulumi.StringOutput `pulumi:"channelGroupName"`
@@ -87,6 +88,7 @@ func (OriginEndpointPolicyState) ElementType() reflect.Type {
 }
 
 type originEndpointPolicyArgs struct {
+	// The settings to enable CDN authorization headers in MediaPackage.
 	CdnAuthConfiguration *OriginEndpointPolicyCdnAuthConfiguration `pulumi:"cdnAuthConfiguration"`
 	// The name of the channel group associated with the origin endpoint policy.
 	ChannelGroupName string `pulumi:"channelGroupName"`
@@ -102,6 +104,7 @@ type originEndpointPolicyArgs struct {
 
 // The set of arguments for constructing a OriginEndpointPolicy resource.
 type OriginEndpointPolicyArgs struct {
+	// The settings to enable CDN authorization headers in MediaPackage.
 	CdnAuthConfiguration OriginEndpointPolicyCdnAuthConfigurationPtrInput
 	// The name of the channel group associated with the origin endpoint policy.
 	ChannelGroupName pulumi.StringInput
@@ -152,6 +155,7 @@ func (o OriginEndpointPolicyOutput) ToOriginEndpointPolicyOutputWithContext(ctx 
 	return o
 }
 
+// The settings to enable CDN authorization headers in MediaPackage.
 func (o OriginEndpointPolicyOutput) CdnAuthConfiguration() OriginEndpointPolicyCdnAuthConfigurationPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointPolicy) OriginEndpointPolicyCdnAuthConfigurationPtrOutput {
 		return v.CdnAuthConfiguration

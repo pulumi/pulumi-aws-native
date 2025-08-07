@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
     /// <summary>
     /// One of the methods which provide a way for you to quickly identify when a deployment has failed, and then to optionally roll back the failure to the last working deployment.
     ///  When the alarms are generated, Amazon ECS sets the service deployment to failed. Set the rollback parameter to have Amazon ECS to roll back your service to the last completed deployment after a failure.
-    ///  You can only use the ``DeploymentAlarms`` method to detect failures when the ``DeploymentController`` is set to ``ECS`` (rolling update).
+    ///  You can only use the ``DeploymentAlarms`` method to detect failures when the ``DeploymentController`` is set to ``ECS``.
     ///  For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*.
     /// </summary>
     public sealed class ServiceDeploymentAlarmsArgs : global::Pulumi.ResourceArgs

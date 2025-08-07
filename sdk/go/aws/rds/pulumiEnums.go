@@ -512,10 +512,11 @@ func (in *dbProxyAuthFormatAuthSchemePtr) ToDbProxyAuthFormatAuthSchemePtrOutput
 type DbProxyAuthFormatClientPasswordAuthType string
 
 const (
-	DbProxyAuthFormatClientPasswordAuthTypeMysqlNativePassword     = DbProxyAuthFormatClientPasswordAuthType("MYSQL_NATIVE_PASSWORD")
-	DbProxyAuthFormatClientPasswordAuthTypePostgresScramSha256     = DbProxyAuthFormatClientPasswordAuthType("POSTGRES_SCRAM_SHA_256")
-	DbProxyAuthFormatClientPasswordAuthTypePostgresMd5             = DbProxyAuthFormatClientPasswordAuthType("POSTGRES_MD5")
-	DbProxyAuthFormatClientPasswordAuthTypeSqlServerAuthentication = DbProxyAuthFormatClientPasswordAuthType("SQL_SERVER_AUTHENTICATION")
+	DbProxyAuthFormatClientPasswordAuthTypeMysqlNativePassword      = DbProxyAuthFormatClientPasswordAuthType("MYSQL_NATIVE_PASSWORD")
+	DbProxyAuthFormatClientPasswordAuthTypeMysqlCachingSha2Password = DbProxyAuthFormatClientPasswordAuthType("MYSQL_CACHING_SHA2_PASSWORD")
+	DbProxyAuthFormatClientPasswordAuthTypePostgresScramSha256      = DbProxyAuthFormatClientPasswordAuthType("POSTGRES_SCRAM_SHA_256")
+	DbProxyAuthFormatClientPasswordAuthTypePostgresMd5              = DbProxyAuthFormatClientPasswordAuthType("POSTGRES_MD5")
+	DbProxyAuthFormatClientPasswordAuthTypeSqlServerAuthentication  = DbProxyAuthFormatClientPasswordAuthType("SQL_SERVER_AUTHENTICATION")
 )
 
 func (DbProxyAuthFormatClientPasswordAuthType) ElementType() reflect.Type {
@@ -641,6 +642,7 @@ func (o DbProxyAuthFormatClientPasswordAuthTypePtrOutput) ToStringPtrOutputWithC
 // A concrete instance of `DbProxyAuthFormatClientPasswordAuthTypeInput` can be one of the following:
 //
 //	DbProxyAuthFormatClientPasswordAuthTypeMysqlNativePassword
+//	DbProxyAuthFormatClientPasswordAuthTypeMysqlCachingSha2Password
 //	DbProxyAuthFormatClientPasswordAuthTypePostgresScramSha256
 //	DbProxyAuthFormatClientPasswordAuthTypePostgresMd5
 //	DbProxyAuthFormatClientPasswordAuthTypeSqlServerAuthentication

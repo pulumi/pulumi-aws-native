@@ -131,6 +131,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [Output("serviceProviderSamlMetadata")]
         public Output<string> ServiceProviderSamlMetadata { get; private set; } = null!;
 
+        [Output("sessionLoggerArn")]
+        public Output<string?> SessionLoggerArn { get; private set; } = null!;
+
         /// <summary>
         /// A message that explains why the web portal is in its current status.
         /// </summary>
@@ -290,6 +293,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         [Input("networkSettingsArn")]
         public Input<string>? NetworkSettingsArn { get; set; }
+
+        [Input("sessionLoggerArn")]
+        public Input<string>? SessionLoggerArn { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

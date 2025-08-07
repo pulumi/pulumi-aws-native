@@ -3092,7 +3092,7 @@ func (o ListenerRuleForwardConfigPtrOutput) TargetGroups() ListenerRuleTargetGro
 
 // Information about a host header condition.
 type ListenerRuleHostHeaderConfig struct {
-	// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+	// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
 	//  If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
 	Values []string `pulumi:"values"`
 }
@@ -3110,7 +3110,7 @@ type ListenerRuleHostHeaderConfigInput interface {
 
 // Information about a host header condition.
 type ListenerRuleHostHeaderConfigArgs struct {
-	// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+	// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
 	//  If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
@@ -3193,7 +3193,7 @@ func (o ListenerRuleHostHeaderConfigOutput) ToListenerRuleHostHeaderConfigPtrOut
 	}).(ListenerRuleHostHeaderConfigPtrOutput)
 }
 
-// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
 //
 //	If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
 func (o ListenerRuleHostHeaderConfigOutput) Values() pulumi.StringArrayOutput {
@@ -3224,7 +3224,7 @@ func (o ListenerRuleHostHeaderConfigPtrOutput) Elem() ListenerRuleHostHeaderConf
 	}).(ListenerRuleHostHeaderConfigOutput)
 }
 
-// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
 //
 //	If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
 func (o ListenerRuleHostHeaderConfigPtrOutput) Values() pulumi.StringArrayOutput {
@@ -4609,7 +4609,7 @@ func (o ListenerRuleSourceIpConfigPtrOutput) Values() pulumi.StringArrayOutput {
 
 // Information about the target group stickiness for a rule.
 type ListenerRuleTargetGroupStickinessConfig struct {
-	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
 	DurationSeconds *int `pulumi:"durationSeconds"`
 	// Indicates whether target group stickiness is enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -4628,7 +4628,7 @@ type ListenerRuleTargetGroupStickinessConfigInput interface {
 
 // Information about the target group stickiness for a rule.
 type ListenerRuleTargetGroupStickinessConfigArgs struct {
-	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
 	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
 	// Indicates whether target group stickiness is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -4712,7 +4712,7 @@ func (o ListenerRuleTargetGroupStickinessConfigOutput) ToListenerRuleTargetGroup
 	}).(ListenerRuleTargetGroupStickinessConfigPtrOutput)
 }
 
-// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
 func (o ListenerRuleTargetGroupStickinessConfigOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerRuleTargetGroupStickinessConfig) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -4746,7 +4746,7 @@ func (o ListenerRuleTargetGroupStickinessConfigPtrOutput) Elem() ListenerRuleTar
 	}).(ListenerRuleTargetGroupStickinessConfigOutput)
 }
 
-// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
 func (o ListenerRuleTargetGroupStickinessConfigPtrOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleTargetGroupStickinessConfig) *int {
 		if v == nil {
@@ -4877,7 +4877,7 @@ func (o ListenerRuleTargetGroupTupleArrayOutput) Index(i pulumi.IntInput) Listen
 
 // Information about the target group stickiness for a rule.
 type ListenerTargetGroupStickinessConfig struct {
-	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
 	DurationSeconds *int `pulumi:"durationSeconds"`
 	// Indicates whether target group stickiness is enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -4896,7 +4896,7 @@ type ListenerTargetGroupStickinessConfigInput interface {
 
 // Information about the target group stickiness for a rule.
 type ListenerTargetGroupStickinessConfigArgs struct {
-	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
 	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
 	// Indicates whether target group stickiness is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -4980,7 +4980,7 @@ func (o ListenerTargetGroupStickinessConfigOutput) ToListenerTargetGroupStickine
 	}).(ListenerTargetGroupStickinessConfigPtrOutput)
 }
 
-// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
 func (o ListenerTargetGroupStickinessConfigOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerTargetGroupStickinessConfig) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -5014,7 +5014,7 @@ func (o ListenerTargetGroupStickinessConfigPtrOutput) Elem() ListenerTargetGroup
 	}).(ListenerTargetGroupStickinessConfigOutput)
 }
 
-// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
 func (o ListenerTargetGroupStickinessConfigPtrOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ListenerTargetGroupStickinessConfig) *int {
 		if v == nil {

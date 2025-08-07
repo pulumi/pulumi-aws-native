@@ -34,6 +34,7 @@ export type ConsumableResourceResourceType = (typeof ConsumableResourceResourceT
 
 export const JobQueueJobStateTimeLimitActionAction = {
     Cancel: "CANCEL",
+    Terminate: "TERMINATE",
 } as const;
 
 /**

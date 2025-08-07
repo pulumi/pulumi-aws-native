@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// The journal table configuration for an S3 Metadata configuration.
+    /// </summary>
     public sealed class BucketJournalTableConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -25,7 +28,7 @@ namespace Pulumi.AwsNative.S3.Inputs
         public Input<Inputs.BucketRecordExpirationArgs> RecordExpiration { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the journal table.
+        /// The Amazon Resource Name (ARN) for the journal table.
         /// </summary>
         [Input("tableArn")]
         public Input<string>? TableArn { get; set; }

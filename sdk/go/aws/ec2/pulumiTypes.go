@@ -8060,7 +8060,7 @@ func (o InstanceEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 }
 
 type InstanceElasticGpuSpecification struct {
-	// The type of Elastic Graphics accelerator.
+	// The type of Elastic Graphics accelerator. Amazon Elastic Graphics is no longer available.
 	Type string `pulumi:"type"`
 }
 
@@ -8076,7 +8076,7 @@ type InstanceElasticGpuSpecificationInput interface {
 }
 
 type InstanceElasticGpuSpecificationArgs struct {
-	// The type of Elastic Graphics accelerator.
+	// The type of Elastic Graphics accelerator. Amazon Elastic Graphics is no longer available.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8131,7 +8131,7 @@ func (o InstanceElasticGpuSpecificationOutput) ToInstanceElasticGpuSpecification
 	return o
 }
 
-// The type of Elastic Graphics accelerator.
+// The type of Elastic Graphics accelerator. Amazon Elastic Graphics is no longer available.
 func (o InstanceElasticGpuSpecificationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceElasticGpuSpecification) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8157,9 +8157,9 @@ func (o InstanceElasticGpuSpecificationArrayOutput) Index(i pulumi.IntInput) Ins
 }
 
 type InstanceElasticInferenceAccelerator struct {
-	// The number of elastic inference accelerators to attach to the instance.
+	// The number of elastic inference accelerators to attach to the instance. Amazon Elastic Inference is no longer available.
 	Count *int `pulumi:"count"`
-	// The type of elastic inference accelerator.
+	// The type of elastic inference accelerator. Amazon Elastic Inference is no longer available.
 	Type string `pulumi:"type"`
 }
 
@@ -8175,9 +8175,9 @@ type InstanceElasticInferenceAcceleratorInput interface {
 }
 
 type InstanceElasticInferenceAcceleratorArgs struct {
-	// The number of elastic inference accelerators to attach to the instance.
+	// The number of elastic inference accelerators to attach to the instance. Amazon Elastic Inference is no longer available.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The type of elastic inference accelerator.
+	// The type of elastic inference accelerator. Amazon Elastic Inference is no longer available.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8232,12 +8232,12 @@ func (o InstanceElasticInferenceAcceleratorOutput) ToInstanceElasticInferenceAcc
 	return o
 }
 
-// The number of elastic inference accelerators to attach to the instance.
+// The number of elastic inference accelerators to attach to the instance. Amazon Elastic Inference is no longer available.
 func (o InstanceElasticInferenceAcceleratorOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceElasticInferenceAccelerator) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// The type of elastic inference accelerator.
+// The type of elastic inference accelerator. Amazon Elastic Inference is no longer available.
 func (o InstanceElasticInferenceAcceleratorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceElasticInferenceAccelerator) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -12564,13 +12564,6 @@ type LaunchTemplateData struct {
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
 	// Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
 	EbsOptimized *bool `pulumi:"ebsOptimized"`
-	// Deprecated.
-	//   Amazon Elastic Graphics reached end of life on January 8, 2024.
-	ElasticGpuSpecifications []LaunchTemplateElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
-	// Amazon Elastic Inference is no longer available.
-	//   An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
-	//  You cannot specify accelerators from different generations in the same request.
-	ElasticInferenceAccelerators []LaunchTemplateElasticInferenceAccelerator `pulumi:"elasticInferenceAccelerators"`
 	// Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
 	//  You can't enable AWS Nitro Enclaves and hibernation on the same instance.
 	EnclaveOptions *LaunchTemplateEnclaveOptions `pulumi:"enclaveOptions"`
@@ -12674,13 +12667,6 @@ type LaunchTemplateDataArgs struct {
 	DisableApiTermination pulumi.BoolPtrInput `pulumi:"disableApiTermination"`
 	// Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
 	EbsOptimized pulumi.BoolPtrInput `pulumi:"ebsOptimized"`
-	// Deprecated.
-	//   Amazon Elastic Graphics reached end of life on January 8, 2024.
-	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationArrayInput `pulumi:"elasticGpuSpecifications"`
-	// Amazon Elastic Inference is no longer available.
-	//   An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
-	//  You cannot specify accelerators from different generations in the same request.
-	ElasticInferenceAccelerators LaunchTemplateElasticInferenceAcceleratorArrayInput `pulumi:"elasticInferenceAccelerators"`
 	// Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
 	//  You can't enable AWS Nitro Enclaves and hibernation on the same instance.
 	EnclaveOptions LaunchTemplateEnclaveOptionsPtrInput `pulumi:"enclaveOptions"`
@@ -12819,23 +12805,6 @@ func (o LaunchTemplateDataOutput) DisableApiTermination() pulumi.BoolPtrOutput {
 // Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
 func (o LaunchTemplateDataOutput) EbsOptimized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
-}
-
-// Deprecated.
-//
-//	Amazon Elastic Graphics reached end of life on January 8, 2024.
-func (o LaunchTemplateDataOutput) ElasticGpuSpecifications() LaunchTemplateElasticGpuSpecificationArrayOutput {
-	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateElasticGpuSpecification { return v.ElasticGpuSpecifications }).(LaunchTemplateElasticGpuSpecificationArrayOutput)
-}
-
-// Amazon Elastic Inference is no longer available.
-//
-//	 An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
-//	You cannot specify accelerators from different generations in the same request.
-func (o LaunchTemplateDataOutput) ElasticInferenceAccelerators() LaunchTemplateElasticInferenceAcceleratorArrayOutput {
-	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateElasticInferenceAccelerator {
-		return v.ElasticInferenceAccelerators
-	}).(LaunchTemplateElasticInferenceAcceleratorArrayOutput)
 }
 
 // Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
@@ -13375,237 +13344,6 @@ func (o LaunchTemplateEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 		}
 		return v.VolumeType
 	}).(pulumi.StringPtrOutput)
-}
-
-// Amazon Elastic Graphics reached end of life on January 8, 2024.
-//
-//	 Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
-//	``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-type LaunchTemplateElasticGpuSpecification struct {
-	// The type of Elastic Graphics accelerator.
-	Type *string `pulumi:"type"`
-}
-
-// LaunchTemplateElasticGpuSpecificationInput is an input type that accepts LaunchTemplateElasticGpuSpecificationArgs and LaunchTemplateElasticGpuSpecificationOutput values.
-// You can construct a concrete instance of `LaunchTemplateElasticGpuSpecificationInput` via:
-//
-//	LaunchTemplateElasticGpuSpecificationArgs{...}
-type LaunchTemplateElasticGpuSpecificationInput interface {
-	pulumi.Input
-
-	ToLaunchTemplateElasticGpuSpecificationOutput() LaunchTemplateElasticGpuSpecificationOutput
-	ToLaunchTemplateElasticGpuSpecificationOutputWithContext(context.Context) LaunchTemplateElasticGpuSpecificationOutput
-}
-
-// Amazon Elastic Graphics reached end of life on January 8, 2024.
-//
-//	 Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
-//	``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-type LaunchTemplateElasticGpuSpecificationArgs struct {
-	// The type of Elastic Graphics accelerator.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (LaunchTemplateElasticGpuSpecificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateElasticGpuSpecification)(nil)).Elem()
-}
-
-func (i LaunchTemplateElasticGpuSpecificationArgs) ToLaunchTemplateElasticGpuSpecificationOutput() LaunchTemplateElasticGpuSpecificationOutput {
-	return i.ToLaunchTemplateElasticGpuSpecificationOutputWithContext(context.Background())
-}
-
-func (i LaunchTemplateElasticGpuSpecificationArgs) ToLaunchTemplateElasticGpuSpecificationOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticGpuSpecificationOutput)
-}
-
-// LaunchTemplateElasticGpuSpecificationArrayInput is an input type that accepts LaunchTemplateElasticGpuSpecificationArray and LaunchTemplateElasticGpuSpecificationArrayOutput values.
-// You can construct a concrete instance of `LaunchTemplateElasticGpuSpecificationArrayInput` via:
-//
-//	LaunchTemplateElasticGpuSpecificationArray{ LaunchTemplateElasticGpuSpecificationArgs{...} }
-type LaunchTemplateElasticGpuSpecificationArrayInput interface {
-	pulumi.Input
-
-	ToLaunchTemplateElasticGpuSpecificationArrayOutput() LaunchTemplateElasticGpuSpecificationArrayOutput
-	ToLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(context.Context) LaunchTemplateElasticGpuSpecificationArrayOutput
-}
-
-type LaunchTemplateElasticGpuSpecificationArray []LaunchTemplateElasticGpuSpecificationInput
-
-func (LaunchTemplateElasticGpuSpecificationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LaunchTemplateElasticGpuSpecification)(nil)).Elem()
-}
-
-func (i LaunchTemplateElasticGpuSpecificationArray) ToLaunchTemplateElasticGpuSpecificationArrayOutput() LaunchTemplateElasticGpuSpecificationArrayOutput {
-	return i.ToLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(context.Background())
-}
-
-func (i LaunchTemplateElasticGpuSpecificationArray) ToLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticGpuSpecificationArrayOutput)
-}
-
-// Amazon Elastic Graphics reached end of life on January 8, 2024.
-//
-//	 Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
-//	``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-type LaunchTemplateElasticGpuSpecificationOutput struct{ *pulumi.OutputState }
-
-func (LaunchTemplateElasticGpuSpecificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateElasticGpuSpecification)(nil)).Elem()
-}
-
-func (o LaunchTemplateElasticGpuSpecificationOutput) ToLaunchTemplateElasticGpuSpecificationOutput() LaunchTemplateElasticGpuSpecificationOutput {
-	return o
-}
-
-func (o LaunchTemplateElasticGpuSpecificationOutput) ToLaunchTemplateElasticGpuSpecificationOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationOutput {
-	return o
-}
-
-// The type of Elastic Graphics accelerator.
-func (o LaunchTemplateElasticGpuSpecificationOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateElasticGpuSpecification) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type LaunchTemplateElasticGpuSpecificationArrayOutput struct{ *pulumi.OutputState }
-
-func (LaunchTemplateElasticGpuSpecificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LaunchTemplateElasticGpuSpecification)(nil)).Elem()
-}
-
-func (o LaunchTemplateElasticGpuSpecificationArrayOutput) ToLaunchTemplateElasticGpuSpecificationArrayOutput() LaunchTemplateElasticGpuSpecificationArrayOutput {
-	return o
-}
-
-func (o LaunchTemplateElasticGpuSpecificationArrayOutput) ToLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationArrayOutput {
-	return o
-}
-
-func (o LaunchTemplateElasticGpuSpecificationArrayOutput) Index(i pulumi.IntInput) LaunchTemplateElasticGpuSpecificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateElasticGpuSpecification {
-		return vs[0].([]LaunchTemplateElasticGpuSpecification)[vs[1].(int)]
-	}).(LaunchTemplateElasticGpuSpecificationOutput)
-}
-
-// Amazon Elastic Inference is no longer available.
-//
-//	 Specifies an elastic inference accelerator.
-//	``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-type LaunchTemplateElasticInferenceAccelerator struct {
-	// The number of elastic inference accelerators to attach to the instance.
-	//  Default: 1
-	Count *int `pulumi:"count"`
-	// The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
-	Type *string `pulumi:"type"`
-}
-
-// LaunchTemplateElasticInferenceAcceleratorInput is an input type that accepts LaunchTemplateElasticInferenceAcceleratorArgs and LaunchTemplateElasticInferenceAcceleratorOutput values.
-// You can construct a concrete instance of `LaunchTemplateElasticInferenceAcceleratorInput` via:
-//
-//	LaunchTemplateElasticInferenceAcceleratorArgs{...}
-type LaunchTemplateElasticInferenceAcceleratorInput interface {
-	pulumi.Input
-
-	ToLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateElasticInferenceAcceleratorOutput
-	ToLaunchTemplateElasticInferenceAcceleratorOutputWithContext(context.Context) LaunchTemplateElasticInferenceAcceleratorOutput
-}
-
-// Amazon Elastic Inference is no longer available.
-//
-//	 Specifies an elastic inference accelerator.
-//	``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-type LaunchTemplateElasticInferenceAcceleratorArgs struct {
-	// The number of elastic inference accelerators to attach to the instance.
-	//  Default: 1
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (LaunchTemplateElasticInferenceAcceleratorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
-}
-
-func (i LaunchTemplateElasticInferenceAcceleratorArgs) ToLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateElasticInferenceAcceleratorOutput {
-	return i.ToLaunchTemplateElasticInferenceAcceleratorOutputWithContext(context.Background())
-}
-
-func (i LaunchTemplateElasticInferenceAcceleratorArgs) ToLaunchTemplateElasticInferenceAcceleratorOutputWithContext(ctx context.Context) LaunchTemplateElasticInferenceAcceleratorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticInferenceAcceleratorOutput)
-}
-
-// LaunchTemplateElasticInferenceAcceleratorArrayInput is an input type that accepts LaunchTemplateElasticInferenceAcceleratorArray and LaunchTemplateElasticInferenceAcceleratorArrayOutput values.
-// You can construct a concrete instance of `LaunchTemplateElasticInferenceAcceleratorArrayInput` via:
-//
-//	LaunchTemplateElasticInferenceAcceleratorArray{ LaunchTemplateElasticInferenceAcceleratorArgs{...} }
-type LaunchTemplateElasticInferenceAcceleratorArrayInput interface {
-	pulumi.Input
-
-	ToLaunchTemplateElasticInferenceAcceleratorArrayOutput() LaunchTemplateElasticInferenceAcceleratorArrayOutput
-	ToLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(context.Context) LaunchTemplateElasticInferenceAcceleratorArrayOutput
-}
-
-type LaunchTemplateElasticInferenceAcceleratorArray []LaunchTemplateElasticInferenceAcceleratorInput
-
-func (LaunchTemplateElasticInferenceAcceleratorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
-}
-
-func (i LaunchTemplateElasticInferenceAcceleratorArray) ToLaunchTemplateElasticInferenceAcceleratorArrayOutput() LaunchTemplateElasticInferenceAcceleratorArrayOutput {
-	return i.ToLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(context.Background())
-}
-
-func (i LaunchTemplateElasticInferenceAcceleratorArray) ToLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(ctx context.Context) LaunchTemplateElasticInferenceAcceleratorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticInferenceAcceleratorArrayOutput)
-}
-
-// Amazon Elastic Inference is no longer available.
-//
-//	 Specifies an elastic inference accelerator.
-//	``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-type LaunchTemplateElasticInferenceAcceleratorOutput struct{ *pulumi.OutputState }
-
-func (LaunchTemplateElasticInferenceAcceleratorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
-}
-
-func (o LaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateElasticInferenceAcceleratorOutput {
-	return o
-}
-
-func (o LaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateElasticInferenceAcceleratorOutputWithContext(ctx context.Context) LaunchTemplateElasticInferenceAcceleratorOutput {
-	return o
-}
-
-// The number of elastic inference accelerators to attach to the instance.
-//
-//	Default: 1
-func (o LaunchTemplateElasticInferenceAcceleratorOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateElasticInferenceAccelerator) *int { return v.Count }).(pulumi.IntPtrOutput)
-}
-
-// The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
-func (o LaunchTemplateElasticInferenceAcceleratorOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateElasticInferenceAccelerator) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type LaunchTemplateElasticInferenceAcceleratorArrayOutput struct{ *pulumi.OutputState }
-
-func (LaunchTemplateElasticInferenceAcceleratorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
-}
-
-func (o LaunchTemplateElasticInferenceAcceleratorArrayOutput) ToLaunchTemplateElasticInferenceAcceleratorArrayOutput() LaunchTemplateElasticInferenceAcceleratorArrayOutput {
-	return o
-}
-
-func (o LaunchTemplateElasticInferenceAcceleratorArrayOutput) ToLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(ctx context.Context) LaunchTemplateElasticInferenceAcceleratorArrayOutput {
-	return o
-}
-
-func (o LaunchTemplateElasticInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput) LaunchTemplateElasticInferenceAcceleratorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateElasticInferenceAccelerator {
-		return vs[0].([]LaunchTemplateElasticInferenceAccelerator)[vs[1].(int)]
-	}).(LaunchTemplateElasticInferenceAcceleratorOutput)
 }
 
 // ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
@@ -17103,7 +16841,8 @@ type LaunchTemplateNetworkInterface struct {
 	Description *string `pulumi:"description"`
 	// The device index for the network interface attachment. The primary network interface has a device index of 0. If the network interface is of type ``interface``, you must specify a device index.
 	//  If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
-	DeviceIndex *int `pulumi:"deviceIndex"`
+	DeviceIndex   *int `pulumi:"deviceIndex"`
+	EnaQueueCount *int `pulumi:"enaQueueCount"`
 	// The ENA Express configuration for the network interface.
 	EnaSrdSpecification *LaunchTemplateEnaSrdSpecification `pulumi:"enaSrdSpecification"`
 	// The IDs of one or more security groups.
@@ -17170,7 +16909,8 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The device index for the network interface attachment. The primary network interface has a device index of 0. If the network interface is of type ``interface``, you must specify a device index.
 	//  If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
-	DeviceIndex pulumi.IntPtrInput `pulumi:"deviceIndex"`
+	DeviceIndex   pulumi.IntPtrInput `pulumi:"deviceIndex"`
+	EnaQueueCount pulumi.IntPtrInput `pulumi:"enaQueueCount"`
 	// The ENA Express configuration for the network interface.
 	EnaSrdSpecification LaunchTemplateEnaSrdSpecificationPtrInput `pulumi:"enaSrdSpecification"`
 	// The IDs of one or more security groups.
@@ -17298,6 +17038,10 @@ func (o LaunchTemplateNetworkInterfaceOutput) Description() pulumi.StringPtrOutp
 //	If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
 func (o LaunchTemplateNetworkInterfaceOutput) DeviceIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.DeviceIndex }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) EnaQueueCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.EnaQueueCount }).(pulumi.IntPtrOutput)
 }
 
 // The ENA Express configuration for the network interface.
@@ -36731,10 +36475,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateDataInput)(nil)).Elem(), LaunchTemplateDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateEbsInput)(nil)).Elem(), LaunchTemplateEbsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateEbsPtrInput)(nil)).Elem(), LaunchTemplateEbsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateElasticGpuSpecificationInput)(nil)).Elem(), LaunchTemplateElasticGpuSpecificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateElasticGpuSpecificationArrayInput)(nil)).Elem(), LaunchTemplateElasticGpuSpecificationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateElasticInferenceAcceleratorInput)(nil)).Elem(), LaunchTemplateElasticInferenceAcceleratorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateElasticInferenceAcceleratorArrayInput)(nil)).Elem(), LaunchTemplateElasticInferenceAcceleratorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateEnaSrdSpecificationInput)(nil)).Elem(), LaunchTemplateEnaSrdSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateEnaSrdSpecificationPtrInput)(nil)).Elem(), LaunchTemplateEnaSrdSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateEnaSrdUdpSpecificationInput)(nil)).Elem(), LaunchTemplateEnaSrdUdpSpecificationArgs{})
@@ -37115,10 +36855,6 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateDataOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateEbsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateEbsPtrOutput{})
-	pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationOutput{})
-	pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationArrayOutput{})
-	pulumi.RegisterOutputType(LaunchTemplateElasticInferenceAcceleratorOutput{})
-	pulumi.RegisterOutputType(LaunchTemplateElasticInferenceAcceleratorArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateEnaSrdSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateEnaSrdSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateEnaSrdUdpSpecificationOutput{})

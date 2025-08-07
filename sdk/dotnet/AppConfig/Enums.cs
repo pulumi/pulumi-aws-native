@@ -40,6 +40,42 @@ namespace Pulumi.AwsNative.AppConfig
     }
 
     /// <summary>
+    /// The state of the deployment.
+    /// </summary>
+    [EnumType]
+    public readonly struct DeploymentState : IEquatable<DeploymentState>
+    {
+        private readonly string _value;
+
+        private DeploymentState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeploymentState Baking { get; } = new DeploymentState("BAKING");
+        public static DeploymentState Validating { get; } = new DeploymentState("VALIDATING");
+        public static DeploymentState Deploying { get; } = new DeploymentState("DEPLOYING");
+        public static DeploymentState Complete { get; } = new DeploymentState("COMPLETE");
+        public static DeploymentState RollingBack { get; } = new DeploymentState("ROLLING_BACK");
+        public static DeploymentState RolledBack { get; } = new DeploymentState("ROLLED_BACK");
+        public static DeploymentState Reverted { get; } = new DeploymentState("REVERTED");
+
+        public static bool operator ==(DeploymentState left, DeploymentState right) => left.Equals(right);
+        public static bool operator !=(DeploymentState left, DeploymentState right) => !left.Equals(right);
+
+        public static explicit operator string(DeploymentState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeploymentState other && Equals(other);
+        public bool Equals(DeploymentState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The algorithm used to define how percentage grows over time. AWS AppConfig supports the following growth types:
     /// 
     /// Linear: For this type, AWS AppConfig processes the deployment by dividing the total number of targets by the value specified for Step percentage. For example, a linear deployment that uses a Step percentage of 10 deploys the configuration to 10 percent of the hosts. After those deployments are complete, the system deploys the configuration to the next 10 percent. This continues until 100% of the targets have successfully received the configuration.

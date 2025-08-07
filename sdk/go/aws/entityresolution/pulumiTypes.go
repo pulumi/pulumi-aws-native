@@ -16,9 +16,9 @@ var _ = internal.GetEnvOrDefault
 type IdMappingWorkflowIdMappingRuleBasedProperties struct {
 	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 	//
-	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
-	//
 	// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+	//
+	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
 	AttributeMatchingModel IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel `pulumi:"attributeMatchingModel"`
 	// The type of matching record that is allowed to be used in an ID mapping workflow.
 	//
@@ -46,9 +46,9 @@ type IdMappingWorkflowIdMappingRuleBasedPropertiesInput interface {
 type IdMappingWorkflowIdMappingRuleBasedPropertiesArgs struct {
 	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 	//
-	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
-	//
 	// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+	//
+	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
 	AttributeMatchingModel IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModelInput `pulumi:"attributeMatchingModel"`
 	// The type of matching record that is allowed to be used in an ID mapping workflow.
 	//
@@ -141,9 +141,9 @@ func (o IdMappingWorkflowIdMappingRuleBasedPropertiesOutput) ToIdMappingWorkflow
 
 // The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 //
-// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
-//
 // If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+//
+// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
 func (o IdMappingWorkflowIdMappingRuleBasedPropertiesOutput) AttributeMatchingModel() IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModelOutput {
 	return o.ApplyT(func(v IdMappingWorkflowIdMappingRuleBasedProperties) IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel {
 		return v.AttributeMatchingModel
@@ -199,9 +199,9 @@ func (o IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) Elem() IdMapping
 
 // The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 //
-// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
-//
 // If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+//
+// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of the `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
 func (o IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput) AttributeMatchingModel() IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModelPtrOutput {
 	return o.ApplyT(func(v *IdMappingWorkflowIdMappingRuleBasedProperties) *IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel {
 		if v == nil {
@@ -1422,9 +1422,9 @@ func (o IdNamespaceNamespaceProviderPropertiesPtrOutput) ProviderServiceArn() pu
 type IdNamespaceNamespaceRuleBasedProperties struct {
 	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 	//
-	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
-	//
 	// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+	//
+	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
 	AttributeMatchingModel *IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel `pulumi:"attributeMatchingModel"`
 	// The type of matching record that is allowed to be used in an ID mapping workflow.
 	//
@@ -1452,9 +1452,9 @@ type IdNamespaceNamespaceRuleBasedPropertiesInput interface {
 type IdNamespaceNamespaceRuleBasedPropertiesArgs struct {
 	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 	//
-	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
-	//
 	// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+	//
+	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
 	AttributeMatchingModel IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModelPtrInput `pulumi:"attributeMatchingModel"`
 	// The type of matching record that is allowed to be used in an ID mapping workflow.
 	//
@@ -1547,9 +1547,9 @@ func (o IdNamespaceNamespaceRuleBasedPropertiesOutput) ToIdNamespaceNamespaceRul
 
 // The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 //
-// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
-//
 // If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+//
+// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
 func (o IdNamespaceNamespaceRuleBasedPropertiesOutput) AttributeMatchingModel() IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModelPtrOutput {
 	return o.ApplyT(func(v IdNamespaceNamespaceRuleBasedProperties) *IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel {
 		return v.AttributeMatchingModel
@@ -1605,9 +1605,9 @@ func (o IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) Elem() IdNamespaceName
 
 // The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 //
-// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
-//
 // If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+//
+// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
 func (o IdNamespaceNamespaceRuleBasedPropertiesPtrOutput) AttributeMatchingModel() IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModelPtrOutput {
 	return o.ApplyT(func(v *IdNamespaceNamespaceRuleBasedProperties) *IdNamespaceNamespaceRuleBasedPropertiesAttributeMatchingModel {
 		if v == nil {
@@ -1768,7 +1768,7 @@ type IdNamespaceTag struct {
 type MatchingWorkflowIncrementalRunConfig struct {
 	// The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
 	//
-	// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+	// > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
 	IncrementalRunType MatchingWorkflowIncrementalRunConfigIncrementalRunType `pulumi:"incrementalRunType"`
 }
 
@@ -1786,7 +1786,7 @@ type MatchingWorkflowIncrementalRunConfigInput interface {
 type MatchingWorkflowIncrementalRunConfigArgs struct {
 	// The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
 	//
-	// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+	// > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
 	IncrementalRunType MatchingWorkflowIncrementalRunConfigIncrementalRunTypeInput `pulumi:"incrementalRunType"`
 }
 
@@ -1869,7 +1869,7 @@ func (o MatchingWorkflowIncrementalRunConfigOutput) ToMatchingWorkflowIncrementa
 
 // The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
 //
-// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+// > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
 func (o MatchingWorkflowIncrementalRunConfigOutput) IncrementalRunType() MatchingWorkflowIncrementalRunConfigIncrementalRunTypeOutput {
 	return o.ApplyT(func(v MatchingWorkflowIncrementalRunConfig) MatchingWorkflowIncrementalRunConfigIncrementalRunType {
 		return v.IncrementalRunType
@@ -1902,7 +1902,7 @@ func (o MatchingWorkflowIncrementalRunConfigPtrOutput) Elem() MatchingWorkflowIn
 
 // The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
 //
-// > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+// > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
 func (o MatchingWorkflowIncrementalRunConfigPtrOutput) IncrementalRunType() MatchingWorkflowIncrementalRunConfigIncrementalRunTypePtrOutput {
 	return o.ApplyT(func(v *MatchingWorkflowIncrementalRunConfig) *MatchingWorkflowIncrementalRunConfigIncrementalRunType {
 		if v == nil {
@@ -2574,10 +2574,16 @@ func (o MatchingWorkflowProviderPropertiesPtrOutput) ProviderServiceArn() pulumi
 type MatchingWorkflowResolutionTechniques struct {
 	// The properties of the provider service.
 	ProviderProperties *MatchingWorkflowProviderProperties `pulumi:"providerProperties"`
-	// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
+	// The type of matching workflow to create. Specify one of the following types:
+	//
+	// - `RULE_MATCHING` : Match records using configurable rule-based criteria
+	// - `ML_MATCHING` : Match records using machine learning models
+	// - `PROVIDER` : Match records using a third-party matching provider
 	ResolutionType *MatchingWorkflowResolutionType `pulumi:"resolutionType"`
-	// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
+	// An object which defines the list of matching rules to run and has a field `rules` , which is a list of rule objects.
 	RuleBasedProperties *MatchingWorkflowRuleBasedProperties `pulumi:"ruleBasedProperties"`
+	// An object containing the `rules` for a matching workflow.
+	RuleConditionProperties *MatchingWorkflowRuleConditionProperties `pulumi:"ruleConditionProperties"`
 }
 
 // MatchingWorkflowResolutionTechniquesInput is an input type that accepts MatchingWorkflowResolutionTechniquesArgs and MatchingWorkflowResolutionTechniquesOutput values.
@@ -2594,10 +2600,16 @@ type MatchingWorkflowResolutionTechniquesInput interface {
 type MatchingWorkflowResolutionTechniquesArgs struct {
 	// The properties of the provider service.
 	ProviderProperties MatchingWorkflowProviderPropertiesPtrInput `pulumi:"providerProperties"`
-	// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
+	// The type of matching workflow to create. Specify one of the following types:
+	//
+	// - `RULE_MATCHING` : Match records using configurable rule-based criteria
+	// - `ML_MATCHING` : Match records using machine learning models
+	// - `PROVIDER` : Match records using a third-party matching provider
 	ResolutionType MatchingWorkflowResolutionTypePtrInput `pulumi:"resolutionType"`
-	// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
+	// An object which defines the list of matching rules to run and has a field `rules` , which is a list of rule objects.
 	RuleBasedProperties MatchingWorkflowRuleBasedPropertiesPtrInput `pulumi:"ruleBasedProperties"`
+	// An object containing the `rules` for a matching workflow.
+	RuleConditionProperties MatchingWorkflowRuleConditionPropertiesPtrInput `pulumi:"ruleConditionProperties"`
 }
 
 func (MatchingWorkflowResolutionTechniquesArgs) ElementType() reflect.Type {
@@ -2633,16 +2645,27 @@ func (o MatchingWorkflowResolutionTechniquesOutput) ProviderProperties() Matchin
 	}).(MatchingWorkflowProviderPropertiesPtrOutput)
 }
 
-// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
+// The type of matching workflow to create. Specify one of the following types:
+//
+// - `RULE_MATCHING` : Match records using configurable rule-based criteria
+// - `ML_MATCHING` : Match records using machine learning models
+// - `PROVIDER` : Match records using a third-party matching provider
 func (o MatchingWorkflowResolutionTechniquesOutput) ResolutionType() MatchingWorkflowResolutionTypePtrOutput {
 	return o.ApplyT(func(v MatchingWorkflowResolutionTechniques) *MatchingWorkflowResolutionType { return v.ResolutionType }).(MatchingWorkflowResolutionTypePtrOutput)
 }
 
-// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
+// An object which defines the list of matching rules to run and has a field `rules` , which is a list of rule objects.
 func (o MatchingWorkflowResolutionTechniquesOutput) RuleBasedProperties() MatchingWorkflowRuleBasedPropertiesPtrOutput {
 	return o.ApplyT(func(v MatchingWorkflowResolutionTechniques) *MatchingWorkflowRuleBasedProperties {
 		return v.RuleBasedProperties
 	}).(MatchingWorkflowRuleBasedPropertiesPtrOutput)
+}
+
+// An object containing the `rules` for a matching workflow.
+func (o MatchingWorkflowResolutionTechniquesOutput) RuleConditionProperties() MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return o.ApplyT(func(v MatchingWorkflowResolutionTechniques) *MatchingWorkflowRuleConditionProperties {
+		return v.RuleConditionProperties
+	}).(MatchingWorkflowRuleConditionPropertiesPtrOutput)
 }
 
 type MatchingWorkflowResolutionTechniquesPtrOutput struct{ *pulumi.OutputState }
@@ -2679,7 +2702,11 @@ func (o MatchingWorkflowResolutionTechniquesPtrOutput) ProviderProperties() Matc
 	}).(MatchingWorkflowProviderPropertiesPtrOutput)
 }
 
-// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
+// The type of matching workflow to create. Specify one of the following types:
+//
+// - `RULE_MATCHING` : Match records using configurable rule-based criteria
+// - `ML_MATCHING` : Match records using machine learning models
+// - `PROVIDER` : Match records using a third-party matching provider
 func (o MatchingWorkflowResolutionTechniquesPtrOutput) ResolutionType() MatchingWorkflowResolutionTypePtrOutput {
 	return o.ApplyT(func(v *MatchingWorkflowResolutionTechniques) *MatchingWorkflowResolutionType {
 		if v == nil {
@@ -2689,7 +2716,7 @@ func (o MatchingWorkflowResolutionTechniquesPtrOutput) ResolutionType() Matching
 	}).(MatchingWorkflowResolutionTypePtrOutput)
 }
 
-// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
+// An object which defines the list of matching rules to run and has a field `rules` , which is a list of rule objects.
 func (o MatchingWorkflowResolutionTechniquesPtrOutput) RuleBasedProperties() MatchingWorkflowRuleBasedPropertiesPtrOutput {
 	return o.ApplyT(func(v *MatchingWorkflowResolutionTechniques) *MatchingWorkflowRuleBasedProperties {
 		if v == nil {
@@ -2697,6 +2724,16 @@ func (o MatchingWorkflowResolutionTechniquesPtrOutput) RuleBasedProperties() Mat
 		}
 		return v.RuleBasedProperties
 	}).(MatchingWorkflowRuleBasedPropertiesPtrOutput)
+}
+
+// An object containing the `rules` for a matching workflow.
+func (o MatchingWorkflowResolutionTechniquesPtrOutput) RuleConditionProperties() MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return o.ApplyT(func(v *MatchingWorkflowResolutionTechniques) *MatchingWorkflowRuleConditionProperties {
+		if v == nil {
+			return nil
+		}
+		return v.RuleConditionProperties
+	}).(MatchingWorkflowRuleConditionPropertiesPtrOutput)
 }
 
 type MatchingWorkflowRule struct {
@@ -2806,11 +2843,11 @@ func (o MatchingWorkflowRuleArrayOutput) Index(i pulumi.IntInput) MatchingWorkfl
 }
 
 type MatchingWorkflowRuleBasedProperties struct {
-	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
-	//
-	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
+	// The comparison type. You can choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 	//
 	// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+	//
+	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
 	AttributeMatchingModel MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel `pulumi:"attributeMatchingModel"`
 	// An indicator of whether to generate IDs and index the data or not.
 	//
@@ -2834,11 +2871,11 @@ type MatchingWorkflowRuleBasedPropertiesInput interface {
 }
 
 type MatchingWorkflowRuleBasedPropertiesArgs struct {
-	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
-	//
-	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
+	// The comparison type. You can choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 	//
 	// If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+	//
+	// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
 	AttributeMatchingModel MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelInput `pulumi:"attributeMatchingModel"`
 	// An indicator of whether to generate IDs and index the data or not.
 	//
@@ -2927,11 +2964,11 @@ func (o MatchingWorkflowRuleBasedPropertiesOutput) ToMatchingWorkflowRuleBasedPr
 	}).(MatchingWorkflowRuleBasedPropertiesPtrOutput)
 }
 
-// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
-//
-// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
+// The comparison type. You can choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 //
 // If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+//
+// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
 func (o MatchingWorkflowRuleBasedPropertiesOutput) AttributeMatchingModel() MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput {
 	return o.ApplyT(func(v MatchingWorkflowRuleBasedProperties) MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel {
 		return v.AttributeMatchingModel
@@ -2978,11 +3015,11 @@ func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) Elem() MatchingWorkflowRul
 	}).(MatchingWorkflowRuleBasedPropertiesOutput)
 }
 
-// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
-//
-// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
+// The comparison type. You can choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 //
 // If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+//
+// If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` attribute type.
 func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) AttributeMatchingModel() MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput {
 	return o.ApplyT(func(v *MatchingWorkflowRuleBasedProperties) *MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel {
 		if v == nil {
@@ -3014,6 +3051,279 @@ func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) Rules() MatchingWorkflowRu
 		}
 		return v.Rules
 	}).(MatchingWorkflowRuleArrayOutput)
+}
+
+type MatchingWorkflowRuleCondition struct {
+	// A statement that specifies the conditions for a matching rule.
+	//
+	// If your data is accurate, use an Exact matching function: `Exact` or `ExactManyToMany` .
+	//
+	// If your data has variations in spelling or pronunciation, use a Fuzzy matching function: `Cosine` , `Levenshtein` , or `Soundex` .
+	//
+	// Use operators if you want to combine ( `AND` ), separate ( `OR` ), or group matching functions `(...)` .
+	//
+	// For example: `(Cosine(a, 10) AND Exact(b, true)) OR ExactManyToMany(c, d)`
+	Condition *string `pulumi:"condition"`
+	// A name for the matching rule.
+	//
+	// For example: `Rule1`
+	RuleName *string `pulumi:"ruleName"`
+}
+
+// MatchingWorkflowRuleConditionInput is an input type that accepts MatchingWorkflowRuleConditionArgs and MatchingWorkflowRuleConditionOutput values.
+// You can construct a concrete instance of `MatchingWorkflowRuleConditionInput` via:
+//
+//	MatchingWorkflowRuleConditionArgs{...}
+type MatchingWorkflowRuleConditionInput interface {
+	pulumi.Input
+
+	ToMatchingWorkflowRuleConditionOutput() MatchingWorkflowRuleConditionOutput
+	ToMatchingWorkflowRuleConditionOutputWithContext(context.Context) MatchingWorkflowRuleConditionOutput
+}
+
+type MatchingWorkflowRuleConditionArgs struct {
+	// A statement that specifies the conditions for a matching rule.
+	//
+	// If your data is accurate, use an Exact matching function: `Exact` or `ExactManyToMany` .
+	//
+	// If your data has variations in spelling or pronunciation, use a Fuzzy matching function: `Cosine` , `Levenshtein` , or `Soundex` .
+	//
+	// Use operators if you want to combine ( `AND` ), separate ( `OR` ), or group matching functions `(...)` .
+	//
+	// For example: `(Cosine(a, 10) AND Exact(b, true)) OR ExactManyToMany(c, d)`
+	Condition pulumi.StringPtrInput `pulumi:"condition"`
+	// A name for the matching rule.
+	//
+	// For example: `Rule1`
+	RuleName pulumi.StringPtrInput `pulumi:"ruleName"`
+}
+
+func (MatchingWorkflowRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchingWorkflowRuleCondition)(nil)).Elem()
+}
+
+func (i MatchingWorkflowRuleConditionArgs) ToMatchingWorkflowRuleConditionOutput() MatchingWorkflowRuleConditionOutput {
+	return i.ToMatchingWorkflowRuleConditionOutputWithContext(context.Background())
+}
+
+func (i MatchingWorkflowRuleConditionArgs) ToMatchingWorkflowRuleConditionOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowRuleConditionOutput)
+}
+
+// MatchingWorkflowRuleConditionArrayInput is an input type that accepts MatchingWorkflowRuleConditionArray and MatchingWorkflowRuleConditionArrayOutput values.
+// You can construct a concrete instance of `MatchingWorkflowRuleConditionArrayInput` via:
+//
+//	MatchingWorkflowRuleConditionArray{ MatchingWorkflowRuleConditionArgs{...} }
+type MatchingWorkflowRuleConditionArrayInput interface {
+	pulumi.Input
+
+	ToMatchingWorkflowRuleConditionArrayOutput() MatchingWorkflowRuleConditionArrayOutput
+	ToMatchingWorkflowRuleConditionArrayOutputWithContext(context.Context) MatchingWorkflowRuleConditionArrayOutput
+}
+
+type MatchingWorkflowRuleConditionArray []MatchingWorkflowRuleConditionInput
+
+func (MatchingWorkflowRuleConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchingWorkflowRuleCondition)(nil)).Elem()
+}
+
+func (i MatchingWorkflowRuleConditionArray) ToMatchingWorkflowRuleConditionArrayOutput() MatchingWorkflowRuleConditionArrayOutput {
+	return i.ToMatchingWorkflowRuleConditionArrayOutputWithContext(context.Background())
+}
+
+func (i MatchingWorkflowRuleConditionArray) ToMatchingWorkflowRuleConditionArrayOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowRuleConditionArrayOutput)
+}
+
+type MatchingWorkflowRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (MatchingWorkflowRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchingWorkflowRuleCondition)(nil)).Elem()
+}
+
+func (o MatchingWorkflowRuleConditionOutput) ToMatchingWorkflowRuleConditionOutput() MatchingWorkflowRuleConditionOutput {
+	return o
+}
+
+func (o MatchingWorkflowRuleConditionOutput) ToMatchingWorkflowRuleConditionOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionOutput {
+	return o
+}
+
+// A statement that specifies the conditions for a matching rule.
+//
+// If your data is accurate, use an Exact matching function: `Exact` or `ExactManyToMany` .
+//
+// If your data has variations in spelling or pronunciation, use a Fuzzy matching function: `Cosine` , `Levenshtein` , or `Soundex` .
+//
+// Use operators if you want to combine ( `AND` ), separate ( `OR` ), or group matching functions `(...)` .
+//
+// For example: `(Cosine(a, 10) AND Exact(b, true)) OR ExactManyToMany(c, d)`
+func (o MatchingWorkflowRuleConditionOutput) Condition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MatchingWorkflowRuleCondition) *string { return v.Condition }).(pulumi.StringPtrOutput)
+}
+
+// A name for the matching rule.
+//
+// For example: `Rule1`
+func (o MatchingWorkflowRuleConditionOutput) RuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MatchingWorkflowRuleCondition) *string { return v.RuleName }).(pulumi.StringPtrOutput)
+}
+
+type MatchingWorkflowRuleConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (MatchingWorkflowRuleConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchingWorkflowRuleCondition)(nil)).Elem()
+}
+
+func (o MatchingWorkflowRuleConditionArrayOutput) ToMatchingWorkflowRuleConditionArrayOutput() MatchingWorkflowRuleConditionArrayOutput {
+	return o
+}
+
+func (o MatchingWorkflowRuleConditionArrayOutput) ToMatchingWorkflowRuleConditionArrayOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionArrayOutput {
+	return o
+}
+
+func (o MatchingWorkflowRuleConditionArrayOutput) Index(i pulumi.IntInput) MatchingWorkflowRuleConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MatchingWorkflowRuleCondition {
+		return vs[0].([]MatchingWorkflowRuleCondition)[vs[1].(int)]
+	}).(MatchingWorkflowRuleConditionOutput)
+}
+
+type MatchingWorkflowRuleConditionProperties struct {
+	// A list of rule objects, each of which have fields `ruleName` and `condition` .
+	Rules []MatchingWorkflowRuleCondition `pulumi:"rules"`
+}
+
+// MatchingWorkflowRuleConditionPropertiesInput is an input type that accepts MatchingWorkflowRuleConditionPropertiesArgs and MatchingWorkflowRuleConditionPropertiesOutput values.
+// You can construct a concrete instance of `MatchingWorkflowRuleConditionPropertiesInput` via:
+//
+//	MatchingWorkflowRuleConditionPropertiesArgs{...}
+type MatchingWorkflowRuleConditionPropertiesInput interface {
+	pulumi.Input
+
+	ToMatchingWorkflowRuleConditionPropertiesOutput() MatchingWorkflowRuleConditionPropertiesOutput
+	ToMatchingWorkflowRuleConditionPropertiesOutputWithContext(context.Context) MatchingWorkflowRuleConditionPropertiesOutput
+}
+
+type MatchingWorkflowRuleConditionPropertiesArgs struct {
+	// A list of rule objects, each of which have fields `ruleName` and `condition` .
+	Rules MatchingWorkflowRuleConditionArrayInput `pulumi:"rules"`
+}
+
+func (MatchingWorkflowRuleConditionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchingWorkflowRuleConditionProperties)(nil)).Elem()
+}
+
+func (i MatchingWorkflowRuleConditionPropertiesArgs) ToMatchingWorkflowRuleConditionPropertiesOutput() MatchingWorkflowRuleConditionPropertiesOutput {
+	return i.ToMatchingWorkflowRuleConditionPropertiesOutputWithContext(context.Background())
+}
+
+func (i MatchingWorkflowRuleConditionPropertiesArgs) ToMatchingWorkflowRuleConditionPropertiesOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowRuleConditionPropertiesOutput)
+}
+
+func (i MatchingWorkflowRuleConditionPropertiesArgs) ToMatchingWorkflowRuleConditionPropertiesPtrOutput() MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return i.ToMatchingWorkflowRuleConditionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MatchingWorkflowRuleConditionPropertiesArgs) ToMatchingWorkflowRuleConditionPropertiesPtrOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowRuleConditionPropertiesOutput).ToMatchingWorkflowRuleConditionPropertiesPtrOutputWithContext(ctx)
+}
+
+// MatchingWorkflowRuleConditionPropertiesPtrInput is an input type that accepts MatchingWorkflowRuleConditionPropertiesArgs, MatchingWorkflowRuleConditionPropertiesPtr and MatchingWorkflowRuleConditionPropertiesPtrOutput values.
+// You can construct a concrete instance of `MatchingWorkflowRuleConditionPropertiesPtrInput` via:
+//
+//	        MatchingWorkflowRuleConditionPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MatchingWorkflowRuleConditionPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMatchingWorkflowRuleConditionPropertiesPtrOutput() MatchingWorkflowRuleConditionPropertiesPtrOutput
+	ToMatchingWorkflowRuleConditionPropertiesPtrOutputWithContext(context.Context) MatchingWorkflowRuleConditionPropertiesPtrOutput
+}
+
+type matchingWorkflowRuleConditionPropertiesPtrType MatchingWorkflowRuleConditionPropertiesArgs
+
+func MatchingWorkflowRuleConditionPropertiesPtr(v *MatchingWorkflowRuleConditionPropertiesArgs) MatchingWorkflowRuleConditionPropertiesPtrInput {
+	return (*matchingWorkflowRuleConditionPropertiesPtrType)(v)
+}
+
+func (*matchingWorkflowRuleConditionPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MatchingWorkflowRuleConditionProperties)(nil)).Elem()
+}
+
+func (i *matchingWorkflowRuleConditionPropertiesPtrType) ToMatchingWorkflowRuleConditionPropertiesPtrOutput() MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return i.ToMatchingWorkflowRuleConditionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *matchingWorkflowRuleConditionPropertiesPtrType) ToMatchingWorkflowRuleConditionPropertiesPtrOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowRuleConditionPropertiesPtrOutput)
+}
+
+type MatchingWorkflowRuleConditionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MatchingWorkflowRuleConditionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchingWorkflowRuleConditionProperties)(nil)).Elem()
+}
+
+func (o MatchingWorkflowRuleConditionPropertiesOutput) ToMatchingWorkflowRuleConditionPropertiesOutput() MatchingWorkflowRuleConditionPropertiesOutput {
+	return o
+}
+
+func (o MatchingWorkflowRuleConditionPropertiesOutput) ToMatchingWorkflowRuleConditionPropertiesOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionPropertiesOutput {
+	return o
+}
+
+func (o MatchingWorkflowRuleConditionPropertiesOutput) ToMatchingWorkflowRuleConditionPropertiesPtrOutput() MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return o.ToMatchingWorkflowRuleConditionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MatchingWorkflowRuleConditionPropertiesOutput) ToMatchingWorkflowRuleConditionPropertiesPtrOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MatchingWorkflowRuleConditionProperties) *MatchingWorkflowRuleConditionProperties {
+		return &v
+	}).(MatchingWorkflowRuleConditionPropertiesPtrOutput)
+}
+
+// A list of rule objects, each of which have fields `ruleName` and `condition` .
+func (o MatchingWorkflowRuleConditionPropertiesOutput) Rules() MatchingWorkflowRuleConditionArrayOutput {
+	return o.ApplyT(func(v MatchingWorkflowRuleConditionProperties) []MatchingWorkflowRuleCondition { return v.Rules }).(MatchingWorkflowRuleConditionArrayOutput)
+}
+
+type MatchingWorkflowRuleConditionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MatchingWorkflowRuleConditionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MatchingWorkflowRuleConditionProperties)(nil)).Elem()
+}
+
+func (o MatchingWorkflowRuleConditionPropertiesPtrOutput) ToMatchingWorkflowRuleConditionPropertiesPtrOutput() MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return o
+}
+
+func (o MatchingWorkflowRuleConditionPropertiesPtrOutput) ToMatchingWorkflowRuleConditionPropertiesPtrOutputWithContext(ctx context.Context) MatchingWorkflowRuleConditionPropertiesPtrOutput {
+	return o
+}
+
+func (o MatchingWorkflowRuleConditionPropertiesPtrOutput) Elem() MatchingWorkflowRuleConditionPropertiesOutput {
+	return o.ApplyT(func(v *MatchingWorkflowRuleConditionProperties) MatchingWorkflowRuleConditionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MatchingWorkflowRuleConditionProperties
+		return ret
+	}).(MatchingWorkflowRuleConditionPropertiesOutput)
+}
+
+// A list of rule objects, each of which have fields `ruleName` and `condition` .
+func (o MatchingWorkflowRuleConditionPropertiesPtrOutput) Rules() MatchingWorkflowRuleConditionArrayOutput {
+	return o.ApplyT(func(v *MatchingWorkflowRuleConditionProperties) []MatchingWorkflowRuleCondition {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(MatchingWorkflowRuleConditionArrayOutput)
 }
 
 // A key-value pair to associate with a resource
@@ -3200,6 +3510,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleArrayInput)(nil)).Elem(), MatchingWorkflowRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleBasedPropertiesInput)(nil)).Elem(), MatchingWorkflowRuleBasedPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleBasedPropertiesPtrInput)(nil)).Elem(), MatchingWorkflowRuleBasedPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleConditionInput)(nil)).Elem(), MatchingWorkflowRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleConditionArrayInput)(nil)).Elem(), MatchingWorkflowRuleConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleConditionPropertiesInput)(nil)).Elem(), MatchingWorkflowRuleConditionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleConditionPropertiesPtrInput)(nil)).Elem(), MatchingWorkflowRuleConditionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMappingSchemaInputAttributeInput)(nil)).Elem(), SchemaMappingSchemaInputAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMappingSchemaInputAttributeArrayInput)(nil)).Elem(), SchemaMappingSchemaInputAttributeArray{})
 	pulumi.RegisterOutputType(IdMappingWorkflowIdMappingRuleBasedPropertiesOutput{})
@@ -3244,6 +3558,10 @@ func init() {
 	pulumi.RegisterOutputType(MatchingWorkflowRuleArrayOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowRuleBasedPropertiesOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowRuleBasedPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MatchingWorkflowRuleConditionOutput{})
+	pulumi.RegisterOutputType(MatchingWorkflowRuleConditionArrayOutput{})
+	pulumi.RegisterOutputType(MatchingWorkflowRuleConditionPropertiesOutput{})
+	pulumi.RegisterOutputType(MatchingWorkflowRuleConditionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SchemaMappingSchemaInputAttributeOutput{})
 	pulumi.RegisterOutputType(SchemaMappingSchemaInputAttributeArrayOutput{})
 }

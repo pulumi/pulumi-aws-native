@@ -69,9 +69,9 @@ type LookupAlarmResult struct {
 	Namespace *string `pulumi:"namespace"`
 	// The actions to execute when this alarm transitions to the ``OK`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions []string `pulumi:"okActions"`
-	// The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
+	// The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 20, 30, 60, and any multiple of 60.
 	//  For an alarm based on a math expression, you can't specify ``Period``, and instead you use the ``Metrics`` parameter.
-	//   *Minimum:* 10
+	//  *Minimum:* 10
 	Period *int `pulumi:"period"`
 	// The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use ``ExtendedStatistic``.
 	//  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
@@ -211,10 +211,10 @@ func (o LookupAlarmResultOutput) OkActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupAlarmResult) []string { return v.OkActions }).(pulumi.StringArrayOutput)
 }
 
-// The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
+// The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 20, 30, 60, and any multiple of 60.
 //
 //	For an alarm based on a math expression, you can't specify ``Period``, and instead you use the ``Metrics`` parameter.
-//	 *Minimum:* 10
+//	*Minimum:* 10
 func (o LookupAlarmResultOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupAlarmResult) *int { return v.Period }).(pulumi.IntPtrOutput)
 }

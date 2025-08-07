@@ -135,6 +135,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// The SAML metadata of the service provider.
         /// </summary>
         public readonly string? ServiceProviderSamlMetadata;
+        public readonly string? SessionLoggerArn;
         /// <summary>
         /// A message that explains why the web portal is in its current status.
         /// </summary>
@@ -188,6 +189,8 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
             string? serviceProviderSamlMetadata,
 
+            string? sessionLoggerArn,
+
             string? statusReason,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
@@ -213,6 +216,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
             PortalStatus = portalStatus;
             RendererType = rendererType;
             ServiceProviderSamlMetadata = serviceProviderSamlMetadata;
+            SessionLoggerArn = sessionLoggerArn;
             StatusReason = statusReason;
             Tags = tags;
             TrustStoreArn = trustStoreArn;

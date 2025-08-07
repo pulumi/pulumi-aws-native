@@ -47,6 +47,10 @@ export interface GetAccessPointResult {
      * The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
      */
     readonly publicAccessBlockConfiguration?: outputs.s3.AccessPointPublicAccessBlockConfiguration;
+    /**
+     * An arbitrary set of tags (key-value pairs) for this S3 Access Point.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::S3::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.

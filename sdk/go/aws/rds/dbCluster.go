@@ -366,6 +366,8 @@ type DbCluster struct {
 	//
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	SourceDbClusterIdentifier pulumi.StringPtrOutput `pulumi:"sourceDbClusterIdentifier"`
+	// The resource ID of the source DB cluster from which to restore.
+	SourceDbClusterResourceId pulumi.StringPtrOutput `pulumi:"sourceDbClusterResourceId"`
 	// The AWS Region which contains the source DB cluster when replicating a DB cluster. For example, ``us-east-1``.
 	//  Valid for: Aurora DB clusters only
 	SourceRegion pulumi.StringPtrOutput `pulumi:"sourceRegion"`
@@ -429,6 +431,7 @@ func NewDbCluster(ctx *pulumi.Context,
 		"restoreType",
 		"snapshotIdentifier",
 		"sourceDbClusterIdentifier",
+		"sourceDbClusterResourceId",
 		"sourceRegion",
 		"storageEncrypted",
 		"useLatestRestorableTime",
@@ -794,6 +797,8 @@ type dbClusterArgs struct {
 	//
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
+	// The resource ID of the source DB cluster from which to restore.
+	SourceDbClusterResourceId *string `pulumi:"sourceDbClusterResourceId"`
 	// The AWS Region which contains the source DB cluster when replicating a DB cluster. For example, ``us-east-1``.
 	//  Valid for: Aurora DB clusters only
 	SourceRegion *string `pulumi:"sourceRegion"`
@@ -1161,6 +1166,8 @@ type DbClusterArgs struct {
 	//
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	SourceDbClusterIdentifier pulumi.StringPtrInput
+	// The resource ID of the source DB cluster from which to restore.
+	SourceDbClusterResourceId pulumi.StringPtrInput
 	// The AWS Region which contains the source DB cluster when replicating a DB cluster. For example, ``us-east-1``.
 	//  Valid for: Aurora DB clusters only
 	SourceRegion pulumi.StringPtrInput
@@ -1792,6 +1799,11 @@ func (o DbClusterOutput) SnapshotIdentifier() pulumi.StringPtrOutput {
 //	Valid for: Aurora DB clusters and Multi-AZ DB clusters
 func (o DbClusterOutput) SourceDbClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.SourceDbClusterIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the source DB cluster from which to restore.
+func (o DbClusterOutput) SourceDbClusterResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.SourceDbClusterResourceId }).(pulumi.StringPtrOutput)
 }
 
 // The AWS Region which contains the source DB cluster when replicating a DB cluster. For example, “us-east-1“.

@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.EntityResolution
         public Output<ImmutableArray<Outputs.IdMappingWorkflowInputSource>> InputSourceConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+        /// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `outputS3Path` and `KMSArn` .
         /// </summary>
         [Output("outputSourceConfig")]
         public Output<ImmutableArray<Outputs.IdMappingWorkflowOutputSource>> OutputSourceConfig { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.AwsNative.EntityResolution
         private InputList<Inputs.IdMappingWorkflowOutputSourceArgs>? _outputSourceConfig;
 
         /// <summary>
-        /// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+        /// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `outputS3Path` and `KMSArn` .
         /// </summary>
         public InputList<Inputs.IdMappingWorkflowOutputSourceArgs> OutputSourceConfig
         {

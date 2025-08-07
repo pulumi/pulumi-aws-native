@@ -34,6 +34,8 @@ type LookupDeploymentArgs struct {
 type LookupDeploymentResult struct {
 	// The sequence number of the deployment.
 	DeploymentNumber *string `pulumi:"deploymentNumber"`
+	// The state of the deployment.
+	State *DeploymentStateEnum `pulumi:"state"`
 }
 
 func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupDeploymentResultOutput {
@@ -75,6 +77,11 @@ func (o LookupDeploymentResultOutput) ToLookupDeploymentResultOutputWithContext(
 // The sequence number of the deployment.
 func (o LookupDeploymentResultOutput) DeploymentNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) *string { return v.DeploymentNumber }).(pulumi.StringPtrOutput)
+}
+
+// The state of the deployment.
+func (o LookupDeploymentResultOutput) State() DeploymentStateEnumPtrOutput {
+	return o.ApplyT(func(v LookupDeploymentResult) *DeploymentStateEnum { return v.State }).(DeploymentStateEnumPtrOutput)
 }
 
 func init() {

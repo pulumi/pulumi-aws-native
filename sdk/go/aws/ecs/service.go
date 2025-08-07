@@ -53,14 +53,14 @@ type Service struct {
 	Cluster pulumi.StringPtrOutput `pulumi:"cluster"`
 	// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 	DeploymentConfiguration ServiceDeploymentConfigurationPtrOutput `pulumi:"deploymentConfiguration"`
-	// The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
+	// The deployment controller to use for the service.
 	DeploymentController ServiceDeploymentControllerPtrOutput `pulumi:"deploymentController"`
 	// The number of instantiations of the specified task definition to place and keep running in your service.
 	//  For new services, if a desired count is not specified, a default value of ``1`` is used. When using the ``DAEMON`` scheduling strategy, the desired count is not required.
 	//  For existing services, if a desired count is not specified, it is omitted from the operation.
 	DesiredCount pulumi.IntPtrOutput `pulumi:"desiredCount"`
 	// Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide*.
-	//  When you use Amazon ECS managed tags, you need to set the ``propagateTags`` request parameter.
+	//  When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
 	EnableEcsManagedTags pulumi.BoolPtrOutput `pulumi:"enableEcsManagedTags"`
 	// Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.
 	EnableExecuteCommand pulumi.BoolPtrOutput `pulumi:"enableExecuteCommand"`
@@ -191,14 +191,14 @@ type serviceArgs struct {
 	Cluster *string `pulumi:"cluster"`
 	// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 	DeploymentConfiguration *ServiceDeploymentConfiguration `pulumi:"deploymentConfiguration"`
-	// The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
+	// The deployment controller to use for the service.
 	DeploymentController *ServiceDeploymentController `pulumi:"deploymentController"`
 	// The number of instantiations of the specified task definition to place and keep running in your service.
 	//  For new services, if a desired count is not specified, a default value of ``1`` is used. When using the ``DAEMON`` scheduling strategy, the desired count is not required.
 	//  For existing services, if a desired count is not specified, it is omitted from the operation.
 	DesiredCount *int `pulumi:"desiredCount"`
 	// Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide*.
-	//  When you use Amazon ECS managed tags, you need to set the ``propagateTags`` request parameter.
+	//  When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
 	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
 	// Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.
 	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
@@ -279,14 +279,14 @@ type ServiceArgs struct {
 	Cluster pulumi.StringPtrInput
 	// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 	DeploymentConfiguration ServiceDeploymentConfigurationPtrInput
-	// The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
+	// The deployment controller to use for the service.
 	DeploymentController ServiceDeploymentControllerPtrInput
 	// The number of instantiations of the specified task definition to place and keep running in your service.
 	//  For new services, if a desired count is not specified, a default value of ``1`` is used. When using the ``DAEMON`` scheduling strategy, the desired count is not required.
 	//  For existing services, if a desired count is not specified, it is omitted from the operation.
 	DesiredCount pulumi.IntPtrInput
 	// Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide*.
-	//  When you use Amazon ECS managed tags, you need to set the ``propagateTags`` request parameter.
+	//  When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
 	EnableEcsManagedTags pulumi.BoolPtrInput
 	// Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.
 	EnableExecuteCommand pulumi.BoolPtrInput
@@ -416,7 +416,7 @@ func (o ServiceOutput) DeploymentConfiguration() ServiceDeploymentConfigurationP
 	return o.ApplyT(func(v *Service) ServiceDeploymentConfigurationPtrOutput { return v.DeploymentConfiguration }).(ServiceDeploymentConfigurationPtrOutput)
 }
 
-// The deployment controller to use for the service. If no deployment controller is specified, the default value of “ECS“ is used.
+// The deployment controller to use for the service.
 func (o ServiceOutput) DeploymentController() ServiceDeploymentControllerPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceDeploymentControllerPtrOutput { return v.DeploymentController }).(ServiceDeploymentControllerPtrOutput)
 }
@@ -431,7 +431,7 @@ func (o ServiceOutput) DesiredCount() pulumi.IntPtrOutput {
 
 // Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide*.
 //
-//	When you use Amazon ECS managed tags, you need to set the ``propagateTags`` request parameter.
+//	When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
 func (o ServiceOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.EnableEcsManagedTags }).(pulumi.BoolPtrOutput)
 }

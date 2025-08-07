@@ -1053,8 +1053,10 @@ func (in *repositoryCreationTemplateEncryptionTypePtr) ToRepositoryCreationTempl
 type RepositoryCreationTemplateImageTagMutability string
 
 const (
-	RepositoryCreationTemplateImageTagMutabilityMutable   = RepositoryCreationTemplateImageTagMutability("MUTABLE")
-	RepositoryCreationTemplateImageTagMutabilityImmutable = RepositoryCreationTemplateImageTagMutability("IMMUTABLE")
+	RepositoryCreationTemplateImageTagMutabilityMutable                = RepositoryCreationTemplateImageTagMutability("MUTABLE")
+	RepositoryCreationTemplateImageTagMutabilityImmutable              = RepositoryCreationTemplateImageTagMutability("IMMUTABLE")
+	RepositoryCreationTemplateImageTagMutabilityImmutableWithExclusion = RepositoryCreationTemplateImageTagMutability("IMMUTABLE_WITH_EXCLUSION")
+	RepositoryCreationTemplateImageTagMutabilityMutableWithExclusion   = RepositoryCreationTemplateImageTagMutability("MUTABLE_WITH_EXCLUSION")
 )
 
 func (RepositoryCreationTemplateImageTagMutability) ElementType() reflect.Type {
@@ -1181,6 +1183,8 @@ func (o RepositoryCreationTemplateImageTagMutabilityPtrOutput) ToStringPtrOutput
 //
 //	RepositoryCreationTemplateImageTagMutabilityMutable
 //	RepositoryCreationTemplateImageTagMutabilityImmutable
+//	RepositoryCreationTemplateImageTagMutabilityImmutableWithExclusion
+//	RepositoryCreationTemplateImageTagMutabilityMutableWithExclusion
 type RepositoryCreationTemplateImageTagMutabilityInput interface {
 	pulumi.Input
 
@@ -1213,6 +1217,169 @@ func (in *repositoryCreationTemplateImageTagMutabilityPtr) ToRepositoryCreationT
 
 func (in *repositoryCreationTemplateImageTagMutabilityPtr) ToRepositoryCreationTemplateImageTagMutabilityPtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateImageTagMutabilityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RepositoryCreationTemplateImageTagMutabilityPtrOutput)
+}
+
+type RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType string
+
+const (
+	RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeWildcard = RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType("WILDCARD")
+)
+
+func (RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType)(nil)).Elem()
+}
+
+func (e RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType) ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput() RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput {
+	return pulumi.ToOutput(e).(RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput)
+}
+
+func (e RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType) ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutputWithContext(ctx context.Context) RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput)
+}
+
+func (e RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType) ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput() RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput {
+	return e.ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (e RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType) ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput {
+	return RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType(e).ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutputWithContext(ctx).ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutputWithContext(ctx)
+}
+
+func (e RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType)(nil)).Elem()
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput) ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput() RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput) ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutputWithContext(ctx context.Context) RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput) ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput() RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput {
+	return o.ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput) ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType) *RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType {
+		return &v
+	}).(RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput)
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType)(nil)).Elem()
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput) ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput() RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput) ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput) Elem() RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput {
+	return o.ApplyT(func(v *RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType) RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType
+		return ret
+	}).(RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput)
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeInput is an input type that accepts values of the RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType enum
+// A concrete instance of `RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeInput` can be one of the following:
+//
+//	RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeWildcard
+type RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeInput interface {
+	pulumi.Input
+
+	ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput() RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput
+	ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutputWithContext(context.Context) RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput
+}
+
+var repositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrType = reflect.TypeOf((**RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType)(nil)).Elem()
+
+type RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrInput interface {
+	pulumi.Input
+
+	ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput() RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput
+	ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutputWithContext(context.Context) RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput
+}
+
+type repositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtr string
+
+func RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtr(v string) RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrInput {
+	return (*repositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtr)(&v)
+}
+
+func (*repositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtr) ElementType() reflect.Type {
+	return repositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrType
+}
+
+func (in *repositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtr) ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput() RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput {
+	return pulumi.ToOutput(in).(RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput)
+}
+
+func (in *repositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtr) ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput)
 }
 
 // The encryption type to use.
@@ -1387,8 +1554,10 @@ func (in *repositoryEncryptionTypePtr) ToRepositoryEncryptionTypePtrOutputWithCo
 type RepositoryImageTagMutability string
 
 const (
-	RepositoryImageTagMutabilityMutable   = RepositoryImageTagMutability("MUTABLE")
-	RepositoryImageTagMutabilityImmutable = RepositoryImageTagMutability("IMMUTABLE")
+	RepositoryImageTagMutabilityMutable                = RepositoryImageTagMutability("MUTABLE")
+	RepositoryImageTagMutabilityImmutable              = RepositoryImageTagMutability("IMMUTABLE")
+	RepositoryImageTagMutabilityMutableWithExclusion   = RepositoryImageTagMutability("MUTABLE_WITH_EXCLUSION")
+	RepositoryImageTagMutabilityImmutableWithExclusion = RepositoryImageTagMutability("IMMUTABLE_WITH_EXCLUSION")
 )
 
 func (RepositoryImageTagMutability) ElementType() reflect.Type {
@@ -1515,6 +1684,8 @@ func (o RepositoryImageTagMutabilityPtrOutput) ToStringPtrOutputWithContext(ctx 
 //
 //	RepositoryImageTagMutabilityMutable
 //	RepositoryImageTagMutabilityImmutable
+//	RepositoryImageTagMutabilityMutableWithExclusion
+//	RepositoryImageTagMutabilityImmutableWithExclusion
 type RepositoryImageTagMutabilityInput interface {
 	pulumi.Input
 
@@ -1549,6 +1720,170 @@ func (in *repositoryImageTagMutabilityPtr) ToRepositoryImageTagMutabilityPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(RepositoryImageTagMutabilityPtrOutput)
 }
 
+// Specifies the type of filter to use for excluding image tags from the repository's mutability setting.
+type RepositoryImageTagMutabilityExclusionFilterType string
+
+const (
+	RepositoryImageTagMutabilityExclusionFilterTypeWildcard = RepositoryImageTagMutabilityExclusionFilterType("WILDCARD")
+)
+
+func (RepositoryImageTagMutabilityExclusionFilterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryImageTagMutabilityExclusionFilterType)(nil)).Elem()
+}
+
+func (e RepositoryImageTagMutabilityExclusionFilterType) ToRepositoryImageTagMutabilityExclusionFilterTypeOutput() RepositoryImageTagMutabilityExclusionFilterTypeOutput {
+	return pulumi.ToOutput(e).(RepositoryImageTagMutabilityExclusionFilterTypeOutput)
+}
+
+func (e RepositoryImageTagMutabilityExclusionFilterType) ToRepositoryImageTagMutabilityExclusionFilterTypeOutputWithContext(ctx context.Context) RepositoryImageTagMutabilityExclusionFilterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RepositoryImageTagMutabilityExclusionFilterTypeOutput)
+}
+
+func (e RepositoryImageTagMutabilityExclusionFilterType) ToRepositoryImageTagMutabilityExclusionFilterTypePtrOutput() RepositoryImageTagMutabilityExclusionFilterTypePtrOutput {
+	return e.ToRepositoryImageTagMutabilityExclusionFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (e RepositoryImageTagMutabilityExclusionFilterType) ToRepositoryImageTagMutabilityExclusionFilterTypePtrOutputWithContext(ctx context.Context) RepositoryImageTagMutabilityExclusionFilterTypePtrOutput {
+	return RepositoryImageTagMutabilityExclusionFilterType(e).ToRepositoryImageTagMutabilityExclusionFilterTypeOutputWithContext(ctx).ToRepositoryImageTagMutabilityExclusionFilterTypePtrOutputWithContext(ctx)
+}
+
+func (e RepositoryImageTagMutabilityExclusionFilterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RepositoryImageTagMutabilityExclusionFilterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RepositoryImageTagMutabilityExclusionFilterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RepositoryImageTagMutabilityExclusionFilterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RepositoryImageTagMutabilityExclusionFilterTypeOutput struct{ *pulumi.OutputState }
+
+func (RepositoryImageTagMutabilityExclusionFilterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryImageTagMutabilityExclusionFilterType)(nil)).Elem()
+}
+
+func (o RepositoryImageTagMutabilityExclusionFilterTypeOutput) ToRepositoryImageTagMutabilityExclusionFilterTypeOutput() RepositoryImageTagMutabilityExclusionFilterTypeOutput {
+	return o
+}
+
+func (o RepositoryImageTagMutabilityExclusionFilterTypeOutput) ToRepositoryImageTagMutabilityExclusionFilterTypeOutputWithContext(ctx context.Context) RepositoryImageTagMutabilityExclusionFilterTypeOutput {
+	return o
+}
+
+func (o RepositoryImageTagMutabilityExclusionFilterTypeOutput) ToRepositoryImageTagMutabilityExclusionFilterTypePtrOutput() RepositoryImageTagMutabilityExclusionFilterTypePtrOutput {
+	return o.ToRepositoryImageTagMutabilityExclusionFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryImageTagMutabilityExclusionFilterTypeOutput) ToRepositoryImageTagMutabilityExclusionFilterTypePtrOutputWithContext(ctx context.Context) RepositoryImageTagMutabilityExclusionFilterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryImageTagMutabilityExclusionFilterType) *RepositoryImageTagMutabilityExclusionFilterType {
+		return &v
+	}).(RepositoryImageTagMutabilityExclusionFilterTypePtrOutput)
+}
+
+func (o RepositoryImageTagMutabilityExclusionFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RepositoryImageTagMutabilityExclusionFilterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RepositoryImageTagMutabilityExclusionFilterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RepositoryImageTagMutabilityExclusionFilterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryImageTagMutabilityExclusionFilterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RepositoryImageTagMutabilityExclusionFilterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RepositoryImageTagMutabilityExclusionFilterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryImageTagMutabilityExclusionFilterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryImageTagMutabilityExclusionFilterType)(nil)).Elem()
+}
+
+func (o RepositoryImageTagMutabilityExclusionFilterTypePtrOutput) ToRepositoryImageTagMutabilityExclusionFilterTypePtrOutput() RepositoryImageTagMutabilityExclusionFilterTypePtrOutput {
+	return o
+}
+
+func (o RepositoryImageTagMutabilityExclusionFilterTypePtrOutput) ToRepositoryImageTagMutabilityExclusionFilterTypePtrOutputWithContext(ctx context.Context) RepositoryImageTagMutabilityExclusionFilterTypePtrOutput {
+	return o
+}
+
+func (o RepositoryImageTagMutabilityExclusionFilterTypePtrOutput) Elem() RepositoryImageTagMutabilityExclusionFilterTypeOutput {
+	return o.ApplyT(func(v *RepositoryImageTagMutabilityExclusionFilterType) RepositoryImageTagMutabilityExclusionFilterType {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryImageTagMutabilityExclusionFilterType
+		return ret
+	}).(RepositoryImageTagMutabilityExclusionFilterTypeOutput)
+}
+
+func (o RepositoryImageTagMutabilityExclusionFilterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryImageTagMutabilityExclusionFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RepositoryImageTagMutabilityExclusionFilterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RepositoryImageTagMutabilityExclusionFilterTypeInput is an input type that accepts values of the RepositoryImageTagMutabilityExclusionFilterType enum
+// A concrete instance of `RepositoryImageTagMutabilityExclusionFilterTypeInput` can be one of the following:
+//
+//	RepositoryImageTagMutabilityExclusionFilterTypeWildcard
+type RepositoryImageTagMutabilityExclusionFilterTypeInput interface {
+	pulumi.Input
+
+	ToRepositoryImageTagMutabilityExclusionFilterTypeOutput() RepositoryImageTagMutabilityExclusionFilterTypeOutput
+	ToRepositoryImageTagMutabilityExclusionFilterTypeOutputWithContext(context.Context) RepositoryImageTagMutabilityExclusionFilterTypeOutput
+}
+
+var repositoryImageTagMutabilityExclusionFilterTypePtrType = reflect.TypeOf((**RepositoryImageTagMutabilityExclusionFilterType)(nil)).Elem()
+
+type RepositoryImageTagMutabilityExclusionFilterTypePtrInput interface {
+	pulumi.Input
+
+	ToRepositoryImageTagMutabilityExclusionFilterTypePtrOutput() RepositoryImageTagMutabilityExclusionFilterTypePtrOutput
+	ToRepositoryImageTagMutabilityExclusionFilterTypePtrOutputWithContext(context.Context) RepositoryImageTagMutabilityExclusionFilterTypePtrOutput
+}
+
+type repositoryImageTagMutabilityExclusionFilterTypePtr string
+
+func RepositoryImageTagMutabilityExclusionFilterTypePtr(v string) RepositoryImageTagMutabilityExclusionFilterTypePtrInput {
+	return (*repositoryImageTagMutabilityExclusionFilterTypePtr)(&v)
+}
+
+func (*repositoryImageTagMutabilityExclusionFilterTypePtr) ElementType() reflect.Type {
+	return repositoryImageTagMutabilityExclusionFilterTypePtrType
+}
+
+func (in *repositoryImageTagMutabilityExclusionFilterTypePtr) ToRepositoryImageTagMutabilityExclusionFilterTypePtrOutput() RepositoryImageTagMutabilityExclusionFilterTypePtrOutput {
+	return pulumi.ToOutput(in).(RepositoryImageTagMutabilityExclusionFilterTypePtrOutput)
+}
+
+func (in *repositoryImageTagMutabilityExclusionFilterTypePtr) ToRepositoryImageTagMutabilityExclusionFilterTypePtrOutputWithContext(ctx context.Context) RepositoryImageTagMutabilityExclusionFilterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RepositoryImageTagMutabilityExclusionFilterTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationFilterTypeInput)(nil)).Elem(), RegistryScanningConfigurationFilterType("WILDCARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationFilterTypePtrInput)(nil)).Elem(), RegistryScanningConfigurationFilterType("WILDCARD"))
@@ -1565,10 +1900,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateEncryptionTypePtrInput)(nil)).Elem(), RepositoryCreationTemplateEncryptionType("AES256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateImageTagMutabilityInput)(nil)).Elem(), RepositoryCreationTemplateImageTagMutability("MUTABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateImageTagMutabilityPtrInput)(nil)).Elem(), RepositoryCreationTemplateImageTagMutability("MUTABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeInput)(nil)).Elem(), RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType("WILDCARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrInput)(nil)).Elem(), RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType("WILDCARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionTypeInput)(nil)).Elem(), RepositoryEncryptionType("AES256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionTypePtrInput)(nil)).Elem(), RepositoryEncryptionType("AES256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageTagMutabilityInput)(nil)).Elem(), RepositoryImageTagMutability("MUTABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageTagMutabilityPtrInput)(nil)).Elem(), RepositoryImageTagMutability("MUTABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageTagMutabilityExclusionFilterTypeInput)(nil)).Elem(), RepositoryImageTagMutabilityExclusionFilterType("WILDCARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageTagMutabilityExclusionFilterTypePtrInput)(nil)).Elem(), RepositoryImageTagMutabilityExclusionFilterType("WILDCARD"))
 	pulumi.RegisterOutputType(RegistryScanningConfigurationFilterTypeOutput{})
 	pulumi.RegisterOutputType(RegistryScanningConfigurationFilterTypePtrOutput{})
 	pulumi.RegisterOutputType(RegistryScanningConfigurationScanFrequencyOutput{})
@@ -1584,8 +1923,12 @@ func init() {
 	pulumi.RegisterOutputType(RepositoryCreationTemplateEncryptionTypePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryCreationTemplateImageTagMutabilityOutput{})
 	pulumi.RegisterOutputType(RepositoryCreationTemplateImageTagMutabilityPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeOutput{})
+	pulumi.RegisterOutputType(RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionTypeOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionTypePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryImageTagMutabilityOutput{})
 	pulumi.RegisterOutputType(RepositoryImageTagMutabilityPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryImageTagMutabilityExclusionFilterTypeOutput{})
+	pulumi.RegisterOutputType(RepositoryImageTagMutabilityExclusionFilterTypePtrOutput{})
 }

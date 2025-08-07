@@ -46,6 +46,10 @@ export interface GetClusterResult {
      */
     readonly computeConfig?: outputs.eks.ClusterComputeConfig;
     /**
+     * Set this value to true to enable deletion protection for the cluster.
+     */
+    readonly deletionProtection?: boolean;
+    /**
      * Amazon Resource Name (ARN) or alias of the customer master key (CMK).
      */
     readonly encryptionConfigKeyArn?: string;

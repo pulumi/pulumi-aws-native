@@ -14,6 +14,9 @@ __all__ = [
     'PortalInstanceType',
     'PortalRendererType',
     'PortalStatus',
+    'SessionLoggerEvent',
+    'SessionLoggerFolderStructure',
+    'SessionLoggerLogFileFormat',
     'UserSettingsEnabledType',
     'UserSettingsMaxDisplayResolution',
     'UserSettingsToolbarItem',
@@ -65,6 +68,39 @@ class PortalStatus(builtins.str, Enum):
     INCOMPLETE = "Incomplete"
     PENDING = "Pending"
     ACTIVE = "Active"
+
+
+@pulumi.type_token("aws-native:workspacesweb:SessionLoggerEvent")
+class SessionLoggerEvent(builtins.str, Enum):
+    WEBSITE_INTERACT = "WebsiteInteract"
+    FILE_DOWNLOAD_FROM_SECURE_BROWSER_TO_REMOTE_DISK = "FileDownloadFromSecureBrowserToRemoteDisk"
+    FILE_TRANSFER_FROM_REMOTE_TO_LOCAL_DISK = "FileTransferFromRemoteToLocalDisk"
+    FILE_TRANSFER_FROM_LOCAL_TO_REMOTE_DISK = "FileTransferFromLocalToRemoteDisk"
+    FILE_UPLOAD_FROM_REMOTE_DISK_TO_SECURE_BROWSER = "FileUploadFromRemoteDiskToSecureBrowser"
+    CONTENT_PASTE_TO_WEBSITE = "ContentPasteToWebsite"
+    CONTENT_TRANSFER_FROM_LOCAL_TO_REMOTE_CLIPBOARD = "ContentTransferFromLocalToRemoteClipboard"
+    CONTENT_COPY_FROM_WEBSITE = "ContentCopyFromWebsite"
+    URL_LOAD = "UrlLoad"
+    TAB_OPEN = "TabOpen"
+    TAB_CLOSE = "TabClose"
+    PRINT_JOB_SUBMIT = "PrintJobSubmit"
+    SESSION_CONNECT = "SessionConnect"
+    SESSION_START = "SessionStart"
+    SESSION_DISCONNECT = "SessionDisconnect"
+    SESSION_END = "SessionEnd"
+    URL_BLOCK_BY_CONTENT_FILTER = "UrlBlockByContentFilter"
+
+
+@pulumi.type_token("aws-native:workspacesweb:SessionLoggerFolderStructure")
+class SessionLoggerFolderStructure(builtins.str, Enum):
+    FLAT = "Flat"
+    NESTED_BY_DATE = "NestedByDate"
+
+
+@pulumi.type_token("aws-native:workspacesweb:SessionLoggerLogFileFormat")
+class SessionLoggerLogFileFormat(builtins.str, Enum):
+    JSON_LINES = "JSONLines"
+    JSON = "Json"
 
 
 @pulumi.type_token("aws-native:workspacesweb:UserSettingsEnabledType")

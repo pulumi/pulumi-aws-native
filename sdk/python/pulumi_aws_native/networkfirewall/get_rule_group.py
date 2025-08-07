@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRuleGroupResult:
-    def __init__(__self__, description=None, rule_group=None, rule_group_arn=None, rule_group_id=None, tags=None):
+    def __init__(__self__, description=None, rule_group=None, rule_group_arn=None, rule_group_id=None, summary_configuration=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -40,6 +40,9 @@ class GetRuleGroupResult:
         if rule_group_id and not isinstance(rule_group_id, str):
             raise TypeError("Expected argument 'rule_group_id' to be a str")
         pulumi.set(__self__, "rule_group_id", rule_group_id)
+        if summary_configuration and not isinstance(summary_configuration, dict):
+            raise TypeError("Expected argument 'summary_configuration' to be a dict")
+        pulumi.set(__self__, "summary_configuration", summary_configuration)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -64,7 +67,7 @@ class GetRuleGroupResult:
     @pulumi.getter(name="ruleGroupArn")
     def rule_group_arn(self) -> Optional[builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the `RuleGroup` .
+        The Amazon Resource Name (ARN) of the rule group.
         """
         return pulumi.get(self, "rule_group_arn")
 
@@ -72,9 +75,20 @@ class GetRuleGroupResult:
     @pulumi.getter(name="ruleGroupId")
     def rule_group_id(self) -> Optional[builtins.str]:
         """
-        The unique ID of the `RuleGroup` resource.
+        The unique ID of the rule group resource.
         """
         return pulumi.get(self, "rule_group_id")
+
+    @property
+    @pulumi.getter(name="summaryConfiguration")
+    def summary_configuration(self) -> Optional['outputs.SummaryConfigurationProperties']:
+        """
+        A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+
+        - The `RuleOptions` specified in `SummaryConfiguration`
+        - Rule metadata organization preferences
+        """
+        return pulumi.get(self, "summary_configuration")
 
     @property
     @pulumi.getter
@@ -97,6 +111,7 @@ class AwaitableGetRuleGroupResult(GetRuleGroupResult):
             rule_group=self.rule_group,
             rule_group_arn=self.rule_group_arn,
             rule_group_id=self.rule_group_id,
+            summary_configuration=self.summary_configuration,
             tags=self.tags)
 
 
@@ -106,7 +121,7 @@ def get_rule_group(rule_group_arn: Optional[builtins.str] = None,
     Resource type definition for AWS::NetworkFirewall::RuleGroup
 
 
-    :param builtins.str rule_group_arn: The Amazon Resource Name (ARN) of the `RuleGroup` .
+    :param builtins.str rule_group_arn: The Amazon Resource Name (ARN) of the rule group.
     """
     __args__ = dict()
     __args__['ruleGroupArn'] = rule_group_arn
@@ -118,6 +133,7 @@ def get_rule_group(rule_group_arn: Optional[builtins.str] = None,
         rule_group=pulumi.get(__ret__, 'rule_group'),
         rule_group_arn=pulumi.get(__ret__, 'rule_group_arn'),
         rule_group_id=pulumi.get(__ret__, 'rule_group_id'),
+        summary_configuration=pulumi.get(__ret__, 'summary_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_rule_group_output(rule_group_arn: Optional[pulumi.Input[builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleGroupResult]:
@@ -125,7 +141,7 @@ def get_rule_group_output(rule_group_arn: Optional[pulumi.Input[builtins.str]] =
     Resource type definition for AWS::NetworkFirewall::RuleGroup
 
 
-    :param builtins.str rule_group_arn: The Amazon Resource Name (ARN) of the `RuleGroup` .
+    :param builtins.str rule_group_arn: The Amazon Resource Name (ARN) of the rule group.
     """
     __args__ = dict()
     __args__['ruleGroupArn'] = rule_group_arn
@@ -136,4 +152,5 @@ def get_rule_group_output(rule_group_arn: Optional[pulumi.Input[builtins.str]] =
         rule_group=pulumi.get(__response__, 'rule_group'),
         rule_group_arn=pulumi.get(__response__, 'rule_group_arn'),
         rule_group_id=pulumi.get(__response__, 'rule_group_id'),
+        summary_configuration=pulumi.get(__response__, 'summary_configuration'),
         tags=pulumi.get(__response__, 'tags')))

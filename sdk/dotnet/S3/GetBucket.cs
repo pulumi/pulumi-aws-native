@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.S3
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketIntelligentTieringConfiguration> IntelligentTieringConfigurations;
         /// <summary>
-        /// Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+        /// Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketInventoryConfiguration> InventoryConfigurations;
         /// <summary>

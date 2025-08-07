@@ -43,7 +43,7 @@ class GetLoggingConfigurationResult:
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional['outputs.LoggingConfiguration']:
         """
-        Defines how AWS Network Firewall performs logging for a `Firewall` .
+        Defines how AWS Network Firewall performs logging for a firewall.
         """
         return pulumi.get(self, "logging_configuration")
 
@@ -64,7 +64,7 @@ def get_logging_configuration(firewall_arn: Optional[builtins.str] = None,
     Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
 
 
-    :param builtins.str firewall_arn: The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+    :param builtins.str firewall_arn: The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
     """
     __args__ = dict()
     __args__['firewallArn'] = firewall_arn
@@ -80,7 +80,7 @@ def get_logging_configuration_output(firewall_arn: Optional[pulumi.Input[builtin
     Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
 
 
-    :param builtins.str firewall_arn: The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+    :param builtins.str firewall_arn: The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
     """
     __args__ = dict()
     __args__['firewallArn'] = firewall_arn

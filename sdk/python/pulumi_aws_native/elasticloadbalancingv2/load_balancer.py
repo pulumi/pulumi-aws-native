@@ -47,7 +47,7 @@ class LoadBalancerArgs:
                 Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
                 [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
         :param pulumi.Input[builtins.str] ipv4_ipam_pool_id: The ID of the IPv4 IPAM pool.
-        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerAttributeArgs']]] load_balancer_attributes: The load balancer attributes.
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerAttributeArgs']]] load_balancer_attributes: The load balancer attributes. Attributes that you do not modify retain their current values.
         :param pulumi.Input['LoadBalancerMinimumLoadBalancerCapacityArgs'] minimum_load_balancer_capacity: The minimum capacity for a load balancer.
         :param pulumi.Input[builtins.str] name: The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
                 If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
@@ -153,7 +153,7 @@ class LoadBalancerArgs:
     @pulumi.getter(name="loadBalancerAttributes")
     def load_balancer_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerAttributeArgs']]]]:
         """
-        The load balancer attributes.
+        The load balancer attributes. Attributes that you do not modify retain their current values.
         """
         return pulumi.get(self, "load_balancer_attributes")
 
@@ -304,7 +304,7 @@ class LoadBalancer(pulumi.CustomResource):
                 Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
                 [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
         :param pulumi.Input[builtins.str] ipv4_ipam_pool_id: The ID of the IPv4 IPAM pool.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerAttributeArgs', 'LoadBalancerAttributeArgsDict']]]] load_balancer_attributes: The load balancer attributes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerAttributeArgs', 'LoadBalancerAttributeArgsDict']]]] load_balancer_attributes: The load balancer attributes. Attributes that you do not modify retain their current values.
         :param pulumi.Input[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict']] minimum_load_balancer_capacity: The minimum capacity for a load balancer.
         :param pulumi.Input[builtins.str] name: The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
                 If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
@@ -499,7 +499,7 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter(name="loadBalancerAttributes")
     def load_balancer_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancerAttribute']]]:
         """
-        The load balancer attributes.
+        The load balancer attributes. Attributes that you do not modify retain their current values.
         """
         return pulumi.get(self, "load_balancer_attributes")
 

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     public sealed class RuleGroupStatelessRulesAndCustomActions
     {
         /// <summary>
-        /// Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification. You name each custom action that you define, and then you can use it by name in your stateless rule `RuleGroup.RuleDefinition` `Actions` specification.
+        /// Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification. You name each custom action that you define, and then you can use it by name in your stateless rule definition `Actions` specification.
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupCustomAction> CustomActions;
         /// <summary>

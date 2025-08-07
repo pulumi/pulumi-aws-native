@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetDestinationResult',
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDestinationResult:
-    def __init__(__self__, arn=None, destination_policy=None, role_arn=None, target_arn=None):
+    def __init__(__self__, arn=None, destination_policy=None, role_arn=None, tags=None, target_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -34,6 +35,9 @@ class GetDestinationResult:
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if target_arn and not isinstance(target_arn, str):
             raise TypeError("Expected argument 'target_arn' to be a str")
         pulumi.set(__self__, "target_arn", target_arn)
@@ -63,6 +67,14 @@ class GetDestinationResult:
         return pulumi.get(self, "role_arn")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> Optional[builtins.str]:
         """
@@ -80,6 +92,7 @@ class AwaitableGetDestinationResult(GetDestinationResult):
             arn=self.arn,
             destination_policy=self.destination_policy,
             role_arn=self.role_arn,
+            tags=self.tags,
             target_arn=self.target_arn)
 
 
@@ -100,6 +113,7 @@ def get_destination(destination_name: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         destination_policy=pulumi.get(__ret__, 'destination_policy'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
+        tags=pulumi.get(__ret__, 'tags'),
         target_arn=pulumi.get(__ret__, 'target_arn'))
 def get_destination_output(destination_name: Optional[pulumi.Input[builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDestinationResult]:
@@ -117,4 +131,5 @@ def get_destination_output(destination_name: Optional[pulumi.Input[builtins.str]
         arn=pulumi.get(__response__, 'arn'),
         destination_policy=pulumi.get(__response__, 'destination_policy'),
         role_arn=pulumi.get(__response__, 'role_arn'),
+        tags=pulumi.get(__response__, 'tags'),
         target_arn=pulumi.get(__response__, 'target_arn')))

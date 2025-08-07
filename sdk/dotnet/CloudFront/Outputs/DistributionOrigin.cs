@@ -73,6 +73,13 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         ///  For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide*.
         /// </summary>
         public readonly Outputs.DistributionOriginShield? OriginShield;
+        /// <summary>
+        /// The time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. If the complete response isn't received from the origin by this time, CloudFront ends the connection.
+        /// 
+        /// The value for `ResponseCompletionTimeout` must be equal to or greater than the value for `OriginReadTimeout` . If you don't set a value for `ResponseCompletionTimeout` , CloudFront doesn't enforce a maximum value.
+        /// 
+        /// For more information, see [Response completion timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#response-completion-timeout) in the *Amazon CloudFront Developer Guide* .
+        /// </summary>
         public readonly int? ResponseCompletionTimeout;
         /// <summary>
         /// Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead.

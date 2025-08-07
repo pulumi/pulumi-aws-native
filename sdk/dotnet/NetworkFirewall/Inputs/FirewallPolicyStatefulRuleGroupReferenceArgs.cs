@@ -13,13 +13,21 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     public sealed class FirewallPolicyStatefulRuleGroupReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// AWS Network Firewall plans to augment the active threat defense managed rule group with an additional deep threat inspection capability. When this capability is released, AWS will analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services.
+        /// 
+        /// &gt; Customers can opt-out of deep threat inspection at any time through the AWS Network Firewall console or API. When customers opt out, AWS Network Firewall will not use the network traffic processed by those customers' active threat defense rule groups for rule group improvement.
+        /// </summary>
+        [Input("deepThreatInspection")]
+        public Input<bool>? DeepThreatInspection { get; set; }
+
+        /// <summary>
         /// The action that allows the policy owner to override the behavior of the rule group within a policy.
         /// </summary>
         [Input("override")]
         public Input<Inputs.FirewallPolicyStatefulRuleGroupOverrideArgs>? Override { get; set; }
 
         /// <summary>
-        /// An integer setting that indicates the order in which to run the stateful rule groups in a single `FirewallPolicy` . This setting only applies to firewall policies that specify the `STRICT_ORDER` rule order in the stateful engine options settings.
+        /// An integer setting that indicates the order in which to run the stateful rule groups in a single firewall policy. This setting only applies to firewall policies that specify the `STRICT_ORDER` rule order in the stateful engine options settings.
         /// 
         /// Network Firewall evalutes each stateful rule group against a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
         /// 

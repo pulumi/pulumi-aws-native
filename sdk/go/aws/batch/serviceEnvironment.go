@@ -16,11 +16,16 @@ import (
 type ServiceEnvironment struct {
 	pulumi.CustomResourceState
 
-	CapacityLimits         ServiceEnvironmentCapacityLimitArrayOutput `pulumi:"capacityLimits"`
-	ServiceEnvironmentArn  pulumi.StringOutput                        `pulumi:"serviceEnvironmentArn"`
-	ServiceEnvironmentName pulumi.StringPtrOutput                     `pulumi:"serviceEnvironmentName"`
-	ServiceEnvironmentType pulumi.StringOutput                        `pulumi:"serviceEnvironmentType"`
-	State                  pulumi.StringPtrOutput                     `pulumi:"state"`
+	// The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
+	CapacityLimits ServiceEnvironmentCapacityLimitArrayOutput `pulumi:"capacityLimits"`
+	// The Amazon Resource Name (ARN) of the service environment.
+	ServiceEnvironmentArn pulumi.StringOutput `pulumi:"serviceEnvironmentArn"`
+	// The name of the service environment.
+	ServiceEnvironmentName pulumi.StringPtrOutput `pulumi:"serviceEnvironmentName"`
+	// The type of service environment. For SageMaker Training jobs, this value is `SAGEMAKER_TRAINING` .
+	ServiceEnvironmentType pulumi.StringOutput `pulumi:"serviceEnvironmentType"`
+	// The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// A key-value pair to associate with a resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -76,20 +81,28 @@ func (ServiceEnvironmentState) ElementType() reflect.Type {
 }
 
 type serviceEnvironmentArgs struct {
-	CapacityLimits         []ServiceEnvironmentCapacityLimit `pulumi:"capacityLimits"`
-	ServiceEnvironmentName *string                           `pulumi:"serviceEnvironmentName"`
-	ServiceEnvironmentType string                            `pulumi:"serviceEnvironmentType"`
-	State                  *string                           `pulumi:"state"`
+	// The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
+	CapacityLimits []ServiceEnvironmentCapacityLimit `pulumi:"capacityLimits"`
+	// The name of the service environment.
+	ServiceEnvironmentName *string `pulumi:"serviceEnvironmentName"`
+	// The type of service environment. For SageMaker Training jobs, this value is `SAGEMAKER_TRAINING` .
+	ServiceEnvironmentType string `pulumi:"serviceEnvironmentType"`
+	// The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
+	State *string `pulumi:"state"`
 	// A key-value pair to associate with a resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ServiceEnvironment resource.
 type ServiceEnvironmentArgs struct {
-	CapacityLimits         ServiceEnvironmentCapacityLimitArrayInput
+	// The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
+	CapacityLimits ServiceEnvironmentCapacityLimitArrayInput
+	// The name of the service environment.
 	ServiceEnvironmentName pulumi.StringPtrInput
+	// The type of service environment. For SageMaker Training jobs, this value is `SAGEMAKER_TRAINING` .
 	ServiceEnvironmentType pulumi.StringInput
-	State                  pulumi.StringPtrInput
+	// The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
+	State pulumi.StringPtrInput
 	// A key-value pair to associate with a resource.
 	Tags pulumi.StringMapInput
 }
@@ -131,22 +144,27 @@ func (o ServiceEnvironmentOutput) ToServiceEnvironmentOutputWithContext(ctx cont
 	return o
 }
 
+// The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
 func (o ServiceEnvironmentOutput) CapacityLimits() ServiceEnvironmentCapacityLimitArrayOutput {
 	return o.ApplyT(func(v *ServiceEnvironment) ServiceEnvironmentCapacityLimitArrayOutput { return v.CapacityLimits }).(ServiceEnvironmentCapacityLimitArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the service environment.
 func (o ServiceEnvironmentOutput) ServiceEnvironmentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEnvironment) pulumi.StringOutput { return v.ServiceEnvironmentArn }).(pulumi.StringOutput)
 }
 
+// The name of the service environment.
 func (o ServiceEnvironmentOutput) ServiceEnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEnvironment) pulumi.StringPtrOutput { return v.ServiceEnvironmentName }).(pulumi.StringPtrOutput)
 }
 
+// The type of service environment. For SageMaker Training jobs, this value is `SAGEMAKER_TRAINING` .
 func (o ServiceEnvironmentOutput) ServiceEnvironmentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEnvironment) pulumi.StringOutput { return v.ServiceEnvironmentType }).(pulumi.StringOutput)
 }
 
+// The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
 func (o ServiceEnvironmentOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEnvironment) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }

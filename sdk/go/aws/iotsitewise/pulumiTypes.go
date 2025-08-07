@@ -1543,6 +1543,241 @@ func (o AssetModelCompositeModelArrayOutput) Index(i pulumi.IntInput) AssetModel
 	}).(AssetModelCompositeModelOutput)
 }
 
+// Contains information about enforced interface property and asset model property
+type AssetModelEnforcedAssetModelInterfacePropertyMapping struct {
+	// The external ID of the enforced asset model property
+	AssetModelPropertyExternalId *string `pulumi:"assetModelPropertyExternalId"`
+	// The logical ID of the enforced asset model property
+	AssetModelPropertyLogicalId *string `pulumi:"assetModelPropertyLogicalId"`
+	// The external ID of the enforced interface property
+	InterfaceAssetModelPropertyExternalId string `pulumi:"interfaceAssetModelPropertyExternalId"`
+}
+
+// AssetModelEnforcedAssetModelInterfacePropertyMappingInput is an input type that accepts AssetModelEnforcedAssetModelInterfacePropertyMappingArgs and AssetModelEnforcedAssetModelInterfacePropertyMappingOutput values.
+// You can construct a concrete instance of `AssetModelEnforcedAssetModelInterfacePropertyMappingInput` via:
+//
+//	AssetModelEnforcedAssetModelInterfacePropertyMappingArgs{...}
+type AssetModelEnforcedAssetModelInterfacePropertyMappingInput interface {
+	pulumi.Input
+
+	ToAssetModelEnforcedAssetModelInterfacePropertyMappingOutput() AssetModelEnforcedAssetModelInterfacePropertyMappingOutput
+	ToAssetModelEnforcedAssetModelInterfacePropertyMappingOutputWithContext(context.Context) AssetModelEnforcedAssetModelInterfacePropertyMappingOutput
+}
+
+// Contains information about enforced interface property and asset model property
+type AssetModelEnforcedAssetModelInterfacePropertyMappingArgs struct {
+	// The external ID of the enforced asset model property
+	AssetModelPropertyExternalId pulumi.StringPtrInput `pulumi:"assetModelPropertyExternalId"`
+	// The logical ID of the enforced asset model property
+	AssetModelPropertyLogicalId pulumi.StringPtrInput `pulumi:"assetModelPropertyLogicalId"`
+	// The external ID of the enforced interface property
+	InterfaceAssetModelPropertyExternalId pulumi.StringInput `pulumi:"interfaceAssetModelPropertyExternalId"`
+}
+
+func (AssetModelEnforcedAssetModelInterfacePropertyMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetModelEnforcedAssetModelInterfacePropertyMapping)(nil)).Elem()
+}
+
+func (i AssetModelEnforcedAssetModelInterfacePropertyMappingArgs) ToAssetModelEnforcedAssetModelInterfacePropertyMappingOutput() AssetModelEnforcedAssetModelInterfacePropertyMappingOutput {
+	return i.ToAssetModelEnforcedAssetModelInterfacePropertyMappingOutputWithContext(context.Background())
+}
+
+func (i AssetModelEnforcedAssetModelInterfacePropertyMappingArgs) ToAssetModelEnforcedAssetModelInterfacePropertyMappingOutputWithContext(ctx context.Context) AssetModelEnforcedAssetModelInterfacePropertyMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetModelEnforcedAssetModelInterfacePropertyMappingOutput)
+}
+
+// AssetModelEnforcedAssetModelInterfacePropertyMappingArrayInput is an input type that accepts AssetModelEnforcedAssetModelInterfacePropertyMappingArray and AssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput values.
+// You can construct a concrete instance of `AssetModelEnforcedAssetModelInterfacePropertyMappingArrayInput` via:
+//
+//	AssetModelEnforcedAssetModelInterfacePropertyMappingArray{ AssetModelEnforcedAssetModelInterfacePropertyMappingArgs{...} }
+type AssetModelEnforcedAssetModelInterfacePropertyMappingArrayInput interface {
+	pulumi.Input
+
+	ToAssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput() AssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput
+	ToAssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutputWithContext(context.Context) AssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput
+}
+
+type AssetModelEnforcedAssetModelInterfacePropertyMappingArray []AssetModelEnforcedAssetModelInterfacePropertyMappingInput
+
+func (AssetModelEnforcedAssetModelInterfacePropertyMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetModelEnforcedAssetModelInterfacePropertyMapping)(nil)).Elem()
+}
+
+func (i AssetModelEnforcedAssetModelInterfacePropertyMappingArray) ToAssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput() AssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput {
+	return i.ToAssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutputWithContext(context.Background())
+}
+
+func (i AssetModelEnforcedAssetModelInterfacePropertyMappingArray) ToAssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutputWithContext(ctx context.Context) AssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput)
+}
+
+// Contains information about enforced interface property and asset model property
+type AssetModelEnforcedAssetModelInterfacePropertyMappingOutput struct{ *pulumi.OutputState }
+
+func (AssetModelEnforcedAssetModelInterfacePropertyMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetModelEnforcedAssetModelInterfacePropertyMapping)(nil)).Elem()
+}
+
+func (o AssetModelEnforcedAssetModelInterfacePropertyMappingOutput) ToAssetModelEnforcedAssetModelInterfacePropertyMappingOutput() AssetModelEnforcedAssetModelInterfacePropertyMappingOutput {
+	return o
+}
+
+func (o AssetModelEnforcedAssetModelInterfacePropertyMappingOutput) ToAssetModelEnforcedAssetModelInterfacePropertyMappingOutputWithContext(ctx context.Context) AssetModelEnforcedAssetModelInterfacePropertyMappingOutput {
+	return o
+}
+
+// The external ID of the enforced asset model property
+func (o AssetModelEnforcedAssetModelInterfacePropertyMappingOutput) AssetModelPropertyExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelEnforcedAssetModelInterfacePropertyMapping) *string {
+		return v.AssetModelPropertyExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The logical ID of the enforced asset model property
+func (o AssetModelEnforcedAssetModelInterfacePropertyMappingOutput) AssetModelPropertyLogicalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelEnforcedAssetModelInterfacePropertyMapping) *string {
+		return v.AssetModelPropertyLogicalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The external ID of the enforced interface property
+func (o AssetModelEnforcedAssetModelInterfacePropertyMappingOutput) InterfaceAssetModelPropertyExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetModelEnforcedAssetModelInterfacePropertyMapping) string {
+		return v.InterfaceAssetModelPropertyExternalId
+	}).(pulumi.StringOutput)
+}
+
+type AssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (AssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetModelEnforcedAssetModelInterfacePropertyMapping)(nil)).Elem()
+}
+
+func (o AssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput) ToAssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput() AssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput {
+	return o
+}
+
+func (o AssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput) ToAssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutputWithContext(ctx context.Context) AssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput {
+	return o
+}
+
+func (o AssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput) Index(i pulumi.IntInput) AssetModelEnforcedAssetModelInterfacePropertyMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetModelEnforcedAssetModelInterfacePropertyMapping {
+		return vs[0].([]AssetModelEnforcedAssetModelInterfacePropertyMapping)[vs[1].(int)]
+	}).(AssetModelEnforcedAssetModelInterfacePropertyMappingOutput)
+}
+
+// Contains information about enforced interface hierarchy and asset model hierarchy
+type AssetModelEnforcedAssetModelInterfaceRelationship struct {
+	// The ID of the interface that is enforced to the asset model
+	InterfaceAssetModelId *string `pulumi:"interfaceAssetModelId"`
+	// Contains information about enforced interface property and asset model property
+	PropertyMappings []AssetModelEnforcedAssetModelInterfacePropertyMapping `pulumi:"propertyMappings"`
+}
+
+// AssetModelEnforcedAssetModelInterfaceRelationshipInput is an input type that accepts AssetModelEnforcedAssetModelInterfaceRelationshipArgs and AssetModelEnforcedAssetModelInterfaceRelationshipOutput values.
+// You can construct a concrete instance of `AssetModelEnforcedAssetModelInterfaceRelationshipInput` via:
+//
+//	AssetModelEnforcedAssetModelInterfaceRelationshipArgs{...}
+type AssetModelEnforcedAssetModelInterfaceRelationshipInput interface {
+	pulumi.Input
+
+	ToAssetModelEnforcedAssetModelInterfaceRelationshipOutput() AssetModelEnforcedAssetModelInterfaceRelationshipOutput
+	ToAssetModelEnforcedAssetModelInterfaceRelationshipOutputWithContext(context.Context) AssetModelEnforcedAssetModelInterfaceRelationshipOutput
+}
+
+// Contains information about enforced interface hierarchy and asset model hierarchy
+type AssetModelEnforcedAssetModelInterfaceRelationshipArgs struct {
+	// The ID of the interface that is enforced to the asset model
+	InterfaceAssetModelId pulumi.StringPtrInput `pulumi:"interfaceAssetModelId"`
+	// Contains information about enforced interface property and asset model property
+	PropertyMappings AssetModelEnforcedAssetModelInterfacePropertyMappingArrayInput `pulumi:"propertyMappings"`
+}
+
+func (AssetModelEnforcedAssetModelInterfaceRelationshipArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetModelEnforcedAssetModelInterfaceRelationship)(nil)).Elem()
+}
+
+func (i AssetModelEnforcedAssetModelInterfaceRelationshipArgs) ToAssetModelEnforcedAssetModelInterfaceRelationshipOutput() AssetModelEnforcedAssetModelInterfaceRelationshipOutput {
+	return i.ToAssetModelEnforcedAssetModelInterfaceRelationshipOutputWithContext(context.Background())
+}
+
+func (i AssetModelEnforcedAssetModelInterfaceRelationshipArgs) ToAssetModelEnforcedAssetModelInterfaceRelationshipOutputWithContext(ctx context.Context) AssetModelEnforcedAssetModelInterfaceRelationshipOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetModelEnforcedAssetModelInterfaceRelationshipOutput)
+}
+
+// AssetModelEnforcedAssetModelInterfaceRelationshipArrayInput is an input type that accepts AssetModelEnforcedAssetModelInterfaceRelationshipArray and AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput values.
+// You can construct a concrete instance of `AssetModelEnforcedAssetModelInterfaceRelationshipArrayInput` via:
+//
+//	AssetModelEnforcedAssetModelInterfaceRelationshipArray{ AssetModelEnforcedAssetModelInterfaceRelationshipArgs{...} }
+type AssetModelEnforcedAssetModelInterfaceRelationshipArrayInput interface {
+	pulumi.Input
+
+	ToAssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput() AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput
+	ToAssetModelEnforcedAssetModelInterfaceRelationshipArrayOutputWithContext(context.Context) AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput
+}
+
+type AssetModelEnforcedAssetModelInterfaceRelationshipArray []AssetModelEnforcedAssetModelInterfaceRelationshipInput
+
+func (AssetModelEnforcedAssetModelInterfaceRelationshipArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetModelEnforcedAssetModelInterfaceRelationship)(nil)).Elem()
+}
+
+func (i AssetModelEnforcedAssetModelInterfaceRelationshipArray) ToAssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput() AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput {
+	return i.ToAssetModelEnforcedAssetModelInterfaceRelationshipArrayOutputWithContext(context.Background())
+}
+
+func (i AssetModelEnforcedAssetModelInterfaceRelationshipArray) ToAssetModelEnforcedAssetModelInterfaceRelationshipArrayOutputWithContext(ctx context.Context) AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput)
+}
+
+// Contains information about enforced interface hierarchy and asset model hierarchy
+type AssetModelEnforcedAssetModelInterfaceRelationshipOutput struct{ *pulumi.OutputState }
+
+func (AssetModelEnforcedAssetModelInterfaceRelationshipOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetModelEnforcedAssetModelInterfaceRelationship)(nil)).Elem()
+}
+
+func (o AssetModelEnforcedAssetModelInterfaceRelationshipOutput) ToAssetModelEnforcedAssetModelInterfaceRelationshipOutput() AssetModelEnforcedAssetModelInterfaceRelationshipOutput {
+	return o
+}
+
+func (o AssetModelEnforcedAssetModelInterfaceRelationshipOutput) ToAssetModelEnforcedAssetModelInterfaceRelationshipOutputWithContext(ctx context.Context) AssetModelEnforcedAssetModelInterfaceRelationshipOutput {
+	return o
+}
+
+// The ID of the interface that is enforced to the asset model
+func (o AssetModelEnforcedAssetModelInterfaceRelationshipOutput) InterfaceAssetModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelEnforcedAssetModelInterfaceRelationship) *string { return v.InterfaceAssetModelId }).(pulumi.StringPtrOutput)
+}
+
+// Contains information about enforced interface property and asset model property
+func (o AssetModelEnforcedAssetModelInterfaceRelationshipOutput) PropertyMappings() AssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput {
+	return o.ApplyT(func(v AssetModelEnforcedAssetModelInterfaceRelationship) []AssetModelEnforcedAssetModelInterfacePropertyMapping {
+		return v.PropertyMappings
+	}).(AssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput)
+}
+
+type AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput struct{ *pulumi.OutputState }
+
+func (AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetModelEnforcedAssetModelInterfaceRelationship)(nil)).Elem()
+}
+
+func (o AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput) ToAssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput() AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput {
+	return o
+}
+
+func (o AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput) ToAssetModelEnforcedAssetModelInterfaceRelationshipArrayOutputWithContext(ctx context.Context) AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput {
+	return o
+}
+
+func (o AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput) Index(i pulumi.IntInput) AssetModelEnforcedAssetModelInterfaceRelationshipOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetModelEnforcedAssetModelInterfaceRelationship {
+		return vs[0].([]AssetModelEnforcedAssetModelInterfaceRelationship)[vs[1].(int)]
+	}).(AssetModelEnforcedAssetModelInterfaceRelationshipOutput)
+}
+
 type AssetModelExpressionVariable struct {
 	// The friendly name of the variable to be used in the expression.
 	Name string `pulumi:"name"`
@@ -4184,6 +4419,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelAttributePtrInput)(nil)).Elem(), AssetModelAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelCompositeModelInput)(nil)).Elem(), AssetModelCompositeModelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelCompositeModelArrayInput)(nil)).Elem(), AssetModelCompositeModelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelEnforcedAssetModelInterfacePropertyMappingInput)(nil)).Elem(), AssetModelEnforcedAssetModelInterfacePropertyMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelEnforcedAssetModelInterfacePropertyMappingArrayInput)(nil)).Elem(), AssetModelEnforcedAssetModelInterfacePropertyMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelEnforcedAssetModelInterfaceRelationshipInput)(nil)).Elem(), AssetModelEnforcedAssetModelInterfaceRelationshipArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelEnforcedAssetModelInterfaceRelationshipArrayInput)(nil)).Elem(), AssetModelEnforcedAssetModelInterfaceRelationshipArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelExpressionVariableInput)(nil)).Elem(), AssetModelExpressionVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelExpressionVariableArrayInput)(nil)).Elem(), AssetModelExpressionVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelHierarchyInput)(nil)).Elem(), AssetModelHierarchyArgs{})
@@ -4240,6 +4479,10 @@ func init() {
 	pulumi.RegisterOutputType(AssetModelAttributePtrOutput{})
 	pulumi.RegisterOutputType(AssetModelCompositeModelOutput{})
 	pulumi.RegisterOutputType(AssetModelCompositeModelArrayOutput{})
+	pulumi.RegisterOutputType(AssetModelEnforcedAssetModelInterfacePropertyMappingOutput{})
+	pulumi.RegisterOutputType(AssetModelEnforcedAssetModelInterfacePropertyMappingArrayOutput{})
+	pulumi.RegisterOutputType(AssetModelEnforcedAssetModelInterfaceRelationshipOutput{})
+	pulumi.RegisterOutputType(AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput{})
 	pulumi.RegisterOutputType(AssetModelExpressionVariableOutput{})
 	pulumi.RegisterOutputType(AssetModelExpressionVariableArrayOutput{})
 	pulumi.RegisterOutputType(AssetModelHierarchyOutput{})

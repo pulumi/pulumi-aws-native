@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Pcs.Outputs
     public sealed class NetworkingProperties
     {
         /// <summary>
+        /// The IP of the cluster (IPV4 or IPV6)
+        /// </summary>
+        public readonly Pulumi.AwsNative.Pcs.ClusterNetworkingPropertiesNetworkType? NetworkType;
+        /// <summary>
         /// The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
@@ -27,10 +31,13 @@ namespace Pulumi.AwsNative.Pcs.Outputs
 
         [OutputConstructor]
         private NetworkingProperties(
+            Pulumi.AwsNative.Pcs.ClusterNetworkingPropertiesNetworkType? networkType,
+
             ImmutableArray<string> securityGroupIds,
 
             ImmutableArray<string> subnetIds)
         {
+            NetworkType = networkType;
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
         }

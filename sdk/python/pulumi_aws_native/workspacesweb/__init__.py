@@ -15,6 +15,7 @@ from .get_identity_provider import *
 from .get_ip_access_settings import *
 from .get_network_settings import *
 from .get_portal import *
+from .get_session_logger import *
 from .get_trust_store import *
 from .get_user_access_logging_settings import *
 from .get_user_settings import *
@@ -22,6 +23,7 @@ from .identity_provider import *
 from .ip_access_settings import *
 from .network_settings import *
 from .portal import *
+from .session_logger import *
 from .trust_store import *
 from .user_access_logging_settings import *
 from .user_settings import *

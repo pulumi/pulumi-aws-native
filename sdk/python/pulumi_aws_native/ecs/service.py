@@ -60,12 +60,12 @@ class ServiceArgs:
                  To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
         :param pulumi.Input[builtins.str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
         :param pulumi.Input['ServiceDeploymentConfigurationArgs'] deployment_configuration: Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
-        :param pulumi.Input['ServiceDeploymentControllerArgs'] deployment_controller: The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
+        :param pulumi.Input['ServiceDeploymentControllerArgs'] deployment_controller: The deployment controller to use for the service.
         :param pulumi.Input[builtins.int] desired_count: The number of instantiations of the specified task definition to place and keep running in your service.
                 For new services, if a desired count is not specified, a default value of ``1`` is used. When using the ``DAEMON`` scheduling strategy, the desired count is not required.
                 For existing services, if a desired count is not specified, it is omitted from the operation.
         :param pulumi.Input[builtins.bool] enable_ecs_managed_tags: Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide*.
-                When you use Amazon ECS managed tags, you need to set the ``propagateTags`` request parameter.
+                When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
         :param pulumi.Input[builtins.bool] enable_execute_command: Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.
         :param pulumi.Input[builtins.int] health_check_grace_period_seconds: The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you don't specify a health check grace period value, the default value of ``0`` is used. If you don't use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
                 If your service's tasks take a while to start and respond to health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
@@ -219,7 +219,7 @@ class ServiceArgs:
     @pulumi.getter(name="deploymentController")
     def deployment_controller(self) -> Optional[pulumi.Input['ServiceDeploymentControllerArgs']]:
         """
-        The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
+        The deployment controller to use for the service.
         """
         return pulumi.get(self, "deployment_controller")
 
@@ -246,7 +246,7 @@ class ServiceArgs:
     def enable_ecs_managed_tags(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide*.
-         When you use Amazon ECS managed tags, you need to set the ``propagateTags`` request parameter.
+         When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
         """
         return pulumi.get(self, "enable_ecs_managed_tags")
 
@@ -567,12 +567,12 @@ class Service(pulumi.CustomResource):
                  To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
         :param pulumi.Input[builtins.str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
         :param pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']] deployment_configuration: Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
-        :param pulumi.Input[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']] deployment_controller: The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
+        :param pulumi.Input[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']] deployment_controller: The deployment controller to use for the service.
         :param pulumi.Input[builtins.int] desired_count: The number of instantiations of the specified task definition to place and keep running in your service.
                 For new services, if a desired count is not specified, a default value of ``1`` is used. When using the ``DAEMON`` scheduling strategy, the desired count is not required.
                 For existing services, if a desired count is not specified, it is omitted from the operation.
         :param pulumi.Input[builtins.bool] enable_ecs_managed_tags: Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide*.
-                When you use Amazon ECS managed tags, you need to set the ``propagateTags`` request parameter.
+                When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
         :param pulumi.Input[builtins.bool] enable_execute_command: Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.
         :param pulumi.Input[builtins.int] health_check_grace_period_seconds: The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you don't specify a health check grace period value, the default value of ``0`` is used. If you don't use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
                 If your service's tasks take a while to start and respond to health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
@@ -821,7 +821,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="deploymentController")
     def deployment_controller(self) -> pulumi.Output[Optional['outputs.ServiceDeploymentController']]:
         """
-        The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
+        The deployment controller to use for the service.
         """
         return pulumi.get(self, "deployment_controller")
 
@@ -840,7 +840,7 @@ class Service(pulumi.CustomResource):
     def enable_ecs_managed_tags(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
         Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide*.
-         When you use Amazon ECS managed tags, you need to set the ``propagateTags`` request parameter.
+         When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
         """
         return pulumi.get(self, "enable_ecs_managed_tags")
 

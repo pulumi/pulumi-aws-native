@@ -163,10 +163,6 @@ __all__ = [
     'LaunchTemplateDataArgsDict',
     'LaunchTemplateEbsArgs',
     'LaunchTemplateEbsArgsDict',
-    'LaunchTemplateElasticGpuSpecificationArgs',
-    'LaunchTemplateElasticGpuSpecificationArgsDict',
-    'LaunchTemplateElasticInferenceAcceleratorArgs',
-    'LaunchTemplateElasticInferenceAcceleratorArgsDict',
     'LaunchTemplateEnaSrdSpecificationArgs',
     'LaunchTemplateEnaSrdSpecificationArgsDict',
     'LaunchTemplateEnaSrdUdpSpecificationArgs',
@@ -4640,7 +4636,7 @@ if not MYPY:
     class InstanceElasticGpuSpecificationArgsDict(TypedDict):
         type: pulumi.Input[builtins.str]
         """
-        The type of Elastic Graphics accelerator.
+        The type of Elastic Graphics accelerator. Amazon Elastic Graphics is no longer available.
         """
 elif False:
     InstanceElasticGpuSpecificationArgsDict: TypeAlias = Mapping[str, Any]
@@ -4650,7 +4646,7 @@ class InstanceElasticGpuSpecificationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input[builtins.str] type: The type of Elastic Graphics accelerator.
+        :param pulumi.Input[builtins.str] type: The type of Elastic Graphics accelerator. Amazon Elastic Graphics is no longer available.
         """
         pulumi.set(__self__, "type", type)
 
@@ -4658,7 +4654,7 @@ class InstanceElasticGpuSpecificationArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[builtins.str]:
         """
-        The type of Elastic Graphics accelerator.
+        The type of Elastic Graphics accelerator. Amazon Elastic Graphics is no longer available.
         """
         return pulumi.get(self, "type")
 
@@ -4671,11 +4667,11 @@ if not MYPY:
     class InstanceElasticInferenceAcceleratorArgsDict(TypedDict):
         type: pulumi.Input[builtins.str]
         """
-        The type of elastic inference accelerator.
+        The type of elastic inference accelerator. Amazon Elastic Inference is no longer available.
         """
         count: NotRequired[pulumi.Input[builtins.int]]
         """
-        The number of elastic inference accelerators to attach to the instance.
+        The number of elastic inference accelerators to attach to the instance. Amazon Elastic Inference is no longer available.
         """
 elif False:
     InstanceElasticInferenceAcceleratorArgsDict: TypeAlias = Mapping[str, Any]
@@ -4686,8 +4682,8 @@ class InstanceElasticInferenceAcceleratorArgs:
                  type: pulumi.Input[builtins.str],
                  count: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.str] type: The type of elastic inference accelerator.
-        :param pulumi.Input[builtins.int] count: The number of elastic inference accelerators to attach to the instance.
+        :param pulumi.Input[builtins.str] type: The type of elastic inference accelerator. Amazon Elastic Inference is no longer available.
+        :param pulumi.Input[builtins.int] count: The number of elastic inference accelerators to attach to the instance. Amazon Elastic Inference is no longer available.
         """
         pulumi.set(__self__, "type", type)
         if count is not None:
@@ -4697,7 +4693,7 @@ class InstanceElasticInferenceAcceleratorArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[builtins.str]:
         """
-        The type of elastic inference accelerator.
+        The type of elastic inference accelerator. Amazon Elastic Inference is no longer available.
         """
         return pulumi.get(self, "type")
 
@@ -4709,7 +4705,7 @@ class InstanceElasticInferenceAcceleratorArgs:
     @pulumi.getter
     def count(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The number of elastic inference accelerators to attach to the instance.
+        The number of elastic inference accelerators to attach to the instance. Amazon Elastic Inference is no longer available.
         """
         return pulumi.get(self, "count")
 
@@ -6585,17 +6581,6 @@ if not MYPY:
         """
         Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
         """
-        elastic_gpu_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgsDict']]]]
-        """
-        Deprecated.
-          Amazon Elastic Graphics reached end of life on January 8, 2024.
-        """
-        elastic_inference_accelerators: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgsDict']]]]
-        """
-        Amazon Elastic Inference is no longer available.
-          An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
-         You cannot specify accelerators from different generations in the same request.
-        """
         enclave_options: NotRequired[pulumi.Input['LaunchTemplateEnclaveOptionsArgsDict']]
         """
         Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
@@ -6727,8 +6712,6 @@ class LaunchTemplateDataArgs:
                  disable_api_stop: Optional[pulumi.Input[builtins.bool]] = None,
                  disable_api_termination: Optional[pulumi.Input[builtins.bool]] = None,
                  ebs_optimized: Optional[pulumi.Input[builtins.bool]] = None,
-                 elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]]] = None,
-                 elastic_inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs']]]] = None,
                  enclave_options: Optional[pulumi.Input['LaunchTemplateEnclaveOptionsArgs']] = None,
                  hibernation_options: Optional[pulumi.Input['LaunchTemplateHibernationOptionsArgs']] = None,
                  iam_instance_profile: Optional[pulumi.Input['LaunchTemplateIamInstanceProfileArgs']] = None,
@@ -6762,11 +6745,6 @@ class LaunchTemplateDataArgs:
         :param pulumi.Input[builtins.bool] disable_api_stop: Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
         :param pulumi.Input[builtins.bool] disable_api_termination: Indicates whether termination protection is enabled for the instance. The default is ``false``, which means that you can terminate the instance using the Amazon EC2 console, command line tools, or API. You can enable termination protection when you launch an instance, while the instance is running, or while the instance is stopped.
         :param pulumi.Input[builtins.bool] ebs_optimized: Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]] elastic_gpu_specifications: Deprecated.
-                 Amazon Elastic Graphics reached end of life on January 8, 2024.
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs']]] elastic_inference_accelerators: Amazon Elastic Inference is no longer available.
-                 An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
-                You cannot specify accelerators from different generations in the same request.
         :param pulumi.Input['LaunchTemplateEnclaveOptionsArgs'] enclave_options: Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
                 You can't enable AWS Nitro Enclaves and hibernation on the same instance.
         :param pulumi.Input['LaunchTemplateHibernationOptionsArgs'] hibernation_options: Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your Amazon EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide*.
@@ -6831,10 +6809,6 @@ class LaunchTemplateDataArgs:
             pulumi.set(__self__, "disable_api_termination", disable_api_termination)
         if ebs_optimized is not None:
             pulumi.set(__self__, "ebs_optimized", ebs_optimized)
-        if elastic_gpu_specifications is not None:
-            pulumi.set(__self__, "elastic_gpu_specifications", elastic_gpu_specifications)
-        if elastic_inference_accelerators is not None:
-            pulumi.set(__self__, "elastic_inference_accelerators", elastic_inference_accelerators)
         if enclave_options is not None:
             pulumi.set(__self__, "enclave_options", enclave_options)
         if hibernation_options is not None:
@@ -6965,33 +6939,6 @@ class LaunchTemplateDataArgs:
     @ebs_optimized.setter
     def ebs_optimized(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "ebs_optimized", value)
-
-    @property
-    @pulumi.getter(name="elasticGpuSpecifications")
-    def elastic_gpu_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]]]:
-        """
-        Deprecated.
-          Amazon Elastic Graphics reached end of life on January 8, 2024.
-        """
-        return pulumi.get(self, "elastic_gpu_specifications")
-
-    @elastic_gpu_specifications.setter
-    def elastic_gpu_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]]]):
-        pulumi.set(self, "elastic_gpu_specifications", value)
-
-    @property
-    @pulumi.getter(name="elasticInferenceAccelerators")
-    def elastic_inference_accelerators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs']]]]:
-        """
-        Amazon Elastic Inference is no longer available.
-          An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
-         You cannot specify accelerators from different generations in the same request.
-        """
-        return pulumi.get(self, "elastic_inference_accelerators")
-
-    @elastic_inference_accelerators.setter
-    def elastic_inference_accelerators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs']]]]):
-        pulumi.set(self, "elastic_inference_accelerators", value)
 
     @property
     @pulumi.getter(name="enclaveOptions")
@@ -7552,109 +7499,6 @@ class LaunchTemplateEbsArgs:
     @volume_type.setter
     def volume_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "volume_type", value)
-
-
-if not MYPY:
-    class LaunchTemplateElasticGpuSpecificationArgsDict(TypedDict):
-        """
-        Amazon Elastic Graphics reached end of life on January 8, 2024.
-          Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
-         ``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-        """
-        type: NotRequired[pulumi.Input[builtins.str]]
-        """
-        The type of Elastic Graphics accelerator.
-        """
-elif False:
-    LaunchTemplateElasticGpuSpecificationArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class LaunchTemplateElasticGpuSpecificationArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input[builtins.str]] = None):
-        """
-        Amazon Elastic Graphics reached end of life on January 8, 2024.
-          Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
-         ``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-        :param pulumi.Input[builtins.str] type: The type of Elastic Graphics accelerator.
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The type of Elastic Graphics accelerator.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "type", value)
-
-
-if not MYPY:
-    class LaunchTemplateElasticInferenceAcceleratorArgsDict(TypedDict):
-        """
-        Amazon Elastic Inference is no longer available.
-          Specifies an elastic inference accelerator.
-         ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-        """
-        count: NotRequired[pulumi.Input[builtins.int]]
-        """
-        The number of elastic inference accelerators to attach to the instance. 
-         Default: 1
-        """
-        type: NotRequired[pulumi.Input[builtins.str]]
-        """
-        The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
-        """
-elif False:
-    LaunchTemplateElasticInferenceAcceleratorArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class LaunchTemplateElasticInferenceAcceleratorArgs:
-    def __init__(__self__, *,
-                 count: Optional[pulumi.Input[builtins.int]] = None,
-                 type: Optional[pulumi.Input[builtins.str]] = None):
-        """
-        Amazon Elastic Inference is no longer available.
-          Specifies an elastic inference accelerator.
-         ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
-        :param pulumi.Input[builtins.int] count: The number of elastic inference accelerators to attach to the instance. 
-                Default: 1
-        :param pulumi.Input[builtins.str] type: The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
-        """
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        The number of elastic inference accelerators to attach to the instance. 
-         Default: 1
-        """
-        return pulumi.get(self, "count")
-
-    @count.setter
-    def count(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "count", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "type", value)
 
 
 if not MYPY:
@@ -9368,6 +9212,7 @@ if not MYPY:
         The device index for the network interface attachment. The primary network interface has a device index of 0. If the network interface is of type ``interface``, you must specify a device index.
          If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
         """
+        ena_queue_count: NotRequired[pulumi.Input[builtins.int]]
         ena_srd_specification: NotRequired[pulumi.Input['LaunchTemplateEnaSrdSpecificationArgsDict']]
         """
         The ENA Express configuration for the network interface.
@@ -9447,6 +9292,7 @@ class LaunchTemplateNetworkInterfaceArgs:
                  delete_on_termination: Optional[pulumi.Input[builtins.bool]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  device_index: Optional[pulumi.Input[builtins.int]] = None,
+                 ena_queue_count: Optional[pulumi.Input[builtins.int]] = None,
                  ena_srd_specification: Optional[pulumi.Input['LaunchTemplateEnaSrdSpecificationArgs']] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  interface_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -9507,6 +9353,8 @@ class LaunchTemplateNetworkInterfaceArgs:
             pulumi.set(__self__, "description", description)
         if device_index is not None:
             pulumi.set(__self__, "device_index", device_index)
+        if ena_queue_count is not None:
+            pulumi.set(__self__, "ena_queue_count", ena_queue_count)
         if ena_srd_specification is not None:
             pulumi.set(__self__, "ena_srd_specification", ena_srd_specification)
         if groups is not None:
@@ -9614,6 +9462,15 @@ class LaunchTemplateNetworkInterfaceArgs:
     @device_index.setter
     def device_index(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "device_index", value)
+
+    @property
+    @pulumi.getter(name="enaQueueCount")
+    def ena_queue_count(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "ena_queue_count")
+
+    @ena_queue_count.setter
+    def ena_queue_count(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "ena_queue_count", value)
 
     @property
     @pulumi.getter(name="enaSrdSpecification")

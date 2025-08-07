@@ -74,6 +74,10 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
     /**
+     * The state of the deployment.
+     */
+    public /*out*/ readonly state!: pulumi.Output<enums.appconfig.DeploymentState>;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
@@ -114,6 +118,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["deploymentNumber"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["configurationProfileId"] = undefined /*out*/;
@@ -124,6 +129,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["dynamicExtensionParameters"] = undefined /*out*/;
             resourceInputs["environmentId"] = undefined /*out*/;
             resourceInputs["kmsKeyIdentifier"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

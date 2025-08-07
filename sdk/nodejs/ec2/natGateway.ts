@@ -77,7 +77,7 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * The ID of the subnet in which the NAT gateway is located.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
      * The tags for the NAT gateway.
      */
@@ -90,13 +90,10 @@ export class NatGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NatGatewayArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: NatGatewayArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subnetId'");
-            }
             resourceInputs["allocationId"] = args ? args.allocationId : undefined;
             resourceInputs["connectivityType"] = args ? args.connectivityType : undefined;
             resourceInputs["maxDrainDurationSeconds"] = args ? args.maxDrainDurationSeconds : undefined;
@@ -163,7 +160,7 @@ export interface NatGatewayArgs {
     /**
      * The ID of the subnet in which the NAT gateway is located.
      */
-    subnetId: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
     /**
      * The tags for the NAT gateway.
      */

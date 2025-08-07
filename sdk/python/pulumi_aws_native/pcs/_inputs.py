@@ -189,6 +189,10 @@ if not MYPY:
         """
         The networking configuration for the cluster's control plane.
         """
+        network_type: NotRequired[pulumi.Input['ClusterNetworkingPropertiesNetworkType']]
+        """
+        The IP of the cluster (IPV4 or IPV6)
+        """
         security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
         The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.
@@ -203,17 +207,33 @@ elif False:
 @pulumi.input_type
 class NetworkingPropertiesArgs:
     def __init__(__self__, *,
+                 network_type: Optional[pulumi.Input['ClusterNetworkingPropertiesNetworkType']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The networking configuration for the cluster's control plane.
+        :param pulumi.Input['ClusterNetworkingPropertiesNetworkType'] network_type: The IP of the cluster (IPV4 or IPV6)
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The list of subnet IDs where AWS PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and AWS PCS resources. The subnet must have an available IP address, cannot reside in AWS Outposts, AWS Wavelength, or an AWS Local Zone. AWS PCS currently supports only 1 subnet in this list.
         """
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input['ClusterNetworkingPropertiesNetworkType']]:
+        """
+        The IP of the cluster (IPV4 or IPV6)
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input['ClusterNetworkingPropertiesNetworkType']]):
+        pulumi.set(self, "network_type", value)
 
     @property
     @pulumi.getter(name="securityGroupIds")

@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbInstanceResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, automatic_backup_replication_region=None, automatic_backup_replication_retention_period=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, database_insights_mode=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_status=None, db_parameter_group_name=None, db_security_groups=None, dbi_resource_id=None, dedicated_log_volume=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, instance_create_time=None, iops=None, is_storage_config_upgrade_available=None, latest_restorable_time=None, license_model=None, listener_endpoint=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, read_replica_db_cluster_identifiers=None, read_replica_db_instance_identifiers=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, automatic_backup_replication_region=None, automatic_backup_replication_retention_period=None, automatic_restart_time=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, database_insights_mode=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_status=None, db_parameter_group_name=None, db_security_groups=None, dbi_resource_id=None, dedicated_log_volume=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, instance_create_time=None, iops=None, is_storage_config_upgrade_available=None, latest_restorable_time=None, license_model=None, listener_endpoint=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, percent_progress=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, read_replica_db_cluster_identifiers=None, read_replica_db_instance_identifiers=None, replica_mode=None, resume_full_automation_mode_time=None, secondary_availability_zone=None, source_db_cluster_identifier=None, status_infos=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -43,6 +43,9 @@ class GetDbInstanceResult:
         if automatic_backup_replication_retention_period and not isinstance(automatic_backup_replication_retention_period, int):
             raise TypeError("Expected argument 'automatic_backup_replication_retention_period' to be a int")
         pulumi.set(__self__, "automatic_backup_replication_retention_period", automatic_backup_replication_retention_period)
+        if automatic_restart_time and not isinstance(automatic_restart_time, str):
+            raise TypeError("Expected argument 'automatic_restart_time' to be a str")
+        pulumi.set(__self__, "automatic_restart_time", automatic_restart_time)
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
         pulumi.set(__self__, "availability_zone", availability_zone)
@@ -169,6 +172,9 @@ class GetDbInstanceResult:
         if option_group_name and not isinstance(option_group_name, str):
             raise TypeError("Expected argument 'option_group_name' to be a str")
         pulumi.set(__self__, "option_group_name", option_group_name)
+        if percent_progress and not isinstance(percent_progress, str):
+            raise TypeError("Expected argument 'percent_progress' to be a str")
+        pulumi.set(__self__, "percent_progress", percent_progress)
         if performance_insights_kms_key_id and not isinstance(performance_insights_kms_key_id, str):
             raise TypeError("Expected argument 'performance_insights_kms_key_id' to be a str")
         pulumi.set(__self__, "performance_insights_kms_key_id", performance_insights_kms_key_id)
@@ -202,9 +208,18 @@ class GetDbInstanceResult:
         if replica_mode and not isinstance(replica_mode, str):
             raise TypeError("Expected argument 'replica_mode' to be a str")
         pulumi.set(__self__, "replica_mode", replica_mode)
+        if resume_full_automation_mode_time and not isinstance(resume_full_automation_mode_time, str):
+            raise TypeError("Expected argument 'resume_full_automation_mode_time' to be a str")
+        pulumi.set(__self__, "resume_full_automation_mode_time", resume_full_automation_mode_time)
+        if secondary_availability_zone and not isinstance(secondary_availability_zone, str):
+            raise TypeError("Expected argument 'secondary_availability_zone' to be a str")
+        pulumi.set(__self__, "secondary_availability_zone", secondary_availability_zone)
         if source_db_cluster_identifier and not isinstance(source_db_cluster_identifier, str):
             raise TypeError("Expected argument 'source_db_cluster_identifier' to be a str")
         pulumi.set(__self__, "source_db_cluster_identifier", source_db_cluster_identifier)
+        if status_infos and not isinstance(status_infos, list):
+            raise TypeError("Expected argument 'status_infos' to be a list")
+        pulumi.set(__self__, "status_infos", status_infos)
         if storage_throughput and not isinstance(storage_throughput, int):
             raise TypeError("Expected argument 'storage_throughput' to be a int")
         pulumi.set(__self__, "storage_throughput", storage_throughput)
@@ -308,6 +323,14 @@ class GetDbInstanceResult:
          If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.
         """
         return pulumi.get(self, "automatic_backup_replication_retention_period")
+
+    @property
+    @pulumi.getter(name="automaticRestartTime")
+    def automatic_restart_time(self) -> Optional[builtins.str]:
+        """
+        The time when a stopped DB instance is restarted automatically.
+        """
+        return pulumi.get(self, "automatic_restart_time")
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -807,6 +830,14 @@ class GetDbInstanceResult:
         return pulumi.get(self, "option_group_name")
 
     @property
+    @pulumi.getter(name="percentProgress")
+    def percent_progress(self) -> Optional[builtins.str]:
+        """
+        The progress of the storage optimization operation as a percentage.
+        """
+        return pulumi.get(self, "percent_progress")
+
+    @property
     @pulumi.getter(name="performanceInsightsKmsKeyId")
     def performance_insights_kms_key_id(self) -> Optional[builtins.str]:
         """
@@ -938,6 +969,22 @@ class GetDbInstanceResult:
         return pulumi.get(self, "replica_mode")
 
     @property
+    @pulumi.getter(name="resumeFullAutomationModeTime")
+    def resume_full_automation_mode_time(self) -> Optional[builtins.str]:
+        """
+        The number of minutes to pause the automation. When the time period ends, RDS Custom resumes full automation. The minimum value is 60 (default). The maximum value is 1,440.
+        """
+        return pulumi.get(self, "resume_full_automation_mode_time")
+
+    @property
+    @pulumi.getter(name="secondaryAvailabilityZone")
+    def secondary_availability_zone(self) -> Optional[builtins.str]:
+        """
+        If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
+        """
+        return pulumi.get(self, "secondary_availability_zone")
+
+    @property
     @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> Optional[builtins.str]:
         """
@@ -949,6 +996,14 @@ class GetDbInstanceResult:
           +  The source DB cluster must be in the same AWS-Region as the read replica. Cross-Region replication isn't supported.
         """
         return pulumi.get(self, "source_db_cluster_identifier")
+
+    @property
+    @pulumi.getter(name="statusInfos")
+    def status_infos(self) -> Optional[Sequence['outputs.DbInstanceDbInstanceStatusInfo']]:
+        """
+        The status of a read replica. If the DB instance isn't a read replica, the value is blank.
+        """
+        return pulumi.get(self, "status_infos")
 
     @property
     @pulumi.getter(name="storageThroughput")
@@ -1014,6 +1069,7 @@ class AwaitableGetDbInstanceResult(GetDbInstanceResult):
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
             automatic_backup_replication_region=self.automatic_backup_replication_region,
             automatic_backup_replication_retention_period=self.automatic_backup_replication_retention_period,
+            automatic_restart_time=self.automatic_restart_time,
             availability_zone=self.availability_zone,
             backup_retention_period=self.backup_retention_period,
             ca_certificate_identifier=self.ca_certificate_identifier,
@@ -1056,6 +1112,7 @@ class AwaitableGetDbInstanceResult(GetDbInstanceResult):
             multi_az=self.multi_az,
             network_type=self.network_type,
             option_group_name=self.option_group_name,
+            percent_progress=self.percent_progress,
             performance_insights_kms_key_id=self.performance_insights_kms_key_id,
             performance_insights_retention_period=self.performance_insights_retention_period,
             port=self.port,
@@ -1067,7 +1124,10 @@ class AwaitableGetDbInstanceResult(GetDbInstanceResult):
             read_replica_db_cluster_identifiers=self.read_replica_db_cluster_identifiers,
             read_replica_db_instance_identifiers=self.read_replica_db_instance_identifiers,
             replica_mode=self.replica_mode,
+            resume_full_automation_mode_time=self.resume_full_automation_mode_time,
+            secondary_availability_zone=self.secondary_availability_zone,
             source_db_cluster_identifier=self.source_db_cluster_identifier,
+            status_infos=self.status_infos,
             storage_throughput=self.storage_throughput,
             storage_type=self.storage_type,
             tags=self.tags,
@@ -1116,6 +1176,7 @@ def get_db_instance(db_instance_identifier: Optional[builtins.str] = None,
         auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
         automatic_backup_replication_region=pulumi.get(__ret__, 'automatic_backup_replication_region'),
         automatic_backup_replication_retention_period=pulumi.get(__ret__, 'automatic_backup_replication_retention_period'),
+        automatic_restart_time=pulumi.get(__ret__, 'automatic_restart_time'),
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
         backup_retention_period=pulumi.get(__ret__, 'backup_retention_period'),
         ca_certificate_identifier=pulumi.get(__ret__, 'ca_certificate_identifier'),
@@ -1158,6 +1219,7 @@ def get_db_instance(db_instance_identifier: Optional[builtins.str] = None,
         multi_az=pulumi.get(__ret__, 'multi_az'),
         network_type=pulumi.get(__ret__, 'network_type'),
         option_group_name=pulumi.get(__ret__, 'option_group_name'),
+        percent_progress=pulumi.get(__ret__, 'percent_progress'),
         performance_insights_kms_key_id=pulumi.get(__ret__, 'performance_insights_kms_key_id'),
         performance_insights_retention_period=pulumi.get(__ret__, 'performance_insights_retention_period'),
         port=pulumi.get(__ret__, 'port'),
@@ -1169,7 +1231,10 @@ def get_db_instance(db_instance_identifier: Optional[builtins.str] = None,
         read_replica_db_cluster_identifiers=pulumi.get(__ret__, 'read_replica_db_cluster_identifiers'),
         read_replica_db_instance_identifiers=pulumi.get(__ret__, 'read_replica_db_instance_identifiers'),
         replica_mode=pulumi.get(__ret__, 'replica_mode'),
+        resume_full_automation_mode_time=pulumi.get(__ret__, 'resume_full_automation_mode_time'),
+        secondary_availability_zone=pulumi.get(__ret__, 'secondary_availability_zone'),
         source_db_cluster_identifier=pulumi.get(__ret__, 'source_db_cluster_identifier'),
+        status_infos=pulumi.get(__ret__, 'status_infos'),
         storage_throughput=pulumi.get(__ret__, 'storage_throughput'),
         storage_type=pulumi.get(__ret__, 'storage_type'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -1215,6 +1280,7 @@ def get_db_instance_output(db_instance_identifier: Optional[pulumi.Input[builtin
         auto_minor_version_upgrade=pulumi.get(__response__, 'auto_minor_version_upgrade'),
         automatic_backup_replication_region=pulumi.get(__response__, 'automatic_backup_replication_region'),
         automatic_backup_replication_retention_period=pulumi.get(__response__, 'automatic_backup_replication_retention_period'),
+        automatic_restart_time=pulumi.get(__response__, 'automatic_restart_time'),
         availability_zone=pulumi.get(__response__, 'availability_zone'),
         backup_retention_period=pulumi.get(__response__, 'backup_retention_period'),
         ca_certificate_identifier=pulumi.get(__response__, 'ca_certificate_identifier'),
@@ -1257,6 +1323,7 @@ def get_db_instance_output(db_instance_identifier: Optional[pulumi.Input[builtin
         multi_az=pulumi.get(__response__, 'multi_az'),
         network_type=pulumi.get(__response__, 'network_type'),
         option_group_name=pulumi.get(__response__, 'option_group_name'),
+        percent_progress=pulumi.get(__response__, 'percent_progress'),
         performance_insights_kms_key_id=pulumi.get(__response__, 'performance_insights_kms_key_id'),
         performance_insights_retention_period=pulumi.get(__response__, 'performance_insights_retention_period'),
         port=pulumi.get(__response__, 'port'),
@@ -1268,7 +1335,10 @@ def get_db_instance_output(db_instance_identifier: Optional[pulumi.Input[builtin
         read_replica_db_cluster_identifiers=pulumi.get(__response__, 'read_replica_db_cluster_identifiers'),
         read_replica_db_instance_identifiers=pulumi.get(__response__, 'read_replica_db_instance_identifiers'),
         replica_mode=pulumi.get(__response__, 'replica_mode'),
+        resume_full_automation_mode_time=pulumi.get(__response__, 'resume_full_automation_mode_time'),
+        secondary_availability_zone=pulumi.get(__response__, 'secondary_availability_zone'),
         source_db_cluster_identifier=pulumi.get(__response__, 'source_db_cluster_identifier'),
+        status_infos=pulumi.get(__response__, 'status_infos'),
         storage_throughput=pulumi.get(__response__, 'storage_throughput'),
         storage_type=pulumi.get(__response__, 'storage_type'),
         tags=pulumi.get(__response__, 'tags'),

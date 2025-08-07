@@ -76,7 +76,7 @@ export class PolicyStore extends pulumi.CustomResource {
     /**
      * Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
      */
-    public readonly schema!: pulumi.Output<outputs.verifiedpermissions.PolicyStoreSchemaDefinition | undefined>;
+    public readonly schema!: pulumi.Output<outputs.verifiedpermissions.PolicyStoreSchemaDefinition0Properties | outputs.verifiedpermissions.PolicyStoreSchemaDefinition1Properties | undefined>;
     /**
      * The tags to add to the policy store
      */
@@ -142,7 +142,7 @@ export interface PolicyStoreArgs {
     /**
      * Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
      */
-    schema?: pulumi.Input<inputs.verifiedpermissions.PolicyStoreSchemaDefinitionArgs>;
+    schema?: pulumi.Input<inputs.verifiedpermissions.PolicyStoreSchemaDefinition0PropertiesArgs | inputs.verifiedpermissions.PolicyStoreSchemaDefinition1PropertiesArgs>;
     /**
      * The tags to add to the policy store
      */

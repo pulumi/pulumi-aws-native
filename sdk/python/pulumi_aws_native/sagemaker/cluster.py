@@ -25,44 +25,36 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
-                 instance_groups: pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]],
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
+                 instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]]] = None,
                  node_recovery: Optional[pulumi.Input['ClusterNodeRecovery']] = None,
                  orchestrator: Optional[pulumi.Input['ClusterOrchestratorArgs']] = None,
+                 restricted_instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRestrictedInstanceGroupArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]] instance_groups: The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
         :param pulumi.Input[builtins.str] cluster_name: The name of the HyperPod Cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]] instance_groups: The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
         :param pulumi.Input['ClusterNodeRecovery'] node_recovery: If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
         :param pulumi.Input['ClusterOrchestratorArgs'] orchestrator: The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
         :param pulumi.Input['ClusterVpcConfigArgs'] vpc_config: Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
         """
-        pulumi.set(__self__, "instance_groups", instance_groups)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
+        if instance_groups is not None:
+            pulumi.set(__self__, "instance_groups", instance_groups)
         if node_recovery is not None:
             pulumi.set(__self__, "node_recovery", node_recovery)
         if orchestrator is not None:
             pulumi.set(__self__, "orchestrator", orchestrator)
+        if restricted_instance_groups is not None:
+            pulumi.set(__self__, "restricted_instance_groups", restricted_instance_groups)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
-
-    @property
-    @pulumi.getter(name="instanceGroups")
-    def instance_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]]:
-        """
-        The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
-        """
-        return pulumi.get(self, "instance_groups")
-
-    @instance_groups.setter
-    def instance_groups(self, value: pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]]):
-        pulumi.set(self, "instance_groups", value)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -75,6 +67,18 @@ class ClusterArgs:
     @cluster_name.setter
     def cluster_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="instanceGroups")
+    def instance_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]]]:
+        """
+        The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
+        """
+        return pulumi.get(self, "instance_groups")
+
+    @instance_groups.setter
+    def instance_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]]]):
+        pulumi.set(self, "instance_groups", value)
 
     @property
     @pulumi.getter(name="nodeRecovery")
@@ -99,6 +103,15 @@ class ClusterArgs:
     @orchestrator.setter
     def orchestrator(self, value: Optional[pulumi.Input['ClusterOrchestratorArgs']]):
         pulumi.set(self, "orchestrator", value)
+
+    @property
+    @pulumi.getter(name="restrictedInstanceGroups")
+    def restricted_instance_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRestrictedInstanceGroupArgs']]]]:
+        return pulumi.get(self, "restricted_instance_groups")
+
+    @restricted_instance_groups.setter
+    def restricted_instance_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRestrictedInstanceGroupArgs']]]]):
+        pulumi.set(self, "restricted_instance_groups", value)
 
     @property
     @pulumi.getter
@@ -135,6 +148,7 @@ class Cluster(pulumi.CustomResource):
                  instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict']]]]] = None,
                  node_recovery: Optional[pulumi.Input['ClusterNodeRecovery']] = None,
                  orchestrator: Optional[pulumi.Input[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict']]] = None,
+                 restricted_instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterRestrictedInstanceGroupArgs', 'ClusterRestrictedInstanceGroupArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_config: Optional[pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
                  __props__=None):
@@ -154,7 +168,7 @@ class Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ClusterArgs,
+                 args: Optional[ClusterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::Cluster
@@ -178,6 +192,7 @@ class Cluster(pulumi.CustomResource):
                  instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict']]]]] = None,
                  node_recovery: Optional[pulumi.Input['ClusterNodeRecovery']] = None,
                  orchestrator: Optional[pulumi.Input[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict']]] = None,
+                 restricted_instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterRestrictedInstanceGroupArgs', 'ClusterRestrictedInstanceGroupArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_config: Optional[pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
                  __props__=None):
@@ -190,18 +205,17 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["cluster_name"] = cluster_name
-            if instance_groups is None and not opts.urn:
-                raise TypeError("Missing required property 'instance_groups'")
             __props__.__dict__["instance_groups"] = instance_groups
             __props__.__dict__["node_recovery"] = node_recovery
             __props__.__dict__["orchestrator"] = orchestrator
+            __props__.__dict__["restricted_instance_groups"] = restricted_instance_groups
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["cluster_arn"] = None
             __props__.__dict__["cluster_status"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["failure_message"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clusterName", "instanceGroups[*].executionRole", "instanceGroups[*].instanceGroupName", "instanceGroups[*].instanceType", "instanceGroups[*].overrideVpcConfig", "instanceGroups[*].threadsPerCore", "orchestrator", "vpcConfig"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clusterName", "instanceGroups[*].executionRole", "instanceGroups[*].instanceGroupName", "instanceGroups[*].instanceType", "instanceGroups[*].overrideVpcConfig", "instanceGroups[*].threadsPerCore", "orchestrator", "restrictedInstanceGroups[*].executionRole", "restrictedInstanceGroups[*].instanceGroupName", "restrictedInstanceGroups[*].instanceType", "restrictedInstanceGroups[*].overrideVpcConfig", "restrictedInstanceGroups[*].threadsPerCore", "vpcConfig"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
             'aws-native:sagemaker:Cluster',
@@ -233,6 +247,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["instance_groups"] = None
         __props__.__dict__["node_recovery"] = None
         __props__.__dict__["orchestrator"] = None
+        __props__.__dict__["restricted_instance_groups"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_config"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
@@ -279,7 +294,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceGroups")
-    def instance_groups(self) -> pulumi.Output[Sequence['outputs.ClusterInstanceGroup']]:
+    def instance_groups(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterInstanceGroup']]]:
         """
         The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
         """
@@ -300,6 +315,11 @@ class Cluster(pulumi.CustomResource):
         The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
         """
         return pulumi.get(self, "orchestrator")
+
+    @property
+    @pulumi.getter(name="restrictedInstanceGroups")
+    def restricted_instance_groups(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterRestrictedInstanceGroup']]]:
+        return pulumi.get(self, "restricted_instance_groups")
 
     @property
     @pulumi.getter

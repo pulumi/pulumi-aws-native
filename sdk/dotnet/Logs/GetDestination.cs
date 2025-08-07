@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public readonly string? RoleArn;
         /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
         /// </summary>
         public readonly string? TargetArn;
@@ -88,11 +92,14 @@ namespace Pulumi.AwsNative.Logs
 
             string? roleArn,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             string? targetArn)
         {
             Arn = arn;
             DestinationPolicy = destinationPolicy;
             RoleArn = roleArn;
+            Tags = tags;
             TargetArn = targetArn;
         }
     }

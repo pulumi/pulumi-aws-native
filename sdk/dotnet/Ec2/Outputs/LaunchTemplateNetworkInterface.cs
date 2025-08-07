@@ -44,6 +44,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         ///  If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
         /// </summary>
         public readonly int? DeviceIndex;
+        public readonly int? EnaQueueCount;
         /// <summary>
         /// The ENA Express configuration for the network interface.
         /// </summary>
@@ -126,6 +127,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             int? deviceIndex,
 
+            int? enaQueueCount,
+
             Outputs.LaunchTemplateEnaSrdSpecification? enaSrdSpecification,
 
             ImmutableArray<string> groups,
@@ -164,6 +167,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             DeleteOnTermination = deleteOnTermination;
             Description = description;
             DeviceIndex = deviceIndex;
+            EnaQueueCount = enaQueueCount;
             EnaSrdSpecification = enaSrdSpecification;
             Groups = groups;
             InterfaceType = interfaceType;

@@ -226,6 +226,9 @@ class VpcEndpointAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The unique ID of the firewall endpoint for the subnet that you attached to the firewall.For example: "vpce-111122223333"
+        """
         return pulumi.get(self, "endpoint_id")
 
     @property

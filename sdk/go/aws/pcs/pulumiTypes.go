@@ -31,6 +31,8 @@ type ClusterAuthKey struct {
 
 // An endpoint available for interaction with the scheduler.
 type ClusterEndpoint struct {
+	// The endpoint's IPv6 address.
+	Ipv6Address *string `pulumi:"ipv6Address"`
 	// The endpoint's connection port number.
 	Port string `pulumi:"port"`
 	// The endpoint's private IP address.
@@ -54,6 +56,11 @@ func (o ClusterEndpointOutput) ToClusterEndpointOutput() ClusterEndpointOutput {
 
 func (o ClusterEndpointOutput) ToClusterEndpointOutputWithContext(ctx context.Context) ClusterEndpointOutput {
 	return o
+}
+
+// The endpoint's IPv6 address.
+func (o ClusterEndpointOutput) Ipv6Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterEndpoint) *string { return v.Ipv6Address }).(pulumi.StringPtrOutput)
 }
 
 // The endpoint's connection port number.
@@ -529,6 +536,8 @@ func (o CustomLaunchTemplatePropertiesPtrOutput) Version() pulumi.StringPtrOutpu
 
 // The networking configuration for the cluster's control plane.
 type NetworkingProperties struct {
+	// The IP of the cluster (IPV4 or IPV6)
+	NetworkType *ClusterNetworkingPropertiesNetworkType `pulumi:"networkType"`
 	// The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The list of subnet IDs where AWS PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and AWS PCS resources. The subnet must have an available IP address, cannot reside in AWS Outposts, AWS Wavelength, or an AWS Local Zone. AWS PCS currently supports only 1 subnet in this list.
@@ -548,6 +557,8 @@ type NetworkingPropertiesInput interface {
 
 // The networking configuration for the cluster's control plane.
 type NetworkingPropertiesArgs struct {
+	// The IP of the cluster (IPV4 or IPV6)
+	NetworkType ClusterNetworkingPropertiesNetworkTypePtrInput `pulumi:"networkType"`
 	// The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// The list of subnet IDs where AWS PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and AWS PCS resources. The subnet must have an available IP address, cannot reside in AWS Outposts, AWS Wavelength, or an AWS Local Zone. AWS PCS currently supports only 1 subnet in this list.
@@ -579,6 +590,11 @@ func (o NetworkingPropertiesOutput) ToNetworkingPropertiesOutput() NetworkingPro
 
 func (o NetworkingPropertiesOutput) ToNetworkingPropertiesOutputWithContext(ctx context.Context) NetworkingPropertiesOutput {
 	return o
+}
+
+// The IP of the cluster (IPV4 or IPV6)
+func (o NetworkingPropertiesOutput) NetworkType() ClusterNetworkingPropertiesNetworkTypePtrOutput {
+	return o.ApplyT(func(v NetworkingProperties) *ClusterNetworkingPropertiesNetworkType { return v.NetworkType }).(ClusterNetworkingPropertiesNetworkTypePtrOutput)
 }
 
 // The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.

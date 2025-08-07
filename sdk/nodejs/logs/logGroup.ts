@@ -78,6 +78,10 @@ export class LogGroup extends pulumi.CustomResource {
      */
     public readonly logGroupName!: pulumi.Output<string | undefined>;
     /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
+     */
+    public readonly resourcePolicyDocument!: pulumi.Output<any | undefined>;
+    /**
      * The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.
      *  To set a log group so that its log events do not expire, use [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html).
      */
@@ -104,6 +108,7 @@ export class LogGroup extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["logGroupClass"] = args ? args.logGroupClass : undefined;
             resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
+            resourceInputs["resourcePolicyDocument"] = args ? args.resourcePolicyDocument : undefined;
             resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -114,6 +119,7 @@ export class LogGroup extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["logGroupClass"] = undefined /*out*/;
             resourceInputs["logGroupName"] = undefined /*out*/;
+            resourceInputs["resourcePolicyDocument"] = undefined /*out*/;
             resourceInputs["retentionInDays"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -160,6 +166,10 @@ export interface LogGroupArgs {
      * The name of the log group. If you don't specify a name, CFNlong generates a unique ID for the log group.
      */
     logGroupName?: pulumi.Input<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
+     */
+    resourcePolicyDocument?: any;
     /**
      * The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.
      *  To set a log group so that its log events do not expire, use [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html).

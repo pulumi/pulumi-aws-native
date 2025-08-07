@@ -62,6 +62,10 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
      */
     public readonly imageTagMutability!: pulumi.Output<enums.ecr.RepositoryCreationTemplateImageTagMutability | undefined>;
     /**
+     * Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.
+     */
+    public readonly imageTagMutabilityExclusionFilters!: pulumi.Output<outputs.ecr.RepositoryCreationTemplateImageTagMutabilityExclusionFilter[] | undefined>;
+    /**
      * The lifecycle policy to use for repositories created using the template.
      */
     public readonly lifecyclePolicy!: pulumi.Output<string | undefined>;
@@ -104,6 +108,7 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
+            resourceInputs["imageTagMutabilityExclusionFilters"] = args ? args.imageTagMutabilityExclusionFilters : undefined;
             resourceInputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
             resourceInputs["prefix"] = args ? args.prefix : undefined;
             resourceInputs["repositoryPolicy"] = args ? args.repositoryPolicy : undefined;
@@ -117,6 +122,7 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;
             resourceInputs["imageTagMutability"] = undefined /*out*/;
+            resourceInputs["imageTagMutabilityExclusionFilters"] = undefined /*out*/;
             resourceInputs["lifecyclePolicy"] = undefined /*out*/;
             resourceInputs["prefix"] = undefined /*out*/;
             resourceInputs["repositoryPolicy"] = undefined /*out*/;
@@ -154,6 +160,10 @@ export interface RepositoryCreationTemplateArgs {
      * The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
      */
     imageTagMutability?: pulumi.Input<enums.ecr.RepositoryCreationTemplateImageTagMutability>;
+    /**
+     * Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.
+     */
+    imageTagMutabilityExclusionFilters?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs>[]>;
     /**
      * The lifecycle policy to use for repositories created using the template.
      */

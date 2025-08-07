@@ -31,6 +31,8 @@ type Cluster struct {
 	ClusterSecurityGroupId pulumi.StringOutput `pulumi:"clusterSecurityGroupId"`
 	// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
 	ComputeConfig ClusterComputeConfigPtrOutput `pulumi:"computeConfig"`
+	// Set this value to true to enable deletion protection for the cluster.
+	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
 	// The encryption configuration for the cluster.
 	EncryptionConfig ClusterEncryptionConfigArrayOutput `pulumi:"encryptionConfig"`
 	// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
@@ -132,6 +134,8 @@ type clusterArgs struct {
 	BootstrapSelfManagedAddons *bool `pulumi:"bootstrapSelfManagedAddons"`
 	// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
 	ComputeConfig *ClusterComputeConfig `pulumi:"computeConfig"`
+	// Set this value to true to enable deletion protection for the cluster.
+	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// The encryption configuration for the cluster.
 	EncryptionConfig []ClusterEncryptionConfig `pulumi:"encryptionConfig"`
 	// Force cluster version update
@@ -172,6 +176,8 @@ type ClusterArgs struct {
 	BootstrapSelfManagedAddons pulumi.BoolPtrInput
 	// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
 	ComputeConfig ClusterComputeConfigPtrInput
+	// Set this value to true to enable deletion protection for the cluster.
+	DeletionProtection pulumi.BoolPtrInput
 	// The encryption configuration for the cluster.
 	EncryptionConfig ClusterEncryptionConfigArrayInput
 	// Force cluster version update
@@ -274,6 +280,11 @@ func (o ClusterOutput) ClusterSecurityGroupId() pulumi.StringOutput {
 // Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
 func (o ClusterOutput) ComputeConfig() ClusterComputeConfigPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterComputeConfigPtrOutput { return v.ComputeConfig }).(ClusterComputeConfigPtrOutput)
+}
+
+// Set this value to true to enable deletion protection for the cluster.
+func (o ClusterOutput) DeletionProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
 }
 
 // The encryption configuration for the cluster.

@@ -87,6 +87,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
     [OutputType]
     public sealed class GetOriginEndpointPolicyResult
     {
+        /// <summary>
+        /// The settings to enable CDN authorization headers in MediaPackage.
+        /// </summary>
         public readonly Outputs.OriginEndpointPolicyCdnAuthConfiguration? CdnAuthConfiguration;
         /// <summary>
         /// The policy associated with the origin endpoint.

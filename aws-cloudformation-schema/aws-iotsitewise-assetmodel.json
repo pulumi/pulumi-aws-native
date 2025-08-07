@@ -346,6 +346,45 @@
         }
       }
     },
+    "EnforcedAssetModelInterfacePropertyMapping" : {
+      "description" : "Contains information about enforced interface property and asset model property",
+      "type" : "object",
+      "additionalProperties" : false,
+      "required" : [ "InterfaceAssetModelPropertyExternalId" ],
+      "properties" : {
+        "AssetModelPropertyExternalId" : {
+          "description" : "The external ID of the enforced asset model property",
+          "type" : "string"
+        },
+        "AssetModelPropertyLogicalId" : {
+          "description" : "The logical ID of the enforced asset model property",
+          "type" : "string"
+        },
+        "InterfaceAssetModelPropertyExternalId" : {
+          "description" : "The external ID of the enforced interface property",
+          "type" : "string"
+        }
+      }
+    },
+    "EnforcedAssetModelInterfaceRelationship" : {
+      "description" : "Contains information about enforced interface hierarchy and asset model hierarchy",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "InterfaceAssetModelId" : {
+          "description" : "The ID of the interface that is enforced to the asset model",
+          "type" : "string"
+        },
+        "PropertyMappings" : {
+          "description" : "Contains information about enforced interface property and asset model property",
+          "type" : "array",
+          "insertionOrder" : true,
+          "items" : {
+            "$ref" : "#/definitions/EnforcedAssetModelInterfacePropertyMapping"
+          }
+        }
+      }
+    },
     "Tag" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -369,7 +408,7 @@
       "pattern" : "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
     },
     "AssetModelType" : {
-      "description" : "The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)",
+      "description" : "The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL or INTERFACE)",
       "type" : "string"
     },
     "AssetModelExternalId" : {
@@ -415,6 +454,14 @@
         "$ref" : "#/definitions/AssetModelHierarchy"
       }
     },
+    "EnforcedAssetModelInterfaceRelationships" : {
+      "description" : "a list of asset model and interface relationships",
+      "type" : "array",
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/EnforcedAssetModelInterfaceRelationship"
+      }
+    },
     "Tags" : {
       "description" : "A list of key-value pairs that contain metadata for the asset model.",
       "type" : "array",
@@ -440,13 +487,13 @@
   "primaryIdentifier" : [ "/properties/AssetModelId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotsitewise:CreateAssetModel", "iotsitewise:ListTagsForResource", "iotsitewise:TagResource", "iotsitewise:DescribeAssetModel", "iotsitewise:UpdateAssetModel", "iotsitewise:ListAssetModelProperties", "iotsitewise:ListAssetModelCompositeModels", "iotsitewise:UpdateAssetModelCompositeModel", "iotsitewise:DescribeAssetModelCompositeModel", "iotsitewise:CreateAssetModelCompositeModel" ]
+      "permissions" : [ "iotsitewise:CreateAssetModel", "iotsitewise:ListTagsForResource", "iotsitewise:TagResource", "iotsitewise:DescribeAssetModel", "iotsitewise:UpdateAssetModel", "iotsitewise:ListAssetModelProperties", "iotsitewise:ListAssetModelCompositeModels", "iotsitewise:UpdateAssetModelCompositeModel", "iotsitewise:DescribeAssetModelCompositeModel", "iotsitewise:CreateAssetModelCompositeModel", "iotsitewise:PutAssetModelInterfaceRelationship", "iotsitewise:DescribeAssetModelInterfaceRelationship" ]
     },
     "read" : {
-      "permissions" : [ "iotsitewise:DescribeAssetModel", "iotsitewise:ListAssetModelProperties", "iotsitewise:DescribeAssetModelCompositeModel", "iotsitewise:ListAssetModelCompositeModels", "iotsitewise:ListTagsForResource" ]
+      "permissions" : [ "iotsitewise:DescribeAssetModel", "iotsitewise:ListAssetModelProperties", "iotsitewise:DescribeAssetModelCompositeModel", "iotsitewise:ListAssetModelCompositeModels", "iotsitewise:ListTagsForResource", "iotsitewise:DescribeAssetModelInterfaceRelationship" ]
     },
     "update" : {
-      "permissions" : [ "iotsitewise:DescribeAssetModel", "iotsitewise:ListTagsForResource", "iotsitewise:TagResource", "iotsitewise:UntagResource", "iotsitewise:ListAssetModelProperties", "iotsitewise:ListAssetModelCompositeModels", "iotsitewise:CreateAssetModelCompositeModel", "iotsitewise:UpdateAssetModelCompositeModel", "iotsitewise:DeleteAssetModelCompositeModel", "iotsitewise:DescribeAssetModelCompositeModel", "iotsitewise:UpdateAssetModel" ]
+      "permissions" : [ "iotsitewise:DescribeAssetModel", "iotsitewise:ListTagsForResource", "iotsitewise:TagResource", "iotsitewise:UntagResource", "iotsitewise:ListAssetModelProperties", "iotsitewise:ListAssetModelCompositeModels", "iotsitewise:CreateAssetModelCompositeModel", "iotsitewise:UpdateAssetModelCompositeModel", "iotsitewise:DeleteAssetModelCompositeModel", "iotsitewise:DescribeAssetModelCompositeModel", "iotsitewise:UpdateAssetModel", "iotsitewise:PutAssetModelInterfaceRelationship", "iotsitewise:DeleteAssetModelInterfaceRelationship", "iotsitewise:DescribeAssetModelInterfaceRelationship" ]
     },
     "delete" : {
       "permissions" : [ "iotsitewise:DescribeAssetModel", "iotsitewise:DeleteAssetModel", "iotsitewise:ListAssetModelProperties", "iotsitewise:ListAssetModelCompositeModels" ]

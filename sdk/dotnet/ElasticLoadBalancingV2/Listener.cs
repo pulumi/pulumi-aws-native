@@ -23,6 +23,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
         /// <summary>
         /// The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+        ///  For an HTTPS listener, update requires some interruptions. For a TLS listener, update requires no interruption.
         ///  To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
         /// </summary>
         [Output("certificates")]
@@ -42,7 +43,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public Output<string> ListenerArn { get; private set; } = null!;
 
         /// <summary>
-        /// The listener attributes.
+        /// The listener attributes. Attributes that you do not modify retain their current values.
         /// </summary>
         [Output("listenerAttributes")]
         public Output<ImmutableArray<Outputs.ListenerAttribute>> ListenerAttributes { get; private set; } = null!;
@@ -73,7 +74,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
         /// <summary>
         /// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.
-        ///  Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
+        ///  [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
         /// </summary>
         [Output("sslPolicy")]
         public Output<string?> SslPolicy { get; private set; } = null!;
@@ -144,6 +145,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
         /// <summary>
         /// The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+        ///  For an HTTPS listener, update requires some interruptions. For a TLS listener, update requires no interruption.
         ///  To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
         /// </summary>
         public InputList<Inputs.ListenerCertificateArgs> Certificates
@@ -169,7 +171,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         private InputList<Inputs.ListenerAttributeArgs>? _listenerAttributes;
 
         /// <summary>
-        /// The listener attributes.
+        /// The listener attributes. Attributes that you do not modify retain their current values.
         /// </summary>
         public InputList<Inputs.ListenerAttributeArgs> ListenerAttributes
         {
@@ -203,7 +205,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
         /// <summary>
         /// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.
-        ///  Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
+        ///  [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
         /// </summary>
         [Input("sslPolicy")]
         public Input<string>? SslPolicy { get; set; }

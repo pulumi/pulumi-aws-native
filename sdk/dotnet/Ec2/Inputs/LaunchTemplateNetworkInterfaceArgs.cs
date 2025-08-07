@@ -55,6 +55,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("deviceIndex")]
         public Input<int>? DeviceIndex { get; set; }
 
+        [Input("enaQueueCount")]
+        public Input<int>? EnaQueueCount { get; set; }
+
         /// <summary>
         /// The ENA Express configuration for the network interface.
         /// </summary>

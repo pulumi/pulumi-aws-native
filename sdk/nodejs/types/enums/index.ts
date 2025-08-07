@@ -12,6 +12,7 @@ import * as applicationinsights from "./applicationinsights";
 import * as applicationsignals from "./applicationsignals";
 import * as apprunner from "./apprunner";
 import * as appsync from "./appsync";
+import * as arcregionswitch from "./arcregionswitch";
 import * as arczonalshift from "./arczonalshift";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
@@ -193,6 +194,7 @@ export {
     applicationsignals,
     apprunner,
     appsync,
+    arcregionswitch,
     arczonalshift,
     athena,
     auditmanager,

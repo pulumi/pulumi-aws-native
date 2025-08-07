@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,6 +35,8 @@ type LookupDestinationResult struct {
 	DestinationPolicy *string `pulumi:"destinationPolicy"`
 	// The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
 	RoleArn *string `pulumi:"roleArn"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
 	TargetArn *string `pulumi:"targetArn"`
 }
@@ -83,6 +86,11 @@ func (o LookupDestinationResultOutput) DestinationPolicy() pulumi.StringPtrOutpu
 // The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
 func (o LookupDestinationResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDestinationResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupDestinationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDestinationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)

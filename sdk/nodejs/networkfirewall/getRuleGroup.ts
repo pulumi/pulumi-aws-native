@@ -19,7 +19,7 @@ export function getRuleGroup(args: GetRuleGroupArgs, opts?: pulumi.InvokeOptions
 
 export interface GetRuleGroupArgs {
     /**
-     * The Amazon Resource Name (ARN) of the `RuleGroup` .
+     * The Amazon Resource Name (ARN) of the rule group.
      */
     ruleGroupArn: string;
 }
@@ -34,13 +34,20 @@ export interface GetRuleGroupResult {
      */
     readonly ruleGroup?: outputs.networkfirewall.RuleGroup;
     /**
-     * The Amazon Resource Name (ARN) of the `RuleGroup` .
+     * The Amazon Resource Name (ARN) of the rule group.
      */
     readonly ruleGroupArn?: string;
     /**
-     * The unique ID of the `RuleGroup` resource.
+     * The unique ID of the rule group resource.
      */
     readonly ruleGroupId?: string;
+    /**
+     * A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+     *
+     * - The `RuleOptions` specified in `SummaryConfiguration`
+     * - Rule metadata organization preferences
+     */
+    readonly summaryConfiguration?: outputs.networkfirewall.SummaryConfigurationProperties;
     /**
      * An array of key-value pairs to apply to this resource.
      *
@@ -60,7 +67,7 @@ export function getRuleGroupOutput(args: GetRuleGroupOutputArgs, opts?: pulumi.I
 
 export interface GetRuleGroupOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the `RuleGroup` .
+     * The Amazon Resource Name (ARN) of the rule group.
      */
     ruleGroupArn: pulumi.Input<string>;
 }

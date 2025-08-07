@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
     {
         [Input("cdnIdentifierSecretArns", required: true)]
         private InputList<string>? _cdnIdentifierSecretArns;
+
+        /// <summary>
+        /// The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
+        /// </summary>
         public InputList<string> CdnIdentifierSecretArns
         {
             get => _cdnIdentifierSecretArns ?? (_cdnIdentifierSecretArns = new InputList<string>());
             set => _cdnIdentifierSecretArns = value;
         }
 
+        /// <summary>
+        /// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+        /// </summary>
         [Input("secretsRoleArn", required: true)]
         public Input<string> SecretsRoleArn { get; set; } = null!;
 

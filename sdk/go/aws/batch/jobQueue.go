@@ -24,12 +24,16 @@ type JobQueue struct {
 	JobQueueArn pulumi.StringOutput `pulumi:"jobQueueArn"`
 	// The name of the job queue. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	JobQueueName pulumi.StringPtrOutput `pulumi:"jobQueueName"`
+	// The type of job queue. For service jobs that run on SageMaker AI , this value is `SAGEMAKER_TRAINING` . For regular container jobs, this value is `EKS` , `ECS` , or `ECS_FARGATE` depending on the compute environment.
+	JobQueueType pulumi.StringPtrOutput `pulumi:"jobQueueType"`
 	// The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. AWS Batch will perform each action after `maxTimeSeconds` has passed.
 	JobStateTimeLimitActions JobQueueJobStateTimeLimitActionArrayOutput `pulumi:"jobStateTimeLimitActions"`
 	// The priority of the job queue. Job queues with a higher priority (or a higher integer value for the `priority` parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order. For example, a job queue with a priority value of `10` is given scheduling preference over a job queue with a priority value of `1` . All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// The Amazon Resource Name (ARN) of the scheduling policy. The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
 	SchedulingPolicyArn pulumi.StringPtrOutput `pulumi:"schedulingPolicyArn"`
+	// The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.
+	ServiceEnvironmentOrder JobQueueServiceEnvironmentOrderArrayOutput `pulumi:"serviceEnvironmentOrder"`
 	// The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
 	State JobQueueStateEnumPtrOutput `pulumi:"state"`
 	// A key-value pair to associate with a resource.
@@ -43,14 +47,12 @@ func NewJobQueue(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ComputeEnvironmentOrder == nil {
-		return nil, errors.New("invalid value for required argument 'ComputeEnvironmentOrder'")
-	}
 	if args.Priority == nil {
 		return nil, errors.New("invalid value for required argument 'Priority'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"jobQueueName",
+		"jobQueueType",
 		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -93,12 +95,16 @@ type jobQueueArgs struct {
 	ComputeEnvironmentOrder []JobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrder"`
 	// The name of the job queue. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	JobQueueName *string `pulumi:"jobQueueName"`
+	// The type of job queue. For service jobs that run on SageMaker AI , this value is `SAGEMAKER_TRAINING` . For regular container jobs, this value is `EKS` , `ECS` , or `ECS_FARGATE` depending on the compute environment.
+	JobQueueType *string `pulumi:"jobQueueType"`
 	// The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. AWS Batch will perform each action after `maxTimeSeconds` has passed.
 	JobStateTimeLimitActions []JobQueueJobStateTimeLimitAction `pulumi:"jobStateTimeLimitActions"`
 	// The priority of the job queue. Job queues with a higher priority (or a higher integer value for the `priority` parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order. For example, a job queue with a priority value of `10` is given scheduling preference over a job queue with a priority value of `1` . All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
 	Priority int `pulumi:"priority"`
 	// The Amazon Resource Name (ARN) of the scheduling policy. The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
 	SchedulingPolicyArn *string `pulumi:"schedulingPolicyArn"`
+	// The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.
+	ServiceEnvironmentOrder []JobQueueServiceEnvironmentOrder `pulumi:"serviceEnvironmentOrder"`
 	// The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
 	State *JobQueueStateEnum `pulumi:"state"`
 	// A key-value pair to associate with a resource.
@@ -113,12 +119,16 @@ type JobQueueArgs struct {
 	ComputeEnvironmentOrder JobQueueComputeEnvironmentOrderArrayInput
 	// The name of the job queue. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	JobQueueName pulumi.StringPtrInput
+	// The type of job queue. For service jobs that run on SageMaker AI , this value is `SAGEMAKER_TRAINING` . For regular container jobs, this value is `EKS` , `ECS` , or `ECS_FARGATE` depending on the compute environment.
+	JobQueueType pulumi.StringPtrInput
 	// The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. AWS Batch will perform each action after `maxTimeSeconds` has passed.
 	JobStateTimeLimitActions JobQueueJobStateTimeLimitActionArrayInput
 	// The priority of the job queue. Job queues with a higher priority (or a higher integer value for the `priority` parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order. For example, a job queue with a priority value of `10` is given scheduling preference over a job queue with a priority value of `1` . All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
 	Priority pulumi.IntInput
 	// The Amazon Resource Name (ARN) of the scheduling policy. The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
 	SchedulingPolicyArn pulumi.StringPtrInput
+	// The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.
+	ServiceEnvironmentOrder JobQueueServiceEnvironmentOrderArrayInput
 	// The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
 	State JobQueueStateEnumPtrInput
 	// A key-value pair to associate with a resource.
@@ -179,6 +189,11 @@ func (o JobQueueOutput) JobQueueName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringPtrOutput { return v.JobQueueName }).(pulumi.StringPtrOutput)
 }
 
+// The type of job queue. For service jobs that run on SageMaker AI , this value is `SAGEMAKER_TRAINING` . For regular container jobs, this value is `EKS` , `ECS` , or `ECS_FARGATE` depending on the compute environment.
+func (o JobQueueOutput) JobQueueType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobQueue) pulumi.StringPtrOutput { return v.JobQueueType }).(pulumi.StringPtrOutput)
+}
+
 // The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. AWS Batch will perform each action after `maxTimeSeconds` has passed.
 func (o JobQueueOutput) JobStateTimeLimitActions() JobQueueJobStateTimeLimitActionArrayOutput {
 	return o.ApplyT(func(v *JobQueue) JobQueueJobStateTimeLimitActionArrayOutput { return v.JobStateTimeLimitActions }).(JobQueueJobStateTimeLimitActionArrayOutput)
@@ -192,6 +207,11 @@ func (o JobQueueOutput) Priority() pulumi.IntOutput {
 // The Amazon Resource Name (ARN) of the scheduling policy. The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
 func (o JobQueueOutput) SchedulingPolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringPtrOutput { return v.SchedulingPolicyArn }).(pulumi.StringPtrOutput)
+}
+
+// The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.
+func (o JobQueueOutput) ServiceEnvironmentOrder() JobQueueServiceEnvironmentOrderArrayOutput {
+	return o.ApplyT(func(v *JobQueue) JobQueueServiceEnvironmentOrderArrayOutput { return v.ServiceEnvironmentOrder }).(JobQueueServiceEnvironmentOrderArrayOutput)
 }
 
 // The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.

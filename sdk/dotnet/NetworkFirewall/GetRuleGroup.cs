@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
     public sealed class GetRuleGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the `RuleGroup` .
+        /// The Amazon Resource Name (ARN) of the rule group.
         /// </summary>
         [Input("ruleGroupArn", required: true)]
         public string RuleGroupArn { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
     public sealed class GetRuleGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the `RuleGroup` .
+        /// The Amazon Resource Name (ARN) of the rule group.
         /// </summary>
         [Input("ruleGroupArn", required: true)]
         public Input<string> RuleGroupArn { get; set; } = null!;
@@ -72,13 +72,20 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// </summary>
         public readonly Outputs.RuleGroup? RuleGroupValue;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the `RuleGroup` .
+        /// The Amazon Resource Name (ARN) of the rule group.
         /// </summary>
         public readonly string? RuleGroupArn;
         /// <summary>
-        /// The unique ID of the `RuleGroup` resource.
+        /// The unique ID of the rule group resource.
         /// </summary>
         public readonly string? RuleGroupId;
+        /// <summary>
+        /// A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+        /// 
+        /// - The `RuleOptions` specified in `SummaryConfiguration`
+        /// - Rule metadata organization preferences
+        /// </summary>
+        public readonly Outputs.SummaryConfigurationProperties? SummaryConfiguration;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// 
@@ -96,12 +103,15 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
             string? ruleGroupId,
 
+            Outputs.SummaryConfigurationProperties? summaryConfiguration,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             RuleGroupValue = ruleGroup;
             RuleGroupArn = ruleGroupArn;
             RuleGroupId = ruleGroupId;
+            SummaryConfiguration = summaryConfiguration;
             Tags = tags;
         }
     }

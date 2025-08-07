@@ -45,6 +45,8 @@ type LookupAssetModelResult struct {
 	AssetModelName *string `pulumi:"assetModelName"`
 	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
 	AssetModelProperties []AssetModelProperty `pulumi:"assetModelProperties"`
+	// a list of asset model and interface relationships
+	EnforcedAssetModelInterfaceRelationships []AssetModelEnforcedAssetModelInterfaceRelationship `pulumi:"enforcedAssetModelInterfaceRelationships"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -119,6 +121,13 @@ func (o LookupAssetModelResultOutput) AssetModelName() pulumi.StringPtrOutput {
 // The property definitions of the asset model. You can specify up to 200 properties per asset model.
 func (o LookupAssetModelResultOutput) AssetModelProperties() AssetModelPropertyArrayOutput {
 	return o.ApplyT(func(v LookupAssetModelResult) []AssetModelProperty { return v.AssetModelProperties }).(AssetModelPropertyArrayOutput)
+}
+
+// a list of asset model and interface relationships
+func (o LookupAssetModelResultOutput) EnforcedAssetModelInterfaceRelationships() AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput {
+	return o.ApplyT(func(v LookupAssetModelResult) []AssetModelEnforcedAssetModelInterfaceRelationship {
+		return v.EnforcedAssetModelInterfaceRelationships
+	}).(AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput)
 }
 
 // A list of key-value pairs that contain metadata for the asset model.

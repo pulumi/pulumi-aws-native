@@ -31,6 +31,7 @@ type LookupListenerResult struct {
 	// [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
 	AlpnPolicy []string `pulumi:"alpnPolicy"`
 	// The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+	//  For an HTTPS listener, update requires some interruptions. For a TLS listener, update requires no interruption.
 	//  To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
 	Certificates []ListenerCertificate `pulumi:"certificates"`
 	// The actions for the default rule. You cannot define a condition for a default rule.
@@ -38,7 +39,7 @@ type LookupListenerResult struct {
 	DefaultActions []ListenerAction `pulumi:"defaultActions"`
 	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn *string `pulumi:"listenerArn"`
-	// The listener attributes.
+	// The listener attributes. Attributes that you do not modify retain their current values.
 	ListenerAttributes []ListenerAttribute `pulumi:"listenerAttributes"`
 	// The mutual authentication configuration information.
 	MutualAuthentication *ListenerMutualAuthentication `pulumi:"mutualAuthentication"`
@@ -47,7 +48,7 @@ type LookupListenerResult struct {
 	// The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
 	Protocol *string `pulumi:"protocol"`
 	// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.
-	//  Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
+	//  [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
 	SslPolicy *string `pulumi:"sslPolicy"`
 }
 
@@ -90,6 +91,7 @@ func (o LookupListenerResultOutput) AlpnPolicy() pulumi.StringArrayOutput {
 
 // The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
 //
+//	For an HTTPS listener, update requires some interruptions. For a TLS listener, update requires no interruption.
 //	To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
 func (o LookupListenerResultOutput) Certificates() ListenerCertificateArrayOutput {
 	return o.ApplyT(func(v LookupListenerResult) []ListenerCertificate { return v.Certificates }).(ListenerCertificateArrayOutput)
@@ -107,7 +109,7 @@ func (o LookupListenerResultOutput) ListenerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *string { return v.ListenerArn }).(pulumi.StringPtrOutput)
 }
 
-// The listener attributes.
+// The listener attributes. Attributes that you do not modify retain their current values.
 func (o LookupListenerResultOutput) ListenerAttributes() ListenerAttributeArrayOutput {
 	return o.ApplyT(func(v LookupListenerResult) []ListenerAttribute { return v.ListenerAttributes }).(ListenerAttributeArrayOutput)
 }
@@ -129,7 +131,7 @@ func (o LookupListenerResultOutput) Protocol() pulumi.StringPtrOutput {
 
 // [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.
 //
-//	Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
+//	[HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
 func (o LookupListenerResultOutput) SslPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *string { return v.SslPolicy }).(pulumi.StringPtrOutput)
 }

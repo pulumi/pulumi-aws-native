@@ -48,6 +48,10 @@ export interface GetJobQueueResult {
      */
     readonly schedulingPolicyArn?: string;
     /**
+     * The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.
+     */
+    readonly serviceEnvironmentOrder?: outputs.batch.JobQueueServiceEnvironmentOrder[];
+    /**
      * The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
      */
     readonly state?: enums.batch.JobQueueState;

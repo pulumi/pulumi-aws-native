@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.EntityResolution
         /// </summary>
         public readonly ImmutableArray<Outputs.IdMappingWorkflowInputSource> InputSourceConfig;
         /// <summary>
-        /// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+        /// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `outputS3Path` and `KMSArn` .
         /// </summary>
         public readonly ImmutableArray<Outputs.IdMappingWorkflowOutputSource> OutputSourceConfig;
         /// <summary>

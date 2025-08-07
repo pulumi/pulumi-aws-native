@@ -21,9 +21,9 @@ type FirewallPolicy struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
 	FirewallPolicy FirewallPolicyTypeOutput `pulumi:"firewallPolicy"`
-	// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+	// The Amazon Resource Name (ARN) of the firewall policy.
 	FirewallPolicyArn pulumi.StringOutput `pulumi:"firewallPolicyArn"`
-	// The unique ID of the `FirewallPolicy` resource.
+	// The unique ID of the firewall policy resource.
 	FirewallPolicyId pulumi.StringOutput `pulumi:"firewallPolicyId"`
 	// The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
 	FirewallPolicyName pulumi.StringOutput `pulumi:"firewallPolicyName"`
@@ -153,12 +153,12 @@ func (o FirewallPolicyOutput) FirewallPolicy() FirewallPolicyTypeOutput {
 	return o.ApplyT(func(v *FirewallPolicy) FirewallPolicyTypeOutput { return v.FirewallPolicy }).(FirewallPolicyTypeOutput)
 }
 
-// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+// The Amazon Resource Name (ARN) of the firewall policy.
 func (o FirewallPolicyOutput) FirewallPolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.FirewallPolicyArn }).(pulumi.StringOutput)
 }
 
-// The unique ID of the `FirewallPolicy` resource.
+// The unique ID of the firewall policy resource.
 func (o FirewallPolicyOutput) FirewallPolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.FirewallPolicyId }).(pulumi.StringOutput)
 }

@@ -47,6 +47,7 @@ export interface GetAccessPointResult {
      * For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
      */
     readonly scope?: outputs.s3express.AccessPointScope;
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::S3Express::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.

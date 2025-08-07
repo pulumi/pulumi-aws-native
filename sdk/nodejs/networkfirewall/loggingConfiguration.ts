@@ -39,7 +39,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
 
     public readonly enableMonitoringDashboard!: pulumi.Output<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+     * The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
      */
     public readonly firewallArn!: pulumi.Output<string>;
     /**
@@ -47,7 +47,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
      */
     public readonly firewallName!: pulumi.Output<string | undefined>;
     /**
-     * Defines how AWS Network Firewall performs logging for a `Firewall` .
+     * Defines how AWS Network Firewall performs logging for a firewall.
      */
     public readonly loggingConfiguration!: pulumi.Output<outputs.networkfirewall.LoggingConfiguration>;
 
@@ -91,7 +91,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
 export interface LoggingConfigurationArgs {
     enableMonitoringDashboard?: pulumi.Input<boolean>;
     /**
-     * The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+     * The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
      */
     firewallArn: pulumi.Input<string>;
     /**
@@ -99,7 +99,7 @@ export interface LoggingConfigurationArgs {
      */
     firewallName?: pulumi.Input<string>;
     /**
-     * Defines how AWS Network Firewall performs logging for a `Firewall` .
+     * Defines how AWS Network Firewall performs logging for a firewall.
      */
     loggingConfiguration: pulumi.Input<inputs.networkfirewall.LoggingConfigurationArgs>;
 }

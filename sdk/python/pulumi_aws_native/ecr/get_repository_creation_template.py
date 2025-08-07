@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRepositoryCreationTemplateResult:
-    def __init__(__self__, applied_for=None, created_at=None, custom_role_arn=None, description=None, encryption_configuration=None, image_tag_mutability=None, lifecycle_policy=None, repository_policy=None, resource_tags=None, updated_at=None):
+    def __init__(__self__, applied_for=None, created_at=None, custom_role_arn=None, description=None, encryption_configuration=None, image_tag_mutability=None, image_tag_mutability_exclusion_filters=None, lifecycle_policy=None, repository_policy=None, resource_tags=None, updated_at=None):
         if applied_for and not isinstance(applied_for, list):
             raise TypeError("Expected argument 'applied_for' to be a list")
         pulumi.set(__self__, "applied_for", applied_for)
@@ -45,6 +45,9 @@ class GetRepositoryCreationTemplateResult:
         if image_tag_mutability and not isinstance(image_tag_mutability, str):
             raise TypeError("Expected argument 'image_tag_mutability' to be a str")
         pulumi.set(__self__, "image_tag_mutability", image_tag_mutability)
+        if image_tag_mutability_exclusion_filters and not isinstance(image_tag_mutability_exclusion_filters, list):
+            raise TypeError("Expected argument 'image_tag_mutability_exclusion_filters' to be a list")
+        pulumi.set(__self__, "image_tag_mutability_exclusion_filters", image_tag_mutability_exclusion_filters)
         if lifecycle_policy and not isinstance(lifecycle_policy, str):
             raise TypeError("Expected argument 'lifecycle_policy' to be a str")
         pulumi.set(__self__, "lifecycle_policy", lifecycle_policy)
@@ -107,6 +110,14 @@ class GetRepositoryCreationTemplateResult:
         return pulumi.get(self, "image_tag_mutability")
 
     @property
+    @pulumi.getter(name="imageTagMutabilityExclusionFilters")
+    def image_tag_mutability_exclusion_filters(self) -> Optional[Sequence['outputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilter']]:
+        """
+        Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.
+        """
+        return pulumi.get(self, "image_tag_mutability_exclusion_filters")
+
+    @property
     @pulumi.getter(name="lifecyclePolicy")
     def lifecycle_policy(self) -> Optional[builtins.str]:
         """
@@ -151,6 +162,7 @@ class AwaitableGetRepositoryCreationTemplateResult(GetRepositoryCreationTemplate
             description=self.description,
             encryption_configuration=self.encryption_configuration,
             image_tag_mutability=self.image_tag_mutability,
+            image_tag_mutability_exclusion_filters=self.image_tag_mutability_exclusion_filters,
             lifecycle_policy=self.lifecycle_policy,
             repository_policy=self.repository_policy,
             resource_tags=self.resource_tags,
@@ -177,6 +189,7 @@ def get_repository_creation_template(prefix: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         encryption_configuration=pulumi.get(__ret__, 'encryption_configuration'),
         image_tag_mutability=pulumi.get(__ret__, 'image_tag_mutability'),
+        image_tag_mutability_exclusion_filters=pulumi.get(__ret__, 'image_tag_mutability_exclusion_filters'),
         lifecycle_policy=pulumi.get(__ret__, 'lifecycle_policy'),
         repository_policy=pulumi.get(__ret__, 'repository_policy'),
         resource_tags=pulumi.get(__ret__, 'resource_tags'),
@@ -200,6 +213,7 @@ def get_repository_creation_template_output(prefix: Optional[pulumi.Input[builti
         description=pulumi.get(__response__, 'description'),
         encryption_configuration=pulumi.get(__response__, 'encryption_configuration'),
         image_tag_mutability=pulumi.get(__response__, 'image_tag_mutability'),
+        image_tag_mutability_exclusion_filters=pulumi.get(__response__, 'image_tag_mutability_exclusion_filters'),
         lifecycle_policy=pulumi.get(__response__, 'lifecycle_policy'),
         repository_policy=pulumi.get(__response__, 'repository_policy'),
         resource_tags=pulumi.get(__response__, 'resource_tags'),

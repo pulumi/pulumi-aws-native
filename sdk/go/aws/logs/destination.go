@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,6 +25,8 @@ type Destination struct {
 	DestinationPolicy pulumi.StringPtrOutput `pulumi:"destinationPolicy"`
 	// The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 }
@@ -84,6 +87,8 @@ type destinationArgs struct {
 	DestinationPolicy *string `pulumi:"destinationPolicy"`
 	// The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
 	RoleArn string `pulumi:"roleArn"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
 	TargetArn string `pulumi:"targetArn"`
 }
@@ -96,6 +101,8 @@ type DestinationArgs struct {
 	DestinationPolicy pulumi.StringPtrInput
 	// The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
 	RoleArn pulumi.StringInput
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayInput
 	// The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
 	TargetArn pulumi.StringInput
 }
@@ -155,6 +162,11 @@ func (o DestinationOutput) DestinationPolicy() pulumi.StringPtrOutput {
 // The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
 func (o DestinationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Destination) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o DestinationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Destination) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)

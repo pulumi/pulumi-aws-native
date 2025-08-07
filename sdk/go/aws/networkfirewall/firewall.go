@@ -17,6 +17,10 @@ import (
 type Firewall struct {
 	pulumi.CustomResourceState
 
+	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `TRUE` , you must first disable this protection before adding or removing Availability Zones.
+	AvailabilityZoneChangeProtection pulumi.BoolPtrOutput `pulumi:"availabilityZoneChangeProtection"`
+	// The Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall. Each mapping specifies an Availability Zone where the firewall processes traffic.
+	AvailabilityZoneMappings FirewallAvailabilityZoneMappingArrayOutput `pulumi:"availabilityZoneMappings"`
 	// A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// A description of the firewall.
@@ -25,9 +29,9 @@ type Firewall struct {
 	EnabledAnalysisTypes FirewallEnabledAnalysisTypeArrayOutput `pulumi:"enabledAnalysisTypes"`
 	// The unique IDs of the firewall endpoints for all of the subnets that you attached to the firewall. The subnets are not listed in any particular order. For example: `["us-west-2c:vpce-111122223333", "us-west-2a:vpce-987654321098", "us-west-2b:vpce-012345678901"]` .
 	EndpointIds pulumi.StringArrayOutput `pulumi:"endpointIds"`
-	// The Amazon Resource Name (ARN) of the `Firewall` .
+	// The Amazon Resource Name (ARN) of the firewall.
 	FirewallArn pulumi.StringOutput `pulumi:"firewallArn"`
-	// The name of the `Firewall` resource.
+	// The name of the firewallresource.
 	FirewallId pulumi.StringOutput `pulumi:"firewallId"`
 	// The descriptive name of the firewall. You can't change the name of a firewall after you create it.
 	FirewallName pulumi.StringOutput `pulumi:"firewallName"`
@@ -49,8 +53,10 @@ type Firewall struct {
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
+	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
 	// The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewFirewall registers a new resource with the given unique name, arguments, and options.
@@ -62,12 +68,6 @@ func NewFirewall(ctx *pulumi.Context,
 
 	if args.FirewallPolicyArn == nil {
 		return nil, errors.New("invalid value for required argument 'FirewallPolicyArn'")
-	}
-	if args.SubnetMappings == nil {
-		return nil, errors.New("invalid value for required argument 'SubnetMappings'")
-	}
-	if args.VpcId == nil {
-		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"firewallName",
@@ -107,6 +107,10 @@ func (FirewallState) ElementType() reflect.Type {
 }
 
 type firewallArgs struct {
+	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `TRUE` , you must first disable this protection before adding or removing Availability Zones.
+	AvailabilityZoneChangeProtection *bool `pulumi:"availabilityZoneChangeProtection"`
+	// The Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall. Each mapping specifies an Availability Zone where the firewall processes traffic.
+	AvailabilityZoneMappings []FirewallAvailabilityZoneMapping `pulumi:"availabilityZoneMappings"`
 	// A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// A description of the firewall.
@@ -133,12 +137,18 @@ type firewallArgs struct {
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
+	// The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
+	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
-	VpcId string `pulumi:"vpcId"`
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a Firewall resource.
 type FirewallArgs struct {
+	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `TRUE` , you must first disable this protection before adding or removing Availability Zones.
+	AvailabilityZoneChangeProtection pulumi.BoolPtrInput
+	// The Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall. Each mapping specifies an Availability Zone where the firewall processes traffic.
+	AvailabilityZoneMappings FirewallAvailabilityZoneMappingArrayInput
 	// A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
 	DeleteProtection pulumi.BoolPtrInput
 	// A description of the firewall.
@@ -165,8 +175,10 @@ type FirewallArgs struct {
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayInput
+	// The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
+	TransitGatewayId pulumi.StringPtrInput
 	// The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
-	VpcId pulumi.StringInput
+	VpcId pulumi.StringPtrInput
 }
 
 func (FirewallArgs) ElementType() reflect.Type {
@@ -206,6 +218,16 @@ func (o FirewallOutput) ToFirewallOutputWithContext(ctx context.Context) Firewal
 	return o
 }
 
+// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `TRUE` , you must first disable this protection before adding or removing Availability Zones.
+func (o FirewallOutput) AvailabilityZoneChangeProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.BoolPtrOutput { return v.AvailabilityZoneChangeProtection }).(pulumi.BoolPtrOutput)
+}
+
+// The Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall. Each mapping specifies an Availability Zone where the firewall processes traffic.
+func (o FirewallOutput) AvailabilityZoneMappings() FirewallAvailabilityZoneMappingArrayOutput {
+	return o.ApplyT(func(v *Firewall) FirewallAvailabilityZoneMappingArrayOutput { return v.AvailabilityZoneMappings }).(FirewallAvailabilityZoneMappingArrayOutput)
+}
+
 // A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
 func (o FirewallOutput) DeleteProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.BoolPtrOutput { return v.DeleteProtection }).(pulumi.BoolPtrOutput)
@@ -226,12 +248,12 @@ func (o FirewallOutput) EndpointIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringArrayOutput { return v.EndpointIds }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the `Firewall` .
+// The Amazon Resource Name (ARN) of the firewall.
 func (o FirewallOutput) FirewallArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.FirewallArn }).(pulumi.StringOutput)
 }
 
-// The name of the `Firewall` resource.
+// The name of the firewallresource.
 func (o FirewallOutput) FirewallId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.FirewallId }).(pulumi.StringOutput)
 }
@@ -274,9 +296,14 @@ func (o FirewallOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Firewall) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
+func (o FirewallOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.StringPtrOutput { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
+}
+
 // The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
-func (o FirewallOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+func (o FirewallOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -19,7 +19,7 @@ export function getLoggingConfiguration(args: GetLoggingConfigurationArgs, opts?
 
 export interface GetLoggingConfigurationArgs {
     /**
-     * The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+     * The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
      */
     firewallArn: string;
 }
@@ -27,7 +27,7 @@ export interface GetLoggingConfigurationArgs {
 export interface GetLoggingConfigurationResult {
     readonly enableMonitoringDashboard?: boolean;
     /**
-     * Defines how AWS Network Firewall performs logging for a `Firewall` .
+     * Defines how AWS Network Firewall performs logging for a firewall.
      */
     readonly loggingConfiguration?: outputs.networkfirewall.LoggingConfiguration;
 }
@@ -43,7 +43,7 @@ export function getLoggingConfigurationOutput(args: GetLoggingConfigurationOutpu
 
 export interface GetLoggingConfigurationOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+     * The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
      */
     firewallArn: pulumi.Input<string>;
 }

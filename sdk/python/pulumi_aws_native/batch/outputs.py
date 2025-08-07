@@ -74,6 +74,7 @@ __all__ = [
     'JobDefinitionVolume',
     'JobQueueComputeEnvironmentOrder',
     'JobQueueJobStateTimeLimitAction',
+    'JobQueueServiceEnvironmentOrder',
     'SchedulingPolicyFairsharePolicy',
     'SchedulingPolicyShareAttributes',
     'ServiceEnvironmentCapacityLimit',
@@ -5115,6 +5116,52 @@ class JobQueueJobStateTimeLimitAction(dict):
         The state of the job needed to trigger the action. The only supported value is `RUNNABLE` .
         """
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class JobQueueServiceEnvironmentOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceEnvironment":
+            suggest = "service_environment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobQueueServiceEnvironmentOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobQueueServiceEnvironmentOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobQueueServiceEnvironmentOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 order: builtins.int,
+                 service_environment: builtins.str):
+        """
+        :param builtins.int order: The order of the service environment. Job queues with a higher priority are evaluated first when associated with the same service environment.
+        :param builtins.str service_environment: The name or ARN of the service environment.
+        """
+        pulumi.set(__self__, "order", order)
+        pulumi.set(__self__, "service_environment", service_environment)
+
+    @property
+    @pulumi.getter
+    def order(self) -> builtins.int:
+        """
+        The order of the service environment. Job queues with a higher priority are evaluated first when associated with the same service environment.
+        """
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter(name="serviceEnvironment")
+    def service_environment(self) -> builtins.str:
+        """
+        The name or ARN of the service environment.
+        """
+        return pulumi.get(self, "service_environment")
 
 
 @pulumi.output_type

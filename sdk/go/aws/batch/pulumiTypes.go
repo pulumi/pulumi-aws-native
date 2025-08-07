@@ -10880,6 +10880,112 @@ func (o JobQueueJobStateTimeLimitActionArrayOutput) Index(i pulumi.IntInput) Job
 	}).(JobQueueJobStateTimeLimitActionOutput)
 }
 
+type JobQueueServiceEnvironmentOrder struct {
+	// The order of the service environment. Job queues with a higher priority are evaluated first when associated with the same service environment.
+	Order int `pulumi:"order"`
+	// The name or ARN of the service environment.
+	ServiceEnvironment string `pulumi:"serviceEnvironment"`
+}
+
+// JobQueueServiceEnvironmentOrderInput is an input type that accepts JobQueueServiceEnvironmentOrderArgs and JobQueueServiceEnvironmentOrderOutput values.
+// You can construct a concrete instance of `JobQueueServiceEnvironmentOrderInput` via:
+//
+//	JobQueueServiceEnvironmentOrderArgs{...}
+type JobQueueServiceEnvironmentOrderInput interface {
+	pulumi.Input
+
+	ToJobQueueServiceEnvironmentOrderOutput() JobQueueServiceEnvironmentOrderOutput
+	ToJobQueueServiceEnvironmentOrderOutputWithContext(context.Context) JobQueueServiceEnvironmentOrderOutput
+}
+
+type JobQueueServiceEnvironmentOrderArgs struct {
+	// The order of the service environment. Job queues with a higher priority are evaluated first when associated with the same service environment.
+	Order pulumi.IntInput `pulumi:"order"`
+	// The name or ARN of the service environment.
+	ServiceEnvironment pulumi.StringInput `pulumi:"serviceEnvironment"`
+}
+
+func (JobQueueServiceEnvironmentOrderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobQueueServiceEnvironmentOrder)(nil)).Elem()
+}
+
+func (i JobQueueServiceEnvironmentOrderArgs) ToJobQueueServiceEnvironmentOrderOutput() JobQueueServiceEnvironmentOrderOutput {
+	return i.ToJobQueueServiceEnvironmentOrderOutputWithContext(context.Background())
+}
+
+func (i JobQueueServiceEnvironmentOrderArgs) ToJobQueueServiceEnvironmentOrderOutputWithContext(ctx context.Context) JobQueueServiceEnvironmentOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobQueueServiceEnvironmentOrderOutput)
+}
+
+// JobQueueServiceEnvironmentOrderArrayInput is an input type that accepts JobQueueServiceEnvironmentOrderArray and JobQueueServiceEnvironmentOrderArrayOutput values.
+// You can construct a concrete instance of `JobQueueServiceEnvironmentOrderArrayInput` via:
+//
+//	JobQueueServiceEnvironmentOrderArray{ JobQueueServiceEnvironmentOrderArgs{...} }
+type JobQueueServiceEnvironmentOrderArrayInput interface {
+	pulumi.Input
+
+	ToJobQueueServiceEnvironmentOrderArrayOutput() JobQueueServiceEnvironmentOrderArrayOutput
+	ToJobQueueServiceEnvironmentOrderArrayOutputWithContext(context.Context) JobQueueServiceEnvironmentOrderArrayOutput
+}
+
+type JobQueueServiceEnvironmentOrderArray []JobQueueServiceEnvironmentOrderInput
+
+func (JobQueueServiceEnvironmentOrderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobQueueServiceEnvironmentOrder)(nil)).Elem()
+}
+
+func (i JobQueueServiceEnvironmentOrderArray) ToJobQueueServiceEnvironmentOrderArrayOutput() JobQueueServiceEnvironmentOrderArrayOutput {
+	return i.ToJobQueueServiceEnvironmentOrderArrayOutputWithContext(context.Background())
+}
+
+func (i JobQueueServiceEnvironmentOrderArray) ToJobQueueServiceEnvironmentOrderArrayOutputWithContext(ctx context.Context) JobQueueServiceEnvironmentOrderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobQueueServiceEnvironmentOrderArrayOutput)
+}
+
+type JobQueueServiceEnvironmentOrderOutput struct{ *pulumi.OutputState }
+
+func (JobQueueServiceEnvironmentOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobQueueServiceEnvironmentOrder)(nil)).Elem()
+}
+
+func (o JobQueueServiceEnvironmentOrderOutput) ToJobQueueServiceEnvironmentOrderOutput() JobQueueServiceEnvironmentOrderOutput {
+	return o
+}
+
+func (o JobQueueServiceEnvironmentOrderOutput) ToJobQueueServiceEnvironmentOrderOutputWithContext(ctx context.Context) JobQueueServiceEnvironmentOrderOutput {
+	return o
+}
+
+// The order of the service environment. Job queues with a higher priority are evaluated first when associated with the same service environment.
+func (o JobQueueServiceEnvironmentOrderOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v JobQueueServiceEnvironmentOrder) int { return v.Order }).(pulumi.IntOutput)
+}
+
+// The name or ARN of the service environment.
+func (o JobQueueServiceEnvironmentOrderOutput) ServiceEnvironment() pulumi.StringOutput {
+	return o.ApplyT(func(v JobQueueServiceEnvironmentOrder) string { return v.ServiceEnvironment }).(pulumi.StringOutput)
+}
+
+type JobQueueServiceEnvironmentOrderArrayOutput struct{ *pulumi.OutputState }
+
+func (JobQueueServiceEnvironmentOrderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobQueueServiceEnvironmentOrder)(nil)).Elem()
+}
+
+func (o JobQueueServiceEnvironmentOrderArrayOutput) ToJobQueueServiceEnvironmentOrderArrayOutput() JobQueueServiceEnvironmentOrderArrayOutput {
+	return o
+}
+
+func (o JobQueueServiceEnvironmentOrderArrayOutput) ToJobQueueServiceEnvironmentOrderArrayOutputWithContext(ctx context.Context) JobQueueServiceEnvironmentOrderArrayOutput {
+	return o
+}
+
+func (o JobQueueServiceEnvironmentOrderArrayOutput) Index(i pulumi.IntInput) JobQueueServiceEnvironmentOrderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobQueueServiceEnvironmentOrder {
+		return vs[0].([]JobQueueServiceEnvironmentOrder)[vs[1].(int)]
+	}).(JobQueueServiceEnvironmentOrderOutput)
+}
+
 // Fair Share Policy for the Job Queue.
 type SchedulingPolicyFairsharePolicy struct {
 	// A value used to reserve some of the available maximum vCPU for share identifiers that aren't already used.
@@ -11427,6 +11533,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueComputeEnvironmentOrderArrayInput)(nil)).Elem(), JobQueueComputeEnvironmentOrderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueJobStateTimeLimitActionInput)(nil)).Elem(), JobQueueJobStateTimeLimitActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueJobStateTimeLimitActionArrayInput)(nil)).Elem(), JobQueueJobStateTimeLimitActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueServiceEnvironmentOrderInput)(nil)).Elem(), JobQueueServiceEnvironmentOrderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueServiceEnvironmentOrderArrayInput)(nil)).Elem(), JobQueueServiceEnvironmentOrderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyFairsharePolicyInput)(nil)).Elem(), SchedulingPolicyFairsharePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyFairsharePolicyPtrInput)(nil)).Elem(), SchedulingPolicyFairsharePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyShareAttributesInput)(nil)).Elem(), SchedulingPolicyShareAttributesArgs{})
@@ -11545,6 +11653,8 @@ func init() {
 	pulumi.RegisterOutputType(JobQueueComputeEnvironmentOrderArrayOutput{})
 	pulumi.RegisterOutputType(JobQueueJobStateTimeLimitActionOutput{})
 	pulumi.RegisterOutputType(JobQueueJobStateTimeLimitActionArrayOutput{})
+	pulumi.RegisterOutputType(JobQueueServiceEnvironmentOrderOutput{})
+	pulumi.RegisterOutputType(JobQueueServiceEnvironmentOrderArrayOutput{})
 	pulumi.RegisterOutputType(SchedulingPolicyFairsharePolicyOutput{})
 	pulumi.RegisterOutputType(SchedulingPolicyFairsharePolicyPtrOutput{})
 	pulumi.RegisterOutputType(SchedulingPolicyShareAttributesOutput{})

@@ -15,6 +15,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -29,6 +31,7 @@ class AccessPointArgs:
                  policy: Optional[Any] = None,
                  public_access_block_configuration: Optional[pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs']] = None,
                  scope: Optional[pulumi.Input['AccessPointScopeArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_configuration: Optional[pulumi.Input['AccessPointVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a AccessPoint resource.
@@ -53,6 +56,8 @@ class AccessPointArgs:
             pulumi.set(__self__, "public_access_block_configuration", public_access_block_configuration)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if vpc_configuration is not None:
             pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
@@ -131,6 +136,15 @@ class AccessPointArgs:
         pulumi.set(self, "scope", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['AccessPointVpcConfigurationArgs']]:
         """
@@ -155,6 +169,7 @@ class AccessPoint(pulumi.CustomResource):
                  policy: Optional[Any] = None,
                  public_access_block_configuration: Optional[pulumi.Input[Union['AccessPointPublicAccessBlockConfigurationArgs', 'AccessPointPublicAccessBlockConfigurationArgsDict']]] = None,
                  scope: Optional[pulumi.Input[Union['AccessPointScopeArgs', 'AccessPointScopeArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_configuration: Optional[pulumi.Input[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         """
@@ -202,6 +217,7 @@ class AccessPoint(pulumi.CustomResource):
                  policy: Optional[Any] = None,
                  public_access_block_configuration: Optional[pulumi.Input[Union['AccessPointPublicAccessBlockConfigurationArgs', 'AccessPointPublicAccessBlockConfigurationArgsDict']]] = None,
                  scope: Optional[pulumi.Input[Union['AccessPointScopeArgs', 'AccessPointScopeArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_configuration: Optional[pulumi.Input[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -220,6 +236,7 @@ class AccessPoint(pulumi.CustomResource):
             __props__.__dict__["policy"] = policy
             __props__.__dict__["public_access_block_configuration"] = public_access_block_configuration
             __props__.__dict__["scope"] = scope
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_configuration"] = vpc_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["network_origin"] = None
@@ -255,6 +272,7 @@ class AccessPoint(pulumi.CustomResource):
         __props__.__dict__["policy"] = None
         __props__.__dict__["public_access_block_configuration"] = None
         __props__.__dict__["scope"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_configuration"] = None
         return AccessPoint(resource_name, opts=opts, __props__=__props__)
 
@@ -323,6 +341,11 @@ class AccessPoint(pulumi.CustomResource):
         For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
         """
         return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcConfiguration")

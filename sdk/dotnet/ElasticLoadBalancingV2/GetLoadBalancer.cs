@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// </summary>
         public readonly string? LoadBalancerArn;
         /// <summary>
-        /// The load balancer attributes.
+        /// The load balancer attributes. Attributes that you do not modify retain their current values.
         /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancerAttribute> LoadBalancerAttributes;
         /// <summary>

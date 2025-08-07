@@ -80,19 +80,27 @@ if not MYPY:
         """
         <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
         """
+        preferred_input: NotRequired[pulumi.Input[builtins.int]]
+        """
+        For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
+        """
 elif False:
     ChannelInputSwitchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ChannelInputSwitchConfigurationArgs:
     def __init__(__self__, *,
-                 mqcs_input_switching: Optional[pulumi.Input[builtins.bool]] = None):
+                 mqcs_input_switching: Optional[pulumi.Input[builtins.bool]] = None,
+                 preferred_input: Optional[pulumi.Input[builtins.int]] = None):
         """
         <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
         :param pulumi.Input[builtins.bool] mqcs_input_switching: <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+        :param pulumi.Input[builtins.int] preferred_input: For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
         """
         if mqcs_input_switching is not None:
             pulumi.set(__self__, "mqcs_input_switching", mqcs_input_switching)
+        if preferred_input is not None:
+            pulumi.set(__self__, "preferred_input", preferred_input)
 
     @property
     @pulumi.getter(name="mqcsInputSwitching")
@@ -105,6 +113,18 @@ class ChannelInputSwitchConfigurationArgs:
     @mqcs_input_switching.setter
     def mqcs_input_switching(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "mqcs_input_switching", value)
+
+    @property
+    @pulumi.getter(name="preferredInput")
+    def preferred_input(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
+        """
+        return pulumi.get(self, "preferred_input")
+
+    @preferred_input.setter
+    def preferred_input(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "preferred_input", value)
 
 
 if not MYPY:
@@ -1233,6 +1253,10 @@ if not MYPY:
         """
         The SPEKE key provider to use for encryption.
         """
+        cmaf_exclude_segment_drm_metadata: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        <p>Excludes SEIG and SGPD boxes from segment metadata in CMAF containers.</p> <p>When set to <code>true</code>, MediaPackage omits these DRM metadata boxes from CMAF segments, which can improve compatibility with certain devices and players that don't support these boxes.</p> <p>Important considerations:</p> <ul> <li> <p>This setting only affects CMAF container formats</p> </li> <li> <p>Key rotation can still be handled through media playlist signaling</p> </li> <li> <p>PSSH and TENC boxes remain unaffected</p> </li> <li> <p>Default behavior is preserved when this setting is disabled</p> </li> </ul> <p>Valid values: <code>true</code> | <code>false</code> </p> <p>Default: <code>false</code> </p>
+        """
         constant_initialization_vector: NotRequired[pulumi.Input[builtins.str]]
         """
         <p>A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
@@ -1249,17 +1273,21 @@ class OriginEndpointEncryptionArgs:
     def __init__(__self__, *,
                  encryption_method: pulumi.Input['OriginEndpointEncryptionMethodArgs'],
                  speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgs'],
+                 cmaf_exclude_segment_drm_metadata: Optional[pulumi.Input[builtins.bool]] = None,
                  constant_initialization_vector: Optional[pulumi.Input[builtins.str]] = None,
                  key_rotation_interval_seconds: Optional[pulumi.Input[builtins.int]] = None):
         """
         <p>The parameters for encrypting content.</p>
         :param pulumi.Input['OriginEndpointEncryptionMethodArgs'] encryption_method: The encryption method to use.
         :param pulumi.Input['OriginEndpointSpekeKeyProviderArgs'] speke_key_provider: The SPEKE key provider to use for encryption.
+        :param pulumi.Input[builtins.bool] cmaf_exclude_segment_drm_metadata: <p>Excludes SEIG and SGPD boxes from segment metadata in CMAF containers.</p> <p>When set to <code>true</code>, MediaPackage omits these DRM metadata boxes from CMAF segments, which can improve compatibility with certain devices and players that don't support these boxes.</p> <p>Important considerations:</p> <ul> <li> <p>This setting only affects CMAF container formats</p> </li> <li> <p>Key rotation can still be handled through media playlist signaling</p> </li> <li> <p>PSSH and TENC boxes remain unaffected</p> </li> <li> <p>Default behavior is preserved when this setting is disabled</p> </li> </ul> <p>Valid values: <code>true</code> | <code>false</code> </p> <p>Default: <code>false</code> </p>
         :param pulumi.Input[builtins.str] constant_initialization_vector: <p>A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
         :param pulumi.Input[builtins.int] key_rotation_interval_seconds: <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p> <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code> </p>
         """
         pulumi.set(__self__, "encryption_method", encryption_method)
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
+        if cmaf_exclude_segment_drm_metadata is not None:
+            pulumi.set(__self__, "cmaf_exclude_segment_drm_metadata", cmaf_exclude_segment_drm_metadata)
         if constant_initialization_vector is not None:
             pulumi.set(__self__, "constant_initialization_vector", constant_initialization_vector)
         if key_rotation_interval_seconds is not None:
@@ -1288,6 +1316,18 @@ class OriginEndpointEncryptionArgs:
     @speke_key_provider.setter
     def speke_key_provider(self, value: pulumi.Input['OriginEndpointSpekeKeyProviderArgs']):
         pulumi.set(self, "speke_key_provider", value)
+
+    @property
+    @pulumi.getter(name="cmafExcludeSegmentDrmMetadata")
+    def cmaf_exclude_segment_drm_metadata(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        <p>Excludes SEIG and SGPD boxes from segment metadata in CMAF containers.</p> <p>When set to <code>true</code>, MediaPackage omits these DRM metadata boxes from CMAF segments, which can improve compatibility with certain devices and players that don't support these boxes.</p> <p>Important considerations:</p> <ul> <li> <p>This setting only affects CMAF container formats</p> </li> <li> <p>Key rotation can still be handled through media playlist signaling</p> </li> <li> <p>PSSH and TENC boxes remain unaffected</p> </li> <li> <p>Default behavior is preserved when this setting is disabled</p> </li> </ul> <p>Valid values: <code>true</code> | <code>false</code> </p> <p>Default: <code>false</code> </p>
+        """
+        return pulumi.get(self, "cmaf_exclude_segment_drm_metadata")
+
+    @cmaf_exclude_segment_drm_metadata.setter
+    def cmaf_exclude_segment_drm_metadata(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "cmaf_exclude_segment_drm_metadata", value)
 
     @property
     @pulumi.getter(name="constantInitializationVector")
@@ -1859,7 +1899,13 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
 if not MYPY:
     class OriginEndpointPolicyCdnAuthConfigurationArgsDict(TypedDict):
         cdn_identifier_secret_arns: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+        """
+        The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
+        """
         secrets_role_arn: pulumi.Input[builtins.str]
+        """
+        The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+        """
 elif False:
     OriginEndpointPolicyCdnAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1868,12 +1914,19 @@ class OriginEndpointPolicyCdnAuthConfigurationArgs:
     def __init__(__self__, *,
                  cdn_identifier_secret_arns: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  secrets_role_arn: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cdn_identifier_secret_arns: The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
+        :param pulumi.Input[builtins.str] secrets_role_arn: The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+        """
         pulumi.set(__self__, "cdn_identifier_secret_arns", cdn_identifier_secret_arns)
         pulumi.set(__self__, "secrets_role_arn", secrets_role_arn)
 
     @property
     @pulumi.getter(name="cdnIdentifierSecretArns")
     def cdn_identifier_secret_arns(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        """
+        The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
+        """
         return pulumi.get(self, "cdn_identifier_secret_arns")
 
     @cdn_identifier_secret_arns.setter
@@ -1883,6 +1936,9 @@ class OriginEndpointPolicyCdnAuthConfigurationArgs:
     @property
     @pulumi.getter(name="secretsRoleArn")
     def secrets_role_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+        """
         return pulumi.get(self, "secrets_role_arn")
 
     @secrets_role_arn.setter

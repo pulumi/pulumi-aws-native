@@ -13,7 +13,7 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// Dimension is an embedded property of the “AWS::CloudWatch::Alarm“ type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 10 dimensions for a given metric.
+// Dimension is an embedded property of the “AWS::CloudWatch::Alarm“ type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 30 dimensions for a given metric.
 type AlarmDimension struct {
 	// The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
 	Name string `pulumi:"name"`
@@ -32,7 +32,7 @@ type AlarmDimensionInput interface {
 	ToAlarmDimensionOutputWithContext(context.Context) AlarmDimensionOutput
 }
 
-// Dimension is an embedded property of the “AWS::CloudWatch::Alarm“ type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 10 dimensions for a given metric.
+// Dimension is an embedded property of the “AWS::CloudWatch::Alarm“ type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 30 dimensions for a given metric.
 type AlarmDimensionArgs struct {
 	// The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -77,7 +77,7 @@ func (i AlarmDimensionArray) ToAlarmDimensionArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmDimensionArrayOutput)
 }
 
-// Dimension is an embedded property of the “AWS::CloudWatch::Alarm“ type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 10 dimensions for a given metric.
+// Dimension is an embedded property of the “AWS::CloudWatch::Alarm“ type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 30 dimensions for a given metric.
 type AlarmDimensionOutput struct{ *pulumi.OutputState }
 
 func (AlarmDimensionOutput) ElementType() reflect.Type {
@@ -316,7 +316,7 @@ type AlarmMetricDataQuery struct {
 	// The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
 	//  Within one MetricDataQuery object, you must specify either ``Expression`` or ``MetricStat`` but not both.
 	MetricStat *AlarmMetricStat `pulumi:"metricStat"`
-	// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` operation that includes a ``StorageResolution of 1 second``.
+	// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 20, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` operation that includes a ``StorageResolution of 1 second``.
 	Period *int `pulumi:"period"`
 	// This option indicates whether to return the timestamps and raw data values of this metric.
 	//  When you create an alarm based on a metric math expression, specify ``True`` for this value for only the one math expression that the alarm is based on. You must specify ``False`` for ``ReturnData`` for all the other metrics and expressions used in the alarm.
@@ -351,7 +351,7 @@ type AlarmMetricDataQueryArgs struct {
 	// The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
 	//  Within one MetricDataQuery object, you must specify either ``Expression`` or ``MetricStat`` but not both.
 	MetricStat AlarmMetricStatPtrInput `pulumi:"metricStat"`
-	// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` operation that includes a ``StorageResolution of 1 second``.
+	// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 20, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` operation that includes a ``StorageResolution of 1 second``.
 	Period pulumi.IntPtrInput `pulumi:"period"`
 	// This option indicates whether to return the timestamps and raw data values of this metric.
 	//  When you create an alarm based on a metric math expression, specify ``True`` for this value for only the one math expression that the alarm is based on. You must specify ``False`` for ``ReturnData`` for all the other metrics and expressions used in the alarm.
@@ -442,7 +442,7 @@ func (o AlarmMetricDataQueryOutput) MetricStat() AlarmMetricStatPtrOutput {
 	return o.ApplyT(func(v AlarmMetricDataQuery) *AlarmMetricStat { return v.MetricStat }).(AlarmMetricStatPtrOutput)
 }
 
-// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a “PutMetricData“ operation that includes a “StorageResolution of 1 second“.
+// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 20, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a “PutMetricData“ operation that includes a “StorageResolution of 1 second“.
 func (o AlarmMetricDataQueryOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AlarmMetricDataQuery) *int { return v.Period }).(pulumi.IntPtrOutput)
 }
@@ -481,7 +481,7 @@ func (o AlarmMetricDataQueryArrayOutput) Index(i pulumi.IntInput) AlarmMetricDat
 type AlarmMetricStat struct {
 	// The metric to return, including the metric name, namespace, and dimensions.
 	Metric AlarmMetric `pulumi:"metric"`
-	// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` call that includes a ``StorageResolution`` of 1 second.
+	// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 20, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` call that includes a ``StorageResolution`` of 1 second.
 	//  If the ``StartTime`` parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:
 	//   +  Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).
 	//   +  Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).
@@ -511,7 +511,7 @@ type AlarmMetricStatInput interface {
 type AlarmMetricStatArgs struct {
 	// The metric to return, including the metric name, namespace, and dimensions.
 	Metric AlarmMetricInput `pulumi:"metric"`
-	// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` call that includes a ``StorageResolution`` of 1 second.
+	// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 20, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` call that includes a ``StorageResolution`` of 1 second.
 	//  If the ``StartTime`` parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:
 	//   +  Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).
 	//   +  Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).
@@ -609,7 +609,7 @@ func (o AlarmMetricStatOutput) Metric() AlarmMetricOutput {
 	return o.ApplyT(func(v AlarmMetricStat) AlarmMetric { return v.Metric }).(AlarmMetricOutput)
 }
 
-// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a “PutMetricData“ call that includes a “StorageResolution“ of 1 second.
+// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 20, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a “PutMetricData“ call that includes a “StorageResolution“ of 1 second.
 //
 //	If the ``StartTime`` parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:
 //	 +  Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).
@@ -665,7 +665,7 @@ func (o AlarmMetricStatPtrOutput) Metric() AlarmMetricPtrOutput {
 	}).(AlarmMetricPtrOutput)
 }
 
-// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a “PutMetricData“ call that includes a “StorageResolution“ of 1 second.
+// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 20, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a “PutMetricData“ call that includes a “StorageResolution“ of 1 second.
 //
 //	If the ``StartTime`` parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:
 //	 +  Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).

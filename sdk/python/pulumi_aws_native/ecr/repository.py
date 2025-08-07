@@ -29,6 +29,7 @@ class RepositoryArgs:
                  encryption_configuration: Optional[pulumi.Input['RepositoryEncryptionConfigurationArgs']] = None,
                  image_scanning_configuration: Optional[pulumi.Input['RepositoryImageScanningConfigurationArgs']] = None,
                  image_tag_mutability: Optional[pulumi.Input['RepositoryImageTagMutability']] = None,
+                 image_tag_mutability_exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryImageTagMutabilityExclusionFilterArgs']]]] = None,
                  lifecycle_policy: Optional[pulumi.Input['RepositoryLifecyclePolicyArgs']] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  repository_policy_text: Optional[Any] = None,
@@ -39,6 +40,7 @@ class RepositoryArgs:
         :param pulumi.Input['RepositoryEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
         :param pulumi.Input['RepositoryImageScanningConfigurationArgs'] image_scanning_configuration: The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
         :param pulumi.Input['RepositoryImageTagMutability'] image_tag_mutability: The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+        :param pulumi.Input[Sequence[pulumi.Input['RepositoryImageTagMutabilityExclusionFilterArgs']]] image_tag_mutability_exclusion_filters: The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
         :param pulumi.Input['RepositoryLifecyclePolicyArgs'] lifecycle_policy: Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
         :param pulumi.Input[builtins.str] repository_name: The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
                 The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
@@ -56,6 +58,8 @@ class RepositoryArgs:
             pulumi.set(__self__, "image_scanning_configuration", image_scanning_configuration)
         if image_tag_mutability is not None:
             pulumi.set(__self__, "image_tag_mutability", image_tag_mutability)
+        if image_tag_mutability_exclusion_filters is not None:
+            pulumi.set(__self__, "image_tag_mutability_exclusion_filters", image_tag_mutability_exclusion_filters)
         if lifecycle_policy is not None:
             pulumi.set(__self__, "lifecycle_policy", lifecycle_policy)
         if repository_name is not None:
@@ -112,6 +116,18 @@ class RepositoryArgs:
     @image_tag_mutability.setter
     def image_tag_mutability(self, value: Optional[pulumi.Input['RepositoryImageTagMutability']]):
         pulumi.set(self, "image_tag_mutability", value)
+
+    @property
+    @pulumi.getter(name="imageTagMutabilityExclusionFilters")
+    def image_tag_mutability_exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryImageTagMutabilityExclusionFilterArgs']]]]:
+        """
+        The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+        """
+        return pulumi.get(self, "image_tag_mutability_exclusion_filters")
+
+    @image_tag_mutability_exclusion_filters.setter
+    def image_tag_mutability_exclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryImageTagMutabilityExclusionFilterArgs']]]]):
+        pulumi.set(self, "image_tag_mutability_exclusion_filters", value)
 
     @property
     @pulumi.getter(name="lifecyclePolicy")
@@ -176,6 +192,7 @@ class Repository(pulumi.CustomResource):
                  encryption_configuration: Optional[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]] = None,
                  image_scanning_configuration: Optional[pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']]] = None,
                  image_tag_mutability: Optional[pulumi.Input['RepositoryImageTagMutability']] = None,
+                 image_tag_mutability_exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict']]]]] = None,
                  lifecycle_policy: Optional[pulumi.Input[Union['RepositoryLifecyclePolicyArgs', 'RepositoryLifecyclePolicyArgsDict']]] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  repository_policy_text: Optional[Any] = None,
@@ -230,6 +247,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']] encryption_configuration: The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
         :param pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']] image_scanning_configuration: The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
         :param pulumi.Input['RepositoryImageTagMutability'] image_tag_mutability: The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict']]]] image_tag_mutability_exclusion_filters: The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
         :param pulumi.Input[Union['RepositoryLifecyclePolicyArgs', 'RepositoryLifecyclePolicyArgsDict']] lifecycle_policy: Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
         :param pulumi.Input[builtins.str] repository_name: The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
                 The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
@@ -307,6 +325,7 @@ class Repository(pulumi.CustomResource):
                  encryption_configuration: Optional[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]] = None,
                  image_scanning_configuration: Optional[pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']]] = None,
                  image_tag_mutability: Optional[pulumi.Input['RepositoryImageTagMutability']] = None,
+                 image_tag_mutability_exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict']]]]] = None,
                  lifecycle_policy: Optional[pulumi.Input[Union['RepositoryLifecyclePolicyArgs', 'RepositoryLifecyclePolicyArgsDict']]] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  repository_policy_text: Optional[Any] = None,
@@ -324,6 +343,7 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
             __props__.__dict__["image_tag_mutability"] = image_tag_mutability
+            __props__.__dict__["image_tag_mutability_exclusion_filters"] = image_tag_mutability_exclusion_filters
             __props__.__dict__["lifecycle_policy"] = lifecycle_policy
             __props__.__dict__["repository_name"] = repository_name
             __props__.__dict__["repository_policy_text"] = repository_policy_text
@@ -359,6 +379,7 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["encryption_configuration"] = None
         __props__.__dict__["image_scanning_configuration"] = None
         __props__.__dict__["image_tag_mutability"] = None
+        __props__.__dict__["image_tag_mutability_exclusion_filters"] = None
         __props__.__dict__["lifecycle_policy"] = None
         __props__.__dict__["repository_name"] = None
         __props__.__dict__["repository_policy_text"] = None
@@ -405,6 +426,14 @@ class Repository(pulumi.CustomResource):
         The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
         """
         return pulumi.get(self, "image_tag_mutability")
+
+    @property
+    @pulumi.getter(name="imageTagMutabilityExclusionFilters")
+    def image_tag_mutability_exclusion_filters(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryImageTagMutabilityExclusionFilter']]]:
+        """
+        The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+        """
+        return pulumi.get(self, "image_tag_mutability_exclusion_filters")
 
     @property
     @pulumi.getter(name="lifecyclePolicy")

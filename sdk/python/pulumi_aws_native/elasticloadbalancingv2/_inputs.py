@@ -2019,7 +2019,7 @@ if not MYPY:
         """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
-        The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+        The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
          If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
         """
 elif False:
@@ -2031,7 +2031,7 @@ class ListenerRuleHostHeaderConfigArgs:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         Information about a host header condition.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
                 If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
         """
         if values is not None:
@@ -2041,7 +2041,7 @@ class ListenerRuleHostHeaderConfigArgs:
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+        The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
          If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
         """
         return pulumi.get(self, "values")
@@ -2723,7 +2723,7 @@ if not MYPY:
         """
         duration_seconds: NotRequired[pulumi.Input[builtins.int]]
         """
-        The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+        The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         """
         enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
@@ -2739,7 +2739,7 @@ class ListenerRuleTargetGroupStickinessConfigArgs:
                  enabled: Optional[pulumi.Input[builtins.bool]] = None):
         """
         Information about the target group stickiness for a rule.
-        :param pulumi.Input[builtins.int] duration_seconds: The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+        :param pulumi.Input[builtins.int] duration_seconds: The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         :param pulumi.Input[builtins.bool] enabled: Indicates whether target group stickiness is enabled.
         """
         if duration_seconds is not None:
@@ -2751,7 +2751,7 @@ class ListenerRuleTargetGroupStickinessConfigArgs:
     @pulumi.getter(name="durationSeconds")
     def duration_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+        The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         """
         return pulumi.get(self, "duration_seconds")
 
@@ -2835,7 +2835,7 @@ if not MYPY:
         """
         duration_seconds: NotRequired[pulumi.Input[builtins.int]]
         """
-        The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+        The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         """
         enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
@@ -2851,7 +2851,7 @@ class ListenerTargetGroupStickinessConfigArgs:
                  enabled: Optional[pulumi.Input[builtins.bool]] = None):
         """
         Information about the target group stickiness for a rule.
-        :param pulumi.Input[builtins.int] duration_seconds: The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+        :param pulumi.Input[builtins.int] duration_seconds: The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         :param pulumi.Input[builtins.bool] enabled: Indicates whether target group stickiness is enabled.
         """
         if duration_seconds is not None:
@@ -2863,7 +2863,7 @@ class ListenerTargetGroupStickinessConfigArgs:
     @pulumi.getter(name="durationSeconds")
     def duration_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+        The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         """
         return pulumi.get(self, "duration_seconds")
 

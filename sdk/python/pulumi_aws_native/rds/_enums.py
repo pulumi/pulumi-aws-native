@@ -52,6 +52,7 @@ class DbProxyAuthFormatClientPasswordAuthType(builtins.str, Enum):
     The type of authentication the proxy uses for connections from clients.
     """
     MYSQL_NATIVE_PASSWORD = "MYSQL_NATIVE_PASSWORD"
+    MYSQL_CACHING_SHA2_PASSWORD = "MYSQL_CACHING_SHA2_PASSWORD"
     POSTGRES_SCRAM_SHA256 = "POSTGRES_SCRAM_SHA_256"
     POSTGRES_MD5 = "POSTGRES_MD5"
     SQL_SERVER_AUTHENTICATION = "SQL_SERVER_AUTHENTICATION"

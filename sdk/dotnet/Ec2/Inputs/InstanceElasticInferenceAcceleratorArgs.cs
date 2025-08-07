@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     public sealed class InstanceElasticInferenceAcceleratorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of elastic inference accelerators to attach to the instance.
+        /// The number of elastic inference accelerators to attach to the instance. Amazon Elastic Inference is no longer available.
         /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }
 
         /// <summary>
-        /// The type of elastic inference accelerator.
+        /// The type of elastic inference accelerator. Amazon Elastic Inference is no longer available.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

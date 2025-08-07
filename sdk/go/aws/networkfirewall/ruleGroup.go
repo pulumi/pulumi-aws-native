@@ -23,12 +23,17 @@ type RuleGroup struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// An object that defines the rule group rules.
 	RuleGroup RuleGroupTypePtrOutput `pulumi:"ruleGroup"`
-	// The Amazon Resource Name (ARN) of the `RuleGroup` .
+	// The Amazon Resource Name (ARN) of the rule group.
 	RuleGroupArn pulumi.StringOutput `pulumi:"ruleGroupArn"`
-	// The unique ID of the `RuleGroup` resource.
+	// The unique ID of the rule group resource.
 	RuleGroupId pulumi.StringOutput `pulumi:"ruleGroupId"`
 	// The descriptive name of the rule group. You can't change the name of a rule group after you create it.
 	RuleGroupName pulumi.StringOutput `pulumi:"ruleGroupName"`
+	// A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+	//
+	// - The `RuleOptions` specified in `SummaryConfiguration`
+	// - Rule metadata organization preferences
+	SummaryConfiguration SummaryConfigurationPropertiesPtrOutput `pulumi:"summaryConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
@@ -98,6 +103,11 @@ type ruleGroupArgs struct {
 	RuleGroup *RuleGroupType `pulumi:"ruleGroup"`
 	// The descriptive name of the rule group. You can't change the name of a rule group after you create it.
 	RuleGroupName *string `pulumi:"ruleGroupName"`
+	// A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+	//
+	// - The `RuleOptions` specified in `SummaryConfiguration`
+	// - Rule metadata organization preferences
+	SummaryConfiguration *SummaryConfigurationProperties `pulumi:"summaryConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
@@ -117,6 +127,11 @@ type RuleGroupArgs struct {
 	RuleGroup RuleGroupTypePtrInput
 	// The descriptive name of the rule group. You can't change the name of a rule group after you create it.
 	RuleGroupName pulumi.StringPtrInput
+	// A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+	//
+	// - The `RuleOptions` specified in `SummaryConfiguration`
+	// - Rule metadata organization preferences
+	SummaryConfiguration SummaryConfigurationPropertiesPtrInput
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
@@ -178,12 +193,12 @@ func (o RuleGroupOutput) RuleGroup() RuleGroupTypePtrOutput {
 	return o.ApplyT(func(v *RuleGroup) RuleGroupTypePtrOutput { return v.RuleGroup }).(RuleGroupTypePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the `RuleGroup` .
+// The Amazon Resource Name (ARN) of the rule group.
 func (o RuleGroupOutput) RuleGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.RuleGroupArn }).(pulumi.StringOutput)
 }
 
-// The unique ID of the `RuleGroup` resource.
+// The unique ID of the rule group resource.
 func (o RuleGroupOutput) RuleGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.RuleGroupId }).(pulumi.StringOutput)
 }
@@ -191,6 +206,14 @@ func (o RuleGroupOutput) RuleGroupId() pulumi.StringOutput {
 // The descriptive name of the rule group. You can't change the name of a rule group after you create it.
 func (o RuleGroupOutput) RuleGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.RuleGroupName }).(pulumi.StringOutput)
+}
+
+// A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+//
+// - The `RuleOptions` specified in `SummaryConfiguration`
+// - Rule metadata organization preferences
+func (o RuleGroupOutput) SummaryConfiguration() SummaryConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *RuleGroup) SummaryConfigurationPropertiesPtrOutput { return v.SummaryConfiguration }).(SummaryConfigurationPropertiesPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

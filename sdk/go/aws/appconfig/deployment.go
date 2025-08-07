@@ -35,6 +35,8 @@ type Deployment struct {
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
 	// The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
 	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
+	// The state of the deployment.
+	State DeploymentStateEnumOutput `pulumi:"state"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
@@ -230,6 +232,11 @@ func (o DeploymentOutput) EnvironmentId() pulumi.StringOutput {
 // The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
 func (o DeploymentOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The state of the deployment.
+func (o DeploymentOutput) State() DeploymentStateEnumOutput {
+	return o.ApplyT(func(v *Deployment) DeploymentStateEnumOutput { return v.State }).(DeploymentStateEnumOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

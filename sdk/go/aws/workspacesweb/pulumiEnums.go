@@ -947,6 +947,576 @@ func (o PortalStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
+type SessionLoggerEvent string
+
+const (
+	SessionLoggerEventWebsiteInteract                           = SessionLoggerEvent("WebsiteInteract")
+	SessionLoggerEventFileDownloadFromSecureBrowserToRemoteDisk = SessionLoggerEvent("FileDownloadFromSecureBrowserToRemoteDisk")
+	SessionLoggerEventFileTransferFromRemoteToLocalDisk         = SessionLoggerEvent("FileTransferFromRemoteToLocalDisk")
+	SessionLoggerEventFileTransferFromLocalToRemoteDisk         = SessionLoggerEvent("FileTransferFromLocalToRemoteDisk")
+	SessionLoggerEventFileUploadFromRemoteDiskToSecureBrowser   = SessionLoggerEvent("FileUploadFromRemoteDiskToSecureBrowser")
+	SessionLoggerEventContentPasteToWebsite                     = SessionLoggerEvent("ContentPasteToWebsite")
+	SessionLoggerEventContentTransferFromLocalToRemoteClipboard = SessionLoggerEvent("ContentTransferFromLocalToRemoteClipboard")
+	SessionLoggerEventContentCopyFromWebsite                    = SessionLoggerEvent("ContentCopyFromWebsite")
+	SessionLoggerEventUrlLoad                                   = SessionLoggerEvent("UrlLoad")
+	SessionLoggerEventTabOpen                                   = SessionLoggerEvent("TabOpen")
+	SessionLoggerEventTabClose                                  = SessionLoggerEvent("TabClose")
+	SessionLoggerEventPrintJobSubmit                            = SessionLoggerEvent("PrintJobSubmit")
+	SessionLoggerEventSessionConnect                            = SessionLoggerEvent("SessionConnect")
+	SessionLoggerEventSessionStart                              = SessionLoggerEvent("SessionStart")
+	SessionLoggerEventSessionDisconnect                         = SessionLoggerEvent("SessionDisconnect")
+	SessionLoggerEventSessionEnd                                = SessionLoggerEvent("SessionEnd")
+	SessionLoggerEventUrlBlockByContentFilter                   = SessionLoggerEvent("UrlBlockByContentFilter")
+)
+
+func (SessionLoggerEvent) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionLoggerEvent)(nil)).Elem()
+}
+
+func (e SessionLoggerEvent) ToSessionLoggerEventOutput() SessionLoggerEventOutput {
+	return pulumi.ToOutput(e).(SessionLoggerEventOutput)
+}
+
+func (e SessionLoggerEvent) ToSessionLoggerEventOutputWithContext(ctx context.Context) SessionLoggerEventOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SessionLoggerEventOutput)
+}
+
+func (e SessionLoggerEvent) ToSessionLoggerEventPtrOutput() SessionLoggerEventPtrOutput {
+	return e.ToSessionLoggerEventPtrOutputWithContext(context.Background())
+}
+
+func (e SessionLoggerEvent) ToSessionLoggerEventPtrOutputWithContext(ctx context.Context) SessionLoggerEventPtrOutput {
+	return SessionLoggerEvent(e).ToSessionLoggerEventOutputWithContext(ctx).ToSessionLoggerEventPtrOutputWithContext(ctx)
+}
+
+func (e SessionLoggerEvent) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SessionLoggerEvent) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SessionLoggerEvent) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SessionLoggerEvent) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SessionLoggerEventOutput struct{ *pulumi.OutputState }
+
+func (SessionLoggerEventOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionLoggerEvent)(nil)).Elem()
+}
+
+func (o SessionLoggerEventOutput) ToSessionLoggerEventOutput() SessionLoggerEventOutput {
+	return o
+}
+
+func (o SessionLoggerEventOutput) ToSessionLoggerEventOutputWithContext(ctx context.Context) SessionLoggerEventOutput {
+	return o
+}
+
+func (o SessionLoggerEventOutput) ToSessionLoggerEventPtrOutput() SessionLoggerEventPtrOutput {
+	return o.ToSessionLoggerEventPtrOutputWithContext(context.Background())
+}
+
+func (o SessionLoggerEventOutput) ToSessionLoggerEventPtrOutputWithContext(ctx context.Context) SessionLoggerEventPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SessionLoggerEvent) *SessionLoggerEvent {
+		return &v
+	}).(SessionLoggerEventPtrOutput)
+}
+
+func (o SessionLoggerEventOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SessionLoggerEventOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SessionLoggerEvent) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SessionLoggerEventOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SessionLoggerEventOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SessionLoggerEvent) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SessionLoggerEventPtrOutput struct{ *pulumi.OutputState }
+
+func (SessionLoggerEventPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionLoggerEvent)(nil)).Elem()
+}
+
+func (o SessionLoggerEventPtrOutput) ToSessionLoggerEventPtrOutput() SessionLoggerEventPtrOutput {
+	return o
+}
+
+func (o SessionLoggerEventPtrOutput) ToSessionLoggerEventPtrOutputWithContext(ctx context.Context) SessionLoggerEventPtrOutput {
+	return o
+}
+
+func (o SessionLoggerEventPtrOutput) Elem() SessionLoggerEventOutput {
+	return o.ApplyT(func(v *SessionLoggerEvent) SessionLoggerEvent {
+		if v != nil {
+			return *v
+		}
+		var ret SessionLoggerEvent
+		return ret
+	}).(SessionLoggerEventOutput)
+}
+
+func (o SessionLoggerEventPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SessionLoggerEventPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SessionLoggerEvent) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SessionLoggerEventInput is an input type that accepts values of the SessionLoggerEvent enum
+// A concrete instance of `SessionLoggerEventInput` can be one of the following:
+//
+//	SessionLoggerEventWebsiteInteract
+//	SessionLoggerEventFileDownloadFromSecureBrowserToRemoteDisk
+//	SessionLoggerEventFileTransferFromRemoteToLocalDisk
+//	SessionLoggerEventFileTransferFromLocalToRemoteDisk
+//	SessionLoggerEventFileUploadFromRemoteDiskToSecureBrowser
+//	SessionLoggerEventContentPasteToWebsite
+//	SessionLoggerEventContentTransferFromLocalToRemoteClipboard
+//	SessionLoggerEventContentCopyFromWebsite
+//	SessionLoggerEventUrlLoad
+//	SessionLoggerEventTabOpen
+//	SessionLoggerEventTabClose
+//	SessionLoggerEventPrintJobSubmit
+//	SessionLoggerEventSessionConnect
+//	SessionLoggerEventSessionStart
+//	SessionLoggerEventSessionDisconnect
+//	SessionLoggerEventSessionEnd
+//	SessionLoggerEventUrlBlockByContentFilter
+type SessionLoggerEventInput interface {
+	pulumi.Input
+
+	ToSessionLoggerEventOutput() SessionLoggerEventOutput
+	ToSessionLoggerEventOutputWithContext(context.Context) SessionLoggerEventOutput
+}
+
+var sessionLoggerEventPtrType = reflect.TypeOf((**SessionLoggerEvent)(nil)).Elem()
+
+type SessionLoggerEventPtrInput interface {
+	pulumi.Input
+
+	ToSessionLoggerEventPtrOutput() SessionLoggerEventPtrOutput
+	ToSessionLoggerEventPtrOutputWithContext(context.Context) SessionLoggerEventPtrOutput
+}
+
+type sessionLoggerEventPtr string
+
+func SessionLoggerEventPtr(v string) SessionLoggerEventPtrInput {
+	return (*sessionLoggerEventPtr)(&v)
+}
+
+func (*sessionLoggerEventPtr) ElementType() reflect.Type {
+	return sessionLoggerEventPtrType
+}
+
+func (in *sessionLoggerEventPtr) ToSessionLoggerEventPtrOutput() SessionLoggerEventPtrOutput {
+	return pulumi.ToOutput(in).(SessionLoggerEventPtrOutput)
+}
+
+func (in *sessionLoggerEventPtr) ToSessionLoggerEventPtrOutputWithContext(ctx context.Context) SessionLoggerEventPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SessionLoggerEventPtrOutput)
+}
+
+// SessionLoggerEventArrayInput is an input type that accepts SessionLoggerEventArray and SessionLoggerEventArrayOutput values.
+// You can construct a concrete instance of `SessionLoggerEventArrayInput` via:
+//
+//	SessionLoggerEventArray{ SessionLoggerEventArgs{...} }
+type SessionLoggerEventArrayInput interface {
+	pulumi.Input
+
+	ToSessionLoggerEventArrayOutput() SessionLoggerEventArrayOutput
+	ToSessionLoggerEventArrayOutputWithContext(context.Context) SessionLoggerEventArrayOutput
+}
+
+type SessionLoggerEventArray []SessionLoggerEvent
+
+func (SessionLoggerEventArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SessionLoggerEvent)(nil)).Elem()
+}
+
+func (i SessionLoggerEventArray) ToSessionLoggerEventArrayOutput() SessionLoggerEventArrayOutput {
+	return i.ToSessionLoggerEventArrayOutputWithContext(context.Background())
+}
+
+func (i SessionLoggerEventArray) ToSessionLoggerEventArrayOutputWithContext(ctx context.Context) SessionLoggerEventArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionLoggerEventArrayOutput)
+}
+
+type SessionLoggerEventArrayOutput struct{ *pulumi.OutputState }
+
+func (SessionLoggerEventArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SessionLoggerEvent)(nil)).Elem()
+}
+
+func (o SessionLoggerEventArrayOutput) ToSessionLoggerEventArrayOutput() SessionLoggerEventArrayOutput {
+	return o
+}
+
+func (o SessionLoggerEventArrayOutput) ToSessionLoggerEventArrayOutputWithContext(ctx context.Context) SessionLoggerEventArrayOutput {
+	return o
+}
+
+func (o SessionLoggerEventArrayOutput) Index(i pulumi.IntInput) SessionLoggerEventOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SessionLoggerEvent {
+		return vs[0].([]SessionLoggerEvent)[vs[1].(int)]
+	}).(SessionLoggerEventOutput)
+}
+
+type SessionLoggerFolderStructure string
+
+const (
+	SessionLoggerFolderStructureFlat         = SessionLoggerFolderStructure("Flat")
+	SessionLoggerFolderStructureNestedByDate = SessionLoggerFolderStructure("NestedByDate")
+)
+
+func (SessionLoggerFolderStructure) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionLoggerFolderStructure)(nil)).Elem()
+}
+
+func (e SessionLoggerFolderStructure) ToSessionLoggerFolderStructureOutput() SessionLoggerFolderStructureOutput {
+	return pulumi.ToOutput(e).(SessionLoggerFolderStructureOutput)
+}
+
+func (e SessionLoggerFolderStructure) ToSessionLoggerFolderStructureOutputWithContext(ctx context.Context) SessionLoggerFolderStructureOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SessionLoggerFolderStructureOutput)
+}
+
+func (e SessionLoggerFolderStructure) ToSessionLoggerFolderStructurePtrOutput() SessionLoggerFolderStructurePtrOutput {
+	return e.ToSessionLoggerFolderStructurePtrOutputWithContext(context.Background())
+}
+
+func (e SessionLoggerFolderStructure) ToSessionLoggerFolderStructurePtrOutputWithContext(ctx context.Context) SessionLoggerFolderStructurePtrOutput {
+	return SessionLoggerFolderStructure(e).ToSessionLoggerFolderStructureOutputWithContext(ctx).ToSessionLoggerFolderStructurePtrOutputWithContext(ctx)
+}
+
+func (e SessionLoggerFolderStructure) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SessionLoggerFolderStructure) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SessionLoggerFolderStructure) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SessionLoggerFolderStructure) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SessionLoggerFolderStructureOutput struct{ *pulumi.OutputState }
+
+func (SessionLoggerFolderStructureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionLoggerFolderStructure)(nil)).Elem()
+}
+
+func (o SessionLoggerFolderStructureOutput) ToSessionLoggerFolderStructureOutput() SessionLoggerFolderStructureOutput {
+	return o
+}
+
+func (o SessionLoggerFolderStructureOutput) ToSessionLoggerFolderStructureOutputWithContext(ctx context.Context) SessionLoggerFolderStructureOutput {
+	return o
+}
+
+func (o SessionLoggerFolderStructureOutput) ToSessionLoggerFolderStructurePtrOutput() SessionLoggerFolderStructurePtrOutput {
+	return o.ToSessionLoggerFolderStructurePtrOutputWithContext(context.Background())
+}
+
+func (o SessionLoggerFolderStructureOutput) ToSessionLoggerFolderStructurePtrOutputWithContext(ctx context.Context) SessionLoggerFolderStructurePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SessionLoggerFolderStructure) *SessionLoggerFolderStructure {
+		return &v
+	}).(SessionLoggerFolderStructurePtrOutput)
+}
+
+func (o SessionLoggerFolderStructureOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SessionLoggerFolderStructureOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SessionLoggerFolderStructure) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SessionLoggerFolderStructureOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SessionLoggerFolderStructureOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SessionLoggerFolderStructure) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SessionLoggerFolderStructurePtrOutput struct{ *pulumi.OutputState }
+
+func (SessionLoggerFolderStructurePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionLoggerFolderStructure)(nil)).Elem()
+}
+
+func (o SessionLoggerFolderStructurePtrOutput) ToSessionLoggerFolderStructurePtrOutput() SessionLoggerFolderStructurePtrOutput {
+	return o
+}
+
+func (o SessionLoggerFolderStructurePtrOutput) ToSessionLoggerFolderStructurePtrOutputWithContext(ctx context.Context) SessionLoggerFolderStructurePtrOutput {
+	return o
+}
+
+func (o SessionLoggerFolderStructurePtrOutput) Elem() SessionLoggerFolderStructureOutput {
+	return o.ApplyT(func(v *SessionLoggerFolderStructure) SessionLoggerFolderStructure {
+		if v != nil {
+			return *v
+		}
+		var ret SessionLoggerFolderStructure
+		return ret
+	}).(SessionLoggerFolderStructureOutput)
+}
+
+func (o SessionLoggerFolderStructurePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SessionLoggerFolderStructurePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SessionLoggerFolderStructure) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SessionLoggerFolderStructureInput is an input type that accepts values of the SessionLoggerFolderStructure enum
+// A concrete instance of `SessionLoggerFolderStructureInput` can be one of the following:
+//
+//	SessionLoggerFolderStructureFlat
+//	SessionLoggerFolderStructureNestedByDate
+type SessionLoggerFolderStructureInput interface {
+	pulumi.Input
+
+	ToSessionLoggerFolderStructureOutput() SessionLoggerFolderStructureOutput
+	ToSessionLoggerFolderStructureOutputWithContext(context.Context) SessionLoggerFolderStructureOutput
+}
+
+var sessionLoggerFolderStructurePtrType = reflect.TypeOf((**SessionLoggerFolderStructure)(nil)).Elem()
+
+type SessionLoggerFolderStructurePtrInput interface {
+	pulumi.Input
+
+	ToSessionLoggerFolderStructurePtrOutput() SessionLoggerFolderStructurePtrOutput
+	ToSessionLoggerFolderStructurePtrOutputWithContext(context.Context) SessionLoggerFolderStructurePtrOutput
+}
+
+type sessionLoggerFolderStructurePtr string
+
+func SessionLoggerFolderStructurePtr(v string) SessionLoggerFolderStructurePtrInput {
+	return (*sessionLoggerFolderStructurePtr)(&v)
+}
+
+func (*sessionLoggerFolderStructurePtr) ElementType() reflect.Type {
+	return sessionLoggerFolderStructurePtrType
+}
+
+func (in *sessionLoggerFolderStructurePtr) ToSessionLoggerFolderStructurePtrOutput() SessionLoggerFolderStructurePtrOutput {
+	return pulumi.ToOutput(in).(SessionLoggerFolderStructurePtrOutput)
+}
+
+func (in *sessionLoggerFolderStructurePtr) ToSessionLoggerFolderStructurePtrOutputWithContext(ctx context.Context) SessionLoggerFolderStructurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SessionLoggerFolderStructurePtrOutput)
+}
+
+type SessionLoggerLogFileFormat string
+
+const (
+	SessionLoggerLogFileFormatJsonLines = SessionLoggerLogFileFormat("JSONLines")
+	SessionLoggerLogFileFormatJson      = SessionLoggerLogFileFormat("Json")
+)
+
+func (SessionLoggerLogFileFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionLoggerLogFileFormat)(nil)).Elem()
+}
+
+func (e SessionLoggerLogFileFormat) ToSessionLoggerLogFileFormatOutput() SessionLoggerLogFileFormatOutput {
+	return pulumi.ToOutput(e).(SessionLoggerLogFileFormatOutput)
+}
+
+func (e SessionLoggerLogFileFormat) ToSessionLoggerLogFileFormatOutputWithContext(ctx context.Context) SessionLoggerLogFileFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SessionLoggerLogFileFormatOutput)
+}
+
+func (e SessionLoggerLogFileFormat) ToSessionLoggerLogFileFormatPtrOutput() SessionLoggerLogFileFormatPtrOutput {
+	return e.ToSessionLoggerLogFileFormatPtrOutputWithContext(context.Background())
+}
+
+func (e SessionLoggerLogFileFormat) ToSessionLoggerLogFileFormatPtrOutputWithContext(ctx context.Context) SessionLoggerLogFileFormatPtrOutput {
+	return SessionLoggerLogFileFormat(e).ToSessionLoggerLogFileFormatOutputWithContext(ctx).ToSessionLoggerLogFileFormatPtrOutputWithContext(ctx)
+}
+
+func (e SessionLoggerLogFileFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SessionLoggerLogFileFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SessionLoggerLogFileFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SessionLoggerLogFileFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SessionLoggerLogFileFormatOutput struct{ *pulumi.OutputState }
+
+func (SessionLoggerLogFileFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionLoggerLogFileFormat)(nil)).Elem()
+}
+
+func (o SessionLoggerLogFileFormatOutput) ToSessionLoggerLogFileFormatOutput() SessionLoggerLogFileFormatOutput {
+	return o
+}
+
+func (o SessionLoggerLogFileFormatOutput) ToSessionLoggerLogFileFormatOutputWithContext(ctx context.Context) SessionLoggerLogFileFormatOutput {
+	return o
+}
+
+func (o SessionLoggerLogFileFormatOutput) ToSessionLoggerLogFileFormatPtrOutput() SessionLoggerLogFileFormatPtrOutput {
+	return o.ToSessionLoggerLogFileFormatPtrOutputWithContext(context.Background())
+}
+
+func (o SessionLoggerLogFileFormatOutput) ToSessionLoggerLogFileFormatPtrOutputWithContext(ctx context.Context) SessionLoggerLogFileFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SessionLoggerLogFileFormat) *SessionLoggerLogFileFormat {
+		return &v
+	}).(SessionLoggerLogFileFormatPtrOutput)
+}
+
+func (o SessionLoggerLogFileFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SessionLoggerLogFileFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SessionLoggerLogFileFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SessionLoggerLogFileFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SessionLoggerLogFileFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SessionLoggerLogFileFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SessionLoggerLogFileFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (SessionLoggerLogFileFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionLoggerLogFileFormat)(nil)).Elem()
+}
+
+func (o SessionLoggerLogFileFormatPtrOutput) ToSessionLoggerLogFileFormatPtrOutput() SessionLoggerLogFileFormatPtrOutput {
+	return o
+}
+
+func (o SessionLoggerLogFileFormatPtrOutput) ToSessionLoggerLogFileFormatPtrOutputWithContext(ctx context.Context) SessionLoggerLogFileFormatPtrOutput {
+	return o
+}
+
+func (o SessionLoggerLogFileFormatPtrOutput) Elem() SessionLoggerLogFileFormatOutput {
+	return o.ApplyT(func(v *SessionLoggerLogFileFormat) SessionLoggerLogFileFormat {
+		if v != nil {
+			return *v
+		}
+		var ret SessionLoggerLogFileFormat
+		return ret
+	}).(SessionLoggerLogFileFormatOutput)
+}
+
+func (o SessionLoggerLogFileFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SessionLoggerLogFileFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SessionLoggerLogFileFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SessionLoggerLogFileFormatInput is an input type that accepts values of the SessionLoggerLogFileFormat enum
+// A concrete instance of `SessionLoggerLogFileFormatInput` can be one of the following:
+//
+//	SessionLoggerLogFileFormatJsonLines
+//	SessionLoggerLogFileFormatJson
+type SessionLoggerLogFileFormatInput interface {
+	pulumi.Input
+
+	ToSessionLoggerLogFileFormatOutput() SessionLoggerLogFileFormatOutput
+	ToSessionLoggerLogFileFormatOutputWithContext(context.Context) SessionLoggerLogFileFormatOutput
+}
+
+var sessionLoggerLogFileFormatPtrType = reflect.TypeOf((**SessionLoggerLogFileFormat)(nil)).Elem()
+
+type SessionLoggerLogFileFormatPtrInput interface {
+	pulumi.Input
+
+	ToSessionLoggerLogFileFormatPtrOutput() SessionLoggerLogFileFormatPtrOutput
+	ToSessionLoggerLogFileFormatPtrOutputWithContext(context.Context) SessionLoggerLogFileFormatPtrOutput
+}
+
+type sessionLoggerLogFileFormatPtr string
+
+func SessionLoggerLogFileFormatPtr(v string) SessionLoggerLogFileFormatPtrInput {
+	return (*sessionLoggerLogFileFormatPtr)(&v)
+}
+
+func (*sessionLoggerLogFileFormatPtr) ElementType() reflect.Type {
+	return sessionLoggerLogFileFormatPtrType
+}
+
+func (in *sessionLoggerLogFileFormatPtr) ToSessionLoggerLogFileFormatPtrOutput() SessionLoggerLogFileFormatPtrOutput {
+	return pulumi.ToOutput(in).(SessionLoggerLogFileFormatPtrOutput)
+}
+
+func (in *sessionLoggerLogFileFormatPtr) ToSessionLoggerLogFileFormatPtrOutputWithContext(ctx context.Context) SessionLoggerLogFileFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SessionLoggerLogFileFormatPtrOutput)
+}
+
 type UserSettingsEnabledType string
 
 const (
@@ -1844,6 +2414,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PortalAuthenticationTypePtrInput)(nil)).Elem(), PortalAuthenticationType("Standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PortalInstanceTypeInput)(nil)).Elem(), PortalInstanceType("standard.regular"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PortalInstanceTypePtrInput)(nil)).Elem(), PortalInstanceType("standard.regular"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerEventInput)(nil)).Elem(), SessionLoggerEvent("WebsiteInteract"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerEventPtrInput)(nil)).Elem(), SessionLoggerEvent("WebsiteInteract"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerEventArrayInput)(nil)).Elem(), SessionLoggerEventArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerFolderStructureInput)(nil)).Elem(), SessionLoggerFolderStructure("Flat"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerFolderStructurePtrInput)(nil)).Elem(), SessionLoggerFolderStructure("Flat"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerLogFileFormatInput)(nil)).Elem(), SessionLoggerLogFileFormat("JSONLines"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerLogFileFormatPtrInput)(nil)).Elem(), SessionLoggerLogFileFormat("JSONLines"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsEnabledTypeInput)(nil)).Elem(), UserSettingsEnabledType("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsEnabledTypePtrInput)(nil)).Elem(), UserSettingsEnabledType("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsMaxDisplayResolutionInput)(nil)).Elem(), UserSettingsMaxDisplayResolution("size4096X2160"))
@@ -1869,6 +2446,13 @@ func init() {
 	pulumi.RegisterOutputType(PortalRendererTypePtrOutput{})
 	pulumi.RegisterOutputType(PortalStatusOutput{})
 	pulumi.RegisterOutputType(PortalStatusPtrOutput{})
+	pulumi.RegisterOutputType(SessionLoggerEventOutput{})
+	pulumi.RegisterOutputType(SessionLoggerEventPtrOutput{})
+	pulumi.RegisterOutputType(SessionLoggerEventArrayOutput{})
+	pulumi.RegisterOutputType(SessionLoggerFolderStructureOutput{})
+	pulumi.RegisterOutputType(SessionLoggerFolderStructurePtrOutput{})
+	pulumi.RegisterOutputType(SessionLoggerLogFileFormatOutput{})
+	pulumi.RegisterOutputType(SessionLoggerLogFileFormatPtrOutput{})
 	pulumi.RegisterOutputType(UserSettingsEnabledTypeOutput{})
 	pulumi.RegisterOutputType(UserSettingsEnabledTypePtrOutput{})
 	pulumi.RegisterOutputType(UserSettingsMaxDisplayResolutionOutput{})

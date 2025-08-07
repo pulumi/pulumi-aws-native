@@ -996,6 +996,9 @@ class ClusterSettingsArgs:
 
 if not MYPY:
     class ServiceAdvancedConfigurationArgsDict(TypedDict):
+        """
+        The advanced settings for a load balancer used in blue/green deployments. Specify the alternate target group, listener rules, and IAM role required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
+        """
         alternate_target_group_arn: pulumi.Input[builtins.str]
         """
         The Amazon Resource Name (ARN) of the alternate target group for Amazon ECS blue/green deployments.
@@ -1023,6 +1026,7 @@ class ServiceAdvancedConfigurationArgs:
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  test_listener_rule: Optional[pulumi.Input[builtins.str]] = None):
         """
+        The advanced settings for a load balancer used in blue/green deployments. Specify the alternate target group, listener rules, and IAM role required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[builtins.str] alternate_target_group_arn: The Amazon Resource Name (ARN) of the alternate target group for Amazon ECS blue/green deployments.
         :param pulumi.Input[builtins.str] production_listener_rule: The Amazon Resource Name (ARN) that that identifies the production listener rule (in the case of an Application Load Balancer) or listener (in the case for an Network Load Balancer) for routing production traffic.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call the Elastic Load Balancing APIs for you.
@@ -1691,6 +1695,10 @@ class ServiceConnectTestTrafficRulesHeaderArgs:
 
 if not MYPY:
     class ServiceConnectTestTrafficRulesArgsDict(TypedDict):
+        """
+        The test traffic routing configuration for Amazon ECS blue/green deployments. This configuration allows you to define rules for routing specific traffic to the new service revision during the deployment process, allowing for safe testing before full production traffic shift.
+         For more information, see [Service Connect for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-blue-green.html) in the *Amazon Elastic Container Service Developer Guide*.
+        """
         header: pulumi.Input['ServiceConnectTestTrafficRulesHeaderArgsDict']
         """
         The HTTP header-based routing rules that determine which requests should be routed to the new service version during blue/green deployment testing. These rules provide fine-grained control over test traffic routing based on request headers.
@@ -1703,6 +1711,8 @@ class ServiceConnectTestTrafficRulesArgs:
     def __init__(__self__, *,
                  header: pulumi.Input['ServiceConnectTestTrafficRulesHeaderArgs']):
         """
+        The test traffic routing configuration for Amazon ECS blue/green deployments. This configuration allows you to define rules for routing specific traffic to the new service revision during the deployment process, allowing for safe testing before full production traffic shift.
+         For more information, see [Service Connect for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-blue-green.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input['ServiceConnectTestTrafficRulesHeaderArgs'] header: The HTTP header-based routing rules that determine which requests should be routed to the new service version during blue/green deployment testing. These rules provide fine-grained control over test traffic routing based on request headers.
         """
         pulumi.set(__self__, "header", header)
@@ -1836,7 +1846,7 @@ if not MYPY:
         """
         One of the methods which provide a way for you to quickly identify when a deployment has failed, and then to optionally roll back the failure to the last working deployment.
          When the alarms are generated, Amazon ECS sets the service deployment to failed. Set the rollback parameter to have Amazon ECS to roll back your service to the last completed deployment after a failure.
-         You can only use the ``DeploymentAlarms`` method to detect failures when the ``DeploymentController`` is set to ``ECS`` (rolling update).
+         You can only use the ``DeploymentAlarms`` method to detect failures when the ``DeploymentController`` is set to ``ECS``.
          For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*.
         """
         alarm_names: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
@@ -1863,7 +1873,7 @@ class ServiceDeploymentAlarmsArgs:
         """
         One of the methods which provide a way for you to quickly identify when a deployment has failed, and then to optionally roll back the failure to the last working deployment.
          When the alarms are generated, Amazon ECS sets the service deployment to failed. Set the rollback parameter to have Amazon ECS to roll back your service to the last completed deployment after a failure.
-         You can only use the ``DeploymentAlarms`` method to detect failures when the ``DeploymentController`` is set to ``ECS`` (rolling update).
+         You can only use the ``DeploymentAlarms`` method to detect failures when the ``DeploymentController`` is set to ``ECS``.
          For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] alarm_names: One or more CloudWatch alarm names. Use a "," to separate the alarms.
         :param pulumi.Input[builtins.bool] enable: Determines whether to use the CloudWatch alarm option in the service deployment process.
@@ -1980,12 +1990,10 @@ if not MYPY:
         bake_time_in_minutes: NotRequired[pulumi.Input[builtins.int]]
         """
         The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.
-
-        The following rules apply when you don't specify a value:
-
-        - For rolling deployments, the value is set to 3 hours (180 minutes).
-        - When you use an external deployment controller ( `EXTERNAL` ), or the CodeDeploy blue/green deployment controller ( `CODE_DEPLOY` ), the value is set to 3 hours (180 minutes).
-        - For all other cases, the value is set to 36 hours (2160 minutes).
+         The following rules apply when you don't specify a value:
+          +  For rolling deployments, the value is set to 3 hours (180 minutes).
+          +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
+          +  For all other cases, the value is set to 36 hours (2160 minutes).
         """
         deployment_circuit_breaker: NotRequired[pulumi.Input['ServiceDeploymentCircuitBreakerArgsDict']]
         """
@@ -2026,9 +2034,8 @@ if not MYPY:
         strategy: NotRequired[pulumi.Input['ServiceDeploymentConfigurationStrategy']]
         """
         The deployment strategy for the service. Choose from these valid values:
-
-        - `ROLLING` - When you create a service which uses the rolling update ( `ROLLING` ) deployment strategy, the Amazon ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration.
-        - `BLUE_GREEN` - A blue/green deployment strategy ( `BLUE_GREEN` ) is a release methodology that reduces downtime and risk by running two identical production environments called blue and green. With Amazon ECS blue/green deployments, you can validate new service revisions before directing production traffic to them. This approach provides a safer way to deploy changes with the ability to quickly roll back if needed.
+          +  ``ROLLING`` - When you create a service which uses the rolling update (``ROLLING``) deployment strategy, the Amazon ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration.
+          +  ``BLUE_GREEN`` - A blue/green deployment strategy (``BLUE_GREEN``) is a release methodology that reduces downtime and risk by running two identical production environments called blue and green. With Amazon ECS blue/green deployments, you can validate new service revisions before directing production traffic to them. This approach provides a safer way to deploy changes with the ability to quickly roll back if needed.
         """
 elif False:
     ServiceDeploymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -2047,12 +2054,10 @@ class ServiceDeploymentConfigurationArgs:
         Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
         :param pulumi.Input['ServiceDeploymentAlarmsArgs'] alarms: Information about the CloudWatch alarms.
         :param pulumi.Input[builtins.int] bake_time_in_minutes: The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.
-               
-               The following rules apply when you don't specify a value:
-               
-               - For rolling deployments, the value is set to 3 hours (180 minutes).
-               - When you use an external deployment controller ( `EXTERNAL` ), or the CodeDeploy blue/green deployment controller ( `CODE_DEPLOY` ), the value is set to 3 hours (180 minutes).
-               - For all other cases, the value is set to 36 hours (2160 minutes).
+                The following rules apply when you don't specify a value:
+                 +  For rolling deployments, the value is set to 3 hours (180 minutes).
+                 +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
+                 +  For all other cases, the value is set to 36 hours (2160 minutes).
         :param pulumi.Input['ServiceDeploymentCircuitBreakerArgs'] deployment_circuit_breaker: The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
                  The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
         :param pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentLifecycleHookArgs']]] lifecycle_hooks: An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
@@ -2078,9 +2083,8 @@ class ServiceDeploymentConfigurationArgs:
                  You can't specify a custom ``minimumHealthyPercent`` value for a service that uses either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and has tasks that use the EC2 launch type.
                  If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
         :param pulumi.Input['ServiceDeploymentConfigurationStrategy'] strategy: The deployment strategy for the service. Choose from these valid values:
-               
-               - `ROLLING` - When you create a service which uses the rolling update ( `ROLLING` ) deployment strategy, the Amazon ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration.
-               - `BLUE_GREEN` - A blue/green deployment strategy ( `BLUE_GREEN` ) is a release methodology that reduces downtime and risk by running two identical production environments called blue and green. With Amazon ECS blue/green deployments, you can validate new service revisions before directing production traffic to them. This approach provides a safer way to deploy changes with the ability to quickly roll back if needed.
+                 +  ``ROLLING`` - When you create a service which uses the rolling update (``ROLLING``) deployment strategy, the Amazon ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration.
+                 +  ``BLUE_GREEN`` - A blue/green deployment strategy (``BLUE_GREEN``) is a release methodology that reduces downtime and risk by running two identical production environments called blue and green. With Amazon ECS blue/green deployments, you can validate new service revisions before directing production traffic to them. This approach provides a safer way to deploy changes with the ability to quickly roll back if needed.
         """
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
@@ -2114,12 +2118,10 @@ class ServiceDeploymentConfigurationArgs:
     def bake_time_in_minutes(self) -> Optional[pulumi.Input[builtins.int]]:
         """
         The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.
-
-        The following rules apply when you don't specify a value:
-
-        - For rolling deployments, the value is set to 3 hours (180 minutes).
-        - When you use an external deployment controller ( `EXTERNAL` ), or the CodeDeploy blue/green deployment controller ( `CODE_DEPLOY` ), the value is set to 3 hours (180 minutes).
-        - For all other cases, the value is set to 36 hours (2160 minutes).
+         The following rules apply when you don't specify a value:
+          +  For rolling deployments, the value is set to 3 hours (180 minutes).
+          +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
+          +  For all other cases, the value is set to 36 hours (2160 minutes).
         """
         return pulumi.get(self, "bake_time_in_minutes")
 
@@ -2200,9 +2202,8 @@ class ServiceDeploymentConfigurationArgs:
     def strategy(self) -> Optional[pulumi.Input['ServiceDeploymentConfigurationStrategy']]:
         """
         The deployment strategy for the service. Choose from these valid values:
-
-        - `ROLLING` - When you create a service which uses the rolling update ( `ROLLING` ) deployment strategy, the Amazon ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration.
-        - `BLUE_GREEN` - A blue/green deployment strategy ( `BLUE_GREEN` ) is a release methodology that reduces downtime and risk by running two identical production environments called blue and green. With Amazon ECS blue/green deployments, you can validate new service revisions before directing production traffic to them. This approach provides a safer way to deploy changes with the ability to quickly roll back if needed.
+          +  ``ROLLING`` - When you create a service which uses the rolling update (``ROLLING``) deployment strategy, the Amazon ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that Amazon ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration.
+          +  ``BLUE_GREEN`` - A blue/green deployment strategy (``BLUE_GREEN``) is a release methodology that reduces downtime and risk by running two identical production environments called blue and green. With Amazon ECS blue/green deployments, you can validate new service revisions before directing production traffic to them. This approach provides a safer way to deploy changes with the ability to quickly roll back if needed.
         """
         return pulumi.get(self, "strategy")
 
@@ -2218,8 +2219,40 @@ if not MYPY:
         """
         type: NotRequired[pulumi.Input['ServiceDeploymentControllerType']]
         """
-        The deployment controller type to use. There are three deployment controller types available:
-          + ECS The rolling update (ECS) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the DeploymentConfiguration. + CODE_DEPLOY The blue/green (CODE_DEPLOY) deployment type uses the blue/green deployment model powered by , which allows you to verify a new deployment of a service before sending production traffic to it. + EXTERNAL The external (EXTERNAL) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
+        The deployment controller type to use.
+         The deployment controller is the mechanism that determines how tasks are deployed for your service. The valid options are:
+          +  ECS
+         When you create a service which uses the ``ECS`` deployment controller, you can choose between the following deployment strategies:
+          +  ``ROLLING``: When you create a service which uses the *rolling update* (``ROLLING``) deployment strategy, the ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration. 
+         Rolling update deployments are best suited for the following scenarios:
+          +  Gradual service updates: You need to update your service incrementally without taking the entire service offline at once.
+          +  Limited resource requirements: You want to avoid the additional resource costs of running two complete environments simultaneously (as required by blue/green deployments).
+          +  Acceptable deployment time: Your application can tolerate a longer deployment process, as rolling updates replace tasks one by one.
+          +  No need for instant roll back: Your service can tolerate a rollback process that takes minutes rather than seconds.
+          +  Simple deployment process: You prefer a straightforward deployment approach without the complexity of managing multiple environments, target groups, and listeners.
+          +  No load balancer requirement: Your service doesn't use or require a load balancer, ALB, NLB, or Service Connect (which are required for blue/green deployments).
+          +  Stateful applications: Your application maintains state that makes it difficult to run two parallel environments.
+          +  Cost sensitivity: You want to minimize deployment costs by not running duplicate environments during deployment.
+          
+         Rolling updates are the default deployment strategy for services and provide a balance between deployment safety and resource efficiency for many common application scenarios.
+          +  ``BLUE_GREEN``: A *blue/green* deployment strategy (``BLUE_GREEN``) is a release methodology that reduces downtime and risk by running two identical production environments called blue and green. With ECS blue/green deployments, you can validate new service revisions before directing production traffic to them. This approach provides a safer way to deploy changes with the ability to quickly roll back if needed.
+         ECS blue/green deployments are best suited for the following scenarios:
+          +  Service validation: When you need to validate new service revisions before directing production traffic to them
+          +  Zero downtime: When your service requires zero-downtime deployments
+          +  Instant roll back: When you need the ability to quickly roll back if issues are detected
+          +  Load balancer requirement: When your service uses ALB, NLB, or Service Connect
+          
+          
+          +  External
+         Use a third-party deployment controller.
+          +  Blue/green deployment (powered by ACD)
+         ACD installs an updated version of the application as a new replacement task set and reroutes production traffic from the original application task set to the replacement task set. The original task set is terminated after a successful deployment. Use this deployment controller to verify a new deployment of a service before sending production traffic to it.
+          
+         When updating the deployment controller for a service, consider the following depending on the type of migration you're performing.
+          +  If you have a template that contains the ``EXTERNAL`` deployment controller information as well as ``TaskSet`` and ``PrimaryTaskSet`` resources, and you remove the task set resources from the template when updating from ``EXTERNAL`` to ``ECS``, the ``DescribeTaskSet`` and ``DeleteTaskSet`` API calls will return a 400 error after the deployment controller is updated to ``ECS``. This results in a delete failure on the task set resources, even though the stack transitions to ``UPDATE_COMPLETE`` status. For more information, see [Resource removed from stack but not deleted](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-resource-removed-not-deleted) in the CFNlong User Guide. To fix this issue, delete the task sets directly using the ECS``DeleteTaskSet`` API. For more information about how to delete a task set, see [DeleteTaskSet](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteTaskSet.html) in the ECSlong API Reference.
+          +  If you're migrating from ``CODE_DEPLOY`` to ``ECS`` with a new task definition and CFN performs a rollback operation, the ECS``UpdateService`` request fails with the following error:
+         Resource handler returned message: "Invalid request provided: Unable to update task definition on services with a CODE_DEPLOY deployment controller. 
+          +  After a successful migration from ``ECS`` to ``EXTERNAL`` deployment controller, you need to manually remove the ``ACTIVE`` task set, because ECS no longer manages the deployment. For information about how to delete a task set, see [DeleteTaskSet](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteTaskSet.html) in the ECSlong API Reference.
         """
 elif False:
     ServiceDeploymentControllerArgsDict: TypeAlias = Mapping[str, Any]
@@ -2230,8 +2263,40 @@ class ServiceDeploymentControllerArgs:
                  type: Optional[pulumi.Input['ServiceDeploymentControllerType']] = None):
         """
         The deployment controller to use for the service.
-        :param pulumi.Input['ServiceDeploymentControllerType'] type: The deployment controller type to use. There are three deployment controller types available:
-                 + ECS The rolling update (ECS) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the DeploymentConfiguration. + CODE_DEPLOY The blue/green (CODE_DEPLOY) deployment type uses the blue/green deployment model powered by , which allows you to verify a new deployment of a service before sending production traffic to it. + EXTERNAL The external (EXTERNAL) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
+        :param pulumi.Input['ServiceDeploymentControllerType'] type: The deployment controller type to use.
+                The deployment controller is the mechanism that determines how tasks are deployed for your service. The valid options are:
+                 +  ECS
+                When you create a service which uses the ``ECS`` deployment controller, you can choose between the following deployment strategies:
+                 +  ``ROLLING``: When you create a service which uses the *rolling update* (``ROLLING``) deployment strategy, the ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration. 
+                Rolling update deployments are best suited for the following scenarios:
+                 +  Gradual service updates: You need to update your service incrementally without taking the entire service offline at once.
+                 +  Limited resource requirements: You want to avoid the additional resource costs of running two complete environments simultaneously (as required by blue/green deployments).
+                 +  Acceptable deployment time: Your application can tolerate a longer deployment process, as rolling updates replace tasks one by one.
+                 +  No need for instant roll back: Your service can tolerate a rollback process that takes minutes rather than seconds.
+                 +  Simple deployment process: You prefer a straightforward deployment approach without the complexity of managing multiple environments, target groups, and listeners.
+                 +  No load balancer requirement: Your service doesn't use or require a load balancer, ALB, NLB, or Service Connect (which are required for blue/green deployments).
+                 +  Stateful applications: Your application maintains state that makes it difficult to run two parallel environments.
+                 +  Cost sensitivity: You want to minimize deployment costs by not running duplicate environments during deployment.
+                 
+                Rolling updates are the default deployment strategy for services and provide a balance between deployment safety and resource efficiency for many common application scenarios.
+                 +  ``BLUE_GREEN``: A *blue/green* deployment strategy (``BLUE_GREEN``) is a release methodology that reduces downtime and risk by running two identical production environments called blue and green. With ECS blue/green deployments, you can validate new service revisions before directing production traffic to them. This approach provides a safer way to deploy changes with the ability to quickly roll back if needed.
+                ECS blue/green deployments are best suited for the following scenarios:
+                 +  Service validation: When you need to validate new service revisions before directing production traffic to them
+                 +  Zero downtime: When your service requires zero-downtime deployments
+                 +  Instant roll back: When you need the ability to quickly roll back if issues are detected
+                 +  Load balancer requirement: When your service uses ALB, NLB, or Service Connect
+                 
+                 
+                 +  External
+                Use a third-party deployment controller.
+                 +  Blue/green deployment (powered by ACD)
+                ACD installs an updated version of the application as a new replacement task set and reroutes production traffic from the original application task set to the replacement task set. The original task set is terminated after a successful deployment. Use this deployment controller to verify a new deployment of a service before sending production traffic to it.
+                 
+                When updating the deployment controller for a service, consider the following depending on the type of migration you're performing.
+                 +  If you have a template that contains the ``EXTERNAL`` deployment controller information as well as ``TaskSet`` and ``PrimaryTaskSet`` resources, and you remove the task set resources from the template when updating from ``EXTERNAL`` to ``ECS``, the ``DescribeTaskSet`` and ``DeleteTaskSet`` API calls will return a 400 error after the deployment controller is updated to ``ECS``. This results in a delete failure on the task set resources, even though the stack transitions to ``UPDATE_COMPLETE`` status. For more information, see [Resource removed from stack but not deleted](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-resource-removed-not-deleted) in the CFNlong User Guide. To fix this issue, delete the task sets directly using the ECS``DeleteTaskSet`` API. For more information about how to delete a task set, see [DeleteTaskSet](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteTaskSet.html) in the ECSlong API Reference.
+                 +  If you're migrating from ``CODE_DEPLOY`` to ``ECS`` with a new task definition and CFN performs a rollback operation, the ECS``UpdateService`` request fails with the following error:
+                Resource handler returned message: "Invalid request provided: Unable to update task definition on services with a CODE_DEPLOY deployment controller. 
+                 +  After a successful migration from ``ECS`` to ``EXTERNAL`` deployment controller, you need to manually remove the ``ACTIVE`` task set, because ECS no longer manages the deployment. For information about how to delete a task set, see [DeleteTaskSet](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteTaskSet.html) in the ECSlong API Reference.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -2240,8 +2305,40 @@ class ServiceDeploymentControllerArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input['ServiceDeploymentControllerType']]:
         """
-        The deployment controller type to use. There are three deployment controller types available:
-          + ECS The rolling update (ECS) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the DeploymentConfiguration. + CODE_DEPLOY The blue/green (CODE_DEPLOY) deployment type uses the blue/green deployment model powered by , which allows you to verify a new deployment of a service before sending production traffic to it. + EXTERNAL The external (EXTERNAL) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
+        The deployment controller type to use.
+         The deployment controller is the mechanism that determines how tasks are deployed for your service. The valid options are:
+          +  ECS
+         When you create a service which uses the ``ECS`` deployment controller, you can choose between the following deployment strategies:
+          +  ``ROLLING``: When you create a service which uses the *rolling update* (``ROLLING``) deployment strategy, the ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration. 
+         Rolling update deployments are best suited for the following scenarios:
+          +  Gradual service updates: You need to update your service incrementally without taking the entire service offline at once.
+          +  Limited resource requirements: You want to avoid the additional resource costs of running two complete environments simultaneously (as required by blue/green deployments).
+          +  Acceptable deployment time: Your application can tolerate a longer deployment process, as rolling updates replace tasks one by one.
+          +  No need for instant roll back: Your service can tolerate a rollback process that takes minutes rather than seconds.
+          +  Simple deployment process: You prefer a straightforward deployment approach without the complexity of managing multiple environments, target groups, and listeners.
+          +  No load balancer requirement: Your service doesn't use or require a load balancer, ALB, NLB, or Service Connect (which are required for blue/green deployments).
+          +  Stateful applications: Your application maintains state that makes it difficult to run two parallel environments.
+          +  Cost sensitivity: You want to minimize deployment costs by not running duplicate environments during deployment.
+          
+         Rolling updates are the default deployment strategy for services and provide a balance between deployment safety and resource efficiency for many common application scenarios.
+          +  ``BLUE_GREEN``: A *blue/green* deployment strategy (``BLUE_GREEN``) is a release methodology that reduces downtime and risk by running two identical production environments called blue and green. With ECS blue/green deployments, you can validate new service revisions before directing production traffic to them. This approach provides a safer way to deploy changes with the ability to quickly roll back if needed.
+         ECS blue/green deployments are best suited for the following scenarios:
+          +  Service validation: When you need to validate new service revisions before directing production traffic to them
+          +  Zero downtime: When your service requires zero-downtime deployments
+          +  Instant roll back: When you need the ability to quickly roll back if issues are detected
+          +  Load balancer requirement: When your service uses ALB, NLB, or Service Connect
+          
+          
+          +  External
+         Use a third-party deployment controller.
+          +  Blue/green deployment (powered by ACD)
+         ACD installs an updated version of the application as a new replacement task set and reroutes production traffic from the original application task set to the replacement task set. The original task set is terminated after a successful deployment. Use this deployment controller to verify a new deployment of a service before sending production traffic to it.
+          
+         When updating the deployment controller for a service, consider the following depending on the type of migration you're performing.
+          +  If you have a template that contains the ``EXTERNAL`` deployment controller information as well as ``TaskSet`` and ``PrimaryTaskSet`` resources, and you remove the task set resources from the template when updating from ``EXTERNAL`` to ``ECS``, the ``DescribeTaskSet`` and ``DeleteTaskSet`` API calls will return a 400 error after the deployment controller is updated to ``ECS``. This results in a delete failure on the task set resources, even though the stack transitions to ``UPDATE_COMPLETE`` status. For more information, see [Resource removed from stack but not deleted](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-resource-removed-not-deleted) in the CFNlong User Guide. To fix this issue, delete the task sets directly using the ECS``DeleteTaskSet`` API. For more information about how to delete a task set, see [DeleteTaskSet](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteTaskSet.html) in the ECSlong API Reference.
+          +  If you're migrating from ``CODE_DEPLOY`` to ``ECS`` with a new task definition and CFN performs a rollback operation, the ECS``UpdateService`` request fails with the following error:
+         Resource handler returned message: "Invalid request provided: Unable to update task definition on services with a CODE_DEPLOY deployment controller. 
+          +  After a successful migration from ``ECS`` to ``EXTERNAL`` deployment controller, you need to manually remove the ``ACTIVE`` task set, because ECS no longer manages the deployment. For information about how to delete a task set, see [DeleteTaskSet](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteTaskSet.html) in the ECSlong API Reference.
         """
         return pulumi.get(self, "type")
 
@@ -2252,59 +2349,46 @@ class ServiceDeploymentControllerArgs:
 
 if not MYPY:
     class ServiceDeploymentLifecycleHookArgsDict(TypedDict):
+        """
+        A deployment lifecycle hook runs custom logic at specific stages of the deployment process. Currently, you can use Lambda functions as hook targets.
+         For more information, see [Lifecycle hooks for Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html) in the *Amazon Elastic Container Service Developer Guide*.
+        """
         hook_target_arn: pulumi.Input[builtins.str]
         """
         The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
-
-        You must provide this parameter when configuring a deployment lifecycle hook.
+         You must provide this parameter when configuring a deployment lifecycle hook.
         """
         lifecycle_stages: pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentLifecycleHookLifecycleStagesItem']]]
         """
         The lifecycle stages at which to run the hook. Choose from these valid values:
-
-        - RECONCILE_SERVICE
-
-        The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.
-
-        You can use a lifecycle hook for this stage.
-        - PRE_SCALE_UP
-
-        The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
-
-        You can use a lifecycle hook for this stage.
-        - POST_SCALE_UP
-
-        The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
-
-        You can use a lifecycle hook for this stage.
-        - TEST_TRAFFIC_SHIFT
-
-        The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic.
-
-        You can use a lifecycle hook for this stage.
-        - POST_TEST_TRAFFIC_SHIFT
-
-        The test traffic shift is complete. The green service revision handles 100% of the test traffic.
-
-        You can use a lifecycle hook for this stage.
-        - PRODUCTION_TRAFFIC_SHIFT
-
-        Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.
-
-        You can use a lifecycle hook for this stage.
-        - POST_PRODUCTION_TRAFFIC_SHIFT
-
-        The production traffic shift is complete.
-
-        You can use a lifecycle hook for this stage.
-
-        You must provide this parameter when configuring a deployment lifecycle hook.
+          +  RECONCILE_SERVICE
+         The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.
+         You can use a lifecycle hook for this stage.
+          +  PRE_SCALE_UP
+         The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
+         You can use a lifecycle hook for this stage.
+          +  POST_SCALE_UP
+         The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
+         You can use a lifecycle hook for this stage.
+          +  TEST_TRAFFIC_SHIFT
+         The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic.
+         You can use a lifecycle hook for this stage.
+          +  POST_TEST_TRAFFIC_SHIFT
+         The test traffic shift is complete. The green service revision handles 100% of the test traffic.
+         You can use a lifecycle hook for this stage.
+          +  PRODUCTION_TRAFFIC_SHIFT
+         Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.
+         You can use a lifecycle hook for this stage.
+          +  POST_PRODUCTION_TRAFFIC_SHIFT
+         The production traffic shift is complete.
+         You can use a lifecycle hook for this stage.
+          
+         You must provide this parameter when configuring a deployment lifecycle hook.
         """
         role_arn: pulumi.Input[builtins.str]
         """
         The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
-
-        For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide* .
+         For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
         """
 elif False:
     ServiceDeploymentLifecycleHookArgsDict: TypeAlias = Mapping[str, Any]
@@ -2316,51 +2400,36 @@ class ServiceDeploymentLifecycleHookArgs:
                  lifecycle_stages: pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentLifecycleHookLifecycleStagesItem']]],
                  role_arn: pulumi.Input[builtins.str]):
         """
+        A deployment lifecycle hook runs custom logic at specific stages of the deployment process. Currently, you can use Lambda functions as hook targets.
+         For more information, see [Lifecycle hooks for Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[builtins.str] hook_target_arn: The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
-               
-               You must provide this parameter when configuring a deployment lifecycle hook.
+                You must provide this parameter when configuring a deployment lifecycle hook.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentLifecycleHookLifecycleStagesItem']]] lifecycle_stages: The lifecycle stages at which to run the hook. Choose from these valid values:
-               
-               - RECONCILE_SERVICE
-               
-               The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.
-               
-               You can use a lifecycle hook for this stage.
-               - PRE_SCALE_UP
-               
-               The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
-               
-               You can use a lifecycle hook for this stage.
-               - POST_SCALE_UP
-               
-               The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
-               
-               You can use a lifecycle hook for this stage.
-               - TEST_TRAFFIC_SHIFT
-               
-               The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic.
-               
-               You can use a lifecycle hook for this stage.
-               - POST_TEST_TRAFFIC_SHIFT
-               
-               The test traffic shift is complete. The green service revision handles 100% of the test traffic.
-               
-               You can use a lifecycle hook for this stage.
-               - PRODUCTION_TRAFFIC_SHIFT
-               
-               Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.
-               
-               You can use a lifecycle hook for this stage.
-               - POST_PRODUCTION_TRAFFIC_SHIFT
-               
-               The production traffic shift is complete.
-               
-               You can use a lifecycle hook for this stage.
-               
-               You must provide this parameter when configuring a deployment lifecycle hook.
+                 +  RECONCILE_SERVICE
+                The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.
+                You can use a lifecycle hook for this stage.
+                 +  PRE_SCALE_UP
+                The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
+                You can use a lifecycle hook for this stage.
+                 +  POST_SCALE_UP
+                The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
+                You can use a lifecycle hook for this stage.
+                 +  TEST_TRAFFIC_SHIFT
+                The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic.
+                You can use a lifecycle hook for this stage.
+                 +  POST_TEST_TRAFFIC_SHIFT
+                The test traffic shift is complete. The green service revision handles 100% of the test traffic.
+                You can use a lifecycle hook for this stage.
+                 +  PRODUCTION_TRAFFIC_SHIFT
+                Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.
+                You can use a lifecycle hook for this stage.
+                 +  POST_PRODUCTION_TRAFFIC_SHIFT
+                The production traffic shift is complete.
+                You can use a lifecycle hook for this stage.
+                 
+                You must provide this parameter when configuring a deployment lifecycle hook.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
-               
-               For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide* .
+                For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
         """
         pulumi.set(__self__, "hook_target_arn", hook_target_arn)
         pulumi.set(__self__, "lifecycle_stages", lifecycle_stages)
@@ -2371,8 +2440,7 @@ class ServiceDeploymentLifecycleHookArgs:
     def hook_target_arn(self) -> pulumi.Input[builtins.str]:
         """
         The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
-
-        You must provide this parameter when configuring a deployment lifecycle hook.
+         You must provide this parameter when configuring a deployment lifecycle hook.
         """
         return pulumi.get(self, "hook_target_arn")
 
@@ -2385,44 +2453,29 @@ class ServiceDeploymentLifecycleHookArgs:
     def lifecycle_stages(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentLifecycleHookLifecycleStagesItem']]]:
         """
         The lifecycle stages at which to run the hook. Choose from these valid values:
-
-        - RECONCILE_SERVICE
-
-        The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.
-
-        You can use a lifecycle hook for this stage.
-        - PRE_SCALE_UP
-
-        The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
-
-        You can use a lifecycle hook for this stage.
-        - POST_SCALE_UP
-
-        The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
-
-        You can use a lifecycle hook for this stage.
-        - TEST_TRAFFIC_SHIFT
-
-        The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic.
-
-        You can use a lifecycle hook for this stage.
-        - POST_TEST_TRAFFIC_SHIFT
-
-        The test traffic shift is complete. The green service revision handles 100% of the test traffic.
-
-        You can use a lifecycle hook for this stage.
-        - PRODUCTION_TRAFFIC_SHIFT
-
-        Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.
-
-        You can use a lifecycle hook for this stage.
-        - POST_PRODUCTION_TRAFFIC_SHIFT
-
-        The production traffic shift is complete.
-
-        You can use a lifecycle hook for this stage.
-
-        You must provide this parameter when configuring a deployment lifecycle hook.
+          +  RECONCILE_SERVICE
+         The reconciliation stage that only happens when you start a new service deployment with more than 1 service revision in an ACTIVE state.
+         You can use a lifecycle hook for this stage.
+          +  PRE_SCALE_UP
+         The green service revision has not started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
+         You can use a lifecycle hook for this stage.
+          +  POST_SCALE_UP
+         The green service revision has started. The blue service revision is handling 100% of the production traffic. There is no test traffic.
+         You can use a lifecycle hook for this stage.
+          +  TEST_TRAFFIC_SHIFT
+         The blue and green service revisions are running. The blue service revision handles 100% of the production traffic. The green service revision is migrating from 0% to 100% of test traffic.
+         You can use a lifecycle hook for this stage.
+          +  POST_TEST_TRAFFIC_SHIFT
+         The test traffic shift is complete. The green service revision handles 100% of the test traffic.
+         You can use a lifecycle hook for this stage.
+          +  PRODUCTION_TRAFFIC_SHIFT
+         Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.
+         You can use a lifecycle hook for this stage.
+          +  POST_PRODUCTION_TRAFFIC_SHIFT
+         The production traffic shift is complete.
+         You can use a lifecycle hook for this stage.
+          
+         You must provide this parameter when configuring a deployment lifecycle hook.
         """
         return pulumi.get(self, "lifecycle_stages")
 
@@ -2435,8 +2488,7 @@ class ServiceDeploymentLifecycleHookArgs:
     def role_arn(self) -> pulumi.Input[builtins.str]:
         """
         The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
-
-        For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide* .
+         For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
         """
         return pulumi.get(self, "role_arn")
 

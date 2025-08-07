@@ -88,6 +88,10 @@ namespace Pulumi.AwsNative.Ecr
         /// </summary>
         public readonly Pulumi.AwsNative.Ecr.RepositoryCreationTemplateImageTagMutability? ImageTagMutability;
         /// <summary>
+        /// Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilter> ImageTagMutabilityExclusionFilters;
+        /// <summary>
         /// The lifecycle policy to use for repositories created using the template.
         /// </summary>
         public readonly string? LifecyclePolicy;
@@ -118,6 +122,8 @@ namespace Pulumi.AwsNative.Ecr
 
             Pulumi.AwsNative.Ecr.RepositoryCreationTemplateImageTagMutability? imageTagMutability,
 
+            ImmutableArray<Outputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilter> imageTagMutabilityExclusionFilters,
+
             string? lifecyclePolicy,
 
             string? repositoryPolicy,
@@ -132,6 +138,7 @@ namespace Pulumi.AwsNative.Ecr
             Description = description;
             EncryptionConfiguration = encryptionConfiguration;
             ImageTagMutability = imageTagMutability;
+            ImageTagMutabilityExclusionFilters = imageTagMutabilityExclusionFilters;
             LifecyclePolicy = lifecyclePolicy;
             RepositoryPolicy = repositoryPolicy;
             ResourceTags = resourceTags;

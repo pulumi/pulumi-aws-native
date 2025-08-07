@@ -36,6 +36,12 @@ namespace Pulumi.AwsNative.Batch
         public Output<string?> JobQueueName { get; private set; } = null!;
 
         /// <summary>
+        /// The type of job queue. For service jobs that run on SageMaker AI , this value is `SAGEMAKER_TRAINING` . For regular container jobs, this value is `EKS` , `ECS` , or `ECS_FARGATE` depending on the compute environment.
+        /// </summary>
+        [Output("jobQueueType")]
+        public Output<string?> JobQueueType { get; private set; } = null!;
+
+        /// <summary>
         /// The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. AWS Batch will perform each action after `maxTimeSeconds` has passed.
         /// </summary>
         [Output("jobStateTimeLimitActions")]
@@ -52,6 +58,12 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         [Output("schedulingPolicyArn")]
         public Output<string?> SchedulingPolicyArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.
+        /// </summary>
+        [Output("serviceEnvironmentOrder")]
+        public Output<ImmutableArray<Outputs.JobQueueServiceEnvironmentOrder>> ServiceEnvironmentOrder { get; private set; } = null!;
 
         /// <summary>
         /// The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
@@ -91,6 +103,7 @@ namespace Pulumi.AwsNative.Batch
                 ReplaceOnChanges =
                 {
                     "jobQueueName",
+                    "jobQueueType",
                     "tags.*",
                 },
             };
@@ -115,7 +128,7 @@ namespace Pulumi.AwsNative.Batch
 
     public sealed class JobQueueArgs : global::Pulumi.ResourceArgs
     {
-        [Input("computeEnvironmentOrder", required: true)]
+        [Input("computeEnvironmentOrder")]
         private InputList<Inputs.JobQueueComputeEnvironmentOrderArgs>? _computeEnvironmentOrder;
 
         /// <summary>
@@ -134,6 +147,12 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         [Input("jobQueueName")]
         public Input<string>? JobQueueName { get; set; }
+
+        /// <summary>
+        /// The type of job queue. For service jobs that run on SageMaker AI , this value is `SAGEMAKER_TRAINING` . For regular container jobs, this value is `EKS` , `ECS` , or `ECS_FARGATE` depending on the compute environment.
+        /// </summary>
+        [Input("jobQueueType")]
+        public Input<string>? JobQueueType { get; set; }
 
         [Input("jobStateTimeLimitActions")]
         private InputList<Inputs.JobQueueJobStateTimeLimitActionArgs>? _jobStateTimeLimitActions;
@@ -158,6 +177,18 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         [Input("schedulingPolicyArn")]
         public Input<string>? SchedulingPolicyArn { get; set; }
+
+        [Input("serviceEnvironmentOrder")]
+        private InputList<Inputs.JobQueueServiceEnvironmentOrderArgs>? _serviceEnvironmentOrder;
+
+        /// <summary>
+        /// The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.
+        /// </summary>
+        public InputList<Inputs.JobQueueServiceEnvironmentOrderArgs> ServiceEnvironmentOrder
+        {
+            get => _serviceEnvironmentOrder ?? (_serviceEnvironmentOrder = new InputList<Inputs.JobQueueServiceEnvironmentOrderArgs>());
+            set => _serviceEnvironmentOrder = value;
+        }
 
         /// <summary>
         /// The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.

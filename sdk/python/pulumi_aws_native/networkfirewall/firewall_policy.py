@@ -217,7 +217,7 @@ class FirewallPolicy(pulumi.CustomResource):
     @pulumi.getter(name="firewallPolicyArn")
     def firewall_policy_arn(self) -> pulumi.Output[builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+        The Amazon Resource Name (ARN) of the firewall policy.
         """
         return pulumi.get(self, "firewall_policy_arn")
 
@@ -225,7 +225,7 @@ class FirewallPolicy(pulumi.CustomResource):
     @pulumi.getter(name="firewallPolicyId")
     def firewall_policy_id(self) -> pulumi.Output[builtins.str]:
         """
-        The unique ID of the `FirewallPolicy` resource.
+        The unique ID of the firewall policy resource.
         """
         return pulumi.get(self, "firewall_policy_id")
 

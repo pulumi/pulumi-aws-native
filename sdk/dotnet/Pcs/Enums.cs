@@ -70,6 +70,37 @@ namespace Pulumi.AwsNative.Pcs
     }
 
     /// <summary>
+    /// The IP of the cluster (IPV4 or IPV6)
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterNetworkingPropertiesNetworkType : IEquatable<ClusterNetworkingPropertiesNetworkType>
+    {
+        private readonly string _value;
+
+        private ClusterNetworkingPropertiesNetworkType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterNetworkingPropertiesNetworkType Ipv4 { get; } = new ClusterNetworkingPropertiesNetworkType("IPV4");
+        public static ClusterNetworkingPropertiesNetworkType Ipv6 { get; } = new ClusterNetworkingPropertiesNetworkType("IPV6");
+
+        public static bool operator ==(ClusterNetworkingPropertiesNetworkType left, ClusterNetworkingPropertiesNetworkType right) => left.Equals(right);
+        public static bool operator !=(ClusterNetworkingPropertiesNetworkType left, ClusterNetworkingPropertiesNetworkType right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterNetworkingPropertiesNetworkType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterNetworkingPropertiesNetworkType other && Equals(other);
+        public bool Equals(ClusterNetworkingPropertiesNetworkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The software AWS PCS uses to manage cluster scaling and job scheduling.
     /// </summary>
     [EnumType]

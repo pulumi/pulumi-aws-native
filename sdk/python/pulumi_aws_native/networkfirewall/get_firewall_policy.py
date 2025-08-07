@@ -64,7 +64,7 @@ class GetFirewallPolicyResult:
     @pulumi.getter(name="firewallPolicyArn")
     def firewall_policy_arn(self) -> Optional[builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+        The Amazon Resource Name (ARN) of the firewall policy.
         """
         return pulumi.get(self, "firewall_policy_arn")
 
@@ -72,7 +72,7 @@ class GetFirewallPolicyResult:
     @pulumi.getter(name="firewallPolicyId")
     def firewall_policy_id(self) -> Optional[builtins.str]:
         """
-        The unique ID of the `FirewallPolicy` resource.
+        The unique ID of the firewall policy resource.
         """
         return pulumi.get(self, "firewall_policy_id")
 
@@ -106,7 +106,7 @@ def get_firewall_policy(firewall_policy_arn: Optional[builtins.str] = None,
     Resource type definition for AWS::NetworkFirewall::FirewallPolicy
 
 
-    :param builtins.str firewall_policy_arn: The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+    :param builtins.str firewall_policy_arn: The Amazon Resource Name (ARN) of the firewall policy.
     """
     __args__ = dict()
     __args__['firewallPolicyArn'] = firewall_policy_arn
@@ -125,7 +125,7 @@ def get_firewall_policy_output(firewall_policy_arn: Optional[pulumi.Input[builti
     Resource type definition for AWS::NetworkFirewall::FirewallPolicy
 
 
-    :param builtins.str firewall_policy_arn: The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+    :param builtins.str firewall_policy_arn: The Amazon Resource Name (ARN) of the firewall policy.
     """
     __args__ = dict()
     __args__['firewallPolicyArn'] = firewall_policy_arn

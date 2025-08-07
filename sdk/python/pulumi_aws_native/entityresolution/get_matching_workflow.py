@@ -78,7 +78,7 @@ class GetMatchingWorkflowResult:
         """
         Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
 
-        > For workflows where `resolutionType` is `ML_MATCHING` , incremental processing is not supported.
+        > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
         """
         return pulumi.get(self, "incremental_run_config")
 
@@ -94,7 +94,7 @@ class GetMatchingWorkflowResult:
     @pulumi.getter(name="outputSourceConfig")
     def output_source_config(self) -> Optional[Sequence['outputs.MatchingWorkflowOutputSource']]:
         """
-        A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+        A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
         """
         return pulumi.get(self, "output_source_config")
 

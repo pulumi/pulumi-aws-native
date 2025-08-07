@@ -14,6 +14,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['DestinationArgs', 'Destination']
 
@@ -23,13 +25,15 @@ class DestinationArgs:
                  role_arn: pulumi.Input[builtins.str],
                  target_arn: pulumi.Input[builtins.str],
                  destination_name: Optional[pulumi.Input[builtins.str]] = None,
-                 destination_policy: Optional[pulumi.Input[builtins.str]] = None):
+                 destination_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Destination resource.
         :param pulumi.Input[builtins.str] role_arn: The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
         :param pulumi.Input[builtins.str] target_arn: The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
         :param pulumi.Input[builtins.str] destination_name: The name of the destination resource
         :param pulumi.Input[builtins.str] destination_policy: An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "target_arn", target_arn)
@@ -37,6 +41,8 @@ class DestinationArgs:
             pulumi.set(__self__, "destination_name", destination_name)
         if destination_policy is not None:
             pulumi.set(__self__, "destination_policy", destination_policy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -86,6 +92,18 @@ class DestinationArgs:
     def destination_policy(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "destination_policy", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:logs:Destination")
 class Destination(pulumi.CustomResource):
@@ -96,6 +114,7 @@ class Destination(pulumi.CustomResource):
                  destination_name: Optional[pulumi.Input[builtins.str]] = None,
                  destination_policy: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  target_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -106,6 +125,7 @@ class Destination(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] destination_name: The name of the destination resource
         :param pulumi.Input[builtins.str] destination_policy: An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
         :param pulumi.Input[builtins.str] role_arn: The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[builtins.str] target_arn: The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
         """
         ...
@@ -135,6 +155,7 @@ class Destination(pulumi.CustomResource):
                  destination_name: Optional[pulumi.Input[builtins.str]] = None,
                  destination_policy: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  target_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -150,6 +171,7 @@ class Destination(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["tags"] = tags
             if target_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_arn'")
             __props__.__dict__["target_arn"] = target_arn
@@ -182,6 +204,7 @@ class Destination(pulumi.CustomResource):
         __props__.__dict__["destination_name"] = None
         __props__.__dict__["destination_policy"] = None
         __props__.__dict__["role_arn"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["target_arn"] = None
         return Destination(resource_name, opts=opts, __props__=__props__)
 
@@ -216,6 +239,14 @@ class Destination(pulumi.CustomResource):
         The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="targetArn")

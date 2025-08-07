@@ -43,6 +43,8 @@ class ClusterEndpoint(dict):
         suggest = None
         if key == "privateIpAddress":
             suggest = "private_ip_address"
+        elif key == "ipv6Address":
+            suggest = "ipv6_address"
         elif key == "publicIpAddress":
             suggest = "public_ip_address"
 
@@ -61,17 +63,21 @@ class ClusterEndpoint(dict):
                  port: builtins.str,
                  private_ip_address: builtins.str,
                  type: 'ClusterEndpointType',
+                 ipv6_address: Optional[builtins.str] = None,
                  public_ip_address: Optional[builtins.str] = None):
         """
         An endpoint available for interaction with the scheduler.
         :param builtins.str port: The endpoint's connection port number.
         :param builtins.str private_ip_address: The endpoint's private IP address.
         :param 'ClusterEndpointType' type: Indicates the type of endpoint running at the specific IP address.
+        :param builtins.str ipv6_address: The endpoint's IPv6 address.
         :param builtins.str public_ip_address: The endpoint's public IP address.
         """
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "private_ip_address", private_ip_address)
         pulumi.set(__self__, "type", type)
+        if ipv6_address is not None:
+            pulumi.set(__self__, "ipv6_address", ipv6_address)
         if public_ip_address is not None:
             pulumi.set(__self__, "public_ip_address", public_ip_address)
 
@@ -98,6 +104,14 @@ class ClusterEndpoint(dict):
         Indicates the type of endpoint running at the specific IP address.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> Optional[builtins.str]:
+        """
+        The endpoint's IPv6 address.
+        """
+        return pulumi.get(self, "ipv6_address")
 
     @property
     @pulumi.getter(name="publicIpAddress")
@@ -329,7 +343,9 @@ class NetworkingProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "securityGroupIds":
+        if key == "networkType":
+            suggest = "network_type"
+        elif key == "securityGroupIds":
             suggest = "security_group_ids"
         elif key == "subnetIds":
             suggest = "subnet_ids"
@@ -346,17 +362,29 @@ class NetworkingProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 network_type: Optional['ClusterNetworkingPropertiesNetworkType'] = None,
                  security_group_ids: Optional[Sequence[builtins.str]] = None,
                  subnet_ids: Optional[Sequence[builtins.str]] = None):
         """
         The networking configuration for the cluster's control plane.
+        :param 'ClusterNetworkingPropertiesNetworkType' network_type: The IP of the cluster (IPV4 or IPV6)
         :param Sequence[builtins.str] security_group_ids: The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.
         :param Sequence[builtins.str] subnet_ids: The list of subnet IDs where AWS PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and AWS PCS resources. The subnet must have an available IP address, cannot reside in AWS Outposts, AWS Wavelength, or an AWS Local Zone. AWS PCS currently supports only 1 subnet in this list.
         """
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional['ClusterNetworkingPropertiesNetworkType']:
+        """
+        The IP of the cluster (IPV4 or IPV6)
+        """
+        return pulumi.get(self, "network_type")
 
     @property
     @pulumi.getter(name="securityGroupIds")

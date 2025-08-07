@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         [Input("mqcsInputSwitching")]
         public Input<bool>? MqcsInputSwitching { get; set; }
 
+        /// <summary>
+        /// For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
+        /// </summary>
+        [Input("preferredInput")]
+        public Input<int>? PreferredInput { get; set; }
+
         public ChannelInputSwitchConfigurationArgs()
         {
         }

@@ -86,6 +86,10 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         public readonly string? SchedulingPolicyArn;
         /// <summary>
+        /// The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.JobQueueServiceEnvironmentOrder> ServiceEnvironmentOrder;
+        /// <summary>
         /// The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
         /// </summary>
         public readonly Pulumi.AwsNative.Batch.JobQueueState? State;
@@ -102,6 +106,8 @@ namespace Pulumi.AwsNative.Batch
 
             string? schedulingPolicyArn,
 
+            ImmutableArray<Outputs.JobQueueServiceEnvironmentOrder> serviceEnvironmentOrder,
+
             Pulumi.AwsNative.Batch.JobQueueState? state)
         {
             ComputeEnvironmentOrder = computeEnvironmentOrder;
@@ -109,6 +115,7 @@ namespace Pulumi.AwsNative.Batch
             JobStateTimeLimitActions = jobStateTimeLimitActions;
             Priority = priority;
             SchedulingPolicyArn = schedulingPolicyArn;
+            ServiceEnvironmentOrder = serviceEnvironmentOrder;
             State = state;
         }
     }

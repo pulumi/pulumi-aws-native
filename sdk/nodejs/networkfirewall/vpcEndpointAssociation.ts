@@ -41,6 +41,9 @@ export class VpcEndpointAssociation extends pulumi.CustomResource {
      * A description of the VPC endpoint association.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The unique ID of the firewall endpoint for the subnet that you attached to the firewall.For example: "vpce-111122223333"
+     */
     public /*out*/ readonly endpointId!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the firewall.

@@ -47,7 +47,7 @@ class WebExperienceArgs:
                > You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the service role attached to your web experience.
                
-               > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
+               > The `roleArn` parameter is required when your Amazon Q Business application is created with IAM Identity Center. It is not required for SAML-based applications.
         :param pulumi.Input['WebExperienceSamplePromptsControlMode'] sample_prompts_control_mode: Determines whether sample prompts are enabled in the web experience for an end user.
         :param pulumi.Input[builtins.str] subtitle: A subtitle to personalize your Amazon Q Business web experience.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
@@ -144,7 +144,7 @@ class WebExperienceArgs:
         """
         The Amazon Resource Name (ARN) of the service role attached to your web experience.
 
-        > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
+        > The `roleArn` parameter is required when your Amazon Q Business application is created with IAM Identity Center. It is not required for SAML-based applications.
         """
         return pulumi.get(self, "role_arn")
 
@@ -245,7 +245,7 @@ class WebExperience(pulumi.CustomResource):
                > You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the service role attached to your web experience.
                
-               > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
+               > The `roleArn` parameter is required when your Amazon Q Business application is created with IAM Identity Center. It is not required for SAML-based applications.
         :param pulumi.Input['WebExperienceSamplePromptsControlMode'] sample_prompts_control_mode: Determines whether sample prompts are enabled in the web experience for an end user.
         :param pulumi.Input[builtins.str] subtitle: A subtitle to personalize your Amazon Q Business web experience.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
@@ -422,7 +422,7 @@ class WebExperience(pulumi.CustomResource):
         """
         The Amazon Resource Name (ARN) of the service role attached to your web experience.
 
-        > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
+        > The `roleArn` parameter is required when your Amazon Q Business application is created with IAM Identity Center. It is not required for SAML-based applications.
         """
         return pulumi.get(self, "role_arn")
 

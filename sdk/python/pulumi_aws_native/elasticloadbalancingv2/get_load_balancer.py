@@ -137,7 +137,7 @@ class GetLoadBalancerResult:
     @pulumi.getter(name="loadBalancerAttributes")
     def load_balancer_attributes(self) -> Optional[Sequence['outputs.LoadBalancerAttribute']]:
         """
-        The load balancer attributes.
+        The load balancer attributes. Attributes that you do not modify retain their current values.
         """
         return pulumi.get(self, "load_balancer_attributes")
 

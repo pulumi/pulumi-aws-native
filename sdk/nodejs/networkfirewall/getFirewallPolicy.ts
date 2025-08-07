@@ -19,7 +19,7 @@ export function getFirewallPolicy(args: GetFirewallPolicyArgs, opts?: pulumi.Inv
 
 export interface GetFirewallPolicyArgs {
     /**
-     * The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+     * The Amazon Resource Name (ARN) of the firewall policy.
      */
     firewallPolicyArn: string;
 }
@@ -34,11 +34,11 @@ export interface GetFirewallPolicyResult {
      */
     readonly firewallPolicy?: outputs.networkfirewall.FirewallPolicy;
     /**
-     * The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+     * The Amazon Resource Name (ARN) of the firewall policy.
      */
     readonly firewallPolicyArn?: string;
     /**
-     * The unique ID of the `FirewallPolicy` resource.
+     * The unique ID of the firewall policy resource.
      */
     readonly firewallPolicyId?: string;
     /**
@@ -60,7 +60,7 @@ export function getFirewallPolicyOutput(args: GetFirewallPolicyOutputArgs, opts?
 
 export interface GetFirewallPolicyOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+     * The Amazon Resource Name (ARN) of the firewall policy.
      */
     firewallPolicyArn: pulumi.Input<string>;
 }

@@ -14,8 +14,10 @@ __all__ = [
     'RepositoryCreationTemplateAppliedForItem',
     'RepositoryCreationTemplateEncryptionType',
     'RepositoryCreationTemplateImageTagMutability',
+    'RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType',
     'RepositoryEncryptionType',
     'RepositoryImageTagMutability',
+    'RepositoryImageTagMutabilityExclusionFilterType',
 ]
 
 
@@ -79,6 +81,13 @@ class RepositoryCreationTemplateImageTagMutability(builtins.str, Enum):
     """
     MUTABLE = "MUTABLE"
     IMMUTABLE = "IMMUTABLE"
+    IMMUTABLE_WITH_EXCLUSION = "IMMUTABLE_WITH_EXCLUSION"
+    MUTABLE_WITH_EXCLUSION = "MUTABLE_WITH_EXCLUSION"
+
+
+@pulumi.type_token("aws-native:ecr:RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType")
+class RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType(builtins.str, Enum):
+    WILDCARD = "WILDCARD"
 
 
 @pulumi.type_token("aws-native:ecr:RepositoryEncryptionType")
@@ -98,3 +107,13 @@ class RepositoryImageTagMutability(builtins.str, Enum):
     """
     MUTABLE = "MUTABLE"
     IMMUTABLE = "IMMUTABLE"
+    MUTABLE_WITH_EXCLUSION = "MUTABLE_WITH_EXCLUSION"
+    IMMUTABLE_WITH_EXCLUSION = "IMMUTABLE_WITH_EXCLUSION"
+
+
+@pulumi.type_token("aws-native:ecr:RepositoryImageTagMutabilityExclusionFilterType")
+class RepositoryImageTagMutabilityExclusionFilterType(builtins.str, Enum):
+    """
+    Specifies the type of filter to use for excluding image tags from the repository's mutability setting.
+    """
+    WILDCARD = "WILDCARD"

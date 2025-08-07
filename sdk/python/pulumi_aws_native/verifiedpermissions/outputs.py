@@ -34,7 +34,8 @@ __all__ = [
     'PolicyEntityIdentifier',
     'PolicyStaticPolicyDefinition',
     'PolicyStoreDeletionProtection',
-    'PolicyStoreSchemaDefinition',
+    'PolicyStoreSchemaDefinition0Properties',
+    'PolicyStoreSchemaDefinition1Properties',
     'PolicyStoreValidationSettings',
     'PolicyTemplateLinkedPolicyDefinition',
 ]
@@ -587,7 +588,7 @@ class PolicyStoreDeletionProtection(dict):
 
 
 @pulumi.output_type
-class PolicyStoreSchemaDefinition(dict):
+class PolicyStoreSchemaDefinition0Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -595,31 +596,53 @@ class PolicyStoreSchemaDefinition(dict):
             suggest = "cedar_json"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PolicyStoreSchemaDefinition. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PolicyStoreSchemaDefinition0Properties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PolicyStoreSchemaDefinition.__key_warning(key)
+        PolicyStoreSchemaDefinition0Properties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PolicyStoreSchemaDefinition.__key_warning(key)
+        PolicyStoreSchemaDefinition0Properties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 cedar_json: Optional[builtins.str] = None):
-        """
-        :param builtins.str cedar_json: A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
-        """
-        if cedar_json is not None:
-            pulumi.set(__self__, "cedar_json", cedar_json)
+                 cedar_json: builtins.str):
+        pulumi.set(__self__, "cedar_json", cedar_json)
 
     @property
     @pulumi.getter(name="cedarJson")
-    def cedar_json(self) -> Optional[builtins.str]:
-        """
-        A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
-        """
+    def cedar_json(self) -> builtins.str:
         return pulumi.get(self, "cedar_json")
+
+
+@pulumi.output_type
+class PolicyStoreSchemaDefinition1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cedarFormat":
+            suggest = "cedar_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyStoreSchemaDefinition1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyStoreSchemaDefinition1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyStoreSchemaDefinition1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cedar_format: builtins.str):
+        pulumi.set(__self__, "cedar_format", cedar_format)
+
+    @property
+    @pulumi.getter(name="cedarFormat")
+    def cedar_format(self) -> builtins.str:
+        return pulumi.get(self, "cedar_format")
 
 
 @pulumi.output_type

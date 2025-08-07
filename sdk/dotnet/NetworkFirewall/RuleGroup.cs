@@ -34,13 +34,13 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public Output<Outputs.RuleGroup?> RuleGroupValue { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the `RuleGroup` .
+        /// The Amazon Resource Name (ARN) of the rule group.
         /// </summary>
         [Output("ruleGroupArn")]
         public Output<string> RuleGroupArn { get; private set; } = null!;
 
         /// <summary>
-        /// The unique ID of the `RuleGroup` resource.
+        /// The unique ID of the rule group resource.
         /// </summary>
         [Output("ruleGroupId")]
         public Output<string> RuleGroupId { get; private set; } = null!;
@@ -50,6 +50,15 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// </summary>
         [Output("ruleGroupName")]
         public Output<string> RuleGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+        /// 
+        /// - The `RuleOptions` specified in `SummaryConfiguration`
+        /// - Rule metadata organization preferences
+        /// </summary>
+        [Output("summaryConfiguration")]
+        public Output<Outputs.SummaryConfigurationProperties?> SummaryConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
@@ -140,6 +149,15 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// </summary>
         [Input("ruleGroupName")]
         public Input<string>? RuleGroupName { get; set; }
+
+        /// <summary>
+        /// A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+        /// 
+        /// - The `RuleOptions` specified in `SummaryConfiguration`
+        /// - Rule metadata organization preferences
+        /// </summary>
+        [Input("summaryConfiguration")]
+        public Input<Inputs.SummaryConfigurationPropertiesArgs>? SummaryConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

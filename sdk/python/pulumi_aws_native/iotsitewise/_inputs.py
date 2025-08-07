@@ -39,6 +39,10 @@ __all__ = [
     'AssetModelAttributeArgsDict',
     'AssetModelCompositeModelArgs',
     'AssetModelCompositeModelArgsDict',
+    'AssetModelEnforcedAssetModelInterfacePropertyMappingArgs',
+    'AssetModelEnforcedAssetModelInterfacePropertyMappingArgsDict',
+    'AssetModelEnforcedAssetModelInterfaceRelationshipArgs',
+    'AssetModelEnforcedAssetModelInterfaceRelationshipArgsDict',
     'AssetModelExpressionVariableArgs',
     'AssetModelExpressionVariableArgsDict',
     'AssetModelHierarchyArgs',
@@ -768,6 +772,137 @@ class AssetModelCompositeModelArgs:
     @path.setter
     def path(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "path", value)
+
+
+if not MYPY:
+    class AssetModelEnforcedAssetModelInterfacePropertyMappingArgsDict(TypedDict):
+        """
+        Contains information about enforced interface property and asset model property
+        """
+        interface_asset_model_property_external_id: pulumi.Input[builtins.str]
+        """
+        The external ID of the enforced interface property
+        """
+        asset_model_property_external_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The external ID of the enforced asset model property
+        """
+        asset_model_property_logical_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The logical ID of the enforced asset model property
+        """
+elif False:
+    AssetModelEnforcedAssetModelInterfacePropertyMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AssetModelEnforcedAssetModelInterfacePropertyMappingArgs:
+    def __init__(__self__, *,
+                 interface_asset_model_property_external_id: pulumi.Input[builtins.str],
+                 asset_model_property_external_id: Optional[pulumi.Input[builtins.str]] = None,
+                 asset_model_property_logical_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Contains information about enforced interface property and asset model property
+        :param pulumi.Input[builtins.str] interface_asset_model_property_external_id: The external ID of the enforced interface property
+        :param pulumi.Input[builtins.str] asset_model_property_external_id: The external ID of the enforced asset model property
+        :param pulumi.Input[builtins.str] asset_model_property_logical_id: The logical ID of the enforced asset model property
+        """
+        pulumi.set(__self__, "interface_asset_model_property_external_id", interface_asset_model_property_external_id)
+        if asset_model_property_external_id is not None:
+            pulumi.set(__self__, "asset_model_property_external_id", asset_model_property_external_id)
+        if asset_model_property_logical_id is not None:
+            pulumi.set(__self__, "asset_model_property_logical_id", asset_model_property_logical_id)
+
+    @property
+    @pulumi.getter(name="interfaceAssetModelPropertyExternalId")
+    def interface_asset_model_property_external_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The external ID of the enforced interface property
+        """
+        return pulumi.get(self, "interface_asset_model_property_external_id")
+
+    @interface_asset_model_property_external_id.setter
+    def interface_asset_model_property_external_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "interface_asset_model_property_external_id", value)
+
+    @property
+    @pulumi.getter(name="assetModelPropertyExternalId")
+    def asset_model_property_external_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The external ID of the enforced asset model property
+        """
+        return pulumi.get(self, "asset_model_property_external_id")
+
+    @asset_model_property_external_id.setter
+    def asset_model_property_external_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "asset_model_property_external_id", value)
+
+    @property
+    @pulumi.getter(name="assetModelPropertyLogicalId")
+    def asset_model_property_logical_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The logical ID of the enforced asset model property
+        """
+        return pulumi.get(self, "asset_model_property_logical_id")
+
+    @asset_model_property_logical_id.setter
+    def asset_model_property_logical_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "asset_model_property_logical_id", value)
+
+
+if not MYPY:
+    class AssetModelEnforcedAssetModelInterfaceRelationshipArgsDict(TypedDict):
+        """
+        Contains information about enforced interface hierarchy and asset model hierarchy
+        """
+        interface_asset_model_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The ID of the interface that is enforced to the asset model
+        """
+        property_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['AssetModelEnforcedAssetModelInterfacePropertyMappingArgsDict']]]]
+        """
+        Contains information about enforced interface property and asset model property
+        """
+elif False:
+    AssetModelEnforcedAssetModelInterfaceRelationshipArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AssetModelEnforcedAssetModelInterfaceRelationshipArgs:
+    def __init__(__self__, *,
+                 interface_asset_model_id: Optional[pulumi.Input[builtins.str]] = None,
+                 property_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelEnforcedAssetModelInterfacePropertyMappingArgs']]]] = None):
+        """
+        Contains information about enforced interface hierarchy and asset model hierarchy
+        :param pulumi.Input[builtins.str] interface_asset_model_id: The ID of the interface that is enforced to the asset model
+        :param pulumi.Input[Sequence[pulumi.Input['AssetModelEnforcedAssetModelInterfacePropertyMappingArgs']]] property_mappings: Contains information about enforced interface property and asset model property
+        """
+        if interface_asset_model_id is not None:
+            pulumi.set(__self__, "interface_asset_model_id", interface_asset_model_id)
+        if property_mappings is not None:
+            pulumi.set(__self__, "property_mappings", property_mappings)
+
+    @property
+    @pulumi.getter(name="interfaceAssetModelId")
+    def interface_asset_model_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ID of the interface that is enforced to the asset model
+        """
+        return pulumi.get(self, "interface_asset_model_id")
+
+    @interface_asset_model_id.setter
+    def interface_asset_model_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "interface_asset_model_id", value)
+
+    @property
+    @pulumi.getter(name="propertyMappings")
+    def property_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelEnforcedAssetModelInterfacePropertyMappingArgs']]]]:
+        """
+        Contains information about enforced interface property and asset model property
+        """
+        return pulumi.get(self, "property_mappings")
+
+    @property_mappings.setter
+    def property_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelEnforcedAssetModelInterfacePropertyMappingArgs']]]]):
+        pulumi.set(self, "property_mappings", value)
 
 
 if not MYPY:

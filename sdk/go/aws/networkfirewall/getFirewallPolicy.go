@@ -24,7 +24,7 @@ func LookupFirewallPolicy(ctx *pulumi.Context, args *LookupFirewallPolicyArgs, o
 }
 
 type LookupFirewallPolicyArgs struct {
-	// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+	// The Amazon Resource Name (ARN) of the firewall policy.
 	FirewallPolicyArn string `pulumi:"firewallPolicyArn"`
 }
 
@@ -33,9 +33,9 @@ type LookupFirewallPolicyResult struct {
 	Description *string `pulumi:"description"`
 	// The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
 	FirewallPolicy *FirewallPolicyType `pulumi:"firewallPolicy"`
-	// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+	// The Amazon Resource Name (ARN) of the firewall policy.
 	FirewallPolicyArn *string `pulumi:"firewallPolicyArn"`
-	// The unique ID of the `FirewallPolicy` resource.
+	// The unique ID of the firewall policy resource.
 	FirewallPolicyId *string `pulumi:"firewallPolicyId"`
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -53,7 +53,7 @@ func LookupFirewallPolicyOutput(ctx *pulumi.Context, args LookupFirewallPolicyOu
 }
 
 type LookupFirewallPolicyOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+	// The Amazon Resource Name (ARN) of the firewall policy.
 	FirewallPolicyArn pulumi.StringInput `pulumi:"firewallPolicyArn"`
 }
 
@@ -85,12 +85,12 @@ func (o LookupFirewallPolicyResultOutput) FirewallPolicy() FirewallPolicyTypePtr
 	return o.ApplyT(func(v LookupFirewallPolicyResult) *FirewallPolicyType { return v.FirewallPolicy }).(FirewallPolicyTypePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+// The Amazon Resource Name (ARN) of the firewall policy.
 func (o LookupFirewallPolicyResultOutput) FirewallPolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFirewallPolicyResult) *string { return v.FirewallPolicyArn }).(pulumi.StringPtrOutput)
 }
 
-// The unique ID of the `FirewallPolicy` resource.
+// The unique ID of the firewall policy resource.
 func (o LookupFirewallPolicyResultOutput) FirewallPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFirewallPolicyResult) *string { return v.FirewallPolicyId }).(pulumi.StringPtrOutput)
 }

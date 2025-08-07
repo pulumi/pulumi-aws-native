@@ -13,6 +13,21 @@ export const ConfigurationProfileDeletionProtectionCheck = {
  */
 export type ConfigurationProfileDeletionProtectionCheck = (typeof ConfigurationProfileDeletionProtectionCheck)[keyof typeof ConfigurationProfileDeletionProtectionCheck];
 
+export const DeploymentState = {
+    Baking: "BAKING",
+    Validating: "VALIDATING",
+    Deploying: "DEPLOYING",
+    Complete: "COMPLETE",
+    RollingBack: "ROLLING_BACK",
+    RolledBack: "ROLLED_BACK",
+    Reverted: "REVERTED",
+} as const;
+
+/**
+ * The state of the deployment.
+ */
+export type DeploymentState = (typeof DeploymentState)[keyof typeof DeploymentState];
+
 export const DeploymentStrategyGrowthType = {
     Exponential: "EXPONENTIAL",
     Linear: "LINEAR",

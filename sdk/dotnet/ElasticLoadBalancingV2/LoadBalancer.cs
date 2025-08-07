@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public Output<string> LoadBalancerArn { get; private set; } = null!;
 
         /// <summary>
-        /// The load balancer attributes.
+        /// The load balancer attributes. Attributes that you do not modify retain their current values.
         /// </summary>
         [Output("loadBalancerAttributes")]
         public Output<ImmutableArray<Outputs.LoadBalancerAttribute>> LoadBalancerAttributes { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         private InputList<Inputs.LoadBalancerAttributeArgs>? _loadBalancerAttributes;
 
         /// <summary>
-        /// The load balancer attributes.
+        /// The load balancer attributes. Attributes that you do not modify retain their current values.
         /// </summary>
         public InputList<Inputs.LoadBalancerAttributeArgs> LoadBalancerAttributes
         {

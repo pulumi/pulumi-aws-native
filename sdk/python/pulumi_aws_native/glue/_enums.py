@@ -25,6 +25,12 @@ class JobWorkerType(builtins.str, Enum):
     G4X = "G.4X"
     G8X = "G.8X"
     Z2X = "Z.2X"
+    G12X = "G.12X"
+    G16X = "G.16X"
+    R1X = "R.1X"
+    R2X = "R.2X"
+    R4X = "R.4X"
+    R8X = "R.8X"
 
 
 @pulumi.type_token("aws-native:glue:SchemaCompatibility")

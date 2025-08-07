@@ -32,8 +32,10 @@ type AssetModel struct {
 	AssetModelName pulumi.StringOutput `pulumi:"assetModelName"`
 	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
 	AssetModelProperties AssetModelPropertyArrayOutput `pulumi:"assetModelProperties"`
-	// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+	// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL or INTERFACE)
 	AssetModelType pulumi.StringPtrOutput `pulumi:"assetModelType"`
+	// a list of asset model and interface relationships
+	EnforcedAssetModelInterfaceRelationships AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput `pulumi:"enforcedAssetModelInterfaceRelationships"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -94,8 +96,10 @@ type assetModelArgs struct {
 	AssetModelName *string `pulumi:"assetModelName"`
 	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
 	AssetModelProperties []AssetModelProperty `pulumi:"assetModelProperties"`
-	// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+	// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL or INTERFACE)
 	AssetModelType *string `pulumi:"assetModelType"`
+	// a list of asset model and interface relationships
+	EnforcedAssetModelInterfaceRelationships []AssetModelEnforcedAssetModelInterfaceRelationship `pulumi:"enforcedAssetModelInterfaceRelationships"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -114,8 +118,10 @@ type AssetModelArgs struct {
 	AssetModelName pulumi.StringPtrInput
 	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
 	AssetModelProperties AssetModelPropertyArrayInput
-	// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+	// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL or INTERFACE)
 	AssetModelType pulumi.StringPtrInput
+	// a list of asset model and interface relationships
+	EnforcedAssetModelInterfaceRelationships AssetModelEnforcedAssetModelInterfaceRelationshipArrayInput
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags aws.TagArrayInput
 }
@@ -197,9 +203,16 @@ func (o AssetModelOutput) AssetModelProperties() AssetModelPropertyArrayOutput {
 	return o.ApplyT(func(v *AssetModel) AssetModelPropertyArrayOutput { return v.AssetModelProperties }).(AssetModelPropertyArrayOutput)
 }
 
-// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL or INTERFACE)
 func (o AssetModelOutput) AssetModelType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssetModel) pulumi.StringPtrOutput { return v.AssetModelType }).(pulumi.StringPtrOutput)
+}
+
+// a list of asset model and interface relationships
+func (o AssetModelOutput) EnforcedAssetModelInterfaceRelationships() AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput {
+	return o.ApplyT(func(v *AssetModel) AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput {
+		return v.EnforcedAssetModelInterfaceRelationships
+	}).(AssetModelEnforcedAssetModelInterfaceRelationshipArrayOutput)
 }
 
 // A list of key-value pairs that contain metadata for the asset model.

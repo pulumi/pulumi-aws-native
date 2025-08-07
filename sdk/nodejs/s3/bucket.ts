@@ -598,7 +598,7 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly intelligentTieringConfigurations!: pulumi.Output<outputs.s3.BucketIntelligentTieringConfiguration[] | undefined>;
     /**
-     * Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+     * Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
      */
     public readonly inventoryConfigurations!: pulumi.Output<outputs.s3.BucketInventoryConfiguration[] | undefined>;
     /**
@@ -789,7 +789,7 @@ export interface BucketArgs {
      */
     intelligentTieringConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationArgs>[]>;
     /**
-     * Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+     * Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
      */
     inventoryConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketInventoryConfigurationArgs>[]>;
     /**

@@ -6033,8 +6033,13 @@ type DistributionOrigin struct {
 	OriginPath *string `pulumi:"originPath"`
 	// CloudFront Origin Shield. Using Origin Shield can help reduce the load on your origin.
 	//  For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide*.
-	OriginShield              *DistributionOriginShield `pulumi:"originShield"`
-	ResponseCompletionTimeout *int                      `pulumi:"responseCompletionTimeout"`
+	OriginShield *DistributionOriginShield `pulumi:"originShield"`
+	// The time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. If the complete response isn't received from the origin by this time, CloudFront ends the connection.
+	//
+	// The value for `ResponseCompletionTimeout` must be equal to or greater than the value for `OriginReadTimeout` . If you don't set a value for `ResponseCompletionTimeout` , CloudFront doesn't enforce a maximum value.
+	//
+	// For more information, see [Response completion timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#response-completion-timeout) in the *Amazon CloudFront Developer Guide* .
+	ResponseCompletionTimeout *int `pulumi:"responseCompletionTimeout"`
 	// Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead.
 	S3OriginConfig *DistributionS3OriginConfig `pulumi:"s3OriginConfig"`
 	// The VPC origin configuration.
@@ -6092,8 +6097,13 @@ type DistributionOriginArgs struct {
 	OriginPath pulumi.StringPtrInput `pulumi:"originPath"`
 	// CloudFront Origin Shield. Using Origin Shield can help reduce the load on your origin.
 	//  For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide*.
-	OriginShield              DistributionOriginShieldPtrInput `pulumi:"originShield"`
-	ResponseCompletionTimeout pulumi.IntPtrInput               `pulumi:"responseCompletionTimeout"`
+	OriginShield DistributionOriginShieldPtrInput `pulumi:"originShield"`
+	// The time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. If the complete response isn't received from the origin by this time, CloudFront ends the connection.
+	//
+	// The value for `ResponseCompletionTimeout` must be equal to or greater than the value for `OriginReadTimeout` . If you don't set a value for `ResponseCompletionTimeout` , CloudFront doesn't enforce a maximum value.
+	//
+	// For more information, see [Response completion timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#response-completion-timeout) in the *Amazon CloudFront Developer Guide* .
+	ResponseCompletionTimeout pulumi.IntPtrInput `pulumi:"responseCompletionTimeout"`
 	// Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead.
 	S3OriginConfig DistributionS3OriginConfigPtrInput `pulumi:"s3OriginConfig"`
 	// The VPC origin configuration.
@@ -6226,6 +6236,11 @@ func (o DistributionOriginOutput) OriginShield() DistributionOriginShieldPtrOutp
 	return o.ApplyT(func(v DistributionOrigin) *DistributionOriginShield { return v.OriginShield }).(DistributionOriginShieldPtrOutput)
 }
 
+// The time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. If the complete response isn't received from the origin by this time, CloudFront ends the connection.
+//
+// The value for `ResponseCompletionTimeout` must be equal to or greater than the value for `OriginReadTimeout` . If you don't set a value for `ResponseCompletionTimeout` , CloudFront doesn't enforce a maximum value.
+//
+// For more information, see [Response completion timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#response-completion-timeout) in the *Amazon CloudFront Developer Guide* .
 func (o DistributionOriginOutput) ResponseCompletionTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *int { return v.ResponseCompletionTimeout }).(pulumi.IntPtrOutput)
 }
@@ -7546,7 +7561,10 @@ type DistributionS3OriginConfig struct {
 	//  To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
 	//  For more information about the origin access identity, see [Serving Private Content through CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
 	OriginAccessIdentity *string `pulumi:"originAccessIdentity"`
-	OriginReadTimeout    *int    `pulumi:"originReadTimeout"`
+	// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout* . The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+	//
+	// For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide* .
+	OriginReadTimeout *int `pulumi:"originReadTimeout"`
 }
 
 // DistributionS3OriginConfigInput is an input type that accepts DistributionS3OriginConfigArgs and DistributionS3OriginConfigOutput values.
@@ -7571,7 +7589,10 @@ type DistributionS3OriginConfigArgs struct {
 	//  To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
 	//  For more information about the origin access identity, see [Serving Private Content through CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
 	OriginAccessIdentity pulumi.StringPtrInput `pulumi:"originAccessIdentity"`
-	OriginReadTimeout    pulumi.IntPtrInput    `pulumi:"originReadTimeout"`
+	// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout* . The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+	//
+	// For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide* .
+	OriginReadTimeout pulumi.IntPtrInput `pulumi:"originReadTimeout"`
 }
 
 func (DistributionS3OriginConfigArgs) ElementType() reflect.Type {
@@ -7665,6 +7686,9 @@ func (o DistributionS3OriginConfigOutput) OriginAccessIdentity() pulumi.StringPt
 	return o.ApplyT(func(v DistributionS3OriginConfig) *string { return v.OriginAccessIdentity }).(pulumi.StringPtrOutput)
 }
 
+// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout* . The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+//
+// For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide* .
 func (o DistributionS3OriginConfigOutput) OriginReadTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionS3OriginConfig) *int { return v.OriginReadTimeout }).(pulumi.IntPtrOutput)
 }
@@ -7711,6 +7735,9 @@ func (o DistributionS3OriginConfigPtrOutput) OriginAccessIdentity() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout* . The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+//
+// For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide* .
 func (o DistributionS3OriginConfigPtrOutput) OriginReadTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionS3OriginConfig) *int {
 		if v == nil {

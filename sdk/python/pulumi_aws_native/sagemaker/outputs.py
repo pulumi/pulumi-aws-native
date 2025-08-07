@@ -26,11 +26,14 @@ __all__ = [
     'AppImageConfigKernelGatewayImageConfig',
     'AppImageConfigKernelSpec',
     'AppResourceSpec',
+    'ClusterEnvironmentConfig',
+    'ClusterFSxLustreConfig',
     'ClusterInstanceGroup',
     'ClusterInstanceStorageConfig',
     'ClusterLifeCycleConfig',
     'ClusterOrchestrator',
     'ClusterOrchestratorEksConfig',
+    'ClusterRestrictedInstanceGroup',
     'ClusterVpcConfig',
     'DataQualityJobDefinitionBatchTransformInput',
     'DataQualityJobDefinitionClusterConfig',
@@ -258,6 +261,23 @@ __all__ = [
     'PipelineDefinition0Properties',
     'PipelineDefinition1Properties',
     'PipelineS3Location',
+    'ProcessingJobAppSpecification',
+    'ProcessingJobAthenaDatasetDefinition',
+    'ProcessingJobClusterConfig',
+    'ProcessingJobDatasetDefinition',
+    'ProcessingJobEnvironment',
+    'ProcessingJobExperimentConfig',
+    'ProcessingJobFeatureStoreOutput',
+    'ProcessingJobNetworkConfig',
+    'ProcessingJobProcessingInputsObject',
+    'ProcessingJobProcessingOutputConfig',
+    'ProcessingJobProcessingOutputsObject',
+    'ProcessingJobProcessingResources',
+    'ProcessingJobRedshiftDatasetDefinition',
+    'ProcessingJobS3Input',
+    'ProcessingJobS3Output',
+    'ProcessingJobStoppingCondition',
+    'ProcessingJobVpcConfig',
     'ProjectCfnStackParameter',
     'ProjectCfnTemplateProviderDetail',
     'ProjectProvisioningParameter',
@@ -729,6 +749,94 @@ class AppResourceSpec(dict):
 
 
 @pulumi.output_type
+class ClusterEnvironmentConfig(dict):
+    """
+    The configuration for the restricted instance groups (RIG) environment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fSxLustreConfig":
+            suggest = "f_sx_lustre_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterEnvironmentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterEnvironmentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterEnvironmentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 f_sx_lustre_config: Optional['outputs.ClusterFSxLustreConfig'] = None):
+        """
+        The configuration for the restricted instance groups (RIG) environment.
+        """
+        if f_sx_lustre_config is not None:
+            pulumi.set(__self__, "f_sx_lustre_config", f_sx_lustre_config)
+
+    @property
+    @pulumi.getter(name="fSxLustreConfig")
+    def f_sx_lustre_config(self) -> Optional['outputs.ClusterFSxLustreConfig']:
+        return pulumi.get(self, "f_sx_lustre_config")
+
+
+@pulumi.output_type
+class ClusterFSxLustreConfig(dict):
+    """
+    Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "perUnitStorageThroughput":
+            suggest = "per_unit_storage_throughput"
+        elif key == "sizeInGiB":
+            suggest = "size_in_gi_b"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterFSxLustreConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterFSxLustreConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterFSxLustreConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 per_unit_storage_throughput: builtins.int,
+                 size_in_gi_b: builtins.int):
+        """
+        Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.
+        :param builtins.int per_unit_storage_throughput: The throughput capacity of the FSx for Lustre file system, measured in MB/s per TiB of storage.
+        :param builtins.int size_in_gi_b: The storage capacity of the FSx for Lustre file system, specified in gibibytes (GiB).
+        """
+        pulumi.set(__self__, "per_unit_storage_throughput", per_unit_storage_throughput)
+        pulumi.set(__self__, "size_in_gi_b", size_in_gi_b)
+
+    @property
+    @pulumi.getter(name="perUnitStorageThroughput")
+    def per_unit_storage_throughput(self) -> builtins.int:
+        """
+        The throughput capacity of the FSx for Lustre file system, measured in MB/s per TiB of storage.
+        """
+        return pulumi.get(self, "per_unit_storage_throughput")
+
+    @property
+    @pulumi.getter(name="sizeInGiB")
+    def size_in_gi_b(self) -> builtins.int:
+        """
+        The storage capacity of the FSx for Lustre file system, specified in gibibytes (GiB).
+        """
+        return pulumi.get(self, "size_in_gi_b")
+
+
+@pulumi.output_type
 class ClusterInstanceGroup(dict):
     """
     Details of an instance group in a SageMaker HyperPod cluster.
@@ -998,6 +1106,153 @@ class ClusterOrchestratorEksConfig(dict):
         The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
         """
         return pulumi.get(self, "cluster_arn")
+
+
+@pulumi.output_type
+class ClusterRestrictedInstanceGroup(dict):
+    """
+    Details of a restricted instance group in a SageMaker HyperPod cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "environmentConfig":
+            suggest = "environment_config"
+        elif key == "executionRole":
+            suggest = "execution_role"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceGroupName":
+            suggest = "instance_group_name"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "currentCount":
+            suggest = "current_count"
+        elif key == "instanceStorageConfigs":
+            suggest = "instance_storage_configs"
+        elif key == "onStartDeepHealthChecks":
+            suggest = "on_start_deep_health_checks"
+        elif key == "overrideVpcConfig":
+            suggest = "override_vpc_config"
+        elif key == "threadsPerCore":
+            suggest = "threads_per_core"
+        elif key == "trainingPlanArn":
+            suggest = "training_plan_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterRestrictedInstanceGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterRestrictedInstanceGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterRestrictedInstanceGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 environment_config: 'outputs.ClusterEnvironmentConfig',
+                 execution_role: builtins.str,
+                 instance_count: builtins.int,
+                 instance_group_name: builtins.str,
+                 instance_type: builtins.str,
+                 current_count: Optional[builtins.int] = None,
+                 instance_storage_configs: Optional[Sequence['outputs.ClusterInstanceStorageConfig']] = None,
+                 on_start_deep_health_checks: Optional[Sequence['ClusterDeepHealthCheckType']] = None,
+                 override_vpc_config: Optional['outputs.ClusterVpcConfig'] = None,
+                 threads_per_core: Optional[builtins.int] = None,
+                 training_plan_arn: Optional[builtins.str] = None):
+        """
+        Details of a restricted instance group in a SageMaker HyperPod cluster.
+        :param builtins.int instance_count: The number of instances you specified to add to the restricted instance group of a SageMaker HyperPod cluster.
+        :param builtins.int current_count: The number of instances that are currently in the restricted instance group of a SageMaker HyperPod cluster.
+        :param builtins.int threads_per_core: The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
+        :param builtins.str training_plan_arn: The Amazon Resource Name (ARN) of the training plan to use for this cluster restricted instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
+        """
+        pulumi.set(__self__, "environment_config", environment_config)
+        pulumi.set(__self__, "execution_role", execution_role)
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "instance_group_name", instance_group_name)
+        pulumi.set(__self__, "instance_type", instance_type)
+        if current_count is not None:
+            pulumi.set(__self__, "current_count", current_count)
+        if instance_storage_configs is not None:
+            pulumi.set(__self__, "instance_storage_configs", instance_storage_configs)
+        if on_start_deep_health_checks is not None:
+            pulumi.set(__self__, "on_start_deep_health_checks", on_start_deep_health_checks)
+        if override_vpc_config is not None:
+            pulumi.set(__self__, "override_vpc_config", override_vpc_config)
+        if threads_per_core is not None:
+            pulumi.set(__self__, "threads_per_core", threads_per_core)
+        if training_plan_arn is not None:
+            pulumi.set(__self__, "training_plan_arn", training_plan_arn)
+
+    @property
+    @pulumi.getter(name="environmentConfig")
+    def environment_config(self) -> 'outputs.ClusterEnvironmentConfig':
+        return pulumi.get(self, "environment_config")
+
+    @property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> builtins.str:
+        return pulumi.get(self, "execution_role")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> builtins.int:
+        """
+        The number of instances you specified to add to the restricted instance group of a SageMaker HyperPod cluster.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="instanceGroupName")
+    def instance_group_name(self) -> builtins.str:
+        return pulumi.get(self, "instance_group_name")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> builtins.str:
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="currentCount")
+    def current_count(self) -> Optional[builtins.int]:
+        """
+        The number of instances that are currently in the restricted instance group of a SageMaker HyperPod cluster.
+        """
+        return pulumi.get(self, "current_count")
+
+    @property
+    @pulumi.getter(name="instanceStorageConfigs")
+    def instance_storage_configs(self) -> Optional[Sequence['outputs.ClusterInstanceStorageConfig']]:
+        return pulumi.get(self, "instance_storage_configs")
+
+    @property
+    @pulumi.getter(name="onStartDeepHealthChecks")
+    def on_start_deep_health_checks(self) -> Optional[Sequence['ClusterDeepHealthCheckType']]:
+        return pulumi.get(self, "on_start_deep_health_checks")
+
+    @property
+    @pulumi.getter(name="overrideVpcConfig")
+    def override_vpc_config(self) -> Optional['outputs.ClusterVpcConfig']:
+        return pulumi.get(self, "override_vpc_config")
+
+    @property
+    @pulumi.getter(name="threadsPerCore")
+    def threads_per_core(self) -> Optional[builtins.int]:
+        """
+        The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
+        """
+        return pulumi.get(self, "threads_per_core")
+
+    @property
+    @pulumi.getter(name="trainingPlanArn")
+    def training_plan_arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the training plan to use for this cluster restricted instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
+        """
+        return pulumi.get(self, "training_plan_arn")
 
 
 @pulumi.output_type
@@ -15164,6 +15419,1236 @@ class PipelineS3Location(dict):
         For versioning-enabled buckets, a specific version of the PipelineDefinition file.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ProcessingJobAppSpecification(dict):
+    """
+    Configures the processing job to run a specified Docker container image.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUri":
+            suggest = "image_uri"
+        elif key == "containerArguments":
+            suggest = "container_arguments"
+        elif key == "containerEntrypoint":
+            suggest = "container_entrypoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcessingJobAppSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcessingJobAppSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcessingJobAppSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_uri: builtins.str,
+                 container_arguments: Optional[Sequence[builtins.str]] = None,
+                 container_entrypoint: Optional[Sequence[builtins.str]] = None):
+        """
+        Configures the processing job to run a specified Docker container image.
+        :param builtins.str image_uri: The container image to be run by the processing job.
+        :param Sequence[builtins.str] container_arguments: The arguments for a container used to run a processing job.
+        :param Sequence[builtins.str] container_entrypoint: The entrypoint for a container used to run a processing job.
+        """
+        pulumi.set(__self__, "image_uri", image_uri)
+        if container_arguments is not None:
+            pulumi.set(__self__, "container_arguments", container_arguments)
+        if container_entrypoint is not None:
+            pulumi.set(__self__, "container_entrypoint", container_entrypoint)
+
+    @property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> builtins.str:
+        """
+        The container image to be run by the processing job.
+        """
+        return pulumi.get(self, "image_uri")
+
+    @property
+    @pulumi.getter(name="containerArguments")
+    def container_arguments(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The arguments for a container used to run a processing job.
+        """
+        return pulumi.get(self, "container_arguments")
+
+    @property
+    @pulumi.getter(name="containerEntrypoint")
+    def container_entrypoint(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The entrypoint for a container used to run a processing job.
+        """
+        return pulumi.get(self, "container_entrypoint")
+
+
+@pulumi.output_type
+class ProcessingJobAthenaDatasetDefinition(dict):
+    """
+    Configuration for Athena Dataset Definition input.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputFormat":
+            suggest = "output_format"
+        elif key == "outputS3Uri":
+            suggest = "output_s3_uri"
+        elif key == "queryString":
+            suggest = "query_string"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "outputCompression":
+            suggest = "output_compression"
+        elif key == "workGroup":
+            suggest = "work_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcessingJobAthenaDatasetDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcessingJobAthenaDatasetDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcessingJobAthenaDatasetDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 catalog: builtins.str,
+                 database: builtins.str,
+                 output_format: 'ProcessingJobAthenaDatasetDefinitionOutputFormat',
+                 output_s3_uri: builtins.str,
+                 query_string: builtins.str,
+                 kms_key_id: Optional[builtins.str] = None,
+                 output_compression: Optional['ProcessingJobAthenaDatasetDefinitionOutputCompression'] = None,
+                 work_group: Optional[builtins.str] = None):
+        """
+        Configuration for Athena Dataset Definition input.
+        :param builtins.str catalog: The name of the data catalog used in Athena query execution.
+        :param builtins.str database: The name of the database used in the Athena query execution.
+        :param 'ProcessingJobAthenaDatasetDefinitionOutputFormat' output_format: The data storage format for Athena query results.
+        :param builtins.str output_s3_uri: The location in Amazon S3 where Athena query results are stored.
+        :param builtins.str query_string: The SQL query statements, to be executed.
+        :param builtins.str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data generated from an Athena query execution.
+        :param 'ProcessingJobAthenaDatasetDefinitionOutputCompression' output_compression: The compression used for Athena query results.
+        :param builtins.str work_group: The name of the workgroup in which the Athena query is being started.
+        """
+        pulumi.set(__self__, "catalog", catalog)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "output_format", output_format)
+        pulumi.set(__self__, "output_s3_uri", output_s3_uri)
+        pulumi.set(__self__, "query_string", query_string)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if output_compression is not None:
+            pulumi.set(__self__, "output_compression", output_compression)
+        if work_group is not None:
+            pulumi.set(__self__, "work_group", work_group)
+
+    @property
+    @pulumi.getter
+    def catalog(self) -> builtins.str:
+        """
+        The name of the data catalog used in Athena query execution.
+        """
+        return pulumi.get(self, "catalog")
+
+    @property
+    @pulumi.getter
+    def database(self) -> builtins.str:
+        """
+        The name of the database used in the Athena query execution.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> 'ProcessingJobAthenaDatasetDefinitionOutputFormat':
+        """
+        The data storage format for Athena query results.
+        """
+        return pulumi.get(self, "output_format")
+
+    @property
+    @pulumi.getter(name="outputS3Uri")
+    def output_s3_uri(self) -> builtins.str:
+        """
+        The location in Amazon S3 where Athena query results are stored.
+        """
+        return pulumi.get(self, "output_s3_uri")
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> builtins.str:
+        """
+        The SQL query statements, to be executed.
+        """
+        return pulumi.get(self, "query_string")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[builtins.str]:
+        """
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data generated from an Athena query execution.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="outputCompression")
+    def output_compression(self) -> Optional['ProcessingJobAthenaDatasetDefinitionOutputCompression']:
+        """
+        The compression used for Athena query results.
+        """
+        return pulumi.get(self, "output_compression")
+
+    @property
+    @pulumi.getter(name="workGroup")
+    def work_group(self) -> Optional[builtins.str]:
+        """
+        The name of the workgroup in which the Athena query is being started.
+        """
+        return pulumi.get(self, "work_group")
+
+
+@pulumi.output_type
+class ProcessingJobClusterConfig(dict):
+    """
+    Configuration for the cluster used to run a processing job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "volumeSizeInGb":
+            suggest = "volume_size_in_gb"
+        elif key == "volumeKmsKeyId":
+            suggest = "volume_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcessingJobClusterConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcessingJobClusterConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcessingJobClusterConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_count: builtins.int,
+                 instance_type: 'ProcessingJobClusterConfigInstanceType',
+                 volume_size_in_gb: builtins.int,
+                 volume_kms_key_id: Optional[builtins.str] = None):
+        """
+        Configuration for the cluster used to run a processing job.
+        :param builtins.int instance_count: The number of ML compute instances to use in the processing job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
+        :param 'ProcessingJobClusterConfigInstanceType' instance_type: The ML compute instance type for the processing job.
+        :param builtins.int volume_size_in_gb: The size of the ML storage volume in gigabytes that you want to provision. You must specify sufficient ML storage for your scenario.
+        :param builtins.str volume_kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the processing job.
+        """
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+        if volume_kms_key_id is not None:
+            pulumi.set(__self__, "volume_kms_key_id", volume_kms_key_id)
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> builtins.int:
+        """
+        The number of ML compute instances to use in the processing job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> 'ProcessingJobClusterConfigInstanceType':
+        """
+        The ML compute instance type for the processing job.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> builtins.int:
+        """
+        The size of the ML storage volume in gigabytes that you want to provision. You must specify sufficient ML storage for your scenario.
+        """
+        return pulumi.get(self, "volume_size_in_gb")
+
+    @property
+    @pulumi.getter(name="volumeKmsKeyId")
+    def volume_kms_key_id(self) -> Optional[builtins.str]:
+        """
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the processing job.
+        """
+        return pulumi.get(self, "volume_kms_key_id")
+
+
+@pulumi.output_type
+class ProcessingJobDatasetDefinition(dict):
+    """
+    Configuration for Dataset Definition inputs. The Dataset Definition input must specify exactly one of either `AthenaDatasetDefinition` or `RedshiftDatasetDefinition` types.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "athenaDatasetDefinition":
+            suggest = "athena_dataset_definition"
+        elif key == "dataDistributionType":
+            suggest = "data_distribution_type"
+        elif key == "inputMode":
+            suggest = "input_mode"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "redshiftDatasetDefinition":
+            suggest = "redshift_dataset_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcessingJobDatasetDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcessingJobDatasetDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcessingJobDatasetDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 athena_dataset_definition: Optional['outputs.ProcessingJobAthenaDatasetDefinition'] = None,
+                 data_distribution_type: Optional['ProcessingJobDatasetDefinitionDataDistributionType'] = None,
+                 input_mode: Optional['ProcessingJobDatasetDefinitionInputMode'] = None,
+                 local_path: Optional[builtins.str] = None,
+                 redshift_dataset_definition: Optional['outputs.ProcessingJobRedshiftDatasetDefinition'] = None):
+        """
+        Configuration for Dataset Definition inputs. The Dataset Definition input must specify exactly one of either `AthenaDatasetDefinition` or `RedshiftDatasetDefinition` types.
+        :param 'ProcessingJobAthenaDatasetDefinition' athena_dataset_definition: Configuration for Athena Dataset Definition input.
+        :param 'ProcessingJobDatasetDefinitionDataDistributionType' data_distribution_type: Whether the generated dataset is FullyReplicated or ShardedByS3Key (default).
+        :param 'ProcessingJobDatasetDefinitionInputMode' input_mode: Whether to use File or Pipe input mode. In File (default) mode, Amazon SageMaker copies the data from the input source onto the local Amazon Elastic Block Store (Amazon EBS) volumes before starting your training algorithm. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your algorithm without using the EBS volume.
+        :param builtins.str local_path: The local path where you want Amazon SageMaker to download the Dataset Definition inputs to run a processing job. LocalPath is an absolute path to the input data. This is a required parameter when AppManaged is False (default).
+        :param 'ProcessingJobRedshiftDatasetDefinition' redshift_dataset_definition: Configuration for Redshift Dataset Definition input.
+        """
+        if athena_dataset_definition is not None:
+            pulumi.set(__self__, "athena_dataset_definition", athena_dataset_definition)
+        if data_distribution_type is not None:
+            pulumi.set(__self__, "data_distribution_type", data_distribution_type)
+        if input_mode is not None:
+            pulumi.set(__self__, "input_mode", input_mode)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+        if redshift_dataset_definition is not None:
+            pulumi.set(__self__, "redshift_dataset_definition", redshift_dataset_definition)
+
+    @property
+    @pulumi.getter(name="athenaDatasetDefinition")
+    def athena_dataset_definition(self) -> Optional['outputs.ProcessingJobAthenaDatasetDefinition']:
+        """
+        Configuration for Athena Dataset Definition input.
+        """
+        return pulumi.get(self, "athena_dataset_definition")
+
+    @property
+    @pulumi.getter(name="dataDistributionType")
+    def data_distribution_type(self) -> Optional['ProcessingJobDatasetDefinitionDataDistributionType']:
+        """
+        Whether the generated dataset is FullyReplicated or ShardedByS3Key (default).
+        """
+        return pulumi.get(self, "data_distribution_type")
+
+    @property
+    @pulumi.getter(name="inputMode")
+    def input_mode(self) -> Optional['ProcessingJobDatasetDefinitionInputMode']:
+        """
+        Whether to use File or Pipe input mode. In File (default) mode, Amazon SageMaker copies the data from the input source onto the local Amazon Elastic Block Store (Amazon EBS) volumes before starting your training algorithm. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your algorithm without using the EBS volume.
+        """
+        return pulumi.get(self, "input_mode")
+
+    @property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[builtins.str]:
+        """
+        The local path where you want Amazon SageMaker to download the Dataset Definition inputs to run a processing job. LocalPath is an absolute path to the input data. This is a required parameter when AppManaged is False (default).
+        """
+        return pulumi.get(self, "local_path")
+
+    @property
+    @pulumi.getter(name="redshiftDatasetDefinition")
+    def redshift_dataset_definition(self) -> Optional['outputs.ProcessingJobRedshiftDatasetDefinition']:
+        """
+        Configuration for Redshift Dataset Definition input.
+        """
+        return pulumi.get(self, "redshift_dataset_definition")
+
+
+@pulumi.output_type
+class ProcessingJobEnvironment(dict):
+    """
+    Sets the environment variables in the Docker container
+    """
+    def __init__(__self__):
+        """
+        Sets the environment variables in the Docker container
+        """
+        pass
+
+
+@pulumi.output_type
+class ProcessingJobExperimentConfig(dict):
+    """
+    Associates a SageMaker job as a trial component with an experiment and trial.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "experimentName":
+            suggest = "experiment_name"
+        elif key == "runName":
+            suggest = "run_name"
+        elif key == "trialComponentDisplayName":
+            suggest = "trial_component_display_name"
+        elif key == "trialName":
+            suggest = "trial_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcessingJobExperimentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcessingJobExperimentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcessingJobExperimentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 experiment_name: Optional[builtins.str] = None,
+                 run_name: Optional[builtins.str] = None,
+                 trial_component_display_name: Optional[builtins.str] = None,
+                 trial_name: Optional[builtins.str] = None):
+        """
+        Associates a SageMaker job as a trial component with an experiment and trial.
+        :param builtins.str experiment_name: The name of an existing experiment to associate with the trial component.
+        :param builtins.str run_name: The name of the experiment run to associate with the trial component.
+        :param builtins.str trial_component_display_name: The display name for the trial component. If this key isn't specified, the display name is the trial component name.
+        :param builtins.str trial_name: The name of an existing trial to associate the trial component with. If not specified, a new trial is created.
+        """
+        if experiment_name is not None:
+            pulumi.set(__self__, "experiment_name", experiment_name)
+        if run_name is not None:
+            pulumi.set(__self__, "run_name", run_name)
+        if trial_component_display_name is not None:
+            pulumi.set(__self__, "trial_component_display_name", trial_component_display_name)
+        if trial_name is not None:
+            pulumi.set(__self__, "trial_name", trial_name)
+
+    @property
+    @pulumi.getter(name="experimentName")
+    def experiment_name(self) -> Optional[builtins.str]:
+        """
+        The name of an existing experiment to associate with the trial component.
+        """
+        return pulumi.get(self, "experiment_name")
+
+    @property
+    @pulumi.getter(name="runName")
+    def run_name(self) -> Optional[builtins.str]:
+        """
+        The name of the experiment run to associate with the trial component.
+        """
+        return pulumi.get(self, "run_name")
+
+    @property
+    @pulumi.getter(name="trialComponentDisplayName")
+    def trial_component_display_name(self) -> Optional[builtins.str]:
+        """
+        The display name for the trial component. If this key isn't specified, the display name is the trial component name.
+        """
+        return pulumi.get(self, "trial_component_display_name")
+
+    @property
+    @pulumi.getter(name="trialName")
+    def trial_name(self) -> Optional[builtins.str]:
+        """
+        The name of an existing trial to associate the trial component with. If not specified, a new trial is created.
+        """
+        return pulumi.get(self, "trial_name")
+
+
+@pulumi.output_type
+class ProcessingJobFeatureStoreOutput(dict):
+    """
+    Configuration for processing job outputs in Amazon SageMaker Feature Store.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "featureGroupName":
+            suggest = "feature_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcessingJobFeatureStoreOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcessingJobFeatureStoreOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcessingJobFeatureStoreOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 feature_group_name: builtins.str):
+        """
+        Configuration for processing job outputs in Amazon SageMaker Feature Store.
+        :param builtins.str feature_group_name: The name of the Amazon SageMaker FeatureGroup to use as the destination for processing job output. Note that your processing script is responsible for putting records into your Feature Store.
+        """
+        pulumi.set(__self__, "feature_group_name", feature_group_name)
+
+    @property
+    @pulumi.getter(name="featureGroupName")
+    def feature_group_name(self) -> builtins.str:
+        """
+        The name of the Amazon SageMaker FeatureGroup to use as the destination for processing job output. Note that your processing script is responsible for putting records into your Feature Store.
+        """
+        return pulumi.get(self, "feature_group_name")
+
+
+@pulumi.output_type
+class ProcessingJobNetworkConfig(dict):
+    """
+    Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableInterContainerTrafficEncryption":
+            suggest = "enable_inter_container_traffic_encryption"
+        elif key == "enableNetworkIsolation":
+            suggest = "enable_network_isolation"
+        elif key == "vpcConfig":
+            suggest = "vpc_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcessingJobNetworkConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcessingJobNetworkConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcessingJobNetworkConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_inter_container_traffic_encryption: Optional[builtins.bool] = None,
+                 enable_network_isolation: Optional[builtins.bool] = None,
+                 vpc_config: Optional['outputs.ProcessingJobVpcConfig'] = None):
+        """
+        Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        :param builtins.bool enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
+        :param builtins.bool enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+        :param 'ProcessingJobVpcConfig' vpc_config: Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+        """
+        if enable_inter_container_traffic_encryption is not None:
+            pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
+        if enable_network_isolation is not None:
+            pulumi.set(__self__, "enable_network_isolation", enable_network_isolation)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
+
+    @property
+    @pulumi.getter(name="enableInterContainerTrafficEncryption")
+    def enable_inter_container_traffic_encryption(self) -> Optional[builtins.bool]:
+        """
+        Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
+        """
+        return pulumi.get(self, "enable_inter_container_traffic_encryption")
+
+    @property
+    @pulumi.getter(name="enableNetworkIsolation")
+    def enable_network_isolation(self) -> Optional[builtins.bool]:
+        """
+        Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+        """
+        return pulumi.get(self, "enable_network_isolation")
+
+    @property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional['outputs.ProcessingJobVpcConfig']:
+        """
+        Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+        """
+        return pulumi.get(self, "vpc_config")
+
+
+@pulumi.output_type
+class ProcessingJobProcessingInputsObject(dict):
+    """
+    The inputs for a processing job. The processing input must specify exactly one of either S3Input or DatasetDefinition types.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputName":
+            suggest = "input_name"
+        elif key == "appManaged":
+            suggest = "app_managed"
+        elif key == "datasetDefinition":
+            suggest = "dataset_definition"
+        elif key == "s3Input":
+            suggest = "s3_input"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcessingJobProcessingInputsObject. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcessingJobProcessingInputsObject.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcessingJobProcessingInputsObject.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_name: builtins.str,
+                 app_managed: Optional[builtins.bool] = None,
+                 dataset_definition: Optional['outputs.ProcessingJobDatasetDefinition'] = None,
+                 s3_input: Optional['outputs.ProcessingJobS3Input'] = None):
+        """
+        The inputs for a processing job. The processing input must specify exactly one of either S3Input or DatasetDefinition types.
+        :param builtins.str input_name: The name for the processing job input.
+        :param builtins.bool app_managed: When True, input operations such as data download are managed natively by the processing job application. When False (default), input operations are managed by Amazon SageMaker.
+        :param 'ProcessingJobDatasetDefinition' dataset_definition: Configuration for Dataset Definition inputs. The Dataset Definition input must specify exactly one of either `AthenaDatasetDefinition` or `RedshiftDatasetDefinition` types.
+        :param 'ProcessingJobS3Input' s3_input: Configuration for downloading input data from Amazon S3 into the processing container.
+        """
+        pulumi.set(__self__, "input_name", input_name)
+        if app_managed is not None:
+            pulumi.set(__self__, "app_managed", app_managed)
+        if dataset_definition is not None:
+            pulumi.set(__self__, "dataset_definition", dataset_definition)
+        if s3_input is not None:
+            pulumi.set(__self__, "s3_input", s3_input)
+
+    @property
+    @pulumi.getter(name="inputName")
+    def input_name(self) -> builtins.str:
+        """
+        The name for the processing job input.
+        """
+        return pulumi.get(self, "input_name")
+
+    @property
+    @pulumi.getter(name="appManaged")
+    def app_managed(self) -> Optional[builtins.bool]:
+        """
+        When True, input operations such as data download are managed natively by the processing job application. When False (default), input operations are managed by Amazon SageMaker.
+        """
+        return pulumi.get(self, "app_managed")
+
+    @property
+    @pulumi.getter(name="datasetDefinition")
+    def dataset_definition(self) -> Optional['outputs.ProcessingJobDatasetDefinition']:
+        """
+        Configuration for Dataset Definition inputs. The Dataset Definition input must specify exactly one of either `AthenaDatasetDefinition` or `RedshiftDatasetDefinition` types.
+        """
+        return pulumi.get(self, "dataset_definition")
+
+    @property
+    @pulumi.getter(name="s3Input")
+    def s3_input(self) -> Optional['outputs.ProcessingJobS3Input']:
+        """
+        Configuration for downloading input data from Amazon S3 into the processing container.
+        """
+        return pulumi.get(self, "s3_input")
+
+
+@pulumi.output_type
+class ProcessingJobProcessingOutputConfig(dict):
+    """
+    Configuration for uploading output from the processing container.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcessingJobProcessingOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcessingJobProcessingOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcessingJobProcessingOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 outputs: Sequence['outputs.ProcessingJobProcessingOutputsObject'],
+                 kms_key_id: Optional[builtins.str] = None):
+        """
+        Configuration for uploading output from the processing container.
+        :param Sequence['ProcessingJobProcessingOutputsObject'] outputs: An array of outputs configuring the data to upload from the processing container.
+        :param builtins.str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the processing job output. KmsKeyId can be an ID of a KMS key, ARN of a KMS key, or alias of a KMS key. The KmsKeyId is applied to all outputs.
+        """
+        pulumi.set(__self__, "outputs", outputs)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> Sequence['outputs.ProcessingJobProcessingOutputsObject']:
+        """
+        An array of outputs configuring the data to upload from the processing container.
+        """
+        return pulumi.get(self, "outputs")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[builtins.str]:
+        """
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the processing job output. KmsKeyId can be an ID of a KMS key, ARN of a KMS key, or alias of a KMS key. The KmsKeyId is applied to all outputs.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class ProcessingJobProcessingOutputsObject(dict):
+    """
+    Describes the results of a processing job. The processing output must specify exactly one of either S3Output or FeatureStoreOutput types.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputName":
+            suggest = "output_name"
+        elif key == "appManaged":
+            suggest = "app_managed"
+        elif key == "featureStoreOutput":
+            suggest = "feature_store_output"
+        elif key == "s3Output":
+            suggest = "s3_output"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcessingJobProcessingOutputsObject. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcessingJobProcessingOutputsObject.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcessingJobProcessingOutputsObject.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 output_name: builtins.str,
+                 app_managed: Optional[builtins.bool] = None,
+                 feature_store_output: Optional['outputs.ProcessingJobFeatureStoreOutput'] = None,
+                 s3_output: Optional['outputs.ProcessingJobS3Output'] = None):
+        """
+        Describes the results of a processing job. The processing output must specify exactly one of either S3Output or FeatureStoreOutput types.
+        :param builtins.str output_name: The name for the processing job output.
+        :param builtins.bool app_managed: When True, output operations such as data upload are managed natively by the processing job application. When False (default), output operations are managed by Amazon SageMaker.
+        :param 'ProcessingJobFeatureStoreOutput' feature_store_output: Configuration for processing job outputs in Amazon SageMaker Feature Store.
+        :param 'ProcessingJobS3Output' s3_output: Configuration for uploading output data to Amazon S3 from the processing container.
+        """
+        pulumi.set(__self__, "output_name", output_name)
+        if app_managed is not None:
+            pulumi.set(__self__, "app_managed", app_managed)
+        if feature_store_output is not None:
+            pulumi.set(__self__, "feature_store_output", feature_store_output)
+        if s3_output is not None:
+            pulumi.set(__self__, "s3_output", s3_output)
+
+    @property
+    @pulumi.getter(name="outputName")
+    def output_name(self) -> builtins.str:
+        """
+        The name for the processing job output.
+        """
+        return pulumi.get(self, "output_name")
+
+    @property
+    @pulumi.getter(name="appManaged")
+    def app_managed(self) -> Optional[builtins.bool]:
+        """
+        When True, output operations such as data upload are managed natively by the processing job application. When False (default), output operations are managed by Amazon SageMaker.
+        """
+        return pulumi.get(self, "app_managed")
+
+    @property
+    @pulumi.getter(name="featureStoreOutput")
+    def feature_store_output(self) -> Optional['outputs.ProcessingJobFeatureStoreOutput']:
+        """
+        Configuration for processing job outputs in Amazon SageMaker Feature Store.
+        """
+        return pulumi.get(self, "feature_store_output")
+
+    @property
+    @pulumi.getter(name="s3Output")
+    def s3_output(self) -> Optional['outputs.ProcessingJobS3Output']:
+        """
+        Configuration for uploading output data to Amazon S3 from the processing container.
+        """
+        return pulumi.get(self, "s3_output")
+
+
+@pulumi.output_type
+class ProcessingJobProcessingResources(dict):
+    """
+    Identifies the resources, ML compute instances, and ML storage volumes to deploy for a processing job. In distributed training, you specify more than one instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterConfig":
+            suggest = "cluster_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcessingJobProcessingResources. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcessingJobProcessingResources.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcessingJobProcessingResources.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_config: 'outputs.ProcessingJobClusterConfig'):
+        """
+        Identifies the resources, ML compute instances, and ML storage volumes to deploy for a processing job. In distributed training, you specify more than one instance.
+        :param 'ProcessingJobClusterConfig' cluster_config: The configuration for the resources in a cluster used to run the processing job.
+        """
+        pulumi.set(__self__, "cluster_config", cluster_config)
+
+    @property
+    @pulumi.getter(name="clusterConfig")
+    def cluster_config(self) -> 'outputs.ProcessingJobClusterConfig':
+        """
+        The configuration for the resources in a cluster used to run the processing job.
+        """
+        return pulumi.get(self, "cluster_config")
+
+
+@pulumi.output_type
+class ProcessingJobRedshiftDatasetDefinition(dict):
+    """
+    Configuration for Redshift Dataset Definition input.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterId":
+            suggest = "cluster_id"
+        elif key == "clusterRoleArn":
+            suggest = "cluster_role_arn"
+        elif key == "dbUser":
+            suggest = "db_user"
+        elif key == "outputFormat":
+            suggest = "output_format"
+        elif key == "outputS3Uri":
+            suggest = "output_s3_uri"
+        elif key == "queryString":
+            suggest = "query_string"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "outputCompression":
+            suggest = "output_compression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcessingJobRedshiftDatasetDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcessingJobRedshiftDatasetDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcessingJobRedshiftDatasetDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_id: builtins.str,
+                 cluster_role_arn: builtins.str,
+                 database: builtins.str,
+                 db_user: builtins.str,
+                 output_format: 'ProcessingJobRedshiftDatasetDefinitionOutputFormat',
+                 output_s3_uri: builtins.str,
+                 query_string: builtins.str,
+                 kms_key_id: Optional[builtins.str] = None,
+                 output_compression: Optional['ProcessingJobRedshiftDatasetDefinitionOutputCompression'] = None):
+        """
+        Configuration for Redshift Dataset Definition input.
+        :param builtins.str cluster_id: The Redshift cluster Identifier.
+        :param builtins.str cluster_role_arn: The IAM role attached to your Redshift cluster that Amazon SageMaker uses to generate datasets.
+        :param builtins.str database: The name of the Redshift database used in Redshift query execution.
+        :param builtins.str db_user: The database user name used in Redshift query execution.
+        :param 'ProcessingJobRedshiftDatasetDefinitionOutputFormat' output_format: The data storage format for Redshift query results.
+        :param builtins.str output_s3_uri: The location in Amazon S3 where the Redshift query results are stored.
+        :param builtins.str query_string: The SQL query statements to be executed.
+        :param builtins.str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data from a Redshift execution.
+        :param 'ProcessingJobRedshiftDatasetDefinitionOutputCompression' output_compression: The compression used for Redshift query results.
+        """
+        pulumi.set(__self__, "cluster_id", cluster_id)
+        pulumi.set(__self__, "cluster_role_arn", cluster_role_arn)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "db_user", db_user)
+        pulumi.set(__self__, "output_format", output_format)
+        pulumi.set(__self__, "output_s3_uri", output_s3_uri)
+        pulumi.set(__self__, "query_string", query_string)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if output_compression is not None:
+            pulumi.set(__self__, "output_compression", output_compression)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> builtins.str:
+        """
+        The Redshift cluster Identifier.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="clusterRoleArn")
+    def cluster_role_arn(self) -> builtins.str:
+        """
+        The IAM role attached to your Redshift cluster that Amazon SageMaker uses to generate datasets.
+        """
+        return pulumi.get(self, "cluster_role_arn")
+
+    @property
+    @pulumi.getter
+    def database(self) -> builtins.str:
+        """
+        The name of the Redshift database used in Redshift query execution.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="dbUser")
+    def db_user(self) -> builtins.str:
+        """
+        The database user name used in Redshift query execution.
+        """
+        return pulumi.get(self, "db_user")
+
+    @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> 'ProcessingJobRedshiftDatasetDefinitionOutputFormat':
+        """
+        The data storage format for Redshift query results.
+        """
+        return pulumi.get(self, "output_format")
+
+    @property
+    @pulumi.getter(name="outputS3Uri")
+    def output_s3_uri(self) -> builtins.str:
+        """
+        The location in Amazon S3 where the Redshift query results are stored.
+        """
+        return pulumi.get(self, "output_s3_uri")
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> builtins.str:
+        """
+        The SQL query statements to be executed.
+        """
+        return pulumi.get(self, "query_string")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[builtins.str]:
+        """
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data from a Redshift execution.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="outputCompression")
+    def output_compression(self) -> Optional['ProcessingJobRedshiftDatasetDefinitionOutputCompression']:
+        """
+        The compression used for Redshift query results.
+        """
+        return pulumi.get(self, "output_compression")
+
+
+@pulumi.output_type
+class ProcessingJobS3Input(dict):
+    """
+    Configuration for downloading input data from Amazon S3 into the processing container.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3DataType":
+            suggest = "s3_data_type"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "s3CompressionType":
+            suggest = "s3_compression_type"
+        elif key == "s3DataDistributionType":
+            suggest = "s3_data_distribution_type"
+        elif key == "s3InputMode":
+            suggest = "s3_input_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcessingJobS3Input. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcessingJobS3Input.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcessingJobS3Input.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_data_type: 'ProcessingJobS3InputS3DataType',
+                 s3_uri: builtins.str,
+                 local_path: Optional[builtins.str] = None,
+                 s3_compression_type: Optional['ProcessingJobS3InputS3CompressionType'] = None,
+                 s3_data_distribution_type: Optional['ProcessingJobS3InputS3DataDistributionType'] = None,
+                 s3_input_mode: Optional['ProcessingJobS3InputS3InputMode'] = None):
+        """
+        Configuration for downloading input data from Amazon S3 into the processing container.
+        :param 'ProcessingJobS3InputS3DataType' s3_data_type: Whether you use an S3Prefix or a ManifestFile for the data type. If you choose S3Prefix, S3Uri identifies a key name prefix. Amazon SageMaker uses all objects with the specified key name prefix for the processing job. If you choose ManifestFile, S3Uri identifies an object that is a manifest file containing a list of object keys that you want Amazon SageMaker to use for the processing job.
+        :param builtins.str s3_uri: The URI of the Amazon S3 prefix Amazon SageMaker downloads data required to run a processing job.
+        :param builtins.str local_path: The local path in your container where you want Amazon SageMaker to write input data to. `LocalPath` is an absolute path to the input data and must begin with `/opt/ml/processing/`. LocalPath is a required parameter when `AppManaged` is `False` (default).
+        :param 'ProcessingJobS3InputS3CompressionType' s3_compression_type: Whether to GZIP-decompress the data in Amazon S3 as it is streamed into the processing container. `Gzip` can only be used when `Pipe` mode is specified as the `S3InputMode`. In `Pipe` mode, Amazon SageMaker streams input data from the source directly to your container without using the EBS volume.
+        :param 'ProcessingJobS3InputS3DataDistributionType' s3_data_distribution_type: Whether to distribute the data from Amazon S3 to all processing instances with `FullyReplicated`, or whether the data from Amazon S3 is shared by Amazon S3 key, downloading one shard of data to each processing instance.
+        :param 'ProcessingJobS3InputS3InputMode' s3_input_mode: Whether to use File or Pipe input mode. In File mode, Amazon SageMaker copies the data from the input source onto the local ML storage volume before starting your processing container. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your processing container into named pipes without using the ML storage volume.
+        """
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+        if s3_compression_type is not None:
+            pulumi.set(__self__, "s3_compression_type", s3_compression_type)
+        if s3_data_distribution_type is not None:
+            pulumi.set(__self__, "s3_data_distribution_type", s3_data_distribution_type)
+        if s3_input_mode is not None:
+            pulumi.set(__self__, "s3_input_mode", s3_input_mode)
+
+    @property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> 'ProcessingJobS3InputS3DataType':
+        """
+        Whether you use an S3Prefix or a ManifestFile for the data type. If you choose S3Prefix, S3Uri identifies a key name prefix. Amazon SageMaker uses all objects with the specified key name prefix for the processing job. If you choose ManifestFile, S3Uri identifies an object that is a manifest file containing a list of object keys that you want Amazon SageMaker to use for the processing job.
+        """
+        return pulumi.get(self, "s3_data_type")
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> builtins.str:
+        """
+        The URI of the Amazon S3 prefix Amazon SageMaker downloads data required to run a processing job.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[builtins.str]:
+        """
+        The local path in your container where you want Amazon SageMaker to write input data to. `LocalPath` is an absolute path to the input data and must begin with `/opt/ml/processing/`. LocalPath is a required parameter when `AppManaged` is `False` (default).
+        """
+        return pulumi.get(self, "local_path")
+
+    @property
+    @pulumi.getter(name="s3CompressionType")
+    def s3_compression_type(self) -> Optional['ProcessingJobS3InputS3CompressionType']:
+        """
+        Whether to GZIP-decompress the data in Amazon S3 as it is streamed into the processing container. `Gzip` can only be used when `Pipe` mode is specified as the `S3InputMode`. In `Pipe` mode, Amazon SageMaker streams input data from the source directly to your container without using the EBS volume.
+        """
+        return pulumi.get(self, "s3_compression_type")
+
+    @property
+    @pulumi.getter(name="s3DataDistributionType")
+    def s3_data_distribution_type(self) -> Optional['ProcessingJobS3InputS3DataDistributionType']:
+        """
+        Whether to distribute the data from Amazon S3 to all processing instances with `FullyReplicated`, or whether the data from Amazon S3 is shared by Amazon S3 key, downloading one shard of data to each processing instance.
+        """
+        return pulumi.get(self, "s3_data_distribution_type")
+
+    @property
+    @pulumi.getter(name="s3InputMode")
+    def s3_input_mode(self) -> Optional['ProcessingJobS3InputS3InputMode']:
+        """
+        Whether to use File or Pipe input mode. In File mode, Amazon SageMaker copies the data from the input source onto the local ML storage volume before starting your processing container. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your processing container into named pipes without using the ML storage volume.
+        """
+        return pulumi.get(self, "s3_input_mode")
+
+
+@pulumi.output_type
+class ProcessingJobS3Output(dict):
+    """
+    Configuration for uploading output data to Amazon S3 from the processing container.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3UploadMode":
+            suggest = "s3_upload_mode"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "localPath":
+            suggest = "local_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcessingJobS3Output. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcessingJobS3Output.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcessingJobS3Output.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_upload_mode: 'ProcessingJobS3OutputS3UploadMode',
+                 s3_uri: builtins.str,
+                 local_path: Optional[builtins.str] = None):
+        """
+        Configuration for uploading output data to Amazon S3 from the processing container.
+        :param 'ProcessingJobS3OutputS3UploadMode' s3_upload_mode: Whether to upload the results of the processing job continuously or after the job completes.
+        :param builtins.str s3_uri: A URI that identifies the Amazon S3 bucket where you want Amazon SageMaker to save the results of a processing job.
+        :param builtins.str local_path: The local path of a directory where you want Amazon SageMaker to upload its contents to Amazon S3. LocalPath is an absolute path to a directory containing output files. This directory will be created by the platform and exist when your container's entrypoint is invoked.
+        """
+        pulumi.set(__self__, "s3_upload_mode", s3_upload_mode)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+
+    @property
+    @pulumi.getter(name="s3UploadMode")
+    def s3_upload_mode(self) -> 'ProcessingJobS3OutputS3UploadMode':
+        """
+        Whether to upload the results of the processing job continuously or after the job completes.
+        """
+        return pulumi.get(self, "s3_upload_mode")
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> builtins.str:
+        """
+        A URI that identifies the Amazon S3 bucket where you want Amazon SageMaker to save the results of a processing job.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[builtins.str]:
+        """
+        The local path of a directory where you want Amazon SageMaker to upload its contents to Amazon S3. LocalPath is an absolute path to a directory containing output files. This directory will be created by the platform and exist when your container's entrypoint is invoked.
+        """
+        return pulumi.get(self, "local_path")
+
+
+@pulumi.output_type
+class ProcessingJobStoppingCondition(dict):
+    """
+    Configures conditions under which the processing job should be stopped, such as how long the processing job has been running. After the condition is met, the processing job is stopped.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRuntimeInSeconds":
+            suggest = "max_runtime_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcessingJobStoppingCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcessingJobStoppingCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcessingJobStoppingCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_runtime_in_seconds: builtins.int):
+        """
+        Configures conditions under which the processing job should be stopped, such as how long the processing job has been running. After the condition is met, the processing job is stopped.
+        :param builtins.int max_runtime_in_seconds: Specifies the maximum runtime in seconds.
+        """
+        pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
+
+    @property
+    @pulumi.getter(name="maxRuntimeInSeconds")
+    def max_runtime_in_seconds(self) -> builtins.int:
+        """
+        Specifies the maximum runtime in seconds.
+        """
+        return pulumi.get(self, "max_runtime_in_seconds")
+
+
+@pulumi.output_type
+class ProcessingJobVpcConfig(dict):
+    """
+    Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcessingJobVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcessingJobVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcessingJobVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[builtins.str],
+                 subnets: Sequence[builtins.str]):
+        """
+        Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html
+        :param Sequence[builtins.str] security_group_ids: The VPC security group IDs, in the form 'sg-xxxxxxxx'. Specify the security groups for the VPC that is specified in the 'Subnets' field.
+        :param Sequence[builtins.str] subnets: The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see https://docs.aws.amazon.com/sagemaker/latest/dg/regions-quotas.html
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[builtins.str]:
+        """
+        The VPC security group IDs, in the form 'sg-xxxxxxxx'. Specify the security groups for the VPC that is specified in the 'Subnets' field.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Sequence[builtins.str]:
+        """
+        The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see https://docs.aws.amazon.com/sagemaker/latest/dg/regions-quotas.html
+        """
+        return pulumi.get(self, "subnets")
 
 
 @pulumi.output_type

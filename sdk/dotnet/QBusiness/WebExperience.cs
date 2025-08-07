@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.QBusiness
         /// <summary>
         /// The Amazon Resource Name (ARN) of the service role attached to your web experience.
         /// 
-        /// &gt; You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
+        /// &gt; The `roleArn` parameter is required when your Amazon Q Business application is created with IAM Identity Center. It is not required for SAML-based applications.
         /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.AwsNative.QBusiness
         /// <summary>
         /// The Amazon Resource Name (ARN) of the service role attached to your web experience.
         /// 
-        /// &gt; You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
+        /// &gt; The `roleArn` parameter is required when your Amazon Q Business application is created with IAM Identity Center. It is not required for SAML-based applications.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

@@ -71,6 +71,7 @@ export class AccessPoint extends pulumi.CustomResource {
      * For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
      */
     public readonly scope!: pulumi.Output<outputs.s3express.AccessPointScope | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
      */
@@ -96,6 +97,7 @@ export class AccessPoint extends pulumi.CustomResource {
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["networkOrigin"] = undefined /*out*/;
@@ -108,6 +110,7 @@ export class AccessPoint extends pulumi.CustomResource {
             resourceInputs["policy"] = undefined /*out*/;
             resourceInputs["publicAccessBlockConfiguration"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -147,6 +150,7 @@ export interface AccessPointArgs {
      * For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
      */
     scope?: pulumi.Input<inputs.s3express.AccessPointScopeArgs>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
      */

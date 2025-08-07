@@ -45,7 +45,7 @@ class EnvironmentArgs:
         :param pulumi.Input['LicenseInfoPropertiesArgs'] license_info: The license information for an EVS environment
         :param pulumi.Input[builtins.str] service_access_subnet_id: The subnet that is used to establish connectivity between the Amazon EVS control plane and VPC. Amazon EVS uses this subnet to perform validations and create the environment.
         :param pulumi.Input[builtins.str] site_id: The Broadcom Site ID that is associated with your Amazon EVS environment. Amazon EVS uses the Broadcom Site ID that you provide to meet Broadcom VCF license usage reporting requirements for Amazon EVS.
-        :param pulumi.Input[builtins.bool] terms_accepted: Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+        :param pulumi.Input[builtins.bool] terms_accepted: Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance. Amazon EVS does not validate license keys. To validate license keys, visit the Broadcom support portal.
         :param pulumi.Input['VcfHostnamesPropertiesArgs'] vcf_hostnames: The DNS hostnames to be used by the VCF management appliances in your environment.
                
                For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
@@ -133,7 +133,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="termsAccepted")
     def terms_accepted(self) -> pulumi.Input[builtins.bool]:
         """
-        Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+        Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance. Amazon EVS does not validate license keys. To validate license keys, visit the Broadcom support portal.
         """
         return pulumi.get(self, "terms_accepted")
 
@@ -292,7 +292,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] service_access_subnet_id: The subnet that is used to establish connectivity between the Amazon EVS control plane and VPC. Amazon EVS uses this subnet to perform validations and create the environment.
         :param pulumi.Input[builtins.str] site_id: The Broadcom Site ID that is associated with your Amazon EVS environment. Amazon EVS uses the Broadcom Site ID that you provide to meet Broadcom VCF license usage reporting requirements for Amazon EVS.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[builtins.bool] terms_accepted: Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+        :param pulumi.Input[builtins.bool] terms_accepted: Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance. Amazon EVS does not validate license keys. To validate license keys, visit the Broadcom support portal.
         :param pulumi.Input[Union['VcfHostnamesPropertiesArgs', 'VcfHostnamesPropertiesArgsDict']] vcf_hostnames: The DNS hostnames to be used by the VCF management appliances in your environment.
                
                For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
@@ -586,7 +586,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="termsAccepted")
     def terms_accepted(self) -> pulumi.Output[builtins.bool]:
         """
-        Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+        Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance. Amazon EVS does not validate license keys. To validate license keys, visit the Broadcom support portal.
         """
         return pulumi.get(self, "terms_accepted")
 

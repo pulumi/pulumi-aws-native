@@ -19,12 +19,20 @@ export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetFirewallArgs {
     /**
-     * The Amazon Resource Name (ARN) of the `Firewall` .
+     * The Amazon Resource Name (ARN) of the firewall.
      */
     firewallArn: string;
 }
 
 export interface GetFirewallResult {
+    /**
+     * A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `TRUE` , you must first disable this protection before adding or removing Availability Zones.
+     */
+    readonly availabilityZoneChangeProtection?: boolean;
+    /**
+     * The Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall. Each mapping specifies an Availability Zone where the firewall processes traffic.
+     */
+    readonly availabilityZoneMappings?: outputs.networkfirewall.FirewallAvailabilityZoneMapping[];
     /**
      * A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
      */
@@ -42,11 +50,11 @@ export interface GetFirewallResult {
      */
     readonly endpointIds?: string[];
     /**
-     * The Amazon Resource Name (ARN) of the `Firewall` .
+     * The Amazon Resource Name (ARN) of the firewall.
      */
     readonly firewallArn?: string;
     /**
-     * The name of the `Firewall` resource.
+     * The name of the firewallresource.
      */
     readonly firewallId?: string;
     /**
@@ -77,6 +85,10 @@ export interface GetFirewallResult {
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
+     */
+    readonly transitGatewayId?: string;
 }
 /**
  * Resource type definition for AWS::NetworkFirewall::Firewall
@@ -90,7 +102,7 @@ export function getFirewallOutput(args: GetFirewallOutputArgs, opts?: pulumi.Inv
 
 export interface GetFirewallOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the `Firewall` .
+     * The Amazon Resource Name (ARN) of the firewall.
      */
     firewallArn: pulumi.Input<string>;
 }

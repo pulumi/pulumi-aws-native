@@ -498,6 +498,10 @@ export class DbCluster extends pulumi.CustomResource {
      */
     public readonly sourceDbClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
+     * The resource ID of the source DB cluster from which to restore.
+     */
+    public readonly sourceDbClusterResourceId!: pulumi.Output<string | undefined>;
+    /**
      * The AWS Region which contains the source DB cluster when replicating a DB cluster. For example, ``us-east-1``. 
      *  Valid for: Aurora DB clusters only
      */
@@ -616,6 +620,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["serverlessV2ScalingConfiguration"] = args ? args.serverlessV2ScalingConfiguration : undefined;
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
+            resourceInputs["sourceDbClusterResourceId"] = args ? args.sourceDbClusterResourceId : undefined;
             resourceInputs["sourceRegion"] = args ? args.sourceRegion : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             resourceInputs["storageType"] = args ? args.storageType : undefined;
@@ -685,6 +690,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["serverlessV2ScalingConfiguration"] = undefined /*out*/;
             resourceInputs["snapshotIdentifier"] = undefined /*out*/;
             resourceInputs["sourceDbClusterIdentifier"] = undefined /*out*/;
+            resourceInputs["sourceDbClusterResourceId"] = undefined /*out*/;
             resourceInputs["sourceRegion"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
             resourceInputs["storageThroughput"] = undefined /*out*/;
@@ -694,7 +700,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["availabilityZones[*]", "clusterScalabilityType", "databaseName", "dbClusterIdentifier", "dbSubnetGroupName", "dbSystemId", "engineMode", "kmsKeyId", "publiclyAccessible", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "sourceRegion", "storageEncrypted", "useLatestRestorableTime"] };
+        const replaceOnChanges = { replaceOnChanges: ["availabilityZones[*]", "clusterScalabilityType", "databaseName", "dbClusterIdentifier", "dbSubnetGroupName", "dbSystemId", "engineMode", "kmsKeyId", "publiclyAccessible", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "sourceDbClusterResourceId", "sourceRegion", "storageEncrypted", "useLatestRestorableTime"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DbCluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -1138,6 +1144,10 @@ export interface DbClusterArgs {
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
     sourceDbClusterIdentifier?: pulumi.Input<string>;
+    /**
+     * The resource ID of the source DB cluster from which to restore.
+     */
+    sourceDbClusterResourceId?: pulumi.Input<string>;
     /**
      * The AWS Region which contains the source DB cluster when replicating a DB cluster. For example, ``us-east-1``. 
      *  Valid for: Aurora DB clusters only

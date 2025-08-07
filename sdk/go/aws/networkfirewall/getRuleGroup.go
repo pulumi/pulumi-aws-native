@@ -24,7 +24,7 @@ func LookupRuleGroup(ctx *pulumi.Context, args *LookupRuleGroupArgs, opts ...pul
 }
 
 type LookupRuleGroupArgs struct {
-	// The Amazon Resource Name (ARN) of the `RuleGroup` .
+	// The Amazon Resource Name (ARN) of the rule group.
 	RuleGroupArn string `pulumi:"ruleGroupArn"`
 }
 
@@ -33,10 +33,15 @@ type LookupRuleGroupResult struct {
 	Description *string `pulumi:"description"`
 	// An object that defines the rule group rules.
 	RuleGroup *RuleGroupType `pulumi:"ruleGroup"`
-	// The Amazon Resource Name (ARN) of the `RuleGroup` .
+	// The Amazon Resource Name (ARN) of the rule group.
 	RuleGroupArn *string `pulumi:"ruleGroupArn"`
-	// The unique ID of the `RuleGroup` resource.
+	// The unique ID of the rule group resource.
 	RuleGroupId *string `pulumi:"ruleGroupId"`
+	// A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+	//
+	// - The `RuleOptions` specified in `SummaryConfiguration`
+	// - Rule metadata organization preferences
+	SummaryConfiguration *SummaryConfigurationProperties `pulumi:"summaryConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
@@ -53,7 +58,7 @@ func LookupRuleGroupOutput(ctx *pulumi.Context, args LookupRuleGroupOutputArgs, 
 }
 
 type LookupRuleGroupOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the `RuleGroup` .
+	// The Amazon Resource Name (ARN) of the rule group.
 	RuleGroupArn pulumi.StringInput `pulumi:"ruleGroupArn"`
 }
 
@@ -85,14 +90,22 @@ func (o LookupRuleGroupResultOutput) RuleGroup() RuleGroupTypePtrOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) *RuleGroupType { return v.RuleGroup }).(RuleGroupTypePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the `RuleGroup` .
+// The Amazon Resource Name (ARN) of the rule group.
 func (o LookupRuleGroupResultOutput) RuleGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) *string { return v.RuleGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// The unique ID of the `RuleGroup` resource.
+// The unique ID of the rule group resource.
 func (o LookupRuleGroupResultOutput) RuleGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) *string { return v.RuleGroupId }).(pulumi.StringPtrOutput)
+}
+
+// A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+//
+// - The `RuleOptions` specified in `SummaryConfiguration`
+// - Rule metadata organization preferences
+func (o LookupRuleGroupResultOutput) SummaryConfiguration() SummaryConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupRuleGroupResult) *SummaryConfigurationProperties { return v.SummaryConfiguration }).(SummaryConfigurationPropertiesPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

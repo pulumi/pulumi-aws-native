@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Pcs.Outputs
     public sealed class ClusterEndpoint
     {
         /// <summary>
+        /// The endpoint's IPv6 address.
+        /// </summary>
+        public readonly string? Ipv6Address;
+        /// <summary>
         /// The endpoint's connection port number.
         /// </summary>
         public readonly string Port;
@@ -35,6 +39,8 @@ namespace Pulumi.AwsNative.Pcs.Outputs
 
         [OutputConstructor]
         private ClusterEndpoint(
+            string? ipv6Address,
+
             string port,
 
             string privateIpAddress,
@@ -43,6 +49,7 @@ namespace Pulumi.AwsNative.Pcs.Outputs
 
             Pulumi.AwsNative.Pcs.ClusterEndpointType type)
         {
+            Ipv6Address = ipv6Address;
             Port = port;
             PrivateIpAddress = privateIpAddress;
             PublicIpAddress = publicIpAddress;

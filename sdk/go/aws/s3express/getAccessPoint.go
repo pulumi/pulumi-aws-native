@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -40,6 +41,7 @@ type LookupAccessPointResult struct {
 	PublicAccessBlockConfiguration *AccessPointPublicAccessBlockConfiguration `pulumi:"publicAccessBlockConfiguration"`
 	// For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
 	Scope *AccessPointScope `pulumi:"scope"`
+	Tags  []aws.Tag         `pulumi:"tags"`
 }
 
 func LookupAccessPointOutput(ctx *pulumi.Context, args LookupAccessPointOutputArgs, opts ...pulumi.InvokeOption) LookupAccessPointResultOutput {
@@ -101,6 +103,10 @@ func (o LookupAccessPointResultOutput) PublicAccessBlockConfiguration() AccessPo
 // For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
 func (o LookupAccessPointResultOutput) Scope() AccessPointScopePtrOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) *AccessPointScope { return v.Scope }).(AccessPointScopePtrOutput)
+}
+
+func (o LookupAccessPointResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAccessPointResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

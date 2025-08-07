@@ -116,7 +116,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+     * Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance. Amazon EVS does not validate license keys. To validate license keys, visit the Broadcom support portal.
      */
     public readonly termsAccepted!: pulumi.Output<boolean>;
     /**
@@ -269,7 +269,7 @@ export interface EnvironmentArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
+     * Customer confirmation that the customer has purchased and will continue to maintain the required number of VCF software licenses to cover all physical processor cores in the Amazon EVS environment. Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance. Amazon EVS does not validate license keys. To validate license keys, visit the Broadcom support portal.
      */
     termsAccepted: pulumi.Input<boolean>;
     /**

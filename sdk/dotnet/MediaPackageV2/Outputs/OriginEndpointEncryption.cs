@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
     public sealed class OriginEndpointEncryption
     {
         /// <summary>
+        /// &lt;p&gt;Excludes SEIG and SGPD boxes from segment metadata in CMAF containers.&lt;/p&gt; &lt;p&gt;When set to &lt;code&gt;true&lt;/code&gt;, MediaPackage omits these DRM metadata boxes from CMAF segments, which can improve compatibility with certain devices and players that don't support these boxes.&lt;/p&gt; &lt;p&gt;Important considerations:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;This setting only affects CMAF container formats&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Key rotation can still be handled through media playlist signaling&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;PSSH and TENC boxes remain unaffected&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Default behavior is preserved when this setting is disabled&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;Valid values: &lt;code&gt;true&lt;/code&gt; | &lt;code&gt;false&lt;/code&gt; &lt;/p&gt; &lt;p&gt;Default: &lt;code&gt;false&lt;/code&gt; &lt;/p&gt;
+        /// </summary>
+        public readonly bool? CmafExcludeSegmentDrmMetadata;
+        /// <summary>
         /// &lt;p&gt;A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).&lt;/p&gt;
         /// </summary>
         public readonly string? ConstantInitializationVector;
@@ -35,6 +39,8 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 
         [OutputConstructor]
         private OriginEndpointEncryption(
+            bool? cmafExcludeSegmentDrmMetadata,
+
             string? constantInitializationVector,
 
             Outputs.OriginEndpointEncryptionMethod encryptionMethod,
@@ -43,6 +49,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 
             Outputs.OriginEndpointSpekeKeyProvider spekeKeyProvider)
         {
+            CmafExcludeSegmentDrmMetadata = cmafExcludeSegmentDrmMetadata;
             ConstantInitializationVector = constantInitializationVector;
             EncryptionMethod = encryptionMethod;
             KeyRotationIntervalSeconds = keyRotationIntervalSeconds;

@@ -160,6 +160,11 @@ export const getPipeline: typeof import("./getPipeline").getPipeline = null as a
 export const getPipelineOutput: typeof import("./getPipeline").getPipelineOutput = null as any;
 utilities.lazyLoad(exports, ["getPipeline","getPipelineOutput"], () => require("./getPipeline"));
 
+export { GetProcessingJobArgs, GetProcessingJobResult, GetProcessingJobOutputArgs } from "./getProcessingJob";
+export const getProcessingJob: typeof import("./getProcessingJob").getProcessingJob = null as any;
+export const getProcessingJobOutput: typeof import("./getProcessingJob").getProcessingJobOutput = null as any;
+utilities.lazyLoad(exports, ["getProcessingJob","getProcessingJobOutput"], () => require("./getProcessingJob"));
+
 export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
 export const getProject: typeof import("./getProject").getProject = null as any;
 export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
@@ -250,6 +255,11 @@ export type Pipeline = import("./pipeline").Pipeline;
 export const Pipeline: typeof import("./pipeline").Pipeline = null as any;
 utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
 
+export { ProcessingJobArgs } from "./processingJob";
+export type ProcessingJob = import("./processingJob").ProcessingJob;
+export const ProcessingJob: typeof import("./processingJob").ProcessingJob = null as any;
+utilities.lazyLoad(exports, ["ProcessingJob"], () => require("./processingJob"));
+
 export { ProjectArgs } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
@@ -324,6 +334,8 @@ const _module = {
                 return new PartnerApp(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:ProcessingJob":
+                return new ProcessingJob(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Project":
                 return new Project(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Space":

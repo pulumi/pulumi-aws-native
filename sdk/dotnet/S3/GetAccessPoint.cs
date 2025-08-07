@@ -85,6 +85,10 @@ namespace Pulumi.AwsNative.S3
         /// The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
         /// </summary>
         public readonly Outputs.AccessPointPublicAccessBlockConfiguration? PublicAccessBlockConfiguration;
+        /// <summary>
+        /// An arbitrary set of tags (key-value pairs) for this S3 Access Point.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAccessPointResult(
@@ -96,13 +100,16 @@ namespace Pulumi.AwsNative.S3
 
             object? policy,
 
-            Outputs.AccessPointPublicAccessBlockConfiguration? publicAccessBlockConfiguration)
+            Outputs.AccessPointPublicAccessBlockConfiguration? publicAccessBlockConfiguration,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Alias = alias;
             Arn = arn;
             NetworkOrigin = networkOrigin;
             Policy = policy;
             PublicAccessBlockConfiguration = publicAccessBlockConfiguration;
+            Tags = tags;
         }
     }
 }
