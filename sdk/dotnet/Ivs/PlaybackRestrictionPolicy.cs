@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Ivs
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PlaybackRestrictionPolicy(string name, PlaybackRestrictionPolicyArgs args, CustomResourceOptions? options = null)
+        public PlaybackRestrictionPolicy(string name, PlaybackRestrictionPolicyArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:ivs:PlaybackRestrictionPolicy", name, args ?? new PlaybackRestrictionPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.Ivs
 
     public sealed class PlaybackRestrictionPolicyArgs : global::Pulumi.ResourceArgs
     {
-        [Input("allowedCountries", required: true)]
+        [Input("allowedCountries")]
         private InputList<string>? _allowedCountries;
 
         /// <summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.Ivs
             set => _allowedCountries = value;
         }
 
-        [Input("allowedOrigins", required: true)]
+        [Input("allowedOrigins")]
         private InputList<string>? _allowedOrigins;
 
         /// <summary>

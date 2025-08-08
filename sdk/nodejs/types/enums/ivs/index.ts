@@ -152,3 +152,20 @@ export const StageAutoParticipantRecordingConfigurationMediaTypesItem = {
 } as const;
 
 export type StageAutoParticipantRecordingConfigurationMediaTypesItem = (typeof StageAutoParticipantRecordingConfigurationMediaTypesItem)[keyof typeof StageAutoParticipantRecordingConfigurationMediaTypesItem];
+
+export const StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode = {
+    Interval: "INTERVAL",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Thumbnail recording mode. Default: DISABLED.
+ */
+export type StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode = (typeof StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode)[keyof typeof StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode];
+
+export const StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem = {
+    Sequential: "SEQUENTIAL",
+    Latest: "LATEST",
+} as const;
+
+export type StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem = (typeof StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem)[keyof typeof StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem];

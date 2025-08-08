@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,6 +33,8 @@ type Monitor struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
 	Subdomain pulumi.StringOutput `pulumi:"subdomain"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The complete URL of the monitor. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
@@ -102,6 +105,8 @@ type monitorArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
 	Subdomain string `pulumi:"subdomain"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Monitor resource.
@@ -116,6 +121,8 @@ type MonitorArgs struct {
 	RoleArn pulumi.StringInput
 	// The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
 	Subdomain pulumi.StringInput
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayInput
 }
 
 func (MonitorArgs) ElementType() reflect.Type {
@@ -190,6 +197,11 @@ func (o MonitorOutput) RoleArn() pulumi.StringOutput {
 // The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
 func (o MonitorOutput) Subdomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Subdomain }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o MonitorOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Monitor) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The complete URL of the monitor. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.

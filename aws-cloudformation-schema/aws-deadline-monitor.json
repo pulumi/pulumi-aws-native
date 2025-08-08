@@ -1,6 +1,28 @@
 {
   "typeName" : "AWS::Deadline::Monitor",
   "description" : "Definition of AWS::Deadline::Monitor Resource Type",
+  "definitions" : {
+    "Tag" : {
+      "description" : "A key-value pair to associate with a resource.",
+      "type" : "object",
+      "properties" : {
+        "Key" : {
+          "type" : "string",
+          "description" : "The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. ",
+          "minLength" : 1,
+          "maxLength" : 127
+        },
+        "Value" : {
+          "type" : "string",
+          "description" : "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. ",
+          "minLength" : 1,
+          "maxLength" : 255
+        }
+      },
+      "required" : [ "Key", "Value" ],
+      "additionalProperties" : false
+    }
+  },
   "properties" : {
     "DisplayName" : {
       "type" : "string",
@@ -26,6 +48,16 @@
       "type" : "string",
       "pattern" : "^[a-z0-9-]{1,100}$"
     },
+    "Tags" : {
+      "type" : "array",
+      "maxItems" : 50,
+      "description" : "An array of key-value pairs to apply to this resource.",
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      },
+      "insertionOrder" : false,
+      "uniqueItems" : true
+    },
     "Url" : {
       "type" : "string"
     },
@@ -39,20 +71,22 @@
   "createOnlyProperties" : [ "/properties/IdentityCenterInstanceArn" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "tagging" : {
-    "taggable" : false,
-    "tagOnCreate" : false,
-    "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "deadline:TagResource", "deadline:UntagResource", "deadline:ListTagsForResource" ]
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "deadline:CreateMonitor", "deadline:GetMonitor", "iam:PassRole", "kms:CreateGrant", "sso:CreateApplication", "sso:DeleteApplication", "sso:PutApplicationAssignmentConfiguration", "sso:PutApplicationAuthenticationMethod", "sso:PutApplicationGrant" ]
+      "permissions" : [ "deadline:CreateMonitor", "deadline:GetMonitor", "deadline:TagResource", "deadline:ListTagsForResource", "iam:PassRole", "kms:CreateGrant", "sso:CreateApplication", "sso:DeleteApplication", "sso:PutApplicationAssignmentConfiguration", "sso:PutApplicationAuthenticationMethod", "sso:PutApplicationGrant" ]
     },
     "read" : {
-      "permissions" : [ "deadline:GetMonitor" ]
+      "permissions" : [ "deadline:GetMonitor", "deadline:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "deadline:GetMonitor", "deadline:UpdateMonitor", "iam:PassRole", "kms:CreateGrant", "sso:PutApplicationGrant", "sso:UpdateApplication" ]
+      "permissions" : [ "deadline:GetMonitor", "deadline:TagResource", "deadline:UntagResource", "deadline:ListTagsForResource", "deadline:UpdateMonitor", "iam:PassRole", "kms:CreateGrant", "sso:PutApplicationGrant", "sso:UpdateApplication" ]
     },
     "delete" : {
       "permissions" : [ "deadline:DeleteMonitor", "deadline:GetMonitor", "sso:DeleteApplication" ]

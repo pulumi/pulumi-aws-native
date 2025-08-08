@@ -22,6 +22,8 @@ __all__ = [
     'RecordingConfigurationThumbnailConfigurationResolution',
     'RecordingConfigurationThumbnailConfigurationStorageItem',
     'StageAutoParticipantRecordingConfigurationMediaTypesItem',
+    'StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode',
+    'StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem',
 ]
 
 
@@ -159,3 +161,18 @@ class RecordingConfigurationThumbnailConfigurationStorageItem(builtins.str, Enum
 class StageAutoParticipantRecordingConfigurationMediaTypesItem(builtins.str, Enum):
     AUDIO_VIDEO = "AUDIO_VIDEO"
     AUDIO_ONLY = "AUDIO_ONLY"
+
+
+@pulumi.type_token("aws-native:ivs:StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode")
+class StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode(builtins.str, Enum):
+    """
+    Thumbnail recording mode. Default: DISABLED.
+    """
+    INTERVAL = "INTERVAL"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:ivs:StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem")
+class StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem(builtins.str, Enum):
+    SEQUENTIAL = "SEQUENTIAL"
+    LATEST = "LATEST"

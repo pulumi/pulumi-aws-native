@@ -14,6 +14,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['MonitorArgs', 'Monitor']
 
@@ -23,7 +25,8 @@ class MonitorArgs:
                  display_name: pulumi.Input[builtins.str],
                  identity_center_instance_arn: pulumi.Input[builtins.str],
                  role_arn: pulumi.Input[builtins.str],
-                 subdomain: pulumi.Input[builtins.str]):
+                 subdomain: pulumi.Input[builtins.str],
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Monitor resource.
         :param pulumi.Input[builtins.str] display_name: The name of the monitor that displays on the Deadline Cloud console.
@@ -32,11 +35,14 @@ class MonitorArgs:
         :param pulumi.Input[builtins.str] identity_center_instance_arn: The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
         :param pulumi.Input[builtins.str] subdomain: The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "subdomain", subdomain)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="displayName")
@@ -88,6 +94,18 @@ class MonitorArgs:
     def subdomain(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "subdomain", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:deadline:Monitor")
 class Monitor(pulumi.CustomResource):
@@ -99,6 +117,7 @@ class Monitor(pulumi.CustomResource):
                  identity_center_instance_arn: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  subdomain: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Deadline::Monitor Resource Type
@@ -111,6 +130,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] identity_center_instance_arn: The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
         :param pulumi.Input[builtins.str] subdomain: The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -140,6 +160,7 @@ class Monitor(pulumi.CustomResource):
                  identity_center_instance_arn: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  subdomain: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -161,6 +182,7 @@ class Monitor(pulumi.CustomResource):
             if subdomain is None and not opts.urn:
                 raise TypeError("Missing required property 'subdomain'")
             __props__.__dict__["subdomain"] = subdomain
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["identity_center_application_arn"] = None
             __props__.__dict__["monitor_id"] = None
@@ -196,6 +218,7 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["monitor_id"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["subdomain"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["url"] = None
         return Monitor(resource_name, opts=opts, __props__=__props__)
 
@@ -256,6 +279,14 @@ class Monitor(pulumi.CustomResource):
         The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
         """
         return pulumi.get(self, "subdomain")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

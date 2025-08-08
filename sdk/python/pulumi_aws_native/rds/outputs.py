@@ -542,6 +542,9 @@ class DbInstanceDbInstanceRole(dict):
 
 @pulumi.output_type
 class DbInstanceDbInstanceStatusInfo(dict):
+    """
+    Provides a list of status information for a DB instance.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -565,10 +568,11 @@ class DbInstanceDbInstanceStatusInfo(dict):
                  status: Optional[builtins.str] = None,
                  status_type: Optional[builtins.str] = None):
         """
+        Provides a list of status information for a DB instance.
         :param builtins.str message: Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
         :param builtins.bool normal: Indicates whether the instance is operating normally (TRUE) or is in an error state (FALSE).
         :param builtins.str status: The status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
-        :param builtins.str status_type: The status type of the DB instance.
+        :param builtins.str status_type: This value is currently "read replication."
         """
         if message is not None:
             pulumi.set(__self__, "message", message)
@@ -607,7 +611,7 @@ class DbInstanceDbInstanceStatusInfo(dict):
     @pulumi.getter(name="statusType")
     def status_type(self) -> Optional[builtins.str]:
         """
-        The status type of the DB instance.
+        This value is currently "read replication."
         """
         return pulumi.get(self, "status_type")
 

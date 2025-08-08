@@ -1169,6 +1169,7 @@ func (o DbInstanceDbInstanceRoleArrayOutput) Index(i pulumi.IntInput) DbInstance
 	}).(DbInstanceDbInstanceRoleOutput)
 }
 
+// Provides a list of status information for a DB instance.
 type DbInstanceDbInstanceStatusInfo struct {
 	// Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
 	Message *string `pulumi:"message"`
@@ -1176,7 +1177,7 @@ type DbInstanceDbInstanceStatusInfo struct {
 	Normal *bool `pulumi:"normal"`
 	// The status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
 	Status *string `pulumi:"status"`
-	// The status type of the DB instance.
+	// This value is currently "read replication."
 	StatusType *string `pulumi:"statusType"`
 }
 
@@ -1191,6 +1192,7 @@ type DbInstanceDbInstanceStatusInfoInput interface {
 	ToDbInstanceDbInstanceStatusInfoOutputWithContext(context.Context) DbInstanceDbInstanceStatusInfoOutput
 }
 
+// Provides a list of status information for a DB instance.
 type DbInstanceDbInstanceStatusInfoArgs struct {
 	// Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
 	Message pulumi.StringPtrInput `pulumi:"message"`
@@ -1198,7 +1200,7 @@ type DbInstanceDbInstanceStatusInfoArgs struct {
 	Normal pulumi.BoolPtrInput `pulumi:"normal"`
 	// The status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
 	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The status type of the DB instance.
+	// This value is currently "read replication."
 	StatusType pulumi.StringPtrInput `pulumi:"statusType"`
 }
 
@@ -1239,6 +1241,7 @@ func (i DbInstanceDbInstanceStatusInfoArray) ToDbInstanceDbInstanceStatusInfoArr
 	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceDbInstanceStatusInfoArrayOutput)
 }
 
+// Provides a list of status information for a DB instance.
 type DbInstanceDbInstanceStatusInfoOutput struct{ *pulumi.OutputState }
 
 func (DbInstanceDbInstanceStatusInfoOutput) ElementType() reflect.Type {
@@ -1268,7 +1271,7 @@ func (o DbInstanceDbInstanceStatusInfoOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DbInstanceDbInstanceStatusInfo) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The status type of the DB instance.
+// This value is currently "read replication."
 func (o DbInstanceDbInstanceStatusInfoOutput) StatusType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DbInstanceDbInstanceStatusInfo) *string { return v.StatusType }).(pulumi.StringPtrOutput)
 }

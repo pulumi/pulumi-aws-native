@@ -486,6 +486,9 @@ class DbInstanceDbInstanceRoleArgs:
 
 if not MYPY:
     class DbInstanceDbInstanceStatusInfoArgsDict(TypedDict):
+        """
+        Provides a list of status information for a DB instance.
+        """
         message: NotRequired[pulumi.Input[builtins.str]]
         """
         Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
@@ -500,7 +503,7 @@ if not MYPY:
         """
         status_type: NotRequired[pulumi.Input[builtins.str]]
         """
-        The status type of the DB instance.
+        This value is currently "read replication."
         """
 elif False:
     DbInstanceDbInstanceStatusInfoArgsDict: TypeAlias = Mapping[str, Any]
@@ -513,10 +516,11 @@ class DbInstanceDbInstanceStatusInfoArgs:
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  status_type: Optional[pulumi.Input[builtins.str]] = None):
         """
+        Provides a list of status information for a DB instance.
         :param pulumi.Input[builtins.str] message: Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
         :param pulumi.Input[builtins.bool] normal: Indicates whether the instance is operating normally (TRUE) or is in an error state (FALSE).
         :param pulumi.Input[builtins.str] status: The status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
-        :param pulumi.Input[builtins.str] status_type: The status type of the DB instance.
+        :param pulumi.Input[builtins.str] status_type: This value is currently "read replication."
         """
         if message is not None:
             pulumi.set(__self__, "message", message)
@@ -567,7 +571,7 @@ class DbInstanceDbInstanceStatusInfoArgs:
     @pulumi.getter(name="statusType")
     def status_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The status type of the DB instance.
+        This value is currently "read replication."
         """
         return pulumi.get(self, "status_type")
 

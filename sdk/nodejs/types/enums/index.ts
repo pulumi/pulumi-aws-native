@@ -118,6 +118,7 @@ import * as msk from "./msk";
 import * as mwaa from "./mwaa";
 import * as networkfirewall from "./networkfirewall";
 import * as oam from "./oam";
+import * as observabilityadmin from "./observabilityadmin";
 import * as odb from "./odb";
 import * as omics from "./omics";
 import * as opensearchserverless from "./opensearchserverless";
@@ -300,6 +301,7 @@ export {
     mwaa,
     networkfirewall,
     oam,
+    observabilityadmin,
     odb,
     omics,
     opensearchserverless,

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Rds.Inputs
 {
 
+    /// <summary>
+    /// Provides a list of status information for a DB instance.
+    /// </summary>
     public sealed class DbInstanceDbInstanceStatusInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -31,7 +34,7 @@ namespace Pulumi.AwsNative.Rds.Inputs
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The status type of the DB instance.
+        /// This value is currently "read replication."
         /// </summary>
         [Input("statusType")]
         public Input<string>? StatusType { get; set; }

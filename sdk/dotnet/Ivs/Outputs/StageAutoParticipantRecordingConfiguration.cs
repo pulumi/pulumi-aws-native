@@ -17,22 +17,43 @@ namespace Pulumi.AwsNative.Ivs.Outputs
     public sealed class StageAutoParticipantRecordingConfiguration
     {
         /// <summary>
+        /// HLS configuration object for individual participant recording.
+        /// </summary>
+        public readonly Outputs.StageAutoParticipantRecordingConfigurationHlsConfigurationProperties? HlsConfiguration;
+        /// <summary>
         /// Types of media to be recorded. Default: AUDIO_VIDEO.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Ivs.StageAutoParticipantRecordingConfigurationMediaTypesItem> MediaTypes;
         /// <summary>
+        /// If a stage publisher disconnects and then reconnects within the specified interval, the multiple recordings will be considered a single recording and merged together. The default value is 0, which disables merging.
+        /// </summary>
+        public readonly int? RecordingReconnectWindowSeconds;
+        /// <summary>
         /// ARN of the StorageConfiguration resource to use for individual participant recording.
         /// </summary>
         public readonly string StorageConfigurationArn;
+        /// <summary>
+        /// A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
+        /// </summary>
+        public readonly Outputs.StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties? ThumbnailConfiguration;
 
         [OutputConstructor]
         private StageAutoParticipantRecordingConfiguration(
+            Outputs.StageAutoParticipantRecordingConfigurationHlsConfigurationProperties? hlsConfiguration,
+
             ImmutableArray<Pulumi.AwsNative.Ivs.StageAutoParticipantRecordingConfigurationMediaTypesItem> mediaTypes,
 
-            string storageConfigurationArn)
+            int? recordingReconnectWindowSeconds,
+
+            string storageConfigurationArn,
+
+            Outputs.StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties? thumbnailConfiguration)
         {
+            HlsConfiguration = hlsConfiguration;
             MediaTypes = mediaTypes;
+            RecordingReconnectWindowSeconds = recordingReconnectWindowSeconds;
             StorageConfigurationArn = storageConfigurationArn;
+            ThumbnailConfiguration = thumbnailConfiguration;
         }
     }
 }
