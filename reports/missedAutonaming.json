@@ -3631,6 +3631,13 @@
       "subdomain": {
         "type": "string",
         "description": "The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
       }
     }
   },
@@ -12445,13 +12452,6 @@
       "sourceRegion": {
         "type": "string",
         "description": "The ID of the region that contains the source DB instance for the read replica."
-      },
-      "statusInfos": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:rds:DbInstanceDbInstanceStatusInfo"
-        },
-        "description": "The status of a read replica. If the DB instance isn't a read replica, the value is blank."
       },
       "storageEncrypted": {
         "type": "boolean",

@@ -12,11 +12,11 @@
       "permissions" : [ "sagemaker:DescribeCluster", "sagemaker:ListTags" ]
     },
     "create" : {
-      "permissions" : [ "sagemaker:CreateCluster", "sagemaker:DescribeCluster", "sagemaker:AddTags", "sagemaker:ListTags", "eks:DescribeAccessEntry", "eks:DescribeCluster", "eks:CreateAccessEntry", "eks:DeleteAccessEntry", "eks:AssociateAccessPolicy", "iam:CreateServiceLinkedRole", "iam:PassRole" ],
+      "permissions" : [ "sagemaker:CreateCluster", "sagemaker:DescribeCluster", "sagemaker:AddTags", "sagemaker:ListTags", "sagemaker:BatchAddClusterNodes", "sagemaker:BatchDeleteClusterNodes", "eks:DescribeAccessEntry", "eks:DescribeCluster", "eks:CreateAccessEntry", "eks:DeleteAccessEntry", "eks:AssociateAccessPolicy", "iam:CreateServiceLinkedRole", "iam:PassRole" ],
       "timeoutInMinutes" : 720
     },
     "update" : {
-      "permissions" : [ "sagemaker:UpdateCluster", "sagemaker:DescribeCluster", "sagemaker:ListTags", "sagemaker:AddTags", "sagemaker:DeleteTags", "eks:DescribeAccessEntry", "eks:DescribeCluster", "eks:CreateAccessEntry", "eks:DeleteAccessEntry", "iam:PassRole" ],
+      "permissions" : [ "sagemaker:UpdateCluster", "sagemaker:UpdateClusterSoftware", "sagemaker:DescribeCluster", "sagemaker:ListTags", "sagemaker:AddTags", "sagemaker:DeleteTags", "sagemaker:BatchAddClusterNodes", "sagemaker:BatchDeleteClusterNodes", "eks:DescribeAccessEntry", "eks:DescribeCluster", "eks:CreateAccessEntry", "eks:DeleteAccessEntry", "iam:PassRole", "sagemaker:BatchAddClusterNodes", "sagemaker:BatchDeleteClusterNodes" ],
       "timeoutInMinutes" : 720
     },
     "list" : {
@@ -237,32 +237,23 @@
         "$ref" : "#/definitions/DeepHealthCheckType"
       }
     },
+    "ImageId" : {
+      "minLength" : 12,
+      "pattern" : "^ami-[0-9a-fA-F]{8,17}|default$",
+      "description" : "AMI Id to be used for launching EC2 instances - HyperPodPublicAmiId or CustomAmiId",
+      "type" : "string",
+      "maxLength" : 21
+    },
     "ClusterInstanceGroup" : {
       "description" : "Details of an instance group in a SageMaker HyperPod cluster.",
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
-        "OverrideVpcConfig" : {
-          "$ref" : "#/definitions/VpcConfig"
-        },
-        "InstanceCount" : {
-          "description" : "The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.",
-          "type" : "integer",
-          "minimum" : 0
-        },
-        "OnStartDeepHealthChecks" : {
-          "$ref" : "#/definitions/OnStartDeepHealthChecks"
-        },
         "InstanceGroupName" : {
           "$ref" : "#/definitions/InstanceGroupName"
         },
         "InstanceStorageConfigs" : {
           "$ref" : "#/definitions/ClusterInstanceStorageConfigs"
-        },
-        "CurrentCount" : {
-          "description" : "The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.",
-          "type" : "integer",
-          "minimum" : 0
         },
         "LifeCycleConfig" : {
           "$ref" : "#/definitions/ClusterLifeCycleConfig"
@@ -274,14 +265,33 @@
           "type" : "string",
           "maxLength" : 2048
         },
-        "InstanceType" : {
-          "$ref" : "#/definitions/InstanceType"
-        },
         "ThreadsPerCore" : {
           "description" : "The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.",
           "maximum" : 2,
           "type" : "integer",
           "minimum" : 1
+        },
+        "OverrideVpcConfig" : {
+          "$ref" : "#/definitions/VpcConfig"
+        },
+        "InstanceCount" : {
+          "description" : "The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.",
+          "type" : "integer",
+          "minimum" : 0
+        },
+        "OnStartDeepHealthChecks" : {
+          "$ref" : "#/definitions/OnStartDeepHealthChecks"
+        },
+        "ImageId" : {
+          "$ref" : "#/definitions/ImageId"
+        },
+        "CurrentCount" : {
+          "description" : "The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.",
+          "type" : "integer",
+          "minimum" : 0
+        },
+        "InstanceType" : {
+          "$ref" : "#/definitions/InstanceType"
         },
         "ExecutionRole" : {
           "$ref" : "#/definitions/ExecutionRole"
@@ -367,6 +377,11 @@
       "description" : "If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.",
       "type" : "string",
       "enum" : [ "Automatic", "None" ]
+    },
+    "NodeProvisioningMode" : {
+      "description" : "Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.",
+      "type" : "string",
+      "enum" : [ "Continuous" ]
     },
     "CreationTime" : {
       "description" : "The time at which the HyperPod cluster was created.",
