@@ -367,6 +367,7 @@ AWS::EC2::IPAMScope
 AWS::EC2::Instance
 AWS::EC2::InstanceConnectEndpoint
 AWS::EC2::InternetGateway
+AWS::EC2::IpPoolRouteTableAssociation
 AWS::EC2::KeyPair
 AWS::EC2::LaunchTemplate
 AWS::EC2::LocalGatewayRoute
@@ -837,6 +838,8 @@ AWS::ODB::OdbNetwork
 AWS::OSIS::Pipeline
 AWS::Oam::Link
 AWS::Oam::Sink
+AWS::ObservabilityAdmin::OrganizationTelemetryRule
+AWS::ObservabilityAdmin::TelemetryRule
 AWS::Omics::AnnotationStore
 AWS::Omics::ReferenceStore
 AWS::Omics::RunGroup
