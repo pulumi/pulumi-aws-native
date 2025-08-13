@@ -65,7 +65,7 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "frauddetector:GetEntityTypes", "frauddetector:PutEntityType", "frauddetector:ListTagsForResource" ]
+      "permissions" : [ "frauddetector:GetEntityTypes", "frauddetector:PutEntityType", "frauddetector:ListTagsForResource", "frauddetector:TagResource" ]
     },
     "read" : {
       "permissions" : [ "frauddetector:GetEntityTypes", "frauddetector:ListTagsForResource" ]
@@ -79,5 +79,13 @@
     "list" : {
       "permissions" : [ "frauddetector:GetEntityTypes", "frauddetector:ListTagsForResource" ]
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "frauddetector:ListTagsForResource", "frauddetector:TagResource", "frauddetector:UntagResource" ]
   }
 }

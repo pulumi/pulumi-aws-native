@@ -1,6 +1,6 @@
 {
   "typeName" : "AWS::ApplicationInsights::Application",
-  "description" : "Resource schema for AWS::ApplicationInsights::Application",
+  "description" : "Resource Type definition for AWS::ApplicationInsights::Application",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-applicationinsights.git",
   "properties" : {
     "ResourceGroupName" : {
@@ -204,7 +204,7 @@
         "Tier" : {
           "description" : "The tier of the application component.",
           "type" : "string",
-          "pattern" : "^[A-Z][[A-Z]_]*$"
+          "pattern" : "^[A-Z][A-Z_]*$"
         },
         "ComponentConfigurationMode" : {
           "description" : "The component monitoring configuration mode.",
@@ -487,7 +487,7 @@
         "LogType" : {
           "description" : "The log type decides the log patterns against which Application Insights analyzes the log.",
           "type" : "string",
-          "pattern" : "^[A-Z][[A-Z]_]*$"
+          "pattern" : "^[A-Z][A-Z_]*$"
         },
         "Encoding" : {
           "description" : "The type of encoding of the logs to be monitored.",
@@ -616,21 +616,21 @@
   "createOnlyProperties" : [ "/properties/ResourceGroupName", "/properties/GroupingType" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "applicationinsights:CreateApplication", "applicationinsights:DescribeApplication", "applicationinsights:CreateComponent", "applicationinsights:DescribeComponent", "applicationinsights:CreateLogPattern", "applicationinsights:DescribeLogPattern", "applicationinsights:DescribeComponentConfigurationRecommendation", "applicationinsights:UpdateComponentConfiguration", "applicationinsights:ListComponents", "applicationinsights:TagResource", "ec2:DescribeInstances", "ec2:DescribeVolumes", "rds:DescribeDBInstances", "rds:DescribeDBClusters", "sqs:ListQueues", "elasticloadbalancing:DescribeLoadBalancers", "elasticloadbalancing:DescribeTargetGroups", "elasticloadbalancing:DescribeTargetHealth", "autoscaling:DescribeAutoScalingGroups", "lambda:ListFunctions", "dynamodb:ListTables", "s3:ListAllMyBuckets", "sns:ListTopics", "states:ListStateMachines", "apigateway:GET", "ecs:ListClusters", "ecs:DescribeTaskDefinition", "ecs:ListServices", "ecs:ListTasks", "eks:ListClusters", "eks:ListNodegroups", "fsx:DescribeFileSystems", "logs:DescribeLogGroups", "elasticfilesystem:DescribeFileSystems" ],
+      "permissions" : [ "applicationinsights:CreateApplication", "applicationinsights:Describe*", "applicationinsights:CreateComponent", "applicationinsights:CreateLogPattern", "applicationinsights:UpdateComponentConfiguration", "applicationinsights:ListComponents", "applicationinsights:TagResource", "ec2:Describe*", "rds:Describe*", "sqs:ListQueues", "elasticloadbalancing:Describe*", "autoscaling:DescribeAutoScalingGroups", "lambda:ListFunctions", "dynamodb:ListTables", "s3:ListAllMyBuckets", "sns:ListTopics", "states:ListStateMachines", "apigateway:GET", "ecs:List*", "ecs:DescribeTaskDefinition", "eks:List*", "fsx:DescribeFileSystems", "route53:List*", "route53resolver:List*", "logs:DescribeLogGroups", "resource-explorer:ListResources", "elasticfilesystem:DescribeFileSystems" ],
       "timeoutInMinutes" : 600
     },
     "read" : {
-      "permissions" : [ "applicationinsights:DescribeApplication", "applicationinsights:ListTagsForResource", "applicationinsights:DescribeComponent", "applicationinsights:ListComponents", "applicationinsights:DescribeLogPattern", "applicationinsights:ListLogPatterns", "applicationinsights:ListLogPatternSets" ]
+      "permissions" : [ "applicationinsights:Describe*", "applicationinsights:List*" ]
     },
     "update" : {
-      "permissions" : [ "applicationinsights:CreateApplication", "applicationinsights:DescribeApplication", "applicationinsights:UpdateApplication", "applicationinsights:TagResource", "applicationinsights:UntagResource", "applicationinsights:ListTagsForResource", "applicationinsights:CreateComponent", "applicationinsights:DescribeComponent", "applicationinsights:DeleteComponent", "applicationinsights:ListComponents", "applicationinsights:CreateLogPattern", "applicationinsights:DeleteLogPattern", "applicationinsights:DescribeLogPattern", "applicationinsights:ListLogPatterns", "applicationinsights:ListLogPatternSets", "applicationinsights:UpdateLogPattern", "applicationinsights:DescribeComponentConfiguration", "applicationinsights:DescribeComponentConfigurationRecommendation", "applicationinsights:UpdateComponentConfiguration" ],
+      "permissions" : [ "applicationinsights:CreateApplication", "applicationinsights:Describe*", "applicationinsights:UpdateApplication", "applicationinsights:TagResource", "applicationinsights:UntagResource", "applicationinsights:List*", "applicationinsights:CreateComponent", "applicationinsights:DeleteComponent", "applicationinsights:CreateLogPattern", "applicationinsights:DeleteLogPattern", "applicationinsights:UpdateLogPattern", "applicationinsights:UpdateComponentConfiguration" ],
       "timeoutInMinutes" : 600
     },
     "delete" : {
       "permissions" : [ "applicationinsights:DeleteApplication", "applicationinsights:DescribeApplication" ]
     },
     "list" : {
-      "permissions" : [ "applicationinsights:ListApplications", "applicationinsights:DescribeApplication", "applicationinsights:ListTagsForResource", "applicationinsights:DescribeComponent", "applicationinsights:ListComponents", "applicationinsights:DescribeLogPattern", "applicationinsights:ListLogPatterns", "applicationinsights:ListLogPatternSets" ]
+      "permissions" : [ "applicationinsights:List*", "applicationinsights:Describe*" ]
     }
   },
   "tagging" : {

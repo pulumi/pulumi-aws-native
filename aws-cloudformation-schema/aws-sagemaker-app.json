@@ -111,7 +111,7 @@
     }
   },
   "required" : [ "AppName", "AppType", "DomainId", "UserProfileName" ],
-  "createOnlyProperties" : [ "/properties/AppName", "/properties/AppType", "/properties/DomainId", "/properties/UserProfileName", "/properties/Tags", "/properties/ResourceSpec" ],
+  "createOnlyProperties" : [ "/properties/AppName", "/properties/AppType", "/properties/DomainId", "/properties/UserProfileName", "/properties/ResourceSpec" ],
   "primaryIdentifier" : [ "/properties/AppName", "/properties/AppType", "/properties/DomainId", "/properties/UserProfileName" ],
   "readOnlyProperties" : [ "/properties/AppArn", "/properties/BuiltInLifecycleConfigArn" ],
   "handlers" : {
@@ -120,6 +120,9 @@
     },
     "read" : {
       "permissions" : [ "sagemaker:DescribeApp", "sagemaker:DescribeApp", "sagemaker:ListTags" ]
+    },
+    "update" : {
+      "permissions" : [ "sagemaker:DescribeApp", "sagemaker:AddTags", "sagemaker:DeleteTags", "sagemaker:ListTags" ]
     },
     "delete" : {
       "permissions" : [ "sagemaker:DeleteApp", "sagemaker:DescribeApp", "sagemaker:DeleteTags", "sagemaker:ListTags" ]
@@ -131,7 +134,7 @@
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "sagemaker:AddTags", "sagemaker:ListTags", "sagemaker:DeleteTags" ]
