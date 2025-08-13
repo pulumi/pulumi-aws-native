@@ -3771,6 +3771,8 @@ class UserPhoneConfig(dict):
             suggest = "auto_accept"
         elif key == "deskPhoneNumber":
             suggest = "desk_phone_number"
+        elif key == "persistentConnection":
+            suggest = "persistent_connection"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserPhoneConfig. Access the value via the '{suggest}' property getter instead.")
@@ -3787,7 +3789,8 @@ class UserPhoneConfig(dict):
                  phone_type: 'UserPhoneType',
                  after_contact_work_time_limit: Optional[builtins.int] = None,
                  auto_accept: Optional[builtins.bool] = None,
-                 desk_phone_number: Optional[builtins.str] = None):
+                 desk_phone_number: Optional[builtins.str] = None,
+                 persistent_connection: Optional[builtins.bool] = None):
         """
         Contains information about the phone configuration settings for a user.
         :param 'UserPhoneType' phone_type: The phone type.
@@ -3804,6 +3807,8 @@ class UserPhoneConfig(dict):
             pulumi.set(__self__, "auto_accept", auto_accept)
         if desk_phone_number is not None:
             pulumi.set(__self__, "desk_phone_number", desk_phone_number)
+        if persistent_connection is not None:
+            pulumi.set(__self__, "persistent_connection", persistent_connection)
 
     @property
     @pulumi.getter(name="phoneType")
@@ -3838,6 +3843,11 @@ class UserPhoneConfig(dict):
         The phone number for the user's desk phone.
         """
         return pulumi.get(self, "desk_phone_number")
+
+    @property
+    @pulumi.getter(name="persistentConnection")
+    def persistent_connection(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "persistent_connection")
 
 
 @pulumi.output_type

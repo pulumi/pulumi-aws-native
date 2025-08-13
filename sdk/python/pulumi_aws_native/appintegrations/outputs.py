@@ -15,14 +15,60 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
+    'ApplicationConfig',
+    'ApplicationContactHandling',
     'ApplicationExternalUrlConfig',
+    'ApplicationIframeConfig',
     'ApplicationSourceConfigProperties',
     'DataIntegrationFileConfiguration',
     'DataIntegrationScheduleConfig',
     'EventIntegrationEventFilter',
 ]
+
+@pulumi.output_type
+class ApplicationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contactHandling":
+            suggest = "contact_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 contact_handling: Optional['outputs.ApplicationContactHandling'] = None):
+        if contact_handling is not None:
+            pulumi.set(__self__, "contact_handling", contact_handling)
+
+    @property
+    @pulumi.getter(name="contactHandling")
+    def contact_handling(self) -> Optional['outputs.ApplicationContactHandling']:
+        return pulumi.get(self, "contact_handling")
+
+
+@pulumi.output_type
+class ApplicationContactHandling(dict):
+    def __init__(__self__, *,
+                 scope: 'ApplicationContactHandlingScope'):
+        pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> 'ApplicationContactHandlingScope':
+        return pulumi.get(self, "scope")
+
 
 @pulumi.output_type
 class ApplicationExternalUrlConfig(dict):
@@ -71,6 +117,27 @@ class ApplicationExternalUrlConfig(dict):
         Additional URLs to allow list if different than the access URL.
         """
         return pulumi.get(self, "approved_origins")
+
+
+@pulumi.output_type
+class ApplicationIframeConfig(dict):
+    def __init__(__self__, *,
+                 allow: Optional[Sequence[builtins.str]] = None,
+                 sandbox: Optional[Sequence[builtins.str]] = None):
+        if allow is not None:
+            pulumi.set(__self__, "allow", allow)
+        if sandbox is not None:
+            pulumi.set(__self__, "sandbox", sandbox)
+
+    @property
+    @pulumi.getter
+    def allow(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "allow")
+
+    @property
+    @pulumi.getter
+    def sandbox(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "sandbox")
 
 
 @pulumi.output_type

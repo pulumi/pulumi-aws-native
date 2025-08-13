@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.Ivs.Inputs
     /// </summary>
     public sealed class StageAutoParticipantRecordingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// HLS configuration object for individual participant recording.
+        /// </summary>
+        [Input("hlsConfiguration")]
+        public Input<Inputs.StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesArgs>? HlsConfiguration { get; set; }
+
         [Input("mediaTypes")]
         private InputList<Pulumi.AwsNative.Ivs.StageAutoParticipantRecordingConfigurationMediaTypesItem>? _mediaTypes;
 
@@ -28,10 +34,22 @@ namespace Pulumi.AwsNative.Ivs.Inputs
         }
 
         /// <summary>
+        /// If a stage publisher disconnects and then reconnects within the specified interval, the multiple recordings will be considered a single recording and merged together. The default value is 0, which disables merging.
+        /// </summary>
+        [Input("recordingReconnectWindowSeconds")]
+        public Input<int>? RecordingReconnectWindowSeconds { get; set; }
+
+        /// <summary>
         /// ARN of the StorageConfiguration resource to use for individual participant recording.
         /// </summary>
         [Input("storageConfigurationArn", required: true)]
         public Input<string> StorageConfigurationArn { get; set; } = null!;
+
+        /// <summary>
+        /// A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
+        /// </summary>
+        [Input("thumbnailConfiguration")]
+        public Input<Inputs.StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesArgs>? ThumbnailConfiguration { get; set; }
 
         public StageAutoParticipantRecordingConfigurationArgs()
         {

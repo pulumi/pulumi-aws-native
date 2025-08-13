@@ -30,6 +30,10 @@ export interface GetApplicationResult {
      */
     readonly applicationArn?: string;
     /**
+     * The application configuration. Cannot be used when IsService is true.
+     */
+    readonly applicationConfig?: outputs.appintegrations.ApplicationConfig;
+    /**
      * Application source config
      */
     readonly applicationSourceConfig?: outputs.appintegrations.ApplicationSourceConfigProperties;
@@ -41,6 +45,18 @@ export interface GetApplicationResult {
      * The id of the application.
      */
     readonly id?: string;
+    /**
+     * The iframe configuration
+     */
+    readonly iframeConfig?: outputs.appintegrations.ApplicationIframeConfig;
+    /**
+     * The initialization timeout in milliseconds. Required when IsService is true.
+     */
+    readonly initializationTimeout?: number;
+    /**
+     * Indicates if the application is a service
+     */
+    readonly isService?: boolean;
     /**
      * The name of the application.
      */

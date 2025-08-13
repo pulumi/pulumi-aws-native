@@ -145,6 +145,11 @@ export const getInternetGateway: typeof import("./getInternetGateway").getIntern
 export const getInternetGatewayOutput: typeof import("./getInternetGateway").getInternetGatewayOutput = null as any;
 utilities.lazyLoad(exports, ["getInternetGateway","getInternetGatewayOutput"], () => require("./getInternetGateway"));
 
+export { GetIpPoolRouteTableAssociationArgs, GetIpPoolRouteTableAssociationResult, GetIpPoolRouteTableAssociationOutputArgs } from "./getIpPoolRouteTableAssociation";
+export const getIpPoolRouteTableAssociation: typeof import("./getIpPoolRouteTableAssociation").getIpPoolRouteTableAssociation = null as any;
+export const getIpPoolRouteTableAssociationOutput: typeof import("./getIpPoolRouteTableAssociation").getIpPoolRouteTableAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getIpPoolRouteTableAssociation","getIpPoolRouteTableAssociationOutput"], () => require("./getIpPoolRouteTableAssociation"));
+
 export { GetIpamArgs, GetIpamResult, GetIpamOutputArgs } from "./getIpam";
 export const getIpam: typeof import("./getIpam").getIpam = null as any;
 export const getIpamOutput: typeof import("./getIpam").getIpamOutput = null as any;
@@ -509,6 +514,11 @@ export { InternetGatewayArgs } from "./internetGateway";
 export type InternetGateway = import("./internetGateway").InternetGateway;
 export const InternetGateway: typeof import("./internetGateway").InternetGateway = null as any;
 utilities.lazyLoad(exports, ["InternetGateway"], () => require("./internetGateway"));
+
+export { IpPoolRouteTableAssociationArgs } from "./ipPoolRouteTableAssociation";
+export type IpPoolRouteTableAssociation = import("./ipPoolRouteTableAssociation").IpPoolRouteTableAssociation;
+export const IpPoolRouteTableAssociation: typeof import("./ipPoolRouteTableAssociation").IpPoolRouteTableAssociation = null as any;
+utilities.lazyLoad(exports, ["IpPoolRouteTableAssociation"], () => require("./ipPoolRouteTableAssociation"));
 
 export { IpamArgs } from "./ipam";
 export type Ipam = import("./ipam").Ipam;
@@ -940,6 +950,8 @@ const _module = {
                 return new InstanceConnectEndpoint(name, <any>undefined, { urn })
             case "aws-native:ec2:InternetGateway":
                 return new InternetGateway(name, <any>undefined, { urn })
+            case "aws-native:ec2:IpPoolRouteTableAssociation":
+                return new IpPoolRouteTableAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:Ipam":
                 return new Ipam(name, <any>undefined, { urn })
             case "aws-native:ec2:IpamAllocation":

@@ -384,7 +384,9 @@ func (o AccessPointScopePtrOutput) Prefixes() pulumi.StringArrayOutput {
 }
 
 type AccessPointTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag. Tags are key-value pairs that you use to label your access points. Tags can help you organize and control access to access points. For more information, see [Tagging S3 resources for cost allocation or attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html) .
+	Key string `pulumi:"key"`
+	// The value of the tag. Tags are key-value pairs that you use to label your access points. Tags can help you organize and control access to access points. For more information, see [Tagging S3 resources for cost allocation or attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html) .
 	Value string `pulumi:"value"`
 }
 

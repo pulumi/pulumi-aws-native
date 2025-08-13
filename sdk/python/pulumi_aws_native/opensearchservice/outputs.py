@@ -27,6 +27,7 @@ __all__ = [
     'DomainEbsOptions',
     'DomainEncryptionAtRestOptions',
     'DomainEndpointOptions',
+    'DomainIamFederationOptions',
     'DomainIdentityCenterOptions',
     'DomainIdp',
     'DomainJwtOptions',
@@ -142,6 +143,8 @@ class DomainAdvancedSecurityOptionsInput(dict):
             suggest = "anonymous_auth_disable_date"
         elif key == "anonymousAuthEnabled":
             suggest = "anonymous_auth_enabled"
+        elif key == "iamFederationOptions":
+            suggest = "iam_federation_options"
         elif key == "internalUserDatabaseEnabled":
             suggest = "internal_user_database_enabled"
         elif key == "jwtOptions":
@@ -166,6 +169,7 @@ class DomainAdvancedSecurityOptionsInput(dict):
                  anonymous_auth_disable_date: Optional[builtins.str] = None,
                  anonymous_auth_enabled: Optional[builtins.bool] = None,
                  enabled: Optional[builtins.bool] = None,
+                 iam_federation_options: Optional['outputs.DomainIamFederationOptions'] = None,
                  internal_user_database_enabled: Optional[builtins.bool] = None,
                  jwt_options: Optional['outputs.DomainJwtOptions'] = None,
                  master_user_options: Optional['outputs.DomainMasterUserOptions'] = None,
@@ -185,6 +189,8 @@ class DomainAdvancedSecurityOptionsInput(dict):
             pulumi.set(__self__, "anonymous_auth_enabled", anonymous_auth_enabled)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if iam_federation_options is not None:
+            pulumi.set(__self__, "iam_federation_options", iam_federation_options)
         if internal_user_database_enabled is not None:
             pulumi.set(__self__, "internal_user_database_enabled", internal_user_database_enabled)
         if jwt_options is not None:
@@ -217,6 +223,11 @@ class DomainAdvancedSecurityOptionsInput(dict):
         True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="iamFederationOptions")
+    def iam_federation_options(self) -> Optional['outputs.DomainIamFederationOptions']:
+        return pulumi.get(self, "iam_federation_options")
 
     @property
     @pulumi.getter(name="internalUserDatabaseEnabled")
@@ -808,6 +819,54 @@ class DomainEndpointOptions(dict):
         - *Policy-Min-TLS-1-2-PFS-2023-10:* TLS security policy that supports TLS version 1.2 to TLS version 1.3 with perfect forward secrecy cipher suites
         """
         return pulumi.get(self, "tls_security_policy")
+
+
+@pulumi.output_type
+class DomainIamFederationOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rolesKey":
+            suggest = "roles_key"
+        elif key == "subjectKey":
+            suggest = "subject_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainIamFederationOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainIamFederationOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainIamFederationOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[builtins.bool] = None,
+                 roles_key: Optional[builtins.str] = None,
+                 subject_key: Optional[builtins.str] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if roles_key is not None:
+            pulumi.set(__self__, "roles_key", roles_key)
+        if subject_key is not None:
+            pulumi.set(__self__, "subject_key", subject_key)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="rolesKey")
+    def roles_key(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "roles_key")
+
+    @property
+    @pulumi.getter(name="subjectKey")
+    def subject_key(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "subject_key")
 
 
 @pulumi.output_type

@@ -231,11 +231,11 @@ func (o StreamGroupDefaultApplicationPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type StreamGroupLocationConfiguration struct {
-	// The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session.
+	// The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 when creating a stream group or adding a location.
 	AlwaysOnCapacity *int `pulumi:"alwaysOnCapacity"`
 	// A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
 	LocationName string `pulumi:"locationName"`
-	// The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes).
+	// The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes). Default is 0 when creating a stream group or adding a location.
 	OnDemandCapacity *int `pulumi:"onDemandCapacity"`
 }
 
@@ -251,11 +251,11 @@ type StreamGroupLocationConfigurationInput interface {
 }
 
 type StreamGroupLocationConfigurationArgs struct {
-	// The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session.
+	// The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 when creating a stream group or adding a location.
 	AlwaysOnCapacity pulumi.IntPtrInput `pulumi:"alwaysOnCapacity"`
 	// A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
 	LocationName pulumi.StringInput `pulumi:"locationName"`
-	// The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes).
+	// The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes). Default is 0 when creating a stream group or adding a location.
 	OnDemandCapacity pulumi.IntPtrInput `pulumi:"onDemandCapacity"`
 }
 
@@ -310,7 +310,7 @@ func (o StreamGroupLocationConfigurationOutput) ToStreamGroupLocationConfigurati
 	return o
 }
 
-// The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session.
+// The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 when creating a stream group or adding a location.
 func (o StreamGroupLocationConfigurationOutput) AlwaysOnCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StreamGroupLocationConfiguration) *int { return v.AlwaysOnCapacity }).(pulumi.IntPtrOutput)
 }
@@ -320,7 +320,7 @@ func (o StreamGroupLocationConfigurationOutput) LocationName() pulumi.StringOutp
 	return o.ApplyT(func(v StreamGroupLocationConfiguration) string { return v.LocationName }).(pulumi.StringOutput)
 }
 
-// The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes).
+// The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes). Default is 0 when creating a stream group or adding a location.
 func (o StreamGroupLocationConfigurationOutput) OnDemandCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StreamGroupLocationConfiguration) *int { return v.OnDemandCapacity }).(pulumi.IntPtrOutput)
 }

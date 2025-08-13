@@ -28,6 +28,8 @@ type Cluster struct {
 	FailureMessage pulumi.StringOutput `pulumi:"failureMessage"`
 	// The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
 	InstanceGroups ClusterInstanceGroupArrayOutput `pulumi:"instanceGroups"`
+	// Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
+	NodeProvisioningMode ClusterNodeProvisioningModePtrOutput `pulumi:"nodeProvisioningMode"`
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 	NodeRecovery ClusterNodeRecoveryPtrOutput `pulumi:"nodeRecovery"`
 	// The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
@@ -99,6 +101,8 @@ type clusterArgs struct {
 	ClusterName *string `pulumi:"clusterName"`
 	// The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
 	InstanceGroups []ClusterInstanceGroup `pulumi:"instanceGroups"`
+	// Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
+	NodeProvisioningMode *ClusterNodeProvisioningMode `pulumi:"nodeProvisioningMode"`
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 	NodeRecovery *ClusterNodeRecovery `pulumi:"nodeRecovery"`
 	// The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
@@ -116,6 +120,8 @@ type ClusterArgs struct {
 	ClusterName pulumi.StringPtrInput
 	// The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
 	InstanceGroups ClusterInstanceGroupArrayInput
+	// Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
+	NodeProvisioningMode ClusterNodeProvisioningModePtrInput
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 	NodeRecovery ClusterNodeRecoveryPtrInput
 	// The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
@@ -192,6 +198,11 @@ func (o ClusterOutput) FailureMessage() pulumi.StringOutput {
 // The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
 func (o ClusterOutput) InstanceGroups() ClusterInstanceGroupArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterInstanceGroupArrayOutput { return v.InstanceGroups }).(ClusterInstanceGroupArrayOutput)
+}
+
+// Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
+func (o ClusterOutput) NodeProvisioningMode() ClusterNodeProvisioningModePtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterNodeProvisioningModePtrOutput { return v.NodeProvisioningMode }).(ClusterNodeProvisioningModePtrOutput)
 }
 
 // If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.

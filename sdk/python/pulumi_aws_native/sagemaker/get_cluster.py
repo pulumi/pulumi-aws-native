@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, cluster_arn=None, cluster_status=None, creation_time=None, failure_message=None, instance_groups=None, node_recovery=None, restricted_instance_groups=None, tags=None):
+    def __init__(__self__, cluster_arn=None, cluster_status=None, creation_time=None, failure_message=None, instance_groups=None, node_provisioning_mode=None, node_recovery=None, restricted_instance_groups=None, tags=None):
         if cluster_arn and not isinstance(cluster_arn, str):
             raise TypeError("Expected argument 'cluster_arn' to be a str")
         pulumi.set(__self__, "cluster_arn", cluster_arn)
@@ -43,6 +43,9 @@ class GetClusterResult:
         if instance_groups and not isinstance(instance_groups, list):
             raise TypeError("Expected argument 'instance_groups' to be a list")
         pulumi.set(__self__, "instance_groups", instance_groups)
+        if node_provisioning_mode and not isinstance(node_provisioning_mode, str):
+            raise TypeError("Expected argument 'node_provisioning_mode' to be a str")
+        pulumi.set(__self__, "node_provisioning_mode", node_provisioning_mode)
         if node_recovery and not isinstance(node_recovery, str):
             raise TypeError("Expected argument 'node_recovery' to be a str")
         pulumi.set(__self__, "node_recovery", node_recovery)
@@ -94,6 +97,14 @@ class GetClusterResult:
         return pulumi.get(self, "instance_groups")
 
     @property
+    @pulumi.getter(name="nodeProvisioningMode")
+    def node_provisioning_mode(self) -> Optional['ClusterNodeProvisioningMode']:
+        """
+        Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
+        """
+        return pulumi.get(self, "node_provisioning_mode")
+
+    @property
     @pulumi.getter(name="nodeRecovery")
     def node_recovery(self) -> Optional['ClusterNodeRecovery']:
         """
@@ -126,6 +137,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             creation_time=self.creation_time,
             failure_message=self.failure_message,
             instance_groups=self.instance_groups,
+            node_provisioning_mode=self.node_provisioning_mode,
             node_recovery=self.node_recovery,
             restricted_instance_groups=self.restricted_instance_groups,
             tags=self.tags)
@@ -150,6 +162,7 @@ def get_cluster(cluster_arn: Optional[builtins.str] = None,
         creation_time=pulumi.get(__ret__, 'creation_time'),
         failure_message=pulumi.get(__ret__, 'failure_message'),
         instance_groups=pulumi.get(__ret__, 'instance_groups'),
+        node_provisioning_mode=pulumi.get(__ret__, 'node_provisioning_mode'),
         node_recovery=pulumi.get(__ret__, 'node_recovery'),
         restricted_instance_groups=pulumi.get(__ret__, 'restricted_instance_groups'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -171,6 +184,7 @@ def get_cluster_output(cluster_arn: Optional[pulumi.Input[builtins.str]] = None,
         creation_time=pulumi.get(__response__, 'creation_time'),
         failure_message=pulumi.get(__response__, 'failure_message'),
         instance_groups=pulumi.get(__response__, 'instance_groups'),
+        node_provisioning_mode=pulumi.get(__response__, 'node_provisioning_mode'),
         node_recovery=pulumi.get(__response__, 'node_recovery'),
         restricted_instance_groups=pulumi.get(__response__, 'restricted_instance_groups'),
         tags=pulumi.get(__response__, 'tags')))

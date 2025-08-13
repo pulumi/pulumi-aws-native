@@ -85,6 +85,9 @@ namespace Pulumi.AwsNative.S3Express
         /// For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
         /// </summary>
         public readonly Outputs.AccessPointScope? Scope;
+        /// <summary>
+        /// An array of tags that you can apply to access points. Tags are key-value pairs of metadata used to categorize your access points and control access. For more information, see [Using tags for attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

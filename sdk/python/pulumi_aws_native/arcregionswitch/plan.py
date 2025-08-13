@@ -296,6 +296,7 @@ class Plan(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["health_checks_for_plan"] = None
             __props__.__dict__["owner"] = None
+            __props__.__dict__["route53_health_checks"] = None
             __props__.__dict__["version"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "primaryRegion", "recoveryApproach", "regions[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -332,6 +333,7 @@ class Plan(pulumi.CustomResource):
         __props__.__dict__["recovery_approach"] = None
         __props__.__dict__["recovery_time_objective_minutes"] = None
         __props__.__dict__["regions"] = None
+        __props__.__dict__["route53_health_checks"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["triggers"] = None
         __props__.__dict__["version"] = None
@@ -425,6 +427,11 @@ class Plan(pulumi.CustomResource):
         The AWS Regions for a plan.
         """
         return pulumi.get(self, "regions")
+
+    @property
+    @pulumi.getter(name="route53HealthChecks")
+    def route53_health_checks(self) -> pulumi.Output['outputs.Route53HealthChecksProperties']:
+        return pulumi.get(self, "route53_health_checks")
 
     @property
     @pulumi.getter

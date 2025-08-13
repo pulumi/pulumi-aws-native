@@ -68,7 +68,7 @@ export class App extends pulumi.CustomResource {
     /**
      * A list of tags to apply to the app.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The user profile name.
      */
@@ -115,7 +115,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["userProfileName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["appName", "appType", "domainId", "resourceSpec", "tags[*]", "userProfileName"] };
+        const replaceOnChanges = { replaceOnChanges: ["appName", "appType", "domainId", "resourceSpec", "userProfileName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(App.__pulumiType, name, resourceInputs, opts);
     }
@@ -148,7 +148,7 @@ export interface AppArgs {
     /**
      * A list of tags to apply to the app.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The user profile name.
      */

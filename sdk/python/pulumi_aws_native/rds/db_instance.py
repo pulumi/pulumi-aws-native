@@ -96,7 +96,6 @@ class DbInstanceArgs:
                  source_db_instance_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  source_dbi_resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  source_region: Optional[pulumi.Input[builtins.str]] = None,
-                 status_infos: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceDbInstanceStatusInfoArgs']]]] = None,
                  storage_encrypted: Optional[pulumi.Input[builtins.bool]] = None,
                  storage_throughput: Optional[pulumi.Input[builtins.int]] = None,
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -611,7 +610,6 @@ class DbInstanceArgs:
                  +  For DB instances in Amazon Aurora clusters, don't specify this property. Amazon RDS automatically assigns writer and reader DB instances.
         :param pulumi.Input[builtins.str] source_dbi_resource_id: The resource ID of the source DB instance from which to restore.
         :param pulumi.Input[builtins.str] source_region: The ID of the region that contains the source DB instance for the read replica.
-        :param pulumi.Input[Sequence[pulumi.Input['DbInstanceDbInstanceStatusInfoArgs']]] status_infos: The status of a read replica. If the DB instance isn't a read replica, the value is blank.
         :param pulumi.Input[builtins.bool] storage_encrypted: A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
                 If you specify the ``KmsKeyId`` property, then you must enable encryption.
                 If you specify the ``SourceDBInstanceIdentifier`` or ``SourceDbiResourceId`` property, don't specify this property. The value is inherited from the source DB instance, and if the DB instance is encrypted, the specified ``KmsKeyId`` property is used.
@@ -787,8 +785,6 @@ class DbInstanceArgs:
             pulumi.set(__self__, "source_dbi_resource_id", source_dbi_resource_id)
         if source_region is not None:
             pulumi.set(__self__, "source_region", source_region)
-        if status_infos is not None:
-            pulumi.set(__self__, "status_infos", status_infos)
         if storage_encrypted is not None:
             pulumi.set(__self__, "storage_encrypted", storage_encrypted)
         if storage_throughput is not None:
@@ -2094,18 +2090,6 @@ class DbInstanceArgs:
         pulumi.set(self, "source_region", value)
 
     @property
-    @pulumi.getter(name="statusInfos")
-    def status_infos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceDbInstanceStatusInfoArgs']]]]:
-        """
-        The status of a read replica. If the DB instance isn't a read replica, the value is blank.
-        """
-        return pulumi.get(self, "status_infos")
-
-    @status_infos.setter
-    def status_infos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceDbInstanceStatusInfoArgs']]]]):
-        pulumi.set(self, "status_infos", value)
-
-    @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -2321,7 +2305,6 @@ class DbInstance(pulumi.CustomResource):
                  source_db_instance_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  source_dbi_resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  source_region: Optional[pulumi.Input[builtins.str]] = None,
-                 status_infos: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceDbInstanceStatusInfoArgs', 'DbInstanceDbInstanceStatusInfoArgsDict']]]]] = None,
                  storage_encrypted: Optional[pulumi.Input[builtins.bool]] = None,
                  storage_throughput: Optional[pulumi.Input[builtins.int]] = None,
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -2860,7 +2843,6 @@ class DbInstance(pulumi.CustomResource):
                  +  For DB instances in Amazon Aurora clusters, don't specify this property. Amazon RDS automatically assigns writer and reader DB instances.
         :param pulumi.Input[builtins.str] source_dbi_resource_id: The resource ID of the source DB instance from which to restore.
         :param pulumi.Input[builtins.str] source_region: The ID of the region that contains the source DB instance for the read replica.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceDbInstanceStatusInfoArgs', 'DbInstanceDbInstanceStatusInfoArgsDict']]]] status_infos: The status of a read replica. If the DB instance isn't a read replica, the value is blank.
         :param pulumi.Input[builtins.bool] storage_encrypted: A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
                 If you specify the ``KmsKeyId`` property, then you must enable encryption.
                 If you specify the ``SourceDBInstanceIdentifier`` or ``SourceDbiResourceId`` property, don't specify this property. The value is inherited from the source DB instance, and if the DB instance is encrypted, the specified ``KmsKeyId`` property is used.
@@ -3009,7 +2991,6 @@ class DbInstance(pulumi.CustomResource):
                  source_db_instance_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  source_dbi_resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  source_region: Optional[pulumi.Input[builtins.str]] = None,
-                 status_infos: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceDbInstanceStatusInfoArgs', 'DbInstanceDbInstanceStatusInfoArgsDict']]]]] = None,
                  storage_encrypted: Optional[pulumi.Input[builtins.bool]] = None,
                  storage_throughput: Optional[pulumi.Input[builtins.int]] = None,
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -3100,7 +3081,6 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["source_db_instance_identifier"] = source_db_instance_identifier
             __props__.__dict__["source_dbi_resource_id"] = source_dbi_resource_id
             __props__.__dict__["source_region"] = source_region
-            __props__.__dict__["status_infos"] = status_infos
             __props__.__dict__["storage_encrypted"] = storage_encrypted
             __props__.__dict__["storage_throughput"] = storage_throughput
             __props__.__dict__["storage_type"] = storage_type
@@ -3126,6 +3106,7 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["read_replica_db_instance_identifiers"] = None
             __props__.__dict__["resume_full_automation_mode_time"] = None
             __props__.__dict__["secondary_availability_zone"] = None
+            __props__.__dict__["status_infos"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["backupTarget", "characterSetName", "customIamInstanceProfile", "dbClusterIdentifier", "dbInstanceIdentifier", "dbName", "dbSubnetGroupName", "dbSystemId", "kmsKeyId", "masterUsername", "ncharCharacterSetName", "sourceRegion", "storageEncrypted", "timezone"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbInstance, __self__).__init__(
@@ -4361,7 +4342,7 @@ class DbInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statusInfos")
-    def status_infos(self) -> pulumi.Output[Optional[Sequence['outputs.DbInstanceDbInstanceStatusInfo']]]:
+    def status_infos(self) -> pulumi.Output[Sequence['outputs.DbInstanceDbInstanceStatusInfo']]:
         """
         The status of a read replica. If the DB instance isn't a read replica, the value is blank.
         """

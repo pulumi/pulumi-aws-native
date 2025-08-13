@@ -7,9 +7,18 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'CanaryDependencyType',
     'CanaryProvisionedResourceCleanup',
     'CanaryResourceToTag',
 ]
+
+
+@pulumi.type_token("aws-native:synthetics:CanaryDependencyType")
+class CanaryDependencyType(builtins.str, Enum):
+    """
+    Type of dependency
+    """
+    LAMBDA_LAYER = "LambdaLayer"
 
 
 @pulumi.type_token("aws-native:synthetics:CanaryProvisionedResourceCleanup")

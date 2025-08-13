@@ -19,8 +19,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// &lt;p&gt;An expression that must evaluate to a Boolean value. Rows for which the expression
         ///             evaluates to true are kept in the dataset.&lt;/p&gt;
         /// </summary>
-        [Input("conditionExpression", required: true)]
-        public Input<string> ConditionExpression { get; set; } = null!;
+        [Input("conditionExpression")]
+        public Input<string>? ConditionExpression { get; set; }
 
         public DataSetFilterOperationArgs()
         {

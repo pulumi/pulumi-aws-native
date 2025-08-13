@@ -84,6 +84,10 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterInstanceGroup> InstanceGroups;
         /// <summary>
+        /// Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
+        /// </summary>
+        public readonly Pulumi.AwsNative.SageMaker.ClusterNodeProvisioningMode? NodeProvisioningMode;
+        /// <summary>
         /// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.ClusterNodeRecovery? NodeRecovery;
@@ -105,6 +109,8 @@ namespace Pulumi.AwsNative.SageMaker
 
             ImmutableArray<Outputs.ClusterInstanceGroup> instanceGroups,
 
+            Pulumi.AwsNative.SageMaker.ClusterNodeProvisioningMode? nodeProvisioningMode,
+
             Pulumi.AwsNative.SageMaker.ClusterNodeRecovery? nodeRecovery,
 
             ImmutableArray<Outputs.ClusterRestrictedInstanceGroup> restrictedInstanceGroups,
@@ -116,6 +122,7 @@ namespace Pulumi.AwsNative.SageMaker
             CreationTime = creationTime;
             FailureMessage = failureMessage;
             InstanceGroups = instanceGroups;
+            NodeProvisioningMode = nodeProvisioningMode;
             NodeRecovery = nodeRecovery;
             RestrictedInstanceGroups = restrictedInstanceGroups;
             Tags = tags;

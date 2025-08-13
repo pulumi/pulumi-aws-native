@@ -13,6 +13,272 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ApplicationConfig struct {
+	ContactHandling *ApplicationContactHandling `pulumi:"contactHandling"`
+}
+
+// ApplicationConfigInput is an input type that accepts ApplicationConfigArgs and ApplicationConfigOutput values.
+// You can construct a concrete instance of `ApplicationConfigInput` via:
+//
+//	ApplicationConfigArgs{...}
+type ApplicationConfigInput interface {
+	pulumi.Input
+
+	ToApplicationConfigOutput() ApplicationConfigOutput
+	ToApplicationConfigOutputWithContext(context.Context) ApplicationConfigOutput
+}
+
+type ApplicationConfigArgs struct {
+	ContactHandling ApplicationContactHandlingPtrInput `pulumi:"contactHandling"`
+}
+
+func (ApplicationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationConfig)(nil)).Elem()
+}
+
+func (i ApplicationConfigArgs) ToApplicationConfigOutput() ApplicationConfigOutput {
+	return i.ToApplicationConfigOutputWithContext(context.Background())
+}
+
+func (i ApplicationConfigArgs) ToApplicationConfigOutputWithContext(ctx context.Context) ApplicationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationConfigOutput)
+}
+
+func (i ApplicationConfigArgs) ToApplicationConfigPtrOutput() ApplicationConfigPtrOutput {
+	return i.ToApplicationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationConfigArgs) ToApplicationConfigPtrOutputWithContext(ctx context.Context) ApplicationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationConfigOutput).ToApplicationConfigPtrOutputWithContext(ctx)
+}
+
+// ApplicationConfigPtrInput is an input type that accepts ApplicationConfigArgs, ApplicationConfigPtr and ApplicationConfigPtrOutput values.
+// You can construct a concrete instance of `ApplicationConfigPtrInput` via:
+//
+//	        ApplicationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationConfigPtrInput interface {
+	pulumi.Input
+
+	ToApplicationConfigPtrOutput() ApplicationConfigPtrOutput
+	ToApplicationConfigPtrOutputWithContext(context.Context) ApplicationConfigPtrOutput
+}
+
+type applicationConfigPtrType ApplicationConfigArgs
+
+func ApplicationConfigPtr(v *ApplicationConfigArgs) ApplicationConfigPtrInput {
+	return (*applicationConfigPtrType)(v)
+}
+
+func (*applicationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationConfig)(nil)).Elem()
+}
+
+func (i *applicationConfigPtrType) ToApplicationConfigPtrOutput() ApplicationConfigPtrOutput {
+	return i.ToApplicationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationConfigPtrType) ToApplicationConfigPtrOutputWithContext(ctx context.Context) ApplicationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationConfigPtrOutput)
+}
+
+type ApplicationConfigOutput struct{ *pulumi.OutputState }
+
+func (ApplicationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationConfig)(nil)).Elem()
+}
+
+func (o ApplicationConfigOutput) ToApplicationConfigOutput() ApplicationConfigOutput {
+	return o
+}
+
+func (o ApplicationConfigOutput) ToApplicationConfigOutputWithContext(ctx context.Context) ApplicationConfigOutput {
+	return o
+}
+
+func (o ApplicationConfigOutput) ToApplicationConfigPtrOutput() ApplicationConfigPtrOutput {
+	return o.ToApplicationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationConfigOutput) ToApplicationConfigPtrOutputWithContext(ctx context.Context) ApplicationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationConfig) *ApplicationConfig {
+		return &v
+	}).(ApplicationConfigPtrOutput)
+}
+
+func (o ApplicationConfigOutput) ContactHandling() ApplicationContactHandlingPtrOutput {
+	return o.ApplyT(func(v ApplicationConfig) *ApplicationContactHandling { return v.ContactHandling }).(ApplicationContactHandlingPtrOutput)
+}
+
+type ApplicationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationConfig)(nil)).Elem()
+}
+
+func (o ApplicationConfigPtrOutput) ToApplicationConfigPtrOutput() ApplicationConfigPtrOutput {
+	return o
+}
+
+func (o ApplicationConfigPtrOutput) ToApplicationConfigPtrOutputWithContext(ctx context.Context) ApplicationConfigPtrOutput {
+	return o
+}
+
+func (o ApplicationConfigPtrOutput) Elem() ApplicationConfigOutput {
+	return o.ApplyT(func(v *ApplicationConfig) ApplicationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationConfig
+		return ret
+	}).(ApplicationConfigOutput)
+}
+
+func (o ApplicationConfigPtrOutput) ContactHandling() ApplicationContactHandlingPtrOutput {
+	return o.ApplyT(func(v *ApplicationConfig) *ApplicationContactHandling {
+		if v == nil {
+			return nil
+		}
+		return v.ContactHandling
+	}).(ApplicationContactHandlingPtrOutput)
+}
+
+type ApplicationContactHandling struct {
+	Scope ApplicationContactHandlingScope `pulumi:"scope"`
+}
+
+// ApplicationContactHandlingInput is an input type that accepts ApplicationContactHandlingArgs and ApplicationContactHandlingOutput values.
+// You can construct a concrete instance of `ApplicationContactHandlingInput` via:
+//
+//	ApplicationContactHandlingArgs{...}
+type ApplicationContactHandlingInput interface {
+	pulumi.Input
+
+	ToApplicationContactHandlingOutput() ApplicationContactHandlingOutput
+	ToApplicationContactHandlingOutputWithContext(context.Context) ApplicationContactHandlingOutput
+}
+
+type ApplicationContactHandlingArgs struct {
+	Scope ApplicationContactHandlingScopeInput `pulumi:"scope"`
+}
+
+func (ApplicationContactHandlingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationContactHandling)(nil)).Elem()
+}
+
+func (i ApplicationContactHandlingArgs) ToApplicationContactHandlingOutput() ApplicationContactHandlingOutput {
+	return i.ToApplicationContactHandlingOutputWithContext(context.Background())
+}
+
+func (i ApplicationContactHandlingArgs) ToApplicationContactHandlingOutputWithContext(ctx context.Context) ApplicationContactHandlingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationContactHandlingOutput)
+}
+
+func (i ApplicationContactHandlingArgs) ToApplicationContactHandlingPtrOutput() ApplicationContactHandlingPtrOutput {
+	return i.ToApplicationContactHandlingPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationContactHandlingArgs) ToApplicationContactHandlingPtrOutputWithContext(ctx context.Context) ApplicationContactHandlingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationContactHandlingOutput).ToApplicationContactHandlingPtrOutputWithContext(ctx)
+}
+
+// ApplicationContactHandlingPtrInput is an input type that accepts ApplicationContactHandlingArgs, ApplicationContactHandlingPtr and ApplicationContactHandlingPtrOutput values.
+// You can construct a concrete instance of `ApplicationContactHandlingPtrInput` via:
+//
+//	        ApplicationContactHandlingArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationContactHandlingPtrInput interface {
+	pulumi.Input
+
+	ToApplicationContactHandlingPtrOutput() ApplicationContactHandlingPtrOutput
+	ToApplicationContactHandlingPtrOutputWithContext(context.Context) ApplicationContactHandlingPtrOutput
+}
+
+type applicationContactHandlingPtrType ApplicationContactHandlingArgs
+
+func ApplicationContactHandlingPtr(v *ApplicationContactHandlingArgs) ApplicationContactHandlingPtrInput {
+	return (*applicationContactHandlingPtrType)(v)
+}
+
+func (*applicationContactHandlingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationContactHandling)(nil)).Elem()
+}
+
+func (i *applicationContactHandlingPtrType) ToApplicationContactHandlingPtrOutput() ApplicationContactHandlingPtrOutput {
+	return i.ToApplicationContactHandlingPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationContactHandlingPtrType) ToApplicationContactHandlingPtrOutputWithContext(ctx context.Context) ApplicationContactHandlingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationContactHandlingPtrOutput)
+}
+
+type ApplicationContactHandlingOutput struct{ *pulumi.OutputState }
+
+func (ApplicationContactHandlingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationContactHandling)(nil)).Elem()
+}
+
+func (o ApplicationContactHandlingOutput) ToApplicationContactHandlingOutput() ApplicationContactHandlingOutput {
+	return o
+}
+
+func (o ApplicationContactHandlingOutput) ToApplicationContactHandlingOutputWithContext(ctx context.Context) ApplicationContactHandlingOutput {
+	return o
+}
+
+func (o ApplicationContactHandlingOutput) ToApplicationContactHandlingPtrOutput() ApplicationContactHandlingPtrOutput {
+	return o.ToApplicationContactHandlingPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationContactHandlingOutput) ToApplicationContactHandlingPtrOutputWithContext(ctx context.Context) ApplicationContactHandlingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationContactHandling) *ApplicationContactHandling {
+		return &v
+	}).(ApplicationContactHandlingPtrOutput)
+}
+
+func (o ApplicationContactHandlingOutput) Scope() ApplicationContactHandlingScopeOutput {
+	return o.ApplyT(func(v ApplicationContactHandling) ApplicationContactHandlingScope { return v.Scope }).(ApplicationContactHandlingScopeOutput)
+}
+
+type ApplicationContactHandlingPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationContactHandlingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationContactHandling)(nil)).Elem()
+}
+
+func (o ApplicationContactHandlingPtrOutput) ToApplicationContactHandlingPtrOutput() ApplicationContactHandlingPtrOutput {
+	return o
+}
+
+func (o ApplicationContactHandlingPtrOutput) ToApplicationContactHandlingPtrOutputWithContext(ctx context.Context) ApplicationContactHandlingPtrOutput {
+	return o
+}
+
+func (o ApplicationContactHandlingPtrOutput) Elem() ApplicationContactHandlingOutput {
+	return o.ApplyT(func(v *ApplicationContactHandling) ApplicationContactHandling {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationContactHandling
+		return ret
+	}).(ApplicationContactHandlingOutput)
+}
+
+func (o ApplicationContactHandlingPtrOutput) Scope() ApplicationContactHandlingScopePtrOutput {
+	return o.ApplyT(func(v *ApplicationContactHandling) *ApplicationContactHandlingScope {
+		if v == nil {
+			return nil
+		}
+		return &v.Scope
+	}).(ApplicationContactHandlingScopePtrOutput)
+}
+
 type ApplicationExternalUrlConfig struct {
 	// The URL to access the application.
 	AccessUrl string `pulumi:"accessUrl"`
@@ -115,6 +381,154 @@ func (o ApplicationExternalUrlConfigPtrOutput) ApprovedOrigins() pulumi.StringAr
 			return nil
 		}
 		return v.ApprovedOrigins
+	}).(pulumi.StringArrayOutput)
+}
+
+type ApplicationIframeConfig struct {
+	Allow   []string `pulumi:"allow"`
+	Sandbox []string `pulumi:"sandbox"`
+}
+
+// ApplicationIframeConfigInput is an input type that accepts ApplicationIframeConfigArgs and ApplicationIframeConfigOutput values.
+// You can construct a concrete instance of `ApplicationIframeConfigInput` via:
+//
+//	ApplicationIframeConfigArgs{...}
+type ApplicationIframeConfigInput interface {
+	pulumi.Input
+
+	ToApplicationIframeConfigOutput() ApplicationIframeConfigOutput
+	ToApplicationIframeConfigOutputWithContext(context.Context) ApplicationIframeConfigOutput
+}
+
+type ApplicationIframeConfigArgs struct {
+	Allow   pulumi.StringArrayInput `pulumi:"allow"`
+	Sandbox pulumi.StringArrayInput `pulumi:"sandbox"`
+}
+
+func (ApplicationIframeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationIframeConfig)(nil)).Elem()
+}
+
+func (i ApplicationIframeConfigArgs) ToApplicationIframeConfigOutput() ApplicationIframeConfigOutput {
+	return i.ToApplicationIframeConfigOutputWithContext(context.Background())
+}
+
+func (i ApplicationIframeConfigArgs) ToApplicationIframeConfigOutputWithContext(ctx context.Context) ApplicationIframeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationIframeConfigOutput)
+}
+
+func (i ApplicationIframeConfigArgs) ToApplicationIframeConfigPtrOutput() ApplicationIframeConfigPtrOutput {
+	return i.ToApplicationIframeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationIframeConfigArgs) ToApplicationIframeConfigPtrOutputWithContext(ctx context.Context) ApplicationIframeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationIframeConfigOutput).ToApplicationIframeConfigPtrOutputWithContext(ctx)
+}
+
+// ApplicationIframeConfigPtrInput is an input type that accepts ApplicationIframeConfigArgs, ApplicationIframeConfigPtr and ApplicationIframeConfigPtrOutput values.
+// You can construct a concrete instance of `ApplicationIframeConfigPtrInput` via:
+//
+//	        ApplicationIframeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationIframeConfigPtrInput interface {
+	pulumi.Input
+
+	ToApplicationIframeConfigPtrOutput() ApplicationIframeConfigPtrOutput
+	ToApplicationIframeConfigPtrOutputWithContext(context.Context) ApplicationIframeConfigPtrOutput
+}
+
+type applicationIframeConfigPtrType ApplicationIframeConfigArgs
+
+func ApplicationIframeConfigPtr(v *ApplicationIframeConfigArgs) ApplicationIframeConfigPtrInput {
+	return (*applicationIframeConfigPtrType)(v)
+}
+
+func (*applicationIframeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationIframeConfig)(nil)).Elem()
+}
+
+func (i *applicationIframeConfigPtrType) ToApplicationIframeConfigPtrOutput() ApplicationIframeConfigPtrOutput {
+	return i.ToApplicationIframeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationIframeConfigPtrType) ToApplicationIframeConfigPtrOutputWithContext(ctx context.Context) ApplicationIframeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationIframeConfigPtrOutput)
+}
+
+type ApplicationIframeConfigOutput struct{ *pulumi.OutputState }
+
+func (ApplicationIframeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationIframeConfig)(nil)).Elem()
+}
+
+func (o ApplicationIframeConfigOutput) ToApplicationIframeConfigOutput() ApplicationIframeConfigOutput {
+	return o
+}
+
+func (o ApplicationIframeConfigOutput) ToApplicationIframeConfigOutputWithContext(ctx context.Context) ApplicationIframeConfigOutput {
+	return o
+}
+
+func (o ApplicationIframeConfigOutput) ToApplicationIframeConfigPtrOutput() ApplicationIframeConfigPtrOutput {
+	return o.ToApplicationIframeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationIframeConfigOutput) ToApplicationIframeConfigPtrOutputWithContext(ctx context.Context) ApplicationIframeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationIframeConfig) *ApplicationIframeConfig {
+		return &v
+	}).(ApplicationIframeConfigPtrOutput)
+}
+
+func (o ApplicationIframeConfigOutput) Allow() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationIframeConfig) []string { return v.Allow }).(pulumi.StringArrayOutput)
+}
+
+func (o ApplicationIframeConfigOutput) Sandbox() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationIframeConfig) []string { return v.Sandbox }).(pulumi.StringArrayOutput)
+}
+
+type ApplicationIframeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationIframeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationIframeConfig)(nil)).Elem()
+}
+
+func (o ApplicationIframeConfigPtrOutput) ToApplicationIframeConfigPtrOutput() ApplicationIframeConfigPtrOutput {
+	return o
+}
+
+func (o ApplicationIframeConfigPtrOutput) ToApplicationIframeConfigPtrOutputWithContext(ctx context.Context) ApplicationIframeConfigPtrOutput {
+	return o
+}
+
+func (o ApplicationIframeConfigPtrOutput) Elem() ApplicationIframeConfigOutput {
+	return o.ApplyT(func(v *ApplicationIframeConfig) ApplicationIframeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationIframeConfig
+		return ret
+	}).(ApplicationIframeConfigOutput)
+}
+
+func (o ApplicationIframeConfigPtrOutput) Allow() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationIframeConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Allow
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ApplicationIframeConfigPtrOutput) Sandbox() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationIframeConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Sandbox
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -617,15 +1031,27 @@ type EventIntegrationTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationConfigInput)(nil)).Elem(), ApplicationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationConfigPtrInput)(nil)).Elem(), ApplicationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationContactHandlingInput)(nil)).Elem(), ApplicationContactHandlingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationContactHandlingPtrInput)(nil)).Elem(), ApplicationContactHandlingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationExternalUrlConfigInput)(nil)).Elem(), ApplicationExternalUrlConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIframeConfigInput)(nil)).Elem(), ApplicationIframeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIframeConfigPtrInput)(nil)).Elem(), ApplicationIframeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSourceConfigPropertiesInput)(nil)).Elem(), ApplicationSourceConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationFileConfigurationInput)(nil)).Elem(), DataIntegrationFileConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationFileConfigurationPtrInput)(nil)).Elem(), DataIntegrationFileConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationScheduleConfigInput)(nil)).Elem(), DataIntegrationScheduleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationScheduleConfigPtrInput)(nil)).Elem(), DataIntegrationScheduleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationEventFilterInput)(nil)).Elem(), EventIntegrationEventFilterArgs{})
+	pulumi.RegisterOutputType(ApplicationConfigOutput{})
+	pulumi.RegisterOutputType(ApplicationConfigPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationContactHandlingOutput{})
+	pulumi.RegisterOutputType(ApplicationContactHandlingPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationExternalUrlConfigOutput{})
 	pulumi.RegisterOutputType(ApplicationExternalUrlConfigPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationIframeConfigOutput{})
+	pulumi.RegisterOutputType(ApplicationIframeConfigPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSourceConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(ApplicationSourceConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataIntegrationFileConfigurationOutput{})

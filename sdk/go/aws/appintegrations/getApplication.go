@@ -31,12 +31,20 @@ type LookupApplicationArgs struct {
 type LookupApplicationResult struct {
 	// The Amazon Resource Name (ARN) of the application.
 	ApplicationArn *string `pulumi:"applicationArn"`
+	// The application configuration. Cannot be used when IsService is true.
+	ApplicationConfig *ApplicationConfig `pulumi:"applicationConfig"`
 	// Application source config
 	ApplicationSourceConfig *ApplicationSourceConfigProperties `pulumi:"applicationSourceConfig"`
 	// The application description.
 	Description *string `pulumi:"description"`
 	// The id of the application.
 	Id *string `pulumi:"id"`
+	// The iframe configuration
+	IframeConfig *ApplicationIframeConfig `pulumi:"iframeConfig"`
+	// The initialization timeout in milliseconds. Required when IsService is true.
+	InitializationTimeout *int `pulumi:"initializationTimeout"`
+	// Indicates if the application is a service
+	IsService *bool `pulumi:"isService"`
 	// The name of the application.
 	Name *string `pulumi:"name"`
 	// The namespace of the application.
@@ -84,6 +92,11 @@ func (o LookupApplicationResultOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
 }
 
+// The application configuration. Cannot be used when IsService is true.
+func (o LookupApplicationResultOutput) ApplicationConfig() ApplicationConfigPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *ApplicationConfig { return v.ApplicationConfig }).(ApplicationConfigPtrOutput)
+}
+
 // Application source config
 func (o LookupApplicationResultOutput) ApplicationSourceConfig() ApplicationSourceConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationSourceConfigProperties { return v.ApplicationSourceConfig }).(ApplicationSourceConfigPropertiesPtrOutput)
@@ -97,6 +110,21 @@ func (o LookupApplicationResultOutput) Description() pulumi.StringPtrOutput {
 // The id of the application.
 func (o LookupApplicationResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The iframe configuration
+func (o LookupApplicationResultOutput) IframeConfig() ApplicationIframeConfigPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *ApplicationIframeConfig { return v.IframeConfig }).(ApplicationIframeConfigPtrOutput)
+}
+
+// The initialization timeout in milliseconds. Required when IsService is true.
+func (o LookupApplicationResultOutput) InitializationTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *int { return v.InitializationTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Indicates if the application is a service
+func (o LookupApplicationResultOutput) IsService() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *bool { return v.IsService }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the application.

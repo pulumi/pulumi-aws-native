@@ -21989,7 +21989,7 @@ func (o DataSetCalculatedColumnArrayOutput) Index(i pulumi.IntInput) DataSetCalc
 // <p>A transform operation that casts a column to a different type.</p>
 type DataSetCastColumnTypeOperation struct {
 	// <p>Column name.</p>
-	ColumnName string `pulumi:"columnName"`
+	ColumnName *string `pulumi:"columnName"`
 	// <p>When casting a column from string to datetime type, you can supply a string in a
 	//             format supported by Amazon QuickSight to denote the source data format.</p>
 	Format *string `pulumi:"format"`
@@ -22013,7 +22013,7 @@ type DataSetCastColumnTypeOperationInput interface {
 // <p>A transform operation that casts a column to a different type.</p>
 type DataSetCastColumnTypeOperationArgs struct {
 	// <p>Column name.</p>
-	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
 	// <p>When casting a column from string to datetime type, you can supply a string in a
 	//             format supported by Amazon QuickSight to denote the source data format.</p>
 	Format pulumi.StringPtrInput `pulumi:"format"`
@@ -22102,8 +22102,8 @@ func (o DataSetCastColumnTypeOperationOutput) ToDataSetCastColumnTypeOperationPt
 }
 
 // <p>Column name.</p>
-func (o DataSetCastColumnTypeOperationOutput) ColumnName() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetCastColumnTypeOperation) string { return v.ColumnName }).(pulumi.StringOutput)
+func (o DataSetCastColumnTypeOperationOutput) ColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetCastColumnTypeOperation) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
 }
 
 // <p>When casting a column from string to datetime type, you can supply a string in a
@@ -22153,7 +22153,7 @@ func (o DataSetCastColumnTypeOperationPtrOutput) ColumnName() pulumi.StringPtrOu
 		if v == nil {
 			return nil
 		}
-		return &v.ColumnName
+		return v.ColumnName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -23975,7 +23975,7 @@ func (o DataSetFieldFolderMapOutput) MapIndex(k pulumi.StringInput) DataSetField
 type DataSetFilterOperation struct {
 	// <p>An expression that must evaluate to a Boolean value. Rows for which the expression
 	//             evaluates to true are kept in the dataset.</p>
-	ConditionExpression string `pulumi:"conditionExpression"`
+	ConditionExpression *string `pulumi:"conditionExpression"`
 }
 
 // DataSetFilterOperationInput is an input type that accepts DataSetFilterOperationArgs and DataSetFilterOperationOutput values.
@@ -23993,7 +23993,7 @@ type DataSetFilterOperationInput interface {
 type DataSetFilterOperationArgs struct {
 	// <p>An expression that must evaluate to a Boolean value. Rows for which the expression
 	//             evaluates to true are kept in the dataset.</p>
-	ConditionExpression pulumi.StringInput `pulumi:"conditionExpression"`
+	ConditionExpression pulumi.StringPtrInput `pulumi:"conditionExpression"`
 }
 
 func (DataSetFilterOperationArgs) ElementType() reflect.Type {
@@ -24077,8 +24077,8 @@ func (o DataSetFilterOperationOutput) ToDataSetFilterOperationPtrOutputWithConte
 // <p>An expression that must evaluate to a Boolean value. Rows for which the expression
 //
 //	evaluates to true are kept in the dataset.</p>
-func (o DataSetFilterOperationOutput) ConditionExpression() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetFilterOperation) string { return v.ConditionExpression }).(pulumi.StringOutput)
+func (o DataSetFilterOperationOutput) ConditionExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetFilterOperation) *string { return v.ConditionExpression }).(pulumi.StringPtrOutput)
 }
 
 type DataSetFilterOperationPtrOutput struct{ *pulumi.OutputState }
@@ -24113,7 +24113,7 @@ func (o DataSetFilterOperationPtrOutput) ConditionExpression() pulumi.StringPtrO
 		if v == nil {
 			return nil
 		}
-		return &v.ConditionExpression
+		return v.ConditionExpression
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -27576,7 +27576,7 @@ func (o DataSetRelationalTablePtrOutput) Schema() pulumi.StringPtrOutput {
 // <p>A transform operation that renames a column.</p>
 type DataSetRenameColumnOperation struct {
 	// <p>The name of the column to be renamed.</p>
-	ColumnName string `pulumi:"columnName"`
+	ColumnName *string `pulumi:"columnName"`
 	// <p>The new name for the column.</p>
 	NewColumnName *string `pulumi:"newColumnName"`
 }
@@ -27595,7 +27595,7 @@ type DataSetRenameColumnOperationInput interface {
 // <p>A transform operation that renames a column.</p>
 type DataSetRenameColumnOperationArgs struct {
 	// <p>The name of the column to be renamed.</p>
-	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
 	// <p>The new name for the column.</p>
 	NewColumnName pulumi.StringPtrInput `pulumi:"newColumnName"`
 }
@@ -27679,8 +27679,8 @@ func (o DataSetRenameColumnOperationOutput) ToDataSetRenameColumnOperationPtrOut
 }
 
 // <p>The name of the column to be renamed.</p>
-func (o DataSetRenameColumnOperationOutput) ColumnName() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetRenameColumnOperation) string { return v.ColumnName }).(pulumi.StringOutput)
+func (o DataSetRenameColumnOperationOutput) ColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetRenameColumnOperation) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
 }
 
 // <p>The new name for the column.</p>
@@ -27718,7 +27718,7 @@ func (o DataSetRenameColumnOperationPtrOutput) ColumnName() pulumi.StringPtrOutp
 		if v == nil {
 			return nil
 		}
-		return &v.ColumnName
+		return v.ColumnName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -28311,7 +28311,7 @@ func (o DataSetRowLevelPermissionTagConfigurationPtrOutput) TagRules() DataSetRo
 // <p>A set of rules associated with a tag.</p>
 type DataSetRowLevelPermissionTagRule struct {
 	// <p>The column name that a tag key is assigned to.</p>
-	ColumnName string `pulumi:"columnName"`
+	ColumnName *string `pulumi:"columnName"`
 	// <p>A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.</p>
 	MatchAllValue *string `pulumi:"matchAllValue"`
 	// <p>The unique key for a tag.</p>
@@ -28334,7 +28334,7 @@ type DataSetRowLevelPermissionTagRuleInput interface {
 // <p>A set of rules associated with a tag.</p>
 type DataSetRowLevelPermissionTagRuleArgs struct {
 	// <p>The column name that a tag key is assigned to.</p>
-	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
 	// <p>A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.</p>
 	MatchAllValue pulumi.StringPtrInput `pulumi:"matchAllValue"`
 	// <p>The unique key for a tag.</p>
@@ -28396,8 +28396,8 @@ func (o DataSetRowLevelPermissionTagRuleOutput) ToDataSetRowLevelPermissionTagRu
 }
 
 // <p>The column name that a tag key is assigned to.</p>
-func (o DataSetRowLevelPermissionTagRuleOutput) ColumnName() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetRowLevelPermissionTagRule) string { return v.ColumnName }).(pulumi.StringOutput)
+func (o DataSetRowLevelPermissionTagRuleOutput) ColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetRowLevelPermissionTagRule) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
 }
 
 // <p>A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.</p>

@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.ApplicationInsights
     public static class GetApplication
     {
         /// <summary>
-        /// Resource schema for AWS::ApplicationInsights::Application
+        /// Resource Type definition for AWS::ApplicationInsights::Application
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws-native:applicationinsights:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::ApplicationInsights::Application
+        /// Resource Type definition for AWS::ApplicationInsights::Application
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:applicationinsights:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::ApplicationInsights::Application
+        /// Resource Type definition for AWS::ApplicationInsights::Application
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:applicationinsights:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());

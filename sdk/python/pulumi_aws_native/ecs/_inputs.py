@@ -304,8 +304,6 @@ if not MYPY:
         The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
 
         When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
-
-        If you use a capacity provider with an Auto Scaling group configured with more than one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the exact minimum scaling step size value and will ignore both the maximum scaling step size as well as the capacity demand.
         """
         status: NotRequired[pulumi.Input['CapacityProviderManagedScalingStatus']]
         """
@@ -333,8 +331,6 @@ class CapacityProviderManagedScalingArgs:
         :param pulumi.Input[builtins.int] minimum_scaling_step_size: The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
                
                When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
-               
-               If you use a capacity provider with an Auto Scaling group configured with more than one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the exact minimum scaling step size value and will ignore both the maximum scaling step size as well as the capacity demand.
         :param pulumi.Input['CapacityProviderManagedScalingStatus'] status: Determines whether to use managed scaling for the capacity provider.
         :param pulumi.Input[builtins.int] target_capacity: The target capacity utilization as a percentage for the capacity provider. The specified value must be greater than `0` and less than or equal to `100` . For example, if you want the capacity provider to maintain 10% spare capacity, then that means the utilization is 90%, so use a `targetCapacity` of `90` . The default value of `100` percent results in the Amazon EC2 instances in your Auto Scaling group being completely used.
         """
@@ -380,8 +376,6 @@ class CapacityProviderManagedScalingArgs:
         The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
 
         When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
-
-        If you use a capacity provider with an Auto Scaling group configured with more than one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the exact minimum scaling step size value and will ignore both the maximum scaling step size as well as the capacity demand.
         """
         return pulumi.get(self, "minimum_scaling_step_size")
 

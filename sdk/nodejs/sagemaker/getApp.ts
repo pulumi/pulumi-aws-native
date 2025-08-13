@@ -52,6 +52,10 @@ export interface GetAppResult {
      * Indicates whether the application is launched in recovery mode.
      */
     readonly recoveryMode?: boolean;
+    /**
+     * A list of tags to apply to the app.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::SageMaker::App

@@ -96,6 +96,15 @@ export const ClusterDeepHealthCheckType = {
  */
 export type ClusterDeepHealthCheckType = (typeof ClusterDeepHealthCheckType)[keyof typeof ClusterDeepHealthCheckType];
 
+export const ClusterNodeProvisioningMode = {
+    Continuous: "Continuous",
+} as const;
+
+/**
+ * Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
+ */
+export type ClusterNodeProvisioningMode = (typeof ClusterNodeProvisioningMode)[keyof typeof ClusterNodeProvisioningMode];
+
 export const ClusterNodeRecovery = {
     Automatic: "Automatic",
     None: "None",

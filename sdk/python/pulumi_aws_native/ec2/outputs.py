@@ -2679,7 +2679,7 @@ class Ec2FleetPlacement(dict):
                This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) or [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) .
         :param builtins.str availability_zone: The Availability Zone of the instance.
                
-               If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.
+               Either `AvailabilityZone` or `AvailabilityZoneId` can be specified, but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone based on the load balancing criteria for the Region.
                
                This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
         :param builtins.str group_name: The name of the placement group that the instance is in. If you specify `GroupName` , you can't specify `GroupId` .
@@ -2732,7 +2732,7 @@ class Ec2FleetPlacement(dict):
         """
         The Availability Zone of the instance.
 
-        If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.
+        Either `AvailabilityZone` or `AvailabilityZoneId` can be specified, but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone based on the load balancing criteria for the Region.
 
         This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
         """
@@ -7182,6 +7182,7 @@ class LaunchTemplateNetworkInterface(dict):
         :param builtins.str description: A description for the network interface.
         :param builtins.int device_index: The device index for the network interface attachment. The primary network interface has a device index of 0. If the network interface is of type ``interface``, you must specify a device index.
                 If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
+        :param builtins.int ena_queue_count: The number of ENA queues to be created with the instance.
         :param 'LaunchTemplateEnaSrdSpecification' ena_srd_specification: The ENA Express configuration for the network interface.
         :param Sequence[builtins.str] groups: The IDs of one or more security groups.
         :param builtins.str interface_type: The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter for AI/ML and HPC workloads on Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
@@ -7303,6 +7304,9 @@ class LaunchTemplateNetworkInterface(dict):
     @property
     @pulumi.getter(name="enaQueueCount")
     def ena_queue_count(self) -> Optional[builtins.int]:
+        """
+        The number of ENA queues to be created with the instance.
+        """
         return pulumi.get(self, "ena_queue_count")
 
     @property

@@ -41,8 +41,9 @@ type LookupPlanResult struct {
 	// The owner of a plan.
 	Owner *string `pulumi:"owner"`
 	// The recovery time objective for a plan.
-	RecoveryTimeObjectiveMinutes *float64          `pulumi:"recoveryTimeObjectiveMinutes"`
-	Tags                         map[string]string `pulumi:"tags"`
+	RecoveryTimeObjectiveMinutes *float64                       `pulumi:"recoveryTimeObjectiveMinutes"`
+	Route53HealthChecks          *Route53HealthChecksProperties `pulumi:"route53HealthChecks"`
+	Tags                         map[string]string              `pulumi:"tags"`
 	// The triggers for a plan.
 	Triggers []PlanTrigger `pulumi:"triggers"`
 	// The version for the plan.
@@ -116,6 +117,10 @@ func (o LookupPlanResultOutput) Owner() pulumi.StringPtrOutput {
 // The recovery time objective for a plan.
 func (o LookupPlanResultOutput) RecoveryTimeObjectiveMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupPlanResult) *float64 { return v.RecoveryTimeObjectiveMinutes }).(pulumi.Float64PtrOutput)
+}
+
+func (o LookupPlanResultOutput) Route53HealthChecks() Route53HealthChecksPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupPlanResult) *Route53HealthChecksProperties { return v.Route53HealthChecks }).(Route53HealthChecksPropertiesPtrOutput)
 }
 
 func (o LookupPlanResultOutput) Tags() pulumi.StringMapOutput {

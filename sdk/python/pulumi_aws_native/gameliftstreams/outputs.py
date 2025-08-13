@@ -110,8 +110,8 @@ class StreamGroupLocationConfiguration(dict):
                  on_demand_capacity: Optional[builtins.int] = None):
         """
         :param builtins.str location_name: A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
-        :param builtins.int always_on_capacity: The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session.
-        :param builtins.int on_demand_capacity: The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes).
+        :param builtins.int always_on_capacity: The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 when creating a stream group or adding a location.
+        :param builtins.int on_demand_capacity: The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes). Default is 0 when creating a stream group or adding a location.
         """
         pulumi.set(__self__, "location_name", location_name)
         if always_on_capacity is not None:
@@ -131,7 +131,7 @@ class StreamGroupLocationConfiguration(dict):
     @pulumi.getter(name="alwaysOnCapacity")
     def always_on_capacity(self) -> Optional[builtins.int]:
         """
-        The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session.
+        The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 when creating a stream group or adding a location.
         """
         return pulumi.get(self, "always_on_capacity")
 
@@ -139,7 +139,7 @@ class StreamGroupLocationConfiguration(dict):
     @pulumi.getter(name="onDemandCapacity")
     def on_demand_capacity(self) -> Optional[builtins.int]:
         """
-        The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes).
+        The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes). Default is 0 when creating a stream group or adding a location.
         """
         return pulumi.get(self, "on_demand_capacity")
 

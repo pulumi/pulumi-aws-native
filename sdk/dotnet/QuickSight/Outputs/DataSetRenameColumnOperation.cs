@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// &lt;p&gt;The name of the column to be renamed.&lt;/p&gt;
         /// </summary>
-        public readonly string ColumnName;
+        public readonly string? ColumnName;
         /// <summary>
         /// &lt;p&gt;The new name for the column.&lt;/p&gt;
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private DataSetRenameColumnOperation(
-            string columnName,
+            string? columnName,
 
             string? newColumnName)
         {

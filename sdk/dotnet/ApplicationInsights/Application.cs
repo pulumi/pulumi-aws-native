@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationInsights
 {
     /// <summary>
-    /// Resource schema for AWS::ApplicationInsights::Application
+    /// Resource Type definition for AWS::ApplicationInsights::Application
     /// </summary>
     [AwsNativeResourceType("aws-native:applicationinsights:Application")]
     public partial class Application : global::Pulumi.CustomResource

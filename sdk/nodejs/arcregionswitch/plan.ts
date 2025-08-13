@@ -81,6 +81,7 @@ export class Plan extends pulumi.CustomResource {
      * The AWS Regions for a plan.
      */
     public readonly regions!: pulumi.Output<string[]>;
+    public /*out*/ readonly route53HealthChecks!: pulumi.Output<outputs.arcregionswitch.Route53HealthChecksProperties>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The triggers for a plan.
@@ -132,6 +133,7 @@ export class Plan extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["healthChecksForPlan"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["route53HealthChecks"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -145,6 +147,7 @@ export class Plan extends pulumi.CustomResource {
             resourceInputs["recoveryApproach"] = undefined /*out*/;
             resourceInputs["recoveryTimeObjectiveMinutes"] = undefined /*out*/;
             resourceInputs["regions"] = undefined /*out*/;
+            resourceInputs["route53HealthChecks"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["triggers"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;

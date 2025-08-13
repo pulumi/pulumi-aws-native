@@ -2006,18 +2006,6 @@ namespace Pulumi.AwsNative.Rds
         [Input("sourceRegion")]
         public Input<string>? SourceRegion { get; set; }
 
-        [Input("statusInfos")]
-        private InputList<Inputs.DbInstanceDbInstanceStatusInfoArgs>? _statusInfos;
-
-        /// <summary>
-        /// The status of a read replica. If the DB instance isn't a read replica, the value is blank.
-        /// </summary>
-        public InputList<Inputs.DbInstanceDbInstanceStatusInfoArgs> StatusInfos
-        {
-            get => _statusInfos ?? (_statusInfos = new InputList<Inputs.DbInstanceDbInstanceStatusInfoArgs>());
-            set => _statusInfos = value;
-        }
-
         /// <summary>
         /// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
         ///  If you specify the ``KmsKeyId`` property, then you must enable encryption.

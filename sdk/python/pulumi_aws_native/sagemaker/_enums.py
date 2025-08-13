@@ -10,6 +10,7 @@ __all__ = [
     'AppResourceSpecInstanceType',
     'AppType',
     'ClusterDeepHealthCheckType',
+    'ClusterNodeProvisioningMode',
     'ClusterNodeRecovery',
     'ClusterStatus',
     'DataQualityJobDefinitionBatchTransformInputS3DataDistributionType',
@@ -223,6 +224,14 @@ class ClusterDeepHealthCheckType(builtins.str, Enum):
     """
     INSTANCE_STRESS = "InstanceStress"
     INSTANCE_CONNECTIVITY = "InstanceConnectivity"
+
+
+@pulumi.type_token("aws-native:sagemaker:ClusterNodeProvisioningMode")
+class ClusterNodeProvisioningMode(builtins.str, Enum):
+    """
+    Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
+    """
+    CONTINUOUS = "Continuous"
 
 
 @pulumi.type_token("aws-native:sagemaker:ClusterNodeRecovery")

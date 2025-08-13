@@ -8,6 +8,7 @@ import * as apigateway from "./apigateway";
 import * as apigatewayv2 from "./apigatewayv2";
 import * as appconfig from "./appconfig";
 import * as appflow from "./appflow";
+import * as appintegrations from "./appintegrations";
 import * as applicationinsights from "./applicationinsights";
 import * as applicationsignals from "./applicationsignals";
 import * as apprunner from "./apprunner";
@@ -118,6 +119,7 @@ import * as msk from "./msk";
 import * as mwaa from "./mwaa";
 import * as networkfirewall from "./networkfirewall";
 import * as oam from "./oam";
+import * as observabilityadmin from "./observabilityadmin";
 import * as odb from "./odb";
 import * as omics from "./omics";
 import * as opensearchserverless from "./opensearchserverless";
@@ -190,6 +192,7 @@ export {
     apigatewayv2,
     appconfig,
     appflow,
+    appintegrations,
     applicationinsights,
     applicationsignals,
     apprunner,
@@ -300,6 +303,7 @@ export {
     mwaa,
     networkfirewall,
     oam,
+    observabilityadmin,
     odb,
     omics,
     opensearchserverless,

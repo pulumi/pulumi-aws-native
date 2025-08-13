@@ -1201,6 +1201,7 @@ if not MYPY:
         """
         The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
         """
+        image_id: NotRequired[pulumi.Input[builtins.str]]
         instance_storage_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgsDict']]]]
         on_start_deep_health_checks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]]
         override_vpc_config: NotRequired[pulumi.Input['ClusterVpcConfigArgsDict']]
@@ -1224,6 +1225,7 @@ class ClusterInstanceGroupArgs:
                  instance_type: pulumi.Input[builtins.str],
                  life_cycle_config: pulumi.Input['ClusterLifeCycleConfigArgs'],
                  current_count: Optional[pulumi.Input[builtins.int]] = None,
+                 image_id: Optional[pulumi.Input[builtins.str]] = None,
                  instance_storage_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgs']]]] = None,
                  on_start_deep_health_checks: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]] = None,
                  override_vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None,
@@ -1243,6 +1245,8 @@ class ClusterInstanceGroupArgs:
         pulumi.set(__self__, "life_cycle_config", life_cycle_config)
         if current_count is not None:
             pulumi.set(__self__, "current_count", current_count)
+        if image_id is not None:
+            pulumi.set(__self__, "image_id", image_id)
         if instance_storage_configs is not None:
             pulumi.set(__self__, "instance_storage_configs", instance_storage_configs)
         if on_start_deep_health_checks is not None:
@@ -1313,6 +1317,15 @@ class ClusterInstanceGroupArgs:
     @current_count.setter
     def current_count(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "current_count", value)
+
+    @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "image_id")
+
+    @image_id.setter
+    def image_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "image_id", value)
 
     @property
     @pulumi.getter(name="instanceStorageConfigs")
@@ -4918,10 +4931,6 @@ if not MYPY:
         """
         The location where Amazon S3 stores temporary execution data and other artifacts for the project that corresponds to the domain.
         """
-        single_sign_on_application_arn: NotRequired[pulumi.Input[builtins.str]]
-        """
-        The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
-        """
         studio_web_portal_access: NotRequired[pulumi.Input['DomainUnifiedStudioSettingsStudioWebPortalAccess']]
         """
         Sets whether you can access the domain in Amazon SageMaker Studio:
@@ -4943,7 +4952,6 @@ class DomainUnifiedStudioSettingsArgs:
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
                  project_id: Optional[pulumi.Input[builtins.str]] = None,
                  project_s3_path: Optional[pulumi.Input[builtins.str]] = None,
-                 single_sign_on_application_arn: Optional[pulumi.Input[builtins.str]] = None,
                  studio_web_portal_access: Optional[pulumi.Input['DomainUnifiedStudioSettingsStudioWebPortalAccess']] = None):
         """
         A collection of settings that apply to an Amazon SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
@@ -4953,7 +4961,6 @@ class DomainUnifiedStudioSettingsArgs:
         :param pulumi.Input[builtins.str] environment_id: The ID of the environment that Amazon SageMaker Unified Studio associates with the domain.
         :param pulumi.Input[builtins.str] project_id: The ID of the Amazon SageMaker Unified Studio project that corresponds to the domain.
         :param pulumi.Input[builtins.str] project_s3_path: The location where Amazon S3 stores temporary execution data and other artifacts for the project that corresponds to the domain.
-        :param pulumi.Input[builtins.str] single_sign_on_application_arn: The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
         :param pulumi.Input['DomainUnifiedStudioSettingsStudioWebPortalAccess'] studio_web_portal_access: Sets whether you can access the domain in Amazon SageMaker Studio:
                
                ENABLED
@@ -4973,8 +4980,6 @@ class DomainUnifiedStudioSettingsArgs:
             pulumi.set(__self__, "project_id", project_id)
         if project_s3_path is not None:
             pulumi.set(__self__, "project_s3_path", project_s3_path)
-        if single_sign_on_application_arn is not None:
-            pulumi.set(__self__, "single_sign_on_application_arn", single_sign_on_application_arn)
         if studio_web_portal_access is not None:
             pulumi.set(__self__, "studio_web_portal_access", studio_web_portal_access)
 
@@ -5049,18 +5054,6 @@ class DomainUnifiedStudioSettingsArgs:
     @project_s3_path.setter
     def project_s3_path(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "project_s3_path", value)
-
-    @property
-    @pulumi.getter(name="singleSignOnApplicationArn")
-    def single_sign_on_application_arn(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
-        """
-        return pulumi.get(self, "single_sign_on_application_arn")
-
-    @single_sign_on_application_arn.setter
-    def single_sign_on_application_arn(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "single_sign_on_application_arn", value)
 
     @property
     @pulumi.getter(name="studioWebPortalAccess")

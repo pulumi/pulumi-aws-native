@@ -41,9 +41,8 @@ class FileSystemProtectionReplicationOverwriteProtection(builtins.str, Enum):
 @pulumi.type_token("aws-native:efs:MountTargetIpAddressType")
 class MountTargetIpAddressType(builtins.str, Enum):
     """
-    The IP address type for the mount target. The possible values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). If you don’t specify an `IpAddressType` , then `IPV4_ONLY` is used.
-
-    > The `IPAddressType` must match the IP type of the subnet. Additionally, the `IPAddressType` parameter overrides the value set as the default IP address for the subnet in the VPC. For example, if the `IPAddressType` is `IPV4_ONLY` and `AssignIpv6AddressOnCreation` is `true` , then IPv4 is used for the mount target. For more information, see [Modify the IP addressing attributes of your subnet](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-public-ip.html) .
+    The IP address type for the mount target. The possible values are ``IPV4_ONLY`` (only IPv4 addresses), ``IPV6_ONLY`` (only IPv6 addresses), and ``DUAL_STACK`` (dual-stack, both IPv4 and IPv6 addresses). If you don’t specify an ``IpAddressType``, then ``IPV4_ONLY`` is used.
+      The ``IPAddressType`` must match the IP type of the subnet. Additionally, the ``IPAddressType`` parameter overrides the value set as the default IP address for the subnet in the VPC. For example, if the ``IPAddressType`` is ``IPV4_ONLY`` and ``AssignIpv6AddressOnCreation`` is ``true``, then IPv4 is used for the mount target. For more information, see [Modify the IP addressing attributes of your subnet](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-public-ip.html).
     """
     IPV4_ONLY = "IPV4_ONLY"
     IPV6_ONLY = "IPV6_ONLY"

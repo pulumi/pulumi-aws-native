@@ -55,6 +55,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("deviceIndex")]
         public Input<int>? DeviceIndex { get; set; }
 
+        /// <summary>
+        /// The number of ENA queues to be created with the instance.
+        /// </summary>
         [Input("enaQueueCount")]
         public Input<int>? EnaQueueCount { get; set; }
 

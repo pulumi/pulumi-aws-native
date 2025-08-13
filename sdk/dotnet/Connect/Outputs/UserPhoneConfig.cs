@@ -30,6 +30,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// The phone number for the user's desk phone.
         /// </summary>
         public readonly string? DeskPhoneNumber;
+        public readonly bool? PersistentConnection;
         /// <summary>
         /// The phone type.
         /// </summary>
@@ -43,11 +44,14 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             string? deskPhoneNumber,
 
+            bool? persistentConnection,
+
             Pulumi.AwsNative.Connect.UserPhoneType phoneType)
         {
             AfterContactWorkTimeLimit = afterContactWorkTimeLimit;
             AutoAccept = autoAccept;
             DeskPhoneNumber = deskPhoneNumber;
+            PersistentConnection = persistentConnection;
             PhoneType = phoneType;
         }
     }

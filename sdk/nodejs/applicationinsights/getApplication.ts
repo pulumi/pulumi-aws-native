@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::ApplicationInsights::Application
+ * Resource Type definition for AWS::ApplicationInsights::Application
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,7 +47,7 @@ export interface GetApplicationResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource schema for AWS::ApplicationInsights::Application
+ * Resource Type definition for AWS::ApplicationInsights::Application
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

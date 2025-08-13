@@ -257,6 +257,8 @@ func (o CanaryBaseScreenshotArrayOutput) Index(i pulumi.IntInput) CanaryBaseScre
 }
 
 type CanaryCode struct {
+	// List of Lambda layers to attach to the canary
+	Dependencies []CanaryDependency `pulumi:"dependencies"`
 	// The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
 	Handler string `pulumi:"handler"`
 	// If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
@@ -283,6 +285,8 @@ type CanaryCodeInput interface {
 }
 
 type CanaryCodeArgs struct {
+	// List of Lambda layers to attach to the canary
+	Dependencies CanaryDependencyArrayInput `pulumi:"dependencies"`
 	// The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
 	Handler pulumi.StringInput `pulumi:"handler"`
 	// If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
@@ -321,6 +325,11 @@ func (o CanaryCodeOutput) ToCanaryCodeOutput() CanaryCodeOutput {
 
 func (o CanaryCodeOutput) ToCanaryCodeOutputWithContext(ctx context.Context) CanaryCodeOutput {
 	return o
+}
+
+// List of Lambda layers to attach to the canary
+func (o CanaryCodeOutput) Dependencies() CanaryDependencyArrayOutput {
+	return o.ApplyT(func(v CanaryCode) []CanaryDependency { return v.Dependencies }).(CanaryDependencyArrayOutput)
 }
 
 // The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
@@ -375,6 +384,16 @@ func (o CanaryCodePtrOutput) Elem() CanaryCodeOutput {
 		var ret CanaryCode
 		return ret
 	}).(CanaryCodeOutput)
+}
+
+// List of Lambda layers to attach to the canary
+func (o CanaryCodePtrOutput) Dependencies() CanaryDependencyArrayOutput {
+	return o.ApplyT(func(v *CanaryCode) []CanaryDependency {
+		if v == nil {
+			return nil
+		}
+		return v.Dependencies
+	}).(CanaryDependencyArrayOutput)
 }
 
 // The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
@@ -435,6 +454,112 @@ func (o CanaryCodePtrOutput) SourceLocationArn() pulumi.StringPtrOutput {
 		}
 		return v.SourceLocationArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type CanaryDependency struct {
+	// ARN of the Lambda layer
+	Reference string `pulumi:"reference"`
+	// Type of dependency
+	Type *CanaryDependencyType `pulumi:"type"`
+}
+
+// CanaryDependencyInput is an input type that accepts CanaryDependencyArgs and CanaryDependencyOutput values.
+// You can construct a concrete instance of `CanaryDependencyInput` via:
+//
+//	CanaryDependencyArgs{...}
+type CanaryDependencyInput interface {
+	pulumi.Input
+
+	ToCanaryDependencyOutput() CanaryDependencyOutput
+	ToCanaryDependencyOutputWithContext(context.Context) CanaryDependencyOutput
+}
+
+type CanaryDependencyArgs struct {
+	// ARN of the Lambda layer
+	Reference pulumi.StringInput `pulumi:"reference"`
+	// Type of dependency
+	Type CanaryDependencyTypePtrInput `pulumi:"type"`
+}
+
+func (CanaryDependencyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryDependency)(nil)).Elem()
+}
+
+func (i CanaryDependencyArgs) ToCanaryDependencyOutput() CanaryDependencyOutput {
+	return i.ToCanaryDependencyOutputWithContext(context.Background())
+}
+
+func (i CanaryDependencyArgs) ToCanaryDependencyOutputWithContext(ctx context.Context) CanaryDependencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryDependencyOutput)
+}
+
+// CanaryDependencyArrayInput is an input type that accepts CanaryDependencyArray and CanaryDependencyArrayOutput values.
+// You can construct a concrete instance of `CanaryDependencyArrayInput` via:
+//
+//	CanaryDependencyArray{ CanaryDependencyArgs{...} }
+type CanaryDependencyArrayInput interface {
+	pulumi.Input
+
+	ToCanaryDependencyArrayOutput() CanaryDependencyArrayOutput
+	ToCanaryDependencyArrayOutputWithContext(context.Context) CanaryDependencyArrayOutput
+}
+
+type CanaryDependencyArray []CanaryDependencyInput
+
+func (CanaryDependencyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CanaryDependency)(nil)).Elem()
+}
+
+func (i CanaryDependencyArray) ToCanaryDependencyArrayOutput() CanaryDependencyArrayOutput {
+	return i.ToCanaryDependencyArrayOutputWithContext(context.Background())
+}
+
+func (i CanaryDependencyArray) ToCanaryDependencyArrayOutputWithContext(ctx context.Context) CanaryDependencyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryDependencyArrayOutput)
+}
+
+type CanaryDependencyOutput struct{ *pulumi.OutputState }
+
+func (CanaryDependencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryDependency)(nil)).Elem()
+}
+
+func (o CanaryDependencyOutput) ToCanaryDependencyOutput() CanaryDependencyOutput {
+	return o
+}
+
+func (o CanaryDependencyOutput) ToCanaryDependencyOutputWithContext(ctx context.Context) CanaryDependencyOutput {
+	return o
+}
+
+// ARN of the Lambda layer
+func (o CanaryDependencyOutput) Reference() pulumi.StringOutput {
+	return o.ApplyT(func(v CanaryDependency) string { return v.Reference }).(pulumi.StringOutput)
+}
+
+// Type of dependency
+func (o CanaryDependencyOutput) Type() CanaryDependencyTypePtrOutput {
+	return o.ApplyT(func(v CanaryDependency) *CanaryDependencyType { return v.Type }).(CanaryDependencyTypePtrOutput)
+}
+
+type CanaryDependencyArrayOutput struct{ *pulumi.OutputState }
+
+func (CanaryDependencyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CanaryDependency)(nil)).Elem()
+}
+
+func (o CanaryDependencyArrayOutput) ToCanaryDependencyArrayOutput() CanaryDependencyArrayOutput {
+	return o
+}
+
+func (o CanaryDependencyArrayOutput) ToCanaryDependencyArrayOutputWithContext(ctx context.Context) CanaryDependencyArrayOutput {
+	return o
+}
+
+func (o CanaryDependencyArrayOutput) Index(i pulumi.IntInput) CanaryDependencyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CanaryDependency {
+		return vs[0].([]CanaryDependency)[vs[1].(int)]
+	}).(CanaryDependencyOutput)
 }
 
 type CanaryRetryConfig struct {
@@ -1471,6 +1596,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryBaseScreenshotInput)(nil)).Elem(), CanaryBaseScreenshotArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryBaseScreenshotArrayInput)(nil)).Elem(), CanaryBaseScreenshotArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryCodeInput)(nil)).Elem(), CanaryCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryDependencyInput)(nil)).Elem(), CanaryDependencyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryDependencyArrayInput)(nil)).Elem(), CanaryDependencyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryRetryConfigInput)(nil)).Elem(), CanaryRetryConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryRetryConfigPtrInput)(nil)).Elem(), CanaryRetryConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryRunConfigInput)(nil)).Elem(), CanaryRunConfigArgs{})
@@ -1488,6 +1615,8 @@ func init() {
 	pulumi.RegisterOutputType(CanaryBaseScreenshotArrayOutput{})
 	pulumi.RegisterOutputType(CanaryCodeOutput{})
 	pulumi.RegisterOutputType(CanaryCodePtrOutput{})
+	pulumi.RegisterOutputType(CanaryDependencyOutput{})
+	pulumi.RegisterOutputType(CanaryDependencyArrayOutput{})
 	pulumi.RegisterOutputType(CanaryRetryConfigOutput{})
 	pulumi.RegisterOutputType(CanaryRetryConfigPtrOutput{})
 	pulumi.RegisterOutputType(CanaryRunConfigOutput{})

@@ -39,6 +39,8 @@ type LookupClusterResult struct {
 	FailureMessage *string `pulumi:"failureMessage"`
 	// The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
 	InstanceGroups []ClusterInstanceGroup `pulumi:"instanceGroups"`
+	// Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
+	NodeProvisioningMode *ClusterNodeProvisioningMode `pulumi:"nodeProvisioningMode"`
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 	NodeRecovery             *ClusterNodeRecovery             `pulumi:"nodeRecovery"`
 	RestrictedInstanceGroups []ClusterRestrictedInstanceGroup `pulumi:"restrictedInstanceGroups"`
@@ -101,6 +103,11 @@ func (o LookupClusterResultOutput) FailureMessage() pulumi.StringPtrOutput {
 // The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
 func (o LookupClusterResultOutput) InstanceGroups() ClusterInstanceGroupArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []ClusterInstanceGroup { return v.InstanceGroups }).(ClusterInstanceGroupArrayOutput)
+}
+
+// Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
+func (o LookupClusterResultOutput) NodeProvisioningMode() ClusterNodeProvisioningModePtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterNodeProvisioningMode { return v.NodeProvisioningMode }).(ClusterNodeProvisioningModePtrOutput)
 }
 
 // If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.

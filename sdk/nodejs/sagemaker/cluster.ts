@@ -62,6 +62,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly instanceGroups!: pulumi.Output<outputs.sagemaker.ClusterInstanceGroup[] | undefined>;
     /**
+     * Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
+     */
+    public readonly nodeProvisioningMode!: pulumi.Output<enums.sagemaker.ClusterNodeProvisioningMode | undefined>;
+    /**
      * If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
      */
     public readonly nodeRecovery!: pulumi.Output<enums.sagemaker.ClusterNodeRecovery | undefined>;
@@ -92,6 +96,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["instanceGroups"] = args ? args.instanceGroups : undefined;
+            resourceInputs["nodeProvisioningMode"] = args ? args.nodeProvisioningMode : undefined;
             resourceInputs["nodeRecovery"] = args ? args.nodeRecovery : undefined;
             resourceInputs["orchestrator"] = args ? args.orchestrator : undefined;
             resourceInputs["restrictedInstanceGroups"] = args ? args.restrictedInstanceGroups : undefined;
@@ -108,6 +113,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["failureMessage"] = undefined /*out*/;
             resourceInputs["instanceGroups"] = undefined /*out*/;
+            resourceInputs["nodeProvisioningMode"] = undefined /*out*/;
             resourceInputs["nodeRecovery"] = undefined /*out*/;
             resourceInputs["orchestrator"] = undefined /*out*/;
             resourceInputs["restrictedInstanceGroups"] = undefined /*out*/;
@@ -133,6 +139,10 @@ export interface ClusterArgs {
      * The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
      */
     instanceGroups?: pulumi.Input<pulumi.Input<inputs.sagemaker.ClusterInstanceGroupArgs>[]>;
+    /**
+     * Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
+     */
+    nodeProvisioningMode?: pulumi.Input<enums.sagemaker.ClusterNodeProvisioningMode>;
     /**
      * If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
      */

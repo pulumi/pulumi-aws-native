@@ -99,7 +99,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
 def get_application(application_arn: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    Resource schema for AWS::ApplicationInsights::Application
+    Resource Type definition for AWS::ApplicationInsights::Application
 
 
     :param builtins.str application_arn: The ARN of the ApplicationInsights application.
@@ -118,7 +118,7 @@ def get_application(application_arn: Optional[builtins.str] = None,
 def get_application_output(application_arn: Optional[pulumi.Input[builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
-    Resource schema for AWS::ApplicationInsights::Application
+    Resource Type definition for AWS::ApplicationInsights::Application
 
 
     :param builtins.str application_arn: The ARN of the ApplicationInsights application.

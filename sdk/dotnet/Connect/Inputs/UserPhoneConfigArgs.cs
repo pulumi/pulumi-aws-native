@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("deskPhoneNumber")]
         public Input<string>? DeskPhoneNumber { get; set; }
 
+        [Input("persistentConnection")]
+        public Input<bool>? PersistentConnection { get; set; }
+
         /// <summary>
         /// The phone type.
         /// </summary>

@@ -53,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &InstanceConnectEndpoint{}
 	case "aws-native:ec2:InternetGateway":
 		r = &InternetGateway{}
+	case "aws-native:ec2:IpPoolRouteTableAssociation":
+		r = &IpPoolRouteTableAssociation{}
 	case "aws-native:ec2:Ipam":
 		r = &Ipam{}
 	case "aws-native:ec2:IpamAllocation":

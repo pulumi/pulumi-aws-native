@@ -20,10 +20,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;An expression that must evaluate to a Boolean value. Rows for which the expression
         ///             evaluates to true are kept in the dataset.&lt;/p&gt;
         /// </summary>
-        public readonly string ConditionExpression;
+        public readonly string? ConditionExpression;
 
         [OutputConstructor]
-        private DataSetFilterOperation(string conditionExpression)
+        private DataSetFilterOperation(string? conditionExpression)
         {
             ConditionExpression = conditionExpression;
         }

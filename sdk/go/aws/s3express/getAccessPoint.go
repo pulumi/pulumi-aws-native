@@ -41,7 +41,8 @@ type LookupAccessPointResult struct {
 	PublicAccessBlockConfiguration *AccessPointPublicAccessBlockConfiguration `pulumi:"publicAccessBlockConfiguration"`
 	// For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
 	Scope *AccessPointScope `pulumi:"scope"`
-	Tags  []aws.Tag         `pulumi:"tags"`
+	// An array of tags that you can apply to access points. Tags are key-value pairs of metadata used to categorize your access points and control access. For more information, see [Using tags for attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAccessPointOutput(ctx *pulumi.Context, args LookupAccessPointOutputArgs, opts ...pulumi.InvokeOption) LookupAccessPointResultOutput {
@@ -105,6 +106,7 @@ func (o LookupAccessPointResultOutput) Scope() AccessPointScopePtrOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) *AccessPointScope { return v.Scope }).(AccessPointScopePtrOutput)
 }
 
+// An array of tags that you can apply to access points. Tags are key-value pairs of metadata used to categorize your access points and control access. For more information, see [Using tags for attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac) .
 func (o LookupAccessPointResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

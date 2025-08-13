@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// &lt;p&gt;The column name that a tag key is assigned to.&lt;/p&gt;
         /// </summary>
-        public readonly string ColumnName;
+        public readonly string? ColumnName;
         /// <summary>
         /// &lt;p&gt;A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.&lt;/p&gt;
         /// </summary>
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private DataSetRowLevelPermissionTagRule(
-            string columnName,
+            string? columnName,
 
             string? matchAllValue,
 

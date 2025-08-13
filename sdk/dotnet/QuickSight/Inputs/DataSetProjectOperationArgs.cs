@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DataSetProjectOperationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("projectedColumns", required: true)]
+        [Input("projectedColumns")]
         private InputList<string>? _projectedColumns;
 
         /// <summary>

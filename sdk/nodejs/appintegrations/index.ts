@@ -36,6 +36,9 @@ export const getEventIntegrationOutput: typeof import("./getEventIntegration").g
 utilities.lazyLoad(exports, ["getEventIntegration","getEventIntegrationOutput"], () => require("./getEventIntegration"));
 
 
+// Export enums:
+export * from "../types/enums/appintegrations";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

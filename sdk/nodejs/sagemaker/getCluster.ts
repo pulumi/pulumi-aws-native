@@ -46,6 +46,10 @@ export interface GetClusterResult {
      */
     readonly instanceGroups?: outputs.sagemaker.ClusterInstanceGroup[];
     /**
+     * Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
+     */
+    readonly nodeProvisioningMode?: enums.sagemaker.ClusterNodeProvisioningMode;
+    /**
      * If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
      */
     readonly nodeRecovery?: enums.sagemaker.ClusterNodeRecovery;

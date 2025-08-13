@@ -1200,7 +1200,9 @@ func (o SessionLoggerS3LogConfigurationPtrOutput) LogFileFormat() SessionLoggerL
 }
 
 type SessionLoggerTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag
 	Value string `pulumi:"value"`
 }
 

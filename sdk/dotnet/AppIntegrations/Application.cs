@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppIntegrations
         public Output<string> ApplicationArn { get; private set; } = null!;
 
         /// <summary>
+        /// The application configuration. Cannot be used when IsService is true.
+        /// </summary>
+        [Output("applicationConfig")]
+        public Output<Outputs.ApplicationConfig?> ApplicationConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Application source config
         /// </summary>
         [Output("applicationSourceConfig")]
@@ -38,6 +44,24 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The iframe configuration
+        /// </summary>
+        [Output("iframeConfig")]
+        public Output<Outputs.ApplicationIframeConfig?> IframeConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// The initialization timeout in milliseconds. Required when IsService is true.
+        /// </summary>
+        [Output("initializationTimeout")]
+        public Output<int?> InitializationTimeout { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates if the application is a service
+        /// </summary>
+        [Output("isService")]
+        public Output<bool?> IsService { get; private set; } = null!;
 
         /// <summary>
         /// The name of the application.
@@ -109,6 +133,12 @@ namespace Pulumi.AwsNative.AppIntegrations
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The application configuration. Cannot be used when IsService is true.
+        /// </summary>
+        [Input("applicationConfig")]
+        public Input<Inputs.ApplicationConfigArgs>? ApplicationConfig { get; set; }
+
+        /// <summary>
         /// Application source config
         /// </summary>
         [Input("applicationSourceConfig", required: true)]
@@ -119,6 +149,24 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
+
+        /// <summary>
+        /// The iframe configuration
+        /// </summary>
+        [Input("iframeConfig")]
+        public Input<Inputs.ApplicationIframeConfigArgs>? IframeConfig { get; set; }
+
+        /// <summary>
+        /// The initialization timeout in milliseconds. Required when IsService is true.
+        /// </summary>
+        [Input("initializationTimeout")]
+        public Input<int>? InitializationTimeout { get; set; }
+
+        /// <summary>
+        /// Indicates if the application is a service
+        /// </summary>
+        [Input("isService")]
+        public Input<bool>? IsService { get; set; }
 
         /// <summary>
         /// The name of the application.

@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly int? CurrentCount;
         public readonly string ExecutionRole;
+        public readonly string? ImageId;
         /// <summary>
         /// The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
         /// </summary>
@@ -46,6 +47,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             string executionRole,
 
+            string? imageId,
+
             int instanceCount,
 
             string instanceGroupName,
@@ -66,6 +69,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         {
             CurrentCount = currentCount;
             ExecutionRole = executionRole;
+            ImageId = imageId;
             InstanceCount = instanceCount;
             InstanceGroupName = instanceGroupName;
             InstanceStorageConfigs = instanceStorageConfigs;

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetUniqueKeyArgs : global::Pulumi.ResourceArgs
     {
-        [Input("columnNames", required: true)]
+        [Input("columnNames")]
         private InputList<string>? _columnNames;
         public InputList<string> ColumnNames
         {

@@ -5842,7 +5842,7 @@ type Ec2FleetPlacement struct {
 	Affinity *string `pulumi:"affinity"`
 	// The Availability Zone of the instance.
 	//
-	// If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.
+	// Either `AvailabilityZone` or `AvailabilityZoneId` can be specified, but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone based on the load balancing criteria for the Region.
 	//
 	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 	AvailabilityZone *string `pulumi:"availabilityZone"`
@@ -5888,7 +5888,7 @@ type Ec2FleetPlacementArgs struct {
 	Affinity pulumi.StringPtrInput `pulumi:"affinity"`
 	// The Availability Zone of the instance.
 	//
-	// If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.
+	// Either `AvailabilityZone` or `AvailabilityZoneId` can be specified, but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone based on the load balancing criteria for the Region.
 	//
 	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
@@ -6002,7 +6002,7 @@ func (o Ec2FleetPlacementOutput) Affinity() pulumi.StringPtrOutput {
 
 // The Availability Zone of the instance.
 //
-// If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.
+// Either `AvailabilityZone` or `AvailabilityZoneId` can be specified, but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone based on the load balancing criteria for the Region.
 //
 // This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 func (o Ec2FleetPlacementOutput) AvailabilityZone() pulumi.StringPtrOutput {
@@ -6087,7 +6087,7 @@ func (o Ec2FleetPlacementPtrOutput) Affinity() pulumi.StringPtrOutput {
 
 // The Availability Zone of the instance.
 //
-// If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.
+// Either `AvailabilityZone` or `AvailabilityZoneId` can be specified, but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone based on the load balancing criteria for the Region.
 //
 // This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 func (o Ec2FleetPlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
@@ -16841,7 +16841,8 @@ type LaunchTemplateNetworkInterface struct {
 	Description *string `pulumi:"description"`
 	// The device index for the network interface attachment. The primary network interface has a device index of 0. If the network interface is of type ``interface``, you must specify a device index.
 	//  If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
-	DeviceIndex   *int `pulumi:"deviceIndex"`
+	DeviceIndex *int `pulumi:"deviceIndex"`
+	// The number of ENA queues to be created with the instance.
 	EnaQueueCount *int `pulumi:"enaQueueCount"`
 	// The ENA Express configuration for the network interface.
 	EnaSrdSpecification *LaunchTemplateEnaSrdSpecification `pulumi:"enaSrdSpecification"`
@@ -16909,7 +16910,8 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The device index for the network interface attachment. The primary network interface has a device index of 0. If the network interface is of type ``interface``, you must specify a device index.
 	//  If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
-	DeviceIndex   pulumi.IntPtrInput `pulumi:"deviceIndex"`
+	DeviceIndex pulumi.IntPtrInput `pulumi:"deviceIndex"`
+	// The number of ENA queues to be created with the instance.
 	EnaQueueCount pulumi.IntPtrInput `pulumi:"enaQueueCount"`
 	// The ENA Express configuration for the network interface.
 	EnaSrdSpecification LaunchTemplateEnaSrdSpecificationPtrInput `pulumi:"enaSrdSpecification"`
@@ -17040,6 +17042,7 @@ func (o LaunchTemplateNetworkInterfaceOutput) DeviceIndex() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.DeviceIndex }).(pulumi.IntPtrOutput)
 }
 
+// The number of ENA queues to be created with the instance.
 func (o LaunchTemplateNetworkInterfaceOutput) EnaQueueCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.EnaQueueCount }).(pulumi.IntPtrOutput)
 }

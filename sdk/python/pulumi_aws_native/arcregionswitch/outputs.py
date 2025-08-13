@@ -55,6 +55,7 @@ __all__ = [
     'PlanTrigger',
     'PlanTriggerCondition',
     'PlanWorkflow',
+    'Route53HealthChecksProperties',
 ]
 
 @pulumi.output_type
@@ -1723,5 +1724,63 @@ class PlanWorkflow(dict):
         The AWS Region that the workflow targets.
         """
         return pulumi.get(self, "workflow_target_region")
+
+
+@pulumi.output_type
+class Route53HealthChecksProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthCheckIds":
+            suggest = "health_check_ids"
+        elif key == "hostedZoneIds":
+            suggest = "hosted_zone_ids"
+        elif key == "recordNames":
+            suggest = "record_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Route53HealthChecksProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Route53HealthChecksProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Route53HealthChecksProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 health_check_ids: Optional[Sequence[builtins.str]] = None,
+                 hosted_zone_ids: Optional[Sequence[builtins.str]] = None,
+                 record_names: Optional[Sequence[builtins.str]] = None,
+                 regions: Optional[Sequence[builtins.str]] = None):
+        if health_check_ids is not None:
+            pulumi.set(__self__, "health_check_ids", health_check_ids)
+        if hosted_zone_ids is not None:
+            pulumi.set(__self__, "hosted_zone_ids", hosted_zone_ids)
+        if record_names is not None:
+            pulumi.set(__self__, "record_names", record_names)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
+
+    @property
+    @pulumi.getter(name="healthCheckIds")
+    def health_check_ids(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "health_check_ids")
+
+    @property
+    @pulumi.getter(name="hostedZoneIds")
+    def hosted_zone_ids(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "hosted_zone_ids")
+
+    @property
+    @pulumi.getter(name="recordNames")
+    def record_names(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "record_names")
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "regions")
 
 

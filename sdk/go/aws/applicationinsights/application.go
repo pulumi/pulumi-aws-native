@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::ApplicationInsights::Application
+// Resource Type definition for AWS::ApplicationInsights::Application
 type Application struct {
 	pulumi.CustomResourceState
 

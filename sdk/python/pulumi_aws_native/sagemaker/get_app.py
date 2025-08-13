@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAppResult:
-    def __init__(__self__, app_arn=None, built_in_lifecycle_config_arn=None, recovery_mode=None):
+    def __init__(__self__, app_arn=None, built_in_lifecycle_config_arn=None, recovery_mode=None, tags=None):
         if app_arn and not isinstance(app_arn, str):
             raise TypeError("Expected argument 'app_arn' to be a str")
         pulumi.set(__self__, "app_arn", app_arn)
@@ -35,6 +36,9 @@ class GetAppResult:
         if recovery_mode and not isinstance(recovery_mode, bool):
             raise TypeError("Expected argument 'recovery_mode' to be a bool")
         pulumi.set(__self__, "recovery_mode", recovery_mode)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="appArn")
@@ -60,6 +64,14 @@ class GetAppResult:
         """
         return pulumi.get(self, "recovery_mode")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of tags to apply to the app.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetAppResult(GetAppResult):
     # pylint: disable=using-constant-test
@@ -69,7 +81,8 @@ class AwaitableGetAppResult(GetAppResult):
         return GetAppResult(
             app_arn=self.app_arn,
             built_in_lifecycle_config_arn=self.built_in_lifecycle_config_arn,
-            recovery_mode=self.recovery_mode)
+            recovery_mode=self.recovery_mode,
+            tags=self.tags)
 
 
 def get_app(app_name: Optional[builtins.str] = None,
@@ -97,7 +110,8 @@ def get_app(app_name: Optional[builtins.str] = None,
     return AwaitableGetAppResult(
         app_arn=pulumi.get(__ret__, 'app_arn'),
         built_in_lifecycle_config_arn=pulumi.get(__ret__, 'built_in_lifecycle_config_arn'),
-        recovery_mode=pulumi.get(__ret__, 'recovery_mode'))
+        recovery_mode=pulumi.get(__ret__, 'recovery_mode'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_app_output(app_name: Optional[pulumi.Input[builtins.str]] = None,
                    app_type: Optional[pulumi.Input['AppType']] = None,
                    domain_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -122,4 +136,5 @@ def get_app_output(app_name: Optional[pulumi.Input[builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetAppResult(
         app_arn=pulumi.get(__response__, 'app_arn'),
         built_in_lifecycle_config_arn=pulumi.get(__response__, 'built_in_lifecycle_config_arn'),
-        recovery_mode=pulumi.get(__response__, 'recovery_mode')))
+        recovery_mode=pulumi.get(__response__, 'recovery_mode'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -65,6 +68,10 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly subdomain!: pulumi.Output<string>;
     /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * The complete URL of the monitor. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
      */
     public /*out*/ readonly url!: pulumi.Output<string>;
@@ -96,6 +103,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["identityCenterInstanceArn"] = args ? args.identityCenterInstanceArn : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["subdomain"] = args ? args.subdomain : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["identityCenterApplicationArn"] = undefined /*out*/;
             resourceInputs["monitorId"] = undefined /*out*/;
@@ -108,6 +116,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["monitorId"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["subdomain"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -139,4 +148,8 @@ export interface MonitorArgs {
      * The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
      */
     subdomain: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

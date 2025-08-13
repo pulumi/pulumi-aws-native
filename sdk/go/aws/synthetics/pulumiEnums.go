@@ -10,6 +10,170 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Type of dependency
+type CanaryDependencyType string
+
+const (
+	CanaryDependencyTypeLambdaLayer = CanaryDependencyType("LambdaLayer")
+)
+
+func (CanaryDependencyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryDependencyType)(nil)).Elem()
+}
+
+func (e CanaryDependencyType) ToCanaryDependencyTypeOutput() CanaryDependencyTypeOutput {
+	return pulumi.ToOutput(e).(CanaryDependencyTypeOutput)
+}
+
+func (e CanaryDependencyType) ToCanaryDependencyTypeOutputWithContext(ctx context.Context) CanaryDependencyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CanaryDependencyTypeOutput)
+}
+
+func (e CanaryDependencyType) ToCanaryDependencyTypePtrOutput() CanaryDependencyTypePtrOutput {
+	return e.ToCanaryDependencyTypePtrOutputWithContext(context.Background())
+}
+
+func (e CanaryDependencyType) ToCanaryDependencyTypePtrOutputWithContext(ctx context.Context) CanaryDependencyTypePtrOutput {
+	return CanaryDependencyType(e).ToCanaryDependencyTypeOutputWithContext(ctx).ToCanaryDependencyTypePtrOutputWithContext(ctx)
+}
+
+func (e CanaryDependencyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CanaryDependencyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CanaryDependencyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CanaryDependencyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CanaryDependencyTypeOutput struct{ *pulumi.OutputState }
+
+func (CanaryDependencyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryDependencyType)(nil)).Elem()
+}
+
+func (o CanaryDependencyTypeOutput) ToCanaryDependencyTypeOutput() CanaryDependencyTypeOutput {
+	return o
+}
+
+func (o CanaryDependencyTypeOutput) ToCanaryDependencyTypeOutputWithContext(ctx context.Context) CanaryDependencyTypeOutput {
+	return o
+}
+
+func (o CanaryDependencyTypeOutput) ToCanaryDependencyTypePtrOutput() CanaryDependencyTypePtrOutput {
+	return o.ToCanaryDependencyTypePtrOutputWithContext(context.Background())
+}
+
+func (o CanaryDependencyTypeOutput) ToCanaryDependencyTypePtrOutputWithContext(ctx context.Context) CanaryDependencyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CanaryDependencyType) *CanaryDependencyType {
+		return &v
+	}).(CanaryDependencyTypePtrOutput)
+}
+
+func (o CanaryDependencyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CanaryDependencyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CanaryDependencyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CanaryDependencyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CanaryDependencyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CanaryDependencyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CanaryDependencyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (CanaryDependencyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CanaryDependencyType)(nil)).Elem()
+}
+
+func (o CanaryDependencyTypePtrOutput) ToCanaryDependencyTypePtrOutput() CanaryDependencyTypePtrOutput {
+	return o
+}
+
+func (o CanaryDependencyTypePtrOutput) ToCanaryDependencyTypePtrOutputWithContext(ctx context.Context) CanaryDependencyTypePtrOutput {
+	return o
+}
+
+func (o CanaryDependencyTypePtrOutput) Elem() CanaryDependencyTypeOutput {
+	return o.ApplyT(func(v *CanaryDependencyType) CanaryDependencyType {
+		if v != nil {
+			return *v
+		}
+		var ret CanaryDependencyType
+		return ret
+	}).(CanaryDependencyTypeOutput)
+}
+
+func (o CanaryDependencyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CanaryDependencyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CanaryDependencyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CanaryDependencyTypeInput is an input type that accepts values of the CanaryDependencyType enum
+// A concrete instance of `CanaryDependencyTypeInput` can be one of the following:
+//
+//	CanaryDependencyTypeLambdaLayer
+type CanaryDependencyTypeInput interface {
+	pulumi.Input
+
+	ToCanaryDependencyTypeOutput() CanaryDependencyTypeOutput
+	ToCanaryDependencyTypeOutputWithContext(context.Context) CanaryDependencyTypeOutput
+}
+
+var canaryDependencyTypePtrType = reflect.TypeOf((**CanaryDependencyType)(nil)).Elem()
+
+type CanaryDependencyTypePtrInput interface {
+	pulumi.Input
+
+	ToCanaryDependencyTypePtrOutput() CanaryDependencyTypePtrOutput
+	ToCanaryDependencyTypePtrOutputWithContext(context.Context) CanaryDependencyTypePtrOutput
+}
+
+type canaryDependencyTypePtr string
+
+func CanaryDependencyTypePtr(v string) CanaryDependencyTypePtrInput {
+	return (*canaryDependencyTypePtr)(&v)
+}
+
+func (*canaryDependencyTypePtr) ElementType() reflect.Type {
+	return canaryDependencyTypePtrType
+}
+
+func (in *canaryDependencyTypePtr) ToCanaryDependencyTypePtrOutput() CanaryDependencyTypePtrOutput {
+	return pulumi.ToOutput(in).(CanaryDependencyTypePtrOutput)
+}
+
+func (in *canaryDependencyTypePtr) ToCanaryDependencyTypePtrOutputWithContext(ctx context.Context) CanaryDependencyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CanaryDependencyTypePtrOutput)
+}
+
 // Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
 type CanaryProvisionedResourceCleanup string
 
@@ -386,11 +550,15 @@ func (o CanaryResourceToTagArrayOutput) Index(i pulumi.IntInput) CanaryResourceT
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryDependencyTypeInput)(nil)).Elem(), CanaryDependencyType("LambdaLayer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryDependencyTypePtrInput)(nil)).Elem(), CanaryDependencyType("LambdaLayer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryProvisionedResourceCleanupInput)(nil)).Elem(), CanaryProvisionedResourceCleanup("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryProvisionedResourceCleanupPtrInput)(nil)).Elem(), CanaryProvisionedResourceCleanup("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryResourceToTagInput)(nil)).Elem(), CanaryResourceToTag("lambda-function"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryResourceToTagPtrInput)(nil)).Elem(), CanaryResourceToTag("lambda-function"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryResourceToTagArrayInput)(nil)).Elem(), CanaryResourceToTagArray{})
+	pulumi.RegisterOutputType(CanaryDependencyTypeOutput{})
+	pulumi.RegisterOutputType(CanaryDependencyTypePtrOutput{})
 	pulumi.RegisterOutputType(CanaryProvisionedResourceCleanupOutput{})
 	pulumi.RegisterOutputType(CanaryProvisionedResourceCleanupPtrOutput{})
 	pulumi.RegisterOutputType(CanaryResourceToTagOutput{})

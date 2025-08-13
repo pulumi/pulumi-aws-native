@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -35,15 +34,9 @@ type PlaybackRestrictionPolicy struct {
 func NewPlaybackRestrictionPolicy(ctx *pulumi.Context,
 	name string, args *PlaybackRestrictionPolicyArgs, opts ...pulumi.ResourceOption) (*PlaybackRestrictionPolicy, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &PlaybackRestrictionPolicyArgs{}
 	}
 
-	if args.AllowedCountries == nil {
-		return nil, errors.New("invalid value for required argument 'AllowedCountries'")
-	}
-	if args.AllowedOrigins == nil {
-		return nil, errors.New("invalid value for required argument 'AllowedOrigins'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PlaybackRestrictionPolicy
 	err := ctx.RegisterResource("aws-native:ivs:PlaybackRestrictionPolicy", name, args, &resource, opts...)

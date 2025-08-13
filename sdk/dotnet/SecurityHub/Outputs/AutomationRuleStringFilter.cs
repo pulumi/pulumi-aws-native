@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         ///   +   ``ResourceType NOT_EQUALS AwsIamPolicy`` 
         ///   +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface`` 
         ///   
-        ///  ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+        ///  ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourceStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
         /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.AutomationRuleStringFilterComparison Comparison;
         /// <summary>

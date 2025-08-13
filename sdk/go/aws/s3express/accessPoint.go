@@ -35,7 +35,8 @@ type AccessPoint struct {
 	PublicAccessBlockConfiguration AccessPointPublicAccessBlockConfigurationPtrOutput `pulumi:"publicAccessBlockConfiguration"`
 	// For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
 	Scope AccessPointScopePtrOutput `pulumi:"scope"`
-	Tags  aws.TagArrayOutput        `pulumi:"tags"`
+	// An array of tags that you can apply to access points. Tags are key-value pairs of metadata used to categorize your access points and control access. For more information, see [Using tags for attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac) .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
 	VpcConfiguration AccessPointVpcConfigurationPtrOutput `pulumi:"vpcConfiguration"`
 }
@@ -104,7 +105,8 @@ type accessPointArgs struct {
 	PublicAccessBlockConfiguration *AccessPointPublicAccessBlockConfiguration `pulumi:"publicAccessBlockConfiguration"`
 	// For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
 	Scope *AccessPointScope `pulumi:"scope"`
-	Tags  []aws.Tag         `pulumi:"tags"`
+	// An array of tags that you can apply to access points. Tags are key-value pairs of metadata used to categorize your access points and control access. For more information, see [Using tags for attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac) .
+	Tags []aws.Tag `pulumi:"tags"`
 	// If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
 	VpcConfiguration *AccessPointVpcConfiguration `pulumi:"vpcConfiguration"`
 }
@@ -125,7 +127,8 @@ type AccessPointArgs struct {
 	PublicAccessBlockConfiguration AccessPointPublicAccessBlockConfigurationPtrInput
 	// For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
 	Scope AccessPointScopePtrInput
-	Tags  aws.TagArrayInput
+	// An array of tags that you can apply to access points. Tags are key-value pairs of metadata used to categorize your access points and control access. For more information, see [Using tags for attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac) .
+	Tags aws.TagArrayInput
 	// If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
 	VpcConfiguration AccessPointVpcConfigurationPtrInput
 }
@@ -211,6 +214,7 @@ func (o AccessPointOutput) Scope() AccessPointScopePtrOutput {
 	return o.ApplyT(func(v *AccessPoint) AccessPointScopePtrOutput { return v.Scope }).(AccessPointScopePtrOutput)
 }
 
+// An array of tags that you can apply to access points. Tags are key-value pairs of metadata used to categorize your access points and control access. For more information, see [Using tags for attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac) .
 func (o AccessPointOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *AccessPoint) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

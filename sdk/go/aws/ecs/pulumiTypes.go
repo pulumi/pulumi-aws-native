@@ -246,8 +246,6 @@ type CapacityProviderManagedScaling struct {
 	// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
 	//
 	// When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
-	//
-	// If you use a capacity provider with an Auto Scaling group configured with more than one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the exact minimum scaling step size value and will ignore both the maximum scaling step size as well as the capacity demand.
 	MinimumScalingStepSize *int `pulumi:"minimumScalingStepSize"`
 	// Determines whether to use managed scaling for the capacity provider.
 	Status *CapacityProviderManagedScalingStatus `pulumi:"status"`
@@ -275,8 +273,6 @@ type CapacityProviderManagedScalingArgs struct {
 	// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
 	//
 	// When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
-	//
-	// If you use a capacity provider with an Auto Scaling group configured with more than one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the exact minimum scaling step size value and will ignore both the maximum scaling step size as well as the capacity demand.
 	MinimumScalingStepSize pulumi.IntPtrInput `pulumi:"minimumScalingStepSize"`
 	// Determines whether to use managed scaling for the capacity provider.
 	Status CapacityProviderManagedScalingStatusPtrInput `pulumi:"status"`
@@ -375,8 +371,6 @@ func (o CapacityProviderManagedScalingOutput) MaximumScalingStepSize() pulumi.In
 // The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
 //
 // When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
-//
-// If you use a capacity provider with an Auto Scaling group configured with more than one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the exact minimum scaling step size value and will ignore both the maximum scaling step size as well as the capacity demand.
 func (o CapacityProviderManagedScalingOutput) MinimumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedScaling) *int { return v.MinimumScalingStepSize }).(pulumi.IntPtrOutput)
 }
@@ -438,8 +432,6 @@ func (o CapacityProviderManagedScalingPtrOutput) MaximumScalingStepSize() pulumi
 // The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
 //
 // When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
-//
-// If you use a capacity provider with an Auto Scaling group configured with more than one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the exact minimum scaling step size value and will ignore both the maximum scaling step size as well as the capacity demand.
 func (o CapacityProviderManagedScalingPtrOutput) MinimumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedScaling) *int {
 		if v == nil {

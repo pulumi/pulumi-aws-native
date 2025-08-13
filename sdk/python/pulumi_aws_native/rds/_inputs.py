@@ -27,8 +27,6 @@ __all__ = [
     'DbClusterServerlessV2ScalingConfigurationArgsDict',
     'DbInstanceDbInstanceRoleArgs',
     'DbInstanceDbInstanceRoleArgsDict',
-    'DbInstanceDbInstanceStatusInfoArgs',
-    'DbInstanceDbInstanceStatusInfoArgsDict',
     'DbInstanceMasterUserSecretArgs',
     'DbInstanceMasterUserSecretArgsDict',
     'DbInstanceProcessorFeatureArgs',
@@ -482,98 +480,6 @@ class DbInstanceDbInstanceRoleArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "role_arn", value)
-
-
-if not MYPY:
-    class DbInstanceDbInstanceStatusInfoArgsDict(TypedDict):
-        message: NotRequired[pulumi.Input[builtins.str]]
-        """
-        Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
-        """
-        normal: NotRequired[pulumi.Input[builtins.bool]]
-        """
-        Indicates whether the instance is operating normally (TRUE) or is in an error state (FALSE).
-        """
-        status: NotRequired[pulumi.Input[builtins.str]]
-        """
-        The status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
-        """
-        status_type: NotRequired[pulumi.Input[builtins.str]]
-        """
-        The status type of the DB instance.
-        """
-elif False:
-    DbInstanceDbInstanceStatusInfoArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class DbInstanceDbInstanceStatusInfoArgs:
-    def __init__(__self__, *,
-                 message: Optional[pulumi.Input[builtins.str]] = None,
-                 normal: Optional[pulumi.Input[builtins.bool]] = None,
-                 status: Optional[pulumi.Input[builtins.str]] = None,
-                 status_type: Optional[pulumi.Input[builtins.str]] = None):
-        """
-        :param pulumi.Input[builtins.str] message: Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
-        :param pulumi.Input[builtins.bool] normal: Indicates whether the instance is operating normally (TRUE) or is in an error state (FALSE).
-        :param pulumi.Input[builtins.str] status: The status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
-        :param pulumi.Input[builtins.str] status_type: The status type of the DB instance.
-        """
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-        if normal is not None:
-            pulumi.set(__self__, "normal", normal)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if status_type is not None:
-            pulumi.set(__self__, "status_type", status_type)
-
-    @property
-    @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
-        """
-        return pulumi.get(self, "message")
-
-    @message.setter
-    def message(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "message", value)
-
-    @property
-    @pulumi.getter
-    def normal(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        Indicates whether the instance is operating normally (TRUE) or is in an error state (FALSE).
-        """
-        return pulumi.get(self, "normal")
-
-    @normal.setter
-    def normal(self, value: Optional[pulumi.Input[builtins.bool]]):
-        pulumi.set(self, "normal", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "status", value)
-
-    @property
-    @pulumi.getter(name="statusType")
-    def status_type(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The status type of the DB instance.
-        """
-        return pulumi.get(self, "status_type")
-
-    @status_type.setter
-    def status_type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "status_type", value)
 
 
 if not MYPY:

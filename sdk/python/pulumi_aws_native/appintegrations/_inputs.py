@@ -14,10 +14,17 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
+    'ApplicationConfigArgs',
+    'ApplicationConfigArgsDict',
+    'ApplicationContactHandlingArgs',
+    'ApplicationContactHandlingArgsDict',
     'ApplicationExternalUrlConfigArgs',
     'ApplicationExternalUrlConfigArgsDict',
+    'ApplicationIframeConfigArgs',
+    'ApplicationIframeConfigArgsDict',
     'ApplicationSourceConfigPropertiesArgs',
     'ApplicationSourceConfigPropertiesArgsDict',
     'DataIntegrationFileConfigurationArgs',
@@ -29,6 +36,51 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ApplicationConfigArgsDict(TypedDict):
+        contact_handling: NotRequired[pulumi.Input['ApplicationContactHandlingArgsDict']]
+elif False:
+    ApplicationConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationConfigArgs:
+    def __init__(__self__, *,
+                 contact_handling: Optional[pulumi.Input['ApplicationContactHandlingArgs']] = None):
+        if contact_handling is not None:
+            pulumi.set(__self__, "contact_handling", contact_handling)
+
+    @property
+    @pulumi.getter(name="contactHandling")
+    def contact_handling(self) -> Optional[pulumi.Input['ApplicationContactHandlingArgs']]:
+        return pulumi.get(self, "contact_handling")
+
+    @contact_handling.setter
+    def contact_handling(self, value: Optional[pulumi.Input['ApplicationContactHandlingArgs']]):
+        pulumi.set(self, "contact_handling", value)
+
+
+if not MYPY:
+    class ApplicationContactHandlingArgsDict(TypedDict):
+        scope: pulumi.Input['ApplicationContactHandlingScope']
+elif False:
+    ApplicationContactHandlingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationContactHandlingArgs:
+    def __init__(__self__, *,
+                 scope: pulumi.Input['ApplicationContactHandlingScope']):
+        pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input['ApplicationContactHandlingScope']:
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input['ApplicationContactHandlingScope']):
+        pulumi.set(self, "scope", value)
+
 
 if not MYPY:
     class ApplicationExternalUrlConfigArgsDict(TypedDict):
@@ -79,6 +131,42 @@ class ApplicationExternalUrlConfigArgs:
     @approved_origins.setter
     def approved_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "approved_origins", value)
+
+
+if not MYPY:
+    class ApplicationIframeConfigArgsDict(TypedDict):
+        allow: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        sandbox: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+elif False:
+    ApplicationIframeConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationIframeConfigArgs:
+    def __init__(__self__, *,
+                 allow: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 sandbox: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        if allow is not None:
+            pulumi.set(__self__, "allow", allow)
+        if sandbox is not None:
+            pulumi.set(__self__, "sandbox", sandbox)
+
+    @property
+    @pulumi.getter
+    def allow(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "allow")
+
+    @allow.setter
+    def allow(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "allow", value)
+
+    @property
+    @pulumi.getter
+    def sandbox(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "sandbox")
+
+    @sandbox.setter
+    def sandbox(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "sandbox", value)
 
 
 if not MYPY:

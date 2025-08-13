@@ -8,6 +8,36 @@ using Pulumi;
 namespace Pulumi.AwsNative.Synthetics
 {
     /// <summary>
+    /// Type of dependency
+    /// </summary>
+    [EnumType]
+    public readonly struct CanaryDependencyType : IEquatable<CanaryDependencyType>
+    {
+        private readonly string _value;
+
+        private CanaryDependencyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CanaryDependencyType LambdaLayer { get; } = new CanaryDependencyType("LambdaLayer");
+
+        public static bool operator ==(CanaryDependencyType left, CanaryDependencyType right) => left.Equals(right);
+        public static bool operator !=(CanaryDependencyType left, CanaryDependencyType right) => !left.Equals(right);
+
+        public static explicit operator string(CanaryDependencyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CanaryDependencyType other && Equals(other);
+        public bool Equals(CanaryDependencyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
     /// </summary>
     [EnumType]

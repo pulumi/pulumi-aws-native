@@ -2,6 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CanaryDependencyType = {
+    LambdaLayer: "LambdaLayer",
+} as const;
+
+/**
+ * Type of dependency
+ */
+export type CanaryDependencyType = (typeof CanaryDependencyType)[keyof typeof CanaryDependencyType];
+
 export const CanaryProvisionedResourceCleanup = {
     Automatic: "AUTOMATIC",
     Off: "OFF",

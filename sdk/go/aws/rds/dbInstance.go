@@ -1313,8 +1313,6 @@ type dbInstanceArgs struct {
 	SourceDbiResourceId *string `pulumi:"sourceDbiResourceId"`
 	// The ID of the region that contains the source DB instance for the read replica.
 	SourceRegion *string `pulumi:"sourceRegion"`
-	// The status of a read replica. If the DB instance isn't a read replica, the value is blank.
-	StatusInfos []DbInstanceDbInstanceStatusInfo `pulumi:"statusInfos"`
 	// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
 	//  If you specify the ``KmsKeyId`` property, then you must enable encryption.
 	//  If you specify the ``SourceDBInstanceIdentifier`` or ``SourceDbiResourceId`` property, don't specify this property. The value is inherited from the source DB instance, and if the DB instance is encrypted, the specified ``KmsKeyId`` property is used.
@@ -1934,8 +1932,6 @@ type DbInstanceArgs struct {
 	SourceDbiResourceId pulumi.StringPtrInput
 	// The ID of the region that contains the source DB instance for the read replica.
 	SourceRegion pulumi.StringPtrInput
-	// The status of a read replica. If the DB instance isn't a read replica, the value is blank.
-	StatusInfos DbInstanceDbInstanceStatusInfoArrayInput
 	// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
 	//  If you specify the ``KmsKeyId`` property, then you must enable encryption.
 	//  If you specify the ``SourceDBInstanceIdentifier`` or ``SourceDbiResourceId`` property, don't specify this property. The value is inherited from the source DB instance, and if the DB instance is encrypted, the specified ``KmsKeyId`` property is used.

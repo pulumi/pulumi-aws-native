@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("iamFederationOptions")]
+        public Input<Inputs.DomainIamFederationOptionsArgs>? IamFederationOptions { get; set; }
+
         /// <summary>
         /// True to enable the internal user database.
         /// </summary>

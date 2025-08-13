@@ -826,7 +826,7 @@ export class DbInstance extends pulumi.CustomResource {
     /**
      * The status of a read replica. If the DB instance isn't a read replica, the value is blank.
      */
-    public readonly statusInfos!: pulumi.Output<outputs.rds.DbInstanceDbInstanceStatusInfo[] | undefined>;
+    public /*out*/ readonly statusInfos!: pulumi.Output<outputs.rds.DbInstanceDbInstanceStatusInfo[]>;
     /**
      * A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
      *  If you specify the ``KmsKeyId`` property, then you must enable encryption.
@@ -968,7 +968,6 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["sourceDbInstanceIdentifier"] = args ? args.sourceDbInstanceIdentifier : undefined;
             resourceInputs["sourceDbiResourceId"] = args ? args.sourceDbiResourceId : undefined;
             resourceInputs["sourceRegion"] = args ? args.sourceRegion : undefined;
-            resourceInputs["statusInfos"] = args ? args.statusInfos : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             resourceInputs["storageThroughput"] = args ? args.storageThroughput : undefined;
             resourceInputs["storageType"] = args ? args.storageType : undefined;
@@ -994,6 +993,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["readReplicaDbInstanceIdentifiers"] = undefined /*out*/;
             resourceInputs["resumeFullAutomationModeTime"] = undefined /*out*/;
             resourceInputs["secondaryAvailabilityZone"] = undefined /*out*/;
+            resourceInputs["statusInfos"] = undefined /*out*/;
         } else {
             resourceInputs["allocatedStorage"] = undefined /*out*/;
             resourceInputs["allowMajorVersionUpgrade"] = undefined /*out*/;
@@ -1819,10 +1819,6 @@ export interface DbInstanceArgs {
      * The ID of the region that contains the source DB instance for the read replica.
      */
     sourceRegion?: pulumi.Input<string>;
-    /**
-     * The status of a read replica. If the DB instance isn't a read replica, the value is blank.
-     */
-    statusInfos?: pulumi.Input<pulumi.Input<inputs.rds.DbInstanceDbInstanceStatusInfoArgs>[]>;
     /**
      * A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
      *  If you specify the ``KmsKeyId`` property, then you must enable encryption.

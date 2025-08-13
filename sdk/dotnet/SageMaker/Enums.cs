@@ -165,6 +165,36 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterNodeProvisioningMode : IEquatable<ClusterNodeProvisioningMode>
+    {
+        private readonly string _value;
+
+        private ClusterNodeProvisioningMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterNodeProvisioningMode Continuous { get; } = new ClusterNodeProvisioningMode("Continuous");
+
+        public static bool operator ==(ClusterNodeProvisioningMode left, ClusterNodeProvisioningMode right) => left.Equals(right);
+        public static bool operator !=(ClusterNodeProvisioningMode left, ClusterNodeProvisioningMode right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterNodeProvisioningMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterNodeProvisioningMode other && Equals(other);
+        public bool Equals(ClusterNodeProvisioningMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
     /// </summary>
     [EnumType]

@@ -12,6 +12,18 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
 
     public sealed class CanaryCodeArgs : global::Pulumi.ResourceArgs
     {
+        [Input("dependencies")]
+        private InputList<Inputs.CanaryDependencyArgs>? _dependencies;
+
+        /// <summary>
+        /// List of Lambda layers to attach to the canary
+        /// </summary>
+        public InputList<Inputs.CanaryDependencyArgs> Dependencies
+        {
+            get => _dependencies ?? (_dependencies = new InputList<Inputs.CanaryDependencyArgs>());
+            set => _dependencies = value;
+        }
+
         /// <summary>
         /// The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
         /// </summary>

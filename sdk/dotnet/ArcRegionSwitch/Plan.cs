@@ -81,6 +81,9 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         [Output("regions")]
         public Output<ImmutableArray<string>> Regions { get; private set; } = null!;
 
+        [Output("route53HealthChecks")]
+        public Output<Outputs.Route53HealthChecksProperties> Route53HealthChecks { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 

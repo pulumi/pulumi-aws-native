@@ -37,8 +37,9 @@ type Plan struct {
 	// The recovery time objective for a plan.
 	RecoveryTimeObjectiveMinutes pulumi.Float64PtrOutput `pulumi:"recoveryTimeObjectiveMinutes"`
 	// The AWS Regions for a plan.
-	Regions pulumi.StringArrayOutput `pulumi:"regions"`
-	Tags    pulumi.StringMapOutput   `pulumi:"tags"`
+	Regions             pulumi.StringArrayOutput            `pulumi:"regions"`
+	Route53HealthChecks Route53HealthChecksPropertiesOutput `pulumi:"route53HealthChecks"`
+	Tags                pulumi.StringMapOutput              `pulumi:"tags"`
 	// The triggers for a plan.
 	Triggers PlanTriggerArrayOutput `pulumi:"triggers"`
 	// The version for the plan.
@@ -244,6 +245,10 @@ func (o PlanOutput) RecoveryTimeObjectiveMinutes() pulumi.Float64PtrOutput {
 // The AWS Regions for a plan.
 func (o PlanOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringArrayOutput { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+func (o PlanOutput) Route53HealthChecks() Route53HealthChecksPropertiesOutput {
+	return o.ApplyT(func(v *Plan) Route53HealthChecksPropertiesOutput { return v.Route53HealthChecks }).(Route53HealthChecksPropertiesOutput)
 }
 
 func (o PlanOutput) Tags() pulumi.StringMapOutput {

@@ -43,6 +43,7 @@ class AccessPointArgs:
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::AccessPoint` for more information about the expected schema for this property.
         :param pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs'] public_access_block_configuration: The PublicAccessBlock configuration that you want to apply to this Access Point.
         :param pulumi.Input['AccessPointScopeArgs'] scope: For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of tags that you can apply to access points. Tags are key-value pairs of metadata used to categorize your access points and control access. For more information, see [Using tags for attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac) .
         :param pulumi.Input['AccessPointVpcConfigurationArgs'] vpc_configuration: If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -138,6 +139,9 @@ class AccessPointArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of tags that you can apply to access points. Tags are key-value pairs of metadata used to categorize your access points and control access. For more information, see [Using tags for attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -185,6 +189,7 @@ class AccessPoint(pulumi.CustomResource):
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::AccessPoint` for more information about the expected schema for this property.
         :param pulumi.Input[Union['AccessPointPublicAccessBlockConfigurationArgs', 'AccessPointPublicAccessBlockConfigurationArgsDict']] public_access_block_configuration: The PublicAccessBlock configuration that you want to apply to this Access Point.
         :param pulumi.Input[Union['AccessPointScopeArgs', 'AccessPointScopeArgsDict']] scope: For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of tags that you can apply to access points. Tags are key-value pairs of metadata used to categorize your access points and control access. For more information, see [Using tags for attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac) .
         :param pulumi.Input[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']] vpc_configuration: If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
         """
         ...
@@ -345,6 +350,9 @@ class AccessPoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of tags that you can apply to access points. Tags are key-value pairs of metadata used to categorize your access points and control access. For more information, see [Using tags for attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac) .
+        """
         return pulumi.get(self, "tags")
 
     @property

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -40,6 +41,8 @@ type LookupAppResult struct {
 	BuiltInLifecycleConfigArn *string `pulumi:"builtInLifecycleConfigArn"`
 	// Indicates whether the application is launched in recovery mode.
 	RecoveryMode *bool `pulumi:"recoveryMode"`
+	// A list of tags to apply to the app.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulumi.InvokeOption) LookupAppResultOutput {
@@ -93,6 +96,11 @@ func (o LookupAppResultOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutpu
 // Indicates whether the application is launched in recovery mode.
 func (o LookupAppResultOutput) RecoveryMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *bool { return v.RecoveryMode }).(pulumi.BoolPtrOutput)
+}
+
+// A list of tags to apply to the app.
+func (o LookupAppResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupAppResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -331,6 +331,8 @@ if typing.TYPE_CHECKING:
     nimblestudio = __nimblestudio
     import pulumi_aws_native.oam as __oam
     oam = __oam
+    import pulumi_aws_native.observabilityadmin as __observabilityadmin
+    observabilityadmin = __observabilityadmin
     import pulumi_aws_native.odb as __odb
     odb = __odb
     import pulumi_aws_native.omics as __omics
@@ -640,6 +642,7 @@ else:
     networkmanager = _utilities.lazy_import('pulumi_aws_native.networkmanager')
     nimblestudio = _utilities.lazy_import('pulumi_aws_native.nimblestudio')
     oam = _utilities.lazy_import('pulumi_aws_native.oam')
+    observabilityadmin = _utilities.lazy_import('pulumi_aws_native.observabilityadmin')
     odb = _utilities.lazy_import('pulumi_aws_native.odb')
     omics = _utilities.lazy_import('pulumi_aws_native.omics')
     opensearchserverless = _utilities.lazy_import('pulumi_aws_native.opensearchserverless')
@@ -1579,6 +1582,7 @@ _utilities.register(
    "aws-native:ec2:Instance": "Instance",
    "aws-native:ec2:InstanceConnectEndpoint": "InstanceConnectEndpoint",
    "aws-native:ec2:InternetGateway": "InternetGateway",
+   "aws-native:ec2:IpPoolRouteTableAssociation": "IpPoolRouteTableAssociation",
    "aws-native:ec2:Ipam": "Ipam",
    "aws-native:ec2:IpamAllocation": "IpamAllocation",
    "aws-native:ec2:IpamPool": "IpamPool",
@@ -2631,6 +2635,15 @@ _utilities.register(
   "classes": {
    "aws-native:oam:Link": "Link",
    "aws-native:oam:Sink": "Sink"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "observabilityadmin",
+  "fqn": "pulumi_aws_native.observabilityadmin",
+  "classes": {
+   "aws-native:observabilityadmin:OrganizationTelemetryRule": "OrganizationTelemetryRule",
+   "aws-native:observabilityadmin:TelemetryRule": "TelemetryRule"
   }
  },
  {

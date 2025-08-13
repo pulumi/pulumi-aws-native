@@ -681,6 +681,170 @@ func (o ClusterDeepHealthCheckTypeArrayOutput) Index(i pulumi.IntInput) ClusterD
 	}).(ClusterDeepHealthCheckTypeOutput)
 }
 
+// Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
+type ClusterNodeProvisioningMode string
+
+const (
+	ClusterNodeProvisioningModeContinuous = ClusterNodeProvisioningMode("Continuous")
+)
+
+func (ClusterNodeProvisioningMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNodeProvisioningMode)(nil)).Elem()
+}
+
+func (e ClusterNodeProvisioningMode) ToClusterNodeProvisioningModeOutput() ClusterNodeProvisioningModeOutput {
+	return pulumi.ToOutput(e).(ClusterNodeProvisioningModeOutput)
+}
+
+func (e ClusterNodeProvisioningMode) ToClusterNodeProvisioningModeOutputWithContext(ctx context.Context) ClusterNodeProvisioningModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterNodeProvisioningModeOutput)
+}
+
+func (e ClusterNodeProvisioningMode) ToClusterNodeProvisioningModePtrOutput() ClusterNodeProvisioningModePtrOutput {
+	return e.ToClusterNodeProvisioningModePtrOutputWithContext(context.Background())
+}
+
+func (e ClusterNodeProvisioningMode) ToClusterNodeProvisioningModePtrOutputWithContext(ctx context.Context) ClusterNodeProvisioningModePtrOutput {
+	return ClusterNodeProvisioningMode(e).ToClusterNodeProvisioningModeOutputWithContext(ctx).ToClusterNodeProvisioningModePtrOutputWithContext(ctx)
+}
+
+func (e ClusterNodeProvisioningMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterNodeProvisioningMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterNodeProvisioningMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterNodeProvisioningMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterNodeProvisioningModeOutput struct{ *pulumi.OutputState }
+
+func (ClusterNodeProvisioningModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNodeProvisioningMode)(nil)).Elem()
+}
+
+func (o ClusterNodeProvisioningModeOutput) ToClusterNodeProvisioningModeOutput() ClusterNodeProvisioningModeOutput {
+	return o
+}
+
+func (o ClusterNodeProvisioningModeOutput) ToClusterNodeProvisioningModeOutputWithContext(ctx context.Context) ClusterNodeProvisioningModeOutput {
+	return o
+}
+
+func (o ClusterNodeProvisioningModeOutput) ToClusterNodeProvisioningModePtrOutput() ClusterNodeProvisioningModePtrOutput {
+	return o.ToClusterNodeProvisioningModePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterNodeProvisioningModeOutput) ToClusterNodeProvisioningModePtrOutputWithContext(ctx context.Context) ClusterNodeProvisioningModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterNodeProvisioningMode) *ClusterNodeProvisioningMode {
+		return &v
+	}).(ClusterNodeProvisioningModePtrOutput)
+}
+
+func (o ClusterNodeProvisioningModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterNodeProvisioningModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterNodeProvisioningMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterNodeProvisioningModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterNodeProvisioningModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterNodeProvisioningMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterNodeProvisioningModePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterNodeProvisioningModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterNodeProvisioningMode)(nil)).Elem()
+}
+
+func (o ClusterNodeProvisioningModePtrOutput) ToClusterNodeProvisioningModePtrOutput() ClusterNodeProvisioningModePtrOutput {
+	return o
+}
+
+func (o ClusterNodeProvisioningModePtrOutput) ToClusterNodeProvisioningModePtrOutputWithContext(ctx context.Context) ClusterNodeProvisioningModePtrOutput {
+	return o
+}
+
+func (o ClusterNodeProvisioningModePtrOutput) Elem() ClusterNodeProvisioningModeOutput {
+	return o.ApplyT(func(v *ClusterNodeProvisioningMode) ClusterNodeProvisioningMode {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterNodeProvisioningMode
+		return ret
+	}).(ClusterNodeProvisioningModeOutput)
+}
+
+func (o ClusterNodeProvisioningModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterNodeProvisioningModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterNodeProvisioningMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterNodeProvisioningModeInput is an input type that accepts values of the ClusterNodeProvisioningMode enum
+// A concrete instance of `ClusterNodeProvisioningModeInput` can be one of the following:
+//
+//	ClusterNodeProvisioningModeContinuous
+type ClusterNodeProvisioningModeInput interface {
+	pulumi.Input
+
+	ToClusterNodeProvisioningModeOutput() ClusterNodeProvisioningModeOutput
+	ToClusterNodeProvisioningModeOutputWithContext(context.Context) ClusterNodeProvisioningModeOutput
+}
+
+var clusterNodeProvisioningModePtrType = reflect.TypeOf((**ClusterNodeProvisioningMode)(nil)).Elem()
+
+type ClusterNodeProvisioningModePtrInput interface {
+	pulumi.Input
+
+	ToClusterNodeProvisioningModePtrOutput() ClusterNodeProvisioningModePtrOutput
+	ToClusterNodeProvisioningModePtrOutputWithContext(context.Context) ClusterNodeProvisioningModePtrOutput
+}
+
+type clusterNodeProvisioningModePtr string
+
+func ClusterNodeProvisioningModePtr(v string) ClusterNodeProvisioningModePtrInput {
+	return (*clusterNodeProvisioningModePtr)(&v)
+}
+
+func (*clusterNodeProvisioningModePtr) ElementType() reflect.Type {
+	return clusterNodeProvisioningModePtrType
+}
+
+func (in *clusterNodeProvisioningModePtr) ToClusterNodeProvisioningModePtrOutput() ClusterNodeProvisioningModePtrOutput {
+	return pulumi.ToOutput(in).(ClusterNodeProvisioningModePtrOutput)
+}
+
+func (in *clusterNodeProvisioningModePtr) ToClusterNodeProvisioningModePtrOutputWithContext(ctx context.Context) ClusterNodeProvisioningModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterNodeProvisioningModePtrOutput)
+}
+
 // If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 type ClusterNodeRecovery string
 
@@ -21812,6 +21976,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDeepHealthCheckTypeInput)(nil)).Elem(), ClusterDeepHealthCheckType("InstanceStress"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDeepHealthCheckTypePtrInput)(nil)).Elem(), ClusterDeepHealthCheckType("InstanceStress"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDeepHealthCheckTypeArrayInput)(nil)).Elem(), ClusterDeepHealthCheckTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeProvisioningModeInput)(nil)).Elem(), ClusterNodeProvisioningMode("Continuous"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeProvisioningModePtrInput)(nil)).Elem(), ClusterNodeProvisioningMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeRecoveryInput)(nil)).Elem(), ClusterNodeRecovery("Automatic"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeRecoveryPtrInput)(nil)).Elem(), ClusterNodeRecovery("Automatic"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
@@ -22049,6 +22215,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterDeepHealthCheckTypeOutput{})
 	pulumi.RegisterOutputType(ClusterDeepHealthCheckTypePtrOutput{})
 	pulumi.RegisterOutputType(ClusterDeepHealthCheckTypeArrayOutput{})
+	pulumi.RegisterOutputType(ClusterNodeProvisioningModeOutput{})
+	pulumi.RegisterOutputType(ClusterNodeProvisioningModePtrOutput{})
 	pulumi.RegisterOutputType(ClusterNodeRecoveryOutput{})
 	pulumi.RegisterOutputType(ClusterNodeRecoveryPtrOutput{})
 	pulumi.RegisterOutputType(ClusterStatusOutput{})

@@ -91,6 +91,7 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         /// The recovery time objective for a plan.
         /// </summary>
         public readonly double? RecoveryTimeObjectiveMinutes;
+        public readonly Outputs.Route53HealthChecksProperties? Route53HealthChecks;
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The triggers for a plan.
@@ -121,6 +122,8 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
 
             double? recoveryTimeObjectiveMinutes,
 
+            Outputs.Route53HealthChecksProperties? route53HealthChecks,
+
             ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<Outputs.PlanTrigger> triggers,
@@ -136,6 +139,7 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
             HealthChecksForPlan = healthChecksForPlan;
             Owner = owner;
             RecoveryTimeObjectiveMinutes = recoveryTimeObjectiveMinutes;
+            Route53HealthChecks = route53HealthChecks;
             Tags = tags;
             Triggers = triggers;
             Version = version;

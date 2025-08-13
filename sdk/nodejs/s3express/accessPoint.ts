@@ -71,6 +71,9 @@ export class AccessPoint extends pulumi.CustomResource {
      * For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
      */
     public readonly scope!: pulumi.Output<outputs.s3express.AccessPointScope | undefined>;
+    /**
+     * An array of tags that you can apply to access points. Tags are key-value pairs of metadata used to categorize your access points and control access. For more information, see [Using tags for attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac) .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
@@ -150,6 +153,9 @@ export interface AccessPointArgs {
      * For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
      */
     scope?: pulumi.Input<inputs.s3express.AccessPointScopeArgs>;
+    /**
+     * An array of tags that you can apply to access points. Tags are key-value pairs of metadata used to categorize your access points and control access. For more information, see [Using tags for attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac) .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).

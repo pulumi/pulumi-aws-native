@@ -25,6 +25,7 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
         /// True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
         /// </summary>
         public readonly bool? Enabled;
+        public readonly Outputs.DomainIamFederationOptions? IamFederationOptions;
         /// <summary>
         /// True to enable the internal user database.
         /// </summary>
@@ -50,6 +51,8 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
 
             bool? enabled,
 
+            Outputs.DomainIamFederationOptions? iamFederationOptions,
+
             bool? internalUserDatabaseEnabled,
 
             Outputs.DomainJwtOptions? jwtOptions,
@@ -61,6 +64,7 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
             AnonymousAuthDisableDate = anonymousAuthDisableDate;
             AnonymousAuthEnabled = anonymousAuthEnabled;
             Enabled = enabled;
+            IamFederationOptions = iamFederationOptions;
             InternalUserDatabaseEnabled = internalUserDatabaseEnabled;
             JwtOptions = jwtOptions;
             MasterUserOptions = masterUserOptions;

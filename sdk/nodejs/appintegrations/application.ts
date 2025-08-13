@@ -42,6 +42,10 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly applicationArn!: pulumi.Output<string>;
     /**
+     * The application configuration. Cannot be used when IsService is true.
+     */
+    public readonly applicationConfig!: pulumi.Output<outputs.appintegrations.ApplicationConfig | undefined>;
+    /**
      * Application source config
      */
     public readonly applicationSourceConfig!: pulumi.Output<outputs.appintegrations.ApplicationSourceConfigProperties>;
@@ -53,6 +57,18 @@ export class Application extends pulumi.CustomResource {
      * The application description.
      */
     public readonly description!: pulumi.Output<string>;
+    /**
+     * The iframe configuration
+     */
+    public readonly iframeConfig!: pulumi.Output<outputs.appintegrations.ApplicationIframeConfig | undefined>;
+    /**
+     * The initialization timeout in milliseconds. Required when IsService is true.
+     */
+    public readonly initializationTimeout!: pulumi.Output<number | undefined>;
+    /**
+     * Indicates if the application is a service
+     */
+    public readonly isService!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the application.
      */
@@ -90,8 +106,12 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.namespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
+            resourceInputs["applicationConfig"] = args ? args.applicationConfig : undefined;
             resourceInputs["applicationSourceConfig"] = args ? args.applicationSourceConfig : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["iframeConfig"] = args ? args.iframeConfig : undefined;
+            resourceInputs["initializationTimeout"] = args ? args.initializationTimeout : undefined;
+            resourceInputs["isService"] = args ? args.isService : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namespace"] = args ? args.namespace : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
@@ -100,9 +120,13 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationArn"] = undefined /*out*/;
+            resourceInputs["applicationConfig"] = undefined /*out*/;
             resourceInputs["applicationSourceConfig"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["iframeConfig"] = undefined /*out*/;
+            resourceInputs["initializationTimeout"] = undefined /*out*/;
+            resourceInputs["isService"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["namespace"] = undefined /*out*/;
             resourceInputs["permissions"] = undefined /*out*/;
@@ -118,6 +142,10 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationArgs {
     /**
+     * The application configuration. Cannot be used when IsService is true.
+     */
+    applicationConfig?: pulumi.Input<inputs.appintegrations.ApplicationConfigArgs>;
+    /**
      * Application source config
      */
     applicationSourceConfig: pulumi.Input<inputs.appintegrations.ApplicationSourceConfigPropertiesArgs>;
@@ -125,6 +153,18 @@ export interface ApplicationArgs {
      * The application description.
      */
     description: pulumi.Input<string>;
+    /**
+     * The iframe configuration
+     */
+    iframeConfig?: pulumi.Input<inputs.appintegrations.ApplicationIframeConfigArgs>;
+    /**
+     * The initialization timeout in milliseconds. Required when IsService is true.
+     */
+    initializationTimeout?: pulumi.Input<number>;
+    /**
+     * Indicates if the application is a service
+     */
+    isService?: pulumi.Input<boolean>;
     /**
      * The name of the application.
      */

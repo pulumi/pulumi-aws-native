@@ -1403,6 +1403,7 @@ func (o RepositoryImageScanningConfigurationPtrOutput) ScanOnPush() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.
 type RepositoryImageTagMutabilityExclusionFilter struct {
 	ImageTagMutabilityExclusionFilterType  RepositoryImageTagMutabilityExclusionFilterType `pulumi:"imageTagMutabilityExclusionFilterType"`
 	ImageTagMutabilityExclusionFilterValue string                                          `pulumi:"imageTagMutabilityExclusionFilterValue"`
@@ -1419,6 +1420,7 @@ type RepositoryImageTagMutabilityExclusionFilterInput interface {
 	ToRepositoryImageTagMutabilityExclusionFilterOutputWithContext(context.Context) RepositoryImageTagMutabilityExclusionFilterOutput
 }
 
+// Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.
 type RepositoryImageTagMutabilityExclusionFilterArgs struct {
 	ImageTagMutabilityExclusionFilterType  RepositoryImageTagMutabilityExclusionFilterTypeInput `pulumi:"imageTagMutabilityExclusionFilterType"`
 	ImageTagMutabilityExclusionFilterValue pulumi.StringInput                                   `pulumi:"imageTagMutabilityExclusionFilterValue"`
@@ -1461,6 +1463,7 @@ func (i RepositoryImageTagMutabilityExclusionFilterArray) ToRepositoryImageTagMu
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryImageTagMutabilityExclusionFilterArrayOutput)
 }
 
+// Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.
 type RepositoryImageTagMutabilityExclusionFilterOutput struct{ *pulumi.OutputState }
 
 func (RepositoryImageTagMutabilityExclusionFilterOutput) ElementType() reflect.Type {

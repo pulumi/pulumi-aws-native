@@ -3144,6 +3144,103 @@ func (o PlanWorkflowArrayOutput) Index(i pulumi.IntInput) PlanWorkflowOutput {
 	}).(PlanWorkflowOutput)
 }
 
+type Route53HealthChecksProperties struct {
+	HealthCheckIds []string `pulumi:"healthCheckIds"`
+	HostedZoneIds  []string `pulumi:"hostedZoneIds"`
+	RecordNames    []string `pulumi:"recordNames"`
+	Regions        []string `pulumi:"regions"`
+}
+
+type Route53HealthChecksPropertiesOutput struct{ *pulumi.OutputState }
+
+func (Route53HealthChecksPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Route53HealthChecksProperties)(nil)).Elem()
+}
+
+func (o Route53HealthChecksPropertiesOutput) ToRoute53HealthChecksPropertiesOutput() Route53HealthChecksPropertiesOutput {
+	return o
+}
+
+func (o Route53HealthChecksPropertiesOutput) ToRoute53HealthChecksPropertiesOutputWithContext(ctx context.Context) Route53HealthChecksPropertiesOutput {
+	return o
+}
+
+func (o Route53HealthChecksPropertiesOutput) HealthCheckIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Route53HealthChecksProperties) []string { return v.HealthCheckIds }).(pulumi.StringArrayOutput)
+}
+
+func (o Route53HealthChecksPropertiesOutput) HostedZoneIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Route53HealthChecksProperties) []string { return v.HostedZoneIds }).(pulumi.StringArrayOutput)
+}
+
+func (o Route53HealthChecksPropertiesOutput) RecordNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Route53HealthChecksProperties) []string { return v.RecordNames }).(pulumi.StringArrayOutput)
+}
+
+func (o Route53HealthChecksPropertiesOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Route53HealthChecksProperties) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+type Route53HealthChecksPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (Route53HealthChecksPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Route53HealthChecksProperties)(nil)).Elem()
+}
+
+func (o Route53HealthChecksPropertiesPtrOutput) ToRoute53HealthChecksPropertiesPtrOutput() Route53HealthChecksPropertiesPtrOutput {
+	return o
+}
+
+func (o Route53HealthChecksPropertiesPtrOutput) ToRoute53HealthChecksPropertiesPtrOutputWithContext(ctx context.Context) Route53HealthChecksPropertiesPtrOutput {
+	return o
+}
+
+func (o Route53HealthChecksPropertiesPtrOutput) Elem() Route53HealthChecksPropertiesOutput {
+	return o.ApplyT(func(v *Route53HealthChecksProperties) Route53HealthChecksProperties {
+		if v != nil {
+			return *v
+		}
+		var ret Route53HealthChecksProperties
+		return ret
+	}).(Route53HealthChecksPropertiesOutput)
+}
+
+func (o Route53HealthChecksPropertiesPtrOutput) HealthCheckIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Route53HealthChecksProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o Route53HealthChecksPropertiesPtrOutput) HostedZoneIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Route53HealthChecksProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.HostedZoneIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o Route53HealthChecksPropertiesPtrOutput) RecordNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Route53HealthChecksProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RecordNames
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o Route53HealthChecksPropertiesPtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Route53HealthChecksProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
 type PlanHealthCheckStateArrayMapOutput struct{ *pulumi.OutputState }
 
 func (PlanHealthCheckStateArrayMapOutput) ElementType() reflect.Type {
@@ -3269,5 +3366,7 @@ func init() {
 	pulumi.RegisterOutputType(PlanTriggerConditionArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowArrayOutput{})
+	pulumi.RegisterOutputType(Route53HealthChecksPropertiesOutput{})
+	pulumi.RegisterOutputType(Route53HealthChecksPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PlanHealthCheckStateArrayMapOutput{})
 }

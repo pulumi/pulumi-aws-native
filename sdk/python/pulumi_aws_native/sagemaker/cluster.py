@@ -27,6 +27,7 @@ class ClusterArgs:
     def __init__(__self__, *,
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                  instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]]] = None,
+                 node_provisioning_mode: Optional[pulumi.Input['ClusterNodeProvisioningMode']] = None,
                  node_recovery: Optional[pulumi.Input['ClusterNodeRecovery']] = None,
                  orchestrator: Optional[pulumi.Input['ClusterOrchestratorArgs']] = None,
                  restricted_instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRestrictedInstanceGroupArgs']]]] = None,
@@ -36,6 +37,7 @@ class ClusterArgs:
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[builtins.str] cluster_name: The name of the HyperPod Cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]] instance_groups: The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
+        :param pulumi.Input['ClusterNodeProvisioningMode'] node_provisioning_mode: Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
         :param pulumi.Input['ClusterNodeRecovery'] node_recovery: If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
         :param pulumi.Input['ClusterOrchestratorArgs'] orchestrator: The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
@@ -45,6 +47,8 @@ class ClusterArgs:
             pulumi.set(__self__, "cluster_name", cluster_name)
         if instance_groups is not None:
             pulumi.set(__self__, "instance_groups", instance_groups)
+        if node_provisioning_mode is not None:
+            pulumi.set(__self__, "node_provisioning_mode", node_provisioning_mode)
         if node_recovery is not None:
             pulumi.set(__self__, "node_recovery", node_recovery)
         if orchestrator is not None:
@@ -79,6 +83,18 @@ class ClusterArgs:
     @instance_groups.setter
     def instance_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]]]):
         pulumi.set(self, "instance_groups", value)
+
+    @property
+    @pulumi.getter(name="nodeProvisioningMode")
+    def node_provisioning_mode(self) -> Optional[pulumi.Input['ClusterNodeProvisioningMode']]:
+        """
+        Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
+        """
+        return pulumi.get(self, "node_provisioning_mode")
+
+    @node_provisioning_mode.setter
+    def node_provisioning_mode(self, value: Optional[pulumi.Input['ClusterNodeProvisioningMode']]):
+        pulumi.set(self, "node_provisioning_mode", value)
 
     @property
     @pulumi.getter(name="nodeRecovery")
@@ -146,6 +162,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                  instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict']]]]] = None,
+                 node_provisioning_mode: Optional[pulumi.Input['ClusterNodeProvisioningMode']] = None,
                  node_recovery: Optional[pulumi.Input['ClusterNodeRecovery']] = None,
                  orchestrator: Optional[pulumi.Input[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict']]] = None,
                  restricted_instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterRestrictedInstanceGroupArgs', 'ClusterRestrictedInstanceGroupArgsDict']]]]] = None,
@@ -159,6 +176,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cluster_name: The name of the HyperPod Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict']]]] instance_groups: The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
+        :param pulumi.Input['ClusterNodeProvisioningMode'] node_provisioning_mode: Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
         :param pulumi.Input['ClusterNodeRecovery'] node_recovery: If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
         :param pulumi.Input[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict']] orchestrator: The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
@@ -190,6 +208,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                  instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict']]]]] = None,
+                 node_provisioning_mode: Optional[pulumi.Input['ClusterNodeProvisioningMode']] = None,
                  node_recovery: Optional[pulumi.Input['ClusterNodeRecovery']] = None,
                  orchestrator: Optional[pulumi.Input[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict']]] = None,
                  restricted_instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterRestrictedInstanceGroupArgs', 'ClusterRestrictedInstanceGroupArgsDict']]]]] = None,
@@ -206,6 +225,7 @@ class Cluster(pulumi.CustomResource):
 
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["instance_groups"] = instance_groups
+            __props__.__dict__["node_provisioning_mode"] = node_provisioning_mode
             __props__.__dict__["node_recovery"] = node_recovery
             __props__.__dict__["orchestrator"] = orchestrator
             __props__.__dict__["restricted_instance_groups"] = restricted_instance_groups
@@ -245,6 +265,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["failure_message"] = None
         __props__.__dict__["instance_groups"] = None
+        __props__.__dict__["node_provisioning_mode"] = None
         __props__.__dict__["node_recovery"] = None
         __props__.__dict__["orchestrator"] = None
         __props__.__dict__["restricted_instance_groups"] = None
@@ -299,6 +320,14 @@ class Cluster(pulumi.CustomResource):
         The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
         """
         return pulumi.get(self, "instance_groups")
+
+    @property
+    @pulumi.getter(name="nodeProvisioningMode")
+    def node_provisioning_mode(self) -> pulumi.Output[Optional['ClusterNodeProvisioningMode']]:
+        """
+        Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
+        """
+        return pulumi.get(self, "node_provisioning_mode")
 
     @property
     @pulumi.getter(name="nodeRecovery")

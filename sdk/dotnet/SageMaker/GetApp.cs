@@ -111,6 +111,10 @@ namespace Pulumi.AwsNative.SageMaker
         /// Indicates whether the application is launched in recovery mode.
         /// </summary>
         public readonly bool? RecoveryMode;
+        /// <summary>
+        /// A list of tags to apply to the app.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetAppResult(
@@ -118,11 +122,14 @@ namespace Pulumi.AwsNative.SageMaker
 
             string? builtInLifecycleConfigArn,
 
-            bool? recoveryMode)
+            bool? recoveryMode,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AppArn = appArn;
             BuiltInLifecycleConfigArn = builtInLifecycleConfigArn;
             RecoveryMode = recoveryMode;
+            Tags = tags;
         }
     }
 }

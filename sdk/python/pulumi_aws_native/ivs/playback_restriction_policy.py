@@ -22,8 +22,8 @@ __all__ = ['PlaybackRestrictionPolicyArgs', 'PlaybackRestrictionPolicy']
 @pulumi.input_type
 class PlaybackRestrictionPolicyArgs:
     def __init__(__self__, *,
-                 allowed_countries: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
-                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 allowed_countries: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  enable_strict_origin_enforcement: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -35,8 +35,10 @@ class PlaybackRestrictionPolicyArgs:
         :param pulumi.Input[builtins.str] name: Playback-restriction-policy name.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "allowed_countries", allowed_countries)
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_countries is not None:
+            pulumi.set(__self__, "allowed_countries", allowed_countries)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if enable_strict_origin_enforcement is not None:
             pulumi.set(__self__, "enable_strict_origin_enforcement", enable_strict_origin_enforcement)
         if name is not None:
@@ -46,26 +48,26 @@ class PlaybackRestrictionPolicyArgs:
 
     @property
     @pulumi.getter(name="allowedCountries")
-    def allowed_countries(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+    def allowed_countries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
         A list of country codes that control geoblocking restriction. Allowed values are the officially assigned ISO 3166-1 alpha-2 codes. Default: All countries (an empty array).
         """
         return pulumi.get(self, "allowed_countries")
 
     @allowed_countries.setter
-    def allowed_countries(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+    def allowed_countries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "allowed_countries", value)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
         A list of origin sites that control CORS restriction. Allowed values are the same as valid values of the Origin header defined at https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
     @property
@@ -132,7 +134,7 @@ class PlaybackRestrictionPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PlaybackRestrictionPolicyArgs,
+                 args: Optional[PlaybackRestrictionPolicyArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IVS::PlaybackRestrictionPolicy.
@@ -166,11 +168,7 @@ class PlaybackRestrictionPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PlaybackRestrictionPolicyArgs.__new__(PlaybackRestrictionPolicyArgs)
 
-            if allowed_countries is None and not opts.urn:
-                raise TypeError("Missing required property 'allowed_countries'")
             __props__.__dict__["allowed_countries"] = allowed_countries
-            if allowed_origins is None and not opts.urn:
-                raise TypeError("Missing required property 'allowed_origins'")
             __props__.__dict__["allowed_origins"] = allowed_origins
             __props__.__dict__["enable_strict_origin_enforcement"] = enable_strict_origin_enforcement
             __props__.__dict__["name"] = name
@@ -208,7 +206,7 @@ class PlaybackRestrictionPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedCountries")
-    def allowed_countries(self) -> pulumi.Output[Sequence[builtins.str]]:
+    def allowed_countries(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
         A list of country codes that control geoblocking restriction. Allowed values are the officially assigned ISO 3166-1 alpha-2 codes. Default: All countries (an empty array).
         """
@@ -216,7 +214,7 @@ class PlaybackRestrictionPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> pulumi.Output[Sequence[builtins.str]]:
+    def allowed_origins(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
         A list of origin sites that control CORS restriction. Allowed values are the same as valid values of the Origin header defined at https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin
         """

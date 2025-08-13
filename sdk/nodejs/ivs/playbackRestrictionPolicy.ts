@@ -40,11 +40,11 @@ export class PlaybackRestrictionPolicy extends pulumi.CustomResource {
     /**
      * A list of country codes that control geoblocking restriction. Allowed values are the officially assigned ISO 3166-1 alpha-2 codes. Default: All countries (an empty array).
      */
-    public readonly allowedCountries!: pulumi.Output<string[]>;
+    public readonly allowedCountries!: pulumi.Output<string[] | undefined>;
     /**
      * A list of origin sites that control CORS restriction. Allowed values are the same as valid values of the Origin header defined at https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin
      */
-    public readonly allowedOrigins!: pulumi.Output<string[]>;
+    public readonly allowedOrigins!: pulumi.Output<string[] | undefined>;
     /**
      * Playback-restriction-policy identifier.
      */
@@ -69,16 +69,10 @@ export class PlaybackRestrictionPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PlaybackRestrictionPolicyArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: PlaybackRestrictionPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.allowedCountries === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'allowedCountries'");
-            }
-            if ((!args || args.allowedOrigins === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'allowedOrigins'");
-            }
             resourceInputs["allowedCountries"] = args ? args.allowedCountries : undefined;
             resourceInputs["allowedOrigins"] = args ? args.allowedOrigins : undefined;
             resourceInputs["enableStrictOriginEnforcement"] = args ? args.enableStrictOriginEnforcement : undefined;
@@ -105,11 +99,11 @@ export interface PlaybackRestrictionPolicyArgs {
     /**
      * A list of country codes that control geoblocking restriction. Allowed values are the officially assigned ISO 3166-1 alpha-2 codes. Default: All countries (an empty array).
      */
-    allowedCountries: pulumi.Input<pulumi.Input<string>[]>;
+    allowedCountries?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of origin sites that control CORS restriction. Allowed values are the same as valid values of the Origin header defined at https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin
      */
-    allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+    allowedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether channel playback is constrained by origin site.
      */

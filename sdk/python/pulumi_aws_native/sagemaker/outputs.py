@@ -856,6 +856,8 @@ class ClusterInstanceGroup(dict):
             suggest = "life_cycle_config"
         elif key == "currentCount":
             suggest = "current_count"
+        elif key == "imageId":
+            suggest = "image_id"
         elif key == "instanceStorageConfigs":
             suggest = "instance_storage_configs"
         elif key == "onStartDeepHealthChecks":
@@ -885,6 +887,7 @@ class ClusterInstanceGroup(dict):
                  instance_type: builtins.str,
                  life_cycle_config: 'outputs.ClusterLifeCycleConfig',
                  current_count: Optional[builtins.int] = None,
+                 image_id: Optional[builtins.str] = None,
                  instance_storage_configs: Optional[Sequence['outputs.ClusterInstanceStorageConfig']] = None,
                  on_start_deep_health_checks: Optional[Sequence['ClusterDeepHealthCheckType']] = None,
                  override_vpc_config: Optional['outputs.ClusterVpcConfig'] = None,
@@ -904,6 +907,8 @@ class ClusterInstanceGroup(dict):
         pulumi.set(__self__, "life_cycle_config", life_cycle_config)
         if current_count is not None:
             pulumi.set(__self__, "current_count", current_count)
+        if image_id is not None:
+            pulumi.set(__self__, "image_id", image_id)
         if instance_storage_configs is not None:
             pulumi.set(__self__, "instance_storage_configs", instance_storage_configs)
         if on_start_deep_health_checks is not None:
@@ -950,6 +955,11 @@ class ClusterInstanceGroup(dict):
         The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
         """
         return pulumi.get(self, "current_count")
+
+    @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "image_id")
 
     @property
     @pulumi.getter(name="instanceStorageConfigs")
@@ -4093,8 +4103,6 @@ class DomainUnifiedStudioSettings(dict):
             suggest = "project_id"
         elif key == "projectS3Path":
             suggest = "project_s3_path"
-        elif key == "singleSignOnApplicationArn":
-            suggest = "single_sign_on_application_arn"
         elif key == "studioWebPortalAccess":
             suggest = "studio_web_portal_access"
 
@@ -4116,7 +4124,6 @@ class DomainUnifiedStudioSettings(dict):
                  environment_id: Optional[builtins.str] = None,
                  project_id: Optional[builtins.str] = None,
                  project_s3_path: Optional[builtins.str] = None,
-                 single_sign_on_application_arn: Optional[builtins.str] = None,
                  studio_web_portal_access: Optional['DomainUnifiedStudioSettingsStudioWebPortalAccess'] = None):
         """
         A collection of settings that apply to an Amazon SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
@@ -4126,7 +4133,6 @@ class DomainUnifiedStudioSettings(dict):
         :param builtins.str environment_id: The ID of the environment that Amazon SageMaker Unified Studio associates with the domain.
         :param builtins.str project_id: The ID of the Amazon SageMaker Unified Studio project that corresponds to the domain.
         :param builtins.str project_s3_path: The location where Amazon S3 stores temporary execution data and other artifacts for the project that corresponds to the domain.
-        :param builtins.str single_sign_on_application_arn: The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
         :param 'DomainUnifiedStudioSettingsStudioWebPortalAccess' studio_web_portal_access: Sets whether you can access the domain in Amazon SageMaker Studio:
                
                ENABLED
@@ -4146,8 +4152,6 @@ class DomainUnifiedStudioSettings(dict):
             pulumi.set(__self__, "project_id", project_id)
         if project_s3_path is not None:
             pulumi.set(__self__, "project_s3_path", project_s3_path)
-        if single_sign_on_application_arn is not None:
-            pulumi.set(__self__, "single_sign_on_application_arn", single_sign_on_application_arn)
         if studio_web_portal_access is not None:
             pulumi.set(__self__, "studio_web_portal_access", studio_web_portal_access)
 
@@ -4198,14 +4202,6 @@ class DomainUnifiedStudioSettings(dict):
         The location where Amazon S3 stores temporary execution data and other artifacts for the project that corresponds to the domain.
         """
         return pulumi.get(self, "project_s3_path")
-
-    @property
-    @pulumi.getter(name="singleSignOnApplicationArn")
-    def single_sign_on_application_arn(self) -> Optional[builtins.str]:
-        """
-        The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
-        """
-        return pulumi.get(self, "single_sign_on_application_arn")
 
     @property
     @pulumi.getter(name="studioWebPortalAccess")

@@ -3631,6 +3631,13 @@
       "subdomain": {
         "type": "string",
         "description": "The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
       }
     }
   },
@@ -4634,6 +4641,19 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "Any tags to assign to the internet gateway."
+      }
+    }
+  },
+  "aws-native:ec2:IpPoolRouteTableAssociation": {
+    "cfTypeName": "AWS::EC2::IpPoolRouteTableAssociation",
+    "properties": {
+      "publicIpv4Pool": {
+        "type": "string",
+        "description": "The ID of the public IPv4 pool."
+      },
+      "routeTableId": {
+        "type": "string",
+        "description": "The ID of the route table."
       }
     }
   },
@@ -7366,26 +7386,26 @@
       },
       "ipAddress": {
         "type": "string",
-        "description": "Valid IPv4 address within the address range of the specified subnet."
+        "description": "If the ``IpAddressType`` for the mount target is IPv4 ( ``IPV4_ONLY`` or ``DUAL_STACK``), then specify the IPv4 address to use. If you do not specify an ``IpAddress``, then Amazon EFS selects an unused IP address from the subnet specified for ``SubnetId``."
       },
       "ipAddressType": {
         "$ref": "#/types/aws-native:efs:MountTargetIpAddressType",
-        "description": "The IP address type for the mount target. The possible values are `IPV4_ONLY` (only IPv4 addresses), `IPV6_ONLY` (only IPv6 addresses), and `DUAL_STACK` (dual-stack, both IPv4 and IPv6 addresses). If you don’t specify an `IpAddressType` , then `IPV4_ONLY` is used.\n\n\u003e The `IPAddressType` must match the IP type of the subnet. Additionally, the `IPAddressType` parameter overrides the value set as the default IP address for the subnet in the VPC. For example, if the `IPAddressType` is `IPV4_ONLY` and `AssignIpv6AddressOnCreation` is `true` , then IPv4 is used for the mount target. For more information, see [Modify the IP addressing attributes of your subnet](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-public-ip.html) ."
+        "description": "The IP address type for the mount target. The possible values are ``IPV4_ONLY`` (only IPv4 addresses), ``IPV6_ONLY`` (only IPv6 addresses), and ``DUAL_STACK`` (dual-stack, both IPv4 and IPv6 addresses). If you don’t specify an ``IpAddressType``, then ``IPV4_ONLY`` is used.\n  The ``IPAddressType`` must match the IP type of the subnet. Additionally, the ``IPAddressType`` parameter overrides the value set as the default IP address for the subnet in the VPC. For example, if the ``IPAddressType`` is ``IPV4_ONLY`` and ``AssignIpv6AddressOnCreation`` is ``true``, then IPv4 is used for the mount target. For more information, see [Modify the IP addressing attributes of your subnet](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-public-ip.html)."
       },
       "ipv6Address": {
         "type": "string",
-        "description": "If the `IPAddressType` for the mount target is IPv6 ( `IPV6_ONLY` or `DUAL_STACK` ), then specify the IPv6 address to use. If you do not specify an `Ipv6Address` , then Amazon EFS selects an unused IP address from the subnet specified for `SubnetId` ."
+        "description": "If the ``IPAddressType`` for the mount target is IPv6 (``IPV6_ONLY`` or ``DUAL_STACK``), then specify the IPv6 address to use. If you do not specify an ``Ipv6Address``, then Amazon EFS selects an unused IP address from the subnet specified for ``SubnetId``."
       },
       "securityGroups": {
         "type": "array",
         "items": {
           "type": "string"
         },
-        "description": "VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table)."
+        "description": "VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table). If you don't specify a security group, then Amazon EFS uses the default security group for the subnet's VPC."
       },
       "subnetId": {
         "type": "string",
-        "description": "The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone."
+        "description": "The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone. The subnet type must be the same type as the ``IpAddressType``."
       }
     }
   },
@@ -12445,13 +12465,6 @@
       "sourceRegion": {
         "type": "string",
         "description": "The ID of the region that contains the source DB instance for the read replica."
-      },
-      "statusInfos": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:rds:DbInstanceDbInstanceStatusInfo"
-        },
-        "description": "The status of a read replica. If the DB instance isn't a read replica, the value is blank."
       },
       "storageEncrypted": {
         "type": "boolean",

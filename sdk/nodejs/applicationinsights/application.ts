@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::ApplicationInsights::Application
+ * Resource Type definition for AWS::ApplicationInsights::Application
  */
 export class Application extends pulumi.CustomResource {
     /**

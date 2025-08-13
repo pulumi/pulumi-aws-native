@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
     public sealed class CanaryCode
     {
         /// <summary>
+        /// List of Lambda layers to attach to the canary
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CanaryDependency> Dependencies;
+        /// <summary>
         /// The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
         /// </summary>
         public readonly string Handler;
@@ -40,6 +44,8 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
 
         [OutputConstructor]
         private CanaryCode(
+            ImmutableArray<Outputs.CanaryDependency> dependencies,
+
             string handler,
 
             string? s3Bucket,
@@ -52,6 +58,7 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
 
             string? sourceLocationArn)
         {
+            Dependencies = dependencies;
             Handler = handler;
             S3Bucket = s3Bucket;
             S3Key = s3Key;

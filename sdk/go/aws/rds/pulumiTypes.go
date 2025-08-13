@@ -1169,6 +1169,7 @@ func (o DbInstanceDbInstanceRoleArrayOutput) Index(i pulumi.IntInput) DbInstance
 	}).(DbInstanceDbInstanceRoleOutput)
 }
 
+// Provides a list of status information for a DB instance.
 type DbInstanceDbInstanceStatusInfo struct {
 	// Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
 	Message *string `pulumi:"message"`
@@ -1176,69 +1177,11 @@ type DbInstanceDbInstanceStatusInfo struct {
 	Normal *bool `pulumi:"normal"`
 	// The status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
 	Status *string `pulumi:"status"`
-	// The status type of the DB instance.
+	// This value is currently "read replication."
 	StatusType *string `pulumi:"statusType"`
 }
 
-// DbInstanceDbInstanceStatusInfoInput is an input type that accepts DbInstanceDbInstanceStatusInfoArgs and DbInstanceDbInstanceStatusInfoOutput values.
-// You can construct a concrete instance of `DbInstanceDbInstanceStatusInfoInput` via:
-//
-//	DbInstanceDbInstanceStatusInfoArgs{...}
-type DbInstanceDbInstanceStatusInfoInput interface {
-	pulumi.Input
-
-	ToDbInstanceDbInstanceStatusInfoOutput() DbInstanceDbInstanceStatusInfoOutput
-	ToDbInstanceDbInstanceStatusInfoOutputWithContext(context.Context) DbInstanceDbInstanceStatusInfoOutput
-}
-
-type DbInstanceDbInstanceStatusInfoArgs struct {
-	// Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// Indicates whether the instance is operating normally (TRUE) or is in an error state (FALSE).
-	Normal pulumi.BoolPtrInput `pulumi:"normal"`
-	// The status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The status type of the DB instance.
-	StatusType pulumi.StringPtrInput `pulumi:"statusType"`
-}
-
-func (DbInstanceDbInstanceStatusInfoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DbInstanceDbInstanceStatusInfo)(nil)).Elem()
-}
-
-func (i DbInstanceDbInstanceStatusInfoArgs) ToDbInstanceDbInstanceStatusInfoOutput() DbInstanceDbInstanceStatusInfoOutput {
-	return i.ToDbInstanceDbInstanceStatusInfoOutputWithContext(context.Background())
-}
-
-func (i DbInstanceDbInstanceStatusInfoArgs) ToDbInstanceDbInstanceStatusInfoOutputWithContext(ctx context.Context) DbInstanceDbInstanceStatusInfoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceDbInstanceStatusInfoOutput)
-}
-
-// DbInstanceDbInstanceStatusInfoArrayInput is an input type that accepts DbInstanceDbInstanceStatusInfoArray and DbInstanceDbInstanceStatusInfoArrayOutput values.
-// You can construct a concrete instance of `DbInstanceDbInstanceStatusInfoArrayInput` via:
-//
-//	DbInstanceDbInstanceStatusInfoArray{ DbInstanceDbInstanceStatusInfoArgs{...} }
-type DbInstanceDbInstanceStatusInfoArrayInput interface {
-	pulumi.Input
-
-	ToDbInstanceDbInstanceStatusInfoArrayOutput() DbInstanceDbInstanceStatusInfoArrayOutput
-	ToDbInstanceDbInstanceStatusInfoArrayOutputWithContext(context.Context) DbInstanceDbInstanceStatusInfoArrayOutput
-}
-
-type DbInstanceDbInstanceStatusInfoArray []DbInstanceDbInstanceStatusInfoInput
-
-func (DbInstanceDbInstanceStatusInfoArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DbInstanceDbInstanceStatusInfo)(nil)).Elem()
-}
-
-func (i DbInstanceDbInstanceStatusInfoArray) ToDbInstanceDbInstanceStatusInfoArrayOutput() DbInstanceDbInstanceStatusInfoArrayOutput {
-	return i.ToDbInstanceDbInstanceStatusInfoArrayOutputWithContext(context.Background())
-}
-
-func (i DbInstanceDbInstanceStatusInfoArray) ToDbInstanceDbInstanceStatusInfoArrayOutputWithContext(ctx context.Context) DbInstanceDbInstanceStatusInfoArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceDbInstanceStatusInfoArrayOutput)
-}
-
+// Provides a list of status information for a DB instance.
 type DbInstanceDbInstanceStatusInfoOutput struct{ *pulumi.OutputState }
 
 func (DbInstanceDbInstanceStatusInfoOutput) ElementType() reflect.Type {
@@ -1268,7 +1211,7 @@ func (o DbInstanceDbInstanceStatusInfoOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DbInstanceDbInstanceStatusInfo) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The status type of the DB instance.
+// This value is currently "read replication."
 func (o DbInstanceDbInstanceStatusInfoOutput) StatusType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DbInstanceDbInstanceStatusInfo) *string { return v.StatusType }).(pulumi.StringPtrOutput)
 }
@@ -2442,8 +2385,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterServerlessV2ScalingConfigurationPtrInput)(nil)).Elem(), DbClusterServerlessV2ScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceDbInstanceRoleInput)(nil)).Elem(), DbInstanceDbInstanceRoleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceDbInstanceRoleArrayInput)(nil)).Elem(), DbInstanceDbInstanceRoleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceDbInstanceStatusInfoInput)(nil)).Elem(), DbInstanceDbInstanceStatusInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceDbInstanceStatusInfoArrayInput)(nil)).Elem(), DbInstanceDbInstanceStatusInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceMasterUserSecretInput)(nil)).Elem(), DbInstanceMasterUserSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceMasterUserSecretPtrInput)(nil)).Elem(), DbInstanceMasterUserSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceProcessorFeatureInput)(nil)).Elem(), DbInstanceProcessorFeatureArgs{})

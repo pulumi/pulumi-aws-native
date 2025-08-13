@@ -60,6 +60,12 @@ namespace Pulumi.AwsNative.Deadline
         public Output<string> Subdomain { get; private set; } = null!;
 
         /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The complete URL of the monitor. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
         /// </summary>
         [Output("url")]
@@ -139,6 +145,18 @@ namespace Pulumi.AwsNative.Deadline
         /// </summary>
         [Input("subdomain", required: true)]
         public Input<string> Subdomain { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public MonitorArgs()
         {

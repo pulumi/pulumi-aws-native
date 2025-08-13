@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecr.Inputs
 {
 
+    /// <summary>
+    /// Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.
+    /// </summary>
     public sealed class RepositoryImageTagMutabilityExclusionFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("imageTagMutabilityExclusionFilterType", required: true)]

@@ -23,6 +23,8 @@ __all__ = [
     'CanaryBaseScreenshotArgsDict',
     'CanaryCodeArgs',
     'CanaryCodeArgsDict',
+    'CanaryDependencyArgs',
+    'CanaryDependencyArgsDict',
     'CanaryRetryConfigArgs',
     'CanaryRetryConfigArgsDict',
     'CanaryRunConfigArgs',
@@ -128,6 +130,10 @@ if not MYPY:
         """
         The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
         """
+        dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['CanaryDependencyArgsDict']]]]
+        """
+        List of Lambda layers to attach to the canary
+        """
         s3_bucket: NotRequired[pulumi.Input[builtins.str]]
         """
         If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
@@ -155,6 +161,7 @@ elif False:
 class CanaryCodeArgs:
     def __init__(__self__, *,
                  handler: pulumi.Input[builtins.str],
+                 dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryDependencyArgs']]]] = None,
                  s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
                  s3_key: Optional[pulumi.Input[builtins.str]] = None,
                  s3_object_version: Optional[pulumi.Input[builtins.str]] = None,
@@ -162,6 +169,7 @@ class CanaryCodeArgs:
                  source_location_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] handler: The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
+        :param pulumi.Input[Sequence[pulumi.Input['CanaryDependencyArgs']]] dependencies: List of Lambda layers to attach to the canary
         :param pulumi.Input[builtins.str] s3_bucket: If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
         :param pulumi.Input[builtins.str] s3_key: The Amazon S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
         :param pulumi.Input[builtins.str] s3_object_version: The Amazon S3 version ID of your script.
@@ -169,6 +177,8 @@ class CanaryCodeArgs:
         :param pulumi.Input[builtins.str] source_location_arn: The ARN of the Lambda layer where Synthetics stores the canary script code.
         """
         pulumi.set(__self__, "handler", handler)
+        if dependencies is not None:
+            pulumi.set(__self__, "dependencies", dependencies)
         if s3_bucket is not None:
             pulumi.set(__self__, "s3_bucket", s3_bucket)
         if s3_key is not None:
@@ -191,6 +201,18 @@ class CanaryCodeArgs:
     @handler.setter
     def handler(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "handler", value)
+
+    @property
+    @pulumi.getter
+    def dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CanaryDependencyArgs']]]]:
+        """
+        List of Lambda layers to attach to the canary
+        """
+        return pulumi.get(self, "dependencies")
+
+    @dependencies.setter
+    def dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryDependencyArgs']]]]):
+        pulumi.set(self, "dependencies", value)
 
     @property
     @pulumi.getter(name="s3Bucket")
@@ -251,6 +273,57 @@ class CanaryCodeArgs:
     @source_location_arn.setter
     def source_location_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "source_location_arn", value)
+
+
+if not MYPY:
+    class CanaryDependencyArgsDict(TypedDict):
+        reference: pulumi.Input[builtins.str]
+        """
+        ARN of the Lambda layer
+        """
+        type: NotRequired[pulumi.Input['CanaryDependencyType']]
+        """
+        Type of dependency
+        """
+elif False:
+    CanaryDependencyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CanaryDependencyArgs:
+    def __init__(__self__, *,
+                 reference: pulumi.Input[builtins.str],
+                 type: Optional[pulumi.Input['CanaryDependencyType']] = None):
+        """
+        :param pulumi.Input[builtins.str] reference: ARN of the Lambda layer
+        :param pulumi.Input['CanaryDependencyType'] type: Type of dependency
+        """
+        pulumi.set(__self__, "reference", reference)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[builtins.str]:
+        """
+        ARN of the Lambda layer
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "reference", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['CanaryDependencyType']]:
+        """
+        Type of dependency
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['CanaryDependencyType']]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:

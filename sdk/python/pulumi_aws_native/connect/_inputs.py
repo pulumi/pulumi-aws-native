@@ -4608,6 +4608,7 @@ if not MYPY:
         """
         The phone number for the user's desk phone.
         """
+        persistent_connection: NotRequired[pulumi.Input[builtins.bool]]
 elif False:
     UserPhoneConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4617,7 +4618,8 @@ class UserPhoneConfigArgs:
                  phone_type: pulumi.Input['UserPhoneType'],
                  after_contact_work_time_limit: Optional[pulumi.Input[builtins.int]] = None,
                  auto_accept: Optional[pulumi.Input[builtins.bool]] = None,
-                 desk_phone_number: Optional[pulumi.Input[builtins.str]] = None):
+                 desk_phone_number: Optional[pulumi.Input[builtins.str]] = None,
+                 persistent_connection: Optional[pulumi.Input[builtins.bool]] = None):
         """
         Contains information about the phone configuration settings for a user.
         :param pulumi.Input['UserPhoneType'] phone_type: The phone type.
@@ -4634,6 +4636,8 @@ class UserPhoneConfigArgs:
             pulumi.set(__self__, "auto_accept", auto_accept)
         if desk_phone_number is not None:
             pulumi.set(__self__, "desk_phone_number", desk_phone_number)
+        if persistent_connection is not None:
+            pulumi.set(__self__, "persistent_connection", persistent_connection)
 
     @property
     @pulumi.getter(name="phoneType")
@@ -4684,6 +4688,15 @@ class UserPhoneConfigArgs:
     @desk_phone_number.setter
     def desk_phone_number(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "desk_phone_number", value)
+
+    @property
+    @pulumi.getter(name="persistentConnection")
+    def persistent_connection(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "persistent_connection")
+
+    @persistent_connection.setter
+    def persistent_connection(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "persistent_connection", value)
 
 
 if not MYPY:

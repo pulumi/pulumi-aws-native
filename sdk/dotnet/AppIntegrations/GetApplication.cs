@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// </summary>
         public readonly string? ApplicationArn;
         /// <summary>
+        /// The application configuration. Cannot be used when IsService is true.
+        /// </summary>
+        public readonly Outputs.ApplicationConfig? ApplicationConfig;
+        /// <summary>
         /// Application source config
         /// </summary>
         public readonly Outputs.ApplicationSourceConfigProperties? ApplicationSourceConfig;
@@ -79,6 +83,18 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// The id of the application.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The iframe configuration
+        /// </summary>
+        public readonly Outputs.ApplicationIframeConfig? IframeConfig;
+        /// <summary>
+        /// The initialization timeout in milliseconds. Required when IsService is true.
+        /// </summary>
+        public readonly int? InitializationTimeout;
+        /// <summary>
+        /// Indicates if the application is a service
+        /// </summary>
+        public readonly bool? IsService;
         /// <summary>
         /// The name of the application.
         /// </summary>
@@ -100,11 +116,19 @@ namespace Pulumi.AwsNative.AppIntegrations
         private GetApplicationResult(
             string? applicationArn,
 
+            Outputs.ApplicationConfig? applicationConfig,
+
             Outputs.ApplicationSourceConfigProperties? applicationSourceConfig,
 
             string? description,
 
             string? id,
+
+            Outputs.ApplicationIframeConfig? iframeConfig,
+
+            int? initializationTimeout,
+
+            bool? isService,
 
             string? name,
 
@@ -115,9 +139,13 @@ namespace Pulumi.AwsNative.AppIntegrations
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ApplicationArn = applicationArn;
+            ApplicationConfig = applicationConfig;
             ApplicationSourceConfig = applicationSourceConfig;
             Description = description;
             Id = id;
+            IframeConfig = iframeConfig;
+            InitializationTimeout = initializationTimeout;
+            IsService = isService;
             Name = name;
             Namespace = @namespace;
             Permissions = permissions;

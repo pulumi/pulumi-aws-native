@@ -9417,7 +9417,8 @@ type UserPhoneConfig struct {
 	// The Auto accept setting.
 	AutoAccept *bool `pulumi:"autoAccept"`
 	// The phone number for the user's desk phone.
-	DeskPhoneNumber *string `pulumi:"deskPhoneNumber"`
+	DeskPhoneNumber      *string `pulumi:"deskPhoneNumber"`
+	PersistentConnection *bool   `pulumi:"persistentConnection"`
 	// The phone type.
 	PhoneType UserPhoneType `pulumi:"phoneType"`
 }
@@ -9442,7 +9443,8 @@ type UserPhoneConfigArgs struct {
 	// The Auto accept setting.
 	AutoAccept pulumi.BoolPtrInput `pulumi:"autoAccept"`
 	// The phone number for the user's desk phone.
-	DeskPhoneNumber pulumi.StringPtrInput `pulumi:"deskPhoneNumber"`
+	DeskPhoneNumber      pulumi.StringPtrInput `pulumi:"deskPhoneNumber"`
+	PersistentConnection pulumi.BoolPtrInput   `pulumi:"persistentConnection"`
 	// The phone type.
 	PhoneType UserPhoneTypeInput `pulumi:"phoneType"`
 }
@@ -9489,6 +9491,10 @@ func (o UserPhoneConfigOutput) AutoAccept() pulumi.BoolPtrOutput {
 // The phone number for the user's desk phone.
 func (o UserPhoneConfigOutput) DeskPhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPhoneConfig) *string { return v.DeskPhoneNumber }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPhoneConfigOutput) PersistentConnection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UserPhoneConfig) *bool { return v.PersistentConnection }).(pulumi.BoolPtrOutput)
 }
 
 // The phone type.
@@ -9550,6 +9556,15 @@ func (o UserPhoneConfigPtrOutput) DeskPhoneNumber() pulumi.StringPtrOutput {
 		}
 		return v.DeskPhoneNumber
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPhoneConfigPtrOutput) PersistentConnection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserPhoneConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PersistentConnection
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The phone type.

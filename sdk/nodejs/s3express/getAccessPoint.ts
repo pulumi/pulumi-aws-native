@@ -47,6 +47,9 @@ export interface GetAccessPointResult {
      * For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
      */
     readonly scope?: outputs.s3express.AccessPointScope;
+    /**
+     * An array of tags that you can apply to access points. Tags are key-value pairs of metadata used to categorize your access points and control access. For more information, see [Using tags for attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac) .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

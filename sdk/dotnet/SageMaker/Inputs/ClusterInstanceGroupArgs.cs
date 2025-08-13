@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("executionRole", required: true)]
         public Input<string> ExecutionRole { get; set; } = null!;
 
+        [Input("imageId")]
+        public Input<string>? ImageId { get; set; }
+
         /// <summary>
         /// The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
         /// </summary>

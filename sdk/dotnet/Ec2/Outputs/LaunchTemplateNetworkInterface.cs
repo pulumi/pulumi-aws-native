@@ -44,6 +44,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         ///  If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
         /// </summary>
         public readonly int? DeviceIndex;
+        /// <summary>
+        /// The number of ENA queues to be created with the instance.
+        /// </summary>
         public readonly int? EnaQueueCount;
         /// <summary>
         /// The ENA Express configuration for the network interface.

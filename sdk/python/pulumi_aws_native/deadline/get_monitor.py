@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetMonitorResult',
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetMonitorResult:
-    def __init__(__self__, arn=None, display_name=None, identity_center_application_arn=None, monitor_id=None, role_arn=None, subdomain=None, url=None):
+    def __init__(__self__, arn=None, display_name=None, identity_center_application_arn=None, monitor_id=None, role_arn=None, subdomain=None, tags=None, url=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,6 +44,9 @@ class GetMonitorResult:
         if subdomain and not isinstance(subdomain, str):
             raise TypeError("Expected argument 'subdomain' to be a str")
         pulumi.set(__self__, "subdomain", subdomain)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if url and not isinstance(url, str):
             raise TypeError("Expected argument 'url' to be a str")
         pulumi.set(__self__, "url", url)
@@ -99,6 +103,14 @@ class GetMonitorResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def url(self) -> Optional[builtins.str]:
         """
         The complete URL of the monitor. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
@@ -118,6 +130,7 @@ class AwaitableGetMonitorResult(GetMonitorResult):
             monitor_id=self.monitor_id,
             role_arn=self.role_arn,
             subdomain=self.subdomain,
+            tags=self.tags,
             url=self.url)
 
 
@@ -141,6 +154,7 @@ def get_monitor(arn: Optional[builtins.str] = None,
         monitor_id=pulumi.get(__ret__, 'monitor_id'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         subdomain=pulumi.get(__ret__, 'subdomain'),
+        tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
 def get_monitor_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitorResult]:
@@ -161,4 +175,5 @@ def get_monitor_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         monitor_id=pulumi.get(__response__, 'monitor_id'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         subdomain=pulumi.get(__response__, 'subdomain'),
+        tags=pulumi.get(__response__, 'tags'),
         url=pulumi.get(__response__, 'url')))

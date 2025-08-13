@@ -639,6 +639,9 @@ class RepositoryImageScanningConfigurationArgs:
 
 if not MYPY:
     class RepositoryImageTagMutabilityExclusionFilterArgsDict(TypedDict):
+        """
+        Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.
+        """
         image_tag_mutability_exclusion_filter_type: pulumi.Input['RepositoryImageTagMutabilityExclusionFilterType']
         image_tag_mutability_exclusion_filter_value: pulumi.Input[builtins.str]
 elif False:
@@ -649,6 +652,9 @@ class RepositoryImageTagMutabilityExclusionFilterArgs:
     def __init__(__self__, *,
                  image_tag_mutability_exclusion_filter_type: pulumi.Input['RepositoryImageTagMutabilityExclusionFilterType'],
                  image_tag_mutability_exclusion_filter_value: pulumi.Input[builtins.str]):
+        """
+        Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.
+        """
         pulumi.set(__self__, "image_tag_mutability_exclusion_filter_type", image_tag_mutability_exclusion_filter_type)
         pulumi.set(__self__, "image_tag_mutability_exclusion_filter_value", image_tag_mutability_exclusion_filter_value)
 

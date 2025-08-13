@@ -245,7 +245,8 @@ type DomainAdvancedSecurityOptionsInput struct {
 	// True to enable a 30-day migration period during which administrators can create role mappings. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
 	AnonymousAuthEnabled *bool `pulumi:"anonymousAuthEnabled"`
 	// True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
-	Enabled *bool `pulumi:"enabled"`
+	Enabled              *bool                       `pulumi:"enabled"`
+	IamFederationOptions *DomainIamFederationOptions `pulumi:"iamFederationOptions"`
 	// True to enable the internal user database.
 	InternalUserDatabaseEnabled *bool `pulumi:"internalUserDatabaseEnabled"`
 	// Container for information about the JWT configuration of the Amazon OpenSearch Service.
@@ -273,7 +274,8 @@ type DomainAdvancedSecurityOptionsInputArgs struct {
 	// True to enable a 30-day migration period during which administrators can create role mappings. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
 	AnonymousAuthEnabled pulumi.BoolPtrInput `pulumi:"anonymousAuthEnabled"`
 	// True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	Enabled              pulumi.BoolPtrInput                `pulumi:"enabled"`
+	IamFederationOptions DomainIamFederationOptionsPtrInput `pulumi:"iamFederationOptions"`
 	// True to enable the internal user database.
 	InternalUserDatabaseEnabled pulumi.BoolPtrInput `pulumi:"internalUserDatabaseEnabled"`
 	// Container for information about the JWT configuration of the Amazon OpenSearch Service.
@@ -376,6 +378,10 @@ func (o DomainAdvancedSecurityOptionsInputOutput) Enabled() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+func (o DomainAdvancedSecurityOptionsInputOutput) IamFederationOptions() DomainIamFederationOptionsPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *DomainIamFederationOptions { return v.IamFederationOptions }).(DomainIamFederationOptionsPtrOutput)
+}
+
 // True to enable the internal user database.
 func (o DomainAdvancedSecurityOptionsInputOutput) InternalUserDatabaseEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *bool { return v.InternalUserDatabaseEnabled }).(pulumi.BoolPtrOutput)
@@ -448,6 +454,15 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) Enabled() pulumi.BoolPtrOut
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainAdvancedSecurityOptionsInputPtrOutput) IamFederationOptions() DomainIamFederationOptionsPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) *DomainIamFederationOptions {
+		if v == nil {
+			return nil
+		}
+		return v.IamFederationOptions
+	}).(DomainIamFederationOptionsPtrOutput)
 }
 
 // True to enable the internal user database.
@@ -1829,6 +1844,169 @@ func (o DomainEndpointOptionsPtrOutput) TlsSecurityPolicy() pulumi.StringPtrOutp
 			return nil
 		}
 		return v.TlsSecurityPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainIamFederationOptions struct {
+	Enabled    *bool   `pulumi:"enabled"`
+	RolesKey   *string `pulumi:"rolesKey"`
+	SubjectKey *string `pulumi:"subjectKey"`
+}
+
+// DomainIamFederationOptionsInput is an input type that accepts DomainIamFederationOptionsArgs and DomainIamFederationOptionsOutput values.
+// You can construct a concrete instance of `DomainIamFederationOptionsInput` via:
+//
+//	DomainIamFederationOptionsArgs{...}
+type DomainIamFederationOptionsInput interface {
+	pulumi.Input
+
+	ToDomainIamFederationOptionsOutput() DomainIamFederationOptionsOutput
+	ToDomainIamFederationOptionsOutputWithContext(context.Context) DomainIamFederationOptionsOutput
+}
+
+type DomainIamFederationOptionsArgs struct {
+	Enabled    pulumi.BoolPtrInput   `pulumi:"enabled"`
+	RolesKey   pulumi.StringPtrInput `pulumi:"rolesKey"`
+	SubjectKey pulumi.StringPtrInput `pulumi:"subjectKey"`
+}
+
+func (DomainIamFederationOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIamFederationOptions)(nil)).Elem()
+}
+
+func (i DomainIamFederationOptionsArgs) ToDomainIamFederationOptionsOutput() DomainIamFederationOptionsOutput {
+	return i.ToDomainIamFederationOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainIamFederationOptionsArgs) ToDomainIamFederationOptionsOutputWithContext(ctx context.Context) DomainIamFederationOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIamFederationOptionsOutput)
+}
+
+func (i DomainIamFederationOptionsArgs) ToDomainIamFederationOptionsPtrOutput() DomainIamFederationOptionsPtrOutput {
+	return i.ToDomainIamFederationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainIamFederationOptionsArgs) ToDomainIamFederationOptionsPtrOutputWithContext(ctx context.Context) DomainIamFederationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIamFederationOptionsOutput).ToDomainIamFederationOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainIamFederationOptionsPtrInput is an input type that accepts DomainIamFederationOptionsArgs, DomainIamFederationOptionsPtr and DomainIamFederationOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainIamFederationOptionsPtrInput` via:
+//
+//	        DomainIamFederationOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainIamFederationOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainIamFederationOptionsPtrOutput() DomainIamFederationOptionsPtrOutput
+	ToDomainIamFederationOptionsPtrOutputWithContext(context.Context) DomainIamFederationOptionsPtrOutput
+}
+
+type domainIamFederationOptionsPtrType DomainIamFederationOptionsArgs
+
+func DomainIamFederationOptionsPtr(v *DomainIamFederationOptionsArgs) DomainIamFederationOptionsPtrInput {
+	return (*domainIamFederationOptionsPtrType)(v)
+}
+
+func (*domainIamFederationOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainIamFederationOptions)(nil)).Elem()
+}
+
+func (i *domainIamFederationOptionsPtrType) ToDomainIamFederationOptionsPtrOutput() DomainIamFederationOptionsPtrOutput {
+	return i.ToDomainIamFederationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainIamFederationOptionsPtrType) ToDomainIamFederationOptionsPtrOutputWithContext(ctx context.Context) DomainIamFederationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIamFederationOptionsPtrOutput)
+}
+
+type DomainIamFederationOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainIamFederationOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIamFederationOptions)(nil)).Elem()
+}
+
+func (o DomainIamFederationOptionsOutput) ToDomainIamFederationOptionsOutput() DomainIamFederationOptionsOutput {
+	return o
+}
+
+func (o DomainIamFederationOptionsOutput) ToDomainIamFederationOptionsOutputWithContext(ctx context.Context) DomainIamFederationOptionsOutput {
+	return o
+}
+
+func (o DomainIamFederationOptionsOutput) ToDomainIamFederationOptionsPtrOutput() DomainIamFederationOptionsPtrOutput {
+	return o.ToDomainIamFederationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainIamFederationOptionsOutput) ToDomainIamFederationOptionsPtrOutputWithContext(ctx context.Context) DomainIamFederationOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainIamFederationOptions) *DomainIamFederationOptions {
+		return &v
+	}).(DomainIamFederationOptionsPtrOutput)
+}
+
+func (o DomainIamFederationOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainIamFederationOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainIamFederationOptionsOutput) RolesKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainIamFederationOptions) *string { return v.RolesKey }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainIamFederationOptionsOutput) SubjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainIamFederationOptions) *string { return v.SubjectKey }).(pulumi.StringPtrOutput)
+}
+
+type DomainIamFederationOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainIamFederationOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainIamFederationOptions)(nil)).Elem()
+}
+
+func (o DomainIamFederationOptionsPtrOutput) ToDomainIamFederationOptionsPtrOutput() DomainIamFederationOptionsPtrOutput {
+	return o
+}
+
+func (o DomainIamFederationOptionsPtrOutput) ToDomainIamFederationOptionsPtrOutputWithContext(ctx context.Context) DomainIamFederationOptionsPtrOutput {
+	return o
+}
+
+func (o DomainIamFederationOptionsPtrOutput) Elem() DomainIamFederationOptionsOutput {
+	return o.ApplyT(func(v *DomainIamFederationOptions) DomainIamFederationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainIamFederationOptions
+		return ret
+	}).(DomainIamFederationOptionsOutput)
+}
+
+func (o DomainIamFederationOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainIamFederationOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainIamFederationOptionsPtrOutput) RolesKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainIamFederationOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RolesKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainIamFederationOptionsPtrOutput) SubjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainIamFederationOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectKey
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4774,6 +4952,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEncryptionAtRestOptionsPtrInput)(nil)).Elem(), DomainEncryptionAtRestOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEndpointOptionsInput)(nil)).Elem(), DomainEndpointOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEndpointOptionsPtrInput)(nil)).Elem(), DomainEndpointOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIamFederationOptionsInput)(nil)).Elem(), DomainIamFederationOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIamFederationOptionsPtrInput)(nil)).Elem(), DomainIamFederationOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityCenterOptionsInput)(nil)).Elem(), DomainIdentityCenterOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityCenterOptionsPtrInput)(nil)).Elem(), DomainIdentityCenterOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdpInput)(nil)).Elem(), DomainIdpArgs{})
@@ -4826,6 +5006,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainEncryptionAtRestOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainEndpointOptionsOutput{})
 	pulumi.RegisterOutputType(DomainEndpointOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainIamFederationOptionsOutput{})
+	pulumi.RegisterOutputType(DomainIamFederationOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainIdentityCenterOptionsOutput{})
 	pulumi.RegisterOutputType(DomainIdentityCenterOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainIdpOutput{})

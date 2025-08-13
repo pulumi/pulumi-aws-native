@@ -1450,8 +1450,9 @@ func (o ClusterFSxLustreConfigPtrOutput) SizeInGiB() pulumi.IntPtrOutput {
 // Details of an instance group in a SageMaker HyperPod cluster.
 type ClusterInstanceGroup struct {
 	// The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
-	CurrentCount  *int   `pulumi:"currentCount"`
-	ExecutionRole string `pulumi:"executionRole"`
+	CurrentCount  *int    `pulumi:"currentCount"`
+	ExecutionRole string  `pulumi:"executionRole"`
+	ImageId       *string `pulumi:"imageId"`
 	// The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
 	InstanceCount           int                            `pulumi:"instanceCount"`
 	InstanceGroupName       string                         `pulumi:"instanceGroupName"`
@@ -1480,8 +1481,9 @@ type ClusterInstanceGroupInput interface {
 // Details of an instance group in a SageMaker HyperPod cluster.
 type ClusterInstanceGroupArgs struct {
 	// The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
-	CurrentCount  pulumi.IntPtrInput `pulumi:"currentCount"`
-	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
+	CurrentCount  pulumi.IntPtrInput    `pulumi:"currentCount"`
+	ExecutionRole pulumi.StringInput    `pulumi:"executionRole"`
+	ImageId       pulumi.StringPtrInput `pulumi:"imageId"`
 	// The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
 	InstanceCount           pulumi.IntInput                        `pulumi:"instanceCount"`
 	InstanceGroupName       pulumi.StringInput                     `pulumi:"instanceGroupName"`
@@ -1555,6 +1557,10 @@ func (o ClusterInstanceGroupOutput) CurrentCount() pulumi.IntPtrOutput {
 
 func (o ClusterInstanceGroupOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterInstanceGroup) string { return v.ExecutionRole }).(pulumi.StringOutput)
+}
+
+func (o ClusterInstanceGroupOutput) ImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) *string { return v.ImageId }).(pulumi.StringPtrOutput)
 }
 
 // The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
@@ -9338,8 +9344,6 @@ type DomainUnifiedStudioSettings struct {
 	ProjectId *string `pulumi:"projectId"`
 	// The location where Amazon S3 stores temporary execution data and other artifacts for the project that corresponds to the domain.
 	ProjectS3Path *string `pulumi:"projectS3Path"`
-	// The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
-	SingleSignOnApplicationArn *string `pulumi:"singleSignOnApplicationArn"`
 	// Sets whether you can access the domain in Amazon SageMaker Studio:
 	//
 	// ENABLED
@@ -9374,8 +9378,6 @@ type DomainUnifiedStudioSettingsArgs struct {
 	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
 	// The location where Amazon S3 stores temporary execution data and other artifacts for the project that corresponds to the domain.
 	ProjectS3Path pulumi.StringPtrInput `pulumi:"projectS3Path"`
-	// The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
-	SingleSignOnApplicationArn pulumi.StringPtrInput `pulumi:"singleSignOnApplicationArn"`
 	// Sets whether you can access the domain in Amazon SageMaker Studio:
 	//
 	// ENABLED
@@ -9493,11 +9495,6 @@ func (o DomainUnifiedStudioSettingsOutput) ProjectS3Path() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v DomainUnifiedStudioSettings) *string { return v.ProjectS3Path }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
-func (o DomainUnifiedStudioSettingsOutput) SingleSignOnApplicationArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainUnifiedStudioSettings) *string { return v.SingleSignOnApplicationArn }).(pulumi.StringPtrOutput)
-}
-
 // Sets whether you can access the domain in Amazon SageMaker Studio:
 //
 // ENABLED
@@ -9591,16 +9588,6 @@ func (o DomainUnifiedStudioSettingsPtrOutput) ProjectS3Path() pulumi.StringPtrOu
 			return nil
 		}
 		return v.ProjectS3Path
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
-func (o DomainUnifiedStudioSettingsPtrOutput) SingleSignOnApplicationArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainUnifiedStudioSettings) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SingleSignOnApplicationArn
 	}).(pulumi.StringPtrOutput)
 }
 

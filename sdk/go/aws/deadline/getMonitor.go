@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -42,6 +43,8 @@ type LookupMonitorResult struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
 	Subdomain *string `pulumi:"subdomain"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The complete URL of the monitor. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
 	Url *string `pulumi:"url"`
 }
@@ -108,6 +111,11 @@ func (o LookupMonitorResultOutput) RoleArn() pulumi.StringPtrOutput {
 // The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
 func (o LookupMonitorResultOutput) Subdomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *string { return v.Subdomain }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupMonitorResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupMonitorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The complete URL of the monitor. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.

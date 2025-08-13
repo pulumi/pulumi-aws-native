@@ -19,12 +19,20 @@ type Application struct {
 
 	// The Amazon Resource Name (ARN) of the application.
 	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
+	// The application configuration. Cannot be used when IsService is true.
+	ApplicationConfig ApplicationConfigPtrOutput `pulumi:"applicationConfig"`
 	// Application source config
 	ApplicationSourceConfig ApplicationSourceConfigPropertiesOutput `pulumi:"applicationSourceConfig"`
 	// The id of the application.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The application description.
 	Description pulumi.StringOutput `pulumi:"description"`
+	// The iframe configuration
+	IframeConfig ApplicationIframeConfigPtrOutput `pulumi:"iframeConfig"`
+	// The initialization timeout in milliseconds. Required when IsService is true.
+	InitializationTimeout pulumi.IntPtrOutput `pulumi:"initializationTimeout"`
+	// Indicates if the application is a service
+	IsService pulumi.BoolPtrOutput `pulumi:"isService"`
 	// The name of the application.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The namespace of the application.
@@ -84,10 +92,18 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
+	// The application configuration. Cannot be used when IsService is true.
+	ApplicationConfig *ApplicationConfig `pulumi:"applicationConfig"`
 	// Application source config
 	ApplicationSourceConfig ApplicationSourceConfigProperties `pulumi:"applicationSourceConfig"`
 	// The application description.
 	Description string `pulumi:"description"`
+	// The iframe configuration
+	IframeConfig *ApplicationIframeConfig `pulumi:"iframeConfig"`
+	// The initialization timeout in milliseconds. Required when IsService is true.
+	InitializationTimeout *int `pulumi:"initializationTimeout"`
+	// Indicates if the application is a service
+	IsService *bool `pulumi:"isService"`
 	// The name of the application.
 	Name *string `pulumi:"name"`
 	// The namespace of the application.
@@ -100,10 +116,18 @@ type applicationArgs struct {
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
+	// The application configuration. Cannot be used when IsService is true.
+	ApplicationConfig ApplicationConfigPtrInput
 	// Application source config
 	ApplicationSourceConfig ApplicationSourceConfigPropertiesInput
 	// The application description.
 	Description pulumi.StringInput
+	// The iframe configuration
+	IframeConfig ApplicationIframeConfigPtrInput
+	// The initialization timeout in milliseconds. Required when IsService is true.
+	InitializationTimeout pulumi.IntPtrInput
+	// Indicates if the application is a service
+	IsService pulumi.BoolPtrInput
 	// The name of the application.
 	Name pulumi.StringPtrInput
 	// The namespace of the application.
@@ -156,6 +180,11 @@ func (o ApplicationOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
 }
 
+// The application configuration. Cannot be used when IsService is true.
+func (o ApplicationOutput) ApplicationConfig() ApplicationConfigPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationConfigPtrOutput { return v.ApplicationConfig }).(ApplicationConfigPtrOutput)
+}
+
 // Application source config
 func (o ApplicationOutput) ApplicationSourceConfig() ApplicationSourceConfigPropertiesOutput {
 	return o.ApplyT(func(v *Application) ApplicationSourceConfigPropertiesOutput { return v.ApplicationSourceConfig }).(ApplicationSourceConfigPropertiesOutput)
@@ -169,6 +198,21 @@ func (o ApplicationOutput) AwsId() pulumi.StringOutput {
 // The application description.
 func (o ApplicationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// The iframe configuration
+func (o ApplicationOutput) IframeConfig() ApplicationIframeConfigPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationIframeConfigPtrOutput { return v.IframeConfig }).(ApplicationIframeConfigPtrOutput)
+}
+
+// The initialization timeout in milliseconds. Required when IsService is true.
+func (o ApplicationOutput) InitializationTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.IntPtrOutput { return v.InitializationTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Indicates if the application is a service
+func (o ApplicationOutput) IsService() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.IsService }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the application.

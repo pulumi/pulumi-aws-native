@@ -16,6 +16,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetApplicationResult',
@@ -26,10 +27,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, application_arn=None, application_source_config=None, description=None, id=None, name=None, namespace=None, permissions=None, tags=None):
+    def __init__(__self__, application_arn=None, application_config=None, application_source_config=None, description=None, id=None, iframe_config=None, initialization_timeout=None, is_service=None, name=None, namespace=None, permissions=None, tags=None):
         if application_arn and not isinstance(application_arn, str):
             raise TypeError("Expected argument 'application_arn' to be a str")
         pulumi.set(__self__, "application_arn", application_arn)
+        if application_config and not isinstance(application_config, dict):
+            raise TypeError("Expected argument 'application_config' to be a dict")
+        pulumi.set(__self__, "application_config", application_config)
         if application_source_config and not isinstance(application_source_config, dict):
             raise TypeError("Expected argument 'application_source_config' to be a dict")
         pulumi.set(__self__, "application_source_config", application_source_config)
@@ -39,6 +43,15 @@ class GetApplicationResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if iframe_config and not isinstance(iframe_config, dict):
+            raise TypeError("Expected argument 'iframe_config' to be a dict")
+        pulumi.set(__self__, "iframe_config", iframe_config)
+        if initialization_timeout and not isinstance(initialization_timeout, int):
+            raise TypeError("Expected argument 'initialization_timeout' to be a int")
+        pulumi.set(__self__, "initialization_timeout", initialization_timeout)
+        if is_service and not isinstance(is_service, bool):
+            raise TypeError("Expected argument 'is_service' to be a bool")
+        pulumi.set(__self__, "is_service", is_service)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -59,6 +72,14 @@ class GetApplicationResult:
         The Amazon Resource Name (ARN) of the application.
         """
         return pulumi.get(self, "application_arn")
+
+    @property
+    @pulumi.getter(name="applicationConfig")
+    def application_config(self) -> Optional['outputs.ApplicationConfig']:
+        """
+        The application configuration. Cannot be used when IsService is true.
+        """
+        return pulumi.get(self, "application_config")
 
     @property
     @pulumi.getter(name="applicationSourceConfig")
@@ -83,6 +104,30 @@ class GetApplicationResult:
         The id of the application.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="iframeConfig")
+    def iframe_config(self) -> Optional['outputs.ApplicationIframeConfig']:
+        """
+        The iframe configuration
+        """
+        return pulumi.get(self, "iframe_config")
+
+    @property
+    @pulumi.getter(name="initializationTimeout")
+    def initialization_timeout(self) -> Optional[builtins.int]:
+        """
+        The initialization timeout in milliseconds. Required when IsService is true.
+        """
+        return pulumi.get(self, "initialization_timeout")
+
+    @property
+    @pulumi.getter(name="isService")
+    def is_service(self) -> Optional[builtins.bool]:
+        """
+        Indicates if the application is a service
+        """
+        return pulumi.get(self, "is_service")
 
     @property
     @pulumi.getter
@@ -124,9 +169,13 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             yield self
         return GetApplicationResult(
             application_arn=self.application_arn,
+            application_config=self.application_config,
             application_source_config=self.application_source_config,
             description=self.description,
             id=self.id,
+            iframe_config=self.iframe_config,
+            initialization_timeout=self.initialization_timeout,
+            is_service=self.is_service,
             name=self.name,
             namespace=self.namespace,
             permissions=self.permissions,
@@ -148,9 +197,13 @@ def get_application(application_arn: Optional[builtins.str] = None,
 
     return AwaitableGetApplicationResult(
         application_arn=pulumi.get(__ret__, 'application_arn'),
+        application_config=pulumi.get(__ret__, 'application_config'),
         application_source_config=pulumi.get(__ret__, 'application_source_config'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
+        iframe_config=pulumi.get(__ret__, 'iframe_config'),
+        initialization_timeout=pulumi.get(__ret__, 'initialization_timeout'),
+        is_service=pulumi.get(__ret__, 'is_service'),
         name=pulumi.get(__ret__, 'name'),
         namespace=pulumi.get(__ret__, 'namespace'),
         permissions=pulumi.get(__ret__, 'permissions'),
@@ -169,9 +222,13 @@ def get_application_output(application_arn: Optional[pulumi.Input[builtins.str]]
     __ret__ = pulumi.runtime.invoke_output('aws-native:appintegrations:getApplication', __args__, opts=opts, typ=GetApplicationResult)
     return __ret__.apply(lambda __response__: GetApplicationResult(
         application_arn=pulumi.get(__response__, 'application_arn'),
+        application_config=pulumi.get(__response__, 'application_config'),
         application_source_config=pulumi.get(__response__, 'application_source_config'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
+        iframe_config=pulumi.get(__response__, 'iframe_config'),
+        initialization_timeout=pulumi.get(__response__, 'initialization_timeout'),
+        is_service=pulumi.get(__response__, 'is_service'),
         name=pulumi.get(__response__, 'name'),
         namespace=pulumi.get(__response__, 'namespace'),
         permissions=pulumi.get(__response__, 'permissions'),

@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         /// <summary>
         /// The Availability Zone of the instance.
         /// 
-        /// If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.
+        /// Either `AvailabilityZone` or `AvailabilityZoneId` can be specified, but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone based on the load balancing criteria for the Region.
         /// 
         /// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
         /// </summary>
