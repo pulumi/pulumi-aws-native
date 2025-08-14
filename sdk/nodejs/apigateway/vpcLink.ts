@@ -69,13 +69,13 @@ export class VpcLink extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.targetArns === undefined) && !opts.urn) {
+            if (args?.targetArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetArns'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetArns"] = args ? args.targetArns : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetArns"] = args?.targetArns;
             resourceInputs["vpcLinkId"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

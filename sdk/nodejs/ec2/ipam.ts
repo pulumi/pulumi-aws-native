@@ -109,13 +109,13 @@ export class Ipam extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["defaultResourceDiscoveryOrganizationalUnitExclusions"] = args ? args.defaultResourceDiscoveryOrganizationalUnitExclusions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enablePrivateGua"] = args ? args.enablePrivateGua : undefined;
-            resourceInputs["meteredAccount"] = args ? args.meteredAccount : undefined;
-            resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
+            resourceInputs["defaultResourceDiscoveryOrganizationalUnitExclusions"] = args?.defaultResourceDiscoveryOrganizationalUnitExclusions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enablePrivateGua"] = args?.enablePrivateGua;
+            resourceInputs["meteredAccount"] = args?.meteredAccount;
+            resourceInputs["operatingRegions"] = args?.operatingRegions;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tier"] = args?.tier;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultResourceDiscoveryAssociationId"] = undefined /*out*/;
             resourceInputs["defaultResourceDiscoveryId"] = undefined /*out*/;

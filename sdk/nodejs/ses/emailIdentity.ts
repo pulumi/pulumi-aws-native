@@ -103,16 +103,16 @@ export class EmailIdentity extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.emailIdentity === undefined) && !opts.urn) {
+            if (args?.emailIdentity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailIdentity'");
             }
-            resourceInputs["configurationSetAttributes"] = args ? args.configurationSetAttributes : undefined;
-            resourceInputs["dkimAttributes"] = args ? args.dkimAttributes : undefined;
-            resourceInputs["dkimSigningAttributes"] = args ? args.dkimSigningAttributes : undefined;
-            resourceInputs["emailIdentity"] = args ? args.emailIdentity : undefined;
-            resourceInputs["feedbackAttributes"] = args ? args.feedbackAttributes : undefined;
-            resourceInputs["mailFromAttributes"] = args ? args.mailFromAttributes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configurationSetAttributes"] = args?.configurationSetAttributes;
+            resourceInputs["dkimAttributes"] = args?.dkimAttributes;
+            resourceInputs["dkimSigningAttributes"] = args?.dkimSigningAttributes;
+            resourceInputs["emailIdentity"] = args?.emailIdentity;
+            resourceInputs["feedbackAttributes"] = args?.feedbackAttributes;
+            resourceInputs["mailFromAttributes"] = args?.mailFromAttributes;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["dkimDnsTokenName1"] = undefined /*out*/;
             resourceInputs["dkimDnsTokenName2"] = undefined /*out*/;
             resourceInputs["dkimDnsTokenName3"] = undefined /*out*/;

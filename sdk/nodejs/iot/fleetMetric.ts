@@ -105,16 +105,16 @@ export class FleetMetric extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["aggregationField"] = args ? args.aggregationField : undefined;
-            resourceInputs["aggregationType"] = args ? args.aggregationType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["indexName"] = args ? args.indexName : undefined;
-            resourceInputs["metricName"] = args ? args.metricName : undefined;
-            resourceInputs["period"] = args ? args.period : undefined;
-            resourceInputs["queryString"] = args ? args.queryString : undefined;
-            resourceInputs["queryVersion"] = args ? args.queryVersion : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["unit"] = args ? args.unit : undefined;
+            resourceInputs["aggregationField"] = args?.aggregationField;
+            resourceInputs["aggregationType"] = args?.aggregationType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["indexName"] = args?.indexName;
+            resourceInputs["metricName"] = args?.metricName;
+            resourceInputs["period"] = args?.period;
+            resourceInputs["queryString"] = args?.queryString;
+            resourceInputs["queryVersion"] = args?.queryVersion;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["unit"] = args?.unit;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["lastModifiedDate"] = undefined /*out*/;
             resourceInputs["metricArn"] = undefined /*out*/;

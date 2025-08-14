@@ -176,15 +176,15 @@ export class GameSessionQueue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["customEventData"] = args ? args.customEventData : undefined;
-            resourceInputs["destinations"] = args ? args.destinations : undefined;
-            resourceInputs["filterConfiguration"] = args ? args.filterConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationTarget"] = args ? args.notificationTarget : undefined;
-            resourceInputs["playerLatencyPolicies"] = args ? args.playerLatencyPolicies : undefined;
-            resourceInputs["priorityConfiguration"] = args ? args.priorityConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
+            resourceInputs["customEventData"] = args?.customEventData;
+            resourceInputs["destinations"] = args?.destinations;
+            resourceInputs["filterConfiguration"] = args?.filterConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notificationTarget"] = args?.notificationTarget;
+            resourceInputs["playerLatencyPolicies"] = args?.playerLatencyPolicies;
+            resourceInputs["priorityConfiguration"] = args?.priorityConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeoutInSeconds"] = args?.timeoutInSeconds;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -89,16 +89,16 @@ export class EventSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.snsTopicArn === undefined) && !opts.urn) {
+            if (args?.snsTopicArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'snsTopicArn'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["eventCategories"] = args ? args.eventCategories : undefined;
-            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
-            resourceInputs["sourceIds"] = args ? args.sourceIds : undefined;
-            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
-            resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["eventCategories"] = args?.eventCategories;
+            resourceInputs["snsTopicArn"] = args?.snsTopicArn;
+            resourceInputs["sourceIds"] = args?.sourceIds;
+            resourceInputs["sourceType"] = args?.sourceType;
+            resourceInputs["subscriptionName"] = args?.subscriptionName;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["eventCategories"] = undefined /*out*/;

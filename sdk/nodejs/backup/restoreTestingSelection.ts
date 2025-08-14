@@ -85,23 +85,23 @@ export class RestoreTestingSelection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.iamRoleArn === undefined) && !opts.urn) {
+            if (args?.iamRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
-            if ((!args || args.protectedResourceType === undefined) && !opts.urn) {
+            if (args?.protectedResourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protectedResourceType'");
             }
-            if ((!args || args.restoreTestingPlanName === undefined) && !opts.urn) {
+            if (args?.restoreTestingPlanName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restoreTestingPlanName'");
             }
-            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            resourceInputs["protectedResourceArns"] = args ? args.protectedResourceArns : undefined;
-            resourceInputs["protectedResourceConditions"] = args ? args.protectedResourceConditions : undefined;
-            resourceInputs["protectedResourceType"] = args ? args.protectedResourceType : undefined;
-            resourceInputs["restoreMetadataOverrides"] = args ? args.restoreMetadataOverrides : undefined;
-            resourceInputs["restoreTestingPlanName"] = args ? args.restoreTestingPlanName : undefined;
-            resourceInputs["restoreTestingSelectionName"] = args ? args.restoreTestingSelectionName : undefined;
-            resourceInputs["validationWindowHours"] = args ? args.validationWindowHours : undefined;
+            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
+            resourceInputs["protectedResourceArns"] = args?.protectedResourceArns;
+            resourceInputs["protectedResourceConditions"] = args?.protectedResourceConditions;
+            resourceInputs["protectedResourceType"] = args?.protectedResourceType;
+            resourceInputs["restoreMetadataOverrides"] = args?.restoreMetadataOverrides;
+            resourceInputs["restoreTestingPlanName"] = args?.restoreTestingPlanName;
+            resourceInputs["restoreTestingSelectionName"] = args?.restoreTestingSelectionName;
+            resourceInputs["validationWindowHours"] = args?.validationWindowHours;
         } else {
             resourceInputs["iamRoleArn"] = undefined /*out*/;
             resourceInputs["protectedResourceArns"] = undefined /*out*/;

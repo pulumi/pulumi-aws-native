@@ -97,21 +97,21 @@ export class PackageVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.packageId === undefined) && !opts.urn) {
+            if (args?.packageId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packageId'");
             }
-            if ((!args || args.packageVersion === undefined) && !opts.urn) {
+            if (args?.packageVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packageVersion'");
             }
-            if ((!args || args.patchVersion === undefined) && !opts.urn) {
+            if (args?.patchVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'patchVersion'");
             }
-            resourceInputs["markLatest"] = args ? args.markLatest : undefined;
-            resourceInputs["ownerAccount"] = args ? args.ownerAccount : undefined;
-            resourceInputs["packageId"] = args ? args.packageId : undefined;
-            resourceInputs["packageVersion"] = args ? args.packageVersion : undefined;
-            resourceInputs["patchVersion"] = args ? args.patchVersion : undefined;
-            resourceInputs["updatedLatestPatchVersion"] = args ? args.updatedLatestPatchVersion : undefined;
+            resourceInputs["markLatest"] = args?.markLatest;
+            resourceInputs["ownerAccount"] = args?.ownerAccount;
+            resourceInputs["packageId"] = args?.packageId;
+            resourceInputs["packageVersion"] = args?.packageVersion;
+            resourceInputs["patchVersion"] = args?.patchVersion;
+            resourceInputs["updatedLatestPatchVersion"] = args?.updatedLatestPatchVersion;
             resourceInputs["isLatestPatch"] = undefined /*out*/;
             resourceInputs["packageArn"] = undefined /*out*/;
             resourceInputs["packageName"] = undefined /*out*/;

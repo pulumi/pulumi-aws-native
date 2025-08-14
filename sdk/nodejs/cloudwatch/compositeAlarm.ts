@@ -97,20 +97,20 @@ export class CompositeAlarm extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.alarmRule === undefined) && !opts.urn) {
+            if (args?.alarmRule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alarmRule'");
             }
-            resourceInputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;
-            resourceInputs["actionsSuppressor"] = args ? args.actionsSuppressor : undefined;
-            resourceInputs["actionsSuppressorExtensionPeriod"] = args ? args.actionsSuppressorExtensionPeriod : undefined;
-            resourceInputs["actionsSuppressorWaitPeriod"] = args ? args.actionsSuppressorWaitPeriod : undefined;
-            resourceInputs["alarmActions"] = args ? args.alarmActions : undefined;
-            resourceInputs["alarmDescription"] = args ? args.alarmDescription : undefined;
-            resourceInputs["alarmName"] = args ? args.alarmName : undefined;
-            resourceInputs["alarmRule"] = args ? args.alarmRule : undefined;
-            resourceInputs["insufficientDataActions"] = args ? args.insufficientDataActions : undefined;
-            resourceInputs["okActions"] = args ? args.okActions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actionsEnabled"] = args?.actionsEnabled;
+            resourceInputs["actionsSuppressor"] = args?.actionsSuppressor;
+            resourceInputs["actionsSuppressorExtensionPeriod"] = args?.actionsSuppressorExtensionPeriod;
+            resourceInputs["actionsSuppressorWaitPeriod"] = args?.actionsSuppressorWaitPeriod;
+            resourceInputs["alarmActions"] = args?.alarmActions;
+            resourceInputs["alarmDescription"] = args?.alarmDescription;
+            resourceInputs["alarmName"] = args?.alarmName;
+            resourceInputs["alarmRule"] = args?.alarmRule;
+            resourceInputs["insufficientDataActions"] = args?.insufficientDataActions;
+            resourceInputs["okActions"] = args?.okActions;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["actionsEnabled"] = undefined /*out*/;

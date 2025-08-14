@@ -85,11 +85,11 @@ export class ExtensionAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["extensionIdentifier"] = args ? args.extensionIdentifier : undefined;
-            resourceInputs["extensionVersionNumber"] = args ? args.extensionVersionNumber : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["extensionIdentifier"] = args?.extensionIdentifier;
+            resourceInputs["extensionVersionNumber"] = args?.extensionVersionNumber;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceIdentifier"] = args?.resourceIdentifier;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["extensionArn"] = undefined /*out*/;

@@ -90,20 +90,20 @@ export class Integration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sourceArn === undefined) && !opts.urn) {
+            if (args?.sourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceArn'");
             }
-            if ((!args || args.targetArn === undefined) && !opts.urn) {
+            if (args?.targetArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
-            resourceInputs["dataFilter"] = args ? args.dataFilter : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["integrationName"] = args ? args.integrationName : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetArn"] = args ? args.targetArn : undefined;
+            resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
+            resourceInputs["dataFilter"] = args?.dataFilter;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["integrationName"] = args?.integrationName;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["sourceArn"] = args?.sourceArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetArn"] = args?.targetArn;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["integrationArn"] = undefined /*out*/;
         } else {

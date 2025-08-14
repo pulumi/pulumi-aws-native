@@ -85,17 +85,17 @@ export class Link extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceTypes === undefined) && !opts.urn) {
+            if (args?.resourceTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceTypes'");
             }
-            if ((!args || args.sinkIdentifier === undefined) && !opts.urn) {
+            if (args?.sinkIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sinkIdentifier'");
             }
-            resourceInputs["labelTemplate"] = args ? args.labelTemplate : undefined;
-            resourceInputs["linkConfiguration"] = args ? args.linkConfiguration : undefined;
-            resourceInputs["resourceTypes"] = args ? args.resourceTypes : undefined;
-            resourceInputs["sinkIdentifier"] = args ? args.sinkIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["labelTemplate"] = args?.labelTemplate;
+            resourceInputs["linkConfiguration"] = args?.linkConfiguration;
+            resourceInputs["resourceTypes"] = args?.resourceTypes;
+            resourceInputs["sinkIdentifier"] = args?.sinkIdentifier;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["label"] = undefined /*out*/;
         } else {

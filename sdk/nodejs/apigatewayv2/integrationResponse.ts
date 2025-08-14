@@ -85,22 +85,22 @@ export class IntegrationResponse extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.integrationId === undefined) && !opts.urn) {
+            if (args?.integrationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationId'");
             }
-            if ((!args || args.integrationResponseKey === undefined) && !opts.urn) {
+            if (args?.integrationResponseKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationResponseKey'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["contentHandlingStrategy"] = args ? args.contentHandlingStrategy : undefined;
-            resourceInputs["integrationId"] = args ? args.integrationId : undefined;
-            resourceInputs["integrationResponseKey"] = args ? args.integrationResponseKey : undefined;
-            resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
-            resourceInputs["responseTemplates"] = args ? args.responseTemplates : undefined;
-            resourceInputs["templateSelectionExpression"] = args ? args.templateSelectionExpression : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["contentHandlingStrategy"] = args?.contentHandlingStrategy;
+            resourceInputs["integrationId"] = args?.integrationId;
+            resourceInputs["integrationResponseKey"] = args?.integrationResponseKey;
+            resourceInputs["responseParameters"] = args?.responseParameters;
+            resourceInputs["responseTemplates"] = args?.responseTemplates;
+            resourceInputs["templateSelectionExpression"] = args?.templateSelectionExpression;
             resourceInputs["integrationResponseId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;

@@ -101,18 +101,18 @@ export class Service extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sourceConfiguration === undefined) && !opts.urn) {
+            if (args?.sourceConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceConfiguration'");
             }
-            resourceInputs["autoScalingConfigurationArn"] = args ? args.autoScalingConfigurationArn : undefined;
-            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            resourceInputs["healthCheckConfiguration"] = args ? args.healthCheckConfiguration : undefined;
-            resourceInputs["instanceConfiguration"] = args ? args.instanceConfiguration : undefined;
-            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            resourceInputs["observabilityConfiguration"] = args ? args.observabilityConfiguration : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["sourceConfiguration"] = args ? args.sourceConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoScalingConfigurationArn"] = args?.autoScalingConfigurationArn;
+            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["healthCheckConfiguration"] = args?.healthCheckConfiguration;
+            resourceInputs["instanceConfiguration"] = args?.instanceConfiguration;
+            resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["observabilityConfiguration"] = args?.observabilityConfiguration;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["sourceConfiguration"] = args?.sourceConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["serviceArn"] = undefined /*out*/;
             resourceInputs["serviceId"] = undefined /*out*/;
             resourceInputs["serviceUrl"] = undefined /*out*/;

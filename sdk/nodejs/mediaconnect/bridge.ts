@@ -85,19 +85,19 @@ export class Bridge extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.placementArn === undefined) && !opts.urn) {
+            if (args?.placementArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'placementArn'");
             }
-            if ((!args || args.sources === undefined) && !opts.urn) {
+            if (args?.sources === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sources'");
             }
-            resourceInputs["egressGatewayBridge"] = args ? args.egressGatewayBridge : undefined;
-            resourceInputs["ingressGatewayBridge"] = args ? args.ingressGatewayBridge : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outputs"] = args ? args.outputs : undefined;
-            resourceInputs["placementArn"] = args ? args.placementArn : undefined;
-            resourceInputs["sourceFailoverConfig"] = args ? args.sourceFailoverConfig : undefined;
-            resourceInputs["sources"] = args ? args.sources : undefined;
+            resourceInputs["egressGatewayBridge"] = args?.egressGatewayBridge;
+            resourceInputs["ingressGatewayBridge"] = args?.ingressGatewayBridge;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outputs"] = args?.outputs;
+            resourceInputs["placementArn"] = args?.placementArn;
+            resourceInputs["sourceFailoverConfig"] = args?.sourceFailoverConfig;
+            resourceInputs["sources"] = args?.sources;
             resourceInputs["bridgeArn"] = undefined /*out*/;
             resourceInputs["bridgeState"] = undefined /*out*/;
         } else {

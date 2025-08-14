@@ -85,20 +85,20 @@ export class Flywheel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataAccessRoleArn === undefined) && !opts.urn) {
+            if (args?.dataAccessRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataAccessRoleArn'");
             }
-            if ((!args || args.dataLakeS3Uri === undefined) && !opts.urn) {
+            if (args?.dataLakeS3Uri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataLakeS3Uri'");
             }
-            resourceInputs["activeModelArn"] = args ? args.activeModelArn : undefined;
-            resourceInputs["dataAccessRoleArn"] = args ? args.dataAccessRoleArn : undefined;
-            resourceInputs["dataLakeS3Uri"] = args ? args.dataLakeS3Uri : undefined;
-            resourceInputs["dataSecurityConfig"] = args ? args.dataSecurityConfig : undefined;
-            resourceInputs["flywheelName"] = args ? args.flywheelName : undefined;
-            resourceInputs["modelType"] = args ? args.modelType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taskConfig"] = args ? args.taskConfig : undefined;
+            resourceInputs["activeModelArn"] = args?.activeModelArn;
+            resourceInputs["dataAccessRoleArn"] = args?.dataAccessRoleArn;
+            resourceInputs["dataLakeS3Uri"] = args?.dataLakeS3Uri;
+            resourceInputs["dataSecurityConfig"] = args?.dataSecurityConfig;
+            resourceInputs["flywheelName"] = args?.flywheelName;
+            resourceInputs["modelType"] = args?.modelType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taskConfig"] = args?.taskConfig;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["activeModelArn"] = undefined /*out*/;

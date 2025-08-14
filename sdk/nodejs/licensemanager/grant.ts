@@ -84,12 +84,12 @@ export class Grant extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["allowedOperations"] = args ? args.allowedOperations : undefined;
-            resourceInputs["grantName"] = args ? args.grantName : undefined;
-            resourceInputs["homeRegion"] = args ? args.homeRegion : undefined;
-            resourceInputs["licenseArn"] = args ? args.licenseArn : undefined;
-            resourceInputs["principals"] = args ? args.principals : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["allowedOperations"] = args?.allowedOperations;
+            resourceInputs["grantName"] = args?.grantName;
+            resourceInputs["homeRegion"] = args?.homeRegion;
+            resourceInputs["licenseArn"] = args?.licenseArn;
+            resourceInputs["principals"] = args?.principals;
+            resourceInputs["status"] = args?.status;
             resourceInputs["grantArn"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {

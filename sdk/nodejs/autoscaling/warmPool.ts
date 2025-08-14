@@ -75,14 +75,14 @@ export class WarmPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoScalingGroupName === undefined) && !opts.urn) {
+            if (args?.autoScalingGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingGroupName'");
             }
-            resourceInputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
-            resourceInputs["instanceReusePolicy"] = args ? args.instanceReusePolicy : undefined;
-            resourceInputs["maxGroupPreparedCapacity"] = args ? args.maxGroupPreparedCapacity : undefined;
-            resourceInputs["minSize"] = args ? args.minSize : undefined;
-            resourceInputs["poolState"] = args ? args.poolState : undefined;
+            resourceInputs["autoScalingGroupName"] = args?.autoScalingGroupName;
+            resourceInputs["instanceReusePolicy"] = args?.instanceReusePolicy;
+            resourceInputs["maxGroupPreparedCapacity"] = args?.maxGroupPreparedCapacity;
+            resourceInputs["minSize"] = args?.minSize;
+            resourceInputs["poolState"] = args?.poolState;
         } else {
             resourceInputs["autoScalingGroupName"] = undefined /*out*/;
             resourceInputs["instanceReusePolicy"] = undefined /*out*/;

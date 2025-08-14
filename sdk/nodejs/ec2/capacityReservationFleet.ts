@@ -130,15 +130,15 @@ export class CapacityReservationFleet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["allocationStrategy"] = args ? args.allocationStrategy : undefined;
-            resourceInputs["endDate"] = args ? args.endDate : undefined;
-            resourceInputs["instanceMatchCriteria"] = args ? args.instanceMatchCriteria : undefined;
-            resourceInputs["instanceTypeSpecifications"] = args ? args.instanceTypeSpecifications : undefined;
-            resourceInputs["noRemoveEndDate"] = args ? args.noRemoveEndDate : undefined;
-            resourceInputs["removeEndDate"] = args ? args.removeEndDate : undefined;
-            resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
-            resourceInputs["tenancy"] = args ? args.tenancy : undefined;
-            resourceInputs["totalTargetCapacity"] = args ? args.totalTargetCapacity : undefined;
+            resourceInputs["allocationStrategy"] = args?.allocationStrategy;
+            resourceInputs["endDate"] = args?.endDate;
+            resourceInputs["instanceMatchCriteria"] = args?.instanceMatchCriteria;
+            resourceInputs["instanceTypeSpecifications"] = args?.instanceTypeSpecifications;
+            resourceInputs["noRemoveEndDate"] = args?.noRemoveEndDate;
+            resourceInputs["removeEndDate"] = args?.removeEndDate;
+            resourceInputs["tagSpecifications"] = args?.tagSpecifications;
+            resourceInputs["tenancy"] = args?.tenancy;
+            resourceInputs["totalTargetCapacity"] = args?.totalTargetCapacity;
             resourceInputs["capacityReservationFleetId"] = undefined /*out*/;
         } else {
             resourceInputs["allocationStrategy"] = undefined /*out*/;

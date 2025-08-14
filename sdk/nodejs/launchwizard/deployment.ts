@@ -93,17 +93,17 @@ export class Deployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deploymentPatternName === undefined) && !opts.urn) {
+            if (args?.deploymentPatternName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deploymentPatternName'");
             }
-            if ((!args || args.workloadName === undefined) && !opts.urn) {
+            if (args?.workloadName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workloadName'");
             }
-            resourceInputs["deploymentPatternName"] = args ? args.deploymentPatternName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["specifications"] = args ? args.specifications : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workloadName"] = args ? args.workloadName : undefined;
+            resourceInputs["deploymentPatternName"] = args?.deploymentPatternName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["specifications"] = args?.specifications;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workloadName"] = args?.workloadName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["deletedAt"] = undefined /*out*/;

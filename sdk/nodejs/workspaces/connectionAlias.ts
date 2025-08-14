@@ -69,11 +69,11 @@ export class ConnectionAlias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectionString === undefined) && !opts.urn) {
+            if (args?.connectionString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionString'");
             }
-            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectionString"] = args?.connectionString;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["aliasId"] = undefined /*out*/;
             resourceInputs["associations"] = undefined /*out*/;
             resourceInputs["connectionAliasState"] = undefined /*out*/;

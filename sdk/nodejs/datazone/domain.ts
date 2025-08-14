@@ -113,17 +113,17 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainExecutionRole === undefined) && !opts.urn) {
+            if (args?.domainExecutionRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainExecutionRole'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainExecutionRole"] = args ? args.domainExecutionRole : undefined;
-            resourceInputs["domainVersion"] = args ? args.domainVersion : undefined;
-            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
-            resourceInputs["singleSignOn"] = args ? args.singleSignOn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainExecutionRole"] = args?.domainExecutionRole;
+            resourceInputs["domainVersion"] = args?.domainVersion;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serviceRole"] = args?.serviceRole;
+            resourceInputs["singleSignOn"] = args?.singleSignOn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

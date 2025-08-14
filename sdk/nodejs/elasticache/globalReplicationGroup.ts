@@ -97,19 +97,19 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.members === undefined) && !opts.urn) {
+            if (args?.members === undefined && !opts.urn) {
                 throw new Error("Missing required property 'members'");
             }
-            resourceInputs["automaticFailoverEnabled"] = args ? args.automaticFailoverEnabled : undefined;
-            resourceInputs["cacheNodeType"] = args ? args.cacheNodeType : undefined;
-            resourceInputs["cacheParameterGroupName"] = args ? args.cacheParameterGroupName : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["globalNodeGroupCount"] = args ? args.globalNodeGroupCount : undefined;
-            resourceInputs["globalReplicationGroupDescription"] = args ? args.globalReplicationGroupDescription : undefined;
-            resourceInputs["globalReplicationGroupIdSuffix"] = args ? args.globalReplicationGroupIdSuffix : undefined;
-            resourceInputs["members"] = args ? args.members : undefined;
-            resourceInputs["regionalConfigurations"] = args ? args.regionalConfigurations : undefined;
+            resourceInputs["automaticFailoverEnabled"] = args?.automaticFailoverEnabled;
+            resourceInputs["cacheNodeType"] = args?.cacheNodeType;
+            resourceInputs["cacheParameterGroupName"] = args?.cacheParameterGroupName;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["globalNodeGroupCount"] = args?.globalNodeGroupCount;
+            resourceInputs["globalReplicationGroupDescription"] = args?.globalReplicationGroupDescription;
+            resourceInputs["globalReplicationGroupIdSuffix"] = args?.globalReplicationGroupIdSuffix;
+            resourceInputs["members"] = args?.members;
+            resourceInputs["regionalConfigurations"] = args?.regionalConfigurations;
             resourceInputs["globalReplicationGroupId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

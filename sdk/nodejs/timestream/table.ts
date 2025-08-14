@@ -81,15 +81,15 @@ export class Table extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["magneticStoreWriteProperties"] = args ? args.magneticStoreWriteProperties : undefined;
-            resourceInputs["retentionProperties"] = args ? args.retentionProperties : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["magneticStoreWriteProperties"] = args?.magneticStoreWriteProperties;
+            resourceInputs["retentionProperties"] = args?.retentionProperties;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {

@@ -99,25 +99,25 @@ export class Subscriber extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessTypes === undefined) && !opts.urn) {
+            if (args?.accessTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessTypes'");
             }
-            if ((!args || args.dataLakeArn === undefined) && !opts.urn) {
+            if (args?.dataLakeArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataLakeArn'");
             }
-            if ((!args || args.sources === undefined) && !opts.urn) {
+            if (args?.sources === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sources'");
             }
-            if ((!args || args.subscriberIdentity === undefined) && !opts.urn) {
+            if (args?.subscriberIdentity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriberIdentity'");
             }
-            resourceInputs["accessTypes"] = args ? args.accessTypes : undefined;
-            resourceInputs["dataLakeArn"] = args ? args.dataLakeArn : undefined;
-            resourceInputs["sources"] = args ? args.sources : undefined;
-            resourceInputs["subscriberDescription"] = args ? args.subscriberDescription : undefined;
-            resourceInputs["subscriberIdentity"] = args ? args.subscriberIdentity : undefined;
-            resourceInputs["subscriberName"] = args ? args.subscriberName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessTypes"] = args?.accessTypes;
+            resourceInputs["dataLakeArn"] = args?.dataLakeArn;
+            resourceInputs["sources"] = args?.sources;
+            resourceInputs["subscriberDescription"] = args?.subscriberDescription;
+            resourceInputs["subscriberIdentity"] = args?.subscriberIdentity;
+            resourceInputs["subscriberName"] = args?.subscriberName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["resourceShareArn"] = undefined /*out*/;
             resourceInputs["resourceShareName"] = undefined /*out*/;
             resourceInputs["s3BucketArn"] = undefined /*out*/;

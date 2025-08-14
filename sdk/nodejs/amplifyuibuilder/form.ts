@@ -101,18 +101,18 @@ export class Form extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["cta"] = args ? args.cta : undefined;
-            resourceInputs["dataType"] = args ? args.dataType : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["fields"] = args ? args.fields : undefined;
-            resourceInputs["formActionType"] = args ? args.formActionType : undefined;
-            resourceInputs["labelDecorator"] = args ? args.labelDecorator : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schemaVersion"] = args ? args.schemaVersion : undefined;
-            resourceInputs["sectionalElements"] = args ? args.sectionalElements : undefined;
-            resourceInputs["style"] = args ? args.style : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["cta"] = args?.cta;
+            resourceInputs["dataType"] = args?.dataType;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["fields"] = args?.fields;
+            resourceInputs["formActionType"] = args?.formActionType;
+            resourceInputs["labelDecorator"] = args?.labelDecorator;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schemaVersion"] = args?.schemaVersion;
+            resourceInputs["sectionalElements"] = args?.sectionalElements;
+            resourceInputs["style"] = args?.style;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["appId"] = undefined /*out*/;

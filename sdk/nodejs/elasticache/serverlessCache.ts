@@ -129,25 +129,25 @@ export class ServerlessCache extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.engine === undefined) && !opts.urn) {
+            if (args?.engine === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engine'");
             }
-            resourceInputs["cacheUsageLimits"] = args ? args.cacheUsageLimits : undefined;
-            resourceInputs["dailySnapshotTime"] = args ? args.dailySnapshotTime : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["finalSnapshotName"] = args ? args.finalSnapshotName : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["majorEngineVersion"] = args ? args.majorEngineVersion : undefined;
-            resourceInputs["readerEndpoint"] = args ? args.readerEndpoint : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["serverlessCacheName"] = args ? args.serverlessCacheName : undefined;
-            resourceInputs["snapshotArnsToRestore"] = args ? args.snapshotArnsToRestore : undefined;
-            resourceInputs["snapshotRetentionLimit"] = args ? args.snapshotRetentionLimit : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userGroupId"] = args ? args.userGroupId : undefined;
+            resourceInputs["cacheUsageLimits"] = args?.cacheUsageLimits;
+            resourceInputs["dailySnapshotTime"] = args?.dailySnapshotTime;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["finalSnapshotName"] = args?.finalSnapshotName;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["majorEngineVersion"] = args?.majorEngineVersion;
+            resourceInputs["readerEndpoint"] = args?.readerEndpoint;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["serverlessCacheName"] = args?.serverlessCacheName;
+            resourceInputs["snapshotArnsToRestore"] = args?.snapshotArnsToRestore;
+            resourceInputs["snapshotRetentionLimit"] = args?.snapshotRetentionLimit;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userGroupId"] = args?.userGroupId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["fullEngineVersion"] = undefined /*out*/;

@@ -89,17 +89,17 @@ export class Instance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.attributes === undefined) && !opts.urn) {
+            if (args?.attributes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'attributes'");
             }
-            if ((!args || args.identityManagementType === undefined) && !opts.urn) {
+            if (args?.identityManagementType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityManagementType'");
             }
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
-            resourceInputs["identityManagementType"] = args ? args.identityManagementType : undefined;
-            resourceInputs["instanceAlias"] = args ? args.instanceAlias : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["directoryId"] = args?.directoryId;
+            resourceInputs["identityManagementType"] = args?.identityManagementType;
+            resourceInputs["instanceAlias"] = args?.instanceAlias;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;

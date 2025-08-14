@@ -89,25 +89,25 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.namespace === undefined) && !opts.urn) {
+            if (args?.namespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.serviceAccount === undefined) && !opts.urn) {
+            if (args?.serviceAccount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccount'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["disableSessionTags"] = args ? args.disableSessionTags : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["serviceAccount"] = args ? args.serviceAccount : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetRoleArn"] = args ? args.targetRoleArn : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["disableSessionTags"] = args?.disableSessionTags;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["serviceAccount"] = args?.serviceAccount;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetRoleArn"] = args?.targetRoleArn;
             resourceInputs["associationArn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["externalId"] = undefined /*out*/;

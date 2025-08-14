@@ -137,26 +137,26 @@ export class NetworkInterface extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["connectionTrackingSpecification"] = args ? args.connectionTrackingSpecification : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enablePrimaryIpv6"] = args ? args.enablePrimaryIpv6 : undefined;
-            resourceInputs["groupSet"] = args ? args.groupSet : undefined;
-            resourceInputs["interfaceType"] = args ? args.interfaceType : undefined;
-            resourceInputs["ipv4PrefixCount"] = args ? args.ipv4PrefixCount : undefined;
-            resourceInputs["ipv4Prefixes"] = args ? args.ipv4Prefixes : undefined;
-            resourceInputs["ipv6AddressCount"] = args ? args.ipv6AddressCount : undefined;
-            resourceInputs["ipv6Addresses"] = args ? args.ipv6Addresses : undefined;
-            resourceInputs["ipv6PrefixCount"] = args ? args.ipv6PrefixCount : undefined;
-            resourceInputs["ipv6Prefixes"] = args ? args.ipv6Prefixes : undefined;
-            resourceInputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
-            resourceInputs["privateIpAddresses"] = args ? args.privateIpAddresses : undefined;
-            resourceInputs["secondaryPrivateIpAddressCount"] = args ? args.secondaryPrivateIpAddressCount : undefined;
-            resourceInputs["sourceDestCheck"] = args ? args.sourceDestCheck : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectionTrackingSpecification"] = args?.connectionTrackingSpecification;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enablePrimaryIpv6"] = args?.enablePrimaryIpv6;
+            resourceInputs["groupSet"] = args?.groupSet;
+            resourceInputs["interfaceType"] = args?.interfaceType;
+            resourceInputs["ipv4PrefixCount"] = args?.ipv4PrefixCount;
+            resourceInputs["ipv4Prefixes"] = args?.ipv4Prefixes;
+            resourceInputs["ipv6AddressCount"] = args?.ipv6AddressCount;
+            resourceInputs["ipv6Addresses"] = args?.ipv6Addresses;
+            resourceInputs["ipv6PrefixCount"] = args?.ipv6PrefixCount;
+            resourceInputs["ipv6Prefixes"] = args?.ipv6Prefixes;
+            resourceInputs["privateIpAddress"] = args?.privateIpAddress;
+            resourceInputs["privateIpAddresses"] = args?.privateIpAddresses;
+            resourceInputs["secondaryPrivateIpAddressCount"] = args?.secondaryPrivateIpAddressCount;
+            resourceInputs["sourceDestCheck"] = args?.sourceDestCheck;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["primaryIpv6Address"] = undefined /*out*/;
             resourceInputs["primaryPrivateIpAddress"] = undefined /*out*/;

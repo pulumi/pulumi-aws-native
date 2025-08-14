@@ -58,15 +58,15 @@ export class Tag extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.tagKey === undefined) && !opts.urn) {
+            if (args?.tagKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tagKey'");
             }
-            if ((!args || args.tagValues === undefined) && !opts.urn) {
+            if (args?.tagValues === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tagValues'");
             }
-            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
-            resourceInputs["tagKey"] = args ? args.tagKey : undefined;
-            resourceInputs["tagValues"] = args ? args.tagValues : undefined;
+            resourceInputs["catalogId"] = args?.catalogId;
+            resourceInputs["tagKey"] = args?.tagKey;
+            resourceInputs["tagValues"] = args?.tagValues;
         } else {
             resourceInputs["catalogId"] = undefined /*out*/;
             resourceInputs["tagKey"] = undefined /*out*/;

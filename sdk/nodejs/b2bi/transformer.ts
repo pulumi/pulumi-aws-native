@@ -103,20 +103,20 @@ export class Transformer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["ediType"] = args ? args.ediType : undefined;
-            resourceInputs["fileFormat"] = args ? args.fileFormat : undefined;
-            resourceInputs["inputConversion"] = args ? args.inputConversion : undefined;
-            resourceInputs["mapping"] = args ? args.mapping : undefined;
-            resourceInputs["mappingTemplate"] = args ? args.mappingTemplate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outputConversion"] = args ? args.outputConversion : undefined;
-            resourceInputs["sampleDocument"] = args ? args.sampleDocument : undefined;
-            resourceInputs["sampleDocuments"] = args ? args.sampleDocuments : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ediType"] = args?.ediType;
+            resourceInputs["fileFormat"] = args?.fileFormat;
+            resourceInputs["inputConversion"] = args?.inputConversion;
+            resourceInputs["mapping"] = args?.mapping;
+            resourceInputs["mappingTemplate"] = args?.mappingTemplate;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outputConversion"] = args?.outputConversion;
+            resourceInputs["sampleDocument"] = args?.sampleDocument;
+            resourceInputs["sampleDocuments"] = args?.sampleDocuments;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["transformerArn"] = undefined /*out*/;

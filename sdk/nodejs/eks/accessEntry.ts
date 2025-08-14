@@ -81,19 +81,19 @@ export class AccessEntry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.principalArn === undefined) && !opts.urn) {
+            if (args?.principalArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalArn'");
             }
-            resourceInputs["accessPolicies"] = args ? args.accessPolicies : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["kubernetesGroups"] = args ? args.kubernetesGroups : undefined;
-            resourceInputs["principalArn"] = args ? args.principalArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["accessPolicies"] = args?.accessPolicies;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["kubernetesGroups"] = args?.kubernetesGroups;
+            resourceInputs["principalArn"] = args?.principalArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["username"] = args?.username;
             resourceInputs["accessEntryArn"] = undefined /*out*/;
         } else {
             resourceInputs["accessEntryArn"] = undefined /*out*/;

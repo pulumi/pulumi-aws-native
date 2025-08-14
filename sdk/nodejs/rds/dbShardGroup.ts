@@ -105,19 +105,19 @@ export class DbShardGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dbClusterIdentifier === undefined) && !opts.urn) {
+            if (args?.dbClusterIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbClusterIdentifier'");
             }
-            if ((!args || args.maxAcu === undefined) && !opts.urn) {
+            if (args?.maxAcu === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxAcu'");
             }
-            resourceInputs["computeRedundancy"] = args ? args.computeRedundancy : undefined;
-            resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
-            resourceInputs["dbShardGroupIdentifier"] = args ? args.dbShardGroupIdentifier : undefined;
-            resourceInputs["maxAcu"] = args ? args.maxAcu : undefined;
-            resourceInputs["minAcu"] = args ? args.minAcu : undefined;
-            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["computeRedundancy"] = args?.computeRedundancy;
+            resourceInputs["dbClusterIdentifier"] = args?.dbClusterIdentifier;
+            resourceInputs["dbShardGroupIdentifier"] = args?.dbShardGroupIdentifier;
+            resourceInputs["maxAcu"] = args?.maxAcu;
+            resourceInputs["minAcu"] = args?.minAcu;
+            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["dbShardGroupResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
         } else {

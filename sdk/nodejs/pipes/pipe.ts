@@ -161,28 +161,28 @@ export class Pipe extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            if ((!args || args.target === undefined) && !opts.urn) {
+            if (args?.target === undefined && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["desiredState"] = args ? args.desiredState : undefined;
-            resourceInputs["enrichment"] = args ? args.enrichment : undefined;
-            resourceInputs["enrichmentParameters"] = args ? args.enrichmentParameters : undefined;
-            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
-            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["sourceParameters"] = args ? args.sourceParameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
-            resourceInputs["targetParameters"] = args ? args.targetParameters : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["desiredState"] = args?.desiredState;
+            resourceInputs["enrichment"] = args?.enrichment;
+            resourceInputs["enrichmentParameters"] = args?.enrichmentParameters;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
+            resourceInputs["logConfiguration"] = args?.logConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["sourceParameters"] = args?.sourceParameters;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["target"] = args?.target;
+            resourceInputs["targetParameters"] = args?.targetParameters;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["currentState"] = undefined /*out*/;

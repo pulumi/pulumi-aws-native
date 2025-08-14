@@ -92,23 +92,23 @@ export class ImageVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.baseImage === undefined) && !opts.urn) {
+            if (args?.baseImage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'baseImage'");
             }
-            if ((!args || args.imageName === undefined) && !opts.urn) {
+            if (args?.imageName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'imageName'");
             }
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["aliases"] = args ? args.aliases : undefined;
-            resourceInputs["baseImage"] = args ? args.baseImage : undefined;
-            resourceInputs["horovod"] = args ? args.horovod : undefined;
-            resourceInputs["imageName"] = args ? args.imageName : undefined;
-            resourceInputs["jobType"] = args ? args.jobType : undefined;
-            resourceInputs["mlFramework"] = args ? args.mlFramework : undefined;
-            resourceInputs["processor"] = args ? args.processor : undefined;
-            resourceInputs["programmingLang"] = args ? args.programmingLang : undefined;
-            resourceInputs["releaseNotes"] = args ? args.releaseNotes : undefined;
-            resourceInputs["vendorGuidance"] = args ? args.vendorGuidance : undefined;
+            resourceInputs["alias"] = args?.alias;
+            resourceInputs["aliases"] = args?.aliases;
+            resourceInputs["baseImage"] = args?.baseImage;
+            resourceInputs["horovod"] = args?.horovod;
+            resourceInputs["imageName"] = args?.imageName;
+            resourceInputs["jobType"] = args?.jobType;
+            resourceInputs["mlFramework"] = args?.mlFramework;
+            resourceInputs["processor"] = args?.processor;
+            resourceInputs["programmingLang"] = args?.programmingLang;
+            resourceInputs["releaseNotes"] = args?.releaseNotes;
+            resourceInputs["vendorGuidance"] = args?.vendorGuidance;
             resourceInputs["containerImage"] = undefined /*out*/;
             resourceInputs["imageArn"] = undefined /*out*/;
             resourceInputs["imageVersionArn"] = undefined /*out*/;

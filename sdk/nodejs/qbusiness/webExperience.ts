@@ -121,20 +121,20 @@ export class WebExperience extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["browserExtensionConfiguration"] = args ? args.browserExtensionConfiguration : undefined;
-            resourceInputs["customizationConfiguration"] = args ? args.customizationConfiguration : undefined;
-            resourceInputs["identityProviderConfiguration"] = args ? args.identityProviderConfiguration : undefined;
-            resourceInputs["origins"] = args ? args.origins : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["samplePromptsControlMode"] = args ? args.samplePromptsControlMode : undefined;
-            resourceInputs["subtitle"] = args ? args.subtitle : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["welcomeMessage"] = args ? args.welcomeMessage : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["browserExtensionConfiguration"] = args?.browserExtensionConfiguration;
+            resourceInputs["customizationConfiguration"] = args?.customizationConfiguration;
+            resourceInputs["identityProviderConfiguration"] = args?.identityProviderConfiguration;
+            resourceInputs["origins"] = args?.origins;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["samplePromptsControlMode"] = args?.samplePromptsControlMode;
+            resourceInputs["subtitle"] = args?.subtitle;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["welcomeMessage"] = args?.welcomeMessage;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["defaultEndpoint"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

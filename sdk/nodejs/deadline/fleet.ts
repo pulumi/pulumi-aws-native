@@ -108,30 +108,30 @@ export class Fleet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.farmId === undefined) && !opts.urn) {
+            if (args?.farmId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'farmId'");
             }
-            if ((!args || args.maxWorkerCount === undefined) && !opts.urn) {
+            if (args?.maxWorkerCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxWorkerCount'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["farmId"] = args ? args.farmId : undefined;
-            resourceInputs["hostConfiguration"] = args ? args.hostConfiguration : undefined;
-            resourceInputs["maxWorkerCount"] = args ? args.maxWorkerCount : undefined;
-            resourceInputs["minWorkerCount"] = args ? args.minWorkerCount : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["farmId"] = args?.farmId;
+            resourceInputs["hostConfiguration"] = args?.hostConfiguration;
+            resourceInputs["maxWorkerCount"] = args?.maxWorkerCount;
+            resourceInputs["minWorkerCount"] = args?.minWorkerCount;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["capabilities"] = undefined /*out*/;
             resourceInputs["fleetId"] = undefined /*out*/;

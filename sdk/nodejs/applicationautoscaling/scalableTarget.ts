@@ -129,29 +129,29 @@ export class ScalableTarget extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.maxCapacity === undefined) && !opts.urn) {
+            if (args?.maxCapacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxCapacity'");
             }
-            if ((!args || args.minCapacity === undefined) && !opts.urn) {
+            if (args?.minCapacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'minCapacity'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.scalableDimension === undefined) && !opts.urn) {
+            if (args?.scalableDimension === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scalableDimension'");
             }
-            if ((!args || args.serviceNamespace === undefined) && !opts.urn) {
+            if (args?.serviceNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceNamespace'");
             }
-            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
-            resourceInputs["minCapacity"] = args ? args.minCapacity : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["scalableDimension"] = args ? args.scalableDimension : undefined;
-            resourceInputs["scheduledActions"] = args ? args.scheduledActions : undefined;
-            resourceInputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
-            resourceInputs["suspendedState"] = args ? args.suspendedState : undefined;
+            resourceInputs["maxCapacity"] = args?.maxCapacity;
+            resourceInputs["minCapacity"] = args?.minCapacity;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["scalableDimension"] = args?.scalableDimension;
+            resourceInputs["scheduledActions"] = args?.scheduledActions;
+            resourceInputs["serviceNamespace"] = args?.serviceNamespace;
+            resourceInputs["suspendedState"] = args?.suspendedState;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

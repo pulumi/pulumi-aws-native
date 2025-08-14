@@ -66,18 +66,18 @@ export class Deployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.applicationVersion === undefined) && !opts.urn) {
+            if (args?.applicationVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationVersion'");
             }
-            if ((!args || args.environmentId === undefined) && !opts.urn) {
+            if (args?.environmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["applicationVersion"] = args ? args.applicationVersion : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["applicationVersion"] = args?.applicationVersion;
+            resourceInputs["environmentId"] = args?.environmentId;
             resourceInputs["deploymentId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

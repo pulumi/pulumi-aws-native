@@ -66,19 +66,19 @@ export class ApiMapping extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.stage === undefined) && !opts.urn) {
+            if (args?.stage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stage'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["apiMappingKey"] = args ? args.apiMappingKey : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["stage"] = args ? args.stage : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["apiMappingKey"] = args?.apiMappingKey;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["stage"] = args?.stage;
             resourceInputs["apiMappingId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;

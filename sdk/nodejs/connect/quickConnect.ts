@@ -77,17 +77,17 @@ export class QuickConnect extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.quickConnectConfig === undefined) && !opts.urn) {
+            if (args?.quickConnectConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'quickConnectConfig'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["quickConnectConfig"] = args ? args.quickConnectConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["quickConnectConfig"] = args?.quickConnectConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["quickConnectArn"] = undefined /*out*/;
             resourceInputs["quickConnectType"] = undefined /*out*/;
         } else {

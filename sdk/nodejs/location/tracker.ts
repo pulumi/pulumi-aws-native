@@ -110,15 +110,15 @@ export class Tracker extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventBridgeEnabled"] = args ? args.eventBridgeEnabled : undefined;
-            resourceInputs["kmsKeyEnableGeospatialQueries"] = args ? args.kmsKeyEnableGeospatialQueries : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["positionFiltering"] = args ? args.positionFiltering : undefined;
-            resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
-            resourceInputs["pricingPlanDataSource"] = args ? args.pricingPlanDataSource : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trackerName"] = args ? args.trackerName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventBridgeEnabled"] = args?.eventBridgeEnabled;
+            resourceInputs["kmsKeyEnableGeospatialQueries"] = args?.kmsKeyEnableGeospatialQueries;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["positionFiltering"] = args?.positionFiltering;
+            resourceInputs["pricingPlan"] = args?.pricingPlan;
+            resourceInputs["pricingPlanDataSource"] = args?.pricingPlanDataSource;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trackerName"] = args?.trackerName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["trackerArn"] = undefined /*out*/;

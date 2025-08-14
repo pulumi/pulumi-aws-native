@@ -137,14 +137,14 @@ export class Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["dataBundles"] = args ? args.dataBundles : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["federationMode"] = args ? args.federationMode : undefined;
-            resourceInputs["federationParameters"] = args ? args.federationParameters : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["superuserParameters"] = args ? args.superuserParameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataBundles"] = args?.dataBundles;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["federationMode"] = args?.federationMode;
+            resourceInputs["federationParameters"] = args?.federationParameters;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["superuserParameters"] = args?.superuserParameters;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsAccountId"] = undefined /*out*/;
             resourceInputs["dedicatedServiceAccountId"] = undefined /*out*/;
             resourceInputs["environmentArn"] = undefined /*out*/;

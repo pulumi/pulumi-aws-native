@@ -288,27 +288,27 @@ export class CertificateAuthority extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.keyAlgorithm === undefined) && !opts.urn) {
+            if (args?.keyAlgorithm === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyAlgorithm'");
             }
-            if ((!args || args.signingAlgorithm === undefined) && !opts.urn) {
+            if (args?.signingAlgorithm === undefined && !opts.urn) {
                 throw new Error("Missing required property 'signingAlgorithm'");
             }
-            if ((!args || args.subject === undefined) && !opts.urn) {
+            if (args?.subject === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subject'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["csrExtensions"] = args ? args.csrExtensions : undefined;
-            resourceInputs["keyAlgorithm"] = args ? args.keyAlgorithm : undefined;
-            resourceInputs["keyStorageSecurityStandard"] = args ? args.keyStorageSecurityStandard : undefined;
-            resourceInputs["revocationConfiguration"] = args ? args.revocationConfiguration : undefined;
-            resourceInputs["signingAlgorithm"] = args ? args.signingAlgorithm : undefined;
-            resourceInputs["subject"] = args ? args.subject : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["usageMode"] = args ? args.usageMode : undefined;
+            resourceInputs["csrExtensions"] = args?.csrExtensions;
+            resourceInputs["keyAlgorithm"] = args?.keyAlgorithm;
+            resourceInputs["keyStorageSecurityStandard"] = args?.keyStorageSecurityStandard;
+            resourceInputs["revocationConfiguration"] = args?.revocationConfiguration;
+            resourceInputs["signingAlgorithm"] = args?.signingAlgorithm;
+            resourceInputs["subject"] = args?.subject;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["usageMode"] = args?.usageMode;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificateSigningRequest"] = undefined /*out*/;
         } else {

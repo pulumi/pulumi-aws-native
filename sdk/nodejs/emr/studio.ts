@@ -129,44 +129,44 @@ export class Studio extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authMode === undefined) && !opts.urn) {
+            if (args?.authMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authMode'");
             }
-            if ((!args || args.defaultS3Location === undefined) && !opts.urn) {
+            if (args?.defaultS3Location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultS3Location'");
             }
-            if ((!args || args.engineSecurityGroupId === undefined) && !opts.urn) {
+            if (args?.engineSecurityGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engineSecurityGroupId'");
             }
-            if ((!args || args.serviceRole === undefined) && !opts.urn) {
+            if (args?.serviceRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceRole'");
             }
-            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+            if (args?.subnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            if ((!args || args.workspaceSecurityGroupId === undefined) && !opts.urn) {
+            if (args?.workspaceSecurityGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceSecurityGroupId'");
             }
-            resourceInputs["authMode"] = args ? args.authMode : undefined;
-            resourceInputs["defaultS3Location"] = args ? args.defaultS3Location : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
-            resourceInputs["engineSecurityGroupId"] = args ? args.engineSecurityGroupId : undefined;
-            resourceInputs["idcInstanceArn"] = args ? args.idcInstanceArn : undefined;
-            resourceInputs["idcUserAssignment"] = args ? args.idcUserAssignment : undefined;
-            resourceInputs["idpAuthUrl"] = args ? args.idpAuthUrl : undefined;
-            resourceInputs["idpRelayStateParameterName"] = args ? args.idpRelayStateParameterName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trustedIdentityPropagationEnabled"] = args ? args.trustedIdentityPropagationEnabled : undefined;
-            resourceInputs["userRole"] = args ? args.userRole : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
-            resourceInputs["workspaceSecurityGroupId"] = args ? args.workspaceSecurityGroupId : undefined;
+            resourceInputs["authMode"] = args?.authMode;
+            resourceInputs["defaultS3Location"] = args?.defaultS3Location;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["encryptionKeyArn"] = args?.encryptionKeyArn;
+            resourceInputs["engineSecurityGroupId"] = args?.engineSecurityGroupId;
+            resourceInputs["idcInstanceArn"] = args?.idcInstanceArn;
+            resourceInputs["idcUserAssignment"] = args?.idcUserAssignment;
+            resourceInputs["idpAuthUrl"] = args?.idpAuthUrl;
+            resourceInputs["idpRelayStateParameterName"] = args?.idpRelayStateParameterName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serviceRole"] = args?.serviceRole;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trustedIdentityPropagationEnabled"] = args?.trustedIdentityPropagationEnabled;
+            resourceInputs["userRole"] = args?.userRole;
+            resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["workspaceSecurityGroupId"] = args?.workspaceSecurityGroupId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["studioId"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;

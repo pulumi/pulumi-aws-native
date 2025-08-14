@@ -97,22 +97,22 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appliedFor === undefined) && !opts.urn) {
+            if (args?.appliedFor === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appliedFor'");
             }
-            if ((!args || args.prefix === undefined) && !opts.urn) {
+            if (args?.prefix === undefined && !opts.urn) {
                 throw new Error("Missing required property 'prefix'");
             }
-            resourceInputs["appliedFor"] = args ? args.appliedFor : undefined;
-            resourceInputs["customRoleArn"] = args ? args.customRoleArn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            resourceInputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
-            resourceInputs["imageTagMutabilityExclusionFilters"] = args ? args.imageTagMutabilityExclusionFilters : undefined;
-            resourceInputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
-            resourceInputs["prefix"] = args ? args.prefix : undefined;
-            resourceInputs["repositoryPolicy"] = args ? args.repositoryPolicy : undefined;
-            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
+            resourceInputs["appliedFor"] = args?.appliedFor;
+            resourceInputs["customRoleArn"] = args?.customRoleArn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["imageTagMutability"] = args?.imageTagMutability;
+            resourceInputs["imageTagMutabilityExclusionFilters"] = args?.imageTagMutabilityExclusionFilters;
+            resourceInputs["lifecyclePolicy"] = args?.lifecyclePolicy;
+            resourceInputs["prefix"] = args?.prefix;
+            resourceInputs["repositoryPolicy"] = args?.repositoryPolicy;
+            resourceInputs["resourceTags"] = args?.resourceTags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {

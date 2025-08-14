@@ -69,9 +69,9 @@ export class BillingGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["billingGroupName"] = args ? args.billingGroupName : undefined;
-            resourceInputs["billingGroupProperties"] = args ? args.billingGroupProperties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["billingGroupName"] = args?.billingGroupName;
+            resourceInputs["billingGroupProperties"] = args?.billingGroupProperties;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

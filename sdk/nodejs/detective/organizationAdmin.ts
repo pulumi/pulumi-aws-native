@@ -54,10 +54,10 @@ export class OrganizationAdmin extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountId === undefined) && !opts.urn) {
+            if (args?.accountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["accountId"] = args?.accountId;
             resourceInputs["graphArn"] = undefined /*out*/;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;

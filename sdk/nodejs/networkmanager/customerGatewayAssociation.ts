@@ -62,19 +62,19 @@ export class CustomerGatewayAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.customerGatewayArn === undefined) && !opts.urn) {
+            if (args?.customerGatewayArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customerGatewayArn'");
             }
-            if ((!args || args.deviceId === undefined) && !opts.urn) {
+            if (args?.deviceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceId'");
             }
-            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
+            if (args?.globalNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            resourceInputs["customerGatewayArn"] = args ? args.customerGatewayArn : undefined;
-            resourceInputs["deviceId"] = args ? args.deviceId : undefined;
-            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
-            resourceInputs["linkId"] = args ? args.linkId : undefined;
+            resourceInputs["customerGatewayArn"] = args?.customerGatewayArn;
+            resourceInputs["deviceId"] = args?.deviceId;
+            resourceInputs["globalNetworkId"] = args?.globalNetworkId;
+            resourceInputs["linkId"] = args?.linkId;
         } else {
             resourceInputs["customerGatewayArn"] = undefined /*out*/;
             resourceInputs["deviceId"] = undefined /*out*/;

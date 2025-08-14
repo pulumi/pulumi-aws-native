@@ -81,11 +81,11 @@ export class TrustStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["caCertificatesBundleS3Bucket"] = args ? args.caCertificatesBundleS3Bucket : undefined;
-            resourceInputs["caCertificatesBundleS3Key"] = args ? args.caCertificatesBundleS3Key : undefined;
-            resourceInputs["caCertificatesBundleS3ObjectVersion"] = args ? args.caCertificatesBundleS3ObjectVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["caCertificatesBundleS3Bucket"] = args?.caCertificatesBundleS3Bucket;
+            resourceInputs["caCertificatesBundleS3Key"] = args?.caCertificatesBundleS3Key;
+            resourceInputs["caCertificatesBundleS3ObjectVersion"] = args?.caCertificatesBundleS3ObjectVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["numberOfCaCertificates"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["trustStoreArn"] = undefined /*out*/;

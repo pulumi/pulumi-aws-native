@@ -101,18 +101,18 @@ export class MigrationProject extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceProfileArn"] = args ? args.instanceProfileArn : undefined;
-            resourceInputs["instanceProfileIdentifier"] = args ? args.instanceProfileIdentifier : undefined;
-            resourceInputs["instanceProfileName"] = args ? args.instanceProfileName : undefined;
-            resourceInputs["migrationProjectCreationTime"] = args ? args.migrationProjectCreationTime : undefined;
-            resourceInputs["migrationProjectIdentifier"] = args ? args.migrationProjectIdentifier : undefined;
-            resourceInputs["migrationProjectName"] = args ? args.migrationProjectName : undefined;
-            resourceInputs["schemaConversionApplicationAttributes"] = args ? args.schemaConversionApplicationAttributes : undefined;
-            resourceInputs["sourceDataProviderDescriptors"] = args ? args.sourceDataProviderDescriptors : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetDataProviderDescriptors"] = args ? args.targetDataProviderDescriptors : undefined;
-            resourceInputs["transformationRules"] = args ? args.transformationRules : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceProfileArn"] = args?.instanceProfileArn;
+            resourceInputs["instanceProfileIdentifier"] = args?.instanceProfileIdentifier;
+            resourceInputs["instanceProfileName"] = args?.instanceProfileName;
+            resourceInputs["migrationProjectCreationTime"] = args?.migrationProjectCreationTime;
+            resourceInputs["migrationProjectIdentifier"] = args?.migrationProjectIdentifier;
+            resourceInputs["migrationProjectName"] = args?.migrationProjectName;
+            resourceInputs["schemaConversionApplicationAttributes"] = args?.schemaConversionApplicationAttributes;
+            resourceInputs["sourceDataProviderDescriptors"] = args?.sourceDataProviderDescriptors;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetDataProviderDescriptors"] = args?.targetDataProviderDescriptors;
+            resourceInputs["transformationRules"] = args?.transformationRules;
             resourceInputs["migrationProjectArn"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

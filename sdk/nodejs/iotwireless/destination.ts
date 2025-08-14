@@ -77,18 +77,18 @@ export class Destination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.expression === undefined) && !opts.urn) {
+            if (args?.expression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expression'");
             }
-            if ((!args || args.expressionType === undefined) && !opts.urn) {
+            if (args?.expressionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expressionType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["expression"] = args ? args.expression : undefined;
-            resourceInputs["expressionType"] = args ? args.expressionType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["expression"] = args?.expression;
+            resourceInputs["expressionType"] = args?.expressionType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

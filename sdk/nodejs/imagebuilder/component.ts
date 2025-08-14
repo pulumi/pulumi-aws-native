@@ -249,22 +249,22 @@ export class Component extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.platform === undefined) && !opts.urn) {
+            if (args?.platform === undefined && !opts.urn) {
                 throw new Error("Missing required property 'platform'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["changeDescription"] = args ? args.changeDescription : undefined;
-            resourceInputs["data"] = args ? args.data : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["platform"] = args ? args.platform : undefined;
-            resourceInputs["supportedOsVersions"] = args ? args.supportedOsVersions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uri"] = args ? args.uri : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["changeDescription"] = args?.changeDescription;
+            resourceInputs["data"] = args?.data;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["platform"] = args?.platform;
+            resourceInputs["supportedOsVersions"] = args?.supportedOsVersions;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["uri"] = args?.uri;
+            resourceInputs["version"] = args?.version;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["encrypted"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

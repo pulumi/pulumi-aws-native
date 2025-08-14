@@ -79,9 +79,9 @@ export class Registry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["registryArn"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

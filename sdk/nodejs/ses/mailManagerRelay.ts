@@ -77,20 +77,20 @@ export class MailManagerRelay extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authentication === undefined) && !opts.urn) {
+            if (args?.authentication === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authentication'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.serverPort === undefined) && !opts.urn) {
+            if (args?.serverPort === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverPort'");
             }
-            resourceInputs["authentication"] = args ? args.authentication : undefined;
-            resourceInputs["relayName"] = args ? args.relayName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["serverPort"] = args ? args.serverPort : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authentication"] = args?.authentication;
+            resourceInputs["relayName"] = args?.relayName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["serverPort"] = args?.serverPort;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["relayArn"] = undefined /*out*/;
             resourceInputs["relayId"] = undefined /*out*/;
         } else {

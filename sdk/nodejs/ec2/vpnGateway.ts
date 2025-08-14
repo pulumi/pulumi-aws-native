@@ -66,12 +66,12 @@ export class VpnGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["amazonSideAsn"] = args?.amazonSideAsn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["vpnGatewayId"] = undefined /*out*/;
         } else {
             resourceInputs["amazonSideAsn"] = undefined /*out*/;

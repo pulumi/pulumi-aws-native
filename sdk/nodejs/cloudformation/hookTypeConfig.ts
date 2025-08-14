@@ -121,10 +121,10 @@ export class HookTypeConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["configurationAlias"] = args ? args.configurationAlias : undefined;
-            resourceInputs["typeArn"] = args ? args.typeArn : undefined;
-            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["configurationAlias"] = args?.configurationAlias;
+            resourceInputs["typeArn"] = args?.typeArn;
+            resourceInputs["typeName"] = args?.typeName;
             resourceInputs["configurationArn"] = undefined /*out*/;
         } else {
             resourceInputs["configuration"] = undefined /*out*/;

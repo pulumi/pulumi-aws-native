@@ -214,17 +214,17 @@ export class Dataset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["contentDeliveryRules"] = args ? args.contentDeliveryRules : undefined;
-            resourceInputs["datasetName"] = args ? args.datasetName : undefined;
-            resourceInputs["lateDataRules"] = args ? args.lateDataRules : undefined;
-            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["triggers"] = args ? args.triggers : undefined;
-            resourceInputs["versioningConfiguration"] = args ? args.versioningConfiguration : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["contentDeliveryRules"] = args?.contentDeliveryRules;
+            resourceInputs["datasetName"] = args?.datasetName;
+            resourceInputs["lateDataRules"] = args?.lateDataRules;
+            resourceInputs["retentionPeriod"] = args?.retentionPeriod;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["triggers"] = args?.triggers;
+            resourceInputs["versioningConfiguration"] = args?.versioningConfiguration;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["actions"] = undefined /*out*/;

@@ -66,16 +66,16 @@ export class BasePathMappingV2 extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainNameArn === undefined) && !opts.urn) {
+            if (args?.domainNameArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainNameArn'");
             }
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["basePath"] = args ? args.basePath : undefined;
-            resourceInputs["domainNameArn"] = args ? args.domainNameArn : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
-            resourceInputs["stage"] = args ? args.stage : undefined;
+            resourceInputs["basePath"] = args?.basePath;
+            resourceInputs["domainNameArn"] = args?.domainNameArn;
+            resourceInputs["restApiId"] = args?.restApiId;
+            resourceInputs["stage"] = args?.stage;
             resourceInputs["basePathMappingArn"] = undefined /*out*/;
         } else {
             resourceInputs["basePath"] = undefined /*out*/;

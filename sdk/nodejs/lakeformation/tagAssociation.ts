@@ -65,14 +65,14 @@ export class TagAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.lfTags === undefined) && !opts.urn) {
+            if (args?.lfTags === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lfTags'");
             }
-            if ((!args || args.resource === undefined) && !opts.urn) {
+            if (args?.resource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            resourceInputs["lfTags"] = args ? args.lfTags : undefined;
-            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["lfTags"] = args?.lfTags;
+            resourceInputs["resource"] = args?.resource;
             resourceInputs["resourceIdentifier"] = undefined /*out*/;
             resourceInputs["tagsIdentifier"] = undefined /*out*/;
         } else {

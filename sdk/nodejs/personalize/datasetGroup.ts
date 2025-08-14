@@ -89,10 +89,10 @@ export class DatasetGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
             resourceInputs["datasetGroupArn"] = undefined /*out*/;
         } else {
             resourceInputs["datasetGroupArn"] = undefined /*out*/;

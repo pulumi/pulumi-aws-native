@@ -89,16 +89,16 @@ export class Bucket extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bundleId === undefined) && !opts.urn) {
+            if (args?.bundleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bundleId'");
             }
-            resourceInputs["accessRules"] = args ? args.accessRules : undefined;
-            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
-            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
-            resourceInputs["objectVersioning"] = args ? args.objectVersioning : undefined;
-            resourceInputs["readOnlyAccessAccounts"] = args ? args.readOnlyAccessAccounts : undefined;
-            resourceInputs["resourcesReceivingAccess"] = args ? args.resourcesReceivingAccess : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessRules"] = args?.accessRules;
+            resourceInputs["bucketName"] = args?.bucketName;
+            resourceInputs["bundleId"] = args?.bundleId;
+            resourceInputs["objectVersioning"] = args?.objectVersioning;
+            resourceInputs["readOnlyAccessAccounts"] = args?.readOnlyAccessAccounts;
+            resourceInputs["resourcesReceivingAccess"] = args?.resourcesReceivingAccess;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["ableToUpdateBundle"] = undefined /*out*/;
             resourceInputs["bucketArn"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;

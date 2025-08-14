@@ -73,17 +73,17 @@ export class Robot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.architecture === undefined) && !opts.urn) {
+            if (args?.architecture === undefined && !opts.urn) {
                 throw new Error("Missing required property 'architecture'");
             }
-            if ((!args || args.greengrassGroupId === undefined) && !opts.urn) {
+            if (args?.greengrassGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'greengrassGroupId'");
             }
-            resourceInputs["architecture"] = args ? args.architecture : undefined;
-            resourceInputs["fleet"] = args ? args.fleet : undefined;
-            resourceInputs["greengrassGroupId"] = args ? args.greengrassGroupId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["architecture"] = args?.architecture;
+            resourceInputs["fleet"] = args?.fleet;
+            resourceInputs["greengrassGroupId"] = args?.greengrassGroupId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["architecture"] = undefined /*out*/;

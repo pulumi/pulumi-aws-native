@@ -70,12 +70,12 @@ export class RolePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleName === undefined) && !opts.urn) {
+            if (args?.roleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleName'");
             }
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["policyName"] = args?.policyName;
+            resourceInputs["roleName"] = args?.roleName;
         } else {
             resourceInputs["policyDocument"] = undefined /*out*/;
             resourceInputs["policyName"] = undefined /*out*/;

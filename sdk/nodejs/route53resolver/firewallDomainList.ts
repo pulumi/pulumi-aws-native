@@ -101,10 +101,10 @@ export class FirewallDomainList extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["domainFileUrl"] = args ? args.domainFileUrl : undefined;
-            resourceInputs["domains"] = args ? args.domains : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domainFileUrl"] = args?.domainFileUrl;
+            resourceInputs["domains"] = args?.domains;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

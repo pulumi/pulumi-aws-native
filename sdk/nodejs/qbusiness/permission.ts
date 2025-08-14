@@ -66,23 +66,23 @@ export class Permission extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            if ((!args || args.statementId === undefined) && !opts.urn) {
+            if (args?.statementId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statementId'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["statementId"] = args ? args.statementId : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["conditions"] = args?.conditions;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["statementId"] = args?.statementId;
         } else {
             resourceInputs["actions"] = undefined /*out*/;
             resourceInputs["applicationId"] = undefined /*out*/;

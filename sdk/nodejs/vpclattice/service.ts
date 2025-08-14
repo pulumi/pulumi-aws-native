@@ -98,12 +98,12 @@ export class Service extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["authType"] = args ? args.authType : undefined;
-            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
-            resourceInputs["customDomainName"] = args ? args.customDomainName : undefined;
-            resourceInputs["dnsEntry"] = args ? args.dnsEntry : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authType"] = args?.authType;
+            resourceInputs["certificateArn"] = args?.certificateArn;
+            resourceInputs["customDomainName"] = args?.customDomainName;
+            resourceInputs["dnsEntry"] = args?.dnsEntry;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

@@ -65,12 +65,12 @@ export class ReplicationSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.regions === undefined) && !opts.urn) {
+            if (args?.regions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'regions'");
             }
-            resourceInputs["deletionProtected"] = args ? args.deletionProtected : undefined;
-            resourceInputs["regions"] = args ? args.regions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deletionProtected"] = args?.deletionProtected;
+            resourceInputs["regions"] = args?.regions;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

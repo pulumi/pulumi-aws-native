@@ -53,8 +53,8 @@ export class MailManagerAddressList extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["addressListName"] = args ? args.addressListName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addressListName"] = args?.addressListName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["addressListArn"] = undefined /*out*/;
             resourceInputs["addressListId"] = undefined /*out*/;
         } else {

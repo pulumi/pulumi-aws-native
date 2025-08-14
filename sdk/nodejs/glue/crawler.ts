@@ -109,26 +109,26 @@ export class Crawler extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            if ((!args || args.targets === undefined) && !opts.urn) {
+            if (args?.targets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targets'");
             }
-            resourceInputs["classifiers"] = args ? args.classifiers : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["crawlerSecurityConfiguration"] = args ? args.crawlerSecurityConfiguration : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["lakeFormationConfiguration"] = args ? args.lakeFormationConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recrawlPolicy"] = args ? args.recrawlPolicy : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["schemaChangePolicy"] = args ? args.schemaChangePolicy : undefined;
-            resourceInputs["tablePrefix"] = args ? args.tablePrefix : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["classifiers"] = args?.classifiers;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["crawlerSecurityConfiguration"] = args?.crawlerSecurityConfiguration;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["lakeFormationConfiguration"] = args?.lakeFormationConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recrawlPolicy"] = args?.recrawlPolicy;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["schemaChangePolicy"] = args?.schemaChangePolicy;
+            resourceInputs["tablePrefix"] = args?.tablePrefix;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targets"] = args?.targets;
         } else {
             resourceInputs["classifiers"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;

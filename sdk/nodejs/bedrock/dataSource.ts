@@ -100,19 +100,19 @@ export class DataSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataSourceConfiguration === undefined) && !opts.urn) {
+            if (args?.dataSourceConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSourceConfiguration'");
             }
-            if ((!args || args.knowledgeBaseId === undefined) && !opts.urn) {
+            if (args?.knowledgeBaseId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'knowledgeBaseId'");
             }
-            resourceInputs["dataDeletionPolicy"] = args ? args.dataDeletionPolicy : undefined;
-            resourceInputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["knowledgeBaseId"] = args ? args.knowledgeBaseId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
-            resourceInputs["vectorIngestionConfiguration"] = args ? args.vectorIngestionConfiguration : undefined;
+            resourceInputs["dataDeletionPolicy"] = args?.dataDeletionPolicy;
+            resourceInputs["dataSourceConfiguration"] = args?.dataSourceConfiguration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["knowledgeBaseId"] = args?.knowledgeBaseId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverSideEncryptionConfiguration"] = args?.serverSideEncryptionConfiguration;
+            resourceInputs["vectorIngestionConfiguration"] = args?.vectorIngestionConfiguration;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["dataSourceId"] = undefined /*out*/;
             resourceInputs["dataSourceStatus"] = undefined /*out*/;

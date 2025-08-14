@@ -81,18 +81,18 @@ export class InvoiceUnit extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.invoiceReceiver === undefined) && !opts.urn) {
+            if (args?.invoiceReceiver === undefined && !opts.urn) {
                 throw new Error("Missing required property 'invoiceReceiver'");
             }
-            if ((!args || args.rule === undefined) && !opts.urn) {
+            if (args?.rule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rule'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["invoiceReceiver"] = args ? args.invoiceReceiver : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
-            resourceInputs["rule"] = args ? args.rule : undefined;
-            resourceInputs["taxInheritanceDisabled"] = args ? args.taxInheritanceDisabled : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["invoiceReceiver"] = args?.invoiceReceiver;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceTags"] = args?.resourceTags;
+            resourceInputs["rule"] = args?.rule;
+            resourceInputs["taxInheritanceDisabled"] = args?.taxInheritanceDisabled;
             resourceInputs["invoiceUnitArn"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
         } else {

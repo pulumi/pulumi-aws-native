@@ -105,16 +105,16 @@ export class Image extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["containerRecipeArn"] = args ? args.containerRecipeArn : undefined;
-            resourceInputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
-            resourceInputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
-            resourceInputs["executionRole"] = args ? args.executionRole : undefined;
-            resourceInputs["imageRecipeArn"] = args ? args.imageRecipeArn : undefined;
-            resourceInputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
-            resourceInputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
-            resourceInputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workflows"] = args ? args.workflows : undefined;
+            resourceInputs["containerRecipeArn"] = args?.containerRecipeArn;
+            resourceInputs["distributionConfigurationArn"] = args?.distributionConfigurationArn;
+            resourceInputs["enhancedImageMetadataEnabled"] = args?.enhancedImageMetadataEnabled;
+            resourceInputs["executionRole"] = args?.executionRole;
+            resourceInputs["imageRecipeArn"] = args?.imageRecipeArn;
+            resourceInputs["imageScanningConfiguration"] = args?.imageScanningConfiguration;
+            resourceInputs["imageTestsConfiguration"] = args?.imageTestsConfiguration;
+            resourceInputs["infrastructureConfigurationArn"] = args?.infrastructureConfigurationArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workflows"] = args?.workflows;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["imageId"] = undefined /*out*/;
             resourceInputs["imageUri"] = undefined /*out*/;

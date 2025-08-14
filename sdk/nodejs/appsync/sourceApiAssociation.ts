@@ -101,10 +101,10 @@ export class SourceApiAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["mergedApiIdentifier"] = args ? args.mergedApiIdentifier : undefined;
-            resourceInputs["sourceApiAssociationConfig"] = args ? args.sourceApiAssociationConfig : undefined;
-            resourceInputs["sourceApiIdentifier"] = args ? args.sourceApiIdentifier : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["mergedApiIdentifier"] = args?.mergedApiIdentifier;
+            resourceInputs["sourceApiAssociationConfig"] = args?.sourceApiAssociationConfig;
+            resourceInputs["sourceApiIdentifier"] = args?.sourceApiIdentifier;
             resourceInputs["associationArn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["lastSuccessfulMergeDate"] = undefined /*out*/;

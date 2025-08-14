@@ -87,23 +87,23 @@ export class Monitor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.identityCenterInstanceArn === undefined) && !opts.urn) {
+            if (args?.identityCenterInstanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityCenterInstanceArn'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.subdomain === undefined) && !opts.urn) {
+            if (args?.subdomain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subdomain'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["identityCenterInstanceArn"] = args ? args.identityCenterInstanceArn : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["subdomain"] = args ? args.subdomain : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["identityCenterInstanceArn"] = args?.identityCenterInstanceArn;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["subdomain"] = args?.subdomain;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["identityCenterApplicationArn"] = undefined /*out*/;
             resourceInputs["monitorId"] = undefined /*out*/;

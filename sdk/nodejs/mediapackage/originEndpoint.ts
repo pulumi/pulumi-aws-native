@@ -113,26 +113,26 @@ export class OriginEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsId === undefined) && !opts.urn) {
+            if (args?.awsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsId'");
             }
-            if ((!args || args.channelId === undefined) && !opts.urn) {
+            if (args?.channelId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelId'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
-            resourceInputs["awsId"] = args ? args.awsId : undefined;
-            resourceInputs["channelId"] = args ? args.channelId : undefined;
-            resourceInputs["cmafPackage"] = args ? args.cmafPackage : undefined;
-            resourceInputs["dashPackage"] = args ? args.dashPackage : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["hlsPackage"] = args ? args.hlsPackage : undefined;
-            resourceInputs["manifestName"] = args ? args.manifestName : undefined;
-            resourceInputs["mssPackage"] = args ? args.mssPackage : undefined;
-            resourceInputs["origination"] = args ? args.origination : undefined;
-            resourceInputs["startoverWindowSeconds"] = args ? args.startoverWindowSeconds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeDelaySeconds"] = args ? args.timeDelaySeconds : undefined;
-            resourceInputs["whitelist"] = args ? args.whitelist : undefined;
+            resourceInputs["authorization"] = args?.authorization;
+            resourceInputs["awsId"] = args?.awsId;
+            resourceInputs["channelId"] = args?.channelId;
+            resourceInputs["cmafPackage"] = args?.cmafPackage;
+            resourceInputs["dashPackage"] = args?.dashPackage;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["hlsPackage"] = args?.hlsPackage;
+            resourceInputs["manifestName"] = args?.manifestName;
+            resourceInputs["mssPackage"] = args?.mssPackage;
+            resourceInputs["origination"] = args?.origination;
+            resourceInputs["startoverWindowSeconds"] = args?.startoverWindowSeconds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeDelaySeconds"] = args?.timeDelaySeconds;
+            resourceInputs["whitelist"] = args?.whitelist;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         } else {

@@ -151,30 +151,30 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourcesVpcConfig === undefined) && !opts.urn) {
+            if (args?.resourcesVpcConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourcesVpcConfig'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["accessConfig"] = args ? args.accessConfig : undefined;
-            resourceInputs["bootstrapSelfManagedAddons"] = args ? args.bootstrapSelfManagedAddons : undefined;
-            resourceInputs["computeConfig"] = args ? args.computeConfig : undefined;
-            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
-            resourceInputs["force"] = args ? args.force : undefined;
-            resourceInputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
-            resourceInputs["logging"] = args ? args.logging : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outpostConfig"] = args ? args.outpostConfig : undefined;
-            resourceInputs["remoteNetworkConfig"] = args ? args.remoteNetworkConfig : undefined;
-            resourceInputs["resourcesVpcConfig"] = args ? args.resourcesVpcConfig : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["storageConfig"] = args ? args.storageConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["zonalShiftConfig"] = args ? args.zonalShiftConfig : undefined;
+            resourceInputs["accessConfig"] = args?.accessConfig;
+            resourceInputs["bootstrapSelfManagedAddons"] = args?.bootstrapSelfManagedAddons;
+            resourceInputs["computeConfig"] = args?.computeConfig;
+            resourceInputs["deletionProtection"] = args?.deletionProtection;
+            resourceInputs["encryptionConfig"] = args?.encryptionConfig;
+            resourceInputs["force"] = args?.force;
+            resourceInputs["kubernetesNetworkConfig"] = args?.kubernetesNetworkConfig;
+            resourceInputs["logging"] = args?.logging;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outpostConfig"] = args?.outpostConfig;
+            resourceInputs["remoteNetworkConfig"] = args?.remoteNetworkConfig;
+            resourceInputs["resourcesVpcConfig"] = args?.resourcesVpcConfig;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["storageConfig"] = args?.storageConfig;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["upgradePolicy"] = args?.upgradePolicy;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["zonalShiftConfig"] = args?.zonalShiftConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["certificateAuthorityData"] = undefined /*out*/;

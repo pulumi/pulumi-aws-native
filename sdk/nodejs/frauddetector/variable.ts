@@ -89,22 +89,22 @@ export class Variable extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataSource === undefined) && !opts.urn) {
+            if (args?.dataSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSource'");
             }
-            if ((!args || args.dataType === undefined) && !opts.urn) {
+            if (args?.dataType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataType'");
             }
-            if ((!args || args.defaultValue === undefined) && !opts.urn) {
+            if (args?.defaultValue === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultValue'");
             }
-            resourceInputs["dataSource"] = args ? args.dataSource : undefined;
-            resourceInputs["dataType"] = args ? args.dataType : undefined;
-            resourceInputs["defaultValue"] = args ? args.defaultValue : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["variableType"] = args ? args.variableType : undefined;
+            resourceInputs["dataSource"] = args?.dataSource;
+            resourceInputs["dataType"] = args?.dataType;
+            resourceInputs["defaultValue"] = args?.defaultValue;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["variableType"] = args?.variableType;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;

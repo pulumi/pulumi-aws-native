@@ -101,14 +101,14 @@ export class PolicyStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.validationSettings === undefined) && !opts.urn) {
+            if (args?.validationSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'validationSettings'");
             }
-            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["validationSettings"] = args ? args.validationSettings : undefined;
+            resourceInputs["deletionProtection"] = args?.deletionProtection;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["validationSettings"] = args?.validationSettings;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["policyStoreId"] = undefined /*out*/;
         } else {

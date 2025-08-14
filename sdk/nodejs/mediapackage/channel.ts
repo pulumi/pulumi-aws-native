@@ -77,15 +77,15 @@ export class Channel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsId === undefined) && !opts.urn) {
+            if (args?.awsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsId'");
             }
-            resourceInputs["awsId"] = args ? args.awsId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["egressAccessLogs"] = args ? args.egressAccessLogs : undefined;
-            resourceInputs["hlsIngest"] = args ? args.hlsIngest : undefined;
-            resourceInputs["ingressAccessLogs"] = args ? args.ingressAccessLogs : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = args?.awsId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["egressAccessLogs"] = args?.egressAccessLogs;
+            resourceInputs["hlsIngest"] = args?.hlsIngest;
+            resourceInputs["ingressAccessLogs"] = args?.ingressAccessLogs;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

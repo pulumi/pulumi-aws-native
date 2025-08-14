@@ -65,9 +65,9 @@ export class RecoveryGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["cells"] = args ? args.cells : undefined;
-            resourceInputs["recoveryGroupName"] = args ? args.recoveryGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cells"] = args?.cells;
+            resourceInputs["recoveryGroupName"] = args?.recoveryGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["recoveryGroupArn"] = undefined /*out*/;
         } else {
             resourceInputs["cells"] = undefined /*out*/;

@@ -114,17 +114,17 @@ export class UserPoolUser extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["clientMetadata"] = args ? args.clientMetadata : undefined;
-            resourceInputs["desiredDeliveryMediums"] = args ? args.desiredDeliveryMediums : undefined;
-            resourceInputs["forceAliasCreation"] = args ? args.forceAliasCreation : undefined;
-            resourceInputs["messageAction"] = args ? args.messageAction : undefined;
-            resourceInputs["userAttributes"] = args ? args.userAttributes : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
-            resourceInputs["validationData"] = args ? args.validationData : undefined;
+            resourceInputs["clientMetadata"] = args?.clientMetadata;
+            resourceInputs["desiredDeliveryMediums"] = args?.desiredDeliveryMediums;
+            resourceInputs["forceAliasCreation"] = args?.forceAliasCreation;
+            resourceInputs["messageAction"] = args?.messageAction;
+            resourceInputs["userAttributes"] = args?.userAttributes;
+            resourceInputs["userPoolId"] = args?.userPoolId;
+            resourceInputs["username"] = args?.username;
+            resourceInputs["validationData"] = args?.validationData;
         } else {
             resourceInputs["clientMetadata"] = undefined /*out*/;
             resourceInputs["desiredDeliveryMediums"] = undefined /*out*/;

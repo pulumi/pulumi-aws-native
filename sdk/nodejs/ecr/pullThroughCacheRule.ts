@@ -96,12 +96,12 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["credentialArn"] = args ? args.credentialArn : undefined;
-            resourceInputs["customRoleArn"] = args ? args.customRoleArn : undefined;
-            resourceInputs["ecrRepositoryPrefix"] = args ? args.ecrRepositoryPrefix : undefined;
-            resourceInputs["upstreamRegistry"] = args ? args.upstreamRegistry : undefined;
-            resourceInputs["upstreamRegistryUrl"] = args ? args.upstreamRegistryUrl : undefined;
-            resourceInputs["upstreamRepositoryPrefix"] = args ? args.upstreamRepositoryPrefix : undefined;
+            resourceInputs["credentialArn"] = args?.credentialArn;
+            resourceInputs["customRoleArn"] = args?.customRoleArn;
+            resourceInputs["ecrRepositoryPrefix"] = args?.ecrRepositoryPrefix;
+            resourceInputs["upstreamRegistry"] = args?.upstreamRegistry;
+            resourceInputs["upstreamRegistryUrl"] = args?.upstreamRegistryUrl;
+            resourceInputs["upstreamRepositoryPrefix"] = args?.upstreamRepositoryPrefix;
         } else {
             resourceInputs["credentialArn"] = undefined /*out*/;
             resourceInputs["customRoleArn"] = undefined /*out*/;

@@ -65,15 +65,15 @@ export class Integration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.integrationType === undefined) && !opts.urn) {
+            if (args?.integrationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationType'");
             }
-            if ((!args || args.resourceConfig === undefined) && !opts.urn) {
+            if (args?.resourceConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceConfig'");
             }
-            resourceInputs["integrationName"] = args ? args.integrationName : undefined;
-            resourceInputs["integrationType"] = args ? args.integrationType : undefined;
-            resourceInputs["resourceConfig"] = args ? args.resourceConfig : undefined;
+            resourceInputs["integrationName"] = args?.integrationName;
+            resourceInputs["integrationType"] = args?.integrationType;
+            resourceInputs["resourceConfig"] = args?.resourceConfig;
             resourceInputs["integrationStatus"] = undefined /*out*/;
         } else {
             resourceInputs["integrationName"] = undefined /*out*/;

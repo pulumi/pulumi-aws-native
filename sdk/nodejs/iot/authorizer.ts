@@ -93,17 +93,17 @@ export class Authorizer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authorizerFunctionArn === undefined) && !opts.urn) {
+            if (args?.authorizerFunctionArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizerFunctionArn'");
             }
-            resourceInputs["authorizerFunctionArn"] = args ? args.authorizerFunctionArn : undefined;
-            resourceInputs["authorizerName"] = args ? args.authorizerName : undefined;
-            resourceInputs["enableCachingForHttp"] = args ? args.enableCachingForHttp : undefined;
-            resourceInputs["signingDisabled"] = args ? args.signingDisabled : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tokenKeyName"] = args ? args.tokenKeyName : undefined;
-            resourceInputs["tokenSigningPublicKeys"] = args ? args.tokenSigningPublicKeys : undefined;
+            resourceInputs["authorizerFunctionArn"] = args?.authorizerFunctionArn;
+            resourceInputs["authorizerName"] = args?.authorizerName;
+            resourceInputs["enableCachingForHttp"] = args?.enableCachingForHttp;
+            resourceInputs["signingDisabled"] = args?.signingDisabled;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tokenKeyName"] = args?.tokenKeyName;
+            resourceInputs["tokenSigningPublicKeys"] = args?.tokenSigningPublicKeys;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

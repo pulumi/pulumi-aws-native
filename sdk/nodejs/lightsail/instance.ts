@@ -139,24 +139,24 @@ export class Instance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.blueprintId === undefined) && !opts.urn) {
+            if (args?.blueprintId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blueprintId'");
             }
-            if ((!args || args.bundleId === undefined) && !opts.urn) {
+            if (args?.bundleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bundleId'");
             }
-            resourceInputs["addOns"] = args ? args.addOns : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["blueprintId"] = args ? args.blueprintId : undefined;
-            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
-            resourceInputs["hardware"] = args ? args.hardware : undefined;
-            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
-            resourceInputs["keyPairName"] = args ? args.keyPairName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networking"] = args ? args.networking : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userData"] = args ? args.userData : undefined;
+            resourceInputs["addOns"] = args?.addOns;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["blueprintId"] = args?.blueprintId;
+            resourceInputs["bundleId"] = args?.bundleId;
+            resourceInputs["hardware"] = args?.hardware;
+            resourceInputs["instanceName"] = args?.instanceName;
+            resourceInputs["keyPairName"] = args?.keyPairName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networking"] = args?.networking;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userData"] = args?.userData;
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["ipv6Addresses"] = undefined /*out*/;
             resourceInputs["isStaticIp"] = undefined /*out*/;

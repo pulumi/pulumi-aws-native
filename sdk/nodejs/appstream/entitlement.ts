@@ -77,20 +77,20 @@ export class Entitlement extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appVisibility === undefined) && !opts.urn) {
+            if (args?.appVisibility === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appVisibility'");
             }
-            if ((!args || args.attributes === undefined) && !opts.urn) {
+            if (args?.attributes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'attributes'");
             }
-            if ((!args || args.stackName === undefined) && !opts.urn) {
+            if (args?.stackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stackName'");
             }
-            resourceInputs["appVisibility"] = args ? args.appVisibility : undefined;
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["stackName"] = args ? args.stackName : undefined;
+            resourceInputs["appVisibility"] = args?.appVisibility;
+            resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["stackName"] = args?.stackName;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {

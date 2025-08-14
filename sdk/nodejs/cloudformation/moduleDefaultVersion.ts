@@ -58,9 +58,9 @@ export class ModuleDefaultVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["arn"] = args ? args.arn : undefined;
-            resourceInputs["moduleName"] = args ? args.moduleName : undefined;
-            resourceInputs["versionId"] = args ? args.versionId : undefined;
+            resourceInputs["arn"] = args?.arn;
+            resourceInputs["moduleName"] = args?.moduleName;
+            resourceInputs["versionId"] = args?.versionId;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["moduleName"] = undefined /*out*/;

@@ -65,13 +65,13 @@ export class BridgeSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bridgeArn === undefined) && !opts.urn) {
+            if (args?.bridgeArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bridgeArn'");
             }
-            resourceInputs["bridgeArn"] = args ? args.bridgeArn : undefined;
-            resourceInputs["flowSource"] = args ? args.flowSource : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkSource"] = args ? args.networkSource : undefined;
+            resourceInputs["bridgeArn"] = args?.bridgeArn;
+            resourceInputs["flowSource"] = args?.flowSource;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkSource"] = args?.networkSource;
         } else {
             resourceInputs["bridgeArn"] = undefined /*out*/;
             resourceInputs["flowSource"] = undefined /*out*/;

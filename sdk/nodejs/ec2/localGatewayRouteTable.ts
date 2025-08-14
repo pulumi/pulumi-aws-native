@@ -81,12 +81,12 @@ export class LocalGatewayRouteTable extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.localGatewayId === undefined) && !opts.urn) {
+            if (args?.localGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localGatewayId'");
             }
-            resourceInputs["localGatewayId"] = args ? args.localGatewayId : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["localGatewayId"] = args?.localGatewayId;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["localGatewayRouteTableArn"] = undefined /*out*/;
             resourceInputs["localGatewayRouteTableId"] = undefined /*out*/;
             resourceInputs["outpostArn"] = undefined /*out*/;

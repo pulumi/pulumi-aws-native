@@ -51,14 +51,14 @@ export class Namespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespace === undefined) && !opts.urn) {
+            if (args?.namespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
-            if ((!args || args.tableBucketArn === undefined) && !opts.urn) {
+            if (args?.tableBucketArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableBucketArn'");
             }
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["tableBucketArn"] = args ? args.tableBucketArn : undefined;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["tableBucketArn"] = args?.tableBucketArn;
         } else {
             resourceInputs["namespace"] = undefined /*out*/;
             resourceInputs["tableBucketArn"] = undefined /*out*/;

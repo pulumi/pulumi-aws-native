@@ -61,11 +61,11 @@ export class Collection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.collectionId === undefined) && !opts.urn) {
+            if (args?.collectionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'collectionId'");
             }
-            resourceInputs["collectionId"] = args ? args.collectionId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["collectionId"] = args?.collectionId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

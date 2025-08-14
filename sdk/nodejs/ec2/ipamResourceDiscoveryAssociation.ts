@@ -93,15 +93,15 @@ export class IpamResourceDiscoveryAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ipamId === undefined) && !opts.urn) {
+            if (args?.ipamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipamId'");
             }
-            if ((!args || args.ipamResourceDiscoveryId === undefined) && !opts.urn) {
+            if (args?.ipamResourceDiscoveryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipamResourceDiscoveryId'");
             }
-            resourceInputs["ipamId"] = args ? args.ipamId : undefined;
-            resourceInputs["ipamResourceDiscoveryId"] = args ? args.ipamResourceDiscoveryId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ipamId"] = args?.ipamId;
+            resourceInputs["ipamResourceDiscoveryId"] = args?.ipamResourceDiscoveryId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["ipamArn"] = undefined /*out*/;
             resourceInputs["ipamRegion"] = undefined /*out*/;
             resourceInputs["ipamResourceDiscoveryAssociationArn"] = undefined /*out*/;

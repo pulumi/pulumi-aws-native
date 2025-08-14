@@ -93,24 +93,24 @@ export class Service extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationIdentifier === undefined) && !opts.urn) {
+            if (args?.applicationIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationIdentifier'");
             }
-            if ((!args || args.endpointType === undefined) && !opts.urn) {
+            if (args?.endpointType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointType'");
             }
-            if ((!args || args.environmentIdentifier === undefined) && !opts.urn) {
+            if (args?.environmentIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentIdentifier'");
             }
-            resourceInputs["applicationIdentifier"] = args ? args.applicationIdentifier : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["endpointType"] = args ? args.endpointType : undefined;
-            resourceInputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
-            resourceInputs["lambdaEndpoint"] = args ? args.lambdaEndpoint : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["urlEndpoint"] = args ? args.urlEndpoint : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["applicationIdentifier"] = args?.applicationIdentifier;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["endpointType"] = args?.endpointType;
+            resourceInputs["environmentIdentifier"] = args?.environmentIdentifier;
+            resourceInputs["lambdaEndpoint"] = args?.lambdaEndpoint;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["urlEndpoint"] = args?.urlEndpoint;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["serviceIdentifier"] = undefined /*out*/;
         } else {

@@ -117,20 +117,20 @@ export class ComputeEnvironment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["computeEnvironmentName"] = args ? args.computeEnvironmentName : undefined;
-            resourceInputs["computeResources"] = args ? args.computeResources : undefined;
-            resourceInputs["context"] = args ? args.context : undefined;
-            resourceInputs["eksConfiguration"] = args ? args.eksConfiguration : undefined;
-            resourceInputs["replaceComputeEnvironment"] = args ? args.replaceComputeEnvironment : undefined;
-            resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["unmanagedvCpus"] = args ? args.unmanagedvCpus : undefined;
-            resourceInputs["updatePolicy"] = args ? args.updatePolicy : undefined;
+            resourceInputs["computeEnvironmentName"] = args?.computeEnvironmentName;
+            resourceInputs["computeResources"] = args?.computeResources;
+            resourceInputs["context"] = args?.context;
+            resourceInputs["eksConfiguration"] = args?.eksConfiguration;
+            resourceInputs["replaceComputeEnvironment"] = args?.replaceComputeEnvironment;
+            resourceInputs["serviceRole"] = args?.serviceRole;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["unmanagedvCpus"] = args?.unmanagedvCpus;
+            resourceInputs["updatePolicy"] = args?.updatePolicy;
             resourceInputs["computeEnvironmentArn"] = undefined /*out*/;
         } else {
             resourceInputs["computeEnvironmentArn"] = undefined /*out*/;

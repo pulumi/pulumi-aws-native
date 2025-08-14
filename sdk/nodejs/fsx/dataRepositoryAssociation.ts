@@ -137,22 +137,22 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataRepositoryPath === undefined) && !opts.urn) {
+            if (args?.dataRepositoryPath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataRepositoryPath'");
             }
-            if ((!args || args.fileSystemId === undefined) && !opts.urn) {
+            if (args?.fileSystemId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemId'");
             }
-            if ((!args || args.fileSystemPath === undefined) && !opts.urn) {
+            if (args?.fileSystemPath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemPath'");
             }
-            resourceInputs["batchImportMetaDataOnCreate"] = args ? args.batchImportMetaDataOnCreate : undefined;
-            resourceInputs["dataRepositoryPath"] = args ? args.dataRepositoryPath : undefined;
-            resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
-            resourceInputs["fileSystemPath"] = args ? args.fileSystemPath : undefined;
-            resourceInputs["importedFileChunkSize"] = args ? args.importedFileChunkSize : undefined;
-            resourceInputs["s3"] = args ? args.s3 : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["batchImportMetaDataOnCreate"] = args?.batchImportMetaDataOnCreate;
+            resourceInputs["dataRepositoryPath"] = args?.dataRepositoryPath;
+            resourceInputs["fileSystemId"] = args?.fileSystemId;
+            resourceInputs["fileSystemPath"] = args?.fileSystemPath;
+            resourceInputs["importedFileChunkSize"] = args?.importedFileChunkSize;
+            resourceInputs["s3"] = args?.s3;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
         } else {

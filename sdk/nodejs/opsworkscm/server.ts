@@ -232,36 +232,36 @@ export class Server extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceProfileArn === undefined) && !opts.urn) {
+            if (args?.instanceProfileArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceProfileArn'");
             }
-            if ((!args || args.instanceType === undefined) && !opts.urn) {
+            if (args?.instanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            if ((!args || args.serviceRoleArn === undefined) && !opts.urn) {
+            if (args?.serviceRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceRoleArn'");
             }
-            resourceInputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
-            resourceInputs["backupId"] = args ? args.backupId : undefined;
-            resourceInputs["backupRetentionCount"] = args ? args.backupRetentionCount : undefined;
-            resourceInputs["customCertificate"] = args ? args.customCertificate : undefined;
-            resourceInputs["customDomain"] = args ? args.customDomain : undefined;
-            resourceInputs["customPrivateKey"] = args ? args.customPrivateKey : undefined;
-            resourceInputs["disableAutomatedBackup"] = args ? args.disableAutomatedBackup : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["engineAttributes"] = args ? args.engineAttributes : undefined;
-            resourceInputs["engineModel"] = args ? args.engineModel : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["instanceProfileArn"] = args ? args.instanceProfileArn : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["keyPair"] = args ? args.keyPair : undefined;
-            resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["associatePublicIpAddress"] = args?.associatePublicIpAddress;
+            resourceInputs["backupId"] = args?.backupId;
+            resourceInputs["backupRetentionCount"] = args?.backupRetentionCount;
+            resourceInputs["customCertificate"] = args?.customCertificate;
+            resourceInputs["customDomain"] = args?.customDomain;
+            resourceInputs["customPrivateKey"] = args?.customPrivateKey;
+            resourceInputs["disableAutomatedBackup"] = args?.disableAutomatedBackup;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["engineAttributes"] = args?.engineAttributes;
+            resourceInputs["engineModel"] = args?.engineModel;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["instanceProfileArn"] = args?.instanceProfileArn;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["keyPair"] = args?.keyPair;
+            resourceInputs["preferredBackupWindow"] = args?.preferredBackupWindow;
+            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["serviceRoleArn"] = args?.serviceRoleArn;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;

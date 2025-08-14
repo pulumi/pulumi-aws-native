@@ -66,11 +66,11 @@ export class ContactFlowVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contactFlowId === undefined) && !opts.urn) {
+            if (args?.contactFlowId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactFlowId'");
             }
-            resourceInputs["contactFlowId"] = args ? args.contactFlowId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["contactFlowId"] = args?.contactFlowId;
+            resourceInputs["description"] = args?.description;
             resourceInputs["contactFlowVersionArn"] = undefined /*out*/;
             resourceInputs["flowContentSha256"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;

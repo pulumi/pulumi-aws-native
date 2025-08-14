@@ -89,18 +89,18 @@ export class LoadBalancer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instancePort === undefined) && !opts.urn) {
+            if (args?.instancePort === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instancePort'");
             }
-            resourceInputs["attachedInstances"] = args ? args.attachedInstances : undefined;
-            resourceInputs["healthCheckPath"] = args ? args.healthCheckPath : undefined;
-            resourceInputs["instancePort"] = args ? args.instancePort : undefined;
-            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            resourceInputs["sessionStickinessEnabled"] = args ? args.sessionStickinessEnabled : undefined;
-            resourceInputs["sessionStickinessLbCookieDurationSeconds"] = args ? args.sessionStickinessLbCookieDurationSeconds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tlsPolicyName"] = args ? args.tlsPolicyName : undefined;
+            resourceInputs["attachedInstances"] = args?.attachedInstances;
+            resourceInputs["healthCheckPath"] = args?.healthCheckPath;
+            resourceInputs["instancePort"] = args?.instancePort;
+            resourceInputs["ipAddressType"] = args?.ipAddressType;
+            resourceInputs["loadBalancerName"] = args?.loadBalancerName;
+            resourceInputs["sessionStickinessEnabled"] = args?.sessionStickinessEnabled;
+            resourceInputs["sessionStickinessLbCookieDurationSeconds"] = args?.sessionStickinessLbCookieDurationSeconds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tlsPolicyName"] = args?.tlsPolicyName;
             resourceInputs["loadBalancerArn"] = undefined /*out*/;
         } else {
             resourceInputs["attachedInstances"] = undefined /*out*/;

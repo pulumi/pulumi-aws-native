@@ -69,16 +69,16 @@ export class ServerlessCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clientAuthentication === undefined) && !opts.urn) {
+            if (args?.clientAuthentication === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientAuthentication'");
             }
-            if ((!args || args.vpcConfigs === undefined) && !opts.urn) {
+            if (args?.vpcConfigs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcConfigs'");
             }
-            resourceInputs["clientAuthentication"] = args ? args.clientAuthentication : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConfigs"] = args ? args.vpcConfigs : undefined;
+            resourceInputs["clientAuthentication"] = args?.clientAuthentication;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConfigs"] = args?.vpcConfigs;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

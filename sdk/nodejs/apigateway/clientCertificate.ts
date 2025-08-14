@@ -61,8 +61,8 @@ export class ClientCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["clientCertificateId"] = undefined /*out*/;
         } else {
             resourceInputs["clientCertificateId"] = undefined /*out*/;

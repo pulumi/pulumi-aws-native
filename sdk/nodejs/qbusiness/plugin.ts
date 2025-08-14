@@ -101,23 +101,23 @@ export class Plugin extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authConfiguration === undefined) && !opts.urn) {
+            if (args?.authConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authConfiguration'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["authConfiguration"] = args ? args.authConfiguration : undefined;
-            resourceInputs["customPluginConfiguration"] = args ? args.customPluginConfiguration : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["serverUrl"] = args ? args.serverUrl : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["authConfiguration"] = args?.authConfiguration;
+            resourceInputs["customPluginConfiguration"] = args?.customPluginConfiguration;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["serverUrl"] = args?.serverUrl;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["buildStatus"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["pluginArn"] = undefined /*out*/;

@@ -89,24 +89,24 @@ export class Launch extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groups === undefined) && !opts.urn) {
+            if (args?.groups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groups'");
             }
-            if ((!args || args.project === undefined) && !opts.urn) {
+            if (args?.project === undefined && !opts.urn) {
                 throw new Error("Missing required property 'project'");
             }
-            if ((!args || args.scheduledSplitsConfig === undefined) && !opts.urn) {
+            if (args?.scheduledSplitsConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduledSplitsConfig'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["executionStatus"] = args ? args.executionStatus : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["metricMonitors"] = args ? args.metricMonitors : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["project"] = args ? args.project : undefined;
-            resourceInputs["randomizationSalt"] = args ? args.randomizationSalt : undefined;
-            resourceInputs["scheduledSplitsConfig"] = args ? args.scheduledSplitsConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["executionStatus"] = args?.executionStatus;
+            resourceInputs["groups"] = args?.groups;
+            resourceInputs["metricMonitors"] = args?.metricMonitors;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["project"] = args?.project;
+            resourceInputs["randomizationSalt"] = args?.randomizationSalt;
+            resourceInputs["scheduledSplitsConfig"] = args?.scheduledSplitsConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

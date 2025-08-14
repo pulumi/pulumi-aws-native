@@ -86,11 +86,11 @@ export class FlowVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.flowArn === undefined) && !opts.urn) {
+            if (args?.flowArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'flowArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["flowArn"] = args ? args.flowArn : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["flowArn"] = args?.flowArn;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["customerEncryptionKeyArn"] = undefined /*out*/;
             resourceInputs["definition"] = undefined /*out*/;

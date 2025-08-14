@@ -137,22 +137,22 @@ export class Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.projectIdentifier === undefined) && !opts.urn) {
+            if (args?.projectIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectIdentifier'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["environmentAccountIdentifier"] = args ? args.environmentAccountIdentifier : undefined;
-            resourceInputs["environmentAccountRegion"] = args ? args.environmentAccountRegion : undefined;
-            resourceInputs["environmentProfileIdentifier"] = args ? args.environmentProfileIdentifier : undefined;
-            resourceInputs["environmentRoleArn"] = args ? args.environmentRoleArn : undefined;
-            resourceInputs["glossaryTerms"] = args ? args.glossaryTerms : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectIdentifier"] = args ? args.projectIdentifier : undefined;
-            resourceInputs["userParameters"] = args ? args.userParameters : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["environmentAccountIdentifier"] = args?.environmentAccountIdentifier;
+            resourceInputs["environmentAccountRegion"] = args?.environmentAccountRegion;
+            resourceInputs["environmentProfileIdentifier"] = args?.environmentProfileIdentifier;
+            resourceInputs["environmentRoleArn"] = args?.environmentRoleArn;
+            resourceInputs["glossaryTerms"] = args?.glossaryTerms;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectIdentifier"] = args?.projectIdentifier;
+            resourceInputs["userParameters"] = args?.userParameters;
             resourceInputs["awsAccountId"] = undefined /*out*/;
             resourceInputs["awsAccountRegion"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;

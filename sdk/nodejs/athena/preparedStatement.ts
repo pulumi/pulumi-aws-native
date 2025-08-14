@@ -62,16 +62,16 @@ export class PreparedStatement extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.queryStatement === undefined) && !opts.urn) {
+            if (args?.queryStatement === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryStatement'");
             }
-            if ((!args || args.workGroup === undefined) && !opts.urn) {
+            if (args?.workGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workGroup'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["queryStatement"] = args ? args.queryStatement : undefined;
-            resourceInputs["statementName"] = args ? args.statementName : undefined;
-            resourceInputs["workGroup"] = args ? args.workGroup : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["queryStatement"] = args?.queryStatement;
+            resourceInputs["statementName"] = args?.statementName;
+            resourceInputs["workGroup"] = args?.workGroup;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["queryStatement"] = undefined /*out*/;

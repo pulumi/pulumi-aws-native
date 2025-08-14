@@ -94,12 +94,12 @@ export class InstanceSnapshot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceName === undefined) && !opts.urn) {
+            if (args?.instanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
-            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
-            resourceInputs["instanceSnapshotName"] = args ? args.instanceSnapshotName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["instanceName"] = args?.instanceName;
+            resourceInputs["instanceSnapshotName"] = args?.instanceSnapshotName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["fromInstanceArn"] = undefined /*out*/;
             resourceInputs["fromInstanceName"] = undefined /*out*/;

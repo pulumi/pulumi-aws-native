@@ -77,12 +77,12 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoEnable === undefined) && !opts.urn) {
+            if (args?.autoEnable === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoEnable'");
             }
-            resourceInputs["autoEnable"] = args ? args.autoEnable : undefined;
-            resourceInputs["autoEnableStandards"] = args ? args.autoEnableStandards : undefined;
-            resourceInputs["configurationType"] = args ? args.configurationType : undefined;
+            resourceInputs["autoEnable"] = args?.autoEnable;
+            resourceInputs["autoEnableStandards"] = args?.autoEnableStandards;
+            resourceInputs["configurationType"] = args?.configurationType;
             resourceInputs["memberAccountLimitReached"] = undefined /*out*/;
             resourceInputs["organizationConfigurationIdentifier"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

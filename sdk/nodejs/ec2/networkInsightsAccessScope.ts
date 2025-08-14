@@ -77,9 +77,9 @@ export class NetworkInsightsAccessScope extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["excludePaths"] = args ? args.excludePaths : undefined;
-            resourceInputs["matchPaths"] = args ? args.matchPaths : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["excludePaths"] = args?.excludePaths;
+            resourceInputs["matchPaths"] = args?.matchPaths;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["networkInsightsAccessScopeArn"] = undefined /*out*/;
             resourceInputs["networkInsightsAccessScopeId"] = undefined /*out*/;

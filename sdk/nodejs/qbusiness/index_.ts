@@ -100,19 +100,19 @@ export class Index extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["capacityConfiguration"] = args ? args.capacityConfiguration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["documentAttributeConfigurations"] = args ? args.documentAttributeConfigurations : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["capacityConfiguration"] = args?.capacityConfiguration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["documentAttributeConfigurations"] = args?.documentAttributeConfigurations;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["indexArn"] = undefined /*out*/;
             resourceInputs["indexId"] = undefined /*out*/;

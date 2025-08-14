@@ -65,19 +65,19 @@ export class KeySigningKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hostedZoneId === undefined) && !opts.urn) {
+            if (args?.hostedZoneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostedZoneId'");
             }
-            if ((!args || args.keyManagementServiceArn === undefined) && !opts.urn) {
+            if (args?.keyManagementServiceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyManagementServiceArn'");
             }
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
-            resourceInputs["keyManagementServiceArn"] = args ? args.keyManagementServiceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["hostedZoneId"] = args?.hostedZoneId;
+            resourceInputs["keyManagementServiceArn"] = args?.keyManagementServiceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["status"] = args?.status;
         } else {
             resourceInputs["hostedZoneId"] = undefined /*out*/;
             resourceInputs["keyManagementServiceArn"] = undefined /*out*/;

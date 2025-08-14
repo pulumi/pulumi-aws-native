@@ -105,11 +105,11 @@ export class HostedZone extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["hostedZoneConfig"] = args ? args.hostedZoneConfig : undefined;
-            resourceInputs["hostedZoneTags"] = args ? args.hostedZoneTags : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queryLoggingConfig"] = args ? args.queryLoggingConfig : undefined;
-            resourceInputs["vpcs"] = args ? args.vpcs : undefined;
+            resourceInputs["hostedZoneConfig"] = args?.hostedZoneConfig;
+            resourceInputs["hostedZoneTags"] = args?.hostedZoneTags;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queryLoggingConfig"] = args?.queryLoggingConfig;
+            resourceInputs["vpcs"] = args?.vpcs;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["nameServers"] = undefined /*out*/;
         } else {

@@ -91,16 +91,16 @@ export class EnabledControl extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.controlIdentifier === undefined) && !opts.urn) {
+            if (args?.controlIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'controlIdentifier'");
             }
-            if ((!args || args.targetIdentifier === undefined) && !opts.urn) {
+            if (args?.targetIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetIdentifier'");
             }
-            resourceInputs["controlIdentifier"] = args ? args.controlIdentifier : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetIdentifier"] = args ? args.targetIdentifier : undefined;
+            resourceInputs["controlIdentifier"] = args?.controlIdentifier;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetIdentifier"] = args?.targetIdentifier;
         } else {
             resourceInputs["controlIdentifier"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;

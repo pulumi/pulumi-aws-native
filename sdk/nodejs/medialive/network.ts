@@ -78,13 +78,13 @@ export class Network extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ipPools === undefined) && !opts.urn) {
+            if (args?.ipPools === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipPools'");
             }
-            resourceInputs["ipPools"] = args ? args.ipPools : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["routes"] = args ? args.routes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ipPools"] = args?.ipPools;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["routes"] = args?.routes;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associatedClusterIds"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;

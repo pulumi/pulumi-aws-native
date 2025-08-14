@@ -85,20 +85,20 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.provisioningRoleArn === undefined) && !opts.urn) {
+            if (args?.provisioningRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'provisioningRoleArn'");
             }
-            if ((!args || args.templateBody === undefined) && !opts.urn) {
+            if (args?.templateBody === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateBody'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["preProvisioningHook"] = args ? args.preProvisioningHook : undefined;
-            resourceInputs["provisioningRoleArn"] = args ? args.provisioningRoleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateBody"] = args ? args.templateBody : undefined;
-            resourceInputs["templateName"] = args ? args.templateName : undefined;
-            resourceInputs["templateType"] = args ? args.templateType : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["preProvisioningHook"] = args?.preProvisioningHook;
+            resourceInputs["provisioningRoleArn"] = args?.provisioningRoleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateBody"] = args?.templateBody;
+            resourceInputs["templateName"] = args?.templateName;
+            resourceInputs["templateType"] = args?.templateType;
             resourceInputs["templateArn"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

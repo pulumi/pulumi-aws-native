@@ -81,15 +81,15 @@ export class LocalGatewayRouteTableVirtualInterfaceGroupAssociation extends pulu
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.localGatewayRouteTableId === undefined) && !opts.urn) {
+            if (args?.localGatewayRouteTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localGatewayRouteTableId'");
             }
-            if ((!args || args.localGatewayVirtualInterfaceGroupId === undefined) && !opts.urn) {
+            if (args?.localGatewayVirtualInterfaceGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localGatewayVirtualInterfaceGroupId'");
             }
-            resourceInputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
-            resourceInputs["localGatewayVirtualInterfaceGroupId"] = args ? args.localGatewayVirtualInterfaceGroupId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["localGatewayRouteTableId"] = args?.localGatewayRouteTableId;
+            resourceInputs["localGatewayVirtualInterfaceGroupId"] = args?.localGatewayVirtualInterfaceGroupId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["localGatewayId"] = undefined /*out*/;
             resourceInputs["localGatewayRouteTableArn"] = undefined /*out*/;
             resourceInputs["localGatewayRouteTableVirtualInterfaceGroupAssociationId"] = undefined /*out*/;

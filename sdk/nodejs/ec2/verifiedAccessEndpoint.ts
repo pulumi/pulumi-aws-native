@@ -141,31 +141,31 @@ export class VerifiedAccessEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.attachmentType === undefined) && !opts.urn) {
+            if (args?.attachmentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'attachmentType'");
             }
-            if ((!args || args.endpointType === undefined) && !opts.urn) {
+            if (args?.endpointType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointType'");
             }
-            if ((!args || args.verifiedAccessGroupId === undefined) && !opts.urn) {
+            if (args?.verifiedAccessGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'verifiedAccessGroupId'");
             }
-            resourceInputs["applicationDomain"] = args ? args.applicationDomain : undefined;
-            resourceInputs["attachmentType"] = args ? args.attachmentType : undefined;
-            resourceInputs["cidrOptions"] = args ? args.cidrOptions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainCertificateArn"] = args ? args.domainCertificateArn : undefined;
-            resourceInputs["endpointDomainPrefix"] = args ? args.endpointDomainPrefix : undefined;
-            resourceInputs["endpointType"] = args ? args.endpointType : undefined;
-            resourceInputs["loadBalancerOptions"] = args ? args.loadBalancerOptions : undefined;
-            resourceInputs["networkInterfaceOptions"] = args ? args.networkInterfaceOptions : undefined;
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["policyEnabled"] = args ? args.policyEnabled : undefined;
-            resourceInputs["rdsOptions"] = args ? args.rdsOptions : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["verifiedAccessGroupId"] = args ? args.verifiedAccessGroupId : undefined;
+            resourceInputs["applicationDomain"] = args?.applicationDomain;
+            resourceInputs["attachmentType"] = args?.attachmentType;
+            resourceInputs["cidrOptions"] = args?.cidrOptions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainCertificateArn"] = args?.domainCertificateArn;
+            resourceInputs["endpointDomainPrefix"] = args?.endpointDomainPrefix;
+            resourceInputs["endpointType"] = args?.endpointType;
+            resourceInputs["loadBalancerOptions"] = args?.loadBalancerOptions;
+            resourceInputs["networkInterfaceOptions"] = args?.networkInterfaceOptions;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["policyEnabled"] = args?.policyEnabled;
+            resourceInputs["rdsOptions"] = args?.rdsOptions;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["sseSpecification"] = args?.sseSpecification;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["verifiedAccessGroupId"] = args?.verifiedAccessGroupId;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["deviceValidationDomain"] = undefined /*out*/;
             resourceInputs["endpointDomain"] = undefined /*out*/;

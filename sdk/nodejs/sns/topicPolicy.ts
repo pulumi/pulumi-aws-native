@@ -60,14 +60,14 @@ export class TopicPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyDocument === undefined) && !opts.urn) {
+            if (args?.policyDocument === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if ((!args || args.topics === undefined) && !opts.urn) {
+            if (args?.topics === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topics'");
             }
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["topics"] = args ? args.topics : undefined;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["topics"] = args?.topics;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

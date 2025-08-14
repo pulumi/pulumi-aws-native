@@ -81,19 +81,19 @@ export class PackageGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.pattern === undefined) && !opts.urn) {
+            if (args?.pattern === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pattern'");
             }
-            resourceInputs["contactInfo"] = args ? args.contactInfo : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["domainOwner"] = args ? args.domainOwner : undefined;
-            resourceInputs["originConfiguration"] = args ? args.originConfiguration : undefined;
-            resourceInputs["pattern"] = args ? args.pattern : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["contactInfo"] = args?.contactInfo;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["domainOwner"] = args?.domainOwner;
+            resourceInputs["originConfiguration"] = args?.originConfiguration;
+            resourceInputs["pattern"] = args?.pattern;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

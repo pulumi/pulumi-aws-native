@@ -73,12 +73,12 @@ export class StreamConsumer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.streamArn === undefined) && !opts.urn) {
+            if (args?.streamArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamArn'");
             }
-            resourceInputs["consumerName"] = args ? args.consumerName : undefined;
-            resourceInputs["streamArn"] = args ? args.streamArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["consumerName"] = args?.consumerName;
+            resourceInputs["streamArn"] = args?.streamArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["consumerArn"] = undefined /*out*/;
             resourceInputs["consumerCreationTimestamp"] = undefined /*out*/;
             resourceInputs["consumerStatus"] = undefined /*out*/;

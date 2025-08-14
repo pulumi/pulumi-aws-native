@@ -109,23 +109,23 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceProfileName === undefined) && !opts.urn) {
+            if (args?.instanceProfileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceProfileName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceMetadataOptions"] = args ? args.instanceMetadataOptions : undefined;
-            resourceInputs["instanceProfileName"] = args ? args.instanceProfileName : undefined;
-            resourceInputs["instanceTypes"] = args ? args.instanceTypes : undefined;
-            resourceInputs["keyPair"] = args ? args.keyPair : undefined;
-            resourceInputs["logging"] = args ? args.logging : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["placement"] = args ? args.placement : undefined;
-            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["terminateInstanceOnFailure"] = args ? args.terminateInstanceOnFailure : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceMetadataOptions"] = args?.instanceMetadataOptions;
+            resourceInputs["instanceProfileName"] = args?.instanceProfileName;
+            resourceInputs["instanceTypes"] = args?.instanceTypes;
+            resourceInputs["keyPair"] = args?.keyPair;
+            resourceInputs["logging"] = args?.logging;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["placement"] = args?.placement;
+            resourceInputs["resourceTags"] = args?.resourceTags;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["snsTopicArn"] = args?.snsTopicArn;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["terminateInstanceOnFailure"] = args?.terminateInstanceOnFailure;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

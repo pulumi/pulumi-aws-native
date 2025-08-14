@@ -91,23 +91,23 @@ export class Faq extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.indexId === undefined) && !opts.urn) {
+            if (args?.indexId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'indexId'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.s3Path === undefined) && !opts.urn) {
+            if (args?.s3Path === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3Path'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fileFormat"] = args ? args.fileFormat : undefined;
-            resourceInputs["indexId"] = args ? args.indexId : undefined;
-            resourceInputs["languageCode"] = args ? args.languageCode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["s3Path"] = args ? args.s3Path : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fileFormat"] = args?.fileFormat;
+            resourceInputs["indexId"] = args?.indexId;
+            resourceInputs["languageCode"] = args?.languageCode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["s3Path"] = args?.s3Path;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

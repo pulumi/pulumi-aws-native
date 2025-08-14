@@ -97,15 +97,15 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.coreNetworkId === undefined) && !opts.urn) {
+            if (args?.coreNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'coreNetworkId'");
             }
-            if ((!args || args.transitGatewayArn === undefined) && !opts.urn) {
+            if (args?.transitGatewayArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayArn'");
             }
-            resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayArn"] = args ? args.transitGatewayArn : undefined;
+            resourceInputs["coreNetworkId"] = args?.coreNetworkId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayArn"] = args?.transitGatewayArn;
             resourceInputs["coreNetworkArn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["edgeLocation"] = undefined /*out*/;

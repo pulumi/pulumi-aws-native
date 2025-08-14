@@ -143,26 +143,26 @@ export class Subnet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["assignIpv6AddressOnCreation"] = args ? args.assignIpv6AddressOnCreation : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
-            resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
-            resourceInputs["enableDns64"] = args ? args.enableDns64 : undefined;
-            resourceInputs["enableLniAtDeviceIndex"] = args ? args.enableLniAtDeviceIndex : undefined;
-            resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
-            resourceInputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
-            resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
-            resourceInputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
-            resourceInputs["ipv6Native"] = args ? args.ipv6Native : undefined;
-            resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
-            resourceInputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
-            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
-            resourceInputs["privateDnsNameOptionsOnLaunch"] = args ? args.privateDnsNameOptionsOnLaunch : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["assignIpv6AddressOnCreation"] = args?.assignIpv6AddressOnCreation;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["availabilityZoneId"] = args?.availabilityZoneId;
+            resourceInputs["cidrBlock"] = args?.cidrBlock;
+            resourceInputs["enableDns64"] = args?.enableDns64;
+            resourceInputs["enableLniAtDeviceIndex"] = args?.enableLniAtDeviceIndex;
+            resourceInputs["ipv4IpamPoolId"] = args?.ipv4IpamPoolId;
+            resourceInputs["ipv4NetmaskLength"] = args?.ipv4NetmaskLength;
+            resourceInputs["ipv6CidrBlock"] = args?.ipv6CidrBlock;
+            resourceInputs["ipv6IpamPoolId"] = args?.ipv6IpamPoolId;
+            resourceInputs["ipv6Native"] = args?.ipv6Native;
+            resourceInputs["ipv6NetmaskLength"] = args?.ipv6NetmaskLength;
+            resourceInputs["mapPublicIpOnLaunch"] = args?.mapPublicIpOnLaunch;
+            resourceInputs["outpostArn"] = args?.outpostArn;
+            resourceInputs["privateDnsNameOptionsOnLaunch"] = args?.privateDnsNameOptionsOnLaunch;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["blockPublicAccessStates"] = undefined /*out*/;
             resourceInputs["ipv6CidrBlocks"] = undefined /*out*/;
             resourceInputs["networkAclAssociationId"] = undefined /*out*/;

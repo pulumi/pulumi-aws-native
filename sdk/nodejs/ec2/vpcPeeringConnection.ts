@@ -77,18 +77,18 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.peerVpcId === undefined) && !opts.urn) {
+            if (args?.peerVpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerVpcId'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["peerOwnerId"] = args ? args.peerOwnerId : undefined;
-            resourceInputs["peerRegion"] = args ? args.peerRegion : undefined;
-            resourceInputs["peerRoleArn"] = args ? args.peerRoleArn : undefined;
-            resourceInputs["peerVpcId"] = args ? args.peerVpcId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["peerOwnerId"] = args?.peerOwnerId;
+            resourceInputs["peerRegion"] = args?.peerRegion;
+            resourceInputs["peerRoleArn"] = args?.peerRoleArn;
+            resourceInputs["peerVpcId"] = args?.peerVpcId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

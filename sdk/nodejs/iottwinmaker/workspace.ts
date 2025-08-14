@@ -78,20 +78,20 @@ export class Workspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            if ((!args || args.s3Location === undefined) && !opts.urn) {
+            if (args?.s3Location === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3Location'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["s3Location"] = args ? args.s3Location : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["s3Location"] = args?.s3Location;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDateTime"] = undefined /*out*/;
             resourceInputs["updateDateTime"] = undefined /*out*/;

@@ -73,16 +73,16 @@ export class MitigationAction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actionParams === undefined) && !opts.urn) {
+            if (args?.actionParams === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionParams'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["actionName"] = args ? args.actionName : undefined;
-            resourceInputs["actionParams"] = args ? args.actionParams : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actionName"] = args?.actionName;
+            resourceInputs["actionParams"] = args?.actionParams;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["mitigationActionArn"] = undefined /*out*/;
             resourceInputs["mitigationActionId"] = undefined /*out*/;
         } else {

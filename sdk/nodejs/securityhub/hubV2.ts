@@ -58,7 +58,7 @@ export class HubV2 extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["hubV2Arn"] = undefined /*out*/;
             resourceInputs["subscribedAt"] = undefined /*out*/;
         } else {

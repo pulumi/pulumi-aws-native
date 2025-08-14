@@ -81,21 +81,21 @@ export class SegmentDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.segmentGroups === undefined) && !opts.urn) {
+            if (args?.segmentGroups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'segmentGroups'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["segmentDefinitionName"] = args ? args.segmentDefinitionName : undefined;
-            resourceInputs["segmentGroups"] = args ? args.segmentGroups : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["segmentDefinitionName"] = args?.segmentDefinitionName;
+            resourceInputs["segmentGroups"] = args?.segmentGroups;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["segmentDefinitionArn"] = undefined /*out*/;
         } else {

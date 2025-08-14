@@ -77,19 +77,19 @@ export class ListenerRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.conditions === undefined) && !opts.urn) {
+            if (args?.conditions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'conditions'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
-            resourceInputs["listenerArn"] = args ? args.listenerArn : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["conditions"] = args?.conditions;
+            resourceInputs["listenerArn"] = args?.listenerArn;
+            resourceInputs["priority"] = args?.priority;
             resourceInputs["isDefault"] = undefined /*out*/;
             resourceInputs["ruleArn"] = undefined /*out*/;
         } else {

@@ -89,17 +89,17 @@ export class KnowledgeBase extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.knowledgeBaseType === undefined) && !opts.urn) {
+            if (args?.knowledgeBaseType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'knowledgeBaseType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["knowledgeBaseType"] = args ? args.knowledgeBaseType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["renderingConfiguration"] = args ? args.renderingConfiguration : undefined;
-            resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
-            resourceInputs["sourceConfiguration"] = args ? args.sourceConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vectorIngestionConfiguration"] = args ? args.vectorIngestionConfiguration : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["knowledgeBaseType"] = args?.knowledgeBaseType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["renderingConfiguration"] = args?.renderingConfiguration;
+            resourceInputs["serverSideEncryptionConfiguration"] = args?.serverSideEncryptionConfiguration;
+            resourceInputs["sourceConfiguration"] = args?.sourceConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vectorIngestionConfiguration"] = args?.vectorIngestionConfiguration;
             resourceInputs["knowledgeBaseArn"] = undefined /*out*/;
             resourceInputs["knowledgeBaseId"] = undefined /*out*/;
         } else {

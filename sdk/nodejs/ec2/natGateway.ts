@@ -94,15 +94,15 @@ export class NatGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["allocationId"] = args ? args.allocationId : undefined;
-            resourceInputs["connectivityType"] = args ? args.connectivityType : undefined;
-            resourceInputs["maxDrainDurationSeconds"] = args ? args.maxDrainDurationSeconds : undefined;
-            resourceInputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
-            resourceInputs["secondaryAllocationIds"] = args ? args.secondaryAllocationIds : undefined;
-            resourceInputs["secondaryPrivateIpAddressCount"] = args ? args.secondaryPrivateIpAddressCount : undefined;
-            resourceInputs["secondaryPrivateIpAddresses"] = args ? args.secondaryPrivateIpAddresses : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allocationId"] = args?.allocationId;
+            resourceInputs["connectivityType"] = args?.connectivityType;
+            resourceInputs["maxDrainDurationSeconds"] = args?.maxDrainDurationSeconds;
+            resourceInputs["privateIpAddress"] = args?.privateIpAddress;
+            resourceInputs["secondaryAllocationIds"] = args?.secondaryAllocationIds;
+            resourceInputs["secondaryPrivateIpAddressCount"] = args?.secondaryPrivateIpAddressCount;
+            resourceInputs["secondaryPrivateIpAddresses"] = args?.secondaryPrivateIpAddresses;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["natGatewayId"] = undefined /*out*/;
         } else {
             resourceInputs["allocationId"] = undefined /*out*/;

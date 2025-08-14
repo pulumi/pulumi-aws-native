@@ -62,22 +62,22 @@ export class NetworkPerformanceMetricSubscription extends pulumi.CustomResource 
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destination === undefined) && !opts.urn) {
+            if (args?.destination === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
-            if ((!args || args.metric === undefined) && !opts.urn) {
+            if (args?.metric === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metric'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            if ((!args || args.statistic === undefined) && !opts.urn) {
+            if (args?.statistic === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statistic'");
             }
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["metric"] = args ? args.metric : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["statistic"] = args ? args.statistic : undefined;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["metric"] = args?.metric;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["statistic"] = args?.statistic;
         } else {
             resourceInputs["destination"] = undefined /*out*/;
             resourceInputs["metric"] = undefined /*out*/;

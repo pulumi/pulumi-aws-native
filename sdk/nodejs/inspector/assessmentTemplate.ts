@@ -73,20 +73,20 @@ export class AssessmentTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.assessmentTargetArn === undefined) && !opts.urn) {
+            if (args?.assessmentTargetArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assessmentTargetArn'");
             }
-            if ((!args || args.durationInSeconds === undefined) && !opts.urn) {
+            if (args?.durationInSeconds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'durationInSeconds'");
             }
-            if ((!args || args.rulesPackageArns === undefined) && !opts.urn) {
+            if (args?.rulesPackageArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rulesPackageArns'");
             }
-            resourceInputs["assessmentTargetArn"] = args ? args.assessmentTargetArn : undefined;
-            resourceInputs["assessmentTemplateName"] = args ? args.assessmentTemplateName : undefined;
-            resourceInputs["durationInSeconds"] = args ? args.durationInSeconds : undefined;
-            resourceInputs["rulesPackageArns"] = args ? args.rulesPackageArns : undefined;
-            resourceInputs["userAttributesForFindings"] = args ? args.userAttributesForFindings : undefined;
+            resourceInputs["assessmentTargetArn"] = args?.assessmentTargetArn;
+            resourceInputs["assessmentTemplateName"] = args?.assessmentTemplateName;
+            resourceInputs["durationInSeconds"] = args?.durationInSeconds;
+            resourceInputs["rulesPackageArns"] = args?.rulesPackageArns;
+            resourceInputs["userAttributesForFindings"] = args?.userAttributesForFindings;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

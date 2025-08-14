@@ -73,17 +73,17 @@ export class ServiceEnvironment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.capacityLimits === undefined) && !opts.urn) {
+            if (args?.capacityLimits === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacityLimits'");
             }
-            if ((!args || args.serviceEnvironmentType === undefined) && !opts.urn) {
+            if (args?.serviceEnvironmentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEnvironmentType'");
             }
-            resourceInputs["capacityLimits"] = args ? args.capacityLimits : undefined;
-            resourceInputs["serviceEnvironmentName"] = args ? args.serviceEnvironmentName : undefined;
-            resourceInputs["serviceEnvironmentType"] = args ? args.serviceEnvironmentType : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["capacityLimits"] = args?.capacityLimits;
+            resourceInputs["serviceEnvironmentName"] = args?.serviceEnvironmentName;
+            resourceInputs["serviceEnvironmentType"] = args?.serviceEnvironmentType;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["serviceEnvironmentArn"] = undefined /*out*/;
         } else {
             resourceInputs["capacityLimits"] = undefined /*out*/;

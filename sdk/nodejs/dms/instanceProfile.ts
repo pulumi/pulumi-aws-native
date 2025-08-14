@@ -97,16 +97,16 @@ export class InstanceProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceProfileIdentifier"] = args ? args.instanceProfileIdentifier : undefined;
-            resourceInputs["instanceProfileName"] = args ? args.instanceProfileName : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["networkType"] = args ? args.networkType : undefined;
-            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            resourceInputs["subnetGroupIdentifier"] = args ? args.subnetGroupIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcSecurityGroups"] = args ? args.vpcSecurityGroups : undefined;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceProfileIdentifier"] = args?.instanceProfileIdentifier;
+            resourceInputs["instanceProfileName"] = args?.instanceProfileName;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["networkType"] = args?.networkType;
+            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
+            resourceInputs["subnetGroupIdentifier"] = args?.subnetGroupIdentifier;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcSecurityGroups"] = args?.vpcSecurityGroups;
             resourceInputs["instanceProfileArn"] = undefined /*out*/;
             resourceInputs["instanceProfileCreationTime"] = undefined /*out*/;
         } else {

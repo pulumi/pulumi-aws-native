@@ -79,18 +79,18 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.recoveryPointSelection === undefined) && !opts.urn) {
+            if (args?.recoveryPointSelection === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryPointSelection'");
             }
-            if ((!args || args.scheduleExpression === undefined) && !opts.urn) {
+            if (args?.scheduleExpression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleExpression'");
             }
-            resourceInputs["recoveryPointSelection"] = args ? args.recoveryPointSelection : undefined;
-            resourceInputs["restoreTestingPlanName"] = args ? args.restoreTestingPlanName : undefined;
-            resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
-            resourceInputs["scheduleExpressionTimezone"] = args ? args.scheduleExpressionTimezone : undefined;
-            resourceInputs["startWindowHours"] = args ? args.startWindowHours : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["recoveryPointSelection"] = args?.recoveryPointSelection;
+            resourceInputs["restoreTestingPlanName"] = args?.restoreTestingPlanName;
+            resourceInputs["scheduleExpression"] = args?.scheduleExpression;
+            resourceInputs["scheduleExpressionTimezone"] = args?.scheduleExpressionTimezone;
+            resourceInputs["startWindowHours"] = args?.startWindowHours;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["restoreTestingPlanArn"] = undefined /*out*/;
         } else {
             resourceInputs["recoveryPointSelection"] = undefined /*out*/;

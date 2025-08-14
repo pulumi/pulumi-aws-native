@@ -113,14 +113,14 @@ export class LocationS3 extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.s3Config === undefined) && !opts.urn) {
+            if (args?.s3Config === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3Config'");
             }
-            resourceInputs["s3BucketArn"] = args ? args.s3BucketArn : undefined;
-            resourceInputs["s3Config"] = args ? args.s3Config : undefined;
-            resourceInputs["s3StorageClass"] = args ? args.s3StorageClass : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["s3BucketArn"] = args?.s3BucketArn;
+            resourceInputs["s3Config"] = args?.s3Config;
+            resourceInputs["s3StorageClass"] = args?.s3StorageClass;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
         } else {

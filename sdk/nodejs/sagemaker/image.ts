@@ -91,14 +91,14 @@ export class Image extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.imageRoleArn === undefined) && !opts.urn) {
+            if (args?.imageRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'imageRoleArn'");
             }
-            resourceInputs["imageDescription"] = args ? args.imageDescription : undefined;
-            resourceInputs["imageDisplayName"] = args ? args.imageDisplayName : undefined;
-            resourceInputs["imageName"] = args ? args.imageName : undefined;
-            resourceInputs["imageRoleArn"] = args ? args.imageRoleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["imageDescription"] = args?.imageDescription;
+            resourceInputs["imageDisplayName"] = args?.imageDisplayName;
+            resourceInputs["imageName"] = args?.imageName;
+            resourceInputs["imageRoleArn"] = args?.imageRoleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["imageArn"] = undefined /*out*/;
         } else {
             resourceInputs["imageArn"] = undefined /*out*/;

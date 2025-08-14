@@ -71,13 +71,13 @@ export class RoleAlias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["credentialDurationSeconds"] = args ? args.credentialDurationSeconds : undefined;
-            resourceInputs["roleAlias"] = args ? args.roleAlias : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["credentialDurationSeconds"] = args?.credentialDurationSeconds;
+            resourceInputs["roleAlias"] = args?.roleAlias;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["roleAliasArn"] = undefined /*out*/;
         } else {
             resourceInputs["credentialDurationSeconds"] = undefined /*out*/;

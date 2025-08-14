@@ -54,10 +54,10 @@ export class AccountAlias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountAlias === undefined) && !opts.urn) {
+            if (args?.accountAlias === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountAlias'");
             }
-            resourceInputs["accountAlias"] = args ? args.accountAlias : undefined;
+            resourceInputs["accountAlias"] = args?.accountAlias;
             resourceInputs["accountAliasResourceId"] = undefined /*out*/;
         } else {
             resourceInputs["accountAlias"] = undefined /*out*/;

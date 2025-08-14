@@ -69,12 +69,12 @@ export class UserPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.userName === undefined) && !opts.urn) {
+            if (args?.userName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["policyName"] = args?.policyName;
+            resourceInputs["userName"] = args?.userName;
         } else {
             resourceInputs["policyDocument"] = undefined /*out*/;
             resourceInputs["policyName"] = undefined /*out*/;

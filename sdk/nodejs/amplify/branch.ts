@@ -133,25 +133,25 @@ export class Branch extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appId === undefined) && !opts.urn) {
+            if (args?.appId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["backend"] = args ? args.backend : undefined;
-            resourceInputs["basicAuthConfig"] = args ? args.basicAuthConfig : undefined;
-            resourceInputs["branchName"] = args ? args.branchName : undefined;
-            resourceInputs["buildSpec"] = args ? args.buildSpec : undefined;
-            resourceInputs["computeRoleArn"] = args ? args.computeRoleArn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enableAutoBuild"] = args ? args.enableAutoBuild : undefined;
-            resourceInputs["enablePerformanceMode"] = args ? args.enablePerformanceMode : undefined;
-            resourceInputs["enablePullRequestPreview"] = args ? args.enablePullRequestPreview : undefined;
-            resourceInputs["enableSkewProtection"] = args ? args.enableSkewProtection : undefined;
-            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            resourceInputs["framework"] = args ? args.framework : undefined;
-            resourceInputs["pullRequestEnvironmentName"] = args ? args.pullRequestEnvironmentName : undefined;
-            resourceInputs["stage"] = args ? args.stage : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["backend"] = args?.backend;
+            resourceInputs["basicAuthConfig"] = args?.basicAuthConfig;
+            resourceInputs["branchName"] = args?.branchName;
+            resourceInputs["buildSpec"] = args?.buildSpec;
+            resourceInputs["computeRoleArn"] = args?.computeRoleArn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enableAutoBuild"] = args?.enableAutoBuild;
+            resourceInputs["enablePerformanceMode"] = args?.enablePerformanceMode;
+            resourceInputs["enablePullRequestPreview"] = args?.enablePullRequestPreview;
+            resourceInputs["enableSkewProtection"] = args?.enableSkewProtection;
+            resourceInputs["environmentVariables"] = args?.environmentVariables;
+            resourceInputs["framework"] = args?.framework;
+            resourceInputs["pullRequestEnvironmentName"] = args?.pullRequestEnvironmentName;
+            resourceInputs["stage"] = args?.stage;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["appId"] = undefined /*out*/;

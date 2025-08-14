@@ -69,13 +69,13 @@ export class CustomPermissions extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsAccountId === undefined) && !opts.urn) {
+            if (args?.awsAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountId'");
             }
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
-            resourceInputs["customPermissionsName"] = args ? args.customPermissionsName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["capabilities"] = args?.capabilities;
+            resourceInputs["customPermissionsName"] = args?.customPermissionsName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

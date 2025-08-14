@@ -81,13 +81,13 @@ export class Site extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
+            if (args?.globalNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["globalNetworkId"] = args?.globalNetworkId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["siteArn"] = undefined /*out*/;
             resourceInputs["siteId"] = undefined /*out*/;

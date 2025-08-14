@@ -55,30 +55,30 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            if ((!args || args.region === undefined) && !opts.urn) {
+            if (args?.region === undefined && !opts.urn) {
                 throw new Error("Missing required property 'region'");
             }
             resourceInputs["accessKey"] = args?.accessKey ? pulumi.secret(args.accessKey) : undefined;
-            resourceInputs["allowedAccountIds"] = pulumi.output(args ? args.allowedAccountIds : undefined).apply(JSON.stringify);
-            resourceInputs["assumeRole"] = pulumi.output(args ? args.assumeRole : undefined).apply(JSON.stringify);
+            resourceInputs["allowedAccountIds"] = pulumi.output(args?.allowedAccountIds).apply(JSON.stringify);
+            resourceInputs["assumeRole"] = pulumi.output(args?.assumeRole).apply(JSON.stringify);
             resourceInputs["autoNaming"] = pulumi.output(args ? (args.autoNaming ? pulumi.output(args.autoNaming).apply(inputs.providerAutoNamingArgsProvideDefaults) : undefined) : undefined).apply(JSON.stringify);
-            resourceInputs["defaultTags"] = pulumi.output(args ? args.defaultTags : undefined).apply(JSON.stringify);
-            resourceInputs["endpoints"] = pulumi.output(args ? args.endpoints : undefined).apply(JSON.stringify);
-            resourceInputs["forbiddenAccountIds"] = pulumi.output(args ? args.forbiddenAccountIds : undefined).apply(JSON.stringify);
-            resourceInputs["ignoreTags"] = pulumi.output(args ? args.ignoreTags : undefined).apply(JSON.stringify);
-            resourceInputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
-            resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
-            resourceInputs["profile"] = (args ? args.profile : undefined) ?? utilities.getEnv("AWS_PROFILE");
-            resourceInputs["region"] = (args ? args.region : undefined) ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["s3ForcePathStyle"] = pulumi.output(args ? args.s3ForcePathStyle : undefined).apply(JSON.stringify);
+            resourceInputs["defaultTags"] = pulumi.output(args?.defaultTags).apply(JSON.stringify);
+            resourceInputs["endpoints"] = pulumi.output(args?.endpoints).apply(JSON.stringify);
+            resourceInputs["forbiddenAccountIds"] = pulumi.output(args?.forbiddenAccountIds).apply(JSON.stringify);
+            resourceInputs["ignoreTags"] = pulumi.output(args?.ignoreTags).apply(JSON.stringify);
+            resourceInputs["insecure"] = pulumi.output(args?.insecure).apply(JSON.stringify);
+            resourceInputs["maxRetries"] = pulumi.output(args?.maxRetries).apply(JSON.stringify);
+            resourceInputs["profile"] = (args?.profile) ?? utilities.getEnv("AWS_PROFILE");
+            resourceInputs["region"] = (args?.region) ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["s3ForcePathStyle"] = pulumi.output(args?.s3ForcePathStyle).apply(JSON.stringify);
             resourceInputs["secretKey"] = args?.secretKey ? pulumi.secret(args.secretKey) : undefined;
-            resourceInputs["sharedCredentialsFile"] = (args ? args.sharedCredentialsFile : undefined) ?? utilities.getEnv("AWS_SHARED_CREDENTIALS_FILE");
-            resourceInputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) ?? true).apply(JSON.stringify);
-            resourceInputs["skipGetEc2Platforms"] = pulumi.output((args ? args.skipGetEc2Platforms : undefined) ?? true).apply(JSON.stringify);
-            resourceInputs["skipMetadataApiCheck"] = pulumi.output((args ? args.skipMetadataApiCheck : undefined) ?? true).apply(JSON.stringify);
-            resourceInputs["skipRegionValidation"] = pulumi.output((args ? args.skipRegionValidation : undefined) ?? true).apply(JSON.stringify);
-            resourceInputs["skipRequestingAccountId"] = pulumi.output(args ? args.skipRequestingAccountId : undefined).apply(JSON.stringify);
+            resourceInputs["sharedCredentialsFile"] = (args?.sharedCredentialsFile) ?? utilities.getEnv("AWS_SHARED_CREDENTIALS_FILE");
+            resourceInputs["skipCredentialsValidation"] = pulumi.output((args?.skipCredentialsValidation) ?? true).apply(JSON.stringify);
+            resourceInputs["skipGetEc2Platforms"] = pulumi.output((args?.skipGetEc2Platforms) ?? true).apply(JSON.stringify);
+            resourceInputs["skipMetadataApiCheck"] = pulumi.output((args?.skipMetadataApiCheck) ?? true).apply(JSON.stringify);
+            resourceInputs["skipRegionValidation"] = pulumi.output((args?.skipRegionValidation) ?? true).apply(JSON.stringify);
+            resourceInputs["skipRequestingAccountId"] = pulumi.output(args?.skipRequestingAccountId).apply(JSON.stringify);
             resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

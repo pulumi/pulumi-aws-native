@@ -104,17 +104,17 @@ export class ConfigRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["compliance"] = args ? args.compliance : undefined;
-            resourceInputs["configRuleName"] = args ? args.configRuleName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["evaluationModes"] = args ? args.evaluationModes : undefined;
-            resourceInputs["inputParameters"] = args ? args.inputParameters : undefined;
-            resourceInputs["maximumExecutionFrequency"] = args ? args.maximumExecutionFrequency : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["compliance"] = args?.compliance;
+            resourceInputs["configRuleName"] = args?.configRuleName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["evaluationModes"] = args?.evaluationModes;
+            resourceInputs["inputParameters"] = args?.inputParameters;
+            resourceInputs["maximumExecutionFrequency"] = args?.maximumExecutionFrequency;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["source"] = args?.source;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["configRuleId"] = undefined /*out*/;
         } else {

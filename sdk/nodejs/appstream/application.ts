@@ -111,33 +111,33 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appBlockArn === undefined) && !opts.urn) {
+            if (args?.appBlockArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appBlockArn'");
             }
-            if ((!args || args.iconS3Location === undefined) && !opts.urn) {
+            if (args?.iconS3Location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iconS3Location'");
             }
-            if ((!args || args.instanceFamilies === undefined) && !opts.urn) {
+            if (args?.instanceFamilies === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceFamilies'");
             }
-            if ((!args || args.launchPath === undefined) && !opts.urn) {
+            if (args?.launchPath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'launchPath'");
             }
-            if ((!args || args.platforms === undefined) && !opts.urn) {
+            if (args?.platforms === undefined && !opts.urn) {
                 throw new Error("Missing required property 'platforms'");
             }
-            resourceInputs["appBlockArn"] = args ? args.appBlockArn : undefined;
-            resourceInputs["attributesToDelete"] = args ? args.attributesToDelete : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["iconS3Location"] = args ? args.iconS3Location : undefined;
-            resourceInputs["instanceFamilies"] = args ? args.instanceFamilies : undefined;
-            resourceInputs["launchParameters"] = args ? args.launchParameters : undefined;
-            resourceInputs["launchPath"] = args ? args.launchPath : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["platforms"] = args ? args.platforms : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workingDirectory"] = args ? args.workingDirectory : undefined;
+            resourceInputs["appBlockArn"] = args?.appBlockArn;
+            resourceInputs["attributesToDelete"] = args?.attributesToDelete;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["iconS3Location"] = args?.iconS3Location;
+            resourceInputs["instanceFamilies"] = args?.instanceFamilies;
+            resourceInputs["launchParameters"] = args?.launchParameters;
+            resourceInputs["launchPath"] = args?.launchPath;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["platforms"] = args?.platforms;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workingDirectory"] = args?.workingDirectory;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
         } else {

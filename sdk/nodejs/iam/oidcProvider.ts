@@ -71,10 +71,10 @@ export class OidcProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["clientIdList"] = args ? args.clientIdList : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["thumbprintList"] = args ? args.thumbprintList : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["clientIdList"] = args?.clientIdList;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["thumbprintList"] = args?.thumbprintList;
+            resourceInputs["url"] = args?.url;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

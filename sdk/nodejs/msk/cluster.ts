@@ -105,28 +105,28 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.brokerNodeGroupInfo === undefined) && !opts.urn) {
+            if (args?.brokerNodeGroupInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'brokerNodeGroupInfo'");
             }
-            if ((!args || args.kafkaVersion === undefined) && !opts.urn) {
+            if (args?.kafkaVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaVersion'");
             }
-            if ((!args || args.numberOfBrokerNodes === undefined) && !opts.urn) {
+            if (args?.numberOfBrokerNodes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'numberOfBrokerNodes'");
             }
-            resourceInputs["brokerNodeGroupInfo"] = args ? args.brokerNodeGroupInfo : undefined;
-            resourceInputs["clientAuthentication"] = args ? args.clientAuthentication : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["configurationInfo"] = args ? args.configurationInfo : undefined;
-            resourceInputs["currentVersion"] = args ? args.currentVersion : undefined;
-            resourceInputs["encryptionInfo"] = args ? args.encryptionInfo : undefined;
-            resourceInputs["enhancedMonitoring"] = args ? args.enhancedMonitoring : undefined;
-            resourceInputs["kafkaVersion"] = args ? args.kafkaVersion : undefined;
-            resourceInputs["loggingInfo"] = args ? args.loggingInfo : undefined;
-            resourceInputs["numberOfBrokerNodes"] = args ? args.numberOfBrokerNodes : undefined;
-            resourceInputs["openMonitoring"] = args ? args.openMonitoring : undefined;
-            resourceInputs["storageMode"] = args ? args.storageMode : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["brokerNodeGroupInfo"] = args?.brokerNodeGroupInfo;
+            resourceInputs["clientAuthentication"] = args?.clientAuthentication;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["configurationInfo"] = args?.configurationInfo;
+            resourceInputs["currentVersion"] = args?.currentVersion;
+            resourceInputs["encryptionInfo"] = args?.encryptionInfo;
+            resourceInputs["enhancedMonitoring"] = args?.enhancedMonitoring;
+            resourceInputs["kafkaVersion"] = args?.kafkaVersion;
+            resourceInputs["loggingInfo"] = args?.loggingInfo;
+            resourceInputs["numberOfBrokerNodes"] = args?.numberOfBrokerNodes;
+            resourceInputs["openMonitoring"] = args?.openMonitoring;
+            resourceInputs["storageMode"] = args?.storageMode;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

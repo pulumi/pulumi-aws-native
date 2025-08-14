@@ -65,10 +65,10 @@ export class ContactList extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["contactListName"] = args ? args.contactListName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topics"] = args ? args.topics : undefined;
+            resourceInputs["contactListName"] = args?.contactListName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topics"] = args?.topics;
         } else {
             resourceInputs["contactListName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

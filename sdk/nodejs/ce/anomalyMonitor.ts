@@ -319,14 +319,14 @@ export class AnomalyMonitor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.monitorType === undefined) && !opts.urn) {
+            if (args?.monitorType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitorType'");
             }
-            resourceInputs["monitorDimension"] = args ? args.monitorDimension : undefined;
-            resourceInputs["monitorName"] = args ? args.monitorName : undefined;
-            resourceInputs["monitorSpecification"] = args ? args.monitorSpecification : undefined;
-            resourceInputs["monitorType"] = args ? args.monitorType : undefined;
-            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
+            resourceInputs["monitorDimension"] = args?.monitorDimension;
+            resourceInputs["monitorName"] = args?.monitorName;
+            resourceInputs["monitorSpecification"] = args?.monitorSpecification;
+            resourceInputs["monitorType"] = args?.monitorType;
+            resourceInputs["resourceTags"] = args?.resourceTags;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["dimensionalValueCount"] = undefined /*out*/;
             resourceInputs["lastEvaluatedDate"] = undefined /*out*/;

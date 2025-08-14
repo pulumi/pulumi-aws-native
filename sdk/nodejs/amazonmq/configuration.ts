@@ -121,16 +121,16 @@ export class Configuration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.engineType === undefined) && !opts.urn) {
+            if (args?.engineType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engineType'");
             }
-            resourceInputs["authenticationStrategy"] = args ? args.authenticationStrategy : undefined;
-            resourceInputs["data"] = args ? args.data : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["engineType"] = args ? args.engineType : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authenticationStrategy"] = args?.authenticationStrategy;
+            resourceInputs["data"] = args?.data;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["engineType"] = args?.engineType;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["revision"] = undefined /*out*/;

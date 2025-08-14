@@ -145,10 +145,10 @@ export class Connection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["connectionName"] = args ? args.connectionName : undefined;
-            resourceInputs["hostArn"] = args ? args.hostArn : undefined;
-            resourceInputs["providerType"] = args ? args.providerType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectionName"] = args?.connectionName;
+            resourceInputs["hostArn"] = args?.hostArn;
+            resourceInputs["providerType"] = args?.providerType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["connectionArn"] = undefined /*out*/;
             resourceInputs["connectionStatus"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;

@@ -109,24 +109,24 @@ export class ObjectType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["allowProfileCreation"] = args ? args.allowProfileCreation : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
-            resourceInputs["expirationDays"] = args ? args.expirationDays : undefined;
-            resourceInputs["fields"] = args ? args.fields : undefined;
-            resourceInputs["keys"] = args ? args.keys : undefined;
-            resourceInputs["maxProfileObjectCount"] = args ? args.maxProfileObjectCount : undefined;
-            resourceInputs["objectTypeName"] = args ? args.objectTypeName : undefined;
-            resourceInputs["sourceLastUpdatedTimestampFormat"] = args ? args.sourceLastUpdatedTimestampFormat : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateId"] = args ? args.templateId : undefined;
+            resourceInputs["allowProfileCreation"] = args?.allowProfileCreation;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["encryptionKey"] = args?.encryptionKey;
+            resourceInputs["expirationDays"] = args?.expirationDays;
+            resourceInputs["fields"] = args?.fields;
+            resourceInputs["keys"] = args?.keys;
+            resourceInputs["maxProfileObjectCount"] = args?.maxProfileObjectCount;
+            resourceInputs["objectTypeName"] = args?.objectTypeName;
+            resourceInputs["sourceLastUpdatedTimestampFormat"] = args?.sourceLastUpdatedTimestampFormat;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateId"] = args?.templateId;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["maxAvailableProfileObjectCount"] = undefined /*out*/;

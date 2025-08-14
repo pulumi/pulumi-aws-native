@@ -73,14 +73,14 @@ export class Deployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["deploymentCanarySettings"] = args ? args.deploymentCanarySettings : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
-            resourceInputs["stageDescription"] = args ? args.stageDescription : undefined;
-            resourceInputs["stageName"] = args ? args.stageName : undefined;
+            resourceInputs["deploymentCanarySettings"] = args?.deploymentCanarySettings;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["restApiId"] = args?.restApiId;
+            resourceInputs["stageDescription"] = args?.stageDescription;
+            resourceInputs["stageName"] = args?.stageName;
             resourceInputs["deploymentId"] = undefined /*out*/;
         } else {
             resourceInputs["deploymentCanarySettings"] = undefined /*out*/;

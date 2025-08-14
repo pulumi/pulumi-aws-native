@@ -66,19 +66,19 @@ export class LayerVersionPermission extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.layerVersionArn === undefined) && !opts.urn) {
+            if (args?.layerVersionArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'layerVersionArn'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["layerVersionArn"] = args ? args.layerVersionArn : undefined;
-            resourceInputs["organizationId"] = args ? args.organizationId : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["layerVersionArn"] = args?.layerVersionArn;
+            resourceInputs["organizationId"] = args?.organizationId;
+            resourceInputs["principal"] = args?.principal;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["action"] = undefined /*out*/;

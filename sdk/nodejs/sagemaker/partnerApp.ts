@@ -101,29 +101,29 @@ export class PartnerApp extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authType === undefined) && !opts.urn) {
+            if (args?.authType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authType'");
             }
-            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
+            if (args?.executionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            if ((!args || args.tier === undefined) && !opts.urn) {
+            if (args?.tier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tier'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["applicationConfig"] = args ? args.applicationConfig : undefined;
-            resourceInputs["authType"] = args ? args.authType : undefined;
-            resourceInputs["clientToken"] = args ? args.clientToken : undefined;
-            resourceInputs["enableIamSessionBasedIdentity"] = args ? args.enableIamSessionBasedIdentity : undefined;
-            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["maintenanceConfig"] = args ? args.maintenanceConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["applicationConfig"] = args?.applicationConfig;
+            resourceInputs["authType"] = args?.authType;
+            resourceInputs["clientToken"] = args?.clientToken;
+            resourceInputs["enableIamSessionBasedIdentity"] = args?.enableIamSessionBasedIdentity;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["maintenanceConfig"] = args?.maintenanceConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tier"] = args?.tier;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["baseUrl"] = undefined /*out*/;
         } else {

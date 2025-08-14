@@ -139,24 +139,24 @@ export class Task extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationLocationArn === undefined) && !opts.urn) {
+            if (args?.destinationLocationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationLocationArn'");
             }
-            if ((!args || args.sourceLocationArn === undefined) && !opts.urn) {
+            if (args?.sourceLocationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceLocationArn'");
             }
-            resourceInputs["cloudWatchLogGroupArn"] = args ? args.cloudWatchLogGroupArn : undefined;
-            resourceInputs["destinationLocationArn"] = args ? args.destinationLocationArn : undefined;
-            resourceInputs["excludes"] = args ? args.excludes : undefined;
-            resourceInputs["includes"] = args ? args.includes : undefined;
-            resourceInputs["manifestConfig"] = args ? args.manifestConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["sourceLocationArn"] = args ? args.sourceLocationArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taskMode"] = args ? args.taskMode : undefined;
-            resourceInputs["taskReportConfig"] = args ? args.taskReportConfig : undefined;
+            resourceInputs["cloudWatchLogGroupArn"] = args?.cloudWatchLogGroupArn;
+            resourceInputs["destinationLocationArn"] = args?.destinationLocationArn;
+            resourceInputs["excludes"] = args?.excludes;
+            resourceInputs["includes"] = args?.includes;
+            resourceInputs["manifestConfig"] = args?.manifestConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["sourceLocationArn"] = args?.sourceLocationArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taskMode"] = args?.taskMode;
+            resourceInputs["taskReportConfig"] = args?.taskReportConfig;
             resourceInputs["destinationNetworkInterfaceArns"] = undefined /*out*/;
             resourceInputs["sourceNetworkInterfaceArns"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

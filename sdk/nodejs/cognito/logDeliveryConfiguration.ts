@@ -61,11 +61,11 @@ export class LogDeliveryConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["logConfigurations"] = args ? args.logConfigurations : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["logConfigurations"] = args?.logConfigurations;
+            resourceInputs["userPoolId"] = args?.userPoolId;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

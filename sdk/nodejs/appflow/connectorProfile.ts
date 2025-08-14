@@ -81,18 +81,18 @@ export class ConnectorProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectionMode === undefined) && !opts.urn) {
+            if (args?.connectionMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionMode'");
             }
-            if ((!args || args.connectorType === undefined) && !opts.urn) {
+            if (args?.connectorType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorType'");
             }
-            resourceInputs["connectionMode"] = args ? args.connectionMode : undefined;
-            resourceInputs["connectorLabel"] = args ? args.connectorLabel : undefined;
-            resourceInputs["connectorProfileConfig"] = args ? args.connectorProfileConfig : undefined;
-            resourceInputs["connectorProfileName"] = args ? args.connectorProfileName : undefined;
-            resourceInputs["connectorType"] = args ? args.connectorType : undefined;
-            resourceInputs["kmsArn"] = args ? args.kmsArn : undefined;
+            resourceInputs["connectionMode"] = args?.connectionMode;
+            resourceInputs["connectorLabel"] = args?.connectorLabel;
+            resourceInputs["connectorProfileConfig"] = args?.connectorProfileConfig;
+            resourceInputs["connectorProfileName"] = args?.connectorProfileName;
+            resourceInputs["connectorType"] = args?.connectorType;
+            resourceInputs["kmsArn"] = args?.kmsArn;
             resourceInputs["connectorProfileArn"] = undefined /*out*/;
             resourceInputs["credentialsArn"] = undefined /*out*/;
         } else {

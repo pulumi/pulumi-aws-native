@@ -116,18 +116,18 @@ export class IntegrationAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceId === undefined) && !opts.urn) {
+            if (args?.instanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.integrationArn === undefined) && !opts.urn) {
+            if (args?.integrationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationArn'");
             }
-            if ((!args || args.integrationType === undefined) && !opts.urn) {
+            if (args?.integrationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationType'");
             }
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["integrationArn"] = args ? args.integrationArn : undefined;
-            resourceInputs["integrationType"] = args ? args.integrationType : undefined;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["integrationArn"] = args?.integrationArn;
+            resourceInputs["integrationType"] = args?.integrationType;
             resourceInputs["integrationAssociationId"] = undefined /*out*/;
         } else {
             resourceInputs["instanceId"] = undefined /*out*/;

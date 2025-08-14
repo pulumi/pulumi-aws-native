@@ -82,14 +82,14 @@ export class SecurityKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceId === undefined) && !opts.urn) {
+            if (args?.instanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["key"] = args?.key;
             resourceInputs["associationId"] = undefined /*out*/;
         } else {
             resourceInputs["associationId"] = undefined /*out*/;

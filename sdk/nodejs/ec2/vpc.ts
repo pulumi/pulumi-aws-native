@@ -106,13 +106,13 @@ export class Vpc extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
-            resourceInputs["enableDnsHostnames"] = args ? args.enableDnsHostnames : undefined;
-            resourceInputs["enableDnsSupport"] = args ? args.enableDnsSupport : undefined;
-            resourceInputs["instanceTenancy"] = args ? args.instanceTenancy : undefined;
-            resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
-            resourceInputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cidrBlock"] = args?.cidrBlock;
+            resourceInputs["enableDnsHostnames"] = args?.enableDnsHostnames;
+            resourceInputs["enableDnsSupport"] = args?.enableDnsSupport;
+            resourceInputs["instanceTenancy"] = args?.instanceTenancy;
+            resourceInputs["ipv4IpamPoolId"] = args?.ipv4IpamPoolId;
+            resourceInputs["ipv4NetmaskLength"] = args?.ipv4NetmaskLength;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["cidrBlockAssociations"] = undefined /*out*/;
             resourceInputs["defaultNetworkAcl"] = undefined /*out*/;
             resourceInputs["defaultSecurityGroup"] = undefined /*out*/;

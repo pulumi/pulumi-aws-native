@@ -105,16 +105,16 @@ export class Assessment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["assessmentReportsDestination"] = args ? args.assessmentReportsDestination : undefined;
-            resourceInputs["awsAccount"] = args ? args.awsAccount : undefined;
-            resourceInputs["delegations"] = args ? args.delegations : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["frameworkId"] = args ? args.frameworkId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roles"] = args ? args.roles : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assessmentReportsDestination"] = args?.assessmentReportsDestination;
+            resourceInputs["awsAccount"] = args?.awsAccount;
+            resourceInputs["delegations"] = args?.delegations;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["frameworkId"] = args?.frameworkId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roles"] = args?.roles;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["assessmentId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

@@ -101,19 +101,19 @@ export class SecurityProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["allowedAccessControlHierarchyGroupId"] = args ? args.allowedAccessControlHierarchyGroupId : undefined;
-            resourceInputs["allowedAccessControlTags"] = args ? args.allowedAccessControlTags : undefined;
-            resourceInputs["applications"] = args ? args.applications : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["hierarchyRestrictedResources"] = args ? args.hierarchyRestrictedResources : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["securityProfileName"] = args ? args.securityProfileName : undefined;
-            resourceInputs["tagRestrictedResources"] = args ? args.tagRestrictedResources : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowedAccessControlHierarchyGroupId"] = args?.allowedAccessControlHierarchyGroupId;
+            resourceInputs["allowedAccessControlTags"] = args?.allowedAccessControlTags;
+            resourceInputs["applications"] = args?.applications;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["hierarchyRestrictedResources"] = args?.hierarchyRestrictedResources;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["securityProfileName"] = args?.securityProfileName;
+            resourceInputs["tagRestrictedResources"] = args?.tagRestrictedResources;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["lastModifiedRegion"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["securityProfileArn"] = undefined /*out*/;

@@ -54,14 +54,14 @@ export class TablePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourcePolicy === undefined) && !opts.urn) {
+            if (args?.resourcePolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourcePolicy'");
             }
-            if ((!args || args.tableArn === undefined) && !opts.urn) {
+            if (args?.tableArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableArn'");
             }
-            resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
-            resourceInputs["tableArn"] = args ? args.tableArn : undefined;
+            resourceInputs["resourcePolicy"] = args?.resourcePolicy;
+            resourceInputs["tableArn"] = args?.tableArn;
             resourceInputs["namespace"] = undefined /*out*/;
             resourceInputs["tableBucketArn"] = undefined /*out*/;
             resourceInputs["tableName"] = undefined /*out*/;

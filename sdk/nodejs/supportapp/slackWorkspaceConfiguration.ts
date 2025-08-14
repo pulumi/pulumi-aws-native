@@ -80,11 +80,11 @@ export class SlackWorkspaceConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.teamId === undefined) && !opts.urn) {
+            if (args?.teamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
-            resourceInputs["versionId"] = args ? args.versionId : undefined;
+            resourceInputs["teamId"] = args?.teamId;
+            resourceInputs["versionId"] = args?.versionId;
         } else {
             resourceInputs["teamId"] = undefined /*out*/;
             resourceInputs["versionId"] = undefined /*out*/;

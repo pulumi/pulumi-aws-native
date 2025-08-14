@@ -57,14 +57,14 @@ export class Transformer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.logGroupIdentifier === undefined) && !opts.urn) {
+            if (args?.logGroupIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logGroupIdentifier'");
             }
-            if ((!args || args.transformerConfig === undefined) && !opts.urn) {
+            if (args?.transformerConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transformerConfig'");
             }
-            resourceInputs["logGroupIdentifier"] = args ? args.logGroupIdentifier : undefined;
-            resourceInputs["transformerConfig"] = args ? args.transformerConfig : undefined;
+            resourceInputs["logGroupIdentifier"] = args?.logGroupIdentifier;
+            resourceInputs["transformerConfig"] = args?.transformerConfig;
         } else {
             resourceInputs["logGroupIdentifier"] = undefined /*out*/;
             resourceInputs["transformerConfig"] = undefined /*out*/;

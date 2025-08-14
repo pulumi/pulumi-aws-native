@@ -73,14 +73,14 @@ export class Prompt extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["s3Uri"] = args ? args.s3Uri : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["s3Uri"] = args?.s3Uri;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["promptArn"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

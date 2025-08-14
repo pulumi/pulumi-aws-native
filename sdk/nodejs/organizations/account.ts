@@ -89,14 +89,14 @@ export class Account extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["parentIds"] = args ? args.parentIds : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["parentIds"] = args?.parentIds;
+            resourceInputs["roleName"] = args?.roleName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["joinedMethod"] = undefined /*out*/;

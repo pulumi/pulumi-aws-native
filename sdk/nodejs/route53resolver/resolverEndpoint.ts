@@ -103,24 +103,24 @@ export class ResolverEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.direction === undefined) && !opts.urn) {
+            if (args?.direction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'direction'");
             }
-            if ((!args || args.ipAddresses === undefined) && !opts.urn) {
+            if (args?.ipAddresses === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipAddresses'");
             }
-            if ((!args || args.securityGroupIds === undefined) && !opts.urn) {
+            if (args?.securityGroupIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupIds'");
             }
-            resourceInputs["direction"] = args ? args.direction : undefined;
-            resourceInputs["ipAddresses"] = args ? args.ipAddresses : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
-            resourceInputs["preferredInstanceType"] = args ? args.preferredInstanceType : undefined;
-            resourceInputs["protocols"] = args ? args.protocols : undefined;
-            resourceInputs["resolverEndpointType"] = args ? args.resolverEndpointType : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["direction"] = args?.direction;
+            resourceInputs["ipAddresses"] = args?.ipAddresses;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outpostArn"] = args?.outpostArn;
+            resourceInputs["preferredInstanceType"] = args?.preferredInstanceType;
+            resourceInputs["protocols"] = args?.protocols;
+            resourceInputs["resolverEndpointType"] = args?.resolverEndpointType;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["hostVpcId"] = undefined /*out*/;
             resourceInputs["ipAddressCount"] = undefined /*out*/;

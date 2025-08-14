@@ -151,32 +151,32 @@ export class Resolver extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.fieldName === undefined) && !opts.urn) {
+            if (args?.fieldName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fieldName'");
             }
-            if ((!args || args.typeName === undefined) && !opts.urn) {
+            if (args?.typeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'typeName'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["cachingConfig"] = args ? args.cachingConfig : undefined;
-            resourceInputs["code"] = args ? args.code : undefined;
-            resourceInputs["codeS3Location"] = args ? args.codeS3Location : undefined;
-            resourceInputs["dataSourceName"] = args ? args.dataSourceName : undefined;
-            resourceInputs["fieldName"] = args ? args.fieldName : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["maxBatchSize"] = args ? args.maxBatchSize : undefined;
-            resourceInputs["metricsConfig"] = args ? args.metricsConfig : undefined;
-            resourceInputs["pipelineConfig"] = args ? args.pipelineConfig : undefined;
-            resourceInputs["requestMappingTemplate"] = args ? args.requestMappingTemplate : undefined;
-            resourceInputs["requestMappingTemplateS3Location"] = args ? args.requestMappingTemplateS3Location : undefined;
-            resourceInputs["responseMappingTemplate"] = args ? args.responseMappingTemplate : undefined;
-            resourceInputs["responseMappingTemplateS3Location"] = args ? args.responseMappingTemplateS3Location : undefined;
-            resourceInputs["runtime"] = args ? args.runtime : undefined;
-            resourceInputs["syncConfig"] = args ? args.syncConfig : undefined;
-            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["cachingConfig"] = args?.cachingConfig;
+            resourceInputs["code"] = args?.code;
+            resourceInputs["codeS3Location"] = args?.codeS3Location;
+            resourceInputs["dataSourceName"] = args?.dataSourceName;
+            resourceInputs["fieldName"] = args?.fieldName;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["maxBatchSize"] = args?.maxBatchSize;
+            resourceInputs["metricsConfig"] = args?.metricsConfig;
+            resourceInputs["pipelineConfig"] = args?.pipelineConfig;
+            resourceInputs["requestMappingTemplate"] = args?.requestMappingTemplate;
+            resourceInputs["requestMappingTemplateS3Location"] = args?.requestMappingTemplateS3Location;
+            resourceInputs["responseMappingTemplate"] = args?.responseMappingTemplate;
+            resourceInputs["responseMappingTemplateS3Location"] = args?.responseMappingTemplateS3Location;
+            resourceInputs["runtime"] = args?.runtime;
+            resourceInputs["syncConfig"] = args?.syncConfig;
+            resourceInputs["typeName"] = args?.typeName;
             resourceInputs["resolverArn"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;

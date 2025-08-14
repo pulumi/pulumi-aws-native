@@ -113,21 +113,21 @@ export class ContainerRecipe extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["components"] = args ? args.components : undefined;
-            resourceInputs["containerType"] = args ? args.containerType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dockerfileTemplateData"] = args ? args.dockerfileTemplateData : undefined;
-            resourceInputs["dockerfileTemplateUri"] = args ? args.dockerfileTemplateUri : undefined;
-            resourceInputs["imageOsVersionOverride"] = args ? args.imageOsVersionOverride : undefined;
-            resourceInputs["instanceConfiguration"] = args ? args.instanceConfiguration : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentImage"] = args ? args.parentImage : undefined;
-            resourceInputs["platformOverride"] = args ? args.platformOverride : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetRepository"] = args ? args.targetRepository : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["workingDirectory"] = args ? args.workingDirectory : undefined;
+            resourceInputs["components"] = args?.components;
+            resourceInputs["containerType"] = args?.containerType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["dockerfileTemplateData"] = args?.dockerfileTemplateData;
+            resourceInputs["dockerfileTemplateUri"] = args?.dockerfileTemplateUri;
+            resourceInputs["imageOsVersionOverride"] = args?.imageOsVersionOverride;
+            resourceInputs["instanceConfiguration"] = args?.instanceConfiguration;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentImage"] = args?.parentImage;
+            resourceInputs["platformOverride"] = args?.platformOverride;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetRepository"] = args?.targetRepository;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["workingDirectory"] = args?.workingDirectory;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

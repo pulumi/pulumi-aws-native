@@ -128,27 +128,27 @@ export class Dashboard extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsAccountId === undefined) && !opts.urn) {
+            if (args?.awsAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountId'");
             }
-            if ((!args || args.dashboardId === undefined) && !opts.urn) {
+            if (args?.dashboardId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dashboardId'");
             }
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["dashboardId"] = args ? args.dashboardId : undefined;
-            resourceInputs["dashboardPublishOptions"] = args ? args.dashboardPublishOptions : undefined;
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["folderArns"] = args ? args.folderArns : undefined;
-            resourceInputs["linkEntities"] = args ? args.linkEntities : undefined;
-            resourceInputs["linkSharingConfiguration"] = args ? args.linkSharingConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["themeArn"] = args ? args.themeArn : undefined;
-            resourceInputs["validationStrategy"] = args ? args.validationStrategy : undefined;
-            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["dashboardId"] = args?.dashboardId;
+            resourceInputs["dashboardPublishOptions"] = args?.dashboardPublishOptions;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["folderArns"] = args?.folderArns;
+            resourceInputs["linkEntities"] = args?.linkEntities;
+            resourceInputs["linkSharingConfiguration"] = args?.linkSharingConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["sourceEntity"] = args?.sourceEntity;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["themeArn"] = args?.themeArn;
+            resourceInputs["validationStrategy"] = args?.validationStrategy;
+            resourceInputs["versionDescription"] = args?.versionDescription;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastPublishedTime"] = undefined /*out*/;

@@ -65,7 +65,7 @@ export class ResolverDnssecConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["validationStatus"] = undefined /*out*/;

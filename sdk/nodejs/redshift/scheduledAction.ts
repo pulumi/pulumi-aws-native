@@ -89,14 +89,14 @@ export class ScheduledAction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["enable"] = args ? args.enable : undefined;
-            resourceInputs["endTime"] = args ? args.endTime : undefined;
-            resourceInputs["iamRole"] = args ? args.iamRole : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["scheduledActionDescription"] = args ? args.scheduledActionDescription : undefined;
-            resourceInputs["scheduledActionName"] = args ? args.scheduledActionName : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["targetAction"] = args ? args.targetAction : undefined;
+            resourceInputs["enable"] = args?.enable;
+            resourceInputs["endTime"] = args?.endTime;
+            resourceInputs["iamRole"] = args?.iamRole;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["scheduledActionDescription"] = args?.scheduledActionDescription;
+            resourceInputs["scheduledActionName"] = args?.scheduledActionName;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["targetAction"] = args?.targetAction;
             resourceInputs["nextInvocations"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {

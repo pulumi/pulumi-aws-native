@@ -147,26 +147,26 @@ export class ContainerFleet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fleetRoleArn === undefined) && !opts.urn) {
+            if (args?.fleetRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fleetRoleArn'");
             }
-            resourceInputs["billingType"] = args ? args.billingType : undefined;
-            resourceInputs["deploymentConfiguration"] = args ? args.deploymentConfiguration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fleetRoleArn"] = args ? args.fleetRoleArn : undefined;
-            resourceInputs["gameServerContainerGroupDefinitionName"] = args ? args.gameServerContainerGroupDefinitionName : undefined;
-            resourceInputs["gameServerContainerGroupsPerInstance"] = args ? args.gameServerContainerGroupsPerInstance : undefined;
-            resourceInputs["gameSessionCreationLimitPolicy"] = args ? args.gameSessionCreationLimitPolicy : undefined;
-            resourceInputs["instanceConnectionPortRange"] = args ? args.instanceConnectionPortRange : undefined;
-            resourceInputs["instanceInboundPermissions"] = args ? args.instanceInboundPermissions : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["locations"] = args ? args.locations : undefined;
-            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
-            resourceInputs["metricGroups"] = args ? args.metricGroups : undefined;
-            resourceInputs["newGameSessionProtectionPolicy"] = args ? args.newGameSessionProtectionPolicy : undefined;
-            resourceInputs["perInstanceContainerGroupDefinitionName"] = args ? args.perInstanceContainerGroupDefinitionName : undefined;
-            resourceInputs["scalingPolicies"] = args ? args.scalingPolicies : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["billingType"] = args?.billingType;
+            resourceInputs["deploymentConfiguration"] = args?.deploymentConfiguration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fleetRoleArn"] = args?.fleetRoleArn;
+            resourceInputs["gameServerContainerGroupDefinitionName"] = args?.gameServerContainerGroupDefinitionName;
+            resourceInputs["gameServerContainerGroupsPerInstance"] = args?.gameServerContainerGroupsPerInstance;
+            resourceInputs["gameSessionCreationLimitPolicy"] = args?.gameSessionCreationLimitPolicy;
+            resourceInputs["instanceConnectionPortRange"] = args?.instanceConnectionPortRange;
+            resourceInputs["instanceInboundPermissions"] = args?.instanceInboundPermissions;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["locations"] = args?.locations;
+            resourceInputs["logConfiguration"] = args?.logConfiguration;
+            resourceInputs["metricGroups"] = args?.metricGroups;
+            resourceInputs["newGameSessionProtectionPolicy"] = args?.newGameSessionProtectionPolicy;
+            resourceInputs["perInstanceContainerGroupDefinitionName"] = args?.perInstanceContainerGroupDefinitionName;
+            resourceInputs["scalingPolicies"] = args?.scalingPolicies;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["deploymentDetails"] = undefined /*out*/;
             resourceInputs["fleetArn"] = undefined /*out*/;

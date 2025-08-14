@@ -65,18 +65,18 @@ export class UsagePlanKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.keyId === undefined) && !opts.urn) {
+            if (args?.keyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyId'");
             }
-            if ((!args || args.keyType === undefined) && !opts.urn) {
+            if (args?.keyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyType'");
             }
-            if ((!args || args.usagePlanId === undefined) && !opts.urn) {
+            if (args?.usagePlanId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'usagePlanId'");
             }
-            resourceInputs["keyId"] = args ? args.keyId : undefined;
-            resourceInputs["keyType"] = args ? args.keyType : undefined;
-            resourceInputs["usagePlanId"] = args ? args.usagePlanId : undefined;
+            resourceInputs["keyId"] = args?.keyId;
+            resourceInputs["keyType"] = args?.keyType;
+            resourceInputs["usagePlanId"] = args?.usagePlanId;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

@@ -65,8 +65,8 @@ export class CidrCollection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["locations"] = args ? args.locations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["locations"] = args?.locations;
+            resourceInputs["name"] = args?.name;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

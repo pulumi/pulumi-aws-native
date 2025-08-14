@@ -82,29 +82,29 @@ export class CustomActionType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.category === undefined) && !opts.urn) {
+            if (args?.category === undefined && !opts.urn) {
                 throw new Error("Missing required property 'category'");
             }
-            if ((!args || args.inputArtifactDetails === undefined) && !opts.urn) {
+            if (args?.inputArtifactDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inputArtifactDetails'");
             }
-            if ((!args || args.outputArtifactDetails === undefined) && !opts.urn) {
+            if (args?.outputArtifactDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outputArtifactDetails'");
             }
-            if ((!args || args.provider === undefined) && !opts.urn) {
+            if (args?.provider === undefined && !opts.urn) {
                 throw new Error("Missing required property 'provider'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["category"] = args ? args.category : undefined;
-            resourceInputs["configurationProperties"] = args ? args.configurationProperties : undefined;
-            resourceInputs["inputArtifactDetails"] = args ? args.inputArtifactDetails : undefined;
-            resourceInputs["outputArtifactDetails"] = args ? args.outputArtifactDetails : undefined;
-            resourceInputs["provider"] = args ? args.provider : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["category"] = args?.category;
+            resourceInputs["configurationProperties"] = args?.configurationProperties;
+            resourceInputs["inputArtifactDetails"] = args?.inputArtifactDetails;
+            resourceInputs["outputArtifactDetails"] = args?.outputArtifactDetails;
+            resourceInputs["provider"] = args?.provider;
+            resourceInputs["settings"] = args?.settings;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

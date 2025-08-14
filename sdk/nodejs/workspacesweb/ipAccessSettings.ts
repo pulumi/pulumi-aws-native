@@ -87,15 +87,15 @@ export class IpAccessSettings extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ipRules === undefined) && !opts.urn) {
+            if (args?.ipRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipRules'");
             }
-            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
-            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["ipRules"] = args ? args.ipRules : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
+            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["ipRules"] = args?.ipRules;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["ipAccessSettingsArn"] = undefined /*out*/;

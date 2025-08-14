@@ -73,13 +73,13 @@ export class WorkerConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.propertiesFileContent === undefined) && !opts.urn) {
+            if (args?.propertiesFileContent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'propertiesFileContent'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["propertiesFileContent"] = args ? args.propertiesFileContent : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["propertiesFileContent"] = args?.propertiesFileContent;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["revision"] = undefined /*out*/;
             resourceInputs["workerConfigurationArn"] = undefined /*out*/;
         } else {

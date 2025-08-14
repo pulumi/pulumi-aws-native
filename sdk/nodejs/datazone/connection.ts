@@ -101,18 +101,18 @@ export class Connection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.environmentIdentifier === undefined) && !opts.urn) {
+            if (args?.environmentIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentIdentifier'");
             }
-            resourceInputs["awsLocation"] = args ? args.awsLocation : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["props"] = args ? args.props : undefined;
+            resourceInputs["awsLocation"] = args?.awsLocation;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["environmentIdentifier"] = args?.environmentIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["props"] = args?.props;
             resourceInputs["connectionId"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["domainUnitId"] = undefined /*out*/;

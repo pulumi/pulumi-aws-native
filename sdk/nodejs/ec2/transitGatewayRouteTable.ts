@@ -61,11 +61,11 @@ export class TransitGatewayRouteTable extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.transitGatewayId === undefined) && !opts.urn) {
+            if (args?.transitGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
             resourceInputs["transitGatewayRouteTableId"] = undefined /*out*/;
         } else {
             resourceInputs["tags"] = undefined /*out*/;

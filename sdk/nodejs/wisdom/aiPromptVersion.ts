@@ -68,15 +68,15 @@ export class AiPromptVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.aiPromptId === undefined) && !opts.urn) {
+            if (args?.aiPromptId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'aiPromptId'");
             }
-            if ((!args || args.assistantId === undefined) && !opts.urn) {
+            if (args?.assistantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assistantId'");
             }
-            resourceInputs["aiPromptId"] = args ? args.aiPromptId : undefined;
-            resourceInputs["assistantId"] = args ? args.assistantId : undefined;
-            resourceInputs["modifiedTimeSeconds"] = args ? args.modifiedTimeSeconds : undefined;
+            resourceInputs["aiPromptId"] = args?.aiPromptId;
+            resourceInputs["assistantId"] = args?.assistantId;
+            resourceInputs["modifiedTimeSeconds"] = args?.modifiedTimeSeconds;
             resourceInputs["aiPromptArn"] = undefined /*out*/;
             resourceInputs["aiPromptVersionId"] = undefined /*out*/;
             resourceInputs["assistantArn"] = undefined /*out*/;

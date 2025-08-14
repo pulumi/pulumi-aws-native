@@ -97,17 +97,17 @@ export class OutpostResolver extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.outpostArn === undefined) && !opts.urn) {
+            if (args?.outpostArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outpostArn'");
             }
-            if ((!args || args.preferredInstanceType === undefined) && !opts.urn) {
+            if (args?.preferredInstanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'preferredInstanceType'");
             }
-            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
-            resourceInputs["preferredInstanceType"] = args ? args.preferredInstanceType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["instanceCount"] = args?.instanceCount;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outpostArn"] = args?.outpostArn;
+            resourceInputs["preferredInstanceType"] = args?.preferredInstanceType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

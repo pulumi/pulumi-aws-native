@@ -77,19 +77,19 @@ export class AssistantAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.assistantId === undefined) && !opts.urn) {
+            if (args?.assistantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assistantId'");
             }
-            if ((!args || args.association === undefined) && !opts.urn) {
+            if (args?.association === undefined && !opts.urn) {
                 throw new Error("Missing required property 'association'");
             }
-            if ((!args || args.associationType === undefined) && !opts.urn) {
+            if (args?.associationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'associationType'");
             }
-            resourceInputs["assistantId"] = args ? args.assistantId : undefined;
-            resourceInputs["association"] = args ? args.association : undefined;
-            resourceInputs["associationType"] = args ? args.associationType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assistantId"] = args?.assistantId;
+            resourceInputs["association"] = args?.association;
+            resourceInputs["associationType"] = args?.associationType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["assistantArn"] = undefined /*out*/;
             resourceInputs["assistantAssociationArn"] = undefined /*out*/;
             resourceInputs["assistantAssociationId"] = undefined /*out*/;

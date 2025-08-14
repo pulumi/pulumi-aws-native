@@ -84,13 +84,13 @@ export class Schedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cronExpression === undefined) && !opts.urn) {
+            if (args?.cronExpression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cronExpression'");
             }
-            resourceInputs["cronExpression"] = args ? args.cronExpression : undefined;
-            resourceInputs["jobNames"] = args ? args.jobNames : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cronExpression"] = args?.cronExpression;
+            resourceInputs["jobNames"] = args?.jobNames;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["cronExpression"] = undefined /*out*/;
             resourceInputs["jobNames"] = undefined /*out*/;

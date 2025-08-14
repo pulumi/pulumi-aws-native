@@ -143,25 +143,25 @@ export class Stream extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.inclusiveStartTime === undefined) && !opts.urn) {
+            if (args?.inclusiveStartTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inclusiveStartTime'");
             }
-            if ((!args || args.kinesisConfiguration === undefined) && !opts.urn) {
+            if (args?.kinesisConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kinesisConfiguration'");
             }
-            if ((!args || args.ledgerName === undefined) && !opts.urn) {
+            if (args?.ledgerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ledgerName'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["exclusiveEndTime"] = args ? args.exclusiveEndTime : undefined;
-            resourceInputs["inclusiveStartTime"] = args ? args.inclusiveStartTime : undefined;
-            resourceInputs["kinesisConfiguration"] = args ? args.kinesisConfiguration : undefined;
-            resourceInputs["ledgerName"] = args ? args.ledgerName : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["streamName"] = args ? args.streamName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["exclusiveEndTime"] = args?.exclusiveEndTime;
+            resourceInputs["inclusiveStartTime"] = args?.inclusiveStartTime;
+            resourceInputs["kinesisConfiguration"] = args?.kinesisConfiguration;
+            resourceInputs["ledgerName"] = args?.ledgerName;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["streamName"] = args?.streamName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

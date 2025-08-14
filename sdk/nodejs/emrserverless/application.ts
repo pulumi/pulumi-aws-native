@@ -125,29 +125,29 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.releaseLabel === undefined) && !opts.urn) {
+            if (args?.releaseLabel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'releaseLabel'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["architecture"] = args ? args.architecture : undefined;
-            resourceInputs["autoStartConfiguration"] = args ? args.autoStartConfiguration : undefined;
-            resourceInputs["autoStopConfiguration"] = args ? args.autoStopConfiguration : undefined;
-            resourceInputs["identityCenterConfiguration"] = args ? args.identityCenterConfiguration : undefined;
-            resourceInputs["imageConfiguration"] = args ? args.imageConfiguration : undefined;
-            resourceInputs["initialCapacity"] = args ? args.initialCapacity : undefined;
-            resourceInputs["interactiveConfiguration"] = args ? args.interactiveConfiguration : undefined;
-            resourceInputs["maximumCapacity"] = args ? args.maximumCapacity : undefined;
-            resourceInputs["monitoringConfiguration"] = args ? args.monitoringConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            resourceInputs["releaseLabel"] = args ? args.releaseLabel : undefined;
-            resourceInputs["runtimeConfiguration"] = args ? args.runtimeConfiguration : undefined;
-            resourceInputs["schedulerConfiguration"] = args ? args.schedulerConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["workerTypeSpecifications"] = args ? args.workerTypeSpecifications : undefined;
+            resourceInputs["architecture"] = args?.architecture;
+            resourceInputs["autoStartConfiguration"] = args?.autoStartConfiguration;
+            resourceInputs["autoStopConfiguration"] = args?.autoStopConfiguration;
+            resourceInputs["identityCenterConfiguration"] = args?.identityCenterConfiguration;
+            resourceInputs["imageConfiguration"] = args?.imageConfiguration;
+            resourceInputs["initialCapacity"] = args?.initialCapacity;
+            resourceInputs["interactiveConfiguration"] = args?.interactiveConfiguration;
+            resourceInputs["maximumCapacity"] = args?.maximumCapacity;
+            resourceInputs["monitoringConfiguration"] = args?.monitoringConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["releaseLabel"] = args?.releaseLabel;
+            resourceInputs["runtimeConfiguration"] = args?.runtimeConfiguration;
+            resourceInputs["schedulerConfiguration"] = args?.schedulerConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["workerTypeSpecifications"] = args?.workerTypeSpecifications;
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         } else {

@@ -141,16 +141,16 @@ export class ManagedPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyDocument === undefined) && !opts.urn) {
+            if (args?.policyDocument === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["managedPolicyName"] = args ? args.managedPolicyName : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["roles"] = args ? args.roles : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["groups"] = args?.groups;
+            resourceInputs["managedPolicyName"] = args?.managedPolicyName;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["roles"] = args?.roles;
+            resourceInputs["users"] = args?.users;
             resourceInputs["attachmentCount"] = undefined /*out*/;
             resourceInputs["createDate"] = undefined /*out*/;
             resourceInputs["defaultVersionId"] = undefined /*out*/;

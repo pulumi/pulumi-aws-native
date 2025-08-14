@@ -69,16 +69,16 @@ export class RuleGroupsNamespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.data === undefined) && !opts.urn) {
+            if (args?.data === undefined && !opts.urn) {
                 throw new Error("Missing required property 'data'");
             }
-            if ((!args || args.workspace === undefined) && !opts.urn) {
+            if (args?.workspace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspace'");
             }
-            resourceInputs["data"] = args ? args.data : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspace"] = args ? args.workspace : undefined;
+            resourceInputs["data"] = args?.data;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspace"] = args?.workspace;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

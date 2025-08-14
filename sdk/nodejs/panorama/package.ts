@@ -73,9 +73,9 @@ export class Package extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["packageName"] = args ? args.packageName : undefined;
-            resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["packageName"] = args?.packageName;
+            resourceInputs["storageLocation"] = args?.storageLocation;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["packageId"] = undefined /*out*/;

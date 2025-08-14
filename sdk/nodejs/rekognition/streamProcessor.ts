@@ -113,25 +113,25 @@ export class StreamProcessor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kinesisVideoStream === undefined) && !opts.urn) {
+            if (args?.kinesisVideoStream === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kinesisVideoStream'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["boundingBoxRegionsOfInterest"] = args ? args.boundingBoxRegionsOfInterest : undefined;
-            resourceInputs["connectedHomeSettings"] = args ? args.connectedHomeSettings : undefined;
-            resourceInputs["dataSharingPreference"] = args ? args.dataSharingPreference : undefined;
-            resourceInputs["faceSearchSettings"] = args ? args.faceSearchSettings : undefined;
-            resourceInputs["kinesisDataStream"] = args ? args.kinesisDataStream : undefined;
-            resourceInputs["kinesisVideoStream"] = args ? args.kinesisVideoStream : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationChannel"] = args ? args.notificationChannel : undefined;
-            resourceInputs["polygonRegionsOfInterest"] = args ? args.polygonRegionsOfInterest : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["s3Destination"] = args ? args.s3Destination : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["boundingBoxRegionsOfInterest"] = args?.boundingBoxRegionsOfInterest;
+            resourceInputs["connectedHomeSettings"] = args?.connectedHomeSettings;
+            resourceInputs["dataSharingPreference"] = args?.dataSharingPreference;
+            resourceInputs["faceSearchSettings"] = args?.faceSearchSettings;
+            resourceInputs["kinesisDataStream"] = args?.kinesisDataStream;
+            resourceInputs["kinesisVideoStream"] = args?.kinesisVideoStream;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notificationChannel"] = args?.notificationChannel;
+            resourceInputs["polygonRegionsOfInterest"] = args?.polygonRegionsOfInterest;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["s3Destination"] = args?.s3Destination;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusMessage"] = undefined /*out*/;

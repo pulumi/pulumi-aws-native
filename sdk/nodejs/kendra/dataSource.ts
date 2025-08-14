@@ -109,22 +109,22 @@ export class DataSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.indexId === undefined) && !opts.urn) {
+            if (args?.indexId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'indexId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["customDocumentEnrichmentConfiguration"] = args ? args.customDocumentEnrichmentConfiguration : undefined;
-            resourceInputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["indexId"] = args ? args.indexId : undefined;
-            resourceInputs["languageCode"] = args ? args.languageCode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["customDocumentEnrichmentConfiguration"] = args?.customDocumentEnrichmentConfiguration;
+            resourceInputs["dataSourceConfiguration"] = args?.dataSourceConfiguration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["indexId"] = args?.indexId;
+            resourceInputs["languageCode"] = args?.languageCode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

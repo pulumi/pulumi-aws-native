@@ -65,22 +65,22 @@ export class StudioSessionMapping extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.identityName === undefined) && !opts.urn) {
+            if (args?.identityName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityName'");
             }
-            if ((!args || args.identityType === undefined) && !opts.urn) {
+            if (args?.identityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityType'");
             }
-            if ((!args || args.sessionPolicyArn === undefined) && !opts.urn) {
+            if (args?.sessionPolicyArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sessionPolicyArn'");
             }
-            if ((!args || args.studioId === undefined) && !opts.urn) {
+            if (args?.studioId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'studioId'");
             }
-            resourceInputs["identityName"] = args ? args.identityName : undefined;
-            resourceInputs["identityType"] = args ? args.identityType : undefined;
-            resourceInputs["sessionPolicyArn"] = args ? args.sessionPolicyArn : undefined;
-            resourceInputs["studioId"] = args ? args.studioId : undefined;
+            resourceInputs["identityName"] = args?.identityName;
+            resourceInputs["identityType"] = args?.identityType;
+            resourceInputs["sessionPolicyArn"] = args?.sessionPolicyArn;
+            resourceInputs["studioId"] = args?.studioId;
         } else {
             resourceInputs["identityName"] = undefined /*out*/;
             resourceInputs["identityType"] = undefined /*out*/;

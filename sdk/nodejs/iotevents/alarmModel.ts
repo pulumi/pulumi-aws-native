@@ -86,21 +86,21 @@ export class AlarmModel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.alarmRule === undefined) && !opts.urn) {
+            if (args?.alarmRule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alarmRule'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["alarmCapabilities"] = args ? args.alarmCapabilities : undefined;
-            resourceInputs["alarmEventActions"] = args ? args.alarmEventActions : undefined;
-            resourceInputs["alarmModelDescription"] = args ? args.alarmModelDescription : undefined;
-            resourceInputs["alarmModelName"] = args ? args.alarmModelName : undefined;
-            resourceInputs["alarmRule"] = args ? args.alarmRule : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["alarmCapabilities"] = args?.alarmCapabilities;
+            resourceInputs["alarmEventActions"] = args?.alarmEventActions;
+            resourceInputs["alarmModelDescription"] = args?.alarmModelDescription;
+            resourceInputs["alarmModelName"] = args?.alarmModelName;
+            resourceInputs["alarmRule"] = args?.alarmRule;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["alarmCapabilities"] = undefined /*out*/;
             resourceInputs["alarmEventActions"] = undefined /*out*/;

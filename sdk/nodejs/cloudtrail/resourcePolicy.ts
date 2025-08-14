@@ -56,14 +56,14 @@ export class ResourcePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceArn === undefined) && !opts.urn) {
+            if (args?.resourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            if ((!args || args.resourcePolicy === undefined) && !opts.urn) {
+            if (args?.resourcePolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourcePolicy'");
             }
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
-            resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
+            resourceInputs["resourceArn"] = args?.resourceArn;
+            resourceInputs["resourcePolicy"] = args?.resourcePolicy;
         } else {
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["resourcePolicy"] = undefined /*out*/;

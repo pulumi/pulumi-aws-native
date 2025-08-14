@@ -81,19 +81,19 @@ export class PackagingConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsId === undefined) && !opts.urn) {
+            if (args?.awsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsId'");
             }
-            if ((!args || args.packagingGroupId === undefined) && !opts.urn) {
+            if (args?.packagingGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packagingGroupId'");
             }
-            resourceInputs["awsId"] = args ? args.awsId : undefined;
-            resourceInputs["cmafPackage"] = args ? args.cmafPackage : undefined;
-            resourceInputs["dashPackage"] = args ? args.dashPackage : undefined;
-            resourceInputs["hlsPackage"] = args ? args.hlsPackage : undefined;
-            resourceInputs["mssPackage"] = args ? args.mssPackage : undefined;
-            resourceInputs["packagingGroupId"] = args ? args.packagingGroupId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = args?.awsId;
+            resourceInputs["cmafPackage"] = args?.cmafPackage;
+            resourceInputs["dashPackage"] = args?.dashPackage;
+            resourceInputs["hlsPackage"] = args?.hlsPackage;
+            resourceInputs["mssPackage"] = args?.mssPackage;
+            resourceInputs["packagingGroupId"] = args?.packagingGroupId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

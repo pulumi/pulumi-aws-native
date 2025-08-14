@@ -85,32 +85,32 @@ export class LambdaHook extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.alias === undefined) && !opts.urn) {
+            if (args?.alias === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alias'");
             }
-            if ((!args || args.executionRole === undefined) && !opts.urn) {
+            if (args?.executionRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRole'");
             }
-            if ((!args || args.failureMode === undefined) && !opts.urn) {
+            if (args?.failureMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'failureMode'");
             }
-            if ((!args || args.hookStatus === undefined) && !opts.urn) {
+            if (args?.hookStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hookStatus'");
             }
-            if ((!args || args.lambdaFunction === undefined) && !opts.urn) {
+            if (args?.lambdaFunction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lambdaFunction'");
             }
-            if ((!args || args.targetOperations === undefined) && !opts.urn) {
+            if (args?.targetOperations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetOperations'");
             }
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["executionRole"] = args ? args.executionRole : undefined;
-            resourceInputs["failureMode"] = args ? args.failureMode : undefined;
-            resourceInputs["hookStatus"] = args ? args.hookStatus : undefined;
-            resourceInputs["lambdaFunction"] = args ? args.lambdaFunction : undefined;
-            resourceInputs["stackFilters"] = args ? args.stackFilters : undefined;
-            resourceInputs["targetFilters"] = args ? args.targetFilters : undefined;
-            resourceInputs["targetOperations"] = args ? args.targetOperations : undefined;
+            resourceInputs["alias"] = args?.alias;
+            resourceInputs["executionRole"] = args?.executionRole;
+            resourceInputs["failureMode"] = args?.failureMode;
+            resourceInputs["hookStatus"] = args?.hookStatus;
+            resourceInputs["lambdaFunction"] = args?.lambdaFunction;
+            resourceInputs["stackFilters"] = args?.stackFilters;
+            resourceInputs["targetFilters"] = args?.targetFilters;
+            resourceInputs["targetOperations"] = args?.targetOperations;
             resourceInputs["hookArn"] = undefined /*out*/;
         } else {
             resourceInputs["alias"] = undefined /*out*/;

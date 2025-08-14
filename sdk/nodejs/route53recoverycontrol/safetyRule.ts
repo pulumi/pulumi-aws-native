@@ -83,12 +83,12 @@ export class SafetyRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["assertionRule"] = args ? args.assertionRule : undefined;
-            resourceInputs["controlPanelArn"] = args ? args.controlPanelArn : undefined;
-            resourceInputs["gatingRule"] = args ? args.gatingRule : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ruleConfig"] = args ? args.ruleConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assertionRule"] = args?.assertionRule;
+            resourceInputs["controlPanelArn"] = args?.controlPanelArn;
+            resourceInputs["gatingRule"] = args?.gatingRule;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ruleConfig"] = args?.ruleConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["safetyRuleArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

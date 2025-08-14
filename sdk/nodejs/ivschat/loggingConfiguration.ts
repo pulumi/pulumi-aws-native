@@ -73,12 +73,12 @@ export class LoggingConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationConfiguration === undefined) && !opts.urn) {
+            if (args?.destinationConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationConfiguration'");
             }
-            resourceInputs["destinationConfiguration"] = args ? args.destinationConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["destinationConfiguration"] = args?.destinationConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

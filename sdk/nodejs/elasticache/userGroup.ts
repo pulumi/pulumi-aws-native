@@ -73,19 +73,19 @@ export class UserGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.engine === undefined) && !opts.urn) {
+            if (args?.engine === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engine'");
             }
-            if ((!args || args.userGroupId === undefined) && !opts.urn) {
+            if (args?.userGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userGroupId'");
             }
-            if ((!args || args.userIds === undefined) && !opts.urn) {
+            if (args?.userIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userIds'");
             }
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userGroupId"] = args ? args.userGroupId : undefined;
-            resourceInputs["userIds"] = args ? args.userIds : undefined;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userGroupId"] = args?.userGroupId;
+            resourceInputs["userIds"] = args?.userIds;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

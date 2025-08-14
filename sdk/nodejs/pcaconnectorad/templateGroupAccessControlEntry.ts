@@ -65,16 +65,16 @@ export class TemplateGroupAccessControlEntry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessRights === undefined) && !opts.urn) {
+            if (args?.accessRights === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessRights'");
             }
-            if ((!args || args.groupDisplayName === undefined) && !opts.urn) {
+            if (args?.groupDisplayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupDisplayName'");
             }
-            resourceInputs["accessRights"] = args ? args.accessRights : undefined;
-            resourceInputs["groupDisplayName"] = args ? args.groupDisplayName : undefined;
-            resourceInputs["groupSecurityIdentifier"] = args ? args.groupSecurityIdentifier : undefined;
-            resourceInputs["templateArn"] = args ? args.templateArn : undefined;
+            resourceInputs["accessRights"] = args?.accessRights;
+            resourceInputs["groupDisplayName"] = args?.groupDisplayName;
+            resourceInputs["groupSecurityIdentifier"] = args?.groupSecurityIdentifier;
+            resourceInputs["templateArn"] = args?.templateArn;
         } else {
             resourceInputs["accessRights"] = undefined /*out*/;
             resourceInputs["groupDisplayName"] = undefined /*out*/;

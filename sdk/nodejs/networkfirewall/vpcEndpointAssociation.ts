@@ -81,20 +81,20 @@ export class VpcEndpointAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.firewallArn === undefined) && !opts.urn) {
+            if (args?.firewallArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firewallArn'");
             }
-            if ((!args || args.subnetMapping === undefined) && !opts.urn) {
+            if (args?.subnetMapping === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetMapping'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["firewallArn"] = args ? args.firewallArn : undefined;
-            resourceInputs["subnetMapping"] = args ? args.subnetMapping : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["firewallArn"] = args?.firewallArn;
+            resourceInputs["subnetMapping"] = args?.subnetMapping;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["endpointId"] = undefined /*out*/;
             resourceInputs["vpcEndpointAssociationArn"] = undefined /*out*/;
             resourceInputs["vpcEndpointAssociationId"] = undefined /*out*/;

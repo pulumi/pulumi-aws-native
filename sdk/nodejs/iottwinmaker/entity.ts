@@ -101,17 +101,17 @@ export class Entity extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["components"] = args ? args.components : undefined;
-            resourceInputs["compositeComponents"] = args ? args.compositeComponents : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["entityId"] = args ? args.entityId : undefined;
-            resourceInputs["entityName"] = args ? args.entityName : undefined;
-            resourceInputs["parentEntityId"] = args ? args.parentEntityId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["components"] = args?.components;
+            resourceInputs["compositeComponents"] = args?.compositeComponents;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["entityId"] = args?.entityId;
+            resourceInputs["entityName"] = args?.entityName;
+            resourceInputs["parentEntityId"] = args?.parentEntityId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDateTime"] = undefined /*out*/;
             resourceInputs["hasChildEntities"] = undefined /*out*/;

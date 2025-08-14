@@ -81,18 +81,18 @@ export class Key extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.exportable === undefined) && !opts.urn) {
+            if (args?.exportable === undefined && !opts.urn) {
                 throw new Error("Missing required property 'exportable'");
             }
-            if ((!args || args.keyAttributes === undefined) && !opts.urn) {
+            if (args?.keyAttributes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyAttributes'");
             }
-            resourceInputs["deriveKeyUsage"] = args ? args.deriveKeyUsage : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["exportable"] = args ? args.exportable : undefined;
-            resourceInputs["keyAttributes"] = args ? args.keyAttributes : undefined;
-            resourceInputs["keyCheckValueAlgorithm"] = args ? args.keyCheckValueAlgorithm : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deriveKeyUsage"] = args?.deriveKeyUsage;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["exportable"] = args?.exportable;
+            resourceInputs["keyAttributes"] = args?.keyAttributes;
+            resourceInputs["keyCheckValueAlgorithm"] = args?.keyCheckValueAlgorithm;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["keyIdentifier"] = undefined /*out*/;
             resourceInputs["keyOrigin"] = undefined /*out*/;
             resourceInputs["keyState"] = undefined /*out*/;

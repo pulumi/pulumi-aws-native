@@ -121,18 +121,18 @@ export class ClusterCapacityProviderAssociations extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.capacityProviders === undefined) && !opts.urn) {
+            if (args?.capacityProviders === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacityProviders'");
             }
-            if ((!args || args.cluster === undefined) && !opts.urn) {
+            if (args?.cluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cluster'");
             }
-            if ((!args || args.defaultCapacityProviderStrategy === undefined) && !opts.urn) {
+            if (args?.defaultCapacityProviderStrategy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultCapacityProviderStrategy'");
             }
-            resourceInputs["capacityProviders"] = args ? args.capacityProviders : undefined;
-            resourceInputs["cluster"] = args ? args.cluster : undefined;
-            resourceInputs["defaultCapacityProviderStrategy"] = args ? args.defaultCapacityProviderStrategy : undefined;
+            resourceInputs["capacityProviders"] = args?.capacityProviders;
+            resourceInputs["cluster"] = args?.cluster;
+            resourceInputs["defaultCapacityProviderStrategy"] = args?.defaultCapacityProviderStrategy;
         } else {
             resourceInputs["capacityProviders"] = undefined /*out*/;
             resourceInputs["cluster"] = undefined /*out*/;

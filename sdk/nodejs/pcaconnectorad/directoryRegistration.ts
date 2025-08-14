@@ -58,11 +58,11 @@ export class DirectoryRegistration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.directoryId === undefined) && !opts.urn) {
+            if (args?.directoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["directoryId"] = args?.directoryId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["directoryRegistrationArn"] = undefined /*out*/;
         } else {
             resourceInputs["directoryId"] = undefined /*out*/;

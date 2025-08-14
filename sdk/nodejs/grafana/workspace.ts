@@ -161,32 +161,32 @@ export class Workspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountAccessType === undefined) && !opts.urn) {
+            if (args?.accountAccessType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountAccessType'");
             }
-            if ((!args || args.authenticationProviders === undefined) && !opts.urn) {
+            if (args?.authenticationProviders === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationProviders'");
             }
-            if ((!args || args.permissionType === undefined) && !opts.urn) {
+            if (args?.permissionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permissionType'");
             }
-            resourceInputs["accountAccessType"] = args ? args.accountAccessType : undefined;
-            resourceInputs["authenticationProviders"] = args ? args.authenticationProviders : undefined;
-            resourceInputs["clientToken"] = args ? args.clientToken : undefined;
-            resourceInputs["dataSources"] = args ? args.dataSources : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["grafanaVersion"] = args ? args.grafanaVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkAccessControl"] = args ? args.networkAccessControl : undefined;
-            resourceInputs["notificationDestinations"] = args ? args.notificationDestinations : undefined;
-            resourceInputs["organizationRoleName"] = args ? args.organizationRoleName : undefined;
-            resourceInputs["organizationalUnits"] = args ? args.organizationalUnits : undefined;
-            resourceInputs["permissionType"] = args ? args.permissionType : undefined;
-            resourceInputs["pluginAdminEnabled"] = args ? args.pluginAdminEnabled : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["samlConfiguration"] = args ? args.samlConfiguration : undefined;
-            resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
-            resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
+            resourceInputs["accountAccessType"] = args?.accountAccessType;
+            resourceInputs["authenticationProviders"] = args?.authenticationProviders;
+            resourceInputs["clientToken"] = args?.clientToken;
+            resourceInputs["dataSources"] = args?.dataSources;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["grafanaVersion"] = args?.grafanaVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkAccessControl"] = args?.networkAccessControl;
+            resourceInputs["notificationDestinations"] = args?.notificationDestinations;
+            resourceInputs["organizationRoleName"] = args?.organizationRoleName;
+            resourceInputs["organizationalUnits"] = args?.organizationalUnits;
+            resourceInputs["permissionType"] = args?.permissionType;
+            resourceInputs["pluginAdminEnabled"] = args?.pluginAdminEnabled;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["samlConfiguration"] = args?.samlConfiguration;
+            resourceInputs["stackSetName"] = args?.stackSetName;
+            resourceInputs["vpcConfiguration"] = args?.vpcConfiguration;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTimestamp"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;

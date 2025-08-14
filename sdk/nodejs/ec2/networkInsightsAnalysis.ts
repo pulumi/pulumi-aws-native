@@ -113,14 +113,14 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkInsightsPathId === undefined) && !opts.urn) {
+            if (args?.networkInsightsPathId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInsightsPathId'");
             }
-            resourceInputs["additionalAccounts"] = args ? args.additionalAccounts : undefined;
-            resourceInputs["filterInArns"] = args ? args.filterInArns : undefined;
-            resourceInputs["filterOutArns"] = args ? args.filterOutArns : undefined;
-            resourceInputs["networkInsightsPathId"] = args ? args.networkInsightsPathId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["additionalAccounts"] = args?.additionalAccounts;
+            resourceInputs["filterInArns"] = args?.filterInArns;
+            resourceInputs["filterOutArns"] = args?.filterOutArns;
+            resourceInputs["networkInsightsPathId"] = args?.networkInsightsPathId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["alternatePathHints"] = undefined /*out*/;
             resourceInputs["explanations"] = undefined /*out*/;
             resourceInputs["forwardPathComponents"] = undefined /*out*/;

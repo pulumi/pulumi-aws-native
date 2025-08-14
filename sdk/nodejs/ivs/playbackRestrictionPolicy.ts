@@ -73,11 +73,11 @@ export class PlaybackRestrictionPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["allowedCountries"] = args ? args.allowedCountries : undefined;
-            resourceInputs["allowedOrigins"] = args ? args.allowedOrigins : undefined;
-            resourceInputs["enableStrictOriginEnforcement"] = args ? args.enableStrictOriginEnforcement : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowedCountries"] = args?.allowedCountries;
+            resourceInputs["allowedOrigins"] = args?.allowedOrigins;
+            resourceInputs["enableStrictOriginEnforcement"] = args?.enableStrictOriginEnforcement;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["allowedCountries"] = undefined /*out*/;

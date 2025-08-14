@@ -70,15 +70,15 @@ export class Member extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
-            resourceInputs["disableEmailNotification"] = args ? args.disableEmailNotification : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["memberId"] = args ? args.memberId : undefined;
-            resourceInputs["message"] = args ? args.message : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["detectorId"] = args?.detectorId;
+            resourceInputs["disableEmailNotification"] = args?.disableEmailNotification;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["memberId"] = args?.memberId;
+            resourceInputs["message"] = args?.message;
+            resourceInputs["status"] = args?.status;
         } else {
             resourceInputs["detectorId"] = undefined /*out*/;
             resourceInputs["disableEmailNotification"] = undefined /*out*/;

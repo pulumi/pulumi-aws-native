@@ -77,14 +77,14 @@ export class Project extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.portalId === undefined) && !opts.urn) {
+            if (args?.portalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portalId'");
             }
-            resourceInputs["assetIds"] = args ? args.assetIds : undefined;
-            resourceInputs["portalId"] = args ? args.portalId : undefined;
-            resourceInputs["projectDescription"] = args ? args.projectDescription : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assetIds"] = args?.assetIds;
+            resourceInputs["portalId"] = args?.portalId;
+            resourceInputs["projectDescription"] = args?.projectDescription;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["projectArn"] = undefined /*out*/;
             resourceInputs["projectId"] = undefined /*out*/;
         } else {

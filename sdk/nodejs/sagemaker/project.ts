@@ -123,12 +123,12 @@ export class Project extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["projectDescription"] = args ? args.projectDescription : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["serviceCatalogProvisionedProductDetails"] = args ? args.serviceCatalogProvisionedProductDetails : undefined;
-            resourceInputs["serviceCatalogProvisioningDetails"] = args ? args.serviceCatalogProvisioningDetails : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateProviderDetails"] = args ? args.templateProviderDetails : undefined;
+            resourceInputs["projectDescription"] = args?.projectDescription;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["serviceCatalogProvisionedProductDetails"] = args?.serviceCatalogProvisionedProductDetails;
+            resourceInputs["serviceCatalogProvisioningDetails"] = args?.serviceCatalogProvisioningDetails;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateProviderDetails"] = args?.templateProviderDetails;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["projectArn"] = undefined /*out*/;
             resourceInputs["projectId"] = undefined /*out*/;

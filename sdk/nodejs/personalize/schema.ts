@@ -91,12 +91,12 @@ export class Schema extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schema"] = args?.schema;
             resourceInputs["schemaArn"] = undefined /*out*/;
         } else {
             resourceInputs["domain"] = undefined /*out*/;

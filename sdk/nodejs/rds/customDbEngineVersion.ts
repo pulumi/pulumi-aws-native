@@ -111,24 +111,24 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.engine === undefined) && !opts.urn) {
+            if (args?.engine === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engine'");
             }
-            if ((!args || args.engineVersion === undefined) && !opts.urn) {
+            if (args?.engineVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engineVersion'");
             }
-            resourceInputs["databaseInstallationFilesS3BucketName"] = args ? args.databaseInstallationFilesS3BucketName : undefined;
-            resourceInputs["databaseInstallationFilesS3Prefix"] = args ? args.databaseInstallationFilesS3Prefix : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["imageId"] = args ? args.imageId : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["manifest"] = args ? args.manifest : undefined;
-            resourceInputs["sourceCustomDbEngineVersionIdentifier"] = args ? args.sourceCustomDbEngineVersionIdentifier : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["useAwsProvidedLatestImage"] = args ? args.useAwsProvidedLatestImage : undefined;
+            resourceInputs["databaseInstallationFilesS3BucketName"] = args?.databaseInstallationFilesS3BucketName;
+            resourceInputs["databaseInstallationFilesS3Prefix"] = args?.databaseInstallationFilesS3Prefix;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["imageId"] = args?.imageId;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["manifest"] = args?.manifest;
+            resourceInputs["sourceCustomDbEngineVersionIdentifier"] = args?.sourceCustomDbEngineVersionIdentifier;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["useAwsProvidedLatestImage"] = args?.useAwsProvidedLatestImage;
             resourceInputs["dbEngineVersionArn"] = undefined /*out*/;
         } else {
             resourceInputs["databaseInstallationFilesS3BucketName"] = undefined /*out*/;

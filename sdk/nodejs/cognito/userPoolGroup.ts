@@ -70,14 +70,14 @@ export class UserPoolGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["precedence"] = args ? args.precedence : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["precedence"] = args?.precedence;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["userPoolId"] = args?.userPoolId;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["groupName"] = undefined /*out*/;

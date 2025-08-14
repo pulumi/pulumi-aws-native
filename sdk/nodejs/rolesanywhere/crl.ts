@@ -73,14 +73,14 @@ export class Crl extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.crlData === undefined) && !opts.urn) {
+            if (args?.crlData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'crlData'");
             }
-            resourceInputs["crlData"] = args ? args.crlData : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trustAnchorArn"] = args ? args.trustAnchorArn : undefined;
+            resourceInputs["crlData"] = args?.crlData;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trustAnchorArn"] = args?.trustAnchorArn;
             resourceInputs["crlId"] = undefined /*out*/;
         } else {
             resourceInputs["crlData"] = undefined /*out*/;

@@ -87,18 +87,18 @@ export class ReplicaKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.keyPolicy === undefined) && !opts.urn) {
+            if (args?.keyPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyPolicy'");
             }
-            if ((!args || args.primaryKeyArn === undefined) && !opts.urn) {
+            if (args?.primaryKeyArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'primaryKeyArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["keyPolicy"] = args ? args.keyPolicy : undefined;
-            resourceInputs["pendingWindowInDays"] = args ? args.pendingWindowInDays : undefined;
-            resourceInputs["primaryKeyArn"] = args ? args.primaryKeyArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["keyPolicy"] = args?.keyPolicy;
+            resourceInputs["pendingWindowInDays"] = args?.pendingWindowInDays;
+            resourceInputs["primaryKeyArn"] = args?.primaryKeyArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["keyId"] = undefined /*out*/;
         } else {

@@ -94,20 +94,20 @@ export class User extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.engine === undefined) && !opts.urn) {
+            if (args?.engine === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engine'");
             }
-            if ((!args || args.userId === undefined) && !opts.urn) {
+            if (args?.userId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            resourceInputs["accessString"] = args ? args.accessString : undefined;
-            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["noPasswordRequired"] = args ? args.noPasswordRequired : undefined;
-            resourceInputs["passwords"] = args ? args.passwords : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["accessString"] = args?.accessString;
+            resourceInputs["authenticationMode"] = args?.authenticationMode;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["noPasswordRequired"] = args?.noPasswordRequired;
+            resourceInputs["passwords"] = args?.passwords;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userId"] = args?.userId;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

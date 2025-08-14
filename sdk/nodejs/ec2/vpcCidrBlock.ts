@@ -98,19 +98,19 @@ export class VpcCidrBlock extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["amazonProvidedIpv6CidrBlock"] = args ? args.amazonProvidedIpv6CidrBlock : undefined;
-            resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
-            resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
-            resourceInputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
-            resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
-            resourceInputs["ipv6CidrBlockNetworkBorderGroup"] = args ? args.ipv6CidrBlockNetworkBorderGroup : undefined;
-            resourceInputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
-            resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
-            resourceInputs["ipv6Pool"] = args ? args.ipv6Pool : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["amazonProvidedIpv6CidrBlock"] = args?.amazonProvidedIpv6CidrBlock;
+            resourceInputs["cidrBlock"] = args?.cidrBlock;
+            resourceInputs["ipv4IpamPoolId"] = args?.ipv4IpamPoolId;
+            resourceInputs["ipv4NetmaskLength"] = args?.ipv4NetmaskLength;
+            resourceInputs["ipv6CidrBlock"] = args?.ipv6CidrBlock;
+            resourceInputs["ipv6CidrBlockNetworkBorderGroup"] = args?.ipv6CidrBlockNetworkBorderGroup;
+            resourceInputs["ipv6IpamPoolId"] = args?.ipv6IpamPoolId;
+            resourceInputs["ipv6NetmaskLength"] = args?.ipv6NetmaskLength;
+            resourceInputs["ipv6Pool"] = args?.ipv6Pool;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ipSource"] = undefined /*out*/;
             resourceInputs["ipv6AddressAttribute"] = undefined /*out*/;

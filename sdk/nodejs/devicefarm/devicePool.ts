@@ -81,18 +81,18 @@ export class DevicePool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.projectArn === undefined) && !opts.urn) {
+            if (args?.projectArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectArn'");
             }
-            if ((!args || args.rules === undefined) && !opts.urn) {
+            if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["maxDevices"] = args ? args.maxDevices : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectArn"] = args ? args.projectArn : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["maxDevices"] = args?.maxDevices;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectArn"] = args?.projectArn;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

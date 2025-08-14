@@ -99,23 +99,23 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.enabledRegions === undefined) && !opts.urn) {
+            if (args?.enabledRegions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabledRegions'");
             }
-            if ((!args || args.environmentBlueprintIdentifier === undefined) && !opts.urn) {
+            if (args?.environmentBlueprintIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentBlueprintIdentifier'");
             }
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["enabledRegions"] = args ? args.enabledRegions : undefined;
-            resourceInputs["environmentBlueprintIdentifier"] = args ? args.environmentBlueprintIdentifier : undefined;
-            resourceInputs["environmentRolePermissionBoundary"] = args ? args.environmentRolePermissionBoundary : undefined;
-            resourceInputs["manageAccessRoleArn"] = args ? args.manageAccessRoleArn : undefined;
-            resourceInputs["provisioningConfigurations"] = args ? args.provisioningConfigurations : undefined;
-            resourceInputs["provisioningRoleArn"] = args ? args.provisioningRoleArn : undefined;
-            resourceInputs["regionalParameters"] = args ? args.regionalParameters : undefined;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["enabledRegions"] = args?.enabledRegions;
+            resourceInputs["environmentBlueprintIdentifier"] = args?.environmentBlueprintIdentifier;
+            resourceInputs["environmentRolePermissionBoundary"] = args?.environmentRolePermissionBoundary;
+            resourceInputs["manageAccessRoleArn"] = args?.manageAccessRoleArn;
+            resourceInputs["provisioningConfigurations"] = args?.provisioningConfigurations;
+            resourceInputs["provisioningRoleArn"] = args?.provisioningRoleArn;
+            resourceInputs["regionalParameters"] = args?.regionalParameters;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["environmentBlueprintId"] = undefined /*out*/;

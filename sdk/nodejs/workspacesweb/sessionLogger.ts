@@ -58,18 +58,18 @@ export class SessionLogger extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.eventFilter === undefined) && !opts.urn) {
+            if (args?.eventFilter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventFilter'");
             }
-            if ((!args || args.logConfiguration === undefined) && !opts.urn) {
+            if (args?.logConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logConfiguration'");
             }
-            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
-            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["eventFilter"] = args ? args.eventFilter : undefined;
-            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
+            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["eventFilter"] = args?.eventFilter;
+            resourceInputs["logConfiguration"] = args?.logConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["sessionLoggerArn"] = undefined /*out*/;

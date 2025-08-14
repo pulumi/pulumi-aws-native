@@ -85,26 +85,26 @@ export class RoutingProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.defaultOutboundQueueArn === undefined) && !opts.urn) {
+            if (args?.defaultOutboundQueueArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultOutboundQueueArn'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.mediaConcurrencies === undefined) && !opts.urn) {
+            if (args?.mediaConcurrencies === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mediaConcurrencies'");
             }
-            resourceInputs["agentAvailabilityTimer"] = args ? args.agentAvailabilityTimer : undefined;
-            resourceInputs["defaultOutboundQueueArn"] = args ? args.defaultOutboundQueueArn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["mediaConcurrencies"] = args ? args.mediaConcurrencies : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queueConfigs"] = args ? args.queueConfigs : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentAvailabilityTimer"] = args?.agentAvailabilityTimer;
+            resourceInputs["defaultOutboundQueueArn"] = args?.defaultOutboundQueueArn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["mediaConcurrencies"] = args?.mediaConcurrencies;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queueConfigs"] = args?.queueConfigs;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["routingProfileArn"] = undefined /*out*/;
         } else {
             resourceInputs["agentAvailabilityTimer"] = undefined /*out*/;

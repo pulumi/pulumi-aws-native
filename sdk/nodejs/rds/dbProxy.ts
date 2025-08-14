@@ -101,28 +101,28 @@ export class DbProxy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.auth === undefined) && !opts.urn) {
+            if (args?.auth === undefined && !opts.urn) {
                 throw new Error("Missing required property 'auth'");
             }
-            if ((!args || args.engineFamily === undefined) && !opts.urn) {
+            if (args?.engineFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engineFamily'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.vpcSubnetIds === undefined) && !opts.urn) {
+            if (args?.vpcSubnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcSubnetIds'");
             }
-            resourceInputs["auth"] = args ? args.auth : undefined;
-            resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
-            resourceInputs["debugLogging"] = args ? args.debugLogging : undefined;
-            resourceInputs["engineFamily"] = args ? args.engineFamily : undefined;
-            resourceInputs["idleClientTimeout"] = args ? args.idleClientTimeout : undefined;
-            resourceInputs["requireTls"] = args ? args.requireTls : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            resourceInputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
+            resourceInputs["auth"] = args?.auth;
+            resourceInputs["dbProxyName"] = args?.dbProxyName;
+            resourceInputs["debugLogging"] = args?.debugLogging;
+            resourceInputs["engineFamily"] = args?.engineFamily;
+            resourceInputs["idleClientTimeout"] = args?.idleClientTimeout;
+            resourceInputs["requireTls"] = args?.requireTls;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
+            resourceInputs["vpcSubnetIds"] = args?.vpcSubnetIds;
             resourceInputs["dbProxyArn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;

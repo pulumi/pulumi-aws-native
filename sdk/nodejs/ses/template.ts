@@ -94,7 +94,7 @@ export class Template extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["template"] = args ? args.template : undefined;
+            resourceInputs["template"] = args?.template;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

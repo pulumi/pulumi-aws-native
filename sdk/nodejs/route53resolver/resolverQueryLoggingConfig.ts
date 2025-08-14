@@ -93,9 +93,9 @@ export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["destinationArn"] = args?.destinationArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationCount"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;

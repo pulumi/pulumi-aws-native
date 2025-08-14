@@ -81,18 +81,18 @@ export class CostCategory extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ruleVersion === undefined) && !opts.urn) {
+            if (args?.ruleVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleVersion'");
             }
-            if ((!args || args.rules === undefined) && !opts.urn) {
+            if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            resourceInputs["defaultValue"] = args ? args.defaultValue : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ruleVersion"] = args ? args.ruleVersion : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["splitChargeRules"] = args ? args.splitChargeRules : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["defaultValue"] = args?.defaultValue;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ruleVersion"] = args?.ruleVersion;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["splitChargeRules"] = args?.splitChargeRules;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["effectiveStart"] = undefined /*out*/;
         } else {

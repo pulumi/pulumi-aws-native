@@ -105,16 +105,16 @@ export class AnnotationStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.storeFormat === undefined) && !opts.urn) {
+            if (args?.storeFormat === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storeFormat'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["reference"] = args ? args.reference : undefined;
-            resourceInputs["sseConfig"] = args ? args.sseConfig : undefined;
-            resourceInputs["storeFormat"] = args ? args.storeFormat : undefined;
-            resourceInputs["storeOptions"] = args ? args.storeOptions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["reference"] = args?.reference;
+            resourceInputs["sseConfig"] = args?.sseConfig;
+            resourceInputs["storeFormat"] = args?.storeFormat;
+            resourceInputs["storeOptions"] = args?.storeOptions;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

@@ -102,22 +102,22 @@ export class Portal extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.portalContactEmail === undefined) && !opts.urn) {
+            if (args?.portalContactEmail === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portalContactEmail'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["alarms"] = args ? args.alarms : undefined;
-            resourceInputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
-            resourceInputs["portalAuthMode"] = args ? args.portalAuthMode : undefined;
-            resourceInputs["portalContactEmail"] = args ? args.portalContactEmail : undefined;
-            resourceInputs["portalDescription"] = args ? args.portalDescription : undefined;
-            resourceInputs["portalName"] = args ? args.portalName : undefined;
-            resourceInputs["portalType"] = args ? args.portalType : undefined;
-            resourceInputs["portalTypeConfiguration"] = args ? args.portalTypeConfiguration : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["alarms"] = args?.alarms;
+            resourceInputs["notificationSenderEmail"] = args?.notificationSenderEmail;
+            resourceInputs["portalAuthMode"] = args?.portalAuthMode;
+            resourceInputs["portalContactEmail"] = args?.portalContactEmail;
+            resourceInputs["portalDescription"] = args?.portalDescription;
+            resourceInputs["portalName"] = args?.portalName;
+            resourceInputs["portalType"] = args?.portalType;
+            resourceInputs["portalTypeConfiguration"] = args?.portalTypeConfiguration;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["portalArn"] = undefined /*out*/;
             resourceInputs["portalClientId"] = undefined /*out*/;
             resourceInputs["portalId"] = undefined /*out*/;

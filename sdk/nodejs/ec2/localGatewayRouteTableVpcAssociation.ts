@@ -73,15 +73,15 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.localGatewayRouteTableId === undefined) && !opts.urn) {
+            if (args?.localGatewayRouteTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localGatewayRouteTableId'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["localGatewayRouteTableId"] = args?.localGatewayRouteTableId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["localGatewayId"] = undefined /*out*/;
             resourceInputs["localGatewayRouteTableVpcAssociationId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

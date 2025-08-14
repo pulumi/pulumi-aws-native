@@ -76,10 +76,10 @@ export class Api extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["eventConfig"] = args ? args.eventConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ownerContact"] = args ? args.ownerContact : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["eventConfig"] = args?.eventConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ownerContact"] = args?.ownerContact;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["apiArn"] = undefined /*out*/;
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["dns"] = undefined /*out*/;

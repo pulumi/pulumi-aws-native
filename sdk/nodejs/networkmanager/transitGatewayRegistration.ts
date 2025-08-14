@@ -54,14 +54,14 @@ export class TransitGatewayRegistration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
+            if (args?.globalNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            if ((!args || args.transitGatewayArn === undefined) && !opts.urn) {
+            if (args?.transitGatewayArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayArn'");
             }
-            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
-            resourceInputs["transitGatewayArn"] = args ? args.transitGatewayArn : undefined;
+            resourceInputs["globalNetworkId"] = args?.globalNetworkId;
+            resourceInputs["transitGatewayArn"] = args?.transitGatewayArn;
         } else {
             resourceInputs["globalNetworkId"] = undefined /*out*/;
             resourceInputs["transitGatewayArn"] = undefined /*out*/;

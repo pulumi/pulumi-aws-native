@@ -107,25 +107,25 @@ export class JobTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.jobTemplateId === undefined) && !opts.urn) {
+            if (args?.jobTemplateId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobTemplateId'");
             }
-            resourceInputs["abortConfig"] = args ? args.abortConfig : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destinationPackageVersions"] = args ? args.destinationPackageVersions : undefined;
-            resourceInputs["document"] = args ? args.document : undefined;
-            resourceInputs["documentSource"] = args ? args.documentSource : undefined;
-            resourceInputs["jobArn"] = args ? args.jobArn : undefined;
-            resourceInputs["jobExecutionsRetryConfig"] = args ? args.jobExecutionsRetryConfig : undefined;
-            resourceInputs["jobExecutionsRolloutConfig"] = args ? args.jobExecutionsRolloutConfig : undefined;
-            resourceInputs["jobTemplateId"] = args ? args.jobTemplateId : undefined;
-            resourceInputs["maintenanceWindows"] = args ? args.maintenanceWindows : undefined;
-            resourceInputs["presignedUrlConfig"] = args ? args.presignedUrlConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeoutConfig"] = args ? args.timeoutConfig : undefined;
+            resourceInputs["abortConfig"] = args?.abortConfig;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destinationPackageVersions"] = args?.destinationPackageVersions;
+            resourceInputs["document"] = args?.document;
+            resourceInputs["documentSource"] = args?.documentSource;
+            resourceInputs["jobArn"] = args?.jobArn;
+            resourceInputs["jobExecutionsRetryConfig"] = args?.jobExecutionsRetryConfig;
+            resourceInputs["jobExecutionsRolloutConfig"] = args?.jobExecutionsRolloutConfig;
+            resourceInputs["jobTemplateId"] = args?.jobTemplateId;
+            resourceInputs["maintenanceWindows"] = args?.maintenanceWindows;
+            resourceInputs["presignedUrlConfig"] = args?.presignedUrlConfig;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeoutConfig"] = args?.timeoutConfig;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["abortConfig"] = undefined /*out*/;

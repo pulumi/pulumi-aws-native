@@ -81,13 +81,13 @@ export class ConfigurationManager extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configurationDefinitions === undefined) && !opts.urn) {
+            if (args?.configurationDefinitions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationDefinitions'");
             }
-            resourceInputs["configurationDefinitions"] = args ? args.configurationDefinitions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configurationDefinitions"] = args?.configurationDefinitions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastModifiedAt"] = undefined /*out*/;
             resourceInputs["managerArn"] = undefined /*out*/;

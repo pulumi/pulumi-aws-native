@@ -69,10 +69,10 @@ export class PlacementGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["partitionCount"] = args ? args.partitionCount : undefined;
-            resourceInputs["spreadLevel"] = args ? args.spreadLevel : undefined;
-            resourceInputs["strategy"] = args ? args.strategy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["partitionCount"] = args?.partitionCount;
+            resourceInputs["spreadLevel"] = args?.spreadLevel;
+            resourceInputs["strategy"] = args?.strategy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["groupName"] = undefined /*out*/;
         } else {
             resourceInputs["groupName"] = undefined /*out*/;

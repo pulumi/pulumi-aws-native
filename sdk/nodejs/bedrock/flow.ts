@@ -121,19 +121,19 @@ export class Flow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
+            if (args?.executionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            resourceInputs["customerEncryptionKeyArn"] = args ? args.customerEncryptionKeyArn : undefined;
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["definitionS3Location"] = args ? args.definitionS3Location : undefined;
-            resourceInputs["definitionString"] = args ? args.definitionString : undefined;
-            resourceInputs["definitionSubstitutions"] = args ? args.definitionSubstitutions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["testAliasTags"] = args ? args.testAliasTags : undefined;
+            resourceInputs["customerEncryptionKeyArn"] = args?.customerEncryptionKeyArn;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["definitionS3Location"] = args?.definitionS3Location;
+            resourceInputs["definitionString"] = args?.definitionString;
+            resourceInputs["definitionSubstitutions"] = args?.definitionSubstitutions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["testAliasTags"] = args?.testAliasTags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

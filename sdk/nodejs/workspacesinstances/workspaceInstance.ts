@@ -60,8 +60,8 @@ export class WorkspaceInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["managedInstance"] = args ? args.managedInstance : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["managedInstance"] = args?.managedInstance;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["ec2ManagedInstance"] = undefined /*out*/;
             resourceInputs["provisionState"] = undefined /*out*/;
             resourceInputs["workspaceInstanceId"] = undefined /*out*/;

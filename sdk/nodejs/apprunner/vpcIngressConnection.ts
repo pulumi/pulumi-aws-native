@@ -77,16 +77,16 @@ export class VpcIngressConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ingressVpcConfiguration === undefined) && !opts.urn) {
+            if (args?.ingressVpcConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ingressVpcConfiguration'");
             }
-            if ((!args || args.serviceArn === undefined) && !opts.urn) {
+            if (args?.serviceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceArn'");
             }
-            resourceInputs["ingressVpcConfiguration"] = args ? args.ingressVpcConfiguration : undefined;
-            resourceInputs["serviceArn"] = args ? args.serviceArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcIngressConnectionName"] = args ? args.vpcIngressConnectionName : undefined;
+            resourceInputs["ingressVpcConfiguration"] = args?.ingressVpcConfiguration;
+            resourceInputs["serviceArn"] = args?.serviceArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcIngressConnectionName"] = args?.vpcIngressConnectionName;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["vpcIngressConnectionArn"] = undefined /*out*/;

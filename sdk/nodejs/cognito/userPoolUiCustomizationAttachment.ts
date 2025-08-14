@@ -58,15 +58,15 @@ export class UserPoolUiCustomizationAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["css"] = args ? args.css : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["css"] = args?.css;
+            resourceInputs["userPoolId"] = args?.userPoolId;
         } else {
             resourceInputs["clientId"] = undefined /*out*/;
             resourceInputs["css"] = undefined /*out*/;

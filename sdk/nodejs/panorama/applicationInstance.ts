@@ -113,20 +113,20 @@ export class ApplicationInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.defaultRuntimeContextDevice === undefined) && !opts.urn) {
+            if (args?.defaultRuntimeContextDevice === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultRuntimeContextDevice'");
             }
-            if ((!args || args.manifestPayload === undefined) && !opts.urn) {
+            if (args?.manifestPayload === undefined && !opts.urn) {
                 throw new Error("Missing required property 'manifestPayload'");
             }
-            resourceInputs["applicationInstanceIdToReplace"] = args ? args.applicationInstanceIdToReplace : undefined;
-            resourceInputs["defaultRuntimeContextDevice"] = args ? args.defaultRuntimeContextDevice : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["manifestOverridesPayload"] = args ? args.manifestOverridesPayload : undefined;
-            resourceInputs["manifestPayload"] = args ? args.manifestPayload : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["runtimeRoleArn"] = args ? args.runtimeRoleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationInstanceIdToReplace"] = args?.applicationInstanceIdToReplace;
+            resourceInputs["defaultRuntimeContextDevice"] = args?.defaultRuntimeContextDevice;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["manifestOverridesPayload"] = args?.manifestOverridesPayload;
+            resourceInputs["manifestPayload"] = args?.manifestPayload;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["runtimeRoleArn"] = args?.runtimeRoleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationInstanceId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;

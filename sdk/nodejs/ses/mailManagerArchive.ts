@@ -80,10 +80,10 @@ export class MailManagerArchive extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["archiveName"] = args ? args.archiveName : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["retention"] = args ? args.retention : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["archiveName"] = args?.archiveName;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["retention"] = args?.retention;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["archiveArn"] = undefined /*out*/;
             resourceInputs["archiveId"] = undefined /*out*/;
             resourceInputs["archiveState"] = undefined /*out*/;

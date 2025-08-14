@@ -66,12 +66,12 @@ export class StateMachineVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.stateMachineArn === undefined) && !opts.urn) {
+            if (args?.stateMachineArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stateMachineArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["stateMachineArn"] = args ? args.stateMachineArn : undefined;
-            resourceInputs["stateMachineRevisionId"] = args ? args.stateMachineRevisionId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["stateMachineArn"] = args?.stateMachineArn;
+            resourceInputs["stateMachineRevisionId"] = args?.stateMachineRevisionId;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -59,10 +59,10 @@ export class OriginAccessControl extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.originAccessControlConfig === undefined) && !opts.urn) {
+            if (args?.originAccessControlConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'originAccessControlConfig'");
             }
-            resourceInputs["originAccessControlConfig"] = args ? args.originAccessControlConfig : undefined;
+            resourceInputs["originAccessControlConfig"] = args?.originAccessControlConfig;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

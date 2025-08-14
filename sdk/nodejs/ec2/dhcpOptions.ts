@@ -81,13 +81,13 @@ export class DhcpOptions extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["domainNameServers"] = args ? args.domainNameServers : undefined;
-            resourceInputs["ipv6AddressPreferredLeaseTime"] = args ? args.ipv6AddressPreferredLeaseTime : undefined;
-            resourceInputs["netbiosNameServers"] = args ? args.netbiosNameServers : undefined;
-            resourceInputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
-            resourceInputs["ntpServers"] = args ? args.ntpServers : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["domainNameServers"] = args?.domainNameServers;
+            resourceInputs["ipv6AddressPreferredLeaseTime"] = args?.ipv6AddressPreferredLeaseTime;
+            resourceInputs["netbiosNameServers"] = args?.netbiosNameServers;
+            resourceInputs["netbiosNodeType"] = args?.netbiosNodeType;
+            resourceInputs["ntpServers"] = args?.ntpServers;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["dhcpOptionsId"] = undefined /*out*/;
         } else {
             resourceInputs["dhcpOptionsId"] = undefined /*out*/;

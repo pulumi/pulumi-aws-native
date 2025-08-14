@@ -52,10 +52,10 @@ export class AutoshiftObserverNotificationStatus extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["status"] = args?.status;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["region"] = undefined /*out*/;
         } else {

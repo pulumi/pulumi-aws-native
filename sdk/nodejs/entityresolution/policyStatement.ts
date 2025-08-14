@@ -77,18 +77,18 @@ export class PolicyStatement extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.arn === undefined) && !opts.urn) {
+            if (args?.arn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'arn'");
             }
-            if ((!args || args.statementId === undefined) && !opts.urn) {
+            if (args?.statementId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statementId'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["arn"] = args ? args.arn : undefined;
-            resourceInputs["condition"] = args ? args.condition : undefined;
-            resourceInputs["effect"] = args ? args.effect : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["statementId"] = args ? args.statementId : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["arn"] = args?.arn;
+            resourceInputs["condition"] = args?.condition;
+            resourceInputs["effect"] = args?.effect;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["statementId"] = args?.statementId;
         } else {
             resourceInputs["action"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;

@@ -135,17 +135,17 @@ export class DataCatalog extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["connectionType"] = args ? args.connectionType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["error"] = args ? args.error : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["connectionType"] = args?.connectionType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["error"] = args?.error;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
         } else {
             resourceInputs["connectionType"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

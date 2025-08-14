@@ -139,13 +139,13 @@ export class ResourceShare extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["allowExternalPrincipals"] = args ? args.allowExternalPrincipals : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissionArns"] = args ? args.permissionArns : undefined;
-            resourceInputs["principals"] = args ? args.principals : undefined;
-            resourceInputs["resourceArns"] = args ? args.resourceArns : undefined;
-            resourceInputs["sources"] = args ? args.sources : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowExternalPrincipals"] = args?.allowExternalPrincipals;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissionArns"] = args?.permissionArns;
+            resourceInputs["principals"] = args?.principals;
+            resourceInputs["resourceArns"] = args?.resourceArns;
+            resourceInputs["sources"] = args?.sources;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["allowExternalPrincipals"] = undefined /*out*/;

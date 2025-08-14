@@ -69,14 +69,14 @@ export class Model extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["restApiId"] = args?.restApiId;
+            resourceInputs["schema"] = args?.schema;
         } else {
             resourceInputs["contentType"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

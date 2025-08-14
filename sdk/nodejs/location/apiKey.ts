@@ -108,17 +108,17 @@ export class ApiKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.restrictions === undefined) && !opts.urn) {
+            if (args?.restrictions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restrictions'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["expireTime"] = args ? args.expireTime : undefined;
-            resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
-            resourceInputs["forceUpdate"] = args ? args.forceUpdate : undefined;
-            resourceInputs["keyName"] = args ? args.keyName : undefined;
-            resourceInputs["noExpiry"] = args ? args.noExpiry : undefined;
-            resourceInputs["restrictions"] = args ? args.restrictions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["expireTime"] = args?.expireTime;
+            resourceInputs["forceDelete"] = args?.forceDelete;
+            resourceInputs["forceUpdate"] = args?.forceUpdate;
+            resourceInputs["keyName"] = args?.keyName;
+            resourceInputs["noExpiry"] = args?.noExpiry;
+            resourceInputs["restrictions"] = args?.restrictions;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["keyArn"] = undefined /*out*/;

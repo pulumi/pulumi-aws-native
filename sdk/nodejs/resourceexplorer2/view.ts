@@ -79,11 +79,11 @@ export class View extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["includedProperties"] = args ? args.includedProperties : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["viewName"] = args ? args.viewName : undefined;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["includedProperties"] = args?.includedProperties;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["viewName"] = args?.viewName;
             resourceInputs["viewArn"] = undefined /*out*/;
         } else {
             resourceInputs["filters"] = undefined /*out*/;

@@ -101,24 +101,24 @@ export class Pipeline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.stages === undefined) && !opts.urn) {
+            if (args?.stages === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stages'");
             }
-            resourceInputs["artifactStore"] = args ? args.artifactStore : undefined;
-            resourceInputs["artifactStores"] = args ? args.artifactStores : undefined;
-            resourceInputs["disableInboundStageTransitions"] = args ? args.disableInboundStageTransitions : undefined;
-            resourceInputs["executionMode"] = args ? args.executionMode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pipelineType"] = args ? args.pipelineType : undefined;
-            resourceInputs["restartExecutionOnUpdate"] = args ? args.restartExecutionOnUpdate : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["stages"] = args ? args.stages : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["triggers"] = args ? args.triggers : undefined;
-            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["artifactStore"] = args?.artifactStore;
+            resourceInputs["artifactStores"] = args?.artifactStores;
+            resourceInputs["disableInboundStageTransitions"] = args?.disableInboundStageTransitions;
+            resourceInputs["executionMode"] = args?.executionMode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pipelineType"] = args?.pipelineType;
+            resourceInputs["restartExecutionOnUpdate"] = args?.restartExecutionOnUpdate;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["stages"] = args?.stages;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["triggers"] = args?.triggers;
+            resourceInputs["variables"] = args?.variables;
             resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["artifactStore"] = undefined /*out*/;

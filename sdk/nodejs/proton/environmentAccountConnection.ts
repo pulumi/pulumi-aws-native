@@ -91,13 +91,13 @@ export class EnvironmentAccountConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["codebuildRoleArn"] = args ? args.codebuildRoleArn : undefined;
-            resourceInputs["componentRoleArn"] = args ? args.componentRoleArn : undefined;
-            resourceInputs["environmentAccountId"] = args ? args.environmentAccountId : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["managementAccountId"] = args ? args.managementAccountId : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["codebuildRoleArn"] = args?.codebuildRoleArn;
+            resourceInputs["componentRoleArn"] = args?.componentRoleArn;
+            resourceInputs["environmentAccountId"] = args?.environmentAccountId;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["managementAccountId"] = args?.managementAccountId;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

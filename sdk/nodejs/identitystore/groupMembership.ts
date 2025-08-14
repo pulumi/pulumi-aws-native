@@ -65,18 +65,18 @@ export class GroupMembership extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            if ((!args || args.identityStoreId === undefined) && !opts.urn) {
+            if (args?.identityStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityStoreId'");
             }
-            if ((!args || args.memberId === undefined) && !opts.urn) {
+            if (args?.memberId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'memberId'");
             }
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["identityStoreId"] = args ? args.identityStoreId : undefined;
-            resourceInputs["memberId"] = args ? args.memberId : undefined;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["identityStoreId"] = args?.identityStoreId;
+            resourceInputs["memberId"] = args?.memberId;
             resourceInputs["membershipId"] = undefined /*out*/;
         } else {
             resourceInputs["groupId"] = undefined /*out*/;

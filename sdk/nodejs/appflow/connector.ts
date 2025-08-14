@@ -69,16 +69,16 @@ export class Connector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectorProvisioningConfig === undefined) && !opts.urn) {
+            if (args?.connectorProvisioningConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorProvisioningConfig'");
             }
-            if ((!args || args.connectorProvisioningType === undefined) && !opts.urn) {
+            if (args?.connectorProvisioningType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorProvisioningType'");
             }
-            resourceInputs["connectorLabel"] = args ? args.connectorLabel : undefined;
-            resourceInputs["connectorProvisioningConfig"] = args ? args.connectorProvisioningConfig : undefined;
-            resourceInputs["connectorProvisioningType"] = args ? args.connectorProvisioningType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["connectorLabel"] = args?.connectorLabel;
+            resourceInputs["connectorProvisioningConfig"] = args?.connectorProvisioningConfig;
+            resourceInputs["connectorProvisioningType"] = args?.connectorProvisioningType;
+            resourceInputs["description"] = args?.description;
             resourceInputs["connectorArn"] = undefined /*out*/;
         } else {
             resourceInputs["connectorArn"] = undefined /*out*/;

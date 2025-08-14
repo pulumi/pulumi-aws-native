@@ -136,14 +136,14 @@ export class Rule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventBusName"] = args ? args.eventBusName : undefined;
-            resourceInputs["eventPattern"] = args ? args.eventPattern : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventBusName"] = args?.eventBusName;
+            resourceInputs["eventPattern"] = args?.eventPattern;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["scheduleExpression"] = args?.scheduleExpression;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["targets"] = args?.targets;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

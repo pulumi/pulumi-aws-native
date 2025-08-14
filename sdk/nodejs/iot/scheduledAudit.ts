@@ -77,18 +77,18 @@ export class ScheduledAudit extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.frequency === undefined) && !opts.urn) {
+            if (args?.frequency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.targetCheckNames === undefined) && !opts.urn) {
+            if (args?.targetCheckNames === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetCheckNames'");
             }
-            resourceInputs["dayOfMonth"] = args ? args.dayOfMonth : undefined;
-            resourceInputs["dayOfWeek"] = args ? args.dayOfWeek : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["scheduledAuditName"] = args ? args.scheduledAuditName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetCheckNames"] = args ? args.targetCheckNames : undefined;
+            resourceInputs["dayOfMonth"] = args?.dayOfMonth;
+            resourceInputs["dayOfWeek"] = args?.dayOfWeek;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["scheduledAuditName"] = args?.scheduledAuditName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetCheckNames"] = args?.targetCheckNames;
             resourceInputs["scheduledAuditArn"] = undefined /*out*/;
         } else {
             resourceInputs["dayOfMonth"] = undefined /*out*/;

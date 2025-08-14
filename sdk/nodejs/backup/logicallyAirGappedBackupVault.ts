@@ -93,18 +93,18 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.maxRetentionDays === undefined) && !opts.urn) {
+            if (args?.maxRetentionDays === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxRetentionDays'");
             }
-            if ((!args || args.minRetentionDays === undefined) && !opts.urn) {
+            if (args?.minRetentionDays === undefined && !opts.urn) {
                 throw new Error("Missing required property 'minRetentionDays'");
             }
-            resourceInputs["accessPolicy"] = args ? args.accessPolicy : undefined;
-            resourceInputs["backupVaultName"] = args ? args.backupVaultName : undefined;
-            resourceInputs["backupVaultTags"] = args ? args.backupVaultTags : undefined;
-            resourceInputs["maxRetentionDays"] = args ? args.maxRetentionDays : undefined;
-            resourceInputs["minRetentionDays"] = args ? args.minRetentionDays : undefined;
-            resourceInputs["notifications"] = args ? args.notifications : undefined;
+            resourceInputs["accessPolicy"] = args?.accessPolicy;
+            resourceInputs["backupVaultName"] = args?.backupVaultName;
+            resourceInputs["backupVaultTags"] = args?.backupVaultTags;
+            resourceInputs["maxRetentionDays"] = args?.maxRetentionDays;
+            resourceInputs["minRetentionDays"] = args?.minRetentionDays;
+            resourceInputs["notifications"] = args?.notifications;
             resourceInputs["backupVaultArn"] = undefined /*out*/;
             resourceInputs["encryptionKeyArn"] = undefined /*out*/;
             resourceInputs["vaultState"] = undefined /*out*/;

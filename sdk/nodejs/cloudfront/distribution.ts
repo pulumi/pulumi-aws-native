@@ -65,11 +65,11 @@ export class Distribution extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.distributionConfig === undefined) && !opts.urn) {
+            if (args?.distributionConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'distributionConfig'");
             }
-            resourceInputs["distributionConfig"] = args ? args.distributionConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["distributionConfig"] = args?.distributionConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
         } else {

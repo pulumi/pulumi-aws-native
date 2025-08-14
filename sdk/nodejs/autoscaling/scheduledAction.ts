@@ -82,17 +82,17 @@ export class ScheduledAction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoScalingGroupName === undefined) && !opts.urn) {
+            if (args?.autoScalingGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingGroupName'");
             }
-            resourceInputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
-            resourceInputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
-            resourceInputs["endTime"] = args ? args.endTime : undefined;
-            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
-            resourceInputs["minSize"] = args ? args.minSize : undefined;
-            resourceInputs["recurrence"] = args ? args.recurrence : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["autoScalingGroupName"] = args?.autoScalingGroupName;
+            resourceInputs["desiredCapacity"] = args?.desiredCapacity;
+            resourceInputs["endTime"] = args?.endTime;
+            resourceInputs["maxSize"] = args?.maxSize;
+            resourceInputs["minSize"] = args?.minSize;
+            resourceInputs["recurrence"] = args?.recurrence;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["timeZone"] = args?.timeZone;
             resourceInputs["scheduledActionName"] = undefined /*out*/;
         } else {
             resourceInputs["autoScalingGroupName"] = undefined /*out*/;

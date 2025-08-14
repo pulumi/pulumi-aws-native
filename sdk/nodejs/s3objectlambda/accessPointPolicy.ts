@@ -56,14 +56,14 @@ export class AccessPointPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.objectLambdaAccessPoint === undefined) && !opts.urn) {
+            if (args?.objectLambdaAccessPoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectLambdaAccessPoint'");
             }
-            if ((!args || args.policyDocument === undefined) && !opts.urn) {
+            if (args?.policyDocument === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            resourceInputs["objectLambdaAccessPoint"] = args ? args.objectLambdaAccessPoint : undefined;
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["objectLambdaAccessPoint"] = args?.objectLambdaAccessPoint;
+            resourceInputs["policyDocument"] = args?.policyDocument;
         } else {
             resourceInputs["objectLambdaAccessPoint"] = undefined /*out*/;
             resourceInputs["policyDocument"] = undefined /*out*/;

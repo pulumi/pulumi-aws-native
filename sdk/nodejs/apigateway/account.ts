@@ -55,7 +55,7 @@ export class Account extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["cloudWatchRoleArn"] = args ? args.cloudWatchRoleArn : undefined;
+            resourceInputs["cloudWatchRoleArn"] = args?.cloudWatchRoleArn;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

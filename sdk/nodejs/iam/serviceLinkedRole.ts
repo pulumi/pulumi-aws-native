@@ -92,9 +92,9 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["awsServiceName"] = args ? args.awsServiceName : undefined;
-            resourceInputs["customSuffix"] = args ? args.customSuffix : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["awsServiceName"] = args?.awsServiceName;
+            resourceInputs["customSuffix"] = args?.customSuffix;
+            resourceInputs["description"] = args?.description;
             resourceInputs["roleName"] = undefined /*out*/;
         } else {
             resourceInputs["awsServiceName"] = undefined /*out*/;

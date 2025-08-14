@@ -141,14 +141,14 @@ export class PrefixList extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.addressFamily === undefined) && !opts.urn) {
+            if (args?.addressFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addressFamily'");
             }
-            resourceInputs["addressFamily"] = args ? args.addressFamily : undefined;
-            resourceInputs["entries"] = args ? args.entries : undefined;
-            resourceInputs["maxEntries"] = args ? args.maxEntries : undefined;
-            resourceInputs["prefixListName"] = args ? args.prefixListName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addressFamily"] = args?.addressFamily;
+            resourceInputs["entries"] = args?.entries;
+            resourceInputs["maxEntries"] = args?.maxEntries;
+            resourceInputs["prefixListName"] = args?.prefixListName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["prefixListId"] = undefined /*out*/;

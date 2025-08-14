@@ -93,13 +93,13 @@ export class LogAnomalyDetector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["anomalyVisibilityTime"] = args ? args.anomalyVisibilityTime : undefined;
-            resourceInputs["detectorName"] = args ? args.detectorName : undefined;
-            resourceInputs["evaluationFrequency"] = args ? args.evaluationFrequency : undefined;
-            resourceInputs["filterPattern"] = args ? args.filterPattern : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["logGroupArnList"] = args ? args.logGroupArnList : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["anomalyVisibilityTime"] = args?.anomalyVisibilityTime;
+            resourceInputs["detectorName"] = args?.detectorName;
+            resourceInputs["evaluationFrequency"] = args?.evaluationFrequency;
+            resourceInputs["filterPattern"] = args?.filterPattern;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["logGroupArnList"] = args?.logGroupArnList;
             resourceInputs["anomalyDetectorArn"] = undefined /*out*/;
             resourceInputs["anomalyDetectorStatus"] = undefined /*out*/;
             resourceInputs["creationTimeStamp"] = undefined /*out*/;

@@ -73,13 +73,13 @@ export class Dataset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.datasetSource === undefined) && !opts.urn) {
+            if (args?.datasetSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datasetSource'");
             }
-            resourceInputs["datasetDescription"] = args ? args.datasetDescription : undefined;
-            resourceInputs["datasetName"] = args ? args.datasetName : undefined;
-            resourceInputs["datasetSource"] = args ? args.datasetSource : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["datasetDescription"] = args?.datasetDescription;
+            resourceInputs["datasetName"] = args?.datasetName;
+            resourceInputs["datasetSource"] = args?.datasetSource;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["datasetArn"] = undefined /*out*/;
             resourceInputs["datasetId"] = undefined /*out*/;
         } else {

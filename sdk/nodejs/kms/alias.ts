@@ -74,11 +74,11 @@ export class Alias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.targetKeyId === undefined) && !opts.urn) {
+            if (args?.targetKeyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetKeyId'");
             }
-            resourceInputs["aliasName"] = args ? args.aliasName : undefined;
-            resourceInputs["targetKeyId"] = args ? args.targetKeyId : undefined;
+            resourceInputs["aliasName"] = args?.aliasName;
+            resourceInputs["targetKeyId"] = args?.targetKeyId;
         } else {
             resourceInputs["aliasName"] = undefined /*out*/;
             resourceInputs["targetKeyId"] = undefined /*out*/;

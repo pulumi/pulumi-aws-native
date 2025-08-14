@@ -88,16 +88,16 @@ export class Deployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.targetArn === undefined) && !opts.urn) {
+            if (args?.targetArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            resourceInputs["components"] = args ? args.components : undefined;
-            resourceInputs["deploymentName"] = args ? args.deploymentName : undefined;
-            resourceInputs["deploymentPolicies"] = args ? args.deploymentPolicies : undefined;
-            resourceInputs["iotJobConfiguration"] = args ? args.iotJobConfiguration : undefined;
-            resourceInputs["parentTargetArn"] = args ? args.parentTargetArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetArn"] = args ? args.targetArn : undefined;
+            resourceInputs["components"] = args?.components;
+            resourceInputs["deploymentName"] = args?.deploymentName;
+            resourceInputs["deploymentPolicies"] = args?.deploymentPolicies;
+            resourceInputs["iotJobConfiguration"] = args?.iotJobConfiguration;
+            resourceInputs["parentTargetArn"] = args?.parentTargetArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetArn"] = args?.targetArn;
             resourceInputs["deploymentId"] = undefined /*out*/;
         } else {
             resourceInputs["components"] = undefined /*out*/;

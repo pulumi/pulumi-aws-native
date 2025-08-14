@@ -73,23 +73,23 @@ export class CisScanConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scanName === undefined) && !opts.urn) {
+            if (args?.scanName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scanName'");
             }
-            if ((!args || args.schedule === undefined) && !opts.urn) {
+            if (args?.schedule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            if ((!args || args.securityLevel === undefined) && !opts.urn) {
+            if (args?.securityLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityLevel'");
             }
-            if ((!args || args.targets === undefined) && !opts.urn) {
+            if (args?.targets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targets'");
             }
-            resourceInputs["scanName"] = args ? args.scanName : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["securityLevel"] = args ? args.securityLevel : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["scanName"] = args?.scanName;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["securityLevel"] = args?.securityLevel;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targets"] = args?.targets;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

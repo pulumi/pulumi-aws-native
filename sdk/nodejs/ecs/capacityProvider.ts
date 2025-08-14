@@ -211,9 +211,9 @@ export class CapacityProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["autoScalingGroupProvider"] = args ? args.autoScalingGroupProvider : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoScalingGroupProvider"] = args?.autoScalingGroupProvider;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["autoScalingGroupProvider"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

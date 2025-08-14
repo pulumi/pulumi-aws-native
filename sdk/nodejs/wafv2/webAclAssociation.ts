@@ -64,14 +64,14 @@ export class WebAclAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceArn === undefined) && !opts.urn) {
+            if (args?.resourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            if ((!args || args.webAclArn === undefined) && !opts.urn) {
+            if (args?.webAclArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'webAclArn'");
             }
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
-            resourceInputs["webAclArn"] = args ? args.webAclArn : undefined;
+            resourceInputs["resourceArn"] = args?.resourceArn;
+            resourceInputs["webAclArn"] = args?.webAclArn;
         } else {
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["webAclArn"] = undefined /*out*/;

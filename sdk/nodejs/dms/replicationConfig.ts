@@ -99,34 +99,34 @@ export class ReplicationConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.computeConfig === undefined) && !opts.urn) {
+            if (args?.computeConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'computeConfig'");
             }
-            if ((!args || args.replicationConfigIdentifier === undefined) && !opts.urn) {
+            if (args?.replicationConfigIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicationConfigIdentifier'");
             }
-            if ((!args || args.replicationType === undefined) && !opts.urn) {
+            if (args?.replicationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicationType'");
             }
-            if ((!args || args.sourceEndpointArn === undefined) && !opts.urn) {
+            if (args?.sourceEndpointArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceEndpointArn'");
             }
-            if ((!args || args.tableMappings === undefined) && !opts.urn) {
+            if (args?.tableMappings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableMappings'");
             }
-            if ((!args || args.targetEndpointArn === undefined) && !opts.urn) {
+            if (args?.targetEndpointArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetEndpointArn'");
             }
-            resourceInputs["computeConfig"] = args ? args.computeConfig : undefined;
-            resourceInputs["replicationConfigIdentifier"] = args ? args.replicationConfigIdentifier : undefined;
-            resourceInputs["replicationSettings"] = args ? args.replicationSettings : undefined;
-            resourceInputs["replicationType"] = args ? args.replicationType : undefined;
-            resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
-            resourceInputs["sourceEndpointArn"] = args ? args.sourceEndpointArn : undefined;
-            resourceInputs["supplementalSettings"] = args ? args.supplementalSettings : undefined;
-            resourceInputs["tableMappings"] = args ? args.tableMappings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetEndpointArn"] = args ? args.targetEndpointArn : undefined;
+            resourceInputs["computeConfig"] = args?.computeConfig;
+            resourceInputs["replicationConfigIdentifier"] = args?.replicationConfigIdentifier;
+            resourceInputs["replicationSettings"] = args?.replicationSettings;
+            resourceInputs["replicationType"] = args?.replicationType;
+            resourceInputs["resourceIdentifier"] = args?.resourceIdentifier;
+            resourceInputs["sourceEndpointArn"] = args?.sourceEndpointArn;
+            resourceInputs["supplementalSettings"] = args?.supplementalSettings;
+            resourceInputs["tableMappings"] = args?.tableMappings;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetEndpointArn"] = args?.targetEndpointArn;
             resourceInputs["replicationConfigArn"] = undefined /*out*/;
         } else {
             resourceInputs["computeConfig"] = undefined /*out*/;

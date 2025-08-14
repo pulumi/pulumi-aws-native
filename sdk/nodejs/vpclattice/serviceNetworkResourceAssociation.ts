@@ -69,9 +69,9 @@ export class ServiceNetworkResourceAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["resourceConfigurationId"] = args ? args.resourceConfigurationId : undefined;
-            resourceInputs["serviceNetworkId"] = args ? args.serviceNetworkId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["resourceConfigurationId"] = args?.resourceConfigurationId;
+            resourceInputs["serviceNetworkId"] = args?.serviceNetworkId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

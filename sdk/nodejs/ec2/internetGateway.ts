@@ -71,7 +71,7 @@ export class InternetGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["internetGatewayId"] = undefined /*out*/;
         } else {
             resourceInputs["internetGatewayId"] = undefined /*out*/;

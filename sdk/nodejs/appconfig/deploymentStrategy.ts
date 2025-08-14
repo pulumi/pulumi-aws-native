@@ -120,23 +120,23 @@ export class DeploymentStrategy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deploymentDurationInMinutes === undefined) && !opts.urn) {
+            if (args?.deploymentDurationInMinutes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deploymentDurationInMinutes'");
             }
-            if ((!args || args.growthFactor === undefined) && !opts.urn) {
+            if (args?.growthFactor === undefined && !opts.urn) {
                 throw new Error("Missing required property 'growthFactor'");
             }
-            if ((!args || args.replicateTo === undefined) && !opts.urn) {
+            if (args?.replicateTo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicateTo'");
             }
-            resourceInputs["deploymentDurationInMinutes"] = args ? args.deploymentDurationInMinutes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["finalBakeTimeInMinutes"] = args ? args.finalBakeTimeInMinutes : undefined;
-            resourceInputs["growthFactor"] = args ? args.growthFactor : undefined;
-            resourceInputs["growthType"] = args ? args.growthType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["replicateTo"] = args ? args.replicateTo : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deploymentDurationInMinutes"] = args?.deploymentDurationInMinutes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["finalBakeTimeInMinutes"] = args?.finalBakeTimeInMinutes;
+            resourceInputs["growthFactor"] = args?.growthFactor;
+            resourceInputs["growthType"] = args?.growthType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["replicateTo"] = args?.replicateTo;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

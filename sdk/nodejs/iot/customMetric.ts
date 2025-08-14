@@ -84,13 +84,13 @@ export class CustomMetric extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.metricType === undefined) && !opts.urn) {
+            if (args?.metricType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metricType'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["metricName"] = args ? args.metricName : undefined;
-            resourceInputs["metricType"] = args ? args.metricType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["metricName"] = args?.metricName;
+            resourceInputs["metricType"] = args?.metricType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["metricArn"] = undefined /*out*/;
         } else {
             resourceInputs["displayName"] = undefined /*out*/;

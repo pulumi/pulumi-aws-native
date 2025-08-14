@@ -108,23 +108,23 @@ export class QuickResponse extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.knowledgeBaseArn === undefined) && !opts.urn) {
+            if (args?.knowledgeBaseArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'knowledgeBaseArn'");
             }
-            resourceInputs["channels"] = args ? args.channels : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["groupingConfiguration"] = args ? args.groupingConfiguration : undefined;
-            resourceInputs["isActive"] = args ? args.isActive : undefined;
-            resourceInputs["knowledgeBaseArn"] = args ? args.knowledgeBaseArn : undefined;
-            resourceInputs["language"] = args ? args.language : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["shortcutKey"] = args ? args.shortcutKey : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["channels"] = args?.channels;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["groupingConfiguration"] = args?.groupingConfiguration;
+            resourceInputs["isActive"] = args?.isActive;
+            resourceInputs["knowledgeBaseArn"] = args?.knowledgeBaseArn;
+            resourceInputs["language"] = args?.language;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["shortcutKey"] = args?.shortcutKey;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["contents"] = undefined /*out*/;
             resourceInputs["quickResponseArn"] = undefined /*out*/;
             resourceInputs["quickResponseId"] = undefined /*out*/;

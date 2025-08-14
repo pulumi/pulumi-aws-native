@@ -57,8 +57,8 @@ export class WalWorkspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["walWorkspaceName"] = args ? args.walWorkspaceName : undefined;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["walWorkspaceName"] = args?.walWorkspaceName;
         } else {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["walWorkspaceName"] = undefined /*out*/;

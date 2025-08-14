@@ -73,13 +73,13 @@ export class VpcConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.subnets === undefined) && !opts.urn) {
+            if (args?.subnets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnets'");
             }
-            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
-            resourceInputs["subnets"] = args ? args.subnets : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConnectorName"] = args ? args.vpcConnectorName : undefined;
+            resourceInputs["securityGroups"] = args?.securityGroups;
+            resourceInputs["subnets"] = args?.subnets;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConnectorName"] = args?.vpcConnectorName;
             resourceInputs["vpcConnectorArn"] = undefined /*out*/;
             resourceInputs["vpcConnectorRevision"] = undefined /*out*/;
         } else {

@@ -117,27 +117,27 @@ export class Collaboration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.creatorDisplayName === undefined) && !opts.urn) {
+            if (args?.creatorDisplayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'creatorDisplayName'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.queryLogStatus === undefined) && !opts.urn) {
+            if (args?.queryLogStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryLogStatus'");
             }
-            resourceInputs["analyticsEngine"] = args ? args.analyticsEngine : undefined;
-            resourceInputs["creatorDisplayName"] = args ? args.creatorDisplayName : undefined;
-            resourceInputs["creatorMemberAbilities"] = args ? args.creatorMemberAbilities : undefined;
-            resourceInputs["creatorMlMemberAbilities"] = args ? args.creatorMlMemberAbilities : undefined;
-            resourceInputs["creatorPaymentConfiguration"] = args ? args.creatorPaymentConfiguration : undefined;
-            resourceInputs["dataEncryptionMetadata"] = args ? args.dataEncryptionMetadata : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["jobLogStatus"] = args ? args.jobLogStatus : undefined;
-            resourceInputs["members"] = args ? args.members : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queryLogStatus"] = args ? args.queryLogStatus : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["analyticsEngine"] = args?.analyticsEngine;
+            resourceInputs["creatorDisplayName"] = args?.creatorDisplayName;
+            resourceInputs["creatorMemberAbilities"] = args?.creatorMemberAbilities;
+            resourceInputs["creatorMlMemberAbilities"] = args?.creatorMlMemberAbilities;
+            resourceInputs["creatorPaymentConfiguration"] = args?.creatorPaymentConfiguration;
+            resourceInputs["dataEncryptionMetadata"] = args?.dataEncryptionMetadata;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["jobLogStatus"] = args?.jobLogStatus;
+            resourceInputs["members"] = args?.members;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queryLogStatus"] = args?.queryLogStatus;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collaborationIdentifier"] = undefined /*out*/;
         } else {

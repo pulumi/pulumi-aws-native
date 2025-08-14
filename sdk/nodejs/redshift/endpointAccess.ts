@@ -93,23 +93,23 @@ export class EndpointAccess extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
+            if (args?.clusterIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if ((!args || args.endpointName === undefined) && !opts.urn) {
+            if (args?.endpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.subnetGroupName === undefined) && !opts.urn) {
+            if (args?.subnetGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetGroupName'");
             }
-            if ((!args || args.vpcSecurityGroupIds === undefined) && !opts.urn) {
+            if (args?.vpcSecurityGroupIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcSecurityGroupIds'");
             }
-            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["resourceOwner"] = args ? args.resourceOwner : undefined;
-            resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["resourceOwner"] = args?.resourceOwner;
+            resourceInputs["subnetGroupName"] = args?.subnetGroupName;
+            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
             resourceInputs["address"] = undefined /*out*/;
             resourceInputs["endpointCreateTime"] = undefined /*out*/;
             resourceInputs["endpointStatus"] = undefined /*out*/;

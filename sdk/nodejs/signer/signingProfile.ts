@@ -77,13 +77,13 @@ export class SigningProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.platformId === undefined) && !opts.urn) {
+            if (args?.platformId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'platformId'");
             }
-            resourceInputs["platformId"] = args ? args.platformId : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["signatureValidityPeriod"] = args ? args.signatureValidityPeriod : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["platformId"] = args?.platformId;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["signatureValidityPeriod"] = args?.signatureValidityPeriod;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["profileVersion"] = undefined /*out*/;
             resourceInputs["profileVersionArn"] = undefined /*out*/;

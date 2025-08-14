@@ -69,11 +69,11 @@ export class EipAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["allocationId"] = args ? args.allocationId : undefined;
-            resourceInputs["eip"] = args ? args.eip : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            resourceInputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
+            resourceInputs["allocationId"] = args?.allocationId;
+            resourceInputs["eip"] = args?.eip;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
+            resourceInputs["privateIpAddress"] = args?.privateIpAddress;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["allocationId"] = undefined /*out*/;

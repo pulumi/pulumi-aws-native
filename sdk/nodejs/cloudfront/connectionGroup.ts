@@ -101,11 +101,11 @@ export class ConnectionGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["anycastIpListId"] = args ? args.anycastIpListId : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["ipv6Enabled"] = args ? args.ipv6Enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["anycastIpListId"] = args?.anycastIpListId;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["ipv6Enabled"] = args?.ipv6Enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;

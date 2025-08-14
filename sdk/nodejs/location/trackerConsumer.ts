@@ -62,14 +62,14 @@ export class TrackerConsumer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.consumerArn === undefined) && !opts.urn) {
+            if (args?.consumerArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'consumerArn'");
             }
-            if ((!args || args.trackerName === undefined) && !opts.urn) {
+            if (args?.trackerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trackerName'");
             }
-            resourceInputs["consumerArn"] = args ? args.consumerArn : undefined;
-            resourceInputs["trackerName"] = args ? args.trackerName : undefined;
+            resourceInputs["consumerArn"] = args?.consumerArn;
+            resourceInputs["trackerName"] = args?.trackerName;
         } else {
             resourceInputs["consumerArn"] = undefined /*out*/;
             resourceInputs["trackerName"] = undefined /*out*/;

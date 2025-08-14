@@ -66,11 +66,11 @@ export class GuardrailVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.guardrailIdentifier === undefined) && !opts.urn) {
+            if (args?.guardrailIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'guardrailIdentifier'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["guardrailIdentifier"] = args ? args.guardrailIdentifier : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["guardrailIdentifier"] = args?.guardrailIdentifier;
             resourceInputs["guardrailArn"] = undefined /*out*/;
             resourceInputs["guardrailId"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;

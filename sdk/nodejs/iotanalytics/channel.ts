@@ -138,10 +138,10 @@ export class Channel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["channelStorage"] = args ? args.channelStorage : undefined;
-            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["channelStorage"] = args?.channelStorage;
+            resourceInputs["retentionPeriod"] = args?.retentionPeriod;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

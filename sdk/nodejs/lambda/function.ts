@@ -396,38 +396,38 @@ export class Function extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.code === undefined) && !opts.urn) {
+            if (args?.code === undefined && !opts.urn) {
                 throw new Error("Missing required property 'code'");
             }
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            resourceInputs["architectures"] = args ? args.architectures : undefined;
-            resourceInputs["code"] = args ? args.code : undefined;
-            resourceInputs["codeSigningConfigArn"] = args ? args.codeSigningConfigArn : undefined;
-            resourceInputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
-            resourceInputs["fileSystemConfigs"] = args ? args.fileSystemConfigs : undefined;
-            resourceInputs["functionName"] = args ? args.functionName : undefined;
-            resourceInputs["handler"] = args ? args.handler : undefined;
-            resourceInputs["imageConfig"] = args ? args.imageConfig : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["layers"] = args ? args.layers : undefined;
-            resourceInputs["loggingConfig"] = args ? args.loggingConfig : undefined;
-            resourceInputs["memorySize"] = args ? args.memorySize : undefined;
-            resourceInputs["packageType"] = args ? args.packageType : undefined;
-            resourceInputs["recursiveLoop"] = args ? args.recursiveLoop : undefined;
-            resourceInputs["reservedConcurrentExecutions"] = args ? args.reservedConcurrentExecutions : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["runtime"] = args ? args.runtime : undefined;
-            resourceInputs["runtimeManagementConfig"] = args ? args.runtimeManagementConfig : undefined;
-            resourceInputs["snapStart"] = args ? args.snapStart : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
-            resourceInputs["tracingConfig"] = args ? args.tracingConfig : undefined;
-            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["architectures"] = args?.architectures;
+            resourceInputs["code"] = args?.code;
+            resourceInputs["codeSigningConfigArn"] = args?.codeSigningConfigArn;
+            resourceInputs["deadLetterConfig"] = args?.deadLetterConfig;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["ephemeralStorage"] = args?.ephemeralStorage;
+            resourceInputs["fileSystemConfigs"] = args?.fileSystemConfigs;
+            resourceInputs["functionName"] = args?.functionName;
+            resourceInputs["handler"] = args?.handler;
+            resourceInputs["imageConfig"] = args?.imageConfig;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["layers"] = args?.layers;
+            resourceInputs["loggingConfig"] = args?.loggingConfig;
+            resourceInputs["memorySize"] = args?.memorySize;
+            resourceInputs["packageType"] = args?.packageType;
+            resourceInputs["recursiveLoop"] = args?.recursiveLoop;
+            resourceInputs["reservedConcurrentExecutions"] = args?.reservedConcurrentExecutions;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["runtime"] = args?.runtime;
+            resourceInputs["runtimeManagementConfig"] = args?.runtimeManagementConfig;
+            resourceInputs["snapStart"] = args?.snapStart;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeout"] = args?.timeout;
+            resourceInputs["tracingConfig"] = args?.tracingConfig;
+            resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["snapStartResponse"] = undefined /*out*/;
         } else {

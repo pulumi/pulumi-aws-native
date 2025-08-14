@@ -97,14 +97,14 @@ export class VariantStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.reference === undefined) && !opts.urn) {
+            if (args?.reference === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reference'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["reference"] = args ? args.reference : undefined;
-            resourceInputs["sseConfig"] = args ? args.sseConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["reference"] = args?.reference;
+            resourceInputs["sseConfig"] = args?.sseConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

@@ -81,15 +81,15 @@ export class SecurityGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupDescription === undefined) && !opts.urn) {
+            if (args?.groupDescription === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupDescription'");
             }
-            resourceInputs["groupDescription"] = args ? args.groupDescription : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["securityGroupEgress"] = args ? args.securityGroupEgress : undefined;
-            resourceInputs["securityGroupIngress"] = args ? args.securityGroupIngress : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["groupDescription"] = args?.groupDescription;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["securityGroupEgress"] = args?.securityGroupEgress;
+            resourceInputs["securityGroupIngress"] = args?.securityGroupIngress;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["groupId"] = undefined /*out*/;
         } else {

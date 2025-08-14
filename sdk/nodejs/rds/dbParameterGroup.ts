@@ -104,17 +104,17 @@ export class DbParameterGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.family === undefined) && !opts.urn) {
+            if (args?.family === undefined && !opts.urn) {
                 throw new Error("Missing required property 'family'");
             }
-            resourceInputs["dbParameterGroupName"] = args ? args.dbParameterGroupName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["family"] = args ? args.family : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dbParameterGroupName"] = args?.dbParameterGroupName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["family"] = args?.family;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["dbParameterGroupName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

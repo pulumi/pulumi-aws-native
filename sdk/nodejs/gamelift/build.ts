@@ -81,12 +81,12 @@ export class Build extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
-            resourceInputs["serverSdkVersion"] = args ? args.serverSdkVersion : undefined;
-            resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["operatingSystem"] = args?.operatingSystem;
+            resourceInputs["serverSdkVersion"] = args?.serverSdkVersion;
+            resourceInputs["storageLocation"] = args?.storageLocation;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["buildArn"] = undefined /*out*/;
             resourceInputs["buildId"] = undefined /*out*/;
         } else {

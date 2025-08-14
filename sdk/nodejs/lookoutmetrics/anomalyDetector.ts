@@ -73,17 +73,17 @@ export class AnomalyDetector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.anomalyDetectorConfig === undefined) && !opts.urn) {
+            if (args?.anomalyDetectorConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'anomalyDetectorConfig'");
             }
-            if ((!args || args.metricSetList === undefined) && !opts.urn) {
+            if (args?.metricSetList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metricSetList'");
             }
-            resourceInputs["anomalyDetectorConfig"] = args ? args.anomalyDetectorConfig : undefined;
-            resourceInputs["anomalyDetectorDescription"] = args ? args.anomalyDetectorDescription : undefined;
-            resourceInputs["anomalyDetectorName"] = args ? args.anomalyDetectorName : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["metricSetList"] = args ? args.metricSetList : undefined;
+            resourceInputs["anomalyDetectorConfig"] = args?.anomalyDetectorConfig;
+            resourceInputs["anomalyDetectorDescription"] = args?.anomalyDetectorDescription;
+            resourceInputs["anomalyDetectorName"] = args?.anomalyDetectorName;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["metricSetList"] = args?.metricSetList;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["anomalyDetectorConfig"] = undefined /*out*/;

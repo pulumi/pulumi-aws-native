@@ -101,20 +101,20 @@ export class CaCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.caCertificatePem === undefined) && !opts.urn) {
+            if (args?.caCertificatePem === undefined && !opts.urn) {
                 throw new Error("Missing required property 'caCertificatePem'");
             }
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["autoRegistrationStatus"] = args ? args.autoRegistrationStatus : undefined;
-            resourceInputs["caCertificatePem"] = args ? args.caCertificatePem : undefined;
-            resourceInputs["certificateMode"] = args ? args.certificateMode : undefined;
-            resourceInputs["registrationConfig"] = args ? args.registrationConfig : undefined;
-            resourceInputs["removeAutoRegistration"] = args ? args.removeAutoRegistration : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["verificationCertificatePem"] = args ? args.verificationCertificatePem : undefined;
+            resourceInputs["autoRegistrationStatus"] = args?.autoRegistrationStatus;
+            resourceInputs["caCertificatePem"] = args?.caCertificatePem;
+            resourceInputs["certificateMode"] = args?.certificateMode;
+            resourceInputs["registrationConfig"] = args?.registrationConfig;
+            resourceInputs["removeAutoRegistration"] = args?.removeAutoRegistration;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["verificationCertificatePem"] = args?.verificationCertificatePem;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

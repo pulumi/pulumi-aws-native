@@ -101,21 +101,21 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["attachMissingPermission"] = args ? args.attachMissingPermission : undefined;
-            resourceInputs["autoConfigurationEnabled"] = args ? args.autoConfigurationEnabled : undefined;
-            resourceInputs["componentMonitoringSettings"] = args ? args.componentMonitoringSettings : undefined;
-            resourceInputs["customComponents"] = args ? args.customComponents : undefined;
-            resourceInputs["cweMonitorEnabled"] = args ? args.cweMonitorEnabled : undefined;
-            resourceInputs["groupingType"] = args ? args.groupingType : undefined;
-            resourceInputs["logPatternSets"] = args ? args.logPatternSets : undefined;
-            resourceInputs["opsCenterEnabled"] = args ? args.opsCenterEnabled : undefined;
-            resourceInputs["opsItemSnsTopicArn"] = args ? args.opsItemSnsTopicArn : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["snsNotificationArn"] = args ? args.snsNotificationArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["attachMissingPermission"] = args?.attachMissingPermission;
+            resourceInputs["autoConfigurationEnabled"] = args?.autoConfigurationEnabled;
+            resourceInputs["componentMonitoringSettings"] = args?.componentMonitoringSettings;
+            resourceInputs["customComponents"] = args?.customComponents;
+            resourceInputs["cweMonitorEnabled"] = args?.cweMonitorEnabled;
+            resourceInputs["groupingType"] = args?.groupingType;
+            resourceInputs["logPatternSets"] = args?.logPatternSets;
+            resourceInputs["opsCenterEnabled"] = args?.opsCenterEnabled;
+            resourceInputs["opsItemSnsTopicArn"] = args?.opsItemSnsTopicArn;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["snsNotificationArn"] = args?.snsNotificationArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationArn"] = undefined /*out*/;
         } else {
             resourceInputs["applicationArn"] = undefined /*out*/;

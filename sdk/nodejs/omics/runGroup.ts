@@ -82,12 +82,12 @@ export class RunGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["maxCpus"] = args ? args.maxCpus : undefined;
-            resourceInputs["maxDuration"] = args ? args.maxDuration : undefined;
-            resourceInputs["maxGpus"] = args ? args.maxGpus : undefined;
-            resourceInputs["maxRuns"] = args ? args.maxRuns : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["maxCpus"] = args?.maxCpus;
+            resourceInputs["maxDuration"] = args?.maxDuration;
+            resourceInputs["maxGpus"] = args?.maxGpus;
+            resourceInputs["maxRuns"] = args?.maxRuns;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

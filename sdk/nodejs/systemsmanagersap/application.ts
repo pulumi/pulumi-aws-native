@@ -89,21 +89,21 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.applicationType === undefined) && !opts.urn) {
+            if (args?.applicationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationType'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["applicationType"] = args ? args.applicationType : undefined;
-            resourceInputs["componentsInfo"] = args ? args.componentsInfo : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["databaseArn"] = args ? args.databaseArn : undefined;
-            resourceInputs["instances"] = args ? args.instances : undefined;
-            resourceInputs["sapInstanceNumber"] = args ? args.sapInstanceNumber : undefined;
-            resourceInputs["sid"] = args ? args.sid : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["applicationType"] = args?.applicationType;
+            resourceInputs["componentsInfo"] = args?.componentsInfo;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["databaseArn"] = args?.databaseArn;
+            resourceInputs["instances"] = args?.instances;
+            resourceInputs["sapInstanceNumber"] = args?.sapInstanceNumber;
+            resourceInputs["sid"] = args?.sid;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;

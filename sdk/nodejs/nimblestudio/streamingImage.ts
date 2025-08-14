@@ -61,19 +61,19 @@ export class StreamingImage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ec2ImageId === undefined) && !opts.urn) {
+            if (args?.ec2ImageId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ec2ImageId'");
             }
-            if ((!args || args.studioId === undefined) && !opts.urn) {
+            if (args?.studioId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'studioId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ec2ImageId"] = args ? args.ec2ImageId : undefined;
-            resourceInputs["encryptionConfigurationKeyArn"] = args ? args.encryptionConfigurationKeyArn : undefined;
-            resourceInputs["encryptionConfigurationKeyType"] = args ? args.encryptionConfigurationKeyType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["studioId"] = args ? args.studioId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ec2ImageId"] = args?.ec2ImageId;
+            resourceInputs["encryptionConfigurationKeyArn"] = args?.encryptionConfigurationKeyArn;
+            resourceInputs["encryptionConfigurationKeyType"] = args?.encryptionConfigurationKeyType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["studioId"] = args?.studioId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;
             resourceInputs["eulaIds"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;

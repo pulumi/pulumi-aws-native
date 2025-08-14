@@ -69,19 +69,19 @@ export class Listener extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.acceleratorArn === undefined) && !opts.urn) {
+            if (args?.acceleratorArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'acceleratorArn'");
             }
-            if ((!args || args.portRanges === undefined) && !opts.urn) {
+            if (args?.portRanges === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portRanges'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            resourceInputs["acceleratorArn"] = args ? args.acceleratorArn : undefined;
-            resourceInputs["clientAffinity"] = args ? args.clientAffinity : undefined;
-            resourceInputs["portRanges"] = args ? args.portRanges : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["acceleratorArn"] = args?.acceleratorArn;
+            resourceInputs["clientAffinity"] = args?.clientAffinity;
+            resourceInputs["portRanges"] = args?.portRanges;
+            resourceInputs["protocol"] = args?.protocol;
             resourceInputs["listenerArn"] = undefined /*out*/;
         } else {
             resourceInputs["acceleratorArn"] = undefined /*out*/;

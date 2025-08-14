@@ -72,16 +72,16 @@ export class PrivateGraphEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.graphIdentifier === undefined) && !opts.urn) {
+            if (args?.graphIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'graphIdentifier'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["graphIdentifier"] = args ? args.graphIdentifier : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["graphIdentifier"] = args?.graphIdentifier;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["privateGraphEndpointIdentifier"] = undefined /*out*/;
             resourceInputs["vpcEndpointId"] = undefined /*out*/;
         } else {

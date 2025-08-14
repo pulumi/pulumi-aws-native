@@ -84,21 +84,21 @@ export class Profile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.businessName === undefined) && !opts.urn) {
+            if (args?.businessName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'businessName'");
             }
-            if ((!args || args.logging === undefined) && !opts.urn) {
+            if (args?.logging === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logging'");
             }
-            if ((!args || args.phone === undefined) && !opts.urn) {
+            if (args?.phone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'phone'");
             }
-            resourceInputs["businessName"] = args ? args.businessName : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["logging"] = args ? args.logging : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["phone"] = args ? args.phone : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["businessName"] = args?.businessName;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["logging"] = args?.logging;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["phone"] = args?.phone;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["logGroupName"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;

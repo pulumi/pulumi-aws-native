@@ -116,20 +116,20 @@ export class StreamGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.locationConfigurations === undefined) && !opts.urn) {
+            if (args?.locationConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'locationConfigurations'");
             }
-            if ((!args || args.streamClass === undefined) && !opts.urn) {
+            if (args?.streamClass === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamClass'");
             }
-            resourceInputs["defaultApplication"] = args ? args.defaultApplication : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["locationConfigurations"] = args ? args.locationConfigurations : undefined;
-            resourceInputs["streamClass"] = args ? args.streamClass : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["defaultApplication"] = args?.defaultApplication;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["locationConfigurations"] = args?.locationConfigurations;
+            resourceInputs["streamClass"] = args?.streamClass;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

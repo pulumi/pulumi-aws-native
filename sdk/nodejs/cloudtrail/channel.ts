@@ -69,10 +69,10 @@ export class Channel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["destinations"] = args ? args.destinations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["destinations"] = args?.destinations;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["channelArn"] = undefined /*out*/;
         } else {
             resourceInputs["channelArn"] = undefined /*out*/;

@@ -141,23 +141,23 @@ export class VpcEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["dnsOptions"] = args ? args.dnsOptions : undefined;
-            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["privateDnsEnabled"] = args ? args.privateDnsEnabled : undefined;
-            resourceInputs["resourceConfigurationArn"] = args ? args.resourceConfigurationArn : undefined;
-            resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["serviceNetworkArn"] = args ? args.serviceNetworkArn : undefined;
-            resourceInputs["serviceRegion"] = args ? args.serviceRegion : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcEndpointType"] = args ? args.vpcEndpointType : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["dnsOptions"] = args?.dnsOptions;
+            resourceInputs["ipAddressType"] = args?.ipAddressType;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["privateDnsEnabled"] = args?.privateDnsEnabled;
+            resourceInputs["resourceConfigurationArn"] = args?.resourceConfigurationArn;
+            resourceInputs["routeTableIds"] = args?.routeTableIds;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["serviceNetworkArn"] = args?.serviceNetworkArn;
+            resourceInputs["serviceRegion"] = args?.serviceRegion;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcEndpointType"] = args?.vpcEndpointType;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTimestamp"] = undefined /*out*/;
             resourceInputs["dnsEntries"] = undefined /*out*/;

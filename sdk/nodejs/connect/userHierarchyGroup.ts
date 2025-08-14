@@ -69,13 +69,13 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentGroupArn"] = args ? args.parentGroupArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentGroupArn"] = args?.parentGroupArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["userHierarchyGroupArn"] = undefined /*out*/;
         } else {
             resourceInputs["instanceArn"] = undefined /*out*/;

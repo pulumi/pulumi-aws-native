@@ -89,20 +89,20 @@ export class DataIntegration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kmsKey === undefined) && !opts.urn) {
+            if (args?.kmsKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kmsKey'");
             }
-            if ((!args || args.sourceUri === undefined) && !opts.urn) {
+            if (args?.sourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceUri'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fileConfiguration"] = args ? args.fileConfiguration : undefined;
-            resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["objectConfiguration"] = args ? args.objectConfiguration : undefined;
-            resourceInputs["scheduleConfig"] = args ? args.scheduleConfig : undefined;
-            resourceInputs["sourceUri"] = args ? args.sourceUri : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fileConfiguration"] = args?.fileConfiguration;
+            resourceInputs["kmsKey"] = args?.kmsKey;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["objectConfiguration"] = args?.objectConfiguration;
+            resourceInputs["scheduleConfig"] = args?.scheduleConfig;
+            resourceInputs["sourceUri"] = args?.sourceUri;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dataIntegrationArn"] = undefined /*out*/;
         } else {

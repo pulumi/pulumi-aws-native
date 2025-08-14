@@ -81,18 +81,18 @@ export class DirectoryBucket extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataRedundancy === undefined) && !opts.urn) {
+            if (args?.dataRedundancy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataRedundancy'");
             }
-            if ((!args || args.locationName === undefined) && !opts.urn) {
+            if (args?.locationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'locationName'");
             }
-            resourceInputs["bucketEncryption"] = args ? args.bucketEncryption : undefined;
-            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
-            resourceInputs["dataRedundancy"] = args ? args.dataRedundancy : undefined;
-            resourceInputs["lifecycleConfiguration"] = args ? args.lifecycleConfiguration : undefined;
-            resourceInputs["locationName"] = args ? args.locationName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bucketEncryption"] = args?.bucketEncryption;
+            resourceInputs["bucketName"] = args?.bucketName;
+            resourceInputs["dataRedundancy"] = args?.dataRedundancy;
+            resourceInputs["lifecycleConfiguration"] = args?.lifecycleConfiguration;
+            resourceInputs["locationName"] = args?.locationName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZoneName"] = undefined /*out*/;
         } else {

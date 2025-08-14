@@ -97,22 +97,22 @@ export class Queue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hoursOfOperationArn === undefined) && !opts.urn) {
+            if (args?.hoursOfOperationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hoursOfOperationArn'");
             }
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["hoursOfOperationArn"] = args ? args.hoursOfOperationArn : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["maxContacts"] = args ? args.maxContacts : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outboundCallerConfig"] = args ? args.outboundCallerConfig : undefined;
-            resourceInputs["outboundEmailConfig"] = args ? args.outboundEmailConfig : undefined;
-            resourceInputs["quickConnectArns"] = args ? args.quickConnectArns : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["hoursOfOperationArn"] = args?.hoursOfOperationArn;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["maxContacts"] = args?.maxContacts;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outboundCallerConfig"] = args?.outboundCallerConfig;
+            resourceInputs["outboundEmailConfig"] = args?.outboundEmailConfig;
+            resourceInputs["quickConnectArns"] = args?.quickConnectArns;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["queueArn"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

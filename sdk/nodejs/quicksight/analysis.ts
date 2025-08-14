@@ -119,26 +119,26 @@ export class Analysis extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.analysisId === undefined) && !opts.urn) {
+            if (args?.analysisId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'analysisId'");
             }
-            if ((!args || args.awsAccountId === undefined) && !opts.urn) {
+            if (args?.awsAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountId'");
             }
-            resourceInputs["analysisId"] = args ? args.analysisId : undefined;
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["errors"] = args ? args.errors : undefined;
-            resourceInputs["folderArns"] = args ? args.folderArns : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["sheets"] = args ? args.sheets : undefined;
-            resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["themeArn"] = args ? args.themeArn : undefined;
-            resourceInputs["validationStrategy"] = args ? args.validationStrategy : undefined;
+            resourceInputs["analysisId"] = args?.analysisId;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["errors"] = args?.errors;
+            resourceInputs["folderArns"] = args?.folderArns;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["sheets"] = args?.sheets;
+            resourceInputs["sourceEntity"] = args?.sourceEntity;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["themeArn"] = args?.themeArn;
+            resourceInputs["validationStrategy"] = args?.validationStrategy;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["dataSetArns"] = undefined /*out*/;

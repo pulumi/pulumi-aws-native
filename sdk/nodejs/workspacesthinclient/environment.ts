@@ -129,19 +129,19 @@ export class Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.desktopArn === undefined) && !opts.urn) {
+            if (args?.desktopArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'desktopArn'");
             }
-            resourceInputs["desiredSoftwareSetId"] = args ? args.desiredSoftwareSetId : undefined;
-            resourceInputs["desktopArn"] = args ? args.desktopArn : undefined;
-            resourceInputs["desktopEndpoint"] = args ? args.desktopEndpoint : undefined;
-            resourceInputs["deviceCreationTags"] = args ? args.deviceCreationTags : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["softwareSetUpdateMode"] = args ? args.softwareSetUpdateMode : undefined;
-            resourceInputs["softwareSetUpdateSchedule"] = args ? args.softwareSetUpdateSchedule : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["desiredSoftwareSetId"] = args?.desiredSoftwareSetId;
+            resourceInputs["desktopArn"] = args?.desktopArn;
+            resourceInputs["desktopEndpoint"] = args?.desktopEndpoint;
+            resourceInputs["deviceCreationTags"] = args?.deviceCreationTags;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["softwareSetUpdateMode"] = args?.softwareSetUpdateMode;
+            resourceInputs["softwareSetUpdateSchedule"] = args?.softwareSetUpdateSchedule;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["activationCode"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;

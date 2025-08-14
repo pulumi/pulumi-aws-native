@@ -105,13 +105,13 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["conformancePackInputParameters"] = args ? args.conformancePackInputParameters : undefined;
-            resourceInputs["deliveryS3Bucket"] = args ? args.deliveryS3Bucket : undefined;
-            resourceInputs["deliveryS3KeyPrefix"] = args ? args.deliveryS3KeyPrefix : undefined;
-            resourceInputs["excludedAccounts"] = args ? args.excludedAccounts : undefined;
-            resourceInputs["organizationConformancePackName"] = args ? args.organizationConformancePackName : undefined;
-            resourceInputs["templateBody"] = args ? args.templateBody : undefined;
-            resourceInputs["templateS3Uri"] = args ? args.templateS3Uri : undefined;
+            resourceInputs["conformancePackInputParameters"] = args?.conformancePackInputParameters;
+            resourceInputs["deliveryS3Bucket"] = args?.deliveryS3Bucket;
+            resourceInputs["deliveryS3KeyPrefix"] = args?.deliveryS3KeyPrefix;
+            resourceInputs["excludedAccounts"] = args?.excludedAccounts;
+            resourceInputs["organizationConformancePackName"] = args?.organizationConformancePackName;
+            resourceInputs["templateBody"] = args?.templateBody;
+            resourceInputs["templateS3Uri"] = args?.templateS3Uri;
         } else {
             resourceInputs["conformancePackInputParameters"] = undefined /*out*/;
             resourceInputs["deliveryS3Bucket"] = undefined /*out*/;

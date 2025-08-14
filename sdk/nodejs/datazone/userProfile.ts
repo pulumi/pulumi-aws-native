@@ -78,16 +78,16 @@ export class UserProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.userIdentifier === undefined) && !opts.urn) {
+            if (args?.userIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userIdentifier'");
             }
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["userIdentifier"] = args ? args.userIdentifier : undefined;
-            resourceInputs["userType"] = args ? args.userType : undefined;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["userIdentifier"] = args?.userIdentifier;
+            resourceInputs["userType"] = args?.userType;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["details"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;

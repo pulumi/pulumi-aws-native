@@ -82,10 +82,10 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.replicationConfiguration === undefined) && !opts.urn) {
+            if (args?.replicationConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicationConfiguration'");
             }
-            resourceInputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
+            resourceInputs["replicationConfiguration"] = args?.replicationConfiguration;
             resourceInputs["registryId"] = undefined /*out*/;
         } else {
             resourceInputs["registryId"] = undefined /*out*/;

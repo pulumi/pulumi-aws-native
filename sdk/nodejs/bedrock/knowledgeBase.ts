@@ -100,18 +100,18 @@ export class KnowledgeBase extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.knowledgeBaseConfiguration === undefined) && !opts.urn) {
+            if (args?.knowledgeBaseConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'knowledgeBaseConfiguration'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["knowledgeBaseConfiguration"] = args ? args.knowledgeBaseConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["knowledgeBaseConfiguration"] = args?.knowledgeBaseConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["storageConfiguration"] = args?.storageConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["failureReasons"] = undefined /*out*/;
             resourceInputs["knowledgeBaseArn"] = undefined /*out*/;

@@ -145,30 +145,30 @@ export class GlobalTable extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.attributeDefinitions === undefined) && !opts.urn) {
+            if (args?.attributeDefinitions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'attributeDefinitions'");
             }
-            if ((!args || args.keySchema === undefined) && !opts.urn) {
+            if (args?.keySchema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keySchema'");
             }
-            if ((!args || args.replicas === undefined) && !opts.urn) {
+            if (args?.replicas === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicas'");
             }
-            resourceInputs["attributeDefinitions"] = args ? args.attributeDefinitions : undefined;
-            resourceInputs["billingMode"] = args ? args.billingMode : undefined;
-            resourceInputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
-            resourceInputs["globalTableWitnesses"] = args ? args.globalTableWitnesses : undefined;
-            resourceInputs["keySchema"] = args ? args.keySchema : undefined;
-            resourceInputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
-            resourceInputs["multiRegionConsistency"] = args ? args.multiRegionConsistency : undefined;
-            resourceInputs["replicas"] = args ? args.replicas : undefined;
-            resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
-            resourceInputs["streamSpecification"] = args ? args.streamSpecification : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
-            resourceInputs["timeToLiveSpecification"] = args ? args.timeToLiveSpecification : undefined;
-            resourceInputs["warmThroughput"] = args ? args.warmThroughput : undefined;
-            resourceInputs["writeOnDemandThroughputSettings"] = args ? args.writeOnDemandThroughputSettings : undefined;
-            resourceInputs["writeProvisionedThroughputSettings"] = args ? args.writeProvisionedThroughputSettings : undefined;
+            resourceInputs["attributeDefinitions"] = args?.attributeDefinitions;
+            resourceInputs["billingMode"] = args?.billingMode;
+            resourceInputs["globalSecondaryIndexes"] = args?.globalSecondaryIndexes;
+            resourceInputs["globalTableWitnesses"] = args?.globalTableWitnesses;
+            resourceInputs["keySchema"] = args?.keySchema;
+            resourceInputs["localSecondaryIndexes"] = args?.localSecondaryIndexes;
+            resourceInputs["multiRegionConsistency"] = args?.multiRegionConsistency;
+            resourceInputs["replicas"] = args?.replicas;
+            resourceInputs["sseSpecification"] = args?.sseSpecification;
+            resourceInputs["streamSpecification"] = args?.streamSpecification;
+            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["timeToLiveSpecification"] = args?.timeToLiveSpecification;
+            resourceInputs["warmThroughput"] = args?.warmThroughput;
+            resourceInputs["writeOnDemandThroughputSettings"] = args?.writeOnDemandThroughputSettings;
+            resourceInputs["writeProvisionedThroughputSettings"] = args?.writeProvisionedThroughputSettings;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["streamArn"] = undefined /*out*/;
             resourceInputs["tableId"] = undefined /*out*/;

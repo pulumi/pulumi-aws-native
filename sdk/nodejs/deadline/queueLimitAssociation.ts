@@ -58,18 +58,18 @@ export class QueueLimitAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.farmId === undefined) && !opts.urn) {
+            if (args?.farmId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'farmId'");
             }
-            if ((!args || args.limitId === undefined) && !opts.urn) {
+            if (args?.limitId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'limitId'");
             }
-            if ((!args || args.queueId === undefined) && !opts.urn) {
+            if (args?.queueId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queueId'");
             }
-            resourceInputs["farmId"] = args ? args.farmId : undefined;
-            resourceInputs["limitId"] = args ? args.limitId : undefined;
-            resourceInputs["queueId"] = args ? args.queueId : undefined;
+            resourceInputs["farmId"] = args?.farmId;
+            resourceInputs["limitId"] = args?.limitId;
+            resourceInputs["queueId"] = args?.queueId;
         } else {
             resourceInputs["farmId"] = undefined /*out*/;
             resourceInputs["limitId"] = undefined /*out*/;

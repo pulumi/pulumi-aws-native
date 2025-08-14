@@ -117,33 +117,33 @@ export class SubscriptionTarget extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicableAssetTypes === undefined) && !opts.urn) {
+            if (args?.applicableAssetTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicableAssetTypes'");
             }
-            if ((!args || args.authorizedPrincipals === undefined) && !opts.urn) {
+            if (args?.authorizedPrincipals === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizedPrincipals'");
             }
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.environmentIdentifier === undefined) && !opts.urn) {
+            if (args?.environmentIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentIdentifier'");
             }
-            if ((!args || args.subscriptionTargetConfig === undefined) && !opts.urn) {
+            if (args?.subscriptionTargetConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionTargetConfig'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["applicableAssetTypes"] = args ? args.applicableAssetTypes : undefined;
-            resourceInputs["authorizedPrincipals"] = args ? args.authorizedPrincipals : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
-            resourceInputs["manageAccessRole"] = args ? args.manageAccessRole : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["provider"] = args ? args.provider : undefined;
-            resourceInputs["subscriptionTargetConfig"] = args ? args.subscriptionTargetConfig : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["applicableAssetTypes"] = args?.applicableAssetTypes;
+            resourceInputs["authorizedPrincipals"] = args?.authorizedPrincipals;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["environmentIdentifier"] = args?.environmentIdentifier;
+            resourceInputs["manageAccessRole"] = args?.manageAccessRole;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["provider"] = args?.provider;
+            resourceInputs["subscriptionTargetConfig"] = args?.subscriptionTargetConfig;
+            resourceInputs["type"] = args?.type;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;

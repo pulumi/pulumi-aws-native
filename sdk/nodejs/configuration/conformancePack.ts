@@ -105,13 +105,13 @@ export class ConformancePack extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["conformancePackInputParameters"] = args ? args.conformancePackInputParameters : undefined;
-            resourceInputs["conformancePackName"] = args ? args.conformancePackName : undefined;
-            resourceInputs["deliveryS3Bucket"] = args ? args.deliveryS3Bucket : undefined;
-            resourceInputs["deliveryS3KeyPrefix"] = args ? args.deliveryS3KeyPrefix : undefined;
-            resourceInputs["templateBody"] = args ? args.templateBody : undefined;
-            resourceInputs["templateS3Uri"] = args ? args.templateS3Uri : undefined;
-            resourceInputs["templateSsmDocumentDetails"] = args ? args.templateSsmDocumentDetails : undefined;
+            resourceInputs["conformancePackInputParameters"] = args?.conformancePackInputParameters;
+            resourceInputs["conformancePackName"] = args?.conformancePackName;
+            resourceInputs["deliveryS3Bucket"] = args?.deliveryS3Bucket;
+            resourceInputs["deliveryS3KeyPrefix"] = args?.deliveryS3KeyPrefix;
+            resourceInputs["templateBody"] = args?.templateBody;
+            resourceInputs["templateS3Uri"] = args?.templateS3Uri;
+            resourceInputs["templateSsmDocumentDetails"] = args?.templateSsmDocumentDetails;
         } else {
             resourceInputs["conformancePackInputParameters"] = undefined /*out*/;
             resourceInputs["conformancePackName"] = undefined /*out*/;

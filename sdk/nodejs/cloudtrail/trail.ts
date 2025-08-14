@@ -127,28 +127,28 @@ export class Trail extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.isLogging === undefined) && !opts.urn) {
+            if (args?.isLogging === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isLogging'");
             }
-            if ((!args || args.s3BucketName === undefined) && !opts.urn) {
+            if (args?.s3BucketName === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3BucketName'");
             }
-            resourceInputs["advancedEventSelectors"] = args ? args.advancedEventSelectors : undefined;
-            resourceInputs["cloudWatchLogsLogGroupArn"] = args ? args.cloudWatchLogsLogGroupArn : undefined;
-            resourceInputs["cloudWatchLogsRoleArn"] = args ? args.cloudWatchLogsRoleArn : undefined;
-            resourceInputs["enableLogFileValidation"] = args ? args.enableLogFileValidation : undefined;
-            resourceInputs["eventSelectors"] = args ? args.eventSelectors : undefined;
-            resourceInputs["includeGlobalServiceEvents"] = args ? args.includeGlobalServiceEvents : undefined;
-            resourceInputs["insightSelectors"] = args ? args.insightSelectors : undefined;
-            resourceInputs["isLogging"] = args ? args.isLogging : undefined;
-            resourceInputs["isMultiRegionTrail"] = args ? args.isMultiRegionTrail : undefined;
-            resourceInputs["isOrganizationTrail"] = args ? args.isOrganizationTrail : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["s3BucketName"] = args ? args.s3BucketName : undefined;
-            resourceInputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
-            resourceInputs["snsTopicName"] = args ? args.snsTopicName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trailName"] = args ? args.trailName : undefined;
+            resourceInputs["advancedEventSelectors"] = args?.advancedEventSelectors;
+            resourceInputs["cloudWatchLogsLogGroupArn"] = args?.cloudWatchLogsLogGroupArn;
+            resourceInputs["cloudWatchLogsRoleArn"] = args?.cloudWatchLogsRoleArn;
+            resourceInputs["enableLogFileValidation"] = args?.enableLogFileValidation;
+            resourceInputs["eventSelectors"] = args?.eventSelectors;
+            resourceInputs["includeGlobalServiceEvents"] = args?.includeGlobalServiceEvents;
+            resourceInputs["insightSelectors"] = args?.insightSelectors;
+            resourceInputs["isLogging"] = args?.isLogging;
+            resourceInputs["isMultiRegionTrail"] = args?.isMultiRegionTrail;
+            resourceInputs["isOrganizationTrail"] = args?.isOrganizationTrail;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["s3BucketName"] = args?.s3BucketName;
+            resourceInputs["s3KeyPrefix"] = args?.s3KeyPrefix;
+            resourceInputs["snsTopicName"] = args?.snsTopicName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trailName"] = args?.trailName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["snsTopicArn"] = undefined /*out*/;
         } else {

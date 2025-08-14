@@ -103,14 +103,14 @@ export class LogGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["dataProtectionPolicy"] = args ? args.dataProtectionPolicy : undefined;
-            resourceInputs["fieldIndexPolicies"] = args ? args.fieldIndexPolicies : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["logGroupClass"] = args ? args.logGroupClass : undefined;
-            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
-            resourceInputs["resourcePolicyDocument"] = args ? args.resourcePolicyDocument : undefined;
-            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataProtectionPolicy"] = args?.dataProtectionPolicy;
+            resourceInputs["fieldIndexPolicies"] = args?.fieldIndexPolicies;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["logGroupClass"] = args?.logGroupClass;
+            resourceInputs["logGroupName"] = args?.logGroupName;
+            resourceInputs["resourcePolicyDocument"] = args?.resourcePolicyDocument;
+            resourceInputs["retentionInDays"] = args?.retentionInDays;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

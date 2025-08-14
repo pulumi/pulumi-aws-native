@@ -69,16 +69,16 @@ export class LoggingConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.logDestinationConfigs === undefined) && !opts.urn) {
+            if (args?.logDestinationConfigs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logDestinationConfigs'");
             }
-            if ((!args || args.resourceArn === undefined) && !opts.urn) {
+            if (args?.resourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            resourceInputs["logDestinationConfigs"] = args ? args.logDestinationConfigs : undefined;
-            resourceInputs["loggingFilter"] = args ? args.loggingFilter : undefined;
-            resourceInputs["redactedFields"] = args ? args.redactedFields : undefined;
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
+            resourceInputs["logDestinationConfigs"] = args?.logDestinationConfigs;
+            resourceInputs["loggingFilter"] = args?.loggingFilter;
+            resourceInputs["redactedFields"] = args?.redactedFields;
+            resourceInputs["resourceArn"] = args?.resourceArn;
             resourceInputs["managedByFirewallManager"] = undefined /*out*/;
         } else {
             resourceInputs["logDestinationConfigs"] = undefined /*out*/;

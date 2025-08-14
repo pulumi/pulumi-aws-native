@@ -89,20 +89,20 @@ export class Schema extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.compatibility === undefined) && !opts.urn) {
+            if (args?.compatibility === undefined && !opts.urn) {
                 throw new Error("Missing required property 'compatibility'");
             }
-            if ((!args || args.dataFormat === undefined) && !opts.urn) {
+            if (args?.dataFormat === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFormat'");
             }
-            resourceInputs["checkpointVersion"] = args ? args.checkpointVersion : undefined;
-            resourceInputs["compatibility"] = args ? args.compatibility : undefined;
-            resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["registry"] = args ? args.registry : undefined;
-            resourceInputs["schemaDefinition"] = args ? args.schemaDefinition : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["checkpointVersion"] = args?.checkpointVersion;
+            resourceInputs["compatibility"] = args?.compatibility;
+            resourceInputs["dataFormat"] = args?.dataFormat;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["registry"] = args?.registry;
+            resourceInputs["schemaDefinition"] = args?.schemaDefinition;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["initialSchemaVersionId"] = undefined /*out*/;
         } else {

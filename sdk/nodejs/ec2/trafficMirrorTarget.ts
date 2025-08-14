@@ -70,11 +70,11 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["gatewayLoadBalancerEndpointId"] = args ? args.gatewayLoadBalancerEndpointId : undefined;
-            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            resourceInputs["networkLoadBalancerArn"] = args ? args.networkLoadBalancerArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["gatewayLoadBalancerEndpointId"] = args?.gatewayLoadBalancerEndpointId;
+            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
+            resourceInputs["networkLoadBalancerArn"] = args?.networkLoadBalancerArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

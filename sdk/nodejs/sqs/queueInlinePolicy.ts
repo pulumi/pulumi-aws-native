@@ -56,14 +56,14 @@ export class QueueInlinePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyDocument === undefined) && !opts.urn) {
+            if (args?.policyDocument === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if ((!args || args.queue === undefined) && !opts.urn) {
+            if (args?.queue === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queue'");
             }
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["queue"] = args ? args.queue : undefined;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["queue"] = args?.queue;
         } else {
             resourceInputs["policyDocument"] = undefined /*out*/;
             resourceInputs["queue"] = undefined /*out*/;

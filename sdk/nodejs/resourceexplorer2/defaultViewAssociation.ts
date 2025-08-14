@@ -54,10 +54,10 @@ export class DefaultViewAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.viewArn === undefined) && !opts.urn) {
+            if (args?.viewArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'viewArn'");
             }
-            resourceInputs["viewArn"] = args ? args.viewArn : undefined;
+            resourceInputs["viewArn"] = args?.viewArn;
             resourceInputs["associatedAwsPrincipal"] = undefined /*out*/;
         } else {
             resourceInputs["associatedAwsPrincipal"] = undefined /*out*/;

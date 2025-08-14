@@ -65,8 +65,8 @@ export class TrustStoreRevocation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["revocationContents"] = args ? args.revocationContents : undefined;
-            resourceInputs["trustStoreArn"] = args ? args.trustStoreArn : undefined;
+            resourceInputs["revocationContents"] = args?.revocationContents;
+            resourceInputs["trustStoreArn"] = args?.trustStoreArn;
             resourceInputs["revocationId"] = undefined /*out*/;
             resourceInputs["trustStoreRevocations"] = undefined /*out*/;
         } else {

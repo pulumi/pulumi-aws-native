@@ -61,9 +61,9 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["resourceLifecycleConfig"] = args ? args.resourceLifecycleConfig : undefined;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["resourceLifecycleConfig"] = args?.resourceLifecycleConfig;
         } else {
             resourceInputs["applicationName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

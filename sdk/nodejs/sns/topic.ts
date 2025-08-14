@@ -219,19 +219,19 @@ export class Topic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["archivePolicy"] = args ? args.archivePolicy : undefined;
-            resourceInputs["contentBasedDeduplication"] = args ? args.contentBasedDeduplication : undefined;
-            resourceInputs["dataProtectionPolicy"] = args ? args.dataProtectionPolicy : undefined;
-            resourceInputs["deliveryStatusLogging"] = args ? args.deliveryStatusLogging : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["fifoThroughputScope"] = args ? args.fifoThroughputScope : undefined;
-            resourceInputs["fifoTopic"] = args ? args.fifoTopic : undefined;
-            resourceInputs["kmsMasterKeyId"] = args ? args.kmsMasterKeyId : undefined;
-            resourceInputs["signatureVersion"] = args ? args.signatureVersion : undefined;
-            resourceInputs["subscription"] = args ? args.subscription : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topicName"] = args ? args.topicName : undefined;
-            resourceInputs["tracingConfig"] = args ? args.tracingConfig : undefined;
+            resourceInputs["archivePolicy"] = args?.archivePolicy;
+            resourceInputs["contentBasedDeduplication"] = args?.contentBasedDeduplication;
+            resourceInputs["dataProtectionPolicy"] = args?.dataProtectionPolicy;
+            resourceInputs["deliveryStatusLogging"] = args?.deliveryStatusLogging;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["fifoThroughputScope"] = args?.fifoThroughputScope;
+            resourceInputs["fifoTopic"] = args?.fifoTopic;
+            resourceInputs["kmsMasterKeyId"] = args?.kmsMasterKeyId;
+            resourceInputs["signatureVersion"] = args?.signatureVersion;
+            resourceInputs["subscription"] = args?.subscription;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topicName"] = args?.topicName;
+            resourceInputs["tracingConfig"] = args?.tracingConfig;
             resourceInputs["topicArn"] = undefined /*out*/;
         } else {
             resourceInputs["archivePolicy"] = undefined /*out*/;

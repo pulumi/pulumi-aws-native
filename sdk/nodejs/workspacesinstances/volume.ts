@@ -89,18 +89,18 @@ export class Volume extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
+            if (args?.availabilityZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["encrypted"] = args ? args.encrypted : undefined;
-            resourceInputs["iops"] = args ? args.iops : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["sizeInGb"] = args ? args.sizeInGb : undefined;
-            resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
-            resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
-            resourceInputs["throughput"] = args ? args.throughput : undefined;
-            resourceInputs["volumeType"] = args ? args.volumeType : undefined;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["encrypted"] = args?.encrypted;
+            resourceInputs["iops"] = args?.iops;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["sizeInGb"] = args?.sizeInGb;
+            resourceInputs["snapshotId"] = args?.snapshotId;
+            resourceInputs["tagSpecifications"] = args?.tagSpecifications;
+            resourceInputs["throughput"] = args?.throughput;
+            resourceInputs["volumeType"] = args?.volumeType;
             resourceInputs["volumeId"] = undefined /*out*/;
         } else {
             resourceInputs["availabilityZone"] = undefined /*out*/;

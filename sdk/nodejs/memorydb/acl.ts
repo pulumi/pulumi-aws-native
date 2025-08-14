@@ -69,9 +69,9 @@ export class Acl extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["aclName"] = args ? args.aclName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userNames"] = args ? args.userNames : undefined;
+            resourceInputs["aclName"] = args?.aclName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userNames"] = args?.userNames;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

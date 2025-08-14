@@ -156,32 +156,32 @@ export class Job extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["dataCatalogOutputs"] = args ? args.dataCatalogOutputs : undefined;
-            resourceInputs["databaseOutputs"] = args ? args.databaseOutputs : undefined;
-            resourceInputs["datasetName"] = args ? args.datasetName : undefined;
-            resourceInputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
-            resourceInputs["encryptionMode"] = args ? args.encryptionMode : undefined;
-            resourceInputs["jobSample"] = args ? args.jobSample : undefined;
-            resourceInputs["logSubscription"] = args ? args.logSubscription : undefined;
-            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
-            resourceInputs["maxRetries"] = args ? args.maxRetries : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outputLocation"] = args ? args.outputLocation : undefined;
-            resourceInputs["outputs"] = args ? args.outputs : undefined;
-            resourceInputs["profileConfiguration"] = args ? args.profileConfiguration : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["recipe"] = args ? args.recipe : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["validationConfigurations"] = args ? args.validationConfigurations : undefined;
+            resourceInputs["dataCatalogOutputs"] = args?.dataCatalogOutputs;
+            resourceInputs["databaseOutputs"] = args?.databaseOutputs;
+            resourceInputs["datasetName"] = args?.datasetName;
+            resourceInputs["encryptionKeyArn"] = args?.encryptionKeyArn;
+            resourceInputs["encryptionMode"] = args?.encryptionMode;
+            resourceInputs["jobSample"] = args?.jobSample;
+            resourceInputs["logSubscription"] = args?.logSubscription;
+            resourceInputs["maxCapacity"] = args?.maxCapacity;
+            resourceInputs["maxRetries"] = args?.maxRetries;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outputLocation"] = args?.outputLocation;
+            resourceInputs["outputs"] = args?.outputs;
+            resourceInputs["profileConfiguration"] = args?.profileConfiguration;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["recipe"] = args?.recipe;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeout"] = args?.timeout;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["validationConfigurations"] = args?.validationConfigurations;
         } else {
             resourceInputs["dataCatalogOutputs"] = undefined /*out*/;
             resourceInputs["databaseOutputs"] = undefined /*out*/;

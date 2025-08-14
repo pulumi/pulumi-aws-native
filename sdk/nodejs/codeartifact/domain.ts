@@ -319,10 +319,10 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
-            resourceInputs["permissionsPolicyDocument"] = args ? args.permissionsPolicyDocument : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["encryptionKey"] = args?.encryptionKey;
+            resourceInputs["permissionsPolicyDocument"] = args?.permissionsPolicyDocument;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;

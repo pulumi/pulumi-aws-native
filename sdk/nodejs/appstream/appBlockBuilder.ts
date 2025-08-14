@@ -105,26 +105,26 @@ export class AppBlockBuilder extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceType === undefined) && !opts.urn) {
+            if (args?.instanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            if ((!args || args.platform === undefined) && !opts.urn) {
+            if (args?.platform === undefined && !opts.urn) {
                 throw new Error("Missing required property 'platform'");
             }
-            if ((!args || args.vpcConfig === undefined) && !opts.urn) {
+            if (args?.vpcConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcConfig'");
             }
-            resourceInputs["accessEndpoints"] = args ? args.accessEndpoints : undefined;
-            resourceInputs["appBlockArns"] = args ? args.appBlockArns : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enableDefaultInternetAccess"] = args ? args.enableDefaultInternetAccess : undefined;
-            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["platform"] = args ? args.platform : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["accessEndpoints"] = args?.accessEndpoints;
+            resourceInputs["appBlockArns"] = args?.appBlockArns;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enableDefaultInternetAccess"] = args?.enableDefaultInternetAccess;
+            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["platform"] = args?.platform;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
         } else {

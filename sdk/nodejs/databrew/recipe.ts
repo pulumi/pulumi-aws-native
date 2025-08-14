@@ -98,13 +98,13 @@ export class Recipe extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.steps === undefined) && !opts.urn) {
+            if (args?.steps === undefined && !opts.urn) {
                 throw new Error("Missing required property 'steps'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["steps"] = args ? args.steps : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["steps"] = args?.steps;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

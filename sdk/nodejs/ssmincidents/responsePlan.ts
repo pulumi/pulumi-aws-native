@@ -85,17 +85,17 @@ export class ResponsePlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.incidentTemplate === undefined) && !opts.urn) {
+            if (args?.incidentTemplate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'incidentTemplate'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["chatChannel"] = args ? args.chatChannel : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["engagements"] = args ? args.engagements : undefined;
-            resourceInputs["incidentTemplate"] = args ? args.incidentTemplate : undefined;
-            resourceInputs["integrations"] = args ? args.integrations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["chatChannel"] = args?.chatChannel;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["engagements"] = args?.engagements;
+            resourceInputs["incidentTemplate"] = args?.incidentTemplate;
+            resourceInputs["integrations"] = args?.integrations;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["actions"] = undefined /*out*/;

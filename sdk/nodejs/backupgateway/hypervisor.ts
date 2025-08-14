@@ -81,13 +81,13 @@ export class Hypervisor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["host"] = args ? args.host : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["logGroupArn"] = args ? args.logGroupArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["host"] = args?.host;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["logGroupArn"] = args?.logGroupArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["username"] = args?.username;
             resourceInputs["hypervisorArn"] = undefined /*out*/;
         } else {
             resourceInputs["host"] = undefined /*out*/;

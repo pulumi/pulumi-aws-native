@@ -200,30 +200,30 @@ export class CapacityReservation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceCount === undefined) && !opts.urn) {
+            if (args?.instanceCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceCount'");
             }
-            if ((!args || args.instancePlatform === undefined) && !opts.urn) {
+            if (args?.instancePlatform === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instancePlatform'");
             }
-            if ((!args || args.instanceType === undefined) && !opts.urn) {
+            if (args?.instanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
-            resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
-            resourceInputs["endDate"] = args ? args.endDate : undefined;
-            resourceInputs["endDateType"] = args ? args.endDateType : undefined;
-            resourceInputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
-            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
-            resourceInputs["instanceMatchCriteria"] = args ? args.instanceMatchCriteria : undefined;
-            resourceInputs["instancePlatform"] = args ? args.instancePlatform : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["outPostArn"] = args ? args.outPostArn : undefined;
-            resourceInputs["placementGroupArn"] = args ? args.placementGroupArn : undefined;
-            resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
-            resourceInputs["tenancy"] = args ? args.tenancy : undefined;
-            resourceInputs["unusedReservationBillingOwnerId"] = args ? args.unusedReservationBillingOwnerId : undefined;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["availabilityZoneId"] = args?.availabilityZoneId;
+            resourceInputs["ebsOptimized"] = args?.ebsOptimized;
+            resourceInputs["endDate"] = args?.endDate;
+            resourceInputs["endDateType"] = args?.endDateType;
+            resourceInputs["ephemeralStorage"] = args?.ephemeralStorage;
+            resourceInputs["instanceCount"] = args?.instanceCount;
+            resourceInputs["instanceMatchCriteria"] = args?.instanceMatchCriteria;
+            resourceInputs["instancePlatform"] = args?.instancePlatform;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["outPostArn"] = args?.outPostArn;
+            resourceInputs["placementGroupArn"] = args?.placementGroupArn;
+            resourceInputs["tagSpecifications"] = args?.tagSpecifications;
+            resourceInputs["tenancy"] = args?.tenancy;
+            resourceInputs["unusedReservationBillingOwnerId"] = args?.unusedReservationBillingOwnerId;
             resourceInputs["availableInstanceCount"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["capacityAllocationSet"] = undefined /*out*/;

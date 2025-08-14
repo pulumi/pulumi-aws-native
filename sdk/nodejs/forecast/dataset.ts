@@ -83,22 +83,22 @@ export class Dataset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.datasetType === undefined) && !opts.urn) {
+            if (args?.datasetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datasetType'");
             }
-            if ((!args || args.domain === undefined) && !opts.urn) {
+            if (args?.domain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["dataFrequency"] = args ? args.dataFrequency : undefined;
-            resourceInputs["datasetName"] = args ? args.datasetName : undefined;
-            resourceInputs["datasetType"] = args ? args.datasetType : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataFrequency"] = args?.dataFrequency;
+            resourceInputs["datasetName"] = args?.datasetName;
+            resourceInputs["datasetType"] = args?.datasetType;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["encryptionConfig"] = args?.encryptionConfig;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

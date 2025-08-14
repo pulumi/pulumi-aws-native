@@ -86,16 +86,16 @@ export class DomainUnit extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.parentDomainUnitIdentifier === undefined) && !opts.urn) {
+            if (args?.parentDomainUnitIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentDomainUnitIdentifier'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentDomainUnitIdentifier"] = args ? args.parentDomainUnitIdentifier : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentDomainUnitIdentifier"] = args?.parentDomainUnitIdentifier;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;

@@ -61,14 +61,14 @@ export class RegistryScanningConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.rules === undefined) && !opts.urn) {
+            if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            if ((!args || args.scanType === undefined) && !opts.urn) {
+            if (args?.scanType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scanType'");
             }
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["scanType"] = args ? args.scanType : undefined;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["scanType"] = args?.scanType;
             resourceInputs["registryId"] = undefined /*out*/;
         } else {
             resourceInputs["registryId"] = undefined /*out*/;

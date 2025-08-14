@@ -73,13 +73,13 @@ export class StoredQuery extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.queryExpression === undefined) && !opts.urn) {
+            if (args?.queryExpression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryExpression'");
             }
-            resourceInputs["queryDescription"] = args ? args.queryDescription : undefined;
-            resourceInputs["queryExpression"] = args ? args.queryExpression : undefined;
-            resourceInputs["queryName"] = args ? args.queryName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["queryDescription"] = args?.queryDescription;
+            resourceInputs["queryExpression"] = args?.queryExpression;
+            resourceInputs["queryName"] = args?.queryName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["queryArn"] = undefined /*out*/;
             resourceInputs["queryId"] = undefined /*out*/;
         } else {

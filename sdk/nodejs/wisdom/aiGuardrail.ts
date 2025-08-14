@@ -105,26 +105,26 @@ export class AiGuardrail extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.assistantId === undefined) && !opts.urn) {
+            if (args?.assistantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assistantId'");
             }
-            if ((!args || args.blockedInputMessaging === undefined) && !opts.urn) {
+            if (args?.blockedInputMessaging === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blockedInputMessaging'");
             }
-            if ((!args || args.blockedOutputsMessaging === undefined) && !opts.urn) {
+            if (args?.blockedOutputsMessaging === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blockedOutputsMessaging'");
             }
-            resourceInputs["assistantId"] = args ? args.assistantId : undefined;
-            resourceInputs["blockedInputMessaging"] = args ? args.blockedInputMessaging : undefined;
-            resourceInputs["blockedOutputsMessaging"] = args ? args.blockedOutputsMessaging : undefined;
-            resourceInputs["contentPolicyConfig"] = args ? args.contentPolicyConfig : undefined;
-            resourceInputs["contextualGroundingPolicyConfig"] = args ? args.contextualGroundingPolicyConfig : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sensitiveInformationPolicyConfig"] = args ? args.sensitiveInformationPolicyConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topicPolicyConfig"] = args ? args.topicPolicyConfig : undefined;
-            resourceInputs["wordPolicyConfig"] = args ? args.wordPolicyConfig : undefined;
+            resourceInputs["assistantId"] = args?.assistantId;
+            resourceInputs["blockedInputMessaging"] = args?.blockedInputMessaging;
+            resourceInputs["blockedOutputsMessaging"] = args?.blockedOutputsMessaging;
+            resourceInputs["contentPolicyConfig"] = args?.contentPolicyConfig;
+            resourceInputs["contextualGroundingPolicyConfig"] = args?.contextualGroundingPolicyConfig;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sensitiveInformationPolicyConfig"] = args?.sensitiveInformationPolicyConfig;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topicPolicyConfig"] = args?.topicPolicyConfig;
+            resourceInputs["wordPolicyConfig"] = args?.wordPolicyConfig;
             resourceInputs["aiGuardrailArn"] = undefined /*out*/;
             resourceInputs["aiGuardrailId"] = undefined /*out*/;
             resourceInputs["assistantArn"] = undefined /*out*/;

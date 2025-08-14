@@ -108,19 +108,19 @@ export class TransitGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
-            resourceInputs["associationDefaultRouteTableId"] = args ? args.associationDefaultRouteTableId : undefined;
-            resourceInputs["autoAcceptSharedAttachments"] = args ? args.autoAcceptSharedAttachments : undefined;
-            resourceInputs["defaultRouteTableAssociation"] = args ? args.defaultRouteTableAssociation : undefined;
-            resourceInputs["defaultRouteTablePropagation"] = args ? args.defaultRouteTablePropagation : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dnsSupport"] = args ? args.dnsSupport : undefined;
-            resourceInputs["multicastSupport"] = args ? args.multicastSupport : undefined;
-            resourceInputs["propagationDefaultRouteTableId"] = args ? args.propagationDefaultRouteTableId : undefined;
-            resourceInputs["securityGroupReferencingSupport"] = args ? args.securityGroupReferencingSupport : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayCidrBlocks"] = args ? args.transitGatewayCidrBlocks : undefined;
-            resourceInputs["vpnEcmpSupport"] = args ? args.vpnEcmpSupport : undefined;
+            resourceInputs["amazonSideAsn"] = args?.amazonSideAsn;
+            resourceInputs["associationDefaultRouteTableId"] = args?.associationDefaultRouteTableId;
+            resourceInputs["autoAcceptSharedAttachments"] = args?.autoAcceptSharedAttachments;
+            resourceInputs["defaultRouteTableAssociation"] = args?.defaultRouteTableAssociation;
+            resourceInputs["defaultRouteTablePropagation"] = args?.defaultRouteTablePropagation;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["dnsSupport"] = args?.dnsSupport;
+            resourceInputs["multicastSupport"] = args?.multicastSupport;
+            resourceInputs["propagationDefaultRouteTableId"] = args?.propagationDefaultRouteTableId;
+            resourceInputs["securityGroupReferencingSupport"] = args?.securityGroupReferencingSupport;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayCidrBlocks"] = args?.transitGatewayCidrBlocks;
+            resourceInputs["vpnEcmpSupport"] = args?.vpnEcmpSupport;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["transitGatewayArn"] = undefined /*out*/;
         } else {

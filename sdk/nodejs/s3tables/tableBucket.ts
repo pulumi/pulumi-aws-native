@@ -65,9 +65,9 @@ export class TableBucket extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            resourceInputs["tableBucketName"] = args ? args.tableBucketName : undefined;
-            resourceInputs["unreferencedFileRemoval"] = args ? args.unreferencedFileRemoval : undefined;
+            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["tableBucketName"] = args?.tableBucketName;
+            resourceInputs["unreferencedFileRemoval"] = args?.unreferencedFileRemoval;
             resourceInputs["tableBucketArn"] = undefined /*out*/;
         } else {
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;

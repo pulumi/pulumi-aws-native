@@ -65,22 +65,22 @@ export class ProjectMembership extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.designation === undefined) && !opts.urn) {
+            if (args?.designation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'designation'");
             }
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.member === undefined) && !opts.urn) {
+            if (args?.member === undefined && !opts.urn) {
                 throw new Error("Missing required property 'member'");
             }
-            if ((!args || args.projectIdentifier === undefined) && !opts.urn) {
+            if (args?.projectIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectIdentifier'");
             }
-            resourceInputs["designation"] = args ? args.designation : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["member"] = args ? args.member : undefined;
-            resourceInputs["projectIdentifier"] = args ? args.projectIdentifier : undefined;
+            resourceInputs["designation"] = args?.designation;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["member"] = args?.member;
+            resourceInputs["projectIdentifier"] = args?.projectIdentifier;
         } else {
             resourceInputs["designation"] = undefined /*out*/;
             resourceInputs["domainIdentifier"] = undefined /*out*/;

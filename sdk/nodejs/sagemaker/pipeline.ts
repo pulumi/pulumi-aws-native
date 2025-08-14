@@ -116,19 +116,19 @@ export class Pipeline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.pipelineDefinition === undefined) && !opts.urn) {
+            if (args?.pipelineDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pipelineDefinition'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["parallelismConfiguration"] = args ? args.parallelismConfiguration : undefined;
-            resourceInputs["pipelineDefinition"] = args ? args.pipelineDefinition : undefined;
-            resourceInputs["pipelineDescription"] = args ? args.pipelineDescription : undefined;
-            resourceInputs["pipelineDisplayName"] = args ? args.pipelineDisplayName : undefined;
-            resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["parallelismConfiguration"] = args?.parallelismConfiguration;
+            resourceInputs["pipelineDefinition"] = args?.pipelineDefinition;
+            resourceInputs["pipelineDescription"] = args?.pipelineDescription;
+            resourceInputs["pipelineDisplayName"] = args?.pipelineDisplayName;
+            resourceInputs["pipelineName"] = args?.pipelineName;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["parallelismConfiguration"] = undefined /*out*/;
             resourceInputs["pipelineDefinition"] = undefined /*out*/;

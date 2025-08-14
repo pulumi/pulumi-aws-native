@@ -66,8 +66,8 @@ export class StaticIp extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["attachedTo"] = args ? args.attachedTo : undefined;
-            resourceInputs["staticIpName"] = args ? args.staticIpName : undefined;
+            resourceInputs["attachedTo"] = args?.attachedTo;
+            resourceInputs["staticIpName"] = args?.staticIpName;
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["isAttached"] = undefined /*out*/;
             resourceInputs["staticIpArn"] = undefined /*out*/;

@@ -86,18 +86,18 @@ export class TransitGatewayMulticastGroupSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupIpAddress === undefined) && !opts.urn) {
+            if (args?.groupIpAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupIpAddress'");
             }
-            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
+            if (args?.networkInterfaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            if ((!args || args.transitGatewayMulticastDomainId === undefined) && !opts.urn) {
+            if (args?.transitGatewayMulticastDomainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayMulticastDomainId'");
             }
-            resourceInputs["groupIpAddress"] = args ? args.groupIpAddress : undefined;
-            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            resourceInputs["transitGatewayMulticastDomainId"] = args ? args.transitGatewayMulticastDomainId : undefined;
+            resourceInputs["groupIpAddress"] = args?.groupIpAddress;
+            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
+            resourceInputs["transitGatewayMulticastDomainId"] = args?.transitGatewayMulticastDomainId;
             resourceInputs["groupMember"] = undefined /*out*/;
             resourceInputs["groupSource"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;

@@ -101,14 +101,14 @@ export class DataAutomationProject extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["customOutputConfiguration"] = args ? args.customOutputConfiguration : undefined;
-            resourceInputs["kmsEncryptionContext"] = args ? args.kmsEncryptionContext : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["overrideConfiguration"] = args ? args.overrideConfiguration : undefined;
-            resourceInputs["projectDescription"] = args ? args.projectDescription : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["standardOutputConfiguration"] = args ? args.standardOutputConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customOutputConfiguration"] = args?.customOutputConfiguration;
+            resourceInputs["kmsEncryptionContext"] = args?.kmsEncryptionContext;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["overrideConfiguration"] = args?.overrideConfiguration;
+            resourceInputs["projectDescription"] = args?.projectDescription;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["standardOutputConfiguration"] = args?.standardOutputConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["projectArn"] = undefined /*out*/;

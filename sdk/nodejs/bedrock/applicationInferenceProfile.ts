@@ -100,10 +100,10 @@ export class ApplicationInferenceProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["inferenceProfileName"] = args ? args.inferenceProfileName : undefined;
-            resourceInputs["modelSource"] = args ? args.modelSource : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["inferenceProfileName"] = args?.inferenceProfileName;
+            resourceInputs["modelSource"] = args?.modelSource;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["inferenceProfileArn"] = undefined /*out*/;
             resourceInputs["inferenceProfileId"] = undefined /*out*/;

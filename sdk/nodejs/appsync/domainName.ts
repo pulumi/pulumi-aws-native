@@ -77,16 +77,16 @@ export class DomainName extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.certificateArn === undefined) && !opts.urn) {
+            if (args?.certificateArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateArn'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["certificateArn"] = args?.certificateArn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["appSyncDomainName"] = undefined /*out*/;
             resourceInputs["domainNameArn"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;

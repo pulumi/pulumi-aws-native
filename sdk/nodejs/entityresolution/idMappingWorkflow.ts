@@ -80,22 +80,22 @@ export class IdMappingWorkflow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.idMappingTechniques === undefined) && !opts.urn) {
+            if (args?.idMappingTechniques === undefined && !opts.urn) {
                 throw new Error("Missing required property 'idMappingTechniques'");
             }
-            if ((!args || args.inputSourceConfig === undefined) && !opts.urn) {
+            if (args?.inputSourceConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inputSourceConfig'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["idMappingTechniques"] = args ? args.idMappingTechniques : undefined;
-            resourceInputs["inputSourceConfig"] = args ? args.inputSourceConfig : undefined;
-            resourceInputs["outputSourceConfig"] = args ? args.outputSourceConfig : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workflowName"] = args ? args.workflowName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["idMappingTechniques"] = args?.idMappingTechniques;
+            resourceInputs["inputSourceConfig"] = args?.inputSourceConfig;
+            resourceInputs["outputSourceConfig"] = args?.outputSourceConfig;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workflowName"] = args?.workflowName;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
             resourceInputs["workflowArn"] = undefined /*out*/;

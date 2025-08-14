@@ -58,14 +58,14 @@ export class SubnetNetworkAclAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkAclId === undefined) && !opts.urn) {
+            if (args?.networkAclId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkAclId'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["networkAclId"] = args ? args.networkAclId : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["networkAclId"] = args?.networkAclId;
+            resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["associationId"] = undefined /*out*/;
         } else {
             resourceInputs["associationId"] = undefined /*out*/;

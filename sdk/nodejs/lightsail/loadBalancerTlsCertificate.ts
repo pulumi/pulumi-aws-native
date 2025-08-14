@@ -78,18 +78,18 @@ export class LoadBalancerTlsCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.certificateDomainName === undefined) && !opts.urn) {
+            if (args?.certificateDomainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateDomainName'");
             }
-            if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
+            if (args?.loadBalancerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            resourceInputs["certificateAlternativeNames"] = args ? args.certificateAlternativeNames : undefined;
-            resourceInputs["certificateDomainName"] = args ? args.certificateDomainName : undefined;
-            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
-            resourceInputs["httpsRedirectionEnabled"] = args ? args.httpsRedirectionEnabled : undefined;
-            resourceInputs["isAttached"] = args ? args.isAttached : undefined;
-            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
+            resourceInputs["certificateAlternativeNames"] = args?.certificateAlternativeNames;
+            resourceInputs["certificateDomainName"] = args?.certificateDomainName;
+            resourceInputs["certificateName"] = args?.certificateName;
+            resourceInputs["httpsRedirectionEnabled"] = args?.httpsRedirectionEnabled;
+            resourceInputs["isAttached"] = args?.isAttached;
+            resourceInputs["loadBalancerName"] = args?.loadBalancerName;
             resourceInputs["loadBalancerTlsCertificateArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

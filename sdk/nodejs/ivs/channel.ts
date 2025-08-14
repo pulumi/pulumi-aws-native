@@ -157,16 +157,16 @@ export class Channel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["authorized"] = args ? args.authorized : undefined;
-            resourceInputs["containerFormat"] = args ? args.containerFormat : undefined;
-            resourceInputs["insecureIngest"] = args ? args.insecureIngest : undefined;
-            resourceInputs["latencyMode"] = args ? args.latencyMode : undefined;
-            resourceInputs["multitrackInputConfiguration"] = args ? args.multitrackInputConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["preset"] = args ? args.preset : undefined;
-            resourceInputs["recordingConfigurationArn"] = args ? args.recordingConfigurationArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["authorized"] = args?.authorized;
+            resourceInputs["containerFormat"] = args?.containerFormat;
+            resourceInputs["insecureIngest"] = args?.insecureIngest;
+            resourceInputs["latencyMode"] = args?.latencyMode;
+            resourceInputs["multitrackInputConfiguration"] = args?.multitrackInputConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["preset"] = args?.preset;
+            resourceInputs["recordingConfigurationArn"] = args?.recordingConfigurationArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ingestEndpoint"] = undefined /*out*/;
             resourceInputs["playbackUrl"] = undefined /*out*/;

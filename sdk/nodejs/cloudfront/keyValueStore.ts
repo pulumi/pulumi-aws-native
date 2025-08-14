@@ -73,9 +73,9 @@ export class KeyValueStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["importSource"] = args ? args.importSource : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["importSource"] = args?.importSource;
+            resourceInputs["name"] = args?.name;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

@@ -69,16 +69,16 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.studioLifecycleConfigAppType === undefined) && !opts.urn) {
+            if (args?.studioLifecycleConfigAppType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'studioLifecycleConfigAppType'");
             }
-            if ((!args || args.studioLifecycleConfigContent === undefined) && !opts.urn) {
+            if (args?.studioLifecycleConfigContent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'studioLifecycleConfigContent'");
             }
-            resourceInputs["studioLifecycleConfigAppType"] = args ? args.studioLifecycleConfigAppType : undefined;
-            resourceInputs["studioLifecycleConfigContent"] = args ? args.studioLifecycleConfigContent : undefined;
-            resourceInputs["studioLifecycleConfigName"] = args ? args.studioLifecycleConfigName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["studioLifecycleConfigAppType"] = args?.studioLifecycleConfigAppType;
+            resourceInputs["studioLifecycleConfigContent"] = args?.studioLifecycleConfigContent;
+            resourceInputs["studioLifecycleConfigName"] = args?.studioLifecycleConfigName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["studioLifecycleConfigArn"] = undefined /*out*/;
         } else {
             resourceInputs["studioLifecycleConfigAppType"] = undefined /*out*/;

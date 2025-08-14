@@ -113,15 +113,15 @@ export class PlaceIndex extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataSource === undefined) && !opts.urn) {
+            if (args?.dataSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSource'");
             }
-            resourceInputs["dataSource"] = args ? args.dataSource : undefined;
-            resourceInputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["indexName"] = args ? args.indexName : undefined;
-            resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataSource"] = args?.dataSource;
+            resourceInputs["dataSourceConfiguration"] = args?.dataSourceConfiguration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["indexName"] = args?.indexName;
+            resourceInputs["pricingPlan"] = args?.pricingPlan;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["indexArn"] = undefined /*out*/;

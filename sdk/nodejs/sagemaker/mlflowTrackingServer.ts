@@ -85,20 +85,20 @@ export class MlflowTrackingServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.artifactStoreUri === undefined) && !opts.urn) {
+            if (args?.artifactStoreUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'artifactStoreUri'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["artifactStoreUri"] = args ? args.artifactStoreUri : undefined;
-            resourceInputs["automaticModelRegistration"] = args ? args.automaticModelRegistration : undefined;
-            resourceInputs["mlflowVersion"] = args ? args.mlflowVersion : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trackingServerName"] = args ? args.trackingServerName : undefined;
-            resourceInputs["trackingServerSize"] = args ? args.trackingServerSize : undefined;
-            resourceInputs["weeklyMaintenanceWindowStart"] = args ? args.weeklyMaintenanceWindowStart : undefined;
+            resourceInputs["artifactStoreUri"] = args?.artifactStoreUri;
+            resourceInputs["automaticModelRegistration"] = args?.automaticModelRegistration;
+            resourceInputs["mlflowVersion"] = args?.mlflowVersion;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trackingServerName"] = args?.trackingServerName;
+            resourceInputs["trackingServerSize"] = args?.trackingServerSize;
+            resourceInputs["weeklyMaintenanceWindowStart"] = args?.weeklyMaintenanceWindowStart;
             resourceInputs["trackingServerArn"] = undefined /*out*/;
         } else {
             resourceInputs["artifactStoreUri"] = undefined /*out*/;

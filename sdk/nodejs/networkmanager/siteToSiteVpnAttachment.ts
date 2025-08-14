@@ -117,18 +117,18 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.coreNetworkId === undefined) && !opts.urn) {
+            if (args?.coreNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'coreNetworkId'");
             }
-            if ((!args || args.vpnConnectionArn === undefined) && !opts.urn) {
+            if (args?.vpnConnectionArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpnConnectionArn'");
             }
-            resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
-            resourceInputs["networkFunctionGroupName"] = args ? args.networkFunctionGroupName : undefined;
-            resourceInputs["proposedNetworkFunctionGroupChange"] = args ? args.proposedNetworkFunctionGroupChange : undefined;
-            resourceInputs["proposedSegmentChange"] = args ? args.proposedSegmentChange : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpnConnectionArn"] = args ? args.vpnConnectionArn : undefined;
+            resourceInputs["coreNetworkId"] = args?.coreNetworkId;
+            resourceInputs["networkFunctionGroupName"] = args?.networkFunctionGroupName;
+            resourceInputs["proposedNetworkFunctionGroupChange"] = args?.proposedNetworkFunctionGroupChange;
+            resourceInputs["proposedSegmentChange"] = args?.proposedSegmentChange;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpnConnectionArn"] = args?.vpnConnectionArn;
             resourceInputs["attachmentId"] = undefined /*out*/;
             resourceInputs["attachmentPolicyRuleNumber"] = undefined /*out*/;
             resourceInputs["attachmentType"] = undefined /*out*/;

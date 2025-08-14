@@ -175,22 +175,22 @@ export class Trigger extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventBatchingCondition"] = args ? args.eventBatchingCondition : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["predicate"] = args ? args.predicate : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["startOnCreation"] = args ? args.startOnCreation : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["workflowName"] = args ? args.workflowName : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventBatchingCondition"] = args?.eventBatchingCondition;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["predicate"] = args?.predicate;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["startOnCreation"] = args?.startOnCreation;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["workflowName"] = args?.workflowName;
         } else {
             resourceInputs["actions"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

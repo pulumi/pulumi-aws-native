@@ -105,23 +105,23 @@ export class Stage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["accessLogSetting"] = args ? args.accessLogSetting : undefined;
-            resourceInputs["cacheClusterEnabled"] = args ? args.cacheClusterEnabled : undefined;
-            resourceInputs["cacheClusterSize"] = args ? args.cacheClusterSize : undefined;
-            resourceInputs["canarySetting"] = args ? args.canarySetting : undefined;
-            resourceInputs["clientCertificateId"] = args ? args.clientCertificateId : undefined;
-            resourceInputs["deploymentId"] = args ? args.deploymentId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["documentationVersion"] = args ? args.documentationVersion : undefined;
-            resourceInputs["methodSettings"] = args ? args.methodSettings : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
-            resourceInputs["stageName"] = args ? args.stageName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tracingEnabled"] = args ? args.tracingEnabled : undefined;
-            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["accessLogSetting"] = args?.accessLogSetting;
+            resourceInputs["cacheClusterEnabled"] = args?.cacheClusterEnabled;
+            resourceInputs["cacheClusterSize"] = args?.cacheClusterSize;
+            resourceInputs["canarySetting"] = args?.canarySetting;
+            resourceInputs["clientCertificateId"] = args?.clientCertificateId;
+            resourceInputs["deploymentId"] = args?.deploymentId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["documentationVersion"] = args?.documentationVersion;
+            resourceInputs["methodSettings"] = args?.methodSettings;
+            resourceInputs["restApiId"] = args?.restApiId;
+            resourceInputs["stageName"] = args?.stageName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tracingEnabled"] = args?.tracingEnabled;
+            resourceInputs["variables"] = args?.variables;
         } else {
             resourceInputs["accessLogSetting"] = undefined /*out*/;
             resourceInputs["cacheClusterEnabled"] = undefined /*out*/;

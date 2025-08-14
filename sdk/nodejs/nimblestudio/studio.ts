@@ -59,21 +59,21 @@ export class Studio extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.adminRoleArn === undefined) && !opts.urn) {
+            if (args?.adminRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminRoleArn'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.userRoleArn === undefined) && !opts.urn) {
+            if (args?.userRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userRoleArn'");
             }
-            resourceInputs["adminRoleArn"] = args ? args.adminRoleArn : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["studioEncryptionConfiguration"] = args ? args.studioEncryptionConfiguration : undefined;
-            resourceInputs["studioName"] = args ? args.studioName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userRoleArn"] = args ? args.userRoleArn : undefined;
+            resourceInputs["adminRoleArn"] = args?.adminRoleArn;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["studioEncryptionConfiguration"] = args?.studioEncryptionConfiguration;
+            resourceInputs["studioName"] = args?.studioName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userRoleArn"] = args?.userRoleArn;
             resourceInputs["homeRegion"] = undefined /*out*/;
             resourceInputs["ssoClientId"] = undefined /*out*/;
             resourceInputs["studioId"] = undefined /*out*/;

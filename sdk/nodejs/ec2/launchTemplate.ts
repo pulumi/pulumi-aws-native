@@ -86,13 +86,13 @@ export class LaunchTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.launchTemplateData === undefined) && !opts.urn) {
+            if (args?.launchTemplateData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'launchTemplateData'");
             }
-            resourceInputs["launchTemplateData"] = args ? args.launchTemplateData : undefined;
-            resourceInputs["launchTemplateName"] = args ? args.launchTemplateName : undefined;
-            resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
-            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
+            resourceInputs["launchTemplateData"] = args?.launchTemplateData;
+            resourceInputs["launchTemplateName"] = args?.launchTemplateName;
+            resourceInputs["tagSpecifications"] = args?.tagSpecifications;
+            resourceInputs["versionDescription"] = args?.versionDescription;
             resourceInputs["defaultVersionNumber"] = undefined /*out*/;
             resourceInputs["latestVersionNumber"] = undefined /*out*/;
             resourceInputs["launchTemplateId"] = undefined /*out*/;

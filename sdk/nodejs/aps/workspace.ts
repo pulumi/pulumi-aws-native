@@ -144,13 +144,13 @@ export class Workspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["alertManagerDefinition"] = args ? args.alertManagerDefinition : undefined;
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
-            resourceInputs["queryLoggingConfiguration"] = args ? args.queryLoggingConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceConfiguration"] = args ? args.workspaceConfiguration : undefined;
+            resourceInputs["alertManagerDefinition"] = args?.alertManagerDefinition;
+            resourceInputs["alias"] = args?.alias;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
+            resourceInputs["queryLoggingConfiguration"] = args?.queryLoggingConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceConfiguration"] = args?.workspaceConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["prometheusEndpoint"] = undefined /*out*/;
             resourceInputs["workspaceId"] = undefined /*out*/;

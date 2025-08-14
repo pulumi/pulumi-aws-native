@@ -93,32 +93,32 @@ export class SyncConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.branch === undefined) && !opts.urn) {
+            if (args?.branch === undefined && !opts.urn) {
                 throw new Error("Missing required property 'branch'");
             }
-            if ((!args || args.configFile === undefined) && !opts.urn) {
+            if (args?.configFile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configFile'");
             }
-            if ((!args || args.repositoryLinkId === undefined) && !opts.urn) {
+            if (args?.repositoryLinkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repositoryLinkId'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.syncType === undefined) && !opts.urn) {
+            if (args?.syncType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'syncType'");
             }
-            resourceInputs["branch"] = args ? args.branch : undefined;
-            resourceInputs["configFile"] = args ? args.configFile : undefined;
-            resourceInputs["publishDeploymentStatus"] = args ? args.publishDeploymentStatus : undefined;
-            resourceInputs["repositoryLinkId"] = args ? args.repositoryLinkId : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["syncType"] = args ? args.syncType : undefined;
-            resourceInputs["triggerResourceUpdateOn"] = args ? args.triggerResourceUpdateOn : undefined;
+            resourceInputs["branch"] = args?.branch;
+            resourceInputs["configFile"] = args?.configFile;
+            resourceInputs["publishDeploymentStatus"] = args?.publishDeploymentStatus;
+            resourceInputs["repositoryLinkId"] = args?.repositoryLinkId;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["syncType"] = args?.syncType;
+            resourceInputs["triggerResourceUpdateOn"] = args?.triggerResourceUpdateOn;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["providerType"] = undefined /*out*/;
             resourceInputs["repositoryName"] = undefined /*out*/;

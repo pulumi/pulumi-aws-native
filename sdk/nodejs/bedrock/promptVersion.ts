@@ -97,12 +97,12 @@ export class PromptVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.promptArn === undefined) && !opts.urn) {
+            if (args?.promptArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'promptArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["promptArn"] = args ? args.promptArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["promptArn"] = args?.promptArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["customerEncryptionKeyArn"] = undefined /*out*/;

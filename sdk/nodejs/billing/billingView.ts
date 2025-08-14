@@ -89,14 +89,14 @@ export class BillingView extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sourceViews === undefined) && !opts.urn) {
+            if (args?.sourceViews === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceViews'");
             }
-            resourceInputs["dataFilterExpression"] = args ? args.dataFilterExpression : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sourceViews"] = args ? args.sourceViews : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataFilterExpression"] = args?.dataFilterExpression;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sourceViews"] = args?.sourceViews;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["billingViewType"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

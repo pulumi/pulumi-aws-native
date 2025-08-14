@@ -62,16 +62,16 @@ export class LoggingConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.firewallArn === undefined) && !opts.urn) {
+            if (args?.firewallArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firewallArn'");
             }
-            if ((!args || args.loggingConfiguration === undefined) && !opts.urn) {
+            if (args?.loggingConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loggingConfiguration'");
             }
-            resourceInputs["enableMonitoringDashboard"] = args ? args.enableMonitoringDashboard : undefined;
-            resourceInputs["firewallArn"] = args ? args.firewallArn : undefined;
-            resourceInputs["firewallName"] = args ? args.firewallName : undefined;
-            resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
+            resourceInputs["enableMonitoringDashboard"] = args?.enableMonitoringDashboard;
+            resourceInputs["firewallArn"] = args?.firewallArn;
+            resourceInputs["firewallName"] = args?.firewallName;
+            resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
         } else {
             resourceInputs["enableMonitoringDashboard"] = undefined /*out*/;
             resourceInputs["firewallArn"] = undefined /*out*/;

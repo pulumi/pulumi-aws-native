@@ -64,10 +64,10 @@ export class DelegatedAdmin extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.adminAccountId === undefined) && !opts.urn) {
+            if (args?.adminAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminAccountId'");
             }
-            resourceInputs["adminAccountId"] = args ? args.adminAccountId : undefined;
+            resourceInputs["adminAccountId"] = args?.adminAccountId;
             resourceInputs["delegatedAdminIdentifier"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

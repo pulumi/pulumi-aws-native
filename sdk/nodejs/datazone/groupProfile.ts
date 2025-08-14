@@ -73,15 +73,15 @@ export class GroupProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.groupIdentifier === undefined) && !opts.urn) {
+            if (args?.groupIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupIdentifier'");
             }
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["groupIdentifier"] = args ? args.groupIdentifier : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["groupIdentifier"] = args?.groupIdentifier;
+            resourceInputs["status"] = args?.status;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["groupName"] = undefined /*out*/;

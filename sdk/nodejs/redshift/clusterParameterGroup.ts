@@ -69,17 +69,17 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.parameterGroupFamily === undefined) && !opts.urn) {
+            if (args?.parameterGroupFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parameterGroupFamily'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["parameterGroupFamily"] = args ? args.parameterGroupFamily : undefined;
-            resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["parameterGroupFamily"] = args?.parameterGroupFamily;
+            resourceInputs["parameterGroupName"] = args?.parameterGroupName;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["parameterGroupFamily"] = undefined /*out*/;

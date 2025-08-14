@@ -81,22 +81,22 @@ export class FlowEntitlement extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.flowArn === undefined) && !opts.urn) {
+            if (args?.flowArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'flowArn'");
             }
-            if ((!args || args.subscribers === undefined) && !opts.urn) {
+            if (args?.subscribers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscribers'");
             }
-            resourceInputs["dataTransferSubscriberFeePercent"] = args ? args.dataTransferSubscriberFeePercent : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["entitlementStatus"] = args ? args.entitlementStatus : undefined;
-            resourceInputs["flowArn"] = args ? args.flowArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["subscribers"] = args ? args.subscribers : undefined;
+            resourceInputs["dataTransferSubscriberFeePercent"] = args?.dataTransferSubscriberFeePercent;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["entitlementStatus"] = args?.entitlementStatus;
+            resourceInputs["flowArn"] = args?.flowArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["subscribers"] = args?.subscribers;
             resourceInputs["entitlementArn"] = undefined /*out*/;
         } else {
             resourceInputs["dataTransferSubscriberFeePercent"] = undefined /*out*/;

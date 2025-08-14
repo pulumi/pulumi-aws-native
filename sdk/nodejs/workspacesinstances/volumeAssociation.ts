@@ -65,19 +65,19 @@ export class VolumeAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.device === undefined) && !opts.urn) {
+            if (args?.device === undefined && !opts.urn) {
                 throw new Error("Missing required property 'device'");
             }
-            if ((!args || args.volumeId === undefined) && !opts.urn) {
+            if (args?.volumeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeId'");
             }
-            if ((!args || args.workspaceInstanceId === undefined) && !opts.urn) {
+            if (args?.workspaceInstanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceInstanceId'");
             }
-            resourceInputs["device"] = args ? args.device : undefined;
-            resourceInputs["disassociateMode"] = args ? args.disassociateMode : undefined;
-            resourceInputs["volumeId"] = args ? args.volumeId : undefined;
-            resourceInputs["workspaceInstanceId"] = args ? args.workspaceInstanceId : undefined;
+            resourceInputs["device"] = args?.device;
+            resourceInputs["disassociateMode"] = args?.disassociateMode;
+            resourceInputs["volumeId"] = args?.volumeId;
+            resourceInputs["workspaceInstanceId"] = args?.workspaceInstanceId;
         } else {
             resourceInputs["device"] = undefined /*out*/;
             resourceInputs["disassociateMode"] = undefined /*out*/;

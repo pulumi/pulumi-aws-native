@@ -93,28 +93,28 @@ export class NotificationRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.detailType === undefined) && !opts.urn) {
+            if (args?.detailType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detailType'");
             }
-            if ((!args || args.eventTypeIds === undefined) && !opts.urn) {
+            if (args?.eventTypeIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventTypeIds'");
             }
-            if ((!args || args.resource === undefined) && !opts.urn) {
+            if (args?.resource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            if ((!args || args.targets === undefined) && !opts.urn) {
+            if (args?.targets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targets'");
             }
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["detailType"] = args ? args.detailType : undefined;
-            resourceInputs["eventTypeId"] = args ? args.eventTypeId : undefined;
-            resourceInputs["eventTypeIds"] = args ? args.eventTypeIds : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resource"] = args ? args.resource : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetAddress"] = args ? args.targetAddress : undefined;
-            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["createdBy"] = args?.createdBy;
+            resourceInputs["detailType"] = args?.detailType;
+            resourceInputs["eventTypeId"] = args?.eventTypeId;
+            resourceInputs["eventTypeIds"] = args?.eventTypeIds;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resource"] = args?.resource;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetAddress"] = args?.targetAddress;
+            resourceInputs["targets"] = args?.targets;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

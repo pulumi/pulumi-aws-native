@@ -74,13 +74,13 @@ export class SubnetCidrBlock extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
-            resourceInputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
-            resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["ipv6CidrBlock"] = args?.ipv6CidrBlock;
+            resourceInputs["ipv6IpamPoolId"] = args?.ipv6IpamPoolId;
+            resourceInputs["ipv6NetmaskLength"] = args?.ipv6NetmaskLength;
+            resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ipSource"] = undefined /*out*/;
             resourceInputs["ipv6AddressAttribute"] = undefined /*out*/;

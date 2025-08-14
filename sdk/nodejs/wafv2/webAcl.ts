@@ -143,29 +143,29 @@ export class WebAcl extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.defaultAction === undefined) && !opts.urn) {
+            if (args?.defaultAction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
+            if (args?.visibilityConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
-            resourceInputs["associationConfig"] = args ? args.associationConfig : undefined;
-            resourceInputs["captchaConfig"] = args ? args.captchaConfig : undefined;
-            resourceInputs["challengeConfig"] = args ? args.challengeConfig : undefined;
-            resourceInputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
-            resourceInputs["dataProtectionConfig"] = args ? args.dataProtectionConfig : undefined;
-            resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["onSourceDDoSProtectionConfig"] = args ? args.onSourceDDoSProtectionConfig : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tokenDomains"] = args ? args.tokenDomains : undefined;
-            resourceInputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
+            resourceInputs["associationConfig"] = args?.associationConfig;
+            resourceInputs["captchaConfig"] = args?.captchaConfig;
+            resourceInputs["challengeConfig"] = args?.challengeConfig;
+            resourceInputs["customResponseBodies"] = args?.customResponseBodies;
+            resourceInputs["dataProtectionConfig"] = args?.dataProtectionConfig;
+            resourceInputs["defaultAction"] = args?.defaultAction;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["onSourceDDoSProtectionConfig"] = args?.onSourceDDoSProtectionConfig;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tokenDomains"] = args?.tokenDomains;
+            resourceInputs["visibilityConfig"] = args?.visibilityConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["capacity"] = undefined /*out*/;

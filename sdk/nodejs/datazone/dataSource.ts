@@ -145,28 +145,28 @@ export class DataSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.projectIdentifier === undefined) && !opts.urn) {
+            if (args?.projectIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectIdentifier'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["assetFormsInput"] = args ? args.assetFormsInput : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["connectionIdentifier"] = args ? args.connectionIdentifier : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["enableSetting"] = args ? args.enableSetting : undefined;
-            resourceInputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectIdentifier"] = args ? args.projectIdentifier : undefined;
-            resourceInputs["publishOnImport"] = args ? args.publishOnImport : undefined;
-            resourceInputs["recommendation"] = args ? args.recommendation : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["assetFormsInput"] = args?.assetFormsInput;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["connectionIdentifier"] = args?.connectionIdentifier;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["enableSetting"] = args?.enableSetting;
+            resourceInputs["environmentIdentifier"] = args?.environmentIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectIdentifier"] = args?.projectIdentifier;
+            resourceInputs["publishOnImport"] = args?.publishOnImport;
+            resourceInputs["recommendation"] = args?.recommendation;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["type"] = args?.type;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["connectionId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

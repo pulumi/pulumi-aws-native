@@ -89,21 +89,21 @@ export class Campaign extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channelSubtypeConfig === undefined) && !opts.urn) {
+            if (args?.channelSubtypeConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelSubtypeConfig'");
             }
-            if ((!args || args.connectInstanceId === undefined) && !opts.urn) {
+            if (args?.connectInstanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectInstanceId'");
             }
-            resourceInputs["channelSubtypeConfig"] = args ? args.channelSubtypeConfig : undefined;
-            resourceInputs["communicationLimitsOverride"] = args ? args.communicationLimitsOverride : undefined;
-            resourceInputs["communicationTimeConfig"] = args ? args.communicationTimeConfig : undefined;
-            resourceInputs["connectCampaignFlowArn"] = args ? args.connectCampaignFlowArn : undefined;
-            resourceInputs["connectInstanceId"] = args ? args.connectInstanceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["channelSubtypeConfig"] = args?.channelSubtypeConfig;
+            resourceInputs["communicationLimitsOverride"] = args?.communicationLimitsOverride;
+            resourceInputs["communicationTimeConfig"] = args?.communicationTimeConfig;
+            resourceInputs["connectCampaignFlowArn"] = args?.connectCampaignFlowArn;
+            resourceInputs["connectInstanceId"] = args?.connectInstanceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

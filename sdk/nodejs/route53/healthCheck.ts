@@ -61,11 +61,11 @@ export class HealthCheck extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.healthCheckConfig === undefined) && !opts.urn) {
+            if (args?.healthCheckConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'healthCheckConfig'");
             }
-            resourceInputs["healthCheckConfig"] = args ? args.healthCheckConfig : undefined;
-            resourceInputs["healthCheckTags"] = args ? args.healthCheckTags : undefined;
+            resourceInputs["healthCheckConfig"] = args?.healthCheckConfig;
+            resourceInputs["healthCheckTags"] = args?.healthCheckTags;
             resourceInputs["healthCheckId"] = undefined /*out*/;
         } else {
             resourceInputs["healthCheckConfig"] = undefined /*out*/;

@@ -85,23 +85,23 @@ export class TransitGatewayPeeringAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.peerAccountId === undefined) && !opts.urn) {
+            if (args?.peerAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerAccountId'");
             }
-            if ((!args || args.peerRegion === undefined) && !opts.urn) {
+            if (args?.peerRegion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerRegion'");
             }
-            if ((!args || args.peerTransitGatewayId === undefined) && !opts.urn) {
+            if (args?.peerTransitGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerTransitGatewayId'");
             }
-            if ((!args || args.transitGatewayId === undefined) && !opts.urn) {
+            if (args?.transitGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
-            resourceInputs["peerAccountId"] = args ? args.peerAccountId : undefined;
-            resourceInputs["peerRegion"] = args ? args.peerRegion : undefined;
-            resourceInputs["peerTransitGatewayId"] = args ? args.peerTransitGatewayId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["peerAccountId"] = args?.peerAccountId;
+            resourceInputs["peerRegion"] = args?.peerRegion;
+            resourceInputs["peerTransitGatewayId"] = args?.peerTransitGatewayId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

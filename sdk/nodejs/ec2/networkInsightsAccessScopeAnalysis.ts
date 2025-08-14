@@ -89,11 +89,11 @@ export class NetworkInsightsAccessScopeAnalysis extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkInsightsAccessScopeId === undefined) && !opts.urn) {
+            if (args?.networkInsightsAccessScopeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInsightsAccessScopeId'");
             }
-            resourceInputs["networkInsightsAccessScopeId"] = args ? args.networkInsightsAccessScopeId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["networkInsightsAccessScopeId"] = args?.networkInsightsAccessScopeId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["analyzedEniCount"] = undefined /*out*/;
             resourceInputs["endDate"] = undefined /*out*/;
             resourceInputs["findingsFound"] = undefined /*out*/;

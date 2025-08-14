@@ -48,7 +48,7 @@ export class TransactionSearchConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["indexingPercentage"] = args ? args.indexingPercentage : undefined;
+            resourceInputs["indexingPercentage"] = args?.indexingPercentage;
             resourceInputs["accountId"] = undefined /*out*/;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;

@@ -137,26 +137,26 @@ export class ProcessingJob extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appSpecification === undefined) && !opts.urn) {
+            if (args?.appSpecification === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appSpecification'");
             }
-            if ((!args || args.processingResources === undefined) && !opts.urn) {
+            if (args?.processingResources === undefined && !opts.urn) {
                 throw new Error("Missing required property 'processingResources'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["appSpecification"] = args ? args.appSpecification : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["experimentConfig"] = args ? args.experimentConfig : undefined;
-            resourceInputs["networkConfig"] = args ? args.networkConfig : undefined;
-            resourceInputs["processingInputs"] = args ? args.processingInputs : undefined;
-            resourceInputs["processingJobName"] = args ? args.processingJobName : undefined;
-            resourceInputs["processingOutputConfig"] = args ? args.processingOutputConfig : undefined;
-            resourceInputs["processingResources"] = args ? args.processingResources : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["stoppingCondition"] = args ? args.stoppingCondition : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appSpecification"] = args?.appSpecification;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["experimentConfig"] = args?.experimentConfig;
+            resourceInputs["networkConfig"] = args?.networkConfig;
+            resourceInputs["processingInputs"] = args?.processingInputs;
+            resourceInputs["processingJobName"] = args?.processingJobName;
+            resourceInputs["processingOutputConfig"] = args?.processingOutputConfig;
+            resourceInputs["processingResources"] = args?.processingResources;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["stoppingCondition"] = args?.stoppingCondition;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["autoMlJobArn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["exitMessage"] = undefined /*out*/;

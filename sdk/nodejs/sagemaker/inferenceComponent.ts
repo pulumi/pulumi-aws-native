@@ -89,20 +89,20 @@ export class InferenceComponent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endpointName === undefined) && !opts.urn) {
+            if (args?.endpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.specification === undefined) && !opts.urn) {
+            if (args?.specification === undefined && !opts.urn) {
                 throw new Error("Missing required property 'specification'");
             }
-            resourceInputs["deploymentConfig"] = args ? args.deploymentConfig : undefined;
-            resourceInputs["endpointArn"] = args ? args.endpointArn : undefined;
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["inferenceComponentName"] = args ? args.inferenceComponentName : undefined;
-            resourceInputs["runtimeConfig"] = args ? args.runtimeConfig : undefined;
-            resourceInputs["specification"] = args ? args.specification : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["variantName"] = args ? args.variantName : undefined;
+            resourceInputs["deploymentConfig"] = args?.deploymentConfig;
+            resourceInputs["endpointArn"] = args?.endpointArn;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["inferenceComponentName"] = args?.inferenceComponentName;
+            resourceInputs["runtimeConfig"] = args?.runtimeConfig;
+            resourceInputs["specification"] = args?.specification;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["variantName"] = args?.variantName;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["failureReason"] = undefined /*out*/;
             resourceInputs["inferenceComponentArn"] = undefined /*out*/;

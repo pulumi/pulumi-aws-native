@@ -89,16 +89,16 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.engineType === undefined) && !opts.urn) {
+            if (args?.engineType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engineType'");
             }
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["engineType"] = args ? args.engineType : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["engineType"] = args?.engineType;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["applicationId"] = undefined /*out*/;
         } else {

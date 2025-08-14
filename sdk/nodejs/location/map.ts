@@ -97,14 +97,14 @@ export class Map extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["mapName"] = args ? args.mapName : undefined;
-            resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["mapName"] = args?.mapName;
+            resourceInputs["pricingPlan"] = args?.pricingPlan;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["mapArn"] = undefined /*out*/;

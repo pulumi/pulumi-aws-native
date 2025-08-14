@@ -96,14 +96,14 @@ export class Eip extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["address"] = args ? args.address : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
-            resourceInputs["networkBorderGroup"] = args ? args.networkBorderGroup : undefined;
-            resourceInputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transferAddress"] = args ? args.transferAddress : undefined;
+            resourceInputs["address"] = args?.address;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["ipamPoolId"] = args?.ipamPoolId;
+            resourceInputs["networkBorderGroup"] = args?.networkBorderGroup;
+            resourceInputs["publicIpv4Pool"] = args?.publicIpv4Pool;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transferAddress"] = args?.transferAddress;
             resourceInputs["allocationId"] = undefined /*out*/;
             resourceInputs["publicIp"] = undefined /*out*/;
         } else {

@@ -93,19 +93,19 @@ export class Delivery extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deliveryDestinationArn === undefined) && !opts.urn) {
+            if (args?.deliveryDestinationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deliveryDestinationArn'");
             }
-            if ((!args || args.deliverySourceName === undefined) && !opts.urn) {
+            if (args?.deliverySourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deliverySourceName'");
             }
-            resourceInputs["deliveryDestinationArn"] = args ? args.deliveryDestinationArn : undefined;
-            resourceInputs["deliverySourceName"] = args ? args.deliverySourceName : undefined;
-            resourceInputs["fieldDelimiter"] = args ? args.fieldDelimiter : undefined;
-            resourceInputs["recordFields"] = args ? args.recordFields : undefined;
-            resourceInputs["s3EnableHiveCompatiblePath"] = args ? args.s3EnableHiveCompatiblePath : undefined;
-            resourceInputs["s3SuffixPath"] = args ? args.s3SuffixPath : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deliveryDestinationArn"] = args?.deliveryDestinationArn;
+            resourceInputs["deliverySourceName"] = args?.deliverySourceName;
+            resourceInputs["fieldDelimiter"] = args?.fieldDelimiter;
+            resourceInputs["recordFields"] = args?.recordFields;
+            resourceInputs["s3EnableHiveCompatiblePath"] = args?.s3EnableHiveCompatiblePath;
+            resourceInputs["s3SuffixPath"] = args?.s3SuffixPath;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["deliveryDestinationType"] = undefined /*out*/;
             resourceInputs["deliveryId"] = undefined /*out*/;

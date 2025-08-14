@@ -85,13 +85,13 @@ export class ConfigurationPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configurationPolicy === undefined) && !opts.urn) {
+            if (args?.configurationPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationPolicy'");
             }
-            resourceInputs["configurationPolicy"] = args ? args.configurationPolicy : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configurationPolicy"] = args?.configurationPolicy;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

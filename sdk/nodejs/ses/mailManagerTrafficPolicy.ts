@@ -79,17 +79,17 @@ export class MailManagerTrafficPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.defaultAction === undefined) && !opts.urn) {
+            if (args?.defaultAction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            if ((!args || args.policyStatements === undefined) && !opts.urn) {
+            if (args?.policyStatements === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyStatements'");
             }
-            resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
-            resourceInputs["maxMessageSizeBytes"] = args ? args.maxMessageSizeBytes : undefined;
-            resourceInputs["policyStatements"] = args ? args.policyStatements : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficPolicyName"] = args ? args.trafficPolicyName : undefined;
+            resourceInputs["defaultAction"] = args?.defaultAction;
+            resourceInputs["maxMessageSizeBytes"] = args?.maxMessageSizeBytes;
+            resourceInputs["policyStatements"] = args?.policyStatements;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficPolicyName"] = args?.trafficPolicyName;
             resourceInputs["trafficPolicyArn"] = undefined /*out*/;
             resourceInputs["trafficPolicyId"] = undefined /*out*/;
         } else {

@@ -55,14 +55,14 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationCidrBlock === undefined) && !opts.urn) {
+            if (args?.destinationCidrBlock === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if ((!args || args.vpnConnectionId === undefined) && !opts.urn) {
+            if (args?.vpnConnectionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpnConnectionId'");
             }
-            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            resourceInputs["vpnConnectionId"] = args ? args.vpnConnectionId : undefined;
+            resourceInputs["destinationCidrBlock"] = args?.destinationCidrBlock;
+            resourceInputs["vpnConnectionId"] = args?.vpnConnectionId;
         } else {
             resourceInputs["destinationCidrBlock"] = undefined /*out*/;
             resourceInputs["vpnConnectionId"] = undefined /*out*/;

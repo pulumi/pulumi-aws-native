@@ -92,23 +92,23 @@ export class Permission extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.functionName === undefined) && !opts.urn) {
+            if (args?.functionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["eventSourceToken"] = args ? args.eventSourceToken : undefined;
-            resourceInputs["functionName"] = args ? args.functionName : undefined;
-            resourceInputs["functionUrlAuthType"] = args ? args.functionUrlAuthType : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["principalOrgId"] = args ? args.principalOrgId : undefined;
-            resourceInputs["sourceAccount"] = args ? args.sourceAccount : undefined;
-            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["eventSourceToken"] = args?.eventSourceToken;
+            resourceInputs["functionName"] = args?.functionName;
+            resourceInputs["functionUrlAuthType"] = args?.functionUrlAuthType;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["principalOrgId"] = args?.principalOrgId;
+            resourceInputs["sourceAccount"] = args?.sourceAccount;
+            resourceInputs["sourceArn"] = args?.sourceArn;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["action"] = undefined /*out*/;

@@ -78,19 +78,19 @@ export class SyncJob extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.syncRole === undefined) && !opts.urn) {
+            if (args?.syncRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'syncRole'");
             }
-            if ((!args || args.syncSource === undefined) && !opts.urn) {
+            if (args?.syncSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'syncSource'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["syncRole"] = args ? args.syncRole : undefined;
-            resourceInputs["syncSource"] = args ? args.syncSource : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["syncRole"] = args?.syncRole;
+            resourceInputs["syncSource"] = args?.syncSource;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDateTime"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

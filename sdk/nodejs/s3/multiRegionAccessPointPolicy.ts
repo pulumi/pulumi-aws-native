@@ -63,14 +63,14 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.mrapName === undefined) && !opts.urn) {
+            if (args?.mrapName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mrapName'");
             }
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["mrapName"] = args ? args.mrapName : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["mrapName"] = args?.mrapName;
+            resourceInputs["policy"] = args?.policy;
             resourceInputs["policyStatus"] = undefined /*out*/;
         } else {
             resourceInputs["mrapName"] = undefined /*out*/;

@@ -65,16 +65,16 @@ export class SubnetGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+            if (args?.subnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            resourceInputs["cacheSubnetGroupName"] = args ? args.cacheSubnetGroupName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cacheSubnetGroupName"] = args?.cacheSubnetGroupName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["cacheSubnetGroupName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

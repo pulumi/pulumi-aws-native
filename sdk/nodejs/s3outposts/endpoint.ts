@@ -97,21 +97,21 @@ export class Endpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.outpostId === undefined) && !opts.urn) {
+            if (args?.outpostId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outpostId'");
             }
-            if ((!args || args.securityGroupId === undefined) && !opts.urn) {
+            if (args?.securityGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupId'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["accessType"] = args ? args.accessType : undefined;
-            resourceInputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
-            resourceInputs["failedReason"] = args ? args.failedReason : undefined;
-            resourceInputs["outpostId"] = args ? args.outpostId : undefined;
-            resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["accessType"] = args?.accessType;
+            resourceInputs["customerOwnedIpv4Pool"] = args?.customerOwnedIpv4Pool;
+            resourceInputs["failedReason"] = args?.failedReason;
+            resourceInputs["outpostId"] = args?.outpostId;
+            resourceInputs["securityGroupId"] = args?.securityGroupId;
+            resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;

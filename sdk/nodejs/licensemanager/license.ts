@@ -101,35 +101,35 @@ export class License extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.consumptionConfiguration === undefined) && !opts.urn) {
+            if (args?.consumptionConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'consumptionConfiguration'");
             }
-            if ((!args || args.entitlements === undefined) && !opts.urn) {
+            if (args?.entitlements === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entitlements'");
             }
-            if ((!args || args.homeRegion === undefined) && !opts.urn) {
+            if (args?.homeRegion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'homeRegion'");
             }
-            if ((!args || args.issuer === undefined) && !opts.urn) {
+            if (args?.issuer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'issuer'");
             }
-            if ((!args || args.productName === undefined) && !opts.urn) {
+            if (args?.productName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productName'");
             }
-            if ((!args || args.validity === undefined) && !opts.urn) {
+            if (args?.validity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'validity'");
             }
-            resourceInputs["beneficiary"] = args ? args.beneficiary : undefined;
-            resourceInputs["consumptionConfiguration"] = args ? args.consumptionConfiguration : undefined;
-            resourceInputs["entitlements"] = args ? args.entitlements : undefined;
-            resourceInputs["homeRegion"] = args ? args.homeRegion : undefined;
-            resourceInputs["issuer"] = args ? args.issuer : undefined;
-            resourceInputs["licenseMetadata"] = args ? args.licenseMetadata : undefined;
-            resourceInputs["licenseName"] = args ? args.licenseName : undefined;
-            resourceInputs["productName"] = args ? args.productName : undefined;
-            resourceInputs["productSku"] = args ? args.productSku : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["validity"] = args ? args.validity : undefined;
+            resourceInputs["beneficiary"] = args?.beneficiary;
+            resourceInputs["consumptionConfiguration"] = args?.consumptionConfiguration;
+            resourceInputs["entitlements"] = args?.entitlements;
+            resourceInputs["homeRegion"] = args?.homeRegion;
+            resourceInputs["issuer"] = args?.issuer;
+            resourceInputs["licenseMetadata"] = args?.licenseMetadata;
+            resourceInputs["licenseName"] = args?.licenseName;
+            resourceInputs["productName"] = args?.productName;
+            resourceInputs["productSku"] = args?.productSku;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["validity"] = args?.validity;
             resourceInputs["licenseArn"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {

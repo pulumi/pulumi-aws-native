@@ -173,16 +173,16 @@ export class CloudExadataInfrastructure extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
-            resourceInputs["computeCount"] = args ? args.computeCount : undefined;
-            resourceInputs["customerContactsToSendToOci"] = args ? args.customerContactsToSendToOci : undefined;
-            resourceInputs["databaseServerType"] = args ? args.databaseServerType : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["shape"] = args ? args.shape : undefined;
-            resourceInputs["storageCount"] = args ? args.storageCount : undefined;
-            resourceInputs["storageServerType"] = args ? args.storageServerType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["availabilityZoneId"] = args?.availabilityZoneId;
+            resourceInputs["computeCount"] = args?.computeCount;
+            resourceInputs["customerContactsToSendToOci"] = args?.customerContactsToSendToOci;
+            resourceInputs["databaseServerType"] = args?.databaseServerType;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["shape"] = args?.shape;
+            resourceInputs["storageCount"] = args?.storageCount;
+            resourceInputs["storageServerType"] = args?.storageServerType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["activatedStorageCount"] = undefined /*out*/;
             resourceInputs["additionalStorageCount"] = undefined /*out*/;
             resourceInputs["availableStorageSizeInGbs"] = undefined /*out*/;

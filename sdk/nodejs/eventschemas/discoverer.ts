@@ -91,13 +91,13 @@ export class Discoverer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sourceArn === undefined) && !opts.urn) {
+            if (args?.sourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceArn'");
             }
-            resourceInputs["crossAccount"] = args ? args.crossAccount : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["crossAccount"] = args?.crossAccount;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["sourceArn"] = args?.sourceArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["discovererArn"] = undefined /*out*/;
             resourceInputs["discovererId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

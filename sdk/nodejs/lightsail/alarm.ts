@@ -98,32 +98,32 @@ export class Alarm extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.comparisonOperator === undefined) && !opts.urn) {
+            if (args?.comparisonOperator === undefined && !opts.urn) {
                 throw new Error("Missing required property 'comparisonOperator'");
             }
-            if ((!args || args.evaluationPeriods === undefined) && !opts.urn) {
+            if (args?.evaluationPeriods === undefined && !opts.urn) {
                 throw new Error("Missing required property 'evaluationPeriods'");
             }
-            if ((!args || args.metricName === undefined) && !opts.urn) {
+            if (args?.metricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
             }
-            if ((!args || args.monitoredResourceName === undefined) && !opts.urn) {
+            if (args?.monitoredResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitoredResourceName'");
             }
-            if ((!args || args.threshold === undefined) && !opts.urn) {
+            if (args?.threshold === undefined && !opts.urn) {
                 throw new Error("Missing required property 'threshold'");
             }
-            resourceInputs["alarmName"] = args ? args.alarmName : undefined;
-            resourceInputs["comparisonOperator"] = args ? args.comparisonOperator : undefined;
-            resourceInputs["contactProtocols"] = args ? args.contactProtocols : undefined;
-            resourceInputs["datapointsToAlarm"] = args ? args.datapointsToAlarm : undefined;
-            resourceInputs["evaluationPeriods"] = args ? args.evaluationPeriods : undefined;
-            resourceInputs["metricName"] = args ? args.metricName : undefined;
-            resourceInputs["monitoredResourceName"] = args ? args.monitoredResourceName : undefined;
-            resourceInputs["notificationEnabled"] = args ? args.notificationEnabled : undefined;
-            resourceInputs["notificationTriggers"] = args ? args.notificationTriggers : undefined;
-            resourceInputs["threshold"] = args ? args.threshold : undefined;
-            resourceInputs["treatMissingData"] = args ? args.treatMissingData : undefined;
+            resourceInputs["alarmName"] = args?.alarmName;
+            resourceInputs["comparisonOperator"] = args?.comparisonOperator;
+            resourceInputs["contactProtocols"] = args?.contactProtocols;
+            resourceInputs["datapointsToAlarm"] = args?.datapointsToAlarm;
+            resourceInputs["evaluationPeriods"] = args?.evaluationPeriods;
+            resourceInputs["metricName"] = args?.metricName;
+            resourceInputs["monitoredResourceName"] = args?.monitoredResourceName;
+            resourceInputs["notificationEnabled"] = args?.notificationEnabled;
+            resourceInputs["notificationTriggers"] = args?.notificationTriggers;
+            resourceInputs["threshold"] = args?.threshold;
+            resourceInputs["treatMissingData"] = args?.treatMissingData;
             resourceInputs["alarmArn"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {

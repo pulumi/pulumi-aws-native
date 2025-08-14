@@ -113,11 +113,11 @@ export class SecurityConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["iamIdentityCenterOptions"] = args ? args.iamIdentityCenterOptions : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["samlOptions"] = args ? args.samlOptions : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["iamIdentityCenterOptions"] = args?.iamIdentityCenterOptions;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["samlOptions"] = args?.samlOptions;
+            resourceInputs["type"] = args?.type;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

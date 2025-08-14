@@ -249,15 +249,15 @@ export class ResourceDataSync extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
-            resourceInputs["bucketPrefix"] = args ? args.bucketPrefix : undefined;
-            resourceInputs["bucketRegion"] = args ? args.bucketRegion : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["s3Destination"] = args ? args.s3Destination : undefined;
-            resourceInputs["syncFormat"] = args ? args.syncFormat : undefined;
-            resourceInputs["syncName"] = args ? args.syncName : undefined;
-            resourceInputs["syncSource"] = args ? args.syncSource : undefined;
-            resourceInputs["syncType"] = args ? args.syncType : undefined;
+            resourceInputs["bucketName"] = args?.bucketName;
+            resourceInputs["bucketPrefix"] = args?.bucketPrefix;
+            resourceInputs["bucketRegion"] = args?.bucketRegion;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["s3Destination"] = args?.s3Destination;
+            resourceInputs["syncFormat"] = args?.syncFormat;
+            resourceInputs["syncName"] = args?.syncName;
+            resourceInputs["syncSource"] = args?.syncSource;
+            resourceInputs["syncType"] = args?.syncType;
         } else {
             resourceInputs["bucketName"] = undefined /*out*/;
             resourceInputs["bucketPrefix"] = undefined /*out*/;

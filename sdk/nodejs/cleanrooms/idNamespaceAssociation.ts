@@ -94,18 +94,18 @@ export class IdNamespaceAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.inputReferenceConfig === undefined) && !opts.urn) {
+            if (args?.inputReferenceConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inputReferenceConfig'");
             }
-            if ((!args || args.membershipIdentifier === undefined) && !opts.urn) {
+            if (args?.membershipIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'membershipIdentifier'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["idMappingConfig"] = args ? args.idMappingConfig : undefined;
-            resourceInputs["inputReferenceConfig"] = args ? args.inputReferenceConfig : undefined;
-            resourceInputs["membershipIdentifier"] = args ? args.membershipIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["idMappingConfig"] = args?.idMappingConfig;
+            resourceInputs["inputReferenceConfig"] = args?.inputReferenceConfig;
+            resourceInputs["membershipIdentifier"] = args?.membershipIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collaborationArn"] = undefined /*out*/;
             resourceInputs["collaborationIdentifier"] = undefined /*out*/;

@@ -73,17 +73,17 @@ export class Filter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.filterAction === undefined) && !opts.urn) {
+            if (args?.filterAction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filterAction'");
             }
-            if ((!args || args.filterCriteria === undefined) && !opts.urn) {
+            if (args?.filterCriteria === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filterCriteria'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["filterAction"] = args ? args.filterAction : undefined;
-            resourceInputs["filterCriteria"] = args ? args.filterCriteria : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["filterAction"] = args?.filterAction;
+            resourceInputs["filterCriteria"] = args?.filterCriteria;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

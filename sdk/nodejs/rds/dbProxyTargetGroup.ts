@@ -73,17 +73,17 @@ export class DbProxyTargetGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dbProxyName === undefined) && !opts.urn) {
+            if (args?.dbProxyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbProxyName'");
             }
-            if ((!args || args.targetGroupName === undefined) && !opts.urn) {
+            if (args?.targetGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetGroupName'");
             }
-            resourceInputs["connectionPoolConfigurationInfo"] = args ? args.connectionPoolConfigurationInfo : undefined;
-            resourceInputs["dbClusterIdentifiers"] = args ? args.dbClusterIdentifiers : undefined;
-            resourceInputs["dbInstanceIdentifiers"] = args ? args.dbInstanceIdentifiers : undefined;
-            resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
-            resourceInputs["targetGroupName"] = args ? args.targetGroupName : undefined;
+            resourceInputs["connectionPoolConfigurationInfo"] = args?.connectionPoolConfigurationInfo;
+            resourceInputs["dbClusterIdentifiers"] = args?.dbClusterIdentifiers;
+            resourceInputs["dbInstanceIdentifiers"] = args?.dbInstanceIdentifiers;
+            resourceInputs["dbProxyName"] = args?.dbProxyName;
+            resourceInputs["targetGroupName"] = args?.targetGroupName;
             resourceInputs["targetGroupArn"] = undefined /*out*/;
         } else {
             resourceInputs["connectionPoolConfigurationInfo"] = undefined /*out*/;

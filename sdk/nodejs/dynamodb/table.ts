@@ -391,29 +391,29 @@ export class Table extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.keySchema === undefined) && !opts.urn) {
+            if (args?.keySchema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keySchema'");
             }
-            resourceInputs["attributeDefinitions"] = args ? args.attributeDefinitions : undefined;
-            resourceInputs["billingMode"] = args ? args.billingMode : undefined;
-            resourceInputs["contributorInsightsSpecification"] = args ? args.contributorInsightsSpecification : undefined;
-            resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
-            resourceInputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
-            resourceInputs["importSourceSpecification"] = args ? args.importSourceSpecification : undefined;
-            resourceInputs["keySchema"] = args ? args.keySchema : undefined;
-            resourceInputs["kinesisStreamSpecification"] = args ? args.kinesisStreamSpecification : undefined;
-            resourceInputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
-            resourceInputs["onDemandThroughput"] = args ? args.onDemandThroughput : undefined;
-            resourceInputs["pointInTimeRecoverySpecification"] = args ? args.pointInTimeRecoverySpecification : undefined;
-            resourceInputs["provisionedThroughput"] = args ? args.provisionedThroughput : undefined;
-            resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
-            resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
-            resourceInputs["streamSpecification"] = args ? args.streamSpecification : undefined;
-            resourceInputs["tableClass"] = args ? args.tableClass : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeToLiveSpecification"] = args ? args.timeToLiveSpecification : undefined;
-            resourceInputs["warmThroughput"] = args ? args.warmThroughput : undefined;
+            resourceInputs["attributeDefinitions"] = args?.attributeDefinitions;
+            resourceInputs["billingMode"] = args?.billingMode;
+            resourceInputs["contributorInsightsSpecification"] = args?.contributorInsightsSpecification;
+            resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
+            resourceInputs["globalSecondaryIndexes"] = args?.globalSecondaryIndexes;
+            resourceInputs["importSourceSpecification"] = args?.importSourceSpecification;
+            resourceInputs["keySchema"] = args?.keySchema;
+            resourceInputs["kinesisStreamSpecification"] = args?.kinesisStreamSpecification;
+            resourceInputs["localSecondaryIndexes"] = args?.localSecondaryIndexes;
+            resourceInputs["onDemandThroughput"] = args?.onDemandThroughput;
+            resourceInputs["pointInTimeRecoverySpecification"] = args?.pointInTimeRecoverySpecification;
+            resourceInputs["provisionedThroughput"] = args?.provisionedThroughput;
+            resourceInputs["resourcePolicy"] = args?.resourcePolicy;
+            resourceInputs["sseSpecification"] = args?.sseSpecification;
+            resourceInputs["streamSpecification"] = args?.streamSpecification;
+            resourceInputs["tableClass"] = args?.tableClass;
+            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeToLiveSpecification"] = args?.timeToLiveSpecification;
+            resourceInputs["warmThroughput"] = args?.warmThroughput;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["streamArn"] = undefined /*out*/;
         } else {

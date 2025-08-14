@@ -63,10 +63,10 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.continuousDeploymentPolicyConfig === undefined) && !opts.urn) {
+            if (args?.continuousDeploymentPolicyConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'continuousDeploymentPolicyConfig'");
             }
-            resourceInputs["continuousDeploymentPolicyConfig"] = args ? args.continuousDeploymentPolicyConfig : undefined;
+            resourceInputs["continuousDeploymentPolicyConfig"] = args?.continuousDeploymentPolicyConfig;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {

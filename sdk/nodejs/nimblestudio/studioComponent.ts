@@ -60,22 +60,22 @@ export class StudioComponent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.studioId === undefined) && !opts.urn) {
+            if (args?.studioId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'studioId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ec2SecurityGroupIds"] = args ? args.ec2SecurityGroupIds : undefined;
-            resourceInputs["initializationScripts"] = args ? args.initializationScripts : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["scriptParameters"] = args ? args.scriptParameters : undefined;
-            resourceInputs["studioId"] = args ? args.studioId : undefined;
-            resourceInputs["subtype"] = args ? args.subtype : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ec2SecurityGroupIds"] = args?.ec2SecurityGroupIds;
+            resourceInputs["initializationScripts"] = args?.initializationScripts;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["scriptParameters"] = args?.scriptParameters;
+            resourceInputs["studioId"] = args?.studioId;
+            resourceInputs["subtype"] = args?.subtype;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["studioComponentId"] = undefined /*out*/;
         } else {
             resourceInputs["configuration"] = undefined /*out*/;

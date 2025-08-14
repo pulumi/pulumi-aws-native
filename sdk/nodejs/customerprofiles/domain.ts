@@ -86,16 +86,16 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.defaultExpirationDays === undefined) && !opts.urn) {
+            if (args?.defaultExpirationDays === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultExpirationDays'");
             }
-            resourceInputs["deadLetterQueueUrl"] = args ? args.deadLetterQueueUrl : undefined;
-            resourceInputs["defaultEncryptionKey"] = args ? args.defaultEncryptionKey : undefined;
-            resourceInputs["defaultExpirationDays"] = args ? args.defaultExpirationDays : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["matching"] = args ? args.matching : undefined;
-            resourceInputs["ruleBasedMatching"] = args ? args.ruleBasedMatching : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deadLetterQueueUrl"] = args?.deadLetterQueueUrl;
+            resourceInputs["defaultEncryptionKey"] = args?.defaultEncryptionKey;
+            resourceInputs["defaultExpirationDays"] = args?.defaultExpirationDays;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["matching"] = args?.matching;
+            resourceInputs["ruleBasedMatching"] = args?.ruleBasedMatching;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["stats"] = undefined /*out*/;

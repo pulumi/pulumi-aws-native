@@ -85,14 +85,14 @@ export class SecurityProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["additionalMetricsToRetainV2"] = args ? args.additionalMetricsToRetainV2 : undefined;
-            resourceInputs["alertTargets"] = args ? args.alertTargets : undefined;
-            resourceInputs["behaviors"] = args ? args.behaviors : undefined;
-            resourceInputs["metricsExportConfig"] = args ? args.metricsExportConfig : undefined;
-            resourceInputs["securityProfileDescription"] = args ? args.securityProfileDescription : undefined;
-            resourceInputs["securityProfileName"] = args ? args.securityProfileName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetArns"] = args ? args.targetArns : undefined;
+            resourceInputs["additionalMetricsToRetainV2"] = args?.additionalMetricsToRetainV2;
+            resourceInputs["alertTargets"] = args?.alertTargets;
+            resourceInputs["behaviors"] = args?.behaviors;
+            resourceInputs["metricsExportConfig"] = args?.metricsExportConfig;
+            resourceInputs["securityProfileDescription"] = args?.securityProfileDescription;
+            resourceInputs["securityProfileName"] = args?.securityProfileName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetArns"] = args?.targetArns;
             resourceInputs["securityProfileArn"] = undefined /*out*/;
         } else {
             resourceInputs["additionalMetricsToRetainV2"] = undefined /*out*/;

@@ -149,24 +149,24 @@ export class MissionProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataflowEdges === undefined) && !opts.urn) {
+            if (args?.dataflowEdges === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataflowEdges'");
             }
-            if ((!args || args.minimumViableContactDurationSeconds === undefined) && !opts.urn) {
+            if (args?.minimumViableContactDurationSeconds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'minimumViableContactDurationSeconds'");
             }
-            if ((!args || args.trackingConfigArn === undefined) && !opts.urn) {
+            if (args?.trackingConfigArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trackingConfigArn'");
             }
-            resourceInputs["contactPostPassDurationSeconds"] = args ? args.contactPostPassDurationSeconds : undefined;
-            resourceInputs["contactPrePassDurationSeconds"] = args ? args.contactPrePassDurationSeconds : undefined;
-            resourceInputs["dataflowEdges"] = args ? args.dataflowEdges : undefined;
-            resourceInputs["minimumViableContactDurationSeconds"] = args ? args.minimumViableContactDurationSeconds : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["streamsKmsKey"] = args ? args.streamsKmsKey : undefined;
-            resourceInputs["streamsKmsRole"] = args ? args.streamsKmsRole : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trackingConfigArn"] = args ? args.trackingConfigArn : undefined;
+            resourceInputs["contactPostPassDurationSeconds"] = args?.contactPostPassDurationSeconds;
+            resourceInputs["contactPrePassDurationSeconds"] = args?.contactPrePassDurationSeconds;
+            resourceInputs["dataflowEdges"] = args?.dataflowEdges;
+            resourceInputs["minimumViableContactDurationSeconds"] = args?.minimumViableContactDurationSeconds;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["streamsKmsKey"] = args?.streamsKmsKey;
+            resourceInputs["streamsKmsRole"] = args?.streamsKmsRole;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trackingConfigArn"] = args?.trackingConfigArn;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["region"] = undefined /*out*/;

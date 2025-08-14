@@ -66,13 +66,13 @@ export class RequestValidator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
-            resourceInputs["validateRequestBody"] = args ? args.validateRequestBody : undefined;
-            resourceInputs["validateRequestParameters"] = args ? args.validateRequestParameters : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["restApiId"] = args?.restApiId;
+            resourceInputs["validateRequestBody"] = args?.validateRequestBody;
+            resourceInputs["validateRequestParameters"] = args?.validateRequestParameters;
             resourceInputs["requestValidatorId"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;

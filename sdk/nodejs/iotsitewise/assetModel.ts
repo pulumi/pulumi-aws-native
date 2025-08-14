@@ -93,15 +93,15 @@ export class AssetModel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["assetModelCompositeModels"] = args ? args.assetModelCompositeModels : undefined;
-            resourceInputs["assetModelDescription"] = args ? args.assetModelDescription : undefined;
-            resourceInputs["assetModelExternalId"] = args ? args.assetModelExternalId : undefined;
-            resourceInputs["assetModelHierarchies"] = args ? args.assetModelHierarchies : undefined;
-            resourceInputs["assetModelName"] = args ? args.assetModelName : undefined;
-            resourceInputs["assetModelProperties"] = args ? args.assetModelProperties : undefined;
-            resourceInputs["assetModelType"] = args ? args.assetModelType : undefined;
-            resourceInputs["enforcedAssetModelInterfaceRelationships"] = args ? args.enforcedAssetModelInterfaceRelationships : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assetModelCompositeModels"] = args?.assetModelCompositeModels;
+            resourceInputs["assetModelDescription"] = args?.assetModelDescription;
+            resourceInputs["assetModelExternalId"] = args?.assetModelExternalId;
+            resourceInputs["assetModelHierarchies"] = args?.assetModelHierarchies;
+            resourceInputs["assetModelName"] = args?.assetModelName;
+            resourceInputs["assetModelProperties"] = args?.assetModelProperties;
+            resourceInputs["assetModelType"] = args?.assetModelType;
+            resourceInputs["enforcedAssetModelInterfaceRelationships"] = args?.enforcedAssetModelInterfaceRelationships;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["assetModelArn"] = undefined /*out*/;
             resourceInputs["assetModelId"] = undefined /*out*/;
         } else {

@@ -148,18 +148,18 @@ export class Fleet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["baseCapacity"] = args ? args.baseCapacity : undefined;
-            resourceInputs["computeConfiguration"] = args ? args.computeConfiguration : undefined;
-            resourceInputs["computeType"] = args ? args.computeType : undefined;
-            resourceInputs["environmentType"] = args ? args.environmentType : undefined;
-            resourceInputs["fleetProxyConfiguration"] = args ? args.fleetProxyConfiguration : undefined;
-            resourceInputs["fleetServiceRole"] = args ? args.fleetServiceRole : undefined;
-            resourceInputs["fleetVpcConfig"] = args ? args.fleetVpcConfig : undefined;
-            resourceInputs["imageId"] = args ? args.imageId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["overflowBehavior"] = args ? args.overflowBehavior : undefined;
-            resourceInputs["scalingConfiguration"] = args ? args.scalingConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["baseCapacity"] = args?.baseCapacity;
+            resourceInputs["computeConfiguration"] = args?.computeConfiguration;
+            resourceInputs["computeType"] = args?.computeType;
+            resourceInputs["environmentType"] = args?.environmentType;
+            resourceInputs["fleetProxyConfiguration"] = args?.fleetProxyConfiguration;
+            resourceInputs["fleetServiceRole"] = args?.fleetServiceRole;
+            resourceInputs["fleetVpcConfig"] = args?.fleetVpcConfig;
+            resourceInputs["imageId"] = args?.imageId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["overflowBehavior"] = args?.overflowBehavior;
+            resourceInputs["scalingConfiguration"] = args?.scalingConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

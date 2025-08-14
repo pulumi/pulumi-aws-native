@@ -77,12 +77,12 @@ export class Stream extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["dataRetentionInHours"] = args ? args.dataRetentionInHours : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["mediaType"] = args ? args.mediaType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataRetentionInHours"] = args?.dataRetentionInHours;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["mediaType"] = args?.mediaType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

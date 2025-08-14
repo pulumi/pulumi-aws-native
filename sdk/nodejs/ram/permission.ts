@@ -86,16 +86,16 @@ export class Permission extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyTemplate === undefined) && !opts.urn) {
+            if (args?.policyTemplate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyTemplate'");
             }
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyTemplate"] = args ? args.policyTemplate : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyTemplate"] = args?.policyTemplate;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["isResourceTypeDefault"] = undefined /*out*/;
             resourceInputs["permissionType"] = undefined /*out*/;

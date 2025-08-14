@@ -82,28 +82,28 @@ export class Rule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.function === undefined) && !opts.urn) {
+            if (args?.function === undefined && !opts.urn) {
                 throw new Error("Missing required property 'function'");
             }
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.publishStatus === undefined) && !opts.urn) {
+            if (args?.publishStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publishStatus'");
             }
-            if ((!args || args.triggerEventSource === undefined) && !opts.urn) {
+            if (args?.triggerEventSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'triggerEventSource'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["function"] = args ? args.function : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publishStatus"] = args ? args.publishStatus : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["triggerEventSource"] = args ? args.triggerEventSource : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["function"] = args?.function;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publishStatus"] = args?.publishStatus;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["triggerEventSource"] = args?.triggerEventSource;
             resourceInputs["ruleArn"] = undefined /*out*/;
         } else {
             resourceInputs["actions"] = undefined /*out*/;

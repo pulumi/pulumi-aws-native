@@ -77,23 +77,23 @@ export class PrincipalPermissions extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.permissions === undefined) && !opts.urn) {
+            if (args?.permissions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permissions'");
             }
-            if ((!args || args.permissionsWithGrantOption === undefined) && !opts.urn) {
+            if (args?.permissionsWithGrantOption === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permissionsWithGrantOption'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            if ((!args || args.resource === undefined) && !opts.urn) {
+            if (args?.resource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            resourceInputs["catalog"] = args ? args.catalog : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["permissionsWithGrantOption"] = args ? args.permissionsWithGrantOption : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["catalog"] = args?.catalog;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["permissionsWithGrantOption"] = args?.permissionsWithGrantOption;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["resource"] = args?.resource;
             resourceInputs["principalIdentifier"] = undefined /*out*/;
             resourceInputs["resourceIdentifier"] = undefined /*out*/;
         } else {

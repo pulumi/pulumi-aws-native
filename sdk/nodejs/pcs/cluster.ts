@@ -93,21 +93,21 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networking === undefined) && !opts.urn) {
+            if (args?.networking === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networking'");
             }
-            if ((!args || args.scheduler === undefined) && !opts.urn) {
+            if (args?.scheduler === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduler'");
             }
-            if ((!args || args.size === undefined) && !opts.urn) {
+            if (args?.size === undefined && !opts.urn) {
                 throw new Error("Missing required property 'size'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networking"] = args ? args.networking : undefined;
-            resourceInputs["scheduler"] = args ? args.scheduler : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
-            resourceInputs["slurmConfiguration"] = args ? args.slurmConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networking"] = args?.networking;
+            resourceInputs["scheduler"] = args?.scheduler;
+            resourceInputs["size"] = args?.size;
+            resourceInputs["slurmConfiguration"] = args?.slurmConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;

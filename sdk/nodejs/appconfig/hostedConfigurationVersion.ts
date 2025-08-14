@@ -78,25 +78,25 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.configurationProfileId === undefined) && !opts.urn) {
+            if (args?.configurationProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationProfileId'");
             }
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.contentType === undefined) && !opts.urn) {
+            if (args?.contentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentType'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["configurationProfileId"] = args ? args.configurationProfileId : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["latestVersionNumber"] = args ? args.latestVersionNumber : undefined;
-            resourceInputs["versionLabel"] = args ? args.versionLabel : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["configurationProfileId"] = args?.configurationProfileId;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["latestVersionNumber"] = args?.latestVersionNumber;
+            resourceInputs["versionLabel"] = args?.versionLabel;
             resourceInputs["versionNumber"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;

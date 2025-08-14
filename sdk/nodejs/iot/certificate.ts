@@ -91,14 +91,14 @@ export class Certificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["caCertificatePem"] = args ? args.caCertificatePem : undefined;
-            resourceInputs["certificateMode"] = args ? args.certificateMode : undefined;
-            resourceInputs["certificatePem"] = args ? args.certificatePem : undefined;
-            resourceInputs["certificateSigningRequest"] = args ? args.certificateSigningRequest : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["caCertificatePem"] = args?.caCertificatePem;
+            resourceInputs["certificateMode"] = args?.certificateMode;
+            resourceInputs["certificatePem"] = args?.certificatePem;
+            resourceInputs["certificateSigningRequest"] = args?.certificateSigningRequest;
+            resourceInputs["status"] = args?.status;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

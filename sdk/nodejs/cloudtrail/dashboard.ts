@@ -89,11 +89,11 @@ export class Dashboard extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["refreshSchedule"] = args ? args.refreshSchedule : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["terminationProtectionEnabled"] = args ? args.terminationProtectionEnabled : undefined;
-            resourceInputs["widgets"] = args ? args.widgets : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["refreshSchedule"] = args?.refreshSchedule;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["terminationProtectionEnabled"] = args?.terminationProtectionEnabled;
+            resourceInputs["widgets"] = args?.widgets;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["dashboardArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

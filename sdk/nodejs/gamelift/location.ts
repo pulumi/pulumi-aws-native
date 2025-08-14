@@ -61,8 +61,8 @@ export class Location extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["locationName"] = args ? args.locationName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["locationName"] = args?.locationName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["locationArn"] = undefined /*out*/;
         } else {
             resourceInputs["locationArn"] = undefined /*out*/;

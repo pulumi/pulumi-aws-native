@@ -67,11 +67,11 @@ export class MailManagerAddonSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.addonName === undefined) && !opts.urn) {
+            if (args?.addonName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addonName'");
             }
-            resourceInputs["addonName"] = args ? args.addonName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addonName"] = args?.addonName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["addonSubscriptionArn"] = undefined /*out*/;
             resourceInputs["addonSubscriptionId"] = undefined /*out*/;
         } else {

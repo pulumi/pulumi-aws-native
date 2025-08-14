@@ -69,17 +69,17 @@ export class DeviceFleet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.outputConfig === undefined) && !opts.urn) {
+            if (args?.outputConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outputConfig'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["deviceFleetName"] = args ? args.deviceFleetName : undefined;
-            resourceInputs["outputConfig"] = args ? args.outputConfig : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["deviceFleetName"] = args?.deviceFleetName;
+            resourceInputs["outputConfig"] = args?.outputConfig;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["deviceFleetName"] = undefined /*out*/;

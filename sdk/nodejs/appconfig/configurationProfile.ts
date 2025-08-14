@@ -97,22 +97,22 @@ export class ConfigurationProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.locationUri === undefined) && !opts.urn) {
+            if (args?.locationUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'locationUri'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["deletionProtectionCheck"] = args ? args.deletionProtectionCheck : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
-            resourceInputs["locationUri"] = args ? args.locationUri : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["retrievalRoleArn"] = args ? args.retrievalRoleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["validators"] = args ? args.validators : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["deletionProtectionCheck"] = args?.deletionProtectionCheck;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
+            resourceInputs["locationUri"] = args?.locationUri;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["retrievalRoleArn"] = args?.retrievalRoleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["validators"] = args?.validators;
             resourceInputs["configurationProfileId"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
         } else {

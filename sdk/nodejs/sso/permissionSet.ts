@@ -97,19 +97,19 @@ export class PermissionSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["customerManagedPolicyReferences"] = args ? args.customerManagedPolicyReferences : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["inlinePolicy"] = args ? args.inlinePolicy : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["managedPolicies"] = args ? args.managedPolicies : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
-            resourceInputs["relayStateType"] = args ? args.relayStateType : undefined;
-            resourceInputs["sessionDuration"] = args ? args.sessionDuration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customerManagedPolicyReferences"] = args?.customerManagedPolicyReferences;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["inlinePolicy"] = args?.inlinePolicy;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["managedPolicies"] = args?.managedPolicies;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissionsBoundary"] = args?.permissionsBoundary;
+            resourceInputs["relayStateType"] = args?.relayStateType;
+            resourceInputs["sessionDuration"] = args?.sessionDuration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["permissionSetArn"] = undefined /*out*/;
         } else {
             resourceInputs["customerManagedPolicyReferences"] = undefined /*out*/;

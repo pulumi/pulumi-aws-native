@@ -105,16 +105,16 @@ export class Dataset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.input === undefined) && !opts.urn) {
+            if (args?.input === undefined && !opts.urn) {
                 throw new Error("Missing required property 'input'");
             }
-            resourceInputs["format"] = args ? args.format : undefined;
-            resourceInputs["formatOptions"] = args ? args.formatOptions : undefined;
-            resourceInputs["input"] = args ? args.input : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pathOptions"] = args ? args.pathOptions : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["format"] = args?.format;
+            resourceInputs["formatOptions"] = args?.formatOptions;
+            resourceInputs["input"] = args?.input;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pathOptions"] = args?.pathOptions;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["format"] = undefined /*out*/;
             resourceInputs["formatOptions"] = undefined /*out*/;

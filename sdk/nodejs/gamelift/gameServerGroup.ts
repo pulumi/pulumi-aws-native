@@ -105,24 +105,24 @@ export class GameServerGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceDefinitions === undefined) && !opts.urn) {
+            if (args?.instanceDefinitions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceDefinitions'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["autoScalingPolicy"] = args ? args.autoScalingPolicy : undefined;
-            resourceInputs["balancingStrategy"] = args ? args.balancingStrategy : undefined;
-            resourceInputs["deleteOption"] = args ? args.deleteOption : undefined;
-            resourceInputs["gameServerGroupName"] = args ? args.gameServerGroupName : undefined;
-            resourceInputs["gameServerProtectionPolicy"] = args ? args.gameServerProtectionPolicy : undefined;
-            resourceInputs["instanceDefinitions"] = args ? args.instanceDefinitions : undefined;
-            resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
-            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
-            resourceInputs["minSize"] = args ? args.minSize : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcSubnets"] = args ? args.vpcSubnets : undefined;
+            resourceInputs["autoScalingPolicy"] = args?.autoScalingPolicy;
+            resourceInputs["balancingStrategy"] = args?.balancingStrategy;
+            resourceInputs["deleteOption"] = args?.deleteOption;
+            resourceInputs["gameServerGroupName"] = args?.gameServerGroupName;
+            resourceInputs["gameServerProtectionPolicy"] = args?.gameServerProtectionPolicy;
+            resourceInputs["instanceDefinitions"] = args?.instanceDefinitions;
+            resourceInputs["launchTemplate"] = args?.launchTemplate;
+            resourceInputs["maxSize"] = args?.maxSize;
+            resourceInputs["minSize"] = args?.minSize;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcSubnets"] = args?.vpcSubnets;
             resourceInputs["autoScalingGroupArn"] = undefined /*out*/;
             resourceInputs["gameServerGroupArn"] = undefined /*out*/;
         } else {

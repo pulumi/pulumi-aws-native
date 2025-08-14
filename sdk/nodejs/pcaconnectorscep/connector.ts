@@ -71,12 +71,12 @@ export class Connector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.certificateAuthorityArn === undefined) && !opts.urn) {
+            if (args?.certificateAuthorityArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateAuthorityArn'");
             }
-            resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
-            resourceInputs["mobileDeviceManagement"] = args ? args.mobileDeviceManagement : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["certificateAuthorityArn"] = args?.certificateAuthorityArn;
+            resourceInputs["mobileDeviceManagement"] = args?.mobileDeviceManagement;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["connectorArn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["openIdConfiguration"] = undefined /*out*/;

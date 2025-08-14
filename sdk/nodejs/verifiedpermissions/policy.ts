@@ -124,14 +124,14 @@ export class Policy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.definition === undefined) && !opts.urn) {
+            if (args?.definition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if ((!args || args.policyStoreId === undefined) && !opts.urn) {
+            if (args?.policyStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyStoreId'");
             }
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["policyStoreId"] = args ? args.policyStoreId : undefined;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["policyStoreId"] = args?.policyStoreId;
             resourceInputs["policyId"] = undefined /*out*/;
             resourceInputs["policyType"] = undefined /*out*/;
         } else {

@@ -73,13 +73,13 @@ export class CodeSigningConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.allowedPublishers === undefined) && !opts.urn) {
+            if (args?.allowedPublishers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'allowedPublishers'");
             }
-            resourceInputs["allowedPublishers"] = args ? args.allowedPublishers : undefined;
-            resourceInputs["codeSigningPolicies"] = args ? args.codeSigningPolicies : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowedPublishers"] = args?.allowedPublishers;
+            resourceInputs["codeSigningPolicies"] = args?.codeSigningPolicies;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["codeSigningConfigArn"] = undefined /*out*/;
             resourceInputs["codeSigningConfigId"] = undefined /*out*/;
         } else {

@@ -81,21 +81,21 @@ export class Replicator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kafkaClusters === undefined) && !opts.urn) {
+            if (args?.kafkaClusters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaClusters'");
             }
-            if ((!args || args.replicationInfoList === undefined) && !opts.urn) {
+            if (args?.replicationInfoList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicationInfoList'");
             }
-            if ((!args || args.serviceExecutionRoleArn === undefined) && !opts.urn) {
+            if (args?.serviceExecutionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceExecutionRoleArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kafkaClusters"] = args ? args.kafkaClusters : undefined;
-            resourceInputs["replicationInfoList"] = args ? args.replicationInfoList : undefined;
-            resourceInputs["replicatorName"] = args ? args.replicatorName : undefined;
-            resourceInputs["serviceExecutionRoleArn"] = args ? args.serviceExecutionRoleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kafkaClusters"] = args?.kafkaClusters;
+            resourceInputs["replicationInfoList"] = args?.replicationInfoList;
+            resourceInputs["replicatorName"] = args?.replicatorName;
+            resourceInputs["serviceExecutionRoleArn"] = args?.serviceExecutionRoleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["currentVersion"] = undefined /*out*/;
             resourceInputs["replicatorArn"] = undefined /*out*/;
         } else {

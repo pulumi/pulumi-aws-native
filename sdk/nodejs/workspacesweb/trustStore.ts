@@ -65,11 +65,11 @@ export class TrustStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.certificateList === undefined) && !opts.urn) {
+            if (args?.certificateList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateList'");
             }
-            resourceInputs["certificateList"] = args ? args.certificateList : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["certificateList"] = args?.certificateList;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["trustStoreArn"] = undefined /*out*/;
         } else {

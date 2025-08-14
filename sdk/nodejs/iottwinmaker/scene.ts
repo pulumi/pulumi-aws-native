@@ -90,22 +90,22 @@ export class Scene extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contentLocation === undefined) && !opts.urn) {
+            if (args?.contentLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentLocation'");
             }
-            if ((!args || args.sceneId === undefined) && !opts.urn) {
+            if (args?.sceneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sceneId'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
-            resourceInputs["contentLocation"] = args ? args.contentLocation : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["sceneId"] = args ? args.sceneId : undefined;
-            resourceInputs["sceneMetadata"] = args ? args.sceneMetadata : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["capabilities"] = args?.capabilities;
+            resourceInputs["contentLocation"] = args?.contentLocation;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["sceneId"] = args?.sceneId;
+            resourceInputs["sceneMetadata"] = args?.sceneMetadata;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDateTime"] = undefined /*out*/;
             resourceInputs["generatedSceneMetadata"] = undefined /*out*/;

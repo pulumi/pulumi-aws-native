@@ -69,19 +69,19 @@ export class Step extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actionOnFailure === undefined) && !opts.urn) {
+            if (args?.actionOnFailure === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionOnFailure'");
             }
-            if ((!args || args.hadoopJarStep === undefined) && !opts.urn) {
+            if (args?.hadoopJarStep === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hadoopJarStep'");
             }
-            if ((!args || args.jobFlowId === undefined) && !opts.urn) {
+            if (args?.jobFlowId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobFlowId'");
             }
-            resourceInputs["actionOnFailure"] = args ? args.actionOnFailure : undefined;
-            resourceInputs["hadoopJarStep"] = args ? args.hadoopJarStep : undefined;
-            resourceInputs["jobFlowId"] = args ? args.jobFlowId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["actionOnFailure"] = args?.actionOnFailure;
+            resourceInputs["hadoopJarStep"] = args?.hadoopJarStep;
+            resourceInputs["jobFlowId"] = args?.jobFlowId;
+            resourceInputs["name"] = args?.name;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["actionOnFailure"] = undefined /*out*/;

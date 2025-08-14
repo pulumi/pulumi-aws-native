@@ -62,14 +62,14 @@ export class AttributeGroupAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.application === undefined) && !opts.urn) {
+            if (args?.application === undefined && !opts.urn) {
                 throw new Error("Missing required property 'application'");
             }
-            if ((!args || args.attributeGroup === undefined) && !opts.urn) {
+            if (args?.attributeGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'attributeGroup'");
             }
-            resourceInputs["application"] = args ? args.application : undefined;
-            resourceInputs["attributeGroup"] = args ? args.attributeGroup : undefined;
+            resourceInputs["application"] = args?.application;
+            resourceInputs["attributeGroup"] = args?.attributeGroup;
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["attributeGroupArn"] = undefined /*out*/;
         } else {

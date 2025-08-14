@@ -71,11 +71,11 @@ export class AccessPoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.objectLambdaConfiguration === undefined) && !opts.urn) {
+            if (args?.objectLambdaConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectLambdaConfiguration'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["objectLambdaConfiguration"] = args ? args.objectLambdaConfiguration : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["objectLambdaConfiguration"] = args?.objectLambdaConfiguration;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;

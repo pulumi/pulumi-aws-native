@@ -65,9 +65,9 @@ export class ReadinessCheck extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["readinessCheckName"] = args ? args.readinessCheckName : undefined;
-            resourceInputs["resourceSetName"] = args ? args.resourceSetName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["readinessCheckName"] = args?.readinessCheckName;
+            resourceInputs["resourceSetName"] = args?.resourceSetName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["readinessCheckArn"] = undefined /*out*/;
         } else {
             resourceInputs["readinessCheckArn"] = undefined /*out*/;

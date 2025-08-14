@@ -133,10 +133,10 @@ export class Keyspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["clientSideTimestampsEnabled"] = args ? args.clientSideTimestampsEnabled : undefined;
-            resourceInputs["keyspaceName"] = args ? args.keyspaceName : undefined;
-            resourceInputs["replicationSpecification"] = args ? args.replicationSpecification : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clientSideTimestampsEnabled"] = args?.clientSideTimestampsEnabled;
+            resourceInputs["keyspaceName"] = args?.keyspaceName;
+            resourceInputs["replicationSpecification"] = args?.replicationSpecification;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["clientSideTimestampsEnabled"] = undefined /*out*/;
             resourceInputs["keyspaceName"] = undefined /*out*/;

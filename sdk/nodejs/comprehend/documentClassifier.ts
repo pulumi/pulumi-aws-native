@@ -115,27 +115,27 @@ export class DocumentClassifier extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataAccessRoleArn === undefined) && !opts.urn) {
+            if (args?.dataAccessRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataAccessRoleArn'");
             }
-            if ((!args || args.inputDataConfig === undefined) && !opts.urn) {
+            if (args?.inputDataConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inputDataConfig'");
             }
-            if ((!args || args.languageCode === undefined) && !opts.urn) {
+            if (args?.languageCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'languageCode'");
             }
-            resourceInputs["dataAccessRoleArn"] = args ? args.dataAccessRoleArn : undefined;
-            resourceInputs["documentClassifierName"] = args ? args.documentClassifierName : undefined;
-            resourceInputs["inputDataConfig"] = args ? args.inputDataConfig : undefined;
-            resourceInputs["languageCode"] = args ? args.languageCode : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["modelKmsKeyId"] = args ? args.modelKmsKeyId : undefined;
-            resourceInputs["modelPolicy"] = args ? args.modelPolicy : undefined;
-            resourceInputs["outputDataConfig"] = args ? args.outputDataConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["versionName"] = args ? args.versionName : undefined;
-            resourceInputs["volumeKmsKeyId"] = args ? args.volumeKmsKeyId : undefined;
-            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["dataAccessRoleArn"] = args?.dataAccessRoleArn;
+            resourceInputs["documentClassifierName"] = args?.documentClassifierName;
+            resourceInputs["inputDataConfig"] = args?.inputDataConfig;
+            resourceInputs["languageCode"] = args?.languageCode;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["modelKmsKeyId"] = args?.modelKmsKeyId;
+            resourceInputs["modelPolicy"] = args?.modelPolicy;
+            resourceInputs["outputDataConfig"] = args?.outputDataConfig;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["versionName"] = args?.versionName;
+            resourceInputs["volumeKmsKeyId"] = args?.volumeKmsKeyId;
+            resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

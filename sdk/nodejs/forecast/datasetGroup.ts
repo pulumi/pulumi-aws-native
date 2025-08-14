@@ -69,13 +69,13 @@ export class DatasetGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domain === undefined) && !opts.urn) {
+            if (args?.domain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            resourceInputs["datasetArns"] = args ? args.datasetArns : undefined;
-            resourceInputs["datasetGroupName"] = args ? args.datasetGroupName : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["datasetArns"] = args?.datasetArns;
+            resourceInputs["datasetGroupName"] = args?.datasetGroupName;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["datasetGroupArn"] = undefined /*out*/;
         } else {
             resourceInputs["datasetArns"] = undefined /*out*/;

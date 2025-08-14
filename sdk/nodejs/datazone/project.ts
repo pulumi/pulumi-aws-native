@@ -105,17 +105,17 @@ export class Project extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["domainUnitId"] = args ? args.domainUnitId : undefined;
-            resourceInputs["glossaryTerms"] = args ? args.glossaryTerms : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectProfileId"] = args ? args.projectProfileId : undefined;
-            resourceInputs["projectProfileVersion"] = args ? args.projectProfileVersion : undefined;
-            resourceInputs["userParameters"] = args ? args.userParameters : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["domainUnitId"] = args?.domainUnitId;
+            resourceInputs["glossaryTerms"] = args?.glossaryTerms;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectProfileId"] = args?.projectProfileId;
+            resourceInputs["projectProfileVersion"] = args?.projectProfileVersion;
+            resourceInputs["userParameters"] = args?.userParameters;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;

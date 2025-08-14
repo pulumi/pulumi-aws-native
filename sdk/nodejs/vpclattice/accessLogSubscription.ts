@@ -81,13 +81,13 @@ export class AccessLogSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationArn === undefined) && !opts.urn) {
+            if (args?.destinationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationArn'");
             }
-            resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
-            resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
-            resourceInputs["serviceNetworkLogType"] = args ? args.serviceNetworkLogType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["destinationArn"] = args?.destinationArn;
+            resourceInputs["resourceIdentifier"] = args?.resourceIdentifier;
+            resourceInputs["serviceNetworkLogType"] = args?.serviceNetworkLogType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;

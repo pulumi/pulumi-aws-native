@@ -88,15 +88,15 @@ export class ManagedLoginBranding extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["assets"] = args ? args.assets : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["returnMergedResources"] = args ? args.returnMergedResources : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
-            resourceInputs["useCognitoProvidedValues"] = args ? args.useCognitoProvidedValues : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["assets"] = args?.assets;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["returnMergedResources"] = args?.returnMergedResources;
+            resourceInputs["settings"] = args?.settings;
+            resourceInputs["useCognitoProvidedValues"] = args?.useCognitoProvidedValues;
+            resourceInputs["userPoolId"] = args?.userPoolId;
             resourceInputs["managedLoginBrandingId"] = undefined /*out*/;
         } else {
             resourceInputs["assets"] = undefined /*out*/;

@@ -91,13 +91,13 @@ export class SamlProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["addPrivateKey"] = args ? args.addPrivateKey : undefined;
-            resourceInputs["assertionEncryptionMode"] = args ? args.assertionEncryptionMode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateKeyList"] = args ? args.privateKeyList : undefined;
-            resourceInputs["removePrivateKey"] = args ? args.removePrivateKey : undefined;
-            resourceInputs["samlMetadataDocument"] = args ? args.samlMetadataDocument : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addPrivateKey"] = args?.addPrivateKey;
+            resourceInputs["assertionEncryptionMode"] = args?.assertionEncryptionMode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateKeyList"] = args?.privateKeyList;
+            resourceInputs["removePrivateKey"] = args?.removePrivateKey;
+            resourceInputs["samlMetadataDocument"] = args?.samlMetadataDocument;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["samlProviderUuid"] = undefined /*out*/;
         } else {

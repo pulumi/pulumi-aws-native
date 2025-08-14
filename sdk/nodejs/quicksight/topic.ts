@@ -84,16 +84,16 @@ export class Topic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["configOptions"] = args ? args.configOptions : undefined;
-            resourceInputs["customInstructions"] = args ? args.customInstructions : undefined;
-            resourceInputs["dataSets"] = args ? args.dataSets : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["folderArns"] = args ? args.folderArns : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topicId"] = args ? args.topicId : undefined;
-            resourceInputs["userExperienceVersion"] = args ? args.userExperienceVersion : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["configOptions"] = args?.configOptions;
+            resourceInputs["customInstructions"] = args?.customInstructions;
+            resourceInputs["dataSets"] = args?.dataSets;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["folderArns"] = args?.folderArns;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topicId"] = args?.topicId;
+            resourceInputs["userExperienceVersion"] = args?.userExperienceVersion;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

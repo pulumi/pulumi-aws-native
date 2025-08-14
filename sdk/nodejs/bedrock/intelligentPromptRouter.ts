@@ -93,21 +93,21 @@ export class IntelligentPromptRouter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fallbackModel === undefined) && !opts.urn) {
+            if (args?.fallbackModel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fallbackModel'");
             }
-            if ((!args || args.models === undefined) && !opts.urn) {
+            if (args?.models === undefined && !opts.urn) {
                 throw new Error("Missing required property 'models'");
             }
-            if ((!args || args.routingCriteria === undefined) && !opts.urn) {
+            if (args?.routingCriteria === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routingCriteria'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fallbackModel"] = args ? args.fallbackModel : undefined;
-            resourceInputs["models"] = args ? args.models : undefined;
-            resourceInputs["promptRouterName"] = args ? args.promptRouterName : undefined;
-            resourceInputs["routingCriteria"] = args ? args.routingCriteria : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fallbackModel"] = args?.fallbackModel;
+            resourceInputs["models"] = args?.models;
+            resourceInputs["promptRouterName"] = args?.promptRouterName;
+            resourceInputs["routingCriteria"] = args?.routingCriteria;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["promptRouterArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

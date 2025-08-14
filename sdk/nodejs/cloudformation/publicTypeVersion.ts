@@ -83,11 +83,11 @@ export class PublicTypeVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["arn"] = args ? args.arn : undefined;
-            resourceInputs["logDeliveryBucket"] = args ? args.logDeliveryBucket : undefined;
-            resourceInputs["publicVersionNumber"] = args ? args.publicVersionNumber : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["arn"] = args?.arn;
+            resourceInputs["logDeliveryBucket"] = args?.logDeliveryBucket;
+            resourceInputs["publicVersionNumber"] = args?.publicVersionNumber;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["typeName"] = args?.typeName;
             resourceInputs["publicTypeArn"] = undefined /*out*/;
             resourceInputs["publisherId"] = undefined /*out*/;
             resourceInputs["typeVersionArn"] = undefined /*out*/;

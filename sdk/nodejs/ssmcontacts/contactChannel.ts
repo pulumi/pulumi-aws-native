@@ -73,11 +73,11 @@ export class ContactChannel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["channelAddress"] = args ? args.channelAddress : undefined;
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["channelType"] = args ? args.channelType : undefined;
-            resourceInputs["contactId"] = args ? args.contactId : undefined;
-            resourceInputs["deferActivation"] = args ? args.deferActivation : undefined;
+            resourceInputs["channelAddress"] = args?.channelAddress;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["channelType"] = args?.channelType;
+            resourceInputs["contactId"] = args?.contactId;
+            resourceInputs["deferActivation"] = args?.deferActivation;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

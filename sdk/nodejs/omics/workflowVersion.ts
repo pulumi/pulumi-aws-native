@@ -87,21 +87,21 @@ export class WorkflowVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.workflowId === undefined) && !opts.urn) {
+            if (args?.workflowId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workflowId'");
             }
-            resourceInputs["accelerators"] = args ? args.accelerators : undefined;
-            resourceInputs["definitionUri"] = args ? args.definitionUri : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["main"] = args ? args.main : undefined;
-            resourceInputs["parameterTemplate"] = args ? args.parameterTemplate : undefined;
-            resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
-            resourceInputs["storageType"] = args ? args.storageType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["versionName"] = args ? args.versionName : undefined;
-            resourceInputs["workflowBucketOwnerId"] = args ? args.workflowBucketOwnerId : undefined;
-            resourceInputs["workflowId"] = args ? args.workflowId : undefined;
+            resourceInputs["accelerators"] = args?.accelerators;
+            resourceInputs["definitionUri"] = args?.definitionUri;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["main"] = args?.main;
+            resourceInputs["parameterTemplate"] = args?.parameterTemplate;
+            resourceInputs["storageCapacity"] = args?.storageCapacity;
+            resourceInputs["storageType"] = args?.storageType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["versionName"] = args?.versionName;
+            resourceInputs["workflowBucketOwnerId"] = args?.workflowBucketOwnerId;
+            resourceInputs["workflowId"] = args?.workflowId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

@@ -88,16 +88,16 @@ export class Dimension extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.stringValues === undefined) && !opts.urn) {
+            if (args?.stringValues === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stringValues'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["stringValues"] = args ? args.stringValues : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["stringValues"] = args?.stringValues;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

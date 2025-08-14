@@ -69,9 +69,9 @@ export class PublicKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicKeyMaterial"] = args ? args.publicKeyMaterial : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicKeyMaterial"] = args?.publicKeyMaterial;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["fingerprint"] = undefined /*out*/;
         } else {

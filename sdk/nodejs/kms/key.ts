@@ -202,18 +202,18 @@ export class Key extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enableKeyRotation"] = args ? args.enableKeyRotation : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["keyPolicy"] = args ? args.keyPolicy : undefined;
-            resourceInputs["keySpec"] = args ? args.keySpec : undefined;
-            resourceInputs["keyUsage"] = args ? args.keyUsage : undefined;
-            resourceInputs["multiRegion"] = args ? args.multiRegion : undefined;
-            resourceInputs["origin"] = args ? args.origin : undefined;
-            resourceInputs["pendingWindowInDays"] = args ? args.pendingWindowInDays : undefined;
-            resourceInputs["rotationPeriodInDays"] = args ? args.rotationPeriodInDays : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args?.bypassPolicyLockoutSafetyCheck;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enableKeyRotation"] = args?.enableKeyRotation;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["keyPolicy"] = args?.keyPolicy;
+            resourceInputs["keySpec"] = args?.keySpec;
+            resourceInputs["keyUsage"] = args?.keyUsage;
+            resourceInputs["multiRegion"] = args?.multiRegion;
+            resourceInputs["origin"] = args?.origin;
+            resourceInputs["pendingWindowInDays"] = args?.pendingWindowInDays;
+            resourceInputs["rotationPeriodInDays"] = args?.rotationPeriodInDays;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["keyId"] = undefined /*out*/;
         } else {

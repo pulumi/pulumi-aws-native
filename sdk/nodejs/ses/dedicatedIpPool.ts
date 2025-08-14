@@ -61,9 +61,9 @@ export class DedicatedIpPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["scalingMode"] = args ? args.scalingMode : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["poolName"] = args?.poolName;
+            resourceInputs["scalingMode"] = args?.scalingMode;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["poolName"] = undefined /*out*/;
             resourceInputs["scalingMode"] = undefined /*out*/;

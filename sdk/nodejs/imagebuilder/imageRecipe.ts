@@ -89,24 +89,24 @@ export class ImageRecipe extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.components === undefined) && !opts.urn) {
+            if (args?.components === undefined && !opts.urn) {
                 throw new Error("Missing required property 'components'");
             }
-            if ((!args || args.parentImage === undefined) && !opts.urn) {
+            if (args?.parentImage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentImage'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["additionalInstanceConfiguration"] = args ? args.additionalInstanceConfiguration : undefined;
-            resourceInputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
-            resourceInputs["components"] = args ? args.components : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentImage"] = args ? args.parentImage : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["workingDirectory"] = args ? args.workingDirectory : undefined;
+            resourceInputs["additionalInstanceConfiguration"] = args?.additionalInstanceConfiguration;
+            resourceInputs["blockDeviceMappings"] = args?.blockDeviceMappings;
+            resourceInputs["components"] = args?.components;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentImage"] = args?.parentImage;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["workingDirectory"] = args?.workingDirectory;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["additionalInstanceConfiguration"] = undefined /*out*/;

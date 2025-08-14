@@ -247,14 +247,14 @@ export class Simulation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["maximumDuration"] = args ? args.maximumDuration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["schemaS3Location"] = args ? args.schemaS3Location : undefined;
-            resourceInputs["snapshotS3Location"] = args ? args.snapshotS3Location : undefined;
+            resourceInputs["maximumDuration"] = args?.maximumDuration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["schemaS3Location"] = args?.schemaS3Location;
+            resourceInputs["snapshotS3Location"] = args?.snapshotS3Location;
             resourceInputs["describePayload"] = undefined /*out*/;
         } else {
             resourceInputs["describePayload"] = undefined /*out*/;

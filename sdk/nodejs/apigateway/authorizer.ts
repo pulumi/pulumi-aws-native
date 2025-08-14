@@ -90,22 +90,22 @@ export class Authorizer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["authType"] = args ? args.authType : undefined;
-            resourceInputs["authorizerCredentials"] = args ? args.authorizerCredentials : undefined;
-            resourceInputs["authorizerResultTtlInSeconds"] = args ? args.authorizerResultTtlInSeconds : undefined;
-            resourceInputs["authorizerUri"] = args ? args.authorizerUri : undefined;
-            resourceInputs["identitySource"] = args ? args.identitySource : undefined;
-            resourceInputs["identityValidationExpression"] = args ? args.identityValidationExpression : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["providerArns"] = args ? args.providerArns : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["authType"] = args?.authType;
+            resourceInputs["authorizerCredentials"] = args?.authorizerCredentials;
+            resourceInputs["authorizerResultTtlInSeconds"] = args?.authorizerResultTtlInSeconds;
+            resourceInputs["authorizerUri"] = args?.authorizerUri;
+            resourceInputs["identitySource"] = args?.identitySource;
+            resourceInputs["identityValidationExpression"] = args?.identityValidationExpression;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["providerArns"] = args?.providerArns;
+            resourceInputs["restApiId"] = args?.restApiId;
+            resourceInputs["type"] = args?.type;
             resourceInputs["authorizerId"] = undefined /*out*/;
         } else {
             resourceInputs["authType"] = undefined /*out*/;

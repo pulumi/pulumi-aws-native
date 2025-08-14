@@ -69,12 +69,12 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.regions === undefined) && !opts.urn) {
+            if (args?.regions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'regions'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
-            resourceInputs["regions"] = args ? args.regions : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicAccessBlockConfiguration"] = args?.publicAccessBlockConfiguration;
+            resourceInputs["regions"] = args?.regions;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
         } else {

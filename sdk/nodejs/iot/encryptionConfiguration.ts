@@ -55,12 +55,12 @@ export class EncryptionConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.encryptionType === undefined) && !opts.urn) {
+            if (args?.encryptionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'encryptionType'");
             }
-            resourceInputs["encryptionType"] = args ? args.encryptionType : undefined;
-            resourceInputs["kmsAccessRoleArn"] = args ? args.kmsAccessRoleArn : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["encryptionType"] = args?.encryptionType;
+            resourceInputs["kmsAccessRoleArn"] = args?.kmsAccessRoleArn;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["configurationDetails"] = undefined /*out*/;
             resourceInputs["lastModifiedDate"] = undefined /*out*/;
