@@ -121,18 +121,18 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.peeringId === undefined) && !opts.urn) {
+            if (args?.peeringId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peeringId'");
             }
-            if ((!args || args.transitGatewayRouteTableArn === undefined) && !opts.urn) {
+            if (args?.transitGatewayRouteTableArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayRouteTableArn'");
             }
-            resourceInputs["networkFunctionGroupName"] = args ? args.networkFunctionGroupName : undefined;
-            resourceInputs["peeringId"] = args ? args.peeringId : undefined;
-            resourceInputs["proposedNetworkFunctionGroupChange"] = args ? args.proposedNetworkFunctionGroupChange : undefined;
-            resourceInputs["proposedSegmentChange"] = args ? args.proposedSegmentChange : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayRouteTableArn"] = args ? args.transitGatewayRouteTableArn : undefined;
+            resourceInputs["networkFunctionGroupName"] = args?.networkFunctionGroupName;
+            resourceInputs["peeringId"] = args?.peeringId;
+            resourceInputs["proposedNetworkFunctionGroupChange"] = args?.proposedNetworkFunctionGroupChange;
+            resourceInputs["proposedSegmentChange"] = args?.proposedSegmentChange;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayRouteTableArn"] = args?.transitGatewayRouteTableArn;
             resourceInputs["attachmentId"] = undefined /*out*/;
             resourceInputs["attachmentPolicyRuleNumber"] = undefined /*out*/;
             resourceInputs["attachmentType"] = undefined /*out*/;

@@ -77,21 +77,21 @@ export class FargateProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.podExecutionRoleArn === undefined) && !opts.urn) {
+            if (args?.podExecutionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'podExecutionRoleArn'");
             }
-            if ((!args || args.selectors === undefined) && !opts.urn) {
+            if (args?.selectors === undefined && !opts.urn) {
                 throw new Error("Missing required property 'selectors'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["fargateProfileName"] = args ? args.fargateProfileName : undefined;
-            resourceInputs["podExecutionRoleArn"] = args ? args.podExecutionRoleArn : undefined;
-            resourceInputs["selectors"] = args ? args.selectors : undefined;
-            resourceInputs["subnets"] = args ? args.subnets : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["fargateProfileName"] = args?.fargateProfileName;
+            resourceInputs["podExecutionRoleArn"] = args?.podExecutionRoleArn;
+            resourceInputs["selectors"] = args?.selectors;
+            resourceInputs["subnets"] = args?.subnets;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

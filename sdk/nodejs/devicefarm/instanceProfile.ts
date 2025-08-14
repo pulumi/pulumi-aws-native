@@ -81,12 +81,12 @@ export class InstanceProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["excludeAppPackagesFromCleanup"] = args ? args.excludeAppPackagesFromCleanup : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["packageCleanup"] = args ? args.packageCleanup : undefined;
-            resourceInputs["rebootAfterUse"] = args ? args.rebootAfterUse : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["excludeAppPackagesFromCleanup"] = args?.excludeAppPackagesFromCleanup;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["packageCleanup"] = args?.packageCleanup;
+            resourceInputs["rebootAfterUse"] = args?.rebootAfterUse;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

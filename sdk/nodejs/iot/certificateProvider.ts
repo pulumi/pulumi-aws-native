@@ -75,16 +75,16 @@ export class CertificateProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountDefaultForOperations === undefined) && !opts.urn) {
+            if (args?.accountDefaultForOperations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountDefaultForOperations'");
             }
-            if ((!args || args.lambdaFunctionArn === undefined) && !opts.urn) {
+            if (args?.lambdaFunctionArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lambdaFunctionArn'");
             }
-            resourceInputs["accountDefaultForOperations"] = args ? args.accountDefaultForOperations : undefined;
-            resourceInputs["certificateProviderName"] = args ? args.certificateProviderName : undefined;
-            resourceInputs["lambdaFunctionArn"] = args ? args.lambdaFunctionArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountDefaultForOperations"] = args?.accountDefaultForOperations;
+            resourceInputs["certificateProviderName"] = args?.certificateProviderName;
+            resourceInputs["lambdaFunctionArn"] = args?.lambdaFunctionArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["accountDefaultForOperations"] = undefined /*out*/;

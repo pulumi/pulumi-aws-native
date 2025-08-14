@@ -81,15 +81,15 @@ export class ResolverRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ruleType === undefined) && !opts.urn) {
+            if (args?.ruleType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleType'");
             }
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resolverEndpointId"] = args ? args.resolverEndpointId : undefined;
-            resourceInputs["ruleType"] = args ? args.ruleType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetIps"] = args ? args.targetIps : undefined;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resolverEndpointId"] = args?.resolverEndpointId;
+            resourceInputs["ruleType"] = args?.ruleType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetIps"] = args?.targetIps;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["resolverRuleId"] = undefined /*out*/;
         } else {

@@ -79,14 +79,14 @@ export class LocationNfs extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.onPremConfig === undefined) && !opts.urn) {
+            if (args?.onPremConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'onPremConfig'");
             }
-            resourceInputs["mountOptions"] = args ? args.mountOptions : undefined;
-            resourceInputs["onPremConfig"] = args ? args.onPremConfig : undefined;
-            resourceInputs["serverHostname"] = args ? args.serverHostname : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["mountOptions"] = args?.mountOptions;
+            resourceInputs["onPremConfig"] = args?.onPremConfig;
+            resourceInputs["serverHostname"] = args?.serverHostname;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
         } else {

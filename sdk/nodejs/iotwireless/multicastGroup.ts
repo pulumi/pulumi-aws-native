@@ -85,15 +85,15 @@ export class MulticastGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.loRaWan === undefined) && !opts.urn) {
+            if (args?.loRaWan === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loRaWan'");
             }
-            resourceInputs["associateWirelessDevice"] = args ? args.associateWirelessDevice : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["disassociateWirelessDevice"] = args ? args.disassociateWirelessDevice : undefined;
-            resourceInputs["loRaWan"] = args ? args.loRaWan : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["associateWirelessDevice"] = args?.associateWirelessDevice;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["disassociateWirelessDevice"] = args?.disassociateWirelessDevice;
+            resourceInputs["loRaWan"] = args?.loRaWan;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

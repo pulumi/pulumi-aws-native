@@ -77,19 +77,19 @@ export class PublishingDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationProperties === undefined) && !opts.urn) {
+            if (args?.destinationProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationProperties'");
             }
-            if ((!args || args.destinationType === undefined) && !opts.urn) {
+            if (args?.destinationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationType'");
             }
-            if ((!args || args.detectorId === undefined) && !opts.urn) {
+            if (args?.detectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            resourceInputs["destinationProperties"] = args ? args.destinationProperties : undefined;
-            resourceInputs["destinationType"] = args ? args.destinationType : undefined;
-            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["destinationProperties"] = args?.destinationProperties;
+            resourceInputs["destinationType"] = args?.destinationType;
+            resourceInputs["detectorId"] = args?.detectorId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["publishingFailureStartTimestamp"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

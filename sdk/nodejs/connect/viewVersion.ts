@@ -66,12 +66,12 @@ export class ViewVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.viewArn === undefined) && !opts.urn) {
+            if (args?.viewArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'viewArn'");
             }
-            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
-            resourceInputs["viewArn"] = args ? args.viewArn : undefined;
-            resourceInputs["viewContentSha256"] = args ? args.viewContentSha256 : undefined;
+            resourceInputs["versionDescription"] = args?.versionDescription;
+            resourceInputs["viewArn"] = args?.viewArn;
+            resourceInputs["viewContentSha256"] = args?.viewContentSha256;
             resourceInputs["version"] = undefined /*out*/;
             resourceInputs["viewVersionArn"] = undefined /*out*/;
         } else {

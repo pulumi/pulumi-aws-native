@@ -85,16 +85,16 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.regex === undefined) && !opts.urn) {
+            if (args?.regex === undefined && !opts.urn) {
                 throw new Error("Missing required property 'regex'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ignoreWords"] = args ? args.ignoreWords : undefined;
-            resourceInputs["keywords"] = args ? args.keywords : undefined;
-            resourceInputs["maximumMatchDistance"] = args ? args.maximumMatchDistance : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["regex"] = args ? args.regex : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ignoreWords"] = args?.ignoreWords;
+            resourceInputs["keywords"] = args?.keywords;
+            resourceInputs["maximumMatchDistance"] = args?.maximumMatchDistance;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["regex"] = args?.regex;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

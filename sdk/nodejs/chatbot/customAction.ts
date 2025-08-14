@@ -73,14 +73,14 @@ export class CustomAction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.definition === undefined) && !opts.urn) {
+            if (args?.definition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            resourceInputs["actionName"] = args ? args.actionName : undefined;
-            resourceInputs["aliasName"] = args ? args.aliasName : undefined;
-            resourceInputs["attachments"] = args ? args.attachments : undefined;
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actionName"] = args?.actionName;
+            resourceInputs["aliasName"] = args?.aliasName;
+            resourceInputs["attachments"] = args?.attachments;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["customActionArn"] = undefined /*out*/;
         } else {
             resourceInputs["actionName"] = undefined /*out*/;

@@ -140,26 +140,26 @@ export class FunctionConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.dataSourceName === undefined) && !opts.urn) {
+            if (args?.dataSourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSourceName'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["code"] = args ? args.code : undefined;
-            resourceInputs["codeS3Location"] = args ? args.codeS3Location : undefined;
-            resourceInputs["dataSourceName"] = args ? args.dataSourceName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["functionVersion"] = args ? args.functionVersion : undefined;
-            resourceInputs["maxBatchSize"] = args ? args.maxBatchSize : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["requestMappingTemplate"] = args ? args.requestMappingTemplate : undefined;
-            resourceInputs["requestMappingTemplateS3Location"] = args ? args.requestMappingTemplateS3Location : undefined;
-            resourceInputs["responseMappingTemplate"] = args ? args.responseMappingTemplate : undefined;
-            resourceInputs["responseMappingTemplateS3Location"] = args ? args.responseMappingTemplateS3Location : undefined;
-            resourceInputs["runtime"] = args ? args.runtime : undefined;
-            resourceInputs["syncConfig"] = args ? args.syncConfig : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["code"] = args?.code;
+            resourceInputs["codeS3Location"] = args?.codeS3Location;
+            resourceInputs["dataSourceName"] = args?.dataSourceName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["functionVersion"] = args?.functionVersion;
+            resourceInputs["maxBatchSize"] = args?.maxBatchSize;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["requestMappingTemplate"] = args?.requestMappingTemplate;
+            resourceInputs["requestMappingTemplateS3Location"] = args?.requestMappingTemplateS3Location;
+            resourceInputs["responseMappingTemplate"] = args?.responseMappingTemplate;
+            resourceInputs["responseMappingTemplateS3Location"] = args?.responseMappingTemplateS3Location;
+            resourceInputs["runtime"] = args?.runtime;
+            resourceInputs["syncConfig"] = args?.syncConfig;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["functionId"] = undefined /*out*/;
         } else {

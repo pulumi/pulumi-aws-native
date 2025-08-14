@@ -54,8 +54,8 @@ export class ServicePrincipalName extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["connectorArn"] = args ? args.connectorArn : undefined;
-            resourceInputs["directoryRegistrationArn"] = args ? args.directoryRegistrationArn : undefined;
+            resourceInputs["connectorArn"] = args?.connectorArn;
+            resourceInputs["directoryRegistrationArn"] = args?.directoryRegistrationArn;
         } else {
             resourceInputs["connectorArn"] = undefined /*out*/;
             resourceInputs["directoryRegistrationArn"] = undefined /*out*/;

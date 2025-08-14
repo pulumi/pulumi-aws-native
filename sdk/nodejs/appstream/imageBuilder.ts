@@ -157,22 +157,22 @@ export class ImageBuilder extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceType === undefined) && !opts.urn) {
+            if (args?.instanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            resourceInputs["accessEndpoints"] = args ? args.accessEndpoints : undefined;
-            resourceInputs["appstreamAgentVersion"] = args ? args.appstreamAgentVersion : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["domainJoinInfo"] = args ? args.domainJoinInfo : undefined;
-            resourceInputs["enableDefaultInternetAccess"] = args ? args.enableDefaultInternetAccess : undefined;
-            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            resourceInputs["imageArn"] = args ? args.imageArn : undefined;
-            resourceInputs["imageName"] = args ? args.imageName : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["accessEndpoints"] = args?.accessEndpoints;
+            resourceInputs["appstreamAgentVersion"] = args?.appstreamAgentVersion;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["domainJoinInfo"] = args?.domainJoinInfo;
+            resourceInputs["enableDefaultInternetAccess"] = args?.enableDefaultInternetAccess;
+            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
+            resourceInputs["imageArn"] = args?.imageArn;
+            resourceInputs["imageName"] = args?.imageName;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["streamingUrl"] = undefined /*out*/;
         } else {
             resourceInputs["accessEndpoints"] = undefined /*out*/;

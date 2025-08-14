@@ -71,23 +71,23 @@ export class OriginEndpointPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channelGroupName === undefined) && !opts.urn) {
+            if (args?.channelGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelGroupName'");
             }
-            if ((!args || args.channelName === undefined) && !opts.urn) {
+            if (args?.channelName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelName'");
             }
-            if ((!args || args.originEndpointName === undefined) && !opts.urn) {
+            if (args?.originEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'originEndpointName'");
             }
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["cdnAuthConfiguration"] = args ? args.cdnAuthConfiguration : undefined;
-            resourceInputs["channelGroupName"] = args ? args.channelGroupName : undefined;
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["originEndpointName"] = args ? args.originEndpointName : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["cdnAuthConfiguration"] = args?.cdnAuthConfiguration;
+            resourceInputs["channelGroupName"] = args?.channelGroupName;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["originEndpointName"] = args?.originEndpointName;
+            resourceInputs["policy"] = args?.policy;
         } else {
             resourceInputs["cdnAuthConfiguration"] = undefined /*out*/;
             resourceInputs["channelGroupName"] = undefined /*out*/;

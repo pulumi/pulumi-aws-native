@@ -73,17 +73,17 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["identityProviderConfigName"] = args ? args.identityProviderConfigName : undefined;
-            resourceInputs["oidc"] = args ? args.oidc : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["identityProviderConfigName"] = args?.identityProviderConfigName;
+            resourceInputs["oidc"] = args?.oidc;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["identityProviderConfigArn"] = undefined /*out*/;
         } else {
             resourceInputs["clusterName"] = undefined /*out*/;

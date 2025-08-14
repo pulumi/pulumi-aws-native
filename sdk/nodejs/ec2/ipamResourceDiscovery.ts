@@ -89,10 +89,10 @@ export class IpamResourceDiscovery extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
-            resourceInputs["organizationalUnitExclusions"] = args ? args.organizationalUnitExclusions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["operatingRegions"] = args?.operatingRegions;
+            resourceInputs["organizationalUnitExclusions"] = args?.organizationalUnitExclusions;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["ipamResourceDiscoveryArn"] = undefined /*out*/;
             resourceInputs["ipamResourceDiscoveryId"] = undefined /*out*/;
             resourceInputs["ipamResourceDiscoveryRegion"] = undefined /*out*/;

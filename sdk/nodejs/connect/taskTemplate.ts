@@ -97,20 +97,20 @@ export class TaskTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["clientToken"] = args ? args.clientToken : undefined;
-            resourceInputs["constraints"] = args ? args.constraints : undefined;
-            resourceInputs["contactFlowArn"] = args ? args.contactFlowArn : undefined;
-            resourceInputs["defaults"] = args ? args.defaults : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fields"] = args ? args.fields : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["selfAssignContactFlowArn"] = args ? args.selfAssignContactFlowArn : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clientToken"] = args?.clientToken;
+            resourceInputs["constraints"] = args?.constraints;
+            resourceInputs["contactFlowArn"] = args?.contactFlowArn;
+            resourceInputs["defaults"] = args?.defaults;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fields"] = args?.fields;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["selfAssignContactFlowArn"] = args?.selfAssignContactFlowArn;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

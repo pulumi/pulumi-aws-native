@@ -173,16 +173,16 @@ export class HookVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.schemaHandlerPackage === undefined) && !opts.urn) {
+            if (args?.schemaHandlerPackage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaHandlerPackage'");
             }
-            if ((!args || args.typeName === undefined) && !opts.urn) {
+            if (args?.typeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'typeName'");
             }
-            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            resourceInputs["loggingConfig"] = args ? args.loggingConfig : undefined;
-            resourceInputs["schemaHandlerPackage"] = args ? args.schemaHandlerPackage : undefined;
-            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
+            resourceInputs["loggingConfig"] = args?.loggingConfig;
+            resourceInputs["schemaHandlerPackage"] = args?.schemaHandlerPackage;
+            resourceInputs["typeName"] = args?.typeName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["isDefaultVersion"] = undefined /*out*/;
             resourceInputs["typeArn"] = undefined /*out*/;

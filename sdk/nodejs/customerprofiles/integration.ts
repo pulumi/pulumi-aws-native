@@ -85,16 +85,16 @@ export class Integration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["eventTriggerNames"] = args ? args.eventTriggerNames : undefined;
-            resourceInputs["flowDefinition"] = args ? args.flowDefinition : undefined;
-            resourceInputs["objectTypeName"] = args ? args.objectTypeName : undefined;
-            resourceInputs["objectTypeNames"] = args ? args.objectTypeNames : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["eventTriggerNames"] = args?.eventTriggerNames;
+            resourceInputs["flowDefinition"] = args?.flowDefinition;
+            resourceInputs["objectTypeName"] = args?.objectTypeName;
+            resourceInputs["objectTypeNames"] = args?.objectTypeNames;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["uri"] = args?.uri;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
         } else {

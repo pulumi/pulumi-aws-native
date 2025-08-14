@@ -85,21 +85,21 @@ export class Scraper extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destination === undefined) && !opts.urn) {
+            if (args?.destination === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
-            if ((!args || args.scrapeConfiguration === undefined) && !opts.urn) {
+            if (args?.scrapeConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scrapeConfiguration'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["roleConfiguration"] = args ? args.roleConfiguration : undefined;
-            resourceInputs["scrapeConfiguration"] = args ? args.scrapeConfiguration : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["alias"] = args?.alias;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["roleConfiguration"] = args?.roleConfiguration;
+            resourceInputs["scrapeConfiguration"] = args?.scrapeConfiguration;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["scraperId"] = undefined /*out*/;

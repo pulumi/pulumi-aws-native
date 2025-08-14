@@ -77,15 +77,15 @@ export class TransitGatewayConnect extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.options === undefined) && !opts.urn) {
+            if (args?.options === undefined && !opts.urn) {
                 throw new Error("Missing required property 'options'");
             }
-            if ((!args || args.transportTransitGatewayAttachmentId === undefined) && !opts.urn) {
+            if (args?.transportTransitGatewayAttachmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transportTransitGatewayAttachmentId'");
             }
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transportTransitGatewayAttachmentId"] = args ? args.transportTransitGatewayAttachmentId : undefined;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transportTransitGatewayAttachmentId"] = args?.transportTransitGatewayAttachmentId;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;

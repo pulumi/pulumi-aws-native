@@ -59,10 +59,10 @@ export class ResourceGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupTags === undefined) && !opts.urn) {
+            if (args?.resourceGroupTags === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupTags'");
             }
-            resourceInputs["resourceGroupTags"] = args ? args.resourceGroupTags : undefined;
+            resourceInputs["resourceGroupTags"] = args?.resourceGroupTags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

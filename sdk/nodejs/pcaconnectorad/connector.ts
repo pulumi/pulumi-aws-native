@@ -69,19 +69,19 @@ export class Connector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.certificateAuthorityArn === undefined) && !opts.urn) {
+            if (args?.certificateAuthorityArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateAuthorityArn'");
             }
-            if ((!args || args.directoryId === undefined) && !opts.urn) {
+            if (args?.directoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            if ((!args || args.vpcInformation === undefined) && !opts.urn) {
+            if (args?.vpcInformation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcInformation'");
             }
-            resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
-            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcInformation"] = args ? args.vpcInformation : undefined;
+            resourceInputs["certificateAuthorityArn"] = args?.certificateAuthorityArn;
+            resourceInputs["directoryId"] = args?.directoryId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcInformation"] = args?.vpcInformation;
             resourceInputs["connectorArn"] = undefined /*out*/;
         } else {
             resourceInputs["certificateAuthorityArn"] = undefined /*out*/;

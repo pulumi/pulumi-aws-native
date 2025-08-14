@@ -66,23 +66,23 @@ export class ProfilePermission extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.statementId === undefined) && !opts.urn) {
+            if (args?.statementId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statementId'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["profileVersion"] = args ? args.profileVersion : undefined;
-            resourceInputs["statementId"] = args ? args.statementId : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["profileVersion"] = args?.profileVersion;
+            resourceInputs["statementId"] = args?.statementId;
         } else {
             resourceInputs["action"] = undefined /*out*/;
             resourceInputs["principal"] = undefined /*out*/;

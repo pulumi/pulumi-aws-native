@@ -93,21 +93,21 @@ export class Listener extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.defaultActions === undefined) && !opts.urn) {
+            if (args?.defaultActions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultActions'");
             }
-            if ((!args || args.loadBalancerArn === undefined) && !opts.urn) {
+            if (args?.loadBalancerArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerArn'");
             }
-            resourceInputs["alpnPolicy"] = args ? args.alpnPolicy : undefined;
-            resourceInputs["certificates"] = args ? args.certificates : undefined;
-            resourceInputs["defaultActions"] = args ? args.defaultActions : undefined;
-            resourceInputs["listenerAttributes"] = args ? args.listenerAttributes : undefined;
-            resourceInputs["loadBalancerArn"] = args ? args.loadBalancerArn : undefined;
-            resourceInputs["mutualAuthentication"] = args ? args.mutualAuthentication : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["sslPolicy"] = args ? args.sslPolicy : undefined;
+            resourceInputs["alpnPolicy"] = args?.alpnPolicy;
+            resourceInputs["certificates"] = args?.certificates;
+            resourceInputs["defaultActions"] = args?.defaultActions;
+            resourceInputs["listenerAttributes"] = args?.listenerAttributes;
+            resourceInputs["loadBalancerArn"] = args?.loadBalancerArn;
+            resourceInputs["mutualAuthentication"] = args?.mutualAuthentication;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["sslPolicy"] = args?.sslPolicy;
             resourceInputs["listenerArn"] = undefined /*out*/;
         } else {
             resourceInputs["alpnPolicy"] = undefined /*out*/;

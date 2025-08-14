@@ -78,12 +78,12 @@ export class UsagePlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["apiStages"] = args ? args.apiStages : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["quota"] = args ? args.quota : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["throttle"] = args ? args.throttle : undefined;
-            resourceInputs["usagePlanName"] = args ? args.usagePlanName : undefined;
+            resourceInputs["apiStages"] = args?.apiStages;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["quota"] = args?.quota;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["throttle"] = args?.throttle;
+            resourceInputs["usagePlanName"] = args?.usagePlanName;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["apiStages"] = undefined /*out*/;

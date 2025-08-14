@@ -89,25 +89,25 @@ export class Route extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationIdentifier === undefined) && !opts.urn) {
+            if (args?.applicationIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationIdentifier'");
             }
-            if ((!args || args.environmentIdentifier === undefined) && !opts.urn) {
+            if (args?.environmentIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentIdentifier'");
             }
-            if ((!args || args.routeType === undefined) && !opts.urn) {
+            if (args?.routeType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeType'");
             }
-            if ((!args || args.serviceIdentifier === undefined) && !opts.urn) {
+            if (args?.serviceIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceIdentifier'");
             }
-            resourceInputs["applicationIdentifier"] = args ? args.applicationIdentifier : undefined;
-            resourceInputs["defaultRoute"] = args ? args.defaultRoute : undefined;
-            resourceInputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
-            resourceInputs["routeType"] = args ? args.routeType : undefined;
-            resourceInputs["serviceIdentifier"] = args ? args.serviceIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uriPathRoute"] = args ? args.uriPathRoute : undefined;
+            resourceInputs["applicationIdentifier"] = args?.applicationIdentifier;
+            resourceInputs["defaultRoute"] = args?.defaultRoute;
+            resourceInputs["environmentIdentifier"] = args?.environmentIdentifier;
+            resourceInputs["routeType"] = args?.routeType;
+            resourceInputs["serviceIdentifier"] = args?.serviceIdentifier;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["uriPathRoute"] = args?.uriPathRoute;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["pathResourceToId"] = undefined /*out*/;
             resourceInputs["routeIdentifier"] = undefined /*out*/;

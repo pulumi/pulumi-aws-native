@@ -77,11 +77,11 @@ export class DataLake extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            resourceInputs["lifecycleConfiguration"] = args ? args.lifecycleConfiguration : undefined;
-            resourceInputs["metaStoreManagerRoleArn"] = args ? args.metaStoreManagerRoleArn : undefined;
-            resourceInputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["lifecycleConfiguration"] = args?.lifecycleConfiguration;
+            resourceInputs["metaStoreManagerRoleArn"] = args?.metaStoreManagerRoleArn;
+            resourceInputs["replicationConfiguration"] = args?.replicationConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["s3BucketArn"] = undefined /*out*/;
         } else {

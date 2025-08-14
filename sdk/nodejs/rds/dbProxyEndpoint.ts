@@ -89,18 +89,18 @@ export class DbProxyEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dbProxyName === undefined) && !opts.urn) {
+            if (args?.dbProxyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbProxyName'");
             }
-            if ((!args || args.vpcSubnetIds === undefined) && !opts.urn) {
+            if (args?.vpcSubnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcSubnetIds'");
             }
-            resourceInputs["dbProxyEndpointName"] = args ? args.dbProxyEndpointName : undefined;
-            resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetRole"] = args ? args.targetRole : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
-            resourceInputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
+            resourceInputs["dbProxyEndpointName"] = args?.dbProxyEndpointName;
+            resourceInputs["dbProxyName"] = args?.dbProxyName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetRole"] = args?.targetRole;
+            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
+            resourceInputs["vpcSubnetIds"] = args?.vpcSubnetIds;
             resourceInputs["dbProxyEndpointArn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["isDefault"] = undefined /*out*/;

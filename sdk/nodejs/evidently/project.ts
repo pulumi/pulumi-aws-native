@@ -79,11 +79,11 @@ export class Project extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["appConfigResource"] = args ? args.appConfigResource : undefined;
-            resourceInputs["dataDelivery"] = args ? args.dataDelivery : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appConfigResource"] = args?.appConfigResource;
+            resourceInputs["dataDelivery"] = args?.dataDelivery;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["appConfigResource"] = undefined /*out*/;

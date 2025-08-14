@@ -69,17 +69,17 @@ export class UserPoolRiskConfigurationAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["accountTakeoverRiskConfiguration"] = args ? args.accountTakeoverRiskConfiguration : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["compromisedCredentialsRiskConfiguration"] = args ? args.compromisedCredentialsRiskConfiguration : undefined;
-            resourceInputs["riskExceptionConfiguration"] = args ? args.riskExceptionConfiguration : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["accountTakeoverRiskConfiguration"] = args?.accountTakeoverRiskConfiguration;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["compromisedCredentialsRiskConfiguration"] = args?.compromisedCredentialsRiskConfiguration;
+            resourceInputs["riskExceptionConfiguration"] = args?.riskExceptionConfiguration;
+            resourceInputs["userPoolId"] = args?.userPoolId;
         } else {
             resourceInputs["accountTakeoverRiskConfiguration"] = undefined /*out*/;
             resourceInputs["clientId"] = undefined /*out*/;

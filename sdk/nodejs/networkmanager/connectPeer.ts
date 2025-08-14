@@ -101,19 +101,19 @@ export class ConnectPeer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectAttachmentId === undefined) && !opts.urn) {
+            if (args?.connectAttachmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectAttachmentId'");
             }
-            if ((!args || args.peerAddress === undefined) && !opts.urn) {
+            if (args?.peerAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerAddress'");
             }
-            resourceInputs["bgpOptions"] = args ? args.bgpOptions : undefined;
-            resourceInputs["connectAttachmentId"] = args ? args.connectAttachmentId : undefined;
-            resourceInputs["coreNetworkAddress"] = args ? args.coreNetworkAddress : undefined;
-            resourceInputs["insideCidrBlocks"] = args ? args.insideCidrBlocks : undefined;
-            resourceInputs["peerAddress"] = args ? args.peerAddress : undefined;
-            resourceInputs["subnetArn"] = args ? args.subnetArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bgpOptions"] = args?.bgpOptions;
+            resourceInputs["connectAttachmentId"] = args?.connectAttachmentId;
+            resourceInputs["coreNetworkAddress"] = args?.coreNetworkAddress;
+            resourceInputs["insideCidrBlocks"] = args?.insideCidrBlocks;
+            resourceInputs["peerAddress"] = args?.peerAddress;
+            resourceInputs["subnetArn"] = args?.subnetArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["connectPeerId"] = undefined /*out*/;
             resourceInputs["coreNetworkId"] = undefined /*out*/;

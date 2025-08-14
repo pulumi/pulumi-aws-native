@@ -83,15 +83,15 @@ export class LandingZone extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.manifest === undefined) && !opts.urn) {
+            if (args?.manifest === undefined && !opts.urn) {
                 throw new Error("Missing required property 'manifest'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["manifest"] = args ? args.manifest : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["manifest"] = args?.manifest;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["driftStatus"] = undefined /*out*/;
             resourceInputs["landingZoneIdentifier"] = undefined /*out*/;

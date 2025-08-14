@@ -73,17 +73,17 @@ export class Template extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectorArn === undefined) && !opts.urn) {
+            if (args?.connectorArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorArn'");
             }
-            if ((!args || args.definition === undefined) && !opts.urn) {
+            if (args?.definition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            resourceInputs["connectorArn"] = args ? args.connectorArn : undefined;
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["reenrollAllCertificateHolders"] = args ? args.reenrollAllCertificateHolders : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectorArn"] = args?.connectorArn;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["reenrollAllCertificateHolders"] = args?.reenrollAllCertificateHolders;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["templateArn"] = undefined /*out*/;
         } else {
             resourceInputs["connectorArn"] = undefined /*out*/;

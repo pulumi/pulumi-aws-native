@@ -98,13 +98,13 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endpointDetails === undefined) && !opts.urn) {
+            if (args?.endpointDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointDetails'");
             }
-            resourceInputs["contactPostPassDurationSeconds"] = args ? args.contactPostPassDurationSeconds : undefined;
-            resourceInputs["contactPrePassDurationSeconds"] = args ? args.contactPrePassDurationSeconds : undefined;
-            resourceInputs["endpointDetails"] = args ? args.endpointDetails : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["contactPostPassDurationSeconds"] = args?.contactPostPassDurationSeconds;
+            resourceInputs["contactPrePassDurationSeconds"] = args?.contactPrePassDurationSeconds;
+            resourceInputs["endpointDetails"] = args?.endpointDetails;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

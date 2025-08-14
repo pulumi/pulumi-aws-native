@@ -56,11 +56,11 @@ export class SecurityConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.securityConfiguration === undefined) && !opts.urn) {
+            if (args?.securityConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityConfiguration'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["securityConfiguration"] = args?.securityConfiguration;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["securityConfiguration"] = undefined /*out*/;

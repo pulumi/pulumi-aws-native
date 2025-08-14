@@ -69,15 +69,15 @@ export class AggregatorV2 extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.linkedRegions === undefined) && !opts.urn) {
+            if (args?.linkedRegions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedRegions'");
             }
-            if ((!args || args.regionLinkingMode === undefined) && !opts.urn) {
+            if (args?.regionLinkingMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'regionLinkingMode'");
             }
-            resourceInputs["linkedRegions"] = args ? args.linkedRegions : undefined;
-            resourceInputs["regionLinkingMode"] = args ? args.regionLinkingMode : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["linkedRegions"] = args?.linkedRegions;
+            resourceInputs["regionLinkingMode"] = args?.regionLinkingMode;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["aggregationRegion"] = undefined /*out*/;
             resourceInputs["aggregatorV2Arn"] = undefined /*out*/;
         } else {

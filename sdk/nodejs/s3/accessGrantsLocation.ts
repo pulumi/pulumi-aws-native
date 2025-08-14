@@ -69,9 +69,9 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            resourceInputs["locationScope"] = args ? args.locationScope : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
+            resourceInputs["locationScope"] = args?.locationScope;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["accessGrantsLocationArn"] = undefined /*out*/;
             resourceInputs["accessGrantsLocationId"] = undefined /*out*/;
         } else {

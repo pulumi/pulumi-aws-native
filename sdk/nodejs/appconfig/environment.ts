@@ -77,15 +77,15 @@ export class Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["deletionProtectionCheck"] = args ? args.deletionProtectionCheck : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["monitors"] = args ? args.monitors : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["deletionProtectionCheck"] = args?.deletionProtectionCheck;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["monitors"] = args?.monitors;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["environmentId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;

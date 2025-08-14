@@ -73,14 +73,14 @@ export class Gateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.gatewayPlatform === undefined) && !opts.urn) {
+            if (args?.gatewayPlatform === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayPlatform'");
             }
-            resourceInputs["gatewayCapabilitySummaries"] = args ? args.gatewayCapabilitySummaries : undefined;
-            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
-            resourceInputs["gatewayPlatform"] = args ? args.gatewayPlatform : undefined;
-            resourceInputs["gatewayVersion"] = args ? args.gatewayVersion : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["gatewayCapabilitySummaries"] = args?.gatewayCapabilitySummaries;
+            resourceInputs["gatewayName"] = args?.gatewayName;
+            resourceInputs["gatewayPlatform"] = args?.gatewayPlatform;
+            resourceInputs["gatewayVersion"] = args?.gatewayVersion;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["gatewayId"] = undefined /*out*/;
         } else {
             resourceInputs["gatewayCapabilitySummaries"] = undefined /*out*/;

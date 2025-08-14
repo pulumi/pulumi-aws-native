@@ -61,14 +61,14 @@ export class SchemaVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            if ((!args || args.schemaDefinition === undefined) && !opts.urn) {
+            if (args?.schemaDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaDefinition'");
             }
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["schemaDefinition"] = args ? args.schemaDefinition : undefined;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["schemaDefinition"] = args?.schemaDefinition;
             resourceInputs["versionId"] = undefined /*out*/;
         } else {
             resourceInputs["schema"] = undefined /*out*/;

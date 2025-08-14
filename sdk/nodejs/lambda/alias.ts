@@ -77,18 +77,18 @@ export class Alias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.functionName === undefined) && !opts.urn) {
+            if (args?.functionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            if ((!args || args.functionVersion === undefined) && !opts.urn) {
+            if (args?.functionVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionVersion'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["functionName"] = args ? args.functionName : undefined;
-            resourceInputs["functionVersion"] = args ? args.functionVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["provisionedConcurrencyConfig"] = args ? args.provisionedConcurrencyConfig : undefined;
-            resourceInputs["routingConfig"] = args ? args.routingConfig : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["functionName"] = args?.functionName;
+            resourceInputs["functionVersion"] = args?.functionVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["provisionedConcurrencyConfig"] = args?.provisionedConcurrencyConfig;
+            resourceInputs["routingConfig"] = args?.routingConfig;
             resourceInputs["aliasArn"] = undefined /*out*/;
         } else {
             resourceInputs["aliasArn"] = undefined /*out*/;

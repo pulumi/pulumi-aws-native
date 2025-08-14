@@ -93,23 +93,23 @@ export class Container extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.power === undefined) && !opts.urn) {
+            if (args?.power === undefined && !opts.urn) {
                 throw new Error("Missing required property 'power'");
             }
-            if ((!args || args.scale === undefined) && !opts.urn) {
+            if (args?.scale === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scale'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["containerServiceDeployment"] = args ? args.containerServiceDeployment : undefined;
-            resourceInputs["isDisabled"] = args ? args.isDisabled : undefined;
-            resourceInputs["power"] = args ? args.power : undefined;
-            resourceInputs["privateRegistryAccess"] = args ? args.privateRegistryAccess : undefined;
-            resourceInputs["publicDomainNames"] = args ? args.publicDomainNames : undefined;
-            resourceInputs["scale"] = args ? args.scale : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["containerServiceDeployment"] = args?.containerServiceDeployment;
+            resourceInputs["isDisabled"] = args?.isDisabled;
+            resourceInputs["power"] = args?.power;
+            resourceInputs["privateRegistryAccess"] = args?.privateRegistryAccess;
+            resourceInputs["publicDomainNames"] = args?.publicDomainNames;
+            resourceInputs["scale"] = args?.scale;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["containerArn"] = undefined /*out*/;
             resourceInputs["principalArn"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;

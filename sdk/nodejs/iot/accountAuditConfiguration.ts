@@ -73,19 +73,19 @@ export class AccountAuditConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountId === undefined) && !opts.urn) {
+            if (args?.accountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.auditCheckConfigurations === undefined) && !opts.urn) {
+            if (args?.auditCheckConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'auditCheckConfigurations'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["auditCheckConfigurations"] = args ? args.auditCheckConfigurations : undefined;
-            resourceInputs["auditNotificationTargetConfigurations"] = args ? args.auditNotificationTargetConfigurations : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["auditCheckConfigurations"] = args?.auditCheckConfigurations;
+            resourceInputs["auditNotificationTargetConfigurations"] = args?.auditNotificationTargetConfigurations;
+            resourceInputs["roleArn"] = args?.roleArn;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["auditCheckConfigurations"] = undefined /*out*/;

@@ -115,24 +115,24 @@ export class AnalysisTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.format === undefined) && !opts.urn) {
+            if (args?.format === undefined && !opts.urn) {
                 throw new Error("Missing required property 'format'");
             }
-            if ((!args || args.membershipIdentifier === undefined) && !opts.urn) {
+            if (args?.membershipIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'membershipIdentifier'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["analysisParameters"] = args ? args.analysisParameters : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["format"] = args ? args.format : undefined;
-            resourceInputs["membershipIdentifier"] = args ? args.membershipIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["sourceMetadata"] = args ? args.sourceMetadata : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["analysisParameters"] = args?.analysisParameters;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["format"] = args?.format;
+            resourceInputs["membershipIdentifier"] = args?.membershipIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["sourceMetadata"] = args?.sourceMetadata;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["analysisTemplateIdentifier"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collaborationArn"] = undefined /*out*/;

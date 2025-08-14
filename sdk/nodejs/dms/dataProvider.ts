@@ -85,16 +85,16 @@ export class DataProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.engine === undefined) && !opts.urn) {
+            if (args?.engine === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engine'");
             }
-            resourceInputs["dataProviderIdentifier"] = args ? args.dataProviderIdentifier : undefined;
-            resourceInputs["dataProviderName"] = args ? args.dataProviderName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["exactSettings"] = args ? args.exactSettings : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataProviderIdentifier"] = args?.dataProviderIdentifier;
+            resourceInputs["dataProviderName"] = args?.dataProviderName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["exactSettings"] = args?.exactSettings;
+            resourceInputs["settings"] = args?.settings;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["dataProviderArn"] = undefined /*out*/;
             resourceInputs["dataProviderCreationTime"] = undefined /*out*/;
         } else {

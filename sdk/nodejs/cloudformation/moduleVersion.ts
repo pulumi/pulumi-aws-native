@@ -195,14 +195,14 @@ export class ModuleVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.moduleName === undefined) && !opts.urn) {
+            if (args?.moduleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'moduleName'");
             }
-            if ((!args || args.modulePackage === undefined) && !opts.urn) {
+            if (args?.modulePackage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modulePackage'");
             }
-            resourceInputs["moduleName"] = args ? args.moduleName : undefined;
-            resourceInputs["modulePackage"] = args ? args.modulePackage : undefined;
+            resourceInputs["moduleName"] = args?.moduleName;
+            resourceInputs["modulePackage"] = args?.modulePackage;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["documentationUrl"] = undefined /*out*/;

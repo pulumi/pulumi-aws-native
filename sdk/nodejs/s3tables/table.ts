@@ -69,23 +69,23 @@ export class Table extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespace === undefined) && !opts.urn) {
+            if (args?.namespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
-            if ((!args || args.openTableFormat === undefined) && !opts.urn) {
+            if (args?.openTableFormat === undefined && !opts.urn) {
                 throw new Error("Missing required property 'openTableFormat'");
             }
-            if ((!args || args.tableBucketArn === undefined) && !opts.urn) {
+            if (args?.tableBucketArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableBucketArn'");
             }
-            resourceInputs["compaction"] = args ? args.compaction : undefined;
-            resourceInputs["icebergMetadata"] = args ? args.icebergMetadata : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["openTableFormat"] = args ? args.openTableFormat : undefined;
-            resourceInputs["snapshotManagement"] = args ? args.snapshotManagement : undefined;
-            resourceInputs["tableBucketArn"] = args ? args.tableBucketArn : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
-            resourceInputs["withoutMetadata"] = args ? args.withoutMetadata : undefined;
+            resourceInputs["compaction"] = args?.compaction;
+            resourceInputs["icebergMetadata"] = args?.icebergMetadata;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["openTableFormat"] = args?.openTableFormat;
+            resourceInputs["snapshotManagement"] = args?.snapshotManagement;
+            resourceInputs["tableBucketArn"] = args?.tableBucketArn;
+            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["withoutMetadata"] = args?.withoutMetadata;
             resourceInputs["tableArn"] = undefined /*out*/;
             resourceInputs["versionToken"] = undefined /*out*/;
             resourceInputs["warehouseLocation"] = undefined /*out*/;

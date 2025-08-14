@@ -101,24 +101,24 @@ export class Pipeline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.maxUnits === undefined) && !opts.urn) {
+            if (args?.maxUnits === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxUnits'");
             }
-            if ((!args || args.minUnits === undefined) && !opts.urn) {
+            if (args?.minUnits === undefined && !opts.urn) {
                 throw new Error("Missing required property 'minUnits'");
             }
-            if ((!args || args.pipelineConfigurationBody === undefined) && !opts.urn) {
+            if (args?.pipelineConfigurationBody === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pipelineConfigurationBody'");
             }
-            resourceInputs["bufferOptions"] = args ? args.bufferOptions : undefined;
-            resourceInputs["encryptionAtRestOptions"] = args ? args.encryptionAtRestOptions : undefined;
-            resourceInputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
-            resourceInputs["maxUnits"] = args ? args.maxUnits : undefined;
-            resourceInputs["minUnits"] = args ? args.minUnits : undefined;
-            resourceInputs["pipelineConfigurationBody"] = args ? args.pipelineConfigurationBody : undefined;
-            resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
+            resourceInputs["bufferOptions"] = args?.bufferOptions;
+            resourceInputs["encryptionAtRestOptions"] = args?.encryptionAtRestOptions;
+            resourceInputs["logPublishingOptions"] = args?.logPublishingOptions;
+            resourceInputs["maxUnits"] = args?.maxUnits;
+            resourceInputs["minUnits"] = args?.minUnits;
+            resourceInputs["pipelineConfigurationBody"] = args?.pipelineConfigurationBody;
+            resourceInputs["pipelineName"] = args?.pipelineName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcOptions"] = args?.vpcOptions;
             resourceInputs["ingestEndpointUrls"] = undefined /*out*/;
             resourceInputs["pipelineArn"] = undefined /*out*/;
             resourceInputs["vpcEndpointService"] = undefined /*out*/;

@@ -80,23 +80,23 @@ export class Limit extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.amountRequirementName === undefined) && !opts.urn) {
+            if (args?.amountRequirementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amountRequirementName'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.farmId === undefined) && !opts.urn) {
+            if (args?.farmId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'farmId'");
             }
-            if ((!args || args.maxCount === undefined) && !opts.urn) {
+            if (args?.maxCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxCount'");
             }
-            resourceInputs["amountRequirementName"] = args ? args.amountRequirementName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["farmId"] = args ? args.farmId : undefined;
-            resourceInputs["maxCount"] = args ? args.maxCount : undefined;
+            resourceInputs["amountRequirementName"] = args?.amountRequirementName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["farmId"] = args?.farmId;
+            resourceInputs["maxCount"] = args?.maxCount;
             resourceInputs["currentCount"] = undefined /*out*/;
             resourceInputs["limitId"] = undefined /*out*/;
         } else {

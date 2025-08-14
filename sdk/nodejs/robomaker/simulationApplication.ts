@@ -179,20 +179,20 @@ export class SimulationApplication extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.robotSoftwareSuite === undefined) && !opts.urn) {
+            if (args?.robotSoftwareSuite === undefined && !opts.urn) {
                 throw new Error("Missing required property 'robotSoftwareSuite'");
             }
-            if ((!args || args.simulationSoftwareSuite === undefined) && !opts.urn) {
+            if (args?.simulationSoftwareSuite === undefined && !opts.urn) {
                 throw new Error("Missing required property 'simulationSoftwareSuite'");
             }
-            resourceInputs["currentRevisionId"] = args ? args.currentRevisionId : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["renderingEngine"] = args ? args.renderingEngine : undefined;
-            resourceInputs["robotSoftwareSuite"] = args ? args.robotSoftwareSuite : undefined;
-            resourceInputs["simulationSoftwareSuite"] = args ? args.simulationSoftwareSuite : undefined;
-            resourceInputs["sources"] = args ? args.sources : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["currentRevisionId"] = args?.currentRevisionId;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["renderingEngine"] = args?.renderingEngine;
+            resourceInputs["robotSoftwareSuite"] = args?.robotSoftwareSuite;
+            resourceInputs["simulationSoftwareSuite"] = args?.simulationSoftwareSuite;
+            resourceInputs["sources"] = args?.sources;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

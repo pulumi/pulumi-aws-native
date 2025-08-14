@@ -97,29 +97,29 @@ export class User extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.phoneConfig === undefined) && !opts.urn) {
+            if (args?.phoneConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'phoneConfig'");
             }
-            if ((!args || args.routingProfileArn === undefined) && !opts.urn) {
+            if (args?.routingProfileArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routingProfileArn'");
             }
-            if ((!args || args.securityProfileArns === undefined) && !opts.urn) {
+            if (args?.securityProfileArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityProfileArns'");
             }
-            resourceInputs["directoryUserId"] = args ? args.directoryUserId : undefined;
-            resourceInputs["hierarchyGroupArn"] = args ? args.hierarchyGroupArn : undefined;
-            resourceInputs["identityInfo"] = args ? args.identityInfo : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["phoneConfig"] = args ? args.phoneConfig : undefined;
-            resourceInputs["routingProfileArn"] = args ? args.routingProfileArn : undefined;
-            resourceInputs["securityProfileArns"] = args ? args.securityProfileArns : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userProficiencies"] = args ? args.userProficiencies : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["directoryUserId"] = args?.directoryUserId;
+            resourceInputs["hierarchyGroupArn"] = args?.hierarchyGroupArn;
+            resourceInputs["identityInfo"] = args?.identityInfo;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["phoneConfig"] = args?.phoneConfig;
+            resourceInputs["routingProfileArn"] = args?.routingProfileArn;
+            resourceInputs["securityProfileArns"] = args?.securityProfileArns;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userProficiencies"] = args?.userProficiencies;
+            resourceInputs["username"] = args?.username;
             resourceInputs["userArn"] = undefined /*out*/;
         } else {
             resourceInputs["directoryUserId"] = undefined /*out*/;

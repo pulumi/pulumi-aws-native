@@ -73,11 +73,11 @@ export class ProfilingGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["agentPermissions"] = args ? args.agentPermissions : undefined;
-            resourceInputs["anomalyDetectionNotificationConfiguration"] = args ? args.anomalyDetectionNotificationConfiguration : undefined;
-            resourceInputs["computePlatform"] = args ? args.computePlatform : undefined;
-            resourceInputs["profilingGroupName"] = args ? args.profilingGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentPermissions"] = args?.agentPermissions;
+            resourceInputs["anomalyDetectionNotificationConfiguration"] = args?.anomalyDetectionNotificationConfiguration;
+            resourceInputs["computePlatform"] = args?.computePlatform;
+            resourceInputs["profilingGroupName"] = args?.profilingGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["agentPermissions"] = undefined /*out*/;

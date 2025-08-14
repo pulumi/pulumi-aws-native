@@ -73,9 +73,9 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["observabilityConfigurationName"] = args ? args.observabilityConfigurationName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["traceConfiguration"] = args ? args.traceConfiguration : undefined;
+            resourceInputs["observabilityConfigurationName"] = args?.observabilityConfigurationName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["traceConfiguration"] = args?.traceConfiguration;
             resourceInputs["latest"] = undefined /*out*/;
             resourceInputs["observabilityConfigurationArn"] = undefined /*out*/;
             resourceInputs["observabilityConfigurationRevision"] = undefined /*out*/;

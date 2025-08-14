@@ -76,11 +76,11 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["clusterType"] = args ? args.clusterType : undefined;
-            resourceInputs["instanceRoleArn"] = args ? args.instanceRoleArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkSettings"] = args ? args.networkSettings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterType"] = args?.clusterType;
+            resourceInputs["instanceRoleArn"] = args?.instanceRoleArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkSettings"] = args?.networkSettings;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["channelIds"] = undefined /*out*/;

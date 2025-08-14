@@ -69,16 +69,16 @@ export class ParameterGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cacheParameterGroupFamily === undefined) && !opts.urn) {
+            if (args?.cacheParameterGroupFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cacheParameterGroupFamily'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            resourceInputs["cacheParameterGroupFamily"] = args ? args.cacheParameterGroupFamily : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cacheParameterGroupFamily"] = args?.cacheParameterGroupFamily;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["cacheParameterGroupName"] = undefined /*out*/;
         } else {
             resourceInputs["cacheParameterGroupFamily"] = undefined /*out*/;

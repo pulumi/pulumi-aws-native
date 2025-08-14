@@ -93,20 +93,20 @@ export class SimpleAd extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.size === undefined) && !opts.urn) {
+            if (args?.size === undefined && !opts.urn) {
                 throw new Error("Missing required property 'size'");
             }
-            if ((!args || args.vpcSettings === undefined) && !opts.urn) {
+            if (args?.vpcSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcSettings'");
             }
-            resourceInputs["createAlias"] = args ? args.createAlias : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enableSso"] = args ? args.enableSso : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["shortName"] = args ? args.shortName : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
-            resourceInputs["vpcSettings"] = args ? args.vpcSettings : undefined;
+            resourceInputs["createAlias"] = args?.createAlias;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enableSso"] = args?.enableSso;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["shortName"] = args?.shortName;
+            resourceInputs["size"] = args?.size;
+            resourceInputs["vpcSettings"] = args?.vpcSettings;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["directoryId"] = undefined /*out*/;
             resourceInputs["dnsIpAddresses"] = undefined /*out*/;

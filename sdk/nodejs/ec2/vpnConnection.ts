@@ -128,27 +128,27 @@ export class VpnConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.customerGatewayId === undefined) && !opts.urn) {
+            if (args?.customerGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customerGatewayId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["customerGatewayId"] = args ? args.customerGatewayId : undefined;
-            resourceInputs["enableAcceleration"] = args ? args.enableAcceleration : undefined;
-            resourceInputs["localIpv4NetworkCidr"] = args ? args.localIpv4NetworkCidr : undefined;
-            resourceInputs["localIpv6NetworkCidr"] = args ? args.localIpv6NetworkCidr : undefined;
-            resourceInputs["outsideIpAddressType"] = args ? args.outsideIpAddressType : undefined;
-            resourceInputs["remoteIpv4NetworkCidr"] = args ? args.remoteIpv4NetworkCidr : undefined;
-            resourceInputs["remoteIpv6NetworkCidr"] = args ? args.remoteIpv6NetworkCidr : undefined;
-            resourceInputs["staticRoutesOnly"] = args ? args.staticRoutesOnly : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
-            resourceInputs["transportTransitGatewayAttachmentId"] = args ? args.transportTransitGatewayAttachmentId : undefined;
-            resourceInputs["tunnelInsideIpVersion"] = args ? args.tunnelInsideIpVersion : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
-            resourceInputs["vpnTunnelOptionsSpecifications"] = args ? args.vpnTunnelOptionsSpecifications : undefined;
+            resourceInputs["customerGatewayId"] = args?.customerGatewayId;
+            resourceInputs["enableAcceleration"] = args?.enableAcceleration;
+            resourceInputs["localIpv4NetworkCidr"] = args?.localIpv4NetworkCidr;
+            resourceInputs["localIpv6NetworkCidr"] = args?.localIpv6NetworkCidr;
+            resourceInputs["outsideIpAddressType"] = args?.outsideIpAddressType;
+            resourceInputs["remoteIpv4NetworkCidr"] = args?.remoteIpv4NetworkCidr;
+            resourceInputs["remoteIpv6NetworkCidr"] = args?.remoteIpv6NetworkCidr;
+            resourceInputs["staticRoutesOnly"] = args?.staticRoutesOnly;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
+            resourceInputs["transportTransitGatewayAttachmentId"] = args?.transportTransitGatewayAttachmentId;
+            resourceInputs["tunnelInsideIpVersion"] = args?.tunnelInsideIpVersion;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["vpnGatewayId"] = args?.vpnGatewayId;
+            resourceInputs["vpnTunnelOptionsSpecifications"] = args?.vpnTunnelOptionsSpecifications;
             resourceInputs["vpnConnectionId"] = undefined /*out*/;
         } else {
             resourceInputs["customerGatewayId"] = undefined /*out*/;

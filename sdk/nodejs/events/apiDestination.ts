@@ -81,21 +81,21 @@ export class ApiDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectionArn === undefined) && !opts.urn) {
+            if (args?.connectionArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionArn'");
             }
-            if ((!args || args.httpMethod === undefined) && !opts.urn) {
+            if (args?.httpMethod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if ((!args || args.invocationEndpoint === undefined) && !opts.urn) {
+            if (args?.invocationEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'invocationEndpoint'");
             }
-            resourceInputs["connectionArn"] = args ? args.connectionArn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
-            resourceInputs["invocationEndpoint"] = args ? args.invocationEndpoint : undefined;
-            resourceInputs["invocationRateLimitPerSecond"] = args ? args.invocationRateLimitPerSecond : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["connectionArn"] = args?.connectionArn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["httpMethod"] = args?.httpMethod;
+            resourceInputs["invocationEndpoint"] = args?.invocationEndpoint;
+            resourceInputs["invocationRateLimitPerSecond"] = args?.invocationRateLimitPerSecond;
+            resourceInputs["name"] = args?.name;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["arnForPolicy"] = undefined /*out*/;
         } else {

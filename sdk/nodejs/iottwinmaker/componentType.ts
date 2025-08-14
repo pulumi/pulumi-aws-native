@@ -113,22 +113,22 @@ export class ComponentType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.componentTypeId === undefined) && !opts.urn) {
+            if (args?.componentTypeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'componentTypeId'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["componentTypeId"] = args ? args.componentTypeId : undefined;
-            resourceInputs["compositeComponentTypes"] = args ? args.compositeComponentTypes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["extendsFrom"] = args ? args.extendsFrom : undefined;
-            resourceInputs["functions"] = args ? args.functions : undefined;
-            resourceInputs["isSingleton"] = args ? args.isSingleton : undefined;
-            resourceInputs["propertyDefinitions"] = args ? args.propertyDefinitions : undefined;
-            resourceInputs["propertyGroups"] = args ? args.propertyGroups : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["componentTypeId"] = args?.componentTypeId;
+            resourceInputs["compositeComponentTypes"] = args?.compositeComponentTypes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["extendsFrom"] = args?.extendsFrom;
+            resourceInputs["functions"] = args?.functions;
+            resourceInputs["isSingleton"] = args?.isSingleton;
+            resourceInputs["propertyDefinitions"] = args?.propertyDefinitions;
+            resourceInputs["propertyGroups"] = args?.propertyGroups;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDateTime"] = undefined /*out*/;
             resourceInputs["isAbstract"] = undefined /*out*/;

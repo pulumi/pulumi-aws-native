@@ -61,14 +61,14 @@ export class SubscriberNotification extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.notificationConfiguration === undefined) && !opts.urn) {
+            if (args?.notificationConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notificationConfiguration'");
             }
-            if ((!args || args.subscriberArn === undefined) && !opts.urn) {
+            if (args?.subscriberArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriberArn'");
             }
-            resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
-            resourceInputs["subscriberArn"] = args ? args.subscriberArn : undefined;
+            resourceInputs["notificationConfiguration"] = args?.notificationConfiguration;
+            resourceInputs["subscriberArn"] = args?.subscriberArn;
             resourceInputs["subscriberEndpoint"] = undefined /*out*/;
         } else {
             resourceInputs["notificationConfiguration"] = undefined /*out*/;

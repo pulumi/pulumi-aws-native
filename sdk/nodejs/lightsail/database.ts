@@ -113,36 +113,36 @@ export class Database extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.masterDatabaseName === undefined) && !opts.urn) {
+            if (args?.masterDatabaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'masterDatabaseName'");
             }
-            if ((!args || args.masterUsername === undefined) && !opts.urn) {
+            if (args?.masterUsername === undefined && !opts.urn) {
                 throw new Error("Missing required property 'masterUsername'");
             }
-            if ((!args || args.relationalDatabaseBlueprintId === undefined) && !opts.urn) {
+            if (args?.relationalDatabaseBlueprintId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relationalDatabaseBlueprintId'");
             }
-            if ((!args || args.relationalDatabaseBundleId === undefined) && !opts.urn) {
+            if (args?.relationalDatabaseBundleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relationalDatabaseBundleId'");
             }
-            if ((!args || args.relationalDatabaseName === undefined) && !opts.urn) {
+            if (args?.relationalDatabaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relationalDatabaseName'");
             }
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["backupRetention"] = args ? args.backupRetention : undefined;
-            resourceInputs["caCertificateIdentifier"] = args ? args.caCertificateIdentifier : undefined;
-            resourceInputs["masterDatabaseName"] = args ? args.masterDatabaseName : undefined;
-            resourceInputs["masterUserPassword"] = args ? args.masterUserPassword : undefined;
-            resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
-            resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            resourceInputs["relationalDatabaseBlueprintId"] = args ? args.relationalDatabaseBlueprintId : undefined;
-            resourceInputs["relationalDatabaseBundleId"] = args ? args.relationalDatabaseBundleId : undefined;
-            resourceInputs["relationalDatabaseName"] = args ? args.relationalDatabaseName : undefined;
-            resourceInputs["relationalDatabaseParameters"] = args ? args.relationalDatabaseParameters : undefined;
-            resourceInputs["rotateMasterUserPassword"] = args ? args.rotateMasterUserPassword : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["backupRetention"] = args?.backupRetention;
+            resourceInputs["caCertificateIdentifier"] = args?.caCertificateIdentifier;
+            resourceInputs["masterDatabaseName"] = args?.masterDatabaseName;
+            resourceInputs["masterUserPassword"] = args?.masterUserPassword;
+            resourceInputs["masterUsername"] = args?.masterUsername;
+            resourceInputs["preferredBackupWindow"] = args?.preferredBackupWindow;
+            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
+            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
+            resourceInputs["relationalDatabaseBlueprintId"] = args?.relationalDatabaseBlueprintId;
+            resourceInputs["relationalDatabaseBundleId"] = args?.relationalDatabaseBundleId;
+            resourceInputs["relationalDatabaseName"] = args?.relationalDatabaseName;
+            resourceInputs["relationalDatabaseParameters"] = args?.relationalDatabaseParameters;
+            resourceInputs["rotateMasterUserPassword"] = args?.rotateMasterUserPassword;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["databaseArn"] = undefined /*out*/;
         } else {
             resourceInputs["availabilityZone"] = undefined /*out*/;

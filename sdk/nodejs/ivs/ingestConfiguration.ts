@@ -89,12 +89,12 @@ export class IngestConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["ingestProtocol"] = args ? args.ingestProtocol : undefined;
-            resourceInputs["insecureIngest"] = args ? args.insecureIngest : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["stageArn"] = args ? args.stageArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["ingestProtocol"] = args?.ingestProtocol;
+            resourceInputs["insecureIngest"] = args?.insecureIngest;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["stageArn"] = args?.stageArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userId"] = args?.userId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["participantId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

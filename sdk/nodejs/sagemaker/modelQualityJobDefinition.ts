@@ -98,32 +98,32 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.jobResources === undefined) && !opts.urn) {
+            if (args?.jobResources === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobResources'");
             }
-            if ((!args || args.modelQualityAppSpecification === undefined) && !opts.urn) {
+            if (args?.modelQualityAppSpecification === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelQualityAppSpecification'");
             }
-            if ((!args || args.modelQualityJobInput === undefined) && !opts.urn) {
+            if (args?.modelQualityJobInput === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelQualityJobInput'");
             }
-            if ((!args || args.modelQualityJobOutputConfig === undefined) && !opts.urn) {
+            if (args?.modelQualityJobOutputConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelQualityJobOutputConfig'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
-            resourceInputs["jobResources"] = args ? args.jobResources : undefined;
-            resourceInputs["modelQualityAppSpecification"] = args ? args.modelQualityAppSpecification : undefined;
-            resourceInputs["modelQualityBaselineConfig"] = args ? args.modelQualityBaselineConfig : undefined;
-            resourceInputs["modelQualityJobInput"] = args ? args.modelQualityJobInput : undefined;
-            resourceInputs["modelQualityJobOutputConfig"] = args ? args.modelQualityJobOutputConfig : undefined;
-            resourceInputs["networkConfig"] = args ? args.networkConfig : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["stoppingCondition"] = args ? args.stoppingCondition : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["jobDefinitionName"] = args?.jobDefinitionName;
+            resourceInputs["jobResources"] = args?.jobResources;
+            resourceInputs["modelQualityAppSpecification"] = args?.modelQualityAppSpecification;
+            resourceInputs["modelQualityBaselineConfig"] = args?.modelQualityBaselineConfig;
+            resourceInputs["modelQualityJobInput"] = args?.modelQualityJobInput;
+            resourceInputs["modelQualityJobOutputConfig"] = args?.modelQualityJobOutputConfig;
+            resourceInputs["networkConfig"] = args?.networkConfig;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["stoppingCondition"] = args?.stoppingCondition;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["jobDefinitionArn"] = undefined /*out*/;
         } else {

@@ -89,18 +89,18 @@ export class Host extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
+            if (args?.availabilityZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            resourceInputs["assetId"] = args ? args.assetId : undefined;
-            resourceInputs["autoPlacement"] = args ? args.autoPlacement : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["hostMaintenance"] = args ? args.hostMaintenance : undefined;
-            resourceInputs["hostRecovery"] = args ? args.hostRecovery : undefined;
-            resourceInputs["instanceFamily"] = args ? args.instanceFamily : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assetId"] = args?.assetId;
+            resourceInputs["autoPlacement"] = args?.autoPlacement;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["hostMaintenance"] = args?.hostMaintenance;
+            resourceInputs["hostRecovery"] = args?.hostRecovery;
+            resourceInputs["instanceFamily"] = args?.instanceFamily;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["outpostArn"] = args?.outpostArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["hostId"] = undefined /*out*/;
         } else {
             resourceInputs["assetId"] = undefined /*out*/;

@@ -81,13 +81,13 @@ export class Stream extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["desiredShardLevelMetrics"] = args ? args.desiredShardLevelMetrics : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["retentionPeriodHours"] = args ? args.retentionPeriodHours : undefined;
-            resourceInputs["shardCount"] = args ? args.shardCount : undefined;
-            resourceInputs["streamEncryption"] = args ? args.streamEncryption : undefined;
-            resourceInputs["streamModeDetails"] = args ? args.streamModeDetails : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["desiredShardLevelMetrics"] = args?.desiredShardLevelMetrics;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["retentionPeriodHours"] = args?.retentionPeriodHours;
+            resourceInputs["shardCount"] = args?.shardCount;
+            resourceInputs["streamEncryption"] = args?.streamEncryption;
+            resourceInputs["streamModeDetails"] = args?.streamModeDetails;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

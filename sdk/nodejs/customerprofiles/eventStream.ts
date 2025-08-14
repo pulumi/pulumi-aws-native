@@ -81,16 +81,16 @@ export class EventStream extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.uri === undefined) && !opts.urn) {
+            if (args?.uri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'uri'");
             }
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["eventStreamName"] = args ? args.eventStreamName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["eventStreamName"] = args?.eventStreamName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["uri"] = args?.uri;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["destinationDetails"] = undefined /*out*/;
             resourceInputs["eventStreamArn"] = undefined /*out*/;

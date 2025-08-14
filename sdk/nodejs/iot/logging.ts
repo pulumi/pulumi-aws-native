@@ -61,18 +61,18 @@ export class Logging extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountId === undefined) && !opts.urn) {
+            if (args?.accountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.defaultLogLevel === undefined) && !opts.urn) {
+            if (args?.defaultLogLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultLogLevel'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["defaultLogLevel"] = args ? args.defaultLogLevel : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["defaultLogLevel"] = args?.defaultLogLevel;
+            resourceInputs["roleArn"] = args?.roleArn;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["defaultLogLevel"] = undefined /*out*/;

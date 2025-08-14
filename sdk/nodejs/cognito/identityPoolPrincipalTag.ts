@@ -64,16 +64,16 @@ export class IdentityPoolPrincipalTag extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.identityPoolId === undefined) && !opts.urn) {
+            if (args?.identityPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityPoolId'");
             }
-            if ((!args || args.identityProviderName === undefined) && !opts.urn) {
+            if (args?.identityProviderName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityProviderName'");
             }
-            resourceInputs["identityPoolId"] = args ? args.identityPoolId : undefined;
-            resourceInputs["identityProviderName"] = args ? args.identityProviderName : undefined;
-            resourceInputs["principalTags"] = args ? args.principalTags : undefined;
-            resourceInputs["useDefaults"] = args ? args.useDefaults : undefined;
+            resourceInputs["identityPoolId"] = args?.identityPoolId;
+            resourceInputs["identityProviderName"] = args?.identityProviderName;
+            resourceInputs["principalTags"] = args?.principalTags;
+            resourceInputs["useDefaults"] = args?.useDefaults;
         } else {
             resourceInputs["identityPoolId"] = undefined /*out*/;
             resourceInputs["identityProviderName"] = undefined /*out*/;

@@ -73,17 +73,17 @@ export class EventIntegration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.eventBridgeBus === undefined) && !opts.urn) {
+            if (args?.eventBridgeBus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventBridgeBus'");
             }
-            if ((!args || args.eventFilter === undefined) && !opts.urn) {
+            if (args?.eventFilter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventFilter'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventBridgeBus"] = args ? args.eventBridgeBus : undefined;
-            resourceInputs["eventFilter"] = args ? args.eventFilter : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventBridgeBus"] = args?.eventBridgeBus;
+            resourceInputs["eventFilter"] = args?.eventFilter;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["eventIntegrationArn"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

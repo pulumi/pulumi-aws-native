@@ -93,17 +93,17 @@ export class BotAlias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.botId === undefined) && !opts.urn) {
+            if (args?.botId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botId'");
             }
-            resourceInputs["botAliasLocaleSettings"] = args ? args.botAliasLocaleSettings : undefined;
-            resourceInputs["botAliasName"] = args ? args.botAliasName : undefined;
-            resourceInputs["botAliasTags"] = args ? args.botAliasTags : undefined;
-            resourceInputs["botId"] = args ? args.botId : undefined;
-            resourceInputs["botVersion"] = args ? args.botVersion : undefined;
-            resourceInputs["conversationLogSettings"] = args ? args.conversationLogSettings : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["sentimentAnalysisSettings"] = args ? args.sentimentAnalysisSettings : undefined;
+            resourceInputs["botAliasLocaleSettings"] = args?.botAliasLocaleSettings;
+            resourceInputs["botAliasName"] = args?.botAliasName;
+            resourceInputs["botAliasTags"] = args?.botAliasTags;
+            resourceInputs["botId"] = args?.botId;
+            resourceInputs["botVersion"] = args?.botVersion;
+            resourceInputs["conversationLogSettings"] = args?.conversationLogSettings;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["sentimentAnalysisSettings"] = args?.sentimentAnalysisSettings;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["botAliasId"] = undefined /*out*/;
             resourceInputs["botAliasStatus"] = undefined /*out*/;

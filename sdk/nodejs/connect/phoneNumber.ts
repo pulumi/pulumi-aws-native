@@ -85,16 +85,16 @@ export class PhoneNumber extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.targetArn === undefined) && !opts.urn) {
+            if (args?.targetArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            resourceInputs["countryCode"] = args ? args.countryCode : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["prefix"] = args ? args.prefix : undefined;
-            resourceInputs["sourcePhoneNumberArn"] = args ? args.sourcePhoneNumberArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetArn"] = args ? args.targetArn : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["countryCode"] = args?.countryCode;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["prefix"] = args?.prefix;
+            resourceInputs["sourcePhoneNumberArn"] = args?.sourcePhoneNumberArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetArn"] = args?.targetArn;
+            resourceInputs["type"] = args?.type;
             resourceInputs["address"] = undefined /*out*/;
             resourceInputs["phoneNumberArn"] = undefined /*out*/;
         } else {

@@ -62,11 +62,11 @@ export class MessageTemplateVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.messageTemplateArn === undefined) && !opts.urn) {
+            if (args?.messageTemplateArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'messageTemplateArn'");
             }
-            resourceInputs["messageTemplateArn"] = args ? args.messageTemplateArn : undefined;
-            resourceInputs["messageTemplateContentSha256"] = args ? args.messageTemplateContentSha256 : undefined;
+            resourceInputs["messageTemplateArn"] = args?.messageTemplateArn;
+            resourceInputs["messageTemplateContentSha256"] = args?.messageTemplateContentSha256;
             resourceInputs["messageTemplateVersionArn"] = undefined /*out*/;
             resourceInputs["messageTemplateVersionNumber"] = undefined /*out*/;
         } else {

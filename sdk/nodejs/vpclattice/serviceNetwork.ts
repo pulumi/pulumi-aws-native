@@ -86,10 +86,10 @@ export class ServiceNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["authType"] = args ? args.authType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sharingConfig"] = args ? args.sharingConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authType"] = args?.authType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sharingConfig"] = args?.sharingConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

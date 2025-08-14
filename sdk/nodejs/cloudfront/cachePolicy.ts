@@ -66,10 +66,10 @@ export class CachePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cachePolicyConfig === undefined) && !opts.urn) {
+            if (args?.cachePolicyConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cachePolicyConfig'");
             }
-            resourceInputs["cachePolicyConfig"] = args ? args.cachePolicyConfig : undefined;
+            resourceInputs["cachePolicyConfig"] = args?.cachePolicyConfig;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {

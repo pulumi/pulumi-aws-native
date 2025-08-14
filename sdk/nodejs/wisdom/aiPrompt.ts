@@ -116,30 +116,30 @@ export class AiPrompt extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiFormat === undefined) && !opts.urn) {
+            if (args?.apiFormat === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiFormat'");
             }
-            if ((!args || args.modelId === undefined) && !opts.urn) {
+            if (args?.modelId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelId'");
             }
-            if ((!args || args.templateConfiguration === undefined) && !opts.urn) {
+            if (args?.templateConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateConfiguration'");
             }
-            if ((!args || args.templateType === undefined) && !opts.urn) {
+            if (args?.templateType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateType'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["apiFormat"] = args ? args.apiFormat : undefined;
-            resourceInputs["assistantId"] = args ? args.assistantId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["modelId"] = args ? args.modelId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateConfiguration"] = args ? args.templateConfiguration : undefined;
-            resourceInputs["templateType"] = args ? args.templateType : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["apiFormat"] = args?.apiFormat;
+            resourceInputs["assistantId"] = args?.assistantId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["modelId"] = args?.modelId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateConfiguration"] = args?.templateConfiguration;
+            resourceInputs["templateType"] = args?.templateType;
+            resourceInputs["type"] = args?.type;
             resourceInputs["aiPromptArn"] = undefined /*out*/;
             resourceInputs["aiPromptId"] = undefined /*out*/;
             resourceInputs["assistantArn"] = undefined /*out*/;

@@ -89,12 +89,12 @@ export class ServerCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["certificateBody"] = args ? args.certificateBody : undefined;
-            resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
-            resourceInputs["serverCertificateName"] = args ? args.serverCertificateName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["certificateBody"] = args?.certificateBody;
+            resourceInputs["certificateChain"] = args?.certificateChain;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["privateKey"] = args?.privateKey;
+            resourceInputs["serverCertificateName"] = args?.serverCertificateName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

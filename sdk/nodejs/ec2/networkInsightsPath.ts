@@ -105,21 +105,21 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["destinationIp"] = args ? args.destinationIp : undefined;
-            resourceInputs["destinationPort"] = args ? args.destinationPort : undefined;
-            resourceInputs["filterAtDestination"] = args ? args.filterAtDestination : undefined;
-            resourceInputs["filterAtSource"] = args ? args.filterAtSource : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["sourceIp"] = args ? args.sourceIp : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["destinationIp"] = args?.destinationIp;
+            resourceInputs["destinationPort"] = args?.destinationPort;
+            resourceInputs["filterAtDestination"] = args?.filterAtDestination;
+            resourceInputs["filterAtSource"] = args?.filterAtSource;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["sourceIp"] = args?.sourceIp;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["destinationArn"] = undefined /*out*/;
             resourceInputs["networkInsightsPathArn"] = undefined /*out*/;

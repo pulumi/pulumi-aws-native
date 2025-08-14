@@ -105,43 +105,43 @@ export class Connector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.capacity === undefined) && !opts.urn) {
+            if (args?.capacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacity'");
             }
-            if ((!args || args.connectorConfiguration === undefined) && !opts.urn) {
+            if (args?.connectorConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorConfiguration'");
             }
-            if ((!args || args.kafkaCluster === undefined) && !opts.urn) {
+            if (args?.kafkaCluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaCluster'");
             }
-            if ((!args || args.kafkaClusterClientAuthentication === undefined) && !opts.urn) {
+            if (args?.kafkaClusterClientAuthentication === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaClusterClientAuthentication'");
             }
-            if ((!args || args.kafkaClusterEncryptionInTransit === undefined) && !opts.urn) {
+            if (args?.kafkaClusterEncryptionInTransit === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaClusterEncryptionInTransit'");
             }
-            if ((!args || args.kafkaConnectVersion === undefined) && !opts.urn) {
+            if (args?.kafkaConnectVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaConnectVersion'");
             }
-            if ((!args || args.plugins === undefined) && !opts.urn) {
+            if (args?.plugins === undefined && !opts.urn) {
                 throw new Error("Missing required property 'plugins'");
             }
-            if ((!args || args.serviceExecutionRoleArn === undefined) && !opts.urn) {
+            if (args?.serviceExecutionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceExecutionRoleArn'");
             }
-            resourceInputs["capacity"] = args ? args.capacity : undefined;
-            resourceInputs["connectorConfiguration"] = args ? args.connectorConfiguration : undefined;
-            resourceInputs["connectorDescription"] = args ? args.connectorDescription : undefined;
-            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
-            resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
-            resourceInputs["kafkaClusterClientAuthentication"] = args ? args.kafkaClusterClientAuthentication : undefined;
-            resourceInputs["kafkaClusterEncryptionInTransit"] = args ? args.kafkaClusterEncryptionInTransit : undefined;
-            resourceInputs["kafkaConnectVersion"] = args ? args.kafkaConnectVersion : undefined;
-            resourceInputs["logDelivery"] = args ? args.logDelivery : undefined;
-            resourceInputs["plugins"] = args ? args.plugins : undefined;
-            resourceInputs["serviceExecutionRoleArn"] = args ? args.serviceExecutionRoleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workerConfiguration"] = args ? args.workerConfiguration : undefined;
+            resourceInputs["capacity"] = args?.capacity;
+            resourceInputs["connectorConfiguration"] = args?.connectorConfiguration;
+            resourceInputs["connectorDescription"] = args?.connectorDescription;
+            resourceInputs["connectorName"] = args?.connectorName;
+            resourceInputs["kafkaCluster"] = args?.kafkaCluster;
+            resourceInputs["kafkaClusterClientAuthentication"] = args?.kafkaClusterClientAuthentication;
+            resourceInputs["kafkaClusterEncryptionInTransit"] = args?.kafkaClusterEncryptionInTransit;
+            resourceInputs["kafkaConnectVersion"] = args?.kafkaConnectVersion;
+            resourceInputs["logDelivery"] = args?.logDelivery;
+            resourceInputs["plugins"] = args?.plugins;
+            resourceInputs["serviceExecutionRoleArn"] = args?.serviceExecutionRoleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workerConfiguration"] = args?.workerConfiguration;
             resourceInputs["connectorArn"] = undefined /*out*/;
         } else {
             resourceInputs["capacity"] = undefined /*out*/;

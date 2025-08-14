@@ -91,25 +91,25 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationSourceUri === undefined) && !opts.urn) {
+            if (args?.applicationSourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationSourceUri'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.executablePath === undefined) && !opts.urn) {
+            if (args?.executablePath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executablePath'");
             }
-            if ((!args || args.runtimeEnvironment === undefined) && !opts.urn) {
+            if (args?.runtimeEnvironment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runtimeEnvironment'");
             }
-            resourceInputs["applicationLogOutputUri"] = args ? args.applicationLogOutputUri : undefined;
-            resourceInputs["applicationLogPaths"] = args ? args.applicationLogPaths : undefined;
-            resourceInputs["applicationSourceUri"] = args ? args.applicationSourceUri : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["executablePath"] = args ? args.executablePath : undefined;
-            resourceInputs["runtimeEnvironment"] = args ? args.runtimeEnvironment : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationLogOutputUri"] = args?.applicationLogOutputUri;
+            resourceInputs["applicationLogPaths"] = args?.applicationLogPaths;
+            resourceInputs["applicationSourceUri"] = args?.applicationSourceUri;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["executablePath"] = args?.executablePath;
+            resourceInputs["runtimeEnvironment"] = args?.runtimeEnvironment;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

@@ -54,11 +54,11 @@ export class BatchScramSecret extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterArn === undefined) && !opts.urn) {
+            if (args?.clusterArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterArn'");
             }
-            resourceInputs["clusterArn"] = args ? args.clusterArn : undefined;
-            resourceInputs["secretArnList"] = args ? args.secretArnList : undefined;
+            resourceInputs["clusterArn"] = args?.clusterArn;
+            resourceInputs["secretArnList"] = args?.secretArnList;
         } else {
             resourceInputs["clusterArn"] = undefined /*out*/;
             resourceInputs["secretArnList"] = undefined /*out*/;

@@ -65,19 +65,19 @@ export class DirectoryConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.directoryName === undefined) && !opts.urn) {
+            if (args?.directoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'directoryName'");
             }
-            if ((!args || args.organizationalUnitDistinguishedNames === undefined) && !opts.urn) {
+            if (args?.organizationalUnitDistinguishedNames === undefined && !opts.urn) {
                 throw new Error("Missing required property 'organizationalUnitDistinguishedNames'");
             }
-            if ((!args || args.serviceAccountCredentials === undefined) && !opts.urn) {
+            if (args?.serviceAccountCredentials === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccountCredentials'");
             }
-            resourceInputs["certificateBasedAuthProperties"] = args ? args.certificateBasedAuthProperties : undefined;
-            resourceInputs["directoryName"] = args ? args.directoryName : undefined;
-            resourceInputs["organizationalUnitDistinguishedNames"] = args ? args.organizationalUnitDistinguishedNames : undefined;
-            resourceInputs["serviceAccountCredentials"] = args ? args.serviceAccountCredentials : undefined;
+            resourceInputs["certificateBasedAuthProperties"] = args?.certificateBasedAuthProperties;
+            resourceInputs["directoryName"] = args?.directoryName;
+            resourceInputs["organizationalUnitDistinguishedNames"] = args?.organizationalUnitDistinguishedNames;
+            resourceInputs["serviceAccountCredentials"] = args?.serviceAccountCredentials;
         } else {
             resourceInputs["certificateBasedAuthProperties"] = undefined /*out*/;
             resourceInputs["directoryName"] = undefined /*out*/;

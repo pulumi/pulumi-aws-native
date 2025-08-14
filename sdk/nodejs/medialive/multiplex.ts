@@ -89,17 +89,17 @@ export class Multiplex extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.availabilityZones === undefined) && !opts.urn) {
+            if (args?.availabilityZones === undefined && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZones'");
             }
-            if ((!args || args.multiplexSettings === undefined) && !opts.urn) {
+            if (args?.multiplexSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'multiplexSettings'");
             }
-            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            resourceInputs["destinations"] = args ? args.destinations : undefined;
-            resourceInputs["multiplexSettings"] = args ? args.multiplexSettings : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["availabilityZones"] = args?.availabilityZones;
+            resourceInputs["destinations"] = args?.destinations;
+            resourceInputs["multiplexSettings"] = args?.multiplexSettings;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["pipelinesRunningCount"] = undefined /*out*/;

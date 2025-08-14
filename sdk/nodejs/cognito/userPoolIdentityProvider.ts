@@ -98,21 +98,21 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.providerDetails === undefined) && !opts.urn) {
+            if (args?.providerDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerDetails'");
             }
-            if ((!args || args.providerType === undefined) && !opts.urn) {
+            if (args?.providerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerType'");
             }
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["attributeMapping"] = args ? args.attributeMapping : undefined;
-            resourceInputs["idpIdentifiers"] = args ? args.idpIdentifiers : undefined;
-            resourceInputs["providerDetails"] = args ? args.providerDetails : undefined;
-            resourceInputs["providerName"] = args ? args.providerName : undefined;
-            resourceInputs["providerType"] = args ? args.providerType : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["attributeMapping"] = args?.attributeMapping;
+            resourceInputs["idpIdentifiers"] = args?.idpIdentifiers;
+            resourceInputs["providerDetails"] = args?.providerDetails;
+            resourceInputs["providerName"] = args?.providerName;
+            resourceInputs["providerType"] = args?.providerType;
+            resourceInputs["userPoolId"] = args?.userPoolId;
         } else {
             resourceInputs["attributeMapping"] = undefined /*out*/;
             resourceInputs["idpIdentifiers"] = undefined /*out*/;

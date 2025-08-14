@@ -105,14 +105,14 @@ export class EventSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["eventCategories"] = args ? args.eventCategories : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
-            resourceInputs["sourceIds"] = args ? args.sourceIds : undefined;
-            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
-            resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["eventCategories"] = args?.eventCategories;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["snsTopicArn"] = args?.snsTopicArn;
+            resourceInputs["sourceIds"] = args?.sourceIds;
+            resourceInputs["sourceType"] = args?.sourceType;
+            resourceInputs["subscriptionName"] = args?.subscriptionName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["custSubscriptionId"] = undefined /*out*/;
             resourceInputs["customerAwsId"] = undefined /*out*/;
             resourceInputs["eventCategoriesList"] = undefined /*out*/;

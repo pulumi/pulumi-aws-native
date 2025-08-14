@@ -97,22 +97,22 @@ export class Partnership extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.capabilities === undefined) && !opts.urn) {
+            if (args?.capabilities === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capabilities'");
             }
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.profileId === undefined) && !opts.urn) {
+            if (args?.profileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileId'");
             }
-            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
-            resourceInputs["capabilityOptions"] = args ? args.capabilityOptions : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["phone"] = args ? args.phone : undefined;
-            resourceInputs["profileId"] = args ? args.profileId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["capabilities"] = args?.capabilities;
+            resourceInputs["capabilityOptions"] = args?.capabilityOptions;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["phone"] = args?.phone;
+            resourceInputs["profileId"] = args?.profileId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["partnershipArn"] = undefined /*out*/;

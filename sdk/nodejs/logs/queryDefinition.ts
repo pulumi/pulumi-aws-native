@@ -69,13 +69,13 @@ export class QueryDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.queryString === undefined) && !opts.urn) {
+            if (args?.queryString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryString'");
             }
-            resourceInputs["logGroupNames"] = args ? args.logGroupNames : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queryLanguage"] = args ? args.queryLanguage : undefined;
-            resourceInputs["queryString"] = args ? args.queryString : undefined;
+            resourceInputs["logGroupNames"] = args?.logGroupNames;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queryLanguage"] = args?.queryLanguage;
+            resourceInputs["queryString"] = args?.queryString;
             resourceInputs["queryDefinitionId"] = undefined /*out*/;
         } else {
             resourceInputs["logGroupNames"] = undefined /*out*/;

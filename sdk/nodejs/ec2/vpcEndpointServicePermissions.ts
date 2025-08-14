@@ -54,11 +54,11 @@ export class VpcEndpointServicePermissions extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.serviceId === undefined) && !opts.urn) {
+            if (args?.serviceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceId'");
             }
-            resourceInputs["allowedPrincipals"] = args ? args.allowedPrincipals : undefined;
-            resourceInputs["serviceId"] = args ? args.serviceId : undefined;
+            resourceInputs["allowedPrincipals"] = args?.allowedPrincipals;
+            resourceInputs["serviceId"] = args?.serviceId;
         } else {
             resourceInputs["allowedPrincipals"] = undefined /*out*/;
             resourceInputs["serviceId"] = undefined /*out*/;

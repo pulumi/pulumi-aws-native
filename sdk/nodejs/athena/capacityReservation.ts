@@ -85,13 +85,13 @@ export class CapacityReservation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.targetDpus === undefined) && !opts.urn) {
+            if (args?.targetDpus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetDpus'");
             }
-            resourceInputs["capacityAssignmentConfiguration"] = args ? args.capacityAssignmentConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetDpus"] = args ? args.targetDpus : undefined;
+            resourceInputs["capacityAssignmentConfiguration"] = args?.capacityAssignmentConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetDpus"] = args?.targetDpus;
             resourceInputs["allocatedDpus"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

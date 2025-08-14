@@ -110,21 +110,21 @@ export class DistributionTenant extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.distributionId === undefined) && !opts.urn) {
+            if (args?.distributionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'distributionId'");
             }
-            if ((!args || args.domains === undefined) && !opts.urn) {
+            if (args?.domains === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domains'");
             }
-            resourceInputs["connectionGroupId"] = args ? args.connectionGroupId : undefined;
-            resourceInputs["customizations"] = args ? args.customizations : undefined;
-            resourceInputs["distributionId"] = args ? args.distributionId : undefined;
-            resourceInputs["domains"] = args ? args.domains : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["managedCertificateRequest"] = args ? args.managedCertificateRequest : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectionGroupId"] = args?.connectionGroupId;
+            resourceInputs["customizations"] = args?.customizations;
+            resourceInputs["distributionId"] = args?.distributionId;
+            resourceInputs["domains"] = args?.domains;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["managedCertificateRequest"] = args?.managedCertificateRequest;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;

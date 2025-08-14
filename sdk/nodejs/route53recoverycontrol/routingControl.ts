@@ -69,9 +69,9 @@ export class RoutingControl extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["clusterArn"] = args ? args.clusterArn : undefined;
-            resourceInputs["controlPanelArn"] = args ? args.controlPanelArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["clusterArn"] = args?.clusterArn;
+            resourceInputs["controlPanelArn"] = args?.controlPanelArn;
+            resourceInputs["name"] = args?.name;
             resourceInputs["routingControlArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

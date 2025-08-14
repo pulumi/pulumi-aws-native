@@ -117,22 +117,22 @@ export class User extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            resourceInputs["homeDirectory"] = args ? args.homeDirectory : undefined;
-            resourceInputs["homeDirectoryMappings"] = args ? args.homeDirectoryMappings : undefined;
-            resourceInputs["homeDirectoryType"] = args ? args.homeDirectoryType : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["posixProfile"] = args ? args.posixProfile : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["sshPublicKeys"] = args ? args.sshPublicKeys : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["homeDirectory"] = args?.homeDirectory;
+            resourceInputs["homeDirectoryMappings"] = args?.homeDirectoryMappings;
+            resourceInputs["homeDirectoryType"] = args?.homeDirectoryType;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["posixProfile"] = args?.posixProfile;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["sshPublicKeys"] = args?.sshPublicKeys;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

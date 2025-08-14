@@ -83,19 +83,19 @@ export class DetectorModel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.detectorModelDefinition === undefined) && !opts.urn) {
+            if (args?.detectorModelDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detectorModelDefinition'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["detectorModelDefinition"] = args ? args.detectorModelDefinition : undefined;
-            resourceInputs["detectorModelDescription"] = args ? args.detectorModelDescription : undefined;
-            resourceInputs["detectorModelName"] = args ? args.detectorModelName : undefined;
-            resourceInputs["evaluationMethod"] = args ? args.evaluationMethod : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["detectorModelDefinition"] = args?.detectorModelDefinition;
+            resourceInputs["detectorModelDescription"] = args?.detectorModelDescription;
+            resourceInputs["detectorModelName"] = args?.detectorModelName;
+            resourceInputs["evaluationMethod"] = args?.evaluationMethod;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["detectorModelDefinition"] = undefined /*out*/;
             resourceInputs["detectorModelDescription"] = undefined /*out*/;

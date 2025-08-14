@@ -61,10 +61,10 @@ export class PublicKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.publicKeyConfig === undefined) && !opts.urn) {
+            if (args?.publicKeyConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publicKeyConfig'");
             }
-            resourceInputs["publicKeyConfig"] = args ? args.publicKeyConfig : undefined;
+            resourceInputs["publicKeyConfig"] = args?.publicKeyConfig;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
         } else {

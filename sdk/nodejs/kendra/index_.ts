@@ -105,22 +105,22 @@ export class Index extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.edition === undefined) && !opts.urn) {
+            if (args?.edition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'edition'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["capacityUnits"] = args ? args.capacityUnits : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["documentMetadataConfigurations"] = args ? args.documentMetadataConfigurations : undefined;
-            resourceInputs["edition"] = args ? args.edition : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userContextPolicy"] = args ? args.userContextPolicy : undefined;
-            resourceInputs["userTokenConfigurations"] = args ? args.userTokenConfigurations : undefined;
+            resourceInputs["capacityUnits"] = args?.capacityUnits;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["documentMetadataConfigurations"] = args?.documentMetadataConfigurations;
+            resourceInputs["edition"] = args?.edition;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["serverSideEncryptionConfiguration"] = args?.serverSideEncryptionConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userContextPolicy"] = args?.userContextPolicy;
+            resourceInputs["userTokenConfigurations"] = args?.userTokenConfigurations;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

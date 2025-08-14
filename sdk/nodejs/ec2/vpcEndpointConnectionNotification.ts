@@ -66,16 +66,16 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectionEvents === undefined) && !opts.urn) {
+            if (args?.connectionEvents === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionEvents'");
             }
-            if ((!args || args.connectionNotificationArn === undefined) && !opts.urn) {
+            if (args?.connectionNotificationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionNotificationArn'");
             }
-            resourceInputs["connectionEvents"] = args ? args.connectionEvents : undefined;
-            resourceInputs["connectionNotificationArn"] = args ? args.connectionNotificationArn : undefined;
-            resourceInputs["serviceId"] = args ? args.serviceId : undefined;
-            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
+            resourceInputs["connectionEvents"] = args?.connectionEvents;
+            resourceInputs["connectionNotificationArn"] = args?.connectionNotificationArn;
+            resourceInputs["serviceId"] = args?.serviceId;
+            resourceInputs["vpcEndpointId"] = args?.vpcEndpointId;
             resourceInputs["vpcEndpointConnectionNotificationId"] = undefined /*out*/;
         } else {
             resourceInputs["connectionEvents"] = undefined /*out*/;

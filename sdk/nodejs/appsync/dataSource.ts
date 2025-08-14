@@ -158,25 +158,25 @@ export class DataSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dynamoDbConfig"] = args ? args.dynamoDbConfig : undefined;
-            resourceInputs["elasticsearchConfig"] = args ? args.elasticsearchConfig : undefined;
-            resourceInputs["eventBridgeConfig"] = args ? args.eventBridgeConfig : undefined;
-            resourceInputs["httpConfig"] = args ? args.httpConfig : undefined;
-            resourceInputs["lambdaConfig"] = args ? args.lambdaConfig : undefined;
-            resourceInputs["metricsConfig"] = args ? args.metricsConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["openSearchServiceConfig"] = args ? args.openSearchServiceConfig : undefined;
-            resourceInputs["relationalDatabaseConfig"] = args ? args.relationalDatabaseConfig : undefined;
-            resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["dynamoDbConfig"] = args?.dynamoDbConfig;
+            resourceInputs["elasticsearchConfig"] = args?.elasticsearchConfig;
+            resourceInputs["eventBridgeConfig"] = args?.eventBridgeConfig;
+            resourceInputs["httpConfig"] = args?.httpConfig;
+            resourceInputs["lambdaConfig"] = args?.lambdaConfig;
+            resourceInputs["metricsConfig"] = args?.metricsConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["openSearchServiceConfig"] = args?.openSearchServiceConfig;
+            resourceInputs["relationalDatabaseConfig"] = args?.relationalDatabaseConfig;
+            resourceInputs["serviceRoleArn"] = args?.serviceRoleArn;
+            resourceInputs["type"] = args?.type;
             resourceInputs["dataSourceArn"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;

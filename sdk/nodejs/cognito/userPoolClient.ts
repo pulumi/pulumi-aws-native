@@ -230,32 +230,32 @@ export class UserPoolClient extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["accessTokenValidity"] = args ? args.accessTokenValidity : undefined;
-            resourceInputs["allowedOAuthFlows"] = args ? args.allowedOAuthFlows : undefined;
-            resourceInputs["allowedOAuthFlowsUserPoolClient"] = args ? args.allowedOAuthFlowsUserPoolClient : undefined;
-            resourceInputs["allowedOAuthScopes"] = args ? args.allowedOAuthScopes : undefined;
-            resourceInputs["analyticsConfiguration"] = args ? args.analyticsConfiguration : undefined;
-            resourceInputs["authSessionValidity"] = args ? args.authSessionValidity : undefined;
-            resourceInputs["callbackUrls"] = args ? args.callbackUrls : undefined;
-            resourceInputs["clientName"] = args ? args.clientName : undefined;
-            resourceInputs["defaultRedirectUri"] = args ? args.defaultRedirectUri : undefined;
-            resourceInputs["enablePropagateAdditionalUserContextData"] = args ? args.enablePropagateAdditionalUserContextData : undefined;
-            resourceInputs["enableTokenRevocation"] = args ? args.enableTokenRevocation : undefined;
-            resourceInputs["explicitAuthFlows"] = args ? args.explicitAuthFlows : undefined;
-            resourceInputs["generateSecret"] = args ? args.generateSecret : undefined;
-            resourceInputs["idTokenValidity"] = args ? args.idTokenValidity : undefined;
-            resourceInputs["logoutUrls"] = args ? args.logoutUrls : undefined;
-            resourceInputs["preventUserExistenceErrors"] = args ? args.preventUserExistenceErrors : undefined;
-            resourceInputs["readAttributes"] = args ? args.readAttributes : undefined;
-            resourceInputs["refreshTokenRotation"] = args ? args.refreshTokenRotation : undefined;
-            resourceInputs["refreshTokenValidity"] = args ? args.refreshTokenValidity : undefined;
-            resourceInputs["supportedIdentityProviders"] = args ? args.supportedIdentityProviders : undefined;
-            resourceInputs["tokenValidityUnits"] = args ? args.tokenValidityUnits : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
-            resourceInputs["writeAttributes"] = args ? args.writeAttributes : undefined;
+            resourceInputs["accessTokenValidity"] = args?.accessTokenValidity;
+            resourceInputs["allowedOAuthFlows"] = args?.allowedOAuthFlows;
+            resourceInputs["allowedOAuthFlowsUserPoolClient"] = args?.allowedOAuthFlowsUserPoolClient;
+            resourceInputs["allowedOAuthScopes"] = args?.allowedOAuthScopes;
+            resourceInputs["analyticsConfiguration"] = args?.analyticsConfiguration;
+            resourceInputs["authSessionValidity"] = args?.authSessionValidity;
+            resourceInputs["callbackUrls"] = args?.callbackUrls;
+            resourceInputs["clientName"] = args?.clientName;
+            resourceInputs["defaultRedirectUri"] = args?.defaultRedirectUri;
+            resourceInputs["enablePropagateAdditionalUserContextData"] = args?.enablePropagateAdditionalUserContextData;
+            resourceInputs["enableTokenRevocation"] = args?.enableTokenRevocation;
+            resourceInputs["explicitAuthFlows"] = args?.explicitAuthFlows;
+            resourceInputs["generateSecret"] = args?.generateSecret;
+            resourceInputs["idTokenValidity"] = args?.idTokenValidity;
+            resourceInputs["logoutUrls"] = args?.logoutUrls;
+            resourceInputs["preventUserExistenceErrors"] = args?.preventUserExistenceErrors;
+            resourceInputs["readAttributes"] = args?.readAttributes;
+            resourceInputs["refreshTokenRotation"] = args?.refreshTokenRotation;
+            resourceInputs["refreshTokenValidity"] = args?.refreshTokenValidity;
+            resourceInputs["supportedIdentityProviders"] = args?.supportedIdentityProviders;
+            resourceInputs["tokenValidityUnits"] = args?.tokenValidityUnits;
+            resourceInputs["userPoolId"] = args?.userPoolId;
+            resourceInputs["writeAttributes"] = args?.writeAttributes;
             resourceInputs["clientId"] = undefined /*out*/;
             resourceInputs["clientSecret"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

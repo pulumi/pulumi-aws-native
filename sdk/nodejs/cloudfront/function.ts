@@ -84,17 +84,17 @@ export class Function extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.functionCode === undefined) && !opts.urn) {
+            if (args?.functionCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionCode'");
             }
-            if ((!args || args.functionConfig === undefined) && !opts.urn) {
+            if (args?.functionConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionConfig'");
             }
-            resourceInputs["autoPublish"] = args ? args.autoPublish : undefined;
-            resourceInputs["functionCode"] = args ? args.functionCode : undefined;
-            resourceInputs["functionConfig"] = args ? args.functionConfig : undefined;
-            resourceInputs["functionMetadata"] = args ? args.functionMetadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["autoPublish"] = args?.autoPublish;
+            resourceInputs["functionCode"] = args?.functionCode;
+            resourceInputs["functionConfig"] = args?.functionConfig;
+            resourceInputs["functionMetadata"] = args?.functionMetadata;
+            resourceInputs["name"] = args?.name;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["stage"] = undefined /*out*/;
         } else {

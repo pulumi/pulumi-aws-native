@@ -85,16 +85,16 @@ export class LocationEfs extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ec2Config === undefined) && !opts.urn) {
+            if (args?.ec2Config === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ec2Config'");
             }
-            resourceInputs["accessPointArn"] = args ? args.accessPointArn : undefined;
-            resourceInputs["ec2Config"] = args ? args.ec2Config : undefined;
-            resourceInputs["efsFilesystemArn"] = args ? args.efsFilesystemArn : undefined;
-            resourceInputs["fileSystemAccessRoleArn"] = args ? args.fileSystemAccessRoleArn : undefined;
-            resourceInputs["inTransitEncryption"] = args ? args.inTransitEncryption : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessPointArn"] = args?.accessPointArn;
+            resourceInputs["ec2Config"] = args?.ec2Config;
+            resourceInputs["efsFilesystemArn"] = args?.efsFilesystemArn;
+            resourceInputs["fileSystemAccessRoleArn"] = args?.fileSystemAccessRoleArn;
+            resourceInputs["inTransitEncryption"] = args?.inTransitEncryption;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
         } else {

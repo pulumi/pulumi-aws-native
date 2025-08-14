@@ -77,15 +77,15 @@ export class SourceLocation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.httpConfiguration === undefined) && !opts.urn) {
+            if (args?.httpConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'httpConfiguration'");
             }
-            resourceInputs["accessConfiguration"] = args ? args.accessConfiguration : undefined;
-            resourceInputs["defaultSegmentDeliveryConfiguration"] = args ? args.defaultSegmentDeliveryConfiguration : undefined;
-            resourceInputs["httpConfiguration"] = args ? args.httpConfiguration : undefined;
-            resourceInputs["segmentDeliveryConfigurations"] = args ? args.segmentDeliveryConfigurations : undefined;
-            resourceInputs["sourceLocationName"] = args ? args.sourceLocationName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessConfiguration"] = args?.accessConfiguration;
+            resourceInputs["defaultSegmentDeliveryConfiguration"] = args?.defaultSegmentDeliveryConfiguration;
+            resourceInputs["httpConfiguration"] = args?.httpConfiguration;
+            resourceInputs["segmentDeliveryConfigurations"] = args?.segmentDeliveryConfigurations;
+            resourceInputs["sourceLocationName"] = args?.sourceLocationName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["accessConfiguration"] = undefined /*out*/;

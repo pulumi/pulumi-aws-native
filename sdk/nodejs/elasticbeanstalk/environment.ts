@@ -107,21 +107,21 @@ export class Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationName === undefined) && !opts.urn) {
+            if (args?.applicationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationName'");
             }
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["cnamePrefix"] = args ? args.cnamePrefix : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["operationsRole"] = args ? args.operationsRole : undefined;
-            resourceInputs["optionSettings"] = args ? args.optionSettings : undefined;
-            resourceInputs["platformArn"] = args ? args.platformArn : undefined;
-            resourceInputs["solutionStackName"] = args ? args.solutionStackName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateName"] = args ? args.templateName : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
-            resourceInputs["versionLabel"] = args ? args.versionLabel : undefined;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["cnamePrefix"] = args?.cnamePrefix;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["operationsRole"] = args?.operationsRole;
+            resourceInputs["optionSettings"] = args?.optionSettings;
+            resourceInputs["platformArn"] = args?.platformArn;
+            resourceInputs["solutionStackName"] = args?.solutionStackName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateName"] = args?.templateName;
+            resourceInputs["tier"] = args?.tier;
+            resourceInputs["versionLabel"] = args?.versionLabel;
             resourceInputs["endpointUrl"] = undefined /*out*/;
         } else {
             resourceInputs["applicationName"] = undefined /*out*/;

@@ -99,26 +99,26 @@ export class Schedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.flexibleTimeWindow === undefined) && !opts.urn) {
+            if (args?.flexibleTimeWindow === undefined && !opts.urn) {
                 throw new Error("Missing required property 'flexibleTimeWindow'");
             }
-            if ((!args || args.scheduleExpression === undefined) && !opts.urn) {
+            if (args?.scheduleExpression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleExpression'");
             }
-            if ((!args || args.target === undefined) && !opts.urn) {
+            if (args?.target === undefined && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["endDate"] = args ? args.endDate : undefined;
-            resourceInputs["flexibleTimeWindow"] = args ? args.flexibleTimeWindow : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
-            resourceInputs["scheduleExpressionTimezone"] = args ? args.scheduleExpressionTimezone : undefined;
-            resourceInputs["startDate"] = args ? args.startDate : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["endDate"] = args?.endDate;
+            resourceInputs["flexibleTimeWindow"] = args?.flexibleTimeWindow;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["scheduleExpression"] = args?.scheduleExpression;
+            resourceInputs["scheduleExpressionTimezone"] = args?.scheduleExpressionTimezone;
+            resourceInputs["startDate"] = args?.startDate;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["target"] = args?.target;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -79,10 +79,10 @@ export class ModelPackageGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["modelPackageGroupDescription"] = args ? args.modelPackageGroupDescription : undefined;
-            resourceInputs["modelPackageGroupName"] = args ? args.modelPackageGroupName : undefined;
-            resourceInputs["modelPackageGroupPolicy"] = args ? args.modelPackageGroupPolicy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["modelPackageGroupDescription"] = args?.modelPackageGroupDescription;
+            resourceInputs["modelPackageGroupName"] = args?.modelPackageGroupName;
+            resourceInputs["modelPackageGroupPolicy"] = args?.modelPackageGroupPolicy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["modelPackageGroupArn"] = undefined /*out*/;
             resourceInputs["modelPackageGroupStatus"] = undefined /*out*/;

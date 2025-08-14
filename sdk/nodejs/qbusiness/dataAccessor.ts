@@ -93,24 +93,24 @@ export class DataAccessor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actionConfigurations === undefined) && !opts.urn) {
+            if (args?.actionConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionConfigurations'");
             }
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            resourceInputs["actionConfigurations"] = args ? args.actionConfigurations : undefined;
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["authenticationDetail"] = args ? args.authenticationDetail : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actionConfigurations"] = args?.actionConfigurations;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["authenticationDetail"] = args?.authenticationDetail;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["dataAccessorArn"] = undefined /*out*/;
             resourceInputs["dataAccessorId"] = undefined /*out*/;

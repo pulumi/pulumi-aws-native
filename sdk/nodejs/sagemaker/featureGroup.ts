@@ -99,25 +99,25 @@ export class FeatureGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.eventTimeFeatureName === undefined) && !opts.urn) {
+            if (args?.eventTimeFeatureName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventTimeFeatureName'");
             }
-            if ((!args || args.featureDefinitions === undefined) && !opts.urn) {
+            if (args?.featureDefinitions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'featureDefinitions'");
             }
-            if ((!args || args.recordIdentifierFeatureName === undefined) && !opts.urn) {
+            if (args?.recordIdentifierFeatureName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recordIdentifierFeatureName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventTimeFeatureName"] = args ? args.eventTimeFeatureName : undefined;
-            resourceInputs["featureDefinitions"] = args ? args.featureDefinitions : undefined;
-            resourceInputs["featureGroupName"] = args ? args.featureGroupName : undefined;
-            resourceInputs["offlineStoreConfig"] = args ? args.offlineStoreConfig : undefined;
-            resourceInputs["onlineStoreConfig"] = args ? args.onlineStoreConfig : undefined;
-            resourceInputs["recordIdentifierFeatureName"] = args ? args.recordIdentifierFeatureName : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["throughputConfig"] = args ? args.throughputConfig : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventTimeFeatureName"] = args?.eventTimeFeatureName;
+            resourceInputs["featureDefinitions"] = args?.featureDefinitions;
+            resourceInputs["featureGroupName"] = args?.featureGroupName;
+            resourceInputs["offlineStoreConfig"] = args?.offlineStoreConfig;
+            resourceInputs["onlineStoreConfig"] = args?.onlineStoreConfig;
+            resourceInputs["recordIdentifierFeatureName"] = args?.recordIdentifierFeatureName;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["throughputConfig"] = args?.throughputConfig;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["featureGroupStatus"] = undefined /*out*/;
         } else {

@@ -86,26 +86,26 @@ export class MatchingWorkflow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.inputSourceConfig === undefined) && !opts.urn) {
+            if (args?.inputSourceConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inputSourceConfig'");
             }
-            if ((!args || args.outputSourceConfig === undefined) && !opts.urn) {
+            if (args?.outputSourceConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outputSourceConfig'");
             }
-            if ((!args || args.resolutionTechniques === undefined) && !opts.urn) {
+            if (args?.resolutionTechniques === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resolutionTechniques'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["incrementalRunConfig"] = args ? args.incrementalRunConfig : undefined;
-            resourceInputs["inputSourceConfig"] = args ? args.inputSourceConfig : undefined;
-            resourceInputs["outputSourceConfig"] = args ? args.outputSourceConfig : undefined;
-            resourceInputs["resolutionTechniques"] = args ? args.resolutionTechniques : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workflowName"] = args ? args.workflowName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["incrementalRunConfig"] = args?.incrementalRunConfig;
+            resourceInputs["inputSourceConfig"] = args?.inputSourceConfig;
+            resourceInputs["outputSourceConfig"] = args?.outputSourceConfig;
+            resourceInputs["resolutionTechniques"] = args?.resolutionTechniques;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workflowName"] = args?.workflowName;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
             resourceInputs["workflowArn"] = undefined /*out*/;

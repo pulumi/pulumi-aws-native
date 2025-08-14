@@ -117,21 +117,21 @@ export class DirectConnectGatewayAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.coreNetworkId === undefined) && !opts.urn) {
+            if (args?.coreNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'coreNetworkId'");
             }
-            if ((!args || args.directConnectGatewayArn === undefined) && !opts.urn) {
+            if (args?.directConnectGatewayArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'directConnectGatewayArn'");
             }
-            if ((!args || args.edgeLocations === undefined) && !opts.urn) {
+            if (args?.edgeLocations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'edgeLocations'");
             }
-            resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
-            resourceInputs["directConnectGatewayArn"] = args ? args.directConnectGatewayArn : undefined;
-            resourceInputs["edgeLocations"] = args ? args.edgeLocations : undefined;
-            resourceInputs["proposedNetworkFunctionGroupChange"] = args ? args.proposedNetworkFunctionGroupChange : undefined;
-            resourceInputs["proposedSegmentChange"] = args ? args.proposedSegmentChange : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["coreNetworkId"] = args?.coreNetworkId;
+            resourceInputs["directConnectGatewayArn"] = args?.directConnectGatewayArn;
+            resourceInputs["edgeLocations"] = args?.edgeLocations;
+            resourceInputs["proposedNetworkFunctionGroupChange"] = args?.proposedNetworkFunctionGroupChange;
+            resourceInputs["proposedSegmentChange"] = args?.proposedSegmentChange;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["attachmentId"] = undefined /*out*/;
             resourceInputs["attachmentPolicyRuleNumber"] = undefined /*out*/;
             resourceInputs["attachmentType"] = undefined /*out*/;

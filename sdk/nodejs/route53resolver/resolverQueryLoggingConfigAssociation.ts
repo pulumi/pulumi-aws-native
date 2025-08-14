@@ -77,8 +77,8 @@ export class ResolverQueryLoggingConfigAssociation extends pulumi.CustomResource
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["resolverQueryLogConfigId"] = args ? args.resolverQueryLogConfigId : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["resolverQueryLogConfigId"] = args?.resolverQueryLogConfigId;
+            resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["error"] = undefined /*out*/;

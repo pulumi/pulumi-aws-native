@@ -160,22 +160,22 @@ export class Volume extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
+            if (args?.availabilityZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            resourceInputs["autoEnableIo"] = args ? args.autoEnableIo : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["encrypted"] = args ? args.encrypted : undefined;
-            resourceInputs["iops"] = args ? args.iops : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["multiAttachEnabled"] = args ? args.multiAttachEnabled : undefined;
-            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
-            resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["throughput"] = args ? args.throughput : undefined;
-            resourceInputs["volumeInitializationRate"] = args ? args.volumeInitializationRate : undefined;
-            resourceInputs["volumeType"] = args ? args.volumeType : undefined;
+            resourceInputs["autoEnableIo"] = args?.autoEnableIo;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["encrypted"] = args?.encrypted;
+            resourceInputs["iops"] = args?.iops;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["multiAttachEnabled"] = args?.multiAttachEnabled;
+            resourceInputs["outpostArn"] = args?.outpostArn;
+            resourceInputs["size"] = args?.size;
+            resourceInputs["snapshotId"] = args?.snapshotId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["throughput"] = args?.throughput;
+            resourceInputs["volumeInitializationRate"] = args?.volumeInitializationRate;
+            resourceInputs["volumeType"] = args?.volumeType;
             resourceInputs["volumeId"] = undefined /*out*/;
         } else {
             resourceInputs["autoEnableIo"] = undefined /*out*/;

@@ -73,13 +73,13 @@ export class TlsInspectionConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.tlsInspectionConfiguration === undefined) && !opts.urn) {
+            if (args?.tlsInspectionConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tlsInspectionConfiguration'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tlsInspectionConfiguration"] = args ? args.tlsInspectionConfiguration : undefined;
-            resourceInputs["tlsInspectionConfigurationName"] = args ? args.tlsInspectionConfigurationName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tlsInspectionConfiguration"] = args?.tlsInspectionConfiguration;
+            resourceInputs["tlsInspectionConfigurationName"] = args?.tlsInspectionConfigurationName;
             resourceInputs["tlsInspectionConfigurationArn"] = undefined /*out*/;
             resourceInputs["tlsInspectionConfigurationId"] = undefined /*out*/;
         } else {

@@ -121,22 +121,22 @@ export class Firewall extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.firewallPolicyArn === undefined) && !opts.urn) {
+            if (args?.firewallPolicyArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firewallPolicyArn'");
             }
-            resourceInputs["availabilityZoneChangeProtection"] = args ? args.availabilityZoneChangeProtection : undefined;
-            resourceInputs["availabilityZoneMappings"] = args ? args.availabilityZoneMappings : undefined;
-            resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabledAnalysisTypes"] = args ? args.enabledAnalysisTypes : undefined;
-            resourceInputs["firewallName"] = args ? args.firewallName : undefined;
-            resourceInputs["firewallPolicyArn"] = args ? args.firewallPolicyArn : undefined;
-            resourceInputs["firewallPolicyChangeProtection"] = args ? args.firewallPolicyChangeProtection : undefined;
-            resourceInputs["subnetChangeProtection"] = args ? args.subnetChangeProtection : undefined;
-            resourceInputs["subnetMappings"] = args ? args.subnetMappings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["availabilityZoneChangeProtection"] = args?.availabilityZoneChangeProtection;
+            resourceInputs["availabilityZoneMappings"] = args?.availabilityZoneMappings;
+            resourceInputs["deleteProtection"] = args?.deleteProtection;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabledAnalysisTypes"] = args?.enabledAnalysisTypes;
+            resourceInputs["firewallName"] = args?.firewallName;
+            resourceInputs["firewallPolicyArn"] = args?.firewallPolicyArn;
+            resourceInputs["firewallPolicyChangeProtection"] = args?.firewallPolicyChangeProtection;
+            resourceInputs["subnetChangeProtection"] = args?.subnetChangeProtection;
+            resourceInputs["subnetMappings"] = args?.subnetMappings;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["endpointIds"] = undefined /*out*/;
             resourceInputs["firewallArn"] = undefined /*out*/;
             resourceInputs["firewallId"] = undefined /*out*/;

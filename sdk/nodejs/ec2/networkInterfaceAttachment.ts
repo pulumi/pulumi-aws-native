@@ -73,20 +73,20 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceIndex === undefined) && !opts.urn) {
+            if (args?.deviceIndex === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceIndex'");
             }
-            if ((!args || args.instanceId === undefined) && !opts.urn) {
+            if (args?.instanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
+            if (args?.networkInterfaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            resourceInputs["deleteOnTermination"] = args ? args.deleteOnTermination : undefined;
-            resourceInputs["deviceIndex"] = args ? args.deviceIndex : undefined;
-            resourceInputs["enaSrdSpecification"] = args ? args.enaSrdSpecification : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["deleteOnTermination"] = args?.deleteOnTermination;
+            resourceInputs["deviceIndex"] = args?.deviceIndex;
+            resourceInputs["enaSrdSpecification"] = args?.enaSrdSpecification;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
             resourceInputs["attachmentId"] = undefined /*out*/;
         } else {
             resourceInputs["attachmentId"] = undefined /*out*/;

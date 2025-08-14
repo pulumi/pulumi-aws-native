@@ -77,15 +77,15 @@ export class LayerVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            resourceInputs["compatibleArchitectures"] = args ? args.compatibleArchitectures : undefined;
-            resourceInputs["compatibleRuntimes"] = args ? args.compatibleRuntimes : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["layerName"] = args ? args.layerName : undefined;
-            resourceInputs["licenseInfo"] = args ? args.licenseInfo : undefined;
+            resourceInputs["compatibleArchitectures"] = args?.compatibleArchitectures;
+            resourceInputs["compatibleRuntimes"] = args?.compatibleRuntimes;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["layerName"] = args?.layerName;
+            resourceInputs["licenseInfo"] = args?.licenseInfo;
             resourceInputs["layerVersionArn"] = undefined /*out*/;
         } else {
             resourceInputs["compatibleArchitectures"] = undefined /*out*/;

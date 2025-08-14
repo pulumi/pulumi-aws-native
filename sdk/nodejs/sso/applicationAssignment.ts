@@ -61,18 +61,18 @@ export class ApplicationAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationArn === undefined) && !opts.urn) {
+            if (args?.applicationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationArn'");
             }
-            if ((!args || args.principalId === undefined) && !opts.urn) {
+            if (args?.principalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if ((!args || args.principalType === undefined) && !opts.urn) {
+            if (args?.principalType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalType'");
             }
-            resourceInputs["applicationArn"] = args ? args.applicationArn : undefined;
-            resourceInputs["principalId"] = args ? args.principalId : undefined;
-            resourceInputs["principalType"] = args ? args.principalType : undefined;
+            resourceInputs["applicationArn"] = args?.applicationArn;
+            resourceInputs["principalId"] = args?.principalId;
+            resourceInputs["principalType"] = args?.principalType;
         } else {
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["principalId"] = undefined /*out*/;

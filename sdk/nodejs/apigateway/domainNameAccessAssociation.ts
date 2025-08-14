@@ -69,19 +69,19 @@ export class DomainNameAccessAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessAssociationSource === undefined) && !opts.urn) {
+            if (args?.accessAssociationSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessAssociationSource'");
             }
-            if ((!args || args.accessAssociationSourceType === undefined) && !opts.urn) {
+            if (args?.accessAssociationSourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessAssociationSourceType'");
             }
-            if ((!args || args.domainNameArn === undefined) && !opts.urn) {
+            if (args?.domainNameArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainNameArn'");
             }
-            resourceInputs["accessAssociationSource"] = args ? args.accessAssociationSource : undefined;
-            resourceInputs["accessAssociationSourceType"] = args ? args.accessAssociationSourceType : undefined;
-            resourceInputs["domainNameArn"] = args ? args.domainNameArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessAssociationSource"] = args?.accessAssociationSource;
+            resourceInputs["accessAssociationSourceType"] = args?.accessAssociationSourceType;
+            resourceInputs["domainNameArn"] = args?.domainNameArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["domainNameAccessAssociationArn"] = undefined /*out*/;
         } else {
             resourceInputs["accessAssociationSource"] = undefined /*out*/;

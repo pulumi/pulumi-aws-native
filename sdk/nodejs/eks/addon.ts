@@ -89,18 +89,18 @@ export class Addon extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            resourceInputs["addonName"] = args ? args.addonName : undefined;
-            resourceInputs["addonVersion"] = args ? args.addonVersion : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["configurationValues"] = args ? args.configurationValues : undefined;
-            resourceInputs["podIdentityAssociations"] = args ? args.podIdentityAssociations : undefined;
-            resourceInputs["preserveOnDelete"] = args ? args.preserveOnDelete : undefined;
-            resourceInputs["resolveConflicts"] = args ? args.resolveConflicts : undefined;
-            resourceInputs["serviceAccountRoleArn"] = args ? args.serviceAccountRoleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addonName"] = args?.addonName;
+            resourceInputs["addonVersion"] = args?.addonVersion;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["configurationValues"] = args?.configurationValues;
+            resourceInputs["podIdentityAssociations"] = args?.podIdentityAssociations;
+            resourceInputs["preserveOnDelete"] = args?.preserveOnDelete;
+            resourceInputs["resolveConflicts"] = args?.resolveConflicts;
+            resourceInputs["serviceAccountRoleArn"] = args?.serviceAccountRoleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["addonName"] = undefined /*out*/;

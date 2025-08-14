@@ -100,14 +100,14 @@ export class User extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["loginProfile"] = args ? args.loginProfile : undefined;
-            resourceInputs["managedPolicyArns"] = args ? args.managedPolicyArns : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
-            resourceInputs["policies"] = args ? args.policies : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["groups"] = args?.groups;
+            resourceInputs["loginProfile"] = args?.loginProfile;
+            resourceInputs["managedPolicyArns"] = args?.managedPolicyArns;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["permissionsBoundary"] = args?.permissionsBoundary;
+            resourceInputs["policies"] = args?.policies;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

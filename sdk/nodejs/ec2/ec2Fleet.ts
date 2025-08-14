@@ -113,24 +113,24 @@ export class Ec2Fleet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.launchTemplateConfigs === undefined) && !opts.urn) {
+            if (args?.launchTemplateConfigs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'launchTemplateConfigs'");
             }
-            if ((!args || args.targetCapacitySpecification === undefined) && !opts.urn) {
+            if (args?.targetCapacitySpecification === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetCapacitySpecification'");
             }
-            resourceInputs["context"] = args ? args.context : undefined;
-            resourceInputs["excessCapacityTerminationPolicy"] = args ? args.excessCapacityTerminationPolicy : undefined;
-            resourceInputs["launchTemplateConfigs"] = args ? args.launchTemplateConfigs : undefined;
-            resourceInputs["onDemandOptions"] = args ? args.onDemandOptions : undefined;
-            resourceInputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
-            resourceInputs["spotOptions"] = args ? args.spotOptions : undefined;
-            resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
-            resourceInputs["targetCapacitySpecification"] = args ? args.targetCapacitySpecification : undefined;
-            resourceInputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["validFrom"] = args ? args.validFrom : undefined;
-            resourceInputs["validUntil"] = args ? args.validUntil : undefined;
+            resourceInputs["context"] = args?.context;
+            resourceInputs["excessCapacityTerminationPolicy"] = args?.excessCapacityTerminationPolicy;
+            resourceInputs["launchTemplateConfigs"] = args?.launchTemplateConfigs;
+            resourceInputs["onDemandOptions"] = args?.onDemandOptions;
+            resourceInputs["replaceUnhealthyInstances"] = args?.replaceUnhealthyInstances;
+            resourceInputs["spotOptions"] = args?.spotOptions;
+            resourceInputs["tagSpecifications"] = args?.tagSpecifications;
+            resourceInputs["targetCapacitySpecification"] = args?.targetCapacitySpecification;
+            resourceInputs["terminateInstancesWithExpiration"] = args?.terminateInstancesWithExpiration;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["validFrom"] = args?.validFrom;
+            resourceInputs["validUntil"] = args?.validUntil;
             resourceInputs["fleetId"] = undefined /*out*/;
         } else {
             resourceInputs["context"] = undefined /*out*/;

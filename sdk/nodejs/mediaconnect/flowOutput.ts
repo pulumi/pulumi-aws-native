@@ -125,30 +125,30 @@ export class FlowOutput extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.flowArn === undefined) && !opts.urn) {
+            if (args?.flowArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'flowArn'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            resourceInputs["cidrAllowList"] = args ? args.cidrAllowList : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["flowArn"] = args ? args.flowArn : undefined;
-            resourceInputs["maxLatency"] = args ? args.maxLatency : undefined;
-            resourceInputs["mediaStreamOutputConfigurations"] = args ? args.mediaStreamOutputConfigurations : undefined;
-            resourceInputs["minLatency"] = args ? args.minLatency : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ndiProgramName"] = args ? args.ndiProgramName : undefined;
-            resourceInputs["ndiSpeedHqQuality"] = args ? args.ndiSpeedHqQuality : undefined;
-            resourceInputs["outputStatus"] = args ? args.outputStatus : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["remoteId"] = args ? args.remoteId : undefined;
-            resourceInputs["smoothingLatency"] = args ? args.smoothingLatency : undefined;
-            resourceInputs["streamId"] = args ? args.streamId : undefined;
-            resourceInputs["vpcInterfaceAttachment"] = args ? args.vpcInterfaceAttachment : undefined;
+            resourceInputs["cidrAllowList"] = args?.cidrAllowList;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["flowArn"] = args?.flowArn;
+            resourceInputs["maxLatency"] = args?.maxLatency;
+            resourceInputs["mediaStreamOutputConfigurations"] = args?.mediaStreamOutputConfigurations;
+            resourceInputs["minLatency"] = args?.minLatency;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ndiProgramName"] = args?.ndiProgramName;
+            resourceInputs["ndiSpeedHqQuality"] = args?.ndiSpeedHqQuality;
+            resourceInputs["outputStatus"] = args?.outputStatus;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["remoteId"] = args?.remoteId;
+            resourceInputs["smoothingLatency"] = args?.smoothingLatency;
+            resourceInputs["streamId"] = args?.streamId;
+            resourceInputs["vpcInterfaceAttachment"] = args?.vpcInterfaceAttachment;
             resourceInputs["outputArn"] = undefined /*out*/;
         } else {
             resourceInputs["cidrAllowList"] = undefined /*out*/;

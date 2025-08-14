@@ -105,19 +105,19 @@ export class Membership extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.collaborationIdentifier === undefined) && !opts.urn) {
+            if (args?.collaborationIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'collaborationIdentifier'");
             }
-            if ((!args || args.queryLogStatus === undefined) && !opts.urn) {
+            if (args?.queryLogStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryLogStatus'");
             }
-            resourceInputs["collaborationIdentifier"] = args ? args.collaborationIdentifier : undefined;
-            resourceInputs["defaultJobResultConfiguration"] = args ? args.defaultJobResultConfiguration : undefined;
-            resourceInputs["defaultResultConfiguration"] = args ? args.defaultResultConfiguration : undefined;
-            resourceInputs["jobLogStatus"] = args ? args.jobLogStatus : undefined;
-            resourceInputs["paymentConfiguration"] = args ? args.paymentConfiguration : undefined;
-            resourceInputs["queryLogStatus"] = args ? args.queryLogStatus : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["collaborationIdentifier"] = args?.collaborationIdentifier;
+            resourceInputs["defaultJobResultConfiguration"] = args?.defaultJobResultConfiguration;
+            resourceInputs["defaultResultConfiguration"] = args?.defaultResultConfiguration;
+            resourceInputs["jobLogStatus"] = args?.jobLogStatus;
+            resourceInputs["paymentConfiguration"] = args?.paymentConfiguration;
+            resourceInputs["queryLogStatus"] = args?.queryLogStatus;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collaborationArn"] = undefined /*out*/;
             resourceInputs["collaborationCreatorAccountId"] = undefined /*out*/;

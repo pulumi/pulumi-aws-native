@@ -93,13 +93,13 @@ export class VerifiedAccessInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["cidrEndpointsCustomSubDomain"] = args ? args.cidrEndpointsCustomSubDomain : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fipsEnabled"] = args ? args.fipsEnabled : undefined;
-            resourceInputs["loggingConfigurations"] = args ? args.loggingConfigurations : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["verifiedAccessTrustProviderIds"] = args ? args.verifiedAccessTrustProviderIds : undefined;
-            resourceInputs["verifiedAccessTrustProviders"] = args ? args.verifiedAccessTrustProviders : undefined;
+            resourceInputs["cidrEndpointsCustomSubDomain"] = args?.cidrEndpointsCustomSubDomain;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fipsEnabled"] = args?.fipsEnabled;
+            resourceInputs["loggingConfigurations"] = args?.loggingConfigurations;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["verifiedAccessTrustProviderIds"] = args?.verifiedAccessTrustProviderIds;
+            resourceInputs["verifiedAccessTrustProviders"] = args?.verifiedAccessTrustProviders;
             resourceInputs["cidrEndpointsCustomSubDomainNameServers"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;

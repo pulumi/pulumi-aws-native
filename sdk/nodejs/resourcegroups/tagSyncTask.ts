@@ -81,22 +81,22 @@ export class TagSyncTask extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.group === undefined) && !opts.urn) {
+            if (args?.group === undefined && !opts.urn) {
                 throw new Error("Missing required property 'group'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.tagKey === undefined) && !opts.urn) {
+            if (args?.tagKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tagKey'");
             }
-            if ((!args || args.tagValue === undefined) && !opts.urn) {
+            if (args?.tagValue === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tagValue'");
             }
-            resourceInputs["group"] = args ? args.group : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tagKey"] = args ? args.tagKey : undefined;
-            resourceInputs["tagValue"] = args ? args.tagValue : undefined;
+            resourceInputs["group"] = args?.group;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tagKey"] = args?.tagKey;
+            resourceInputs["tagValue"] = args?.tagValue;
             resourceInputs["groupArn"] = undefined /*out*/;
             resourceInputs["groupName"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

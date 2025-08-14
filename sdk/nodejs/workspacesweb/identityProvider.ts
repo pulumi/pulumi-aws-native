@@ -107,17 +107,17 @@ export class IdentityProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.identityProviderDetails === undefined) && !opts.urn) {
+            if (args?.identityProviderDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityProviderDetails'");
             }
-            if ((!args || args.identityProviderType === undefined) && !opts.urn) {
+            if (args?.identityProviderType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityProviderType'");
             }
-            resourceInputs["identityProviderDetails"] = args ? args.identityProviderDetails : undefined;
-            resourceInputs["identityProviderName"] = args ? args.identityProviderName : undefined;
-            resourceInputs["identityProviderType"] = args ? args.identityProviderType : undefined;
-            resourceInputs["portalArn"] = args ? args.portalArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["identityProviderDetails"] = args?.identityProviderDetails;
+            resourceInputs["identityProviderName"] = args?.identityProviderName;
+            resourceInputs["identityProviderType"] = args?.identityProviderType;
+            resourceInputs["portalArn"] = args?.portalArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["identityProviderArn"] = undefined /*out*/;
         } else {
             resourceInputs["identityProviderArn"] = undefined /*out*/;

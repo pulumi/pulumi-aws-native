@@ -109,20 +109,20 @@ export class DbInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dbInstanceClass === undefined) && !opts.urn) {
+            if (args?.dbInstanceClass === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbInstanceClass'");
             }
-            resourceInputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
-            resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
-            resourceInputs["dbInstanceClass"] = args ? args.dbInstanceClass : undefined;
-            resourceInputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
-            resourceInputs["dbParameterGroupName"] = args ? args.dbParameterGroupName : undefined;
-            resourceInputs["dbSnapshotIdentifier"] = args ? args.dbSnapshotIdentifier : undefined;
-            resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowMajorVersionUpgrade"] = args?.allowMajorVersionUpgrade;
+            resourceInputs["autoMinorVersionUpgrade"] = args?.autoMinorVersionUpgrade;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["dbClusterIdentifier"] = args?.dbClusterIdentifier;
+            resourceInputs["dbInstanceClass"] = args?.dbInstanceClass;
+            resourceInputs["dbInstanceIdentifier"] = args?.dbInstanceIdentifier;
+            resourceInputs["dbParameterGroupName"] = args?.dbParameterGroupName;
+            resourceInputs["dbSnapshotIdentifier"] = args?.dbSnapshotIdentifier;
+            resourceInputs["dbSubnetGroupName"] = args?.dbSubnetGroupName;
+            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
         } else {

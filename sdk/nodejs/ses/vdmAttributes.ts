@@ -61,8 +61,8 @@ export class VdmAttributes extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["dashboardAttributes"] = args ? args.dashboardAttributes : undefined;
-            resourceInputs["guardianAttributes"] = args ? args.guardianAttributes : undefined;
+            resourceInputs["dashboardAttributes"] = args?.dashboardAttributes;
+            resourceInputs["guardianAttributes"] = args?.guardianAttributes;
             resourceInputs["vdmAttributesResourceId"] = undefined /*out*/;
         } else {
             resourceInputs["dashboardAttributes"] = undefined /*out*/;

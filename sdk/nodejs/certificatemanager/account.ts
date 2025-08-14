@@ -57,10 +57,10 @@ export class Account extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.expiryEventsConfiguration === undefined) && !opts.urn) {
+            if (args?.expiryEventsConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expiryEventsConfiguration'");
             }
-            resourceInputs["expiryEventsConfiguration"] = args ? args.expiryEventsConfiguration : undefined;
+            resourceInputs["expiryEventsConfiguration"] = args?.expiryEventsConfiguration;
             resourceInputs["accountId"] = undefined /*out*/;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;

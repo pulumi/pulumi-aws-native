@@ -105,19 +105,19 @@ export class Flow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["flowSize"] = args ? args.flowSize : undefined;
-            resourceInputs["maintenance"] = args ? args.maintenance : undefined;
-            resourceInputs["mediaStreams"] = args ? args.mediaStreams : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ndiConfig"] = args ? args.ndiConfig : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["sourceFailoverConfig"] = args ? args.sourceFailoverConfig : undefined;
-            resourceInputs["sourceMonitoringConfig"] = args ? args.sourceMonitoringConfig : undefined;
-            resourceInputs["vpcInterfaces"] = args ? args.vpcInterfaces : undefined;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["flowSize"] = args?.flowSize;
+            resourceInputs["maintenance"] = args?.maintenance;
+            resourceInputs["mediaStreams"] = args?.mediaStreams;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ndiConfig"] = args?.ndiConfig;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["sourceFailoverConfig"] = args?.sourceFailoverConfig;
+            resourceInputs["sourceMonitoringConfig"] = args?.sourceMonitoringConfig;
+            resourceInputs["vpcInterfaces"] = args?.vpcInterfaces;
             resourceInputs["egressIp"] = undefined /*out*/;
             resourceInputs["flowArn"] = undefined /*out*/;
             resourceInputs["flowAvailabilityZone"] = undefined /*out*/;

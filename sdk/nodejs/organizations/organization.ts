@@ -77,7 +77,7 @@ export class Organization extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["featureSet"] = args ? args.featureSet : undefined;
+            resourceInputs["featureSet"] = args?.featureSet;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["managementAccountArn"] = undefined /*out*/;

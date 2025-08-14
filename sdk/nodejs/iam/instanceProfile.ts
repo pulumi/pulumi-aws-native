@@ -124,12 +124,12 @@ export class InstanceProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roles === undefined) && !opts.urn) {
+            if (args?.roles === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roles'");
             }
-            resourceInputs["instanceProfileName"] = args ? args.instanceProfileName : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["instanceProfileName"] = args?.instanceProfileName;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["roles"] = args?.roles;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

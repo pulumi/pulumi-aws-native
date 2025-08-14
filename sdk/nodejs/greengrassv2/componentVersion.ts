@@ -84,9 +84,9 @@ export class ComponentVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["inlineRecipe"] = args ? args.inlineRecipe : undefined;
-            resourceInputs["lambdaFunction"] = args ? args.lambdaFunction : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["inlineRecipe"] = args?.inlineRecipe;
+            resourceInputs["lambdaFunction"] = args?.lambdaFunction;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["componentName"] = undefined /*out*/;
             resourceInputs["componentVersion"] = undefined /*out*/;

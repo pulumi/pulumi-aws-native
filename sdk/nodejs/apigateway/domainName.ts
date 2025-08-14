@@ -153,15 +153,15 @@ export class DomainName extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
-            resourceInputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
-            resourceInputs["ownershipVerificationCertificateArn"] = args ? args.ownershipVerificationCertificateArn : undefined;
-            resourceInputs["regionalCertificateArn"] = args ? args.regionalCertificateArn : undefined;
-            resourceInputs["routingMode"] = args ? args.routingMode : undefined;
-            resourceInputs["securityPolicy"] = args ? args.securityPolicy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["certificateArn"] = args?.certificateArn;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["endpointConfiguration"] = args?.endpointConfiguration;
+            resourceInputs["mutualTlsAuthentication"] = args?.mutualTlsAuthentication;
+            resourceInputs["ownershipVerificationCertificateArn"] = args?.ownershipVerificationCertificateArn;
+            resourceInputs["regionalCertificateArn"] = args?.regionalCertificateArn;
+            resourceInputs["routingMode"] = args?.routingMode;
+            resourceInputs["securityPolicy"] = args?.securityPolicy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["distributionDomainName"] = undefined /*out*/;
             resourceInputs["distributionHostedZoneId"] = undefined /*out*/;
             resourceInputs["domainNameArn"] = undefined /*out*/;

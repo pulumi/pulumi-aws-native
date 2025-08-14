@@ -109,34 +109,34 @@ export class UserSettings extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.copyAllowed === undefined) && !opts.urn) {
+            if (args?.copyAllowed === undefined && !opts.urn) {
                 throw new Error("Missing required property 'copyAllowed'");
             }
-            if ((!args || args.downloadAllowed === undefined) && !opts.urn) {
+            if (args?.downloadAllowed === undefined && !opts.urn) {
                 throw new Error("Missing required property 'downloadAllowed'");
             }
-            if ((!args || args.pasteAllowed === undefined) && !opts.urn) {
+            if (args?.pasteAllowed === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pasteAllowed'");
             }
-            if ((!args || args.printAllowed === undefined) && !opts.urn) {
+            if (args?.printAllowed === undefined && !opts.urn) {
                 throw new Error("Missing required property 'printAllowed'");
             }
-            if ((!args || args.uploadAllowed === undefined) && !opts.urn) {
+            if (args?.uploadAllowed === undefined && !opts.urn) {
                 throw new Error("Missing required property 'uploadAllowed'");
             }
-            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
-            resourceInputs["cookieSynchronizationConfiguration"] = args ? args.cookieSynchronizationConfiguration : undefined;
-            resourceInputs["copyAllowed"] = args ? args.copyAllowed : undefined;
-            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["deepLinkAllowed"] = args ? args.deepLinkAllowed : undefined;
-            resourceInputs["disconnectTimeoutInMinutes"] = args ? args.disconnectTimeoutInMinutes : undefined;
-            resourceInputs["downloadAllowed"] = args ? args.downloadAllowed : undefined;
-            resourceInputs["idleDisconnectTimeoutInMinutes"] = args ? args.idleDisconnectTimeoutInMinutes : undefined;
-            resourceInputs["pasteAllowed"] = args ? args.pasteAllowed : undefined;
-            resourceInputs["printAllowed"] = args ? args.printAllowed : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["toolbarConfiguration"] = args ? args.toolbarConfiguration : undefined;
-            resourceInputs["uploadAllowed"] = args ? args.uploadAllowed : undefined;
+            resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
+            resourceInputs["cookieSynchronizationConfiguration"] = args?.cookieSynchronizationConfiguration;
+            resourceInputs["copyAllowed"] = args?.copyAllowed;
+            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
+            resourceInputs["deepLinkAllowed"] = args?.deepLinkAllowed;
+            resourceInputs["disconnectTimeoutInMinutes"] = args?.disconnectTimeoutInMinutes;
+            resourceInputs["downloadAllowed"] = args?.downloadAllowed;
+            resourceInputs["idleDisconnectTimeoutInMinutes"] = args?.idleDisconnectTimeoutInMinutes;
+            resourceInputs["pasteAllowed"] = args?.pasteAllowed;
+            resourceInputs["printAllowed"] = args?.printAllowed;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["toolbarConfiguration"] = args?.toolbarConfiguration;
+            resourceInputs["uploadAllowed"] = args?.uploadAllowed;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["userSettingsArn"] = undefined /*out*/;
         } else {

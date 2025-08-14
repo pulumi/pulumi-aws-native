@@ -79,10 +79,10 @@ export class Group extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["managedPolicyArns"] = args ? args.managedPolicyArns : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["policies"] = args ? args.policies : undefined;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["managedPolicyArns"] = args?.managedPolicyArns;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["policies"] = args?.policies;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -93,30 +93,30 @@ export class Deployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.configurationProfileId === undefined) && !opts.urn) {
+            if (args?.configurationProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationProfileId'");
             }
-            if ((!args || args.configurationVersion === undefined) && !opts.urn) {
+            if (args?.configurationVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationVersion'");
             }
-            if ((!args || args.deploymentStrategyId === undefined) && !opts.urn) {
+            if (args?.deploymentStrategyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deploymentStrategyId'");
             }
-            if ((!args || args.environmentId === undefined) && !opts.urn) {
+            if (args?.environmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["configurationProfileId"] = args ? args.configurationProfileId : undefined;
-            resourceInputs["configurationVersion"] = args ? args.configurationVersion : undefined;
-            resourceInputs["deploymentStrategyId"] = args ? args.deploymentStrategyId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dynamicExtensionParameters"] = args ? args.dynamicExtensionParameters : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["configurationProfileId"] = args?.configurationProfileId;
+            resourceInputs["configurationVersion"] = args?.configurationVersion;
+            resourceInputs["deploymentStrategyId"] = args?.deploymentStrategyId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["dynamicExtensionParameters"] = args?.dynamicExtensionParameters;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["deploymentNumber"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {

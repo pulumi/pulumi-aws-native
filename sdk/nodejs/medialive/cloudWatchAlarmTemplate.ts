@@ -119,43 +119,43 @@ export class CloudWatchAlarmTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.comparisonOperator === undefined) && !opts.urn) {
+            if (args?.comparisonOperator === undefined && !opts.urn) {
                 throw new Error("Missing required property 'comparisonOperator'");
             }
-            if ((!args || args.evaluationPeriods === undefined) && !opts.urn) {
+            if (args?.evaluationPeriods === undefined && !opts.urn) {
                 throw new Error("Missing required property 'evaluationPeriods'");
             }
-            if ((!args || args.metricName === undefined) && !opts.urn) {
+            if (args?.metricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
             }
-            if ((!args || args.period === undefined) && !opts.urn) {
+            if (args?.period === undefined && !opts.urn) {
                 throw new Error("Missing required property 'period'");
             }
-            if ((!args || args.statistic === undefined) && !opts.urn) {
+            if (args?.statistic === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statistic'");
             }
-            if ((!args || args.targetResourceType === undefined) && !opts.urn) {
+            if (args?.targetResourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceType'");
             }
-            if ((!args || args.threshold === undefined) && !opts.urn) {
+            if (args?.threshold === undefined && !opts.urn) {
                 throw new Error("Missing required property 'threshold'");
             }
-            if ((!args || args.treatMissingData === undefined) && !opts.urn) {
+            if (args?.treatMissingData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'treatMissingData'");
             }
-            resourceInputs["comparisonOperator"] = args ? args.comparisonOperator : undefined;
-            resourceInputs["datapointsToAlarm"] = args ? args.datapointsToAlarm : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["evaluationPeriods"] = args ? args.evaluationPeriods : undefined;
-            resourceInputs["groupIdentifier"] = args ? args.groupIdentifier : undefined;
-            resourceInputs["metricName"] = args ? args.metricName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["period"] = args ? args.period : undefined;
-            resourceInputs["statistic"] = args ? args.statistic : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetResourceType"] = args ? args.targetResourceType : undefined;
-            resourceInputs["threshold"] = args ? args.threshold : undefined;
-            resourceInputs["treatMissingData"] = args ? args.treatMissingData : undefined;
+            resourceInputs["comparisonOperator"] = args?.comparisonOperator;
+            resourceInputs["datapointsToAlarm"] = args?.datapointsToAlarm;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["evaluationPeriods"] = args?.evaluationPeriods;
+            resourceInputs["groupIdentifier"] = args?.groupIdentifier;
+            resourceInputs["metricName"] = args?.metricName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["period"] = args?.period;
+            resourceInputs["statistic"] = args?.statistic;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetResourceType"] = args?.targetResourceType;
+            resourceInputs["threshold"] = args?.threshold;
+            resourceInputs["treatMissingData"] = args?.treatMissingData;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

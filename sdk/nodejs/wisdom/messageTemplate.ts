@@ -101,25 +101,25 @@ export class MessageTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channelSubtype === undefined) && !opts.urn) {
+            if (args?.channelSubtype === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelSubtype'");
             }
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.knowledgeBaseArn === undefined) && !opts.urn) {
+            if (args?.knowledgeBaseArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'knowledgeBaseArn'");
             }
-            resourceInputs["channelSubtype"] = args ? args.channelSubtype : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["defaultAttributes"] = args ? args.defaultAttributes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["groupingConfiguration"] = args ? args.groupingConfiguration : undefined;
-            resourceInputs["knowledgeBaseArn"] = args ? args.knowledgeBaseArn : undefined;
-            resourceInputs["language"] = args ? args.language : undefined;
-            resourceInputs["messageTemplateAttachments"] = args ? args.messageTemplateAttachments : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["channelSubtype"] = args?.channelSubtype;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["defaultAttributes"] = args?.defaultAttributes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["groupingConfiguration"] = args?.groupingConfiguration;
+            resourceInputs["knowledgeBaseArn"] = args?.knowledgeBaseArn;
+            resourceInputs["language"] = args?.language;
+            resourceInputs["messageTemplateAttachments"] = args?.messageTemplateAttachments;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["messageTemplateArn"] = undefined /*out*/;
             resourceInputs["messageTemplateContentSha256"] = undefined /*out*/;
             resourceInputs["messageTemplateId"] = undefined /*out*/;

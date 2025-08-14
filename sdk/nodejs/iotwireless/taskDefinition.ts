@@ -81,15 +81,15 @@ export class TaskDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoCreateTasks === undefined) && !opts.urn) {
+            if (args?.autoCreateTasks === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoCreateTasks'");
             }
-            resourceInputs["autoCreateTasks"] = args ? args.autoCreateTasks : undefined;
-            resourceInputs["loRaWanUpdateGatewayTaskEntry"] = args ? args.loRaWanUpdateGatewayTaskEntry : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taskDefinitionType"] = args ? args.taskDefinitionType : undefined;
-            resourceInputs["update"] = args ? args.update : undefined;
+            resourceInputs["autoCreateTasks"] = args?.autoCreateTasks;
+            resourceInputs["loRaWanUpdateGatewayTaskEntry"] = args?.loRaWanUpdateGatewayTaskEntry;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taskDefinitionType"] = args?.taskDefinitionType;
+            resourceInputs["update"] = args?.update;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

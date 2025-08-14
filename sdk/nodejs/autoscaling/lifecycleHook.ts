@@ -78,20 +78,20 @@ export class LifecycleHook extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoScalingGroupName === undefined) && !opts.urn) {
+            if (args?.autoScalingGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingGroupName'");
             }
-            if ((!args || args.lifecycleTransition === undefined) && !opts.urn) {
+            if (args?.lifecycleTransition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lifecycleTransition'");
             }
-            resourceInputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
-            resourceInputs["defaultResult"] = args ? args.defaultResult : undefined;
-            resourceInputs["heartbeatTimeout"] = args ? args.heartbeatTimeout : undefined;
-            resourceInputs["lifecycleHookName"] = args ? args.lifecycleHookName : undefined;
-            resourceInputs["lifecycleTransition"] = args ? args.lifecycleTransition : undefined;
-            resourceInputs["notificationMetadata"] = args ? args.notificationMetadata : undefined;
-            resourceInputs["notificationTargetArn"] = args ? args.notificationTargetArn : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["autoScalingGroupName"] = args?.autoScalingGroupName;
+            resourceInputs["defaultResult"] = args?.defaultResult;
+            resourceInputs["heartbeatTimeout"] = args?.heartbeatTimeout;
+            resourceInputs["lifecycleHookName"] = args?.lifecycleHookName;
+            resourceInputs["lifecycleTransition"] = args?.lifecycleTransition;
+            resourceInputs["notificationMetadata"] = args?.notificationMetadata;
+            resourceInputs["notificationTargetArn"] = args?.notificationTargetArn;
+            resourceInputs["roleArn"] = args?.roleArn;
         } else {
             resourceInputs["autoScalingGroupName"] = undefined /*out*/;
             resourceInputs["defaultResult"] = undefined /*out*/;

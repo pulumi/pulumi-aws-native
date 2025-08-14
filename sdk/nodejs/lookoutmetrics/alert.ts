@@ -73,20 +73,20 @@ export class Alert extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.alertSensitivityThreshold === undefined) && !opts.urn) {
+            if (args?.alertSensitivityThreshold === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alertSensitivityThreshold'");
             }
-            if ((!args || args.anomalyDetectorArn === undefined) && !opts.urn) {
+            if (args?.anomalyDetectorArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'anomalyDetectorArn'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["alertDescription"] = args ? args.alertDescription : undefined;
-            resourceInputs["alertName"] = args ? args.alertName : undefined;
-            resourceInputs["alertSensitivityThreshold"] = args ? args.alertSensitivityThreshold : undefined;
-            resourceInputs["anomalyDetectorArn"] = args ? args.anomalyDetectorArn : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["alertDescription"] = args?.alertDescription;
+            resourceInputs["alertName"] = args?.alertName;
+            resourceInputs["alertSensitivityThreshold"] = args?.alertSensitivityThreshold;
+            resourceInputs["anomalyDetectorArn"] = args?.anomalyDetectorArn;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["action"] = undefined /*out*/;

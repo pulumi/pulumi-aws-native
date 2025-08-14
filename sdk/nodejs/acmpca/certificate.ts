@@ -90,25 +90,25 @@ export class Certificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.certificateAuthorityArn === undefined) && !opts.urn) {
+            if (args?.certificateAuthorityArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateAuthorityArn'");
             }
-            if ((!args || args.certificateSigningRequest === undefined) && !opts.urn) {
+            if (args?.certificateSigningRequest === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateSigningRequest'");
             }
-            if ((!args || args.signingAlgorithm === undefined) && !opts.urn) {
+            if (args?.signingAlgorithm === undefined && !opts.urn) {
                 throw new Error("Missing required property 'signingAlgorithm'");
             }
-            if ((!args || args.validity === undefined) && !opts.urn) {
+            if (args?.validity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'validity'");
             }
-            resourceInputs["apiPassthrough"] = args ? args.apiPassthrough : undefined;
-            resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
-            resourceInputs["certificateSigningRequest"] = args ? args.certificateSigningRequest : undefined;
-            resourceInputs["signingAlgorithm"] = args ? args.signingAlgorithm : undefined;
-            resourceInputs["templateArn"] = args ? args.templateArn : undefined;
-            resourceInputs["validity"] = args ? args.validity : undefined;
-            resourceInputs["validityNotBefore"] = args ? args.validityNotBefore : undefined;
+            resourceInputs["apiPassthrough"] = args?.apiPassthrough;
+            resourceInputs["certificateAuthorityArn"] = args?.certificateAuthorityArn;
+            resourceInputs["certificateSigningRequest"] = args?.certificateSigningRequest;
+            resourceInputs["signingAlgorithm"] = args?.signingAlgorithm;
+            resourceInputs["templateArn"] = args?.templateArn;
+            resourceInputs["validity"] = args?.validity;
+            resourceInputs["validityNotBefore"] = args?.validityNotBefore;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificate"] = undefined /*out*/;
         } else {

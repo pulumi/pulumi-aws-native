@@ -105,30 +105,30 @@ export class Experiment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.metricGoals === undefined) && !opts.urn) {
+            if (args?.metricGoals === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metricGoals'");
             }
-            if ((!args || args.onlineAbConfig === undefined) && !opts.urn) {
+            if (args?.onlineAbConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'onlineAbConfig'");
             }
-            if ((!args || args.project === undefined) && !opts.urn) {
+            if (args?.project === undefined && !opts.urn) {
                 throw new Error("Missing required property 'project'");
             }
-            if ((!args || args.treatments === undefined) && !opts.urn) {
+            if (args?.treatments === undefined && !opts.urn) {
                 throw new Error("Missing required property 'treatments'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["metricGoals"] = args ? args.metricGoals : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["onlineAbConfig"] = args ? args.onlineAbConfig : undefined;
-            resourceInputs["project"] = args ? args.project : undefined;
-            resourceInputs["randomizationSalt"] = args ? args.randomizationSalt : undefined;
-            resourceInputs["removeSegment"] = args ? args.removeSegment : undefined;
-            resourceInputs["runningStatus"] = args ? args.runningStatus : undefined;
-            resourceInputs["samplingRate"] = args ? args.samplingRate : undefined;
-            resourceInputs["segment"] = args ? args.segment : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["treatments"] = args ? args.treatments : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["metricGoals"] = args?.metricGoals;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["onlineAbConfig"] = args?.onlineAbConfig;
+            resourceInputs["project"] = args?.project;
+            resourceInputs["randomizationSalt"] = args?.randomizationSalt;
+            resourceInputs["removeSegment"] = args?.removeSegment;
+            resourceInputs["runningStatus"] = args?.runningStatus;
+            resourceInputs["samplingRate"] = args?.samplingRate;
+            resourceInputs["segment"] = args?.segment;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["treatments"] = args?.treatments;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

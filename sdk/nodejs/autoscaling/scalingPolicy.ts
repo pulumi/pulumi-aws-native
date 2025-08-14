@@ -101,20 +101,20 @@ export class ScalingPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoScalingGroupName === undefined) && !opts.urn) {
+            if (args?.autoScalingGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingGroupName'");
             }
-            resourceInputs["adjustmentType"] = args ? args.adjustmentType : undefined;
-            resourceInputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
-            resourceInputs["cooldown"] = args ? args.cooldown : undefined;
-            resourceInputs["estimatedInstanceWarmup"] = args ? args.estimatedInstanceWarmup : undefined;
-            resourceInputs["metricAggregationType"] = args ? args.metricAggregationType : undefined;
-            resourceInputs["minAdjustmentMagnitude"] = args ? args.minAdjustmentMagnitude : undefined;
-            resourceInputs["policyType"] = args ? args.policyType : undefined;
-            resourceInputs["predictiveScalingConfiguration"] = args ? args.predictiveScalingConfiguration : undefined;
-            resourceInputs["scalingAdjustment"] = args ? args.scalingAdjustment : undefined;
-            resourceInputs["stepAdjustments"] = args ? args.stepAdjustments : undefined;
-            resourceInputs["targetTrackingConfiguration"] = args ? args.targetTrackingConfiguration : undefined;
+            resourceInputs["adjustmentType"] = args?.adjustmentType;
+            resourceInputs["autoScalingGroupName"] = args?.autoScalingGroupName;
+            resourceInputs["cooldown"] = args?.cooldown;
+            resourceInputs["estimatedInstanceWarmup"] = args?.estimatedInstanceWarmup;
+            resourceInputs["metricAggregationType"] = args?.metricAggregationType;
+            resourceInputs["minAdjustmentMagnitude"] = args?.minAdjustmentMagnitude;
+            resourceInputs["policyType"] = args?.policyType;
+            resourceInputs["predictiveScalingConfiguration"] = args?.predictiveScalingConfiguration;
+            resourceInputs["scalingAdjustment"] = args?.scalingAdjustment;
+            resourceInputs["stepAdjustments"] = args?.stepAdjustments;
+            resourceInputs["targetTrackingConfiguration"] = args?.targetTrackingConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["policyName"] = undefined /*out*/;
         } else {

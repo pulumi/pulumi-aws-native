@@ -101,29 +101,29 @@ export class Agreement extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessRole === undefined) && !opts.urn) {
+            if (args?.accessRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessRole'");
             }
-            if ((!args || args.localProfileId === undefined) && !opts.urn) {
+            if (args?.localProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localProfileId'");
             }
-            if ((!args || args.partnerProfileId === undefined) && !opts.urn) {
+            if (args?.partnerProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partnerProfileId'");
             }
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            resourceInputs["accessRole"] = args ? args.accessRole : undefined;
-            resourceInputs["baseDirectory"] = args ? args.baseDirectory : undefined;
-            resourceInputs["customDirectories"] = args ? args.customDirectories : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enforceMessageSigning"] = args ? args.enforceMessageSigning : undefined;
-            resourceInputs["localProfileId"] = args ? args.localProfileId : undefined;
-            resourceInputs["partnerProfileId"] = args ? args.partnerProfileId : undefined;
-            resourceInputs["preserveFilename"] = args ? args.preserveFilename : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessRole"] = args?.accessRole;
+            resourceInputs["baseDirectory"] = args?.baseDirectory;
+            resourceInputs["customDirectories"] = args?.customDirectories;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enforceMessageSigning"] = args?.enforceMessageSigning;
+            resourceInputs["localProfileId"] = args?.localProfileId;
+            resourceInputs["partnerProfileId"] = args?.partnerProfileId;
+            resourceInputs["preserveFilename"] = args?.preserveFilename;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["agreementId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         } else {

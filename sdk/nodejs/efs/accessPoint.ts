@@ -79,14 +79,14 @@ export class AccessPoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fileSystemId === undefined) && !opts.urn) {
+            if (args?.fileSystemId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemId'");
             }
-            resourceInputs["accessPointTags"] = args ? args.accessPointTags : undefined;
-            resourceInputs["clientToken"] = args ? args.clientToken : undefined;
-            resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
-            resourceInputs["posixUser"] = args ? args.posixUser : undefined;
-            resourceInputs["rootDirectory"] = args ? args.rootDirectory : undefined;
+            resourceInputs["accessPointTags"] = args?.accessPointTags;
+            resourceInputs["clientToken"] = args?.clientToken;
+            resourceInputs["fileSystemId"] = args?.fileSystemId;
+            resourceInputs["posixUser"] = args?.posixUser;
+            resourceInputs["rootDirectory"] = args?.rootDirectory;
             resourceInputs["accessPointId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         } else {

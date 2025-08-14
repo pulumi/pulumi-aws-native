@@ -64,10 +64,10 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.responseHeadersPolicyConfig === undefined) && !opts.urn) {
+            if (args?.responseHeadersPolicyConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'responseHeadersPolicyConfig'");
             }
-            resourceInputs["responseHeadersPolicyConfig"] = args ? args.responseHeadersPolicyConfig : undefined;
+            resourceInputs["responseHeadersPolicyConfig"] = args?.responseHeadersPolicyConfig;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {

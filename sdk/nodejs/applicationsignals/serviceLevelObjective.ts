@@ -99,14 +99,14 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["burnRateConfigurations"] = args ? args.burnRateConfigurations : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["exclusionWindows"] = args ? args.exclusionWindows : undefined;
-            resourceInputs["goal"] = args ? args.goal : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["requestBasedSli"] = args ? args.requestBasedSli : undefined;
-            resourceInputs["sli"] = args ? args.sli : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["burnRateConfigurations"] = args?.burnRateConfigurations;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["exclusionWindows"] = args?.exclusionWindows;
+            resourceInputs["goal"] = args?.goal;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["requestBasedSli"] = args?.requestBasedSli;
+            resourceInputs["sli"] = args?.sli;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["evaluationType"] = undefined /*out*/;

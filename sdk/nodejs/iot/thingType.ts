@@ -75,10 +75,10 @@ export class ThingType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["deprecateThingType"] = args ? args.deprecateThingType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["thingTypeName"] = args ? args.thingTypeName : undefined;
-            resourceInputs["thingTypeProperties"] = args ? args.thingTypeProperties : undefined;
+            resourceInputs["deprecateThingType"] = args?.deprecateThingType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["thingTypeName"] = args?.thingTypeName;
+            resourceInputs["thingTypeProperties"] = args?.thingTypeProperties;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

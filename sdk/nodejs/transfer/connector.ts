@@ -89,19 +89,19 @@ export class Connector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessRole === undefined) && !opts.urn) {
+            if (args?.accessRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessRole'");
             }
-            if ((!args || args.url === undefined) && !opts.urn) {
+            if (args?.url === undefined && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            resourceInputs["accessRole"] = args ? args.accessRole : undefined;
-            resourceInputs["as2Config"] = args ? args.as2Config : undefined;
-            resourceInputs["loggingRole"] = args ? args.loggingRole : undefined;
-            resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
-            resourceInputs["sftpConfig"] = args ? args.sftpConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["accessRole"] = args?.accessRole;
+            resourceInputs["as2Config"] = args?.as2Config;
+            resourceInputs["loggingRole"] = args?.loggingRole;
+            resourceInputs["securityPolicyName"] = args?.securityPolicyName;
+            resourceInputs["sftpConfig"] = args?.sftpConfig;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["url"] = args?.url;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["connectorId"] = undefined /*out*/;
             resourceInputs["serviceManagedEgressIpAddresses"] = undefined /*out*/;

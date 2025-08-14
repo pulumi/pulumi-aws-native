@@ -66,9 +66,9 @@ export class Stage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["autoParticipantRecordingConfiguration"] = args ? args.autoParticipantRecordingConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoParticipantRecordingConfiguration"] = args?.autoParticipantRecordingConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["activeSessionId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         } else {

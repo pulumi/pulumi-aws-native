@@ -109,15 +109,15 @@ export class Disk extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sizeInGb === undefined) && !opts.urn) {
+            if (args?.sizeInGb === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sizeInGb'");
             }
-            resourceInputs["addOns"] = args ? args.addOns : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["diskName"] = args ? args.diskName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["sizeInGb"] = args ? args.sizeInGb : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addOns"] = args?.addOns;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["diskName"] = args?.diskName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["sizeInGb"] = args?.sizeInGb;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["attachedTo"] = undefined /*out*/;
             resourceInputs["attachmentState"] = undefined /*out*/;
             resourceInputs["diskArn"] = undefined /*out*/;

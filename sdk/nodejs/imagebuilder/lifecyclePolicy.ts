@@ -85,26 +85,26 @@ export class LifecyclePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.executionRole === undefined) && !opts.urn) {
+            if (args?.executionRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRole'");
             }
-            if ((!args || args.policyDetails === undefined) && !opts.urn) {
+            if (args?.policyDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDetails'");
             }
-            if ((!args || args.resourceSelection === undefined) && !opts.urn) {
+            if (args?.resourceSelection === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceSelection'");
             }
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["executionRole"] = args ? args.executionRole : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyDetails"] = args ? args.policyDetails : undefined;
-            resourceInputs["resourceSelection"] = args ? args.resourceSelection : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["executionRole"] = args?.executionRole;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyDetails"] = args?.policyDetails;
+            resourceInputs["resourceSelection"] = args?.resourceSelection;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -149,27 +149,27 @@ export class GraphQlApi extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authenticationType === undefined) && !opts.urn) {
+            if (args?.authenticationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationType'");
             }
-            resourceInputs["additionalAuthenticationProviders"] = args ? args.additionalAuthenticationProviders : undefined;
-            resourceInputs["apiType"] = args ? args.apiType : undefined;
-            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
-            resourceInputs["enhancedMetricsConfig"] = args ? args.enhancedMetricsConfig : undefined;
-            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            resourceInputs["introspectionConfig"] = args ? args.introspectionConfig : undefined;
-            resourceInputs["lambdaAuthorizerConfig"] = args ? args.lambdaAuthorizerConfig : undefined;
-            resourceInputs["logConfig"] = args ? args.logConfig : undefined;
-            resourceInputs["mergedApiExecutionRoleArn"] = args ? args.mergedApiExecutionRoleArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["openIdConnectConfig"] = args ? args.openIdConnectConfig : undefined;
-            resourceInputs["ownerContact"] = args ? args.ownerContact : undefined;
-            resourceInputs["queryDepthLimit"] = args ? args.queryDepthLimit : undefined;
-            resourceInputs["resolverCountLimit"] = args ? args.resolverCountLimit : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userPoolConfig"] = args ? args.userPoolConfig : undefined;
-            resourceInputs["visibility"] = args ? args.visibility : undefined;
-            resourceInputs["xrayEnabled"] = args ? args.xrayEnabled : undefined;
+            resourceInputs["additionalAuthenticationProviders"] = args?.additionalAuthenticationProviders;
+            resourceInputs["apiType"] = args?.apiType;
+            resourceInputs["authenticationType"] = args?.authenticationType;
+            resourceInputs["enhancedMetricsConfig"] = args?.enhancedMetricsConfig;
+            resourceInputs["environmentVariables"] = args?.environmentVariables;
+            resourceInputs["introspectionConfig"] = args?.introspectionConfig;
+            resourceInputs["lambdaAuthorizerConfig"] = args?.lambdaAuthorizerConfig;
+            resourceInputs["logConfig"] = args?.logConfig;
+            resourceInputs["mergedApiExecutionRoleArn"] = args?.mergedApiExecutionRoleArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["openIdConnectConfig"] = args?.openIdConnectConfig;
+            resourceInputs["ownerContact"] = args?.ownerContact;
+            resourceInputs["queryDepthLimit"] = args?.queryDepthLimit;
+            resourceInputs["resolverCountLimit"] = args?.resolverCountLimit;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userPoolConfig"] = args?.userPoolConfig;
+            resourceInputs["visibility"] = args?.visibility;
+            resourceInputs["xrayEnabled"] = args?.xrayEnabled;
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["graphQlDns"] = undefined /*out*/;

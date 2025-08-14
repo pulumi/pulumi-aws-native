@@ -137,18 +137,18 @@ export class ScalingPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyType === undefined) && !opts.urn) {
+            if (args?.policyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyType'");
             }
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
-            resourceInputs["policyType"] = args ? args.policyType : undefined;
-            resourceInputs["predictiveScalingPolicyConfiguration"] = args ? args.predictiveScalingPolicyConfiguration : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["scalableDimension"] = args ? args.scalableDimension : undefined;
-            resourceInputs["scalingTargetId"] = args ? args.scalingTargetId : undefined;
-            resourceInputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
-            resourceInputs["stepScalingPolicyConfiguration"] = args ? args.stepScalingPolicyConfiguration : undefined;
-            resourceInputs["targetTrackingScalingPolicyConfiguration"] = args ? args.targetTrackingScalingPolicyConfiguration : undefined;
+            resourceInputs["policyName"] = args?.policyName;
+            resourceInputs["policyType"] = args?.policyType;
+            resourceInputs["predictiveScalingPolicyConfiguration"] = args?.predictiveScalingPolicyConfiguration;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["scalableDimension"] = args?.scalableDimension;
+            resourceInputs["scalingTargetId"] = args?.scalingTargetId;
+            resourceInputs["serviceNamespace"] = args?.serviceNamespace;
+            resourceInputs["stepScalingPolicyConfiguration"] = args?.stepScalingPolicyConfiguration;
+            resourceInputs["targetTrackingScalingPolicyConfiguration"] = args?.targetTrackingScalingPolicyConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

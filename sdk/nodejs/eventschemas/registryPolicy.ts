@@ -144,15 +144,15 @@ export class RegistryPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["revisionId"] = args ? args.revisionId : undefined;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["revisionId"] = args?.revisionId;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

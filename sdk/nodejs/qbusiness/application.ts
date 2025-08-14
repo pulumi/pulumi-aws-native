@@ -131,23 +131,23 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            resourceInputs["attachmentsConfiguration"] = args ? args.attachmentsConfiguration : undefined;
-            resourceInputs["autoSubscriptionConfiguration"] = args ? args.autoSubscriptionConfiguration : undefined;
-            resourceInputs["clientIdsForOidc"] = args ? args.clientIdsForOidc : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            resourceInputs["iamIdentityProviderArn"] = args ? args.iamIdentityProviderArn : undefined;
-            resourceInputs["identityCenterInstanceArn"] = args ? args.identityCenterInstanceArn : undefined;
-            resourceInputs["identityType"] = args ? args.identityType : undefined;
-            resourceInputs["personalizationConfiguration"] = args ? args.personalizationConfiguration : undefined;
-            resourceInputs["qAppsConfiguration"] = args ? args.qAppsConfiguration : undefined;
-            resourceInputs["quickSightConfiguration"] = args ? args.quickSightConfiguration : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["attachmentsConfiguration"] = args?.attachmentsConfiguration;
+            resourceInputs["autoSubscriptionConfiguration"] = args?.autoSubscriptionConfiguration;
+            resourceInputs["clientIdsForOidc"] = args?.clientIdsForOidc;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["iamIdentityProviderArn"] = args?.iamIdentityProviderArn;
+            resourceInputs["identityCenterInstanceArn"] = args?.identityCenterInstanceArn;
+            resourceInputs["identityType"] = args?.identityType;
+            resourceInputs["personalizationConfiguration"] = args?.personalizationConfiguration;
+            resourceInputs["qAppsConfiguration"] = args?.qAppsConfiguration;
+            resourceInputs["quickSightConfiguration"] = args?.quickSightConfiguration;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

@@ -182,34 +182,34 @@ export class Nodegroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.nodeRole === undefined) && !opts.urn) {
+            if (args?.nodeRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nodeRole'");
             }
-            if ((!args || args.subnets === undefined) && !opts.urn) {
+            if (args?.subnets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnets'");
             }
-            resourceInputs["amiType"] = args ? args.amiType : undefined;
-            resourceInputs["capacityType"] = args ? args.capacityType : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["diskSize"] = args ? args.diskSize : undefined;
-            resourceInputs["forceUpdateEnabled"] = args ? args.forceUpdateEnabled : undefined;
-            resourceInputs["instanceTypes"] = args ? args.instanceTypes : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
-            resourceInputs["nodeRepairConfig"] = args ? args.nodeRepairConfig : undefined;
-            resourceInputs["nodeRole"] = args ? args.nodeRole : undefined;
-            resourceInputs["nodegroupName"] = args ? args.nodegroupName : undefined;
-            resourceInputs["releaseVersion"] = args ? args.releaseVersion : undefined;
-            resourceInputs["remoteAccess"] = args ? args.remoteAccess : undefined;
-            resourceInputs["scalingConfig"] = args ? args.scalingConfig : undefined;
-            resourceInputs["subnets"] = args ? args.subnets : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taints"] = args ? args.taints : undefined;
-            resourceInputs["updateConfig"] = args ? args.updateConfig : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["amiType"] = args?.amiType;
+            resourceInputs["capacityType"] = args?.capacityType;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["diskSize"] = args?.diskSize;
+            resourceInputs["forceUpdateEnabled"] = args?.forceUpdateEnabled;
+            resourceInputs["instanceTypes"] = args?.instanceTypes;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["launchTemplate"] = args?.launchTemplate;
+            resourceInputs["nodeRepairConfig"] = args?.nodeRepairConfig;
+            resourceInputs["nodeRole"] = args?.nodeRole;
+            resourceInputs["nodegroupName"] = args?.nodegroupName;
+            resourceInputs["releaseVersion"] = args?.releaseVersion;
+            resourceInputs["remoteAccess"] = args?.remoteAccess;
+            resourceInputs["scalingConfig"] = args?.scalingConfig;
+            resourceInputs["subnets"] = args?.subnets;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taints"] = args?.taints;
+            resourceInputs["updateConfig"] = args?.updateConfig;
+            resourceInputs["version"] = args?.version;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

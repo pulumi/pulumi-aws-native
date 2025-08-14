@@ -89,36 +89,36 @@ export class BudgetsAction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actionThreshold === undefined) && !opts.urn) {
+            if (args?.actionThreshold === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionThreshold'");
             }
-            if ((!args || args.actionType === undefined) && !opts.urn) {
+            if (args?.actionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionType'");
             }
-            if ((!args || args.budgetName === undefined) && !opts.urn) {
+            if (args?.budgetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'budgetName'");
             }
-            if ((!args || args.definition === undefined) && !opts.urn) {
+            if (args?.definition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
+            if (args?.executionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            if ((!args || args.notificationType === undefined) && !opts.urn) {
+            if (args?.notificationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notificationType'");
             }
-            if ((!args || args.subscribers === undefined) && !opts.urn) {
+            if (args?.subscribers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscribers'");
             }
-            resourceInputs["actionThreshold"] = args ? args.actionThreshold : undefined;
-            resourceInputs["actionType"] = args ? args.actionType : undefined;
-            resourceInputs["approvalModel"] = args ? args.approvalModel : undefined;
-            resourceInputs["budgetName"] = args ? args.budgetName : undefined;
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            resourceInputs["notificationType"] = args ? args.notificationType : undefined;
-            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
-            resourceInputs["subscribers"] = args ? args.subscribers : undefined;
+            resourceInputs["actionThreshold"] = args?.actionThreshold;
+            resourceInputs["actionType"] = args?.actionType;
+            resourceInputs["approvalModel"] = args?.approvalModel;
+            resourceInputs["budgetName"] = args?.budgetName;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
+            resourceInputs["notificationType"] = args?.notificationType;
+            resourceInputs["resourceTags"] = args?.resourceTags;
+            resourceInputs["subscribers"] = args?.subscribers;
             resourceInputs["actionId"] = undefined /*out*/;
         } else {
             resourceInputs["actionId"] = undefined /*out*/;

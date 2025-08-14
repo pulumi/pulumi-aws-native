@@ -89,16 +89,16 @@ export class MonitoringSchedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.monitoringScheduleConfig === undefined) && !opts.urn) {
+            if (args?.monitoringScheduleConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitoringScheduleConfig'");
             }
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["failureReason"] = args ? args.failureReason : undefined;
-            resourceInputs["lastMonitoringExecutionSummary"] = args ? args.lastMonitoringExecutionSummary : undefined;
-            resourceInputs["monitoringScheduleConfig"] = args ? args.monitoringScheduleConfig : undefined;
-            resourceInputs["monitoringScheduleName"] = args ? args.monitoringScheduleName : undefined;
-            resourceInputs["monitoringScheduleStatus"] = args ? args.monitoringScheduleStatus : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["failureReason"] = args?.failureReason;
+            resourceInputs["lastMonitoringExecutionSummary"] = args?.lastMonitoringExecutionSummary;
+            resourceInputs["monitoringScheduleConfig"] = args?.monitoringScheduleConfig;
+            resourceInputs["monitoringScheduleName"] = args?.monitoringScheduleName;
+            resourceInputs["monitoringScheduleStatus"] = args?.monitoringScheduleStatus;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["monitoringScheduleArn"] = undefined /*out*/;

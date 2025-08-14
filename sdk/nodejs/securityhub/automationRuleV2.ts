@@ -93,28 +93,28 @@ export class AutomationRuleV2 extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.criteria === undefined) && !opts.urn) {
+            if (args?.criteria === undefined && !opts.urn) {
                 throw new Error("Missing required property 'criteria'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.ruleName === undefined) && !opts.urn) {
+            if (args?.ruleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleName'");
             }
-            if ((!args || args.ruleOrder === undefined) && !opts.urn) {
+            if (args?.ruleOrder === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleOrder'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["criteria"] = args ? args.criteria : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["ruleOrder"] = args ? args.ruleOrder : undefined;
-            resourceInputs["ruleStatus"] = args ? args.ruleStatus : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["criteria"] = args?.criteria;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ruleName"] = args?.ruleName;
+            resourceInputs["ruleOrder"] = args?.ruleOrder;
+            resourceInputs["ruleStatus"] = args?.ruleStatus;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["ruleArn"] = undefined /*out*/;
             resourceInputs["ruleId"] = undefined /*out*/;

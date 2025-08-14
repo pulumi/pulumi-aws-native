@@ -54,14 +54,14 @@ export class NotificationChannel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.snsRoleName === undefined) && !opts.urn) {
+            if (args?.snsRoleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'snsRoleName'");
             }
-            if ((!args || args.snsTopicArn === undefined) && !opts.urn) {
+            if (args?.snsTopicArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'snsTopicArn'");
             }
-            resourceInputs["snsRoleName"] = args ? args.snsRoleName : undefined;
-            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
+            resourceInputs["snsRoleName"] = args?.snsRoleName;
+            resourceInputs["snsTopicArn"] = args?.snsTopicArn;
         } else {
             resourceInputs["snsRoleName"] = undefined /*out*/;
             resourceInputs["snsTopicArn"] = undefined /*out*/;

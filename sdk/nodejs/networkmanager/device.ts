@@ -105,19 +105,19 @@ export class Device extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
+            if (args?.globalNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            resourceInputs["awsLocation"] = args ? args.awsLocation : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["model"] = args ? args.model : undefined;
-            resourceInputs["serialNumber"] = args ? args.serialNumber : undefined;
-            resourceInputs["siteId"] = args ? args.siteId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["vendor"] = args ? args.vendor : undefined;
+            resourceInputs["awsLocation"] = args?.awsLocation;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["globalNetworkId"] = args?.globalNetworkId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["model"] = args?.model;
+            resourceInputs["serialNumber"] = args?.serialNumber;
+            resourceInputs["siteId"] = args?.siteId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["vendor"] = args?.vendor;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["deviceArn"] = undefined /*out*/;
             resourceInputs["deviceId"] = undefined /*out*/;

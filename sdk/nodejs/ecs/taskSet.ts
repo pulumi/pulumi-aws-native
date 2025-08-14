@@ -111,27 +111,27 @@ export class TaskSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cluster === undefined) && !opts.urn) {
+            if (args?.cluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cluster'");
             }
-            if ((!args || args.service === undefined) && !opts.urn) {
+            if (args?.service === undefined && !opts.urn) {
                 throw new Error("Missing required property 'service'");
             }
-            if ((!args || args.taskDefinition === undefined) && !opts.urn) {
+            if (args?.taskDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'taskDefinition'");
             }
-            resourceInputs["capacityProviderStrategy"] = args ? args.capacityProviderStrategy : undefined;
-            resourceInputs["cluster"] = args ? args.cluster : undefined;
-            resourceInputs["externalId"] = args ? args.externalId : undefined;
-            resourceInputs["launchType"] = args ? args.launchType : undefined;
-            resourceInputs["loadBalancers"] = args ? args.loadBalancers : undefined;
-            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            resourceInputs["platformVersion"] = args ? args.platformVersion : undefined;
-            resourceInputs["scale"] = args ? args.scale : undefined;
-            resourceInputs["service"] = args ? args.service : undefined;
-            resourceInputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taskDefinition"] = args ? args.taskDefinition : undefined;
+            resourceInputs["capacityProviderStrategy"] = args?.capacityProviderStrategy;
+            resourceInputs["cluster"] = args?.cluster;
+            resourceInputs["externalId"] = args?.externalId;
+            resourceInputs["launchType"] = args?.launchType;
+            resourceInputs["loadBalancers"] = args?.loadBalancers;
+            resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["platformVersion"] = args?.platformVersion;
+            resourceInputs["scale"] = args?.scale;
+            resourceInputs["service"] = args?.service;
+            resourceInputs["serviceRegistries"] = args?.serviceRegistries;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taskDefinition"] = args?.taskDefinition;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

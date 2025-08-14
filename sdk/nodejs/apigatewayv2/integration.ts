@@ -125,30 +125,30 @@ export class Integration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.integrationType === undefined) && !opts.urn) {
+            if (args?.integrationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationType'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["connectionId"] = args ? args.connectionId : undefined;
-            resourceInputs["connectionType"] = args ? args.connectionType : undefined;
-            resourceInputs["contentHandlingStrategy"] = args ? args.contentHandlingStrategy : undefined;
-            resourceInputs["credentialsArn"] = args ? args.credentialsArn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["integrationMethod"] = args ? args.integrationMethod : undefined;
-            resourceInputs["integrationSubtype"] = args ? args.integrationSubtype : undefined;
-            resourceInputs["integrationType"] = args ? args.integrationType : undefined;
-            resourceInputs["integrationUri"] = args ? args.integrationUri : undefined;
-            resourceInputs["passthroughBehavior"] = args ? args.passthroughBehavior : undefined;
-            resourceInputs["payloadFormatVersion"] = args ? args.payloadFormatVersion : undefined;
-            resourceInputs["requestParameters"] = args ? args.requestParameters : undefined;
-            resourceInputs["requestTemplates"] = args ? args.requestTemplates : undefined;
-            resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
-            resourceInputs["templateSelectionExpression"] = args ? args.templateSelectionExpression : undefined;
-            resourceInputs["timeoutInMillis"] = args ? args.timeoutInMillis : undefined;
-            resourceInputs["tlsConfig"] = args ? args.tlsConfig : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["connectionId"] = args?.connectionId;
+            resourceInputs["connectionType"] = args?.connectionType;
+            resourceInputs["contentHandlingStrategy"] = args?.contentHandlingStrategy;
+            resourceInputs["credentialsArn"] = args?.credentialsArn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["integrationMethod"] = args?.integrationMethod;
+            resourceInputs["integrationSubtype"] = args?.integrationSubtype;
+            resourceInputs["integrationType"] = args?.integrationType;
+            resourceInputs["integrationUri"] = args?.integrationUri;
+            resourceInputs["passthroughBehavior"] = args?.passthroughBehavior;
+            resourceInputs["payloadFormatVersion"] = args?.payloadFormatVersion;
+            resourceInputs["requestParameters"] = args?.requestParameters;
+            resourceInputs["requestTemplates"] = args?.requestTemplates;
+            resourceInputs["responseParameters"] = args?.responseParameters;
+            resourceInputs["templateSelectionExpression"] = args?.templateSelectionExpression;
+            resourceInputs["timeoutInMillis"] = args?.timeoutInMillis;
+            resourceInputs["tlsConfig"] = args?.tlsConfig;
             resourceInputs["integrationId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;

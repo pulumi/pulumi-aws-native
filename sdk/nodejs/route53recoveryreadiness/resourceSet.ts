@@ -71,16 +71,16 @@ export class ResourceSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceSetType === undefined) && !opts.urn) {
+            if (args?.resourceSetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceSetType'");
             }
-            if ((!args || args.resources === undefined) && !opts.urn) {
+            if (args?.resources === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resources'");
             }
-            resourceInputs["resourceSetName"] = args ? args.resourceSetName : undefined;
-            resourceInputs["resourceSetType"] = args ? args.resourceSetType : undefined;
-            resourceInputs["resources"] = args ? args.resources : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["resourceSetName"] = args?.resourceSetName;
+            resourceInputs["resourceSetType"] = args?.resourceSetType;
+            resourceInputs["resources"] = args?.resources;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["resourceSetArn"] = undefined /*out*/;
         } else {
             resourceInputs["resourceSetArn"] = undefined /*out*/;

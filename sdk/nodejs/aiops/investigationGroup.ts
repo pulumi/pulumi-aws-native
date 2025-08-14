@@ -109,16 +109,16 @@ export class InvestigationGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["chatbotNotificationChannels"] = args ? args.chatbotNotificationChannels : undefined;
-            resourceInputs["crossAccountConfigurations"] = args ? args.crossAccountConfigurations : undefined;
-            resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
-            resourceInputs["investigationGroupPolicy"] = args ? args.investigationGroupPolicy : undefined;
-            resourceInputs["isCloudTrailEventHistoryEnabled"] = args ? args.isCloudTrailEventHistoryEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tagKeyBoundaries"] = args ? args.tagKeyBoundaries : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["chatbotNotificationChannels"] = args?.chatbotNotificationChannels;
+            resourceInputs["crossAccountConfigurations"] = args?.crossAccountConfigurations;
+            resourceInputs["encryptionConfig"] = args?.encryptionConfig;
+            resourceInputs["investigationGroupPolicy"] = args?.investigationGroupPolicy;
+            resourceInputs["isCloudTrailEventHistoryEnabled"] = args?.isCloudTrailEventHistoryEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["retentionInDays"] = args?.retentionInDays;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tagKeyBoundaries"] = args?.tagKeyBoundaries;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;

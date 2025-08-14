@@ -58,8 +58,8 @@ export class AssessmentTarget extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["assessmentTargetName"] = args ? args.assessmentTargetName : undefined;
-            resourceInputs["resourceGroupArn"] = args ? args.resourceGroupArn : undefined;
+            resourceInputs["assessmentTargetName"] = args?.assessmentTargetName;
+            resourceInputs["resourceGroupArn"] = args?.resourceGroupArn;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

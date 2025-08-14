@@ -83,11 +83,11 @@ export class DeliveryDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["deliveryDestinationPolicy"] = args ? args.deliveryDestinationPolicy : undefined;
-            resourceInputs["destinationResourceArn"] = args ? args.destinationResourceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outputFormat"] = args ? args.outputFormat : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deliveryDestinationPolicy"] = args?.deliveryDestinationPolicy;
+            resourceInputs["destinationResourceArn"] = args?.destinationResourceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outputFormat"] = args?.outputFormat;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["deliveryDestinationType"] = undefined /*out*/;
         } else {

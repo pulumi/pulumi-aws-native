@@ -97,23 +97,23 @@ export class MailManagerIngressPoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ruleSetId === undefined) && !opts.urn) {
+            if (args?.ruleSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleSetId'");
             }
-            if ((!args || args.trafficPolicyId === undefined) && !opts.urn) {
+            if (args?.trafficPolicyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trafficPolicyId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["ingressPointConfiguration"] = args ? args.ingressPointConfiguration : undefined;
-            resourceInputs["ingressPointName"] = args ? args.ingressPointName : undefined;
-            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            resourceInputs["ruleSetId"] = args ? args.ruleSetId : undefined;
-            resourceInputs["statusToUpdate"] = args ? args.statusToUpdate : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficPolicyId"] = args ? args.trafficPolicyId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["ingressPointConfiguration"] = args?.ingressPointConfiguration;
+            resourceInputs["ingressPointName"] = args?.ingressPointName;
+            resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["ruleSetId"] = args?.ruleSetId;
+            resourceInputs["statusToUpdate"] = args?.statusToUpdate;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficPolicyId"] = args?.trafficPolicyId;
+            resourceInputs["type"] = args?.type;
             resourceInputs["aRecord"] = undefined /*out*/;
             resourceInputs["ingressPointArn"] = undefined /*out*/;
             resourceInputs["ingressPointId"] = undefined /*out*/;

@@ -94,15 +94,15 @@ export class EventBridgeRuleTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.eventType === undefined) && !opts.urn) {
+            if (args?.eventType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventTargets"] = args ? args.eventTargets : undefined;
-            resourceInputs["eventType"] = args ? args.eventType : undefined;
-            resourceInputs["groupIdentifier"] = args ? args.groupIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventTargets"] = args?.eventTargets;
+            resourceInputs["eventType"] = args?.eventType;
+            resourceInputs["groupIdentifier"] = args?.groupIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

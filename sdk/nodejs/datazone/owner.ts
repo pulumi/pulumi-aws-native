@@ -65,22 +65,22 @@ export class Owner extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.entityIdentifier === undefined) && !opts.urn) {
+            if (args?.entityIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityIdentifier'");
             }
-            if ((!args || args.entityType === undefined) && !opts.urn) {
+            if (args?.entityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityType'");
             }
-            if ((!args || args.owner === undefined) && !opts.urn) {
+            if (args?.owner === undefined && !opts.urn) {
                 throw new Error("Missing required property 'owner'");
             }
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["entityIdentifier"] = args ? args.entityIdentifier : undefined;
-            resourceInputs["entityType"] = args ? args.entityType : undefined;
-            resourceInputs["owner"] = args ? args.owner : undefined;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["entityIdentifier"] = args?.entityIdentifier;
+            resourceInputs["entityType"] = args?.entityType;
+            resourceInputs["owner"] = args?.owner;
         } else {
             resourceInputs["domainIdentifier"] = undefined /*out*/;
             resourceInputs["entityIdentifier"] = undefined /*out*/;

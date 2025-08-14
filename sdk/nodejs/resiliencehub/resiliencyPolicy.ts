@@ -77,18 +77,18 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.tier === undefined) && !opts.urn) {
+            if (args?.tier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tier'");
             }
-            resourceInputs["dataLocationConstraint"] = args ? args.dataLocationConstraint : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["policyDescription"] = args ? args.policyDescription : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
+            resourceInputs["dataLocationConstraint"] = args?.dataLocationConstraint;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["policyDescription"] = args?.policyDescription;
+            resourceInputs["policyName"] = args?.policyName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tier"] = args?.tier;
             resourceInputs["policyArn"] = undefined /*out*/;
         } else {
             resourceInputs["dataLocationConstraint"] = undefined /*out*/;

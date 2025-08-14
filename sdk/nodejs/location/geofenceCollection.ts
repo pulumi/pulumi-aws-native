@@ -96,12 +96,12 @@ export class GeofenceCollection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["collectionName"] = args ? args.collectionName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
-            resourceInputs["pricingPlanDataSource"] = args ? args.pricingPlanDataSource : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["collectionName"] = args?.collectionName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["pricingPlan"] = args?.pricingPlan;
+            resourceInputs["pricingPlanDataSource"] = args?.pricingPlanDataSource;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collectionArn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;

@@ -99,15 +99,15 @@ export class AppMonitor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["appMonitorConfiguration"] = args ? args.appMonitorConfiguration : undefined;
-            resourceInputs["customEvents"] = args ? args.customEvents : undefined;
-            resourceInputs["cwLogEnabled"] = args ? args.cwLogEnabled : undefined;
-            resourceInputs["deobfuscationConfiguration"] = args ? args.deobfuscationConfiguration : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["domainList"] = args ? args.domainList : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appMonitorConfiguration"] = args?.appMonitorConfiguration;
+            resourceInputs["customEvents"] = args?.customEvents;
+            resourceInputs["cwLogEnabled"] = args?.cwLogEnabled;
+            resourceInputs["deobfuscationConfiguration"] = args?.deobfuscationConfiguration;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["domainList"] = args?.domainList;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourcePolicy"] = args?.resourcePolicy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["appMonitorConfiguration"] = undefined /*out*/;

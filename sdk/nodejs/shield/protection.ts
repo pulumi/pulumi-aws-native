@@ -79,14 +79,14 @@ export class Protection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceArn === undefined) && !opts.urn) {
+            if (args?.resourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            resourceInputs["applicationLayerAutomaticResponseConfiguration"] = args ? args.applicationLayerAutomaticResponseConfiguration : undefined;
-            resourceInputs["healthCheckArns"] = args ? args.healthCheckArns : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationLayerAutomaticResponseConfiguration"] = args?.applicationLayerAutomaticResponseConfiguration;
+            resourceInputs["healthCheckArns"] = args?.healthCheckArns;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceArn"] = args?.resourceArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["protectionArn"] = undefined /*out*/;
             resourceInputs["protectionId"] = undefined /*out*/;
         } else {

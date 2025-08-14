@@ -77,13 +77,13 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.users === undefined) && !opts.urn) {
+            if (args?.users === undefined && !opts.urn) {
                 throw new Error("Missing required property 'users'");
             }
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
-            resourceInputs["virtualMfaDeviceName"] = args ? args.virtualMfaDeviceName : undefined;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["users"] = args?.users;
+            resourceInputs["virtualMfaDeviceName"] = args?.virtualMfaDeviceName;
             resourceInputs["serialNumber"] = undefined /*out*/;
         } else {
             resourceInputs["path"] = undefined /*out*/;

@@ -85,19 +85,19 @@ export class LocationFSxWindows extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.securityGroupArns === undefined) && !opts.urn) {
+            if (args?.securityGroupArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupArns'");
             }
-            if ((!args || args.user === undefined) && !opts.urn) {
+            if (args?.user === undefined && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["fsxFilesystemArn"] = args ? args.fsxFilesystemArn : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["user"] = args ? args.user : undefined;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["fsxFilesystemArn"] = args?.fsxFilesystemArn;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["securityGroupArns"] = args?.securityGroupArns;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["user"] = args?.user;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
         } else {

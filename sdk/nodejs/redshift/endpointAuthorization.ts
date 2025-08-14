@@ -94,16 +94,16 @@ export class EndpointAuthorization extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.account === undefined) && !opts.urn) {
+            if (args?.account === undefined && !opts.urn) {
                 throw new Error("Missing required property 'account'");
             }
-            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
+            if (args?.clusterIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            resourceInputs["account"] = args ? args.account : undefined;
-            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            resourceInputs["force"] = args ? args.force : undefined;
-            resourceInputs["vpcIds"] = args ? args.vpcIds : undefined;
+            resourceInputs["account"] = args?.account;
+            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
+            resourceInputs["force"] = args?.force;
+            resourceInputs["vpcIds"] = args?.vpcIds;
             resourceInputs["allowedAllVpcs"] = undefined /*out*/;
             resourceInputs["allowedVpcs"] = undefined /*out*/;
             resourceInputs["authorizeTime"] = undefined /*out*/;

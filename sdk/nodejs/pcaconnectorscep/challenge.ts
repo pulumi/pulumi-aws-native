@@ -55,11 +55,11 @@ export class Challenge extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectorArn === undefined) && !opts.urn) {
+            if (args?.connectorArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorArn'");
             }
-            resourceInputs["connectorArn"] = args ? args.connectorArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectorArn"] = args?.connectorArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["challengeArn"] = undefined /*out*/;
         } else {
             resourceInputs["challengeArn"] = undefined /*out*/;

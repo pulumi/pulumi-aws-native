@@ -164,18 +164,18 @@ export class Endpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.eventBuses === undefined) && !opts.urn) {
+            if (args?.eventBuses === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventBuses'");
             }
-            if ((!args || args.routingConfig === undefined) && !opts.urn) {
+            if (args?.routingConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routingConfig'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventBuses"] = args ? args.eventBuses : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["replicationConfig"] = args ? args.replicationConfig : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["routingConfig"] = args ? args.routingConfig : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventBuses"] = args?.eventBuses;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["replicationConfig"] = args?.replicationConfig;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["routingConfig"] = args?.routingConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpointId"] = undefined /*out*/;
             resourceInputs["endpointUrl"] = undefined /*out*/;

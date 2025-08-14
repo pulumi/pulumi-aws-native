@@ -93,20 +93,20 @@ export class Rule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if ((!args || args.retentionPeriod === undefined) && !opts.urn) {
+            if (args?.retentionPeriod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'retentionPeriod'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["excludeResourceTags"] = args ? args.excludeResourceTags : undefined;
-            resourceInputs["lockConfiguration"] = args ? args.lockConfiguration : undefined;
-            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["excludeResourceTags"] = args?.excludeResourceTags;
+            resourceInputs["lockConfiguration"] = args?.lockConfiguration;
+            resourceInputs["resourceTags"] = args?.resourceTags;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["retentionPeriod"] = args?.retentionPeriod;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;
             resourceInputs["lockState"] = undefined /*out*/;

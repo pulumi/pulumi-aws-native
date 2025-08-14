@@ -81,18 +81,18 @@ export class PolicyAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configurationPolicyId === undefined) && !opts.urn) {
+            if (args?.configurationPolicyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationPolicyId'");
             }
-            if ((!args || args.targetId === undefined) && !opts.urn) {
+            if (args?.targetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetId'");
             }
-            if ((!args || args.targetType === undefined) && !opts.urn) {
+            if (args?.targetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
-            resourceInputs["configurationPolicyId"] = args ? args.configurationPolicyId : undefined;
-            resourceInputs["targetId"] = args ? args.targetId : undefined;
-            resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["configurationPolicyId"] = args?.configurationPolicyId;
+            resourceInputs["targetId"] = args?.targetId;
+            resourceInputs["targetType"] = args?.targetType;
             resourceInputs["associationIdentifier"] = undefined /*out*/;
             resourceInputs["associationStatus"] = undefined /*out*/;
             resourceInputs["associationStatusMessage"] = undefined /*out*/;

@@ -85,21 +85,21 @@ export class IpSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.addresses === undefined) && !opts.urn) {
+            if (args?.addresses === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addresses'");
             }
-            if ((!args || args.ipAddressVersion === undefined) && !opts.urn) {
+            if (args?.ipAddressVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipAddressVersion'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["addresses"] = args ? args.addresses : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ipAddressVersion"] = args ? args.ipAddressVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addresses"] = args?.addresses;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ipAddressVersion"] = args?.ipAddressVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

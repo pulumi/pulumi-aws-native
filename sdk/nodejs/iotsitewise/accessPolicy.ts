@@ -69,18 +69,18 @@ export class AccessPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessPolicyIdentity === undefined) && !opts.urn) {
+            if (args?.accessPolicyIdentity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessPolicyIdentity'");
             }
-            if ((!args || args.accessPolicyPermission === undefined) && !opts.urn) {
+            if (args?.accessPolicyPermission === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessPolicyPermission'");
             }
-            if ((!args || args.accessPolicyResource === undefined) && !opts.urn) {
+            if (args?.accessPolicyResource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessPolicyResource'");
             }
-            resourceInputs["accessPolicyIdentity"] = args ? args.accessPolicyIdentity : undefined;
-            resourceInputs["accessPolicyPermission"] = args ? args.accessPolicyPermission : undefined;
-            resourceInputs["accessPolicyResource"] = args ? args.accessPolicyResource : undefined;
+            resourceInputs["accessPolicyIdentity"] = args?.accessPolicyIdentity;
+            resourceInputs["accessPolicyPermission"] = args?.accessPolicyPermission;
+            resourceInputs["accessPolicyResource"] = args?.accessPolicyResource;
             resourceInputs["accessPolicyArn"] = undefined /*out*/;
             resourceInputs["accessPolicyId"] = undefined /*out*/;
         } else {

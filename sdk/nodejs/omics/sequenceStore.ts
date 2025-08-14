@@ -119,15 +119,15 @@ export class SequenceStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["accessLogLocation"] = args ? args.accessLogLocation : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eTagAlgorithmFamily"] = args ? args.eTagAlgorithmFamily : undefined;
-            resourceInputs["fallbackLocation"] = args ? args.fallbackLocation : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["propagatedSetLevelTags"] = args ? args.propagatedSetLevelTags : undefined;
-            resourceInputs["s3AccessPolicy"] = args ? args.s3AccessPolicy : undefined;
-            resourceInputs["sseConfig"] = args ? args.sseConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessLogLocation"] = args?.accessLogLocation;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eTagAlgorithmFamily"] = args?.eTagAlgorithmFamily;
+            resourceInputs["fallbackLocation"] = args?.fallbackLocation;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["propagatedSetLevelTags"] = args?.propagatedSetLevelTags;
+            resourceInputs["s3AccessPolicy"] = args?.s3AccessPolicy;
+            resourceInputs["sseConfig"] = args?.sseConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["s3AccessPointArn"] = undefined /*out*/;

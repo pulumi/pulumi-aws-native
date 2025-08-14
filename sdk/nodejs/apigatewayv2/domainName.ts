@@ -82,14 +82,14 @@ export class DomainName extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["domainNameConfigurations"] = args ? args.domainNameConfigurations : undefined;
-            resourceInputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
-            resourceInputs["routingMode"] = args ? args.routingMode : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["domainNameConfigurations"] = args?.domainNameConfigurations;
+            resourceInputs["mutualTlsAuthentication"] = args?.mutualTlsAuthentication;
+            resourceInputs["routingMode"] = args?.routingMode;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["domainNameArn"] = undefined /*out*/;
             resourceInputs["regionalDomainName"] = undefined /*out*/;
             resourceInputs["regionalHostedZoneId"] = undefined /*out*/;

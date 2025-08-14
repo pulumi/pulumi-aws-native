@@ -110,21 +110,21 @@ export class SecurityGroupIngress extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ipProtocol === undefined) && !opts.urn) {
+            if (args?.ipProtocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipProtocol'");
             }
-            resourceInputs["cidrIp"] = args ? args.cidrIp : undefined;
-            resourceInputs["cidrIpv6"] = args ? args.cidrIpv6 : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fromPort"] = args ? args.fromPort : undefined;
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["ipProtocol"] = args ? args.ipProtocol : undefined;
-            resourceInputs["sourcePrefixListId"] = args ? args.sourcePrefixListId : undefined;
-            resourceInputs["sourceSecurityGroupId"] = args ? args.sourceSecurityGroupId : undefined;
-            resourceInputs["sourceSecurityGroupName"] = args ? args.sourceSecurityGroupName : undefined;
-            resourceInputs["sourceSecurityGroupOwnerId"] = args ? args.sourceSecurityGroupOwnerId : undefined;
-            resourceInputs["toPort"] = args ? args.toPort : undefined;
+            resourceInputs["cidrIp"] = args?.cidrIp;
+            resourceInputs["cidrIpv6"] = args?.cidrIpv6;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fromPort"] = args?.fromPort;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["ipProtocol"] = args?.ipProtocol;
+            resourceInputs["sourcePrefixListId"] = args?.sourcePrefixListId;
+            resourceInputs["sourceSecurityGroupId"] = args?.sourceSecurityGroupId;
+            resourceInputs["sourceSecurityGroupName"] = args?.sourceSecurityGroupName;
+            resourceInputs["sourceSecurityGroupOwnerId"] = args?.sourceSecurityGroupOwnerId;
+            resourceInputs["toPort"] = args?.toPort;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

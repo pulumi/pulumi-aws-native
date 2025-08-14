@@ -73,11 +73,11 @@ export class AppImageConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["appImageConfigName"] = args ? args.appImageConfigName : undefined;
-            resourceInputs["codeEditorAppImageConfig"] = args ? args.codeEditorAppImageConfig : undefined;
-            resourceInputs["jupyterLabAppImageConfig"] = args ? args.jupyterLabAppImageConfig : undefined;
-            resourceInputs["kernelGatewayImageConfig"] = args ? args.kernelGatewayImageConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appImageConfigName"] = args?.appImageConfigName;
+            resourceInputs["codeEditorAppImageConfig"] = args?.codeEditorAppImageConfig;
+            resourceInputs["jupyterLabAppImageConfig"] = args?.jupyterLabAppImageConfig;
+            resourceInputs["kernelGatewayImageConfig"] = args?.kernelGatewayImageConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["appImageConfigArn"] = undefined /*out*/;
         } else {
             resourceInputs["appImageConfigArn"] = undefined /*out*/;

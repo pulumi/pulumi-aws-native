@@ -58,14 +58,14 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configurationSetName === undefined) && !opts.urn) {
+            if (args?.configurationSetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationSetName'");
             }
-            if ((!args || args.eventDestination === undefined) && !opts.urn) {
+            if (args?.eventDestination === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventDestination'");
             }
-            resourceInputs["configurationSetName"] = args ? args.configurationSetName : undefined;
-            resourceInputs["eventDestination"] = args ? args.eventDestination : undefined;
+            resourceInputs["configurationSetName"] = args?.configurationSetName;
+            resourceInputs["eventDestination"] = args?.eventDestination;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

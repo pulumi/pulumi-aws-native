@@ -67,20 +67,20 @@ export class EnabledBaseline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.baselineIdentifier === undefined) && !opts.urn) {
+            if (args?.baselineIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'baselineIdentifier'");
             }
-            if ((!args || args.baselineVersion === undefined) && !opts.urn) {
+            if (args?.baselineVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'baselineVersion'");
             }
-            if ((!args || args.targetIdentifier === undefined) && !opts.urn) {
+            if (args?.targetIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetIdentifier'");
             }
-            resourceInputs["baselineIdentifier"] = args ? args.baselineIdentifier : undefined;
-            resourceInputs["baselineVersion"] = args ? args.baselineVersion : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetIdentifier"] = args ? args.targetIdentifier : undefined;
+            resourceInputs["baselineIdentifier"] = args?.baselineIdentifier;
+            resourceInputs["baselineVersion"] = args?.baselineVersion;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetIdentifier"] = args?.targetIdentifier;
             resourceInputs["enabledBaselineIdentifier"] = undefined /*out*/;
         } else {
             resourceInputs["baselineIdentifier"] = undefined /*out*/;

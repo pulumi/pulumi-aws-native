@@ -73,20 +73,20 @@ export class Campaign extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectInstanceArn === undefined) && !opts.urn) {
+            if (args?.connectInstanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectInstanceArn'");
             }
-            if ((!args || args.dialerConfig === undefined) && !opts.urn) {
+            if (args?.dialerConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dialerConfig'");
             }
-            if ((!args || args.outboundCallConfig === undefined) && !opts.urn) {
+            if (args?.outboundCallConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outboundCallConfig'");
             }
-            resourceInputs["connectInstanceArn"] = args ? args.connectInstanceArn : undefined;
-            resourceInputs["dialerConfig"] = args ? args.dialerConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outboundCallConfig"] = args ? args.outboundCallConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectInstanceArn"] = args?.connectInstanceArn;
+            resourceInputs["dialerConfig"] = args?.dialerConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outboundCallConfig"] = args?.outboundCallConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

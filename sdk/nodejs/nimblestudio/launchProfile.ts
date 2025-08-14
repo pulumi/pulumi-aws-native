@@ -58,29 +58,29 @@ export class LaunchProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ec2SubnetIds === undefined) && !opts.urn) {
+            if (args?.ec2SubnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ec2SubnetIds'");
             }
-            if ((!args || args.launchProfileProtocolVersions === undefined) && !opts.urn) {
+            if (args?.launchProfileProtocolVersions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'launchProfileProtocolVersions'");
             }
-            if ((!args || args.streamConfiguration === undefined) && !opts.urn) {
+            if (args?.streamConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamConfiguration'");
             }
-            if ((!args || args.studioComponentIds === undefined) && !opts.urn) {
+            if (args?.studioComponentIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'studioComponentIds'");
             }
-            if ((!args || args.studioId === undefined) && !opts.urn) {
+            if (args?.studioId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'studioId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ec2SubnetIds"] = args ? args.ec2SubnetIds : undefined;
-            resourceInputs["launchProfileProtocolVersions"] = args ? args.launchProfileProtocolVersions : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["streamConfiguration"] = args ? args.streamConfiguration : undefined;
-            resourceInputs["studioComponentIds"] = args ? args.studioComponentIds : undefined;
-            resourceInputs["studioId"] = args ? args.studioId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ec2SubnetIds"] = args?.ec2SubnetIds;
+            resourceInputs["launchProfileProtocolVersions"] = args?.launchProfileProtocolVersions;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["streamConfiguration"] = args?.streamConfiguration;
+            resourceInputs["studioComponentIds"] = args?.studioComponentIds;
+            resourceInputs["studioId"] = args?.studioId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["launchProfileId"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

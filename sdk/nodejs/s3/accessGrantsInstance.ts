@@ -65,8 +65,8 @@ export class AccessGrantsInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["identityCenterArn"] = args ? args.identityCenterArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["identityCenterArn"] = args?.identityCenterArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["accessGrantsInstanceArn"] = undefined /*out*/;
             resourceInputs["accessGrantsInstanceId"] = undefined /*out*/;
         } else {

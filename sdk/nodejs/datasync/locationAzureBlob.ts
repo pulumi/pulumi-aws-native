@@ -104,19 +104,19 @@ export class LocationAzureBlob extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.azureBlobAuthenticationType === undefined) && !opts.urn) {
+            if (args?.azureBlobAuthenticationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureBlobAuthenticationType'");
             }
-            resourceInputs["agentArns"] = args ? args.agentArns : undefined;
-            resourceInputs["azureAccessTier"] = args ? args.azureAccessTier : undefined;
-            resourceInputs["azureBlobAuthenticationType"] = args ? args.azureBlobAuthenticationType : undefined;
-            resourceInputs["azureBlobContainerUrl"] = args ? args.azureBlobContainerUrl : undefined;
-            resourceInputs["azureBlobSasConfiguration"] = args ? args.azureBlobSasConfiguration : undefined;
-            resourceInputs["azureBlobType"] = args ? args.azureBlobType : undefined;
-            resourceInputs["cmkSecretConfig"] = args ? args.cmkSecretConfig : undefined;
-            resourceInputs["customSecretConfig"] = args ? args.customSecretConfig : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentArns"] = args?.agentArns;
+            resourceInputs["azureAccessTier"] = args?.azureAccessTier;
+            resourceInputs["azureBlobAuthenticationType"] = args?.azureBlobAuthenticationType;
+            resourceInputs["azureBlobContainerUrl"] = args?.azureBlobContainerUrl;
+            resourceInputs["azureBlobSasConfiguration"] = args?.azureBlobSasConfiguration;
+            resourceInputs["azureBlobType"] = args?.azureBlobType;
+            resourceInputs["cmkSecretConfig"] = args?.cmkSecretConfig;
+            resourceInputs["customSecretConfig"] = args?.customSecretConfig;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
             resourceInputs["managedSecretConfig"] = undefined /*out*/;

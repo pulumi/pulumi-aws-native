@@ -110,14 +110,14 @@ export class Analyzer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["analyzerConfiguration"] = args ? args.analyzerConfiguration : undefined;
-            resourceInputs["analyzerName"] = args ? args.analyzerName : undefined;
-            resourceInputs["archiveRules"] = args ? args.archiveRules : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["analyzerConfiguration"] = args?.analyzerConfiguration;
+            resourceInputs["analyzerName"] = args?.analyzerName;
+            resourceInputs["archiveRules"] = args?.archiveRules;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["analyzerConfiguration"] = undefined /*out*/;

@@ -97,10 +97,10 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["serviceNetworkIdentifier"] = args ? args.serviceNetworkIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcIdentifier"] = args ? args.vpcIdentifier : undefined;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["serviceNetworkIdentifier"] = args?.serviceNetworkIdentifier;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcIdentifier"] = args?.vpcIdentifier;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

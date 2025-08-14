@@ -85,22 +85,22 @@ export class App extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appType === undefined) && !opts.urn) {
+            if (args?.appType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appType'");
             }
-            if ((!args || args.domainId === undefined) && !opts.urn) {
+            if (args?.domainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainId'");
             }
-            if ((!args || args.userProfileName === undefined) && !opts.urn) {
+            if (args?.userProfileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userProfileName'");
             }
-            resourceInputs["appName"] = args ? args.appName : undefined;
-            resourceInputs["appType"] = args ? args.appType : undefined;
-            resourceInputs["domainId"] = args ? args.domainId : undefined;
-            resourceInputs["recoveryMode"] = args ? args.recoveryMode : undefined;
-            resourceInputs["resourceSpec"] = args ? args.resourceSpec : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userProfileName"] = args ? args.userProfileName : undefined;
+            resourceInputs["appName"] = args?.appName;
+            resourceInputs["appType"] = args?.appType;
+            resourceInputs["domainId"] = args?.domainId;
+            resourceInputs["recoveryMode"] = args?.recoveryMode;
+            resourceInputs["resourceSpec"] = args?.resourceSpec;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userProfileName"] = args?.userProfileName;
             resourceInputs["appArn"] = undefined /*out*/;
             resourceInputs["builtInLifecycleConfigArn"] = undefined /*out*/;
         } else {

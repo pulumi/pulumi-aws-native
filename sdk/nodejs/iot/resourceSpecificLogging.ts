@@ -65,18 +65,18 @@ export class ResourceSpecificLogging extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.logLevel === undefined) && !opts.urn) {
+            if (args?.logLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logLevel'");
             }
-            if ((!args || args.targetName === undefined) && !opts.urn) {
+            if (args?.targetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetName'");
             }
-            if ((!args || args.targetType === undefined) && !opts.urn) {
+            if (args?.targetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
-            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
-            resourceInputs["targetName"] = args ? args.targetName : undefined;
-            resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["logLevel"] = args?.logLevel;
+            resourceInputs["targetName"] = args?.targetName;
+            resourceInputs["targetType"] = args?.targetType;
             resourceInputs["targetId"] = undefined /*out*/;
         } else {
             resourceInputs["logLevel"] = undefined /*out*/;

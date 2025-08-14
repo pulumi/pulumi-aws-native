@@ -69,16 +69,16 @@ export class SchemaMapping extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.mappedInputFields === undefined) && !opts.urn) {
+            if (args?.mappedInputFields === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mappedInputFields'");
             }
-            if ((!args || args.schemaName === undefined) && !opts.urn) {
+            if (args?.schemaName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["mappedInputFields"] = args ? args.mappedInputFields : undefined;
-            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["mappedInputFields"] = args?.mappedInputFields;
+            resourceInputs["schemaName"] = args?.schemaName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["hasWorkflows"] = undefined /*out*/;
             resourceInputs["schemaArn"] = undefined /*out*/;

@@ -654,18 +654,18 @@ export class Role extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.assumeRolePolicyDocument === undefined) && !opts.urn) {
+            if (args?.assumeRolePolicyDocument === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assumeRolePolicyDocument'");
             }
-            resourceInputs["assumeRolePolicyDocument"] = args ? args.assumeRolePolicyDocument : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["managedPolicyArns"] = args ? args.managedPolicyArns : undefined;
-            resourceInputs["maxSessionDuration"] = args ? args.maxSessionDuration : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
-            resourceInputs["policies"] = args ? args.policies : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assumeRolePolicyDocument"] = args?.assumeRolePolicyDocument;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["managedPolicyArns"] = args?.managedPolicyArns;
+            resourceInputs["maxSessionDuration"] = args?.maxSessionDuration;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["permissionsBoundary"] = args?.permissionsBoundary;
+            resourceInputs["policies"] = args?.policies;
+            resourceInputs["roleName"] = args?.roleName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["roleId"] = undefined /*out*/;
         } else {

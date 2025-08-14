@@ -95,13 +95,13 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["capacityProviders"] = args ? args.capacityProviders : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["clusterSettings"] = args ? args.clusterSettings : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["defaultCapacityProviderStrategy"] = args ? args.defaultCapacityProviderStrategy : undefined;
-            resourceInputs["serviceConnectDefaults"] = args ? args.serviceConnectDefaults : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["capacityProviders"] = args?.capacityProviders;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["clusterSettings"] = args?.clusterSettings;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["defaultCapacityProviderStrategy"] = args?.defaultCapacityProviderStrategy;
+            resourceInputs["serviceConnectDefaults"] = args?.serviceConnectDefaults;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

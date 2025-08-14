@@ -125,22 +125,22 @@ export class VpcAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.coreNetworkId === undefined) && !opts.urn) {
+            if (args?.coreNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'coreNetworkId'");
             }
-            if ((!args || args.subnetArns === undefined) && !opts.urn) {
+            if (args?.subnetArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetArns'");
             }
-            if ((!args || args.vpcArn === undefined) && !opts.urn) {
+            if (args?.vpcArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcArn'");
             }
-            resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["proposedNetworkFunctionGroupChange"] = args ? args.proposedNetworkFunctionGroupChange : undefined;
-            resourceInputs["proposedSegmentChange"] = args ? args.proposedSegmentChange : undefined;
-            resourceInputs["subnetArns"] = args ? args.subnetArns : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcArn"] = args ? args.vpcArn : undefined;
+            resourceInputs["coreNetworkId"] = args?.coreNetworkId;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["proposedNetworkFunctionGroupChange"] = args?.proposedNetworkFunctionGroupChange;
+            resourceInputs["proposedSegmentChange"] = args?.proposedSegmentChange;
+            resourceInputs["subnetArns"] = args?.subnetArns;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcArn"] = args?.vpcArn;
             resourceInputs["attachmentId"] = undefined /*out*/;
             resourceInputs["attachmentPolicyRuleNumber"] = undefined /*out*/;
             resourceInputs["attachmentType"] = undefined /*out*/;

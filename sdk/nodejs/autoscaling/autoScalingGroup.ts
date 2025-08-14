@@ -215,47 +215,47 @@ export class AutoScalingGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.maxSize === undefined) && !opts.urn) {
+            if (args?.maxSize === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxSize'");
             }
-            if ((!args || args.minSize === undefined) && !opts.urn) {
+            if (args?.minSize === undefined && !opts.urn) {
                 throw new Error("Missing required property 'minSize'");
             }
-            resourceInputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
-            resourceInputs["availabilityZoneDistribution"] = args ? args.availabilityZoneDistribution : undefined;
-            resourceInputs["availabilityZoneImpairmentPolicy"] = args ? args.availabilityZoneImpairmentPolicy : undefined;
-            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            resourceInputs["capacityRebalance"] = args ? args.capacityRebalance : undefined;
-            resourceInputs["capacityReservationSpecification"] = args ? args.capacityReservationSpecification : undefined;
-            resourceInputs["context"] = args ? args.context : undefined;
-            resourceInputs["cooldown"] = args ? args.cooldown : undefined;
-            resourceInputs["defaultInstanceWarmup"] = args ? args.defaultInstanceWarmup : undefined;
-            resourceInputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
-            resourceInputs["desiredCapacityType"] = args ? args.desiredCapacityType : undefined;
-            resourceInputs["healthCheckGracePeriod"] = args ? args.healthCheckGracePeriod : undefined;
-            resourceInputs["healthCheckType"] = args ? args.healthCheckType : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["instanceMaintenancePolicy"] = args ? args.instanceMaintenancePolicy : undefined;
-            resourceInputs["launchConfigurationName"] = args ? args.launchConfigurationName : undefined;
-            resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
-            resourceInputs["lifecycleHookSpecificationList"] = args ? args.lifecycleHookSpecificationList : undefined;
-            resourceInputs["loadBalancerNames"] = args ? args.loadBalancerNames : undefined;
-            resourceInputs["maxInstanceLifetime"] = args ? args.maxInstanceLifetime : undefined;
-            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
-            resourceInputs["metricsCollection"] = args ? args.metricsCollection : undefined;
-            resourceInputs["minSize"] = args ? args.minSize : undefined;
-            resourceInputs["mixedInstancesPolicy"] = args ? args.mixedInstancesPolicy : undefined;
-            resourceInputs["newInstancesProtectedFromScaleIn"] = args ? args.newInstancesProtectedFromScaleIn : undefined;
-            resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
-            resourceInputs["notificationConfigurations"] = args ? args.notificationConfigurations : undefined;
-            resourceInputs["placementGroup"] = args ? args.placementGroup : undefined;
-            resourceInputs["serviceLinkedRoleArn"] = args ? args.serviceLinkedRoleArn : undefined;
-            resourceInputs["skipZonalShiftValidation"] = args ? args.skipZonalShiftValidation : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
-            resourceInputs["terminationPolicies"] = args ? args.terminationPolicies : undefined;
-            resourceInputs["trafficSources"] = args ? args.trafficSources : undefined;
-            resourceInputs["vpcZoneIdentifier"] = args ? args.vpcZoneIdentifier : undefined;
+            resourceInputs["autoScalingGroupName"] = args?.autoScalingGroupName;
+            resourceInputs["availabilityZoneDistribution"] = args?.availabilityZoneDistribution;
+            resourceInputs["availabilityZoneImpairmentPolicy"] = args?.availabilityZoneImpairmentPolicy;
+            resourceInputs["availabilityZones"] = args?.availabilityZones;
+            resourceInputs["capacityRebalance"] = args?.capacityRebalance;
+            resourceInputs["capacityReservationSpecification"] = args?.capacityReservationSpecification;
+            resourceInputs["context"] = args?.context;
+            resourceInputs["cooldown"] = args?.cooldown;
+            resourceInputs["defaultInstanceWarmup"] = args?.defaultInstanceWarmup;
+            resourceInputs["desiredCapacity"] = args?.desiredCapacity;
+            resourceInputs["desiredCapacityType"] = args?.desiredCapacityType;
+            resourceInputs["healthCheckGracePeriod"] = args?.healthCheckGracePeriod;
+            resourceInputs["healthCheckType"] = args?.healthCheckType;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["instanceMaintenancePolicy"] = args?.instanceMaintenancePolicy;
+            resourceInputs["launchConfigurationName"] = args?.launchConfigurationName;
+            resourceInputs["launchTemplate"] = args?.launchTemplate;
+            resourceInputs["lifecycleHookSpecificationList"] = args?.lifecycleHookSpecificationList;
+            resourceInputs["loadBalancerNames"] = args?.loadBalancerNames;
+            resourceInputs["maxInstanceLifetime"] = args?.maxInstanceLifetime;
+            resourceInputs["maxSize"] = args?.maxSize;
+            resourceInputs["metricsCollection"] = args?.metricsCollection;
+            resourceInputs["minSize"] = args?.minSize;
+            resourceInputs["mixedInstancesPolicy"] = args?.mixedInstancesPolicy;
+            resourceInputs["newInstancesProtectedFromScaleIn"] = args?.newInstancesProtectedFromScaleIn;
+            resourceInputs["notificationConfiguration"] = args?.notificationConfiguration;
+            resourceInputs["notificationConfigurations"] = args?.notificationConfigurations;
+            resourceInputs["placementGroup"] = args?.placementGroup;
+            resourceInputs["serviceLinkedRoleArn"] = args?.serviceLinkedRoleArn;
+            resourceInputs["skipZonalShiftValidation"] = args?.skipZonalShiftValidation;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetGroupArns"] = args?.targetGroupArns;
+            resourceInputs["terminationPolicies"] = args?.terminationPolicies;
+            resourceInputs["trafficSources"] = args?.trafficSources;
+            resourceInputs["vpcZoneIdentifier"] = args?.vpcZoneIdentifier;
             resourceInputs["autoScalingGroupArn"] = undefined /*out*/;
         } else {
             resourceInputs["autoScalingGroupArn"] = undefined /*out*/;

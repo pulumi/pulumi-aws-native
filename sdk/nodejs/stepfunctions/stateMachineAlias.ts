@@ -87,10 +87,10 @@ export class StateMachineAlias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["deploymentPreference"] = args ? args.deploymentPreference : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["routingConfiguration"] = args ? args.routingConfiguration : undefined;
+            resourceInputs["deploymentPreference"] = args?.deploymentPreference;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["routingConfiguration"] = args?.routingConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

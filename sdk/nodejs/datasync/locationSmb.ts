@@ -109,22 +109,22 @@ export class LocationSmb extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.agentArns === undefined) && !opts.urn) {
+            if (args?.agentArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentArns'");
             }
-            resourceInputs["agentArns"] = args ? args.agentArns : undefined;
-            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
-            resourceInputs["dnsIpAddresses"] = args ? args.dnsIpAddresses : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["kerberosKeytab"] = args ? args.kerberosKeytab : undefined;
-            resourceInputs["kerberosKrb5Conf"] = args ? args.kerberosKrb5Conf : undefined;
-            resourceInputs["kerberosPrincipal"] = args ? args.kerberosPrincipal : undefined;
-            resourceInputs["mountOptions"] = args ? args.mountOptions : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["serverHostname"] = args ? args.serverHostname : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["user"] = args ? args.user : undefined;
+            resourceInputs["agentArns"] = args?.agentArns;
+            resourceInputs["authenticationType"] = args?.authenticationType;
+            resourceInputs["dnsIpAddresses"] = args?.dnsIpAddresses;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["kerberosKeytab"] = args?.kerberosKeytab;
+            resourceInputs["kerberosKrb5Conf"] = args?.kerberosKrb5Conf;
+            resourceInputs["kerberosPrincipal"] = args?.kerberosPrincipal;
+            resourceInputs["mountOptions"] = args?.mountOptions;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["serverHostname"] = args?.serverHostname;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["user"] = args?.user;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
         } else {

@@ -525,21 +525,21 @@ export class RestApi extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["apiKeySourceType"] = args ? args.apiKeySourceType : undefined;
-            resourceInputs["binaryMediaTypes"] = args ? args.binaryMediaTypes : undefined;
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["bodyS3Location"] = args ? args.bodyS3Location : undefined;
-            resourceInputs["cloneFrom"] = args ? args.cloneFrom : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["disableExecuteApiEndpoint"] = args ? args.disableExecuteApiEndpoint : undefined;
-            resourceInputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
-            resourceInputs["failOnWarnings"] = args ? args.failOnWarnings : undefined;
-            resourceInputs["minimumCompressionSize"] = args ? args.minimumCompressionSize : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["apiKeySourceType"] = args?.apiKeySourceType;
+            resourceInputs["binaryMediaTypes"] = args?.binaryMediaTypes;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["bodyS3Location"] = args?.bodyS3Location;
+            resourceInputs["cloneFrom"] = args?.cloneFrom;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["disableExecuteApiEndpoint"] = args?.disableExecuteApiEndpoint;
+            resourceInputs["endpointConfiguration"] = args?.endpointConfiguration;
+            resourceInputs["failOnWarnings"] = args?.failOnWarnings;
+            resourceInputs["minimumCompressionSize"] = args?.minimumCompressionSize;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["restApiId"] = undefined /*out*/;
             resourceInputs["rootResourceId"] = undefined /*out*/;
         } else {

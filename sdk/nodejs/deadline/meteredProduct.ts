@@ -70,8 +70,8 @@ export class MeteredProduct extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["licenseEndpointId"] = args ? args.licenseEndpointId : undefined;
-            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["licenseEndpointId"] = args?.licenseEndpointId;
+            resourceInputs["productId"] = args?.productId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["family"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;

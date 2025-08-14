@@ -81,17 +81,17 @@ export class LocationFSxOntap extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.securityGroupArns === undefined) && !opts.urn) {
+            if (args?.securityGroupArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupArns'");
             }
-            if ((!args || args.storageVirtualMachineArn === undefined) && !opts.urn) {
+            if (args?.storageVirtualMachineArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageVirtualMachineArn'");
             }
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
-            resourceInputs["storageVirtualMachineArn"] = args ? args.storageVirtualMachineArn : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["securityGroupArns"] = args?.securityGroupArns;
+            resourceInputs["storageVirtualMachineArn"] = args?.storageVirtualMachineArn;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["fsxFilesystemArn"] = undefined /*out*/;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;

@@ -124,22 +124,22 @@ export class DataSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["alternateDataSourceParameters"] = args ? args.alternateDataSourceParameters : undefined;
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["dataSourceId"] = args ? args.dataSourceId : undefined;
-            resourceInputs["dataSourceParameters"] = args ? args.dataSourceParameters : undefined;
-            resourceInputs["errorInfo"] = args ? args.errorInfo : undefined;
-            resourceInputs["folderArns"] = args ? args.folderArns : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["sslProperties"] = args ? args.sslProperties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["vpcConnectionProperties"] = args ? args.vpcConnectionProperties : undefined;
+            resourceInputs["alternateDataSourceParameters"] = args?.alternateDataSourceParameters;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["dataSourceId"] = args?.dataSourceId;
+            resourceInputs["dataSourceParameters"] = args?.dataSourceParameters;
+            resourceInputs["errorInfo"] = args?.errorInfo;
+            resourceInputs["folderArns"] = args?.folderArns;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["sslProperties"] = args?.sslProperties;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["vpcConnectionProperties"] = args?.vpcConnectionProperties;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;

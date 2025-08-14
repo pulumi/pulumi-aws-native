@@ -77,11 +77,11 @@ export class VpcOrigin extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.vpcOriginEndpointConfig === undefined) && !opts.urn) {
+            if (args?.vpcOriginEndpointConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcOriginEndpointConfig'");
             }
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcOriginEndpointConfig"] = args ? args.vpcOriginEndpointConfig : undefined;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcOriginEndpointConfig"] = args?.vpcOriginEndpointConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;

@@ -58,18 +58,18 @@ export class PrimaryTaskSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cluster === undefined) && !opts.urn) {
+            if (args?.cluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cluster'");
             }
-            if ((!args || args.service === undefined) && !opts.urn) {
+            if (args?.service === undefined && !opts.urn) {
                 throw new Error("Missing required property 'service'");
             }
-            if ((!args || args.taskSetId === undefined) && !opts.urn) {
+            if (args?.taskSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'taskSetId'");
             }
-            resourceInputs["cluster"] = args ? args.cluster : undefined;
-            resourceInputs["service"] = args ? args.service : undefined;
-            resourceInputs["taskSetId"] = args ? args.taskSetId : undefined;
+            resourceInputs["cluster"] = args?.cluster;
+            resourceInputs["service"] = args?.service;
+            resourceInputs["taskSetId"] = args?.taskSetId;
         } else {
             resourceInputs["cluster"] = undefined /*out*/;
             resourceInputs["service"] = undefined /*out*/;

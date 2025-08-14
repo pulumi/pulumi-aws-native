@@ -77,26 +77,26 @@ export class QueueEnvironment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.farmId === undefined) && !opts.urn) {
+            if (args?.farmId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'farmId'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if ((!args || args.queueId === undefined) && !opts.urn) {
+            if (args?.queueId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queueId'");
             }
-            if ((!args || args.template === undefined) && !opts.urn) {
+            if (args?.template === undefined && !opts.urn) {
                 throw new Error("Missing required property 'template'");
             }
-            if ((!args || args.templateType === undefined) && !opts.urn) {
+            if (args?.templateType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateType'");
             }
-            resourceInputs["farmId"] = args ? args.farmId : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["queueId"] = args ? args.queueId : undefined;
-            resourceInputs["template"] = args ? args.template : undefined;
-            resourceInputs["templateType"] = args ? args.templateType : undefined;
+            resourceInputs["farmId"] = args?.farmId;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["queueId"] = args?.queueId;
+            resourceInputs["template"] = args?.template;
+            resourceInputs["templateType"] = args?.templateType;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["queueEnvironmentId"] = undefined /*out*/;
         } else {

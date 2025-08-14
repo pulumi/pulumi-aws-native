@@ -92,8 +92,8 @@ export class Thing extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["attributePayload"] = args ? args.attributePayload : undefined;
-            resourceInputs["thingName"] = args ? args.thingName : undefined;
+            resourceInputs["attributePayload"] = args?.attributePayload;
+            resourceInputs["thingName"] = args?.thingName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

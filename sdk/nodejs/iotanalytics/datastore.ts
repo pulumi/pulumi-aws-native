@@ -150,12 +150,12 @@ export class Datastore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["datastoreName"] = args ? args.datastoreName : undefined;
-            resourceInputs["datastorePartitions"] = args ? args.datastorePartitions : undefined;
-            resourceInputs["datastoreStorage"] = args ? args.datastoreStorage : undefined;
-            resourceInputs["fileFormatConfiguration"] = args ? args.fileFormatConfiguration : undefined;
-            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["datastoreName"] = args?.datastoreName;
+            resourceInputs["datastorePartitions"] = args?.datastorePartitions;
+            resourceInputs["datastoreStorage"] = args?.datastoreStorage;
+            resourceInputs["fileFormatConfiguration"] = args?.fileFormatConfiguration;
+            resourceInputs["retentionPeriod"] = args?.retentionPeriod;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

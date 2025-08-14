@@ -117,10 +117,10 @@ export class ResourceCollection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceCollectionFilter === undefined) && !opts.urn) {
+            if (args?.resourceCollectionFilter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceCollectionFilter'");
             }
-            resourceInputs["resourceCollectionFilter"] = args ? args.resourceCollectionFilter : undefined;
+            resourceInputs["resourceCollectionFilter"] = args?.resourceCollectionFilter;
             resourceInputs["resourceCollectionType"] = undefined /*out*/;
         } else {
             resourceInputs["resourceCollectionFilter"] = undefined /*out*/;

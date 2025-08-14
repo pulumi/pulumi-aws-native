@@ -133,30 +133,30 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.adDecisionServerUrl === undefined) && !opts.urn) {
+            if (args?.adDecisionServerUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adDecisionServerUrl'");
             }
-            if ((!args || args.videoContentSourceUrl === undefined) && !opts.urn) {
+            if (args?.videoContentSourceUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'videoContentSourceUrl'");
             }
-            resourceInputs["adConditioningConfiguration"] = args ? args.adConditioningConfiguration : undefined;
-            resourceInputs["adDecisionServerUrl"] = args ? args.adDecisionServerUrl : undefined;
-            resourceInputs["availSuppression"] = args ? args.availSuppression : undefined;
-            resourceInputs["bumper"] = args ? args.bumper : undefined;
-            resourceInputs["cdnConfiguration"] = args ? args.cdnConfiguration : undefined;
-            resourceInputs["configurationAliases"] = args ? args.configurationAliases : undefined;
-            resourceInputs["dashConfiguration"] = args ? args.dashConfiguration : undefined;
-            resourceInputs["hlsConfiguration"] = args ? args.hlsConfiguration : undefined;
-            resourceInputs["insertionMode"] = args ? args.insertionMode : undefined;
-            resourceInputs["livePreRollConfiguration"] = args ? args.livePreRollConfiguration : undefined;
-            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
-            resourceInputs["manifestProcessingRules"] = args ? args.manifestProcessingRules : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["personalizationThresholdSeconds"] = args ? args.personalizationThresholdSeconds : undefined;
-            resourceInputs["slateAdUrl"] = args ? args.slateAdUrl : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transcodeProfileName"] = args ? args.transcodeProfileName : undefined;
-            resourceInputs["videoContentSourceUrl"] = args ? args.videoContentSourceUrl : undefined;
+            resourceInputs["adConditioningConfiguration"] = args?.adConditioningConfiguration;
+            resourceInputs["adDecisionServerUrl"] = args?.adDecisionServerUrl;
+            resourceInputs["availSuppression"] = args?.availSuppression;
+            resourceInputs["bumper"] = args?.bumper;
+            resourceInputs["cdnConfiguration"] = args?.cdnConfiguration;
+            resourceInputs["configurationAliases"] = args?.configurationAliases;
+            resourceInputs["dashConfiguration"] = args?.dashConfiguration;
+            resourceInputs["hlsConfiguration"] = args?.hlsConfiguration;
+            resourceInputs["insertionMode"] = args?.insertionMode;
+            resourceInputs["livePreRollConfiguration"] = args?.livePreRollConfiguration;
+            resourceInputs["logConfiguration"] = args?.logConfiguration;
+            resourceInputs["manifestProcessingRules"] = args?.manifestProcessingRules;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["personalizationThresholdSeconds"] = args?.personalizationThresholdSeconds;
+            resourceInputs["slateAdUrl"] = args?.slateAdUrl;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transcodeProfileName"] = args?.transcodeProfileName;
+            resourceInputs["videoContentSourceUrl"] = args?.videoContentSourceUrl;
             resourceInputs["playbackConfigurationArn"] = undefined /*out*/;
             resourceInputs["playbackEndpointPrefix"] = undefined /*out*/;
             resourceInputs["sessionInitializationEndpointPrefix"] = undefined /*out*/;

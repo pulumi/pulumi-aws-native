@@ -116,21 +116,21 @@ export class IdentityPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.allowUnauthenticatedIdentities === undefined) && !opts.urn) {
+            if (args?.allowUnauthenticatedIdentities === undefined && !opts.urn) {
                 throw new Error("Missing required property 'allowUnauthenticatedIdentities'");
             }
-            resourceInputs["allowClassicFlow"] = args ? args.allowClassicFlow : undefined;
-            resourceInputs["allowUnauthenticatedIdentities"] = args ? args.allowUnauthenticatedIdentities : undefined;
-            resourceInputs["cognitoEvents"] = args ? args.cognitoEvents : undefined;
-            resourceInputs["cognitoIdentityProviders"] = args ? args.cognitoIdentityProviders : undefined;
-            resourceInputs["cognitoStreams"] = args ? args.cognitoStreams : undefined;
-            resourceInputs["developerProviderName"] = args ? args.developerProviderName : undefined;
-            resourceInputs["identityPoolName"] = args ? args.identityPoolName : undefined;
-            resourceInputs["identityPoolTags"] = args ? args.identityPoolTags : undefined;
-            resourceInputs["openIdConnectProviderArns"] = args ? args.openIdConnectProviderArns : undefined;
-            resourceInputs["pushSync"] = args ? args.pushSync : undefined;
-            resourceInputs["samlProviderArns"] = args ? args.samlProviderArns : undefined;
-            resourceInputs["supportedLoginProviders"] = args ? args.supportedLoginProviders : undefined;
+            resourceInputs["allowClassicFlow"] = args?.allowClassicFlow;
+            resourceInputs["allowUnauthenticatedIdentities"] = args?.allowUnauthenticatedIdentities;
+            resourceInputs["cognitoEvents"] = args?.cognitoEvents;
+            resourceInputs["cognitoIdentityProviders"] = args?.cognitoIdentityProviders;
+            resourceInputs["cognitoStreams"] = args?.cognitoStreams;
+            resourceInputs["developerProviderName"] = args?.developerProviderName;
+            resourceInputs["identityPoolName"] = args?.identityPoolName;
+            resourceInputs["identityPoolTags"] = args?.identityPoolTags;
+            resourceInputs["openIdConnectProviderArns"] = args?.openIdConnectProviderArns;
+            resourceInputs["pushSync"] = args?.pushSync;
+            resourceInputs["samlProviderArns"] = args?.samlProviderArns;
+            resourceInputs["supportedLoginProviders"] = args?.supportedLoginProviders;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {

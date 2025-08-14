@@ -95,14 +95,14 @@ export class Folder extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["folderId"] = args ? args.folderId : undefined;
-            resourceInputs["folderType"] = args ? args.folderType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentFolderArn"] = args ? args.parentFolderArn : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["sharingModel"] = args ? args.sharingModel : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["folderId"] = args?.folderId;
+            resourceInputs["folderType"] = args?.folderType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentFolderArn"] = args?.parentFolderArn;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["sharingModel"] = args?.sharingModel;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;

@@ -103,21 +103,21 @@ export class NetworkProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.projectArn === undefined) && !opts.urn) {
+            if (args?.projectArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["downlinkBandwidthBits"] = args ? args.downlinkBandwidthBits : undefined;
-            resourceInputs["downlinkDelayMs"] = args ? args.downlinkDelayMs : undefined;
-            resourceInputs["downlinkJitterMs"] = args ? args.downlinkJitterMs : undefined;
-            resourceInputs["downlinkLossPercent"] = args ? args.downlinkLossPercent : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectArn"] = args ? args.projectArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uplinkBandwidthBits"] = args ? args.uplinkBandwidthBits : undefined;
-            resourceInputs["uplinkDelayMs"] = args ? args.uplinkDelayMs : undefined;
-            resourceInputs["uplinkJitterMs"] = args ? args.uplinkJitterMs : undefined;
-            resourceInputs["uplinkLossPercent"] = args ? args.uplinkLossPercent : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["downlinkBandwidthBits"] = args?.downlinkBandwidthBits;
+            resourceInputs["downlinkDelayMs"] = args?.downlinkDelayMs;
+            resourceInputs["downlinkJitterMs"] = args?.downlinkJitterMs;
+            resourceInputs["downlinkLossPercent"] = args?.downlinkLossPercent;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectArn"] = args?.projectArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["uplinkBandwidthBits"] = args?.uplinkBandwidthBits;
+            resourceInputs["uplinkDelayMs"] = args?.uplinkDelayMs;
+            resourceInputs["uplinkJitterMs"] = args?.uplinkJitterMs;
+            resourceInputs["uplinkLossPercent"] = args?.uplinkLossPercent;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

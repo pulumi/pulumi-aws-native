@@ -53,19 +53,19 @@ export class ExtensionResource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.properties === undefined) && !opts.urn) {
+            if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["autoNaming"] = args ? args.autoNaming : undefined;
-            resourceInputs["createOnly"] = args ? args.createOnly : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["tagsProperty"] = args ? args.tagsProperty : undefined;
-            resourceInputs["tagsStyle"] = args ? args.tagsStyle : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["writeOnly"] = args ? args.writeOnly : undefined;
+            resourceInputs["autoNaming"] = args?.autoNaming;
+            resourceInputs["createOnly"] = args?.createOnly;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["tagsProperty"] = args?.tagsProperty;
+            resourceInputs["tagsStyle"] = args?.tagsStyle;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["writeOnly"] = args?.writeOnly;
             resourceInputs["outputs"] = undefined /*out*/;
         } else {
             resourceInputs["outputs"] = undefined /*out*/;

@@ -97,12 +97,12 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["accessControlAttributes"] = args ? args.accessControlAttributes : undefined;
-            resourceInputs["instanceAccessControlAttributeConfiguration"] = args ? args.instanceAccessControlAttributeConfiguration : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
+            resourceInputs["accessControlAttributes"] = args?.accessControlAttributes;
+            resourceInputs["instanceAccessControlAttributeConfiguration"] = args?.instanceAccessControlAttributeConfiguration;
+            resourceInputs["instanceArn"] = args?.instanceArn;
         } else {
             resourceInputs["accessControlAttributes"] = undefined /*out*/;
             resourceInputs["instanceAccessControlAttributeConfiguration"] = undefined /*out*/;

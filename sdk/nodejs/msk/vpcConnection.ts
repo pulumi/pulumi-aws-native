@@ -77,27 +77,27 @@ export class VpcConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authentication === undefined) && !opts.urn) {
+            if (args?.authentication === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authentication'");
             }
-            if ((!args || args.clientSubnets === undefined) && !opts.urn) {
+            if (args?.clientSubnets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientSubnets'");
             }
-            if ((!args || args.securityGroups === undefined) && !opts.urn) {
+            if (args?.securityGroups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityGroups'");
             }
-            if ((!args || args.targetClusterArn === undefined) && !opts.urn) {
+            if (args?.targetClusterArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetClusterArn'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["authentication"] = args ? args.authentication : undefined;
-            resourceInputs["clientSubnets"] = args ? args.clientSubnets : undefined;
-            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetClusterArn"] = args ? args.targetClusterArn : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["authentication"] = args?.authentication;
+            resourceInputs["clientSubnets"] = args?.clientSubnets;
+            resourceInputs["securityGroups"] = args?.securityGroups;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetClusterArn"] = args?.targetClusterArn;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

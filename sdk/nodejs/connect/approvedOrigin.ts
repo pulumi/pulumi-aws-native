@@ -74,14 +74,14 @@ export class ApprovedOrigin extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceId === undefined) && !opts.urn) {
+            if (args?.instanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.origin === undefined) && !opts.urn) {
+            if (args?.origin === undefined && !opts.urn) {
                 throw new Error("Missing required property 'origin'");
             }
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["origin"] = args ? args.origin : undefined;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["origin"] = args?.origin;
         } else {
             resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["origin"] = undefined /*out*/;

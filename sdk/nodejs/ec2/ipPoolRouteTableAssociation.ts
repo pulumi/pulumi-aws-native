@@ -58,14 +58,14 @@ export class IpPoolRouteTableAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.publicIpv4Pool === undefined) && !opts.urn) {
+            if (args?.publicIpv4Pool === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publicIpv4Pool'");
             }
-            if ((!args || args.routeTableId === undefined) && !opts.urn) {
+            if (args?.routeTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            resourceInputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
-            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
+            resourceInputs["publicIpv4Pool"] = args?.publicIpv4Pool;
+            resourceInputs["routeTableId"] = args?.routeTableId;
             resourceInputs["associationId"] = undefined /*out*/;
         } else {
             resourceInputs["associationId"] = undefined /*out*/;

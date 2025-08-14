@@ -69,13 +69,13 @@ export class Bucket extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.outpostId === undefined) && !opts.urn) {
+            if (args?.outpostId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outpostId'");
             }
-            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
-            resourceInputs["lifecycleConfiguration"] = args ? args.lifecycleConfiguration : undefined;
-            resourceInputs["outpostId"] = args ? args.outpostId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bucketName"] = args?.bucketName;
+            resourceInputs["lifecycleConfiguration"] = args?.lifecycleConfiguration;
+            resourceInputs["outpostId"] = args?.outpostId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

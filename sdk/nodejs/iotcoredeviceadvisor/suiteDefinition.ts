@@ -149,11 +149,11 @@ export class SuiteDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.suiteDefinitionConfiguration === undefined) && !opts.urn) {
+            if (args?.suiteDefinitionConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'suiteDefinitionConfiguration'");
             }
-            resourceInputs["suiteDefinitionConfiguration"] = args ? args.suiteDefinitionConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["suiteDefinitionConfiguration"] = args?.suiteDefinitionConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["suiteDefinitionArn"] = undefined /*out*/;
             resourceInputs["suiteDefinitionId"] = undefined /*out*/;
             resourceInputs["suiteDefinitionVersion"] = undefined /*out*/;

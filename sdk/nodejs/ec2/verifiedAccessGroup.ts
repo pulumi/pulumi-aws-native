@@ -93,15 +93,15 @@ export class VerifiedAccessGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.verifiedAccessInstanceId === undefined) && !opts.urn) {
+            if (args?.verifiedAccessInstanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'verifiedAccessInstanceId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["policyEnabled"] = args ? args.policyEnabled : undefined;
-            resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["verifiedAccessInstanceId"] = args ? args.verifiedAccessInstanceId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["policyEnabled"] = args?.policyEnabled;
+            resourceInputs["sseSpecification"] = args?.sseSpecification;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["verifiedAccessInstanceId"] = args?.verifiedAccessInstanceId;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;

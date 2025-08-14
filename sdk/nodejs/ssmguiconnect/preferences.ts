@@ -57,7 +57,7 @@ export class Preferences extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["connectionRecordingPreferences"] = args ? args.connectionRecordingPreferences : undefined;
+            resourceInputs["connectionRecordingPreferences"] = args?.connectionRecordingPreferences;
             resourceInputs["accountId"] = undefined /*out*/;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;

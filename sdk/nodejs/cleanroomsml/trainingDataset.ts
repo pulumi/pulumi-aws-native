@@ -79,17 +79,17 @@ export class TrainingDataset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.trainingData === undefined) && !opts.urn) {
+            if (args?.trainingData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trainingData'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trainingData"] = args ? args.trainingData : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trainingData"] = args?.trainingData;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["trainingDatasetArn"] = undefined /*out*/;
         } else {

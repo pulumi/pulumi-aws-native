@@ -133,29 +133,29 @@ export class DataSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.indexId === undefined) && !opts.urn) {
+            if (args?.indexId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'indexId'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["documentEnrichmentConfiguration"] = args ? args.documentEnrichmentConfiguration : undefined;
-            resourceInputs["indexId"] = args ? args.indexId : undefined;
-            resourceInputs["mediaExtractionConfiguration"] = args ? args.mediaExtractionConfiguration : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["syncSchedule"] = args ? args.syncSchedule : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["documentEnrichmentConfiguration"] = args?.documentEnrichmentConfiguration;
+            resourceInputs["indexId"] = args?.indexId;
+            resourceInputs["mediaExtractionConfiguration"] = args?.mediaExtractionConfiguration;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["syncSchedule"] = args?.syncSchedule;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConfiguration"] = args?.vpcConfiguration;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["dataSourceArn"] = undefined /*out*/;
             resourceInputs["dataSourceId"] = undefined /*out*/;

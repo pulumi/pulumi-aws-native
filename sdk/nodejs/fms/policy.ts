@@ -248,30 +248,30 @@ export class Policy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.excludeResourceTags === undefined) && !opts.urn) {
+            if (args?.excludeResourceTags === undefined && !opts.urn) {
                 throw new Error("Missing required property 'excludeResourceTags'");
             }
-            if ((!args || args.remediationEnabled === undefined) && !opts.urn) {
+            if (args?.remediationEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'remediationEnabled'");
             }
-            if ((!args || args.securityServicePolicyData === undefined) && !opts.urn) {
+            if (args?.securityServicePolicyData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityServicePolicyData'");
             }
-            resourceInputs["deleteAllPolicyResources"] = args ? args.deleteAllPolicyResources : undefined;
-            resourceInputs["excludeMap"] = args ? args.excludeMap : undefined;
-            resourceInputs["excludeResourceTags"] = args ? args.excludeResourceTags : undefined;
-            resourceInputs["includeMap"] = args ? args.includeMap : undefined;
-            resourceInputs["policyDescription"] = args ? args.policyDescription : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
-            resourceInputs["remediationEnabled"] = args ? args.remediationEnabled : undefined;
-            resourceInputs["resourceSetIds"] = args ? args.resourceSetIds : undefined;
-            resourceInputs["resourceTagLogicalOperator"] = args ? args.resourceTagLogicalOperator : undefined;
-            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["resourceTypeList"] = args ? args.resourceTypeList : undefined;
-            resourceInputs["resourcesCleanUp"] = args ? args.resourcesCleanUp : undefined;
-            resourceInputs["securityServicePolicyData"] = args ? args.securityServicePolicyData : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deleteAllPolicyResources"] = args?.deleteAllPolicyResources;
+            resourceInputs["excludeMap"] = args?.excludeMap;
+            resourceInputs["excludeResourceTags"] = args?.excludeResourceTags;
+            resourceInputs["includeMap"] = args?.includeMap;
+            resourceInputs["policyDescription"] = args?.policyDescription;
+            resourceInputs["policyName"] = args?.policyName;
+            resourceInputs["remediationEnabled"] = args?.remediationEnabled;
+            resourceInputs["resourceSetIds"] = args?.resourceSetIds;
+            resourceInputs["resourceTagLogicalOperator"] = args?.resourceTagLogicalOperator;
+            resourceInputs["resourceTags"] = args?.resourceTags;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["resourceTypeList"] = args?.resourceTypeList;
+            resourceInputs["resourcesCleanUp"] = args?.resourcesCleanUp;
+            resourceInputs["securityServicePolicyData"] = args?.securityServicePolicyData;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

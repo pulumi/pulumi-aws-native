@@ -85,17 +85,17 @@ export class Capability extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["instructionsDocuments"] = args ? args.instructionsDocuments : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["instructionsDocuments"] = args?.instructionsDocuments;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["capabilityArn"] = undefined /*out*/;
             resourceInputs["capabilityId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

@@ -89,23 +89,23 @@ export class EventTrigger extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.eventTriggerConditions === undefined) && !opts.urn) {
+            if (args?.eventTriggerConditions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventTriggerConditions'");
             }
-            if ((!args || args.objectTypeName === undefined) && !opts.urn) {
+            if (args?.objectTypeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectTypeName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["eventTriggerConditions"] = args ? args.eventTriggerConditions : undefined;
-            resourceInputs["eventTriggerLimits"] = args ? args.eventTriggerLimits : undefined;
-            resourceInputs["eventTriggerName"] = args ? args.eventTriggerName : undefined;
-            resourceInputs["objectTypeName"] = args ? args.objectTypeName : undefined;
-            resourceInputs["segmentFilter"] = args ? args.segmentFilter : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["eventTriggerConditions"] = args?.eventTriggerConditions;
+            resourceInputs["eventTriggerLimits"] = args?.eventTriggerLimits;
+            resourceInputs["eventTriggerName"] = args?.eventTriggerName;
+            resourceInputs["objectTypeName"] = args?.objectTypeName;
+            resourceInputs["segmentFilter"] = args?.segmentFilter;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
         } else {

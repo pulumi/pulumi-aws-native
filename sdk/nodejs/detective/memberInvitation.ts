@@ -66,20 +66,20 @@ export class MemberInvitation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.graphArn === undefined) && !opts.urn) {
+            if (args?.graphArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'graphArn'");
             }
-            if ((!args || args.memberEmailAddress === undefined) && !opts.urn) {
+            if (args?.memberEmailAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'memberEmailAddress'");
             }
-            if ((!args || args.memberId === undefined) && !opts.urn) {
+            if (args?.memberId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'memberId'");
             }
-            resourceInputs["disableEmailNotification"] = args ? args.disableEmailNotification : undefined;
-            resourceInputs["graphArn"] = args ? args.graphArn : undefined;
-            resourceInputs["memberEmailAddress"] = args ? args.memberEmailAddress : undefined;
-            resourceInputs["memberId"] = args ? args.memberId : undefined;
-            resourceInputs["message"] = args ? args.message : undefined;
+            resourceInputs["disableEmailNotification"] = args?.disableEmailNotification;
+            resourceInputs["graphArn"] = args?.graphArn;
+            resourceInputs["memberEmailAddress"] = args?.memberEmailAddress;
+            resourceInputs["memberId"] = args?.memberId;
+            resourceInputs["message"] = args?.message;
         } else {
             resourceInputs["disableEmailNotification"] = undefined /*out*/;
             resourceInputs["graphArn"] = undefined /*out*/;

@@ -145,28 +145,28 @@ export class IpamPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.addressFamily === undefined) && !opts.urn) {
+            if (args?.addressFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addressFamily'");
             }
-            if ((!args || args.ipamScopeId === undefined) && !opts.urn) {
+            if (args?.ipamScopeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipamScopeId'");
             }
-            resourceInputs["addressFamily"] = args ? args.addressFamily : undefined;
-            resourceInputs["allocationDefaultNetmaskLength"] = args ? args.allocationDefaultNetmaskLength : undefined;
-            resourceInputs["allocationMaxNetmaskLength"] = args ? args.allocationMaxNetmaskLength : undefined;
-            resourceInputs["allocationMinNetmaskLength"] = args ? args.allocationMinNetmaskLength : undefined;
-            resourceInputs["allocationResourceTags"] = args ? args.allocationResourceTags : undefined;
-            resourceInputs["autoImport"] = args ? args.autoImport : undefined;
-            resourceInputs["awsService"] = args ? args.awsService : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ipamScopeId"] = args ? args.ipamScopeId : undefined;
-            resourceInputs["locale"] = args ? args.locale : undefined;
-            resourceInputs["provisionedCidrs"] = args ? args.provisionedCidrs : undefined;
-            resourceInputs["publicIpSource"] = args ? args.publicIpSource : undefined;
-            resourceInputs["publiclyAdvertisable"] = args ? args.publiclyAdvertisable : undefined;
-            resourceInputs["sourceIpamPoolId"] = args ? args.sourceIpamPoolId : undefined;
-            resourceInputs["sourceResource"] = args ? args.sourceResource : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addressFamily"] = args?.addressFamily;
+            resourceInputs["allocationDefaultNetmaskLength"] = args?.allocationDefaultNetmaskLength;
+            resourceInputs["allocationMaxNetmaskLength"] = args?.allocationMaxNetmaskLength;
+            resourceInputs["allocationMinNetmaskLength"] = args?.allocationMinNetmaskLength;
+            resourceInputs["allocationResourceTags"] = args?.allocationResourceTags;
+            resourceInputs["autoImport"] = args?.autoImport;
+            resourceInputs["awsService"] = args?.awsService;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ipamScopeId"] = args?.ipamScopeId;
+            resourceInputs["locale"] = args?.locale;
+            resourceInputs["provisionedCidrs"] = args?.provisionedCidrs;
+            resourceInputs["publicIpSource"] = args?.publicIpSource;
+            resourceInputs["publiclyAdvertisable"] = args?.publiclyAdvertisable;
+            resourceInputs["sourceIpamPoolId"] = args?.sourceIpamPoolId;
+            resourceInputs["sourceResource"] = args?.sourceResource;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ipamArn"] = undefined /*out*/;
             resourceInputs["ipamPoolId"] = undefined /*out*/;

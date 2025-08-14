@@ -145,26 +145,26 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channelId === undefined) && !opts.urn) {
+            if (args?.channelId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelId'");
             }
-            if ((!args || args.channelRoleArn === undefined) && !opts.urn) {
+            if (args?.channelRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelRoleArn'");
             }
-            if ((!args || args.notifyOnCaseSeverity === undefined) && !opts.urn) {
+            if (args?.notifyOnCaseSeverity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notifyOnCaseSeverity'");
             }
-            if ((!args || args.teamId === undefined) && !opts.urn) {
+            if (args?.teamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            resourceInputs["channelId"] = args ? args.channelId : undefined;
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["channelRoleArn"] = args ? args.channelRoleArn : undefined;
-            resourceInputs["notifyOnAddCorrespondenceToCase"] = args ? args.notifyOnAddCorrespondenceToCase : undefined;
-            resourceInputs["notifyOnCaseSeverity"] = args ? args.notifyOnCaseSeverity : undefined;
-            resourceInputs["notifyOnCreateOrReopenCase"] = args ? args.notifyOnCreateOrReopenCase : undefined;
-            resourceInputs["notifyOnResolveCase"] = args ? args.notifyOnResolveCase : undefined;
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
+            resourceInputs["channelId"] = args?.channelId;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["channelRoleArn"] = args?.channelRoleArn;
+            resourceInputs["notifyOnAddCorrespondenceToCase"] = args?.notifyOnAddCorrespondenceToCase;
+            resourceInputs["notifyOnCaseSeverity"] = args?.notifyOnCaseSeverity;
+            resourceInputs["notifyOnCreateOrReopenCase"] = args?.notifyOnCreateOrReopenCase;
+            resourceInputs["notifyOnResolveCase"] = args?.notifyOnResolveCase;
+            resourceInputs["teamId"] = args?.teamId;
         } else {
             resourceInputs["channelId"] = undefined /*out*/;
             resourceInputs["channelName"] = undefined /*out*/;

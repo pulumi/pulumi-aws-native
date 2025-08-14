@@ -62,12 +62,12 @@ export class OrganizationTelemetryRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.rule === undefined) && !opts.urn) {
+            if (args?.rule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rule'");
             }
-            resourceInputs["rule"] = args ? args.rule : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["rule"] = args?.rule;
+            resourceInputs["ruleName"] = args?.ruleName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["ruleArn"] = undefined /*out*/;
         } else {
             resourceInputs["rule"] = undefined /*out*/;

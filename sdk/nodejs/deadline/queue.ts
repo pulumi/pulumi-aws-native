@@ -101,22 +101,22 @@ export class Queue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.farmId === undefined) && !opts.urn) {
+            if (args?.farmId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'farmId'");
             }
-            resourceInputs["allowedStorageProfileIds"] = args ? args.allowedStorageProfileIds : undefined;
-            resourceInputs["defaultBudgetAction"] = args ? args.defaultBudgetAction : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["farmId"] = args ? args.farmId : undefined;
-            resourceInputs["jobAttachmentSettings"] = args ? args.jobAttachmentSettings : undefined;
-            resourceInputs["jobRunAsUser"] = args ? args.jobRunAsUser : undefined;
-            resourceInputs["requiredFileSystemLocationNames"] = args ? args.requiredFileSystemLocationNames : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowedStorageProfileIds"] = args?.allowedStorageProfileIds;
+            resourceInputs["defaultBudgetAction"] = args?.defaultBudgetAction;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["farmId"] = args?.farmId;
+            resourceInputs["jobAttachmentSettings"] = args?.jobAttachmentSettings;
+            resourceInputs["jobRunAsUser"] = args?.jobRunAsUser;
+            resourceInputs["requiredFileSystemLocationNames"] = args?.requiredFileSystemLocationNames;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["queueId"] = undefined /*out*/;
         } else {

@@ -77,12 +77,12 @@ export class NetworkAnalyzerConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["traceContent"] = args ? args.traceContent : undefined;
-            resourceInputs["wirelessDevices"] = args ? args.wirelessDevices : undefined;
-            resourceInputs["wirelessGateways"] = args ? args.wirelessGateways : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["traceContent"] = args?.traceContent;
+            resourceInputs["wirelessDevices"] = args?.wirelessDevices;
+            resourceInputs["wirelessGateways"] = args?.wirelessGateways;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

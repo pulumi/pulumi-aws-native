@@ -98,27 +98,27 @@ export class CalculatedAttributeDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.attributeDetails === undefined) && !opts.urn) {
+            if (args?.attributeDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'attributeDetails'");
             }
-            if ((!args || args.calculatedAttributeName === undefined) && !opts.urn) {
+            if (args?.calculatedAttributeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'calculatedAttributeName'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.statistic === undefined) && !opts.urn) {
+            if (args?.statistic === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statistic'");
             }
-            resourceInputs["attributeDetails"] = args ? args.attributeDetails : undefined;
-            resourceInputs["calculatedAttributeName"] = args ? args.calculatedAttributeName : undefined;
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["statistic"] = args ? args.statistic : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["useHistoricalData"] = args ? args.useHistoricalData : undefined;
+            resourceInputs["attributeDetails"] = args?.attributeDetails;
+            resourceInputs["calculatedAttributeName"] = args?.calculatedAttributeName;
+            resourceInputs["conditions"] = args?.conditions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["statistic"] = args?.statistic;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["useHistoricalData"] = args?.useHistoricalData;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["readiness"] = undefined /*out*/;

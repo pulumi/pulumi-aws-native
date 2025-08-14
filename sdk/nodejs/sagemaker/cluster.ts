@@ -94,14 +94,14 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["instanceGroups"] = args ? args.instanceGroups : undefined;
-            resourceInputs["nodeProvisioningMode"] = args ? args.nodeProvisioningMode : undefined;
-            resourceInputs["nodeRecovery"] = args ? args.nodeRecovery : undefined;
-            resourceInputs["orchestrator"] = args ? args.orchestrator : undefined;
-            resourceInputs["restrictedInstanceGroups"] = args ? args.restrictedInstanceGroups : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["instanceGroups"] = args?.instanceGroups;
+            resourceInputs["nodeProvisioningMode"] = args?.nodeProvisioningMode;
+            resourceInputs["nodeRecovery"] = args?.nodeRecovery;
+            resourceInputs["orchestrator"] = args?.orchestrator;
+            resourceInputs["restrictedInstanceGroups"] = args?.restrictedInstanceGroups;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["clusterArn"] = undefined /*out*/;
             resourceInputs["clusterStatus"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

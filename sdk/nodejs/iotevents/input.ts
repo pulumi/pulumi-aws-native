@@ -112,13 +112,13 @@ export class Input extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.inputDefinition === undefined) && !opts.urn) {
+            if (args?.inputDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inputDefinition'");
             }
-            resourceInputs["inputDefinition"] = args ? args.inputDefinition : undefined;
-            resourceInputs["inputDescription"] = args ? args.inputDescription : undefined;
-            resourceInputs["inputName"] = args ? args.inputName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["inputDefinition"] = args?.inputDefinition;
+            resourceInputs["inputDescription"] = args?.inputDescription;
+            resourceInputs["inputName"] = args?.inputName;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["inputDefinition"] = undefined /*out*/;
             resourceInputs["inputDescription"] = undefined /*out*/;

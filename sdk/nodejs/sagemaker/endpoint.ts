@@ -81,16 +81,16 @@ export class Endpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endpointConfigName === undefined) && !opts.urn) {
+            if (args?.endpointConfigName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointConfigName'");
             }
-            resourceInputs["deploymentConfig"] = args ? args.deploymentConfig : undefined;
-            resourceInputs["endpointConfigName"] = args ? args.endpointConfigName : undefined;
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["excludeRetainedVariantProperties"] = args ? args.excludeRetainedVariantProperties : undefined;
-            resourceInputs["retainAllVariantProperties"] = args ? args.retainAllVariantProperties : undefined;
-            resourceInputs["retainDeploymentConfig"] = args ? args.retainDeploymentConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deploymentConfig"] = args?.deploymentConfig;
+            resourceInputs["endpointConfigName"] = args?.endpointConfigName;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["excludeRetainedVariantProperties"] = args?.excludeRetainedVariantProperties;
+            resourceInputs["retainAllVariantProperties"] = args?.retainAllVariantProperties;
+            resourceInputs["retainDeploymentConfig"] = args?.retainDeploymentConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["endpointArn"] = undefined /*out*/;
         } else {
             resourceInputs["deploymentConfig"] = undefined /*out*/;

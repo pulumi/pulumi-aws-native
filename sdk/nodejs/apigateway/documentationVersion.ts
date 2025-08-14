@@ -58,15 +58,15 @@ export class DocumentationVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.documentationVersion === undefined) && !opts.urn) {
+            if (args?.documentationVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'documentationVersion'");
             }
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["documentationVersion"] = args ? args.documentationVersion : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["documentationVersion"] = args?.documentationVersion;
+            resourceInputs["restApiId"] = args?.restApiId;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["documentationVersion"] = undefined /*out*/;

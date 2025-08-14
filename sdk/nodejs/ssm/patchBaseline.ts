@@ -269,21 +269,21 @@ export class PatchBaseline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["approvalRules"] = args ? args.approvalRules : undefined;
-            resourceInputs["approvedPatches"] = args ? args.approvedPatches : undefined;
-            resourceInputs["approvedPatchesComplianceLevel"] = args ? args.approvedPatchesComplianceLevel : undefined;
-            resourceInputs["approvedPatchesEnableNonSecurity"] = args ? args.approvedPatchesEnableNonSecurity : undefined;
-            resourceInputs["availableSecurityUpdatesComplianceStatus"] = args ? args.availableSecurityUpdatesComplianceStatus : undefined;
-            resourceInputs["defaultBaseline"] = args ? args.defaultBaseline : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["globalFilters"] = args ? args.globalFilters : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
-            resourceInputs["patchGroups"] = args ? args.patchGroups : undefined;
-            resourceInputs["rejectedPatches"] = args ? args.rejectedPatches : undefined;
-            resourceInputs["rejectedPatchesAction"] = args ? args.rejectedPatchesAction : undefined;
-            resourceInputs["sources"] = args ? args.sources : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["approvalRules"] = args?.approvalRules;
+            resourceInputs["approvedPatches"] = args?.approvedPatches;
+            resourceInputs["approvedPatchesComplianceLevel"] = args?.approvedPatchesComplianceLevel;
+            resourceInputs["approvedPatchesEnableNonSecurity"] = args?.approvedPatchesEnableNonSecurity;
+            resourceInputs["availableSecurityUpdatesComplianceStatus"] = args?.availableSecurityUpdatesComplianceStatus;
+            resourceInputs["defaultBaseline"] = args?.defaultBaseline;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["globalFilters"] = args?.globalFilters;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["operatingSystem"] = args?.operatingSystem;
+            resourceInputs["patchGroups"] = args?.patchGroups;
+            resourceInputs["rejectedPatches"] = args?.rejectedPatches;
+            resourceInputs["rejectedPatchesAction"] = args?.rejectedPatchesAction;
+            resourceInputs["sources"] = args?.sources;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["approvalRules"] = undefined /*out*/;

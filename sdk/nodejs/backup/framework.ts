@@ -89,13 +89,13 @@ export class Framework extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.frameworkControls === undefined) && !opts.urn) {
+            if (args?.frameworkControls === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frameworkControls'");
             }
-            resourceInputs["frameworkControls"] = args ? args.frameworkControls : undefined;
-            resourceInputs["frameworkDescription"] = args ? args.frameworkDescription : undefined;
-            resourceInputs["frameworkName"] = args ? args.frameworkName : undefined;
-            resourceInputs["frameworkTags"] = args ? args.frameworkTags : undefined;
+            resourceInputs["frameworkControls"] = args?.frameworkControls;
+            resourceInputs["frameworkDescription"] = args?.frameworkDescription;
+            resourceInputs["frameworkName"] = args?.frameworkName;
+            resourceInputs["frameworkTags"] = args?.frameworkTags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["frameworkArn"] = undefined /*out*/;

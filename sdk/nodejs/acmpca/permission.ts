@@ -62,19 +62,19 @@ export class Permission extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.certificateAuthorityArn === undefined) && !opts.urn) {
+            if (args?.certificateAuthorityArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateAuthorityArn'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["sourceAccount"] = args ? args.sourceAccount : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["certificateAuthorityArn"] = args?.certificateAuthorityArn;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["sourceAccount"] = args?.sourceAccount;
         } else {
             resourceInputs["actions"] = undefined /*out*/;
             resourceInputs["certificateAuthorityArn"] = undefined /*out*/;

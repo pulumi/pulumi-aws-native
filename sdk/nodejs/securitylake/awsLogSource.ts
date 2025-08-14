@@ -62,16 +62,16 @@ export class AwsLogSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataLakeArn === undefined) && !opts.urn) {
+            if (args?.dataLakeArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataLakeArn'");
             }
-            if ((!args || args.sourceVersion === undefined) && !opts.urn) {
+            if (args?.sourceVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceVersion'");
             }
-            resourceInputs["accounts"] = args ? args.accounts : undefined;
-            resourceInputs["dataLakeArn"] = args ? args.dataLakeArn : undefined;
-            resourceInputs["sourceName"] = args ? args.sourceName : undefined;
-            resourceInputs["sourceVersion"] = args ? args.sourceVersion : undefined;
+            resourceInputs["accounts"] = args?.accounts;
+            resourceInputs["dataLakeArn"] = args?.dataLakeArn;
+            resourceInputs["sourceName"] = args?.sourceName;
+            resourceInputs["sourceVersion"] = args?.sourceVersion;
         } else {
             resourceInputs["accounts"] = undefined /*out*/;
             resourceInputs["dataLakeArn"] = undefined /*out*/;

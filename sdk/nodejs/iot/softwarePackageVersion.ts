@@ -90,17 +90,17 @@ export class SoftwarePackageVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.packageName === undefined) && !opts.urn) {
+            if (args?.packageName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packageName'");
             }
-            resourceInputs["artifact"] = args ? args.artifact : undefined;
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["packageName"] = args ? args.packageName : undefined;
-            resourceInputs["recipe"] = args ? args.recipe : undefined;
-            resourceInputs["sbom"] = args ? args.sbom : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["versionName"] = args ? args.versionName : undefined;
+            resourceInputs["artifact"] = args?.artifact;
+            resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["packageName"] = args?.packageName;
+            resourceInputs["recipe"] = args?.recipe;
+            resourceInputs["sbom"] = args?.sbom;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["versionName"] = args?.versionName;
             resourceInputs["errorReason"] = undefined /*out*/;
             resourceInputs["packageVersionArn"] = undefined /*out*/;
             resourceInputs["sbomValidationStatus"] = undefined /*out*/;

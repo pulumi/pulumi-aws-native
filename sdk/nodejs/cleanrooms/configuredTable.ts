@@ -99,23 +99,23 @@ export class ConfiguredTable extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.allowedColumns === undefined) && !opts.urn) {
+            if (args?.allowedColumns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'allowedColumns'");
             }
-            if ((!args || args.analysisMethod === undefined) && !opts.urn) {
+            if (args?.analysisMethod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'analysisMethod'");
             }
-            if ((!args || args.tableReference === undefined) && !opts.urn) {
+            if (args?.tableReference === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableReference'");
             }
-            resourceInputs["allowedColumns"] = args ? args.allowedColumns : undefined;
-            resourceInputs["analysisMethod"] = args ? args.analysisMethod : undefined;
-            resourceInputs["analysisRules"] = args ? args.analysisRules : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["selectedAnalysisMethods"] = args ? args.selectedAnalysisMethods : undefined;
-            resourceInputs["tableReference"] = args ? args.tableReference : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowedColumns"] = args?.allowedColumns;
+            resourceInputs["analysisMethod"] = args?.analysisMethod;
+            resourceInputs["analysisRules"] = args?.analysisRules;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["selectedAnalysisMethods"] = args?.selectedAnalysisMethods;
+            resourceInputs["tableReference"] = args?.tableReference;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["configuredTableIdentifier"] = undefined /*out*/;
         } else {

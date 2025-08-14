@@ -71,13 +71,13 @@ export class IpamAllocation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ipamPoolId === undefined) && !opts.urn) {
+            if (args?.ipamPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipamPoolId'");
             }
-            resourceInputs["cidr"] = args ? args.cidr : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
-            resourceInputs["netmaskLength"] = args ? args.netmaskLength : undefined;
+            resourceInputs["cidr"] = args?.cidr;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ipamPoolId"] = args?.ipamPoolId;
+            resourceInputs["netmaskLength"] = args?.netmaskLength;
             resourceInputs["ipamPoolAllocationId"] = undefined /*out*/;
         } else {
             resourceInputs["cidr"] = undefined /*out*/;

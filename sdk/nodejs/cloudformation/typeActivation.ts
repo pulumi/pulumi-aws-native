@@ -95,16 +95,16 @@ export class TypeActivation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["autoUpdate"] = args ? args.autoUpdate : undefined;
-            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            resourceInputs["loggingConfig"] = args ? args.loggingConfig : undefined;
-            resourceInputs["majorVersion"] = args ? args.majorVersion : undefined;
-            resourceInputs["publicTypeArn"] = args ? args.publicTypeArn : undefined;
-            resourceInputs["publisherId"] = args ? args.publisherId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["typeName"] = args ? args.typeName : undefined;
-            resourceInputs["typeNameAlias"] = args ? args.typeNameAlias : undefined;
-            resourceInputs["versionBump"] = args ? args.versionBump : undefined;
+            resourceInputs["autoUpdate"] = args?.autoUpdate;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
+            resourceInputs["loggingConfig"] = args?.loggingConfig;
+            resourceInputs["majorVersion"] = args?.majorVersion;
+            resourceInputs["publicTypeArn"] = args?.publicTypeArn;
+            resourceInputs["publisherId"] = args?.publisherId;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["typeName"] = args?.typeName;
+            resourceInputs["typeNameAlias"] = args?.typeNameAlias;
+            resourceInputs["versionBump"] = args?.versionBump;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

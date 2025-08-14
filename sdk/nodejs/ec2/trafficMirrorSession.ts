@@ -89,27 +89,27 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
+            if (args?.networkInterfaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            if ((!args || args.sessionNumber === undefined) && !opts.urn) {
+            if (args?.sessionNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sessionNumber'");
             }
-            if ((!args || args.trafficMirrorFilterId === undefined) && !opts.urn) {
+            if (args?.trafficMirrorFilterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trafficMirrorFilterId'");
             }
-            if ((!args || args.trafficMirrorTargetId === undefined) && !opts.urn) {
+            if (args?.trafficMirrorTargetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trafficMirrorTargetId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            resourceInputs["ownerId"] = args ? args.ownerId : undefined;
-            resourceInputs["packetLength"] = args ? args.packetLength : undefined;
-            resourceInputs["sessionNumber"] = args ? args.sessionNumber : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficMirrorFilterId"] = args ? args.trafficMirrorFilterId : undefined;
-            resourceInputs["trafficMirrorTargetId"] = args ? args.trafficMirrorTargetId : undefined;
-            resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
+            resourceInputs["ownerId"] = args?.ownerId;
+            resourceInputs["packetLength"] = args?.packetLength;
+            resourceInputs["sessionNumber"] = args?.sessionNumber;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficMirrorFilterId"] = args?.trafficMirrorFilterId;
+            resourceInputs["trafficMirrorTargetId"] = args?.trafficMirrorTargetId;
+            resourceInputs["virtualNetworkId"] = args?.virtualNetworkId;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

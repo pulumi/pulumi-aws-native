@@ -73,13 +73,13 @@ export class Workflow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.steps === undefined) && !opts.urn) {
+            if (args?.steps === undefined && !opts.urn) {
                 throw new Error("Missing required property 'steps'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["onExceptionSteps"] = args ? args.onExceptionSteps : undefined;
-            resourceInputs["steps"] = args ? args.steps : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["onExceptionSteps"] = args?.onExceptionSteps;
+            resourceInputs["steps"] = args?.steps;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["workflowId"] = undefined /*out*/;
         } else {

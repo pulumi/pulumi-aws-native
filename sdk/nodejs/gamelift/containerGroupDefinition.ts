@@ -109,25 +109,25 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.operatingSystem === undefined) && !opts.urn) {
+            if (args?.operatingSystem === undefined && !opts.urn) {
                 throw new Error("Missing required property 'operatingSystem'");
             }
-            if ((!args || args.totalMemoryLimitMebibytes === undefined) && !opts.urn) {
+            if (args?.totalMemoryLimitMebibytes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'totalMemoryLimitMebibytes'");
             }
-            if ((!args || args.totalVcpuLimit === undefined) && !opts.urn) {
+            if (args?.totalVcpuLimit === undefined && !opts.urn) {
                 throw new Error("Missing required property 'totalVcpuLimit'");
             }
-            resourceInputs["containerGroupType"] = args ? args.containerGroupType : undefined;
-            resourceInputs["gameServerContainerDefinition"] = args ? args.gameServerContainerDefinition : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
-            resourceInputs["sourceVersionNumber"] = args ? args.sourceVersionNumber : undefined;
-            resourceInputs["supportContainerDefinitions"] = args ? args.supportContainerDefinitions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["totalMemoryLimitMebibytes"] = args ? args.totalMemoryLimitMebibytes : undefined;
-            resourceInputs["totalVcpuLimit"] = args ? args.totalVcpuLimit : undefined;
-            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
+            resourceInputs["containerGroupType"] = args?.containerGroupType;
+            resourceInputs["gameServerContainerDefinition"] = args?.gameServerContainerDefinition;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["operatingSystem"] = args?.operatingSystem;
+            resourceInputs["sourceVersionNumber"] = args?.sourceVersionNumber;
+            resourceInputs["supportContainerDefinitions"] = args?.supportContainerDefinitions;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["totalMemoryLimitMebibytes"] = args?.totalMemoryLimitMebibytes;
+            resourceInputs["totalVcpuLimit"] = args?.totalVcpuLimit;
+            resourceInputs["versionDescription"] = args?.versionDescription;
             resourceInputs["containerGroupDefinitionArn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

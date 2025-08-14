@@ -63,14 +63,14 @@ export class AuthPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.resourceIdentifier === undefined) && !opts.urn) {
+            if (args?.resourceIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceIdentifier'");
             }
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["resourceIdentifier"] = args?.resourceIdentifier;
             resourceInputs["state"] = undefined /*out*/;
         } else {
             resourceInputs["policy"] = undefined /*out*/;

@@ -101,14 +101,14 @@ export class OdbNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
-            resourceInputs["backupSubnetCidr"] = args ? args.backupSubnetCidr : undefined;
-            resourceInputs["clientSubnetCidr"] = args ? args.clientSubnetCidr : undefined;
-            resourceInputs["defaultDnsPrefix"] = args ? args.defaultDnsPrefix : undefined;
-            resourceInputs["deleteAssociatedResources"] = args ? args.deleteAssociatedResources : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["availabilityZoneId"] = args?.availabilityZoneId;
+            resourceInputs["backupSubnetCidr"] = args?.backupSubnetCidr;
+            resourceInputs["clientSubnetCidr"] = args?.clientSubnetCidr;
+            resourceInputs["defaultDnsPrefix"] = args?.defaultDnsPrefix;
+            resourceInputs["deleteAssociatedResources"] = args?.deleteAssociatedResources;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["ociNetworkAnchorId"] = undefined /*out*/;
             resourceInputs["ociResourceAnchorName"] = undefined /*out*/;
             resourceInputs["ociVcnUrl"] = undefined /*out*/;

@@ -97,19 +97,19 @@ export class ModelCard extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.modelCardStatus === undefined) && !opts.urn) {
+            if (args?.modelCardStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelCardStatus'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
-            resourceInputs["modelCardName"] = args ? args.modelCardName : undefined;
-            resourceInputs["modelCardStatus"] = args ? args.modelCardStatus : undefined;
-            resourceInputs["securityConfig"] = args ? args.securityConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["createdBy"] = args?.createdBy;
+            resourceInputs["lastModifiedBy"] = args?.lastModifiedBy;
+            resourceInputs["modelCardName"] = args?.modelCardName;
+            resourceInputs["modelCardStatus"] = args?.modelCardStatus;
+            resourceInputs["securityConfig"] = args?.securityConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["modelCardArn"] = undefined /*out*/;

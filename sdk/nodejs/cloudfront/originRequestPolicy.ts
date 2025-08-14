@@ -67,10 +67,10 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.originRequestPolicyConfig === undefined) && !opts.urn) {
+            if (args?.originRequestPolicyConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'originRequestPolicyConfig'");
             }
-            resourceInputs["originRequestPolicyConfig"] = args ? args.originRequestPolicyConfig : undefined;
+            resourceInputs["originRequestPolicyConfig"] = args?.originRequestPolicyConfig;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {

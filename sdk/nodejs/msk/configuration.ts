@@ -79,14 +79,14 @@ export class Configuration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.serverProperties === undefined) && !opts.urn) {
+            if (args?.serverProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverProperties'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kafkaVersionsList"] = args ? args.kafkaVersionsList : undefined;
-            resourceInputs["latestRevision"] = args ? args.latestRevision : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverProperties"] = args ? args.serverProperties : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kafkaVersionsList"] = args?.kafkaVersionsList;
+            resourceInputs["latestRevision"] = args?.latestRevision;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverProperties"] = args?.serverProperties;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

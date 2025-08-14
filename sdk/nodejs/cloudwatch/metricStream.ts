@@ -124,15 +124,15 @@ export class MetricStream extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["excludeFilters"] = args ? args.excludeFilters : undefined;
-            resourceInputs["firehoseArn"] = args ? args.firehoseArn : undefined;
-            resourceInputs["includeFilters"] = args ? args.includeFilters : undefined;
-            resourceInputs["includeLinkedAccountsMetrics"] = args ? args.includeLinkedAccountsMetrics : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outputFormat"] = args ? args.outputFormat : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["statisticsConfigurations"] = args ? args.statisticsConfigurations : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["excludeFilters"] = args?.excludeFilters;
+            resourceInputs["firehoseArn"] = args?.firehoseArn;
+            resourceInputs["includeFilters"] = args?.includeFilters;
+            resourceInputs["includeLinkedAccountsMetrics"] = args?.includeLinkedAccountsMetrics;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outputFormat"] = args?.outputFormat;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["statisticsConfigurations"] = args?.statisticsConfigurations;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["lastUpdateDate"] = undefined /*out*/;

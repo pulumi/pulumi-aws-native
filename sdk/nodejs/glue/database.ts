@@ -61,15 +61,15 @@ export class Database extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.catalogId === undefined) && !opts.urn) {
+            if (args?.catalogId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'catalogId'");
             }
-            if ((!args || args.databaseInput === undefined) && !opts.urn) {
+            if (args?.databaseInput === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseInput'");
             }
-            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
-            resourceInputs["databaseInput"] = args ? args.databaseInput : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["catalogId"] = args?.catalogId;
+            resourceInputs["databaseInput"] = args?.databaseInput;
+            resourceInputs["databaseName"] = args?.databaseName;
         } else {
             resourceInputs["catalogId"] = undefined /*out*/;
             resourceInputs["databaseInput"] = undefined /*out*/;

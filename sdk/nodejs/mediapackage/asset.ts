@@ -85,25 +85,25 @@ export class Asset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsId === undefined) && !opts.urn) {
+            if (args?.awsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsId'");
             }
-            if ((!args || args.packagingGroupId === undefined) && !opts.urn) {
+            if (args?.packagingGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packagingGroupId'");
             }
-            if ((!args || args.sourceArn === undefined) && !opts.urn) {
+            if (args?.sourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceArn'");
             }
-            if ((!args || args.sourceRoleArn === undefined) && !opts.urn) {
+            if (args?.sourceRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceRoleArn'");
             }
-            resourceInputs["awsId"] = args ? args.awsId : undefined;
-            resourceInputs["egressEndpoints"] = args ? args.egressEndpoints : undefined;
-            resourceInputs["packagingGroupId"] = args ? args.packagingGroupId : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
-            resourceInputs["sourceRoleArn"] = args ? args.sourceRoleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = args?.awsId;
+            resourceInputs["egressEndpoints"] = args?.egressEndpoints;
+            resourceInputs["packagingGroupId"] = args?.packagingGroupId;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["sourceArn"] = args?.sourceArn;
+            resourceInputs["sourceRoleArn"] = args?.sourceRoleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
         } else {

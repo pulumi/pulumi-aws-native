@@ -77,14 +77,14 @@ export class Detector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.enable === undefined) && !opts.urn) {
+            if (args?.enable === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enable'");
             }
-            resourceInputs["dataSources"] = args ? args.dataSources : undefined;
-            resourceInputs["enable"] = args ? args.enable : undefined;
-            resourceInputs["features"] = args ? args.features : undefined;
-            resourceInputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataSources"] = args?.dataSources;
+            resourceInputs["enable"] = args?.enable;
+            resourceInputs["features"] = args?.features;
+            resourceInputs["findingPublishingFrequency"] = args?.findingPublishingFrequency;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

@@ -77,17 +77,17 @@ export class VpceConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.serviceDnsName === undefined) && !opts.urn) {
+            if (args?.serviceDnsName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceDnsName'");
             }
-            if ((!args || args.vpceServiceName === undefined) && !opts.urn) {
+            if (args?.vpceServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpceServiceName'");
             }
-            resourceInputs["serviceDnsName"] = args ? args.serviceDnsName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpceConfigurationDescription"] = args ? args.vpceConfigurationDescription : undefined;
-            resourceInputs["vpceConfigurationName"] = args ? args.vpceConfigurationName : undefined;
-            resourceInputs["vpceServiceName"] = args ? args.vpceServiceName : undefined;
+            resourceInputs["serviceDnsName"] = args?.serviceDnsName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpceConfigurationDescription"] = args?.vpceConfigurationDescription;
+            resourceInputs["vpceConfigurationName"] = args?.vpceConfigurationName;
+            resourceInputs["vpceServiceName"] = args?.vpceServiceName;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

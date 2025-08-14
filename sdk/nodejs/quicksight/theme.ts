@@ -98,26 +98,26 @@ export class Theme extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsAccountId === undefined) && !opts.urn) {
+            if (args?.awsAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountId'");
             }
-            if ((!args || args.baseThemeId === undefined) && !opts.urn) {
+            if (args?.baseThemeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'baseThemeId'");
             }
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.themeId === undefined) && !opts.urn) {
+            if (args?.themeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'themeId'");
             }
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["baseThemeId"] = args ? args.baseThemeId : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["themeId"] = args ? args.themeId : undefined;
-            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["baseThemeId"] = args?.baseThemeId;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["themeId"] = args?.themeId;
+            resourceInputs["versionDescription"] = args?.versionDescription;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;

@@ -85,10 +85,10 @@ export class CloudFrontOriginAccessIdentity extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cloudFrontOriginAccessIdentityConfig === undefined) && !opts.urn) {
+            if (args?.cloudFrontOriginAccessIdentityConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cloudFrontOriginAccessIdentityConfig'");
             }
-            resourceInputs["cloudFrontOriginAccessIdentityConfig"] = args ? args.cloudFrontOriginAccessIdentityConfig : undefined;
+            resourceInputs["cloudFrontOriginAccessIdentityConfig"] = args?.cloudFrontOriginAccessIdentityConfig;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["s3CanonicalUserId"] = undefined /*out*/;
         } else {

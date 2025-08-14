@@ -117,12 +117,12 @@ export class Room extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["loggingConfigurationIdentifiers"] = args ? args.loggingConfigurationIdentifiers : undefined;
-            resourceInputs["maximumMessageLength"] = args ? args.maximumMessageLength : undefined;
-            resourceInputs["maximumMessageRatePerSecond"] = args ? args.maximumMessageRatePerSecond : undefined;
-            resourceInputs["messageReviewHandler"] = args ? args.messageReviewHandler : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["loggingConfigurationIdentifiers"] = args?.loggingConfigurationIdentifiers;
+            resourceInputs["maximumMessageLength"] = args?.maximumMessageLength;
+            resourceInputs["maximumMessageRatePerSecond"] = args?.maximumMessageRatePerSecond;
+            resourceInputs["messageReviewHandler"] = args?.messageReviewHandler;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

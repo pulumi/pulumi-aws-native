@@ -69,11 +69,11 @@ export class BackupPlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.backupPlan === undefined) && !opts.urn) {
+            if (args?.backupPlan === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupPlan'");
             }
-            resourceInputs["backupPlan"] = args ? args.backupPlan : undefined;
-            resourceInputs["backupPlanTags"] = args ? args.backupPlanTags : undefined;
+            resourceInputs["backupPlan"] = args?.backupPlan;
+            resourceInputs["backupPlanTags"] = args?.backupPlanTags;
             resourceInputs["backupPlanArn"] = undefined /*out*/;
             resourceInputs["backupPlanId"] = undefined /*out*/;
             resourceInputs["versionId"] = undefined /*out*/;

@@ -99,23 +99,23 @@ export class Authorizer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.authorizerType === undefined) && !opts.urn) {
+            if (args?.authorizerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizerType'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["authorizerCredentialsArn"] = args ? args.authorizerCredentialsArn : undefined;
-            resourceInputs["authorizerPayloadFormatVersion"] = args ? args.authorizerPayloadFormatVersion : undefined;
-            resourceInputs["authorizerResultTtlInSeconds"] = args ? args.authorizerResultTtlInSeconds : undefined;
-            resourceInputs["authorizerType"] = args ? args.authorizerType : undefined;
-            resourceInputs["authorizerUri"] = args ? args.authorizerUri : undefined;
-            resourceInputs["enableSimpleResponses"] = args ? args.enableSimpleResponses : undefined;
-            resourceInputs["identitySource"] = args ? args.identitySource : undefined;
-            resourceInputs["identityValidationExpression"] = args ? args.identityValidationExpression : undefined;
-            resourceInputs["jwtConfiguration"] = args ? args.jwtConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["authorizerCredentialsArn"] = args?.authorizerCredentialsArn;
+            resourceInputs["authorizerPayloadFormatVersion"] = args?.authorizerPayloadFormatVersion;
+            resourceInputs["authorizerResultTtlInSeconds"] = args?.authorizerResultTtlInSeconds;
+            resourceInputs["authorizerType"] = args?.authorizerType;
+            resourceInputs["authorizerUri"] = args?.authorizerUri;
+            resourceInputs["enableSimpleResponses"] = args?.enableSimpleResponses;
+            resourceInputs["identitySource"] = args?.identitySource;
+            resourceInputs["identityValidationExpression"] = args?.identityValidationExpression;
+            resourceInputs["jwtConfiguration"] = args?.jwtConfiguration;
+            resourceInputs["name"] = args?.name;
             resourceInputs["authorizerId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;

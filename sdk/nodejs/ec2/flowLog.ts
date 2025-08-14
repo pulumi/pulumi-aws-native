@@ -101,24 +101,24 @@ export class FlowLog extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            resourceInputs["deliverCrossAccountRole"] = args ? args.deliverCrossAccountRole : undefined;
-            resourceInputs["deliverLogsPermissionArn"] = args ? args.deliverLogsPermissionArn : undefined;
-            resourceInputs["destinationOptions"] = args ? args.destinationOptions : undefined;
-            resourceInputs["logDestination"] = args ? args.logDestination : undefined;
-            resourceInputs["logDestinationType"] = args ? args.logDestinationType : undefined;
-            resourceInputs["logFormat"] = args ? args.logFormat : undefined;
-            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
-            resourceInputs["maxAggregationInterval"] = args ? args.maxAggregationInterval : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficType"] = args ? args.trafficType : undefined;
+            resourceInputs["deliverCrossAccountRole"] = args?.deliverCrossAccountRole;
+            resourceInputs["deliverLogsPermissionArn"] = args?.deliverLogsPermissionArn;
+            resourceInputs["destinationOptions"] = args?.destinationOptions;
+            resourceInputs["logDestination"] = args?.logDestination;
+            resourceInputs["logDestinationType"] = args?.logDestinationType;
+            resourceInputs["logFormat"] = args?.logFormat;
+            resourceInputs["logGroupName"] = args?.logGroupName;
+            resourceInputs["maxAggregationInterval"] = args?.maxAggregationInterval;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficType"] = args?.trafficType;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

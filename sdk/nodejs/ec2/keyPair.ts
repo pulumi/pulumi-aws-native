@@ -155,14 +155,14 @@ export class KeyPair extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.keyName === undefined) && !opts.urn) {
+            if (args?.keyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyName'");
             }
-            resourceInputs["keyFormat"] = args ? args.keyFormat : undefined;
-            resourceInputs["keyName"] = args ? args.keyName : undefined;
-            resourceInputs["keyType"] = args ? args.keyType : undefined;
-            resourceInputs["publicKeyMaterial"] = args ? args.publicKeyMaterial : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["keyFormat"] = args?.keyFormat;
+            resourceInputs["keyName"] = args?.keyName;
+            resourceInputs["keyType"] = args?.keyType;
+            resourceInputs["publicKeyMaterial"] = args?.publicKeyMaterial;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["keyFingerprint"] = undefined /*out*/;
             resourceInputs["keyPairId"] = undefined /*out*/;
         } else {

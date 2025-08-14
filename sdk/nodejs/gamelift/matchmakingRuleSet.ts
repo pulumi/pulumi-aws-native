@@ -108,12 +108,12 @@ export class MatchmakingRuleSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ruleSetBody === undefined) && !opts.urn) {
+            if (args?.ruleSetBody === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleSetBody'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ruleSetBody"] = args ? args.ruleSetBody : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ruleSetBody"] = args?.ruleSetBody;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
         } else {

@@ -69,15 +69,15 @@ export class Gateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.egressCidrBlocks === undefined) && !opts.urn) {
+            if (args?.egressCidrBlocks === undefined && !opts.urn) {
                 throw new Error("Missing required property 'egressCidrBlocks'");
             }
-            if ((!args || args.networks === undefined) && !opts.urn) {
+            if (args?.networks === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networks'");
             }
-            resourceInputs["egressCidrBlocks"] = args ? args.egressCidrBlocks : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networks"] = args ? args.networks : undefined;
+            resourceInputs["egressCidrBlocks"] = args?.egressCidrBlocks;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networks"] = args?.networks;
             resourceInputs["gatewayArn"] = undefined /*out*/;
             resourceInputs["gatewayState"] = undefined /*out*/;
         } else {

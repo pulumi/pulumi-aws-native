@@ -69,11 +69,11 @@ export class DeploymentConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["computePlatform"] = args ? args.computePlatform : undefined;
-            resourceInputs["deploymentConfigName"] = args ? args.deploymentConfigName : undefined;
-            resourceInputs["minimumHealthyHosts"] = args ? args.minimumHealthyHosts : undefined;
-            resourceInputs["trafficRoutingConfig"] = args ? args.trafficRoutingConfig : undefined;
-            resourceInputs["zonalConfig"] = args ? args.zonalConfig : undefined;
+            resourceInputs["computePlatform"] = args?.computePlatform;
+            resourceInputs["deploymentConfigName"] = args?.deploymentConfigName;
+            resourceInputs["minimumHealthyHosts"] = args?.minimumHealthyHosts;
+            resourceInputs["trafficRoutingConfig"] = args?.trafficRoutingConfig;
+            resourceInputs["zonalConfig"] = args?.zonalConfig;
         } else {
             resourceInputs["computePlatform"] = undefined /*out*/;
             resourceInputs["deploymentConfigName"] = undefined /*out*/;

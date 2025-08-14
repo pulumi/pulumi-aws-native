@@ -73,16 +73,16 @@ export class Profile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.as2Id === undefined) && !opts.urn) {
+            if (args?.as2Id === undefined && !opts.urn) {
                 throw new Error("Missing required property 'as2Id'");
             }
-            if ((!args || args.profileType === undefined) && !opts.urn) {
+            if (args?.profileType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileType'");
             }
-            resourceInputs["as2Id"] = args ? args.as2Id : undefined;
-            resourceInputs["certificateIds"] = args ? args.certificateIds : undefined;
-            resourceInputs["profileType"] = args ? args.profileType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["as2Id"] = args?.as2Id;
+            resourceInputs["certificateIds"] = args?.certificateIds;
+            resourceInputs["profileType"] = args?.profileType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["profileId"] = undefined /*out*/;
         } else {

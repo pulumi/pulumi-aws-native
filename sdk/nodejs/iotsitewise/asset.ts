@@ -87,16 +87,16 @@ export class Asset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.assetModelId === undefined) && !opts.urn) {
+            if (args?.assetModelId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assetModelId'");
             }
-            resourceInputs["assetDescription"] = args ? args.assetDescription : undefined;
-            resourceInputs["assetExternalId"] = args ? args.assetExternalId : undefined;
-            resourceInputs["assetHierarchies"] = args ? args.assetHierarchies : undefined;
-            resourceInputs["assetModelId"] = args ? args.assetModelId : undefined;
-            resourceInputs["assetName"] = args ? args.assetName : undefined;
-            resourceInputs["assetProperties"] = args ? args.assetProperties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assetDescription"] = args?.assetDescription;
+            resourceInputs["assetExternalId"] = args?.assetExternalId;
+            resourceInputs["assetHierarchies"] = args?.assetHierarchies;
+            resourceInputs["assetModelId"] = args?.assetModelId;
+            resourceInputs["assetName"] = args?.assetName;
+            resourceInputs["assetProperties"] = args?.assetProperties;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["assetArn"] = undefined /*out*/;
             resourceInputs["assetId"] = undefined /*out*/;
         } else {

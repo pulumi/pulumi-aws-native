@@ -60,14 +60,14 @@ export class ClusterPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterArn === undefined) && !opts.urn) {
+            if (args?.clusterArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterArn'");
             }
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["clusterArn"] = args ? args.clusterArn : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["clusterArn"] = args?.clusterArn;
+            resourceInputs["policy"] = args?.policy;
             resourceInputs["currentVersion"] = undefined /*out*/;
         } else {
             resourceInputs["clusterArn"] = undefined /*out*/;

@@ -217,13 +217,13 @@ export class WorkGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recursiveDeleteOption"] = args ? args.recursiveDeleteOption : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workGroupConfiguration"] = args ? args.workGroupConfiguration : undefined;
-            resourceInputs["workGroupConfigurationUpdates"] = args ? args.workGroupConfigurationUpdates : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recursiveDeleteOption"] = args?.recursiveDeleteOption;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workGroupConfiguration"] = args?.workGroupConfiguration;
+            resourceInputs["workGroupConfigurationUpdates"] = args?.workGroupConfigurationUpdates;
             resourceInputs["creationTime"] = undefined /*out*/;
         } else {
             resourceInputs["creationTime"] = undefined /*out*/;

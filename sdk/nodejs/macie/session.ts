@@ -69,8 +69,8 @@ export class Session extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["findingPublishingFrequency"] = args?.findingPublishingFrequency;
+            resourceInputs["status"] = args?.status;
             resourceInputs["automatedDiscoveryStatus"] = undefined /*out*/;
             resourceInputs["awsAccountId"] = undefined /*out*/;
             resourceInputs["serviceRole"] = undefined /*out*/;

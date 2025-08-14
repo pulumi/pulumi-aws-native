@@ -55,14 +55,14 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["domainName"] = args?.domainName;
             resourceInputs["apiAssociationIdentifier"] = undefined /*out*/;
         } else {
             resourceInputs["apiAssociationIdentifier"] = undefined /*out*/;

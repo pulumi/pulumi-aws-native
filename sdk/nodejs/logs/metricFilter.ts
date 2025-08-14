@@ -71,20 +71,20 @@ export class MetricFilter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.filterPattern === undefined) && !opts.urn) {
+            if (args?.filterPattern === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filterPattern'");
             }
-            if ((!args || args.logGroupName === undefined) && !opts.urn) {
+            if (args?.logGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logGroupName'");
             }
-            if ((!args || args.metricTransformations === undefined) && !opts.urn) {
+            if (args?.metricTransformations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metricTransformations'");
             }
-            resourceInputs["applyOnTransformedLogs"] = args ? args.applyOnTransformedLogs : undefined;
-            resourceInputs["filterName"] = args ? args.filterName : undefined;
-            resourceInputs["filterPattern"] = args ? args.filterPattern : undefined;
-            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
-            resourceInputs["metricTransformations"] = args ? args.metricTransformations : undefined;
+            resourceInputs["applyOnTransformedLogs"] = args?.applyOnTransformedLogs;
+            resourceInputs["filterName"] = args?.filterName;
+            resourceInputs["filterPattern"] = args?.filterPattern;
+            resourceInputs["logGroupName"] = args?.logGroupName;
+            resourceInputs["metricTransformations"] = args?.metricTransformations;
         } else {
             resourceInputs["applyOnTransformedLogs"] = undefined /*out*/;
             resourceInputs["filterName"] = undefined /*out*/;

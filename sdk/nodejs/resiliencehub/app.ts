@@ -93,21 +93,21 @@ export class App extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appTemplateBody === undefined) && !opts.urn) {
+            if (args?.appTemplateBody === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appTemplateBody'");
             }
-            if ((!args || args.resourceMappings === undefined) && !opts.urn) {
+            if (args?.resourceMappings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceMappings'");
             }
-            resourceInputs["appAssessmentSchedule"] = args ? args.appAssessmentSchedule : undefined;
-            resourceInputs["appTemplateBody"] = args ? args.appTemplateBody : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventSubscriptions"] = args ? args.eventSubscriptions : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissionModel"] = args ? args.permissionModel : undefined;
-            resourceInputs["resiliencyPolicyArn"] = args ? args.resiliencyPolicyArn : undefined;
-            resourceInputs["resourceMappings"] = args ? args.resourceMappings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appAssessmentSchedule"] = args?.appAssessmentSchedule;
+            resourceInputs["appTemplateBody"] = args?.appTemplateBody;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventSubscriptions"] = args?.eventSubscriptions;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissionModel"] = args?.permissionModel;
+            resourceInputs["resiliencyPolicyArn"] = args?.resiliencyPolicyArn;
+            resourceInputs["resourceMappings"] = args?.resourceMappings;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["appArn"] = undefined /*out*/;
             resourceInputs["driftStatus"] = undefined /*out*/;
         } else {

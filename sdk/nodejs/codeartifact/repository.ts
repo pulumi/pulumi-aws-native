@@ -91,17 +91,17 @@ export class Repository extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["domainOwner"] = args ? args.domainOwner : undefined;
-            resourceInputs["externalConnections"] = args ? args.externalConnections : undefined;
-            resourceInputs["permissionsPolicyDocument"] = args ? args.permissionsPolicyDocument : undefined;
-            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["upstreams"] = args ? args.upstreams : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["domainOwner"] = args?.domainOwner;
+            resourceInputs["externalConnections"] = args?.externalConnections;
+            resourceInputs["permissionsPolicyDocument"] = args?.permissionsPolicyDocument;
+            resourceInputs["repositoryName"] = args?.repositoryName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["upstreams"] = args?.upstreams;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {

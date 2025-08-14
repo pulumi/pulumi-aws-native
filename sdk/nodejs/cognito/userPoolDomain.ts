@@ -71,16 +71,16 @@ export class UserPoolDomain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domain === undefined) && !opts.urn) {
+            if (args?.domain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["customDomainConfig"] = args ? args.customDomainConfig : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["managedLoginVersion"] = args ? args.managedLoginVersion : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["customDomainConfig"] = args?.customDomainConfig;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["managedLoginVersion"] = args?.managedLoginVersion;
+            resourceInputs["userPoolId"] = args?.userPoolId;
             resourceInputs["cloudFrontDistribution"] = undefined /*out*/;
         } else {
             resourceInputs["cloudFrontDistribution"] = undefined /*out*/;

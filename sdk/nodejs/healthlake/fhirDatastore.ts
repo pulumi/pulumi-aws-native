@@ -92,15 +92,15 @@ export class FhirDatastore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.datastoreTypeVersion === undefined) && !opts.urn) {
+            if (args?.datastoreTypeVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datastoreTypeVersion'");
             }
-            resourceInputs["datastoreName"] = args ? args.datastoreName : undefined;
-            resourceInputs["datastoreTypeVersion"] = args ? args.datastoreTypeVersion : undefined;
-            resourceInputs["identityProviderConfiguration"] = args ? args.identityProviderConfiguration : undefined;
-            resourceInputs["preloadDataConfig"] = args ? args.preloadDataConfig : undefined;
-            resourceInputs["sseConfiguration"] = args ? args.sseConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["datastoreName"] = args?.datastoreName;
+            resourceInputs["datastoreTypeVersion"] = args?.datastoreTypeVersion;
+            resourceInputs["identityProviderConfiguration"] = args?.identityProviderConfiguration;
+            resourceInputs["preloadDataConfig"] = args?.preloadDataConfig;
+            resourceInputs["sseConfiguration"] = args?.sseConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["datastoreArn"] = undefined /*out*/;
             resourceInputs["datastoreEndpoint"] = undefined /*out*/;

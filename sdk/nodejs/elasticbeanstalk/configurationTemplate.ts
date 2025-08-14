@@ -91,16 +91,16 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationName === undefined) && !opts.urn) {
+            if (args?.applicationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationName'");
             }
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["optionSettings"] = args ? args.optionSettings : undefined;
-            resourceInputs["platformArn"] = args ? args.platformArn : undefined;
-            resourceInputs["solutionStackName"] = args ? args.solutionStackName : undefined;
-            resourceInputs["sourceConfiguration"] = args ? args.sourceConfiguration : undefined;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["optionSettings"] = args?.optionSettings;
+            resourceInputs["platformArn"] = args?.platformArn;
+            resourceInputs["solutionStackName"] = args?.solutionStackName;
+            resourceInputs["sourceConfiguration"] = args?.sourceConfiguration;
             resourceInputs["templateName"] = undefined /*out*/;
         } else {
             resourceInputs["applicationName"] = undefined /*out*/;

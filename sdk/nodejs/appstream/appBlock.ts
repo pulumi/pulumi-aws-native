@@ -91,17 +91,17 @@ export class AppBlock extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sourceS3Location === undefined) && !opts.urn) {
+            if (args?.sourceS3Location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceS3Location'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["packagingType"] = args ? args.packagingType : undefined;
-            resourceInputs["postSetupScriptDetails"] = args ? args.postSetupScriptDetails : undefined;
-            resourceInputs["setupScriptDetails"] = args ? args.setupScriptDetails : undefined;
-            resourceInputs["sourceS3Location"] = args ? args.sourceS3Location : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["packagingType"] = args?.packagingType;
+            resourceInputs["postSetupScriptDetails"] = args?.postSetupScriptDetails;
+            resourceInputs["setupScriptDetails"] = args?.setupScriptDetails;
+            resourceInputs["sourceS3Location"] = args?.sourceS3Location;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
         } else {

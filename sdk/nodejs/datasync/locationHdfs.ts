@@ -109,28 +109,28 @@ export class LocationHdfs extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.agentArns === undefined) && !opts.urn) {
+            if (args?.agentArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentArns'");
             }
-            if ((!args || args.authenticationType === undefined) && !opts.urn) {
+            if (args?.authenticationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationType'");
             }
-            if ((!args || args.nameNodes === undefined) && !opts.urn) {
+            if (args?.nameNodes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nameNodes'");
             }
-            resourceInputs["agentArns"] = args ? args.agentArns : undefined;
-            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
-            resourceInputs["blockSize"] = args ? args.blockSize : undefined;
-            resourceInputs["kerberosKeytab"] = args ? args.kerberosKeytab : undefined;
-            resourceInputs["kerberosKrb5Conf"] = args ? args.kerberosKrb5Conf : undefined;
-            resourceInputs["kerberosPrincipal"] = args ? args.kerberosPrincipal : undefined;
-            resourceInputs["kmsKeyProviderUri"] = args ? args.kmsKeyProviderUri : undefined;
-            resourceInputs["nameNodes"] = args ? args.nameNodes : undefined;
-            resourceInputs["qopConfiguration"] = args ? args.qopConfiguration : undefined;
-            resourceInputs["replicationFactor"] = args ? args.replicationFactor : undefined;
-            resourceInputs["simpleUser"] = args ? args.simpleUser : undefined;
-            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentArns"] = args?.agentArns;
+            resourceInputs["authenticationType"] = args?.authenticationType;
+            resourceInputs["blockSize"] = args?.blockSize;
+            resourceInputs["kerberosKeytab"] = args?.kerberosKeytab;
+            resourceInputs["kerberosKrb5Conf"] = args?.kerberosKrb5Conf;
+            resourceInputs["kerberosPrincipal"] = args?.kerberosPrincipal;
+            resourceInputs["kmsKeyProviderUri"] = args?.kmsKeyProviderUri;
+            resourceInputs["nameNodes"] = args?.nameNodes;
+            resourceInputs["qopConfiguration"] = args?.qopConfiguration;
+            resourceInputs["replicationFactor"] = args?.replicationFactor;
+            resourceInputs["simpleUser"] = args?.simpleUser;
+            resourceInputs["subdirectory"] = args?.subdirectory;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
         } else {

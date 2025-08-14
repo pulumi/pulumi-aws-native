@@ -93,16 +93,16 @@ export class IdNamespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["idMappingWorkflowProperties"] = args ? args.idMappingWorkflowProperties : undefined;
-            resourceInputs["idNamespaceName"] = args ? args.idNamespaceName : undefined;
-            resourceInputs["inputSourceConfig"] = args ? args.inputSourceConfig : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["idMappingWorkflowProperties"] = args?.idMappingWorkflowProperties;
+            resourceInputs["idNamespaceName"] = args?.idNamespaceName;
+            resourceInputs["inputSourceConfig"] = args?.inputSourceConfig;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["idNamespaceArn"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;

@@ -54,10 +54,10 @@ export class ProductSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.productArn === undefined) && !opts.urn) {
+            if (args?.productArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productArn'");
             }
-            resourceInputs["productArn"] = args ? args.productArn : undefined;
+            resourceInputs["productArn"] = args?.productArn;
             resourceInputs["productSubscriptionArn"] = undefined /*out*/;
         } else {
             resourceInputs["productArn"] = undefined /*out*/;

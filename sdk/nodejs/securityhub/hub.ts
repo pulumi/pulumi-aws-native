@@ -142,10 +142,10 @@ export class Hub extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["autoEnableControls"] = args ? args.autoEnableControls : undefined;
-            resourceInputs["controlFindingGenerator"] = args ? args.controlFindingGenerator : undefined;
-            resourceInputs["enableDefaultStandards"] = args ? args.enableDefaultStandards : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoEnableControls"] = args?.autoEnableControls;
+            resourceInputs["controlFindingGenerator"] = args?.controlFindingGenerator;
+            resourceInputs["enableDefaultStandards"] = args?.enableDefaultStandards;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["subscribedAt"] = undefined /*out*/;
         } else {

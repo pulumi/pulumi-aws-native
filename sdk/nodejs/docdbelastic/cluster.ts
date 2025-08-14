@@ -142,32 +142,32 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.adminUserName === undefined) && !opts.urn) {
+            if (args?.adminUserName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminUserName'");
             }
-            if ((!args || args.authType === undefined) && !opts.urn) {
+            if (args?.authType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authType'");
             }
-            if ((!args || args.shardCapacity === undefined) && !opts.urn) {
+            if (args?.shardCapacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shardCapacity'");
             }
-            if ((!args || args.shardCount === undefined) && !opts.urn) {
+            if (args?.shardCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shardCount'");
             }
-            resourceInputs["adminUserName"] = args ? args.adminUserName : undefined;
-            resourceInputs["adminUserPassword"] = args ? args.adminUserPassword : undefined;
-            resourceInputs["authType"] = args ? args.authType : undefined;
-            resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            resourceInputs["shardCapacity"] = args ? args.shardCapacity : undefined;
-            resourceInputs["shardCount"] = args ? args.shardCount : undefined;
-            resourceInputs["shardInstanceCount"] = args ? args.shardInstanceCount : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["adminUserName"] = args?.adminUserName;
+            resourceInputs["adminUserPassword"] = args?.adminUserPassword;
+            resourceInputs["authType"] = args?.authType;
+            resourceInputs["backupRetentionPeriod"] = args?.backupRetentionPeriod;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["preferredBackupWindow"] = args?.preferredBackupWindow;
+            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
+            resourceInputs["shardCapacity"] = args?.shardCapacity;
+            resourceInputs["shardCount"] = args?.shardCount;
+            resourceInputs["shardInstanceCount"] = args?.shardInstanceCount;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
             resourceInputs["clusterArn"] = undefined /*out*/;
             resourceInputs["clusterEndpoint"] = undefined /*out*/;
         } else {

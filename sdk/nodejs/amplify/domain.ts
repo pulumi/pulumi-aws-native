@@ -106,19 +106,19 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appId === undefined) && !opts.urn) {
+            if (args?.appId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if ((!args || args.subDomainSettings === undefined) && !opts.urn) {
+            if (args?.subDomainSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subDomainSettings'");
             }
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["autoSubDomainCreationPatterns"] = args ? args.autoSubDomainCreationPatterns : undefined;
-            resourceInputs["autoSubDomainIamRole"] = args ? args.autoSubDomainIamRole : undefined;
-            resourceInputs["certificateSettings"] = args ? args.certificateSettings : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["enableAutoSubDomain"] = args ? args.enableAutoSubDomain : undefined;
-            resourceInputs["subDomainSettings"] = args ? args.subDomainSettings : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["autoSubDomainCreationPatterns"] = args?.autoSubDomainCreationPatterns;
+            resourceInputs["autoSubDomainIamRole"] = args?.autoSubDomainIamRole;
+            resourceInputs["certificateSettings"] = args?.certificateSettings;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["enableAutoSubDomain"] = args?.enableAutoSubDomain;
+            resourceInputs["subDomainSettings"] = args?.subDomainSettings;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificate"] = undefined /*out*/;
             resourceInputs["certificateRecord"] = undefined /*out*/;

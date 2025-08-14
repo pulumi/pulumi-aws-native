@@ -128,19 +128,19 @@ export class FileSystem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["availabilityZoneName"] = args ? args.availabilityZoneName : undefined;
-            resourceInputs["backupPolicy"] = args ? args.backupPolicy : undefined;
-            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
-            resourceInputs["encrypted"] = args ? args.encrypted : undefined;
-            resourceInputs["fileSystemPolicy"] = args ? args.fileSystemPolicy : undefined;
-            resourceInputs["fileSystemProtection"] = args ? args.fileSystemProtection : undefined;
-            resourceInputs["fileSystemTags"] = args ? args.fileSystemTags : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["lifecyclePolicies"] = args ? args.lifecyclePolicies : undefined;
-            resourceInputs["performanceMode"] = args ? args.performanceMode : undefined;
-            resourceInputs["provisionedThroughputInMibps"] = args ? args.provisionedThroughputInMibps : undefined;
-            resourceInputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
-            resourceInputs["throughputMode"] = args ? args.throughputMode : undefined;
+            resourceInputs["availabilityZoneName"] = args?.availabilityZoneName;
+            resourceInputs["backupPolicy"] = args?.backupPolicy;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args?.bypassPolicyLockoutSafetyCheck;
+            resourceInputs["encrypted"] = args?.encrypted;
+            resourceInputs["fileSystemPolicy"] = args?.fileSystemPolicy;
+            resourceInputs["fileSystemProtection"] = args?.fileSystemProtection;
+            resourceInputs["fileSystemTags"] = args?.fileSystemTags;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["lifecyclePolicies"] = args?.lifecyclePolicies;
+            resourceInputs["performanceMode"] = args?.performanceMode;
+            resourceInputs["provisionedThroughputInMibps"] = args?.provisionedThroughputInMibps;
+            resourceInputs["replicationConfiguration"] = args?.replicationConfiguration;
+            resourceInputs["throughputMode"] = args?.throughputMode;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["fileSystemId"] = undefined /*out*/;
         } else {

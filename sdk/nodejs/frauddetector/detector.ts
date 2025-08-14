@@ -105,23 +105,23 @@ export class Detector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.detectorId === undefined) && !opts.urn) {
+            if (args?.detectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if ((!args || args.eventType === undefined) && !opts.urn) {
+            if (args?.eventType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventType'");
             }
-            if ((!args || args.rules === undefined) && !opts.urn) {
+            if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            resourceInputs["associatedModels"] = args ? args.associatedModels : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
-            resourceInputs["detectorVersionStatus"] = args ? args.detectorVersionStatus : undefined;
-            resourceInputs["eventType"] = args ? args.eventType : undefined;
-            resourceInputs["ruleExecutionMode"] = args ? args.ruleExecutionMode : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["associatedModels"] = args?.associatedModels;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["detectorId"] = args?.detectorId;
+            resourceInputs["detectorVersionStatus"] = args?.detectorVersionStatus;
+            resourceInputs["eventType"] = args?.eventType;
+            resourceInputs["ruleExecutionMode"] = args?.ruleExecutionMode;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["detectorVersionId"] = undefined /*out*/;

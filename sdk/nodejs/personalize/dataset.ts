@@ -117,20 +117,20 @@ export class Dataset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.datasetGroupArn === undefined) && !opts.urn) {
+            if (args?.datasetGroupArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datasetGroupArn'");
             }
-            if ((!args || args.datasetType === undefined) && !opts.urn) {
+            if (args?.datasetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datasetType'");
             }
-            if ((!args || args.schemaArn === undefined) && !opts.urn) {
+            if (args?.schemaArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaArn'");
             }
-            resourceInputs["datasetGroupArn"] = args ? args.datasetGroupArn : undefined;
-            resourceInputs["datasetImportJob"] = args ? args.datasetImportJob : undefined;
-            resourceInputs["datasetType"] = args ? args.datasetType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schemaArn"] = args ? args.schemaArn : undefined;
+            resourceInputs["datasetGroupArn"] = args?.datasetGroupArn;
+            resourceInputs["datasetImportJob"] = args?.datasetImportJob;
+            resourceInputs["datasetType"] = args?.datasetType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schemaArn"] = args?.schemaArn;
             resourceInputs["datasetArn"] = undefined /*out*/;
         } else {
             resourceInputs["datasetArn"] = undefined /*out*/;

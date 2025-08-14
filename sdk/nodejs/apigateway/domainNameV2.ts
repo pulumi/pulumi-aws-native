@@ -87,13 +87,13 @@ export class DomainNameV2 extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["routingMode"] = args ? args.routingMode : undefined;
-            resourceInputs["securityPolicy"] = args ? args.securityPolicy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["certificateArn"] = args?.certificateArn;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["endpointConfiguration"] = args?.endpointConfiguration;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["routingMode"] = args?.routingMode;
+            resourceInputs["securityPolicy"] = args?.securityPolicy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["domainNameArn"] = undefined /*out*/;
             resourceInputs["domainNameId"] = undefined /*out*/;
         } else {

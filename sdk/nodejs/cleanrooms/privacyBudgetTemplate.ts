@@ -91,23 +91,23 @@ export class PrivacyBudgetTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoRefresh === undefined) && !opts.urn) {
+            if (args?.autoRefresh === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoRefresh'");
             }
-            if ((!args || args.membershipIdentifier === undefined) && !opts.urn) {
+            if (args?.membershipIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'membershipIdentifier'");
             }
-            if ((!args || args.parameters === undefined) && !opts.urn) {
+            if (args?.parameters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parameters'");
             }
-            if ((!args || args.privacyBudgetType === undefined) && !opts.urn) {
+            if (args?.privacyBudgetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privacyBudgetType'");
             }
-            resourceInputs["autoRefresh"] = args ? args.autoRefresh : undefined;
-            resourceInputs["membershipIdentifier"] = args ? args.membershipIdentifier : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["privacyBudgetType"] = args ? args.privacyBudgetType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoRefresh"] = args?.autoRefresh;
+            resourceInputs["membershipIdentifier"] = args?.membershipIdentifier;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["privacyBudgetType"] = args?.privacyBudgetType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collaborationArn"] = undefined /*out*/;
             resourceInputs["collaborationIdentifier"] = undefined /*out*/;

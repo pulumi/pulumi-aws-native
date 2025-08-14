@@ -89,23 +89,23 @@ export class DataMigration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataMigrationType === undefined) && !opts.urn) {
+            if (args?.dataMigrationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataMigrationType'");
             }
-            if ((!args || args.migrationProjectIdentifier === undefined) && !opts.urn) {
+            if (args?.migrationProjectIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'migrationProjectIdentifier'");
             }
-            if ((!args || args.serviceAccessRoleArn === undefined) && !opts.urn) {
+            if (args?.serviceAccessRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccessRoleArn'");
             }
-            resourceInputs["dataMigrationIdentifier"] = args ? args.dataMigrationIdentifier : undefined;
-            resourceInputs["dataMigrationName"] = args ? args.dataMigrationName : undefined;
-            resourceInputs["dataMigrationSettings"] = args ? args.dataMigrationSettings : undefined;
-            resourceInputs["dataMigrationType"] = args ? args.dataMigrationType : undefined;
-            resourceInputs["migrationProjectIdentifier"] = args ? args.migrationProjectIdentifier : undefined;
-            resourceInputs["serviceAccessRoleArn"] = args ? args.serviceAccessRoleArn : undefined;
-            resourceInputs["sourceDataSettings"] = args ? args.sourceDataSettings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataMigrationIdentifier"] = args?.dataMigrationIdentifier;
+            resourceInputs["dataMigrationName"] = args?.dataMigrationName;
+            resourceInputs["dataMigrationSettings"] = args?.dataMigrationSettings;
+            resourceInputs["dataMigrationType"] = args?.dataMigrationType;
+            resourceInputs["migrationProjectIdentifier"] = args?.migrationProjectIdentifier;
+            resourceInputs["serviceAccessRoleArn"] = args?.serviceAccessRoleArn;
+            resourceInputs["sourceDataSettings"] = args?.sourceDataSettings;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["dataMigrationArn"] = undefined /*out*/;
             resourceInputs["dataMigrationCreateTime"] = undefined /*out*/;
         } else {

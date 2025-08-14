@@ -69,18 +69,18 @@ export class ResourceAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.application === undefined) && !opts.urn) {
+            if (args?.application === undefined && !opts.urn) {
                 throw new Error("Missing required property 'application'");
             }
-            if ((!args || args.resource === undefined) && !opts.urn) {
+            if (args?.resource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            resourceInputs["application"] = args ? args.application : undefined;
-            resourceInputs["resource"] = args ? args.resource : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["application"] = args?.application;
+            resourceInputs["resource"] = args?.resource;
+            resourceInputs["resourceType"] = args?.resourceType;
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
         } else {

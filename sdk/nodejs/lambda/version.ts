@@ -77,14 +77,14 @@ export class Version extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.functionName === undefined) && !opts.urn) {
+            if (args?.functionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            resourceInputs["codeSha256"] = args ? args.codeSha256 : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["functionName"] = args ? args.functionName : undefined;
-            resourceInputs["provisionedConcurrencyConfig"] = args ? args.provisionedConcurrencyConfig : undefined;
-            resourceInputs["runtimePolicy"] = args ? args.runtimePolicy : undefined;
+            resourceInputs["codeSha256"] = args?.codeSha256;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["functionName"] = args?.functionName;
+            resourceInputs["provisionedConcurrencyConfig"] = args?.provisionedConcurrencyConfig;
+            resourceInputs["runtimePolicy"] = args?.runtimePolicy;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {

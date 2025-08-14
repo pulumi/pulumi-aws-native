@@ -125,13 +125,13 @@ export class VirtualCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.containerProvider === undefined) && !opts.urn) {
+            if (args?.containerProvider === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerProvider'");
             }
-            resourceInputs["containerProvider"] = args ? args.containerProvider : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["securityConfigurationId"] = args ? args.securityConfigurationId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["containerProvider"] = args?.containerProvider;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["securityConfigurationId"] = args?.securityConfigurationId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

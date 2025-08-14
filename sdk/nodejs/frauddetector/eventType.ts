@@ -85,21 +85,21 @@ export class EventType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.entityTypes === undefined) && !opts.urn) {
+            if (args?.entityTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityTypes'");
             }
-            if ((!args || args.eventVariables === undefined) && !opts.urn) {
+            if (args?.eventVariables === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventVariables'");
             }
-            if ((!args || args.labels === undefined) && !opts.urn) {
+            if (args?.labels === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labels'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["entityTypes"] = args ? args.entityTypes : undefined;
-            resourceInputs["eventVariables"] = args ? args.eventVariables : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["entityTypes"] = args?.entityTypes;
+            resourceInputs["eventVariables"] = args?.eventVariables;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;

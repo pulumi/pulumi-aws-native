@@ -58,18 +58,18 @@ export class ApplicationEntitlementAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationIdentifier === undefined) && !opts.urn) {
+            if (args?.applicationIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationIdentifier'");
             }
-            if ((!args || args.entitlementName === undefined) && !opts.urn) {
+            if (args?.entitlementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entitlementName'");
             }
-            if ((!args || args.stackName === undefined) && !opts.urn) {
+            if (args?.stackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stackName'");
             }
-            resourceInputs["applicationIdentifier"] = args ? args.applicationIdentifier : undefined;
-            resourceInputs["entitlementName"] = args ? args.entitlementName : undefined;
-            resourceInputs["stackName"] = args ? args.stackName : undefined;
+            resourceInputs["applicationIdentifier"] = args?.applicationIdentifier;
+            resourceInputs["entitlementName"] = args?.entitlementName;
+            resourceInputs["stackName"] = args?.stackName;
         } else {
             resourceInputs["applicationIdentifier"] = undefined /*out*/;
             resourceInputs["entitlementName"] = undefined /*out*/;

@@ -121,12 +121,12 @@ export class Connection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["authParameters"] = args ? args.authParameters : undefined;
-            resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["invocationConnectivityParameters"] = args ? args.invocationConnectivityParameters : undefined;
-            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["authParameters"] = args?.authParameters;
+            resourceInputs["authorizationType"] = args?.authorizationType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["invocationConnectivityParameters"] = args?.invocationConnectivityParameters;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
+            resourceInputs["name"] = args?.name;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["arnForPolicy"] = undefined /*out*/;
             resourceInputs["secretArn"] = undefined /*out*/;

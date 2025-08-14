@@ -93,19 +93,19 @@ export class RouteServerPeer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bgpOptions === undefined) && !opts.urn) {
+            if (args?.bgpOptions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bgpOptions'");
             }
-            if ((!args || args.peerAddress === undefined) && !opts.urn) {
+            if (args?.peerAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerAddress'");
             }
-            if ((!args || args.routeServerEndpointId === undefined) && !opts.urn) {
+            if (args?.routeServerEndpointId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeServerEndpointId'");
             }
-            resourceInputs["bgpOptions"] = args ? args.bgpOptions : undefined;
-            resourceInputs["peerAddress"] = args ? args.peerAddress : undefined;
-            resourceInputs["routeServerEndpointId"] = args ? args.routeServerEndpointId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bgpOptions"] = args?.bgpOptions;
+            resourceInputs["peerAddress"] = args?.peerAddress;
+            resourceInputs["routeServerEndpointId"] = args?.routeServerEndpointId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["endpointEniAddress"] = undefined /*out*/;

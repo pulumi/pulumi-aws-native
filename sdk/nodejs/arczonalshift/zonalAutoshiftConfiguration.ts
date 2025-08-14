@@ -67,9 +67,9 @@ export class ZonalAutoshiftConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["practiceRunConfiguration"] = args ? args.practiceRunConfiguration : undefined;
-            resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
-            resourceInputs["zonalAutoshiftStatus"] = args ? args.zonalAutoshiftStatus : undefined;
+            resourceInputs["practiceRunConfiguration"] = args?.practiceRunConfiguration;
+            resourceInputs["resourceIdentifier"] = args?.resourceIdentifier;
+            resourceInputs["zonalAutoshiftStatus"] = args?.zonalAutoshiftStatus;
         } else {
             resourceInputs["practiceRunConfiguration"] = undefined /*out*/;
             resourceInputs["resourceIdentifier"] = undefined /*out*/;

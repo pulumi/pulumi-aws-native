@@ -103,19 +103,19 @@ export class MultiRegionCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.nodeType === undefined) && !opts.urn) {
+            if (args?.nodeType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nodeType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["multiRegionClusterNameSuffix"] = args ? args.multiRegionClusterNameSuffix : undefined;
-            resourceInputs["multiRegionParameterGroupName"] = args ? args.multiRegionParameterGroupName : undefined;
-            resourceInputs["nodeType"] = args ? args.nodeType : undefined;
-            resourceInputs["numShards"] = args ? args.numShards : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tlsEnabled"] = args ? args.tlsEnabled : undefined;
-            resourceInputs["updateStrategy"] = args ? args.updateStrategy : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["multiRegionClusterNameSuffix"] = args?.multiRegionClusterNameSuffix;
+            resourceInputs["multiRegionParameterGroupName"] = args?.multiRegionParameterGroupName;
+            resourceInputs["nodeType"] = args?.nodeType;
+            resourceInputs["numShards"] = args?.numShards;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tlsEnabled"] = args?.tlsEnabled;
+            resourceInputs["updateStrategy"] = args?.updateStrategy;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["multiRegionClusterName"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

@@ -81,22 +81,22 @@ export class InstanceStorageConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if ((!args || args.storageType === undefined) && !opts.urn) {
+            if (args?.storageType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageType'");
             }
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["kinesisFirehoseConfig"] = args ? args.kinesisFirehoseConfig : undefined;
-            resourceInputs["kinesisStreamConfig"] = args ? args.kinesisStreamConfig : undefined;
-            resourceInputs["kinesisVideoStreamConfig"] = args ? args.kinesisVideoStreamConfig : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["s3Config"] = args ? args.s3Config : undefined;
-            resourceInputs["storageType"] = args ? args.storageType : undefined;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["kinesisFirehoseConfig"] = args?.kinesisFirehoseConfig;
+            resourceInputs["kinesisStreamConfig"] = args?.kinesisStreamConfig;
+            resourceInputs["kinesisVideoStreamConfig"] = args?.kinesisVideoStreamConfig;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["s3Config"] = args?.s3Config;
+            resourceInputs["storageType"] = args?.storageType;
             resourceInputs["associationId"] = undefined /*out*/;
         } else {
             resourceInputs["associationId"] = undefined /*out*/;

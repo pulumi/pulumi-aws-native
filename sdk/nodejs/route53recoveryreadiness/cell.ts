@@ -69,9 +69,9 @@ export class Cell extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["cellName"] = args ? args.cellName : undefined;
-            resourceInputs["cells"] = args ? args.cells : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cellName"] = args?.cellName;
+            resourceInputs["cells"] = args?.cells;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["cellArn"] = undefined /*out*/;
             resourceInputs["parentReadinessScopes"] = undefined /*out*/;
         } else {

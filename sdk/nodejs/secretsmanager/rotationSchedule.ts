@@ -73,14 +73,14 @@ export class RotationSchedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.secretId === undefined) && !opts.urn) {
+            if (args?.secretId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretId'");
             }
-            resourceInputs["hostedRotationLambda"] = args ? args.hostedRotationLambda : undefined;
-            resourceInputs["rotateImmediatelyOnUpdate"] = args ? args.rotateImmediatelyOnUpdate : undefined;
-            resourceInputs["rotationLambdaArn"] = args ? args.rotationLambdaArn : undefined;
-            resourceInputs["rotationRules"] = args ? args.rotationRules : undefined;
-            resourceInputs["secretId"] = args ? args.secretId : undefined;
+            resourceInputs["hostedRotationLambda"] = args?.hostedRotationLambda;
+            resourceInputs["rotateImmediatelyOnUpdate"] = args?.rotateImmediatelyOnUpdate;
+            resourceInputs["rotationLambdaArn"] = args?.rotationLambdaArn;
+            resourceInputs["rotationRules"] = args?.rotationRules;
+            resourceInputs["secretId"] = args?.secretId;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

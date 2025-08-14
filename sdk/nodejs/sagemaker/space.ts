@@ -91,16 +91,16 @@ export class Space extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainId === undefined) && !opts.urn) {
+            if (args?.domainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainId'");
             }
-            resourceInputs["domainId"] = args ? args.domainId : undefined;
-            resourceInputs["ownershipSettings"] = args ? args.ownershipSettings : undefined;
-            resourceInputs["spaceDisplayName"] = args ? args.spaceDisplayName : undefined;
-            resourceInputs["spaceName"] = args ? args.spaceName : undefined;
-            resourceInputs["spaceSettings"] = args ? args.spaceSettings : undefined;
-            resourceInputs["spaceSharingSettings"] = args ? args.spaceSharingSettings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domainId"] = args?.domainId;
+            resourceInputs["ownershipSettings"] = args?.ownershipSettings;
+            resourceInputs["spaceDisplayName"] = args?.spaceDisplayName;
+            resourceInputs["spaceName"] = args?.spaceName;
+            resourceInputs["spaceSettings"] = args?.spaceSettings;
+            resourceInputs["spaceSharingSettings"] = args?.spaceSharingSettings;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["spaceArn"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         } else {

@@ -77,24 +77,24 @@ export class Rotation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contactIds === undefined) && !opts.urn) {
+            if (args?.contactIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactIds'");
             }
-            if ((!args || args.recurrence === undefined) && !opts.urn) {
+            if (args?.recurrence === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recurrence'");
             }
-            if ((!args || args.startTime === undefined) && !opts.urn) {
+            if (args?.startTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startTime'");
             }
-            if ((!args || args.timeZoneId === undefined) && !opts.urn) {
+            if (args?.timeZoneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeZoneId'");
             }
-            resourceInputs["contactIds"] = args ? args.contactIds : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recurrence"] = args ? args.recurrence : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeZoneId"] = args ? args.timeZoneId : undefined;
+            resourceInputs["contactIds"] = args?.contactIds;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recurrence"] = args?.recurrence;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeZoneId"] = args?.timeZoneId;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

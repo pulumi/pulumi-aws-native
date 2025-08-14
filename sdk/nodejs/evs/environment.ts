@@ -145,44 +145,44 @@ export class Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectivityInfo === undefined) && !opts.urn) {
+            if (args?.connectivityInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectivityInfo'");
             }
-            if ((!args || args.licenseInfo === undefined) && !opts.urn) {
+            if (args?.licenseInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'licenseInfo'");
             }
-            if ((!args || args.serviceAccessSubnetId === undefined) && !opts.urn) {
+            if (args?.serviceAccessSubnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccessSubnetId'");
             }
-            if ((!args || args.siteId === undefined) && !opts.urn) {
+            if (args?.siteId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteId'");
             }
-            if ((!args || args.termsAccepted === undefined) && !opts.urn) {
+            if (args?.termsAccepted === undefined && !opts.urn) {
                 throw new Error("Missing required property 'termsAccepted'");
             }
-            if ((!args || args.vcfHostnames === undefined) && !opts.urn) {
+            if (args?.vcfHostnames === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vcfHostnames'");
             }
-            if ((!args || args.vcfVersion === undefined) && !opts.urn) {
+            if (args?.vcfVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vcfVersion'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["connectivityInfo"] = args ? args.connectivityInfo : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["hosts"] = args ? args.hosts : undefined;
-            resourceInputs["initialVlans"] = args ? args.initialVlans : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["licenseInfo"] = args ? args.licenseInfo : undefined;
-            resourceInputs["serviceAccessSecurityGroups"] = args ? args.serviceAccessSecurityGroups : undefined;
-            resourceInputs["serviceAccessSubnetId"] = args ? args.serviceAccessSubnetId : undefined;
-            resourceInputs["siteId"] = args ? args.siteId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["termsAccepted"] = args ? args.termsAccepted : undefined;
-            resourceInputs["vcfHostnames"] = args ? args.vcfHostnames : undefined;
-            resourceInputs["vcfVersion"] = args ? args.vcfVersion : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["connectivityInfo"] = args?.connectivityInfo;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["hosts"] = args?.hosts;
+            resourceInputs["initialVlans"] = args?.initialVlans;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["licenseInfo"] = args?.licenseInfo;
+            resourceInputs["serviceAccessSecurityGroups"] = args?.serviceAccessSecurityGroups;
+            resourceInputs["serviceAccessSubnetId"] = args?.serviceAccessSubnetId;
+            resourceInputs["siteId"] = args?.siteId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["termsAccepted"] = args?.termsAccepted;
+            resourceInputs["vcfHostnames"] = args?.vcfHostnames;
+            resourceInputs["vcfVersion"] = args?.vcfVersion;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["checks"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["credentials"] = undefined /*out*/;

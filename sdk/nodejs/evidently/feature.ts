@@ -91,20 +91,20 @@ export class Feature extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.project === undefined) && !opts.urn) {
+            if (args?.project === undefined && !opts.urn) {
                 throw new Error("Missing required property 'project'");
             }
-            if ((!args || args.variations === undefined) && !opts.urn) {
+            if (args?.variations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'variations'");
             }
-            resourceInputs["defaultVariation"] = args ? args.defaultVariation : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["entityOverrides"] = args ? args.entityOverrides : undefined;
-            resourceInputs["evaluationStrategy"] = args ? args.evaluationStrategy : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["project"] = args ? args.project : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["variations"] = args ? args.variations : undefined;
+            resourceInputs["defaultVariation"] = args?.defaultVariation;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["entityOverrides"] = args?.entityOverrides;
+            resourceInputs["evaluationStrategy"] = args?.evaluationStrategy;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["project"] = args?.project;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["variations"] = args?.variations;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

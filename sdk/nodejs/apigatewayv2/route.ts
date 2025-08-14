@@ -103,24 +103,24 @@ export class Route extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.routeKey === undefined) && !opts.urn) {
+            if (args?.routeKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeKey'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["apiKeyRequired"] = args ? args.apiKeyRequired : undefined;
-            resourceInputs["authorizationScopes"] = args ? args.authorizationScopes : undefined;
-            resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
-            resourceInputs["authorizerId"] = args ? args.authorizerId : undefined;
-            resourceInputs["modelSelectionExpression"] = args ? args.modelSelectionExpression : undefined;
-            resourceInputs["operationName"] = args ? args.operationName : undefined;
-            resourceInputs["requestModels"] = args ? args.requestModels : undefined;
-            resourceInputs["requestParameters"] = args ? args.requestParameters : undefined;
-            resourceInputs["routeKey"] = args ? args.routeKey : undefined;
-            resourceInputs["routeResponseSelectionExpression"] = args ? args.routeResponseSelectionExpression : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["apiKeyRequired"] = args?.apiKeyRequired;
+            resourceInputs["authorizationScopes"] = args?.authorizationScopes;
+            resourceInputs["authorizationType"] = args?.authorizationType;
+            resourceInputs["authorizerId"] = args?.authorizerId;
+            resourceInputs["modelSelectionExpression"] = args?.modelSelectionExpression;
+            resourceInputs["operationName"] = args?.operationName;
+            resourceInputs["requestModels"] = args?.requestModels;
+            resourceInputs["requestParameters"] = args?.requestParameters;
+            resourceInputs["routeKey"] = args?.routeKey;
+            resourceInputs["routeResponseSelectionExpression"] = args?.routeResponseSelectionExpression;
+            resourceInputs["target"] = args?.target;
             resourceInputs["routeId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;

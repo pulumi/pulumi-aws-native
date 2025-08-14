@@ -73,13 +73,13 @@ export class PackagingGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsId === undefined) && !opts.urn) {
+            if (args?.awsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsId'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
-            resourceInputs["awsId"] = args ? args.awsId : undefined;
-            resourceInputs["egressAccessLogs"] = args ? args.egressAccessLogs : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authorization"] = args?.authorization;
+            resourceInputs["awsId"] = args?.awsId;
+            resourceInputs["egressAccessLogs"] = args?.egressAccessLogs;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
         } else {

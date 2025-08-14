@@ -93,34 +93,34 @@ export class GuardHook extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.alias === undefined) && !opts.urn) {
+            if (args?.alias === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alias'");
             }
-            if ((!args || args.executionRole === undefined) && !opts.urn) {
+            if (args?.executionRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRole'");
             }
-            if ((!args || args.failureMode === undefined) && !opts.urn) {
+            if (args?.failureMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'failureMode'");
             }
-            if ((!args || args.hookStatus === undefined) && !opts.urn) {
+            if (args?.hookStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hookStatus'");
             }
-            if ((!args || args.ruleLocation === undefined) && !opts.urn) {
+            if (args?.ruleLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleLocation'");
             }
-            if ((!args || args.targetOperations === undefined) && !opts.urn) {
+            if (args?.targetOperations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetOperations'");
             }
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["executionRole"] = args ? args.executionRole : undefined;
-            resourceInputs["failureMode"] = args ? args.failureMode : undefined;
-            resourceInputs["hookStatus"] = args ? args.hookStatus : undefined;
-            resourceInputs["logBucket"] = args ? args.logBucket : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["ruleLocation"] = args ? args.ruleLocation : undefined;
-            resourceInputs["stackFilters"] = args ? args.stackFilters : undefined;
-            resourceInputs["targetFilters"] = args ? args.targetFilters : undefined;
-            resourceInputs["targetOperations"] = args ? args.targetOperations : undefined;
+            resourceInputs["alias"] = args?.alias;
+            resourceInputs["executionRole"] = args?.executionRole;
+            resourceInputs["failureMode"] = args?.failureMode;
+            resourceInputs["hookStatus"] = args?.hookStatus;
+            resourceInputs["logBucket"] = args?.logBucket;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["ruleLocation"] = args?.ruleLocation;
+            resourceInputs["stackFilters"] = args?.stackFilters;
+            resourceInputs["targetFilters"] = args?.targetFilters;
+            resourceInputs["targetOperations"] = args?.targetOperations;
             resourceInputs["hookArn"] = undefined /*out*/;
         } else {
             resourceInputs["alias"] = undefined /*out*/;

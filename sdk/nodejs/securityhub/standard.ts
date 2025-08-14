@@ -64,11 +64,11 @@ export class Standard extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.standardsArn === undefined) && !opts.urn) {
+            if (args?.standardsArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'standardsArn'");
             }
-            resourceInputs["disabledStandardsControls"] = args ? args.disabledStandardsControls : undefined;
-            resourceInputs["standardsArn"] = args ? args.standardsArn : undefined;
+            resourceInputs["disabledStandardsControls"] = args?.disabledStandardsControls;
+            resourceInputs["standardsArn"] = args?.standardsArn;
             resourceInputs["standardsSubscriptionArn"] = undefined /*out*/;
         } else {
             resourceInputs["disabledStandardsControls"] = undefined /*out*/;

@@ -102,23 +102,23 @@ export class Subscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.topicArn === undefined) && !opts.urn) {
+            if (args?.topicArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topicArn'");
             }
-            resourceInputs["deliveryPolicy"] = args ? args.deliveryPolicy : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["filterPolicy"] = args ? args.filterPolicy : undefined;
-            resourceInputs["filterPolicyScope"] = args ? args.filterPolicyScope : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["rawMessageDelivery"] = args ? args.rawMessageDelivery : undefined;
-            resourceInputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["replayPolicy"] = args ? args.replayPolicy : undefined;
-            resourceInputs["subscriptionRoleArn"] = args ? args.subscriptionRoleArn : undefined;
-            resourceInputs["topicArn"] = args ? args.topicArn : undefined;
+            resourceInputs["deliveryPolicy"] = args?.deliveryPolicy;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["filterPolicy"] = args?.filterPolicy;
+            resourceInputs["filterPolicyScope"] = args?.filterPolicyScope;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["rawMessageDelivery"] = args?.rawMessageDelivery;
+            resourceInputs["redrivePolicy"] = args?.redrivePolicy;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["replayPolicy"] = args?.replayPolicy;
+            resourceInputs["subscriptionRoleArn"] = args?.subscriptionRoleArn;
+            resourceInputs["topicArn"] = args?.topicArn;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

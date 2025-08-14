@@ -285,70 +285,70 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterType === undefined) && !opts.urn) {
+            if (args?.clusterType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterType'");
             }
-            if ((!args || args.dbName === undefined) && !opts.urn) {
+            if (args?.dbName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbName'");
             }
-            if ((!args || args.masterUsername === undefined) && !opts.urn) {
+            if (args?.masterUsername === undefined && !opts.urn) {
                 throw new Error("Missing required property 'masterUsername'");
             }
-            if ((!args || args.nodeType === undefined) && !opts.urn) {
+            if (args?.nodeType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nodeType'");
             }
-            resourceInputs["allowVersionUpgrade"] = args ? args.allowVersionUpgrade : undefined;
-            resourceInputs["aquaConfigurationStatus"] = args ? args.aquaConfigurationStatus : undefined;
-            resourceInputs["automatedSnapshotRetentionPeriod"] = args ? args.automatedSnapshotRetentionPeriod : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["availabilityZoneRelocation"] = args ? args.availabilityZoneRelocation : undefined;
-            resourceInputs["availabilityZoneRelocationStatus"] = args ? args.availabilityZoneRelocationStatus : undefined;
-            resourceInputs["classic"] = args ? args.classic : undefined;
-            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            resourceInputs["clusterParameterGroupName"] = args ? args.clusterParameterGroupName : undefined;
-            resourceInputs["clusterSecurityGroups"] = args ? args.clusterSecurityGroups : undefined;
-            resourceInputs["clusterSubnetGroupName"] = args ? args.clusterSubnetGroupName : undefined;
-            resourceInputs["clusterType"] = args ? args.clusterType : undefined;
-            resourceInputs["clusterVersion"] = args ? args.clusterVersion : undefined;
-            resourceInputs["dbName"] = args ? args.dbName : undefined;
-            resourceInputs["deferMaintenance"] = args ? args.deferMaintenance : undefined;
-            resourceInputs["deferMaintenanceDuration"] = args ? args.deferMaintenanceDuration : undefined;
-            resourceInputs["deferMaintenanceEndTime"] = args ? args.deferMaintenanceEndTime : undefined;
-            resourceInputs["deferMaintenanceStartTime"] = args ? args.deferMaintenanceStartTime : undefined;
-            resourceInputs["destinationRegion"] = args ? args.destinationRegion : undefined;
-            resourceInputs["elasticIp"] = args ? args.elasticIp : undefined;
-            resourceInputs["encrypted"] = args ? args.encrypted : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["enhancedVpcRouting"] = args ? args.enhancedVpcRouting : undefined;
-            resourceInputs["hsmClientCertificateIdentifier"] = args ? args.hsmClientCertificateIdentifier : undefined;
-            resourceInputs["hsmConfigurationIdentifier"] = args ? args.hsmConfigurationIdentifier : undefined;
-            resourceInputs["iamRoles"] = args ? args.iamRoles : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["loggingProperties"] = args ? args.loggingProperties : undefined;
-            resourceInputs["maintenanceTrackName"] = args ? args.maintenanceTrackName : undefined;
-            resourceInputs["manageMasterPassword"] = args ? args.manageMasterPassword : undefined;
-            resourceInputs["manualSnapshotRetentionPeriod"] = args ? args.manualSnapshotRetentionPeriod : undefined;
-            resourceInputs["masterPasswordSecretKmsKeyId"] = args ? args.masterPasswordSecretKmsKeyId : undefined;
-            resourceInputs["masterUserPassword"] = args ? args.masterUserPassword : undefined;
-            resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
-            resourceInputs["multiAz"] = args ? args.multiAz : undefined;
-            resourceInputs["namespaceResourcePolicy"] = args ? args.namespaceResourcePolicy : undefined;
-            resourceInputs["nodeType"] = args ? args.nodeType : undefined;
-            resourceInputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
-            resourceInputs["ownerAccount"] = args ? args.ownerAccount : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            resourceInputs["resourceAction"] = args ? args.resourceAction : undefined;
-            resourceInputs["revisionTarget"] = args ? args.revisionTarget : undefined;
-            resourceInputs["rotateEncryptionKey"] = args ? args.rotateEncryptionKey : undefined;
-            resourceInputs["snapshotClusterIdentifier"] = args ? args.snapshotClusterIdentifier : undefined;
-            resourceInputs["snapshotCopyGrantName"] = args ? args.snapshotCopyGrantName : undefined;
-            resourceInputs["snapshotCopyManual"] = args ? args.snapshotCopyManual : undefined;
-            resourceInputs["snapshotCopyRetentionPeriod"] = args ? args.snapshotCopyRetentionPeriod : undefined;
-            resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["allowVersionUpgrade"] = args?.allowVersionUpgrade;
+            resourceInputs["aquaConfigurationStatus"] = args?.aquaConfigurationStatus;
+            resourceInputs["automatedSnapshotRetentionPeriod"] = args?.automatedSnapshotRetentionPeriod;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["availabilityZoneRelocation"] = args?.availabilityZoneRelocation;
+            resourceInputs["availabilityZoneRelocationStatus"] = args?.availabilityZoneRelocationStatus;
+            resourceInputs["classic"] = args?.classic;
+            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
+            resourceInputs["clusterParameterGroupName"] = args?.clusterParameterGroupName;
+            resourceInputs["clusterSecurityGroups"] = args?.clusterSecurityGroups;
+            resourceInputs["clusterSubnetGroupName"] = args?.clusterSubnetGroupName;
+            resourceInputs["clusterType"] = args?.clusterType;
+            resourceInputs["clusterVersion"] = args?.clusterVersion;
+            resourceInputs["dbName"] = args?.dbName;
+            resourceInputs["deferMaintenance"] = args?.deferMaintenance;
+            resourceInputs["deferMaintenanceDuration"] = args?.deferMaintenanceDuration;
+            resourceInputs["deferMaintenanceEndTime"] = args?.deferMaintenanceEndTime;
+            resourceInputs["deferMaintenanceStartTime"] = args?.deferMaintenanceStartTime;
+            resourceInputs["destinationRegion"] = args?.destinationRegion;
+            resourceInputs["elasticIp"] = args?.elasticIp;
+            resourceInputs["encrypted"] = args?.encrypted;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["enhancedVpcRouting"] = args?.enhancedVpcRouting;
+            resourceInputs["hsmClientCertificateIdentifier"] = args?.hsmClientCertificateIdentifier;
+            resourceInputs["hsmConfigurationIdentifier"] = args?.hsmConfigurationIdentifier;
+            resourceInputs["iamRoles"] = args?.iamRoles;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["loggingProperties"] = args?.loggingProperties;
+            resourceInputs["maintenanceTrackName"] = args?.maintenanceTrackName;
+            resourceInputs["manageMasterPassword"] = args?.manageMasterPassword;
+            resourceInputs["manualSnapshotRetentionPeriod"] = args?.manualSnapshotRetentionPeriod;
+            resourceInputs["masterPasswordSecretKmsKeyId"] = args?.masterPasswordSecretKmsKeyId;
+            resourceInputs["masterUserPassword"] = args?.masterUserPassword;
+            resourceInputs["masterUsername"] = args?.masterUsername;
+            resourceInputs["multiAz"] = args?.multiAz;
+            resourceInputs["namespaceResourcePolicy"] = args?.namespaceResourcePolicy;
+            resourceInputs["nodeType"] = args?.nodeType;
+            resourceInputs["numberOfNodes"] = args?.numberOfNodes;
+            resourceInputs["ownerAccount"] = args?.ownerAccount;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
+            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
+            resourceInputs["resourceAction"] = args?.resourceAction;
+            resourceInputs["revisionTarget"] = args?.revisionTarget;
+            resourceInputs["rotateEncryptionKey"] = args?.rotateEncryptionKey;
+            resourceInputs["snapshotClusterIdentifier"] = args?.snapshotClusterIdentifier;
+            resourceInputs["snapshotCopyGrantName"] = args?.snapshotCopyGrantName;
+            resourceInputs["snapshotCopyManual"] = args?.snapshotCopyManual;
+            resourceInputs["snapshotCopyRetentionPeriod"] = args?.snapshotCopyRetentionPeriod;
+            resourceInputs["snapshotIdentifier"] = args?.snapshotIdentifier;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
             resourceInputs["clusterNamespaceArn"] = undefined /*out*/;
             resourceInputs["deferMaintenanceIdentifier"] = undefined /*out*/;
             resourceInputs["masterPasswordSecretArn"] = undefined /*out*/;

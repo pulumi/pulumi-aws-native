@@ -79,10 +79,10 @@ export class DeliverySource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["logType"] = args ? args.logType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["logType"] = args?.logType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceArn"] = args?.resourceArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["resourceArns"] = undefined /*out*/;
             resourceInputs["service"] = undefined /*out*/;

@@ -65,13 +65,13 @@ export class SecurityControl extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.parameters === undefined) && !opts.urn) {
+            if (args?.parameters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parameters'");
             }
-            resourceInputs["lastUpdateReason"] = args ? args.lastUpdateReason : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["securityControlArn"] = args ? args.securityControlArn : undefined;
-            resourceInputs["securityControlId"] = args ? args.securityControlId : undefined;
+            resourceInputs["lastUpdateReason"] = args?.lastUpdateReason;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["securityControlArn"] = args?.securityControlArn;
+            resourceInputs["securityControlId"] = args?.securityControlId;
         } else {
             resourceInputs["lastUpdateReason"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;

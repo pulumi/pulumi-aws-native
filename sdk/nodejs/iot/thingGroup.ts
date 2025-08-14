@@ -81,11 +81,11 @@ export class ThingGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["parentGroupName"] = args ? args.parentGroupName : undefined;
-            resourceInputs["queryString"] = args ? args.queryString : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["thingGroupName"] = args ? args.thingGroupName : undefined;
-            resourceInputs["thingGroupProperties"] = args ? args.thingGroupProperties : undefined;
+            resourceInputs["parentGroupName"] = args?.parentGroupName;
+            resourceInputs["queryString"] = args?.queryString;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["thingGroupName"] = args?.thingGroupName;
+            resourceInputs["thingGroupProperties"] = args?.thingGroupProperties;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

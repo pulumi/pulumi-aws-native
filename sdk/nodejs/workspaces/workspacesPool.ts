@@ -94,24 +94,24 @@ export class WorkspacesPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bundleId === undefined) && !opts.urn) {
+            if (args?.bundleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bundleId'");
             }
-            if ((!args || args.capacity === undefined) && !opts.urn) {
+            if (args?.capacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacity'");
             }
-            if ((!args || args.directoryId === undefined) && !opts.urn) {
+            if (args?.directoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            resourceInputs["applicationSettings"] = args ? args.applicationSettings : undefined;
-            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
-            resourceInputs["capacity"] = args ? args.capacity : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
-            resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["runningMode"] = args ? args.runningMode : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeoutSettings"] = args ? args.timeoutSettings : undefined;
+            resourceInputs["applicationSettings"] = args?.applicationSettings;
+            resourceInputs["bundleId"] = args?.bundleId;
+            resourceInputs["capacity"] = args?.capacity;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["directoryId"] = args?.directoryId;
+            resourceInputs["poolName"] = args?.poolName;
+            resourceInputs["runningMode"] = args?.runningMode;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeoutSettings"] = args?.timeoutSettings;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["poolArn"] = undefined /*out*/;
             resourceInputs["poolId"] = undefined /*out*/;

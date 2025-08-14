@@ -73,13 +73,13 @@ export class Certificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["certificateName"] = args?.certificateName;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["subjectAlternativeNames"] = args?.subjectAlternativeNames;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["certificateArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

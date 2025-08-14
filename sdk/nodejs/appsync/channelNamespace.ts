@@ -85,17 +85,17 @@ export class ChannelNamespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["codeHandlers"] = args ? args.codeHandlers : undefined;
-            resourceInputs["codeS3Location"] = args ? args.codeS3Location : undefined;
-            resourceInputs["handlerConfigs"] = args ? args.handlerConfigs : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publishAuthModes"] = args ? args.publishAuthModes : undefined;
-            resourceInputs["subscribeAuthModes"] = args ? args.subscribeAuthModes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["codeHandlers"] = args?.codeHandlers;
+            resourceInputs["codeS3Location"] = args?.codeS3Location;
+            resourceInputs["handlerConfigs"] = args?.handlerConfigs;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publishAuthModes"] = args?.publishAuthModes;
+            resourceInputs["subscribeAuthModes"] = args?.subscribeAuthModes;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["channelNamespaceArn"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;

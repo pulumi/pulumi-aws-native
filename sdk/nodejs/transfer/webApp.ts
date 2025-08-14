@@ -85,15 +85,15 @@ export class WebApp extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.identityProviderDetails === undefined) && !opts.urn) {
+            if (args?.identityProviderDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityProviderDetails'");
             }
-            resourceInputs["accessEndpoint"] = args ? args.accessEndpoint : undefined;
-            resourceInputs["identityProviderDetails"] = args ? args.identityProviderDetails : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["webAppCustomization"] = args ? args.webAppCustomization : undefined;
-            resourceInputs["webAppEndpointPolicy"] = args ? args.webAppEndpointPolicy : undefined;
-            resourceInputs["webAppUnits"] = args ? args.webAppUnits : undefined;
+            resourceInputs["accessEndpoint"] = args?.accessEndpoint;
+            resourceInputs["identityProviderDetails"] = args?.identityProviderDetails;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["webAppCustomization"] = args?.webAppCustomization;
+            resourceInputs["webAppEndpointPolicy"] = args?.webAppEndpointPolicy;
+            resourceInputs["webAppUnits"] = args?.webAppUnits;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["webAppId"] = undefined /*out*/;
         } else {

@@ -63,14 +63,14 @@ export class ProactiveEngagement extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.emergencyContactList === undefined) && !opts.urn) {
+            if (args?.emergencyContactList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emergencyContactList'");
             }
-            if ((!args || args.proactiveEngagementStatus === undefined) && !opts.urn) {
+            if (args?.proactiveEngagementStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'proactiveEngagementStatus'");
             }
-            resourceInputs["emergencyContactList"] = args ? args.emergencyContactList : undefined;
-            resourceInputs["proactiveEngagementStatus"] = args ? args.proactiveEngagementStatus : undefined;
+            resourceInputs["emergencyContactList"] = args?.emergencyContactList;
+            resourceInputs["proactiveEngagementStatus"] = args?.proactiveEngagementStatus;
             resourceInputs["accountId"] = undefined /*out*/;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;

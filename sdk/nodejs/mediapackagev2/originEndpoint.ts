@@ -121,27 +121,27 @@ export class OriginEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channelGroupName === undefined) && !opts.urn) {
+            if (args?.channelGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelGroupName'");
             }
-            if ((!args || args.channelName === undefined) && !opts.urn) {
+            if (args?.channelName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelName'");
             }
-            if ((!args || args.containerType === undefined) && !opts.urn) {
+            if (args?.containerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerType'");
             }
-            resourceInputs["channelGroupName"] = args ? args.channelGroupName : undefined;
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["containerType"] = args ? args.containerType : undefined;
-            resourceInputs["dashManifests"] = args ? args.dashManifests : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["forceEndpointErrorConfiguration"] = args ? args.forceEndpointErrorConfiguration : undefined;
-            resourceInputs["hlsManifests"] = args ? args.hlsManifests : undefined;
-            resourceInputs["lowLatencyHlsManifests"] = args ? args.lowLatencyHlsManifests : undefined;
-            resourceInputs["originEndpointName"] = args ? args.originEndpointName : undefined;
-            resourceInputs["segment"] = args ? args.segment : undefined;
-            resourceInputs["startoverWindowSeconds"] = args ? args.startoverWindowSeconds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["channelGroupName"] = args?.channelGroupName;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["containerType"] = args?.containerType;
+            resourceInputs["dashManifests"] = args?.dashManifests;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["forceEndpointErrorConfiguration"] = args?.forceEndpointErrorConfiguration;
+            resourceInputs["hlsManifests"] = args?.hlsManifests;
+            resourceInputs["lowLatencyHlsManifests"] = args?.lowLatencyHlsManifests;
+            resourceInputs["originEndpointName"] = args?.originEndpointName;
+            resourceInputs["segment"] = args?.segment;
+            resourceInputs["startoverWindowSeconds"] = args?.startoverWindowSeconds;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["dashManifestUrls"] = undefined /*out*/;

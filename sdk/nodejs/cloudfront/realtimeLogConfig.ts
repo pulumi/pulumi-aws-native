@@ -70,19 +70,19 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endPoints === undefined) && !opts.urn) {
+            if (args?.endPoints === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endPoints'");
             }
-            if ((!args || args.fields === undefined) && !opts.urn) {
+            if (args?.fields === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fields'");
             }
-            if ((!args || args.samplingRate === undefined) && !opts.urn) {
+            if (args?.samplingRate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'samplingRate'");
             }
-            resourceInputs["endPoints"] = args ? args.endPoints : undefined;
-            resourceInputs["fields"] = args ? args.fields : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["samplingRate"] = args ? args.samplingRate : undefined;
+            resourceInputs["endPoints"] = args?.endPoints;
+            resourceInputs["fields"] = args?.fields;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["samplingRate"] = args?.samplingRate;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

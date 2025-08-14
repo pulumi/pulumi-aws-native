@@ -77,9 +77,9 @@ export class ControlPanel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["clusterArn"] = args ? args.clusterArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterArn"] = args?.clusterArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["controlPanelArn"] = undefined /*out*/;
             resourceInputs["defaultControlPanel"] = undefined /*out*/;
             resourceInputs["routingControlCount"] = undefined /*out*/;

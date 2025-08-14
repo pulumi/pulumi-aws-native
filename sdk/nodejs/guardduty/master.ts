@@ -58,15 +58,15 @@ export class Master extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.detectorId === undefined) && !opts.urn) {
+            if (args?.detectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if ((!args || args.masterId === undefined) && !opts.urn) {
+            if (args?.masterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'masterId'");
             }
-            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
-            resourceInputs["invitationId"] = args ? args.invitationId : undefined;
-            resourceInputs["masterId"] = args ? args.masterId : undefined;
+            resourceInputs["detectorId"] = args?.detectorId;
+            resourceInputs["invitationId"] = args?.invitationId;
+            resourceInputs["masterId"] = args?.masterId;
         } else {
             resourceInputs["detectorId"] = undefined /*out*/;
             resourceInputs["invitationId"] = undefined /*out*/;

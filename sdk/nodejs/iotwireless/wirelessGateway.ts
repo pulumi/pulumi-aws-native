@@ -85,16 +85,16 @@ export class WirelessGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.loRaWan === undefined) && !opts.urn) {
+            if (args?.loRaWan === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loRaWan'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["lastUplinkReceivedAt"] = args ? args.lastUplinkReceivedAt : undefined;
-            resourceInputs["loRaWan"] = args ? args.loRaWan : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["thingArn"] = args ? args.thingArn : undefined;
-            resourceInputs["thingName"] = args ? args.thingName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["lastUplinkReceivedAt"] = args?.lastUplinkReceivedAt;
+            resourceInputs["loRaWan"] = args?.loRaWan;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["thingArn"] = args?.thingArn;
+            resourceInputs["thingName"] = args?.thingName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

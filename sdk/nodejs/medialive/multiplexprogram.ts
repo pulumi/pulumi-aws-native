@@ -77,12 +77,12 @@ export class Multiplexprogram extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["multiplexId"] = args ? args.multiplexId : undefined;
-            resourceInputs["multiplexProgramSettings"] = args ? args.multiplexProgramSettings : undefined;
-            resourceInputs["packetIdentifiersMap"] = args ? args.packetIdentifiersMap : undefined;
-            resourceInputs["pipelineDetails"] = args ? args.pipelineDetails : undefined;
-            resourceInputs["preferredChannelPipeline"] = args ? args.preferredChannelPipeline : undefined;
-            resourceInputs["programName"] = args ? args.programName : undefined;
+            resourceInputs["multiplexId"] = args?.multiplexId;
+            resourceInputs["multiplexProgramSettings"] = args?.multiplexProgramSettings;
+            resourceInputs["packetIdentifiersMap"] = args?.packetIdentifiersMap;
+            resourceInputs["pipelineDetails"] = args?.pipelineDetails;
+            resourceInputs["preferredChannelPipeline"] = args?.preferredChannelPipeline;
+            resourceInputs["programName"] = args?.programName;
             resourceInputs["channelId"] = undefined /*out*/;
         } else {
             resourceInputs["channelId"] = undefined /*out*/;

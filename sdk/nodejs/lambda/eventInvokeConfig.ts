@@ -77,17 +77,17 @@ export class EventInvokeConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.functionName === undefined) && !opts.urn) {
+            if (args?.functionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            if ((!args || args.qualifier === undefined) && !opts.urn) {
+            if (args?.qualifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'qualifier'");
             }
-            resourceInputs["destinationConfig"] = args ? args.destinationConfig : undefined;
-            resourceInputs["functionName"] = args ? args.functionName : undefined;
-            resourceInputs["maximumEventAgeInSeconds"] = args ? args.maximumEventAgeInSeconds : undefined;
-            resourceInputs["maximumRetryAttempts"] = args ? args.maximumRetryAttempts : undefined;
-            resourceInputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["destinationConfig"] = args?.destinationConfig;
+            resourceInputs["functionName"] = args?.functionName;
+            resourceInputs["maximumEventAgeInSeconds"] = args?.maximumEventAgeInSeconds;
+            resourceInputs["maximumRetryAttempts"] = args?.maximumRetryAttempts;
+            resourceInputs["qualifier"] = args?.qualifier;
         } else {
             resourceInputs["destinationConfig"] = undefined /*out*/;
             resourceInputs["functionName"] = undefined /*out*/;

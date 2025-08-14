@@ -65,9 +65,9 @@ export class Plan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["contactId"] = args ? args.contactId : undefined;
-            resourceInputs["rotationIds"] = args ? args.rotationIds : undefined;
-            resourceInputs["stages"] = args ? args.stages : undefined;
+            resourceInputs["contactId"] = args?.contactId;
+            resourceInputs["rotationIds"] = args?.rotationIds;
+            resourceInputs["stages"] = args?.stages;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

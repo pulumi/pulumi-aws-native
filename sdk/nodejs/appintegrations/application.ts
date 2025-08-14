@@ -97,25 +97,25 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationSourceConfig === undefined) && !opts.urn) {
+            if (args?.applicationSourceConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationSourceConfig'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.namespace === undefined) && !opts.urn) {
+            if (args?.namespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
-            resourceInputs["applicationConfig"] = args ? args.applicationConfig : undefined;
-            resourceInputs["applicationSourceConfig"] = args ? args.applicationSourceConfig : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["iframeConfig"] = args ? args.iframeConfig : undefined;
-            resourceInputs["initializationTimeout"] = args ? args.initializationTimeout : undefined;
-            resourceInputs["isService"] = args ? args.isService : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationConfig"] = args?.applicationConfig;
+            resourceInputs["applicationSourceConfig"] = args?.applicationSourceConfig;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["iframeConfig"] = args?.iframeConfig;
+            resourceInputs["initializationTimeout"] = args?.initializationTimeout;
+            resourceInputs["isService"] = args?.isService;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

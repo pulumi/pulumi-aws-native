@@ -107,29 +107,29 @@ export class Plan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.executionRole === undefined) && !opts.urn) {
+            if (args?.executionRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRole'");
             }
-            if ((!args || args.recoveryApproach === undefined) && !opts.urn) {
+            if (args?.recoveryApproach === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryApproach'");
             }
-            if ((!args || args.regions === undefined) && !opts.urn) {
+            if (args?.regions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'regions'");
             }
-            if ((!args || args.workflows === undefined) && !opts.urn) {
+            if (args?.workflows === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workflows'");
             }
-            resourceInputs["associatedAlarms"] = args ? args.associatedAlarms : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["executionRole"] = args ? args.executionRole : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["primaryRegion"] = args ? args.primaryRegion : undefined;
-            resourceInputs["recoveryApproach"] = args ? args.recoveryApproach : undefined;
-            resourceInputs["recoveryTimeObjectiveMinutes"] = args ? args.recoveryTimeObjectiveMinutes : undefined;
-            resourceInputs["regions"] = args ? args.regions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["triggers"] = args ? args.triggers : undefined;
-            resourceInputs["workflows"] = args ? args.workflows : undefined;
+            resourceInputs["associatedAlarms"] = args?.associatedAlarms;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["executionRole"] = args?.executionRole;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["primaryRegion"] = args?.primaryRegion;
+            resourceInputs["recoveryApproach"] = args?.recoveryApproach;
+            resourceInputs["recoveryTimeObjectiveMinutes"] = args?.recoveryTimeObjectiveMinutes;
+            resourceInputs["regions"] = args?.regions;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["triggers"] = args?.triggers;
+            resourceInputs["workflows"] = args?.workflows;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["healthChecksForPlan"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;

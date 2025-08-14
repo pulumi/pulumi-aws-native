@@ -77,14 +77,14 @@ export class RouteServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.amazonSideAsn === undefined) && !opts.urn) {
+            if (args?.amazonSideAsn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amazonSideAsn'");
             }
-            resourceInputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
-            resourceInputs["persistRoutes"] = args ? args.persistRoutes : undefined;
-            resourceInputs["persistRoutesDuration"] = args ? args.persistRoutesDuration : undefined;
-            resourceInputs["snsNotificationsEnabled"] = args ? args.snsNotificationsEnabled : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["amazonSideAsn"] = args?.amazonSideAsn;
+            resourceInputs["persistRoutes"] = args?.persistRoutes;
+            resourceInputs["persistRoutesDuration"] = args?.persistRoutesDuration;
+            resourceInputs["snsNotificationsEnabled"] = args?.snsNotificationsEnabled;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

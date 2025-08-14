@@ -83,22 +83,22 @@ export class StorageSystem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.agentArns === undefined) && !opts.urn) {
+            if (args?.agentArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentArns'");
             }
-            if ((!args || args.serverConfiguration === undefined) && !opts.urn) {
+            if (args?.serverConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverConfiguration'");
             }
-            if ((!args || args.systemType === undefined) && !opts.urn) {
+            if (args?.systemType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'systemType'");
             }
-            resourceInputs["agentArns"] = args ? args.agentArns : undefined;
-            resourceInputs["cloudWatchLogGroupArn"] = args ? args.cloudWatchLogGroupArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverConfiguration"] = args ? args.serverConfiguration : undefined;
-            resourceInputs["serverCredentials"] = args ? args.serverCredentials : undefined;
-            resourceInputs["systemType"] = args ? args.systemType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentArns"] = args?.agentArns;
+            resourceInputs["cloudWatchLogGroupArn"] = args?.cloudWatchLogGroupArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverConfiguration"] = args?.serverConfiguration;
+            resourceInputs["serverCredentials"] = args?.serverCredentials;
+            resourceInputs["systemType"] = args?.systemType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["connectivityStatus"] = undefined /*out*/;
             resourceInputs["secretsManagerArn"] = undefined /*out*/;
             resourceInputs["storageSystemArn"] = undefined /*out*/;

@@ -71,12 +71,12 @@ export class TopicRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.topicRulePayload === undefined) && !opts.urn) {
+            if (args?.topicRulePayload === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topicRulePayload'");
             }
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topicRulePayload"] = args ? args.topicRulePayload : undefined;
+            resourceInputs["ruleName"] = args?.ruleName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topicRulePayload"] = args?.topicRulePayload;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -86,12 +86,12 @@ export class ResourcePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyDocument === undefined) && !opts.urn) {
+            if (args?.policyDocument === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            resourceInputs["bypassPolicyLockoutCheck"] = args ? args.bypassPolicyLockoutCheck : undefined;
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["bypassPolicyLockoutCheck"] = args?.bypassPolicyLockoutCheck;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["policyName"] = args?.policyName;
         } else {
             resourceInputs["bypassPolicyLockoutCheck"] = undefined /*out*/;
             resourceInputs["policyDocument"] = undefined /*out*/;

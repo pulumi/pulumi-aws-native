@@ -101,25 +101,25 @@ export class FuotaTask extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.firmwareUpdateImage === undefined) && !opts.urn) {
+            if (args?.firmwareUpdateImage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firmwareUpdateImage'");
             }
-            if ((!args || args.firmwareUpdateRole === undefined) && !opts.urn) {
+            if (args?.firmwareUpdateRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firmwareUpdateRole'");
             }
-            if ((!args || args.loRaWan === undefined) && !opts.urn) {
+            if (args?.loRaWan === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loRaWan'");
             }
-            resourceInputs["associateMulticastGroup"] = args ? args.associateMulticastGroup : undefined;
-            resourceInputs["associateWirelessDevice"] = args ? args.associateWirelessDevice : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["disassociateMulticastGroup"] = args ? args.disassociateMulticastGroup : undefined;
-            resourceInputs["disassociateWirelessDevice"] = args ? args.disassociateWirelessDevice : undefined;
-            resourceInputs["firmwareUpdateImage"] = args ? args.firmwareUpdateImage : undefined;
-            resourceInputs["firmwareUpdateRole"] = args ? args.firmwareUpdateRole : undefined;
-            resourceInputs["loRaWan"] = args ? args.loRaWan : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["associateMulticastGroup"] = args?.associateMulticastGroup;
+            resourceInputs["associateWirelessDevice"] = args?.associateWirelessDevice;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["disassociateMulticastGroup"] = args?.disassociateMulticastGroup;
+            resourceInputs["disassociateWirelessDevice"] = args?.disassociateWirelessDevice;
+            resourceInputs["firmwareUpdateImage"] = args?.firmwareUpdateImage;
+            resourceInputs["firmwareUpdateRole"] = args?.firmwareUpdateRole;
+            resourceInputs["loRaWan"] = args?.loRaWan;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["fuotaTaskStatus"] = undefined /*out*/;

@@ -116,23 +116,23 @@ export class JobDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["consumableResourceProperties"] = args ? args.consumableResourceProperties : undefined;
-            resourceInputs["containerProperties"] = args ? args.containerProperties : undefined;
-            resourceInputs["ecsProperties"] = args ? args.ecsProperties : undefined;
-            resourceInputs["eksProperties"] = args ? args.eksProperties : undefined;
-            resourceInputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
-            resourceInputs["nodeProperties"] = args ? args.nodeProperties : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["platformCapabilities"] = args ? args.platformCapabilities : undefined;
-            resourceInputs["propagateTags"] = args ? args.propagateTags : undefined;
-            resourceInputs["retryStrategy"] = args ? args.retryStrategy : undefined;
-            resourceInputs["schedulingPriority"] = args ? args.schedulingPriority : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["consumableResourceProperties"] = args?.consumableResourceProperties;
+            resourceInputs["containerProperties"] = args?.containerProperties;
+            resourceInputs["ecsProperties"] = args?.ecsProperties;
+            resourceInputs["eksProperties"] = args?.eksProperties;
+            resourceInputs["jobDefinitionName"] = args?.jobDefinitionName;
+            resourceInputs["nodeProperties"] = args?.nodeProperties;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["platformCapabilities"] = args?.platformCapabilities;
+            resourceInputs["propagateTags"] = args?.propagateTags;
+            resourceInputs["retryStrategy"] = args?.retryStrategy;
+            resourceInputs["schedulingPriority"] = args?.schedulingPriority;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeout"] = args?.timeout;
+            resourceInputs["type"] = args?.type;
             resourceInputs["jobDefinitionArn"] = undefined /*out*/;
         } else {
             resourceInputs["consumableResourceProperties"] = undefined /*out*/;

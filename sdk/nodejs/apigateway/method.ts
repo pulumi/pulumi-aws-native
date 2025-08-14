@@ -102,28 +102,28 @@ export class Method extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.httpMethod === undefined) && !opts.urn) {
+            if (args?.httpMethod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["apiKeyRequired"] = args ? args.apiKeyRequired : undefined;
-            resourceInputs["authorizationScopes"] = args ? args.authorizationScopes : undefined;
-            resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
-            resourceInputs["authorizerId"] = args ? args.authorizerId : undefined;
-            resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
-            resourceInputs["integration"] = args ? args.integration : undefined;
-            resourceInputs["methodResponses"] = args ? args.methodResponses : undefined;
-            resourceInputs["operationName"] = args ? args.operationName : undefined;
-            resourceInputs["requestModels"] = args ? args.requestModels : undefined;
-            resourceInputs["requestParameters"] = args ? args.requestParameters : undefined;
-            resourceInputs["requestValidatorId"] = args ? args.requestValidatorId : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["apiKeyRequired"] = args?.apiKeyRequired;
+            resourceInputs["authorizationScopes"] = args?.authorizationScopes;
+            resourceInputs["authorizationType"] = args?.authorizationType;
+            resourceInputs["authorizerId"] = args?.authorizerId;
+            resourceInputs["httpMethod"] = args?.httpMethod;
+            resourceInputs["integration"] = args?.integration;
+            resourceInputs["methodResponses"] = args?.methodResponses;
+            resourceInputs["operationName"] = args?.operationName;
+            resourceInputs["requestModels"] = args?.requestModels;
+            resourceInputs["requestParameters"] = args?.requestParameters;
+            resourceInputs["requestValidatorId"] = args?.requestValidatorId;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["restApiId"] = args?.restApiId;
         } else {
             resourceInputs["apiKeyRequired"] = undefined /*out*/;
             resourceInputs["authorizationScopes"] = undefined /*out*/;

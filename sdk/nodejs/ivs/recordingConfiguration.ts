@@ -81,15 +81,15 @@ export class RecordingConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationConfiguration === undefined) && !opts.urn) {
+            if (args?.destinationConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationConfiguration'");
             }
-            resourceInputs["destinationConfiguration"] = args ? args.destinationConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recordingReconnectWindowSeconds"] = args ? args.recordingReconnectWindowSeconds : undefined;
-            resourceInputs["renditionConfiguration"] = args ? args.renditionConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["thumbnailConfiguration"] = args ? args.thumbnailConfiguration : undefined;
+            resourceInputs["destinationConfiguration"] = args?.destinationConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recordingReconnectWindowSeconds"] = args?.recordingReconnectWindowSeconds;
+            resourceInputs["renditionConfiguration"] = args?.renditionConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["thumbnailConfiguration"] = args?.thumbnailConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {

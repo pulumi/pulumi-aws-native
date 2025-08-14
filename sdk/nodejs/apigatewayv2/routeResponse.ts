@@ -79,21 +79,21 @@ export class RouteResponse extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.routeId === undefined) && !opts.urn) {
+            if (args?.routeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeId'");
             }
-            if ((!args || args.routeResponseKey === undefined) && !opts.urn) {
+            if (args?.routeResponseKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeResponseKey'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["modelSelectionExpression"] = args ? args.modelSelectionExpression : undefined;
-            resourceInputs["responseModels"] = args ? args.responseModels : undefined;
-            resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
-            resourceInputs["routeId"] = args ? args.routeId : undefined;
-            resourceInputs["routeResponseKey"] = args ? args.routeResponseKey : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["modelSelectionExpression"] = args?.modelSelectionExpression;
+            resourceInputs["responseModels"] = args?.responseModels;
+            resourceInputs["responseParameters"] = args?.responseParameters;
+            resourceInputs["routeId"] = args?.routeId;
+            resourceInputs["routeResponseKey"] = args?.routeResponseKey;
             resourceInputs["routeResponseId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;

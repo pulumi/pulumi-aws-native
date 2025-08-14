@@ -204,36 +204,36 @@ export class EventSourceMapping extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.functionName === undefined) && !opts.urn) {
+            if (args?.functionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            resourceInputs["amazonManagedKafkaEventSourceConfig"] = args ? args.amazonManagedKafkaEventSourceConfig : undefined;
-            resourceInputs["batchSize"] = args ? args.batchSize : undefined;
-            resourceInputs["bisectBatchOnFunctionError"] = args ? args.bisectBatchOnFunctionError : undefined;
-            resourceInputs["destinationConfig"] = args ? args.destinationConfig : undefined;
-            resourceInputs["documentDbEventSourceConfig"] = args ? args.documentDbEventSourceConfig : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["eventSourceArn"] = args ? args.eventSourceArn : undefined;
-            resourceInputs["filterCriteria"] = args ? args.filterCriteria : undefined;
-            resourceInputs["functionName"] = args ? args.functionName : undefined;
-            resourceInputs["functionResponseTypes"] = args ? args.functionResponseTypes : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["maximumBatchingWindowInSeconds"] = args ? args.maximumBatchingWindowInSeconds : undefined;
-            resourceInputs["maximumRecordAgeInSeconds"] = args ? args.maximumRecordAgeInSeconds : undefined;
-            resourceInputs["maximumRetryAttempts"] = args ? args.maximumRetryAttempts : undefined;
-            resourceInputs["metricsConfig"] = args ? args.metricsConfig : undefined;
-            resourceInputs["parallelizationFactor"] = args ? args.parallelizationFactor : undefined;
-            resourceInputs["provisionedPollerConfig"] = args ? args.provisionedPollerConfig : undefined;
-            resourceInputs["queues"] = args ? args.queues : undefined;
-            resourceInputs["scalingConfig"] = args ? args.scalingConfig : undefined;
-            resourceInputs["selfManagedEventSource"] = args ? args.selfManagedEventSource : undefined;
-            resourceInputs["selfManagedKafkaEventSourceConfig"] = args ? args.selfManagedKafkaEventSourceConfig : undefined;
-            resourceInputs["sourceAccessConfigurations"] = args ? args.sourceAccessConfigurations : undefined;
-            resourceInputs["startingPosition"] = args ? args.startingPosition : undefined;
-            resourceInputs["startingPositionTimestamp"] = args ? args.startingPositionTimestamp : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topics"] = args ? args.topics : undefined;
-            resourceInputs["tumblingWindowInSeconds"] = args ? args.tumblingWindowInSeconds : undefined;
+            resourceInputs["amazonManagedKafkaEventSourceConfig"] = args?.amazonManagedKafkaEventSourceConfig;
+            resourceInputs["batchSize"] = args?.batchSize;
+            resourceInputs["bisectBatchOnFunctionError"] = args?.bisectBatchOnFunctionError;
+            resourceInputs["destinationConfig"] = args?.destinationConfig;
+            resourceInputs["documentDbEventSourceConfig"] = args?.documentDbEventSourceConfig;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["eventSourceArn"] = args?.eventSourceArn;
+            resourceInputs["filterCriteria"] = args?.filterCriteria;
+            resourceInputs["functionName"] = args?.functionName;
+            resourceInputs["functionResponseTypes"] = args?.functionResponseTypes;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["maximumBatchingWindowInSeconds"] = args?.maximumBatchingWindowInSeconds;
+            resourceInputs["maximumRecordAgeInSeconds"] = args?.maximumRecordAgeInSeconds;
+            resourceInputs["maximumRetryAttempts"] = args?.maximumRetryAttempts;
+            resourceInputs["metricsConfig"] = args?.metricsConfig;
+            resourceInputs["parallelizationFactor"] = args?.parallelizationFactor;
+            resourceInputs["provisionedPollerConfig"] = args?.provisionedPollerConfig;
+            resourceInputs["queues"] = args?.queues;
+            resourceInputs["scalingConfig"] = args?.scalingConfig;
+            resourceInputs["selfManagedEventSource"] = args?.selfManagedEventSource;
+            resourceInputs["selfManagedKafkaEventSourceConfig"] = args?.selfManagedKafkaEventSourceConfig;
+            resourceInputs["sourceAccessConfigurations"] = args?.sourceAccessConfigurations;
+            resourceInputs["startingPosition"] = args?.startingPosition;
+            resourceInputs["startingPositionTimestamp"] = args?.startingPositionTimestamp;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topics"] = args?.topics;
+            resourceInputs["tumblingWindowInSeconds"] = args?.tumblingWindowInSeconds;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["eventSourceMappingArn"] = undefined /*out*/;
         } else {

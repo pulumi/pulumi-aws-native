@@ -147,35 +147,35 @@ export class Job extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.command === undefined) && !opts.urn) {
+            if (args?.command === undefined && !opts.urn) {
                 throw new Error("Missing required property 'command'");
             }
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            resourceInputs["allocatedCapacity"] = args ? args.allocatedCapacity : undefined;
-            resourceInputs["command"] = args ? args.command : undefined;
-            resourceInputs["connections"] = args ? args.connections : undefined;
-            resourceInputs["defaultArguments"] = args ? args.defaultArguments : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["executionClass"] = args ? args.executionClass : undefined;
-            resourceInputs["executionProperty"] = args ? args.executionProperty : undefined;
-            resourceInputs["glueVersion"] = args ? args.glueVersion : undefined;
-            resourceInputs["jobMode"] = args ? args.jobMode : undefined;
-            resourceInputs["jobRunQueuingEnabled"] = args ? args.jobRunQueuingEnabled : undefined;
-            resourceInputs["logUri"] = args ? args.logUri : undefined;
-            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
-            resourceInputs["maxRetries"] = args ? args.maxRetries : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nonOverridableArguments"] = args ? args.nonOverridableArguments : undefined;
-            resourceInputs["notificationProperty"] = args ? args.notificationProperty : undefined;
-            resourceInputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
-            resourceInputs["workerType"] = args ? args.workerType : undefined;
+            resourceInputs["allocatedCapacity"] = args?.allocatedCapacity;
+            resourceInputs["command"] = args?.command;
+            resourceInputs["connections"] = args?.connections;
+            resourceInputs["defaultArguments"] = args?.defaultArguments;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["executionClass"] = args?.executionClass;
+            resourceInputs["executionProperty"] = args?.executionProperty;
+            resourceInputs["glueVersion"] = args?.glueVersion;
+            resourceInputs["jobMode"] = args?.jobMode;
+            resourceInputs["jobRunQueuingEnabled"] = args?.jobRunQueuingEnabled;
+            resourceInputs["logUri"] = args?.logUri;
+            resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
+            resourceInputs["maxCapacity"] = args?.maxCapacity;
+            resourceInputs["maxRetries"] = args?.maxRetries;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nonOverridableArguments"] = args?.nonOverridableArguments;
+            resourceInputs["notificationProperty"] = args?.notificationProperty;
+            resourceInputs["numberOfWorkers"] = args?.numberOfWorkers;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["securityConfiguration"] = args?.securityConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeout"] = args?.timeout;
+            resourceInputs["workerType"] = args?.workerType;
         } else {
             resourceInputs["allocatedCapacity"] = undefined /*out*/;
             resourceInputs["command"] = undefined /*out*/;

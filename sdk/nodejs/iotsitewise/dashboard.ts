@@ -77,17 +77,17 @@ export class Dashboard extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dashboardDefinition === undefined) && !opts.urn) {
+            if (args?.dashboardDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dashboardDefinition'");
             }
-            if ((!args || args.dashboardDescription === undefined) && !opts.urn) {
+            if (args?.dashboardDescription === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dashboardDescription'");
             }
-            resourceInputs["dashboardDefinition"] = args ? args.dashboardDefinition : undefined;
-            resourceInputs["dashboardDescription"] = args ? args.dashboardDescription : undefined;
-            resourceInputs["dashboardName"] = args ? args.dashboardName : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dashboardDefinition"] = args?.dashboardDefinition;
+            resourceInputs["dashboardDescription"] = args?.dashboardDescription;
+            resourceInputs["dashboardName"] = args?.dashboardName;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["dashboardArn"] = undefined /*out*/;
             resourceInputs["dashboardId"] = undefined /*out*/;
         } else {

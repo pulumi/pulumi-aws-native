@@ -101,22 +101,22 @@ export class VerifiedAccessTrustProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyReferenceName === undefined) && !opts.urn) {
+            if (args?.policyReferenceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyReferenceName'");
             }
-            if ((!args || args.trustProviderType === undefined) && !opts.urn) {
+            if (args?.trustProviderType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trustProviderType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["deviceOptions"] = args ? args.deviceOptions : undefined;
-            resourceInputs["deviceTrustProviderType"] = args ? args.deviceTrustProviderType : undefined;
-            resourceInputs["nativeApplicationOidcOptions"] = args ? args.nativeApplicationOidcOptions : undefined;
-            resourceInputs["oidcOptions"] = args ? args.oidcOptions : undefined;
-            resourceInputs["policyReferenceName"] = args ? args.policyReferenceName : undefined;
-            resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trustProviderType"] = args ? args.trustProviderType : undefined;
-            resourceInputs["userTrustProviderType"] = args ? args.userTrustProviderType : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["deviceOptions"] = args?.deviceOptions;
+            resourceInputs["deviceTrustProviderType"] = args?.deviceTrustProviderType;
+            resourceInputs["nativeApplicationOidcOptions"] = args?.nativeApplicationOidcOptions;
+            resourceInputs["oidcOptions"] = args?.oidcOptions;
+            resourceInputs["policyReferenceName"] = args?.policyReferenceName;
+            resourceInputs["sseSpecification"] = args?.sseSpecification;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trustProviderType"] = args?.trustProviderType;
+            resourceInputs["userTrustProviderType"] = args?.userTrustProviderType;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["verifiedAccessTrustProviderId"] = undefined /*out*/;

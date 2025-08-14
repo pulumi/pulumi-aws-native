@@ -81,20 +81,20 @@ export class RepositoryLink extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectionArn === undefined) && !opts.urn) {
+            if (args?.connectionArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionArn'");
             }
-            if ((!args || args.ownerId === undefined) && !opts.urn) {
+            if (args?.ownerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ownerId'");
             }
-            if ((!args || args.repositoryName === undefined) && !opts.urn) {
+            if (args?.repositoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repositoryName'");
             }
-            resourceInputs["connectionArn"] = args ? args.connectionArn : undefined;
-            resourceInputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
-            resourceInputs["ownerId"] = args ? args.ownerId : undefined;
-            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectionArn"] = args?.connectionArn;
+            resourceInputs["encryptionKeyArn"] = args?.encryptionKeyArn;
+            resourceInputs["ownerId"] = args?.ownerId;
+            resourceInputs["repositoryName"] = args?.repositoryName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["providerType"] = undefined /*out*/;
             resourceInputs["repositoryLinkArn"] = undefined /*out*/;
             resourceInputs["repositoryLinkId"] = undefined /*out*/;

@@ -132,31 +132,31 @@ export class ScheduledQuery extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.errorReportConfiguration === undefined) && !opts.urn) {
+            if (args?.errorReportConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'errorReportConfiguration'");
             }
-            if ((!args || args.notificationConfiguration === undefined) && !opts.urn) {
+            if (args?.notificationConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notificationConfiguration'");
             }
-            if ((!args || args.queryString === undefined) && !opts.urn) {
+            if (args?.queryString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryString'");
             }
-            if ((!args || args.scheduleConfiguration === undefined) && !opts.urn) {
+            if (args?.scheduleConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleConfiguration'");
             }
-            if ((!args || args.scheduledQueryExecutionRoleArn === undefined) && !opts.urn) {
+            if (args?.scheduledQueryExecutionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduledQueryExecutionRoleArn'");
             }
-            resourceInputs["clientToken"] = args ? args.clientToken : undefined;
-            resourceInputs["errorReportConfiguration"] = args ? args.errorReportConfiguration : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
-            resourceInputs["queryString"] = args ? args.queryString : undefined;
-            resourceInputs["scheduleConfiguration"] = args ? args.scheduleConfiguration : undefined;
-            resourceInputs["scheduledQueryExecutionRoleArn"] = args ? args.scheduledQueryExecutionRoleArn : undefined;
-            resourceInputs["scheduledQueryName"] = args ? args.scheduledQueryName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetConfiguration"] = args ? args.targetConfiguration : undefined;
+            resourceInputs["clientToken"] = args?.clientToken;
+            resourceInputs["errorReportConfiguration"] = args?.errorReportConfiguration;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["notificationConfiguration"] = args?.notificationConfiguration;
+            resourceInputs["queryString"] = args?.queryString;
+            resourceInputs["scheduleConfiguration"] = args?.scheduleConfiguration;
+            resourceInputs["scheduledQueryExecutionRoleArn"] = args?.scheduledQueryExecutionRoleArn;
+            resourceInputs["scheduledQueryName"] = args?.scheduledQueryName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetConfiguration"] = args?.targetConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["sqErrorReportConfiguration"] = undefined /*out*/;
             resourceInputs["sqKmsKeyId"] = undefined /*out*/;

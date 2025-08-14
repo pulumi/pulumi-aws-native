@@ -62,15 +62,15 @@ export class Group extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.identityStoreId === undefined) && !opts.urn) {
+            if (args?.identityStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityStoreId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["identityStoreId"] = args ? args.identityStoreId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["identityStoreId"] = args?.identityStoreId;
             resourceInputs["groupId"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

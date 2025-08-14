@@ -61,15 +61,15 @@ export class VolumeAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceId === undefined) && !opts.urn) {
+            if (args?.instanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.volumeId === undefined) && !opts.urn) {
+            if (args?.volumeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeId'");
             }
-            resourceInputs["device"] = args ? args.device : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["volumeId"] = args ? args.volumeId : undefined;
+            resourceInputs["device"] = args?.device;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["volumeId"] = args?.volumeId;
         } else {
             resourceInputs["device"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;

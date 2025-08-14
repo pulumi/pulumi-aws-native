@@ -106,27 +106,27 @@ export class Bot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataPrivacy === undefined) && !opts.urn) {
+            if (args?.dataPrivacy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataPrivacy'");
             }
-            if ((!args || args.idleSessionTtlInSeconds === undefined) && !opts.urn) {
+            if (args?.idleSessionTtlInSeconds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'idleSessionTtlInSeconds'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["autoBuildBotLocales"] = args ? args.autoBuildBotLocales : undefined;
-            resourceInputs["botFileS3Location"] = args ? args.botFileS3Location : undefined;
-            resourceInputs["botLocales"] = args ? args.botLocales : undefined;
-            resourceInputs["botTags"] = args ? args.botTags : undefined;
-            resourceInputs["dataPrivacy"] = args ? args.dataPrivacy : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["idleSessionTtlInSeconds"] = args ? args.idleSessionTtlInSeconds : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["replication"] = args ? args.replication : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["testBotAliasSettings"] = args ? args.testBotAliasSettings : undefined;
-            resourceInputs["testBotAliasTags"] = args ? args.testBotAliasTags : undefined;
+            resourceInputs["autoBuildBotLocales"] = args?.autoBuildBotLocales;
+            resourceInputs["botFileS3Location"] = args?.botFileS3Location;
+            resourceInputs["botLocales"] = args?.botLocales;
+            resourceInputs["botTags"] = args?.botTags;
+            resourceInputs["dataPrivacy"] = args?.dataPrivacy;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["idleSessionTtlInSeconds"] = args?.idleSessionTtlInSeconds;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["replication"] = args?.replication;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["testBotAliasSettings"] = args?.testBotAliasSettings;
+            resourceInputs["testBotAliasTags"] = args?.testBotAliasTags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

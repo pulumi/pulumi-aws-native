@@ -84,14 +84,14 @@ export class GlobalCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["engineLifecycleSupport"] = args ? args.engineLifecycleSupport : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
-            resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
-            resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deletionProtection"] = args?.deletionProtection;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["engineLifecycleSupport"] = args?.engineLifecycleSupport;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["globalClusterIdentifier"] = args?.globalClusterIdentifier;
+            resourceInputs["sourceDbClusterIdentifier"] = args?.sourceDbClusterIdentifier;
+            resourceInputs["storageEncrypted"] = args?.storageEncrypted;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["globalEndpoint"] = undefined /*out*/;
         } else {
             resourceInputs["deletionProtection"] = undefined /*out*/;

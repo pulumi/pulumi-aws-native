@@ -77,22 +77,22 @@ export class DataCellsFilter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.tableCatalogId === undefined) && !opts.urn) {
+            if (args?.tableCatalogId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableCatalogId'");
             }
-            if ((!args || args.tableName === undefined) && !opts.urn) {
+            if (args?.tableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            resourceInputs["columnNames"] = args ? args.columnNames : undefined;
-            resourceInputs["columnWildcard"] = args ? args.columnWildcard : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rowFilter"] = args ? args.rowFilter : undefined;
-            resourceInputs["tableCatalogId"] = args ? args.tableCatalogId : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["columnNames"] = args?.columnNames;
+            resourceInputs["columnWildcard"] = args?.columnWildcard;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rowFilter"] = args?.rowFilter;
+            resourceInputs["tableCatalogId"] = args?.tableCatalogId;
+            resourceInputs["tableName"] = args?.tableName;
         } else {
             resourceInputs["columnNames"] = undefined /*out*/;
             resourceInputs["columnWildcard"] = undefined /*out*/;

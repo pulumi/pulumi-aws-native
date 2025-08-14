@@ -65,15 +65,15 @@ export class AggregationAuthorization extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authorizedAccountId === undefined) && !opts.urn) {
+            if (args?.authorizedAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizedAccountId'");
             }
-            if ((!args || args.authorizedAwsRegion === undefined) && !opts.urn) {
+            if (args?.authorizedAwsRegion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizedAwsRegion'");
             }
-            resourceInputs["authorizedAccountId"] = args ? args.authorizedAccountId : undefined;
-            resourceInputs["authorizedAwsRegion"] = args ? args.authorizedAwsRegion : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authorizedAccountId"] = args?.authorizedAccountId;
+            resourceInputs["authorizedAwsRegion"] = args?.authorizedAwsRegion;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["aggregationAuthorizationArn"] = undefined /*out*/;
         } else {
             resourceInputs["aggregationAuthorizationArn"] = undefined /*out*/;

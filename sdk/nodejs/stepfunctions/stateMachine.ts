@@ -233,20 +233,20 @@ export class StateMachine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["definitionS3Location"] = args ? args.definitionS3Location : undefined;
-            resourceInputs["definitionString"] = args ? args.definitionString : undefined;
-            resourceInputs["definitionSubstitutions"] = args ? args.definitionSubstitutions : undefined;
-            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["stateMachineName"] = args ? args.stateMachineName : undefined;
-            resourceInputs["stateMachineType"] = args ? args.stateMachineType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tracingConfiguration"] = args ? args.tracingConfiguration : undefined;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["definitionS3Location"] = args?.definitionS3Location;
+            resourceInputs["definitionString"] = args?.definitionString;
+            resourceInputs["definitionSubstitutions"] = args?.definitionSubstitutions;
+            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["stateMachineName"] = args?.stateMachineName;
+            resourceInputs["stateMachineType"] = args?.stateMachineType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tracingConfiguration"] = args?.tracingConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["stateMachineRevisionId"] = undefined /*out*/;

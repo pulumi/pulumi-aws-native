@@ -133,27 +133,27 @@ export class FlowSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            resourceInputs["decryption"] = args ? args.decryption : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["entitlementArn"] = args ? args.entitlementArn : undefined;
-            resourceInputs["flowArn"] = args ? args.flowArn : undefined;
-            resourceInputs["gatewayBridgeSource"] = args ? args.gatewayBridgeSource : undefined;
-            resourceInputs["ingestPort"] = args ? args.ingestPort : undefined;
-            resourceInputs["maxBitrate"] = args ? args.maxBitrate : undefined;
-            resourceInputs["maxLatency"] = args ? args.maxLatency : undefined;
-            resourceInputs["minLatency"] = args ? args.minLatency : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["senderControlPort"] = args ? args.senderControlPort : undefined;
-            resourceInputs["senderIpAddress"] = args ? args.senderIpAddress : undefined;
-            resourceInputs["sourceListenerAddress"] = args ? args.sourceListenerAddress : undefined;
-            resourceInputs["sourceListenerPort"] = args ? args.sourceListenerPort : undefined;
-            resourceInputs["streamId"] = args ? args.streamId : undefined;
-            resourceInputs["vpcInterfaceName"] = args ? args.vpcInterfaceName : undefined;
-            resourceInputs["whitelistCidr"] = args ? args.whitelistCidr : undefined;
+            resourceInputs["decryption"] = args?.decryption;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["entitlementArn"] = args?.entitlementArn;
+            resourceInputs["flowArn"] = args?.flowArn;
+            resourceInputs["gatewayBridgeSource"] = args?.gatewayBridgeSource;
+            resourceInputs["ingestPort"] = args?.ingestPort;
+            resourceInputs["maxBitrate"] = args?.maxBitrate;
+            resourceInputs["maxLatency"] = args?.maxLatency;
+            resourceInputs["minLatency"] = args?.minLatency;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["senderControlPort"] = args?.senderControlPort;
+            resourceInputs["senderIpAddress"] = args?.senderIpAddress;
+            resourceInputs["sourceListenerAddress"] = args?.sourceListenerAddress;
+            resourceInputs["sourceListenerPort"] = args?.sourceListenerPort;
+            resourceInputs["streamId"] = args?.streamId;
+            resourceInputs["vpcInterfaceName"] = args?.vpcInterfaceName;
+            resourceInputs["whitelistCidr"] = args?.whitelistCidr;
             resourceInputs["ingestIp"] = undefined /*out*/;
             resourceInputs["sourceArn"] = undefined /*out*/;
             resourceInputs["sourceIngestPort"] = undefined /*out*/;

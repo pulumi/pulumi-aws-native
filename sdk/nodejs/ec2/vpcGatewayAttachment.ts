@@ -62,12 +62,12 @@ export class VpcGatewayAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["internetGatewayId"] = args ? args.internetGatewayId : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
-            resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+            resourceInputs["internetGatewayId"] = args?.internetGatewayId;
+            resourceInputs["vpcId"] = args?.vpcId;
+            resourceInputs["vpnGatewayId"] = args?.vpnGatewayId;
             resourceInputs["attachmentType"] = undefined /*out*/;
         } else {
             resourceInputs["attachmentType"] = undefined /*out*/;

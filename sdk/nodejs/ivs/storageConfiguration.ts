@@ -65,12 +65,12 @@ export class StorageConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.s3 === undefined) && !opts.urn) {
+            if (args?.s3 === undefined && !opts.urn) {
                 throw new Error("Missing required property 's3'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["s3"] = args ? args.s3 : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["s3"] = args?.s3;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -101,21 +101,21 @@ export class Command extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.commandId === undefined) && !opts.urn) {
+            if (args?.commandId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'commandId'");
             }
-            resourceInputs["commandId"] = args ? args.commandId : undefined;
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["deprecated"] = args ? args.deprecated : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["lastUpdatedAt"] = args ? args.lastUpdatedAt : undefined;
-            resourceInputs["mandatoryParameters"] = args ? args.mandatoryParameters : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["payload"] = args ? args.payload : undefined;
-            resourceInputs["pendingDeletion"] = args ? args.pendingDeletion : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["commandId"] = args?.commandId;
+            resourceInputs["createdAt"] = args?.createdAt;
+            resourceInputs["deprecated"] = args?.deprecated;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["lastUpdatedAt"] = args?.lastUpdatedAt;
+            resourceInputs["mandatoryParameters"] = args?.mandatoryParameters;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["payload"] = args?.payload;
+            resourceInputs["pendingDeletion"] = args?.pendingDeletion;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["commandArn"] = undefined /*out*/;
         } else {
             resourceInputs["commandArn"] = undefined /*out*/;

@@ -81,11 +81,11 @@ export class AutoScalingConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["autoScalingConfigurationName"] = args ? args.autoScalingConfigurationName : undefined;
-            resourceInputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
-            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
-            resourceInputs["minSize"] = args ? args.minSize : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoScalingConfigurationName"] = args?.autoScalingConfigurationName;
+            resourceInputs["maxConcurrency"] = args?.maxConcurrency;
+            resourceInputs["maxSize"] = args?.maxSize;
+            resourceInputs["minSize"] = args?.minSize;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["autoScalingConfigurationArn"] = undefined /*out*/;
             resourceInputs["autoScalingConfigurationRevision"] = undefined /*out*/;
             resourceInputs["latest"] = undefined /*out*/;

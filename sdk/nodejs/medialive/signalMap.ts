@@ -119,16 +119,16 @@ export class SignalMap extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.discoveryEntryPointArn === undefined) && !opts.urn) {
+            if (args?.discoveryEntryPointArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'discoveryEntryPointArn'");
             }
-            resourceInputs["cloudWatchAlarmTemplateGroupIdentifiers"] = args ? args.cloudWatchAlarmTemplateGroupIdentifiers : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["discoveryEntryPointArn"] = args ? args.discoveryEntryPointArn : undefined;
-            resourceInputs["eventBridgeRuleTemplateGroupIdentifiers"] = args ? args.eventBridgeRuleTemplateGroupIdentifiers : undefined;
-            resourceInputs["forceRediscovery"] = args ? args.forceRediscovery : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cloudWatchAlarmTemplateGroupIdentifiers"] = args?.cloudWatchAlarmTemplateGroupIdentifiers;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["discoveryEntryPointArn"] = args?.discoveryEntryPointArn;
+            resourceInputs["eventBridgeRuleTemplateGroupIdentifiers"] = args?.eventBridgeRuleTemplateGroupIdentifiers;
+            resourceInputs["forceRediscovery"] = args?.forceRediscovery;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cloudWatchAlarmTemplateGroupIds"] = undefined /*out*/;

@@ -73,17 +73,17 @@ export class ReportPlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.reportDeliveryChannel === undefined) && !opts.urn) {
+            if (args?.reportDeliveryChannel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reportDeliveryChannel'");
             }
-            if ((!args || args.reportSetting === undefined) && !opts.urn) {
+            if (args?.reportSetting === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reportSetting'");
             }
-            resourceInputs["reportDeliveryChannel"] = args ? args.reportDeliveryChannel : undefined;
-            resourceInputs["reportPlanDescription"] = args ? args.reportPlanDescription : undefined;
-            resourceInputs["reportPlanName"] = args ? args.reportPlanName : undefined;
-            resourceInputs["reportPlanTags"] = args ? args.reportPlanTags : undefined;
-            resourceInputs["reportSetting"] = args ? args.reportSetting : undefined;
+            resourceInputs["reportDeliveryChannel"] = args?.reportDeliveryChannel;
+            resourceInputs["reportPlanDescription"] = args?.reportPlanDescription;
+            resourceInputs["reportPlanName"] = args?.reportPlanName;
+            resourceInputs["reportPlanTags"] = args?.reportPlanTags;
+            resourceInputs["reportSetting"] = args?.reportSetting;
             resourceInputs["reportPlanArn"] = undefined /*out*/;
         } else {
             resourceInputs["reportDeliveryChannel"] = undefined /*out*/;

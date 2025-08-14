@@ -91,19 +91,19 @@ export class RuleGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.capacity === undefined) && !opts.urn) {
+            if (args?.capacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacity'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["capacity"] = args ? args.capacity : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ruleGroup"] = args ? args.ruleGroup : undefined;
-            resourceInputs["ruleGroupName"] = args ? args.ruleGroupName : undefined;
-            resourceInputs["summaryConfiguration"] = args ? args.summaryConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["capacity"] = args?.capacity;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ruleGroup"] = args?.ruleGroup;
+            resourceInputs["ruleGroupName"] = args?.ruleGroupName;
+            resourceInputs["summaryConfiguration"] = args?.summaryConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["ruleGroupArn"] = undefined /*out*/;
             resourceInputs["ruleGroupId"] = undefined /*out*/;
         } else {

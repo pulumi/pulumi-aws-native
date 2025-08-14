@@ -113,36 +113,36 @@ export class ComputeNodeGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterId === undefined) && !opts.urn) {
+            if (args?.clusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            if ((!args || args.customLaunchTemplate === undefined) && !opts.urn) {
+            if (args?.customLaunchTemplate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customLaunchTemplate'");
             }
-            if ((!args || args.iamInstanceProfileArn === undefined) && !opts.urn) {
+            if (args?.iamInstanceProfileArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iamInstanceProfileArn'");
             }
-            if ((!args || args.instanceConfigs === undefined) && !opts.urn) {
+            if (args?.instanceConfigs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceConfigs'");
             }
-            if ((!args || args.scalingConfiguration === undefined) && !opts.urn) {
+            if (args?.scalingConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scalingConfiguration'");
             }
-            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+            if (args?.subnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            resourceInputs["amiId"] = args ? args.amiId : undefined;
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["customLaunchTemplate"] = args ? args.customLaunchTemplate : undefined;
-            resourceInputs["iamInstanceProfileArn"] = args ? args.iamInstanceProfileArn : undefined;
-            resourceInputs["instanceConfigs"] = args ? args.instanceConfigs : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["purchaseOption"] = args ? args.purchaseOption : undefined;
-            resourceInputs["scalingConfiguration"] = args ? args.scalingConfiguration : undefined;
-            resourceInputs["slurmConfiguration"] = args ? args.slurmConfiguration : undefined;
-            resourceInputs["spotOptions"] = args ? args.spotOptions : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["amiId"] = args?.amiId;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["customLaunchTemplate"] = args?.customLaunchTemplate;
+            resourceInputs["iamInstanceProfileArn"] = args?.iamInstanceProfileArn;
+            resourceInputs["instanceConfigs"] = args?.instanceConfigs;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["purchaseOption"] = args?.purchaseOption;
+            resourceInputs["scalingConfiguration"] = args?.scalingConfiguration;
+            resourceInputs["slurmConfiguration"] = args?.slurmConfiguration;
+            resourceInputs["spotOptions"] = args?.spotOptions;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["errorInfo"] = undefined /*out*/;

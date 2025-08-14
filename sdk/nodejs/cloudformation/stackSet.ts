@@ -113,24 +113,24 @@ export class StackSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.permissionModel === undefined) && !opts.urn) {
+            if (args?.permissionModel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permissionModel'");
             }
-            resourceInputs["administrationRoleArn"] = args ? args.administrationRoleArn : undefined;
-            resourceInputs["autoDeployment"] = args ? args.autoDeployment : undefined;
-            resourceInputs["callAs"] = args ? args.callAs : undefined;
-            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["executionRoleName"] = args ? args.executionRoleName : undefined;
-            resourceInputs["managedExecution"] = args ? args.managedExecution : undefined;
-            resourceInputs["operationPreferences"] = args ? args.operationPreferences : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["permissionModel"] = args ? args.permissionModel : undefined;
-            resourceInputs["stackInstancesGroup"] = args ? args.stackInstancesGroup : undefined;
-            resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateBody"] = args ? args.templateBody : undefined;
-            resourceInputs["templateUrl"] = args ? args.templateUrl : undefined;
+            resourceInputs["administrationRoleArn"] = args?.administrationRoleArn;
+            resourceInputs["autoDeployment"] = args?.autoDeployment;
+            resourceInputs["callAs"] = args?.callAs;
+            resourceInputs["capabilities"] = args?.capabilities;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["executionRoleName"] = args?.executionRoleName;
+            resourceInputs["managedExecution"] = args?.managedExecution;
+            resourceInputs["operationPreferences"] = args?.operationPreferences;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["permissionModel"] = args?.permissionModel;
+            resourceInputs["stackInstancesGroup"] = args?.stackInstancesGroup;
+            resourceInputs["stackSetName"] = args?.stackSetName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateBody"] = args?.templateBody;
+            resourceInputs["templateUrl"] = args?.templateUrl;
             resourceInputs["stackSetId"] = undefined /*out*/;
         } else {
             resourceInputs["administrationRoleArn"] = undefined /*out*/;

@@ -69,10 +69,10 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["accountAggregationSources"] = args ? args.accountAggregationSources : undefined;
-            resourceInputs["configurationAggregatorName"] = args ? args.configurationAggregatorName : undefined;
-            resourceInputs["organizationAggregationSource"] = args ? args.organizationAggregationSource : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountAggregationSources"] = args?.accountAggregationSources;
+            resourceInputs["configurationAggregatorName"] = args?.configurationAggregatorName;
+            resourceInputs["organizationAggregationSource"] = args?.organizationAggregationSource;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["configurationAggregatorArn"] = undefined /*out*/;
         } else {
             resourceInputs["accountAggregationSources"] = undefined /*out*/;

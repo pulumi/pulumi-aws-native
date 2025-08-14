@@ -62,18 +62,18 @@ export class Resource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.parentId === undefined) && !opts.urn) {
+            if (args?.parentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentId'");
             }
-            if ((!args || args.pathPart === undefined) && !opts.urn) {
+            if (args?.pathPart === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pathPart'");
             }
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["parentId"] = args ? args.parentId : undefined;
-            resourceInputs["pathPart"] = args ? args.pathPart : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["parentId"] = args?.parentId;
+            resourceInputs["pathPart"] = args?.pathPart;
+            resourceInputs["restApiId"] = args?.restApiId;
             resourceInputs["resourceId"] = undefined /*out*/;
         } else {
             resourceInputs["parentId"] = undefined /*out*/;

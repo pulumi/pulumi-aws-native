@@ -92,14 +92,14 @@ export class EnclaveCertificateIamRoleAssociation extends pulumi.CustomResource 
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.certificateArn === undefined) && !opts.urn) {
+            if (args?.certificateArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateArn'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["certificateArn"] = args?.certificateArn;
+            resourceInputs["roleArn"] = args?.roleArn;
             resourceInputs["certificateS3BucketName"] = undefined /*out*/;
             resourceInputs["certificateS3ObjectKey"] = undefined /*out*/;
             resourceInputs["encryptionKmsKeyId"] = undefined /*out*/;

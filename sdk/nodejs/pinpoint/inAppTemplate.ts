@@ -90,12 +90,12 @@ export class InAppTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["customConfig"] = args ? args.customConfig : undefined;
-            resourceInputs["layout"] = args ? args.layout : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateDescription"] = args ? args.templateDescription : undefined;
-            resourceInputs["templateName"] = args ? args.templateName : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["customConfig"] = args?.customConfig;
+            resourceInputs["layout"] = args?.layout;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateDescription"] = args?.templateDescription;
+            resourceInputs["templateName"] = args?.templateName;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

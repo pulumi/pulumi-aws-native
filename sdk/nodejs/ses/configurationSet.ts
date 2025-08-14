@@ -199,14 +199,14 @@ export class ConfigurationSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["deliveryOptions"] = args ? args.deliveryOptions : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["reputationOptions"] = args ? args.reputationOptions : undefined;
-            resourceInputs["sendingOptions"] = args ? args.sendingOptions : undefined;
-            resourceInputs["suppressionOptions"] = args ? args.suppressionOptions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trackingOptions"] = args ? args.trackingOptions : undefined;
-            resourceInputs["vdmOptions"] = args ? args.vdmOptions : undefined;
+            resourceInputs["deliveryOptions"] = args?.deliveryOptions;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["reputationOptions"] = args?.reputationOptions;
+            resourceInputs["sendingOptions"] = args?.sendingOptions;
+            resourceInputs["suppressionOptions"] = args?.suppressionOptions;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trackingOptions"] = args?.trackingOptions;
+            resourceInputs["vdmOptions"] = args?.vdmOptions;
         } else {
             resourceInputs["deliveryOptions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -56,8 +56,8 @@ export class Alias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["aliasName"] = args ? args.aliasName : undefined;
-            resourceInputs["keyArn"] = args ? args.keyArn : undefined;
+            resourceInputs["aliasName"] = args?.aliasName;
+            resourceInputs["keyArn"] = args?.keyArn;
         } else {
             resourceInputs["aliasName"] = undefined /*out*/;
             resourceInputs["keyArn"] = undefined /*out*/;

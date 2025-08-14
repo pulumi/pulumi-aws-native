@@ -157,34 +157,34 @@ export class Alarm extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.comparisonOperator === undefined) && !opts.urn) {
+            if (args?.comparisonOperator === undefined && !opts.urn) {
                 throw new Error("Missing required property 'comparisonOperator'");
             }
-            if ((!args || args.evaluationPeriods === undefined) && !opts.urn) {
+            if (args?.evaluationPeriods === undefined && !opts.urn) {
                 throw new Error("Missing required property 'evaluationPeriods'");
             }
-            resourceInputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;
-            resourceInputs["alarmActions"] = args ? args.alarmActions : undefined;
-            resourceInputs["alarmDescription"] = args ? args.alarmDescription : undefined;
-            resourceInputs["alarmName"] = args ? args.alarmName : undefined;
-            resourceInputs["comparisonOperator"] = args ? args.comparisonOperator : undefined;
-            resourceInputs["datapointsToAlarm"] = args ? args.datapointsToAlarm : undefined;
-            resourceInputs["dimensions"] = args ? args.dimensions : undefined;
-            resourceInputs["evaluateLowSampleCountPercentile"] = args ? args.evaluateLowSampleCountPercentile : undefined;
-            resourceInputs["evaluationPeriods"] = args ? args.evaluationPeriods : undefined;
-            resourceInputs["extendedStatistic"] = args ? args.extendedStatistic : undefined;
-            resourceInputs["insufficientDataActions"] = args ? args.insufficientDataActions : undefined;
-            resourceInputs["metricName"] = args ? args.metricName : undefined;
-            resourceInputs["metrics"] = args ? args.metrics : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["okActions"] = args ? args.okActions : undefined;
-            resourceInputs["period"] = args ? args.period : undefined;
-            resourceInputs["statistic"] = args ? args.statistic : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["threshold"] = args ? args.threshold : undefined;
-            resourceInputs["thresholdMetricId"] = args ? args.thresholdMetricId : undefined;
-            resourceInputs["treatMissingData"] = args ? args.treatMissingData : undefined;
-            resourceInputs["unit"] = args ? args.unit : undefined;
+            resourceInputs["actionsEnabled"] = args?.actionsEnabled;
+            resourceInputs["alarmActions"] = args?.alarmActions;
+            resourceInputs["alarmDescription"] = args?.alarmDescription;
+            resourceInputs["alarmName"] = args?.alarmName;
+            resourceInputs["comparisonOperator"] = args?.comparisonOperator;
+            resourceInputs["datapointsToAlarm"] = args?.datapointsToAlarm;
+            resourceInputs["dimensions"] = args?.dimensions;
+            resourceInputs["evaluateLowSampleCountPercentile"] = args?.evaluateLowSampleCountPercentile;
+            resourceInputs["evaluationPeriods"] = args?.evaluationPeriods;
+            resourceInputs["extendedStatistic"] = args?.extendedStatistic;
+            resourceInputs["insufficientDataActions"] = args?.insufficientDataActions;
+            resourceInputs["metricName"] = args?.metricName;
+            resourceInputs["metrics"] = args?.metrics;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["okActions"] = args?.okActions;
+            resourceInputs["period"] = args?.period;
+            resourceInputs["statistic"] = args?.statistic;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["threshold"] = args?.threshold;
+            resourceInputs["thresholdMetricId"] = args?.thresholdMetricId;
+            resourceInputs["treatMissingData"] = args?.treatMissingData;
+            resourceInputs["unit"] = args?.unit;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["actionsEnabled"] = undefined /*out*/;

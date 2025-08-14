@@ -65,15 +65,15 @@ export class BotVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.botId === undefined) && !opts.urn) {
+            if (args?.botId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botId'");
             }
-            if ((!args || args.botVersionLocaleSpecification === undefined) && !opts.urn) {
+            if (args?.botVersionLocaleSpecification === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botVersionLocaleSpecification'");
             }
-            resourceInputs["botId"] = args ? args.botId : undefined;
-            resourceInputs["botVersionLocaleSpecification"] = args ? args.botVersionLocaleSpecification : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["botId"] = args?.botId;
+            resourceInputs["botVersionLocaleSpecification"] = args?.botVersionLocaleSpecification;
+            resourceInputs["description"] = args?.description;
             resourceInputs["botVersion"] = undefined /*out*/;
         } else {
             resourceInputs["botId"] = undefined /*out*/;

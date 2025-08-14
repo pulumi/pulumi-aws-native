@@ -69,13 +69,13 @@ export class VpcBlockPublicAccessExclusion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.internetGatewayExclusionMode === undefined) && !opts.urn) {
+            if (args?.internetGatewayExclusionMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'internetGatewayExclusionMode'");
             }
-            resourceInputs["internetGatewayExclusionMode"] = args ? args.internetGatewayExclusionMode : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["internetGatewayExclusionMode"] = args?.internetGatewayExclusionMode;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["exclusionId"] = undefined /*out*/;
         } else {
             resourceInputs["exclusionId"] = undefined /*out*/;

@@ -71,19 +71,19 @@ export class StorageProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.farmId === undefined) && !opts.urn) {
+            if (args?.farmId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'farmId'");
             }
-            if ((!args || args.osFamily === undefined) && !opts.urn) {
+            if (args?.osFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osFamily'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["farmId"] = args ? args.farmId : undefined;
-            resourceInputs["fileSystemLocations"] = args ? args.fileSystemLocations : undefined;
-            resourceInputs["osFamily"] = args ? args.osFamily : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["farmId"] = args?.farmId;
+            resourceInputs["fileSystemLocations"] = args?.fileSystemLocations;
+            resourceInputs["osFamily"] = args?.osFamily;
             resourceInputs["storageProfileId"] = undefined /*out*/;
         } else {
             resourceInputs["displayName"] = undefined /*out*/;

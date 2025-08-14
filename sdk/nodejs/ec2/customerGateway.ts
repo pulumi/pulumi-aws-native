@@ -84,19 +84,19 @@ export class CustomerGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ipAddress === undefined) && !opts.urn) {
+            if (args?.ipAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipAddress'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["bgpAsn"] = args ? args.bgpAsn : undefined;
-            resourceInputs["bgpAsnExtended"] = args ? args.bgpAsnExtended : undefined;
-            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["bgpAsn"] = args?.bgpAsn;
+            resourceInputs["bgpAsnExtended"] = args?.bgpAsnExtended;
+            resourceInputs["certificateArn"] = args?.certificateArn;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["ipAddress"] = args?.ipAddress;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["customerGatewayId"] = undefined /*out*/;
         } else {
             resourceInputs["bgpAsn"] = undefined /*out*/;

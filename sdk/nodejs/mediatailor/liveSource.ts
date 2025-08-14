@@ -69,16 +69,16 @@ export class LiveSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.httpPackageConfigurations === undefined) && !opts.urn) {
+            if (args?.httpPackageConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'httpPackageConfigurations'");
             }
-            if ((!args || args.sourceLocationName === undefined) && !opts.urn) {
+            if (args?.sourceLocationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceLocationName'");
             }
-            resourceInputs["httpPackageConfigurations"] = args ? args.httpPackageConfigurations : undefined;
-            resourceInputs["liveSourceName"] = args ? args.liveSourceName : undefined;
-            resourceInputs["sourceLocationName"] = args ? args.sourceLocationName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["httpPackageConfigurations"] = args?.httpPackageConfigurations;
+            resourceInputs["liveSourceName"] = args?.liveSourceName;
+            resourceInputs["sourceLocationName"] = args?.sourceLocationName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -157,27 +157,27 @@ export class ExperimentTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.stopConditions === undefined) && !opts.urn) {
+            if (args?.stopConditions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stopConditions'");
             }
-            if ((!args || args.targets === undefined) && !opts.urn) {
+            if (args?.targets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targets'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["experimentOptions"] = args ? args.experimentOptions : undefined;
-            resourceInputs["experimentReportConfiguration"] = args ? args.experimentReportConfiguration : undefined;
-            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["stopConditions"] = args ? args.stopConditions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["experimentOptions"] = args?.experimentOptions;
+            resourceInputs["experimentReportConfiguration"] = args?.experimentReportConfiguration;
+            resourceInputs["logConfiguration"] = args?.logConfiguration;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["stopConditions"] = args?.stopConditions;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targets"] = args?.targets;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["actions"] = undefined /*out*/;

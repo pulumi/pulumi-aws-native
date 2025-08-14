@@ -122,14 +122,14 @@ export class ApiKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["customerId"] = args ? args.customerId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["generateDistinctId"] = args ? args.generateDistinctId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["stageKeys"] = args ? args.stageKeys : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["customerId"] = args?.customerId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["generateDistinctId"] = args?.generateDistinctId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["stageKeys"] = args?.stageKeys;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["value"] = args?.value;
             resourceInputs["apiKeyId"] = undefined /*out*/;
         } else {
             resourceInputs["apiKeyId"] = undefined /*out*/;

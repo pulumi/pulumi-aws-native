@@ -84,15 +84,15 @@ export class Archive extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sourceArn === undefined) && !opts.urn) {
+            if (args?.sourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceArn'");
             }
-            resourceInputs["archiveName"] = args ? args.archiveName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventPattern"] = args ? args.eventPattern : undefined;
-            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
-            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
-            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
+            resourceInputs["archiveName"] = args?.archiveName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventPattern"] = args?.eventPattern;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
+            resourceInputs["retentionDays"] = args?.retentionDays;
+            resourceInputs["sourceArn"] = args?.sourceArn;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["archiveName"] = undefined /*out*/;

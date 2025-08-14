@@ -125,24 +125,24 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authMode === undefined) && !opts.urn) {
+            if (args?.authMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authMode'");
             }
-            if ((!args || args.defaultUserSettings === undefined) && !opts.urn) {
+            if (args?.defaultUserSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultUserSettings'");
             }
-            resourceInputs["appNetworkAccessType"] = args ? args.appNetworkAccessType : undefined;
-            resourceInputs["appSecurityGroupManagement"] = args ? args.appSecurityGroupManagement : undefined;
-            resourceInputs["authMode"] = args ? args.authMode : undefined;
-            resourceInputs["defaultSpaceSettings"] = args ? args.defaultSpaceSettings : undefined;
-            resourceInputs["defaultUserSettings"] = args ? args.defaultUserSettings : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["domainSettings"] = args ? args.domainSettings : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tagPropagation"] = args ? args.tagPropagation : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["appNetworkAccessType"] = args?.appNetworkAccessType;
+            resourceInputs["appSecurityGroupManagement"] = args?.appSecurityGroupManagement;
+            resourceInputs["authMode"] = args?.authMode;
+            resourceInputs["defaultSpaceSettings"] = args?.defaultSpaceSettings;
+            resourceInputs["defaultUserSettings"] = args?.defaultUserSettings;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["domainSettings"] = args?.domainSettings;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tagPropagation"] = args?.tagPropagation;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["domainArn"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["homeEfsFileSystemId"] = undefined /*out*/;

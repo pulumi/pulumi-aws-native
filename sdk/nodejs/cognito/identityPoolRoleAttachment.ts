@@ -69,12 +69,12 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.identityPoolId === undefined) && !opts.urn) {
+            if (args?.identityPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityPoolId'");
             }
-            resourceInputs["identityPoolId"] = args ? args.identityPoolId : undefined;
-            resourceInputs["roleMappings"] = args ? args.roleMappings : undefined;
-            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["identityPoolId"] = args?.identityPoolId;
+            resourceInputs["roleMappings"] = args?.roleMappings;
+            resourceInputs["roles"] = args?.roles;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

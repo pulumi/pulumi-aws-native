@@ -121,32 +121,32 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.acceptanceRequired === undefined) && !opts.urn) {
+            if (args?.acceptanceRequired === undefined && !opts.urn) {
                 throw new Error("Missing required property 'acceptanceRequired'");
             }
-            if ((!args || args.requestTimeoutSeconds === undefined) && !opts.urn) {
+            if (args?.requestTimeoutSeconds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'requestTimeoutSeconds'");
             }
-            if ((!args || args.ruleSetName === undefined) && !opts.urn) {
+            if (args?.ruleSetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleSetName'");
             }
-            resourceInputs["acceptanceRequired"] = args ? args.acceptanceRequired : undefined;
-            resourceInputs["acceptanceTimeoutSeconds"] = args ? args.acceptanceTimeoutSeconds : undefined;
-            resourceInputs["additionalPlayerCount"] = args ? args.additionalPlayerCount : undefined;
-            resourceInputs["backfillMode"] = args ? args.backfillMode : undefined;
-            resourceInputs["creationTime"] = args ? args.creationTime : undefined;
-            resourceInputs["customEventData"] = args ? args.customEventData : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["flexMatchMode"] = args ? args.flexMatchMode : undefined;
-            resourceInputs["gameProperties"] = args ? args.gameProperties : undefined;
-            resourceInputs["gameSessionData"] = args ? args.gameSessionData : undefined;
-            resourceInputs["gameSessionQueueArns"] = args ? args.gameSessionQueueArns : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationTarget"] = args ? args.notificationTarget : undefined;
-            resourceInputs["requestTimeoutSeconds"] = args ? args.requestTimeoutSeconds : undefined;
-            resourceInputs["ruleSetArn"] = args ? args.ruleSetArn : undefined;
-            resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["acceptanceRequired"] = args?.acceptanceRequired;
+            resourceInputs["acceptanceTimeoutSeconds"] = args?.acceptanceTimeoutSeconds;
+            resourceInputs["additionalPlayerCount"] = args?.additionalPlayerCount;
+            resourceInputs["backfillMode"] = args?.backfillMode;
+            resourceInputs["creationTime"] = args?.creationTime;
+            resourceInputs["customEventData"] = args?.customEventData;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["flexMatchMode"] = args?.flexMatchMode;
+            resourceInputs["gameProperties"] = args?.gameProperties;
+            resourceInputs["gameSessionData"] = args?.gameSessionData;
+            resourceInputs["gameSessionQueueArns"] = args?.gameSessionQueueArns;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notificationTarget"] = args?.notificationTarget;
+            resourceInputs["requestTimeoutSeconds"] = args?.requestTimeoutSeconds;
+            resourceInputs["ruleSetArn"] = args?.ruleSetArn;
+            resourceInputs["ruleSetName"] = args?.ruleSetName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["acceptanceRequired"] = undefined /*out*/;

@@ -73,11 +73,11 @@ export class Publisher extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.acceptTermsAndConditions === undefined) && !opts.urn) {
+            if (args?.acceptTermsAndConditions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'acceptTermsAndConditions'");
             }
-            resourceInputs["acceptTermsAndConditions"] = args ? args.acceptTermsAndConditions : undefined;
-            resourceInputs["connectionArn"] = args ? args.connectionArn : undefined;
+            resourceInputs["acceptTermsAndConditions"] = args?.acceptTermsAndConditions;
+            resourceInputs["connectionArn"] = args?.connectionArn;
             resourceInputs["identityProvider"] = undefined /*out*/;
             resourceInputs["publisherId"] = undefined /*out*/;
             resourceInputs["publisherProfile"] = undefined /*out*/;

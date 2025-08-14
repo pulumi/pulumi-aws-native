@@ -65,16 +65,16 @@ export class S3AccessPointAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.openZfsConfiguration === undefined) && !opts.urn) {
+            if (args?.openZfsConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'openZfsConfiguration'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["openZfsConfiguration"] = args ? args.openZfsConfiguration : undefined;
-            resourceInputs["s3AccessPoint"] = args ? args.s3AccessPoint : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["openZfsConfiguration"] = args?.openZfsConfiguration;
+            resourceInputs["s3AccessPoint"] = args?.s3AccessPoint;
+            resourceInputs["type"] = args?.type;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["openZfsConfiguration"] = undefined /*out*/;

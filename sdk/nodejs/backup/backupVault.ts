@@ -81,12 +81,12 @@ export class BackupVault extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["accessPolicy"] = args ? args.accessPolicy : undefined;
-            resourceInputs["backupVaultName"] = args ? args.backupVaultName : undefined;
-            resourceInputs["backupVaultTags"] = args ? args.backupVaultTags : undefined;
-            resourceInputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
-            resourceInputs["lockConfiguration"] = args ? args.lockConfiguration : undefined;
-            resourceInputs["notifications"] = args ? args.notifications : undefined;
+            resourceInputs["accessPolicy"] = args?.accessPolicy;
+            resourceInputs["backupVaultName"] = args?.backupVaultName;
+            resourceInputs["backupVaultTags"] = args?.backupVaultTags;
+            resourceInputs["encryptionKeyArn"] = args?.encryptionKeyArn;
+            resourceInputs["lockConfiguration"] = args?.lockConfiguration;
+            resourceInputs["notifications"] = args?.notifications;
             resourceInputs["backupVaultArn"] = undefined /*out*/;
         } else {
             resourceInputs["accessPolicy"] = undefined /*out*/;

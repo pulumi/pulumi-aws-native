@@ -85,21 +85,21 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.runtimeEnvironment === undefined) && !opts.urn) {
+            if (args?.runtimeEnvironment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runtimeEnvironment'");
             }
-            if ((!args || args.serviceExecutionRole === undefined) && !opts.urn) {
+            if (args?.serviceExecutionRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceExecutionRole'");
             }
-            resourceInputs["applicationConfiguration"] = args ? args.applicationConfiguration : undefined;
-            resourceInputs["applicationDescription"] = args ? args.applicationDescription : undefined;
-            resourceInputs["applicationMaintenanceConfiguration"] = args ? args.applicationMaintenanceConfiguration : undefined;
-            resourceInputs["applicationMode"] = args ? args.applicationMode : undefined;
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["runConfiguration"] = args ? args.runConfiguration : undefined;
-            resourceInputs["runtimeEnvironment"] = args ? args.runtimeEnvironment : undefined;
-            resourceInputs["serviceExecutionRole"] = args ? args.serviceExecutionRole : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationConfiguration"] = args?.applicationConfiguration;
+            resourceInputs["applicationDescription"] = args?.applicationDescription;
+            resourceInputs["applicationMaintenanceConfiguration"] = args?.applicationMaintenanceConfiguration;
+            resourceInputs["applicationMode"] = args?.applicationMode;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["runConfiguration"] = args?.runConfiguration;
+            resourceInputs["runtimeEnvironment"] = args?.runtimeEnvironment;
+            resourceInputs["serviceExecutionRole"] = args?.serviceExecutionRole;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["applicationConfiguration"] = undefined /*out*/;
             resourceInputs["applicationDescription"] = undefined /*out*/;

@@ -57,10 +57,10 @@ export class VpcBlockPublicAccessOptions extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.internetGatewayBlockMode === undefined) && !opts.urn) {
+            if (args?.internetGatewayBlockMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'internetGatewayBlockMode'");
             }
-            resourceInputs["internetGatewayBlockMode"] = args ? args.internetGatewayBlockMode : undefined;
+            resourceInputs["internetGatewayBlockMode"] = args?.internetGatewayBlockMode;
             resourceInputs["accountId"] = undefined /*out*/;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;

@@ -91,18 +91,18 @@ export class JobQueue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            resourceInputs["computeEnvironmentOrder"] = args ? args.computeEnvironmentOrder : undefined;
-            resourceInputs["jobQueueName"] = args ? args.jobQueueName : undefined;
-            resourceInputs["jobQueueType"] = args ? args.jobQueueType : undefined;
-            resourceInputs["jobStateTimeLimitActions"] = args ? args.jobStateTimeLimitActions : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["schedulingPolicyArn"] = args ? args.schedulingPolicyArn : undefined;
-            resourceInputs["serviceEnvironmentOrder"] = args ? args.serviceEnvironmentOrder : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["computeEnvironmentOrder"] = args?.computeEnvironmentOrder;
+            resourceInputs["jobQueueName"] = args?.jobQueueName;
+            resourceInputs["jobQueueType"] = args?.jobQueueType;
+            resourceInputs["jobStateTimeLimitActions"] = args?.jobStateTimeLimitActions;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["schedulingPolicyArn"] = args?.schedulingPolicyArn;
+            resourceInputs["serviceEnvironmentOrder"] = args?.serviceEnvironmentOrder;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["jobQueueArn"] = undefined /*out*/;
         } else {
             resourceInputs["computeEnvironmentOrder"] = undefined /*out*/;

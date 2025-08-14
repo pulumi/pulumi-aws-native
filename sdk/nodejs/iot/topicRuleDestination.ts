@@ -69,9 +69,9 @@ export class TopicRuleDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["httpUrlProperties"] = args ? args.httpUrlProperties : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["vpcProperties"] = args ? args.vpcProperties : undefined;
+            resourceInputs["httpUrlProperties"] = args?.httpUrlProperties;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["vpcProperties"] = args?.vpcProperties;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["statusReason"] = undefined /*out*/;
         } else {

@@ -69,14 +69,14 @@ export class ResolverConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autodefinedReverseFlag === undefined) && !opts.urn) {
+            if (args?.autodefinedReverseFlag === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autodefinedReverseFlag'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            resourceInputs["autodefinedReverseFlag"] = args ? args.autodefinedReverseFlag : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["autodefinedReverseFlag"] = args?.autodefinedReverseFlag;
+            resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["autodefinedReverse"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;

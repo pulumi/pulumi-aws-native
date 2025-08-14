@@ -73,12 +73,12 @@ export class Config extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configData === undefined) && !opts.urn) {
+            if (args?.configData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configData'");
             }
-            resourceInputs["configData"] = args ? args.configData : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configData"] = args?.configData;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

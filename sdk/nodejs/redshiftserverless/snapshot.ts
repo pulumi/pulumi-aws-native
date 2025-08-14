@@ -73,10 +73,10 @@ export class Snapshot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
-            resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["retentionPeriod"] = args?.retentionPeriod;
+            resourceInputs["snapshotName"] = args?.snapshotName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["ownerAccount"] = undefined /*out*/;
             resourceInputs["snapshot"] = undefined /*out*/;
         } else {

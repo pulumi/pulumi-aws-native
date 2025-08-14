@@ -81,13 +81,13 @@ export class Pipeline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["activate"] = args ? args.activate : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameterObjects"] = args ? args.parameterObjects : undefined;
-            resourceInputs["parameterValues"] = args ? args.parameterValues : undefined;
-            resourceInputs["pipelineObjects"] = args ? args.pipelineObjects : undefined;
-            resourceInputs["pipelineTags"] = args ? args.pipelineTags : undefined;
+            resourceInputs["activate"] = args?.activate;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameterObjects"] = args?.parameterObjects;
+            resourceInputs["parameterValues"] = args?.parameterValues;
+            resourceInputs["pipelineObjects"] = args?.pipelineObjects;
+            resourceInputs["pipelineTags"] = args?.pipelineTags;
             resourceInputs["pipelineId"] = undefined /*out*/;
         } else {
             resourceInputs["activate"] = undefined /*out*/;

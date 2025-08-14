@@ -107,13 +107,13 @@ export class Alias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.routingStrategy === undefined) && !opts.urn) {
+            if (args?.routingStrategy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routingStrategy'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["routingStrategy"] = args ? args.routingStrategy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["routingStrategy"] = args?.routingStrategy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["aliasArn"] = undefined /*out*/;
             resourceInputs["aliasId"] = undefined /*out*/;
         } else {

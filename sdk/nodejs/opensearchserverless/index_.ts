@@ -69,13 +69,13 @@ export class Index extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.collectionEndpoint === undefined) && !opts.urn) {
+            if (args?.collectionEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'collectionEndpoint'");
             }
-            resourceInputs["collectionEndpoint"] = args ? args.collectionEndpoint : undefined;
-            resourceInputs["indexName"] = args ? args.indexName : undefined;
-            resourceInputs["mappings"] = args ? args.mappings : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["collectionEndpoint"] = args?.collectionEndpoint;
+            resourceInputs["indexName"] = args?.indexName;
+            resourceInputs["mappings"] = args?.mappings;
+            resourceInputs["settings"] = args?.settings;
             resourceInputs["uuid"] = undefined /*out*/;
         } else {
             resourceInputs["collectionEndpoint"] = undefined /*out*/;

@@ -65,9 +65,9 @@ export class SoftwarePackage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["packageName"] = args ? args.packageName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["packageName"] = args?.packageName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["packageArn"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

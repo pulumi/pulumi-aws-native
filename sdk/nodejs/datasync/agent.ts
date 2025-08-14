@@ -107,12 +107,12 @@ export class Agent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["activationKey"] = args ? args.activationKey : undefined;
-            resourceInputs["agentName"] = args ? args.agentName : undefined;
-            resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
-            resourceInputs["subnetArns"] = args ? args.subnetArns : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
+            resourceInputs["activationKey"] = args?.activationKey;
+            resourceInputs["agentName"] = args?.agentName;
+            resourceInputs["securityGroupArns"] = args?.securityGroupArns;
+            resourceInputs["subnetArns"] = args?.subnetArns;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcEndpointId"] = args?.vpcEndpointId;
             resourceInputs["agentArn"] = undefined /*out*/;
             resourceInputs["endpointType"] = undefined /*out*/;
         } else {

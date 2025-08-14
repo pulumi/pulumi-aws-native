@@ -54,11 +54,11 @@ export class LogStream extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.logGroupName === undefined) && !opts.urn) {
+            if (args?.logGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logGroupName'");
             }
-            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
-            resourceInputs["logStreamName"] = args ? args.logStreamName : undefined;
+            resourceInputs["logGroupName"] = args?.logGroupName;
+            resourceInputs["logStreamName"] = args?.logStreamName;
         } else {
             resourceInputs["logGroupName"] = undefined /*out*/;
             resourceInputs["logStreamName"] = undefined /*out*/;

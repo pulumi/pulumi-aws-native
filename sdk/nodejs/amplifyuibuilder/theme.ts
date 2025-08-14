@@ -85,12 +85,12 @@ export class Theme extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["overrides"] = args ? args.overrides : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["values"] = args ? args.values : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["overrides"] = args?.overrides;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["values"] = args?.values;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;

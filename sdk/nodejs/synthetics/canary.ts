@@ -218,39 +218,39 @@ export class Canary extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.artifactS3Location === undefined) && !opts.urn) {
+            if (args?.artifactS3Location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'artifactS3Location'");
             }
-            if ((!args || args.code === undefined) && !opts.urn) {
+            if (args?.code === undefined && !opts.urn) {
                 throw new Error("Missing required property 'code'");
             }
-            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
+            if (args?.executionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            if ((!args || args.runtimeVersion === undefined) && !opts.urn) {
+            if (args?.runtimeVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runtimeVersion'");
             }
-            if ((!args || args.schedule === undefined) && !opts.urn) {
+            if (args?.schedule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            resourceInputs["artifactConfig"] = args ? args.artifactConfig : undefined;
-            resourceInputs["artifactS3Location"] = args ? args.artifactS3Location : undefined;
-            resourceInputs["code"] = args ? args.code : undefined;
-            resourceInputs["deleteLambdaResourcesOnCanaryDeletion"] = args ? args.deleteLambdaResourcesOnCanaryDeletion : undefined;
-            resourceInputs["dryRunAndUpdate"] = args ? args.dryRunAndUpdate : undefined;
-            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            resourceInputs["failureRetentionPeriod"] = args ? args.failureRetentionPeriod : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["provisionedResourceCleanup"] = args ? args.provisionedResourceCleanup : undefined;
-            resourceInputs["resourcesToReplicateTags"] = args ? args.resourcesToReplicateTags : undefined;
-            resourceInputs["runConfig"] = args ? args.runConfig : undefined;
-            resourceInputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["startCanaryAfterCreation"] = args ? args.startCanaryAfterCreation : undefined;
-            resourceInputs["successRetentionPeriod"] = args ? args.successRetentionPeriod : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["visualReference"] = args ? args.visualReference : undefined;
-            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["artifactConfig"] = args?.artifactConfig;
+            resourceInputs["artifactS3Location"] = args?.artifactS3Location;
+            resourceInputs["code"] = args?.code;
+            resourceInputs["deleteLambdaResourcesOnCanaryDeletion"] = args?.deleteLambdaResourcesOnCanaryDeletion;
+            resourceInputs["dryRunAndUpdate"] = args?.dryRunAndUpdate;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
+            resourceInputs["failureRetentionPeriod"] = args?.failureRetentionPeriod;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["provisionedResourceCleanup"] = args?.provisionedResourceCleanup;
+            resourceInputs["resourcesToReplicateTags"] = args?.resourcesToReplicateTags;
+            resourceInputs["runConfig"] = args?.runConfig;
+            resourceInputs["runtimeVersion"] = args?.runtimeVersion;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["startCanaryAfterCreation"] = args?.startCanaryAfterCreation;
+            resourceInputs["successRetentionPeriod"] = args?.successRetentionPeriod;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["visualReference"] = args?.visualReference;
+            resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {

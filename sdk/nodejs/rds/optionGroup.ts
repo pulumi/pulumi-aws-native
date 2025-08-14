@@ -93,21 +93,21 @@ export class OptionGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.engineName === undefined) && !opts.urn) {
+            if (args?.engineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engineName'");
             }
-            if ((!args || args.majorEngineVersion === undefined) && !opts.urn) {
+            if (args?.majorEngineVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'majorEngineVersion'");
             }
-            if ((!args || args.optionGroupDescription === undefined) && !opts.urn) {
+            if (args?.optionGroupDescription === undefined && !opts.urn) {
                 throw new Error("Missing required property 'optionGroupDescription'");
             }
-            resourceInputs["engineName"] = args ? args.engineName : undefined;
-            resourceInputs["majorEngineVersion"] = args ? args.majorEngineVersion : undefined;
-            resourceInputs["optionConfigurations"] = args ? args.optionConfigurations : undefined;
-            resourceInputs["optionGroupDescription"] = args ? args.optionGroupDescription : undefined;
-            resourceInputs["optionGroupName"] = args ? args.optionGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["engineName"] = args?.engineName;
+            resourceInputs["majorEngineVersion"] = args?.majorEngineVersion;
+            resourceInputs["optionConfigurations"] = args?.optionConfigurations;
+            resourceInputs["optionGroupDescription"] = args?.optionGroupDescription;
+            resourceInputs["optionGroupName"] = args?.optionGroupName;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["engineName"] = undefined /*out*/;
             resourceInputs["majorEngineVersion"] = undefined /*out*/;

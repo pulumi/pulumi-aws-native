@@ -120,31 +120,31 @@ export class InferenceExperiment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endpointName === undefined) && !opts.urn) {
+            if (args?.endpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.modelVariants === undefined) && !opts.urn) {
+            if (args?.modelVariants === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelVariants'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["dataStorageConfig"] = args ? args.dataStorageConfig : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["desiredState"] = args ? args.desiredState : undefined;
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
-            resourceInputs["modelVariants"] = args ? args.modelVariants : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["shadowModeConfig"] = args ? args.shadowModeConfig : undefined;
-            resourceInputs["statusReason"] = args ? args.statusReason : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["dataStorageConfig"] = args?.dataStorageConfig;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["desiredState"] = args?.desiredState;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["kmsKey"] = args?.kmsKey;
+            resourceInputs["modelVariants"] = args?.modelVariants;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["shadowModeConfig"] = args?.shadowModeConfig;
+            resourceInputs["statusReason"] = args?.statusReason;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["endpointMetadata"] = undefined /*out*/;

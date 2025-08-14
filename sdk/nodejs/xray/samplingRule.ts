@@ -64,11 +64,11 @@ export class SamplingRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["samplingRule"] = args ? args.samplingRule : undefined;
-            resourceInputs["samplingRuleRecord"] = args ? args.samplingRuleRecord : undefined;
-            resourceInputs["samplingRuleUpdate"] = args ? args.samplingRuleUpdate : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ruleName"] = args?.ruleName;
+            resourceInputs["samplingRule"] = args?.samplingRule;
+            resourceInputs["samplingRuleRecord"] = args?.samplingRuleRecord;
+            resourceInputs["samplingRuleUpdate"] = args?.samplingRuleUpdate;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["ruleArn"] = undefined /*out*/;
         } else {
             resourceInputs["ruleArn"] = undefined /*out*/;

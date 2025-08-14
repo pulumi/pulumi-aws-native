@@ -105,16 +105,16 @@ export class Graph extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.provisionedMemory === undefined) && !opts.urn) {
+            if (args?.provisionedMemory === undefined && !opts.urn) {
                 throw new Error("Missing required property 'provisionedMemory'");
             }
-            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            resourceInputs["graphName"] = args ? args.graphName : undefined;
-            resourceInputs["provisionedMemory"] = args ? args.provisionedMemory : undefined;
-            resourceInputs["publicConnectivity"] = args ? args.publicConnectivity : undefined;
-            resourceInputs["replicaCount"] = args ? args.replicaCount : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vectorSearchConfiguration"] = args ? args.vectorSearchConfiguration : undefined;
+            resourceInputs["deletionProtection"] = args?.deletionProtection;
+            resourceInputs["graphName"] = args?.graphName;
+            resourceInputs["provisionedMemory"] = args?.provisionedMemory;
+            resourceInputs["publicConnectivity"] = args?.publicConnectivity;
+            resourceInputs["replicaCount"] = args?.replicaCount;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vectorSearchConfiguration"] = args?.vectorSearchConfiguration;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["graphArn"] = undefined /*out*/;
             resourceInputs["graphId"] = undefined /*out*/;

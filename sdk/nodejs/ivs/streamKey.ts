@@ -65,11 +65,11 @@ export class StreamKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channelArn === undefined) && !opts.urn) {
+            if (args?.channelArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelArn'");
             }
-            resourceInputs["channelArn"] = args ? args.channelArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["channelArn"] = args?.channelArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["value"] = undefined /*out*/;
         } else {

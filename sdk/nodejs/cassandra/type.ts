@@ -81,15 +81,15 @@ export class Type extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fields === undefined) && !opts.urn) {
+            if (args?.fields === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fields'");
             }
-            if ((!args || args.keyspaceName === undefined) && !opts.urn) {
+            if (args?.keyspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyspaceName'");
             }
-            resourceInputs["fields"] = args ? args.fields : undefined;
-            resourceInputs["keyspaceName"] = args ? args.keyspaceName : undefined;
-            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["fields"] = args?.fields;
+            resourceInputs["keyspaceName"] = args?.keyspaceName;
+            resourceInputs["typeName"] = args?.typeName;
             resourceInputs["directParentTypes"] = undefined /*out*/;
             resourceInputs["directReferringTables"] = undefined /*out*/;
             resourceInputs["keyspaceArn"] = undefined /*out*/;

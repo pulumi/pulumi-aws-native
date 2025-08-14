@@ -97,19 +97,19 @@ export class Profile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleArns === undefined) && !opts.urn) {
+            if (args?.roleArns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArns'");
             }
-            resourceInputs["acceptRoleSessionName"] = args ? args.acceptRoleSessionName : undefined;
-            resourceInputs["attributeMappings"] = args ? args.attributeMappings : undefined;
-            resourceInputs["durationSeconds"] = args ? args.durationSeconds : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["managedPolicyArns"] = args ? args.managedPolicyArns : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["requireInstanceProperties"] = args ? args.requireInstanceProperties : undefined;
-            resourceInputs["roleArns"] = args ? args.roleArns : undefined;
-            resourceInputs["sessionPolicy"] = args ? args.sessionPolicy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["acceptRoleSessionName"] = args?.acceptRoleSessionName;
+            resourceInputs["attributeMappings"] = args?.attributeMappings;
+            resourceInputs["durationSeconds"] = args?.durationSeconds;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["managedPolicyArns"] = args?.managedPolicyArns;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["requireInstanceProperties"] = args?.requireInstanceProperties;
+            resourceInputs["roleArns"] = args?.roleArns;
+            resourceInputs["sessionPolicy"] = args?.sessionPolicy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["profileArn"] = undefined /*out*/;
             resourceInputs["profileId"] = undefined /*out*/;
         } else {

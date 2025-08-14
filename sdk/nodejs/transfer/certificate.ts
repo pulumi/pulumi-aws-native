@@ -109,20 +109,20 @@ export class Certificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.certificate === undefined) && !opts.urn) {
+            if (args?.certificate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificate'");
             }
-            if ((!args || args.usage === undefined) && !opts.urn) {
+            if (args?.usage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'usage'");
             }
-            resourceInputs["activeDate"] = args ? args.activeDate : undefined;
-            resourceInputs["certificate"] = args ? args.certificate : undefined;
-            resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["inactiveDate"] = args ? args.inactiveDate : undefined;
-            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["usage"] = args ? args.usage : undefined;
+            resourceInputs["activeDate"] = args?.activeDate;
+            resourceInputs["certificate"] = args?.certificate;
+            resourceInputs["certificateChain"] = args?.certificateChain;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["inactiveDate"] = args?.inactiveDate;
+            resourceInputs["privateKey"] = args?.privateKey;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["usage"] = args?.usage;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificateId"] = undefined /*out*/;
             resourceInputs["notAfterDate"] = undefined /*out*/;

@@ -242,19 +242,19 @@ export class Document extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            resourceInputs["attachments"] = args ? args.attachments : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["documentFormat"] = args ? args.documentFormat : undefined;
-            resourceInputs["documentType"] = args ? args.documentType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["requires"] = args ? args.requires : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetType"] = args ? args.targetType : undefined;
-            resourceInputs["updateMethod"] = args ? args.updateMethod : undefined;
-            resourceInputs["versionName"] = args ? args.versionName : undefined;
+            resourceInputs["attachments"] = args?.attachments;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["documentFormat"] = args?.documentFormat;
+            resourceInputs["documentType"] = args?.documentType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["requires"] = args?.requires;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetType"] = args?.targetType;
+            resourceInputs["updateMethod"] = args?.updateMethod;
+            resourceInputs["versionName"] = args?.versionName;
         } else {
             resourceInputs["attachments"] = undefined /*out*/;
             resourceInputs["content"] = undefined /*out*/;

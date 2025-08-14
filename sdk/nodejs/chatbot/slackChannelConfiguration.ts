@@ -93,25 +93,25 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.iamRoleArn === undefined) && !opts.urn) {
+            if (args?.iamRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
-            if ((!args || args.slackChannelId === undefined) && !opts.urn) {
+            if (args?.slackChannelId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slackChannelId'");
             }
-            if ((!args || args.slackWorkspaceId === undefined) && !opts.urn) {
+            if (args?.slackWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slackWorkspaceId'");
             }
-            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
-            resourceInputs["customizationResourceArns"] = args ? args.customizationResourceArns : undefined;
-            resourceInputs["guardrailPolicies"] = args ? args.guardrailPolicies : undefined;
-            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            resourceInputs["loggingLevel"] = args ? args.loggingLevel : undefined;
-            resourceInputs["slackChannelId"] = args ? args.slackChannelId : undefined;
-            resourceInputs["slackWorkspaceId"] = args ? args.slackWorkspaceId : undefined;
-            resourceInputs["snsTopicArns"] = args ? args.snsTopicArns : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userRoleRequired"] = args ? args.userRoleRequired : undefined;
+            resourceInputs["configurationName"] = args?.configurationName;
+            resourceInputs["customizationResourceArns"] = args?.customizationResourceArns;
+            resourceInputs["guardrailPolicies"] = args?.guardrailPolicies;
+            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
+            resourceInputs["loggingLevel"] = args?.loggingLevel;
+            resourceInputs["slackChannelId"] = args?.slackChannelId;
+            resourceInputs["slackWorkspaceId"] = args?.slackWorkspaceId;
+            resourceInputs["snsTopicArns"] = args?.snsTopicArns;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userRoleRequired"] = args?.userRoleRequired;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

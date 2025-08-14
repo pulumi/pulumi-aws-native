@@ -101,12 +101,12 @@ export class ProjectProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["domainUnitIdentifier"] = args ? args.domainUnitIdentifier : undefined;
-            resourceInputs["environmentConfigurations"] = args ? args.environmentConfigurations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["domainUnitIdentifier"] = args?.domainUnitIdentifier;
+            resourceInputs["environmentConfigurations"] = args?.environmentConfigurations;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["status"] = args?.status;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;

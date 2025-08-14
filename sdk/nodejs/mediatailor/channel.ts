@@ -93,21 +93,21 @@ export class Channel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.outputs === undefined) && !opts.urn) {
+            if (args?.outputs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outputs'");
             }
-            if ((!args || args.playbackMode === undefined) && !opts.urn) {
+            if (args?.playbackMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'playbackMode'");
             }
-            resourceInputs["audiences"] = args ? args.audiences : undefined;
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["fillerSlate"] = args ? args.fillerSlate : undefined;
-            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
-            resourceInputs["outputs"] = args ? args.outputs : undefined;
-            resourceInputs["playbackMode"] = args ? args.playbackMode : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
-            resourceInputs["timeShiftConfiguration"] = args ? args.timeShiftConfiguration : undefined;
+            resourceInputs["audiences"] = args?.audiences;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["fillerSlate"] = args?.fillerSlate;
+            resourceInputs["logConfiguration"] = args?.logConfiguration;
+            resourceInputs["outputs"] = args?.outputs;
+            resourceInputs["playbackMode"] = args?.playbackMode;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tier"] = args?.tier;
+            resourceInputs["timeShiftConfiguration"] = args?.timeShiftConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

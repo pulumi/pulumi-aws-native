@@ -61,8 +61,8 @@ export class Graph extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["autoEnableMembers"] = args ? args.autoEnableMembers : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoEnableMembers"] = args?.autoEnableMembers;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

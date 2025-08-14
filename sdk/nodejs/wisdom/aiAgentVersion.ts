@@ -62,15 +62,15 @@ export class AiAgentVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.aiAgentId === undefined) && !opts.urn) {
+            if (args?.aiAgentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'aiAgentId'");
             }
-            if ((!args || args.assistantId === undefined) && !opts.urn) {
+            if (args?.assistantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assistantId'");
             }
-            resourceInputs["aiAgentId"] = args ? args.aiAgentId : undefined;
-            resourceInputs["assistantId"] = args ? args.assistantId : undefined;
-            resourceInputs["modifiedTimeSeconds"] = args ? args.modifiedTimeSeconds : undefined;
+            resourceInputs["aiAgentId"] = args?.aiAgentId;
+            resourceInputs["assistantId"] = args?.assistantId;
+            resourceInputs["modifiedTimeSeconds"] = args?.modifiedTimeSeconds;
             resourceInputs["aiAgentArn"] = undefined /*out*/;
             resourceInputs["aiAgentVersionId"] = undefined /*out*/;
             resourceInputs["assistantArn"] = undefined /*out*/;

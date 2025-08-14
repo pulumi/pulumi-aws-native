@@ -115,16 +115,16 @@ export class Solution extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.datasetGroupArn === undefined) && !opts.urn) {
+            if (args?.datasetGroupArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datasetGroupArn'");
             }
-            resourceInputs["datasetGroupArn"] = args ? args.datasetGroupArn : undefined;
-            resourceInputs["eventType"] = args ? args.eventType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["performAutoMl"] = args ? args.performAutoMl : undefined;
-            resourceInputs["performHpo"] = args ? args.performHpo : undefined;
-            resourceInputs["recipeArn"] = args ? args.recipeArn : undefined;
-            resourceInputs["solutionConfig"] = args ? args.solutionConfig : undefined;
+            resourceInputs["datasetGroupArn"] = args?.datasetGroupArn;
+            resourceInputs["eventType"] = args?.eventType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["performAutoMl"] = args?.performAutoMl;
+            resourceInputs["performHpo"] = args?.performHpo;
+            resourceInputs["recipeArn"] = args?.recipeArn;
+            resourceInputs["solutionConfig"] = args?.solutionConfig;
             resourceInputs["solutionArn"] = undefined /*out*/;
         } else {
             resourceInputs["datasetGroupArn"] = undefined /*out*/;

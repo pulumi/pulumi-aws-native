@@ -103,14 +103,14 @@ export class AgentAlias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.agentId === undefined) && !opts.urn) {
+            if (args?.agentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentId'");
             }
-            resourceInputs["agentAliasName"] = args ? args.agentAliasName : undefined;
-            resourceInputs["agentId"] = args ? args.agentId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["routingConfiguration"] = args ? args.routingConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentAliasName"] = args?.agentAliasName;
+            resourceInputs["agentId"] = args?.agentId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["routingConfiguration"] = args?.routingConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["agentAliasArn"] = undefined /*out*/;
             resourceInputs["agentAliasHistoryEvents"] = undefined /*out*/;
             resourceInputs["agentAliasId"] = undefined /*out*/;

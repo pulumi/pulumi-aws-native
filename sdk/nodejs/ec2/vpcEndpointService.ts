@@ -85,14 +85,14 @@ export class VpcEndpointService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["acceptanceRequired"] = args ? args.acceptanceRequired : undefined;
-            resourceInputs["contributorInsightsEnabled"] = args ? args.contributorInsightsEnabled : undefined;
-            resourceInputs["gatewayLoadBalancerArns"] = args ? args.gatewayLoadBalancerArns : undefined;
-            resourceInputs["networkLoadBalancerArns"] = args ? args.networkLoadBalancerArns : undefined;
-            resourceInputs["payerResponsibility"] = args ? args.payerResponsibility : undefined;
-            resourceInputs["supportedIpAddressTypes"] = args ? args.supportedIpAddressTypes : undefined;
-            resourceInputs["supportedRegions"] = args ? args.supportedRegions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["acceptanceRequired"] = args?.acceptanceRequired;
+            resourceInputs["contributorInsightsEnabled"] = args?.contributorInsightsEnabled;
+            resourceInputs["gatewayLoadBalancerArns"] = args?.gatewayLoadBalancerArns;
+            resourceInputs["networkLoadBalancerArns"] = args?.networkLoadBalancerArns;
+            resourceInputs["payerResponsibility"] = args?.payerResponsibility;
+            resourceInputs["supportedIpAddressTypes"] = args?.supportedIpAddressTypes;
+            resourceInputs["supportedRegions"] = args?.supportedRegions;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["serviceId"] = undefined /*out*/;
         } else {
             resourceInputs["acceptanceRequired"] = undefined /*out*/;

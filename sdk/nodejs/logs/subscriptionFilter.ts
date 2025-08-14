@@ -84,22 +84,22 @@ export class SubscriptionFilter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationArn === undefined) && !opts.urn) {
+            if (args?.destinationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationArn'");
             }
-            if ((!args || args.filterPattern === undefined) && !opts.urn) {
+            if (args?.filterPattern === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filterPattern'");
             }
-            if ((!args || args.logGroupName === undefined) && !opts.urn) {
+            if (args?.logGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logGroupName'");
             }
-            resourceInputs["applyOnTransformedLogs"] = args ? args.applyOnTransformedLogs : undefined;
-            resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
-            resourceInputs["distribution"] = args ? args.distribution : undefined;
-            resourceInputs["filterName"] = args ? args.filterName : undefined;
-            resourceInputs["filterPattern"] = args ? args.filterPattern : undefined;
-            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["applyOnTransformedLogs"] = args?.applyOnTransformedLogs;
+            resourceInputs["destinationArn"] = args?.destinationArn;
+            resourceInputs["distribution"] = args?.distribution;
+            resourceInputs["filterName"] = args?.filterName;
+            resourceInputs["filterPattern"] = args?.filterPattern;
+            resourceInputs["logGroupName"] = args?.logGroupName;
+            resourceInputs["roleArn"] = args?.roleArn;
         } else {
             resourceInputs["applyOnTransformedLogs"] = undefined /*out*/;
             resourceInputs["destinationArn"] = undefined /*out*/;

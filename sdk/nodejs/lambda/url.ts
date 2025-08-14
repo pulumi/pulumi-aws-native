@@ -77,17 +77,17 @@ export class Url extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authType === undefined) && !opts.urn) {
+            if (args?.authType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authType'");
             }
-            if ((!args || args.targetFunctionArn === undefined) && !opts.urn) {
+            if (args?.targetFunctionArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetFunctionArn'");
             }
-            resourceInputs["authType"] = args ? args.authType : undefined;
-            resourceInputs["cors"] = args ? args.cors : undefined;
-            resourceInputs["invokeMode"] = args ? args.invokeMode : undefined;
-            resourceInputs["qualifier"] = args ? args.qualifier : undefined;
-            resourceInputs["targetFunctionArn"] = args ? args.targetFunctionArn : undefined;
+            resourceInputs["authType"] = args?.authType;
+            resourceInputs["cors"] = args?.cors;
+            resourceInputs["invokeMode"] = args?.invokeMode;
+            resourceInputs["qualifier"] = args?.qualifier;
+            resourceInputs["targetFunctionArn"] = args?.targetFunctionArn;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["functionUrl"] = undefined /*out*/;
         } else {

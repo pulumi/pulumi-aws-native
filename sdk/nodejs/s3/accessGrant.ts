@@ -89,22 +89,22 @@ export class AccessGrant extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessGrantsLocationId === undefined) && !opts.urn) {
+            if (args?.accessGrantsLocationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessGrantsLocationId'");
             }
-            if ((!args || args.grantee === undefined) && !opts.urn) {
+            if (args?.grantee === undefined && !opts.urn) {
                 throw new Error("Missing required property 'grantee'");
             }
-            if ((!args || args.permission === undefined) && !opts.urn) {
+            if (args?.permission === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permission'");
             }
-            resourceInputs["accessGrantsLocationConfiguration"] = args ? args.accessGrantsLocationConfiguration : undefined;
-            resourceInputs["accessGrantsLocationId"] = args ? args.accessGrantsLocationId : undefined;
-            resourceInputs["applicationArn"] = args ? args.applicationArn : undefined;
-            resourceInputs["grantee"] = args ? args.grantee : undefined;
-            resourceInputs["permission"] = args ? args.permission : undefined;
-            resourceInputs["s3PrefixType"] = args ? args.s3PrefixType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessGrantsLocationConfiguration"] = args?.accessGrantsLocationConfiguration;
+            resourceInputs["accessGrantsLocationId"] = args?.accessGrantsLocationId;
+            resourceInputs["applicationArn"] = args?.applicationArn;
+            resourceInputs["grantee"] = args?.grantee;
+            resourceInputs["permission"] = args?.permission;
+            resourceInputs["s3PrefixType"] = args?.s3PrefixType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["accessGrantArn"] = undefined /*out*/;
             resourceInputs["accessGrantId"] = undefined /*out*/;
             resourceInputs["grantScope"] = undefined /*out*/;

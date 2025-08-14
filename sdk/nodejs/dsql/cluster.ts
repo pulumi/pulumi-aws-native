@@ -89,10 +89,10 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
-            resourceInputs["kmsEncryptionKey"] = args ? args.kmsEncryptionKey : undefined;
-            resourceInputs["multiRegionProperties"] = args ? args.multiRegionProperties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
+            resourceInputs["kmsEncryptionKey"] = args?.kmsEncryptionKey;
+            resourceInputs["multiRegionProperties"] = args?.multiRegionProperties;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["encryptionDetails"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;

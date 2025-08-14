@@ -65,11 +65,11 @@ export class UserAccessLoggingSettings extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kinesisStreamArn === undefined) && !opts.urn) {
+            if (args?.kinesisStreamArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kinesisStreamArn'");
             }
-            resourceInputs["kinesisStreamArn"] = args ? args.kinesisStreamArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["kinesisStreamArn"] = args?.kinesisStreamArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["userAccessLoggingSettingsArn"] = undefined /*out*/;
         } else {

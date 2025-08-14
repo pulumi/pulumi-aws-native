@@ -128,24 +128,24 @@ export class Guardrail extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.blockedInputMessaging === undefined) && !opts.urn) {
+            if (args?.blockedInputMessaging === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blockedInputMessaging'");
             }
-            if ((!args || args.blockedOutputsMessaging === undefined) && !opts.urn) {
+            if (args?.blockedOutputsMessaging === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blockedOutputsMessaging'");
             }
-            resourceInputs["blockedInputMessaging"] = args ? args.blockedInputMessaging : undefined;
-            resourceInputs["blockedOutputsMessaging"] = args ? args.blockedOutputsMessaging : undefined;
-            resourceInputs["contentPolicyConfig"] = args ? args.contentPolicyConfig : undefined;
-            resourceInputs["contextualGroundingPolicyConfig"] = args ? args.contextualGroundingPolicyConfig : undefined;
-            resourceInputs["crossRegionConfig"] = args ? args.crossRegionConfig : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sensitiveInformationPolicyConfig"] = args ? args.sensitiveInformationPolicyConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topicPolicyConfig"] = args ? args.topicPolicyConfig : undefined;
-            resourceInputs["wordPolicyConfig"] = args ? args.wordPolicyConfig : undefined;
+            resourceInputs["blockedInputMessaging"] = args?.blockedInputMessaging;
+            resourceInputs["blockedOutputsMessaging"] = args?.blockedOutputsMessaging;
+            resourceInputs["contentPolicyConfig"] = args?.contentPolicyConfig;
+            resourceInputs["contextualGroundingPolicyConfig"] = args?.contextualGroundingPolicyConfig;
+            resourceInputs["crossRegionConfig"] = args?.crossRegionConfig;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sensitiveInformationPolicyConfig"] = args?.sensitiveInformationPolicyConfig;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topicPolicyConfig"] = args?.topicPolicyConfig;
+            resourceInputs["wordPolicyConfig"] = args?.wordPolicyConfig;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["failureRecommendations"] = undefined /*out*/;
             resourceInputs["guardrailArn"] = undefined /*out*/;

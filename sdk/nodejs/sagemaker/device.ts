@@ -61,12 +61,12 @@ export class Device extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceFleetName === undefined) && !opts.urn) {
+            if (args?.deviceFleetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceFleetName'");
             }
-            resourceInputs["device"] = args ? args.device : undefined;
-            resourceInputs["deviceFleetName"] = args ? args.deviceFleetName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["device"] = args?.device;
+            resourceInputs["deviceFleetName"] = args?.deviceFleetName;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["device"] = undefined /*out*/;
             resourceInputs["deviceFleetName"] = undefined /*out*/;

@@ -599,26 +599,26 @@ export class Table extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.keyspaceName === undefined) && !opts.urn) {
+            if (args?.keyspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyspaceName'");
             }
-            if ((!args || args.partitionKeyColumns === undefined) && !opts.urn) {
+            if (args?.partitionKeyColumns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partitionKeyColumns'");
             }
-            resourceInputs["autoScalingSpecifications"] = args ? args.autoScalingSpecifications : undefined;
-            resourceInputs["billingMode"] = args ? args.billingMode : undefined;
-            resourceInputs["cdcSpecification"] = args ? args.cdcSpecification : undefined;
-            resourceInputs["clientSideTimestampsEnabled"] = args ? args.clientSideTimestampsEnabled : undefined;
-            resourceInputs["clusteringKeyColumns"] = args ? args.clusteringKeyColumns : undefined;
-            resourceInputs["defaultTimeToLive"] = args ? args.defaultTimeToLive : undefined;
-            resourceInputs["encryptionSpecification"] = args ? args.encryptionSpecification : undefined;
-            resourceInputs["keyspaceName"] = args ? args.keyspaceName : undefined;
-            resourceInputs["partitionKeyColumns"] = args ? args.partitionKeyColumns : undefined;
-            resourceInputs["pointInTimeRecoveryEnabled"] = args ? args.pointInTimeRecoveryEnabled : undefined;
-            resourceInputs["regularColumns"] = args ? args.regularColumns : undefined;
-            resourceInputs["replicaSpecifications"] = args ? args.replicaSpecifications : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoScalingSpecifications"] = args?.autoScalingSpecifications;
+            resourceInputs["billingMode"] = args?.billingMode;
+            resourceInputs["cdcSpecification"] = args?.cdcSpecification;
+            resourceInputs["clientSideTimestampsEnabled"] = args?.clientSideTimestampsEnabled;
+            resourceInputs["clusteringKeyColumns"] = args?.clusteringKeyColumns;
+            resourceInputs["defaultTimeToLive"] = args?.defaultTimeToLive;
+            resourceInputs["encryptionSpecification"] = args?.encryptionSpecification;
+            resourceInputs["keyspaceName"] = args?.keyspaceName;
+            resourceInputs["partitionKeyColumns"] = args?.partitionKeyColumns;
+            resourceInputs["pointInTimeRecoveryEnabled"] = args?.pointInTimeRecoveryEnabled;
+            resourceInputs["regularColumns"] = args?.regularColumns;
+            resourceInputs["replicaSpecifications"] = args?.replicaSpecifications;
+            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["autoScalingSpecifications"] = undefined /*out*/;
             resourceInputs["billingMode"] = undefined /*out*/;

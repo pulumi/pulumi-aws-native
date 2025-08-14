@@ -99,16 +99,16 @@ export class Channel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channelGroupName === undefined) && !opts.urn) {
+            if (args?.channelGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelGroupName'");
             }
-            resourceInputs["channelGroupName"] = args ? args.channelGroupName : undefined;
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["inputSwitchConfiguration"] = args ? args.inputSwitchConfiguration : undefined;
-            resourceInputs["inputType"] = args ? args.inputType : undefined;
-            resourceInputs["outputHeaderConfiguration"] = args ? args.outputHeaderConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["channelGroupName"] = args?.channelGroupName;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["inputSwitchConfiguration"] = args?.inputSwitchConfiguration;
+            resourceInputs["inputType"] = args?.inputType;
+            resourceInputs["outputHeaderConfiguration"] = args?.outputHeaderConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["ingestEndpointUrls"] = undefined /*out*/;

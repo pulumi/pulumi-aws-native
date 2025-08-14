@@ -73,11 +73,11 @@ export class FindingAggregator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.regionLinkingMode === undefined) && !opts.urn) {
+            if (args?.regionLinkingMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'regionLinkingMode'");
             }
-            resourceInputs["regionLinkingMode"] = args ? args.regionLinkingMode : undefined;
-            resourceInputs["regions"] = args ? args.regions : undefined;
+            resourceInputs["regionLinkingMode"] = args?.regionLinkingMode;
+            resourceInputs["regions"] = args?.regions;
             resourceInputs["findingAggregationRegion"] = undefined /*out*/;
             resourceInputs["findingAggregatorArn"] = undefined /*out*/;
         } else {

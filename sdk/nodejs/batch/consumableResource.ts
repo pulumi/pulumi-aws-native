@@ -84,16 +84,16 @@ export class ConsumableResource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if ((!args || args.totalQuantity === undefined) && !opts.urn) {
+            if (args?.totalQuantity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'totalQuantity'");
             }
-            resourceInputs["consumableResourceName"] = args ? args.consumableResourceName : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["totalQuantity"] = args ? args.totalQuantity : undefined;
+            resourceInputs["consumableResourceName"] = args?.consumableResourceName;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["totalQuantity"] = args?.totalQuantity;
             resourceInputs["availableQuantity"] = undefined /*out*/;
             resourceInputs["consumableResourceArn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

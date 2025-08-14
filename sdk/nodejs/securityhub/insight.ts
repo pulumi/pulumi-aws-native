@@ -65,15 +65,15 @@ export class Insight extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.filters === undefined) && !opts.urn) {
+            if (args?.filters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filters'");
             }
-            if ((!args || args.groupByAttribute === undefined) && !opts.urn) {
+            if (args?.groupByAttribute === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupByAttribute'");
             }
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["groupByAttribute"] = args ? args.groupByAttribute : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["groupByAttribute"] = args?.groupByAttribute;
+            resourceInputs["name"] = args?.name;
             resourceInputs["insightArn"] = undefined /*out*/;
         } else {
             resourceInputs["filters"] = undefined /*out*/;

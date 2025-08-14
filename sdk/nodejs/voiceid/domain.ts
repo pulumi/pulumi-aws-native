@@ -69,13 +69,13 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.serverSideEncryptionConfiguration === undefined) && !opts.urn) {
+            if (args?.serverSideEncryptionConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverSideEncryptionConfiguration'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverSideEncryptionConfiguration"] = args?.serverSideEncryptionConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["domainId"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
