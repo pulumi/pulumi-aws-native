@@ -209,6 +209,7 @@ AWS::CodeGuruProfiler::ProfilingGroup
 AWS::CodeGuruReviewer::RepositoryAssociation
 AWS::CodePipeline::CustomActionType
 AWS::CodePipeline::Pipeline
+AWS::CodePipeline::Webhook
 AWS::CodeStarConnections::Connection
 AWS::CodeStarConnections::RepositoryLink
 AWS::CodeStarConnections::SyncConfiguration
@@ -564,7 +565,9 @@ AWS::GuardDuty::MalwareProtectionPlan
 AWS::GuardDuty::Master
 AWS::GuardDuty::Member
 AWS::GuardDuty::PublishingDestination
+AWS::GuardDuty::ThreatEntitySet
 AWS::GuardDuty::ThreatIntelSet
+AWS::GuardDuty::TrustedEntitySet
 AWS::HealthImaging::Datastore
 AWS::HealthLake::FHIRDatastore
 AWS::IAM::Group
@@ -607,6 +610,8 @@ AWS::Inspector::AssessmentTarget
 AWS::Inspector::AssessmentTemplate
 AWS::Inspector::ResourceGroup
 AWS::InspectorV2::CisScanConfiguration
+AWS::InspectorV2::CodeSecurityIntegration
+AWS::InspectorV2::CodeSecurityScanConfiguration
 AWS::InspectorV2::Filter
 AWS::InternetMonitor::Monitor
 AWS::Invoicing::InvoiceUnit
