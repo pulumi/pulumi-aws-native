@@ -7,7 +7,6 @@ on:
     - v*.*.*
     - "!v*.*.*-**"
 env:
-  GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
   PROVIDER: aws-native
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   TRAVIS_OS_NAME: linux
