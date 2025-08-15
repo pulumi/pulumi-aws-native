@@ -98,6 +98,35 @@ namespace Pulumi.AwsNative.CloudFront
     }
 
     [EnumType]
+    public readonly struct DistributionCustomOriginConfigIpAddressType : IEquatable<DistributionCustomOriginConfigIpAddressType>
+    {
+        private readonly string _value;
+
+        private DistributionCustomOriginConfigIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DistributionCustomOriginConfigIpAddressType Ipv4 { get; } = new DistributionCustomOriginConfigIpAddressType("ipv4");
+        public static DistributionCustomOriginConfigIpAddressType Ipv6 { get; } = new DistributionCustomOriginConfigIpAddressType("ipv6");
+        public static DistributionCustomOriginConfigIpAddressType Dualstack { get; } = new DistributionCustomOriginConfigIpAddressType("dualstack");
+
+        public static bool operator ==(DistributionCustomOriginConfigIpAddressType left, DistributionCustomOriginConfigIpAddressType right) => left.Equals(right);
+        public static bool operator !=(DistributionCustomOriginConfigIpAddressType left, DistributionCustomOriginConfigIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(DistributionCustomOriginConfigIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DistributionCustomOriginConfigIpAddressType other && Equals(other);
+        public bool Equals(DistributionCustomOriginConfigIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DistributionOriginGroupSelectionCriteria : IEquatable<DistributionOriginGroupSelectionCriteria>
     {
         private readonly string _value;

@@ -542,7 +542,6 @@
   },
   "required" : [ "AllowedColumns", "AnalysisMethod", "Name", "TableReference" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/ConfiguredTableIdentifier" ],
-  "createOnlyProperties" : [ "/properties/AllowedColumns", "/properties/TableReference" ],
   "primaryIdentifier" : [ "/properties/ConfiguredTableIdentifier" ],
   "tagging" : {
     "taggable" : true,
@@ -560,7 +559,7 @@
       "permissions" : [ "cleanrooms:GetConfiguredTable", "cleanrooms:GetConfiguredTableAnalysisRule", "cleanrooms:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "cleanrooms:UpdateConfiguredTable", "cleanrooms:GetConfiguredTable", "cleanrooms:CreateConfiguredTableAnalysisRule", "cleanrooms:UpdateConfiguredTableAnalysisRule", "cleanrooms:GetConfiguredTableAnalysisRule", "cleanrooms:DeleteConfiguredTableAnalysisRule", "cleanrooms:ListTagsForResource", "cleanrooms:TagResource", "cleanrooms:UntagResource", "glue:GetDatabase", "glue:GetDatabases", "glue:GetTable", "glue:GetTables", "glue:GetPartition", "glue:GetPartitions", "glue:BatchGetPartition", "glue:GetSchemaVersion" ]
+      "permissions" : [ "cleanrooms:UpdateConfiguredTable", "cleanrooms:UpdateConfiguredTableReference", "cleanrooms:UpdateConfiguredTableAllowedColumns", "cleanrooms:GetConfiguredTable", "cleanrooms:CreateConfiguredTableAnalysisRule", "cleanrooms:UpdateConfiguredTableAnalysisRule", "cleanrooms:GetConfiguredTableAnalysisRule", "cleanrooms:DeleteConfiguredTableAnalysisRule", "cleanrooms:ListTagsForResource", "cleanrooms:TagResource", "cleanrooms:UntagResource", "glue:GetDatabase", "glue:GetDatabases", "glue:GetTable", "glue:GetTables", "glue:GetPartition", "glue:GetPartitions", "glue:BatchGetPartition", "glue:GetSchemaVersion" ]
     },
     "delete" : {
       "permissions" : [ "cleanrooms:DeleteConfiguredTable", "cleanrooms:GetConfiguredTable", "cleanrooms:ListConfiguredTables", "cleanrooms:GetConfiguredTableAnalysisRule", "cleanrooms:DeleteConfiguredTableAnalysisRule", "cleanrooms:ListTagsForResource", "cleanrooms:UntagResource", "glue:GetDatabase", "glue:GetDatabases", "glue:GetTable", "glue:GetTables", "glue:GetPartition", "glue:GetPartitions", "glue:BatchGetPartition", "glue:GetSchemaVersion" ]

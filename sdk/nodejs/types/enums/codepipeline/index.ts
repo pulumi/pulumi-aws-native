@@ -94,3 +94,14 @@ export const PipelineType = {
  * CodePipeline provides the following pipeline types, which differ in characteristics and price, so that you can tailor your pipeline features and cost to the needs of your applications.
  */
 export type PipelineType = (typeof PipelineType)[keyof typeof PipelineType];
+
+export const WebhookAuthentication = {
+    GithubHmac: "GITHUB_HMAC",
+    Ip: "IP",
+    Unauthenticated: "UNAUTHENTICATED",
+} as const;
+
+/**
+ * Supported options are GITHUB_HMAC, IP, and UNAUTHENTICATED.
+ */
+export type WebhookAuthentication = (typeof WebhookAuthentication)[keyof typeof WebhookAuthentication];

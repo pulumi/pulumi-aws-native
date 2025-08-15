@@ -45,7 +45,8 @@ type Fleet struct {
 	// The IAM role that workers in the fleet use when processing jobs.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The status of the fleet.
-	Status FleetStatusOutput `pulumi:"status"`
+	Status        FleetStatusOutput   `pulumi:"status"`
+	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The number of workers in the fleet summary.
@@ -265,6 +266,10 @@ func (o FleetOutput) RoleArn() pulumi.StringOutput {
 // The status of the fleet.
 func (o FleetOutput) Status() FleetStatusOutput {
 	return o.ApplyT(func(v *Fleet) FleetStatusOutput { return v.Status }).(FleetStatusOutput)
+}
+
+func (o FleetOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

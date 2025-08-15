@@ -72,6 +72,7 @@ export interface GetFleetResult {
      * The status of the fleet.
      */
     readonly status?: enums.deadline.FleetStatus;
+    readonly statusMessage?: string;
     /**
      * An array of key-value pairs to apply to this resource.
      */

@@ -90,6 +90,9 @@ namespace Pulumi.AwsNative.Deadline
         [Output("status")]
         public Output<Pulumi.AwsNative.Deadline.FleetStatus> Status { get; private set; } = null!;
 
+        [Output("statusMessage")]
+        public Output<string> StatusMessage { get; private set; } = null!;
+
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>

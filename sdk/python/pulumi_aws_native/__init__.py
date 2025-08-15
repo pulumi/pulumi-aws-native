@@ -1262,7 +1262,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.codepipeline",
   "classes": {
    "aws-native:codepipeline:CustomActionType": "CustomActionType",
-   "aws-native:codepipeline:Pipeline": "Pipeline"
+   "aws-native:codepipeline:Pipeline": "Pipeline",
+   "aws-native:codepipeline:Webhook": "Webhook"
   }
  },
  {
@@ -2075,6 +2076,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.inspectorv2",
   "classes": {
    "aws-native:inspectorv2:CisScanConfiguration": "CisScanConfiguration",
+   "aws-native:inspectorv2:CodeSecurityIntegration": "CodeSecurityIntegration",
+   "aws-native:inspectorv2:CodeSecurityScanConfiguration": "CodeSecurityScanConfiguration",
    "aws-native:inspectorv2:Filter": "Filter"
   }
  },

@@ -25,7 +25,7 @@ type PredefinedAttribute struct {
 	// The name of the predefined attribute.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The values of a predefined attribute.
-	Values ValuesPropertiesOutput `pulumi:"values"`
+	Values ValuesPropertiesPtrOutput `pulumi:"values"`
 }
 
 // NewPredefinedAttribute registers a new resource with the given unique name, arguments, and options.
@@ -37,9 +37,6 @@ func NewPredefinedAttribute(ctx *pulumi.Context,
 
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
-	}
-	if args.Values == nil {
-		return nil, errors.New("invalid value for required argument 'Values'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"instanceArn",
@@ -84,7 +81,7 @@ type predefinedAttributeArgs struct {
 	// The name of the predefined attribute.
 	Name *string `pulumi:"name"`
 	// The values of a predefined attribute.
-	Values ValuesProperties `pulumi:"values"`
+	Values *ValuesProperties `pulumi:"values"`
 }
 
 // The set of arguments for constructing a PredefinedAttribute resource.
@@ -94,7 +91,7 @@ type PredefinedAttributeArgs struct {
 	// The name of the predefined attribute.
 	Name pulumi.StringPtrInput
 	// The values of a predefined attribute.
-	Values ValuesPropertiesInput
+	Values ValuesPropertiesPtrInput
 }
 
 func (PredefinedAttributeArgs) ElementType() reflect.Type {
@@ -155,8 +152,8 @@ func (o PredefinedAttributeOutput) Name() pulumi.StringOutput {
 }
 
 // The values of a predefined attribute.
-func (o PredefinedAttributeOutput) Values() ValuesPropertiesOutput {
-	return o.ApplyT(func(v *PredefinedAttribute) ValuesPropertiesOutput { return v.Values }).(ValuesPropertiesOutput)
+func (o PredefinedAttributeOutput) Values() ValuesPropertiesPtrOutput {
+	return o.ApplyT(func(v *PredefinedAttribute) ValuesPropertiesPtrOutput { return v.Values }).(ValuesPropertiesPtrOutput)
 }
 
 func init() {

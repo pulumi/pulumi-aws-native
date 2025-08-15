@@ -110,6 +110,7 @@ namespace Pulumi.AwsNative.Deadline
         /// The status of the fleet.
         /// </summary>
         public readonly Pulumi.AwsNative.Deadline.FleetStatus? Status;
+        public readonly string? StatusMessage;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -143,6 +144,8 @@ namespace Pulumi.AwsNative.Deadline
 
             Pulumi.AwsNative.Deadline.FleetStatus? status,
 
+            string? statusMessage,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             int? workerCount)
@@ -158,6 +161,7 @@ namespace Pulumi.AwsNative.Deadline
             MinWorkerCount = minWorkerCount;
             RoleArn = roleArn;
             Status = status;
+            StatusMessage = statusMessage;
             Tags = tags;
             WorkerCount = workerCount;
         }

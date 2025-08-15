@@ -511,7 +511,7 @@
       "items" : {
         "$ref" : "#/definitions/DBInstanceStatusInfo"
       },
-      "description" : "The status of a read replica. If the DB instance isn't a read replica, the value is blank."
+      "description" : ""
     },
     "StorageEncrypted" : {
       "type" : "boolean",

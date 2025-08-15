@@ -109,10 +109,6 @@ namespace Pulumi.AwsNative.CloudFront
         /// Contains metadata about a CloudFront function.
         /// </summary>
         public readonly Outputs.FunctionMetadata? FunctionMetadata;
-        /// <summary>
-        /// A name to identify the function.
-        /// </summary>
-        public readonly string? Name;
         public readonly string? Stage;
 
         [OutputConstructor]
@@ -125,15 +121,12 @@ namespace Pulumi.AwsNative.CloudFront
 
             Outputs.FunctionMetadata? functionMetadata,
 
-            string? name,
-
             string? stage)
         {
             FunctionArn = functionArn;
             FunctionCode = functionCode;
             FunctionConfig = functionConfig;
             FunctionMetadata = functionMetadata;
-            Name = name;
             Stage = stage;
         }
     }
