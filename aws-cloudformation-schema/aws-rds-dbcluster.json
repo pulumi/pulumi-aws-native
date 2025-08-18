@@ -255,7 +255,7 @@
       "type" : "string"
     },
     "SourceDbClusterResourceId" : {
-      "description" : "",
+      "description" : "The resource ID of the source DB cluster from which to restore.",
       "type" : "string"
     },
     "SourceRegion" : {

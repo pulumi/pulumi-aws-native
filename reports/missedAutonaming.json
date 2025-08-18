@@ -1244,6 +1244,19 @@
       }
     }
   },
+  "aws-native:aps:ResourcePolicy": {
+    "cfTypeName": "AWS::APS::ResourcePolicy",
+    "properties": {
+      "policyDocument": {
+        "type": "string",
+        "description": "The JSON to use as the Resource-based Policy."
+      },
+      "workspaceArn": {
+        "type": "string",
+        "description": "The Arn of an APS Workspace that the PolicyDocument will be attached to."
+      }
+    }
+  },
   "aws-native:aps:Scraper": {
     "cfTypeName": "AWS::APS::Scraper",
     "properties": {
