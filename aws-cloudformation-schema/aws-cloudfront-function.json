@@ -98,6 +98,7 @@
       "description" : ""
     }
   },
+  "createOnlyProperties" : [ "/properties/Name" ],
   "readOnlyProperties" : [ "/properties/FunctionARN", "/properties/FunctionMetadata/FunctionARN", "/properties/Stage" ],
   "required" : [ "Name", "FunctionConfig", "FunctionCode" ],
   "tagging" : {
