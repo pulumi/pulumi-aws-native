@@ -37,23 +37,23 @@ export class RequestValidator extends pulumi.CustomResource {
     /**
      * The name of this RequestValidator
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The ID for the request validator. For example: `abc123` .
      */
-    public /*out*/ readonly requestValidatorId!: pulumi.Output<string>;
+    declare public /*out*/ readonly requestValidatorId: pulumi.Output<string>;
     /**
      * The string identifier of the associated RestApi.
      */
-    public readonly restApiId!: pulumi.Output<string>;
+    declare public readonly restApiId: pulumi.Output<string>;
     /**
      * A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
      */
-    public readonly validateRequestBody!: pulumi.Output<boolean | undefined>;
+    declare public readonly validateRequestBody: pulumi.Output<boolean | undefined>;
     /**
      * A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
      */
-    public readonly validateRequestParameters!: pulumi.Output<boolean | undefined>;
+    declare public readonly validateRequestParameters: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a RequestValidator resource with the given unique name, arguments, and options.
@@ -66,13 +66,13 @@ export class RequestValidator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
-            resourceInputs["validateRequestBody"] = args ? args.validateRequestBody : undefined;
-            resourceInputs["validateRequestParameters"] = args ? args.validateRequestParameters : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["restApiId"] = args?.restApiId;
+            resourceInputs["validateRequestBody"] = args?.validateRequestBody;
+            resourceInputs["validateRequestParameters"] = args?.validateRequestParameters;
             resourceInputs["requestValidatorId"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;

@@ -80,27 +80,27 @@ export class SecurityConfig extends pulumi.CustomResource {
     /**
      * The identifier of the security config
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Security config description
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Describes IAM Identity Center options in the form of a key-value map.
      */
-    public readonly iamIdentityCenterOptions!: pulumi.Output<outputs.opensearchserverless.SecurityConfigIamIdentityCenterConfigOptions | undefined>;
+    declare public readonly iamIdentityCenterOptions: pulumi.Output<outputs.opensearchserverless.SecurityConfigIamIdentityCenterConfigOptions | undefined>;
     /**
      * The friendly name of the security config
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * SAML options for the security configuration in the form of a key-value map.
      */
-    public readonly samlOptions!: pulumi.Output<outputs.opensearchserverless.SecurityConfigSamlConfigOptions | undefined>;
+    declare public readonly samlOptions: pulumi.Output<outputs.opensearchserverless.SecurityConfigSamlConfigOptions | undefined>;
     /**
      * The type of security configuration. Currently the only option is `saml` .
      */
-    public readonly type!: pulumi.Output<enums.opensearchserverless.SecurityConfigType | undefined>;
+    declare public readonly type: pulumi.Output<enums.opensearchserverless.SecurityConfigType | undefined>;
 
     /**
      * Create a SecurityConfig resource with the given unique name, arguments, and options.
@@ -113,11 +113,11 @@ export class SecurityConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["iamIdentityCenterOptions"] = args ? args.iamIdentityCenterOptions : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["samlOptions"] = args ? args.samlOptions : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["iamIdentityCenterOptions"] = args?.iamIdentityCenterOptions;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["samlOptions"] = args?.samlOptions;
+            resourceInputs["type"] = args?.type;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

@@ -166,31 +166,31 @@ export class RepositoryAssociation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the repository association.
      */
-    public /*out*/ readonly associationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly associationArn: pulumi.Output<string>;
     /**
      * The name of the S3 bucket associated with an associated S3 repository. It must start with `codeguru-reviewer-`.
      */
-    public readonly bucketName!: pulumi.Output<string | undefined>;
+    declare public readonly bucketName: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
      */
-    public readonly connectionArn!: pulumi.Output<string | undefined>;
+    declare public readonly connectionArn: pulumi.Output<string | undefined>;
     /**
      * Name of the repository to be associated.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
      */
-    public readonly owner!: pulumi.Output<string | undefined>;
+    declare public readonly owner: pulumi.Output<string | undefined>;
     /**
      * The tags associated with a repository association.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The type of repository to be associated.
      */
-    public readonly type!: pulumi.Output<enums.codegurureviewer.RepositoryAssociationType>;
+    declare public readonly type: pulumi.Output<enums.codegurureviewer.RepositoryAssociationType>;
 
     /**
      * Create a RepositoryAssociation resource with the given unique name, arguments, and options.
@@ -203,15 +203,15 @@ export class RepositoryAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
-            resourceInputs["connectionArn"] = args ? args.connectionArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["owner"] = args ? args.owner : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["bucketName"] = args?.bucketName;
+            resourceInputs["connectionArn"] = args?.connectionArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["owner"] = args?.owner;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["associationArn"] = undefined /*out*/;
         } else {
             resourceInputs["associationArn"] = undefined /*out*/;

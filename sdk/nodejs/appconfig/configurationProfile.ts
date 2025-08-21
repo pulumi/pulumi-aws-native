@@ -40,51 +40,51 @@ export class ConfigurationProfile extends pulumi.CustomResource {
     /**
      * The application ID.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    declare public readonly applicationId: pulumi.Output<string>;
     /**
      * The configuration profile ID
      */
-    public /*out*/ readonly configurationProfileId!: pulumi.Output<string>;
+    declare public /*out*/ readonly configurationProfileId: pulumi.Output<string>;
     /**
      * On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
      */
-    public readonly deletionProtectionCheck!: pulumi.Output<enums.appconfig.ConfigurationProfileDeletionProtectionCheck | undefined>;
+    declare public readonly deletionProtectionCheck: pulumi.Output<enums.appconfig.ConfigurationProfileDeletionProtectionCheck | undefined>;
     /**
      * A description of the configuration profile.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name of the AWS Key Management Service key to encrypt new configuration data versions in the AWS AppConfig hosted configuration store. This attribute is only used for hosted configuration types. To encrypt data managed in other configuration stores, see the documentation for how to specify an AWS KMS key for that particular service.
      */
-    public /*out*/ readonly kmsKeyArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly kmsKeyArn: pulumi.Output<string>;
     /**
      * The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
      */
-    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
      * A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object.
      */
-    public readonly locationUri!: pulumi.Output<string>;
+    declare public readonly locationUri: pulumi.Output<string>;
     /**
      * A name for the configuration profile.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
      */
-    public readonly retrievalRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly retrievalRoleArn: pulumi.Output<string | undefined>;
     /**
      * Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * A list of methods for validating the configuration.
      */
-    public readonly validators!: pulumi.Output<outputs.appconfig.ConfigurationProfileValidators[] | undefined>;
+    declare public readonly validators: pulumi.Output<outputs.appconfig.ConfigurationProfileValidators[] | undefined>;
 
     /**
      * Create a ConfigurationProfile resource with the given unique name, arguments, and options.
@@ -97,22 +97,22 @@ export class ConfigurationProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.locationUri === undefined) && !opts.urn) {
+            if (args?.locationUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'locationUri'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["deletionProtectionCheck"] = args ? args.deletionProtectionCheck : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
-            resourceInputs["locationUri"] = args ? args.locationUri : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["retrievalRoleArn"] = args ? args.retrievalRoleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["validators"] = args ? args.validators : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["deletionProtectionCheck"] = args?.deletionProtectionCheck;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
+            resourceInputs["locationUri"] = args?.locationUri;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["retrievalRoleArn"] = args?.retrievalRoleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["validators"] = args?.validators;
             resourceInputs["configurationProfileId"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
         } else {

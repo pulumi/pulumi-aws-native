@@ -40,43 +40,43 @@ export class InferenceComponent extends pulumi.CustomResource {
     /**
      * The time when the inference component was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
      */
-    public readonly deploymentConfig!: pulumi.Output<outputs.sagemaker.InferenceComponentDeploymentConfig | undefined>;
+    declare public readonly deploymentConfig: pulumi.Output<outputs.sagemaker.InferenceComponentDeploymentConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
      */
-    public readonly endpointArn!: pulumi.Output<string | undefined>;
+    declare public readonly endpointArn: pulumi.Output<string | undefined>;
     /**
      * The name of the endpoint that hosts the inference component.
      */
-    public readonly endpointName!: pulumi.Output<string>;
-    public /*out*/ readonly failureReason!: pulumi.Output<string>;
+    declare public readonly endpointName: pulumi.Output<string>;
+    declare public /*out*/ readonly failureReason: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the inference component.
      */
-    public /*out*/ readonly inferenceComponentArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly inferenceComponentArn: pulumi.Output<string>;
     /**
      * The name of the inference component.
      */
-    public readonly inferenceComponentName!: pulumi.Output<string | undefined>;
+    declare public readonly inferenceComponentName: pulumi.Output<string | undefined>;
     /**
      * The status of the inference component.
      */
-    public /*out*/ readonly inferenceComponentStatus!: pulumi.Output<enums.sagemaker.InferenceComponentStatus>;
+    declare public /*out*/ readonly inferenceComponentStatus: pulumi.Output<enums.sagemaker.InferenceComponentStatus>;
     /**
      * The time when the inference component was last updated.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
-    public readonly runtimeConfig!: pulumi.Output<outputs.sagemaker.InferenceComponentRuntimeConfig | undefined>;
-    public readonly specification!: pulumi.Output<outputs.sagemaker.InferenceComponentSpecification>;
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
+    declare public readonly runtimeConfig: pulumi.Output<outputs.sagemaker.InferenceComponentRuntimeConfig | undefined>;
+    declare public readonly specification: pulumi.Output<outputs.sagemaker.InferenceComponentSpecification>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The name of the production variant that hosts the inference component.
      */
-    public readonly variantName!: pulumi.Output<string | undefined>;
+    declare public readonly variantName: pulumi.Output<string | undefined>;
 
     /**
      * Create a InferenceComponent resource with the given unique name, arguments, and options.
@@ -89,20 +89,20 @@ export class InferenceComponent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endpointName === undefined) && !opts.urn) {
+            if (args?.endpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.specification === undefined) && !opts.urn) {
+            if (args?.specification === undefined && !opts.urn) {
                 throw new Error("Missing required property 'specification'");
             }
-            resourceInputs["deploymentConfig"] = args ? args.deploymentConfig : undefined;
-            resourceInputs["endpointArn"] = args ? args.endpointArn : undefined;
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["inferenceComponentName"] = args ? args.inferenceComponentName : undefined;
-            resourceInputs["runtimeConfig"] = args ? args.runtimeConfig : undefined;
-            resourceInputs["specification"] = args ? args.specification : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["variantName"] = args ? args.variantName : undefined;
+            resourceInputs["deploymentConfig"] = args?.deploymentConfig;
+            resourceInputs["endpointArn"] = args?.endpointArn;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["inferenceComponentName"] = args?.inferenceComponentName;
+            resourceInputs["runtimeConfig"] = args?.runtimeConfig;
+            resourceInputs["specification"] = args?.specification;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["variantName"] = args?.variantName;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["failureReason"] = undefined /*out*/;
             resourceInputs["inferenceComponentArn"] = undefined /*out*/;

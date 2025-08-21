@@ -37,15 +37,15 @@ export class SessionLogger extends pulumi.CustomResource {
         return obj['__pulumiType'] === SessionLogger.__pulumiType;
     }
 
-    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
-    public readonly customerManagedKey!: pulumi.Output<string | undefined>;
-    public readonly displayName!: pulumi.Output<string | undefined>;
-    public readonly eventFilter!: pulumi.Output<outputs.workspacesweb.SessionLoggerEventFilter0Properties | outputs.workspacesweb.SessionLoggerEventFilter1Properties>;
-    public readonly logConfiguration!: pulumi.Output<outputs.workspacesweb.SessionLoggerLogConfiguration>;
-    public /*out*/ readonly sessionLoggerArn!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
+    declare public readonly customerManagedKey: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
+    declare public readonly eventFilter: pulumi.Output<outputs.workspacesweb.SessionLoggerEventFilter0Properties | outputs.workspacesweb.SessionLoggerEventFilter1Properties>;
+    declare public readonly logConfiguration: pulumi.Output<outputs.workspacesweb.SessionLoggerLogConfiguration>;
+    declare public /*out*/ readonly sessionLoggerArn: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SessionLogger resource with the given unique name, arguments, and options.
@@ -58,18 +58,18 @@ export class SessionLogger extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.eventFilter === undefined) && !opts.urn) {
+            if (args?.eventFilter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventFilter'");
             }
-            if ((!args || args.logConfiguration === undefined) && !opts.urn) {
+            if (args?.logConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logConfiguration'");
             }
-            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
-            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["eventFilter"] = args ? args.eventFilter : undefined;
-            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
+            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["eventFilter"] = args?.eventFilter;
+            resourceInputs["logConfiguration"] = args?.logConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["sessionLoggerArn"] = undefined /*out*/;

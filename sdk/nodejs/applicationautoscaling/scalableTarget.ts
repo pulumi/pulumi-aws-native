@@ -39,15 +39,15 @@ export class ScalableTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === ScalableTarget.__pulumiType;
     }
 
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The maximum value that you plan to scale out to. When a scaling policy is in effect, Application Auto Scaling can scale out (expand) as needed to the maximum capacity limit in response to changing demand.
      */
-    public readonly maxCapacity!: pulumi.Output<number>;
+    declare public readonly maxCapacity: pulumi.Output<number>;
     /**
      * The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand.
      */
-    public readonly minCapacity!: pulumi.Output<number>;
+    declare public readonly minCapacity: pulumi.Output<number>;
     /**
      * The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.
      *   +  ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/my-cluster/my-service``.
@@ -69,12 +69,12 @@ export class ScalableTarget extends pulumi.CustomResource {
      *   +  SageMaker serverless endpoint - The resource type is ``variant`` and the unique identifier is the resource ID. Example: ``endpoint/my-end-point/variant/KMeansClustering``.
      *   +  SageMaker inference component - The resource type is ``inference-component`` and the unique identifier is the resource ID. Example: ``inference-component/my-inference-component``.
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
     /**
      * Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf. This can be either an IAM service role that Application Auto Scaling can assume to make calls to other AWS resources on your behalf, or a service-linked role for the specified service. For more information, see [How Application Auto Scaling works with IAM](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html) in the *Application Auto Scaling User Guide*.
      *  To automatically create a service-linked role (recommended), specify the full ARN of the service-linked role in your stack template. To find the exact ARN of the service-linked role for your AWS or custom resource, see the [Service-linked roles](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-service-linked-roles.html) topic in the *Application Auto Scaling User Guide*. Look for the ARN in the table at the bottom of the page.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property.
      *   +   ``ecs:service:DesiredCount`` - The desired task count of an ECS service.
@@ -100,15 +100,15 @@ export class ScalableTarget extends pulumi.CustomResource {
      *   +   ``sagemaker:variant:DesiredProvisionedConcurrency`` - The provisioned concurrency for a SageMaker serverless endpoint.
      *   +   ``sagemaker:inference-component:DesiredCopyCount`` - The number of copies across an endpoint for a SageMaker inference component.
      */
-    public readonly scalableDimension!: pulumi.Output<string>;
+    declare public readonly scalableDimension: pulumi.Output<string>;
     /**
      * The scheduled actions for the scalable target. Duplicates aren't allowed.
      */
-    public readonly scheduledActions!: pulumi.Output<outputs.applicationautoscaling.ScalableTargetScheduledAction[] | undefined>;
+    declare public readonly scheduledActions: pulumi.Output<outputs.applicationautoscaling.ScalableTargetScheduledAction[] | undefined>;
     /**
      * The namespace of the AWS service that provides the resource, or a ``custom-resource``.
      */
-    public readonly serviceNamespace!: pulumi.Output<string>;
+    declare public readonly serviceNamespace: pulumi.Output<string>;
     /**
      * An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to ``true`` suspends the specified scaling activities. Setting it to ``false`` (default) resumes the specified scaling activities. 
      *   *Suspension Outcomes* 
@@ -116,7 +116,7 @@ export class ScalableTarget extends pulumi.CustomResource {
      *   +  For ``DynamicScalingOutSuspended``, while a suspension is in effect, all scale-out activities that are triggered by a scaling policy are suspended.
      *   +  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
      */
-    public readonly suspendedState!: pulumi.Output<outputs.applicationautoscaling.ScalableTargetSuspendedState | undefined>;
+    declare public readonly suspendedState: pulumi.Output<outputs.applicationautoscaling.ScalableTargetSuspendedState | undefined>;
 
     /**
      * Create a ScalableTarget resource with the given unique name, arguments, and options.
@@ -129,29 +129,29 @@ export class ScalableTarget extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.maxCapacity === undefined) && !opts.urn) {
+            if (args?.maxCapacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxCapacity'");
             }
-            if ((!args || args.minCapacity === undefined) && !opts.urn) {
+            if (args?.minCapacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'minCapacity'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.scalableDimension === undefined) && !opts.urn) {
+            if (args?.scalableDimension === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scalableDimension'");
             }
-            if ((!args || args.serviceNamespace === undefined) && !opts.urn) {
+            if (args?.serviceNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceNamespace'");
             }
-            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
-            resourceInputs["minCapacity"] = args ? args.minCapacity : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["scalableDimension"] = args ? args.scalableDimension : undefined;
-            resourceInputs["scheduledActions"] = args ? args.scheduledActions : undefined;
-            resourceInputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
-            resourceInputs["suspendedState"] = args ? args.suspendedState : undefined;
+            resourceInputs["maxCapacity"] = args?.maxCapacity;
+            resourceInputs["minCapacity"] = args?.minCapacity;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["scalableDimension"] = args?.scalableDimension;
+            resourceInputs["scheduledActions"] = args?.scheduledActions;
+            resourceInputs["serviceNamespace"] = args?.serviceNamespace;
+            resourceInputs["suspendedState"] = args?.suspendedState;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

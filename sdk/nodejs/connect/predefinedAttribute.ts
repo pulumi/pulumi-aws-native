@@ -40,23 +40,23 @@ export class PredefinedAttribute extends pulumi.CustomResource {
     /**
      * The identifier of the Amazon Connect instance.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * Last modified region.
      */
-    public /*out*/ readonly lastModifiedRegion!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedRegion: pulumi.Output<string>;
     /**
      * Last modified time.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<number>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<number>;
     /**
      * The name of the predefined attribute.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The values of a predefined attribute.
      */
-    public readonly values!: pulumi.Output<outputs.connect.ValuesProperties>;
+    declare public readonly values: pulumi.Output<outputs.connect.ValuesProperties>;
 
     /**
      * Create a PredefinedAttribute resource with the given unique name, arguments, and options.
@@ -69,15 +69,15 @@ export class PredefinedAttribute extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.values === undefined) && !opts.urn) {
+            if (args?.values === undefined && !opts.urn) {
                 throw new Error("Missing required property 'values'");
             }
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["values"] = args ? args.values : undefined;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["values"] = args?.values;
             resourceInputs["lastModifiedRegion"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {

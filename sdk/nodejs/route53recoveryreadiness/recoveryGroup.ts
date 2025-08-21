@@ -40,19 +40,19 @@ export class RecoveryGroup extends pulumi.CustomResource {
     /**
      * A list of the cell Amazon Resource Names (ARNs) in the recovery group.
      */
-    public readonly cells!: pulumi.Output<string[] | undefined>;
+    declare public readonly cells: pulumi.Output<string[] | undefined>;
     /**
      * A collection of tags associated with a resource.
      */
-    public /*out*/ readonly recoveryGroupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly recoveryGroupArn: pulumi.Output<string>;
     /**
      * The name of the recovery group to create.
      */
-    public readonly recoveryGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly recoveryGroupName: pulumi.Output<string | undefined>;
     /**
      * A collection of tags associated with a resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a RecoveryGroup resource with the given unique name, arguments, and options.
@@ -65,9 +65,9 @@ export class RecoveryGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["cells"] = args ? args.cells : undefined;
-            resourceInputs["recoveryGroupName"] = args ? args.recoveryGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cells"] = args?.cells;
+            resourceInputs["recoveryGroupName"] = args?.recoveryGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["recoveryGroupArn"] = undefined /*out*/;
         } else {
             resourceInputs["cells"] = undefined /*out*/;

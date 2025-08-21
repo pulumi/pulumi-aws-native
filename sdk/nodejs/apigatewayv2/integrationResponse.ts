@@ -37,42 +37,42 @@ export class IntegrationResponse extends pulumi.CustomResource {
     /**
      * The API identifier.
      */
-    public readonly apiId!: pulumi.Output<string>;
+    declare public readonly apiId: pulumi.Output<string>;
     /**
      * Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
      *   ``CONVERT_TO_BINARY``: Converts a response payload from a Base64-encoded string to the corresponding binary blob.
      *   ``CONVERT_TO_TEXT``: Converts a response payload from a binary blob to a Base64-encoded string.
      *  If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
      */
-    public readonly contentHandlingStrategy!: pulumi.Output<string | undefined>;
+    declare public readonly contentHandlingStrategy: pulumi.Output<string | undefined>;
     /**
      * The integration ID.
      */
-    public readonly integrationId!: pulumi.Output<string>;
+    declare public readonly integrationId: pulumi.Output<string>;
     /**
      * The integration response ID.
      */
-    public /*out*/ readonly integrationResponseId!: pulumi.Output<string>;
+    declare public /*out*/ readonly integrationResponseId: pulumi.Output<string>;
     /**
      * The integration response key.
      */
-    public readonly integrationResponseKey!: pulumi.Output<string>;
+    declare public readonly integrationResponseKey: pulumi.Output<string>;
     /**
      * A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where name is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``{name}`` is a valid and unique response header name and ``{JSON-expression}`` is a valid JSON expression without the ``$`` prefix.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::IntegrationResponse` for more information about the expected schema for this property.
      */
-    public readonly responseParameters!: pulumi.Output<any | undefined>;
+    declare public readonly responseParameters: pulumi.Output<any | undefined>;
     /**
      * The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::IntegrationResponse` for more information about the expected schema for this property.
      */
-    public readonly responseTemplates!: pulumi.Output<any | undefined>;
+    declare public readonly responseTemplates: pulumi.Output<any | undefined>;
     /**
      * The template selection expression for the integration response. Supported only for WebSocket APIs.
      */
-    public readonly templateSelectionExpression!: pulumi.Output<string | undefined>;
+    declare public readonly templateSelectionExpression: pulumi.Output<string | undefined>;
 
     /**
      * Create a IntegrationResponse resource with the given unique name, arguments, and options.
@@ -85,22 +85,22 @@ export class IntegrationResponse extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.integrationId === undefined) && !opts.urn) {
+            if (args?.integrationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationId'");
             }
-            if ((!args || args.integrationResponseKey === undefined) && !opts.urn) {
+            if (args?.integrationResponseKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationResponseKey'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["contentHandlingStrategy"] = args ? args.contentHandlingStrategy : undefined;
-            resourceInputs["integrationId"] = args ? args.integrationId : undefined;
-            resourceInputs["integrationResponseKey"] = args ? args.integrationResponseKey : undefined;
-            resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
-            resourceInputs["responseTemplates"] = args ? args.responseTemplates : undefined;
-            resourceInputs["templateSelectionExpression"] = args ? args.templateSelectionExpression : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["contentHandlingStrategy"] = args?.contentHandlingStrategy;
+            resourceInputs["integrationId"] = args?.integrationId;
+            resourceInputs["integrationResponseKey"] = args?.integrationResponseKey;
+            resourceInputs["responseParameters"] = args?.responseParameters;
+            resourceInputs["responseTemplates"] = args?.responseTemplates;
+            resourceInputs["templateSelectionExpression"] = args?.templateSelectionExpression;
             resourceInputs["integrationResponseId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;

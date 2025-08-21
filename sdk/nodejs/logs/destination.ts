@@ -40,27 +40,27 @@ export class Destination extends pulumi.CustomResource {
     /**
      * The ARN of the CloudWatch Logs destination, such as `arn:aws:logs:us-west-1:123456789012:destination:MyDestination` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the destination resource
      */
-    public readonly destinationName!: pulumi.Output<string>;
+    declare public readonly destinationName: pulumi.Output<string>;
     /**
      * An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
      */
-    public readonly destinationPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly destinationPolicy: pulumi.Output<string | undefined>;
     /**
      * The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
      */
-    public readonly targetArn!: pulumi.Output<string>;
+    declare public readonly targetArn: pulumi.Output<string>;
 
     /**
      * Create a Destination resource with the given unique name, arguments, and options.
@@ -73,17 +73,17 @@ export class Destination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.targetArn === undefined) && !opts.urn) {
+            if (args?.targetArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            resourceInputs["destinationName"] = args ? args.destinationName : undefined;
-            resourceInputs["destinationPolicy"] = args ? args.destinationPolicy : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetArn"] = args ? args.targetArn : undefined;
+            resourceInputs["destinationName"] = args?.destinationName;
+            resourceInputs["destinationPolicy"] = args?.destinationPolicy;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetArn"] = args?.targetArn;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

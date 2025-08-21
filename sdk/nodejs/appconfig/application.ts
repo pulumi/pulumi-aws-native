@@ -84,19 +84,19 @@ export class Application extends pulumi.CustomResource {
     /**
      * The application Id
      */
-    public /*out*/ readonly applicationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationId: pulumi.Output<string>;
     /**
      * A description of the application.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A name for the application.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -109,9 +109,9 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;

@@ -40,47 +40,47 @@ export class LogAnomalyDetector extends pulumi.CustomResource {
     /**
      * Account ID for owner of detector
      */
-    public readonly accountId!: pulumi.Output<string | undefined>;
+    declare public readonly accountId: pulumi.Output<string | undefined>;
     /**
      * ARN of LogAnomalyDetector
      */
-    public /*out*/ readonly anomalyDetectorArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly anomalyDetectorArn: pulumi.Output<string>;
     /**
      * Current status of detector.
      */
-    public /*out*/ readonly anomalyDetectorStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly anomalyDetectorStatus: pulumi.Output<string>;
     /**
      * The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime` , it will be considered normal going forward and will not be detected as an anomaly.
      */
-    public readonly anomalyVisibilityTime!: pulumi.Output<number | undefined>;
+    declare public readonly anomalyVisibilityTime: pulumi.Output<number | undefined>;
     /**
      * When detector was created.
      */
-    public /*out*/ readonly creationTimeStamp!: pulumi.Output<number>;
+    declare public /*out*/ readonly creationTimeStamp: pulumi.Output<number>;
     /**
      * Name of detector
      */
-    public readonly detectorName!: pulumi.Output<string | undefined>;
+    declare public readonly detectorName: pulumi.Output<string | undefined>;
     /**
      * How often log group is evaluated
      */
-    public readonly evaluationFrequency!: pulumi.Output<enums.logs.LogAnomalyDetectorEvaluationFrequency | undefined>;
+    declare public readonly evaluationFrequency: pulumi.Output<enums.logs.LogAnomalyDetectorEvaluationFrequency | undefined>;
     /**
      * You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
      */
-    public readonly filterPattern!: pulumi.Output<string | undefined>;
+    declare public readonly filterPattern: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * When detector was lsat modified.
      */
-    public /*out*/ readonly lastModifiedTimeStamp!: pulumi.Output<number>;
+    declare public /*out*/ readonly lastModifiedTimeStamp: pulumi.Output<number>;
     /**
      * List of Arns for the given log group
      */
-    public readonly logGroupArnList!: pulumi.Output<string[] | undefined>;
+    declare public readonly logGroupArnList: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a LogAnomalyDetector resource with the given unique name, arguments, and options.
@@ -93,13 +93,13 @@ export class LogAnomalyDetector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["anomalyVisibilityTime"] = args ? args.anomalyVisibilityTime : undefined;
-            resourceInputs["detectorName"] = args ? args.detectorName : undefined;
-            resourceInputs["evaluationFrequency"] = args ? args.evaluationFrequency : undefined;
-            resourceInputs["filterPattern"] = args ? args.filterPattern : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["logGroupArnList"] = args ? args.logGroupArnList : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["anomalyVisibilityTime"] = args?.anomalyVisibilityTime;
+            resourceInputs["detectorName"] = args?.detectorName;
+            resourceInputs["evaluationFrequency"] = args?.evaluationFrequency;
+            resourceInputs["filterPattern"] = args?.filterPattern;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["logGroupArnList"] = args?.logGroupArnList;
             resourceInputs["anomalyDetectorArn"] = undefined /*out*/;
             resourceInputs["anomalyDetectorStatus"] = undefined /*out*/;
             resourceInputs["creationTimeStamp"] = undefined /*out*/;

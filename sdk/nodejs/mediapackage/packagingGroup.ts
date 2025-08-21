@@ -40,27 +40,27 @@ export class PackagingGroup extends pulumi.CustomResource {
     /**
      * The ARN of the PackagingGroup.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * CDN Authorization
      */
-    public readonly authorization!: pulumi.Output<outputs.mediapackage.PackagingGroupAuthorization | undefined>;
+    declare public readonly authorization: pulumi.Output<outputs.mediapackage.PackagingGroupAuthorization | undefined>;
     /**
      * The ID of the PackagingGroup.
      */
-    public readonly awsId!: pulumi.Output<string>;
+    declare public readonly awsId: pulumi.Output<string>;
     /**
      * The fully qualified domain name for Assets in the PackagingGroup.
      */
-    public /*out*/ readonly domainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainName: pulumi.Output<string>;
     /**
      * The configuration parameters for egress access logging.
      */
-    public readonly egressAccessLogs!: pulumi.Output<outputs.mediapackage.PackagingGroupLogConfiguration | undefined>;
+    declare public readonly egressAccessLogs: pulumi.Output<outputs.mediapackage.PackagingGroupLogConfiguration | undefined>;
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a PackagingGroup resource with the given unique name, arguments, and options.
@@ -73,13 +73,13 @@ export class PackagingGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsId === undefined) && !opts.urn) {
+            if (args?.awsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsId'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
-            resourceInputs["awsId"] = args ? args.awsId : undefined;
-            resourceInputs["egressAccessLogs"] = args ? args.egressAccessLogs : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authorization"] = args?.authorization;
+            resourceInputs["awsId"] = args?.awsId;
+            resourceInputs["egressAccessLogs"] = args?.egressAccessLogs;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
         } else {

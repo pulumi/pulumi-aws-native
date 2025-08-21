@@ -40,35 +40,35 @@ export class Application extends pulumi.CustomResource {
     /**
      * The Application ARN that is returned upon creation of the Identity Center (SSO) Application
      */
-    public /*out*/ readonly applicationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationArn: pulumi.Output<string>;
     /**
      * The ARN of the application provider under which the operation will run
      */
-    public readonly applicationProviderArn!: pulumi.Output<string>;
+    declare public readonly applicationProviderArn: pulumi.Output<string>;
     /**
      * The description information for the Identity Center (SSO) Application
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ARN of the instance of IAM Identity Center under which the operation will run
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * The name you want to assign to this Identity Center (SSO) Application
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A structure that describes the options for the portal associated with an application
      */
-    public readonly portalOptions!: pulumi.Output<outputs.sso.ApplicationPortalOptionsConfiguration | undefined>;
+    declare public readonly portalOptions: pulumi.Output<outputs.sso.ApplicationPortalOptionsConfiguration | undefined>;
     /**
      * Specifies whether the application is enabled or disabled
      */
-    public readonly status!: pulumi.Output<enums.sso.ApplicationStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.sso.ApplicationStatus | undefined>;
     /**
      * Specifies tags to be attached to the application
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -81,19 +81,19 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationProviderArn === undefined) && !opts.urn) {
+            if (args?.applicationProviderArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationProviderArn'");
             }
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["applicationProviderArn"] = args ? args.applicationProviderArn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["portalOptions"] = args ? args.portalOptions : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationProviderArn"] = args?.applicationProviderArn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["portalOptions"] = args?.portalOptions;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationArn"] = undefined /*out*/;
         } else {
             resourceInputs["applicationArn"] = undefined /*out*/;

@@ -40,51 +40,51 @@ export class InstanceProfile extends pulumi.CustomResource {
     /**
      * The property describes an availability zone of the instance profile.
      */
-    public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    declare public readonly availabilityZone: pulumi.Output<string | undefined>;
     /**
      * The optional description of the instance profile.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The property describes an ARN of the instance profile.
      */
-    public /*out*/ readonly instanceProfileArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly instanceProfileArn: pulumi.Output<string>;
     /**
      * The property describes a creating time of the instance profile.
      */
-    public /*out*/ readonly instanceProfileCreationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly instanceProfileCreationTime: pulumi.Output<string>;
     /**
      * The property describes an identifier for the instance profile. It is used for describing/deleting/modifying. Can be name/arn
      */
-    public readonly instanceProfileIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly instanceProfileIdentifier: pulumi.Output<string | undefined>;
     /**
      * The property describes a name for the instance profile.
      */
-    public readonly instanceProfileName!: pulumi.Output<string | undefined>;
+    declare public readonly instanceProfileName: pulumi.Output<string | undefined>;
     /**
      * The property describes kms key arn for the instance profile.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
      * The property describes a network type for the instance profile.
      */
-    public readonly networkType!: pulumi.Output<enums.dms.InstanceProfileNetworkType | undefined>;
+    declare public readonly networkType: pulumi.Output<enums.dms.InstanceProfileNetworkType | undefined>;
     /**
      * The property describes the publicly accessible of the instance profile
      */
-    public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
+    declare public readonly publiclyAccessible: pulumi.Output<boolean | undefined>;
     /**
      * The property describes a subnet group identifier for the instance profile.
      */
-    public readonly subnetGroupIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly subnetGroupIdentifier: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The property describes vps security groups for the instance profile.
      */
-    public readonly vpcSecurityGroups!: pulumi.Output<string[] | undefined>;
+    declare public readonly vpcSecurityGroups: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a InstanceProfile resource with the given unique name, arguments, and options.
@@ -97,16 +97,16 @@ export class InstanceProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceProfileIdentifier"] = args ? args.instanceProfileIdentifier : undefined;
-            resourceInputs["instanceProfileName"] = args ? args.instanceProfileName : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["networkType"] = args ? args.networkType : undefined;
-            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            resourceInputs["subnetGroupIdentifier"] = args ? args.subnetGroupIdentifier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcSecurityGroups"] = args ? args.vpcSecurityGroups : undefined;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceProfileIdentifier"] = args?.instanceProfileIdentifier;
+            resourceInputs["instanceProfileName"] = args?.instanceProfileName;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["networkType"] = args?.networkType;
+            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
+            resourceInputs["subnetGroupIdentifier"] = args?.subnetGroupIdentifier;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcSecurityGroups"] = args?.vpcSecurityGroups;
             resourceInputs["instanceProfileArn"] = undefined /*out*/;
             resourceInputs["instanceProfileCreationTime"] = undefined /*out*/;
         } else {

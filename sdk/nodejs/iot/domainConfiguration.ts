@@ -40,61 +40,61 @@ export class DomainConfiguration extends pulumi.CustomResource {
     /**
      * An enumerated string that speciﬁes the application-layer protocol.
      */
-    public readonly applicationProtocol!: pulumi.Output<enums.iot.DomainConfigurationApplicationProtocol | undefined>;
+    declare public readonly applicationProtocol: pulumi.Output<enums.iot.DomainConfigurationApplicationProtocol | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the domain configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * An enumerated string that speciﬁes the authentication type.
      */
-    public readonly authenticationType!: pulumi.Output<enums.iot.DomainConfigurationAuthenticationType | undefined>;
+    declare public readonly authenticationType: pulumi.Output<enums.iot.DomainConfigurationAuthenticationType | undefined>;
     /**
      * An object that specifies the authorization service for a domain.
      */
-    public readonly authorizerConfig!: pulumi.Output<outputs.iot.DomainConfigurationAuthorizerConfig | undefined>;
+    declare public readonly authorizerConfig: pulumi.Output<outputs.iot.DomainConfigurationAuthorizerConfig | undefined>;
     /**
      * An object that speciﬁes the client certificate conﬁguration for a domain.
      */
-    public readonly clientCertificateConfig!: pulumi.Output<outputs.iot.DomainConfigurationClientCertificateConfig | undefined>;
+    declare public readonly clientCertificateConfig: pulumi.Output<outputs.iot.DomainConfigurationClientCertificateConfig | undefined>;
     /**
      * The name of the domain configuration. This value must be unique to a region.
      */
-    public readonly domainConfigurationName!: pulumi.Output<string | undefined>;
+    declare public readonly domainConfigurationName: pulumi.Output<string | undefined>;
     /**
      * The status to which the domain configuration should be updated.
      *
      * Valid values: `ENABLED` | `DISABLED`
      */
-    public readonly domainConfigurationStatus!: pulumi.Output<enums.iot.DomainConfigurationStatus | undefined>;
+    declare public readonly domainConfigurationStatus: pulumi.Output<enums.iot.DomainConfigurationStatus | undefined>;
     /**
      * The name of the domain.
      */
-    public readonly domainName!: pulumi.Output<string | undefined>;
+    declare public readonly domainName: pulumi.Output<string | undefined>;
     /**
      * The type of service delivered by the domain.
      */
-    public /*out*/ readonly domainType!: pulumi.Output<enums.iot.DomainConfigurationDomainType>;
+    declare public /*out*/ readonly domainType: pulumi.Output<enums.iot.DomainConfigurationDomainType>;
     /**
      * The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
      */
-    public readonly serverCertificateArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly serverCertificateArns: pulumi.Output<string[] | undefined>;
     /**
      * The server certificate configuration.
      *
      * For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
      */
-    public readonly serverCertificateConfig!: pulumi.Output<outputs.iot.DomainConfigurationServerCertificateConfig | undefined>;
+    declare public readonly serverCertificateConfig: pulumi.Output<outputs.iot.DomainConfigurationServerCertificateConfig | undefined>;
     /**
      * The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
      */
-    public /*out*/ readonly serverCertificates!: pulumi.Output<outputs.iot.DomainConfigurationServerCertificateSummary[]>;
+    declare public /*out*/ readonly serverCertificates: pulumi.Output<outputs.iot.DomainConfigurationServerCertificateSummary[]>;
     /**
      * The type of service delivered by the endpoint.
      *
      * > AWS IoT Core currently supports only the `DATA` service type.
      */
-    public readonly serviceType!: pulumi.Output<enums.iot.DomainConfigurationServiceType | undefined>;
+    declare public readonly serviceType: pulumi.Output<enums.iot.DomainConfigurationServiceType | undefined>;
     /**
      * Metadata which can be used to manage the domain configuration.
      *
@@ -104,15 +104,15 @@ export class DomainConfiguration extends pulumi.CustomResource {
      * > 
      * > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * An object that specifies the TLS configuration for a domain.
      */
-    public readonly tlsConfig!: pulumi.Output<outputs.iot.DomainConfigurationTlsConfig | undefined>;
+    declare public readonly tlsConfig: pulumi.Output<outputs.iot.DomainConfigurationTlsConfig | undefined>;
     /**
      * The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS -managed domains.
      */
-    public readonly validationCertificateArn!: pulumi.Output<string | undefined>;
+    declare public readonly validationCertificateArn: pulumi.Output<string | undefined>;
 
     /**
      * Create a DomainConfiguration resource with the given unique name, arguments, and options.
@@ -125,19 +125,19 @@ export class DomainConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["applicationProtocol"] = args ? args.applicationProtocol : undefined;
-            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
-            resourceInputs["authorizerConfig"] = args ? args.authorizerConfig : undefined;
-            resourceInputs["clientCertificateConfig"] = args ? args.clientCertificateConfig : undefined;
-            resourceInputs["domainConfigurationName"] = args ? args.domainConfigurationName : undefined;
-            resourceInputs["domainConfigurationStatus"] = args ? args.domainConfigurationStatus : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["serverCertificateArns"] = args ? args.serverCertificateArns : undefined;
-            resourceInputs["serverCertificateConfig"] = args ? args.serverCertificateConfig : undefined;
-            resourceInputs["serviceType"] = args ? args.serviceType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tlsConfig"] = args ? args.tlsConfig : undefined;
-            resourceInputs["validationCertificateArn"] = args ? args.validationCertificateArn : undefined;
+            resourceInputs["applicationProtocol"] = args?.applicationProtocol;
+            resourceInputs["authenticationType"] = args?.authenticationType;
+            resourceInputs["authorizerConfig"] = args?.authorizerConfig;
+            resourceInputs["clientCertificateConfig"] = args?.clientCertificateConfig;
+            resourceInputs["domainConfigurationName"] = args?.domainConfigurationName;
+            resourceInputs["domainConfigurationStatus"] = args?.domainConfigurationStatus;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["serverCertificateArns"] = args?.serverCertificateArns;
+            resourceInputs["serverCertificateConfig"] = args?.serverCertificateConfig;
+            resourceInputs["serviceType"] = args?.serviceType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tlsConfig"] = args?.tlsConfig;
+            resourceInputs["validationCertificateArn"] = args?.validationCertificateArn;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainType"] = undefined /*out*/;
             resourceInputs["serverCertificates"] = undefined /*out*/;

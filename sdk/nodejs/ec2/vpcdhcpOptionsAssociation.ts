@@ -37,11 +37,11 @@ export class VpcdhcpOptionsAssociation extends pulumi.CustomResource {
     /**
      * The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
      */
-    public readonly dhcpOptionsId!: pulumi.Output<string>;
+    declare public readonly dhcpOptionsId: pulumi.Output<string>;
     /**
      * The ID of the VPC.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a VpcdhcpOptionsAssociation resource with the given unique name, arguments, and options.
@@ -54,14 +54,14 @@ export class VpcdhcpOptionsAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dhcpOptionsId === undefined) && !opts.urn) {
+            if (args?.dhcpOptionsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dhcpOptionsId'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["dhcpOptionsId"] = args ? args.dhcpOptionsId : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["dhcpOptionsId"] = args?.dhcpOptionsId;
+            resourceInputs["vpcId"] = args?.vpcId;
         } else {
             resourceInputs["dhcpOptionsId"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;

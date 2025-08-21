@@ -37,19 +37,19 @@ export class LoggingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoggingConfiguration.__pulumiType;
     }
 
-    public readonly enableMonitoringDashboard!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableMonitoringDashboard: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
      */
-    public readonly firewallArn!: pulumi.Output<string>;
+    declare public readonly firewallArn: pulumi.Output<string>;
     /**
      * The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
      */
-    public readonly firewallName!: pulumi.Output<string | undefined>;
+    declare public readonly firewallName: pulumi.Output<string | undefined>;
     /**
      * Defines how AWS Network Firewall performs logging for a firewall.
      */
-    public readonly loggingConfiguration!: pulumi.Output<outputs.networkfirewall.LoggingConfiguration>;
+    declare public readonly loggingConfiguration: pulumi.Output<outputs.networkfirewall.LoggingConfiguration>;
 
     /**
      * Create a LoggingConfiguration resource with the given unique name, arguments, and options.
@@ -62,16 +62,16 @@ export class LoggingConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.firewallArn === undefined) && !opts.urn) {
+            if (args?.firewallArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firewallArn'");
             }
-            if ((!args || args.loggingConfiguration === undefined) && !opts.urn) {
+            if (args?.loggingConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loggingConfiguration'");
             }
-            resourceInputs["enableMonitoringDashboard"] = args ? args.enableMonitoringDashboard : undefined;
-            resourceInputs["firewallArn"] = args ? args.firewallArn : undefined;
-            resourceInputs["firewallName"] = args ? args.firewallName : undefined;
-            resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
+            resourceInputs["enableMonitoringDashboard"] = args?.enableMonitoringDashboard;
+            resourceInputs["firewallArn"] = args?.firewallArn;
+            resourceInputs["firewallName"] = args?.firewallName;
+            resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
         } else {
             resourceInputs["enableMonitoringDashboard"] = undefined /*out*/;
             resourceInputs["firewallArn"] = undefined /*out*/;

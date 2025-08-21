@@ -40,47 +40,47 @@ export class DataAccessor extends pulumi.CustomResource {
     /**
      * A list of action configurations specifying the allowed actions and any associated filters.
      */
-    public readonly actionConfigurations!: pulumi.Output<outputs.qbusiness.DataAccessorActionConfiguration[]>;
+    declare public readonly actionConfigurations: pulumi.Output<outputs.qbusiness.DataAccessorActionConfiguration[]>;
     /**
      * The unique identifier of the Amazon Q Business application.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    declare public readonly applicationId: pulumi.Output<string>;
     /**
      * The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
      */
-    public readonly authenticationDetail!: pulumi.Output<outputs.qbusiness.DataAccessorAuthenticationDetail | undefined>;
+    declare public readonly authenticationDetail: pulumi.Output<outputs.qbusiness.DataAccessorAuthenticationDetail | undefined>;
     /**
      * The timestamp when the data accessor was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the data accessor.
      */
-    public /*out*/ readonly dataAccessorArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataAccessorArn: pulumi.Output<string>;
     /**
      * The unique identifier of the data accessor.
      */
-    public /*out*/ readonly dataAccessorId!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataAccessorId: pulumi.Output<string>;
     /**
      * The friendly name of the data accessor.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the associated IAM Identity Center application.
      */
-    public /*out*/ readonly idcApplicationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly idcApplicationArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
      */
-    public readonly principal!: pulumi.Output<string>;
+    declare public readonly principal: pulumi.Output<string>;
     /**
      * The tags to associate with the data accessor.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The timestamp when the data accessor was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a DataAccessor resource with the given unique name, arguments, and options.
@@ -93,24 +93,24 @@ export class DataAccessor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actionConfigurations === undefined) && !opts.urn) {
+            if (args?.actionConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionConfigurations'");
             }
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            resourceInputs["actionConfigurations"] = args ? args.actionConfigurations : undefined;
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["authenticationDetail"] = args ? args.authenticationDetail : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actionConfigurations"] = args?.actionConfigurations;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["authenticationDetail"] = args?.authenticationDetail;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["dataAccessorArn"] = undefined /*out*/;
             resourceInputs["dataAccessorId"] = undefined /*out*/;

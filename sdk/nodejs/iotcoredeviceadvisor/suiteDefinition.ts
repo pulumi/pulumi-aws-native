@@ -94,7 +94,7 @@ export class SuiteDefinition extends pulumi.CustomResource {
     /**
      * The Amazon Resource name for the suite definition.
      */
-    public /*out*/ readonly suiteDefinitionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly suiteDefinitionArn: pulumi.Output<string>;
     /**
      * The configuration of the Suite Definition. Listed below are the required elements of the `SuiteDefinitionConfiguration` .
      *
@@ -124,19 +124,19 @@ export class SuiteDefinition extends pulumi.CustomResource {
      *
      * *Type:* String
      */
-    public readonly suiteDefinitionConfiguration!: pulumi.Output<outputs.iotcoredeviceadvisor.SuiteDefinitionConfigurationProperties>;
+    declare public readonly suiteDefinitionConfiguration: pulumi.Output<outputs.iotcoredeviceadvisor.SuiteDefinitionConfigurationProperties>;
     /**
      * The unique identifier for the suite definition.
      */
-    public /*out*/ readonly suiteDefinitionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly suiteDefinitionId: pulumi.Output<string>;
     /**
      * The suite definition version of a test suite.
      */
-    public /*out*/ readonly suiteDefinitionVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly suiteDefinitionVersion: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SuiteDefinition resource with the given unique name, arguments, and options.
@@ -149,11 +149,11 @@ export class SuiteDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.suiteDefinitionConfiguration === undefined) && !opts.urn) {
+            if (args?.suiteDefinitionConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'suiteDefinitionConfiguration'");
             }
-            resourceInputs["suiteDefinitionConfiguration"] = args ? args.suiteDefinitionConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["suiteDefinitionConfiguration"] = args?.suiteDefinitionConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["suiteDefinitionArn"] = undefined /*out*/;
             resourceInputs["suiteDefinitionId"] = undefined /*out*/;
             resourceInputs["suiteDefinitionVersion"] = undefined /*out*/;

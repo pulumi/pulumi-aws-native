@@ -40,27 +40,27 @@ export class ExecutionPlan extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the rescore execution plan.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The identifier of the rescore execution plan.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Capacity units
      */
-    public readonly capacityUnits!: pulumi.Output<outputs.kendraranking.ExecutionPlanCapacityUnitsConfiguration | undefined>;
+    declare public readonly capacityUnits: pulumi.Output<outputs.kendraranking.ExecutionPlanCapacityUnitsConfiguration | undefined>;
     /**
      * A description for the execution plan
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A name for the rescore execution plan.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Tags for labeling the execution plan
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ExecutionPlan resource with the given unique name, arguments, and options.
@@ -73,10 +73,10 @@ export class ExecutionPlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["capacityUnits"] = args ? args.capacityUnits : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["capacityUnits"] = args?.capacityUnits;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

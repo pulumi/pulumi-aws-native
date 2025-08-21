@@ -42,31 +42,31 @@ export class DeliverySource extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
      */
-    public readonly logType!: pulumi.Output<string | undefined>;
+    declare public readonly logType: pulumi.Output<string | undefined>;
     /**
      * The unique name of the Log source.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ARN of the resource that will be sending the logs.
      */
-    public readonly resourceArn!: pulumi.Output<string | undefined>;
+    declare public readonly resourceArn: pulumi.Output<string | undefined>;
     /**
      * This array contains the ARN of the AWS resource that sends logs and is represented by this delivery source. Currently, only one ARN can be in the array.
      */
-    public /*out*/ readonly resourceArns!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly resourceArns: pulumi.Output<string[]>;
     /**
      * The AWS service that is sending logs.
      */
-    public /*out*/ readonly service!: pulumi.Output<string>;
+    declare public /*out*/ readonly service: pulumi.Output<string>;
     /**
      * The tags that have been assigned to this delivery source.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DeliverySource resource with the given unique name, arguments, and options.
@@ -79,10 +79,10 @@ export class DeliverySource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["logType"] = args ? args.logType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["logType"] = args?.logType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceArn"] = args?.resourceArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["resourceArns"] = undefined /*out*/;
             resourceInputs["service"] = undefined /*out*/;

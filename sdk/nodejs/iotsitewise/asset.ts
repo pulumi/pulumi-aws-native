@@ -40,41 +40,41 @@ export class Asset extends pulumi.CustomResource {
     /**
      * The ARN of the asset
      */
-    public /*out*/ readonly assetArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly assetArn: pulumi.Output<string>;
     /**
      * A description for the asset
      */
-    public readonly assetDescription!: pulumi.Output<string | undefined>;
+    declare public readonly assetDescription: pulumi.Output<string | undefined>;
     /**
      * The External ID of the asset
      */
-    public readonly assetExternalId!: pulumi.Output<string | undefined>;
+    declare public readonly assetExternalId: pulumi.Output<string | undefined>;
     /**
      * A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
      */
-    public readonly assetHierarchies!: pulumi.Output<outputs.iotsitewise.AssetHierarchy[] | undefined>;
+    declare public readonly assetHierarchies: pulumi.Output<outputs.iotsitewise.AssetHierarchy[] | undefined>;
     /**
      * The ID of the asset
      */
-    public /*out*/ readonly assetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly assetId: pulumi.Output<string>;
     /**
      * The ID of the asset model from which to create the asset.
      */
-    public readonly assetModelId!: pulumi.Output<string>;
+    declare public readonly assetModelId: pulumi.Output<string>;
     /**
      * A unique, friendly name for the asset.
      */
-    public readonly assetName!: pulumi.Output<string>;
+    declare public readonly assetName: pulumi.Output<string>;
     /**
      * The list of asset properties for the asset.
      *
      * This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
      */
-    public readonly assetProperties!: pulumi.Output<outputs.iotsitewise.AssetProperty[] | undefined>;
+    declare public readonly assetProperties: pulumi.Output<outputs.iotsitewise.AssetProperty[] | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the asset.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Asset resource with the given unique name, arguments, and options.
@@ -87,16 +87,16 @@ export class Asset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.assetModelId === undefined) && !opts.urn) {
+            if (args?.assetModelId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assetModelId'");
             }
-            resourceInputs["assetDescription"] = args ? args.assetDescription : undefined;
-            resourceInputs["assetExternalId"] = args ? args.assetExternalId : undefined;
-            resourceInputs["assetHierarchies"] = args ? args.assetHierarchies : undefined;
-            resourceInputs["assetModelId"] = args ? args.assetModelId : undefined;
-            resourceInputs["assetName"] = args ? args.assetName : undefined;
-            resourceInputs["assetProperties"] = args ? args.assetProperties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assetDescription"] = args?.assetDescription;
+            resourceInputs["assetExternalId"] = args?.assetExternalId;
+            resourceInputs["assetHierarchies"] = args?.assetHierarchies;
+            resourceInputs["assetModelId"] = args?.assetModelId;
+            resourceInputs["assetName"] = args?.assetName;
+            resourceInputs["assetProperties"] = args?.assetProperties;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["assetArn"] = undefined /*out*/;
             resourceInputs["assetId"] = undefined /*out*/;
         } else {

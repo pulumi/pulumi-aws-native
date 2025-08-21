@@ -40,13 +40,13 @@ export class ResourceGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that specifies the resource group that is created.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The tags (key and value pairs) that will be associated with the resource group.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    public readonly resourceGroupTags!: pulumi.Output<outputs.inspector.ResourceGroupTag[]>;
+    declare public readonly resourceGroupTags: pulumi.Output<outputs.inspector.ResourceGroupTag[]>;
 
     /**
      * Create a ResourceGroup resource with the given unique name, arguments, and options.
@@ -59,10 +59,10 @@ export class ResourceGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupTags === undefined) && !opts.urn) {
+            if (args?.resourceGroupTags === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupTags'");
             }
-            resourceInputs["resourceGroupTags"] = args ? args.resourceGroupTags : undefined;
+            resourceInputs["resourceGroupTags"] = args?.resourceGroupTags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

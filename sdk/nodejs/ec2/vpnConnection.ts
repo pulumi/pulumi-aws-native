@@ -43,79 +43,79 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * The ID of the customer gateway at your end of the VPN connection.
      */
-    public readonly customerGatewayId!: pulumi.Output<string>;
+    declare public readonly customerGatewayId: pulumi.Output<string>;
     /**
      * Indicate whether to enable acceleration for the VPN connection.
      *  Default: ``false``
      */
-    public readonly enableAcceleration!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableAcceleration: pulumi.Output<boolean | undefined>;
     /**
      * The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
      *  Default: ``0.0.0.0/0``
      */
-    public readonly localIpv4NetworkCidr!: pulumi.Output<string | undefined>;
+    declare public readonly localIpv4NetworkCidr: pulumi.Output<string | undefined>;
     /**
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      *  Default: ``::/0``
      */
-    public readonly localIpv6NetworkCidr!: pulumi.Output<string | undefined>;
+    declare public readonly localIpv6NetworkCidr: pulumi.Output<string | undefined>;
     /**
      * The type of IP address assigned to the outside interface of the customer gateway device.
      *  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
      *  Default: ``PublicIpv4``
      */
-    public readonly outsideIpAddressType!: pulumi.Output<string | undefined>;
+    declare public readonly outsideIpAddressType: pulumi.Output<string | undefined>;
     /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      *  Default: ``0.0.0.0/0``
      */
-    public readonly remoteIpv4NetworkCidr!: pulumi.Output<string | undefined>;
+    declare public readonly remoteIpv4NetworkCidr: pulumi.Output<string | undefined>;
     /**
      * The IPv6 CIDR on the AWS side of the VPN connection.
      *  Default: ``::/0``
      */
-    public readonly remoteIpv6NetworkCidr!: pulumi.Output<string | undefined>;
+    declare public readonly remoteIpv6NetworkCidr: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
      *  If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
      */
-    public readonly staticRoutesOnly!: pulumi.Output<boolean | undefined>;
+    declare public readonly staticRoutesOnly: pulumi.Output<boolean | undefined>;
     /**
      * Any tags assigned to the VPN connection.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the transit gateway associated with the VPN connection.
      *  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
      */
-    public readonly transitGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly transitGatewayId: pulumi.Output<string | undefined>;
     /**
      * The transit gateway attachment ID to use for the VPN tunnel.
      *  Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
      */
-    public readonly transportTransitGatewayAttachmentId!: pulumi.Output<string | undefined>;
+    declare public readonly transportTransitGatewayAttachmentId: pulumi.Output<string | undefined>;
     /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
      *  Default: ``ipv4``
      */
-    public readonly tunnelInsideIpVersion!: pulumi.Output<string | undefined>;
+    declare public readonly tunnelInsideIpVersion: pulumi.Output<string | undefined>;
     /**
      * The type of VPN connection.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The ID of the VPN connection.
      */
-    public /*out*/ readonly vpnConnectionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpnConnectionId: pulumi.Output<string>;
     /**
      * The ID of the virtual private gateway at the AWS side of the VPN connection.
      *  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
      */
-    public readonly vpnGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly vpnGatewayId: pulumi.Output<string | undefined>;
     /**
      * The tunnel options for the VPN connection.
      */
-    public readonly vpnTunnelOptionsSpecifications!: pulumi.Output<outputs.ec2.VpnConnectionVpnTunnelOptionsSpecification[] | undefined>;
+    declare public readonly vpnTunnelOptionsSpecifications: pulumi.Output<outputs.ec2.VpnConnectionVpnTunnelOptionsSpecification[] | undefined>;
 
     /**
      * Create a VpnConnection resource with the given unique name, arguments, and options.
@@ -128,27 +128,27 @@ export class VpnConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.customerGatewayId === undefined) && !opts.urn) {
+            if (args?.customerGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customerGatewayId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["customerGatewayId"] = args ? args.customerGatewayId : undefined;
-            resourceInputs["enableAcceleration"] = args ? args.enableAcceleration : undefined;
-            resourceInputs["localIpv4NetworkCidr"] = args ? args.localIpv4NetworkCidr : undefined;
-            resourceInputs["localIpv6NetworkCidr"] = args ? args.localIpv6NetworkCidr : undefined;
-            resourceInputs["outsideIpAddressType"] = args ? args.outsideIpAddressType : undefined;
-            resourceInputs["remoteIpv4NetworkCidr"] = args ? args.remoteIpv4NetworkCidr : undefined;
-            resourceInputs["remoteIpv6NetworkCidr"] = args ? args.remoteIpv6NetworkCidr : undefined;
-            resourceInputs["staticRoutesOnly"] = args ? args.staticRoutesOnly : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
-            resourceInputs["transportTransitGatewayAttachmentId"] = args ? args.transportTransitGatewayAttachmentId : undefined;
-            resourceInputs["tunnelInsideIpVersion"] = args ? args.tunnelInsideIpVersion : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
-            resourceInputs["vpnTunnelOptionsSpecifications"] = args ? args.vpnTunnelOptionsSpecifications : undefined;
+            resourceInputs["customerGatewayId"] = args?.customerGatewayId;
+            resourceInputs["enableAcceleration"] = args?.enableAcceleration;
+            resourceInputs["localIpv4NetworkCidr"] = args?.localIpv4NetworkCidr;
+            resourceInputs["localIpv6NetworkCidr"] = args?.localIpv6NetworkCidr;
+            resourceInputs["outsideIpAddressType"] = args?.outsideIpAddressType;
+            resourceInputs["remoteIpv4NetworkCidr"] = args?.remoteIpv4NetworkCidr;
+            resourceInputs["remoteIpv6NetworkCidr"] = args?.remoteIpv6NetworkCidr;
+            resourceInputs["staticRoutesOnly"] = args?.staticRoutesOnly;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
+            resourceInputs["transportTransitGatewayAttachmentId"] = args?.transportTransitGatewayAttachmentId;
+            resourceInputs["tunnelInsideIpVersion"] = args?.tunnelInsideIpVersion;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["vpnGatewayId"] = args?.vpnGatewayId;
+            resourceInputs["vpnTunnelOptionsSpecifications"] = args?.vpnTunnelOptionsSpecifications;
             resourceInputs["vpnConnectionId"] = undefined /*out*/;
         } else {
             resourceInputs["customerGatewayId"] = undefined /*out*/;

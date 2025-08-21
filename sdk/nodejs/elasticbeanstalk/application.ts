@@ -40,15 +40,15 @@ export class Application extends pulumi.CustomResource {
     /**
      * A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
      */
-    public readonly applicationName!: pulumi.Output<string | undefined>;
+    declare public readonly applicationName: pulumi.Output<string | undefined>;
     /**
      * Your description of the application.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
      */
-    public readonly resourceLifecycleConfig!: pulumi.Output<outputs.elasticbeanstalk.ApplicationResourceLifecycleConfig | undefined>;
+    declare public readonly resourceLifecycleConfig: pulumi.Output<outputs.elasticbeanstalk.ApplicationResourceLifecycleConfig | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -61,9 +61,9 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["resourceLifecycleConfig"] = args ? args.resourceLifecycleConfig : undefined;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["resourceLifecycleConfig"] = args?.resourceLifecycleConfig;
         } else {
             resourceInputs["applicationName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

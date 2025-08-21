@@ -44,29 +44,29 @@ export class Project extends pulumi.CustomResource {
      *
      * To create a project that uses client-side evaluation, you must have the `evidently:ExportProjectAsConfiguration` permission.
      */
-    public readonly appConfigResource!: pulumi.Output<outputs.evidently.ProjectAppConfigResourceObject | undefined>;
+    declare public readonly appConfigResource: pulumi.Output<outputs.evidently.ProjectAppConfigResourceObject | undefined>;
     /**
      * The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A structure that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view.
      *
      * You can't specify both `CloudWatchLogs` and `S3Destination` in the same operation.
      */
-    public readonly dataDelivery!: pulumi.Output<outputs.evidently.ProjectDataDeliveryObject | undefined>;
+    declare public readonly dataDelivery: pulumi.Output<outputs.evidently.ProjectDataDeliveryObject | undefined>;
     /**
      * An optional description of the project.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name for the project. It can include up to 127 characters.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -79,11 +79,11 @@ export class Project extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["appConfigResource"] = args ? args.appConfigResource : undefined;
-            resourceInputs["dataDelivery"] = args ? args.dataDelivery : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appConfigResource"] = args?.appConfigResource;
+            resourceInputs["dataDelivery"] = args?.dataDelivery;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["appConfigResource"] = undefined /*out*/;

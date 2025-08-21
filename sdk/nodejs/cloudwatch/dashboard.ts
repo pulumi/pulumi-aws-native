@@ -37,11 +37,11 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard
      */
-    public readonly dashboardBody!: pulumi.Output<string>;
+    declare public readonly dashboardBody: pulumi.Output<string>;
     /**
      * The name of the dashboard. The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
      */
-    public readonly dashboardName!: pulumi.Output<string | undefined>;
+    declare public readonly dashboardName: pulumi.Output<string | undefined>;
 
     /**
      * Create a Dashboard resource with the given unique name, arguments, and options.
@@ -54,11 +54,11 @@ export class Dashboard extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dashboardBody === undefined) && !opts.urn) {
+            if (args?.dashboardBody === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dashboardBody'");
             }
-            resourceInputs["dashboardBody"] = args ? args.dashboardBody : undefined;
-            resourceInputs["dashboardName"] = args ? args.dashboardName : undefined;
+            resourceInputs["dashboardBody"] = args?.dashboardBody;
+            resourceInputs["dashboardName"] = args?.dashboardName;
         } else {
             resourceInputs["dashboardBody"] = undefined /*out*/;
             resourceInputs["dashboardName"] = undefined /*out*/;

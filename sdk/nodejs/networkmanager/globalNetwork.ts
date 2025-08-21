@@ -134,27 +134,27 @@ export class GlobalNetwork extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the global network.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the global network.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The date and time that the global network was created.
      */
-    public readonly createdAt!: pulumi.Output<string | undefined>;
+    declare public readonly createdAt: pulumi.Output<string | undefined>;
     /**
      * The description of the global network.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The state of the global network.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * The tags for the global network.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a GlobalNetwork resource with the given unique name, arguments, and options.
@@ -167,10 +167,10 @@ export class GlobalNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["createdAt"] = args?.createdAt;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

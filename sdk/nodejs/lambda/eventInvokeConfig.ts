@@ -48,23 +48,23 @@ export class EventInvokeConfig extends pulumi.CustomResource {
      *
      * > S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.
      */
-    public readonly destinationConfig!: pulumi.Output<outputs.lambda.EventInvokeConfigDestinationConfig | undefined>;
+    declare public readonly destinationConfig: pulumi.Output<outputs.lambda.EventInvokeConfigDestinationConfig | undefined>;
     /**
      * The name of the Lambda function.
      */
-    public readonly functionName!: pulumi.Output<string>;
+    declare public readonly functionName: pulumi.Output<string>;
     /**
      * The maximum age of a request that Lambda sends to a function for processing.
      */
-    public readonly maximumEventAgeInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly maximumEventAgeInSeconds: pulumi.Output<number | undefined>;
     /**
      * The maximum number of times to retry when the function returns an error.
      */
-    public readonly maximumRetryAttempts!: pulumi.Output<number | undefined>;
+    declare public readonly maximumRetryAttempts: pulumi.Output<number | undefined>;
     /**
      * The identifier of a version or alias.
      */
-    public readonly qualifier!: pulumi.Output<string>;
+    declare public readonly qualifier: pulumi.Output<string>;
 
     /**
      * Create a EventInvokeConfig resource with the given unique name, arguments, and options.
@@ -77,17 +77,17 @@ export class EventInvokeConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.functionName === undefined) && !opts.urn) {
+            if (args?.functionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            if ((!args || args.qualifier === undefined) && !opts.urn) {
+            if (args?.qualifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'qualifier'");
             }
-            resourceInputs["destinationConfig"] = args ? args.destinationConfig : undefined;
-            resourceInputs["functionName"] = args ? args.functionName : undefined;
-            resourceInputs["maximumEventAgeInSeconds"] = args ? args.maximumEventAgeInSeconds : undefined;
-            resourceInputs["maximumRetryAttempts"] = args ? args.maximumRetryAttempts : undefined;
-            resourceInputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["destinationConfig"] = args?.destinationConfig;
+            resourceInputs["functionName"] = args?.functionName;
+            resourceInputs["maximumEventAgeInSeconds"] = args?.maximumEventAgeInSeconds;
+            resourceInputs["maximumRetryAttempts"] = args?.maximumRetryAttempts;
+            resourceInputs["qualifier"] = args?.qualifier;
         } else {
             resourceInputs["destinationConfig"] = undefined /*out*/;
             resourceInputs["functionName"] = undefined /*out*/;

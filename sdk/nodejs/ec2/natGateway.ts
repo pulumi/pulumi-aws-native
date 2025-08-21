@@ -43,45 +43,45 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
      */
-    public readonly allocationId!: pulumi.Output<string | undefined>;
+    declare public readonly allocationId: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
      */
-    public readonly connectivityType!: pulumi.Output<string | undefined>;
+    declare public readonly connectivityType: pulumi.Output<string | undefined>;
     /**
      * The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
      */
-    public readonly maxDrainDurationSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly maxDrainDurationSeconds: pulumi.Output<number | undefined>;
     /**
      * The ID of the NAT gateway.
      */
-    public /*out*/ readonly natGatewayId!: pulumi.Output<string>;
+    declare public /*out*/ readonly natGatewayId: pulumi.Output<string>;
     /**
      * The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
      */
-    public readonly privateIpAddress!: pulumi.Output<string | undefined>;
+    declare public readonly privateIpAddress: pulumi.Output<string | undefined>;
     /**
      * Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.
      */
-    public readonly secondaryAllocationIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly secondaryAllocationIds: pulumi.Output<string[] | undefined>;
     /**
      * [Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
      *  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
      */
-    public readonly secondaryPrivateIpAddressCount!: pulumi.Output<number | undefined>;
+    declare public readonly secondaryPrivateIpAddressCount: pulumi.Output<number | undefined>;
     /**
      * Secondary private IPv4 addresses. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
      *  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
      */
-    public readonly secondaryPrivateIpAddresses!: pulumi.Output<string[] | undefined>;
+    declare public readonly secondaryPrivateIpAddresses: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the subnet in which the NAT gateway is located.
      */
-    public readonly subnetId!: pulumi.Output<string | undefined>;
+    declare public readonly subnetId: pulumi.Output<string | undefined>;
     /**
      * The tags for the NAT gateway.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a NatGateway resource with the given unique name, arguments, and options.
@@ -94,15 +94,15 @@ export class NatGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["allocationId"] = args ? args.allocationId : undefined;
-            resourceInputs["connectivityType"] = args ? args.connectivityType : undefined;
-            resourceInputs["maxDrainDurationSeconds"] = args ? args.maxDrainDurationSeconds : undefined;
-            resourceInputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
-            resourceInputs["secondaryAllocationIds"] = args ? args.secondaryAllocationIds : undefined;
-            resourceInputs["secondaryPrivateIpAddressCount"] = args ? args.secondaryPrivateIpAddressCount : undefined;
-            resourceInputs["secondaryPrivateIpAddresses"] = args ? args.secondaryPrivateIpAddresses : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allocationId"] = args?.allocationId;
+            resourceInputs["connectivityType"] = args?.connectivityType;
+            resourceInputs["maxDrainDurationSeconds"] = args?.maxDrainDurationSeconds;
+            resourceInputs["privateIpAddress"] = args?.privateIpAddress;
+            resourceInputs["secondaryAllocationIds"] = args?.secondaryAllocationIds;
+            resourceInputs["secondaryPrivateIpAddressCount"] = args?.secondaryPrivateIpAddressCount;
+            resourceInputs["secondaryPrivateIpAddresses"] = args?.secondaryPrivateIpAddresses;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["natGatewayId"] = undefined /*out*/;
         } else {
             resourceInputs["allocationId"] = undefined /*out*/;

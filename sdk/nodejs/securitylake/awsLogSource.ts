@@ -37,19 +37,19 @@ export class AwsLogSource extends pulumi.CustomResource {
     /**
      * AWS account where you want to collect logs from.
      */
-    public readonly accounts!: pulumi.Output<string[] | undefined>;
+    declare public readonly accounts: pulumi.Output<string[] | undefined>;
     /**
      * The ARN for the data lake.
      */
-    public readonly dataLakeArn!: pulumi.Output<string>;
+    declare public readonly dataLakeArn: pulumi.Output<string>;
     /**
      * The name for a AWS source. This must be a Regionally unique value.
      */
-    public readonly sourceName!: pulumi.Output<string>;
+    declare public readonly sourceName: pulumi.Output<string>;
     /**
      * The version for a AWS source. This must be a Regionally unique value.
      */
-    public readonly sourceVersion!: pulumi.Output<string>;
+    declare public readonly sourceVersion: pulumi.Output<string>;
 
     /**
      * Create a AwsLogSource resource with the given unique name, arguments, and options.
@@ -62,16 +62,16 @@ export class AwsLogSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataLakeArn === undefined) && !opts.urn) {
+            if (args?.dataLakeArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataLakeArn'");
             }
-            if ((!args || args.sourceVersion === undefined) && !opts.urn) {
+            if (args?.sourceVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceVersion'");
             }
-            resourceInputs["accounts"] = args ? args.accounts : undefined;
-            resourceInputs["dataLakeArn"] = args ? args.dataLakeArn : undefined;
-            resourceInputs["sourceName"] = args ? args.sourceName : undefined;
-            resourceInputs["sourceVersion"] = args ? args.sourceVersion : undefined;
+            resourceInputs["accounts"] = args?.accounts;
+            resourceInputs["dataLakeArn"] = args?.dataLakeArn;
+            resourceInputs["sourceName"] = args?.sourceName;
+            resourceInputs["sourceVersion"] = args?.sourceVersion;
         } else {
             resourceInputs["accounts"] = undefined /*out*/;
             resourceInputs["dataLakeArn"] = undefined /*out*/;

@@ -37,11 +37,11 @@ export class OrganizationAdmin extends pulumi.CustomResource {
     /**
      * The account ID of the account that should be registered as your Organization's delegated administrator for Detective
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The Detective graph ARN
      */
-    public /*out*/ readonly graphArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly graphArn: pulumi.Output<string>;
 
     /**
      * Create a OrganizationAdmin resource with the given unique name, arguments, and options.
@@ -54,10 +54,10 @@ export class OrganizationAdmin extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountId === undefined) && !opts.urn) {
+            if (args?.accountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["accountId"] = args?.accountId;
             resourceInputs["graphArn"] = undefined /*out*/;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;

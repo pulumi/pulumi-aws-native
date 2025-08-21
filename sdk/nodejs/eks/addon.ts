@@ -40,43 +40,43 @@ export class Addon extends pulumi.CustomResource {
     /**
      * Name of Addon
      */
-    public readonly addonName!: pulumi.Output<string>;
+    declare public readonly addonName: pulumi.Output<string>;
     /**
      * Version of Addon
      */
-    public readonly addonVersion!: pulumi.Output<string | undefined>;
+    declare public readonly addonVersion: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the add-on
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Name of Cluster
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    declare public readonly clusterName: pulumi.Output<string>;
     /**
      * The configuration values to use with the add-on
      */
-    public readonly configurationValues!: pulumi.Output<string | undefined>;
+    declare public readonly configurationValues: pulumi.Output<string | undefined>;
     /**
      * An array of pod identities to apply to this add-on.
      */
-    public readonly podIdentityAssociations!: pulumi.Output<outputs.eks.AddonPodIdentityAssociation[] | undefined>;
+    declare public readonly podIdentityAssociations: pulumi.Output<outputs.eks.AddonPodIdentityAssociation[] | undefined>;
     /**
      * PreserveOnDelete parameter value
      */
-    public readonly preserveOnDelete!: pulumi.Output<boolean | undefined>;
+    declare public readonly preserveOnDelete: pulumi.Output<boolean | undefined>;
     /**
      * Resolve parameter value conflicts
      */
-    public readonly resolveConflicts!: pulumi.Output<enums.eks.AddonResolveConflicts | undefined>;
+    declare public readonly resolveConflicts: pulumi.Output<enums.eks.AddonResolveConflicts | undefined>;
     /**
      * IAM role to bind to the add-on's service account
      */
-    public readonly serviceAccountRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly serviceAccountRoleArn: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Addon resource with the given unique name, arguments, and options.
@@ -89,18 +89,18 @@ export class Addon extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            resourceInputs["addonName"] = args ? args.addonName : undefined;
-            resourceInputs["addonVersion"] = args ? args.addonVersion : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["configurationValues"] = args ? args.configurationValues : undefined;
-            resourceInputs["podIdentityAssociations"] = args ? args.podIdentityAssociations : undefined;
-            resourceInputs["preserveOnDelete"] = args ? args.preserveOnDelete : undefined;
-            resourceInputs["resolveConflicts"] = args ? args.resolveConflicts : undefined;
-            resourceInputs["serviceAccountRoleArn"] = args ? args.serviceAccountRoleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addonName"] = args?.addonName;
+            resourceInputs["addonVersion"] = args?.addonVersion;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["configurationValues"] = args?.configurationValues;
+            resourceInputs["podIdentityAssociations"] = args?.podIdentityAssociations;
+            resourceInputs["preserveOnDelete"] = args?.preserveOnDelete;
+            resourceInputs["resolveConflicts"] = args?.resolveConflicts;
+            resourceInputs["serviceAccountRoleArn"] = args?.serviceAccountRoleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["addonName"] = undefined /*out*/;

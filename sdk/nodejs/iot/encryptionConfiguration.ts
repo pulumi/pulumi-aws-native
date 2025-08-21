@@ -37,12 +37,12 @@ export class EncryptionConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === EncryptionConfiguration.__pulumiType;
     }
 
-    public /*out*/ readonly accountId!: pulumi.Output<string>;
-    public /*out*/ readonly configurationDetails!: pulumi.Output<outputs.iot.ConfigurationDetailsProperties>;
-    public readonly encryptionType!: pulumi.Output<enums.iot.EncryptionConfigurationEncryptionType>;
-    public readonly kmsAccessRoleArn!: pulumi.Output<string | undefined>;
-    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly lastModifiedDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountId: pulumi.Output<string>;
+    declare public /*out*/ readonly configurationDetails: pulumi.Output<outputs.iot.ConfigurationDetailsProperties>;
+    declare public readonly encryptionType: pulumi.Output<enums.iot.EncryptionConfigurationEncryptionType>;
+    declare public readonly kmsAccessRoleArn: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lastModifiedDate: pulumi.Output<string>;
 
     /**
      * Create a EncryptionConfiguration resource with the given unique name, arguments, and options.
@@ -55,12 +55,12 @@ export class EncryptionConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.encryptionType === undefined) && !opts.urn) {
+            if (args?.encryptionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'encryptionType'");
             }
-            resourceInputs["encryptionType"] = args ? args.encryptionType : undefined;
-            resourceInputs["kmsAccessRoleArn"] = args ? args.kmsAccessRoleArn : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["encryptionType"] = args?.encryptionType;
+            resourceInputs["kmsAccessRoleArn"] = args?.kmsAccessRoleArn;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["configurationDetails"] = undefined /*out*/;
             resourceInputs["lastModifiedDate"] = undefined /*out*/;

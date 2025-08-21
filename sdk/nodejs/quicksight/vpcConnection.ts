@@ -40,63 +40,63 @@ export class VpcConnection extends pulumi.CustomResource {
     /**
      * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The availability status of the VPC connection.
      */
-    public readonly availabilityStatus!: pulumi.Output<enums.quicksight.VpcConnectionVpcConnectionAvailabilityStatus | undefined>;
+    declare public readonly availabilityStatus: pulumi.Output<enums.quicksight.VpcConnectionVpcConnectionAvailabilityStatus | undefined>;
     /**
      * The AWS account ID of the account where you want to create a new VPC connection.
      */
-    public readonly awsAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly awsAccountId: pulumi.Output<string | undefined>;
     /**
      * <p>The time that the VPC connection was created.</p>
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * A list of IP addresses of DNS resolver endpoints for the VPC connection.
      */
-    public readonly dnsResolvers!: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsResolvers: pulumi.Output<string[] | undefined>;
     /**
      * <p>The time that the VPC connection was last updated.</p>
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * The display name for the VPC connection.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * <p>A list of network interfaces.</p>
      */
-    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.quicksight.VpcConnectionNetworkInterface[]>;
+    declare public /*out*/ readonly networkInterfaces: pulumi.Output<outputs.quicksight.VpcConnectionNetworkInterface[]>;
     /**
      * The ARN of the IAM role associated with the VPC connection.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon EC2 security group IDs associated with the VPC connection.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
      * The HTTP status of the request.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.quicksight.VpcConnectionVpcConnectionResourceStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.quicksight.VpcConnectionVpcConnectionResourceStatus>;
     /**
      * A list of subnet IDs for the VPC connection.
      */
-    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly subnetIds: pulumi.Output<string[] | undefined>;
     /**
      * A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
      */
-    public readonly vpcConnectionId!: pulumi.Output<string | undefined>;
+    declare public readonly vpcConnectionId: pulumi.Output<string | undefined>;
     /**
      * <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a VpcConnection resource with the given unique name, arguments, and options.
@@ -109,15 +109,15 @@ export class VpcConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["availabilityStatus"] = args ? args.availabilityStatus : undefined;
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["dnsResolvers"] = args ? args.dnsResolvers : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConnectionId"] = args ? args.vpcConnectionId : undefined;
+            resourceInputs["availabilityStatus"] = args?.availabilityStatus;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["dnsResolvers"] = args?.dnsResolvers;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConnectionId"] = args?.vpcConnectionId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;

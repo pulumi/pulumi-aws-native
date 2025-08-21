@@ -40,43 +40,43 @@ export class Multiplex extends pulumi.CustomResource {
     /**
      * The unique arn of the multiplex.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A list of availability zones for the multiplex.
      */
-    public readonly availabilityZones!: pulumi.Output<string[]>;
+    declare public readonly availabilityZones: pulumi.Output<string[]>;
     /**
      * The unique id of the multiplex.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A list of the multiplex output destinations.
      */
-    public readonly destinations!: pulumi.Output<outputs.medialive.MultiplexOutputDestination[] | undefined>;
+    declare public readonly destinations: pulumi.Output<outputs.medialive.MultiplexOutputDestination[] | undefined>;
     /**
      * Configuration for a multiplex event.
      */
-    public readonly multiplexSettings!: pulumi.Output<outputs.medialive.MultiplexSettings>;
+    declare public readonly multiplexSettings: pulumi.Output<outputs.medialive.MultiplexSettings>;
     /**
      * Name of multiplex.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The number of currently healthy pipelines.
      */
-    public /*out*/ readonly pipelinesRunningCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly pipelinesRunningCount: pulumi.Output<number>;
     /**
      * The number of programs in the multiplex.
      */
-    public /*out*/ readonly programCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly programCount: pulumi.Output<number>;
     /**
      * The current state of the multiplex.
      */
-    public /*out*/ readonly state!: pulumi.Output<enums.medialive.MultiplexState>;
+    declare public /*out*/ readonly state: pulumi.Output<enums.medialive.MultiplexState>;
     /**
      * A collection of key-value pairs.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Multiplex resource with the given unique name, arguments, and options.
@@ -89,17 +89,17 @@ export class Multiplex extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.availabilityZones === undefined) && !opts.urn) {
+            if (args?.availabilityZones === undefined && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZones'");
             }
-            if ((!args || args.multiplexSettings === undefined) && !opts.urn) {
+            if (args?.multiplexSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'multiplexSettings'");
             }
-            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            resourceInputs["destinations"] = args ? args.destinations : undefined;
-            resourceInputs["multiplexSettings"] = args ? args.multiplexSettings : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["availabilityZones"] = args?.availabilityZones;
+            resourceInputs["destinations"] = args?.destinations;
+            resourceInputs["multiplexSettings"] = args?.multiplexSettings;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["pipelinesRunningCount"] = undefined /*out*/;

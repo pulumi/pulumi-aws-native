@@ -88,42 +88,42 @@ export class Rule extends pulumi.CustomResource {
     /**
      * The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The description of the rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
      */
-    public readonly eventBusName!: pulumi.Output<string | undefined>;
+    declare public readonly eventBusName: pulumi.Output<string | undefined>;
     /**
      * The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Rule` for more information about the expected schema for this property.
      */
-    public readonly eventPattern!: pulumi.Output<any | undefined>;
+    declare public readonly eventPattern: pulumi.Output<any | undefined>;
     /**
      * The name of the rule.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the role that is used for target invocation.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
      */
-    public readonly scheduleExpression!: pulumi.Output<string | undefined>;
+    declare public readonly scheduleExpression: pulumi.Output<string | undefined>;
     /**
      * The state of the rule.
      */
-    public readonly state!: pulumi.Output<enums.events.RuleState | undefined>;
+    declare public readonly state: pulumi.Output<enums.events.RuleState | undefined>;
     /**
      * Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
      * Targets are the resources that are invoked when a rule is triggered.
      */
-    public readonly targets!: pulumi.Output<outputs.events.RuleTarget[] | undefined>;
+    declare public readonly targets: pulumi.Output<outputs.events.RuleTarget[] | undefined>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -136,14 +136,14 @@ export class Rule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventBusName"] = args ? args.eventBusName : undefined;
-            resourceInputs["eventPattern"] = args ? args.eventPattern : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventBusName"] = args?.eventBusName;
+            resourceInputs["eventPattern"] = args?.eventPattern;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["scheduleExpression"] = args?.scheduleExpression;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["targets"] = args?.targets;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

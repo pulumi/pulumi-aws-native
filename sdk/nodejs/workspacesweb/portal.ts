@@ -40,7 +40,7 @@ export class Portal extends pulumi.CustomResource {
     /**
      * The additional encryption context of the portal.
      */
-    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of authentication integration points used when signing into the web portal. Defaults to `Standard` .
      *
@@ -56,90 +56,90 @@ export class Portal extends pulumi.CustomResource {
      *
      * `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
      */
-    public readonly authenticationType!: pulumi.Output<enums.workspacesweb.PortalAuthenticationType | undefined>;
+    declare public readonly authenticationType: pulumi.Output<enums.workspacesweb.PortalAuthenticationType | undefined>;
     /**
      * The ARN of the browser settings that is associated with this web portal.
      */
-    public readonly browserSettingsArn!: pulumi.Output<string | undefined>;
+    declare public readonly browserSettingsArn: pulumi.Output<string | undefined>;
     /**
      * The browser that users see when using a streaming session.
      */
-    public /*out*/ readonly browserType!: pulumi.Output<enums.workspacesweb.PortalBrowserType>;
+    declare public /*out*/ readonly browserType: pulumi.Output<enums.workspacesweb.PortalBrowserType>;
     /**
      * The creation date of the web portal.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * The customer managed key of the web portal.
      *
      * *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
      */
-    public readonly customerManagedKey!: pulumi.Output<string | undefined>;
+    declare public readonly customerManagedKey: pulumi.Output<string | undefined>;
     /**
      * The ARN of the data protection settings.
      */
-    public readonly dataProtectionSettingsArn!: pulumi.Output<string | undefined>;
+    declare public readonly dataProtectionSettingsArn: pulumi.Output<string | undefined>;
     /**
      * The name of the web portal.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The type and resources of the underlying instance.
      */
-    public readonly instanceType!: pulumi.Output<enums.workspacesweb.PortalInstanceType | undefined>;
+    declare public readonly instanceType: pulumi.Output<enums.workspacesweb.PortalInstanceType | undefined>;
     /**
      * The ARN of the IP access settings that is associated with the web portal.
      */
-    public readonly ipAccessSettingsArn!: pulumi.Output<string | undefined>;
+    declare public readonly ipAccessSettingsArn: pulumi.Output<string | undefined>;
     /**
      * The maximum number of concurrent sessions for the portal.
      */
-    public readonly maxConcurrentSessions!: pulumi.Output<number | undefined>;
+    declare public readonly maxConcurrentSessions: pulumi.Output<number | undefined>;
     /**
      * The ARN of the network settings that is associated with the web portal.
      */
-    public readonly networkSettingsArn!: pulumi.Output<string | undefined>;
+    declare public readonly networkSettingsArn: pulumi.Output<string | undefined>;
     /**
      * The ARN of the web portal.
      */
-    public /*out*/ readonly portalArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly portalArn: pulumi.Output<string>;
     /**
      * The endpoint URL of the web portal that users access in order to start streaming sessions.
      */
-    public /*out*/ readonly portalEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly portalEndpoint: pulumi.Output<string>;
     /**
      * The status of the web portal.
      */
-    public /*out*/ readonly portalStatus!: pulumi.Output<enums.workspacesweb.PortalStatus>;
+    declare public /*out*/ readonly portalStatus: pulumi.Output<enums.workspacesweb.PortalStatus>;
     /**
      * The renderer that is used in streaming sessions.
      */
-    public /*out*/ readonly rendererType!: pulumi.Output<enums.workspacesweb.PortalRendererType>;
+    declare public /*out*/ readonly rendererType: pulumi.Output<enums.workspacesweb.PortalRendererType>;
     /**
      * The SAML metadata of the service provider.
      */
-    public /*out*/ readonly serviceProviderSamlMetadata!: pulumi.Output<string>;
-    public readonly sessionLoggerArn!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly serviceProviderSamlMetadata: pulumi.Output<string>;
+    declare public readonly sessionLoggerArn: pulumi.Output<string | undefined>;
     /**
      * A message that explains why the web portal is in its current status.
      */
-    public /*out*/ readonly statusReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusReason: pulumi.Output<string>;
     /**
      * The tags to add to the web portal. A tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of the trust store that is associated with the web portal.
      */
-    public readonly trustStoreArn!: pulumi.Output<string | undefined>;
+    declare public readonly trustStoreArn: pulumi.Output<string | undefined>;
     /**
      * The ARN of the user access logging settings that is associated with the web portal.
      */
-    public readonly userAccessLoggingSettingsArn!: pulumi.Output<string | undefined>;
+    declare public readonly userAccessLoggingSettingsArn: pulumi.Output<string | undefined>;
     /**
      * The ARN of the user settings that is associated with the web portal.
      */
-    public readonly userSettingsArn!: pulumi.Output<string | undefined>;
+    declare public readonly userSettingsArn: pulumi.Output<string | undefined>;
 
     /**
      * Create a Portal resource with the given unique name, arguments, and options.
@@ -152,21 +152,21 @@ export class Portal extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
-            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
-            resourceInputs["browserSettingsArn"] = args ? args.browserSettingsArn : undefined;
-            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["dataProtectionSettingsArn"] = args ? args.dataProtectionSettingsArn : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["ipAccessSettingsArn"] = args ? args.ipAccessSettingsArn : undefined;
-            resourceInputs["maxConcurrentSessions"] = args ? args.maxConcurrentSessions : undefined;
-            resourceInputs["networkSettingsArn"] = args ? args.networkSettingsArn : undefined;
-            resourceInputs["sessionLoggerArn"] = args ? args.sessionLoggerArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trustStoreArn"] = args ? args.trustStoreArn : undefined;
-            resourceInputs["userAccessLoggingSettingsArn"] = args ? args.userAccessLoggingSettingsArn : undefined;
-            resourceInputs["userSettingsArn"] = args ? args.userSettingsArn : undefined;
+            resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
+            resourceInputs["authenticationType"] = args?.authenticationType;
+            resourceInputs["browserSettingsArn"] = args?.browserSettingsArn;
+            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
+            resourceInputs["dataProtectionSettingsArn"] = args?.dataProtectionSettingsArn;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["ipAccessSettingsArn"] = args?.ipAccessSettingsArn;
+            resourceInputs["maxConcurrentSessions"] = args?.maxConcurrentSessions;
+            resourceInputs["networkSettingsArn"] = args?.networkSettingsArn;
+            resourceInputs["sessionLoggerArn"] = args?.sessionLoggerArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trustStoreArn"] = args?.trustStoreArn;
+            resourceInputs["userAccessLoggingSettingsArn"] = args?.userAccessLoggingSettingsArn;
+            resourceInputs["userSettingsArn"] = args?.userSettingsArn;
             resourceInputs["browserType"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["portalArn"] = undefined /*out*/;

@@ -40,69 +40,69 @@ export class AnalysisTemplate extends pulumi.CustomResource {
     /**
      * The member who can query can provide this placeholder for a literal data value in an analysis template
      */
-    public readonly analysisParameters!: pulumi.Output<outputs.cleanrooms.AnalysisTemplateAnalysisParameter[] | undefined>;
+    declare public readonly analysisParameters: pulumi.Output<outputs.cleanrooms.AnalysisTemplateAnalysisParameter[] | undefined>;
     /**
      * Returns the identifier for the analysis template.
      *
      * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
      */
-    public /*out*/ readonly analysisTemplateIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly analysisTemplateIdentifier: pulumi.Output<string>;
     /**
      * Returns the Amazon Resource Name (ARN) of the analysis template.
      *
      * Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/analysistemplates/a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Returns the unique ARN for the analysis template’s associated collaboration.
      *
      * Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
      */
-    public /*out*/ readonly collaborationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly collaborationArn: pulumi.Output<string>;
     /**
      * Returns the unique ID for the associated collaboration of the analysis template.
      *
      * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
      */
-    public /*out*/ readonly collaborationIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly collaborationIdentifier: pulumi.Output<string>;
     /**
      * The description of the analysis template.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The format of the analysis template.
      */
-    public readonly format!: pulumi.Output<enums.cleanrooms.AnalysisTemplateFormat>;
+    declare public readonly format: pulumi.Output<enums.cleanrooms.AnalysisTemplateFormat>;
     /**
      * Returns the Amazon Resource Name (ARN) of the member who created the analysis template.
      *
      * Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
      */
-    public /*out*/ readonly membershipArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly membershipArn: pulumi.Output<string>;
     /**
      * The identifier for a membership resource.
      */
-    public readonly membershipIdentifier!: pulumi.Output<string>;
+    declare public readonly membershipIdentifier: pulumi.Output<string>;
     /**
      * The name of the analysis template.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The entire schema object.
      */
-    public readonly schema!: pulumi.Output<outputs.cleanrooms.AnalysisTemplateAnalysisSchema | undefined>;
+    declare public readonly schema: pulumi.Output<outputs.cleanrooms.AnalysisTemplateAnalysisSchema | undefined>;
     /**
      * The source of the analysis template.
      */
-    public readonly source!: pulumi.Output<outputs.cleanrooms.AnalysisTemplateAnalysisSource0Properties | outputs.cleanrooms.AnalysisTemplateAnalysisSource1Properties>;
+    declare public readonly source: pulumi.Output<outputs.cleanrooms.AnalysisTemplateAnalysisSource0Properties | outputs.cleanrooms.AnalysisTemplateAnalysisSource1Properties>;
     /**
      * The source metadata for the analysis template.
      */
-    public readonly sourceMetadata!: pulumi.Output<outputs.cleanrooms.AnalysisTemplateAnalysisSourceMetadataProperties | undefined>;
+    declare public readonly sourceMetadata: pulumi.Output<outputs.cleanrooms.AnalysisTemplateAnalysisSourceMetadataProperties | undefined>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a AnalysisTemplate resource with the given unique name, arguments, and options.
@@ -115,24 +115,24 @@ export class AnalysisTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.format === undefined) && !opts.urn) {
+            if (args?.format === undefined && !opts.urn) {
                 throw new Error("Missing required property 'format'");
             }
-            if ((!args || args.membershipIdentifier === undefined) && !opts.urn) {
+            if (args?.membershipIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'membershipIdentifier'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["analysisParameters"] = args ? args.analysisParameters : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["format"] = args ? args.format : undefined;
-            resourceInputs["membershipIdentifier"] = args ? args.membershipIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["sourceMetadata"] = args ? args.sourceMetadata : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["analysisParameters"] = args?.analysisParameters;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["format"] = args?.format;
+            resourceInputs["membershipIdentifier"] = args?.membershipIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["sourceMetadata"] = args?.sourceMetadata;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["analysisTemplateIdentifier"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collaborationArn"] = undefined /*out*/;

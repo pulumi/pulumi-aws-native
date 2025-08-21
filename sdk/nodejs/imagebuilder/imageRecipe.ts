@@ -40,43 +40,43 @@ export class ImageRecipe extends pulumi.CustomResource {
     /**
      * Specify additional settings and launch scripts for your build instances.
      */
-    public readonly additionalInstanceConfiguration!: pulumi.Output<outputs.imagebuilder.ImageRecipeAdditionalInstanceConfiguration | undefined>;
+    declare public readonly additionalInstanceConfiguration: pulumi.Output<outputs.imagebuilder.ImageRecipeAdditionalInstanceConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the image recipe.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The block device mappings to apply when creating images from this recipe.
      */
-    public readonly blockDeviceMappings!: pulumi.Output<outputs.imagebuilder.ImageRecipeInstanceBlockDeviceMapping[] | undefined>;
+    declare public readonly blockDeviceMappings: pulumi.Output<outputs.imagebuilder.ImageRecipeInstanceBlockDeviceMapping[] | undefined>;
     /**
      * The components of the image recipe.
      */
-    public readonly components!: pulumi.Output<outputs.imagebuilder.ImageRecipeComponentConfiguration[]>;
+    declare public readonly components: pulumi.Output<outputs.imagebuilder.ImageRecipeComponentConfiguration[]>;
     /**
      * The description of the image recipe.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the image recipe.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The parent image of the image recipe.
      */
-    public readonly parentImage!: pulumi.Output<string>;
+    declare public readonly parentImage: pulumi.Output<string>;
     /**
      * The tags of the image recipe.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The version of the image recipe.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
     /**
      * The working directory to be used during build and test workflows.
      */
-    public readonly workingDirectory!: pulumi.Output<string | undefined>;
+    declare public readonly workingDirectory: pulumi.Output<string | undefined>;
 
     /**
      * Create a ImageRecipe resource with the given unique name, arguments, and options.
@@ -89,24 +89,24 @@ export class ImageRecipe extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.components === undefined) && !opts.urn) {
+            if (args?.components === undefined && !opts.urn) {
                 throw new Error("Missing required property 'components'");
             }
-            if ((!args || args.parentImage === undefined) && !opts.urn) {
+            if (args?.parentImage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentImage'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["additionalInstanceConfiguration"] = args ? args.additionalInstanceConfiguration : undefined;
-            resourceInputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
-            resourceInputs["components"] = args ? args.components : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentImage"] = args ? args.parentImage : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["workingDirectory"] = args ? args.workingDirectory : undefined;
+            resourceInputs["additionalInstanceConfiguration"] = args?.additionalInstanceConfiguration;
+            resourceInputs["blockDeviceMappings"] = args?.blockDeviceMappings;
+            resourceInputs["components"] = args?.components;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentImage"] = args?.parentImage;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["workingDirectory"] = args?.workingDirectory;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["additionalInstanceConfiguration"] = undefined /*out*/;

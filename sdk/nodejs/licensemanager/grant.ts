@@ -37,23 +37,23 @@ export class Grant extends pulumi.CustomResource {
     /**
      * Allowed operations for the grant.
      */
-    public readonly allowedOperations!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedOperations: pulumi.Output<string[] | undefined>;
     /**
      * Arn of the grant.
      */
-    public /*out*/ readonly grantArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly grantArn: pulumi.Output<string>;
     /**
      * Name for the created Grant.
      */
-    public readonly grantName!: pulumi.Output<string | undefined>;
+    declare public readonly grantName: pulumi.Output<string | undefined>;
     /**
      * Home region for the created grant.
      */
-    public readonly homeRegion!: pulumi.Output<string | undefined>;
+    declare public readonly homeRegion: pulumi.Output<string | undefined>;
     /**
      * License Arn for the grant.
      */
-    public readonly licenseArn!: pulumi.Output<string | undefined>;
+    declare public readonly licenseArn: pulumi.Output<string | undefined>;
     /**
      * The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):
      *
@@ -63,15 +63,15 @@ export class Grant extends pulumi.CustomResource {
      *
      * - An organization, which will include all accounts across your organization.
      */
-    public readonly principals!: pulumi.Output<string[] | undefined>;
+    declare public readonly principals: pulumi.Output<string[] | undefined>;
     /**
      * Granted license status.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * The version of the grant.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a Grant resource with the given unique name, arguments, and options.
@@ -84,12 +84,12 @@ export class Grant extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["allowedOperations"] = args ? args.allowedOperations : undefined;
-            resourceInputs["grantName"] = args ? args.grantName : undefined;
-            resourceInputs["homeRegion"] = args ? args.homeRegion : undefined;
-            resourceInputs["licenseArn"] = args ? args.licenseArn : undefined;
-            resourceInputs["principals"] = args ? args.principals : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["allowedOperations"] = args?.allowedOperations;
+            resourceInputs["grantName"] = args?.grantName;
+            resourceInputs["homeRegion"] = args?.homeRegion;
+            resourceInputs["licenseArn"] = args?.licenseArn;
+            resourceInputs["principals"] = args?.principals;
+            resourceInputs["status"] = args?.status;
             resourceInputs["grantArn"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {

@@ -37,11 +37,11 @@ export class RouteServerPropagation extends pulumi.CustomResource {
     /**
      * Route Server ID
      */
-    public readonly routeServerId!: pulumi.Output<string>;
+    declare public readonly routeServerId: pulumi.Output<string>;
     /**
      * Route Table ID
      */
-    public readonly routeTableId!: pulumi.Output<string>;
+    declare public readonly routeTableId: pulumi.Output<string>;
 
     /**
      * Create a RouteServerPropagation resource with the given unique name, arguments, and options.
@@ -54,14 +54,14 @@ export class RouteServerPropagation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.routeServerId === undefined) && !opts.urn) {
+            if (args?.routeServerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeServerId'");
             }
-            if ((!args || args.routeTableId === undefined) && !opts.urn) {
+            if (args?.routeTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            resourceInputs["routeServerId"] = args ? args.routeServerId : undefined;
-            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
+            resourceInputs["routeServerId"] = args?.routeServerId;
+            resourceInputs["routeTableId"] = args?.routeTableId;
         } else {
             resourceInputs["routeServerId"] = undefined /*out*/;
             resourceInputs["routeTableId"] = undefined /*out*/;

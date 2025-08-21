@@ -40,48 +40,48 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the HyperPod Cluster.
      */
-    public /*out*/ readonly clusterArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterArn: pulumi.Output<string>;
     /**
      * The name of the HyperPod Cluster.
      */
-    public readonly clusterName!: pulumi.Output<string | undefined>;
+    declare public readonly clusterName: pulumi.Output<string | undefined>;
     /**
      * The status of the HyperPod Cluster.
      */
-    public /*out*/ readonly clusterStatus!: pulumi.Output<enums.sagemaker.ClusterStatus>;
+    declare public /*out*/ readonly clusterStatus: pulumi.Output<enums.sagemaker.ClusterStatus>;
     /**
      * The time at which the HyperPod cluster was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The failure message of the HyperPod Cluster.
      */
-    public /*out*/ readonly failureMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly failureMessage: pulumi.Output<string>;
     /**
      * The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
      */
-    public readonly instanceGroups!: pulumi.Output<outputs.sagemaker.ClusterInstanceGroup[] | undefined>;
+    declare public readonly instanceGroups: pulumi.Output<outputs.sagemaker.ClusterInstanceGroup[] | undefined>;
     /**
      * Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
      */
-    public readonly nodeProvisioningMode!: pulumi.Output<enums.sagemaker.ClusterNodeProvisioningMode | undefined>;
+    declare public readonly nodeProvisioningMode: pulumi.Output<enums.sagemaker.ClusterNodeProvisioningMode | undefined>;
     /**
      * If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
      */
-    public readonly nodeRecovery!: pulumi.Output<enums.sagemaker.ClusterNodeRecovery | undefined>;
+    declare public readonly nodeRecovery: pulumi.Output<enums.sagemaker.ClusterNodeRecovery | undefined>;
     /**
      * The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
      */
-    public readonly orchestrator!: pulumi.Output<outputs.sagemaker.ClusterOrchestrator | undefined>;
-    public readonly restrictedInstanceGroups!: pulumi.Output<outputs.sagemaker.ClusterRestrictedInstanceGroup[] | undefined>;
+    declare public readonly orchestrator: pulumi.Output<outputs.sagemaker.ClusterOrchestrator | undefined>;
+    declare public readonly restrictedInstanceGroups: pulumi.Output<outputs.sagemaker.ClusterRestrictedInstanceGroup[] | undefined>;
     /**
      * Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.sagemaker.ClusterVpcConfig | undefined>;
+    declare public readonly vpcConfig: pulumi.Output<outputs.sagemaker.ClusterVpcConfig | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -94,14 +94,14 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["instanceGroups"] = args ? args.instanceGroups : undefined;
-            resourceInputs["nodeProvisioningMode"] = args ? args.nodeProvisioningMode : undefined;
-            resourceInputs["nodeRecovery"] = args ? args.nodeRecovery : undefined;
-            resourceInputs["orchestrator"] = args ? args.orchestrator : undefined;
-            resourceInputs["restrictedInstanceGroups"] = args ? args.restrictedInstanceGroups : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["instanceGroups"] = args?.instanceGroups;
+            resourceInputs["nodeProvisioningMode"] = args?.nodeProvisioningMode;
+            resourceInputs["nodeRecovery"] = args?.nodeRecovery;
+            resourceInputs["orchestrator"] = args?.orchestrator;
+            resourceInputs["restrictedInstanceGroups"] = args?.restrictedInstanceGroups;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["clusterArn"] = undefined /*out*/;
             resourceInputs["clusterStatus"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

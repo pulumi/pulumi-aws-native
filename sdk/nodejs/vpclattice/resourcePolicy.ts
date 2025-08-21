@@ -39,11 +39,11 @@ export class ResourcePolicy extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
      */
-    public readonly policy!: pulumi.Output<any>;
+    declare public readonly policy: pulumi.Output<any>;
     /**
      * An IAM policy.
      */
-    public readonly resourceArn!: pulumi.Output<string>;
+    declare public readonly resourceArn: pulumi.Output<string>;
 
     /**
      * Create a ResourcePolicy resource with the given unique name, arguments, and options.
@@ -56,14 +56,14 @@ export class ResourcePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.resourceArn === undefined) && !opts.urn) {
+            if (args?.resourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["resourceArn"] = args?.resourceArn;
         } else {
             resourceInputs["policy"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
