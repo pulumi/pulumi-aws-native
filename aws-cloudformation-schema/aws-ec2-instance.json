@@ -13,7 +13,7 @@
   "description" : "Resource Type definition for AWS::EC2::Instance",
   "createOnlyProperties" : [ "/properties/AvailabilityZone", "/properties/CpuOptions", "/properties/ElasticGpuSpecifications", "/properties/ElasticInferenceAccelerators", "/properties/EnclaveOptions", "/properties/HibernationOptions", "/properties/HostResourceGroupArn", "/properties/ImageId", "/properties/Ipv6AddressCount", "/properties/Ipv6Addresses", "/properties/KeyName", "/properties/LaunchTemplate", "/properties/LicenseSpecifications", "/properties/NetworkInterfaces", "/properties/PlacementGroupName", "/properties/PrivateIpAddress", "/properties/SecurityGroups", "/properties/SubnetId" ],
   "primaryIdentifier" : [ "/properties/InstanceId" ],
-  "conditionalCreateOnlyProperties" : [ "/properties/AdditionalInfo", "/properties/Affinity", "/properties/EbsOptimized", "/properties/HostId", "/properties/InstanceType", "/properties/KernelId", "/properties/PrivateDnsNameOptions", "/properties/RamdiskId", "/properties/SecurityGroupIds", "/properties/Tenancy", "/properties/UserData", "/properties/BlockDeviceMappings" ],
+  "conditionalCreateOnlyProperties" : [ "/properties/AdditionalInfo", "/properties/Affinity", "/properties/EbsOptimized", "/properties/HostId", "/properties/InstanceType", "/properties/KernelId", "/properties/PrivateDnsNameOptions", "/properties/RamdiskId", "/properties/Tenancy", "/properties/UserData", "/properties/BlockDeviceMappings", "/properties/SecurityGroupIds" ],
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2.git",
   "handlers" : {
     "read" : {
@@ -619,7 +619,7 @@
     },
     "ElasticGpuSpecifications" : {
       "uniqueItems" : false,
-      "description" : "An elastic GPU to associate with the instance.",
+      "description" : "An elastic GPU to associate with the instance. Amazon Elastic Graphics is no longer available.",
       "insertionOrder" : false,
       "type" : "array",
       "items" : {
@@ -628,7 +628,7 @@
     },
     "ElasticInferenceAccelerators" : {
       "uniqueItems" : false,
-      "description" : "An elastic inference accelerator to associate with the instance.",
+      "description" : "An elastic inference accelerator to associate with the instance. Amazon Elastic Inference is no longer available.",
       "insertionOrder" : false,
       "type" : "array",
       "items" : {

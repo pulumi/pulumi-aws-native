@@ -53,9 +53,7 @@ type LookupFunctionResult struct {
 	FunctionConfig *FunctionConfig `pulumi:"functionConfig"`
 	// Contains metadata about a CloudFront function.
 	FunctionMetadata *FunctionMetadata `pulumi:"functionMetadata"`
-	// A name to identify the function.
-	Name  *string `pulumi:"name"`
-	Stage *string `pulumi:"stage"`
+	Stage            *string           `pulumi:"stage"`
 }
 
 func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionResultOutput {
@@ -120,11 +118,6 @@ func (o LookupFunctionResultOutput) FunctionConfig() FunctionConfigPtrOutput {
 // Contains metadata about a CloudFront function.
 func (o LookupFunctionResultOutput) FunctionMetadata() FunctionMetadataPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionMetadata { return v.FunctionMetadata }).(FunctionMetadataPtrOutput)
-}
-
-// A name to identify the function.
-func (o LookupFunctionResultOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFunctionResultOutput) Stage() pulumi.StringPtrOutput {

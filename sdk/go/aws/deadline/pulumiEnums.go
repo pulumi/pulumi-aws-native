@@ -887,8 +887,9 @@ func (in *fleetCustomerManagedFleetOperatingSystemFamilyPtr) ToFleetCustomerMana
 type FleetEc2MarketType string
 
 const (
-	FleetEc2MarketTypeOnDemand = FleetEc2MarketType("on-demand")
-	FleetEc2MarketTypeSpot     = FleetEc2MarketType("spot")
+	FleetEc2MarketTypeOnDemand    = FleetEc2MarketType("on-demand")
+	FleetEc2MarketTypeSpot        = FleetEc2MarketType("spot")
+	FleetEc2MarketTypeWaitAndSave = FleetEc2MarketType("wait-and-save")
 )
 
 func (FleetEc2MarketType) ElementType() reflect.Type {
@@ -1015,6 +1016,7 @@ func (o FleetEc2MarketTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 //
 //	FleetEc2MarketTypeOnDemand
 //	FleetEc2MarketTypeSpot
+//	FleetEc2MarketTypeWaitAndSave
 type FleetEc2MarketTypeInput interface {
 	pulumi.Input
 
@@ -1222,6 +1224,7 @@ const (
 	FleetStatusUpdateInProgress = FleetStatus("UPDATE_IN_PROGRESS")
 	FleetStatusCreateFailed     = FleetStatus("CREATE_FAILED")
 	FleetStatusUpdateFailed     = FleetStatus("UPDATE_FAILED")
+	FleetStatusSuspended        = FleetStatus("SUSPENDED")
 )
 
 type FleetStatusOutput struct{ *pulumi.OutputState }

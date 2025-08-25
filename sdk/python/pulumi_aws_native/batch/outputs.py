@@ -210,11 +210,19 @@ class ComputeEnvironmentComputeResources(dict):
                When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
                
                > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
-        :param Sequence[builtins.str] instance_types: The instances types that can be launched. You can specify instance families to launch any instance type within those families (for example, `c5` or `p3` ), or you can specify specific sizes within a family (such as `c5.8xlarge` ). You can also choose `optimal` to select instance types (from the C4, M4, and R4 instance families) that match the demand of your job queues.
+        :param Sequence[builtins.str] instance_types: The instances types that can be launched. You can specify instance families to launch any instance type within those families (for example, `c5` or `p3` ), or you can specify specific sizes within a family (such as `c5.8xlarge` ).
                
-               When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+               AWS Batch can select the instance type for you if you choose one of the following:
                
-               > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > When you create a compute environment, the instance types that you select for the compute environment must share the same architecture. For example, you can't mix x86 and ARM instances in the same compute environment. > Currently, `optimal` uses instance types from the C4, M4, and R4 instance families. In Regions that don't have instance types from those instance families, instance types from the C5, M5, and R5 instance families are used.
+               - `optimal` to select instance types (from the `c4` , `m4` , `r4` , `c5` , `m5` , and `r5` instance families) that match the demand of your job queues.
+               - `default_x86_64` to choose x86 based instance types (from the `m6i` , `c6i` , `r6i` , and `c7i` instance families) that matches the resource demands of the job queue.
+               - `default_arm64` to choose x86 based instance types (from the `m6g` , `c6g` , `r6g` , and `c7g` instance families) that matches the resource demands of the job queue.
+               
+               > Starting on 11/01/2025 the behavior of `optimal` is going to be changed to match `default_x86_64` . During the change your instance families could be updated to a newer generation. You do not need to perform any actions for the upgrade to happen. For more information about change, see [Optimal instance type configuration to receive automatic instance family updates](https://docs.aws.amazon.com/batch/latest/userguide/optimal-default-instance-troubleshooting.html) . > Instance family availability varies by AWS Region . For example, some AWS Region s may not have any fourth generation instance families but have fifth and sixth generation instance families.
+               > 
+               > When using `default_x86_64` or `default_arm64` instance bundles, AWS Batch selects instance families based on a balance of cost-effectiveness and performance. While newer generation instances often provide better price-performance, AWS Batch may choose an earlier generation instance family if it provides the optimal combination of availability, cost, and performance for your workload. For example, in an AWS Region where both c6i and c7i instances are available, AWS Batch might select c6i instances if they offer better cost-effectiveness for your specific job requirements. For more information on AWS Batch instance types and AWS Region availability, see [Instance type compute table](https://docs.aws.amazon.com/batch/latest/userguide/instance-type-compute-table.html) in the *AWS Batch User Guide* .
+               > 
+               > AWS Batch periodically updates your instances in default bundles to newer, more cost-effective options. Updates happen automatically without requiring any action from you. Your workloads continue running during updates with no interruption > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > When you create a compute environment, the instance types that you select for the compute environment must share the same architecture. For example, you can't mix x86 and ARM instances in the same compute environment.
         :param 'ComputeEnvironmentLaunchTemplateSpecification' launch_template: The launch template to use for your compute resources. Any other compute resource parameters that you specify in a [CreateComputeEnvironment](https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateComputeEnvironment.html) API operation override the same parameters in the launch template. You must specify either the launch template ID or launch template name in the request, but not both. For more information, see [Launch Template Support](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the ** . Removing the launch template from a compute environment will not remove the AMI specified in the launch template. In order to update the AMI specified in a launch template, the `updateToLatestImageVersion` parameter must be set to `true` .
                
                When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the ** .
@@ -412,11 +420,19 @@ class ComputeEnvironmentComputeResources(dict):
     @pulumi.getter(name="instanceTypes")
     def instance_types(self) -> Optional[Sequence[builtins.str]]:
         """
-        The instances types that can be launched. You can specify instance families to launch any instance type within those families (for example, `c5` or `p3` ), or you can specify specific sizes within a family (such as `c5.8xlarge` ). You can also choose `optimal` to select instance types (from the C4, M4, and R4 instance families) that match the demand of your job queues.
+        The instances types that can be launched. You can specify instance families to launch any instance type within those families (for example, `c5` or `p3` ), or you can specify specific sizes within a family (such as `c5.8xlarge` ).
 
-        When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+        AWS Batch can select the instance type for you if you choose one of the following:
 
-        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > When you create a compute environment, the instance types that you select for the compute environment must share the same architecture. For example, you can't mix x86 and ARM instances in the same compute environment. > Currently, `optimal` uses instance types from the C4, M4, and R4 instance families. In Regions that don't have instance types from those instance families, instance types from the C5, M5, and R5 instance families are used.
+        - `optimal` to select instance types (from the `c4` , `m4` , `r4` , `c5` , `m5` , and `r5` instance families) that match the demand of your job queues.
+        - `default_x86_64` to choose x86 based instance types (from the `m6i` , `c6i` , `r6i` , and `c7i` instance families) that matches the resource demands of the job queue.
+        - `default_arm64` to choose x86 based instance types (from the `m6g` , `c6g` , `r6g` , and `c7g` instance families) that matches the resource demands of the job queue.
+
+        > Starting on 11/01/2025 the behavior of `optimal` is going to be changed to match `default_x86_64` . During the change your instance families could be updated to a newer generation. You do not need to perform any actions for the upgrade to happen. For more information about change, see [Optimal instance type configuration to receive automatic instance family updates](https://docs.aws.amazon.com/batch/latest/userguide/optimal-default-instance-troubleshooting.html) . > Instance family availability varies by AWS Region . For example, some AWS Region s may not have any fourth generation instance families but have fifth and sixth generation instance families.
+        > 
+        > When using `default_x86_64` or `default_arm64` instance bundles, AWS Batch selects instance families based on a balance of cost-effectiveness and performance. While newer generation instances often provide better price-performance, AWS Batch may choose an earlier generation instance family if it provides the optimal combination of availability, cost, and performance for your workload. For example, in an AWS Region where both c6i and c7i instances are available, AWS Batch might select c6i instances if they offer better cost-effectiveness for your specific job requirements. For more information on AWS Batch instance types and AWS Region availability, see [Instance type compute table](https://docs.aws.amazon.com/batch/latest/userguide/instance-type-compute-table.html) in the *AWS Batch User Guide* .
+        > 
+        > AWS Batch periodically updates your instances in default bundles to newer, more cost-effective options. Updates happen automatically without requiring any action from you. Your workloads continue running during updates with no interruption > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > When you create a compute environment, the instance types that you select for the compute environment must share the same architecture. For example, you can't mix x86 and ARM instances in the same compute environment.
         """
         return pulumi.get(self, "instance_types")
 
@@ -535,6 +551,10 @@ class ComputeEnvironmentEc2ConfigurationObject(dict):
                - **ECS_AL1** - [Amazon Linux](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami) . Amazon Linux has reached the end-of-life of standard support. For more information, see [Amazon Linux AMI](https://docs.aws.amazon.com/amazon-linux-ami/) .
                - **EKS** - If the `imageIdOverride` parameter isn't specified, then a recent [Amazon EKS-optimized Amazon Linux AMI](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) ( `EKS_AL2` ) is used. If a new image type is specified in an update, but neither an `imageId` nor a `imageIdOverride` parameter is specified, then the latest Amazon EKS optimized AMI for that image type that AWS Batch supports is used.
                
+               > Starting end of October 2025 Amazon EKS optimized Amazon Linux 2023 AMIs will be the default on AWS Batch for EKS versions prior to 1.33. Starting from Kubernetes version 1.33, EKS optimized Amazon Linux 2023 AMIs will be the default when it becomes supported on AWS Batch .
+               > 
+               > AWS will end support for Amazon EKS AL2-optimized and AL2-accelerated AMIs, starting 11/26/25. You can continue using AWS Batch -provided Amazon EKS optimized Amazon Linux 2 AMIs on your Amazon EKS compute environments beyond the 11/26/25 end-of-support date, these compute environments will no longer receive any new software updates, security patches, or bug fixes from AWS . For more information on upgrading from AL2 to AL2023, see [How to upgrade from EKS AL2 to EKS AL2023](https://docs.aws.amazon.com/) in the *AWS Batch User Guide* . 
+               
                - **EKS_AL2** - [Amazon Linux 2](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : Default for all non-GPU instance families.
                - **EKS_AL2_NVIDIA** - [Amazon Linux 2 (accelerated)](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : Default for all GPU instance families (for example, `P4` and `G4` ) and can be used for all non AWS Graviton-based instance types.
                - **EKS_AL2023** - [Amazon Linux 2023](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : AWS Batch supports Amazon Linux 2023.
@@ -567,6 +587,10 @@ class ComputeEnvironmentEc2ConfigurationObject(dict):
         > Amazon Linux 2023 does not support `A1` instances.
         - **ECS_AL1** - [Amazon Linux](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami) . Amazon Linux has reached the end-of-life of standard support. For more information, see [Amazon Linux AMI](https://docs.aws.amazon.com/amazon-linux-ami/) .
         - **EKS** - If the `imageIdOverride` parameter isn't specified, then a recent [Amazon EKS-optimized Amazon Linux AMI](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) ( `EKS_AL2` ) is used. If a new image type is specified in an update, but neither an `imageId` nor a `imageIdOverride` parameter is specified, then the latest Amazon EKS optimized AMI for that image type that AWS Batch supports is used.
+
+        > Starting end of October 2025 Amazon EKS optimized Amazon Linux 2023 AMIs will be the default on AWS Batch for EKS versions prior to 1.33. Starting from Kubernetes version 1.33, EKS optimized Amazon Linux 2023 AMIs will be the default when it becomes supported on AWS Batch .
+        > 
+        > AWS will end support for Amazon EKS AL2-optimized and AL2-accelerated AMIs, starting 11/26/25. You can continue using AWS Batch -provided Amazon EKS optimized Amazon Linux 2 AMIs on your Amazon EKS compute environments beyond the 11/26/25 end-of-support date, these compute environments will no longer receive any new software updates, security patches, or bug fixes from AWS . For more information on upgrading from AL2 to AL2023, see [How to upgrade from EKS AL2 to EKS AL2023](https://docs.aws.amazon.com/) in the *AWS Batch User Guide* . 
 
         - **EKS_AL2** - [Amazon Linux 2](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : Default for all non-GPU instance families.
         - **EKS_AL2_NVIDIA** - [Amazon Linux 2 (accelerated)](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : Default for all GPU instance families (for example, `P4` and `G4` ) and can be used for all non AWS Graviton-based instance types.
@@ -801,7 +825,7 @@ class ComputeEnvironmentLaunchTemplateSpecificationOverride(dict):
                Information included in this parameter must meet the following requirements:
                
                - Must be a valid Amazon EC2 instance type or family.
-               - `optimal` isn't allowed.
+               - The following AWS Batch `InstanceTypes` are not allowed: `optimal` , `default_x86_64` , and `default_arm64` .
                - `targetInstanceTypes` can target only instance types and families that are included within the [`ComputeResource.instanceTypes`](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-instanceTypes) set. `targetInstanceTypes` doesn't need to include all of the instances from the `instanceType` set, but at least a subset. For example, if `ComputeResource.instanceTypes` includes `[m5, g5]` , `targetInstanceTypes` can include `[m5.2xlarge]` and `[m5.large]` but not `[c5.large]` .
                - `targetInstanceTypes` included within the same launch template override or across launch template overrides can't overlap for the same compute environment. For example, you can't define one launch template override to target an instance family and another define an instance type within this same family.
         :param 'ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType' userdata_type: The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
@@ -857,7 +881,7 @@ class ComputeEnvironmentLaunchTemplateSpecificationOverride(dict):
         Information included in this parameter must meet the following requirements:
 
         - Must be a valid Amazon EC2 instance type or family.
-        - `optimal` isn't allowed.
+        - The following AWS Batch `InstanceTypes` are not allowed: `optimal` , `default_x86_64` , and `default_arm64` .
         - `targetInstanceTypes` can target only instance types and families that are included within the [`ComputeResource.instanceTypes`](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-instanceTypes) set. `targetInstanceTypes` doesn't need to include all of the instances from the `instanceType` set, but at least a subset. For example, if `ComputeResource.instanceTypes` includes `[m5, g5]` , `targetInstanceTypes` can include `[m5.2xlarge]` and `[m5.large]` but not `[c5.large]` .
         - `targetInstanceTypes` included within the same launch template override or across launch template overrides can't overlap for the same compute environment. For example, you can't define one launch template override to target an instance family and another define an instance type within this same family.
         """
@@ -5273,7 +5297,7 @@ class SchedulingPolicyShareAttributes(dict):
                  share_identifier: Optional[builtins.str] = None,
                  weight_factor: Optional[builtins.float] = None):
         """
-        :param builtins.str share_identifier: A share identifier or share identifier prefix. If the string ends with an asterisk (*), this entry specifies the weight factor to use for share identifiers that start with that prefix. The list of share identifiers in a fair-share policy can't overlap. For example, you can't have one that specifies a `shareIdentifier` of `UserA*` and another that specifies a `shareIdentifier` of `UserA-1` .
+        :param builtins.str share_identifier: A share identifier or share identifier prefix. If the string ends with an asterisk (*), this entry specifies the weight factor to use for share identifiers that start with that prefix. The list of share identifiers in a fair-share policy can't overlap. For example, you can't have one that specifies a `shareIdentifier` of `UserA*` and another that specifies a `shareIdentifier` of `UserA1` .
                
                There can be no more than 500 share identifiers active in a job queue.
                
@@ -5291,7 +5315,7 @@ class SchedulingPolicyShareAttributes(dict):
     @pulumi.getter(name="shareIdentifier")
     def share_identifier(self) -> Optional[builtins.str]:
         """
-        A share identifier or share identifier prefix. If the string ends with an asterisk (*), this entry specifies the weight factor to use for share identifiers that start with that prefix. The list of share identifiers in a fair-share policy can't overlap. For example, you can't have one that specifies a `shareIdentifier` of `UserA*` and another that specifies a `shareIdentifier` of `UserA-1` .
+        A share identifier or share identifier prefix. If the string ends with an asterisk (*), this entry specifies the weight factor to use for share identifiers that start with that prefix. The list of share identifiers in a fair-share policy can't overlap. For example, you can't have one that specifies a `shareIdentifier` of `UserA*` and another that specifies a `shareIdentifier` of `UserA1` .
 
         There can be no more than 500 share identifiers active in a job queue.
 

@@ -508,6 +508,9 @@ class SessionLoggerEventFilter1PropertiesArgs:
 if not MYPY:
     class SessionLoggerLogConfigurationArgsDict(TypedDict):
         s3: NotRequired[pulumi.Input['SessionLoggerS3LogConfigurationArgsDict']]
+        """
+        The configuration for delivering the logs to S3.
+        """
 elif False:
     SessionLoggerLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -515,12 +518,18 @@ elif False:
 class SessionLoggerLogConfigurationArgs:
     def __init__(__self__, *,
                  s3: Optional[pulumi.Input['SessionLoggerS3LogConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['SessionLoggerS3LogConfigurationArgs'] s3: The configuration for delivering the logs to S3.
+        """
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
 
     @property
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['SessionLoggerS3LogConfigurationArgs']]:
+        """
+        The configuration for delivering the logs to S3.
+        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -531,10 +540,25 @@ class SessionLoggerLogConfigurationArgs:
 if not MYPY:
     class SessionLoggerS3LogConfigurationArgsDict(TypedDict):
         bucket: pulumi.Input[builtins.str]
+        """
+        The S3 bucket name where logs are delivered.
+        """
         folder_structure: pulumi.Input['SessionLoggerFolderStructure']
+        """
+        The folder structure that defines the organizational structure for log files in S3.
+        """
         log_file_format: pulumi.Input['SessionLoggerLogFileFormat']
+        """
+        The format of the LogFile that is written to S3.
+        """
         bucket_owner: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The expected bucket owner of the target S3 bucket. The caller must have permissions to write to the target bucket.
+        """
         key_prefix: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The S3 path prefix that determines where log files are stored.
+        """
 elif False:
     SessionLoggerS3LogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -546,6 +570,13 @@ class SessionLoggerS3LogConfigurationArgs:
                  log_file_format: pulumi.Input['SessionLoggerLogFileFormat'],
                  bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
                  key_prefix: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] bucket: The S3 bucket name where logs are delivered.
+        :param pulumi.Input['SessionLoggerFolderStructure'] folder_structure: The folder structure that defines the organizational structure for log files in S3.
+        :param pulumi.Input['SessionLoggerLogFileFormat'] log_file_format: The format of the LogFile that is written to S3.
+        :param pulumi.Input[builtins.str] bucket_owner: The expected bucket owner of the target S3 bucket. The caller must have permissions to write to the target bucket.
+        :param pulumi.Input[builtins.str] key_prefix: The S3 path prefix that determines where log files are stored.
+        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "folder_structure", folder_structure)
         pulumi.set(__self__, "log_file_format", log_file_format)
@@ -557,6 +588,9 @@ class SessionLoggerS3LogConfigurationArgs:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[builtins.str]:
+        """
+        The S3 bucket name where logs are delivered.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -566,6 +600,9 @@ class SessionLoggerS3LogConfigurationArgs:
     @property
     @pulumi.getter(name="folderStructure")
     def folder_structure(self) -> pulumi.Input['SessionLoggerFolderStructure']:
+        """
+        The folder structure that defines the organizational structure for log files in S3.
+        """
         return pulumi.get(self, "folder_structure")
 
     @folder_structure.setter
@@ -575,6 +612,9 @@ class SessionLoggerS3LogConfigurationArgs:
     @property
     @pulumi.getter(name="logFileFormat")
     def log_file_format(self) -> pulumi.Input['SessionLoggerLogFileFormat']:
+        """
+        The format of the LogFile that is written to S3.
+        """
         return pulumi.get(self, "log_file_format")
 
     @log_file_format.setter
@@ -584,6 +624,9 @@ class SessionLoggerS3LogConfigurationArgs:
     @property
     @pulumi.getter(name="bucketOwner")
     def bucket_owner(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The expected bucket owner of the target S3 bucket. The caller must have permissions to write to the target bucket.
+        """
         return pulumi.get(self, "bucket_owner")
 
     @bucket_owner.setter
@@ -593,6 +636,9 @@ class SessionLoggerS3LogConfigurationArgs:
     @property
     @pulumi.getter(name="keyPrefix")
     def key_prefix(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The S3 path prefix that determines where log files are stored.
+        """
         return pulumi.get(self, "key_prefix")
 
     @key_prefix.setter

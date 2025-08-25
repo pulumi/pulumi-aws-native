@@ -89,6 +89,10 @@ export class Fleet extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<enums.deadline.FleetStatus>;
     /**
+     * A message that communicates a suspended status of the fleet.
+     */
+    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
@@ -136,6 +140,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["capabilities"] = undefined /*out*/;
             resourceInputs["fleetId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusMessage"] = undefined /*out*/;
             resourceInputs["workerCount"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -150,6 +155,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["minWorkerCount"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusMessage"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["workerCount"] = undefined /*out*/;
         }

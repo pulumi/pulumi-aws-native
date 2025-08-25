@@ -72,6 +72,8 @@ class BucketArgs:
                   +  The ``DefaultRetention`` settings require both a mode and a period.
                  +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
                  +  You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
+                 
+                  You must URL encode any signed header values that contain spaces. For example, if your header value is ``my file.txt``, containing two spaces after ``my``, you must URL encode this value to ``my%20%20file.txt``.
         :param pulumi.Input[builtins.bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
         :param pulumi.Input['BucketOwnershipControlsArgs'] ownership_controls: Configuration that defines how Amazon S3 handles Object Ownership rules.
         :param pulumi.Input['BucketPublicAccessBlockConfigurationArgs'] public_access_block_configuration: Configuration that defines how Amazon S3 handles public access.
@@ -308,6 +310,8 @@ class BucketArgs:
            +  The ``DefaultRetention`` settings require both a mode and a period.
           +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
           +  You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
+          
+           You must URL encode any signed header values that contain spaces. For example, if your header value is ``my file.txt``, containing two spaces after ``my``, you must URL encode this value to ``my%20%20file.txt``.
         """
         return pulumi.get(self, "object_lock_configuration")
 
@@ -946,6 +950,8 @@ class Bucket(pulumi.CustomResource):
                   +  The ``DefaultRetention`` settings require both a mode and a period.
                  +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
                  +  You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
+                 
+                  You must URL encode any signed header values that contain spaces. For example, if your header value is ``my file.txt``, containing two spaces after ``my``, you must URL encode this value to ``my%20%20file.txt``.
         :param pulumi.Input[builtins.bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
         :param pulumi.Input[Union['BucketOwnershipControlsArgs', 'BucketOwnershipControlsArgsDict']] ownership_controls: Configuration that defines how Amazon S3 handles Object Ownership rules.
         :param pulumi.Input[Union['BucketPublicAccessBlockConfigurationArgs', 'BucketPublicAccessBlockConfigurationArgsDict']] public_access_block_configuration: Configuration that defines how Amazon S3 handles public access.
@@ -1735,6 +1741,8 @@ class Bucket(pulumi.CustomResource):
            +  The ``DefaultRetention`` settings require both a mode and a period.
           +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
           +  You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
+          
+           You must URL encode any signed header values that contain spaces. For example, if your header value is ``my file.txt``, containing two spaces after ``my``, you must URL encode this value to ``my%20%20file.txt``.
         """
         return pulumi.get(self, "object_lock_configuration")
 

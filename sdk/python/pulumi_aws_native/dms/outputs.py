@@ -64,7 +64,7 @@ class DataMigrationSettings(dict):
                  number_of_jobs: Optional[builtins.int] = None,
                  selection_rules: Optional[builtins.str] = None):
         """
-        :param builtins.bool cloudwatch_logs_enabled: The property specifies whether to enable the Cloudwatch log.
+        :param builtins.bool cloudwatch_logs_enabled: The property specifies whether to enable the CloudWatch log.
         :param builtins.int number_of_jobs: The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.
         :param builtins.str selection_rules: The property specifies the rules of selecting objects for data migration.
         """
@@ -79,7 +79,7 @@ class DataMigrationSettings(dict):
     @pulumi.getter(name="cloudwatchLogsEnabled")
     def cloudwatch_logs_enabled(self) -> Optional[builtins.bool]:
         """
-        The property specifies whether to enable the Cloudwatch log.
+        The property specifies whether to enable the CloudWatch log.
         """
         return pulumi.get(self, "cloudwatch_logs_enabled")
 

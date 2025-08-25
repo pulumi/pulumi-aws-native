@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Connect
         /// The values of a predefined attribute.
         /// </summary>
         [Output("values")]
-        public Output<Outputs.ValuesProperties> Values { get; private set; } = null!;
+        public Output<Outputs.ValuesProperties?> Values { get; private set; } = null!;
 
 
         /// <summary>
@@ -110,8 +110,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The values of a predefined attribute.
         /// </summary>
-        [Input("values", required: true)]
-        public Input<Inputs.ValuesPropertiesArgs> Values { get; set; } = null!;
+        [Input("values")]
+        public Input<Inputs.ValuesPropertiesArgs>? Values { get; set; }
 
         public PredefinedAttributeArgs()
         {

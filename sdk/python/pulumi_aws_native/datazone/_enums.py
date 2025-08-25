@@ -19,6 +19,9 @@ __all__ = [
     'EnvironmentStatus',
     'GroupProfileStatus',
     'OwnerEntityType',
+    'PolicyGrantDomainUnitDesignation',
+    'PolicyGrantProjectDesignation',
+    'PolicyGrantTargetEntityType',
     'ProjectMembershipUserDesignation',
     'ProjectProfileDeploymentMode',
     'ProjectProfileStatus',
@@ -157,6 +160,26 @@ class OwnerEntityType(builtins.str, Enum):
     The type of an entity.
     """
     DOMAIN_UNIT = "DOMAIN_UNIT"
+
+
+@pulumi.type_token("aws-native:datazone:PolicyGrantDomainUnitDesignation")
+class PolicyGrantDomainUnitDesignation(builtins.str, Enum):
+    OWNER = "OWNER"
+
+
+@pulumi.type_token("aws-native:datazone:PolicyGrantProjectDesignation")
+class PolicyGrantProjectDesignation(builtins.str, Enum):
+    OWNER = "OWNER"
+    CONTRIBUTOR = "CONTRIBUTOR"
+    PROJECT_CATALOG_STEWARD = "PROJECT_CATALOG_STEWARD"
+
+
+@pulumi.type_token("aws-native:datazone:PolicyGrantTargetEntityType")
+class PolicyGrantTargetEntityType(builtins.str, Enum):
+    DOMAIN_UNIT = "DomainUnit"
+    ENVIRONMENT_BLUEPRINT_CONFIGURATION = "EnvironmentBlueprintConfiguration"
+    ENVIRONMENT_PROFILE = "EnvironmentProfile"
+    ASSET_TYPE = "ASSET_TYPE"
 
 
 @pulumi.type_token("aws-native:datazone:ProjectMembershipUserDesignation")

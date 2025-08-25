@@ -19,7 +19,8 @@ type IdMappingWorkflow struct {
 
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The description of the IdMappingWorkflow
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description                   pulumi.StringPtrOutput                                  `pulumi:"description"`
+	IdMappingIncrementalRunConfig IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput `pulumi:"idMappingIncrementalRunConfig"`
 	// An object which defines the ID mapping technique and any additional configurations.
 	IdMappingTechniques IdMappingWorkflowIdMappingTechniquesOutput `pulumi:"idMappingTechniques"`
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
@@ -90,7 +91,8 @@ func (IdMappingWorkflowState) ElementType() reflect.Type {
 
 type idMappingWorkflowArgs struct {
 	// The description of the IdMappingWorkflow
-	Description *string `pulumi:"description"`
+	Description                   *string                                         `pulumi:"description"`
+	IdMappingIncrementalRunConfig *IdMappingWorkflowIdMappingIncrementalRunConfig `pulumi:"idMappingIncrementalRunConfig"`
 	// An object which defines the ID mapping technique and any additional configurations.
 	IdMappingTechniques IdMappingWorkflowIdMappingTechniques `pulumi:"idMappingTechniques"`
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
@@ -108,7 +110,8 @@ type idMappingWorkflowArgs struct {
 // The set of arguments for constructing a IdMappingWorkflow resource.
 type IdMappingWorkflowArgs struct {
 	// The description of the IdMappingWorkflow
-	Description pulumi.StringPtrInput
+	Description                   pulumi.StringPtrInput
+	IdMappingIncrementalRunConfig IdMappingWorkflowIdMappingIncrementalRunConfigPtrInput
 	// An object which defines the ID mapping technique and any additional configurations.
 	IdMappingTechniques IdMappingWorkflowIdMappingTechniquesInput
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
@@ -167,6 +170,12 @@ func (o IdMappingWorkflowOutput) CreatedAt() pulumi.StringOutput {
 // The description of the IdMappingWorkflow
 func (o IdMappingWorkflowOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdMappingWorkflow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o IdMappingWorkflowOutput) IdMappingIncrementalRunConfig() IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput {
+	return o.ApplyT(func(v *IdMappingWorkflow) IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput {
+		return v.IdMappingIncrementalRunConfig
+	}).(IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput)
 }
 
 // An object which defines the ID mapping technique and any additional configurations.

@@ -508,6 +508,172 @@ func (in *applicationCustomArtifactConfigurationArtifactTypePtr) ToApplicationCu
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationCustomArtifactConfigurationArtifactTypePtrOutput)
 }
 
+// Specifies whether application data is encrypted using service key: AWS_OWNED_KEY or customer key: CUSTOMER_MANAGED_KEY
+type ApplicationEncryptionConfigurationKeyType string
+
+const (
+	ApplicationEncryptionConfigurationKeyTypeAwsOwnedKey        = ApplicationEncryptionConfigurationKeyType("AWS_OWNED_KEY")
+	ApplicationEncryptionConfigurationKeyTypeCustomerManagedKey = ApplicationEncryptionConfigurationKeyType("CUSTOMER_MANAGED_KEY")
+)
+
+func (ApplicationEncryptionConfigurationKeyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationEncryptionConfigurationKeyType)(nil)).Elem()
+}
+
+func (e ApplicationEncryptionConfigurationKeyType) ToApplicationEncryptionConfigurationKeyTypeOutput() ApplicationEncryptionConfigurationKeyTypeOutput {
+	return pulumi.ToOutput(e).(ApplicationEncryptionConfigurationKeyTypeOutput)
+}
+
+func (e ApplicationEncryptionConfigurationKeyType) ToApplicationEncryptionConfigurationKeyTypeOutputWithContext(ctx context.Context) ApplicationEncryptionConfigurationKeyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationEncryptionConfigurationKeyTypeOutput)
+}
+
+func (e ApplicationEncryptionConfigurationKeyType) ToApplicationEncryptionConfigurationKeyTypePtrOutput() ApplicationEncryptionConfigurationKeyTypePtrOutput {
+	return e.ToApplicationEncryptionConfigurationKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationEncryptionConfigurationKeyType) ToApplicationEncryptionConfigurationKeyTypePtrOutputWithContext(ctx context.Context) ApplicationEncryptionConfigurationKeyTypePtrOutput {
+	return ApplicationEncryptionConfigurationKeyType(e).ToApplicationEncryptionConfigurationKeyTypeOutputWithContext(ctx).ToApplicationEncryptionConfigurationKeyTypePtrOutputWithContext(ctx)
+}
+
+func (e ApplicationEncryptionConfigurationKeyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationEncryptionConfigurationKeyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationEncryptionConfigurationKeyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationEncryptionConfigurationKeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApplicationEncryptionConfigurationKeyTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationEncryptionConfigurationKeyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationEncryptionConfigurationKeyType)(nil)).Elem()
+}
+
+func (o ApplicationEncryptionConfigurationKeyTypeOutput) ToApplicationEncryptionConfigurationKeyTypeOutput() ApplicationEncryptionConfigurationKeyTypeOutput {
+	return o
+}
+
+func (o ApplicationEncryptionConfigurationKeyTypeOutput) ToApplicationEncryptionConfigurationKeyTypeOutputWithContext(ctx context.Context) ApplicationEncryptionConfigurationKeyTypeOutput {
+	return o
+}
+
+func (o ApplicationEncryptionConfigurationKeyTypeOutput) ToApplicationEncryptionConfigurationKeyTypePtrOutput() ApplicationEncryptionConfigurationKeyTypePtrOutput {
+	return o.ToApplicationEncryptionConfigurationKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationEncryptionConfigurationKeyTypeOutput) ToApplicationEncryptionConfigurationKeyTypePtrOutputWithContext(ctx context.Context) ApplicationEncryptionConfigurationKeyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationEncryptionConfigurationKeyType) *ApplicationEncryptionConfigurationKeyType {
+		return &v
+	}).(ApplicationEncryptionConfigurationKeyTypePtrOutput)
+}
+
+func (o ApplicationEncryptionConfigurationKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationEncryptionConfigurationKeyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationEncryptionConfigurationKeyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationEncryptionConfigurationKeyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationEncryptionConfigurationKeyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationEncryptionConfigurationKeyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationEncryptionConfigurationKeyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationEncryptionConfigurationKeyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationEncryptionConfigurationKeyType)(nil)).Elem()
+}
+
+func (o ApplicationEncryptionConfigurationKeyTypePtrOutput) ToApplicationEncryptionConfigurationKeyTypePtrOutput() ApplicationEncryptionConfigurationKeyTypePtrOutput {
+	return o
+}
+
+func (o ApplicationEncryptionConfigurationKeyTypePtrOutput) ToApplicationEncryptionConfigurationKeyTypePtrOutputWithContext(ctx context.Context) ApplicationEncryptionConfigurationKeyTypePtrOutput {
+	return o
+}
+
+func (o ApplicationEncryptionConfigurationKeyTypePtrOutput) Elem() ApplicationEncryptionConfigurationKeyTypeOutput {
+	return o.ApplyT(func(v *ApplicationEncryptionConfigurationKeyType) ApplicationEncryptionConfigurationKeyType {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationEncryptionConfigurationKeyType
+		return ret
+	}).(ApplicationEncryptionConfigurationKeyTypeOutput)
+}
+
+func (o ApplicationEncryptionConfigurationKeyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationEncryptionConfigurationKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationEncryptionConfigurationKeyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApplicationEncryptionConfigurationKeyTypeInput is an input type that accepts values of the ApplicationEncryptionConfigurationKeyType enum
+// A concrete instance of `ApplicationEncryptionConfigurationKeyTypeInput` can be one of the following:
+//
+//	ApplicationEncryptionConfigurationKeyTypeAwsOwnedKey
+//	ApplicationEncryptionConfigurationKeyTypeCustomerManagedKey
+type ApplicationEncryptionConfigurationKeyTypeInput interface {
+	pulumi.Input
+
+	ToApplicationEncryptionConfigurationKeyTypeOutput() ApplicationEncryptionConfigurationKeyTypeOutput
+	ToApplicationEncryptionConfigurationKeyTypeOutputWithContext(context.Context) ApplicationEncryptionConfigurationKeyTypeOutput
+}
+
+var applicationEncryptionConfigurationKeyTypePtrType = reflect.TypeOf((**ApplicationEncryptionConfigurationKeyType)(nil)).Elem()
+
+type ApplicationEncryptionConfigurationKeyTypePtrInput interface {
+	pulumi.Input
+
+	ToApplicationEncryptionConfigurationKeyTypePtrOutput() ApplicationEncryptionConfigurationKeyTypePtrOutput
+	ToApplicationEncryptionConfigurationKeyTypePtrOutputWithContext(context.Context) ApplicationEncryptionConfigurationKeyTypePtrOutput
+}
+
+type applicationEncryptionConfigurationKeyTypePtr string
+
+func ApplicationEncryptionConfigurationKeyTypePtr(v string) ApplicationEncryptionConfigurationKeyTypePtrInput {
+	return (*applicationEncryptionConfigurationKeyTypePtr)(&v)
+}
+
+func (*applicationEncryptionConfigurationKeyTypePtr) ElementType() reflect.Type {
+	return applicationEncryptionConfigurationKeyTypePtrType
+}
+
+func (in *applicationEncryptionConfigurationKeyTypePtr) ToApplicationEncryptionConfigurationKeyTypePtrOutput() ApplicationEncryptionConfigurationKeyTypePtrOutput {
+	return pulumi.ToOutput(in).(ApplicationEncryptionConfigurationKeyTypePtrOutput)
+}
+
+func (in *applicationEncryptionConfigurationKeyTypePtr) ToApplicationEncryptionConfigurationKeyTypePtrOutputWithContext(ctx context.Context) ApplicationEncryptionConfigurationKeyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationEncryptionConfigurationKeyTypePtrOutput)
+}
+
 // Specifies the encoding of the records in the streaming source. For example, UTF-8.
 type ApplicationInputSchemaRecordEncoding string
 
@@ -2021,6 +2187,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCodeConfigurationCodeContentTypePtrInput)(nil)).Elem(), ApplicationCodeConfigurationCodeContentType("PLAINTEXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCustomArtifactConfigurationArtifactTypeInput)(nil)).Elem(), ApplicationCustomArtifactConfigurationArtifactType("DEPENDENCY_JAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCustomArtifactConfigurationArtifactTypePtrInput)(nil)).Elem(), ApplicationCustomArtifactConfigurationArtifactType("DEPENDENCY_JAR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEncryptionConfigurationKeyTypeInput)(nil)).Elem(), ApplicationEncryptionConfigurationKeyType("AWS_OWNED_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEncryptionConfigurationKeyTypePtrInput)(nil)).Elem(), ApplicationEncryptionConfigurationKeyType("AWS_OWNED_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputSchemaRecordEncodingInput)(nil)).Elem(), ApplicationInputSchemaRecordEncoding("UTF-8"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInputSchemaRecordEncodingPtrInput)(nil)).Elem(), ApplicationInputSchemaRecordEncoding("UTF-8"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationModeInput)(nil)).Elem(), ApplicationMode("INTERACTIVE"))
@@ -2045,6 +2213,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationCodeConfigurationCodeContentTypePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationCustomArtifactConfigurationArtifactTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationCustomArtifactConfigurationArtifactTypePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationEncryptionConfigurationKeyTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationEncryptionConfigurationKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInputSchemaRecordEncodingOutput{})
 	pulumi.RegisterOutputType(ApplicationInputSchemaRecordEncodingPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationModeOutput{})

@@ -119,6 +119,9 @@ export class Portal extends pulumi.CustomResource {
      * The SAML metadata of the service provider.
      */
     public /*out*/ readonly serviceProviderSamlMetadata!: pulumi.Output<string>;
+    /**
+     * The ARN of the session logger that is assocaited with the portal.
+     */
     public readonly sessionLoggerArn!: pulumi.Output<string | undefined>;
     /**
      * A message that explains why the web portal is in its current status.
@@ -265,6 +268,9 @@ export interface PortalArgs {
      * The ARN of the network settings that is associated with the web portal.
      */
     networkSettingsArn?: pulumi.Input<string>;
+    /**
+     * The ARN of the session logger that is assocaited with the portal.
+     */
     sessionLoggerArn?: pulumi.Input<string>;
     /**
      * The tags to add to the web portal. A tag is a key-value pair.

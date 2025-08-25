@@ -107,9 +107,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
-     * Contains information about the current rules and alerting logging configuration for the workspace.
-     *
-     * > These logging configurations are only for rules and alerting logs.
+     * Contains information about the logging configuration for the workspace.
      */
     public readonly loggingConfiguration!: pulumi.Output<outputs.aps.WorkspaceLoggingConfiguration | undefined>;
     /**
@@ -190,9 +188,7 @@ export interface WorkspaceArgs {
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
-     * Contains information about the current rules and alerting logging configuration for the workspace.
-     *
-     * > These logging configurations are only for rules and alerting logs.
+     * Contains information about the logging configuration for the workspace.
      */
     loggingConfiguration?: pulumi.Input<inputs.aps.WorkspaceLoggingConfigurationArgs>;
     /**

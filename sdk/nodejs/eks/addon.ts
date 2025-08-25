@@ -58,6 +58,10 @@ export class Addon extends pulumi.CustomResource {
      */
     public readonly configurationValues!: pulumi.Output<string | undefined>;
     /**
+     * The custom namespace configuration to use with the add-on
+     */
+    public readonly namespaceConfig!: pulumi.Output<outputs.eks.NamespaceConfigProperties | undefined>;
+    /**
      * An array of pod identities to apply to this add-on.
      */
     public readonly podIdentityAssociations!: pulumi.Output<outputs.eks.AddonPodIdentityAssociation[] | undefined>;
@@ -96,6 +100,7 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["addonVersion"] = args ? args.addonVersion : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["configurationValues"] = args ? args.configurationValues : undefined;
+            resourceInputs["namespaceConfig"] = args ? args.namespaceConfig : undefined;
             resourceInputs["podIdentityAssociations"] = args ? args.podIdentityAssociations : undefined;
             resourceInputs["preserveOnDelete"] = args ? args.preserveOnDelete : undefined;
             resourceInputs["resolveConflicts"] = args ? args.resolveConflicts : undefined;
@@ -108,6 +113,7 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusterName"] = undefined /*out*/;
             resourceInputs["configurationValues"] = undefined /*out*/;
+            resourceInputs["namespaceConfig"] = undefined /*out*/;
             resourceInputs["podIdentityAssociations"] = undefined /*out*/;
             resourceInputs["preserveOnDelete"] = undefined /*out*/;
             resourceInputs["resolveConflicts"] = undefined /*out*/;
@@ -115,7 +121,7 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["addonName", "clusterName"] };
+        const replaceOnChanges = { replaceOnChanges: ["addonName", "clusterName", "namespaceConfig"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Addon.__pulumiType, name, resourceInputs, opts);
     }
@@ -141,6 +147,10 @@ export interface AddonArgs {
      * The configuration values to use with the add-on
      */
     configurationValues?: pulumi.Input<string>;
+    /**
+     * The custom namespace configuration to use with the add-on
+     */
+    namespaceConfig?: pulumi.Input<inputs.eks.NamespaceConfigPropertiesArgs>;
     /**
      * An array of pod identities to apply to this add-on.
      */

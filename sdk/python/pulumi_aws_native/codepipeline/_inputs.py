@@ -75,6 +75,10 @@ __all__ = [
     'PipelineTriggerDeclarationArgsDict',
     'PipelineVariableDeclarationArgs',
     'PipelineVariableDeclarationArgsDict',
+    'WebhookAuthConfigurationArgs',
+    'WebhookAuthConfigurationArgsDict',
+    'WebhookFilterRuleArgs',
+    'WebhookFilterRuleArgsDict',
 ]
 
 MYPY = False
@@ -2362,5 +2366,116 @@ class PipelineVariableDeclarationArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
+
+
+if not MYPY:
+    class WebhookAuthConfigurationArgsDict(TypedDict):
+        """
+        Properties that configure the authentication applied to incoming webhook trigger requests
+        """
+        allowed_ip_range: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The property used to configure acceptance of webhooks in an IP address range. For IP, only the AllowedIPRange property must be set. This property must be set to a valid CIDR range.
+        """
+        secret_token: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The property used to configure GitHub authentication. For GITHUB_HMAC, only the SecretToken property must be set.
+        """
+elif False:
+    WebhookAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebhookAuthConfigurationArgs:
+    def __init__(__self__, *,
+                 allowed_ip_range: Optional[pulumi.Input[builtins.str]] = None,
+                 secret_token: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Properties that configure the authentication applied to incoming webhook trigger requests
+        :param pulumi.Input[builtins.str] allowed_ip_range: The property used to configure acceptance of webhooks in an IP address range. For IP, only the AllowedIPRange property must be set. This property must be set to a valid CIDR range.
+        :param pulumi.Input[builtins.str] secret_token: The property used to configure GitHub authentication. For GITHUB_HMAC, only the SecretToken property must be set.
+        """
+        if allowed_ip_range is not None:
+            pulumi.set(__self__, "allowed_ip_range", allowed_ip_range)
+        if secret_token is not None:
+            pulumi.set(__self__, "secret_token", secret_token)
+
+    @property
+    @pulumi.getter(name="allowedIpRange")
+    def allowed_ip_range(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The property used to configure acceptance of webhooks in an IP address range. For IP, only the AllowedIPRange property must be set. This property must be set to a valid CIDR range.
+        """
+        return pulumi.get(self, "allowed_ip_range")
+
+    @allowed_ip_range.setter
+    def allowed_ip_range(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "allowed_ip_range", value)
+
+    @property
+    @pulumi.getter(name="secretToken")
+    def secret_token(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The property used to configure GitHub authentication. For GITHUB_HMAC, only the SecretToken property must be set.
+        """
+        return pulumi.get(self, "secret_token")
+
+    @secret_token.setter
+    def secret_token(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "secret_token", value)
+
+
+if not MYPY:
+    class WebhookFilterRuleArgsDict(TypedDict):
+        """
+        A list of rules applied to the body/payload sent in the POST request to a webhook URL. All defined rules must pass for the request to be accepted and the pipeline started.
+        """
+        json_path: pulumi.Input[builtins.str]
+        """
+        A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the MatchEquals field. Otherwise, the request is ignored.
+        """
+        match_equals: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The value selected by the JsonPath expression must match what is supplied in the MatchEquals field. Otherwise, the request is ignored.
+        """
+elif False:
+    WebhookFilterRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebhookFilterRuleArgs:
+    def __init__(__self__, *,
+                 json_path: pulumi.Input[builtins.str],
+                 match_equals: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        A list of rules applied to the body/payload sent in the POST request to a webhook URL. All defined rules must pass for the request to be accepted and the pipeline started.
+        :param pulumi.Input[builtins.str] json_path: A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the MatchEquals field. Otherwise, the request is ignored.
+        :param pulumi.Input[builtins.str] match_equals: The value selected by the JsonPath expression must match what is supplied in the MatchEquals field. Otherwise, the request is ignored.
+        """
+        pulumi.set(__self__, "json_path", json_path)
+        if match_equals is not None:
+            pulumi.set(__self__, "match_equals", match_equals)
+
+    @property
+    @pulumi.getter(name="jsonPath")
+    def json_path(self) -> pulumi.Input[builtins.str]:
+        """
+        A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the MatchEquals field. Otherwise, the request is ignored.
+        """
+        return pulumi.get(self, "json_path")
+
+    @json_path.setter
+    def json_path(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "json_path", value)
+
+    @property
+    @pulumi.getter(name="matchEquals")
+    def match_equals(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The value selected by the JsonPath expression must match what is supplied in the MatchEquals field. Otherwise, the request is ignored.
+        """
+        return pulumi.get(self, "match_equals")
+
+    @match_equals.setter
+    def match_equals(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "match_equals", value)
 
 

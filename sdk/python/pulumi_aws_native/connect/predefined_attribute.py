@@ -23,18 +23,19 @@ __all__ = ['PredefinedAttributeArgs', 'PredefinedAttribute']
 class PredefinedAttributeArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[builtins.str],
-                 values: pulumi.Input['ValuesPropertiesArgs'],
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 values: Optional[pulumi.Input['ValuesPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PredefinedAttribute resource.
         :param pulumi.Input[builtins.str] instance_arn: The identifier of the Amazon Connect instance.
-        :param pulumi.Input['ValuesPropertiesArgs'] values: The values of a predefined attribute.
         :param pulumi.Input[builtins.str] name: The name of the predefined attribute.
+        :param pulumi.Input['ValuesPropertiesArgs'] values: The values of a predefined attribute.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
-        pulumi.set(__self__, "values", values)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -50,18 +51,6 @@ class PredefinedAttributeArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input['ValuesPropertiesArgs']:
-        """
-        The values of a predefined attribute.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input['ValuesPropertiesArgs']):
-        pulumi.set(self, "values", value)
-
-    @property
-    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The name of the predefined attribute.
@@ -71,6 +60,18 @@ class PredefinedAttributeArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input['ValuesPropertiesArgs']]:
+        """
+        The values of a predefined attribute.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input['ValuesPropertiesArgs']]):
+        pulumi.set(self, "values", value)
 
 
 @pulumi.type_token("aws-native:connect:PredefinedAttribute")
@@ -132,8 +133,6 @@ class PredefinedAttribute(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
             __props__.__dict__["name"] = name
-            if values is None and not opts.urn:
-                raise TypeError("Missing required property 'values'")
             __props__.__dict__["values"] = values
             __props__.__dict__["last_modified_region"] = None
             __props__.__dict__["last_modified_time"] = None
@@ -202,7 +201,7 @@ class PredefinedAttribute(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Output['outputs.ValuesProperties']:
+    def values(self) -> pulumi.Output[Optional['outputs.ValuesProperties']]:
         """
         The values of a predefined attribute.
         """

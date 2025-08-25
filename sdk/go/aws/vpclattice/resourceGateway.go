@@ -23,6 +23,8 @@ type ResourceGateway struct {
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The type of IP address used by the resource gateway.
 	IpAddressType ResourceGatewayIpAddressTypePtrOutput `pulumi:"ipAddressType"`
+	// The number of IPv4 addresses to allocate per ENI for the resource gateway
+	Ipv4AddressesPerEni pulumi.IntPtrOutput `pulumi:"ipv4AddressesPerEni"`
 	// The name of the resource gateway.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of one or more security groups to associate with the endpoint network interface.
@@ -90,6 +92,8 @@ func (ResourceGatewayState) ElementType() reflect.Type {
 type resourceGatewayArgs struct {
 	// The type of IP address used by the resource gateway.
 	IpAddressType *ResourceGatewayIpAddressType `pulumi:"ipAddressType"`
+	// The number of IPv4 addresses to allocate per ENI for the resource gateway
+	Ipv4AddressesPerEni *int `pulumi:"ipv4AddressesPerEni"`
 	// The name of the resource gateway.
 	Name *string `pulumi:"name"`
 	// The ID of one or more security groups to associate with the endpoint network interface.
@@ -106,6 +110,8 @@ type resourceGatewayArgs struct {
 type ResourceGatewayArgs struct {
 	// The type of IP address used by the resource gateway.
 	IpAddressType ResourceGatewayIpAddressTypePtrInput
+	// The number of IPv4 addresses to allocate per ENI for the resource gateway
+	Ipv4AddressesPerEni pulumi.IntPtrInput
 	// The name of the resource gateway.
 	Name pulumi.StringPtrInput
 	// The ID of one or more security groups to associate with the endpoint network interface.
@@ -168,6 +174,11 @@ func (o ResourceGatewayOutput) AwsId() pulumi.StringOutput {
 // The type of IP address used by the resource gateway.
 func (o ResourceGatewayOutput) IpAddressType() ResourceGatewayIpAddressTypePtrOutput {
 	return o.ApplyT(func(v *ResourceGateway) ResourceGatewayIpAddressTypePtrOutput { return v.IpAddressType }).(ResourceGatewayIpAddressTypePtrOutput)
+}
+
+// The number of IPv4 addresses to allocate per ENI for the resource gateway
+func (o ResourceGatewayOutput) Ipv4AddressesPerEni() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResourceGateway) pulumi.IntPtrOutput { return v.Ipv4AddressesPerEni }).(pulumi.IntPtrOutput)
 }
 
 // The name of the resource gateway.

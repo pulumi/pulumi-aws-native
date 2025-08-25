@@ -35,7 +35,8 @@ type VpnConnection struct {
 	// The type of IP address assigned to the outside interface of the customer gateway device.
 	//  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
 	//  Default: ``PublicIpv4``
-	OutsideIpAddressType pulumi.StringPtrOutput `pulumi:"outsideIpAddressType"`
+	OutsideIpAddressType pulumi.StringPtrOutput                    `pulumi:"outsideIpAddressType"`
+	PreSharedKeyStorage  VpnConnectionPreSharedKeyStoragePtrOutput `pulumi:"preSharedKeyStorage"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	//  Default: ``0.0.0.0/0``
 	RemoteIpv4NetworkCidr pulumi.StringPtrOutput `pulumi:"remoteIpv4NetworkCidr"`
@@ -86,6 +87,7 @@ func NewVpnConnection(ctx *pulumi.Context,
 		"localIpv4NetworkCidr",
 		"localIpv6NetworkCidr",
 		"outsideIpAddressType",
+		"preSharedKeyStorage",
 		"remoteIpv4NetworkCidr",
 		"remoteIpv6NetworkCidr",
 		"staticRoutesOnly",
@@ -144,7 +146,8 @@ type vpnConnectionArgs struct {
 	// The type of IP address assigned to the outside interface of the customer gateway device.
 	//  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
 	//  Default: ``PublicIpv4``
-	OutsideIpAddressType *string `pulumi:"outsideIpAddressType"`
+	OutsideIpAddressType *string                           `pulumi:"outsideIpAddressType"`
+	PreSharedKeyStorage  *VpnConnectionPreSharedKeyStorage `pulumi:"preSharedKeyStorage"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	//  Default: ``0.0.0.0/0``
 	RemoteIpv4NetworkCidr *string `pulumi:"remoteIpv4NetworkCidr"`
@@ -191,6 +194,7 @@ type VpnConnectionArgs struct {
 	//  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
 	//  Default: ``PublicIpv4``
 	OutsideIpAddressType pulumi.StringPtrInput
+	PreSharedKeyStorage  VpnConnectionPreSharedKeyStoragePtrInput
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	//  Default: ``0.0.0.0/0``
 	RemoteIpv4NetworkCidr pulumi.StringPtrInput
@@ -289,6 +293,10 @@ func (o VpnConnectionOutput) LocalIpv6NetworkCidr() pulumi.StringPtrOutput {
 //	Default: ``PublicIpv4``
 func (o VpnConnectionOutput) OutsideIpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.OutsideIpAddressType }).(pulumi.StringPtrOutput)
+}
+
+func (o VpnConnectionOutput) PreSharedKeyStorage() VpnConnectionPreSharedKeyStoragePtrOutput {
+	return o.ApplyT(func(v *VpnConnection) VpnConnectionPreSharedKeyStoragePtrOutput { return v.PreSharedKeyStorage }).(VpnConnectionPreSharedKeyStoragePtrOutput)
 }
 
 // The IPv4 CIDR on the AWS side of the VPN connection.

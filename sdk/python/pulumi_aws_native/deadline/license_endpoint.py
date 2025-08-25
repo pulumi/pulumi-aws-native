@@ -31,7 +31,7 @@ class LicenseEndpointArgs:
         The set of arguments for constructing a LicenseEndpoint resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: The identifier of the Amazon EC2 security group that controls access to the license endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: Identifies the VPC subnets that can connect to a license endpoint.
-        :param pulumi.Input[builtins.str] vpc_id: The VCP(virtual private cloud) ID associated with the license endpoint.
+        :param pulumi.Input[builtins.str] vpc_id: The VPC (virtual private cloud) ID associated with the license endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -68,7 +68,7 @@ class LicenseEndpointArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[builtins.str]:
         """
-        The VCP(virtual private cloud) ID associated with the license endpoint.
+        The VPC (virtual private cloud) ID associated with the license endpoint.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -108,7 +108,7 @@ class LicenseEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: The identifier of the Amazon EC2 security group that controls access to the license endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: Identifies the VPC subnets that can connect to a license endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[builtins.str] vpc_id: The VCP(virtual private cloud) ID associated with the license endpoint.
+        :param pulumi.Input[builtins.str] vpc_id: The VPC (virtual private cloud) ID associated with the license endpoint.
         """
         ...
     @overload
@@ -265,7 +265,7 @@ class LicenseEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[builtins.str]:
         """
-        The VCP(virtual private cloud) ID associated with the license endpoint.
+        The VPC (virtual private cloud) ID associated with the license endpoint.
         """
         return pulumi.get(self, "vpc_id")
 

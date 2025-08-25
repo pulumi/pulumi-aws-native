@@ -89,11 +89,11 @@ namespace Pulumi.AwsNative.GuardDuty
         /// <summary>
         /// The user-friendly name to identify the IPSet.
         /// 
-        /// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+        /// The name of your list must be unique within an AWS account and Region. Valid characters are alphanumeric, whitespace, dash (-), and underscores (_).
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+        /// The tags to be added to a new threat entity set resource. Each tag consists of a key and an optional value, both of which you define.
         /// 
         /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>

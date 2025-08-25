@@ -48,7 +48,7 @@ export class HealthCheck extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly healthCheckTags!: pulumi.Output<outputs.route53.HealthCheckTag[] | undefined>;
+    public readonly healthCheckTags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a HealthCheck resource with the given unique name, arguments, and options.
@@ -88,5 +88,5 @@ export interface HealthCheckArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    healthCheckTags?: pulumi.Input<pulumi.Input<inputs.route53.HealthCheckTagArgs>[]>;
+    healthCheckTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

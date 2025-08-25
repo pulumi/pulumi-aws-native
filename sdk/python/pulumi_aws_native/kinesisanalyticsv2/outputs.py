@@ -26,6 +26,7 @@ __all__ = [
     'ApplicationCsvMappingParameters',
     'ApplicationCustomArtifactConfiguration',
     'ApplicationDeployAsApplicationConfiguration',
+    'ApplicationEncryptionConfiguration',
     'ApplicationEnvironmentProperties',
     'ApplicationFlinkApplicationConfiguration',
     'ApplicationFlinkRunConfiguration',
@@ -309,6 +310,8 @@ class ApplicationConfiguration(dict):
         suggest = None
         if key == "applicationCodeConfiguration":
             suggest = "application_code_configuration"
+        elif key == "applicationEncryptionConfiguration":
+            suggest = "application_encryption_configuration"
         elif key == "applicationSnapshotConfiguration":
             suggest = "application_snapshot_configuration"
         elif key == "applicationSystemRollbackConfiguration":
@@ -337,6 +340,7 @@ class ApplicationConfiguration(dict):
 
     def __init__(__self__, *,
                  application_code_configuration: Optional['outputs.ApplicationCodeConfiguration'] = None,
+                 application_encryption_configuration: Optional['outputs.ApplicationEncryptionConfiguration'] = None,
                  application_snapshot_configuration: Optional['outputs.ApplicationSnapshotConfiguration'] = None,
                  application_system_rollback_configuration: Optional['outputs.ApplicationSystemRollbackConfiguration'] = None,
                  environment_properties: Optional['outputs.ApplicationEnvironmentProperties'] = None,
@@ -347,6 +351,7 @@ class ApplicationConfiguration(dict):
         """
         Specifies the creation parameters for a Kinesis Data Analytics application.
         :param 'ApplicationCodeConfiguration' application_code_configuration: The code location and type parameters for a Flink-based Kinesis Data Analytics application.
+        :param 'ApplicationEncryptionConfiguration' application_encryption_configuration: Describes whether customer managed key is enabled and key details for customer data encryption
         :param 'ApplicationSnapshotConfiguration' application_snapshot_configuration: Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
         :param 'ApplicationSystemRollbackConfiguration' application_system_rollback_configuration: Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
         :param 'ApplicationEnvironmentProperties' environment_properties: Describes execution properties for a Flink-based Kinesis Data Analytics application.
@@ -357,6 +362,8 @@ class ApplicationConfiguration(dict):
         """
         if application_code_configuration is not None:
             pulumi.set(__self__, "application_code_configuration", application_code_configuration)
+        if application_encryption_configuration is not None:
+            pulumi.set(__self__, "application_encryption_configuration", application_encryption_configuration)
         if application_snapshot_configuration is not None:
             pulumi.set(__self__, "application_snapshot_configuration", application_snapshot_configuration)
         if application_system_rollback_configuration is not None:
@@ -379,6 +386,14 @@ class ApplicationConfiguration(dict):
         The code location and type parameters for a Flink-based Kinesis Data Analytics application.
         """
         return pulumi.get(self, "application_code_configuration")
+
+    @property
+    @pulumi.getter(name="applicationEncryptionConfiguration")
+    def application_encryption_configuration(self) -> Optional['outputs.ApplicationEncryptionConfiguration']:
+        """
+        Describes whether customer managed key is enabled and key details for customer data encryption
+        """
+        return pulumi.get(self, "application_encryption_configuration")
 
     @property
     @pulumi.getter(name="applicationSnapshotConfiguration")
@@ -597,6 +612,59 @@ class ApplicationDeployAsApplicationConfiguration(dict):
         The description of an Amazon S3 object that contains the Amazon Data Analytics application, including the Amazon Resource Name (ARN) of the S3 bucket, the name of the Amazon S3 object that contains the data, and the version number of the Amazon S3 object that contains the data.
         """
         return pulumi.get(self, "s3_content_location")
+
+
+@pulumi.output_type
+class ApplicationEncryptionConfiguration(dict):
+    """
+    Describes whether customer managed key is enabled and key details for customer data encryption
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyType":
+            suggest = "key_type"
+        elif key == "keyId":
+            suggest = "key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_type: 'ApplicationEncryptionConfigurationKeyType',
+                 key_id: Optional[builtins.str] = None):
+        """
+        Describes whether customer managed key is enabled and key details for customer data encryption
+        :param 'ApplicationEncryptionConfigurationKeyType' key_type: Specifies whether application data is encrypted using service key: AWS_OWNED_KEY or customer key: CUSTOMER_MANAGED_KEY
+        :param builtins.str key_id: KMS KeyId. Can be either key uuid or full key arn or key alias arn or short key alias
+        """
+        pulumi.set(__self__, "key_type", key_type)
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> 'ApplicationEncryptionConfigurationKeyType':
+        """
+        Specifies whether application data is encrypted using service key: AWS_OWNED_KEY or customer key: CUSTOMER_MANAGED_KEY
+        """
+        return pulumi.get(self, "key_type")
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[builtins.str]:
+        """
+        KMS KeyId. Can be either key uuid or full key arn or key alias arn or short key alias
+        """
+        return pulumi.get(self, "key_id")
 
 
 @pulumi.output_type

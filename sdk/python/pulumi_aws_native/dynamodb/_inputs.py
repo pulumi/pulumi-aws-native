@@ -278,17 +278,25 @@ if not MYPY:
         """
         Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
         """
+        mode: NotRequired[pulumi.Input['GlobalTableContributorInsightsSpecificationMode']]
+        """
+        Specifies the CloudWatch Contributor Insights mode for a global table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the global table.
+        """
 elif False:
     GlobalTableContributorInsightsSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GlobalTableContributorInsightsSpecificationArgs:
     def __init__(__self__, *,
-                 enabled: pulumi.Input[builtins.bool]):
+                 enabled: pulumi.Input[builtins.bool],
+                 mode: Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationMode']] = None):
         """
         :param pulumi.Input[builtins.bool] enabled: Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
+        :param pulumi.Input['GlobalTableContributorInsightsSpecificationMode'] mode: Specifies the CloudWatch Contributor Insights mode for a global table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the global table.
         """
         pulumi.set(__self__, "enabled", enabled)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
@@ -301,6 +309,18 @@ class GlobalTableContributorInsightsSpecificationArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[builtins.bool]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationMode']]:
+        """
+        Specifies the CloudWatch Contributor Insights mode for a global table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the global table.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationMode']]):
+        pulumi.set(self, "mode", value)
 
 
 if not MYPY:
@@ -1877,18 +1897,26 @@ if not MYPY:
         """
         Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
         """
+        mode: NotRequired[pulumi.Input['TableContributorInsightsSpecificationMode']]
+        """
+        Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+        """
 elif False:
     TableContributorInsightsSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableContributorInsightsSpecificationArgs:
     def __init__(__self__, *,
-                 enabled: pulumi.Input[builtins.bool]):
+                 enabled: pulumi.Input[builtins.bool],
+                 mode: Optional[pulumi.Input['TableContributorInsightsSpecificationMode']] = None):
         """
         The settings used to enable or disable CloudWatch Contributor Insights.
         :param pulumi.Input[builtins.bool] enabled: Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
+        :param pulumi.Input['TableContributorInsightsSpecificationMode'] mode: Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
         """
         pulumi.set(__self__, "enabled", enabled)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
@@ -1901,6 +1929,18 @@ class TableContributorInsightsSpecificationArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[builtins.bool]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input['TableContributorInsightsSpecificationMode']]:
+        """
+        Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input['TableContributorInsightsSpecificationMode']]):
+        pulumi.set(self, "mode", value)
 
 
 if not MYPY:

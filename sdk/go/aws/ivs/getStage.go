@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Definition for type AWS::IVS::Stage.
+// Resource Type definition for AWS::IVS::Stage.
 func LookupStage(ctx *pulumi.Context, args *LookupStageArgs, opts ...pulumi.InvokeOption) (*LookupStageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStageResult

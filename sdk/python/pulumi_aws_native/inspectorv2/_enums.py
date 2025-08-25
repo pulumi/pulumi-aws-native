@@ -9,6 +9,13 @@ from enum import Enum
 __all__ = [
     'CisScanConfigurationCisSecurityLevel',
     'CisScanConfigurationDay',
+    'CodeSecurityIntegrationIntegrationStatus',
+    'CodeSecurityIntegrationIntegrationType',
+    'CodeSecurityScanConfigurationConfigurationLevel',
+    'CodeSecurityScanConfigurationContinuousIntegrationScanEvent',
+    'CodeSecurityScanConfigurationPeriodicScanFrequency',
+    'CodeSecurityScanConfigurationProjectSelectionScope',
+    'CodeSecurityScanConfigurationRuleSetCategory',
     'FilterAction',
     'FilterMapComparison',
     'FilterStringComparison',
@@ -30,6 +37,52 @@ class CisScanConfigurationDay(builtins.str, Enum):
     FRI = "FRI"
     SAT = "SAT"
     SUN = "SUN"
+
+
+@pulumi.type_token("aws-native:inspectorv2:CodeSecurityIntegrationIntegrationStatus")
+class CodeSecurityIntegrationIntegrationStatus(builtins.str, Enum):
+    PENDING = "PENDING"
+    IN_PROGRESS = "IN_PROGRESS"
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+    DISABLING = "DISABLING"
+
+
+@pulumi.type_token("aws-native:inspectorv2:CodeSecurityIntegrationIntegrationType")
+class CodeSecurityIntegrationIntegrationType(builtins.str, Enum):
+    GITLAB_SELF_MANAGED = "GITLAB_SELF_MANAGED"
+    GITHUB = "GITHUB"
+
+
+@pulumi.type_token("aws-native:inspectorv2:CodeSecurityScanConfigurationConfigurationLevel")
+class CodeSecurityScanConfigurationConfigurationLevel(builtins.str, Enum):
+    ORGANIZATION = "ORGANIZATION"
+    ACCOUNT = "ACCOUNT"
+
+
+@pulumi.type_token("aws-native:inspectorv2:CodeSecurityScanConfigurationContinuousIntegrationScanEvent")
+class CodeSecurityScanConfigurationContinuousIntegrationScanEvent(builtins.str, Enum):
+    PULL_REQUEST = "PULL_REQUEST"
+    PUSH = "PUSH"
+
+
+@pulumi.type_token("aws-native:inspectorv2:CodeSecurityScanConfigurationPeriodicScanFrequency")
+class CodeSecurityScanConfigurationPeriodicScanFrequency(builtins.str, Enum):
+    WEEKLY = "WEEKLY"
+    MONTHLY = "MONTHLY"
+    NEVER = "NEVER"
+
+
+@pulumi.type_token("aws-native:inspectorv2:CodeSecurityScanConfigurationProjectSelectionScope")
+class CodeSecurityScanConfigurationProjectSelectionScope(builtins.str, Enum):
+    ALL = "ALL"
+
+
+@pulumi.type_token("aws-native:inspectorv2:CodeSecurityScanConfigurationRuleSetCategory")
+class CodeSecurityScanConfigurationRuleSetCategory(builtins.str, Enum):
+    SAST = "SAST"
+    IAC = "IAC"
+    SCA = "SCA"
 
 
 @pulumi.type_token("aws-native:inspectorv2:FilterAction")

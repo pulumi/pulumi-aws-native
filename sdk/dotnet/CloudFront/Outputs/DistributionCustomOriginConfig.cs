@@ -24,9 +24,10 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
         /// </summary>
         public readonly int? HttpsPort;
+        public readonly Pulumi.AwsNative.CloudFront.DistributionCustomOriginConfigIpAddressType? IpAddressType;
         /// <summary>
-        /// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
-        ///  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
+        /// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+        ///  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
         /// </summary>
         public readonly int? OriginKeepaliveTimeout;
         /// <summary>
@@ -37,13 +38,13 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly string OriginProtocolPolicy;
         /// <summary>
-        /// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-        ///  For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+        /// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+        ///  For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
         /// </summary>
         public readonly int? OriginReadTimeout;
         /// <summary>
         /// Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include ``SSLv3``, ``TLSv1``, ``TLSv1.1``, and ``TLSv1.2``.
-        ///  For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
+        ///  For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
         /// </summary>
         public readonly ImmutableArray<string> OriginSslProtocols;
 
@@ -52,6 +53,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             int? httpPort,
 
             int? httpsPort,
+
+            Pulumi.AwsNative.CloudFront.DistributionCustomOriginConfigIpAddressType? ipAddressType,
 
             int? originKeepaliveTimeout,
 
@@ -63,6 +66,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         {
             HttpPort = httpPort;
             HttpsPort = httpsPort;
+            IpAddressType = ipAddressType;
             OriginKeepaliveTimeout = originKeepaliveTimeout;
             OriginProtocolPolicy = originProtocolPolicy;
             OriginReadTimeout = originReadTimeout;

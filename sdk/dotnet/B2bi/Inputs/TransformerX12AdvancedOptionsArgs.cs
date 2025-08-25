@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.B2bi.Inputs
         [Input("splitOptions")]
         public Input<Inputs.TransformerX12SplitOptionsArgs>? SplitOptions { get; set; }
 
+        [Input("validationOptions")]
+        public Input<Inputs.TransformerX12ValidationOptionsArgs>? ValidationOptions { get; set; }
+
         public TransformerX12AdvancedOptionsArgs()
         {
         }

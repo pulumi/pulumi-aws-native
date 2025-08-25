@@ -112,7 +112,7 @@ type ConfigurationManagerConfigurationDefinition struct {
 	// - Description: (Required) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
 	// - `TargetRegions`
 	//
-	// - Description: (Required) The AWS Regions to deploy the configuration to. For this type, the parameter only accepts a value of `AllRegions` .
+	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
 	// - **DevOps Guru (Type: AWS QuickSetupType-DevOpsGuru)** - - `AnalyseAllResources`
 	//
 	// - Description: (Optional) A boolean value that determines whether DevOps Guru analyzes all AWS CloudFormation stacks in the account. The default value is " `false` ".
@@ -444,7 +444,7 @@ type ConfigurationManagerConfigurationDefinitionArgs struct {
 	// - Description: (Required) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
 	// - `TargetRegions`
 	//
-	// - Description: (Required) The AWS Regions to deploy the configuration to. For this type, the parameter only accepts a value of `AllRegions` .
+	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
 	// - **DevOps Guru (Type: AWS QuickSetupType-DevOpsGuru)** - - `AnalyseAllResources`
 	//
 	// - Description: (Optional) A boolean value that determines whether DevOps Guru analyzes all AWS CloudFormation stacks in the account. The default value is " `false` ".
@@ -826,7 +826,7 @@ func (o ConfigurationManagerConfigurationDefinitionOutput) LocalDeploymentExecut
 // - Description: (Required) A comma separated list of organizational units (OUs) you want to deploy the configuration to.
 // - `TargetRegions`
 //
-// - Description: (Required) The AWS Regions to deploy the configuration to. For this type, the parameter only accepts a value of `AllRegions` .
+// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
 // - **DevOps Guru (Type: AWS QuickSetupType-DevOpsGuru)** - - `AnalyseAllResources`
 //
 // - Description: (Optional) A boolean value that determines whether DevOps Guru analyzes all AWS CloudFormation stacks in the account. The default value is " `false` ".

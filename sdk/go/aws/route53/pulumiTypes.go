@@ -1053,107 +1053,6 @@ type HealthCheckTag struct {
 	Value string `pulumi:"value"`
 }
 
-// HealthCheckTagInput is an input type that accepts HealthCheckTagArgs and HealthCheckTagOutput values.
-// You can construct a concrete instance of `HealthCheckTagInput` via:
-//
-//	HealthCheckTagArgs{...}
-type HealthCheckTagInput interface {
-	pulumi.Input
-
-	ToHealthCheckTagOutput() HealthCheckTagOutput
-	ToHealthCheckTagOutputWithContext(context.Context) HealthCheckTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type HealthCheckTagArgs struct {
-	// The key name of the tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (HealthCheckTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthCheckTag)(nil)).Elem()
-}
-
-func (i HealthCheckTagArgs) ToHealthCheckTagOutput() HealthCheckTagOutput {
-	return i.ToHealthCheckTagOutputWithContext(context.Background())
-}
-
-func (i HealthCheckTagArgs) ToHealthCheckTagOutputWithContext(ctx context.Context) HealthCheckTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckTagOutput)
-}
-
-// HealthCheckTagArrayInput is an input type that accepts HealthCheckTagArray and HealthCheckTagArrayOutput values.
-// You can construct a concrete instance of `HealthCheckTagArrayInput` via:
-//
-//	HealthCheckTagArray{ HealthCheckTagArgs{...} }
-type HealthCheckTagArrayInput interface {
-	pulumi.Input
-
-	ToHealthCheckTagArrayOutput() HealthCheckTagArrayOutput
-	ToHealthCheckTagArrayOutputWithContext(context.Context) HealthCheckTagArrayOutput
-}
-
-type HealthCheckTagArray []HealthCheckTagInput
-
-func (HealthCheckTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HealthCheckTag)(nil)).Elem()
-}
-
-func (i HealthCheckTagArray) ToHealthCheckTagArrayOutput() HealthCheckTagArrayOutput {
-	return i.ToHealthCheckTagArrayOutputWithContext(context.Background())
-}
-
-func (i HealthCheckTagArray) ToHealthCheckTagArrayOutputWithContext(ctx context.Context) HealthCheckTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckTagArrayOutput)
-}
-
-// A key-value pair to associate with a resource.
-type HealthCheckTagOutput struct{ *pulumi.OutputState }
-
-func (HealthCheckTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthCheckTag)(nil)).Elem()
-}
-
-func (o HealthCheckTagOutput) ToHealthCheckTagOutput() HealthCheckTagOutput {
-	return o
-}
-
-func (o HealthCheckTagOutput) ToHealthCheckTagOutputWithContext(ctx context.Context) HealthCheckTagOutput {
-	return o
-}
-
-// The key name of the tag.
-func (o HealthCheckTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v HealthCheckTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag.
-func (o HealthCheckTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v HealthCheckTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type HealthCheckTagArrayOutput struct{ *pulumi.OutputState }
-
-func (HealthCheckTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HealthCheckTag)(nil)).Elem()
-}
-
-func (o HealthCheckTagArrayOutput) ToHealthCheckTagArrayOutput() HealthCheckTagArrayOutput {
-	return o
-}
-
-func (o HealthCheckTagArrayOutput) ToHealthCheckTagArrayOutputWithContext(ctx context.Context) HealthCheckTagArrayOutput {
-	return o
-}
-
-func (o HealthCheckTagArrayOutput) Index(i pulumi.IntInput) HealthCheckTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HealthCheckTag {
-		return vs[0].([]HealthCheckTag)[vs[1].(int)]
-	}).(HealthCheckTagOutput)
-}
-
 // A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the “HostedZoneConfig“ and “Comment“ elements.
 type HostedZoneConfig struct {
 	// Any comments that you want to include about the hosted zone.
@@ -1577,8 +1476,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckAlarmIdentifierInput)(nil)).Elem(), HealthCheckAlarmIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckAlarmIdentifierPtrInput)(nil)).Elem(), HealthCheckAlarmIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesInput)(nil)).Elem(), HealthCheckConfigPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckTagInput)(nil)).Elem(), HealthCheckTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckTagArrayInput)(nil)).Elem(), HealthCheckTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneConfigInput)(nil)).Elem(), HostedZoneConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneConfigPtrInput)(nil)).Elem(), HostedZoneConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneQueryLoggingConfigInput)(nil)).Elem(), HostedZoneQueryLoggingConfigArgs{})
@@ -1591,8 +1488,6 @@ func init() {
 	pulumi.RegisterOutputType(HealthCheckAlarmIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(HealthCheckTagOutput{})
-	pulumi.RegisterOutputType(HealthCheckTagArrayOutput{})
 	pulumi.RegisterOutputType(HostedZoneConfigOutput{})
 	pulumi.RegisterOutputType(HostedZoneConfigPtrOutput{})
 	pulumi.RegisterOutputType(HostedZoneQueryLoggingConfigOutput{})

@@ -11,7 +11,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
     /// <summary>
-    /// This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+    /// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+    ///   This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
     ///  If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
     ///  If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
     ///  A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.

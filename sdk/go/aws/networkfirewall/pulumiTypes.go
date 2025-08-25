@@ -5557,7 +5557,7 @@ type TlsInspectionConfigurationServerCertificateConfiguration struct {
 	//
 	// For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
 	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
-	// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-servercertificateconfiguration.html) .
+	// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkfirewall-servercertificateconfiguration.html) .
 	CheckCertificateRevocationStatus *TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties `pulumi:"checkCertificateRevocationStatus"`
 	// A list of scopes.
 	Scopes []TlsInspectionConfigurationServerCertificateScope `pulumi:"scopes"`
@@ -5588,7 +5588,7 @@ type TlsInspectionConfigurationServerCertificateConfigurationArgs struct {
 	//
 	// For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
 	CertificateAuthorityArn pulumi.StringPtrInput `pulumi:"certificateAuthorityArn"`
-	// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-servercertificateconfiguration.html) .
+	// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkfirewall-servercertificateconfiguration.html) .
 	CheckCertificateRevocationStatus TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrInput `pulumi:"checkCertificateRevocationStatus"`
 	// A list of scopes.
 	Scopes TlsInspectionConfigurationServerCertificateScopeArrayInput `pulumi:"scopes"`
@@ -5663,7 +5663,7 @@ func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) Certific
 	}).(pulumi.StringPtrOutput)
 }
 
-// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-servercertificateconfiguration.html) .
+// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkfirewall-servercertificateconfiguration.html) .
 func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) CheckCertificateRevocationStatus() TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateConfiguration) *TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties {
 		return v.CheckCertificateRevocationStatus
@@ -5704,7 +5704,7 @@ func (o TlsInspectionConfigurationServerCertificateConfigurationArrayOutput) Ind
 	}).(TlsInspectionConfigurationServerCertificateConfigurationOutput)
 }
 
-// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-servercertificateconfiguration.html) .
+// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkfirewall-servercertificateconfiguration.html) .
 type TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties struct {
 	RevokedStatusAction *TlsInspectionConfigurationRevokedStatusAction `pulumi:"revokedStatusAction"`
 	UnknownStatusAction *TlsInspectionConfigurationUnknownStatusAction `pulumi:"unknownStatusAction"`
@@ -5721,7 +5721,7 @@ type TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRev
 	ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutputWithContext(context.Context) TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput
 }
 
-// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-servercertificateconfiguration.html) .
+// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkfirewall-servercertificateconfiguration.html) .
 type TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs struct {
 	RevokedStatusAction TlsInspectionConfigurationRevokedStatusActionPtrInput `pulumi:"revokedStatusAction"`
 	UnknownStatusAction TlsInspectionConfigurationUnknownStatusActionPtrInput `pulumi:"unknownStatusAction"`
@@ -5780,7 +5780,7 @@ func (i *tlsInspectionConfigurationServerCertificateConfigurationCheckCertificat
 	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput)
 }
 
-// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-servercertificateconfiguration.html) .
+// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-networkfirewall-servercertificateconfiguration.html) .
 type TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput struct{ *pulumi.OutputState }
 
 func (TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput) ElementType() reflect.Type {

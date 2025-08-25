@@ -127,6 +127,82 @@ __all__ = [
     'EnvironmentProfileEnvironmentParameterArgsDict',
     'OwnerPropertiesArgs',
     'OwnerPropertiesArgsDict',
+    'PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgs',
+    'PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgsDict',
+    'PolicyGrantAllDomainUnitsGrantFilterArgs',
+    'PolicyGrantAllDomainUnitsGrantFilterArgsDict',
+    'PolicyGrantAllUsersGrantFilterArgs',
+    'PolicyGrantAllUsersGrantFilterArgsDict',
+    'PolicyGrantCreateAssetTypePolicyGrantDetailArgs',
+    'PolicyGrantCreateAssetTypePolicyGrantDetailArgsDict',
+    'PolicyGrantCreateDomainUnitPolicyGrantDetailArgs',
+    'PolicyGrantCreateDomainUnitPolicyGrantDetailArgsDict',
+    'PolicyGrantCreateEnvironmentProfilePolicyGrantDetailArgs',
+    'PolicyGrantCreateEnvironmentProfilePolicyGrantDetailArgsDict',
+    'PolicyGrantCreateFormTypePolicyGrantDetailArgs',
+    'PolicyGrantCreateFormTypePolicyGrantDetailArgsDict',
+    'PolicyGrantCreateGlossaryPolicyGrantDetailArgs',
+    'PolicyGrantCreateGlossaryPolicyGrantDetailArgsDict',
+    'PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgs',
+    'PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgsDict',
+    'PolicyGrantCreateProjectPolicyGrantDetailArgs',
+    'PolicyGrantCreateProjectPolicyGrantDetailArgsDict',
+    'PolicyGrantDetail0PropertiesArgs',
+    'PolicyGrantDetail0PropertiesArgsDict',
+    'PolicyGrantDetail10PropertiesArgs',
+    'PolicyGrantDetail10PropertiesArgsDict',
+    'PolicyGrantDetail11PropertiesArgs',
+    'PolicyGrantDetail11PropertiesArgsDict',
+    'PolicyGrantDetail12PropertiesArgs',
+    'PolicyGrantDetail12PropertiesArgsDict',
+    'PolicyGrantDetail1PropertiesArgs',
+    'PolicyGrantDetail1PropertiesArgsDict',
+    'PolicyGrantDetail2PropertiesArgs',
+    'PolicyGrantDetail2PropertiesArgsDict',
+    'PolicyGrantDetail3PropertiesArgs',
+    'PolicyGrantDetail3PropertiesArgsDict',
+    'PolicyGrantDetail4PropertiesArgs',
+    'PolicyGrantDetail4PropertiesArgsDict',
+    'PolicyGrantDetail5PropertiesArgs',
+    'PolicyGrantDetail5PropertiesArgsDict',
+    'PolicyGrantDetail6PropertiesArgs',
+    'PolicyGrantDetail6PropertiesArgsDict',
+    'PolicyGrantDetail7PropertiesArgs',
+    'PolicyGrantDetail7PropertiesArgsDict',
+    'PolicyGrantDetail8PropertiesArgs',
+    'PolicyGrantDetail8PropertiesArgsDict',
+    'PolicyGrantDetail9PropertiesArgs',
+    'PolicyGrantDetail9PropertiesArgsDict',
+    'PolicyGrantDomainUnitFilterForProjectArgs',
+    'PolicyGrantDomainUnitFilterForProjectArgsDict',
+    'PolicyGrantDomainUnitGrantFilterPropertiesArgs',
+    'PolicyGrantDomainUnitGrantFilterPropertiesArgsDict',
+    'PolicyGrantDomainUnitPolicyGrantPrincipalArgs',
+    'PolicyGrantDomainUnitPolicyGrantPrincipalArgsDict',
+    'PolicyGrantGroupPolicyGrantPrincipalPropertiesArgs',
+    'PolicyGrantGroupPolicyGrantPrincipalPropertiesArgsDict',
+    'PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetailArgs',
+    'PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetailArgsDict',
+    'PolicyGrantOverrideProjectOwnersPolicyGrantDetailArgs',
+    'PolicyGrantOverrideProjectOwnersPolicyGrantDetailArgsDict',
+    'PolicyGrantPrincipal0PropertiesArgs',
+    'PolicyGrantPrincipal0PropertiesArgsDict',
+    'PolicyGrantPrincipal1PropertiesArgs',
+    'PolicyGrantPrincipal1PropertiesArgsDict',
+    'PolicyGrantPrincipal2PropertiesArgs',
+    'PolicyGrantPrincipal2PropertiesArgsDict',
+    'PolicyGrantPrincipal3PropertiesArgs',
+    'PolicyGrantPrincipal3PropertiesArgsDict',
+    'PolicyGrantProjectGrantFilterPropertiesArgs',
+    'PolicyGrantProjectGrantFilterPropertiesArgsDict',
+    'PolicyGrantProjectPolicyGrantPrincipalArgs',
+    'PolicyGrantProjectPolicyGrantPrincipalArgsDict',
+    'PolicyGrantUnitArgs',
+    'PolicyGrantUnitArgsDict',
+    'PolicyGrantUserPolicyGrantPrincipal0PropertiesArgs',
+    'PolicyGrantUserPolicyGrantPrincipal0PropertiesArgsDict',
+    'PolicyGrantUserPolicyGrantPrincipal1PropertiesArgs',
+    'PolicyGrantUserPolicyGrantPrincipal1PropertiesArgsDict',
     'ProjectEnvironmentConfigurationUserParameterArgs',
     'ProjectEnvironmentConfigurationUserParameterArgsDict',
     'ProjectEnvironmentParameterArgs',
@@ -2800,6 +2876,902 @@ class OwnerPropertiesArgs:
         The properties of a domain unit's owner.
         """
         pass
+
+
+if not MYPY:
+    class PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgsDict(TypedDict):
+        include_child_domain_units: NotRequired[pulumi.Input[builtins.bool]]
+elif False:
+    PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgs:
+    def __init__(__self__, *,
+                 include_child_domain_units: Optional[pulumi.Input[builtins.bool]] = None):
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+
+if not MYPY:
+    class PolicyGrantAllDomainUnitsGrantFilterArgsDict(TypedDict):
+        pass
+elif False:
+    PolicyGrantAllDomainUnitsGrantFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantAllDomainUnitsGrantFilterArgs:
+    def __init__(__self__):
+        pass
+
+
+if not MYPY:
+    class PolicyGrantAllUsersGrantFilterArgsDict(TypedDict):
+        pass
+elif False:
+    PolicyGrantAllUsersGrantFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantAllUsersGrantFilterArgs:
+    def __init__(__self__):
+        pass
+
+
+if not MYPY:
+    class PolicyGrantCreateAssetTypePolicyGrantDetailArgsDict(TypedDict):
+        include_child_domain_units: NotRequired[pulumi.Input[builtins.bool]]
+elif False:
+    PolicyGrantCreateAssetTypePolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantCreateAssetTypePolicyGrantDetailArgs:
+    def __init__(__self__, *,
+                 include_child_domain_units: Optional[pulumi.Input[builtins.bool]] = None):
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+
+if not MYPY:
+    class PolicyGrantCreateDomainUnitPolicyGrantDetailArgsDict(TypedDict):
+        include_child_domain_units: NotRequired[pulumi.Input[builtins.bool]]
+elif False:
+    PolicyGrantCreateDomainUnitPolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantCreateDomainUnitPolicyGrantDetailArgs:
+    def __init__(__self__, *,
+                 include_child_domain_units: Optional[pulumi.Input[builtins.bool]] = None):
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+
+if not MYPY:
+    class PolicyGrantCreateEnvironmentProfilePolicyGrantDetailArgsDict(TypedDict):
+        domain_unit_id: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    PolicyGrantCreateEnvironmentProfilePolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantCreateEnvironmentProfilePolicyGrantDetailArgs:
+    def __init__(__self__, *,
+                 domain_unit_id: Optional[pulumi.Input[builtins.str]] = None):
+        if domain_unit_id is not None:
+            pulumi.set(__self__, "domain_unit_id", domain_unit_id)
+
+    @property
+    @pulumi.getter(name="domainUnitId")
+    def domain_unit_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "domain_unit_id")
+
+    @domain_unit_id.setter
+    def domain_unit_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "domain_unit_id", value)
+
+
+if not MYPY:
+    class PolicyGrantCreateFormTypePolicyGrantDetailArgsDict(TypedDict):
+        include_child_domain_units: NotRequired[pulumi.Input[builtins.bool]]
+elif False:
+    PolicyGrantCreateFormTypePolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantCreateFormTypePolicyGrantDetailArgs:
+    def __init__(__self__, *,
+                 include_child_domain_units: Optional[pulumi.Input[builtins.bool]] = None):
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+
+if not MYPY:
+    class PolicyGrantCreateGlossaryPolicyGrantDetailArgsDict(TypedDict):
+        include_child_domain_units: NotRequired[pulumi.Input[builtins.bool]]
+elif False:
+    PolicyGrantCreateGlossaryPolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantCreateGlossaryPolicyGrantDetailArgs:
+    def __init__(__self__, *,
+                 include_child_domain_units: Optional[pulumi.Input[builtins.bool]] = None):
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+
+if not MYPY:
+    class PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgsDict(TypedDict):
+        include_child_domain_units: NotRequired[pulumi.Input[builtins.bool]]
+        project_profiles: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+elif False:
+    PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgs:
+    def __init__(__self__, *,
+                 include_child_domain_units: Optional[pulumi.Input[builtins.bool]] = None,
+                 project_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+        if project_profiles is not None:
+            pulumi.set(__self__, "project_profiles", project_profiles)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+    @property
+    @pulumi.getter(name="projectProfiles")
+    def project_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "project_profiles")
+
+    @project_profiles.setter
+    def project_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "project_profiles", value)
+
+
+if not MYPY:
+    class PolicyGrantCreateProjectPolicyGrantDetailArgsDict(TypedDict):
+        include_child_domain_units: NotRequired[pulumi.Input[builtins.bool]]
+elif False:
+    PolicyGrantCreateProjectPolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantCreateProjectPolicyGrantDetailArgs:
+    def __init__(__self__, *,
+                 include_child_domain_units: Optional[pulumi.Input[builtins.bool]] = None):
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+
+if not MYPY:
+    class PolicyGrantDetail0PropertiesArgsDict(TypedDict):
+        create_domain_unit: pulumi.Input['PolicyGrantCreateDomainUnitPolicyGrantDetailArgsDict']
+elif False:
+    PolicyGrantDetail0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantDetail0PropertiesArgs:
+    def __init__(__self__, *,
+                 create_domain_unit: pulumi.Input['PolicyGrantCreateDomainUnitPolicyGrantDetailArgs']):
+        pulumi.set(__self__, "create_domain_unit", create_domain_unit)
+
+    @property
+    @pulumi.getter(name="createDomainUnit")
+    def create_domain_unit(self) -> pulumi.Input['PolicyGrantCreateDomainUnitPolicyGrantDetailArgs']:
+        return pulumi.get(self, "create_domain_unit")
+
+    @create_domain_unit.setter
+    def create_domain_unit(self, value: pulumi.Input['PolicyGrantCreateDomainUnitPolicyGrantDetailArgs']):
+        pulumi.set(self, "create_domain_unit", value)
+
+
+if not MYPY:
+    class PolicyGrantDetail10PropertiesArgsDict(TypedDict):
+        create_environment: pulumi.Input['PolicyGrantUnitArgsDict']
+elif False:
+    PolicyGrantDetail10PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantDetail10PropertiesArgs:
+    def __init__(__self__, *,
+                 create_environment: pulumi.Input['PolicyGrantUnitArgs']):
+        pulumi.set(__self__, "create_environment", create_environment)
+
+    @property
+    @pulumi.getter(name="createEnvironment")
+    def create_environment(self) -> pulumi.Input['PolicyGrantUnitArgs']:
+        return pulumi.get(self, "create_environment")
+
+    @create_environment.setter
+    def create_environment(self, value: pulumi.Input['PolicyGrantUnitArgs']):
+        pulumi.set(self, "create_environment", value)
+
+
+if not MYPY:
+    class PolicyGrantDetail11PropertiesArgsDict(TypedDict):
+        create_environment_from_blueprint: pulumi.Input['PolicyGrantUnitArgsDict']
+elif False:
+    PolicyGrantDetail11PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantDetail11PropertiesArgs:
+    def __init__(__self__, *,
+                 create_environment_from_blueprint: pulumi.Input['PolicyGrantUnitArgs']):
+        pulumi.set(__self__, "create_environment_from_blueprint", create_environment_from_blueprint)
+
+    @property
+    @pulumi.getter(name="createEnvironmentFromBlueprint")
+    def create_environment_from_blueprint(self) -> pulumi.Input['PolicyGrantUnitArgs']:
+        return pulumi.get(self, "create_environment_from_blueprint")
+
+    @create_environment_from_blueprint.setter
+    def create_environment_from_blueprint(self, value: pulumi.Input['PolicyGrantUnitArgs']):
+        pulumi.set(self, "create_environment_from_blueprint", value)
+
+
+if not MYPY:
+    class PolicyGrantDetail12PropertiesArgsDict(TypedDict):
+        create_project_from_project_profile: pulumi.Input['PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgsDict']
+elif False:
+    PolicyGrantDetail12PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantDetail12PropertiesArgs:
+    def __init__(__self__, *,
+                 create_project_from_project_profile: pulumi.Input['PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgs']):
+        pulumi.set(__self__, "create_project_from_project_profile", create_project_from_project_profile)
+
+    @property
+    @pulumi.getter(name="createProjectFromProjectProfile")
+    def create_project_from_project_profile(self) -> pulumi.Input['PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgs']:
+        return pulumi.get(self, "create_project_from_project_profile")
+
+    @create_project_from_project_profile.setter
+    def create_project_from_project_profile(self, value: pulumi.Input['PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetailArgs']):
+        pulumi.set(self, "create_project_from_project_profile", value)
+
+
+if not MYPY:
+    class PolicyGrantDetail1PropertiesArgsDict(TypedDict):
+        override_domain_unit_owners: pulumi.Input['PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetailArgsDict']
+elif False:
+    PolicyGrantDetail1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantDetail1PropertiesArgs:
+    def __init__(__self__, *,
+                 override_domain_unit_owners: pulumi.Input['PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetailArgs']):
+        pulumi.set(__self__, "override_domain_unit_owners", override_domain_unit_owners)
+
+    @property
+    @pulumi.getter(name="overrideDomainUnitOwners")
+    def override_domain_unit_owners(self) -> pulumi.Input['PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetailArgs']:
+        return pulumi.get(self, "override_domain_unit_owners")
+
+    @override_domain_unit_owners.setter
+    def override_domain_unit_owners(self, value: pulumi.Input['PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetailArgs']):
+        pulumi.set(self, "override_domain_unit_owners", value)
+
+
+if not MYPY:
+    class PolicyGrantDetail2PropertiesArgsDict(TypedDict):
+        add_to_project_member_pool: pulumi.Input['PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgsDict']
+elif False:
+    PolicyGrantDetail2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantDetail2PropertiesArgs:
+    def __init__(__self__, *,
+                 add_to_project_member_pool: pulumi.Input['PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgs']):
+        pulumi.set(__self__, "add_to_project_member_pool", add_to_project_member_pool)
+
+    @property
+    @pulumi.getter(name="addToProjectMemberPool")
+    def add_to_project_member_pool(self) -> pulumi.Input['PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgs']:
+        return pulumi.get(self, "add_to_project_member_pool")
+
+    @add_to_project_member_pool.setter
+    def add_to_project_member_pool(self, value: pulumi.Input['PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgs']):
+        pulumi.set(self, "add_to_project_member_pool", value)
+
+
+if not MYPY:
+    class PolicyGrantDetail3PropertiesArgsDict(TypedDict):
+        override_project_owners: pulumi.Input['PolicyGrantOverrideProjectOwnersPolicyGrantDetailArgsDict']
+elif False:
+    PolicyGrantDetail3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantDetail3PropertiesArgs:
+    def __init__(__self__, *,
+                 override_project_owners: pulumi.Input['PolicyGrantOverrideProjectOwnersPolicyGrantDetailArgs']):
+        pulumi.set(__self__, "override_project_owners", override_project_owners)
+
+    @property
+    @pulumi.getter(name="overrideProjectOwners")
+    def override_project_owners(self) -> pulumi.Input['PolicyGrantOverrideProjectOwnersPolicyGrantDetailArgs']:
+        return pulumi.get(self, "override_project_owners")
+
+    @override_project_owners.setter
+    def override_project_owners(self, value: pulumi.Input['PolicyGrantOverrideProjectOwnersPolicyGrantDetailArgs']):
+        pulumi.set(self, "override_project_owners", value)
+
+
+if not MYPY:
+    class PolicyGrantDetail4PropertiesArgsDict(TypedDict):
+        create_glossary: pulumi.Input['PolicyGrantCreateGlossaryPolicyGrantDetailArgsDict']
+elif False:
+    PolicyGrantDetail4PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantDetail4PropertiesArgs:
+    def __init__(__self__, *,
+                 create_glossary: pulumi.Input['PolicyGrantCreateGlossaryPolicyGrantDetailArgs']):
+        pulumi.set(__self__, "create_glossary", create_glossary)
+
+    @property
+    @pulumi.getter(name="createGlossary")
+    def create_glossary(self) -> pulumi.Input['PolicyGrantCreateGlossaryPolicyGrantDetailArgs']:
+        return pulumi.get(self, "create_glossary")
+
+    @create_glossary.setter
+    def create_glossary(self, value: pulumi.Input['PolicyGrantCreateGlossaryPolicyGrantDetailArgs']):
+        pulumi.set(self, "create_glossary", value)
+
+
+if not MYPY:
+    class PolicyGrantDetail5PropertiesArgsDict(TypedDict):
+        create_form_type: pulumi.Input['PolicyGrantCreateFormTypePolicyGrantDetailArgsDict']
+elif False:
+    PolicyGrantDetail5PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantDetail5PropertiesArgs:
+    def __init__(__self__, *,
+                 create_form_type: pulumi.Input['PolicyGrantCreateFormTypePolicyGrantDetailArgs']):
+        pulumi.set(__self__, "create_form_type", create_form_type)
+
+    @property
+    @pulumi.getter(name="createFormType")
+    def create_form_type(self) -> pulumi.Input['PolicyGrantCreateFormTypePolicyGrantDetailArgs']:
+        return pulumi.get(self, "create_form_type")
+
+    @create_form_type.setter
+    def create_form_type(self, value: pulumi.Input['PolicyGrantCreateFormTypePolicyGrantDetailArgs']):
+        pulumi.set(self, "create_form_type", value)
+
+
+if not MYPY:
+    class PolicyGrantDetail6PropertiesArgsDict(TypedDict):
+        create_asset_type: pulumi.Input['PolicyGrantCreateAssetTypePolicyGrantDetailArgsDict']
+elif False:
+    PolicyGrantDetail6PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantDetail6PropertiesArgs:
+    def __init__(__self__, *,
+                 create_asset_type: pulumi.Input['PolicyGrantCreateAssetTypePolicyGrantDetailArgs']):
+        pulumi.set(__self__, "create_asset_type", create_asset_type)
+
+    @property
+    @pulumi.getter(name="createAssetType")
+    def create_asset_type(self) -> pulumi.Input['PolicyGrantCreateAssetTypePolicyGrantDetailArgs']:
+        return pulumi.get(self, "create_asset_type")
+
+    @create_asset_type.setter
+    def create_asset_type(self, value: pulumi.Input['PolicyGrantCreateAssetTypePolicyGrantDetailArgs']):
+        pulumi.set(self, "create_asset_type", value)
+
+
+if not MYPY:
+    class PolicyGrantDetail7PropertiesArgsDict(TypedDict):
+        create_project: pulumi.Input['PolicyGrantCreateProjectPolicyGrantDetailArgsDict']
+elif False:
+    PolicyGrantDetail7PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantDetail7PropertiesArgs:
+    def __init__(__self__, *,
+                 create_project: pulumi.Input['PolicyGrantCreateProjectPolicyGrantDetailArgs']):
+        pulumi.set(__self__, "create_project", create_project)
+
+    @property
+    @pulumi.getter(name="createProject")
+    def create_project(self) -> pulumi.Input['PolicyGrantCreateProjectPolicyGrantDetailArgs']:
+        return pulumi.get(self, "create_project")
+
+    @create_project.setter
+    def create_project(self, value: pulumi.Input['PolicyGrantCreateProjectPolicyGrantDetailArgs']):
+        pulumi.set(self, "create_project", value)
+
+
+if not MYPY:
+    class PolicyGrantDetail8PropertiesArgsDict(TypedDict):
+        create_environment_profile: pulumi.Input['PolicyGrantCreateEnvironmentProfilePolicyGrantDetailArgsDict']
+elif False:
+    PolicyGrantDetail8PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantDetail8PropertiesArgs:
+    def __init__(__self__, *,
+                 create_environment_profile: pulumi.Input['PolicyGrantCreateEnvironmentProfilePolicyGrantDetailArgs']):
+        pulumi.set(__self__, "create_environment_profile", create_environment_profile)
+
+    @property
+    @pulumi.getter(name="createEnvironmentProfile")
+    def create_environment_profile(self) -> pulumi.Input['PolicyGrantCreateEnvironmentProfilePolicyGrantDetailArgs']:
+        return pulumi.get(self, "create_environment_profile")
+
+    @create_environment_profile.setter
+    def create_environment_profile(self, value: pulumi.Input['PolicyGrantCreateEnvironmentProfilePolicyGrantDetailArgs']):
+        pulumi.set(self, "create_environment_profile", value)
+
+
+if not MYPY:
+    class PolicyGrantDetail9PropertiesArgsDict(TypedDict):
+        delegate_create_environment_profile: pulumi.Input['PolicyGrantUnitArgsDict']
+elif False:
+    PolicyGrantDetail9PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantDetail9PropertiesArgs:
+    def __init__(__self__, *,
+                 delegate_create_environment_profile: pulumi.Input['PolicyGrantUnitArgs']):
+        pulumi.set(__self__, "delegate_create_environment_profile", delegate_create_environment_profile)
+
+    @property
+    @pulumi.getter(name="delegateCreateEnvironmentProfile")
+    def delegate_create_environment_profile(self) -> pulumi.Input['PolicyGrantUnitArgs']:
+        return pulumi.get(self, "delegate_create_environment_profile")
+
+    @delegate_create_environment_profile.setter
+    def delegate_create_environment_profile(self, value: pulumi.Input['PolicyGrantUnitArgs']):
+        pulumi.set(self, "delegate_create_environment_profile", value)
+
+
+if not MYPY:
+    class PolicyGrantDomainUnitFilterForProjectArgsDict(TypedDict):
+        domain_unit: pulumi.Input[builtins.str]
+        include_child_domain_units: NotRequired[pulumi.Input[builtins.bool]]
+elif False:
+    PolicyGrantDomainUnitFilterForProjectArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantDomainUnitFilterForProjectArgs:
+    def __init__(__self__, *,
+                 domain_unit: pulumi.Input[builtins.str],
+                 include_child_domain_units: Optional[pulumi.Input[builtins.bool]] = None):
+        pulumi.set(__self__, "domain_unit", domain_unit)
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @property
+    @pulumi.getter(name="domainUnit")
+    def domain_unit(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "domain_unit")
+
+    @domain_unit.setter
+    def domain_unit(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "domain_unit", value)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+
+if not MYPY:
+    class PolicyGrantDomainUnitGrantFilterPropertiesArgsDict(TypedDict):
+        all_domain_units_grant_filter: pulumi.Input['PolicyGrantAllDomainUnitsGrantFilterArgsDict']
+elif False:
+    PolicyGrantDomainUnitGrantFilterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantDomainUnitGrantFilterPropertiesArgs:
+    def __init__(__self__, *,
+                 all_domain_units_grant_filter: pulumi.Input['PolicyGrantAllDomainUnitsGrantFilterArgs']):
+        pulumi.set(__self__, "all_domain_units_grant_filter", all_domain_units_grant_filter)
+
+    @property
+    @pulumi.getter(name="allDomainUnitsGrantFilter")
+    def all_domain_units_grant_filter(self) -> pulumi.Input['PolicyGrantAllDomainUnitsGrantFilterArgs']:
+        return pulumi.get(self, "all_domain_units_grant_filter")
+
+    @all_domain_units_grant_filter.setter
+    def all_domain_units_grant_filter(self, value: pulumi.Input['PolicyGrantAllDomainUnitsGrantFilterArgs']):
+        pulumi.set(self, "all_domain_units_grant_filter", value)
+
+
+if not MYPY:
+    class PolicyGrantDomainUnitPolicyGrantPrincipalArgsDict(TypedDict):
+        domain_unit_designation: NotRequired[pulumi.Input['PolicyGrantDomainUnitDesignation']]
+        domain_unit_grant_filter: NotRequired[pulumi.Input['PolicyGrantDomainUnitGrantFilterPropertiesArgsDict']]
+        domain_unit_identifier: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    PolicyGrantDomainUnitPolicyGrantPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantDomainUnitPolicyGrantPrincipalArgs:
+    def __init__(__self__, *,
+                 domain_unit_designation: Optional[pulumi.Input['PolicyGrantDomainUnitDesignation']] = None,
+                 domain_unit_grant_filter: Optional[pulumi.Input['PolicyGrantDomainUnitGrantFilterPropertiesArgs']] = None,
+                 domain_unit_identifier: Optional[pulumi.Input[builtins.str]] = None):
+        if domain_unit_designation is not None:
+            pulumi.set(__self__, "domain_unit_designation", domain_unit_designation)
+        if domain_unit_grant_filter is not None:
+            pulumi.set(__self__, "domain_unit_grant_filter", domain_unit_grant_filter)
+        if domain_unit_identifier is not None:
+            pulumi.set(__self__, "domain_unit_identifier", domain_unit_identifier)
+
+    @property
+    @pulumi.getter(name="domainUnitDesignation")
+    def domain_unit_designation(self) -> Optional[pulumi.Input['PolicyGrantDomainUnitDesignation']]:
+        return pulumi.get(self, "domain_unit_designation")
+
+    @domain_unit_designation.setter
+    def domain_unit_designation(self, value: Optional[pulumi.Input['PolicyGrantDomainUnitDesignation']]):
+        pulumi.set(self, "domain_unit_designation", value)
+
+    @property
+    @pulumi.getter(name="domainUnitGrantFilter")
+    def domain_unit_grant_filter(self) -> Optional[pulumi.Input['PolicyGrantDomainUnitGrantFilterPropertiesArgs']]:
+        return pulumi.get(self, "domain_unit_grant_filter")
+
+    @domain_unit_grant_filter.setter
+    def domain_unit_grant_filter(self, value: Optional[pulumi.Input['PolicyGrantDomainUnitGrantFilterPropertiesArgs']]):
+        pulumi.set(self, "domain_unit_grant_filter", value)
+
+    @property
+    @pulumi.getter(name="domainUnitIdentifier")
+    def domain_unit_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "domain_unit_identifier")
+
+    @domain_unit_identifier.setter
+    def domain_unit_identifier(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "domain_unit_identifier", value)
+
+
+if not MYPY:
+    class PolicyGrantGroupPolicyGrantPrincipalPropertiesArgsDict(TypedDict):
+        group_identifier: pulumi.Input[builtins.str]
+elif False:
+    PolicyGrantGroupPolicyGrantPrincipalPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantGroupPolicyGrantPrincipalPropertiesArgs:
+    def __init__(__self__, *,
+                 group_identifier: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "group_identifier", group_identifier)
+
+    @property
+    @pulumi.getter(name="groupIdentifier")
+    def group_identifier(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "group_identifier")
+
+    @group_identifier.setter
+    def group_identifier(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "group_identifier", value)
+
+
+if not MYPY:
+    class PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetailArgsDict(TypedDict):
+        include_child_domain_units: NotRequired[pulumi.Input[builtins.bool]]
+elif False:
+    PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetailArgs:
+    def __init__(__self__, *,
+                 include_child_domain_units: Optional[pulumi.Input[builtins.bool]] = None):
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+
+if not MYPY:
+    class PolicyGrantOverrideProjectOwnersPolicyGrantDetailArgsDict(TypedDict):
+        include_child_domain_units: NotRequired[pulumi.Input[builtins.bool]]
+elif False:
+    PolicyGrantOverrideProjectOwnersPolicyGrantDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantOverrideProjectOwnersPolicyGrantDetailArgs:
+    def __init__(__self__, *,
+                 include_child_domain_units: Optional[pulumi.Input[builtins.bool]] = None):
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+
+if not MYPY:
+    class PolicyGrantPrincipal0PropertiesArgsDict(TypedDict):
+        user: pulumi.Input[Union['PolicyGrantUserPolicyGrantPrincipal0PropertiesArgsDict', 'PolicyGrantUserPolicyGrantPrincipal1PropertiesArgsDict']]
+elif False:
+    PolicyGrantPrincipal0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantPrincipal0PropertiesArgs:
+    def __init__(__self__, *,
+                 user: pulumi.Input[Union['PolicyGrantUserPolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantUserPolicyGrantPrincipal1PropertiesArgs']]):
+        pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter
+    def user(self) -> pulumi.Input[Union['PolicyGrantUserPolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantUserPolicyGrantPrincipal1PropertiesArgs']]:
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: pulumi.Input[Union['PolicyGrantUserPolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantUserPolicyGrantPrincipal1PropertiesArgs']]):
+        pulumi.set(self, "user", value)
+
+
+if not MYPY:
+    class PolicyGrantPrincipal1PropertiesArgsDict(TypedDict):
+        group: pulumi.Input['PolicyGrantGroupPolicyGrantPrincipalPropertiesArgsDict']
+elif False:
+    PolicyGrantPrincipal1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantPrincipal1PropertiesArgs:
+    def __init__(__self__, *,
+                 group: pulumi.Input['PolicyGrantGroupPolicyGrantPrincipalPropertiesArgs']):
+        pulumi.set(__self__, "group", group)
+
+    @property
+    @pulumi.getter
+    def group(self) -> pulumi.Input['PolicyGrantGroupPolicyGrantPrincipalPropertiesArgs']:
+        return pulumi.get(self, "group")
+
+    @group.setter
+    def group(self, value: pulumi.Input['PolicyGrantGroupPolicyGrantPrincipalPropertiesArgs']):
+        pulumi.set(self, "group", value)
+
+
+if not MYPY:
+    class PolicyGrantPrincipal2PropertiesArgsDict(TypedDict):
+        project: pulumi.Input['PolicyGrantProjectPolicyGrantPrincipalArgsDict']
+elif False:
+    PolicyGrantPrincipal2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantPrincipal2PropertiesArgs:
+    def __init__(__self__, *,
+                 project: pulumi.Input['PolicyGrantProjectPolicyGrantPrincipalArgs']):
+        pulumi.set(__self__, "project", project)
+
+    @property
+    @pulumi.getter
+    def project(self) -> pulumi.Input['PolicyGrantProjectPolicyGrantPrincipalArgs']:
+        return pulumi.get(self, "project")
+
+    @project.setter
+    def project(self, value: pulumi.Input['PolicyGrantProjectPolicyGrantPrincipalArgs']):
+        pulumi.set(self, "project", value)
+
+
+if not MYPY:
+    class PolicyGrantPrincipal3PropertiesArgsDict(TypedDict):
+        domain_unit: pulumi.Input['PolicyGrantDomainUnitPolicyGrantPrincipalArgsDict']
+elif False:
+    PolicyGrantPrincipal3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantPrincipal3PropertiesArgs:
+    def __init__(__self__, *,
+                 domain_unit: pulumi.Input['PolicyGrantDomainUnitPolicyGrantPrincipalArgs']):
+        pulumi.set(__self__, "domain_unit", domain_unit)
+
+    @property
+    @pulumi.getter(name="domainUnit")
+    def domain_unit(self) -> pulumi.Input['PolicyGrantDomainUnitPolicyGrantPrincipalArgs']:
+        return pulumi.get(self, "domain_unit")
+
+    @domain_unit.setter
+    def domain_unit(self, value: pulumi.Input['PolicyGrantDomainUnitPolicyGrantPrincipalArgs']):
+        pulumi.set(self, "domain_unit", value)
+
+
+if not MYPY:
+    class PolicyGrantProjectGrantFilterPropertiesArgsDict(TypedDict):
+        domain_unit_filter: pulumi.Input['PolicyGrantDomainUnitFilterForProjectArgsDict']
+elif False:
+    PolicyGrantProjectGrantFilterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantProjectGrantFilterPropertiesArgs:
+    def __init__(__self__, *,
+                 domain_unit_filter: pulumi.Input['PolicyGrantDomainUnitFilterForProjectArgs']):
+        pulumi.set(__self__, "domain_unit_filter", domain_unit_filter)
+
+    @property
+    @pulumi.getter(name="domainUnitFilter")
+    def domain_unit_filter(self) -> pulumi.Input['PolicyGrantDomainUnitFilterForProjectArgs']:
+        return pulumi.get(self, "domain_unit_filter")
+
+    @domain_unit_filter.setter
+    def domain_unit_filter(self, value: pulumi.Input['PolicyGrantDomainUnitFilterForProjectArgs']):
+        pulumi.set(self, "domain_unit_filter", value)
+
+
+if not MYPY:
+    class PolicyGrantProjectPolicyGrantPrincipalArgsDict(TypedDict):
+        project_designation: NotRequired[pulumi.Input['PolicyGrantProjectDesignation']]
+        project_grant_filter: NotRequired[pulumi.Input['PolicyGrantProjectGrantFilterPropertiesArgsDict']]
+        project_identifier: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    PolicyGrantProjectPolicyGrantPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantProjectPolicyGrantPrincipalArgs:
+    def __init__(__self__, *,
+                 project_designation: Optional[pulumi.Input['PolicyGrantProjectDesignation']] = None,
+                 project_grant_filter: Optional[pulumi.Input['PolicyGrantProjectGrantFilterPropertiesArgs']] = None,
+                 project_identifier: Optional[pulumi.Input[builtins.str]] = None):
+        if project_designation is not None:
+            pulumi.set(__self__, "project_designation", project_designation)
+        if project_grant_filter is not None:
+            pulumi.set(__self__, "project_grant_filter", project_grant_filter)
+        if project_identifier is not None:
+            pulumi.set(__self__, "project_identifier", project_identifier)
+
+    @property
+    @pulumi.getter(name="projectDesignation")
+    def project_designation(self) -> Optional[pulumi.Input['PolicyGrantProjectDesignation']]:
+        return pulumi.get(self, "project_designation")
+
+    @project_designation.setter
+    def project_designation(self, value: Optional[pulumi.Input['PolicyGrantProjectDesignation']]):
+        pulumi.set(self, "project_designation", value)
+
+    @property
+    @pulumi.getter(name="projectGrantFilter")
+    def project_grant_filter(self) -> Optional[pulumi.Input['PolicyGrantProjectGrantFilterPropertiesArgs']]:
+        return pulumi.get(self, "project_grant_filter")
+
+    @project_grant_filter.setter
+    def project_grant_filter(self, value: Optional[pulumi.Input['PolicyGrantProjectGrantFilterPropertiesArgs']]):
+        pulumi.set(self, "project_grant_filter", value)
+
+    @property
+    @pulumi.getter(name="projectIdentifier")
+    def project_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "project_identifier")
+
+    @project_identifier.setter
+    def project_identifier(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "project_identifier", value)
+
+
+if not MYPY:
+    class PolicyGrantUnitArgsDict(TypedDict):
+        pass
+elif False:
+    PolicyGrantUnitArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantUnitArgs:
+    def __init__(__self__):
+        pass
+
+
+if not MYPY:
+    class PolicyGrantUserPolicyGrantPrincipal0PropertiesArgsDict(TypedDict):
+        user_identifier: pulumi.Input[builtins.str]
+elif False:
+    PolicyGrantUserPolicyGrantPrincipal0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantUserPolicyGrantPrincipal0PropertiesArgs:
+    def __init__(__self__, *,
+                 user_identifier: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "user_identifier", user_identifier)
+
+    @property
+    @pulumi.getter(name="userIdentifier")
+    def user_identifier(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "user_identifier")
+
+    @user_identifier.setter
+    def user_identifier(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "user_identifier", value)
+
+
+if not MYPY:
+    class PolicyGrantUserPolicyGrantPrincipal1PropertiesArgsDict(TypedDict):
+        all_users_grant_filter: pulumi.Input['PolicyGrantAllUsersGrantFilterArgsDict']
+elif False:
+    PolicyGrantUserPolicyGrantPrincipal1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyGrantUserPolicyGrantPrincipal1PropertiesArgs:
+    def __init__(__self__, *,
+                 all_users_grant_filter: pulumi.Input['PolicyGrantAllUsersGrantFilterArgs']):
+        pulumi.set(__self__, "all_users_grant_filter", all_users_grant_filter)
+
+    @property
+    @pulumi.getter(name="allUsersGrantFilter")
+    def all_users_grant_filter(self) -> pulumi.Input['PolicyGrantAllUsersGrantFilterArgs']:
+        return pulumi.get(self, "all_users_grant_filter")
+
+    @all_users_grant_filter.setter
+    def all_users_grant_filter(self, value: pulumi.Input['PolicyGrantAllUsersGrantFilterArgs']):
+        pulumi.set(self, "all_users_grant_filter", value)
 
 
 if not MYPY:

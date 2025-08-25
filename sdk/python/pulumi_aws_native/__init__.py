@@ -936,6 +936,7 @@ _utilities.register(
   "mod": "aps",
   "fqn": "pulumi_aws_native.aps",
   "classes": {
+   "aws-native:aps:ResourcePolicy": "ResourcePolicy",
    "aws-native:aps:RuleGroupsNamespace": "RuleGroupsNamespace",
    "aws-native:aps:Scraper": "Scraper",
    "aws-native:aps:Workspace": "Workspace"
@@ -1262,7 +1263,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.codepipeline",
   "classes": {
    "aws-native:codepipeline:CustomActionType": "CustomActionType",
-   "aws-native:codepipeline:Pipeline": "Pipeline"
+   "aws-native:codepipeline:Pipeline": "Pipeline",
+   "aws-native:codepipeline:Webhook": "Webhook"
   }
  },
  {
@@ -1458,6 +1460,7 @@ _utilities.register(
    "aws-native:datazone:EnvironmentProfile": "EnvironmentProfile",
    "aws-native:datazone:GroupProfile": "GroupProfile",
    "aws-native:datazone:Owner": "Owner",
+   "aws-native:datazone:PolicyGrant": "PolicyGrant",
    "aws-native:datazone:Project": "Project",
    "aws-native:datazone:ProjectMembership": "ProjectMembership",
    "aws-native:datazone:ProjectProfile": "ProjectProfile",
@@ -1987,7 +1990,9 @@ _utilities.register(
    "aws-native:guardduty:Master": "Master",
    "aws-native:guardduty:Member": "Member",
    "aws-native:guardduty:PublishingDestination": "PublishingDestination",
-   "aws-native:guardduty:ThreatIntelSet": "ThreatIntelSet"
+   "aws-native:guardduty:ThreatEntitySet": "ThreatEntitySet",
+   "aws-native:guardduty:ThreatIntelSet": "ThreatIntelSet",
+   "aws-native:guardduty:TrustedEntitySet": "TrustedEntitySet"
   }
  },
  {
@@ -2075,6 +2080,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.inspectorv2",
   "classes": {
    "aws-native:inspectorv2:CisScanConfiguration": "CisScanConfiguration",
+   "aws-native:inspectorv2:CodeSecurityIntegration": "CodeSecurityIntegration",
+   "aws-native:inspectorv2:CodeSecurityScanConfiguration": "CodeSecurityScanConfiguration",
    "aws-native:inspectorv2:Filter": "Filter"
   }
  },

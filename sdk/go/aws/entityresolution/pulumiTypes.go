@@ -13,6 +13,141 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type IdMappingWorkflowIdMappingIncrementalRunConfig struct {
+	IncrementalRunType IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType `pulumi:"incrementalRunType"`
+}
+
+// IdMappingWorkflowIdMappingIncrementalRunConfigInput is an input type that accepts IdMappingWorkflowIdMappingIncrementalRunConfigArgs and IdMappingWorkflowIdMappingIncrementalRunConfigOutput values.
+// You can construct a concrete instance of `IdMappingWorkflowIdMappingIncrementalRunConfigInput` via:
+//
+//	IdMappingWorkflowIdMappingIncrementalRunConfigArgs{...}
+type IdMappingWorkflowIdMappingIncrementalRunConfigInput interface {
+	pulumi.Input
+
+	ToIdMappingWorkflowIdMappingIncrementalRunConfigOutput() IdMappingWorkflowIdMappingIncrementalRunConfigOutput
+	ToIdMappingWorkflowIdMappingIncrementalRunConfigOutputWithContext(context.Context) IdMappingWorkflowIdMappingIncrementalRunConfigOutput
+}
+
+type IdMappingWorkflowIdMappingIncrementalRunConfigArgs struct {
+	IncrementalRunType IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunTypeInput `pulumi:"incrementalRunType"`
+}
+
+func (IdMappingWorkflowIdMappingIncrementalRunConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdMappingWorkflowIdMappingIncrementalRunConfig)(nil)).Elem()
+}
+
+func (i IdMappingWorkflowIdMappingIncrementalRunConfigArgs) ToIdMappingWorkflowIdMappingIncrementalRunConfigOutput() IdMappingWorkflowIdMappingIncrementalRunConfigOutput {
+	return i.ToIdMappingWorkflowIdMappingIncrementalRunConfigOutputWithContext(context.Background())
+}
+
+func (i IdMappingWorkflowIdMappingIncrementalRunConfigArgs) ToIdMappingWorkflowIdMappingIncrementalRunConfigOutputWithContext(ctx context.Context) IdMappingWorkflowIdMappingIncrementalRunConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdMappingWorkflowIdMappingIncrementalRunConfigOutput)
+}
+
+func (i IdMappingWorkflowIdMappingIncrementalRunConfigArgs) ToIdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput() IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput {
+	return i.ToIdMappingWorkflowIdMappingIncrementalRunConfigPtrOutputWithContext(context.Background())
+}
+
+func (i IdMappingWorkflowIdMappingIncrementalRunConfigArgs) ToIdMappingWorkflowIdMappingIncrementalRunConfigPtrOutputWithContext(ctx context.Context) IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdMappingWorkflowIdMappingIncrementalRunConfigOutput).ToIdMappingWorkflowIdMappingIncrementalRunConfigPtrOutputWithContext(ctx)
+}
+
+// IdMappingWorkflowIdMappingIncrementalRunConfigPtrInput is an input type that accepts IdMappingWorkflowIdMappingIncrementalRunConfigArgs, IdMappingWorkflowIdMappingIncrementalRunConfigPtr and IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput values.
+// You can construct a concrete instance of `IdMappingWorkflowIdMappingIncrementalRunConfigPtrInput` via:
+//
+//	        IdMappingWorkflowIdMappingIncrementalRunConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdMappingWorkflowIdMappingIncrementalRunConfigPtrInput interface {
+	pulumi.Input
+
+	ToIdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput() IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput
+	ToIdMappingWorkflowIdMappingIncrementalRunConfigPtrOutputWithContext(context.Context) IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput
+}
+
+type idMappingWorkflowIdMappingIncrementalRunConfigPtrType IdMappingWorkflowIdMappingIncrementalRunConfigArgs
+
+func IdMappingWorkflowIdMappingIncrementalRunConfigPtr(v *IdMappingWorkflowIdMappingIncrementalRunConfigArgs) IdMappingWorkflowIdMappingIncrementalRunConfigPtrInput {
+	return (*idMappingWorkflowIdMappingIncrementalRunConfigPtrType)(v)
+}
+
+func (*idMappingWorkflowIdMappingIncrementalRunConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdMappingWorkflowIdMappingIncrementalRunConfig)(nil)).Elem()
+}
+
+func (i *idMappingWorkflowIdMappingIncrementalRunConfigPtrType) ToIdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput() IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput {
+	return i.ToIdMappingWorkflowIdMappingIncrementalRunConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *idMappingWorkflowIdMappingIncrementalRunConfigPtrType) ToIdMappingWorkflowIdMappingIncrementalRunConfigPtrOutputWithContext(ctx context.Context) IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput)
+}
+
+type IdMappingWorkflowIdMappingIncrementalRunConfigOutput struct{ *pulumi.OutputState }
+
+func (IdMappingWorkflowIdMappingIncrementalRunConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdMappingWorkflowIdMappingIncrementalRunConfig)(nil)).Elem()
+}
+
+func (o IdMappingWorkflowIdMappingIncrementalRunConfigOutput) ToIdMappingWorkflowIdMappingIncrementalRunConfigOutput() IdMappingWorkflowIdMappingIncrementalRunConfigOutput {
+	return o
+}
+
+func (o IdMappingWorkflowIdMappingIncrementalRunConfigOutput) ToIdMappingWorkflowIdMappingIncrementalRunConfigOutputWithContext(ctx context.Context) IdMappingWorkflowIdMappingIncrementalRunConfigOutput {
+	return o
+}
+
+func (o IdMappingWorkflowIdMappingIncrementalRunConfigOutput) ToIdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput() IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput {
+	return o.ToIdMappingWorkflowIdMappingIncrementalRunConfigPtrOutputWithContext(context.Background())
+}
+
+func (o IdMappingWorkflowIdMappingIncrementalRunConfigOutput) ToIdMappingWorkflowIdMappingIncrementalRunConfigPtrOutputWithContext(ctx context.Context) IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdMappingWorkflowIdMappingIncrementalRunConfig) *IdMappingWorkflowIdMappingIncrementalRunConfig {
+		return &v
+	}).(IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput)
+}
+
+func (o IdMappingWorkflowIdMappingIncrementalRunConfigOutput) IncrementalRunType() IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunTypeOutput {
+	return o.ApplyT(func(v IdMappingWorkflowIdMappingIncrementalRunConfig) IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType {
+		return v.IncrementalRunType
+	}).(IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunTypeOutput)
+}
+
+type IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdMappingWorkflowIdMappingIncrementalRunConfig)(nil)).Elem()
+}
+
+func (o IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput) ToIdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput() IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput {
+	return o
+}
+
+func (o IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput) ToIdMappingWorkflowIdMappingIncrementalRunConfigPtrOutputWithContext(ctx context.Context) IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput {
+	return o
+}
+
+func (o IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput) Elem() IdMappingWorkflowIdMappingIncrementalRunConfigOutput {
+	return o.ApplyT(func(v *IdMappingWorkflowIdMappingIncrementalRunConfig) IdMappingWorkflowIdMappingIncrementalRunConfig {
+		if v != nil {
+			return *v
+		}
+		var ret IdMappingWorkflowIdMappingIncrementalRunConfig
+		return ret
+	}).(IdMappingWorkflowIdMappingIncrementalRunConfigOutput)
+}
+
+func (o IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput) IncrementalRunType() IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunTypePtrOutput {
+	return o.ApplyT(func(v *IdMappingWorkflowIdMappingIncrementalRunConfig) *IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType {
+		if v == nil {
+			return nil
+		}
+		return &v.IncrementalRunType
+	}).(IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunTypePtrOutput)
+}
+
 type IdMappingWorkflowIdMappingRuleBasedProperties struct {
 	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
 	//
@@ -3470,6 +3605,8 @@ type SchemaMappingTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowIdMappingIncrementalRunConfigInput)(nil)).Elem(), IdMappingWorkflowIdMappingIncrementalRunConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowIdMappingIncrementalRunConfigPtrInput)(nil)).Elem(), IdMappingWorkflowIdMappingIncrementalRunConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowIdMappingRuleBasedPropertiesInput)(nil)).Elem(), IdMappingWorkflowIdMappingRuleBasedPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowIdMappingRuleBasedPropertiesPtrInput)(nil)).Elem(), IdMappingWorkflowIdMappingRuleBasedPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowIdMappingTechniquesInput)(nil)).Elem(), IdMappingWorkflowIdMappingTechniquesArgs{})
@@ -3516,6 +3653,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleConditionPropertiesPtrInput)(nil)).Elem(), MatchingWorkflowRuleConditionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMappingSchemaInputAttributeInput)(nil)).Elem(), SchemaMappingSchemaInputAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMappingSchemaInputAttributeArrayInput)(nil)).Elem(), SchemaMappingSchemaInputAttributeArray{})
+	pulumi.RegisterOutputType(IdMappingWorkflowIdMappingIncrementalRunConfigOutput{})
+	pulumi.RegisterOutputType(IdMappingWorkflowIdMappingIncrementalRunConfigPtrOutput{})
 	pulumi.RegisterOutputType(IdMappingWorkflowIdMappingRuleBasedPropertiesOutput{})
 	pulumi.RegisterOutputType(IdMappingWorkflowIdMappingRuleBasedPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IdMappingWorkflowIdMappingTechniquesOutput{})

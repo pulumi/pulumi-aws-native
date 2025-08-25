@@ -6,9 +6,11 @@ import builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_resource_policy import *
 from .get_rule_groups_namespace import *
 from .get_scraper import *
 from .get_workspace import *
+from .resource_policy import *
 from .rule_groups_namespace import *
 from .scraper import *
 from .workspace import *

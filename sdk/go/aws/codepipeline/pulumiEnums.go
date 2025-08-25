@@ -1510,6 +1510,174 @@ func (in *pipelineTypePtr) ToPipelineTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(PipelineTypePtrOutput)
 }
 
+// Supported options are GITHUB_HMAC, IP, and UNAUTHENTICATED.
+type WebhookAuthentication string
+
+const (
+	WebhookAuthenticationGithubHmac      = WebhookAuthentication("GITHUB_HMAC")
+	WebhookAuthenticationIp              = WebhookAuthentication("IP")
+	WebhookAuthenticationUnauthenticated = WebhookAuthentication("UNAUTHENTICATED")
+)
+
+func (WebhookAuthentication) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookAuthentication)(nil)).Elem()
+}
+
+func (e WebhookAuthentication) ToWebhookAuthenticationOutput() WebhookAuthenticationOutput {
+	return pulumi.ToOutput(e).(WebhookAuthenticationOutput)
+}
+
+func (e WebhookAuthentication) ToWebhookAuthenticationOutputWithContext(ctx context.Context) WebhookAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebhookAuthenticationOutput)
+}
+
+func (e WebhookAuthentication) ToWebhookAuthenticationPtrOutput() WebhookAuthenticationPtrOutput {
+	return e.ToWebhookAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (e WebhookAuthentication) ToWebhookAuthenticationPtrOutputWithContext(ctx context.Context) WebhookAuthenticationPtrOutput {
+	return WebhookAuthentication(e).ToWebhookAuthenticationOutputWithContext(ctx).ToWebhookAuthenticationPtrOutputWithContext(ctx)
+}
+
+func (e WebhookAuthentication) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebhookAuthentication) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebhookAuthentication) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebhookAuthentication) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebhookAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (WebhookAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookAuthentication)(nil)).Elem()
+}
+
+func (o WebhookAuthenticationOutput) ToWebhookAuthenticationOutput() WebhookAuthenticationOutput {
+	return o
+}
+
+func (o WebhookAuthenticationOutput) ToWebhookAuthenticationOutputWithContext(ctx context.Context) WebhookAuthenticationOutput {
+	return o
+}
+
+func (o WebhookAuthenticationOutput) ToWebhookAuthenticationPtrOutput() WebhookAuthenticationPtrOutput {
+	return o.ToWebhookAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o WebhookAuthenticationOutput) ToWebhookAuthenticationPtrOutputWithContext(ctx context.Context) WebhookAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebhookAuthentication) *WebhookAuthentication {
+		return &v
+	}).(WebhookAuthenticationPtrOutput)
+}
+
+func (o WebhookAuthenticationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebhookAuthenticationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebhookAuthentication) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebhookAuthenticationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebhookAuthenticationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebhookAuthentication) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebhookAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (WebhookAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebhookAuthentication)(nil)).Elem()
+}
+
+func (o WebhookAuthenticationPtrOutput) ToWebhookAuthenticationPtrOutput() WebhookAuthenticationPtrOutput {
+	return o
+}
+
+func (o WebhookAuthenticationPtrOutput) ToWebhookAuthenticationPtrOutputWithContext(ctx context.Context) WebhookAuthenticationPtrOutput {
+	return o
+}
+
+func (o WebhookAuthenticationPtrOutput) Elem() WebhookAuthenticationOutput {
+	return o.ApplyT(func(v *WebhookAuthentication) WebhookAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret WebhookAuthentication
+		return ret
+	}).(WebhookAuthenticationOutput)
+}
+
+func (o WebhookAuthenticationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebhookAuthenticationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebhookAuthentication) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebhookAuthenticationInput is an input type that accepts values of the WebhookAuthentication enum
+// A concrete instance of `WebhookAuthenticationInput` can be one of the following:
+//
+//	WebhookAuthenticationGithubHmac
+//	WebhookAuthenticationIp
+//	WebhookAuthenticationUnauthenticated
+type WebhookAuthenticationInput interface {
+	pulumi.Input
+
+	ToWebhookAuthenticationOutput() WebhookAuthenticationOutput
+	ToWebhookAuthenticationOutputWithContext(context.Context) WebhookAuthenticationOutput
+}
+
+var webhookAuthenticationPtrType = reflect.TypeOf((**WebhookAuthentication)(nil)).Elem()
+
+type WebhookAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToWebhookAuthenticationPtrOutput() WebhookAuthenticationPtrOutput
+	ToWebhookAuthenticationPtrOutputWithContext(context.Context) WebhookAuthenticationPtrOutput
+}
+
+type webhookAuthenticationPtr string
+
+func WebhookAuthenticationPtr(v string) WebhookAuthenticationPtrInput {
+	return (*webhookAuthenticationPtr)(&v)
+}
+
+func (*webhookAuthenticationPtr) ElementType() reflect.Type {
+	return webhookAuthenticationPtrType
+}
+
+func (in *webhookAuthenticationPtr) ToWebhookAuthenticationPtrOutput() WebhookAuthenticationPtrOutput {
+	return pulumi.ToOutput(in).(WebhookAuthenticationPtrOutput)
+}
+
+func (in *webhookAuthenticationPtr) ToWebhookAuthenticationPtrOutputWithContext(ctx context.Context) WebhookAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebhookAuthenticationPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineActionTypeIdCategoryInput)(nil)).Elem(), PipelineActionTypeIdCategory("Source"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineActionTypeIdCategoryPtrInput)(nil)).Elem(), PipelineActionTypeIdCategory("Source"))
@@ -1529,6 +1697,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerDeclarationProviderTypePtrInput)(nil)).Elem(), PipelineTriggerDeclarationProviderType("CodeStarSourceConnection"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTypeInput)(nil)).Elem(), PipelineType("V1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTypePtrInput)(nil)).Elem(), PipelineType("V1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookAuthenticationInput)(nil)).Elem(), WebhookAuthentication("GITHUB_HMAC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookAuthenticationPtrInput)(nil)).Elem(), WebhookAuthentication("GITHUB_HMAC"))
 	pulumi.RegisterOutputType(PipelineActionTypeIdCategoryOutput{})
 	pulumi.RegisterOutputType(PipelineActionTypeIdCategoryPtrOutput{})
 	pulumi.RegisterOutputType(PipelineArtifactStoreTypeOutput{})
@@ -1547,4 +1717,6 @@ func init() {
 	pulumi.RegisterOutputType(PipelineTriggerDeclarationProviderTypePtrOutput{})
 	pulumi.RegisterOutputType(PipelineTypeOutput{})
 	pulumi.RegisterOutputType(PipelineTypePtrOutput{})
+	pulumi.RegisterOutputType(WebhookAuthenticationOutput{})
+	pulumi.RegisterOutputType(WebhookAuthenticationPtrOutput{})
 }

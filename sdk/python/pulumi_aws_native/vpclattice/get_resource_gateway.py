@@ -25,13 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetResourceGatewayResult:
-    def __init__(__self__, arn=None, id=None, security_group_ids=None, tags=None):
+    def __init__(__self__, arn=None, id=None, ipv4_addresses_per_eni=None, security_group_ids=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ipv4_addresses_per_eni and not isinstance(ipv4_addresses_per_eni, int):
+            raise TypeError("Expected argument 'ipv4_addresses_per_eni' to be a int")
+        pulumi.set(__self__, "ipv4_addresses_per_eni", ipv4_addresses_per_eni)
         if security_group_ids and not isinstance(security_group_ids, list):
             raise TypeError("Expected argument 'security_group_ids' to be a list")
         pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -54,6 +57,14 @@ class GetResourceGatewayResult:
         The ID of the resource gateway.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipv4AddressesPerEni")
+    def ipv4_addresses_per_eni(self) -> Optional[builtins.int]:
+        """
+        The number of IPv4 addresses to allocate per ENI for the resource gateway
+        """
+        return pulumi.get(self, "ipv4_addresses_per_eni")
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -80,6 +91,7 @@ class AwaitableGetResourceGatewayResult(GetResourceGatewayResult):
         return GetResourceGatewayResult(
             arn=self.arn,
             id=self.id,
+            ipv4_addresses_per_eni=self.ipv4_addresses_per_eni,
             security_group_ids=self.security_group_ids,
             tags=self.tags)
 
@@ -100,6 +112,7 @@ def get_resource_gateway(arn: Optional[builtins.str] = None,
     return AwaitableGetResourceGatewayResult(
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
+        ipv4_addresses_per_eni=pulumi.get(__ret__, 'ipv4_addresses_per_eni'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_resource_gateway_output(arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -117,5 +130,6 @@ def get_resource_gateway_output(arn: Optional[pulumi.Input[builtins.str]] = None
     return __ret__.apply(lambda __response__: GetResourceGatewayResult(
         arn=pulumi.get(__response__, 'arn'),
         id=pulumi.get(__response__, 'id'),
+        ipv4_addresses_per_eni=pulumi.get(__response__, 'ipv4_addresses_per_eni'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),
         tags=pulumi.get(__response__, 'tags')))

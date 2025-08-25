@@ -18,6 +18,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'IdMappingWorkflowIdMappingIncrementalRunConfig',
     'IdMappingWorkflowIdMappingRuleBasedProperties',
     'IdMappingWorkflowIdMappingTechniques',
     'IdMappingWorkflowInputSource',
@@ -43,6 +44,35 @@ __all__ = [
     'MatchingWorkflowRuleConditionProperties',
     'SchemaMappingSchemaInputAttribute',
 ]
+
+@pulumi.output_type
+class IdMappingWorkflowIdMappingIncrementalRunConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "incrementalRunType":
+            suggest = "incremental_run_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdMappingWorkflowIdMappingIncrementalRunConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdMappingWorkflowIdMappingIncrementalRunConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdMappingWorkflowIdMappingIncrementalRunConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 incremental_run_type: 'IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType'):
+        pulumi.set(__self__, "incremental_run_type", incremental_run_type)
+
+    @property
+    @pulumi.getter(name="incrementalRunType")
+    def incremental_run_type(self) -> 'IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType':
+        return pulumi.get(self, "incremental_run_type")
+
 
 @pulumi.output_type
 class IdMappingWorkflowIdMappingRuleBasedProperties(dict):

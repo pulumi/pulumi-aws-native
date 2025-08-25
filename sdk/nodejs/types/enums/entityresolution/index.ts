@@ -2,6 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType = {
+    OnDemand: "ON_DEMAND",
+} as const;
+
+export type IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType = (typeof IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType)[keyof typeof IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType];
+
 export const IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel = {
     OneToOne: "ONE_TO_ONE",
     ManyToMany: "MANY_TO_MANY",

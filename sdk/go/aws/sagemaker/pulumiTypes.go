@@ -1236,6 +1236,435 @@ type AppTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The details of the alarm to monitor during the AMI update.
+type ClusterAlarmDetails struct {
+	// The name of the alarm.
+	AlarmName string `pulumi:"alarmName"`
+}
+
+// ClusterAlarmDetailsInput is an input type that accepts ClusterAlarmDetailsArgs and ClusterAlarmDetailsOutput values.
+// You can construct a concrete instance of `ClusterAlarmDetailsInput` via:
+//
+//	ClusterAlarmDetailsArgs{...}
+type ClusterAlarmDetailsInput interface {
+	pulumi.Input
+
+	ToClusterAlarmDetailsOutput() ClusterAlarmDetailsOutput
+	ToClusterAlarmDetailsOutputWithContext(context.Context) ClusterAlarmDetailsOutput
+}
+
+// The details of the alarm to monitor during the AMI update.
+type ClusterAlarmDetailsArgs struct {
+	// The name of the alarm.
+	AlarmName pulumi.StringInput `pulumi:"alarmName"`
+}
+
+func (ClusterAlarmDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAlarmDetails)(nil)).Elem()
+}
+
+func (i ClusterAlarmDetailsArgs) ToClusterAlarmDetailsOutput() ClusterAlarmDetailsOutput {
+	return i.ToClusterAlarmDetailsOutputWithContext(context.Background())
+}
+
+func (i ClusterAlarmDetailsArgs) ToClusterAlarmDetailsOutputWithContext(ctx context.Context) ClusterAlarmDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAlarmDetailsOutput)
+}
+
+// ClusterAlarmDetailsArrayInput is an input type that accepts ClusterAlarmDetailsArray and ClusterAlarmDetailsArrayOutput values.
+// You can construct a concrete instance of `ClusterAlarmDetailsArrayInput` via:
+//
+//	ClusterAlarmDetailsArray{ ClusterAlarmDetailsArgs{...} }
+type ClusterAlarmDetailsArrayInput interface {
+	pulumi.Input
+
+	ToClusterAlarmDetailsArrayOutput() ClusterAlarmDetailsArrayOutput
+	ToClusterAlarmDetailsArrayOutputWithContext(context.Context) ClusterAlarmDetailsArrayOutput
+}
+
+type ClusterAlarmDetailsArray []ClusterAlarmDetailsInput
+
+func (ClusterAlarmDetailsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterAlarmDetails)(nil)).Elem()
+}
+
+func (i ClusterAlarmDetailsArray) ToClusterAlarmDetailsArrayOutput() ClusterAlarmDetailsArrayOutput {
+	return i.ToClusterAlarmDetailsArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterAlarmDetailsArray) ToClusterAlarmDetailsArrayOutputWithContext(ctx context.Context) ClusterAlarmDetailsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAlarmDetailsArrayOutput)
+}
+
+// The details of the alarm to monitor during the AMI update.
+type ClusterAlarmDetailsOutput struct{ *pulumi.OutputState }
+
+func (ClusterAlarmDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAlarmDetails)(nil)).Elem()
+}
+
+func (o ClusterAlarmDetailsOutput) ToClusterAlarmDetailsOutput() ClusterAlarmDetailsOutput {
+	return o
+}
+
+func (o ClusterAlarmDetailsOutput) ToClusterAlarmDetailsOutputWithContext(ctx context.Context) ClusterAlarmDetailsOutput {
+	return o
+}
+
+// The name of the alarm.
+func (o ClusterAlarmDetailsOutput) AlarmName() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterAlarmDetails) string { return v.AlarmName }).(pulumi.StringOutput)
+}
+
+type ClusterAlarmDetailsArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterAlarmDetailsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterAlarmDetails)(nil)).Elem()
+}
+
+func (o ClusterAlarmDetailsArrayOutput) ToClusterAlarmDetailsArrayOutput() ClusterAlarmDetailsArrayOutput {
+	return o
+}
+
+func (o ClusterAlarmDetailsArrayOutput) ToClusterAlarmDetailsArrayOutputWithContext(ctx context.Context) ClusterAlarmDetailsArrayOutput {
+	return o
+}
+
+func (o ClusterAlarmDetailsArrayOutput) Index(i pulumi.IntInput) ClusterAlarmDetailsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterAlarmDetails {
+		return vs[0].([]ClusterAlarmDetails)[vs[1].(int)]
+	}).(ClusterAlarmDetailsOutput)
+}
+
+// The configuration of the size measurements of the AMI update. Using this configuration, you can specify whether SageMaker should update your instance group by an amount or percentage of instances.
+type ClusterCapacitySizeConfig struct {
+	// Specifies whether SageMaker should process the update by amount or percentage of instances.
+	Type string `pulumi:"type"`
+	// Specifies the amount or percentage of instances SageMaker updates at a time.
+	Value int `pulumi:"value"`
+}
+
+// ClusterCapacitySizeConfigInput is an input type that accepts ClusterCapacitySizeConfigArgs and ClusterCapacitySizeConfigOutput values.
+// You can construct a concrete instance of `ClusterCapacitySizeConfigInput` via:
+//
+//	ClusterCapacitySizeConfigArgs{...}
+type ClusterCapacitySizeConfigInput interface {
+	pulumi.Input
+
+	ToClusterCapacitySizeConfigOutput() ClusterCapacitySizeConfigOutput
+	ToClusterCapacitySizeConfigOutputWithContext(context.Context) ClusterCapacitySizeConfigOutput
+}
+
+// The configuration of the size measurements of the AMI update. Using this configuration, you can specify whether SageMaker should update your instance group by an amount or percentage of instances.
+type ClusterCapacitySizeConfigArgs struct {
+	// Specifies whether SageMaker should process the update by amount or percentage of instances.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies the amount or percentage of instances SageMaker updates at a time.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (ClusterCapacitySizeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCapacitySizeConfig)(nil)).Elem()
+}
+
+func (i ClusterCapacitySizeConfigArgs) ToClusterCapacitySizeConfigOutput() ClusterCapacitySizeConfigOutput {
+	return i.ToClusterCapacitySizeConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterCapacitySizeConfigArgs) ToClusterCapacitySizeConfigOutputWithContext(ctx context.Context) ClusterCapacitySizeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacitySizeConfigOutput)
+}
+
+func (i ClusterCapacitySizeConfigArgs) ToClusterCapacitySizeConfigPtrOutput() ClusterCapacitySizeConfigPtrOutput {
+	return i.ToClusterCapacitySizeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterCapacitySizeConfigArgs) ToClusterCapacitySizeConfigPtrOutputWithContext(ctx context.Context) ClusterCapacitySizeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacitySizeConfigOutput).ToClusterCapacitySizeConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterCapacitySizeConfigPtrInput is an input type that accepts ClusterCapacitySizeConfigArgs, ClusterCapacitySizeConfigPtr and ClusterCapacitySizeConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterCapacitySizeConfigPtrInput` via:
+//
+//	        ClusterCapacitySizeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterCapacitySizeConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterCapacitySizeConfigPtrOutput() ClusterCapacitySizeConfigPtrOutput
+	ToClusterCapacitySizeConfigPtrOutputWithContext(context.Context) ClusterCapacitySizeConfigPtrOutput
+}
+
+type clusterCapacitySizeConfigPtrType ClusterCapacitySizeConfigArgs
+
+func ClusterCapacitySizeConfigPtr(v *ClusterCapacitySizeConfigArgs) ClusterCapacitySizeConfigPtrInput {
+	return (*clusterCapacitySizeConfigPtrType)(v)
+}
+
+func (*clusterCapacitySizeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterCapacitySizeConfig)(nil)).Elem()
+}
+
+func (i *clusterCapacitySizeConfigPtrType) ToClusterCapacitySizeConfigPtrOutput() ClusterCapacitySizeConfigPtrOutput {
+	return i.ToClusterCapacitySizeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterCapacitySizeConfigPtrType) ToClusterCapacitySizeConfigPtrOutputWithContext(ctx context.Context) ClusterCapacitySizeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacitySizeConfigPtrOutput)
+}
+
+// The configuration of the size measurements of the AMI update. Using this configuration, you can specify whether SageMaker should update your instance group by an amount or percentage of instances.
+type ClusterCapacitySizeConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterCapacitySizeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCapacitySizeConfig)(nil)).Elem()
+}
+
+func (o ClusterCapacitySizeConfigOutput) ToClusterCapacitySizeConfigOutput() ClusterCapacitySizeConfigOutput {
+	return o
+}
+
+func (o ClusterCapacitySizeConfigOutput) ToClusterCapacitySizeConfigOutputWithContext(ctx context.Context) ClusterCapacitySizeConfigOutput {
+	return o
+}
+
+func (o ClusterCapacitySizeConfigOutput) ToClusterCapacitySizeConfigPtrOutput() ClusterCapacitySizeConfigPtrOutput {
+	return o.ToClusterCapacitySizeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterCapacitySizeConfigOutput) ToClusterCapacitySizeConfigPtrOutputWithContext(ctx context.Context) ClusterCapacitySizeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCapacitySizeConfig) *ClusterCapacitySizeConfig {
+		return &v
+	}).(ClusterCapacitySizeConfigPtrOutput)
+}
+
+// Specifies whether SageMaker should process the update by amount or percentage of instances.
+func (o ClusterCapacitySizeConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterCapacitySizeConfig) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies the amount or percentage of instances SageMaker updates at a time.
+func (o ClusterCapacitySizeConfigOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterCapacitySizeConfig) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type ClusterCapacitySizeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterCapacitySizeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterCapacitySizeConfig)(nil)).Elem()
+}
+
+func (o ClusterCapacitySizeConfigPtrOutput) ToClusterCapacitySizeConfigPtrOutput() ClusterCapacitySizeConfigPtrOutput {
+	return o
+}
+
+func (o ClusterCapacitySizeConfigPtrOutput) ToClusterCapacitySizeConfigPtrOutputWithContext(ctx context.Context) ClusterCapacitySizeConfigPtrOutput {
+	return o
+}
+
+func (o ClusterCapacitySizeConfigPtrOutput) Elem() ClusterCapacitySizeConfigOutput {
+	return o.ApplyT(func(v *ClusterCapacitySizeConfig) ClusterCapacitySizeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCapacitySizeConfig
+		return ret
+	}).(ClusterCapacitySizeConfigOutput)
+}
+
+// Specifies whether SageMaker should process the update by amount or percentage of instances.
+func (o ClusterCapacitySizeConfigPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterCapacitySizeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the amount or percentage of instances SageMaker updates at a time.
+func (o ClusterCapacitySizeConfigPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterCapacitySizeConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+// The configuration to use when updating the AMI versions.
+type ClusterDeploymentConfig struct {
+	AutoRollbackConfiguration []ClusterAlarmDetails       `pulumi:"autoRollbackConfiguration"`
+	RollingUpdatePolicy       *ClusterRollingUpdatePolicy `pulumi:"rollingUpdatePolicy"`
+	// The duration in seconds that SageMaker waits before updating more instances in the cluster.
+	WaitIntervalInSeconds *int `pulumi:"waitIntervalInSeconds"`
+}
+
+// ClusterDeploymentConfigInput is an input type that accepts ClusterDeploymentConfigArgs and ClusterDeploymentConfigOutput values.
+// You can construct a concrete instance of `ClusterDeploymentConfigInput` via:
+//
+//	ClusterDeploymentConfigArgs{...}
+type ClusterDeploymentConfigInput interface {
+	pulumi.Input
+
+	ToClusterDeploymentConfigOutput() ClusterDeploymentConfigOutput
+	ToClusterDeploymentConfigOutputWithContext(context.Context) ClusterDeploymentConfigOutput
+}
+
+// The configuration to use when updating the AMI versions.
+type ClusterDeploymentConfigArgs struct {
+	AutoRollbackConfiguration ClusterAlarmDetailsArrayInput      `pulumi:"autoRollbackConfiguration"`
+	RollingUpdatePolicy       ClusterRollingUpdatePolicyPtrInput `pulumi:"rollingUpdatePolicy"`
+	// The duration in seconds that SageMaker waits before updating more instances in the cluster.
+	WaitIntervalInSeconds pulumi.IntPtrInput `pulumi:"waitIntervalInSeconds"`
+}
+
+func (ClusterDeploymentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterDeploymentConfig)(nil)).Elem()
+}
+
+func (i ClusterDeploymentConfigArgs) ToClusterDeploymentConfigOutput() ClusterDeploymentConfigOutput {
+	return i.ToClusterDeploymentConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterDeploymentConfigArgs) ToClusterDeploymentConfigOutputWithContext(ctx context.Context) ClusterDeploymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterDeploymentConfigOutput)
+}
+
+func (i ClusterDeploymentConfigArgs) ToClusterDeploymentConfigPtrOutput() ClusterDeploymentConfigPtrOutput {
+	return i.ToClusterDeploymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterDeploymentConfigArgs) ToClusterDeploymentConfigPtrOutputWithContext(ctx context.Context) ClusterDeploymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterDeploymentConfigOutput).ToClusterDeploymentConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterDeploymentConfigPtrInput is an input type that accepts ClusterDeploymentConfigArgs, ClusterDeploymentConfigPtr and ClusterDeploymentConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterDeploymentConfigPtrInput` via:
+//
+//	        ClusterDeploymentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterDeploymentConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterDeploymentConfigPtrOutput() ClusterDeploymentConfigPtrOutput
+	ToClusterDeploymentConfigPtrOutputWithContext(context.Context) ClusterDeploymentConfigPtrOutput
+}
+
+type clusterDeploymentConfigPtrType ClusterDeploymentConfigArgs
+
+func ClusterDeploymentConfigPtr(v *ClusterDeploymentConfigArgs) ClusterDeploymentConfigPtrInput {
+	return (*clusterDeploymentConfigPtrType)(v)
+}
+
+func (*clusterDeploymentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterDeploymentConfig)(nil)).Elem()
+}
+
+func (i *clusterDeploymentConfigPtrType) ToClusterDeploymentConfigPtrOutput() ClusterDeploymentConfigPtrOutput {
+	return i.ToClusterDeploymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterDeploymentConfigPtrType) ToClusterDeploymentConfigPtrOutputWithContext(ctx context.Context) ClusterDeploymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterDeploymentConfigPtrOutput)
+}
+
+// The configuration to use when updating the AMI versions.
+type ClusterDeploymentConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterDeploymentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterDeploymentConfig)(nil)).Elem()
+}
+
+func (o ClusterDeploymentConfigOutput) ToClusterDeploymentConfigOutput() ClusterDeploymentConfigOutput {
+	return o
+}
+
+func (o ClusterDeploymentConfigOutput) ToClusterDeploymentConfigOutputWithContext(ctx context.Context) ClusterDeploymentConfigOutput {
+	return o
+}
+
+func (o ClusterDeploymentConfigOutput) ToClusterDeploymentConfigPtrOutput() ClusterDeploymentConfigPtrOutput {
+	return o.ToClusterDeploymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterDeploymentConfigOutput) ToClusterDeploymentConfigPtrOutputWithContext(ctx context.Context) ClusterDeploymentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterDeploymentConfig) *ClusterDeploymentConfig {
+		return &v
+	}).(ClusterDeploymentConfigPtrOutput)
+}
+
+func (o ClusterDeploymentConfigOutput) AutoRollbackConfiguration() ClusterAlarmDetailsArrayOutput {
+	return o.ApplyT(func(v ClusterDeploymentConfig) []ClusterAlarmDetails { return v.AutoRollbackConfiguration }).(ClusterAlarmDetailsArrayOutput)
+}
+
+func (o ClusterDeploymentConfigOutput) RollingUpdatePolicy() ClusterRollingUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v ClusterDeploymentConfig) *ClusterRollingUpdatePolicy { return v.RollingUpdatePolicy }).(ClusterRollingUpdatePolicyPtrOutput)
+}
+
+// The duration in seconds that SageMaker waits before updating more instances in the cluster.
+func (o ClusterDeploymentConfigOutput) WaitIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterDeploymentConfig) *int { return v.WaitIntervalInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type ClusterDeploymentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterDeploymentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterDeploymentConfig)(nil)).Elem()
+}
+
+func (o ClusterDeploymentConfigPtrOutput) ToClusterDeploymentConfigPtrOutput() ClusterDeploymentConfigPtrOutput {
+	return o
+}
+
+func (o ClusterDeploymentConfigPtrOutput) ToClusterDeploymentConfigPtrOutputWithContext(ctx context.Context) ClusterDeploymentConfigPtrOutput {
+	return o
+}
+
+func (o ClusterDeploymentConfigPtrOutput) Elem() ClusterDeploymentConfigOutput {
+	return o.ApplyT(func(v *ClusterDeploymentConfig) ClusterDeploymentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterDeploymentConfig
+		return ret
+	}).(ClusterDeploymentConfigOutput)
+}
+
+func (o ClusterDeploymentConfigPtrOutput) AutoRollbackConfiguration() ClusterAlarmDetailsArrayOutput {
+	return o.ApplyT(func(v *ClusterDeploymentConfig) []ClusterAlarmDetails {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRollbackConfiguration
+	}).(ClusterAlarmDetailsArrayOutput)
+}
+
+func (o ClusterDeploymentConfigPtrOutput) RollingUpdatePolicy() ClusterRollingUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v *ClusterDeploymentConfig) *ClusterRollingUpdatePolicy {
+		if v == nil {
+			return nil
+		}
+		return v.RollingUpdatePolicy
+	}).(ClusterRollingUpdatePolicyPtrOutput)
+}
+
+// The duration in seconds that SageMaker waits before updating more instances in the cluster.
+func (o ClusterDeploymentConfigPtrOutput) WaitIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterDeploymentConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WaitIntervalInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 // The configuration for the restricted instance groups (RIG) environment.
 type ClusterEnvironmentConfig struct {
 	FSxLustreConfig *ClusterFSxLustreConfig `pulumi:"fSxLustreConfig"`
@@ -1461,6 +1890,7 @@ type ClusterInstanceGroup struct {
 	LifeCycleConfig         ClusterLifeCycleConfig         `pulumi:"lifeCycleConfig"`
 	OnStartDeepHealthChecks []ClusterDeepHealthCheckType   `pulumi:"onStartDeepHealthChecks"`
 	OverrideVpcConfig       *ClusterVpcConfig              `pulumi:"overrideVpcConfig"`
+	ScheduledUpdateConfig   *ClusterScheduledUpdateConfig  `pulumi:"scheduledUpdateConfig"`
 	// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
 	ThreadsPerCore *int `pulumi:"threadsPerCore"`
 	// The Amazon Resource Name (ARN) of the training plan to use for this cluster instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
@@ -1492,6 +1922,7 @@ type ClusterInstanceGroupArgs struct {
 	LifeCycleConfig         ClusterLifeCycleConfigInput            `pulumi:"lifeCycleConfig"`
 	OnStartDeepHealthChecks ClusterDeepHealthCheckTypeArrayInput   `pulumi:"onStartDeepHealthChecks"`
 	OverrideVpcConfig       ClusterVpcConfigPtrInput               `pulumi:"overrideVpcConfig"`
+	ScheduledUpdateConfig   ClusterScheduledUpdateConfigPtrInput   `pulumi:"scheduledUpdateConfig"`
 	// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
 	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
 	// The Amazon Resource Name (ARN) of the training plan to use for this cluster instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
@@ -1590,6 +2021,10 @@ func (o ClusterInstanceGroupOutput) OnStartDeepHealthChecks() ClusterDeepHealthC
 
 func (o ClusterInstanceGroupOutput) OverrideVpcConfig() ClusterVpcConfigPtrOutput {
 	return o.ApplyT(func(v ClusterInstanceGroup) *ClusterVpcConfig { return v.OverrideVpcConfig }).(ClusterVpcConfigPtrOutput)
+}
+
+func (o ClusterInstanceGroupOutput) ScheduledUpdateConfig() ClusterScheduledUpdateConfigPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) *ClusterScheduledUpdateConfig { return v.ScheduledUpdateConfig }).(ClusterScheduledUpdateConfigPtrOutput)
 }
 
 // The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
@@ -2224,6 +2659,312 @@ func (o ClusterRestrictedInstanceGroupArrayOutput) Index(i pulumi.IntInput) Clus
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterRestrictedInstanceGroup {
 		return vs[0].([]ClusterRestrictedInstanceGroup)[vs[1].(int)]
 	}).(ClusterRestrictedInstanceGroupOutput)
+}
+
+// The policy that SageMaker uses when updating the AMI versions of the cluster.
+type ClusterRollingUpdatePolicy struct {
+	MaximumBatchSize         ClusterCapacitySizeConfig  `pulumi:"maximumBatchSize"`
+	RollbackMaximumBatchSize *ClusterCapacitySizeConfig `pulumi:"rollbackMaximumBatchSize"`
+}
+
+// ClusterRollingUpdatePolicyInput is an input type that accepts ClusterRollingUpdatePolicyArgs and ClusterRollingUpdatePolicyOutput values.
+// You can construct a concrete instance of `ClusterRollingUpdatePolicyInput` via:
+//
+//	ClusterRollingUpdatePolicyArgs{...}
+type ClusterRollingUpdatePolicyInput interface {
+	pulumi.Input
+
+	ToClusterRollingUpdatePolicyOutput() ClusterRollingUpdatePolicyOutput
+	ToClusterRollingUpdatePolicyOutputWithContext(context.Context) ClusterRollingUpdatePolicyOutput
+}
+
+// The policy that SageMaker uses when updating the AMI versions of the cluster.
+type ClusterRollingUpdatePolicyArgs struct {
+	MaximumBatchSize         ClusterCapacitySizeConfigInput    `pulumi:"maximumBatchSize"`
+	RollbackMaximumBatchSize ClusterCapacitySizeConfigPtrInput `pulumi:"rollbackMaximumBatchSize"`
+}
+
+func (ClusterRollingUpdatePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (i ClusterRollingUpdatePolicyArgs) ToClusterRollingUpdatePolicyOutput() ClusterRollingUpdatePolicyOutput {
+	return i.ToClusterRollingUpdatePolicyOutputWithContext(context.Background())
+}
+
+func (i ClusterRollingUpdatePolicyArgs) ToClusterRollingUpdatePolicyOutputWithContext(ctx context.Context) ClusterRollingUpdatePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRollingUpdatePolicyOutput)
+}
+
+func (i ClusterRollingUpdatePolicyArgs) ToClusterRollingUpdatePolicyPtrOutput() ClusterRollingUpdatePolicyPtrOutput {
+	return i.ToClusterRollingUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterRollingUpdatePolicyArgs) ToClusterRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) ClusterRollingUpdatePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRollingUpdatePolicyOutput).ToClusterRollingUpdatePolicyPtrOutputWithContext(ctx)
+}
+
+// ClusterRollingUpdatePolicyPtrInput is an input type that accepts ClusterRollingUpdatePolicyArgs, ClusterRollingUpdatePolicyPtr and ClusterRollingUpdatePolicyPtrOutput values.
+// You can construct a concrete instance of `ClusterRollingUpdatePolicyPtrInput` via:
+//
+//	        ClusterRollingUpdatePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterRollingUpdatePolicyPtrInput interface {
+	pulumi.Input
+
+	ToClusterRollingUpdatePolicyPtrOutput() ClusterRollingUpdatePolicyPtrOutput
+	ToClusterRollingUpdatePolicyPtrOutputWithContext(context.Context) ClusterRollingUpdatePolicyPtrOutput
+}
+
+type clusterRollingUpdatePolicyPtrType ClusterRollingUpdatePolicyArgs
+
+func ClusterRollingUpdatePolicyPtr(v *ClusterRollingUpdatePolicyArgs) ClusterRollingUpdatePolicyPtrInput {
+	return (*clusterRollingUpdatePolicyPtrType)(v)
+}
+
+func (*clusterRollingUpdatePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (i *clusterRollingUpdatePolicyPtrType) ToClusterRollingUpdatePolicyPtrOutput() ClusterRollingUpdatePolicyPtrOutput {
+	return i.ToClusterRollingUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterRollingUpdatePolicyPtrType) ToClusterRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) ClusterRollingUpdatePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRollingUpdatePolicyPtrOutput)
+}
+
+// The policy that SageMaker uses when updating the AMI versions of the cluster.
+type ClusterRollingUpdatePolicyOutput struct{ *pulumi.OutputState }
+
+func (ClusterRollingUpdatePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (o ClusterRollingUpdatePolicyOutput) ToClusterRollingUpdatePolicyOutput() ClusterRollingUpdatePolicyOutput {
+	return o
+}
+
+func (o ClusterRollingUpdatePolicyOutput) ToClusterRollingUpdatePolicyOutputWithContext(ctx context.Context) ClusterRollingUpdatePolicyOutput {
+	return o
+}
+
+func (o ClusterRollingUpdatePolicyOutput) ToClusterRollingUpdatePolicyPtrOutput() ClusterRollingUpdatePolicyPtrOutput {
+	return o.ToClusterRollingUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterRollingUpdatePolicyOutput) ToClusterRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) ClusterRollingUpdatePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterRollingUpdatePolicy) *ClusterRollingUpdatePolicy {
+		return &v
+	}).(ClusterRollingUpdatePolicyPtrOutput)
+}
+
+func (o ClusterRollingUpdatePolicyOutput) MaximumBatchSize() ClusterCapacitySizeConfigOutput {
+	return o.ApplyT(func(v ClusterRollingUpdatePolicy) ClusterCapacitySizeConfig { return v.MaximumBatchSize }).(ClusterCapacitySizeConfigOutput)
+}
+
+func (o ClusterRollingUpdatePolicyOutput) RollbackMaximumBatchSize() ClusterCapacitySizeConfigPtrOutput {
+	return o.ApplyT(func(v ClusterRollingUpdatePolicy) *ClusterCapacitySizeConfig { return v.RollbackMaximumBatchSize }).(ClusterCapacitySizeConfigPtrOutput)
+}
+
+type ClusterRollingUpdatePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterRollingUpdatePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (o ClusterRollingUpdatePolicyPtrOutput) ToClusterRollingUpdatePolicyPtrOutput() ClusterRollingUpdatePolicyPtrOutput {
+	return o
+}
+
+func (o ClusterRollingUpdatePolicyPtrOutput) ToClusterRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) ClusterRollingUpdatePolicyPtrOutput {
+	return o
+}
+
+func (o ClusterRollingUpdatePolicyPtrOutput) Elem() ClusterRollingUpdatePolicyOutput {
+	return o.ApplyT(func(v *ClusterRollingUpdatePolicy) ClusterRollingUpdatePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterRollingUpdatePolicy
+		return ret
+	}).(ClusterRollingUpdatePolicyOutput)
+}
+
+func (o ClusterRollingUpdatePolicyPtrOutput) MaximumBatchSize() ClusterCapacitySizeConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterRollingUpdatePolicy) *ClusterCapacitySizeConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumBatchSize
+	}).(ClusterCapacitySizeConfigPtrOutput)
+}
+
+func (o ClusterRollingUpdatePolicyPtrOutput) RollbackMaximumBatchSize() ClusterCapacitySizeConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterRollingUpdatePolicy) *ClusterCapacitySizeConfig {
+		if v == nil {
+			return nil
+		}
+		return v.RollbackMaximumBatchSize
+	}).(ClusterCapacitySizeConfigPtrOutput)
+}
+
+// The configuration object of the schedule that SageMaker follows when updating the AMI.
+type ClusterScheduledUpdateConfig struct {
+	DeploymentConfig *ClusterDeploymentConfig `pulumi:"deploymentConfig"`
+	// A cron expression that specifies the schedule that SageMaker follows when updating the AMI.
+	ScheduleExpression string `pulumi:"scheduleExpression"`
+}
+
+// ClusterScheduledUpdateConfigInput is an input type that accepts ClusterScheduledUpdateConfigArgs and ClusterScheduledUpdateConfigOutput values.
+// You can construct a concrete instance of `ClusterScheduledUpdateConfigInput` via:
+//
+//	ClusterScheduledUpdateConfigArgs{...}
+type ClusterScheduledUpdateConfigInput interface {
+	pulumi.Input
+
+	ToClusterScheduledUpdateConfigOutput() ClusterScheduledUpdateConfigOutput
+	ToClusterScheduledUpdateConfigOutputWithContext(context.Context) ClusterScheduledUpdateConfigOutput
+}
+
+// The configuration object of the schedule that SageMaker follows when updating the AMI.
+type ClusterScheduledUpdateConfigArgs struct {
+	DeploymentConfig ClusterDeploymentConfigPtrInput `pulumi:"deploymentConfig"`
+	// A cron expression that specifies the schedule that SageMaker follows when updating the AMI.
+	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
+}
+
+func (ClusterScheduledUpdateConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScheduledUpdateConfig)(nil)).Elem()
+}
+
+func (i ClusterScheduledUpdateConfigArgs) ToClusterScheduledUpdateConfigOutput() ClusterScheduledUpdateConfigOutput {
+	return i.ToClusterScheduledUpdateConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterScheduledUpdateConfigArgs) ToClusterScheduledUpdateConfigOutputWithContext(ctx context.Context) ClusterScheduledUpdateConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterScheduledUpdateConfigOutput)
+}
+
+func (i ClusterScheduledUpdateConfigArgs) ToClusterScheduledUpdateConfigPtrOutput() ClusterScheduledUpdateConfigPtrOutput {
+	return i.ToClusterScheduledUpdateConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterScheduledUpdateConfigArgs) ToClusterScheduledUpdateConfigPtrOutputWithContext(ctx context.Context) ClusterScheduledUpdateConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterScheduledUpdateConfigOutput).ToClusterScheduledUpdateConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterScheduledUpdateConfigPtrInput is an input type that accepts ClusterScheduledUpdateConfigArgs, ClusterScheduledUpdateConfigPtr and ClusterScheduledUpdateConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterScheduledUpdateConfigPtrInput` via:
+//
+//	        ClusterScheduledUpdateConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterScheduledUpdateConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterScheduledUpdateConfigPtrOutput() ClusterScheduledUpdateConfigPtrOutput
+	ToClusterScheduledUpdateConfigPtrOutputWithContext(context.Context) ClusterScheduledUpdateConfigPtrOutput
+}
+
+type clusterScheduledUpdateConfigPtrType ClusterScheduledUpdateConfigArgs
+
+func ClusterScheduledUpdateConfigPtr(v *ClusterScheduledUpdateConfigArgs) ClusterScheduledUpdateConfigPtrInput {
+	return (*clusterScheduledUpdateConfigPtrType)(v)
+}
+
+func (*clusterScheduledUpdateConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterScheduledUpdateConfig)(nil)).Elem()
+}
+
+func (i *clusterScheduledUpdateConfigPtrType) ToClusterScheduledUpdateConfigPtrOutput() ClusterScheduledUpdateConfigPtrOutput {
+	return i.ToClusterScheduledUpdateConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterScheduledUpdateConfigPtrType) ToClusterScheduledUpdateConfigPtrOutputWithContext(ctx context.Context) ClusterScheduledUpdateConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterScheduledUpdateConfigPtrOutput)
+}
+
+// The configuration object of the schedule that SageMaker follows when updating the AMI.
+type ClusterScheduledUpdateConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterScheduledUpdateConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScheduledUpdateConfig)(nil)).Elem()
+}
+
+func (o ClusterScheduledUpdateConfigOutput) ToClusterScheduledUpdateConfigOutput() ClusterScheduledUpdateConfigOutput {
+	return o
+}
+
+func (o ClusterScheduledUpdateConfigOutput) ToClusterScheduledUpdateConfigOutputWithContext(ctx context.Context) ClusterScheduledUpdateConfigOutput {
+	return o
+}
+
+func (o ClusterScheduledUpdateConfigOutput) ToClusterScheduledUpdateConfigPtrOutput() ClusterScheduledUpdateConfigPtrOutput {
+	return o.ToClusterScheduledUpdateConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterScheduledUpdateConfigOutput) ToClusterScheduledUpdateConfigPtrOutputWithContext(ctx context.Context) ClusterScheduledUpdateConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterScheduledUpdateConfig) *ClusterScheduledUpdateConfig {
+		return &v
+	}).(ClusterScheduledUpdateConfigPtrOutput)
+}
+
+func (o ClusterScheduledUpdateConfigOutput) DeploymentConfig() ClusterDeploymentConfigPtrOutput {
+	return o.ApplyT(func(v ClusterScheduledUpdateConfig) *ClusterDeploymentConfig { return v.DeploymentConfig }).(ClusterDeploymentConfigPtrOutput)
+}
+
+// A cron expression that specifies the schedule that SageMaker follows when updating the AMI.
+func (o ClusterScheduledUpdateConfigOutput) ScheduleExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterScheduledUpdateConfig) string { return v.ScheduleExpression }).(pulumi.StringOutput)
+}
+
+type ClusterScheduledUpdateConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterScheduledUpdateConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterScheduledUpdateConfig)(nil)).Elem()
+}
+
+func (o ClusterScheduledUpdateConfigPtrOutput) ToClusterScheduledUpdateConfigPtrOutput() ClusterScheduledUpdateConfigPtrOutput {
+	return o
+}
+
+func (o ClusterScheduledUpdateConfigPtrOutput) ToClusterScheduledUpdateConfigPtrOutputWithContext(ctx context.Context) ClusterScheduledUpdateConfigPtrOutput {
+	return o
+}
+
+func (o ClusterScheduledUpdateConfigPtrOutput) Elem() ClusterScheduledUpdateConfigOutput {
+	return o.ApplyT(func(v *ClusterScheduledUpdateConfig) ClusterScheduledUpdateConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterScheduledUpdateConfig
+		return ret
+	}).(ClusterScheduledUpdateConfigOutput)
+}
+
+func (o ClusterScheduledUpdateConfigPtrOutput) DeploymentConfig() ClusterDeploymentConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterScheduledUpdateConfig) *ClusterDeploymentConfig {
+		if v == nil {
+			return nil
+		}
+		return v.DeploymentConfig
+	}).(ClusterDeploymentConfigPtrOutput)
+}
+
+// A cron expression that specifies the schedule that SageMaker follows when updating the AMI.
+func (o ClusterScheduledUpdateConfigPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterScheduledUpdateConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScheduleExpression
+	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -46878,6 +47619,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigKernelSpecArrayInput)(nil)).Elem(), AppImageConfigKernelSpecArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecInput)(nil)).Elem(), AppResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecPtrInput)(nil)).Elem(), AppResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAlarmDetailsInput)(nil)).Elem(), ClusterAlarmDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAlarmDetailsArrayInput)(nil)).Elem(), ClusterAlarmDetailsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacitySizeConfigInput)(nil)).Elem(), ClusterCapacitySizeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacitySizeConfigPtrInput)(nil)).Elem(), ClusterCapacitySizeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDeploymentConfigInput)(nil)).Elem(), ClusterDeploymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDeploymentConfigPtrInput)(nil)).Elem(), ClusterDeploymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEnvironmentConfigInput)(nil)).Elem(), ClusterEnvironmentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFSxLustreConfigInput)(nil)).Elem(), ClusterFSxLustreConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFSxLustreConfigPtrInput)(nil)).Elem(), ClusterFSxLustreConfigArgs{})
@@ -46892,6 +47639,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorEksConfigPtrInput)(nil)).Elem(), ClusterOrchestratorEksConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestrictedInstanceGroupInput)(nil)).Elem(), ClusterRestrictedInstanceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestrictedInstanceGroupArrayInput)(nil)).Elem(), ClusterRestrictedInstanceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRollingUpdatePolicyInput)(nil)).Elem(), ClusterRollingUpdatePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRollingUpdatePolicyPtrInput)(nil)).Elem(), ClusterRollingUpdatePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScheduledUpdateConfigInput)(nil)).Elem(), ClusterScheduledUpdateConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScheduledUpdateConfigPtrInput)(nil)).Elem(), ClusterScheduledUpdateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigInput)(nil)).Elem(), ClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigPtrInput)(nil)).Elem(), ClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputArgs{})
@@ -47434,6 +48185,12 @@ func init() {
 	pulumi.RegisterOutputType(AppImageConfigKernelSpecArrayOutput{})
 	pulumi.RegisterOutputType(AppResourceSpecOutput{})
 	pulumi.RegisterOutputType(AppResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(ClusterAlarmDetailsOutput{})
+	pulumi.RegisterOutputType(ClusterAlarmDetailsArrayOutput{})
+	pulumi.RegisterOutputType(ClusterCapacitySizeConfigOutput{})
+	pulumi.RegisterOutputType(ClusterCapacitySizeConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterDeploymentConfigOutput{})
+	pulumi.RegisterOutputType(ClusterDeploymentConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEnvironmentConfigOutput{})
 	pulumi.RegisterOutputType(ClusterFSxLustreConfigOutput{})
 	pulumi.RegisterOutputType(ClusterFSxLustreConfigPtrOutput{})
@@ -47448,6 +48205,10 @@ func init() {
 	pulumi.RegisterOutputType(ClusterOrchestratorEksConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterRestrictedInstanceGroupOutput{})
 	pulumi.RegisterOutputType(ClusterRestrictedInstanceGroupArrayOutput{})
+	pulumi.RegisterOutputType(ClusterRollingUpdatePolicyOutput{})
+	pulumi.RegisterOutputType(ClusterRollingUpdatePolicyPtrOutput{})
+	pulumi.RegisterOutputType(ClusterScheduledUpdateConfigOutput{})
+	pulumi.RegisterOutputType(ClusterScheduledUpdateConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputOutput{})

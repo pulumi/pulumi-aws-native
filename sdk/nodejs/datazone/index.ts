@@ -90,6 +90,11 @@ export const getGroupProfile: typeof import("./getGroupProfile").getGroupProfile
 export const getGroupProfileOutput: typeof import("./getGroupProfile").getGroupProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getGroupProfile","getGroupProfileOutput"], () => require("./getGroupProfile"));
 
+export { GetPolicyGrantArgs, GetPolicyGrantResult, GetPolicyGrantOutputArgs } from "./getPolicyGrant";
+export const getPolicyGrant: typeof import("./getPolicyGrant").getPolicyGrant = null as any;
+export const getPolicyGrantOutput: typeof import("./getPolicyGrant").getPolicyGrantOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicyGrant","getPolicyGrantOutput"], () => require("./getPolicyGrant"));
+
 export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
 export const getProject: typeof import("./getProject").getProject = null as any;
 export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
@@ -119,6 +124,11 @@ export { OwnerArgs } from "./owner";
 export type Owner = import("./owner").Owner;
 export const Owner: typeof import("./owner").Owner = null as any;
 utilities.lazyLoad(exports, ["Owner"], () => require("./owner"));
+
+export { PolicyGrantArgs } from "./policyGrant";
+export type PolicyGrant = import("./policyGrant").PolicyGrant;
+export const PolicyGrant: typeof import("./policyGrant").PolicyGrant = null as any;
+utilities.lazyLoad(exports, ["PolicyGrant"], () => require("./policyGrant"));
 
 export { ProjectArgs } from "./project";
 export type Project = import("./project").Project;
@@ -173,6 +183,8 @@ const _module = {
                 return new GroupProfile(name, <any>undefined, { urn })
             case "aws-native:datazone:Owner":
                 return new Owner(name, <any>undefined, { urn })
+            case "aws-native:datazone:PolicyGrant":
+                return new PolicyGrant(name, <any>undefined, { urn })
             case "aws-native:datazone:Project":
                 return new Project(name, <any>undefined, { urn })
             case "aws-native:datazone:ProjectMembership":

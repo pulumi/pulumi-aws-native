@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.GuardDuty
     public partial class IpSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicates whether or not GuardDuty uses the `IPSet` .
+        /// A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to prevent generating findings based on an activity associated with these entries, this list must be active.
         /// </summary>
         [Output("activate")]
         public Output<bool?> Activate { get; private set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.GuardDuty
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
         /// <summary>
-        /// The format of the file that contains the IPSet.
+        /// The format of the file that contains the IPSet. For information about supported formats, see [List formats](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#prepare_list) in the *Amazon GuardDuty User Guide* .
         /// </summary>
         [Output("format")]
         public Output<string> Format { get; private set; } = null!;
@@ -56,13 +56,13 @@ namespace Pulumi.AwsNative.GuardDuty
         /// <summary>
         /// The user-friendly name to identify the IPSet.
         /// 
-        /// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+        /// The name of your list must be unique within an AWS account and Region. Valid characters are alphanumeric, whitespace, dash (-), and underscores (_).
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+        /// The tags to be added to a new threat entity set resource. Each tag consists of a key and an optional value, both of which you define.
         /// 
         /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AwsNative.GuardDuty
     public sealed class IpSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether or not GuardDuty uses the `IPSet` .
+        /// A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to prevent generating findings based on an activity associated with these entries, this list must be active.
         /// </summary>
         [Input("activate")]
         public Input<bool>? Activate { get; set; }
@@ -143,7 +143,7 @@ namespace Pulumi.AwsNative.GuardDuty
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// The format of the file that contains the IPSet.
+        /// The format of the file that contains the IPSet. For information about supported formats, see [List formats](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#prepare_list) in the *Amazon GuardDuty User Guide* .
         /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.AwsNative.GuardDuty
         /// <summary>
         /// The user-friendly name to identify the IPSet.
         /// 
-        /// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+        /// The name of your list must be unique within an AWS account and Region. Valid characters are alphanumeric, whitespace, dash (-), and underscores (_).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -166,7 +166,7 @@ namespace Pulumi.AwsNative.GuardDuty
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+        /// The tags to be added to a new threat entity set resource. Each tag consists of a key and an optional value, both of which you define.
         /// 
         /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>

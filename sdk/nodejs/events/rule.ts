@@ -120,6 +120,10 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly state!: pulumi.Output<enums.events.RuleState | undefined>;
     /**
+     * Any tags assigned to the event rule.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
      * Targets are the resources that are invoked when a rule is triggered.
      */
@@ -143,6 +147,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targets"] = args ? args.targets : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
@@ -154,6 +159,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["scheduleExpression"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targets"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -197,6 +203,10 @@ export interface RuleArgs {
      * The state of the rule.
      */
     state?: pulumi.Input<enums.events.RuleState>;
+    /**
+     * Any tags assigned to the event rule.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
      * Targets are the resources that are invoked when a rule is triggered.

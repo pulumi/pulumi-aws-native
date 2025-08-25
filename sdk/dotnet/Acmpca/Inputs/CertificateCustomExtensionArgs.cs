@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
 
     /// <summary>
     /// Specifies the X.509 extension information for a certificate.
-    ///  Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough`` [template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
+    ///  Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough``[template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
     /// </summary>
     public sealed class CertificateCustomExtensionArgs : global::Pulumi.ResourceArgs
     {

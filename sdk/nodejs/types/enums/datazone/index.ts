@@ -144,6 +144,29 @@ export const OwnerEntityType = {
  */
 export type OwnerEntityType = (typeof OwnerEntityType)[keyof typeof OwnerEntityType];
 
+export const PolicyGrantDomainUnitDesignation = {
+    Owner: "OWNER",
+} as const;
+
+export type PolicyGrantDomainUnitDesignation = (typeof PolicyGrantDomainUnitDesignation)[keyof typeof PolicyGrantDomainUnitDesignation];
+
+export const PolicyGrantProjectDesignation = {
+    Owner: "OWNER",
+    Contributor: "CONTRIBUTOR",
+    ProjectCatalogSteward: "PROJECT_CATALOG_STEWARD",
+} as const;
+
+export type PolicyGrantProjectDesignation = (typeof PolicyGrantProjectDesignation)[keyof typeof PolicyGrantProjectDesignation];
+
+export const PolicyGrantTargetEntityType = {
+    DomainUnit: "DomainUnit",
+    EnvironmentBlueprintConfiguration: "EnvironmentBlueprintConfiguration",
+    EnvironmentProfile: "EnvironmentProfile",
+    AssetType: "ASSET_TYPE",
+} as const;
+
+export type PolicyGrantTargetEntityType = (typeof PolicyGrantTargetEntityType)[keyof typeof PolicyGrantTargetEntityType];
+
 export const ProjectMembershipUserDesignation = {
     ProjectOwner: "PROJECT_OWNER",
     ProjectContributor: "PROJECT_CONTRIBUTOR",

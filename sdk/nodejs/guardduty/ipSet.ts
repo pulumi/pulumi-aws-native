@@ -38,7 +38,7 @@ export class IpSet extends pulumi.CustomResource {
     }
 
     /**
-     * Indicates whether or not GuardDuty uses the `IPSet` .
+     * A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to prevent generating findings based on an activity associated with these entries, this list must be active.
      */
     public readonly activate!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly awsId!: pulumi.Output<string>;
@@ -56,7 +56,7 @@ export class IpSet extends pulumi.CustomResource {
      */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
-     * The format of the file that contains the IPSet.
+     * The format of the file that contains the IPSet. For information about supported formats, see [List formats](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#prepare_list) in the *Amazon GuardDuty User Guide* .
      */
     public readonly format!: pulumi.Output<string>;
     /**
@@ -66,11 +66,11 @@ export class IpSet extends pulumi.CustomResource {
     /**
      * The user-friendly name to identify the IPSet.
      *
-     * Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+     * The name of your list must be unique within an AWS account and Region. Valid characters are alphanumeric, whitespace, dash (-), and underscores (_).
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+     * The tags to be added to a new threat entity set resource. Each tag consists of a key and an optional value, both of which you define.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
@@ -123,7 +123,7 @@ export class IpSet extends pulumi.CustomResource {
  */
 export interface IpSetArgs {
     /**
-     * Indicates whether or not GuardDuty uses the `IPSet` .
+     * A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to prevent generating findings based on an activity associated with these entries, this list must be active.
      */
     activate?: pulumi.Input<boolean>;
     /**
@@ -140,7 +140,7 @@ export interface IpSetArgs {
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
-     * The format of the file that contains the IPSet.
+     * The format of the file that contains the IPSet. For information about supported formats, see [List formats](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#prepare_list) in the *Amazon GuardDuty User Guide* .
      */
     format: pulumi.Input<string>;
     /**
@@ -150,11 +150,11 @@ export interface IpSetArgs {
     /**
      * The user-friendly name to identify the IPSet.
      *
-     * Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+     * The name of your list must be unique within an AWS account and Region. Valid characters are alphanumeric, whitespace, dash (-), and underscores (_).
      */
     name?: pulumi.Input<string>;
     /**
-     * The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+     * The tags to be added to a new threat entity set resource. Each tag consists of a key and an optional value, both of which you define.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */

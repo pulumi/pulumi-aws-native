@@ -135,6 +135,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// The SAML metadata of the service provider.
         /// </summary>
         public readonly string? ServiceProviderSamlMetadata;
+        /// <summary>
+        /// The ARN of the session logger that is assocaited with the portal.
+        /// </summary>
         public readonly string? SessionLoggerArn;
         /// <summary>
         /// A message that explains why the web portal is in its current status.

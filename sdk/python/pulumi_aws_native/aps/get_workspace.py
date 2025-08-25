@@ -83,9 +83,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional['outputs.WorkspaceLoggingConfiguration']:
         """
-        Contains information about the current rules and alerting logging configuration for the workspace.
-
-        > These logging configurations are only for rules and alerting logs.
+        Contains information about the logging configuration for the workspace.
         """
         return pulumi.get(self, "logging_configuration")
 

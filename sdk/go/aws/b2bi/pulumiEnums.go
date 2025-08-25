@@ -2354,6 +2354,171 @@ func (in *profileLoggingPtr) ToProfileLoggingPtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(ProfileLoggingPtrOutput)
 }
 
+type TransformerElementRequirement string
+
+const (
+	TransformerElementRequirementOptional  = TransformerElementRequirement("OPTIONAL")
+	TransformerElementRequirementMandatory = TransformerElementRequirement("MANDATORY")
+)
+
+func (TransformerElementRequirement) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerElementRequirement)(nil)).Elem()
+}
+
+func (e TransformerElementRequirement) ToTransformerElementRequirementOutput() TransformerElementRequirementOutput {
+	return pulumi.ToOutput(e).(TransformerElementRequirementOutput)
+}
+
+func (e TransformerElementRequirement) ToTransformerElementRequirementOutputWithContext(ctx context.Context) TransformerElementRequirementOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransformerElementRequirementOutput)
+}
+
+func (e TransformerElementRequirement) ToTransformerElementRequirementPtrOutput() TransformerElementRequirementPtrOutput {
+	return e.ToTransformerElementRequirementPtrOutputWithContext(context.Background())
+}
+
+func (e TransformerElementRequirement) ToTransformerElementRequirementPtrOutputWithContext(ctx context.Context) TransformerElementRequirementPtrOutput {
+	return TransformerElementRequirement(e).ToTransformerElementRequirementOutputWithContext(ctx).ToTransformerElementRequirementPtrOutputWithContext(ctx)
+}
+
+func (e TransformerElementRequirement) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransformerElementRequirement) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransformerElementRequirement) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransformerElementRequirement) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransformerElementRequirementOutput struct{ *pulumi.OutputState }
+
+func (TransformerElementRequirementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerElementRequirement)(nil)).Elem()
+}
+
+func (o TransformerElementRequirementOutput) ToTransformerElementRequirementOutput() TransformerElementRequirementOutput {
+	return o
+}
+
+func (o TransformerElementRequirementOutput) ToTransformerElementRequirementOutputWithContext(ctx context.Context) TransformerElementRequirementOutput {
+	return o
+}
+
+func (o TransformerElementRequirementOutput) ToTransformerElementRequirementPtrOutput() TransformerElementRequirementPtrOutput {
+	return o.ToTransformerElementRequirementPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerElementRequirementOutput) ToTransformerElementRequirementPtrOutputWithContext(ctx context.Context) TransformerElementRequirementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformerElementRequirement) *TransformerElementRequirement {
+		return &v
+	}).(TransformerElementRequirementPtrOutput)
+}
+
+func (o TransformerElementRequirementOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransformerElementRequirementOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformerElementRequirement) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransformerElementRequirementOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerElementRequirementOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformerElementRequirement) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformerElementRequirementPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformerElementRequirementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerElementRequirement)(nil)).Elem()
+}
+
+func (o TransformerElementRequirementPtrOutput) ToTransformerElementRequirementPtrOutput() TransformerElementRequirementPtrOutput {
+	return o
+}
+
+func (o TransformerElementRequirementPtrOutput) ToTransformerElementRequirementPtrOutputWithContext(ctx context.Context) TransformerElementRequirementPtrOutput {
+	return o
+}
+
+func (o TransformerElementRequirementPtrOutput) Elem() TransformerElementRequirementOutput {
+	return o.ApplyT(func(v *TransformerElementRequirement) TransformerElementRequirement {
+		if v != nil {
+			return *v
+		}
+		var ret TransformerElementRequirement
+		return ret
+	}).(TransformerElementRequirementOutput)
+}
+
+func (o TransformerElementRequirementPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerElementRequirementPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransformerElementRequirement) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransformerElementRequirementInput is an input type that accepts values of the TransformerElementRequirement enum
+// A concrete instance of `TransformerElementRequirementInput` can be one of the following:
+//
+//	TransformerElementRequirementOptional
+//	TransformerElementRequirementMandatory
+type TransformerElementRequirementInput interface {
+	pulumi.Input
+
+	ToTransformerElementRequirementOutput() TransformerElementRequirementOutput
+	ToTransformerElementRequirementOutputWithContext(context.Context) TransformerElementRequirementOutput
+}
+
+var transformerElementRequirementPtrType = reflect.TypeOf((**TransformerElementRequirement)(nil)).Elem()
+
+type TransformerElementRequirementPtrInput interface {
+	pulumi.Input
+
+	ToTransformerElementRequirementPtrOutput() TransformerElementRequirementPtrOutput
+	ToTransformerElementRequirementPtrOutputWithContext(context.Context) TransformerElementRequirementPtrOutput
+}
+
+type transformerElementRequirementPtr string
+
+func TransformerElementRequirementPtr(v string) TransformerElementRequirementPtrInput {
+	return (*transformerElementRequirementPtr)(&v)
+}
+
+func (*transformerElementRequirementPtr) ElementType() reflect.Type {
+	return transformerElementRequirementPtrType
+}
+
+func (in *transformerElementRequirementPtr) ToTransformerElementRequirementPtrOutput() TransformerElementRequirementPtrOutput {
+	return pulumi.ToOutput(in).(TransformerElementRequirementPtrOutput)
+}
+
+func (in *transformerElementRequirementPtr) ToTransformerElementRequirementPtrOutputWithContext(ctx context.Context) TransformerElementRequirementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransformerElementRequirementPtrOutput)
+}
+
 type TransformerFileFormat string
 
 const (
@@ -4381,6 +4546,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnershipX12gs05TimeFormatPtrInput)(nil)).Elem(), PartnershipX12gs05TimeFormat("HHMM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileLoggingInput)(nil)).Elem(), ProfileLogging("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileLoggingPtrInput)(nil)).Elem(), ProfileLogging("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerElementRequirementInput)(nil)).Elem(), TransformerElementRequirement("OPTIONAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerElementRequirementPtrInput)(nil)).Elem(), TransformerElementRequirement("OPTIONAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerFileFormatInput)(nil)).Elem(), TransformerFileFormat("XML"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerFileFormatPtrInput)(nil)).Elem(), TransformerFileFormat("XML"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerFromFormatInput)(nil)).Elem(), TransformerFromFormat("X12"))
@@ -4417,6 +4584,8 @@ func init() {
 	pulumi.RegisterOutputType(PartnershipX12gs05TimeFormatPtrOutput{})
 	pulumi.RegisterOutputType(ProfileLoggingOutput{})
 	pulumi.RegisterOutputType(ProfileLoggingPtrOutput{})
+	pulumi.RegisterOutputType(TransformerElementRequirementOutput{})
+	pulumi.RegisterOutputType(TransformerElementRequirementPtrOutput{})
 	pulumi.RegisterOutputType(TransformerFileFormatOutput{})
 	pulumi.RegisterOutputType(TransformerFileFormatPtrOutput{})
 	pulumi.RegisterOutputType(TransformerFromFormatOutput{})

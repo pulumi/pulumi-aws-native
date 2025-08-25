@@ -27,7 +27,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetConfiguredTableResult:
-    def __init__(__self__, analysis_method=None, analysis_rules=None, arn=None, configured_table_identifier=None, description=None, name=None, selected_analysis_methods=None, tags=None):
+    def __init__(__self__, allowed_columns=None, analysis_method=None, analysis_rules=None, arn=None, configured_table_identifier=None, description=None, name=None, selected_analysis_methods=None, table_reference=None, tags=None):
+        if allowed_columns and not isinstance(allowed_columns, list):
+            raise TypeError("Expected argument 'allowed_columns' to be a list")
+        pulumi.set(__self__, "allowed_columns", allowed_columns)
         if analysis_method and not isinstance(analysis_method, str):
             raise TypeError("Expected argument 'analysis_method' to be a str")
         pulumi.set(__self__, "analysis_method", analysis_method)
@@ -49,9 +52,20 @@ class GetConfiguredTableResult:
         if selected_analysis_methods and not isinstance(selected_analysis_methods, list):
             raise TypeError("Expected argument 'selected_analysis_methods' to be a list")
         pulumi.set(__self__, "selected_analysis_methods", selected_analysis_methods)
+        if table_reference and not isinstance(table_reference, dict):
+            raise TypeError("Expected argument 'table_reference' to be a dict")
+        pulumi.set(__self__, "table_reference", table_reference)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="allowedColumns")
+    def allowed_columns(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The columns within the underlying AWS Glue table that can be utilized within collaborations.
+        """
+        return pulumi.get(self, "allowed_columns")
 
     @property
     @pulumi.getter(name="analysisMethod")
@@ -120,6 +134,14 @@ class GetConfiguredTableResult:
         return pulumi.get(self, "selected_analysis_methods")
 
     @property
+    @pulumi.getter(name="tableReference")
+    def table_reference(self) -> Optional[Any]:
+        """
+        The table that this configured table represents.
+        """
+        return pulumi.get(self, "table_reference")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -134,6 +156,7 @@ class AwaitableGetConfiguredTableResult(GetConfiguredTableResult):
         if False:
             yield self
         return GetConfiguredTableResult(
+            allowed_columns=self.allowed_columns,
             analysis_method=self.analysis_method,
             analysis_rules=self.analysis_rules,
             arn=self.arn,
@@ -141,6 +164,7 @@ class AwaitableGetConfiguredTableResult(GetConfiguredTableResult):
             description=self.description,
             name=self.name,
             selected_analysis_methods=self.selected_analysis_methods,
+            table_reference=self.table_reference,
             tags=self.tags)
 
 
@@ -160,6 +184,7 @@ def get_configured_table(configured_table_identifier: Optional[builtins.str] = N
     __ret__ = pulumi.runtime.invoke('aws-native:cleanrooms:getConfiguredTable', __args__, opts=opts, typ=GetConfiguredTableResult).value
 
     return AwaitableGetConfiguredTableResult(
+        allowed_columns=pulumi.get(__ret__, 'allowed_columns'),
         analysis_method=pulumi.get(__ret__, 'analysis_method'),
         analysis_rules=pulumi.get(__ret__, 'analysis_rules'),
         arn=pulumi.get(__ret__, 'arn'),
@@ -167,6 +192,7 @@ def get_configured_table(configured_table_identifier: Optional[builtins.str] = N
         description=pulumi.get(__ret__, 'description'),
         name=pulumi.get(__ret__, 'name'),
         selected_analysis_methods=pulumi.get(__ret__, 'selected_analysis_methods'),
+        table_reference=pulumi.get(__ret__, 'table_reference'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_configured_table_output(configured_table_identifier: Optional[pulumi.Input[builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfiguredTableResult]:
@@ -183,6 +209,7 @@ def get_configured_table_output(configured_table_identifier: Optional[pulumi.Inp
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cleanrooms:getConfiguredTable', __args__, opts=opts, typ=GetConfiguredTableResult)
     return __ret__.apply(lambda __response__: GetConfiguredTableResult(
+        allowed_columns=pulumi.get(__response__, 'allowed_columns'),
         analysis_method=pulumi.get(__response__, 'analysis_method'),
         analysis_rules=pulumi.get(__response__, 'analysis_rules'),
         arn=pulumi.get(__response__, 'arn'),
@@ -190,4 +217,5 @@ def get_configured_table_output(configured_table_identifier: Optional[pulumi.Inp
         description=pulumi.get(__response__, 'description'),
         name=pulumi.get(__response__, 'name'),
         selected_analysis_methods=pulumi.get(__response__, 'selected_analysis_methods'),
+        table_reference=pulumi.get(__response__, 'table_reference'),
         tags=pulumi.get(__response__, 'tags')))

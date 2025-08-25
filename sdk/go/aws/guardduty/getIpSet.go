@@ -42,9 +42,9 @@ type LookupIpSetResult struct {
 	Location *string `pulumi:"location"`
 	// The user-friendly name to identify the IPSet.
 	//
-	// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+	// The name of your list must be unique within an AWS account and Region. Valid characters are alphanumeric, whitespace, dash (-), and underscores (_).
 	Name *string `pulumi:"name"`
-	// The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+	// The tags to be added to a new threat entity set resource. Each tag consists of a key and an optional value, both of which you define.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
@@ -104,12 +104,12 @@ func (o LookupIpSetResultOutput) Location() pulumi.StringPtrOutput {
 
 // The user-friendly name to identify the IPSet.
 //
-// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+// The name of your list must be unique within an AWS account and Region. Valid characters are alphanumeric, whitespace, dash (-), and underscores (_).
 func (o LookupIpSetResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpSetResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+// The tags to be added to a new threat entity set resource. Each tag consists of a key and an optional value, both of which you define.
 //
 // For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LookupIpSetResultOutput) Tags() aws.TagArrayOutput {

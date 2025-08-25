@@ -25,6 +25,15 @@ __all__ = [
     'CisScanConfigurationSchedule',
     'CisScanConfigurationTime',
     'CisScanConfigurationWeeklySchedule',
+    'CodeSecurityIntegrationCreateDetails',
+    'CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail',
+    'CodeSecurityIntegrationUpdateDetails',
+    'CodeSecurityIntegrationUpdateGitHubIntegrationDetail',
+    'CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail',
+    'CodeSecurityScanConfiguration',
+    'CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration',
+    'CodeSecurityScanConfigurationPeriodicScanConfiguration',
+    'CodeSecurityScanConfigurationScopeSettings',
     'FilterCriteria',
     'FilterDateFilter',
     'FilterMapFilter',
@@ -275,6 +284,404 @@ class CisScanConfigurationWeeklySchedule(dict):
     @pulumi.getter(name="startTime")
     def start_time(self) -> 'outputs.CisScanConfigurationTime':
         return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class CodeSecurityIntegrationCreateDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gitlabSelfManaged":
+            suggest = "gitlab_self_managed"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeSecurityIntegrationCreateDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeSecurityIntegrationCreateDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeSecurityIntegrationCreateDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 gitlab_self_managed: 'outputs.CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail'):
+        """
+        :param 'CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail' gitlab_self_managed: Details specific to creating an integration with a self-managed GitLab instance.
+        """
+        pulumi.set(__self__, "gitlab_self_managed", gitlab_self_managed)
+
+    @property
+    @pulumi.getter(name="gitlabSelfManaged")
+    def gitlab_self_managed(self) -> 'outputs.CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail':
+        """
+        Details specific to creating an integration with a self-managed GitLab instance.
+        """
+        return pulumi.get(self, "gitlab_self_managed")
+
+
+@pulumi.output_type
+class CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+        elif key == "instanceUrl":
+            suggest = "instance_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_token: builtins.str,
+                 instance_url: builtins.str):
+        """
+        :param builtins.str access_token: The personal access token used to authenticate with the self-managed GitLab instance.
+        :param builtins.str instance_url: The URL of the self-managed GitLab instance.
+        """
+        pulumi.set(__self__, "access_token", access_token)
+        pulumi.set(__self__, "instance_url", instance_url)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> builtins.str:
+        """
+        The personal access token used to authenticate with the self-managed GitLab instance.
+        """
+        return pulumi.get(self, "access_token")
+
+    @property
+    @pulumi.getter(name="instanceUrl")
+    def instance_url(self) -> builtins.str:
+        """
+        The URL of the self-managed GitLab instance.
+        """
+        return pulumi.get(self, "instance_url")
+
+
+@pulumi.output_type
+class CodeSecurityIntegrationUpdateDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gitlabSelfManaged":
+            suggest = "gitlab_self_managed"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeSecurityIntegrationUpdateDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeSecurityIntegrationUpdateDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeSecurityIntegrationUpdateDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 github: Optional['outputs.CodeSecurityIntegrationUpdateGitHubIntegrationDetail'] = None,
+                 gitlab_self_managed: Optional['outputs.CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail'] = None):
+        """
+        :param 'CodeSecurityIntegrationUpdateGitHubIntegrationDetail' github: Details specific to updating an integration with GitHub.
+        :param 'CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail' gitlab_self_managed: Details specific to updating an integration with a self-managed GitLab instance.
+        """
+        if github is not None:
+            pulumi.set(__self__, "github", github)
+        if gitlab_self_managed is not None:
+            pulumi.set(__self__, "gitlab_self_managed", gitlab_self_managed)
+
+    @property
+    @pulumi.getter
+    def github(self) -> Optional['outputs.CodeSecurityIntegrationUpdateGitHubIntegrationDetail']:
+        """
+        Details specific to updating an integration with GitHub.
+        """
+        return pulumi.get(self, "github")
+
+    @property
+    @pulumi.getter(name="gitlabSelfManaged")
+    def gitlab_self_managed(self) -> Optional['outputs.CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail']:
+        """
+        Details specific to updating an integration with a self-managed GitLab instance.
+        """
+        return pulumi.get(self, "gitlab_self_managed")
+
+
+@pulumi.output_type
+class CodeSecurityIntegrationUpdateGitHubIntegrationDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "installationId":
+            suggest = "installation_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeSecurityIntegrationUpdateGitHubIntegrationDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeSecurityIntegrationUpdateGitHubIntegrationDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeSecurityIntegrationUpdateGitHubIntegrationDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code: builtins.str,
+                 installation_id: builtins.str):
+        """
+        :param builtins.str code: The authorization code received from GitHub to update the integration.
+        :param builtins.str installation_id: The installation ID of the GitHub App associated with the integration.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "installation_id", installation_id)
+
+    @property
+    @pulumi.getter
+    def code(self) -> builtins.str:
+        """
+        The authorization code received from GitHub to update the integration.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="installationId")
+    def installation_id(self) -> builtins.str:
+        """
+        The installation ID of the GitHub App associated with the integration.
+        """
+        return pulumi.get(self, "installation_id")
+
+
+@pulumi.output_type
+class CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authCode":
+            suggest = "auth_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_code: builtins.str):
+        """
+        :param builtins.str auth_code: The authorization code received from the self-managed GitLab instance to update the integration.
+        """
+        pulumi.set(__self__, "auth_code", auth_code)
+
+    @property
+    @pulumi.getter(name="authCode")
+    def auth_code(self) -> builtins.str:
+        """
+        The authorization code received from the self-managed GitLab instance to update the integration.
+        """
+        return pulumi.get(self, "auth_code")
+
+
+@pulumi.output_type
+class CodeSecurityScanConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleSetCategories":
+            suggest = "rule_set_categories"
+        elif key == "continuousIntegrationScanConfiguration":
+            suggest = "continuous_integration_scan_configuration"
+        elif key == "periodicScanConfiguration":
+            suggest = "periodic_scan_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeSecurityScanConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeSecurityScanConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeSecurityScanConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_set_categories: Sequence['CodeSecurityScanConfigurationRuleSetCategory'],
+                 continuous_integration_scan_configuration: Optional['outputs.CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration'] = None,
+                 periodic_scan_configuration: Optional['outputs.CodeSecurityScanConfigurationPeriodicScanConfiguration'] = None):
+        """
+        :param Sequence['CodeSecurityScanConfigurationRuleSetCategory'] rule_set_categories: The categories of security rules to be applied during the scan.
+        :param 'CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration' continuous_integration_scan_configuration: Configuration settings for continuous integration scans that run automatically when code changes are made.
+        :param 'CodeSecurityScanConfigurationPeriodicScanConfiguration' periodic_scan_configuration: Configuration settings for periodic scans that run on a scheduled basis.
+        """
+        pulumi.set(__self__, "rule_set_categories", rule_set_categories)
+        if continuous_integration_scan_configuration is not None:
+            pulumi.set(__self__, "continuous_integration_scan_configuration", continuous_integration_scan_configuration)
+        if periodic_scan_configuration is not None:
+            pulumi.set(__self__, "periodic_scan_configuration", periodic_scan_configuration)
+
+    @property
+    @pulumi.getter(name="ruleSetCategories")
+    def rule_set_categories(self) -> Sequence['CodeSecurityScanConfigurationRuleSetCategory']:
+        """
+        The categories of security rules to be applied during the scan.
+        """
+        return pulumi.get(self, "rule_set_categories")
+
+    @property
+    @pulumi.getter(name="continuousIntegrationScanConfiguration")
+    def continuous_integration_scan_configuration(self) -> Optional['outputs.CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration']:
+        """
+        Configuration settings for continuous integration scans that run automatically when code changes are made.
+        """
+        return pulumi.get(self, "continuous_integration_scan_configuration")
+
+    @property
+    @pulumi.getter(name="periodicScanConfiguration")
+    def periodic_scan_configuration(self) -> Optional['outputs.CodeSecurityScanConfigurationPeriodicScanConfiguration']:
+        """
+        Configuration settings for periodic scans that run on a scheduled basis.
+        """
+        return pulumi.get(self, "periodic_scan_configuration")
+
+
+@pulumi.output_type
+class CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportedEvents":
+            suggest = "supported_events"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 supported_events: Sequence['CodeSecurityScanConfigurationContinuousIntegrationScanEvent']):
+        """
+        :param Sequence['CodeSecurityScanConfigurationContinuousIntegrationScanEvent'] supported_events: The repository events that trigger continuous integration scans, such as pull requests or commits.
+        """
+        pulumi.set(__self__, "supported_events", supported_events)
+
+    @property
+    @pulumi.getter(name="supportedEvents")
+    def supported_events(self) -> Sequence['CodeSecurityScanConfigurationContinuousIntegrationScanEvent']:
+        """
+        The repository events that trigger continuous integration scans, such as pull requests or commits.
+        """
+        return pulumi.get(self, "supported_events")
+
+
+@pulumi.output_type
+class CodeSecurityScanConfigurationPeriodicScanConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "frequencyExpression":
+            suggest = "frequency_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeSecurityScanConfigurationPeriodicScanConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeSecurityScanConfigurationPeriodicScanConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeSecurityScanConfigurationPeriodicScanConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 frequency: Optional['CodeSecurityScanConfigurationPeriodicScanFrequency'] = None,
+                 frequency_expression: Optional[builtins.str] = None):
+        """
+        :param 'CodeSecurityScanConfigurationPeriodicScanFrequency' frequency: The frequency at which periodic scans are performed (such as weekly or monthly).
+               
+               If you don't provide the `frequencyExpression` Amazon Inspector chooses day for the scan to run. If you provide the `frequencyExpression` , the schedule must match the specified `frequency` .
+        :param builtins.str frequency_expression: The schedule expression for periodic scans, in cron format.
+        """
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if frequency_expression is not None:
+            pulumi.set(__self__, "frequency_expression", frequency_expression)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional['CodeSecurityScanConfigurationPeriodicScanFrequency']:
+        """
+        The frequency at which periodic scans are performed (such as weekly or monthly).
+
+        If you don't provide the `frequencyExpression` Amazon Inspector chooses day for the scan to run. If you provide the `frequencyExpression` , the schedule must match the specified `frequency` .
+        """
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter(name="frequencyExpression")
+    def frequency_expression(self) -> Optional[builtins.str]:
+        """
+        The schedule expression for periodic scans, in cron format.
+        """
+        return pulumi.get(self, "frequency_expression")
+
+
+@pulumi.output_type
+class CodeSecurityScanConfigurationScopeSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "projectSelectionScope":
+            suggest = "project_selection_scope"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeSecurityScanConfigurationScopeSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeSecurityScanConfigurationScopeSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeSecurityScanConfigurationScopeSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 project_selection_scope: Optional['CodeSecurityScanConfigurationProjectSelectionScope'] = None):
+        """
+        :param 'CodeSecurityScanConfigurationProjectSelectionScope' project_selection_scope: The scope of projects to be selected for scanning within the integrated repositories.
+        """
+        if project_selection_scope is not None:
+            pulumi.set(__self__, "project_selection_scope", project_selection_scope)
+
+    @property
+    @pulumi.getter(name="projectSelectionScope")
+    def project_selection_scope(self) -> Optional['CodeSecurityScanConfigurationProjectSelectionScope']:
+        """
+        The scope of projects to be selected for scanning within the integrated repositories.
+        """
+        return pulumi.get(self, "project_selection_scope")
 
 
 @pulumi.output_type

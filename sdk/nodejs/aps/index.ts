@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutputArgs } from "./getResourcePolicy";
+export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
+export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
+
 export { GetRuleGroupsNamespaceArgs, GetRuleGroupsNamespaceResult, GetRuleGroupsNamespaceOutputArgs } from "./getRuleGroupsNamespace";
 export const getRuleGroupsNamespace: typeof import("./getRuleGroupsNamespace").getRuleGroupsNamespace = null as any;
 export const getRuleGroupsNamespaceOutput: typeof import("./getRuleGroupsNamespace").getRuleGroupsNamespaceOutput = null as any;
@@ -19,6 +24,11 @@ export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+
+export { ResourcePolicyArgs } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
 
 export { RuleGroupsNamespaceArgs } from "./ruleGroupsNamespace";
 export type RuleGroupsNamespace = import("./ruleGroupsNamespace").RuleGroupsNamespace;
@@ -40,6 +50,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:aps:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws-native:aps:RuleGroupsNamespace":
                 return new RuleGroupsNamespace(name, <any>undefined, { urn })
             case "aws-native:aps:Scraper":

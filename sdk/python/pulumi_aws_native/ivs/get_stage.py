@@ -98,7 +98,7 @@ class AwaitableGetStageResult(GetStageResult):
 def get_stage(arn: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStageResult:
     """
-    Resource Definition for type AWS::IVS::Stage.
+    Resource Type definition for AWS::IVS::Stage.
 
 
     :param builtins.str arn: Stage ARN is automatically generated on creation and assigned as the unique identifier.
@@ -117,7 +117,7 @@ def get_stage(arn: Optional[builtins.str] = None,
 def get_stage_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStageResult]:
     """
-    Resource Definition for type AWS::IVS::Stage.
+    Resource Type definition for AWS::IVS::Stage.
 
 
     :param builtins.str arn: Stage ARN is automatically generated on creation and assigned as the unique identifier.

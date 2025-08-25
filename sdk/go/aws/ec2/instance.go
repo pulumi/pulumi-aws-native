@@ -32,9 +32,9 @@ type Instance struct {
 	DisableApiTermination pulumi.BoolPtrOutput `pulumi:"disableApiTermination"`
 	// Indicates whether the instance is optimized for Amazon EBS I/O.
 	EbsOptimized pulumi.BoolPtrOutput `pulumi:"ebsOptimized"`
-	// An elastic GPU to associate with the instance.
+	// An elastic GPU to associate with the instance. Amazon Elastic Graphics is no longer available.
 	ElasticGpuSpecifications InstanceElasticGpuSpecificationArrayOutput `pulumi:"elasticGpuSpecifications"`
-	// An elastic inference accelerator to associate with the instance.
+	// An elastic inference accelerator to associate with the instance. Amazon Elastic Inference is no longer available.
 	ElasticInferenceAccelerators InstanceElasticInferenceAcceleratorArrayOutput `pulumi:"elasticInferenceAccelerators"`
 	// Indicates whether the instance is enabled for AWS Nitro Enclaves.
 	EnclaveOptions EnclaveOptionsPropertiesPtrOutput `pulumi:"enclaveOptions"`
@@ -191,9 +191,9 @@ type instanceArgs struct {
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
 	// Indicates whether the instance is optimized for Amazon EBS I/O.
 	EbsOptimized *bool `pulumi:"ebsOptimized"`
-	// An elastic GPU to associate with the instance.
+	// An elastic GPU to associate with the instance. Amazon Elastic Graphics is no longer available.
 	ElasticGpuSpecifications []InstanceElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
-	// An elastic inference accelerator to associate with the instance.
+	// An elastic inference accelerator to associate with the instance. Amazon Elastic Inference is no longer available.
 	ElasticInferenceAccelerators []InstanceElasticInferenceAccelerator `pulumi:"elasticInferenceAccelerators"`
 	// Indicates whether the instance is enabled for AWS Nitro Enclaves.
 	EnclaveOptions *EnclaveOptionsProperties `pulumi:"enclaveOptions"`
@@ -277,9 +277,9 @@ type InstanceArgs struct {
 	DisableApiTermination pulumi.BoolPtrInput
 	// Indicates whether the instance is optimized for Amazon EBS I/O.
 	EbsOptimized pulumi.BoolPtrInput
-	// An elastic GPU to associate with the instance.
+	// An elastic GPU to associate with the instance. Amazon Elastic Graphics is no longer available.
 	ElasticGpuSpecifications InstanceElasticGpuSpecificationArrayInput
-	// An elastic inference accelerator to associate with the instance.
+	// An elastic inference accelerator to associate with the instance. Amazon Elastic Inference is no longer available.
 	ElasticInferenceAccelerators InstanceElasticInferenceAcceleratorArrayInput
 	// Indicates whether the instance is enabled for AWS Nitro Enclaves.
 	EnclaveOptions EnclaveOptionsPropertiesPtrInput
@@ -422,12 +422,12 @@ func (o InstanceOutput) EbsOptimized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
 }
 
-// An elastic GPU to associate with the instance.
+// An elastic GPU to associate with the instance. Amazon Elastic Graphics is no longer available.
 func (o InstanceOutput) ElasticGpuSpecifications() InstanceElasticGpuSpecificationArrayOutput {
 	return o.ApplyT(func(v *Instance) InstanceElasticGpuSpecificationArrayOutput { return v.ElasticGpuSpecifications }).(InstanceElasticGpuSpecificationArrayOutput)
 }
 
-// An elastic inference accelerator to associate with the instance.
+// An elastic inference accelerator to associate with the instance. Amazon Elastic Inference is no longer available.
 func (o InstanceOutput) ElasticInferenceAccelerators() InstanceElasticInferenceAcceleratorArrayOutput {
 	return o.ApplyT(func(v *Instance) InstanceElasticInferenceAcceleratorArrayOutput {
 		return v.ElasticInferenceAccelerators

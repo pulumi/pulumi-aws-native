@@ -97,6 +97,9 @@ export interface GetPortalResult {
      * The SAML metadata of the service provider.
      */
     readonly serviceProviderSamlMetadata?: string;
+    /**
+     * The ARN of the session logger that is assocaited with the portal.
+     */
     readonly sessionLoggerArn?: string;
     /**
      * A message that explains why the web portal is in its current status.

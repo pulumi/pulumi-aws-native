@@ -23,12 +23,27 @@
     }
   },
   "definitions" : {
+    "IcebergRetentionConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SnapshotRetentionPeriodInDays" : {
+          "type" : "integer"
+        },
+        "NumberOfSnapshotsToRetain" : {
+          "type" : "integer"
+        },
+        "CleanExpiredFiles" : {
+          "type" : "boolean"
+        }
+      }
+    },
     "RetentionConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "IcebergConfiguration" : {
-          "$ref" : "#/definitions/IcebergConfiguration"
+          "$ref" : "#/definitions/IcebergRetentionConfiguration"
         }
       }
     },

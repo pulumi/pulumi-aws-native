@@ -288,4 +288,36 @@ namespace Pulumi.AwsNative.CodePipeline
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Supported options are GITHUB_HMAC, IP, and UNAUTHENTICATED.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebhookAuthentication : IEquatable<WebhookAuthentication>
+    {
+        private readonly string _value;
+
+        private WebhookAuthentication(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebhookAuthentication GithubHmac { get; } = new WebhookAuthentication("GITHUB_HMAC");
+        public static WebhookAuthentication Ip { get; } = new WebhookAuthentication("IP");
+        public static WebhookAuthentication Unauthenticated { get; } = new WebhookAuthentication("UNAUTHENTICATED");
+
+        public static bool operator ==(WebhookAuthentication left, WebhookAuthentication right) => left.Equals(right);
+        public static bool operator !=(WebhookAuthentication left, WebhookAuthentication right) => !left.Equals(right);
+
+        public static explicit operator string(WebhookAuthentication value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebhookAuthentication other && Equals(other);
+        public bool Equals(WebhookAuthentication other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

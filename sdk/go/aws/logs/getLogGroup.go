@@ -56,6 +56,8 @@ type LookupLogGroupResult struct {
 	//
 	//  For details about the features supported by each class, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html)
 	LogGroupClass *LogGroupClass `pulumi:"logGroupClass"`
+	// Creates or updates a resource policy for the specified log group that allows other services to put log events to this account. A LogGroup can have 1 resource policy.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 	ResourcePolicyDocument interface{} `pulumi:"resourcePolicyDocument"`
 	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.
@@ -140,6 +142,8 @@ func (o LookupLogGroupResultOutput) LogGroupClass() LogGroupClassPtrOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) *LogGroupClass { return v.LogGroupClass }).(LogGroupClassPtrOutput)
 }
 
+// Creates or updates a resource policy for the specified log group that allows other services to put log events to this account. A LogGroup can have 1 resource policy.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 func (o LookupLogGroupResultOutput) ResourcePolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) interface{} { return v.ResourcePolicyDocument }).(pulumi.AnyOutput)

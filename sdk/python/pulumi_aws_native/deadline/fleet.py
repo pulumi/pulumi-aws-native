@@ -283,6 +283,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["capabilities"] = None
             __props__.__dict__["fleet_id"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["status_message"] = None
             __props__.__dict__["worker_count"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["farmId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -320,6 +321,7 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["min_worker_count"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["status_message"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["worker_count"] = None
         return Fleet(resource_name, opts=opts, __props__=__props__)
@@ -422,6 +424,14 @@ class Fleet(pulumi.CustomResource):
         The status of the fleet.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> pulumi.Output[builtins.str]:
+        """
+        A message that communicates a suspended status of the fleet.
+        """
+        return pulumi.get(self, "status_message")
 
     @property
     @pulumi.getter
