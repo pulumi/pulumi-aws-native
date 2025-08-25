@@ -104,7 +104,7 @@
     },
     "ResourceStatus" : {
       "type" : "string",
-      "enum" : [ "CREATION_IN_PROGRESS", "CREATION_SUCCESSFUL", "CREATION_FAILED", "UPDATE_IN_PROGRESS", "UPDATE_SUCCESSFUL", "UPDATE_FAILED", "DELETED" ]
+      "enum" : [ "CREATION_IN_PROGRESS", "CREATION_SUCCESSFUL", "CREATION_FAILED", "UPDATE_IN_PROGRESS", "UPDATE_SUCCESSFUL", "UPDATE_FAILED", "PENDING_UPDATE", "DELETED" ]
     },
     "SheetStyle" : {
       "type" : "object",

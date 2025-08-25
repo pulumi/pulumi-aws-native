@@ -3,6 +3,7 @@ AWS::ACMPCA::CertificateAuthority
 AWS::ACMPCA::CertificateAuthorityActivation
 AWS::ACMPCA::Permission
 AWS::AIOps::InvestigationGroup
+AWS::APS::ResourcePolicy
 AWS::APS::RuleGroupsNamespace
 AWS::APS::Scraper
 AWS::APS::Workspace
@@ -209,6 +210,7 @@ AWS::CodeGuruProfiler::ProfilingGroup
 AWS::CodeGuruReviewer::RepositoryAssociation
 AWS::CodePipeline::CustomActionType
 AWS::CodePipeline::Pipeline
+AWS::CodePipeline::Webhook
 AWS::CodeStarConnections::Connection
 AWS::CodeStarConnections::RepositoryLink
 AWS::CodeStarConnections::SyncConfiguration
@@ -312,6 +314,7 @@ AWS::DataZone::EnvironmentBlueprintConfiguration
 AWS::DataZone::EnvironmentProfile
 AWS::DataZone::GroupProfile
 AWS::DataZone::Owner
+AWS::DataZone::PolicyGrant
 AWS::DataZone::Project
 AWS::DataZone::ProjectMembership
 AWS::DataZone::ProjectProfile
@@ -564,7 +567,9 @@ AWS::GuardDuty::MalwareProtectionPlan
 AWS::GuardDuty::Master
 AWS::GuardDuty::Member
 AWS::GuardDuty::PublishingDestination
+AWS::GuardDuty::ThreatEntitySet
 AWS::GuardDuty::ThreatIntelSet
+AWS::GuardDuty::TrustedEntitySet
 AWS::HealthImaging::Datastore
 AWS::HealthLake::FHIRDatastore
 AWS::IAM::Group
@@ -607,6 +612,8 @@ AWS::Inspector::AssessmentTarget
 AWS::Inspector::AssessmentTemplate
 AWS::Inspector::ResourceGroup
 AWS::InspectorV2::CisScanConfiguration
+AWS::InspectorV2::CodeSecurityIntegration
+AWS::InspectorV2::CodeSecurityScanConfiguration
 AWS::InspectorV2::Filter
 AWS::InternetMonitor::Monitor
 AWS::Invoicing::InvoiceUnit
