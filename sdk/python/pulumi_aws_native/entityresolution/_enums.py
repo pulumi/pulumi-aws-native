@@ -7,6 +7,7 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType',
     'IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel',
     'IdMappingWorkflowIdMappingRuleBasedPropertiesRecordMatchingModel',
     'IdMappingWorkflowIdMappingRuleBasedPropertiesRuleDefinitionType',
@@ -24,6 +25,11 @@ __all__ = [
     'PolicyStatementStatementEffect',
     'SchemaMappingSchemaAttributeType',
 ]
+
+
+@pulumi.type_token("aws-native:entityresolution:IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType")
+class IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType(builtins.str, Enum):
+    ON_DEMAND = "ON_DEMAND"
 
 
 @pulumi.type_token("aws-native:entityresolution:IdMappingWorkflowIdMappingRuleBasedPropertiesAttributeMatchingModel")

@@ -395,6 +395,1181 @@ func (o CisScanConfigurationDayArrayOutput) Index(i pulumi.IntInput) CisScanConf
 	}).(CisScanConfigurationDayOutput)
 }
 
+type CodeSecurityIntegrationIntegrationStatus string
+
+const (
+	CodeSecurityIntegrationIntegrationStatusPending    = CodeSecurityIntegrationIntegrationStatus("PENDING")
+	CodeSecurityIntegrationIntegrationStatusInProgress = CodeSecurityIntegrationIntegrationStatus("IN_PROGRESS")
+	CodeSecurityIntegrationIntegrationStatusActive     = CodeSecurityIntegrationIntegrationStatus("ACTIVE")
+	CodeSecurityIntegrationIntegrationStatusInactive   = CodeSecurityIntegrationIntegrationStatus("INACTIVE")
+	CodeSecurityIntegrationIntegrationStatusDisabling  = CodeSecurityIntegrationIntegrationStatus("DISABLING")
+)
+
+type CodeSecurityIntegrationIntegrationStatusOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityIntegrationIntegrationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityIntegrationIntegrationStatus)(nil)).Elem()
+}
+
+func (o CodeSecurityIntegrationIntegrationStatusOutput) ToCodeSecurityIntegrationIntegrationStatusOutput() CodeSecurityIntegrationIntegrationStatusOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationIntegrationStatusOutput) ToCodeSecurityIntegrationIntegrationStatusOutputWithContext(ctx context.Context) CodeSecurityIntegrationIntegrationStatusOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationIntegrationStatusOutput) ToCodeSecurityIntegrationIntegrationStatusPtrOutput() CodeSecurityIntegrationIntegrationStatusPtrOutput {
+	return o.ToCodeSecurityIntegrationIntegrationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityIntegrationIntegrationStatusOutput) ToCodeSecurityIntegrationIntegrationStatusPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationIntegrationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSecurityIntegrationIntegrationStatus) *CodeSecurityIntegrationIntegrationStatus {
+		return &v
+	}).(CodeSecurityIntegrationIntegrationStatusPtrOutput)
+}
+
+func (o CodeSecurityIntegrationIntegrationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityIntegrationIntegrationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CodeSecurityIntegrationIntegrationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CodeSecurityIntegrationIntegrationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityIntegrationIntegrationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CodeSecurityIntegrationIntegrationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CodeSecurityIntegrationIntegrationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityIntegrationIntegrationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityIntegrationIntegrationStatus)(nil)).Elem()
+}
+
+func (o CodeSecurityIntegrationIntegrationStatusPtrOutput) ToCodeSecurityIntegrationIntegrationStatusPtrOutput() CodeSecurityIntegrationIntegrationStatusPtrOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationIntegrationStatusPtrOutput) ToCodeSecurityIntegrationIntegrationStatusPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationIntegrationStatusPtrOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationIntegrationStatusPtrOutput) Elem() CodeSecurityIntegrationIntegrationStatusOutput {
+	return o.ApplyT(func(v *CodeSecurityIntegrationIntegrationStatus) CodeSecurityIntegrationIntegrationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSecurityIntegrationIntegrationStatus
+		return ret
+	}).(CodeSecurityIntegrationIntegrationStatusOutput)
+}
+
+func (o CodeSecurityIntegrationIntegrationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityIntegrationIntegrationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CodeSecurityIntegrationIntegrationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CodeSecurityIntegrationIntegrationType string
+
+const (
+	CodeSecurityIntegrationIntegrationTypeGitlabSelfManaged = CodeSecurityIntegrationIntegrationType("GITLAB_SELF_MANAGED")
+	CodeSecurityIntegrationIntegrationTypeGithub            = CodeSecurityIntegrationIntegrationType("GITHUB")
+)
+
+func (CodeSecurityIntegrationIntegrationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityIntegrationIntegrationType)(nil)).Elem()
+}
+
+func (e CodeSecurityIntegrationIntegrationType) ToCodeSecurityIntegrationIntegrationTypeOutput() CodeSecurityIntegrationIntegrationTypeOutput {
+	return pulumi.ToOutput(e).(CodeSecurityIntegrationIntegrationTypeOutput)
+}
+
+func (e CodeSecurityIntegrationIntegrationType) ToCodeSecurityIntegrationIntegrationTypeOutputWithContext(ctx context.Context) CodeSecurityIntegrationIntegrationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CodeSecurityIntegrationIntegrationTypeOutput)
+}
+
+func (e CodeSecurityIntegrationIntegrationType) ToCodeSecurityIntegrationIntegrationTypePtrOutput() CodeSecurityIntegrationIntegrationTypePtrOutput {
+	return e.ToCodeSecurityIntegrationIntegrationTypePtrOutputWithContext(context.Background())
+}
+
+func (e CodeSecurityIntegrationIntegrationType) ToCodeSecurityIntegrationIntegrationTypePtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationIntegrationTypePtrOutput {
+	return CodeSecurityIntegrationIntegrationType(e).ToCodeSecurityIntegrationIntegrationTypeOutputWithContext(ctx).ToCodeSecurityIntegrationIntegrationTypePtrOutputWithContext(ctx)
+}
+
+func (e CodeSecurityIntegrationIntegrationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CodeSecurityIntegrationIntegrationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CodeSecurityIntegrationIntegrationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CodeSecurityIntegrationIntegrationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CodeSecurityIntegrationIntegrationTypeOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityIntegrationIntegrationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityIntegrationIntegrationType)(nil)).Elem()
+}
+
+func (o CodeSecurityIntegrationIntegrationTypeOutput) ToCodeSecurityIntegrationIntegrationTypeOutput() CodeSecurityIntegrationIntegrationTypeOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationIntegrationTypeOutput) ToCodeSecurityIntegrationIntegrationTypeOutputWithContext(ctx context.Context) CodeSecurityIntegrationIntegrationTypeOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationIntegrationTypeOutput) ToCodeSecurityIntegrationIntegrationTypePtrOutput() CodeSecurityIntegrationIntegrationTypePtrOutput {
+	return o.ToCodeSecurityIntegrationIntegrationTypePtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityIntegrationIntegrationTypeOutput) ToCodeSecurityIntegrationIntegrationTypePtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationIntegrationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSecurityIntegrationIntegrationType) *CodeSecurityIntegrationIntegrationType {
+		return &v
+	}).(CodeSecurityIntegrationIntegrationTypePtrOutput)
+}
+
+func (o CodeSecurityIntegrationIntegrationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityIntegrationIntegrationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CodeSecurityIntegrationIntegrationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CodeSecurityIntegrationIntegrationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityIntegrationIntegrationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CodeSecurityIntegrationIntegrationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CodeSecurityIntegrationIntegrationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityIntegrationIntegrationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityIntegrationIntegrationType)(nil)).Elem()
+}
+
+func (o CodeSecurityIntegrationIntegrationTypePtrOutput) ToCodeSecurityIntegrationIntegrationTypePtrOutput() CodeSecurityIntegrationIntegrationTypePtrOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationIntegrationTypePtrOutput) ToCodeSecurityIntegrationIntegrationTypePtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationIntegrationTypePtrOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationIntegrationTypePtrOutput) Elem() CodeSecurityIntegrationIntegrationTypeOutput {
+	return o.ApplyT(func(v *CodeSecurityIntegrationIntegrationType) CodeSecurityIntegrationIntegrationType {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSecurityIntegrationIntegrationType
+		return ret
+	}).(CodeSecurityIntegrationIntegrationTypeOutput)
+}
+
+func (o CodeSecurityIntegrationIntegrationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityIntegrationIntegrationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CodeSecurityIntegrationIntegrationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CodeSecurityIntegrationIntegrationTypeInput is an input type that accepts values of the CodeSecurityIntegrationIntegrationType enum
+// A concrete instance of `CodeSecurityIntegrationIntegrationTypeInput` can be one of the following:
+//
+//	CodeSecurityIntegrationIntegrationTypeGitlabSelfManaged
+//	CodeSecurityIntegrationIntegrationTypeGithub
+type CodeSecurityIntegrationIntegrationTypeInput interface {
+	pulumi.Input
+
+	ToCodeSecurityIntegrationIntegrationTypeOutput() CodeSecurityIntegrationIntegrationTypeOutput
+	ToCodeSecurityIntegrationIntegrationTypeOutputWithContext(context.Context) CodeSecurityIntegrationIntegrationTypeOutput
+}
+
+var codeSecurityIntegrationIntegrationTypePtrType = reflect.TypeOf((**CodeSecurityIntegrationIntegrationType)(nil)).Elem()
+
+type CodeSecurityIntegrationIntegrationTypePtrInput interface {
+	pulumi.Input
+
+	ToCodeSecurityIntegrationIntegrationTypePtrOutput() CodeSecurityIntegrationIntegrationTypePtrOutput
+	ToCodeSecurityIntegrationIntegrationTypePtrOutputWithContext(context.Context) CodeSecurityIntegrationIntegrationTypePtrOutput
+}
+
+type codeSecurityIntegrationIntegrationTypePtr string
+
+func CodeSecurityIntegrationIntegrationTypePtr(v string) CodeSecurityIntegrationIntegrationTypePtrInput {
+	return (*codeSecurityIntegrationIntegrationTypePtr)(&v)
+}
+
+func (*codeSecurityIntegrationIntegrationTypePtr) ElementType() reflect.Type {
+	return codeSecurityIntegrationIntegrationTypePtrType
+}
+
+func (in *codeSecurityIntegrationIntegrationTypePtr) ToCodeSecurityIntegrationIntegrationTypePtrOutput() CodeSecurityIntegrationIntegrationTypePtrOutput {
+	return pulumi.ToOutput(in).(CodeSecurityIntegrationIntegrationTypePtrOutput)
+}
+
+func (in *codeSecurityIntegrationIntegrationTypePtr) ToCodeSecurityIntegrationIntegrationTypePtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationIntegrationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CodeSecurityIntegrationIntegrationTypePtrOutput)
+}
+
+type CodeSecurityScanConfigurationConfigurationLevel string
+
+const (
+	CodeSecurityScanConfigurationConfigurationLevelOrganization = CodeSecurityScanConfigurationConfigurationLevel("ORGANIZATION")
+	CodeSecurityScanConfigurationConfigurationLevelAccount      = CodeSecurityScanConfigurationConfigurationLevel("ACCOUNT")
+)
+
+func (CodeSecurityScanConfigurationConfigurationLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityScanConfigurationConfigurationLevel)(nil)).Elem()
+}
+
+func (e CodeSecurityScanConfigurationConfigurationLevel) ToCodeSecurityScanConfigurationConfigurationLevelOutput() CodeSecurityScanConfigurationConfigurationLevelOutput {
+	return pulumi.ToOutput(e).(CodeSecurityScanConfigurationConfigurationLevelOutput)
+}
+
+func (e CodeSecurityScanConfigurationConfigurationLevel) ToCodeSecurityScanConfigurationConfigurationLevelOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationConfigurationLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CodeSecurityScanConfigurationConfigurationLevelOutput)
+}
+
+func (e CodeSecurityScanConfigurationConfigurationLevel) ToCodeSecurityScanConfigurationConfigurationLevelPtrOutput() CodeSecurityScanConfigurationConfigurationLevelPtrOutput {
+	return e.ToCodeSecurityScanConfigurationConfigurationLevelPtrOutputWithContext(context.Background())
+}
+
+func (e CodeSecurityScanConfigurationConfigurationLevel) ToCodeSecurityScanConfigurationConfigurationLevelPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationConfigurationLevelPtrOutput {
+	return CodeSecurityScanConfigurationConfigurationLevel(e).ToCodeSecurityScanConfigurationConfigurationLevelOutputWithContext(ctx).ToCodeSecurityScanConfigurationConfigurationLevelPtrOutputWithContext(ctx)
+}
+
+func (e CodeSecurityScanConfigurationConfigurationLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CodeSecurityScanConfigurationConfigurationLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CodeSecurityScanConfigurationConfigurationLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CodeSecurityScanConfigurationConfigurationLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CodeSecurityScanConfigurationConfigurationLevelOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationConfigurationLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityScanConfigurationConfigurationLevel)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationConfigurationLevelOutput) ToCodeSecurityScanConfigurationConfigurationLevelOutput() CodeSecurityScanConfigurationConfigurationLevelOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationConfigurationLevelOutput) ToCodeSecurityScanConfigurationConfigurationLevelOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationConfigurationLevelOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationConfigurationLevelOutput) ToCodeSecurityScanConfigurationConfigurationLevelPtrOutput() CodeSecurityScanConfigurationConfigurationLevelPtrOutput {
+	return o.ToCodeSecurityScanConfigurationConfigurationLevelPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationConfigurationLevelOutput) ToCodeSecurityScanConfigurationConfigurationLevelPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationConfigurationLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSecurityScanConfigurationConfigurationLevel) *CodeSecurityScanConfigurationConfigurationLevel {
+		return &v
+	}).(CodeSecurityScanConfigurationConfigurationLevelPtrOutput)
+}
+
+func (o CodeSecurityScanConfigurationConfigurationLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationConfigurationLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CodeSecurityScanConfigurationConfigurationLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CodeSecurityScanConfigurationConfigurationLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationConfigurationLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CodeSecurityScanConfigurationConfigurationLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CodeSecurityScanConfigurationConfigurationLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationConfigurationLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityScanConfigurationConfigurationLevel)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationConfigurationLevelPtrOutput) ToCodeSecurityScanConfigurationConfigurationLevelPtrOutput() CodeSecurityScanConfigurationConfigurationLevelPtrOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationConfigurationLevelPtrOutput) ToCodeSecurityScanConfigurationConfigurationLevelPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationConfigurationLevelPtrOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationConfigurationLevelPtrOutput) Elem() CodeSecurityScanConfigurationConfigurationLevelOutput {
+	return o.ApplyT(func(v *CodeSecurityScanConfigurationConfigurationLevel) CodeSecurityScanConfigurationConfigurationLevel {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSecurityScanConfigurationConfigurationLevel
+		return ret
+	}).(CodeSecurityScanConfigurationConfigurationLevelOutput)
+}
+
+func (o CodeSecurityScanConfigurationConfigurationLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationConfigurationLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CodeSecurityScanConfigurationConfigurationLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CodeSecurityScanConfigurationConfigurationLevelInput is an input type that accepts values of the CodeSecurityScanConfigurationConfigurationLevel enum
+// A concrete instance of `CodeSecurityScanConfigurationConfigurationLevelInput` can be one of the following:
+//
+//	CodeSecurityScanConfigurationConfigurationLevelOrganization
+//	CodeSecurityScanConfigurationConfigurationLevelAccount
+type CodeSecurityScanConfigurationConfigurationLevelInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationConfigurationLevelOutput() CodeSecurityScanConfigurationConfigurationLevelOutput
+	ToCodeSecurityScanConfigurationConfigurationLevelOutputWithContext(context.Context) CodeSecurityScanConfigurationConfigurationLevelOutput
+}
+
+var codeSecurityScanConfigurationConfigurationLevelPtrType = reflect.TypeOf((**CodeSecurityScanConfigurationConfigurationLevel)(nil)).Elem()
+
+type CodeSecurityScanConfigurationConfigurationLevelPtrInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationConfigurationLevelPtrOutput() CodeSecurityScanConfigurationConfigurationLevelPtrOutput
+	ToCodeSecurityScanConfigurationConfigurationLevelPtrOutputWithContext(context.Context) CodeSecurityScanConfigurationConfigurationLevelPtrOutput
+}
+
+type codeSecurityScanConfigurationConfigurationLevelPtr string
+
+func CodeSecurityScanConfigurationConfigurationLevelPtr(v string) CodeSecurityScanConfigurationConfigurationLevelPtrInput {
+	return (*codeSecurityScanConfigurationConfigurationLevelPtr)(&v)
+}
+
+func (*codeSecurityScanConfigurationConfigurationLevelPtr) ElementType() reflect.Type {
+	return codeSecurityScanConfigurationConfigurationLevelPtrType
+}
+
+func (in *codeSecurityScanConfigurationConfigurationLevelPtr) ToCodeSecurityScanConfigurationConfigurationLevelPtrOutput() CodeSecurityScanConfigurationConfigurationLevelPtrOutput {
+	return pulumi.ToOutput(in).(CodeSecurityScanConfigurationConfigurationLevelPtrOutput)
+}
+
+func (in *codeSecurityScanConfigurationConfigurationLevelPtr) ToCodeSecurityScanConfigurationConfigurationLevelPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationConfigurationLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CodeSecurityScanConfigurationConfigurationLevelPtrOutput)
+}
+
+type CodeSecurityScanConfigurationContinuousIntegrationScanEvent string
+
+const (
+	CodeSecurityScanConfigurationContinuousIntegrationScanEventPullRequest = CodeSecurityScanConfigurationContinuousIntegrationScanEvent("PULL_REQUEST")
+	CodeSecurityScanConfigurationContinuousIntegrationScanEventPush        = CodeSecurityScanConfigurationContinuousIntegrationScanEvent("PUSH")
+)
+
+func (CodeSecurityScanConfigurationContinuousIntegrationScanEvent) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityScanConfigurationContinuousIntegrationScanEvent)(nil)).Elem()
+}
+
+func (e CodeSecurityScanConfigurationContinuousIntegrationScanEvent) ToCodeSecurityScanConfigurationContinuousIntegrationScanEventOutput() CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput {
+	return pulumi.ToOutput(e).(CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput)
+}
+
+func (e CodeSecurityScanConfigurationContinuousIntegrationScanEvent) ToCodeSecurityScanConfigurationContinuousIntegrationScanEventOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput)
+}
+
+func (e CodeSecurityScanConfigurationContinuousIntegrationScanEvent) ToCodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput() CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput {
+	return e.ToCodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutputWithContext(context.Background())
+}
+
+func (e CodeSecurityScanConfigurationContinuousIntegrationScanEvent) ToCodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput {
+	return CodeSecurityScanConfigurationContinuousIntegrationScanEvent(e).ToCodeSecurityScanConfigurationContinuousIntegrationScanEventOutputWithContext(ctx).ToCodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutputWithContext(ctx)
+}
+
+func (e CodeSecurityScanConfigurationContinuousIntegrationScanEvent) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CodeSecurityScanConfigurationContinuousIntegrationScanEvent) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CodeSecurityScanConfigurationContinuousIntegrationScanEvent) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CodeSecurityScanConfigurationContinuousIntegrationScanEvent) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityScanConfigurationContinuousIntegrationScanEvent)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput) ToCodeSecurityScanConfigurationContinuousIntegrationScanEventOutput() CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput) ToCodeSecurityScanConfigurationContinuousIntegrationScanEventOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput) ToCodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput() CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput {
+	return o.ToCodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput) ToCodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSecurityScanConfigurationContinuousIntegrationScanEvent) *CodeSecurityScanConfigurationContinuousIntegrationScanEvent {
+		return &v
+	}).(CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput)
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CodeSecurityScanConfigurationContinuousIntegrationScanEvent) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CodeSecurityScanConfigurationContinuousIntegrationScanEvent) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityScanConfigurationContinuousIntegrationScanEvent)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput) ToCodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput() CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput) ToCodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput) Elem() CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput {
+	return o.ApplyT(func(v *CodeSecurityScanConfigurationContinuousIntegrationScanEvent) CodeSecurityScanConfigurationContinuousIntegrationScanEvent {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSecurityScanConfigurationContinuousIntegrationScanEvent
+		return ret
+	}).(CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput)
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CodeSecurityScanConfigurationContinuousIntegrationScanEvent) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CodeSecurityScanConfigurationContinuousIntegrationScanEventInput is an input type that accepts values of the CodeSecurityScanConfigurationContinuousIntegrationScanEvent enum
+// A concrete instance of `CodeSecurityScanConfigurationContinuousIntegrationScanEventInput` can be one of the following:
+//
+//	CodeSecurityScanConfigurationContinuousIntegrationScanEventPullRequest
+//	CodeSecurityScanConfigurationContinuousIntegrationScanEventPush
+type CodeSecurityScanConfigurationContinuousIntegrationScanEventInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationContinuousIntegrationScanEventOutput() CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput
+	ToCodeSecurityScanConfigurationContinuousIntegrationScanEventOutputWithContext(context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput
+}
+
+var codeSecurityScanConfigurationContinuousIntegrationScanEventPtrType = reflect.TypeOf((**CodeSecurityScanConfigurationContinuousIntegrationScanEvent)(nil)).Elem()
+
+type CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput() CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput
+	ToCodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutputWithContext(context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput
+}
+
+type codeSecurityScanConfigurationContinuousIntegrationScanEventPtr string
+
+func CodeSecurityScanConfigurationContinuousIntegrationScanEventPtr(v string) CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrInput {
+	return (*codeSecurityScanConfigurationContinuousIntegrationScanEventPtr)(&v)
+}
+
+func (*codeSecurityScanConfigurationContinuousIntegrationScanEventPtr) ElementType() reflect.Type {
+	return codeSecurityScanConfigurationContinuousIntegrationScanEventPtrType
+}
+
+func (in *codeSecurityScanConfigurationContinuousIntegrationScanEventPtr) ToCodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput() CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput {
+	return pulumi.ToOutput(in).(CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput)
+}
+
+func (in *codeSecurityScanConfigurationContinuousIntegrationScanEventPtr) ToCodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput)
+}
+
+// CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayInput is an input type that accepts CodeSecurityScanConfigurationContinuousIntegrationScanEventArray and CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput values.
+// You can construct a concrete instance of `CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayInput` via:
+//
+//	CodeSecurityScanConfigurationContinuousIntegrationScanEventArray{ CodeSecurityScanConfigurationContinuousIntegrationScanEventArgs{...} }
+type CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput() CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput
+	ToCodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutputWithContext(context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput
+}
+
+type CodeSecurityScanConfigurationContinuousIntegrationScanEventArray []CodeSecurityScanConfigurationContinuousIntegrationScanEvent
+
+func (CodeSecurityScanConfigurationContinuousIntegrationScanEventArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CodeSecurityScanConfigurationContinuousIntegrationScanEvent)(nil)).Elem()
+}
+
+func (i CodeSecurityScanConfigurationContinuousIntegrationScanEventArray) ToCodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput() CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput {
+	return i.ToCodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityScanConfigurationContinuousIntegrationScanEventArray) ToCodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput)
+}
+
+type CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CodeSecurityScanConfigurationContinuousIntegrationScanEvent)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput) ToCodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput() CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput) ToCodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput) Index(i pulumi.IntInput) CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CodeSecurityScanConfigurationContinuousIntegrationScanEvent {
+		return vs[0].([]CodeSecurityScanConfigurationContinuousIntegrationScanEvent)[vs[1].(int)]
+	}).(CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput)
+}
+
+type CodeSecurityScanConfigurationPeriodicScanFrequency string
+
+const (
+	CodeSecurityScanConfigurationPeriodicScanFrequencyWeekly  = CodeSecurityScanConfigurationPeriodicScanFrequency("WEEKLY")
+	CodeSecurityScanConfigurationPeriodicScanFrequencyMonthly = CodeSecurityScanConfigurationPeriodicScanFrequency("MONTHLY")
+	CodeSecurityScanConfigurationPeriodicScanFrequencyNever   = CodeSecurityScanConfigurationPeriodicScanFrequency("NEVER")
+)
+
+func (CodeSecurityScanConfigurationPeriodicScanFrequency) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityScanConfigurationPeriodicScanFrequency)(nil)).Elem()
+}
+
+func (e CodeSecurityScanConfigurationPeriodicScanFrequency) ToCodeSecurityScanConfigurationPeriodicScanFrequencyOutput() CodeSecurityScanConfigurationPeriodicScanFrequencyOutput {
+	return pulumi.ToOutput(e).(CodeSecurityScanConfigurationPeriodicScanFrequencyOutput)
+}
+
+func (e CodeSecurityScanConfigurationPeriodicScanFrequency) ToCodeSecurityScanConfigurationPeriodicScanFrequencyOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationPeriodicScanFrequencyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CodeSecurityScanConfigurationPeriodicScanFrequencyOutput)
+}
+
+func (e CodeSecurityScanConfigurationPeriodicScanFrequency) ToCodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput() CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput {
+	return e.ToCodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (e CodeSecurityScanConfigurationPeriodicScanFrequency) ToCodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput {
+	return CodeSecurityScanConfigurationPeriodicScanFrequency(e).ToCodeSecurityScanConfigurationPeriodicScanFrequencyOutputWithContext(ctx).ToCodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutputWithContext(ctx)
+}
+
+func (e CodeSecurityScanConfigurationPeriodicScanFrequency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CodeSecurityScanConfigurationPeriodicScanFrequency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CodeSecurityScanConfigurationPeriodicScanFrequency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CodeSecurityScanConfigurationPeriodicScanFrequency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CodeSecurityScanConfigurationPeriodicScanFrequencyOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationPeriodicScanFrequencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityScanConfigurationPeriodicScanFrequency)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanFrequencyOutput) ToCodeSecurityScanConfigurationPeriodicScanFrequencyOutput() CodeSecurityScanConfigurationPeriodicScanFrequencyOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanFrequencyOutput) ToCodeSecurityScanConfigurationPeriodicScanFrequencyOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationPeriodicScanFrequencyOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanFrequencyOutput) ToCodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput() CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput {
+	return o.ToCodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanFrequencyOutput) ToCodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSecurityScanConfigurationPeriodicScanFrequency) *CodeSecurityScanConfigurationPeriodicScanFrequency {
+		return &v
+	}).(CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput)
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanFrequencyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanFrequencyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CodeSecurityScanConfigurationPeriodicScanFrequency) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanFrequencyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanFrequencyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CodeSecurityScanConfigurationPeriodicScanFrequency) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityScanConfigurationPeriodicScanFrequency)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput) ToCodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput() CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput) ToCodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput) Elem() CodeSecurityScanConfigurationPeriodicScanFrequencyOutput {
+	return o.ApplyT(func(v *CodeSecurityScanConfigurationPeriodicScanFrequency) CodeSecurityScanConfigurationPeriodicScanFrequency {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSecurityScanConfigurationPeriodicScanFrequency
+		return ret
+	}).(CodeSecurityScanConfigurationPeriodicScanFrequencyOutput)
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CodeSecurityScanConfigurationPeriodicScanFrequency) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CodeSecurityScanConfigurationPeriodicScanFrequencyInput is an input type that accepts values of the CodeSecurityScanConfigurationPeriodicScanFrequency enum
+// A concrete instance of `CodeSecurityScanConfigurationPeriodicScanFrequencyInput` can be one of the following:
+//
+//	CodeSecurityScanConfigurationPeriodicScanFrequencyWeekly
+//	CodeSecurityScanConfigurationPeriodicScanFrequencyMonthly
+//	CodeSecurityScanConfigurationPeriodicScanFrequencyNever
+type CodeSecurityScanConfigurationPeriodicScanFrequencyInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationPeriodicScanFrequencyOutput() CodeSecurityScanConfigurationPeriodicScanFrequencyOutput
+	ToCodeSecurityScanConfigurationPeriodicScanFrequencyOutputWithContext(context.Context) CodeSecurityScanConfigurationPeriodicScanFrequencyOutput
+}
+
+var codeSecurityScanConfigurationPeriodicScanFrequencyPtrType = reflect.TypeOf((**CodeSecurityScanConfigurationPeriodicScanFrequency)(nil)).Elem()
+
+type CodeSecurityScanConfigurationPeriodicScanFrequencyPtrInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput() CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput
+	ToCodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutputWithContext(context.Context) CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput
+}
+
+type codeSecurityScanConfigurationPeriodicScanFrequencyPtr string
+
+func CodeSecurityScanConfigurationPeriodicScanFrequencyPtr(v string) CodeSecurityScanConfigurationPeriodicScanFrequencyPtrInput {
+	return (*codeSecurityScanConfigurationPeriodicScanFrequencyPtr)(&v)
+}
+
+func (*codeSecurityScanConfigurationPeriodicScanFrequencyPtr) ElementType() reflect.Type {
+	return codeSecurityScanConfigurationPeriodicScanFrequencyPtrType
+}
+
+func (in *codeSecurityScanConfigurationPeriodicScanFrequencyPtr) ToCodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput() CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput {
+	return pulumi.ToOutput(in).(CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput)
+}
+
+func (in *codeSecurityScanConfigurationPeriodicScanFrequencyPtr) ToCodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput)
+}
+
+type CodeSecurityScanConfigurationProjectSelectionScope string
+
+const (
+	CodeSecurityScanConfigurationProjectSelectionScopeAll = CodeSecurityScanConfigurationProjectSelectionScope("ALL")
+)
+
+func (CodeSecurityScanConfigurationProjectSelectionScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityScanConfigurationProjectSelectionScope)(nil)).Elem()
+}
+
+func (e CodeSecurityScanConfigurationProjectSelectionScope) ToCodeSecurityScanConfigurationProjectSelectionScopeOutput() CodeSecurityScanConfigurationProjectSelectionScopeOutput {
+	return pulumi.ToOutput(e).(CodeSecurityScanConfigurationProjectSelectionScopeOutput)
+}
+
+func (e CodeSecurityScanConfigurationProjectSelectionScope) ToCodeSecurityScanConfigurationProjectSelectionScopeOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationProjectSelectionScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CodeSecurityScanConfigurationProjectSelectionScopeOutput)
+}
+
+func (e CodeSecurityScanConfigurationProjectSelectionScope) ToCodeSecurityScanConfigurationProjectSelectionScopePtrOutput() CodeSecurityScanConfigurationProjectSelectionScopePtrOutput {
+	return e.ToCodeSecurityScanConfigurationProjectSelectionScopePtrOutputWithContext(context.Background())
+}
+
+func (e CodeSecurityScanConfigurationProjectSelectionScope) ToCodeSecurityScanConfigurationProjectSelectionScopePtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationProjectSelectionScopePtrOutput {
+	return CodeSecurityScanConfigurationProjectSelectionScope(e).ToCodeSecurityScanConfigurationProjectSelectionScopeOutputWithContext(ctx).ToCodeSecurityScanConfigurationProjectSelectionScopePtrOutputWithContext(ctx)
+}
+
+func (e CodeSecurityScanConfigurationProjectSelectionScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CodeSecurityScanConfigurationProjectSelectionScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CodeSecurityScanConfigurationProjectSelectionScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CodeSecurityScanConfigurationProjectSelectionScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CodeSecurityScanConfigurationProjectSelectionScopeOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationProjectSelectionScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityScanConfigurationProjectSelectionScope)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationProjectSelectionScopeOutput) ToCodeSecurityScanConfigurationProjectSelectionScopeOutput() CodeSecurityScanConfigurationProjectSelectionScopeOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationProjectSelectionScopeOutput) ToCodeSecurityScanConfigurationProjectSelectionScopeOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationProjectSelectionScopeOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationProjectSelectionScopeOutput) ToCodeSecurityScanConfigurationProjectSelectionScopePtrOutput() CodeSecurityScanConfigurationProjectSelectionScopePtrOutput {
+	return o.ToCodeSecurityScanConfigurationProjectSelectionScopePtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationProjectSelectionScopeOutput) ToCodeSecurityScanConfigurationProjectSelectionScopePtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationProjectSelectionScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSecurityScanConfigurationProjectSelectionScope) *CodeSecurityScanConfigurationProjectSelectionScope {
+		return &v
+	}).(CodeSecurityScanConfigurationProjectSelectionScopePtrOutput)
+}
+
+func (o CodeSecurityScanConfigurationProjectSelectionScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationProjectSelectionScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CodeSecurityScanConfigurationProjectSelectionScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CodeSecurityScanConfigurationProjectSelectionScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationProjectSelectionScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CodeSecurityScanConfigurationProjectSelectionScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CodeSecurityScanConfigurationProjectSelectionScopePtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationProjectSelectionScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityScanConfigurationProjectSelectionScope)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationProjectSelectionScopePtrOutput) ToCodeSecurityScanConfigurationProjectSelectionScopePtrOutput() CodeSecurityScanConfigurationProjectSelectionScopePtrOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationProjectSelectionScopePtrOutput) ToCodeSecurityScanConfigurationProjectSelectionScopePtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationProjectSelectionScopePtrOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationProjectSelectionScopePtrOutput) Elem() CodeSecurityScanConfigurationProjectSelectionScopeOutput {
+	return o.ApplyT(func(v *CodeSecurityScanConfigurationProjectSelectionScope) CodeSecurityScanConfigurationProjectSelectionScope {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSecurityScanConfigurationProjectSelectionScope
+		return ret
+	}).(CodeSecurityScanConfigurationProjectSelectionScopeOutput)
+}
+
+func (o CodeSecurityScanConfigurationProjectSelectionScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationProjectSelectionScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CodeSecurityScanConfigurationProjectSelectionScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CodeSecurityScanConfigurationProjectSelectionScopeInput is an input type that accepts values of the CodeSecurityScanConfigurationProjectSelectionScope enum
+// A concrete instance of `CodeSecurityScanConfigurationProjectSelectionScopeInput` can be one of the following:
+//
+//	CodeSecurityScanConfigurationProjectSelectionScopeAll
+type CodeSecurityScanConfigurationProjectSelectionScopeInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationProjectSelectionScopeOutput() CodeSecurityScanConfigurationProjectSelectionScopeOutput
+	ToCodeSecurityScanConfigurationProjectSelectionScopeOutputWithContext(context.Context) CodeSecurityScanConfigurationProjectSelectionScopeOutput
+}
+
+var codeSecurityScanConfigurationProjectSelectionScopePtrType = reflect.TypeOf((**CodeSecurityScanConfigurationProjectSelectionScope)(nil)).Elem()
+
+type CodeSecurityScanConfigurationProjectSelectionScopePtrInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationProjectSelectionScopePtrOutput() CodeSecurityScanConfigurationProjectSelectionScopePtrOutput
+	ToCodeSecurityScanConfigurationProjectSelectionScopePtrOutputWithContext(context.Context) CodeSecurityScanConfigurationProjectSelectionScopePtrOutput
+}
+
+type codeSecurityScanConfigurationProjectSelectionScopePtr string
+
+func CodeSecurityScanConfigurationProjectSelectionScopePtr(v string) CodeSecurityScanConfigurationProjectSelectionScopePtrInput {
+	return (*codeSecurityScanConfigurationProjectSelectionScopePtr)(&v)
+}
+
+func (*codeSecurityScanConfigurationProjectSelectionScopePtr) ElementType() reflect.Type {
+	return codeSecurityScanConfigurationProjectSelectionScopePtrType
+}
+
+func (in *codeSecurityScanConfigurationProjectSelectionScopePtr) ToCodeSecurityScanConfigurationProjectSelectionScopePtrOutput() CodeSecurityScanConfigurationProjectSelectionScopePtrOutput {
+	return pulumi.ToOutput(in).(CodeSecurityScanConfigurationProjectSelectionScopePtrOutput)
+}
+
+func (in *codeSecurityScanConfigurationProjectSelectionScopePtr) ToCodeSecurityScanConfigurationProjectSelectionScopePtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationProjectSelectionScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CodeSecurityScanConfigurationProjectSelectionScopePtrOutput)
+}
+
+type CodeSecurityScanConfigurationRuleSetCategory string
+
+const (
+	CodeSecurityScanConfigurationRuleSetCategorySast = CodeSecurityScanConfigurationRuleSetCategory("SAST")
+	CodeSecurityScanConfigurationRuleSetCategoryIac  = CodeSecurityScanConfigurationRuleSetCategory("IAC")
+	CodeSecurityScanConfigurationRuleSetCategorySca  = CodeSecurityScanConfigurationRuleSetCategory("SCA")
+)
+
+func (CodeSecurityScanConfigurationRuleSetCategory) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityScanConfigurationRuleSetCategory)(nil)).Elem()
+}
+
+func (e CodeSecurityScanConfigurationRuleSetCategory) ToCodeSecurityScanConfigurationRuleSetCategoryOutput() CodeSecurityScanConfigurationRuleSetCategoryOutput {
+	return pulumi.ToOutput(e).(CodeSecurityScanConfigurationRuleSetCategoryOutput)
+}
+
+func (e CodeSecurityScanConfigurationRuleSetCategory) ToCodeSecurityScanConfigurationRuleSetCategoryOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationRuleSetCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CodeSecurityScanConfigurationRuleSetCategoryOutput)
+}
+
+func (e CodeSecurityScanConfigurationRuleSetCategory) ToCodeSecurityScanConfigurationRuleSetCategoryPtrOutput() CodeSecurityScanConfigurationRuleSetCategoryPtrOutput {
+	return e.ToCodeSecurityScanConfigurationRuleSetCategoryPtrOutputWithContext(context.Background())
+}
+
+func (e CodeSecurityScanConfigurationRuleSetCategory) ToCodeSecurityScanConfigurationRuleSetCategoryPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationRuleSetCategoryPtrOutput {
+	return CodeSecurityScanConfigurationRuleSetCategory(e).ToCodeSecurityScanConfigurationRuleSetCategoryOutputWithContext(ctx).ToCodeSecurityScanConfigurationRuleSetCategoryPtrOutputWithContext(ctx)
+}
+
+func (e CodeSecurityScanConfigurationRuleSetCategory) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CodeSecurityScanConfigurationRuleSetCategory) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CodeSecurityScanConfigurationRuleSetCategory) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CodeSecurityScanConfigurationRuleSetCategory) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CodeSecurityScanConfigurationRuleSetCategoryOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationRuleSetCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityScanConfigurationRuleSetCategory)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationRuleSetCategoryOutput) ToCodeSecurityScanConfigurationRuleSetCategoryOutput() CodeSecurityScanConfigurationRuleSetCategoryOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationRuleSetCategoryOutput) ToCodeSecurityScanConfigurationRuleSetCategoryOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationRuleSetCategoryOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationRuleSetCategoryOutput) ToCodeSecurityScanConfigurationRuleSetCategoryPtrOutput() CodeSecurityScanConfigurationRuleSetCategoryPtrOutput {
+	return o.ToCodeSecurityScanConfigurationRuleSetCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationRuleSetCategoryOutput) ToCodeSecurityScanConfigurationRuleSetCategoryPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationRuleSetCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSecurityScanConfigurationRuleSetCategory) *CodeSecurityScanConfigurationRuleSetCategory {
+		return &v
+	}).(CodeSecurityScanConfigurationRuleSetCategoryPtrOutput)
+}
+
+func (o CodeSecurityScanConfigurationRuleSetCategoryOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationRuleSetCategoryOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CodeSecurityScanConfigurationRuleSetCategory) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CodeSecurityScanConfigurationRuleSetCategoryOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationRuleSetCategoryOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CodeSecurityScanConfigurationRuleSetCategory) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CodeSecurityScanConfigurationRuleSetCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationRuleSetCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityScanConfigurationRuleSetCategory)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationRuleSetCategoryPtrOutput) ToCodeSecurityScanConfigurationRuleSetCategoryPtrOutput() CodeSecurityScanConfigurationRuleSetCategoryPtrOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationRuleSetCategoryPtrOutput) ToCodeSecurityScanConfigurationRuleSetCategoryPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationRuleSetCategoryPtrOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationRuleSetCategoryPtrOutput) Elem() CodeSecurityScanConfigurationRuleSetCategoryOutput {
+	return o.ApplyT(func(v *CodeSecurityScanConfigurationRuleSetCategory) CodeSecurityScanConfigurationRuleSetCategory {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSecurityScanConfigurationRuleSetCategory
+		return ret
+	}).(CodeSecurityScanConfigurationRuleSetCategoryOutput)
+}
+
+func (o CodeSecurityScanConfigurationRuleSetCategoryPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationRuleSetCategoryPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CodeSecurityScanConfigurationRuleSetCategory) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CodeSecurityScanConfigurationRuleSetCategoryInput is an input type that accepts values of the CodeSecurityScanConfigurationRuleSetCategory enum
+// A concrete instance of `CodeSecurityScanConfigurationRuleSetCategoryInput` can be one of the following:
+//
+//	CodeSecurityScanConfigurationRuleSetCategorySast
+//	CodeSecurityScanConfigurationRuleSetCategoryIac
+//	CodeSecurityScanConfigurationRuleSetCategorySca
+type CodeSecurityScanConfigurationRuleSetCategoryInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationRuleSetCategoryOutput() CodeSecurityScanConfigurationRuleSetCategoryOutput
+	ToCodeSecurityScanConfigurationRuleSetCategoryOutputWithContext(context.Context) CodeSecurityScanConfigurationRuleSetCategoryOutput
+}
+
+var codeSecurityScanConfigurationRuleSetCategoryPtrType = reflect.TypeOf((**CodeSecurityScanConfigurationRuleSetCategory)(nil)).Elem()
+
+type CodeSecurityScanConfigurationRuleSetCategoryPtrInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationRuleSetCategoryPtrOutput() CodeSecurityScanConfigurationRuleSetCategoryPtrOutput
+	ToCodeSecurityScanConfigurationRuleSetCategoryPtrOutputWithContext(context.Context) CodeSecurityScanConfigurationRuleSetCategoryPtrOutput
+}
+
+type codeSecurityScanConfigurationRuleSetCategoryPtr string
+
+func CodeSecurityScanConfigurationRuleSetCategoryPtr(v string) CodeSecurityScanConfigurationRuleSetCategoryPtrInput {
+	return (*codeSecurityScanConfigurationRuleSetCategoryPtr)(&v)
+}
+
+func (*codeSecurityScanConfigurationRuleSetCategoryPtr) ElementType() reflect.Type {
+	return codeSecurityScanConfigurationRuleSetCategoryPtrType
+}
+
+func (in *codeSecurityScanConfigurationRuleSetCategoryPtr) ToCodeSecurityScanConfigurationRuleSetCategoryPtrOutput() CodeSecurityScanConfigurationRuleSetCategoryPtrOutput {
+	return pulumi.ToOutput(in).(CodeSecurityScanConfigurationRuleSetCategoryPtrOutput)
+}
+
+func (in *codeSecurityScanConfigurationRuleSetCategoryPtr) ToCodeSecurityScanConfigurationRuleSetCategoryPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationRuleSetCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CodeSecurityScanConfigurationRuleSetCategoryPtrOutput)
+}
+
+// CodeSecurityScanConfigurationRuleSetCategoryArrayInput is an input type that accepts CodeSecurityScanConfigurationRuleSetCategoryArray and CodeSecurityScanConfigurationRuleSetCategoryArrayOutput values.
+// You can construct a concrete instance of `CodeSecurityScanConfigurationRuleSetCategoryArrayInput` via:
+//
+//	CodeSecurityScanConfigurationRuleSetCategoryArray{ CodeSecurityScanConfigurationRuleSetCategoryArgs{...} }
+type CodeSecurityScanConfigurationRuleSetCategoryArrayInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationRuleSetCategoryArrayOutput() CodeSecurityScanConfigurationRuleSetCategoryArrayOutput
+	ToCodeSecurityScanConfigurationRuleSetCategoryArrayOutputWithContext(context.Context) CodeSecurityScanConfigurationRuleSetCategoryArrayOutput
+}
+
+type CodeSecurityScanConfigurationRuleSetCategoryArray []CodeSecurityScanConfigurationRuleSetCategory
+
+func (CodeSecurityScanConfigurationRuleSetCategoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CodeSecurityScanConfigurationRuleSetCategory)(nil)).Elem()
+}
+
+func (i CodeSecurityScanConfigurationRuleSetCategoryArray) ToCodeSecurityScanConfigurationRuleSetCategoryArrayOutput() CodeSecurityScanConfigurationRuleSetCategoryArrayOutput {
+	return i.ToCodeSecurityScanConfigurationRuleSetCategoryArrayOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityScanConfigurationRuleSetCategoryArray) ToCodeSecurityScanConfigurationRuleSetCategoryArrayOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationRuleSetCategoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityScanConfigurationRuleSetCategoryArrayOutput)
+}
+
+type CodeSecurityScanConfigurationRuleSetCategoryArrayOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationRuleSetCategoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CodeSecurityScanConfigurationRuleSetCategory)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationRuleSetCategoryArrayOutput) ToCodeSecurityScanConfigurationRuleSetCategoryArrayOutput() CodeSecurityScanConfigurationRuleSetCategoryArrayOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationRuleSetCategoryArrayOutput) ToCodeSecurityScanConfigurationRuleSetCategoryArrayOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationRuleSetCategoryArrayOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationRuleSetCategoryArrayOutput) Index(i pulumi.IntInput) CodeSecurityScanConfigurationRuleSetCategoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CodeSecurityScanConfigurationRuleSetCategory {
+		return vs[0].([]CodeSecurityScanConfigurationRuleSetCategory)[vs[1].(int)]
+	}).(CodeSecurityScanConfigurationRuleSetCategoryOutput)
+}
+
 type FilterAction string
 
 const (
@@ -896,6 +2071,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationDayInput)(nil)).Elem(), CisScanConfigurationDay("MON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationDayPtrInput)(nil)).Elem(), CisScanConfigurationDay("MON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationDayArrayInput)(nil)).Elem(), CisScanConfigurationDayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityIntegrationIntegrationTypeInput)(nil)).Elem(), CodeSecurityIntegrationIntegrationType("GITLAB_SELF_MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityIntegrationIntegrationTypePtrInput)(nil)).Elem(), CodeSecurityIntegrationIntegrationType("GITLAB_SELF_MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationConfigurationLevelInput)(nil)).Elem(), CodeSecurityScanConfigurationConfigurationLevel("ORGANIZATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationConfigurationLevelPtrInput)(nil)).Elem(), CodeSecurityScanConfigurationConfigurationLevel("ORGANIZATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationContinuousIntegrationScanEventInput)(nil)).Elem(), CodeSecurityScanConfigurationContinuousIntegrationScanEvent("PULL_REQUEST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrInput)(nil)).Elem(), CodeSecurityScanConfigurationContinuousIntegrationScanEvent("PULL_REQUEST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayInput)(nil)).Elem(), CodeSecurityScanConfigurationContinuousIntegrationScanEventArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationPeriodicScanFrequencyInput)(nil)).Elem(), CodeSecurityScanConfigurationPeriodicScanFrequency("WEEKLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationPeriodicScanFrequencyPtrInput)(nil)).Elem(), CodeSecurityScanConfigurationPeriodicScanFrequency("WEEKLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationProjectSelectionScopeInput)(nil)).Elem(), CodeSecurityScanConfigurationProjectSelectionScope("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationProjectSelectionScopePtrInput)(nil)).Elem(), CodeSecurityScanConfigurationProjectSelectionScope("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationRuleSetCategoryInput)(nil)).Elem(), CodeSecurityScanConfigurationRuleSetCategory("SAST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationRuleSetCategoryPtrInput)(nil)).Elem(), CodeSecurityScanConfigurationRuleSetCategory("SAST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationRuleSetCategoryArrayInput)(nil)).Elem(), CodeSecurityScanConfigurationRuleSetCategoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterActionInput)(nil)).Elem(), FilterAction("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterActionPtrInput)(nil)).Elem(), FilterAction("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterMapComparisonInput)(nil)).Elem(), FilterMapComparison("EQUALS"))
@@ -907,6 +2096,22 @@ func init() {
 	pulumi.RegisterOutputType(CisScanConfigurationDayOutput{})
 	pulumi.RegisterOutputType(CisScanConfigurationDayPtrOutput{})
 	pulumi.RegisterOutputType(CisScanConfigurationDayArrayOutput{})
+	pulumi.RegisterOutputType(CodeSecurityIntegrationIntegrationStatusOutput{})
+	pulumi.RegisterOutputType(CodeSecurityIntegrationIntegrationStatusPtrOutput{})
+	pulumi.RegisterOutputType(CodeSecurityIntegrationIntegrationTypeOutput{})
+	pulumi.RegisterOutputType(CodeSecurityIntegrationIntegrationTypePtrOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationConfigurationLevelOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationConfigurationLevelPtrOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationContinuousIntegrationScanEventOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationContinuousIntegrationScanEventPtrOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationPeriodicScanFrequencyOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationProjectSelectionScopeOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationProjectSelectionScopePtrOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationRuleSetCategoryOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationRuleSetCategoryPtrOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationRuleSetCategoryArrayOutput{})
 	pulumi.RegisterOutputType(FilterActionOutput{})
 	pulumi.RegisterOutputType(FilterActionPtrOutput{})
 	pulumi.RegisterOutputType(FilterMapComparisonOutput{})

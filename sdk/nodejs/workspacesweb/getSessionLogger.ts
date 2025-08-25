@@ -18,15 +18,36 @@ export function getSessionLogger(args: GetSessionLoggerArgs, opts?: pulumi.Invok
 }
 
 export interface GetSessionLoggerArgs {
+    /**
+     * The ARN of the session logger resource.
+     */
     sessionLoggerArn: string;
 }
 
 export interface GetSessionLoggerResult {
+    /**
+     * The associated portal ARN.
+     */
     readonly associatedPortalArns?: string[];
+    /**
+     * The date the session logger resource was created.
+     */
     readonly creationDate?: string;
+    /**
+     * The human-readable display name.
+     */
     readonly displayName?: string;
+    /**
+     * The filter that specifies which events to monitor.
+     */
     readonly eventFilter?: outputs.workspacesweb.SessionLoggerEventFilter0Properties | outputs.workspacesweb.SessionLoggerEventFilter1Properties;
+    /**
+     * The configuration that specifies where logs are fowarded.
+     */
     readonly logConfiguration?: outputs.workspacesweb.SessionLoggerLogConfiguration;
+    /**
+     * The ARN of the session logger resource.
+     */
     readonly sessionLoggerArn?: string;
     readonly tags?: outputs.Tag[];
 }
@@ -41,5 +62,8 @@ export function getSessionLoggerOutput(args: GetSessionLoggerOutputArgs, opts?: 
 }
 
 export interface GetSessionLoggerOutputArgs {
+    /**
+     * The ARN of the session logger resource.
+     */
     sessionLoggerArn: pulumi.Input<string>;
 }

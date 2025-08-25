@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Definition for type AWS::IVS::Stage.
+// Resource Type definition for AWS::IVS::Stage.
 type Stage struct {
 	pulumi.CustomResourceState
 

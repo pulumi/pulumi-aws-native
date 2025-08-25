@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
         /// </summary>
         public readonly Outputs.ApplicationCodeConfiguration? ApplicationCodeConfiguration;
         /// <summary>
+        /// Describes whether customer managed key is enabled and key details for customer data encryption
+        /// </summary>
+        public readonly Outputs.ApplicationEncryptionConfiguration? ApplicationEncryptionConfiguration;
+        /// <summary>
         /// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
         /// </summary>
         public readonly Outputs.ApplicationSnapshotConfiguration? ApplicationSnapshotConfiguration;
@@ -53,6 +57,8 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
         private ApplicationConfiguration(
             Outputs.ApplicationCodeConfiguration? applicationCodeConfiguration,
 
+            Outputs.ApplicationEncryptionConfiguration? applicationEncryptionConfiguration,
+
             Outputs.ApplicationSnapshotConfiguration? applicationSnapshotConfiguration,
 
             Outputs.ApplicationSystemRollbackConfiguration? applicationSystemRollbackConfiguration,
@@ -68,6 +74,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
             Outputs.ApplicationZeppelinApplicationConfiguration? zeppelinApplicationConfiguration)
         {
             ApplicationCodeConfiguration = applicationCodeConfiguration;
+            ApplicationEncryptionConfiguration = applicationEncryptionConfiguration;
             ApplicationSnapshotConfiguration = applicationSnapshotConfiguration;
             ApplicationSystemRollbackConfiguration = applicationSystemRollbackConfiguration;
             EnvironmentProperties = environmentProperties;

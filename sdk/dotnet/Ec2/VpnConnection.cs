@@ -53,6 +53,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("outsideIpAddressType")]
         public Output<string?> OutsideIpAddressType { get; private set; } = null!;
 
+        [Output("preSharedKeyStorage")]
+        public Output<Pulumi.AwsNative.Ec2.VpnConnectionPreSharedKeyStorage?> PreSharedKeyStorage { get; private set; } = null!;
+
         /// <summary>
         /// The IPv4 CIDR on the AWS side of the VPN connection.
         ///  Default: ``0.0.0.0/0``
@@ -156,6 +159,7 @@ namespace Pulumi.AwsNative.Ec2
                     "localIpv4NetworkCidr",
                     "localIpv6NetworkCidr",
                     "outsideIpAddressType",
+                    "preSharedKeyStorage",
                     "remoteIpv4NetworkCidr",
                     "remoteIpv6NetworkCidr",
                     "staticRoutesOnly",
@@ -222,6 +226,9 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("outsideIpAddressType")]
         public Input<string>? OutsideIpAddressType { get; set; }
+
+        [Input("preSharedKeyStorage")]
+        public Input<Pulumi.AwsNative.Ec2.VpnConnectionPreSharedKeyStorage>? PreSharedKeyStorage { get; set; }
 
         /// <summary>
         /// The IPv4 CIDR on the AWS side of the VPN connection.

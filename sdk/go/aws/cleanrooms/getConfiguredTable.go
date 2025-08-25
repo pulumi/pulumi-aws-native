@@ -31,6 +31,8 @@ type LookupConfiguredTableArgs struct {
 }
 
 type LookupConfiguredTableResult struct {
+	// The columns within the underlying AWS Glue table that can be utilized within collaborations.
+	AllowedColumns []string `pulumi:"allowedColumns"`
 	// The analysis method for the configured table.
 	//
 	// `DIRECT_QUERY` allows SQL queries to be run directly on this table.
@@ -55,6 +57,8 @@ type LookupConfiguredTableResult struct {
 	Name *string `pulumi:"name"`
 	// The selected analysis methods for the configured table.
 	SelectedAnalysisMethods []ConfiguredTableSelectedAnalysisMethod `pulumi:"selectedAnalysisMethods"`
+	// The table that this configured table represents.
+	TableReference interface{} `pulumi:"tableReference"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -91,6 +95,11 @@ func (o LookupConfiguredTableResultOutput) ToLookupConfiguredTableResultOutput()
 
 func (o LookupConfiguredTableResultOutput) ToLookupConfiguredTableResultOutputWithContext(ctx context.Context) LookupConfiguredTableResultOutput {
 	return o
+}
+
+// The columns within the underlying AWS Glue table that can be utilized within collaborations.
+func (o LookupConfiguredTableResultOutput) AllowedColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupConfiguredTableResult) []string { return v.AllowedColumns }).(pulumi.StringArrayOutput)
 }
 
 // The analysis method for the configured table.
@@ -138,6 +147,11 @@ func (o LookupConfiguredTableResultOutput) SelectedAnalysisMethods() ConfiguredT
 	return o.ApplyT(func(v LookupConfiguredTableResult) []ConfiguredTableSelectedAnalysisMethod {
 		return v.SelectedAnalysisMethods
 	}).(ConfiguredTableSelectedAnalysisMethodArrayOutput)
+}
+
+// The table that this configured table represents.
+func (o LookupConfiguredTableResultOutput) TableReference() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupConfiguredTableResult) interface{} { return v.TableReference }).(pulumi.AnyOutput)
 }
 
 // An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.

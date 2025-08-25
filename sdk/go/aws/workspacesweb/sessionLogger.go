@@ -17,15 +17,23 @@ import (
 type SessionLogger struct {
 	pulumi.CustomResourceState
 
-	AdditionalEncryptionContext pulumi.StringMapOutput              `pulumi:"additionalEncryptionContext"`
-	AssociatedPortalArns        pulumi.StringArrayOutput            `pulumi:"associatedPortalArns"`
-	CreationDate                pulumi.StringOutput                 `pulumi:"creationDate"`
-	CustomerManagedKey          pulumi.StringPtrOutput              `pulumi:"customerManagedKey"`
-	DisplayName                 pulumi.StringPtrOutput              `pulumi:"displayName"`
-	EventFilter                 pulumi.AnyOutput                    `pulumi:"eventFilter"`
-	LogConfiguration            SessionLoggerLogConfigurationOutput `pulumi:"logConfiguration"`
-	SessionLoggerArn            pulumi.StringOutput                 `pulumi:"sessionLoggerArn"`
-	Tags                        aws.TagArrayOutput                  `pulumi:"tags"`
+	// The additional encryption context of the session logger.
+	AdditionalEncryptionContext pulumi.StringMapOutput `pulumi:"additionalEncryptionContext"`
+	// The associated portal ARN.
+	AssociatedPortalArns pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
+	// The date the session logger resource was created.
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	// The custom managed key of the session logger.
+	CustomerManagedKey pulumi.StringPtrOutput `pulumi:"customerManagedKey"`
+	// The human-readable display name.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// The filter that specifies which events to monitor.
+	EventFilter pulumi.AnyOutput `pulumi:"eventFilter"`
+	// The configuration that specifies where logs are fowarded.
+	LogConfiguration SessionLoggerLogConfigurationOutput `pulumi:"logConfiguration"`
+	// The ARN of the session logger resource.
+	SessionLoggerArn pulumi.StringOutput `pulumi:"sessionLoggerArn"`
+	Tags             aws.TagArrayOutput  `pulumi:"tags"`
 }
 
 // NewSessionLogger registers a new resource with the given unique name, arguments, and options.
@@ -79,22 +87,32 @@ func (SessionLoggerState) ElementType() reflect.Type {
 }
 
 type sessionLoggerArgs struct {
-	AdditionalEncryptionContext map[string]string             `pulumi:"additionalEncryptionContext"`
-	CustomerManagedKey          *string                       `pulumi:"customerManagedKey"`
-	DisplayName                 *string                       `pulumi:"displayName"`
-	EventFilter                 interface{}                   `pulumi:"eventFilter"`
-	LogConfiguration            SessionLoggerLogConfiguration `pulumi:"logConfiguration"`
-	Tags                        []aws.Tag                     `pulumi:"tags"`
+	// The additional encryption context of the session logger.
+	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
+	// The custom managed key of the session logger.
+	CustomerManagedKey *string `pulumi:"customerManagedKey"`
+	// The human-readable display name.
+	DisplayName *string `pulumi:"displayName"`
+	// The filter that specifies which events to monitor.
+	EventFilter interface{} `pulumi:"eventFilter"`
+	// The configuration that specifies where logs are fowarded.
+	LogConfiguration SessionLoggerLogConfiguration `pulumi:"logConfiguration"`
+	Tags             []aws.Tag                     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SessionLogger resource.
 type SessionLoggerArgs struct {
+	// The additional encryption context of the session logger.
 	AdditionalEncryptionContext pulumi.StringMapInput
-	CustomerManagedKey          pulumi.StringPtrInput
-	DisplayName                 pulumi.StringPtrInput
-	EventFilter                 pulumi.Input
-	LogConfiguration            SessionLoggerLogConfigurationInput
-	Tags                        aws.TagArrayInput
+	// The custom managed key of the session logger.
+	CustomerManagedKey pulumi.StringPtrInput
+	// The human-readable display name.
+	DisplayName pulumi.StringPtrInput
+	// The filter that specifies which events to monitor.
+	EventFilter pulumi.Input
+	// The configuration that specifies where logs are fowarded.
+	LogConfiguration SessionLoggerLogConfigurationInput
+	Tags             aws.TagArrayInput
 }
 
 func (SessionLoggerArgs) ElementType() reflect.Type {
@@ -134,34 +152,42 @@ func (o SessionLoggerOutput) ToSessionLoggerOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The additional encryption context of the session logger.
 func (o SessionLoggerOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SessionLogger) pulumi.StringMapOutput { return v.AdditionalEncryptionContext }).(pulumi.StringMapOutput)
 }
 
+// The associated portal ARN.
 func (o SessionLoggerOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SessionLogger) pulumi.StringArrayOutput { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
+// The date the session logger resource was created.
 func (o SessionLoggerOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *SessionLogger) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
+// The custom managed key of the session logger.
 func (o SessionLoggerOutput) CustomerManagedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SessionLogger) pulumi.StringPtrOutput { return v.CustomerManagedKey }).(pulumi.StringPtrOutput)
 }
 
+// The human-readable display name.
 func (o SessionLoggerOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SessionLogger) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The filter that specifies which events to monitor.
 func (o SessionLoggerOutput) EventFilter() pulumi.AnyOutput {
 	return o.ApplyT(func(v *SessionLogger) pulumi.AnyOutput { return v.EventFilter }).(pulumi.AnyOutput)
 }
 
+// The configuration that specifies where logs are fowarded.
 func (o SessionLoggerOutput) LogConfiguration() SessionLoggerLogConfigurationOutput {
 	return o.ApplyT(func(v *SessionLogger) SessionLoggerLogConfigurationOutput { return v.LogConfiguration }).(SessionLoggerLogConfigurationOutput)
 }
 
+// The ARN of the session logger resource.
 func (o SessionLoggerOutput) SessionLoggerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SessionLogger) pulumi.StringOutput { return v.SessionLoggerArn }).(pulumi.StringOutput)
 }

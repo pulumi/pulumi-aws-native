@@ -69,10 +69,24 @@ __all__ = [
     'TransformerSampleDocumentsArgsDict',
     'TransformerX12AdvancedOptionsArgs',
     'TransformerX12AdvancedOptionsArgsDict',
+    'TransformerX12CodeListValidationRuleArgs',
+    'TransformerX12CodeListValidationRuleArgsDict',
     'TransformerX12DetailsArgs',
     'TransformerX12DetailsArgsDict',
+    'TransformerX12ElementLengthValidationRuleArgs',
+    'TransformerX12ElementLengthValidationRuleArgsDict',
+    'TransformerX12ElementRequirementValidationRuleArgs',
+    'TransformerX12ElementRequirementValidationRuleArgsDict',
     'TransformerX12SplitOptionsArgs',
     'TransformerX12SplitOptionsArgsDict',
+    'TransformerX12ValidationOptionsArgs',
+    'TransformerX12ValidationOptionsArgsDict',
+    'TransformerX12ValidationRule0PropertiesArgs',
+    'TransformerX12ValidationRule0PropertiesArgsDict',
+    'TransformerX12ValidationRule1PropertiesArgs',
+    'TransformerX12ValidationRule1PropertiesArgsDict',
+    'TransformerX12ValidationRule2PropertiesArgs',
+    'TransformerX12ValidationRule2PropertiesArgsDict',
 ]
 
 MYPY = False
@@ -1010,6 +1024,7 @@ class TransformerMappingArgs:
 if not MYPY:
     class TransformerOutputConversionArgsDict(TypedDict):
         to_format: pulumi.Input['TransformerToFormat']
+        advanced_options: NotRequired[pulumi.Input['TransformerAdvancedOptionsArgsDict']]
         format_options: NotRequired[pulumi.Input['TransformerFormatOptionsPropertiesArgsDict']]
 elif False:
     TransformerOutputConversionArgsDict: TypeAlias = Mapping[str, Any]
@@ -1018,8 +1033,11 @@ elif False:
 class TransformerOutputConversionArgs:
     def __init__(__self__, *,
                  to_format: pulumi.Input['TransformerToFormat'],
+                 advanced_options: Optional[pulumi.Input['TransformerAdvancedOptionsArgs']] = None,
                  format_options: Optional[pulumi.Input['TransformerFormatOptionsPropertiesArgs']] = None):
         pulumi.set(__self__, "to_format", to_format)
+        if advanced_options is not None:
+            pulumi.set(__self__, "advanced_options", advanced_options)
         if format_options is not None:
             pulumi.set(__self__, "format_options", format_options)
 
@@ -1031,6 +1049,15 @@ class TransformerOutputConversionArgs:
     @to_format.setter
     def to_format(self, value: pulumi.Input['TransformerToFormat']):
         pulumi.set(self, "to_format", value)
+
+    @property
+    @pulumi.getter(name="advancedOptions")
+    def advanced_options(self) -> Optional[pulumi.Input['TransformerAdvancedOptionsArgs']]:
+        return pulumi.get(self, "advanced_options")
+
+    @advanced_options.setter
+    def advanced_options(self, value: Optional[pulumi.Input['TransformerAdvancedOptionsArgs']]):
+        pulumi.set(self, "advanced_options", value)
 
     @property
     @pulumi.getter(name="formatOptions")
@@ -1115,15 +1142,19 @@ class TransformerSampleDocumentsArgs:
 if not MYPY:
     class TransformerX12AdvancedOptionsArgsDict(TypedDict):
         split_options: NotRequired[pulumi.Input['TransformerX12SplitOptionsArgsDict']]
+        validation_options: NotRequired[pulumi.Input['TransformerX12ValidationOptionsArgsDict']]
 elif False:
     TransformerX12AdvancedOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformerX12AdvancedOptionsArgs:
     def __init__(__self__, *,
-                 split_options: Optional[pulumi.Input['TransformerX12SplitOptionsArgs']] = None):
+                 split_options: Optional[pulumi.Input['TransformerX12SplitOptionsArgs']] = None,
+                 validation_options: Optional[pulumi.Input['TransformerX12ValidationOptionsArgs']] = None):
         if split_options is not None:
             pulumi.set(__self__, "split_options", split_options)
+        if validation_options is not None:
+            pulumi.set(__self__, "validation_options", validation_options)
 
     @property
     @pulumi.getter(name="splitOptions")
@@ -1133,6 +1164,63 @@ class TransformerX12AdvancedOptionsArgs:
     @split_options.setter
     def split_options(self, value: Optional[pulumi.Input['TransformerX12SplitOptionsArgs']]):
         pulumi.set(self, "split_options", value)
+
+    @property
+    @pulumi.getter(name="validationOptions")
+    def validation_options(self) -> Optional[pulumi.Input['TransformerX12ValidationOptionsArgs']]:
+        return pulumi.get(self, "validation_options")
+
+    @validation_options.setter
+    def validation_options(self, value: Optional[pulumi.Input['TransformerX12ValidationOptionsArgs']]):
+        pulumi.set(self, "validation_options", value)
+
+
+if not MYPY:
+    class TransformerX12CodeListValidationRuleArgsDict(TypedDict):
+        element_id: pulumi.Input[builtins.str]
+        codes_to_add: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        codes_to_remove: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+elif False:
+    TransformerX12CodeListValidationRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TransformerX12CodeListValidationRuleArgs:
+    def __init__(__self__, *,
+                 element_id: pulumi.Input[builtins.str],
+                 codes_to_add: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 codes_to_remove: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        pulumi.set(__self__, "element_id", element_id)
+        if codes_to_add is not None:
+            pulumi.set(__self__, "codes_to_add", codes_to_add)
+        if codes_to_remove is not None:
+            pulumi.set(__self__, "codes_to_remove", codes_to_remove)
+
+    @property
+    @pulumi.getter(name="elementId")
+    def element_id(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "element_id")
+
+    @element_id.setter
+    def element_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "element_id", value)
+
+    @property
+    @pulumi.getter(name="codesToAdd")
+    def codes_to_add(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "codes_to_add")
+
+    @codes_to_add.setter
+    def codes_to_add(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "codes_to_add", value)
+
+    @property
+    @pulumi.getter(name="codesToRemove")
+    def codes_to_remove(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "codes_to_remove")
+
+    @codes_to_remove.setter
+    def codes_to_remove(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "codes_to_remove", value)
 
 
 if not MYPY:
@@ -1172,6 +1260,86 @@ class TransformerX12DetailsArgs:
 
 
 if not MYPY:
+    class TransformerX12ElementLengthValidationRuleArgsDict(TypedDict):
+        element_id: pulumi.Input[builtins.str]
+        max_length: pulumi.Input[builtins.float]
+        min_length: pulumi.Input[builtins.float]
+elif False:
+    TransformerX12ElementLengthValidationRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TransformerX12ElementLengthValidationRuleArgs:
+    def __init__(__self__, *,
+                 element_id: pulumi.Input[builtins.str],
+                 max_length: pulumi.Input[builtins.float],
+                 min_length: pulumi.Input[builtins.float]):
+        pulumi.set(__self__, "element_id", element_id)
+        pulumi.set(__self__, "max_length", max_length)
+        pulumi.set(__self__, "min_length", min_length)
+
+    @property
+    @pulumi.getter(name="elementId")
+    def element_id(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "element_id")
+
+    @element_id.setter
+    def element_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "element_id", value)
+
+    @property
+    @pulumi.getter(name="maxLength")
+    def max_length(self) -> pulumi.Input[builtins.float]:
+        return pulumi.get(self, "max_length")
+
+    @max_length.setter
+    def max_length(self, value: pulumi.Input[builtins.float]):
+        pulumi.set(self, "max_length", value)
+
+    @property
+    @pulumi.getter(name="minLength")
+    def min_length(self) -> pulumi.Input[builtins.float]:
+        return pulumi.get(self, "min_length")
+
+    @min_length.setter
+    def min_length(self, value: pulumi.Input[builtins.float]):
+        pulumi.set(self, "min_length", value)
+
+
+if not MYPY:
+    class TransformerX12ElementRequirementValidationRuleArgsDict(TypedDict):
+        element_position: pulumi.Input[builtins.str]
+        requirement: pulumi.Input['TransformerElementRequirement']
+elif False:
+    TransformerX12ElementRequirementValidationRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TransformerX12ElementRequirementValidationRuleArgs:
+    def __init__(__self__, *,
+                 element_position: pulumi.Input[builtins.str],
+                 requirement: pulumi.Input['TransformerElementRequirement']):
+        pulumi.set(__self__, "element_position", element_position)
+        pulumi.set(__self__, "requirement", requirement)
+
+    @property
+    @pulumi.getter(name="elementPosition")
+    def element_position(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "element_position")
+
+    @element_position.setter
+    def element_position(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "element_position", value)
+
+    @property
+    @pulumi.getter
+    def requirement(self) -> pulumi.Input['TransformerElementRequirement']:
+        return pulumi.get(self, "requirement")
+
+    @requirement.setter
+    def requirement(self, value: pulumi.Input['TransformerElementRequirement']):
+        pulumi.set(self, "requirement", value)
+
+
+if not MYPY:
     class TransformerX12SplitOptionsArgsDict(TypedDict):
         split_by: NotRequired[pulumi.Input['TransformerX12SplitBy']]
 elif False:
@@ -1192,5 +1360,94 @@ class TransformerX12SplitOptionsArgs:
     @split_by.setter
     def split_by(self, value: Optional[pulumi.Input['TransformerX12SplitBy']]):
         pulumi.set(self, "split_by", value)
+
+
+if not MYPY:
+    class TransformerX12ValidationOptionsArgsDict(TypedDict):
+        validation_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['TransformerX12ValidationRule0PropertiesArgsDict', 'TransformerX12ValidationRule1PropertiesArgsDict', 'TransformerX12ValidationRule2PropertiesArgsDict']]]]]
+elif False:
+    TransformerX12ValidationOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TransformerX12ValidationOptionsArgs:
+    def __init__(__self__, *,
+                 validation_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TransformerX12ValidationRule0PropertiesArgs', 'TransformerX12ValidationRule1PropertiesArgs', 'TransformerX12ValidationRule2PropertiesArgs']]]]] = None):
+        if validation_rules is not None:
+            pulumi.set(__self__, "validation_rules", validation_rules)
+
+    @property
+    @pulumi.getter(name="validationRules")
+    def validation_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['TransformerX12ValidationRule0PropertiesArgs', 'TransformerX12ValidationRule1PropertiesArgs', 'TransformerX12ValidationRule2PropertiesArgs']]]]]:
+        return pulumi.get(self, "validation_rules")
+
+    @validation_rules.setter
+    def validation_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TransformerX12ValidationRule0PropertiesArgs', 'TransformerX12ValidationRule1PropertiesArgs', 'TransformerX12ValidationRule2PropertiesArgs']]]]]):
+        pulumi.set(self, "validation_rules", value)
+
+
+if not MYPY:
+    class TransformerX12ValidationRule0PropertiesArgsDict(TypedDict):
+        code_list_validation_rule: pulumi.Input['TransformerX12CodeListValidationRuleArgsDict']
+elif False:
+    TransformerX12ValidationRule0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TransformerX12ValidationRule0PropertiesArgs:
+    def __init__(__self__, *,
+                 code_list_validation_rule: pulumi.Input['TransformerX12CodeListValidationRuleArgs']):
+        pulumi.set(__self__, "code_list_validation_rule", code_list_validation_rule)
+
+    @property
+    @pulumi.getter(name="codeListValidationRule")
+    def code_list_validation_rule(self) -> pulumi.Input['TransformerX12CodeListValidationRuleArgs']:
+        return pulumi.get(self, "code_list_validation_rule")
+
+    @code_list_validation_rule.setter
+    def code_list_validation_rule(self, value: pulumi.Input['TransformerX12CodeListValidationRuleArgs']):
+        pulumi.set(self, "code_list_validation_rule", value)
+
+
+if not MYPY:
+    class TransformerX12ValidationRule1PropertiesArgsDict(TypedDict):
+        element_length_validation_rule: pulumi.Input['TransformerX12ElementLengthValidationRuleArgsDict']
+elif False:
+    TransformerX12ValidationRule1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TransformerX12ValidationRule1PropertiesArgs:
+    def __init__(__self__, *,
+                 element_length_validation_rule: pulumi.Input['TransformerX12ElementLengthValidationRuleArgs']):
+        pulumi.set(__self__, "element_length_validation_rule", element_length_validation_rule)
+
+    @property
+    @pulumi.getter(name="elementLengthValidationRule")
+    def element_length_validation_rule(self) -> pulumi.Input['TransformerX12ElementLengthValidationRuleArgs']:
+        return pulumi.get(self, "element_length_validation_rule")
+
+    @element_length_validation_rule.setter
+    def element_length_validation_rule(self, value: pulumi.Input['TransformerX12ElementLengthValidationRuleArgs']):
+        pulumi.set(self, "element_length_validation_rule", value)
+
+
+if not MYPY:
+    class TransformerX12ValidationRule2PropertiesArgsDict(TypedDict):
+        element_requirement_validation_rule: pulumi.Input['TransformerX12ElementRequirementValidationRuleArgsDict']
+elif False:
+    TransformerX12ValidationRule2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TransformerX12ValidationRule2PropertiesArgs:
+    def __init__(__self__, *,
+                 element_requirement_validation_rule: pulumi.Input['TransformerX12ElementRequirementValidationRuleArgs']):
+        pulumi.set(__self__, "element_requirement_validation_rule", element_requirement_validation_rule)
+
+    @property
+    @pulumi.getter(name="elementRequirementValidationRule")
+    def element_requirement_validation_rule(self) -> pulumi.Input['TransformerX12ElementRequirementValidationRuleArgs']:
+        return pulumi.get(self, "element_requirement_validation_rule")
+
+    @element_requirement_validation_rule.setter
+    def element_requirement_validation_rule(self, value: pulumi.Input['TransformerX12ElementRequirementValidationRuleArgs']):
+        pulumi.set(self, "element_requirement_validation_rule", value)
 
 

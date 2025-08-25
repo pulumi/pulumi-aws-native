@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Definition for type AWS::IVS::Stage.
+ * Resource Type definition for AWS::IVS::Stage.
  */
 export class Stage extends pulumi.CustomResource {
     /**

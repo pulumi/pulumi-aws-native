@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ivs
 {
     /// <summary>
-    /// Resource Definition for type AWS::IVS::Stage.
+    /// Resource Type definition for AWS::IVS::Stage.
     /// </summary>
     [AwsNativeResourceType("aws-native:ivs:Stage")]
     public partial class Stage : global::Pulumi.CustomResource

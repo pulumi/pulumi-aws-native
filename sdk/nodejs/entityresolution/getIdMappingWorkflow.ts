@@ -30,6 +30,7 @@ export interface GetIdMappingWorkflowResult {
      * The description of the IdMappingWorkflow
      */
     readonly description?: string;
+    readonly idMappingIncrementalRunConfig?: outputs.entityresolution.IdMappingWorkflowIdMappingIncrementalRunConfig;
     /**
      * An object which defines the ID mapping technique and any additional configurations.
      */

@@ -44,8 +44,15 @@ __all__ = [
     'TransformerSampleDocumentKeys',
     'TransformerSampleDocuments',
     'TransformerX12AdvancedOptions',
+    'TransformerX12CodeListValidationRule',
     'TransformerX12Details',
+    'TransformerX12ElementLengthValidationRule',
+    'TransformerX12ElementRequirementValidationRule',
     'TransformerX12SplitOptions',
+    'TransformerX12ValidationOptions',
+    'TransformerX12ValidationRule0Properties',
+    'TransformerX12ValidationRule1Properties',
+    'TransformerX12ValidationRule2Properties',
 ]
 
 @pulumi.output_type
@@ -937,6 +944,8 @@ class TransformerOutputConversion(dict):
         suggest = None
         if key == "toFormat":
             suggest = "to_format"
+        elif key == "advancedOptions":
+            suggest = "advanced_options"
         elif key == "formatOptions":
             suggest = "format_options"
 
@@ -953,8 +962,11 @@ class TransformerOutputConversion(dict):
 
     def __init__(__self__, *,
                  to_format: 'TransformerToFormat',
+                 advanced_options: Optional['outputs.TransformerAdvancedOptions'] = None,
                  format_options: Optional['outputs.TransformerFormatOptionsProperties'] = None):
         pulumi.set(__self__, "to_format", to_format)
+        if advanced_options is not None:
+            pulumi.set(__self__, "advanced_options", advanced_options)
         if format_options is not None:
             pulumi.set(__self__, "format_options", format_options)
 
@@ -962,6 +974,11 @@ class TransformerOutputConversion(dict):
     @pulumi.getter(name="toFormat")
     def to_format(self) -> 'TransformerToFormat':
         return pulumi.get(self, "to_format")
+
+    @property
+    @pulumi.getter(name="advancedOptions")
+    def advanced_options(self) -> Optional['outputs.TransformerAdvancedOptions']:
+        return pulumi.get(self, "advanced_options")
 
     @property
     @pulumi.getter(name="formatOptions")
@@ -1033,6 +1050,8 @@ class TransformerX12AdvancedOptions(dict):
         suggest = None
         if key == "splitOptions":
             suggest = "split_options"
+        elif key == "validationOptions":
+            suggest = "validation_options"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TransformerX12AdvancedOptions. Access the value via the '{suggest}' property getter instead.")
@@ -1046,14 +1065,71 @@ class TransformerX12AdvancedOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 split_options: Optional['outputs.TransformerX12SplitOptions'] = None):
+                 split_options: Optional['outputs.TransformerX12SplitOptions'] = None,
+                 validation_options: Optional['outputs.TransformerX12ValidationOptions'] = None):
         if split_options is not None:
             pulumi.set(__self__, "split_options", split_options)
+        if validation_options is not None:
+            pulumi.set(__self__, "validation_options", validation_options)
 
     @property
     @pulumi.getter(name="splitOptions")
     def split_options(self) -> Optional['outputs.TransformerX12SplitOptions']:
         return pulumi.get(self, "split_options")
+
+    @property
+    @pulumi.getter(name="validationOptions")
+    def validation_options(self) -> Optional['outputs.TransformerX12ValidationOptions']:
+        return pulumi.get(self, "validation_options")
+
+
+@pulumi.output_type
+class TransformerX12CodeListValidationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "elementId":
+            suggest = "element_id"
+        elif key == "codesToAdd":
+            suggest = "codes_to_add"
+        elif key == "codesToRemove":
+            suggest = "codes_to_remove"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformerX12CodeListValidationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformerX12CodeListValidationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformerX12CodeListValidationRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 element_id: builtins.str,
+                 codes_to_add: Optional[Sequence[builtins.str]] = None,
+                 codes_to_remove: Optional[Sequence[builtins.str]] = None):
+        pulumi.set(__self__, "element_id", element_id)
+        if codes_to_add is not None:
+            pulumi.set(__self__, "codes_to_add", codes_to_add)
+        if codes_to_remove is not None:
+            pulumi.set(__self__, "codes_to_remove", codes_to_remove)
+
+    @property
+    @pulumi.getter(name="elementId")
+    def element_id(self) -> builtins.str:
+        return pulumi.get(self, "element_id")
+
+    @property
+    @pulumi.getter(name="codesToAdd")
+    def codes_to_add(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "codes_to_add")
+
+    @property
+    @pulumi.getter(name="codesToRemove")
+    def codes_to_remove(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "codes_to_remove")
 
 
 @pulumi.output_type
@@ -1095,6 +1171,89 @@ class TransformerX12Details(dict):
 
 
 @pulumi.output_type
+class TransformerX12ElementLengthValidationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "elementId":
+            suggest = "element_id"
+        elif key == "maxLength":
+            suggest = "max_length"
+        elif key == "minLength":
+            suggest = "min_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformerX12ElementLengthValidationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformerX12ElementLengthValidationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformerX12ElementLengthValidationRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 element_id: builtins.str,
+                 max_length: builtins.float,
+                 min_length: builtins.float):
+        pulumi.set(__self__, "element_id", element_id)
+        pulumi.set(__self__, "max_length", max_length)
+        pulumi.set(__self__, "min_length", min_length)
+
+    @property
+    @pulumi.getter(name="elementId")
+    def element_id(self) -> builtins.str:
+        return pulumi.get(self, "element_id")
+
+    @property
+    @pulumi.getter(name="maxLength")
+    def max_length(self) -> builtins.float:
+        return pulumi.get(self, "max_length")
+
+    @property
+    @pulumi.getter(name="minLength")
+    def min_length(self) -> builtins.float:
+        return pulumi.get(self, "min_length")
+
+
+@pulumi.output_type
+class TransformerX12ElementRequirementValidationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "elementPosition":
+            suggest = "element_position"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformerX12ElementRequirementValidationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformerX12ElementRequirementValidationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformerX12ElementRequirementValidationRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 element_position: builtins.str,
+                 requirement: 'TransformerElementRequirement'):
+        pulumi.set(__self__, "element_position", element_position)
+        pulumi.set(__self__, "requirement", requirement)
+
+    @property
+    @pulumi.getter(name="elementPosition")
+    def element_position(self) -> builtins.str:
+        return pulumi.get(self, "element_position")
+
+    @property
+    @pulumi.getter
+    def requirement(self) -> 'TransformerElementRequirement':
+        return pulumi.get(self, "requirement")
+
+
+@pulumi.output_type
 class TransformerX12SplitOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1122,5 +1281,122 @@ class TransformerX12SplitOptions(dict):
     @pulumi.getter(name="splitBy")
     def split_by(self) -> Optional['TransformerX12SplitBy']:
         return pulumi.get(self, "split_by")
+
+
+@pulumi.output_type
+class TransformerX12ValidationOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "validationRules":
+            suggest = "validation_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformerX12ValidationOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformerX12ValidationOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformerX12ValidationOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 validation_rules: Optional[Sequence[Any]] = None):
+        if validation_rules is not None:
+            pulumi.set(__self__, "validation_rules", validation_rules)
+
+    @property
+    @pulumi.getter(name="validationRules")
+    def validation_rules(self) -> Optional[Sequence[Any]]:
+        return pulumi.get(self, "validation_rules")
+
+
+@pulumi.output_type
+class TransformerX12ValidationRule0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codeListValidationRule":
+            suggest = "code_list_validation_rule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformerX12ValidationRule0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformerX12ValidationRule0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformerX12ValidationRule0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code_list_validation_rule: 'outputs.TransformerX12CodeListValidationRule'):
+        pulumi.set(__self__, "code_list_validation_rule", code_list_validation_rule)
+
+    @property
+    @pulumi.getter(name="codeListValidationRule")
+    def code_list_validation_rule(self) -> 'outputs.TransformerX12CodeListValidationRule':
+        return pulumi.get(self, "code_list_validation_rule")
+
+
+@pulumi.output_type
+class TransformerX12ValidationRule1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "elementLengthValidationRule":
+            suggest = "element_length_validation_rule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformerX12ValidationRule1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformerX12ValidationRule1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformerX12ValidationRule1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 element_length_validation_rule: 'outputs.TransformerX12ElementLengthValidationRule'):
+        pulumi.set(__self__, "element_length_validation_rule", element_length_validation_rule)
+
+    @property
+    @pulumi.getter(name="elementLengthValidationRule")
+    def element_length_validation_rule(self) -> 'outputs.TransformerX12ElementLengthValidationRule':
+        return pulumi.get(self, "element_length_validation_rule")
+
+
+@pulumi.output_type
+class TransformerX12ValidationRule2Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "elementRequirementValidationRule":
+            suggest = "element_requirement_validation_rule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformerX12ValidationRule2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformerX12ValidationRule2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformerX12ValidationRule2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 element_requirement_validation_rule: 'outputs.TransformerX12ElementRequirementValidationRule'):
+        pulumi.set(__self__, "element_requirement_validation_rule", element_requirement_validation_rule)
+
+    @property
+    @pulumi.getter(name="elementRequirementValidationRule")
+    def element_requirement_validation_rule(self) -> 'outputs.TransformerX12ElementRequirementValidationRule':
+        return pulumi.get(self, "element_requirement_validation_rule")
 
 

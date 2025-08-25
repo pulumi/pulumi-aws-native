@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Route53
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("healthCheckTags")]
-        public Output<ImmutableArray<Outputs.HealthCheckTag>> HealthCheckTags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> HealthCheckTags { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,14 +85,14 @@ namespace Pulumi.AwsNative.Route53
         public Input<Inputs.HealthCheckConfigPropertiesArgs> HealthCheckConfig { get; set; } = null!;
 
         [Input("healthCheckTags")]
-        private InputList<Inputs.HealthCheckTagArgs>? _healthCheckTags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _healthCheckTags;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Inputs.HealthCheckTagArgs> HealthCheckTags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> HealthCheckTags
         {
-            get => _healthCheckTags ?? (_healthCheckTags = new InputList<Inputs.HealthCheckTagArgs>());
+            get => _healthCheckTags ?? (_healthCheckTags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _healthCheckTags = value;
         }
 

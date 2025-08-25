@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Route53
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HealthCheckTag> HealthCheckTags;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> HealthCheckTags;
 
         [OutputConstructor]
         private GetHealthCheckResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Route53
 
             string? healthCheckId,
 
-            ImmutableArray<Outputs.HealthCheckTag> healthCheckTags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> healthCheckTags)
         {
             HealthCheckConfig = healthCheckConfig;
             HealthCheckId = healthCheckId;

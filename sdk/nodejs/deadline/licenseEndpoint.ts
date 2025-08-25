@@ -70,7 +70,7 @@ export class LicenseEndpoint extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * The VCP(virtual private cloud) ID associated with the license endpoint.
+     * The VPC (virtual private cloud) ID associated with the license endpoint.
      */
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -138,7 +138,7 @@ export interface LicenseEndpointArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * The VCP(virtual private cloud) ID associated with the license endpoint.
+     * The VPC (virtual private cloud) ID associated with the license endpoint.
      */
     vpcId: pulumi.Input<string>;
 }

@@ -26,6 +26,7 @@ class ResourceGatewayArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  vpc_identifier: pulumi.Input[builtins.str],
                  ip_address_type: Optional[pulumi.Input['ResourceGatewayIpAddressType']] = None,
+                 ipv4_addresses_per_eni: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -34,6 +35,7 @@ class ResourceGatewayArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The ID of one or more subnets in which to create an endpoint network interface.
         :param pulumi.Input[builtins.str] vpc_identifier: The ID of the VPC for the resource gateway.
         :param pulumi.Input['ResourceGatewayIpAddressType'] ip_address_type: The type of IP address used by the resource gateway.
+        :param pulumi.Input[builtins.int] ipv4_addresses_per_eni: The number of IPv4 addresses to allocate per ENI for the resource gateway
         :param pulumi.Input[builtins.str] name: The name of the resource gateway.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: The ID of one or more security groups to associate with the endpoint network interface.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the resource gateway.
@@ -42,6 +44,8 @@ class ResourceGatewayArgs:
         pulumi.set(__self__, "vpc_identifier", vpc_identifier)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if ipv4_addresses_per_eni is not None:
+            pulumi.set(__self__, "ipv4_addresses_per_eni", ipv4_addresses_per_eni)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if security_group_ids is not None:
@@ -84,6 +88,18 @@ class ResourceGatewayArgs:
     @ip_address_type.setter
     def ip_address_type(self, value: Optional[pulumi.Input['ResourceGatewayIpAddressType']]):
         pulumi.set(self, "ip_address_type", value)
+
+    @property
+    @pulumi.getter(name="ipv4AddressesPerEni")
+    def ipv4_addresses_per_eni(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The number of IPv4 addresses to allocate per ENI for the resource gateway
+        """
+        return pulumi.get(self, "ipv4_addresses_per_eni")
+
+    @ipv4_addresses_per_eni.setter
+    def ipv4_addresses_per_eni(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "ipv4_addresses_per_eni", value)
 
     @property
     @pulumi.getter
@@ -129,6 +145,7 @@ class ResourceGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ip_address_type: Optional[pulumi.Input['ResourceGatewayIpAddressType']] = None,
+                 ipv4_addresses_per_eni: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -141,6 +158,7 @@ class ResourceGateway(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ResourceGatewayIpAddressType'] ip_address_type: The type of IP address used by the resource gateway.
+        :param pulumi.Input[builtins.int] ipv4_addresses_per_eni: The number of IPv4 addresses to allocate per ENI for the resource gateway
         :param pulumi.Input[builtins.str] name: The name of the resource gateway.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: The ID of one or more security groups to associate with the endpoint network interface.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The ID of one or more subnets in which to create an endpoint network interface.
@@ -172,6 +190,7 @@ class ResourceGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ip_address_type: Optional[pulumi.Input['ResourceGatewayIpAddressType']] = None,
+                 ipv4_addresses_per_eni: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -187,6 +206,7 @@ class ResourceGateway(pulumi.CustomResource):
             __props__ = ResourceGatewayArgs.__new__(ResourceGatewayArgs)
 
             __props__.__dict__["ip_address_type"] = ip_address_type
+            __props__.__dict__["ipv4_addresses_per_eni"] = ipv4_addresses_per_eni
             __props__.__dict__["name"] = name
             __props__.__dict__["security_group_ids"] = security_group_ids
             if subnet_ids is None and not opts.urn:
@@ -225,6 +245,7 @@ class ResourceGateway(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["ip_address_type"] = None
+        __props__.__dict__["ipv4_addresses_per_eni"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["subnet_ids"] = None
@@ -255,6 +276,14 @@ class ResourceGateway(pulumi.CustomResource):
         The type of IP address used by the resource gateway.
         """
         return pulumi.get(self, "ip_address_type")
+
+    @property
+    @pulumi.getter(name="ipv4AddressesPerEni")
+    def ipv4_addresses_per_eni(self) -> pulumi.Output[Optional[builtins.int]]:
+        """
+        The number of IPv4 addresses to allocate per ENI for the resource gateway
+        """
+        return pulumi.get(self, "ipv4_addresses_per_eni")
 
     @property
     @pulumi.getter

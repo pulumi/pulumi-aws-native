@@ -9738,6 +9738,47 @@ func (i ValuesPropertiesArgs) ToValuesPropertiesOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ValuesPropertiesOutput)
 }
 
+func (i ValuesPropertiesArgs) ToValuesPropertiesPtrOutput() ValuesPropertiesPtrOutput {
+	return i.ToValuesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ValuesPropertiesArgs) ToValuesPropertiesPtrOutputWithContext(ctx context.Context) ValuesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ValuesPropertiesOutput).ToValuesPropertiesPtrOutputWithContext(ctx)
+}
+
+// ValuesPropertiesPtrInput is an input type that accepts ValuesPropertiesArgs, ValuesPropertiesPtr and ValuesPropertiesPtrOutput values.
+// You can construct a concrete instance of `ValuesPropertiesPtrInput` via:
+//
+//	        ValuesPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ValuesPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToValuesPropertiesPtrOutput() ValuesPropertiesPtrOutput
+	ToValuesPropertiesPtrOutputWithContext(context.Context) ValuesPropertiesPtrOutput
+}
+
+type valuesPropertiesPtrType ValuesPropertiesArgs
+
+func ValuesPropertiesPtr(v *ValuesPropertiesArgs) ValuesPropertiesPtrInput {
+	return (*valuesPropertiesPtrType)(v)
+}
+
+func (*valuesPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ValuesProperties)(nil)).Elem()
+}
+
+func (i *valuesPropertiesPtrType) ToValuesPropertiesPtrOutput() ValuesPropertiesPtrOutput {
+	return i.ToValuesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *valuesPropertiesPtrType) ToValuesPropertiesPtrOutputWithContext(ctx context.Context) ValuesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ValuesPropertiesPtrOutput)
+}
+
 // The values of a predefined attribute.
 type ValuesPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -9751,6 +9792,16 @@ func (o ValuesPropertiesOutput) ToValuesPropertiesOutput() ValuesPropertiesOutpu
 
 func (o ValuesPropertiesOutput) ToValuesPropertiesOutputWithContext(ctx context.Context) ValuesPropertiesOutput {
 	return o
+}
+
+func (o ValuesPropertiesOutput) ToValuesPropertiesPtrOutput() ValuesPropertiesPtrOutput {
+	return o.ToValuesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ValuesPropertiesOutput) ToValuesPropertiesPtrOutputWithContext(ctx context.Context) ValuesPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ValuesProperties) *ValuesProperties {
+		return &v
+	}).(ValuesPropertiesPtrOutput)
 }
 
 // Predefined attribute values of type string list.
@@ -9928,6 +9979,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProficiencyInput)(nil)).Elem(), UserProficiencyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProficiencyArrayInput)(nil)).Elem(), UserProficiencyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ValuesPropertiesInput)(nil)).Elem(), ValuesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ValuesPropertiesPtrInput)(nil)).Elem(), ValuesPropertiesArgs{})
 	pulumi.RegisterOutputType(ConstraintsPropertiesOutput{})
 	pulumi.RegisterOutputType(ConstraintsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormAutoEvaluationConfigurationOutput{})

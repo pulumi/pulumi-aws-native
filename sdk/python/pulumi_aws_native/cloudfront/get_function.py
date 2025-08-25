@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFunctionResult:
-    def __init__(__self__, function_arn=None, function_code=None, function_config=None, function_metadata=None, name=None, stage=None):
+    def __init__(__self__, function_arn=None, function_code=None, function_config=None, function_metadata=None, stage=None):
         if function_arn and not isinstance(function_arn, str):
             raise TypeError("Expected argument 'function_arn' to be a str")
         pulumi.set(__self__, "function_arn", function_arn)
@@ -38,9 +38,6 @@ class GetFunctionResult:
         if function_metadata and not isinstance(function_metadata, dict):
             raise TypeError("Expected argument 'function_metadata' to be a dict")
         pulumi.set(__self__, "function_metadata", function_metadata)
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        pulumi.set(__self__, "name", name)
         if stage and not isinstance(stage, str):
             raise TypeError("Expected argument 'stage' to be a str")
         pulumi.set(__self__, "stage", stage)
@@ -85,14 +82,6 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[builtins.str]:
-        """
-        A name to identify the function.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
     def stage(self) -> Optional[builtins.str]:
         return pulumi.get(self, "stage")
 
@@ -107,7 +96,6 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             function_code=self.function_code,
             function_config=self.function_config,
             function_metadata=self.function_metadata,
-            name=self.name,
             stage=self.stage)
 
 
@@ -139,7 +127,6 @@ def get_function(function_arn: Optional[builtins.str] = None,
         function_code=pulumi.get(__ret__, 'function_code'),
         function_config=pulumi.get(__ret__, 'function_config'),
         function_metadata=pulumi.get(__ret__, 'function_metadata'),
-        name=pulumi.get(__ret__, 'name'),
         stage=pulumi.get(__ret__, 'stage'))
 def get_function_output(function_arn: Optional[pulumi.Input[builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionResult]:
@@ -168,5 +155,4 @@ def get_function_output(function_arn: Optional[pulumi.Input[builtins.str]] = Non
         function_code=pulumi.get(__response__, 'function_code'),
         function_config=pulumi.get(__response__, 'function_config'),
         function_metadata=pulumi.get(__response__, 'function_metadata'),
-        name=pulumi.get(__response__, 'name'),
         stage=pulumi.get(__response__, 'stage')))

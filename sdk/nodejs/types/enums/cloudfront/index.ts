@@ -29,6 +29,14 @@ export const DistributionConnectionMode = {
 
 export type DistributionConnectionMode = (typeof DistributionConnectionMode)[keyof typeof DistributionConnectionMode];
 
+export const DistributionCustomOriginConfigIpAddressType = {
+    Ipv4: "ipv4",
+    Ipv6: "ipv6",
+    Dualstack: "dualstack",
+} as const;
+
+export type DistributionCustomOriginConfigIpAddressType = (typeof DistributionCustomOriginConfigIpAddressType)[keyof typeof DistributionCustomOriginConfigIpAddressType];
+
 export const DistributionOriginGroupSelectionCriteria = {
     Default: "default",
     MediaQualityBased: "media-quality-based",

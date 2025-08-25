@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.EntityResolution
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("idMappingIncrementalRunConfig")]
+        public Output<Outputs.IdMappingWorkflowIdMappingIncrementalRunConfig?> IdMappingIncrementalRunConfig { get; private set; } = null!;
+
         /// <summary>
         /// An object which defines the ID mapping technique and any additional configurations.
         /// </summary>
@@ -120,6 +123,9 @@ namespace Pulumi.AwsNative.EntityResolution
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("idMappingIncrementalRunConfig")]
+        public Input<Inputs.IdMappingWorkflowIdMappingIncrementalRunConfigArgs>? IdMappingIncrementalRunConfig { get; set; }
 
         /// <summary>
         /// An object which defines the ID mapping technique and any additional configurations.

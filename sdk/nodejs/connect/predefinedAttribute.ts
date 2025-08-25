@@ -56,7 +56,7 @@ export class PredefinedAttribute extends pulumi.CustomResource {
     /**
      * The values of a predefined attribute.
      */
-    public readonly values!: pulumi.Output<outputs.connect.ValuesProperties>;
+    public readonly values!: pulumi.Output<outputs.connect.ValuesProperties | undefined>;
 
     /**
      * Create a PredefinedAttribute resource with the given unique name, arguments, and options.
@@ -71,9 +71,6 @@ export class PredefinedAttribute extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
-            }
-            if ((!args || args.values === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'values'");
             }
             resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -109,5 +106,5 @@ export interface PredefinedAttributeArgs {
     /**
      * The values of a predefined attribute.
      */
-    values: pulumi.Input<inputs.connect.ValuesPropertiesArgs>;
+    values?: pulumi.Input<inputs.connect.ValuesPropertiesArgs>;
 }

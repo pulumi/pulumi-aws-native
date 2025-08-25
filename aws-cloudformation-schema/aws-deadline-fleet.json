@@ -177,7 +177,7 @@
     },
     "Ec2MarketType" : {
       "type" : "string",
-      "enum" : [ "on-demand", "spot" ]
+      "enum" : [ "on-demand", "spot", "wait-and-save" ]
     },
     "FleetAmountCapability" : {
       "type" : "object",
@@ -269,7 +269,7 @@
     },
     "FleetStatus" : {
       "type" : "string",
-      "enum" : [ "ACTIVE", "CREATE_IN_PROGRESS", "UPDATE_IN_PROGRESS", "CREATE_FAILED", "UPDATE_FAILED" ]
+      "enum" : [ "ACTIVE", "CREATE_IN_PROGRESS", "UPDATE_IN_PROGRESS", "CREATE_FAILED", "UPDATE_FAILED", "SUSPENDED" ]
     },
     "HostConfiguration" : {
       "type" : "object",
@@ -502,6 +502,9 @@
     "Status" : {
       "$ref" : "#/definitions/FleetStatus"
     },
+    "StatusMessage" : {
+      "type" : "string"
+    },
     "WorkerCount" : {
       "type" : "integer"
     },
@@ -521,7 +524,7 @@
     }
   },
   "required" : [ "Configuration", "DisplayName", "FarmId", "MaxWorkerCount", "RoleArn" ],
-  "readOnlyProperties" : [ "/properties/Capabilities", "/properties/FleetId", "/properties/Status", "/properties/WorkerCount", "/properties/Arn" ],
+  "readOnlyProperties" : [ "/properties/Capabilities", "/properties/FleetId", "/properties/Status", "/properties/StatusMessage", "/properties/WorkerCount", "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/FarmId" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "tagging" : {

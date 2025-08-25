@@ -35,8 +35,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Member{}
 	case "aws-native:guardduty:PublishingDestination":
 		r = &PublishingDestination{}
+	case "aws-native:guardduty:ThreatEntitySet":
+		r = &ThreatEntitySet{}
 	case "aws-native:guardduty:ThreatIntelSet":
 		r = &ThreatIntelSet{}
+	case "aws-native:guardduty:TrustedEntitySet":
+		r = &TrustedEntitySet{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

@@ -31,9 +31,9 @@ class IpSetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpSet resource.
-        :param pulumi.Input[builtins.str] format: The format of the file that contains the IPSet.
+        :param pulumi.Input[builtins.str] format: The format of the file that contains the IPSet. For information about supported formats, see [List formats](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#prepare_list) in the *Amazon GuardDuty User Guide* .
         :param pulumi.Input[builtins.str] location: The URI of the file that contains the IPSet.
-        :param pulumi.Input[builtins.bool] activate: Indicates whether or not GuardDuty uses the `IPSet` .
+        :param pulumi.Input[builtins.bool] activate: A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to prevent generating findings based on an activity associated with these entries, this list must be active.
         :param pulumi.Input[builtins.str] detector_id: The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
                
                To find the `detectorId` in the current Region, see the
@@ -43,8 +43,8 @@ class IpSetArgs:
                When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
         :param pulumi.Input[builtins.str] name: The user-friendly name to identify the IPSet.
                
-               Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+               The name of your list must be unique within an AWS account and Region. Valid characters are alphanumeric, whitespace, dash (-), and underscores (_).
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to be added to a new threat entity set resource. Each tag consists of a key and an optional value, both of which you define.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
@@ -65,7 +65,7 @@ class IpSetArgs:
     @pulumi.getter
     def format(self) -> pulumi.Input[builtins.str]:
         """
-        The format of the file that contains the IPSet.
+        The format of the file that contains the IPSet. For information about supported formats, see [List formats](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#prepare_list) in the *Amazon GuardDuty User Guide* .
         """
         return pulumi.get(self, "format")
 
@@ -89,7 +89,7 @@ class IpSetArgs:
     @pulumi.getter
     def activate(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Indicates whether or not GuardDuty uses the `IPSet` .
+        A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to prevent generating findings based on an activity associated with these entries, this list must be active.
         """
         return pulumi.get(self, "activate")
 
@@ -132,7 +132,7 @@ class IpSetArgs:
         """
         The user-friendly name to identify the IPSet.
 
-        Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+        The name of your list must be unique within an AWS account and Region. Valid characters are alphanumeric, whitespace, dash (-), and underscores (_).
         """
         return pulumi.get(self, "name")
 
@@ -144,7 +144,7 @@ class IpSetArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+        The tags to be added to a new threat entity set resource. Each tag consists of a key and an optional value, both of which you define.
 
         For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
@@ -174,7 +174,7 @@ class IpSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.bool] activate: Indicates whether or not GuardDuty uses the `IPSet` .
+        :param pulumi.Input[builtins.bool] activate: A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to prevent generating findings based on an activity associated with these entries, this list must be active.
         :param pulumi.Input[builtins.str] detector_id: The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
                
                To find the `detectorId` in the current Region, see the
@@ -182,12 +182,12 @@ class IpSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] expected_bucket_owner: The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
                
                When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
-        :param pulumi.Input[builtins.str] format: The format of the file that contains the IPSet.
+        :param pulumi.Input[builtins.str] format: The format of the file that contains the IPSet. For information about supported formats, see [List formats](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#prepare_list) in the *Amazon GuardDuty User Guide* .
         :param pulumi.Input[builtins.str] location: The URI of the file that contains the IPSet.
         :param pulumi.Input[builtins.str] name: The user-friendly name to identify the IPSet.
                
-               Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+               The name of your list must be unique within an AWS account and Region. Valid characters are alphanumeric, whitespace, dash (-), and underscores (_).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to be added to a new threat entity set resource. Each tag consists of a key and an optional value, both of which you define.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
@@ -281,7 +281,7 @@ class IpSet(pulumi.CustomResource):
     @pulumi.getter
     def activate(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Indicates whether or not GuardDuty uses the `IPSet` .
+        A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to prevent generating findings based on an activity associated with these entries, this list must be active.
         """
         return pulumi.get(self, "activate")
 
@@ -315,7 +315,7 @@ class IpSet(pulumi.CustomResource):
     @pulumi.getter
     def format(self) -> pulumi.Output[builtins.str]:
         """
-        The format of the file that contains the IPSet.
+        The format of the file that contains the IPSet. For information about supported formats, see [List formats](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#prepare_list) in the *Amazon GuardDuty User Guide* .
         """
         return pulumi.get(self, "format")
 
@@ -333,7 +333,7 @@ class IpSet(pulumi.CustomResource):
         """
         The user-friendly name to identify the IPSet.
 
-        Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+        The name of your list must be unique within an AWS account and Region. Valid characters are alphanumeric, whitespace, dash (-), and underscores (_).
         """
         return pulumi.get(self, "name")
 
@@ -341,7 +341,7 @@ class IpSet(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+        The tags to be added to a new threat entity set resource. Each tag consists of a key and an optional value, both of which you define.
 
         For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """

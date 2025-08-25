@@ -53,31 +53,49 @@ class GetSessionLoggerResult:
     @property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The associated portal ARN.
+        """
         return pulumi.get(self, "associated_portal_arns")
 
     @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[builtins.str]:
+        """
+        The date the session logger resource was created.
+        """
         return pulumi.get(self, "creation_date")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[builtins.str]:
+        """
+        The human-readable display name.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="eventFilter")
     def event_filter(self) -> Optional[Any]:
+        """
+        The filter that specifies which events to monitor.
+        """
         return pulumi.get(self, "event_filter")
 
     @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional['outputs.SessionLoggerLogConfiguration']:
+        """
+        The configuration that specifies where logs are fowarded.
+        """
         return pulumi.get(self, "log_configuration")
 
     @property
     @pulumi.getter(name="sessionLoggerArn")
     def session_logger_arn(self) -> Optional[builtins.str]:
+        """
+        The ARN of the session logger resource.
+        """
         return pulumi.get(self, "session_logger_arn")
 
     @property
@@ -105,6 +123,9 @@ def get_session_logger(session_logger_arn: Optional[builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSessionLoggerResult:
     """
     Definition of AWS::WorkSpacesWeb::SessionLogger Resource Type
+
+
+    :param builtins.str session_logger_arn: The ARN of the session logger resource.
     """
     __args__ = dict()
     __args__['sessionLoggerArn'] = session_logger_arn
@@ -123,6 +144,9 @@ def get_session_logger_output(session_logger_arn: Optional[pulumi.Input[builtins
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSessionLoggerResult]:
     """
     Definition of AWS::WorkSpacesWeb::SessionLogger Resource Type
+
+
+    :param builtins.str session_logger_arn: The ARN of the session logger resource.
     """
     __args__ = dict()
     __args__['sessionLoggerArn'] = session_logger_arn

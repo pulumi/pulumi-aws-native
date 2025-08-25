@@ -4061,6 +4061,223 @@ func (o PipelineVariableDeclarationArrayOutput) Index(i pulumi.IntInput) Pipelin
 	}).(PipelineVariableDeclarationOutput)
 }
 
+// Properties that configure the authentication applied to incoming webhook trigger requests
+type WebhookAuthConfiguration struct {
+	// The property used to configure acceptance of webhooks in an IP address range. For IP, only the AllowedIPRange property must be set. This property must be set to a valid CIDR range.
+	AllowedIpRange *string `pulumi:"allowedIpRange"`
+	// The property used to configure GitHub authentication. For GITHUB_HMAC, only the SecretToken property must be set.
+	SecretToken *string `pulumi:"secretToken"`
+}
+
+// WebhookAuthConfigurationInput is an input type that accepts WebhookAuthConfigurationArgs and WebhookAuthConfigurationOutput values.
+// You can construct a concrete instance of `WebhookAuthConfigurationInput` via:
+//
+//	WebhookAuthConfigurationArgs{...}
+type WebhookAuthConfigurationInput interface {
+	pulumi.Input
+
+	ToWebhookAuthConfigurationOutput() WebhookAuthConfigurationOutput
+	ToWebhookAuthConfigurationOutputWithContext(context.Context) WebhookAuthConfigurationOutput
+}
+
+// Properties that configure the authentication applied to incoming webhook trigger requests
+type WebhookAuthConfigurationArgs struct {
+	// The property used to configure acceptance of webhooks in an IP address range. For IP, only the AllowedIPRange property must be set. This property must be set to a valid CIDR range.
+	AllowedIpRange pulumi.StringPtrInput `pulumi:"allowedIpRange"`
+	// The property used to configure GitHub authentication. For GITHUB_HMAC, only the SecretToken property must be set.
+	SecretToken pulumi.StringPtrInput `pulumi:"secretToken"`
+}
+
+func (WebhookAuthConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookAuthConfiguration)(nil)).Elem()
+}
+
+func (i WebhookAuthConfigurationArgs) ToWebhookAuthConfigurationOutput() WebhookAuthConfigurationOutput {
+	return i.ToWebhookAuthConfigurationOutputWithContext(context.Background())
+}
+
+func (i WebhookAuthConfigurationArgs) ToWebhookAuthConfigurationOutputWithContext(ctx context.Context) WebhookAuthConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookAuthConfigurationOutput)
+}
+
+// Properties that configure the authentication applied to incoming webhook trigger requests
+type WebhookAuthConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WebhookAuthConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookAuthConfiguration)(nil)).Elem()
+}
+
+func (o WebhookAuthConfigurationOutput) ToWebhookAuthConfigurationOutput() WebhookAuthConfigurationOutput {
+	return o
+}
+
+func (o WebhookAuthConfigurationOutput) ToWebhookAuthConfigurationOutputWithContext(ctx context.Context) WebhookAuthConfigurationOutput {
+	return o
+}
+
+// The property used to configure acceptance of webhooks in an IP address range. For IP, only the AllowedIPRange property must be set. This property must be set to a valid CIDR range.
+func (o WebhookAuthConfigurationOutput) AllowedIpRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookAuthConfiguration) *string { return v.AllowedIpRange }).(pulumi.StringPtrOutput)
+}
+
+// The property used to configure GitHub authentication. For GITHUB_HMAC, only the SecretToken property must be set.
+func (o WebhookAuthConfigurationOutput) SecretToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookAuthConfiguration) *string { return v.SecretToken }).(pulumi.StringPtrOutput)
+}
+
+type WebhookAuthConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WebhookAuthConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebhookAuthConfiguration)(nil)).Elem()
+}
+
+func (o WebhookAuthConfigurationPtrOutput) ToWebhookAuthConfigurationPtrOutput() WebhookAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o WebhookAuthConfigurationPtrOutput) ToWebhookAuthConfigurationPtrOutputWithContext(ctx context.Context) WebhookAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o WebhookAuthConfigurationPtrOutput) Elem() WebhookAuthConfigurationOutput {
+	return o.ApplyT(func(v *WebhookAuthConfiguration) WebhookAuthConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WebhookAuthConfiguration
+		return ret
+	}).(WebhookAuthConfigurationOutput)
+}
+
+// The property used to configure acceptance of webhooks in an IP address range. For IP, only the AllowedIPRange property must be set. This property must be set to a valid CIDR range.
+func (o WebhookAuthConfigurationPtrOutput) AllowedIpRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedIpRange
+	}).(pulumi.StringPtrOutput)
+}
+
+// The property used to configure GitHub authentication. For GITHUB_HMAC, only the SecretToken property must be set.
+func (o WebhookAuthConfigurationPtrOutput) SecretToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of rules applied to the body/payload sent in the POST request to a webhook URL. All defined rules must pass for the request to be accepted and the pipeline started.
+type WebhookFilterRule struct {
+	// A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the MatchEquals field. Otherwise, the request is ignored.
+	JsonPath string `pulumi:"jsonPath"`
+	// The value selected by the JsonPath expression must match what is supplied in the MatchEquals field. Otherwise, the request is ignored.
+	MatchEquals *string `pulumi:"matchEquals"`
+}
+
+// WebhookFilterRuleInput is an input type that accepts WebhookFilterRuleArgs and WebhookFilterRuleOutput values.
+// You can construct a concrete instance of `WebhookFilterRuleInput` via:
+//
+//	WebhookFilterRuleArgs{...}
+type WebhookFilterRuleInput interface {
+	pulumi.Input
+
+	ToWebhookFilterRuleOutput() WebhookFilterRuleOutput
+	ToWebhookFilterRuleOutputWithContext(context.Context) WebhookFilterRuleOutput
+}
+
+// A list of rules applied to the body/payload sent in the POST request to a webhook URL. All defined rules must pass for the request to be accepted and the pipeline started.
+type WebhookFilterRuleArgs struct {
+	// A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the MatchEquals field. Otherwise, the request is ignored.
+	JsonPath pulumi.StringInput `pulumi:"jsonPath"`
+	// The value selected by the JsonPath expression must match what is supplied in the MatchEquals field. Otherwise, the request is ignored.
+	MatchEquals pulumi.StringPtrInput `pulumi:"matchEquals"`
+}
+
+func (WebhookFilterRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookFilterRule)(nil)).Elem()
+}
+
+func (i WebhookFilterRuleArgs) ToWebhookFilterRuleOutput() WebhookFilterRuleOutput {
+	return i.ToWebhookFilterRuleOutputWithContext(context.Background())
+}
+
+func (i WebhookFilterRuleArgs) ToWebhookFilterRuleOutputWithContext(ctx context.Context) WebhookFilterRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookFilterRuleOutput)
+}
+
+// WebhookFilterRuleArrayInput is an input type that accepts WebhookFilterRuleArray and WebhookFilterRuleArrayOutput values.
+// You can construct a concrete instance of `WebhookFilterRuleArrayInput` via:
+//
+//	WebhookFilterRuleArray{ WebhookFilterRuleArgs{...} }
+type WebhookFilterRuleArrayInput interface {
+	pulumi.Input
+
+	ToWebhookFilterRuleArrayOutput() WebhookFilterRuleArrayOutput
+	ToWebhookFilterRuleArrayOutputWithContext(context.Context) WebhookFilterRuleArrayOutput
+}
+
+type WebhookFilterRuleArray []WebhookFilterRuleInput
+
+func (WebhookFilterRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebhookFilterRule)(nil)).Elem()
+}
+
+func (i WebhookFilterRuleArray) ToWebhookFilterRuleArrayOutput() WebhookFilterRuleArrayOutput {
+	return i.ToWebhookFilterRuleArrayOutputWithContext(context.Background())
+}
+
+func (i WebhookFilterRuleArray) ToWebhookFilterRuleArrayOutputWithContext(ctx context.Context) WebhookFilterRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookFilterRuleArrayOutput)
+}
+
+// A list of rules applied to the body/payload sent in the POST request to a webhook URL. All defined rules must pass for the request to be accepted and the pipeline started.
+type WebhookFilterRuleOutput struct{ *pulumi.OutputState }
+
+func (WebhookFilterRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookFilterRule)(nil)).Elem()
+}
+
+func (o WebhookFilterRuleOutput) ToWebhookFilterRuleOutput() WebhookFilterRuleOutput {
+	return o
+}
+
+func (o WebhookFilterRuleOutput) ToWebhookFilterRuleOutputWithContext(ctx context.Context) WebhookFilterRuleOutput {
+	return o
+}
+
+// A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the MatchEquals field. Otherwise, the request is ignored.
+func (o WebhookFilterRuleOutput) JsonPath() pulumi.StringOutput {
+	return o.ApplyT(func(v WebhookFilterRule) string { return v.JsonPath }).(pulumi.StringOutput)
+}
+
+// The value selected by the JsonPath expression must match what is supplied in the MatchEquals field. Otherwise, the request is ignored.
+func (o WebhookFilterRuleOutput) MatchEquals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookFilterRule) *string { return v.MatchEquals }).(pulumi.StringPtrOutput)
+}
+
+type WebhookFilterRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (WebhookFilterRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebhookFilterRule)(nil)).Elem()
+}
+
+func (o WebhookFilterRuleArrayOutput) ToWebhookFilterRuleArrayOutput() WebhookFilterRuleArrayOutput {
+	return o
+}
+
+func (o WebhookFilterRuleArrayOutput) ToWebhookFilterRuleArrayOutputWithContext(ctx context.Context) WebhookFilterRuleArrayOutput {
+	return o
+}
+
+func (o WebhookFilterRuleArrayOutput) Index(i pulumi.IntInput) WebhookFilterRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebhookFilterRule {
+		return vs[0].([]WebhookFilterRule)[vs[1].(int)]
+	}).(WebhookFilterRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeArtifactDetailsInput)(nil)).Elem(), CustomActionTypeArtifactDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeConfigurationPropertiesInput)(nil)).Elem(), CustomActionTypeConfigurationPropertiesArgs{})
@@ -4118,6 +4335,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerDeclarationArrayInput)(nil)).Elem(), PipelineTriggerDeclarationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVariableDeclarationInput)(nil)).Elem(), PipelineVariableDeclarationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVariableDeclarationArrayInput)(nil)).Elem(), PipelineVariableDeclarationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookAuthConfigurationInput)(nil)).Elem(), WebhookAuthConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterRuleInput)(nil)).Elem(), WebhookFilterRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterRuleArrayInput)(nil)).Elem(), WebhookFilterRuleArray{})
 	pulumi.RegisterOutputType(CustomActionTypeArtifactDetailsOutput{})
 	pulumi.RegisterOutputType(CustomActionTypeConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(CustomActionTypeConfigurationPropertiesArrayOutput{})
@@ -4174,4 +4394,8 @@ func init() {
 	pulumi.RegisterOutputType(PipelineTriggerDeclarationArrayOutput{})
 	pulumi.RegisterOutputType(PipelineVariableDeclarationOutput{})
 	pulumi.RegisterOutputType(PipelineVariableDeclarationArrayOutput{})
+	pulumi.RegisterOutputType(WebhookAuthConfigurationOutput{})
+	pulumi.RegisterOutputType(WebhookAuthConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WebhookFilterRuleOutput{})
+	pulumi.RegisterOutputType(WebhookFilterRuleArrayOutput{})
 }

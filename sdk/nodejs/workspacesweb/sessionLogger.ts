@@ -37,13 +37,37 @@ export class SessionLogger extends pulumi.CustomResource {
         return obj['__pulumiType'] === SessionLogger.__pulumiType;
     }
 
+    /**
+     * The additional encryption context of the session logger.
+     */
     public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The associated portal ARN.
+     */
     public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
+    /**
+     * The date the session logger resource was created.
+     */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    /**
+     * The custom managed key of the session logger.
+     */
     public readonly customerManagedKey!: pulumi.Output<string | undefined>;
+    /**
+     * The human-readable display name.
+     */
     public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * The filter that specifies which events to monitor.
+     */
     public readonly eventFilter!: pulumi.Output<outputs.workspacesweb.SessionLoggerEventFilter0Properties | outputs.workspacesweb.SessionLoggerEventFilter1Properties>;
+    /**
+     * The configuration that specifies where logs are fowarded.
+     */
     public readonly logConfiguration!: pulumi.Output<outputs.workspacesweb.SessionLoggerLogConfiguration>;
+    /**
+     * The ARN of the session logger resource.
+     */
     public /*out*/ readonly sessionLoggerArn!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -95,10 +119,25 @@ export class SessionLogger extends pulumi.CustomResource {
  * The set of arguments for constructing a SessionLogger resource.
  */
 export interface SessionLoggerArgs {
+    /**
+     * The additional encryption context of the session logger.
+     */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The custom managed key of the session logger.
+     */
     customerManagedKey?: pulumi.Input<string>;
+    /**
+     * The human-readable display name.
+     */
     displayName?: pulumi.Input<string>;
+    /**
+     * The filter that specifies which events to monitor.
+     */
     eventFilter: pulumi.Input<inputs.workspacesweb.SessionLoggerEventFilter0PropertiesArgs | inputs.workspacesweb.SessionLoggerEventFilter1PropertiesArgs>;
+    /**
+     * The configuration that specifies where logs are fowarded.
+     */
     logConfiguration: pulumi.Input<inputs.workspacesweb.SessionLoggerLogConfigurationArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

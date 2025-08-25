@@ -69,6 +69,206 @@ namespace Pulumi.AwsNative.InspectorV2
     }
 
     [EnumType]
+    public readonly struct CodeSecurityIntegrationIntegrationStatus : IEquatable<CodeSecurityIntegrationIntegrationStatus>
+    {
+        private readonly string _value;
+
+        private CodeSecurityIntegrationIntegrationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CodeSecurityIntegrationIntegrationStatus Pending { get; } = new CodeSecurityIntegrationIntegrationStatus("PENDING");
+        public static CodeSecurityIntegrationIntegrationStatus InProgress { get; } = new CodeSecurityIntegrationIntegrationStatus("IN_PROGRESS");
+        public static CodeSecurityIntegrationIntegrationStatus Active { get; } = new CodeSecurityIntegrationIntegrationStatus("ACTIVE");
+        public static CodeSecurityIntegrationIntegrationStatus Inactive { get; } = new CodeSecurityIntegrationIntegrationStatus("INACTIVE");
+        public static CodeSecurityIntegrationIntegrationStatus Disabling { get; } = new CodeSecurityIntegrationIntegrationStatus("DISABLING");
+
+        public static bool operator ==(CodeSecurityIntegrationIntegrationStatus left, CodeSecurityIntegrationIntegrationStatus right) => left.Equals(right);
+        public static bool operator !=(CodeSecurityIntegrationIntegrationStatus left, CodeSecurityIntegrationIntegrationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(CodeSecurityIntegrationIntegrationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CodeSecurityIntegrationIntegrationStatus other && Equals(other);
+        public bool Equals(CodeSecurityIntegrationIntegrationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CodeSecurityIntegrationIntegrationType : IEquatable<CodeSecurityIntegrationIntegrationType>
+    {
+        private readonly string _value;
+
+        private CodeSecurityIntegrationIntegrationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CodeSecurityIntegrationIntegrationType GitlabSelfManaged { get; } = new CodeSecurityIntegrationIntegrationType("GITLAB_SELF_MANAGED");
+        public static CodeSecurityIntegrationIntegrationType Github { get; } = new CodeSecurityIntegrationIntegrationType("GITHUB");
+
+        public static bool operator ==(CodeSecurityIntegrationIntegrationType left, CodeSecurityIntegrationIntegrationType right) => left.Equals(right);
+        public static bool operator !=(CodeSecurityIntegrationIntegrationType left, CodeSecurityIntegrationIntegrationType right) => !left.Equals(right);
+
+        public static explicit operator string(CodeSecurityIntegrationIntegrationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CodeSecurityIntegrationIntegrationType other && Equals(other);
+        public bool Equals(CodeSecurityIntegrationIntegrationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CodeSecurityScanConfigurationConfigurationLevel : IEquatable<CodeSecurityScanConfigurationConfigurationLevel>
+    {
+        private readonly string _value;
+
+        private CodeSecurityScanConfigurationConfigurationLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CodeSecurityScanConfigurationConfigurationLevel Organization { get; } = new CodeSecurityScanConfigurationConfigurationLevel("ORGANIZATION");
+        public static CodeSecurityScanConfigurationConfigurationLevel Account { get; } = new CodeSecurityScanConfigurationConfigurationLevel("ACCOUNT");
+
+        public static bool operator ==(CodeSecurityScanConfigurationConfigurationLevel left, CodeSecurityScanConfigurationConfigurationLevel right) => left.Equals(right);
+        public static bool operator !=(CodeSecurityScanConfigurationConfigurationLevel left, CodeSecurityScanConfigurationConfigurationLevel right) => !left.Equals(right);
+
+        public static explicit operator string(CodeSecurityScanConfigurationConfigurationLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CodeSecurityScanConfigurationConfigurationLevel other && Equals(other);
+        public bool Equals(CodeSecurityScanConfigurationConfigurationLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CodeSecurityScanConfigurationContinuousIntegrationScanEvent : IEquatable<CodeSecurityScanConfigurationContinuousIntegrationScanEvent>
+    {
+        private readonly string _value;
+
+        private CodeSecurityScanConfigurationContinuousIntegrationScanEvent(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CodeSecurityScanConfigurationContinuousIntegrationScanEvent PullRequest { get; } = new CodeSecurityScanConfigurationContinuousIntegrationScanEvent("PULL_REQUEST");
+        public static CodeSecurityScanConfigurationContinuousIntegrationScanEvent Push { get; } = new CodeSecurityScanConfigurationContinuousIntegrationScanEvent("PUSH");
+
+        public static bool operator ==(CodeSecurityScanConfigurationContinuousIntegrationScanEvent left, CodeSecurityScanConfigurationContinuousIntegrationScanEvent right) => left.Equals(right);
+        public static bool operator !=(CodeSecurityScanConfigurationContinuousIntegrationScanEvent left, CodeSecurityScanConfigurationContinuousIntegrationScanEvent right) => !left.Equals(right);
+
+        public static explicit operator string(CodeSecurityScanConfigurationContinuousIntegrationScanEvent value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CodeSecurityScanConfigurationContinuousIntegrationScanEvent other && Equals(other);
+        public bool Equals(CodeSecurityScanConfigurationContinuousIntegrationScanEvent other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CodeSecurityScanConfigurationPeriodicScanFrequency : IEquatable<CodeSecurityScanConfigurationPeriodicScanFrequency>
+    {
+        private readonly string _value;
+
+        private CodeSecurityScanConfigurationPeriodicScanFrequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CodeSecurityScanConfigurationPeriodicScanFrequency Weekly { get; } = new CodeSecurityScanConfigurationPeriodicScanFrequency("WEEKLY");
+        public static CodeSecurityScanConfigurationPeriodicScanFrequency Monthly { get; } = new CodeSecurityScanConfigurationPeriodicScanFrequency("MONTHLY");
+        public static CodeSecurityScanConfigurationPeriodicScanFrequency Never { get; } = new CodeSecurityScanConfigurationPeriodicScanFrequency("NEVER");
+
+        public static bool operator ==(CodeSecurityScanConfigurationPeriodicScanFrequency left, CodeSecurityScanConfigurationPeriodicScanFrequency right) => left.Equals(right);
+        public static bool operator !=(CodeSecurityScanConfigurationPeriodicScanFrequency left, CodeSecurityScanConfigurationPeriodicScanFrequency right) => !left.Equals(right);
+
+        public static explicit operator string(CodeSecurityScanConfigurationPeriodicScanFrequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CodeSecurityScanConfigurationPeriodicScanFrequency other && Equals(other);
+        public bool Equals(CodeSecurityScanConfigurationPeriodicScanFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CodeSecurityScanConfigurationProjectSelectionScope : IEquatable<CodeSecurityScanConfigurationProjectSelectionScope>
+    {
+        private readonly string _value;
+
+        private CodeSecurityScanConfigurationProjectSelectionScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CodeSecurityScanConfigurationProjectSelectionScope All { get; } = new CodeSecurityScanConfigurationProjectSelectionScope("ALL");
+
+        public static bool operator ==(CodeSecurityScanConfigurationProjectSelectionScope left, CodeSecurityScanConfigurationProjectSelectionScope right) => left.Equals(right);
+        public static bool operator !=(CodeSecurityScanConfigurationProjectSelectionScope left, CodeSecurityScanConfigurationProjectSelectionScope right) => !left.Equals(right);
+
+        public static explicit operator string(CodeSecurityScanConfigurationProjectSelectionScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CodeSecurityScanConfigurationProjectSelectionScope other && Equals(other);
+        public bool Equals(CodeSecurityScanConfigurationProjectSelectionScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CodeSecurityScanConfigurationRuleSetCategory : IEquatable<CodeSecurityScanConfigurationRuleSetCategory>
+    {
+        private readonly string _value;
+
+        private CodeSecurityScanConfigurationRuleSetCategory(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CodeSecurityScanConfigurationRuleSetCategory Sast { get; } = new CodeSecurityScanConfigurationRuleSetCategory("SAST");
+        public static CodeSecurityScanConfigurationRuleSetCategory Iac { get; } = new CodeSecurityScanConfigurationRuleSetCategory("IAC");
+        public static CodeSecurityScanConfigurationRuleSetCategory Sca { get; } = new CodeSecurityScanConfigurationRuleSetCategory("SCA");
+
+        public static bool operator ==(CodeSecurityScanConfigurationRuleSetCategory left, CodeSecurityScanConfigurationRuleSetCategory right) => left.Equals(right);
+        public static bool operator !=(CodeSecurityScanConfigurationRuleSetCategory left, CodeSecurityScanConfigurationRuleSetCategory right) => !left.Equals(right);
+
+        public static explicit operator string(CodeSecurityScanConfigurationRuleSetCategory value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CodeSecurityScanConfigurationRuleSetCategory other && Equals(other);
+        public bool Equals(CodeSecurityScanConfigurationRuleSetCategory other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct FilterAction : IEquatable<FilterAction>
     {
         private readonly string _value;

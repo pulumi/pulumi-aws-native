@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -115,6 +116,8 @@ type Rule struct {
 	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
 	// The state of the rule.
 	State RuleStateEnumPtrOutput `pulumi:"state"`
+	// Any tags assigned to the event rule.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
 	// Targets are the resources that are invoked when a rule is triggered.
 	Targets RuleTargetArrayOutput `pulumi:"targets"`
@@ -180,6 +183,8 @@ type ruleArgs struct {
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// The state of the rule.
 	State *RuleStateEnum `pulumi:"state"`
+	// Any tags assigned to the event rule.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
 	// Targets are the resources that are invoked when a rule is triggered.
 	Targets []RuleTarget `pulumi:"targets"`
@@ -203,6 +208,8 @@ type RuleArgs struct {
 	ScheduleExpression pulumi.StringPtrInput
 	// The state of the rule.
 	State RuleStateEnumPtrInput
+	// Any tags assigned to the event rule.
+	Tags aws.TagArrayInput
 	// Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
 	// Targets are the resources that are invoked when a rule is triggered.
 	Targets RuleTargetArrayInput
@@ -285,6 +292,11 @@ func (o RuleOutput) ScheduleExpression() pulumi.StringPtrOutput {
 // The state of the rule.
 func (o RuleOutput) State() RuleStateEnumPtrOutput {
 	return o.ApplyT(func(v *Rule) RuleStateEnumPtrOutput { return v.State }).(RuleStateEnumPtrOutput)
+}
+
+// Any tags assigned to the event rule.
+func (o RuleOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Rule) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.

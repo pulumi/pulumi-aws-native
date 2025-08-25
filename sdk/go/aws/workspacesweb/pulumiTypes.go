@@ -925,6 +925,7 @@ func (o SessionLoggerEventFilter1PropertiesPtrOutput) Include() SessionLoggerEve
 }
 
 type SessionLoggerLogConfiguration struct {
+	// The configuration for delivering the logs to S3.
 	S3 *SessionLoggerS3LogConfiguration `pulumi:"s3"`
 }
 
@@ -940,6 +941,7 @@ type SessionLoggerLogConfigurationInput interface {
 }
 
 type SessionLoggerLogConfigurationArgs struct {
+	// The configuration for delivering the logs to S3.
 	S3 SessionLoggerS3LogConfigurationPtrInput `pulumi:"s3"`
 }
 
@@ -969,6 +971,7 @@ func (o SessionLoggerLogConfigurationOutput) ToSessionLoggerLogConfigurationOutp
 	return o
 }
 
+// The configuration for delivering the logs to S3.
 func (o SessionLoggerLogConfigurationOutput) S3() SessionLoggerS3LogConfigurationPtrOutput {
 	return o.ApplyT(func(v SessionLoggerLogConfiguration) *SessionLoggerS3LogConfiguration { return v.S3 }).(SessionLoggerS3LogConfigurationPtrOutput)
 }
@@ -997,6 +1000,7 @@ func (o SessionLoggerLogConfigurationPtrOutput) Elem() SessionLoggerLogConfigura
 	}).(SessionLoggerLogConfigurationOutput)
 }
 
+// The configuration for delivering the logs to S3.
 func (o SessionLoggerLogConfigurationPtrOutput) S3() SessionLoggerS3LogConfigurationPtrOutput {
 	return o.ApplyT(func(v *SessionLoggerLogConfiguration) *SessionLoggerS3LogConfiguration {
 		if v == nil {
@@ -1007,11 +1011,16 @@ func (o SessionLoggerLogConfigurationPtrOutput) S3() SessionLoggerS3LogConfigura
 }
 
 type SessionLoggerS3LogConfiguration struct {
-	Bucket          string                       `pulumi:"bucket"`
-	BucketOwner     *string                      `pulumi:"bucketOwner"`
+	// The S3 bucket name where logs are delivered.
+	Bucket string `pulumi:"bucket"`
+	// The expected bucket owner of the target S3 bucket. The caller must have permissions to write to the target bucket.
+	BucketOwner *string `pulumi:"bucketOwner"`
+	// The folder structure that defines the organizational structure for log files in S3.
 	FolderStructure SessionLoggerFolderStructure `pulumi:"folderStructure"`
-	KeyPrefix       *string                      `pulumi:"keyPrefix"`
-	LogFileFormat   SessionLoggerLogFileFormat   `pulumi:"logFileFormat"`
+	// The S3 path prefix that determines where log files are stored.
+	KeyPrefix *string `pulumi:"keyPrefix"`
+	// The format of the LogFile that is written to S3.
+	LogFileFormat SessionLoggerLogFileFormat `pulumi:"logFileFormat"`
 }
 
 // SessionLoggerS3LogConfigurationInput is an input type that accepts SessionLoggerS3LogConfigurationArgs and SessionLoggerS3LogConfigurationOutput values.
@@ -1026,11 +1035,16 @@ type SessionLoggerS3LogConfigurationInput interface {
 }
 
 type SessionLoggerS3LogConfigurationArgs struct {
-	Bucket          pulumi.StringInput                `pulumi:"bucket"`
-	BucketOwner     pulumi.StringPtrInput             `pulumi:"bucketOwner"`
+	// The S3 bucket name where logs are delivered.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The expected bucket owner of the target S3 bucket. The caller must have permissions to write to the target bucket.
+	BucketOwner pulumi.StringPtrInput `pulumi:"bucketOwner"`
+	// The folder structure that defines the organizational structure for log files in S3.
 	FolderStructure SessionLoggerFolderStructureInput `pulumi:"folderStructure"`
-	KeyPrefix       pulumi.StringPtrInput             `pulumi:"keyPrefix"`
-	LogFileFormat   SessionLoggerLogFileFormatInput   `pulumi:"logFileFormat"`
+	// The S3 path prefix that determines where log files are stored.
+	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
+	// The format of the LogFile that is written to S3.
+	LogFileFormat SessionLoggerLogFileFormatInput `pulumi:"logFileFormat"`
 }
 
 func (SessionLoggerS3LogConfigurationArgs) ElementType() reflect.Type {
@@ -1110,22 +1124,27 @@ func (o SessionLoggerS3LogConfigurationOutput) ToSessionLoggerS3LogConfiguration
 	}).(SessionLoggerS3LogConfigurationPtrOutput)
 }
 
+// The S3 bucket name where logs are delivered.
 func (o SessionLoggerS3LogConfigurationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v SessionLoggerS3LogConfiguration) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// The expected bucket owner of the target S3 bucket. The caller must have permissions to write to the target bucket.
 func (o SessionLoggerS3LogConfigurationOutput) BucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SessionLoggerS3LogConfiguration) *string { return v.BucketOwner }).(pulumi.StringPtrOutput)
 }
 
+// The folder structure that defines the organizational structure for log files in S3.
 func (o SessionLoggerS3LogConfigurationOutput) FolderStructure() SessionLoggerFolderStructureOutput {
 	return o.ApplyT(func(v SessionLoggerS3LogConfiguration) SessionLoggerFolderStructure { return v.FolderStructure }).(SessionLoggerFolderStructureOutput)
 }
 
+// The S3 path prefix that determines where log files are stored.
 func (o SessionLoggerS3LogConfigurationOutput) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SessionLoggerS3LogConfiguration) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
+// The format of the LogFile that is written to S3.
 func (o SessionLoggerS3LogConfigurationOutput) LogFileFormat() SessionLoggerLogFileFormatOutput {
 	return o.ApplyT(func(v SessionLoggerS3LogConfiguration) SessionLoggerLogFileFormat { return v.LogFileFormat }).(SessionLoggerLogFileFormatOutput)
 }
@@ -1154,6 +1173,7 @@ func (o SessionLoggerS3LogConfigurationPtrOutput) Elem() SessionLoggerS3LogConfi
 	}).(SessionLoggerS3LogConfigurationOutput)
 }
 
+// The S3 bucket name where logs are delivered.
 func (o SessionLoggerS3LogConfigurationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SessionLoggerS3LogConfiguration) *string {
 		if v == nil {
@@ -1163,6 +1183,7 @@ func (o SessionLoggerS3LogConfigurationPtrOutput) Bucket() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The expected bucket owner of the target S3 bucket. The caller must have permissions to write to the target bucket.
 func (o SessionLoggerS3LogConfigurationPtrOutput) BucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SessionLoggerS3LogConfiguration) *string {
 		if v == nil {
@@ -1172,6 +1193,7 @@ func (o SessionLoggerS3LogConfigurationPtrOutput) BucketOwner() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The folder structure that defines the organizational structure for log files in S3.
 func (o SessionLoggerS3LogConfigurationPtrOutput) FolderStructure() SessionLoggerFolderStructurePtrOutput {
 	return o.ApplyT(func(v *SessionLoggerS3LogConfiguration) *SessionLoggerFolderStructure {
 		if v == nil {
@@ -1181,6 +1203,7 @@ func (o SessionLoggerS3LogConfigurationPtrOutput) FolderStructure() SessionLogge
 	}).(SessionLoggerFolderStructurePtrOutput)
 }
 
+// The S3 path prefix that determines where log files are stored.
 func (o SessionLoggerS3LogConfigurationPtrOutput) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SessionLoggerS3LogConfiguration) *string {
 		if v == nil {
@@ -1190,6 +1213,7 @@ func (o SessionLoggerS3LogConfigurationPtrOutput) KeyPrefix() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The format of the LogFile that is written to S3.
 func (o SessionLoggerS3LogConfigurationPtrOutput) LogFileFormat() SessionLoggerLogFileFormatPtrOutput {
 	return o.ApplyT(func(v *SessionLoggerS3LogConfiguration) *SessionLoggerLogFileFormat {
 		if v == nil {

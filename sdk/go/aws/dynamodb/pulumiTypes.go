@@ -346,6 +346,8 @@ func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) TargetTrackingScalingPo
 type GlobalTableContributorInsightsSpecification struct {
 	// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
 	Enabled bool `pulumi:"enabled"`
+	// Specifies the CloudWatch Contributor Insights mode for a global table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the global table.
+	Mode *GlobalTableContributorInsightsSpecificationMode `pulumi:"mode"`
 }
 
 // GlobalTableContributorInsightsSpecificationInput is an input type that accepts GlobalTableContributorInsightsSpecificationArgs and GlobalTableContributorInsightsSpecificationOutput values.
@@ -362,6 +364,8 @@ type GlobalTableContributorInsightsSpecificationInput interface {
 type GlobalTableContributorInsightsSpecificationArgs struct {
 	// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Specifies the CloudWatch Contributor Insights mode for a global table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the global table.
+	Mode GlobalTableContributorInsightsSpecificationModePtrInput `pulumi:"mode"`
 }
 
 func (GlobalTableContributorInsightsSpecificationArgs) ElementType() reflect.Type {
@@ -446,6 +450,13 @@ func (o GlobalTableContributorInsightsSpecificationOutput) Enabled() pulumi.Bool
 	return o.ApplyT(func(v GlobalTableContributorInsightsSpecification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Specifies the CloudWatch Contributor Insights mode for a global table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the global table.
+func (o GlobalTableContributorInsightsSpecificationOutput) Mode() GlobalTableContributorInsightsSpecificationModePtrOutput {
+	return o.ApplyT(func(v GlobalTableContributorInsightsSpecification) *GlobalTableContributorInsightsSpecificationMode {
+		return v.Mode
+	}).(GlobalTableContributorInsightsSpecificationModePtrOutput)
+}
+
 type GlobalTableContributorInsightsSpecificationPtrOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableContributorInsightsSpecificationPtrOutput) ElementType() reflect.Type {
@@ -478,6 +489,16 @@ func (o GlobalTableContributorInsightsSpecificationPtrOutput) Enabled() pulumi.B
 		}
 		return &v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the CloudWatch Contributor Insights mode for a global table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the global table.
+func (o GlobalTableContributorInsightsSpecificationPtrOutput) Mode() GlobalTableContributorInsightsSpecificationModePtrOutput {
+	return o.ApplyT(func(v *GlobalTableContributorInsightsSpecification) *GlobalTableContributorInsightsSpecificationMode {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(GlobalTableContributorInsightsSpecificationModePtrOutput)
 }
 
 type GlobalTableGlobalSecondaryIndex struct {
@@ -3828,6 +3849,8 @@ func (o TableAttributeDefinitionArrayOutput) Index(i pulumi.IntInput) TableAttri
 type TableContributorInsightsSpecification struct {
 	// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
 	Enabled bool `pulumi:"enabled"`
+	// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+	Mode *TableContributorInsightsSpecificationMode `pulumi:"mode"`
 }
 
 // TableContributorInsightsSpecificationInput is an input type that accepts TableContributorInsightsSpecificationArgs and TableContributorInsightsSpecificationOutput values.
@@ -3845,6 +3868,8 @@ type TableContributorInsightsSpecificationInput interface {
 type TableContributorInsightsSpecificationArgs struct {
 	// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+	Mode TableContributorInsightsSpecificationModePtrInput `pulumi:"mode"`
 }
 
 func (TableContributorInsightsSpecificationArgs) ElementType() reflect.Type {
@@ -3930,6 +3955,13 @@ func (o TableContributorInsightsSpecificationOutput) Enabled() pulumi.BoolOutput
 	return o.ApplyT(func(v TableContributorInsightsSpecification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+func (o TableContributorInsightsSpecificationOutput) Mode() TableContributorInsightsSpecificationModePtrOutput {
+	return o.ApplyT(func(v TableContributorInsightsSpecification) *TableContributorInsightsSpecificationMode {
+		return v.Mode
+	}).(TableContributorInsightsSpecificationModePtrOutput)
+}
+
 type TableContributorInsightsSpecificationPtrOutput struct{ *pulumi.OutputState }
 
 func (TableContributorInsightsSpecificationPtrOutput) ElementType() reflect.Type {
@@ -3962,6 +3994,16 @@ func (o TableContributorInsightsSpecificationPtrOutput) Enabled() pulumi.BoolPtr
 		}
 		return &v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+func (o TableContributorInsightsSpecificationPtrOutput) Mode() TableContributorInsightsSpecificationModePtrOutput {
+	return o.ApplyT(func(v *TableContributorInsightsSpecification) *TableContributorInsightsSpecificationMode {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(TableContributorInsightsSpecificationModePtrOutput)
 }
 
 // The options for imported source files in CSV format. The values are Delimiter and HeaderList.

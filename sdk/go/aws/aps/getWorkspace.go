@@ -35,9 +35,7 @@ type LookupWorkspaceResult struct {
 	Alias *string `pulumi:"alias"`
 	// Workspace arn.
 	Arn *string `pulumi:"arn"`
-	// Contains information about the current rules and alerting logging configuration for the workspace.
-	//
-	// > These logging configurations are only for rules and alerting logs.
+	// Contains information about the logging configuration for the workspace.
 	LoggingConfiguration *WorkspaceLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// AMP Workspace prometheus endpoint
 	PrometheusEndpoint *string `pulumi:"prometheusEndpoint"`
@@ -98,9 +96,7 @@ func (o LookupWorkspaceResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the current rules and alerting logging configuration for the workspace.
-//
-// > These logging configurations are only for rules and alerting logs.
+// Contains information about the logging configuration for the workspace.
 func (o LookupWorkspaceResultOutput) LoggingConfiguration() WorkspaceLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) *WorkspaceLoggingConfiguration { return v.LoggingConfiguration }).(WorkspaceLoggingConfigurationPtrOutput)
 }

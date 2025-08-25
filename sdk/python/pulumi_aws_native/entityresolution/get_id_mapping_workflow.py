@@ -27,13 +27,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetIdMappingWorkflowResult:
-    def __init__(__self__, created_at=None, description=None, id_mapping_techniques=None, input_source_config=None, output_source_config=None, role_arn=None, tags=None, updated_at=None, workflow_arn=None):
+    def __init__(__self__, created_at=None, description=None, id_mapping_incremental_run_config=None, id_mapping_techniques=None, input_source_config=None, output_source_config=None, role_arn=None, tags=None, updated_at=None, workflow_arn=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id_mapping_incremental_run_config and not isinstance(id_mapping_incremental_run_config, dict):
+            raise TypeError("Expected argument 'id_mapping_incremental_run_config' to be a dict")
+        pulumi.set(__self__, "id_mapping_incremental_run_config", id_mapping_incremental_run_config)
         if id_mapping_techniques and not isinstance(id_mapping_techniques, dict):
             raise TypeError("Expected argument 'id_mapping_techniques' to be a dict")
         pulumi.set(__self__, "id_mapping_techniques", id_mapping_techniques)
@@ -68,6 +71,11 @@ class GetIdMappingWorkflowResult:
         The description of the IdMappingWorkflow
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="idMappingIncrementalRunConfig")
+    def id_mapping_incremental_run_config(self) -> Optional['outputs.IdMappingWorkflowIdMappingIncrementalRunConfig']:
+        return pulumi.get(self, "id_mapping_incremental_run_config")
 
     @property
     @pulumi.getter(name="idMappingTechniques")
@@ -128,6 +136,7 @@ class AwaitableGetIdMappingWorkflowResult(GetIdMappingWorkflowResult):
         return GetIdMappingWorkflowResult(
             created_at=self.created_at,
             description=self.description,
+            id_mapping_incremental_run_config=self.id_mapping_incremental_run_config,
             id_mapping_techniques=self.id_mapping_techniques,
             input_source_config=self.input_source_config,
             output_source_config=self.output_source_config,
@@ -153,6 +162,7 @@ def get_id_mapping_workflow(workflow_name: Optional[builtins.str] = None,
     return AwaitableGetIdMappingWorkflowResult(
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
+        id_mapping_incremental_run_config=pulumi.get(__ret__, 'id_mapping_incremental_run_config'),
         id_mapping_techniques=pulumi.get(__ret__, 'id_mapping_techniques'),
         input_source_config=pulumi.get(__ret__, 'input_source_config'),
         output_source_config=pulumi.get(__ret__, 'output_source_config'),
@@ -175,6 +185,7 @@ def get_id_mapping_workflow_output(workflow_name: Optional[pulumi.Input[builtins
     return __ret__.apply(lambda __response__: GetIdMappingWorkflowResult(
         created_at=pulumi.get(__response__, 'created_at'),
         description=pulumi.get(__response__, 'description'),
+        id_mapping_incremental_run_config=pulumi.get(__response__, 'id_mapping_incremental_run_config'),
         id_mapping_techniques=pulumi.get(__response__, 'id_mapping_techniques'),
         input_source_config=pulumi.get(__response__, 'input_source_config'),
         output_source_config=pulumi.get(__response__, 'output_source_config'),
