@@ -1244,6 +1244,19 @@
       }
     }
   },
+  "aws-native:aps:ResourcePolicy": {
+    "cfTypeName": "AWS::APS::ResourcePolicy",
+    "properties": {
+      "policyDocument": {
+        "type": "string",
+        "description": "The JSON to use as the Resource-based Policy."
+      },
+      "workspaceArn": {
+        "type": "string",
+        "description": "The Arn of an APS Workspace that the PolicyDocument will be attached to."
+      }
+    }
+  },
   "aws-native:aps:Scraper": {
     "cfTypeName": "AWS::APS::Scraper",
     "properties": {
@@ -1293,7 +1306,7 @@
       },
       "loggingConfiguration": {
         "$ref": "#/types/aws-native:aps:WorkspaceLoggingConfiguration",
-        "description": "Contains information about the current rules and alerting logging configuration for the workspace.\n\n\u003e These logging configurations are only for rules and alerting logs."
+        "description": "Contains information about the logging configuration for the workspace."
       },
       "queryLoggingConfiguration": {
         "$ref": "#/types/aws-native:aps:WorkspaceQueryLoggingConfiguration",
@@ -3421,6 +3434,82 @@
       }
     }
   },
+  "aws-native:datazone:PolicyGrant": {
+    "cfTypeName": "AWS::DataZone::PolicyGrant",
+    "properties": {
+      "detail": {
+        "oneOf": [
+          {
+            "$ref": "#/types/aws-native:datazone:PolicyGrantDetail0Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:datazone:PolicyGrantDetail1Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:datazone:PolicyGrantDetail2Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:datazone:PolicyGrantDetail3Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:datazone:PolicyGrantDetail4Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:datazone:PolicyGrantDetail5Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:datazone:PolicyGrantDetail6Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:datazone:PolicyGrantDetail7Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:datazone:PolicyGrantDetail8Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:datazone:PolicyGrantDetail9Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:datazone:PolicyGrantDetail10Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:datazone:PolicyGrantDetail11Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:datazone:PolicyGrantDetail12Properties"
+          }
+        ]
+      },
+      "domainIdentifier": {
+        "type": "string"
+      },
+      "entityIdentifier": {
+        "type": "string"
+      },
+      "entityType": {
+        "$ref": "#/types/aws-native:datazone:PolicyGrantTargetEntityType"
+      },
+      "policyType": {
+        "type": "string"
+      },
+      "principal": {
+        "oneOf": [
+          {
+            "$ref": "#/types/aws-native:datazone:PolicyGrantPrincipal0Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:datazone:PolicyGrantPrincipal1Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:datazone:PolicyGrantPrincipal2Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:datazone:PolicyGrantPrincipal3Properties"
+          }
+        ]
+      }
+    }
+  },
   "aws-native:datazone:ProjectMembership": {
     "cfTypeName": "AWS::DataZone::ProjectMembership",
     "properties": {
@@ -3571,7 +3660,7 @@
       },
       "vpcId": {
         "type": "string",
-        "description": "The VCP(virtual private cloud) ID associated with the license endpoint."
+        "description": "The VPC (virtual private cloud) ID associated with the license endpoint."
       }
     }
   },
@@ -4442,14 +4531,14 @@
         "items": {
           "$ref": "#/types/aws-native:ec2:InstanceElasticGpuSpecification"
         },
-        "description": "An elastic GPU to associate with the instance."
+        "description": "An elastic GPU to associate with the instance. Amazon Elastic Graphics is no longer available."
       },
       "elasticInferenceAccelerators": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:ec2:InstanceElasticInferenceAccelerator"
         },
-        "description": "An elastic inference accelerator to associate with the instance."
+        "description": "An elastic inference accelerator to associate with the instance. Amazon Elastic Inference is no longer available."
       },
       "enclaveOptions": {
         "$ref": "#/types/aws-native:ec2:EnclaveOptionsProperties",
@@ -6877,6 +6966,10 @@
         "type": "string",
         "description": "The type of IP address assigned to the outside interface of the customer gateway device.\n Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``\n Default: ``PublicIpv4``"
       },
+      "preSharedKeyStorage": {
+        "$ref": "#/types/aws-native:ec2:VpnConnectionPreSharedKeyStorage",
+        "description": "Describes the storage location for an instance store-backed AMI."
+      },
       "remoteIpv4NetworkCidr": {
         "type": "string",
         "description": "The IPv4 CIDR on the AWS side of the VPN connection.\n Default: ``0.0.0.0/0``"
@@ -8816,13 +8909,16 @@
     "cfTypeName": "AWS::IoT::EncryptionConfiguration",
     "properties": {
       "encryptionType": {
-        "$ref": "#/types/aws-native:iot:EncryptionConfigurationEncryptionType"
+        "$ref": "#/types/aws-native:iot:EncryptionConfigurationEncryptionType",
+        "description": "The type of the KMS key."
       },
       "kmsAccessRoleArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer."
       },
       "kmsKeyArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The ARN of the customer managed KMS key."
       }
     }
   },
@@ -13062,7 +13158,7 @@
       "healthCheckTags": {
         "type": "array",
         "items": {
-          "$ref": "#/types/aws-native:route53:HealthCheckTag"
+          "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "An array of key-value pairs to apply to this resource."
       }
@@ -15333,7 +15429,8 @@
         "description": "The ARN of the network settings that is associated with the web portal."
       },
       "sessionLoggerArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The ARN of the session logger that is assocaited with the portal."
       },
       "tags": {
         "type": "array",
@@ -15363,13 +15460,16 @@
         "type": "object",
         "additionalProperties": {
           "type": "string"
-        }
+        },
+        "description": "The additional encryption context of the session logger."
       },
       "customerManagedKey": {
-        "type": "string"
+        "type": "string",
+        "description": "The custom managed key of the session logger."
       },
       "displayName": {
-        "type": "string"
+        "type": "string",
+        "description": "The human-readable display name."
       },
       "eventFilter": {
         "oneOf": [
@@ -15379,10 +15479,12 @@
           {
             "$ref": "#/types/aws-native:workspacesweb:SessionLoggerEventFilter1Properties"
           }
-        ]
+        ],
+        "description": "The filter that specifies which events to monitor."
       },
       "logConfiguration": {
-        "$ref": "#/types/aws-native:workspacesweb:SessionLoggerLogConfiguration"
+        "$ref": "#/types/aws-native:workspacesweb:SessionLoggerLogConfiguration",
+        "description": "The configuration that specifies where logs are fowarded."
       },
       "tags": {
         "type": "array",

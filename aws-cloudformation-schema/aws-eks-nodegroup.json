@@ -262,7 +262,7 @@
       "permissions" : [ "eks:ListNodegroups" ]
     },
     "update" : {
-      "permissions" : [ "iam:GetRole", "iam:PassRole", "eks:DescribeNodegroup", "eks:DescribeUpdate", "eks:ListUpdates", "eks:TagResource", "eks:UntagResource", "eks:UpdateNodegroupConfig", "eks:UpdateNodegroupVersion" ],
+      "permissions" : [ "iam:GetRole", "iam:PassRole", "eks:DescribeNodegroup", "eks:DescribeUpdate", "eks:ListUpdates", "eks:TagResource", "eks:UntagResource", "eks:UpdateNodegroupConfig", "eks:UpdateNodegroupVersion", "ec2:DescribeLaunchTemplateVersions", "ec2:RunInstances" ],
       "timeoutInMinutes" : 2160
     }
   }
