@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -44,6 +45,8 @@ type LookupRuleResult struct {
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// The state of the rule.
 	State *RuleStateEnum `pulumi:"state"`
+	// Any tags assigned to the event rule.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
 	// Targets are the resources that are invoked when a rule is triggered.
 	Targets []RuleTarget `pulumi:"targets"`
@@ -116,6 +119,11 @@ func (o LookupRuleResultOutput) ScheduleExpression() pulumi.StringPtrOutput {
 // The state of the rule.
 func (o LookupRuleResultOutput) State() RuleStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *RuleStateEnum { return v.State }).(RuleStateEnumPtrOutput)
+}
+
+// Any tags assigned to the event rule.
+func (o LookupRuleResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupRuleResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.

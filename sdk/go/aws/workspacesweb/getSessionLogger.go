@@ -24,17 +24,24 @@ func LookupSessionLogger(ctx *pulumi.Context, args *LookupSessionLoggerArgs, opt
 }
 
 type LookupSessionLoggerArgs struct {
+	// The ARN of the session logger resource.
 	SessionLoggerArn string `pulumi:"sessionLoggerArn"`
 }
 
 type LookupSessionLoggerResult struct {
-	AssociatedPortalArns []string                       `pulumi:"associatedPortalArns"`
-	CreationDate         *string                        `pulumi:"creationDate"`
-	DisplayName          *string                        `pulumi:"displayName"`
-	EventFilter          interface{}                    `pulumi:"eventFilter"`
-	LogConfiguration     *SessionLoggerLogConfiguration `pulumi:"logConfiguration"`
-	SessionLoggerArn     *string                        `pulumi:"sessionLoggerArn"`
-	Tags                 []aws.Tag                      `pulumi:"tags"`
+	// The associated portal ARN.
+	AssociatedPortalArns []string `pulumi:"associatedPortalArns"`
+	// The date the session logger resource was created.
+	CreationDate *string `pulumi:"creationDate"`
+	// The human-readable display name.
+	DisplayName *string `pulumi:"displayName"`
+	// The filter that specifies which events to monitor.
+	EventFilter interface{} `pulumi:"eventFilter"`
+	// The configuration that specifies where logs are fowarded.
+	LogConfiguration *SessionLoggerLogConfiguration `pulumi:"logConfiguration"`
+	// The ARN of the session logger resource.
+	SessionLoggerArn *string   `pulumi:"sessionLoggerArn"`
+	Tags             []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSessionLoggerOutput(ctx *pulumi.Context, args LookupSessionLoggerOutputArgs, opts ...pulumi.InvokeOption) LookupSessionLoggerResultOutput {
@@ -47,6 +54,7 @@ func LookupSessionLoggerOutput(ctx *pulumi.Context, args LookupSessionLoggerOutp
 }
 
 type LookupSessionLoggerOutputArgs struct {
+	// The ARN of the session logger resource.
 	SessionLoggerArn pulumi.StringInput `pulumi:"sessionLoggerArn"`
 }
 
@@ -68,26 +76,32 @@ func (o LookupSessionLoggerResultOutput) ToLookupSessionLoggerResultOutputWithCo
 	return o
 }
 
+// The associated portal ARN.
 func (o LookupSessionLoggerResultOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSessionLoggerResult) []string { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
+// The date the session logger resource was created.
 func (o LookupSessionLoggerResultOutput) CreationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSessionLoggerResult) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
+// The human-readable display name.
 func (o LookupSessionLoggerResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSessionLoggerResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The filter that specifies which events to monitor.
 func (o LookupSessionLoggerResultOutput) EventFilter() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupSessionLoggerResult) interface{} { return v.EventFilter }).(pulumi.AnyOutput)
 }
 
+// The configuration that specifies where logs are fowarded.
 func (o LookupSessionLoggerResultOutput) LogConfiguration() SessionLoggerLogConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupSessionLoggerResult) *SessionLoggerLogConfiguration { return v.LogConfiguration }).(SessionLoggerLogConfigurationPtrOutput)
 }
 
+// The ARN of the session logger resource.
 func (o LookupSessionLoggerResultOutput) SessionLoggerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSessionLoggerResult) *string { return v.SessionLoggerArn }).(pulumi.StringPtrOutput)
 }

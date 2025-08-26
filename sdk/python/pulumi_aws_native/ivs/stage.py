@@ -85,7 +85,7 @@ class Stage(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource Definition for type AWS::IVS::Stage.
+        Resource Type definition for AWS::IVS::Stage.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -99,7 +99,7 @@ class Stage(pulumi.CustomResource):
                  args: Optional[StageArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Definition for type AWS::IVS::Stage.
+        Resource Type definition for AWS::IVS::Stage.
 
         :param str resource_name: The name of the resource.
         :param StageArgs args: The arguments to use to populate this resource's properties.

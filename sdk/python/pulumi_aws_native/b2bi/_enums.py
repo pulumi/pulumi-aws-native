@@ -17,6 +17,7 @@ __all__ = [
     'PartnershipX12TechnicalAcknowledgment',
     'PartnershipX12gs05TimeFormat',
     'ProfileLogging',
+    'TransformerElementRequirement',
     'TransformerFileFormat',
     'TransformerFromFormat',
     'TransformerMappingTemplateLanguage',
@@ -433,6 +434,12 @@ class PartnershipX12gs05TimeFormat(builtins.str, Enum):
 class ProfileLogging(builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:b2bi:TransformerElementRequirement")
+class TransformerElementRequirement(builtins.str, Enum):
+    OPTIONAL = "OPTIONAL"
+    MANDATORY = "MANDATORY"
 
 
 @pulumi.type_token("aws-native:b2bi:TransformerFileFormat")

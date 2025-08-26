@@ -45,7 +45,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly bool? CloudFrontDefaultCertificate;
         /// <summary>
-        /// In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.
+        /// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+        ///    In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.
         ///   If the distribution uses ``Aliases`` (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in [(IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html), provide the ID of the IAM certificate.
         ///  If you specify an IAM certificate ID, you must also specify values for ``MinimumProtocolVersion`` and ``SSLSupportMethod``. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
         /// </summary>

@@ -128,9 +128,7 @@ namespace Pulumi.AwsNative.Aps
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// Contains information about the current rules and alerting logging configuration for the workspace.
-        /// 
-        /// &gt; These logging configurations are only for rules and alerting logs.
+        /// Contains information about the logging configuration for the workspace.
         /// </summary>
         [Output("loggingConfiguration")]
         public Output<Outputs.WorkspaceLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
@@ -233,9 +231,7 @@ namespace Pulumi.AwsNative.Aps
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Contains information about the current rules and alerting logging configuration for the workspace.
-        /// 
-        /// &gt; These logging configurations are only for rules and alerting logs.
+        /// Contains information about the logging configuration for the workspace.
         /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.WorkspaceLoggingConfigurationArgs>? LoggingConfiguration { get; set; }

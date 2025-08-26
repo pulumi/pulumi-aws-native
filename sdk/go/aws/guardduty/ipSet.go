@@ -17,7 +17,7 @@ import (
 type IpSet struct {
 	pulumi.CustomResourceState
 
-	// Indicates whether or not GuardDuty uses the `IPSet` .
+	// A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to prevent generating findings based on an activity associated with these entries, this list must be active.
 	Activate pulumi.BoolPtrOutput `pulumi:"activate"`
 	AwsId    pulumi.StringOutput  `pulumi:"awsId"`
 	// The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
@@ -29,15 +29,15 @@ type IpSet struct {
 	//
 	// When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// The format of the file that contains the IPSet.
+	// The format of the file that contains the IPSet. For information about supported formats, see [List formats](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#prepare_list) in the *Amazon GuardDuty User Guide* .
 	Format pulumi.StringOutput `pulumi:"format"`
 	// The URI of the file that contains the IPSet.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The user-friendly name to identify the IPSet.
 	//
-	// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+	// The name of your list must be unique within an AWS account and Region. Valid characters are alphanumeric, whitespace, dash (-), and underscores (_).
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+	// The tags to be added to a new threat entity set resource. Each tag consists of a key and an optional value, both of which you define.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -94,7 +94,7 @@ func (IpSetState) ElementType() reflect.Type {
 }
 
 type ipSetArgs struct {
-	// Indicates whether or not GuardDuty uses the `IPSet` .
+	// A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to prevent generating findings based on an activity associated with these entries, this list must be active.
 	Activate *bool `pulumi:"activate"`
 	// The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
 	//
@@ -105,15 +105,15 @@ type ipSetArgs struct {
 	//
 	// When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The format of the file that contains the IPSet.
+	// The format of the file that contains the IPSet. For information about supported formats, see [List formats](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#prepare_list) in the *Amazon GuardDuty User Guide* .
 	Format string `pulumi:"format"`
 	// The URI of the file that contains the IPSet.
 	Location string `pulumi:"location"`
 	// The user-friendly name to identify the IPSet.
 	//
-	// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+	// The name of your list must be unique within an AWS account and Region. Valid characters are alphanumeric, whitespace, dash (-), and underscores (_).
 	Name *string `pulumi:"name"`
-	// The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+	// The tags to be added to a new threat entity set resource. Each tag consists of a key and an optional value, both of which you define.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
@@ -121,7 +121,7 @@ type ipSetArgs struct {
 
 // The set of arguments for constructing a IpSet resource.
 type IpSetArgs struct {
-	// Indicates whether or not GuardDuty uses the `IPSet` .
+	// A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to prevent generating findings based on an activity associated with these entries, this list must be active.
 	Activate pulumi.BoolPtrInput
 	// The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
 	//
@@ -132,15 +132,15 @@ type IpSetArgs struct {
 	//
 	// When you provide this account ID, GuardDuty will validate that the S3 bucket belongs to this account. If you don't specify an account ID owner, GuardDuty doesn't perform any validation.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// The format of the file that contains the IPSet.
+	// The format of the file that contains the IPSet. For information about supported formats, see [List formats](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#prepare_list) in the *Amazon GuardDuty User Guide* .
 	Format pulumi.StringInput
 	// The URI of the file that contains the IPSet.
 	Location pulumi.StringInput
 	// The user-friendly name to identify the IPSet.
 	//
-	// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+	// The name of your list must be unique within an AWS account and Region. Valid characters are alphanumeric, whitespace, dash (-), and underscores (_).
 	Name pulumi.StringPtrInput
-	// The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+	// The tags to be added to a new threat entity set resource. Each tag consists of a key and an optional value, both of which you define.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayInput
@@ -183,7 +183,7 @@ func (o IpSetOutput) ToIpSetOutputWithContext(ctx context.Context) IpSetOutput {
 	return o
 }
 
-// Indicates whether or not GuardDuty uses the `IPSet` .
+// A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to prevent generating findings based on an activity associated with these entries, this list must be active.
 func (o IpSetOutput) Activate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.BoolPtrOutput { return v.Activate }).(pulumi.BoolPtrOutput)
 }
@@ -207,7 +207,7 @@ func (o IpSetOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// The format of the file that contains the IPSet.
+// The format of the file that contains the IPSet. For information about supported formats, see [List formats](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#prepare_list) in the *Amazon GuardDuty User Guide* .
 func (o IpSetOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Format }).(pulumi.StringOutput)
 }
@@ -219,12 +219,12 @@ func (o IpSetOutput) Location() pulumi.StringOutput {
 
 // The user-friendly name to identify the IPSet.
 //
-// Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+// The name of your list must be unique within an AWS account and Region. Valid characters are alphanumeric, whitespace, dash (-), and underscores (_).
 func (o IpSetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+// The tags to be added to a new threat entity set resource. Each tag consists of a key and an optional value, both of which you define.
 //
 // For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o IpSetOutput) Tags() aws.TagArrayOutput {

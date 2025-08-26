@@ -18,6 +18,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AttributeConfigurationProperties',
     'ConstraintsProperties',
     'EvaluationFormAutoEvaluationConfiguration',
     'EvaluationFormBaseItem',
@@ -89,6 +90,60 @@ __all__ = [
     'UserProficiency',
     'ValuesProperties',
 ]
+
+@pulumi.output_type
+class AttributeConfigurationProperties(dict):
+    """
+    Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableValueValidationOnAssociation":
+            suggest = "enable_value_validation_on_association"
+        elif key == "isReadOnly":
+            suggest = "is_read_only"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AttributeConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AttributeConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AttributeConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_value_validation_on_association: Optional[builtins.bool] = None,
+                 is_read_only: Optional[builtins.bool] = None):
+        """
+        Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+        :param builtins.bool enable_value_validation_on_association: Enables customers to enforce strict validation on the specific values that this predefined attribute can hold.
+        :param builtins.bool is_read_only: Allows the predefined attribute to show up and be managed in the Amazon Connect UI.
+        """
+        if enable_value_validation_on_association is not None:
+            pulumi.set(__self__, "enable_value_validation_on_association", enable_value_validation_on_association)
+        if is_read_only is not None:
+            pulumi.set(__self__, "is_read_only", is_read_only)
+
+    @property
+    @pulumi.getter(name="enableValueValidationOnAssociation")
+    def enable_value_validation_on_association(self) -> Optional[builtins.bool]:
+        """
+        Enables customers to enforce strict validation on the specific values that this predefined attribute can hold.
+        """
+        return pulumi.get(self, "enable_value_validation_on_association")
+
+    @property
+    @pulumi.getter(name="isReadOnly")
+    def is_read_only(self) -> Optional[builtins.bool]:
+        """
+        Allows the predefined attribute to show up and be managed in the Amazon Connect UI.
+        """
+        return pulumi.get(self, "is_read_only")
+
 
 @pulumi.output_type
 class ConstraintsProperties(dict):

@@ -37,4 +37,76 @@ namespace Pulumi.AwsNative.GuardDuty
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The status of your `ThreatEntitySet` . For information about valid status values, see [Understanding list statuses](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#guardduty-entity-list-statuses) in the *Amazon GuardDuty User Guide* .
+    /// </summary>
+    [EnumType]
+    public readonly struct ThreatEntitySetStatus : IEquatable<ThreatEntitySetStatus>
+    {
+        private readonly string _value;
+
+        private ThreatEntitySetStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ThreatEntitySetStatus Inactive { get; } = new ThreatEntitySetStatus("INACTIVE");
+        public static ThreatEntitySetStatus Activating { get; } = new ThreatEntitySetStatus("ACTIVATING");
+        public static ThreatEntitySetStatus Active { get; } = new ThreatEntitySetStatus("ACTIVE");
+        public static ThreatEntitySetStatus Deactivating { get; } = new ThreatEntitySetStatus("DEACTIVATING");
+        public static ThreatEntitySetStatus Error { get; } = new ThreatEntitySetStatus("ERROR");
+        public static ThreatEntitySetStatus DeletePending { get; } = new ThreatEntitySetStatus("DELETE_PENDING");
+        public static ThreatEntitySetStatus Deleted { get; } = new ThreatEntitySetStatus("DELETED");
+
+        public static bool operator ==(ThreatEntitySetStatus left, ThreatEntitySetStatus right) => left.Equals(right);
+        public static bool operator !=(ThreatEntitySetStatus left, ThreatEntitySetStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ThreatEntitySetStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ThreatEntitySetStatus other && Equals(other);
+        public bool Equals(ThreatEntitySetStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of your `TrustedEntitySet` . For information about valid status values, see [Understanding list statuses](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#guardduty-entity-list-statuses) in the *Amazon GuardDuty User Guide* .
+    /// </summary>
+    [EnumType]
+    public readonly struct TrustedEntitySetStatus : IEquatable<TrustedEntitySetStatus>
+    {
+        private readonly string _value;
+
+        private TrustedEntitySetStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TrustedEntitySetStatus Inactive { get; } = new TrustedEntitySetStatus("INACTIVE");
+        public static TrustedEntitySetStatus Activating { get; } = new TrustedEntitySetStatus("ACTIVATING");
+        public static TrustedEntitySetStatus Active { get; } = new TrustedEntitySetStatus("ACTIVE");
+        public static TrustedEntitySetStatus Deactivating { get; } = new TrustedEntitySetStatus("DEACTIVATING");
+        public static TrustedEntitySetStatus Error { get; } = new TrustedEntitySetStatus("ERROR");
+        public static TrustedEntitySetStatus DeletePending { get; } = new TrustedEntitySetStatus("DELETE_PENDING");
+        public static TrustedEntitySetStatus Deleted { get; } = new TrustedEntitySetStatus("DELETED");
+
+        public static bool operator ==(TrustedEntitySetStatus left, TrustedEntitySetStatus right) => left.Equals(right);
+        public static bool operator !=(TrustedEntitySetStatus left, TrustedEntitySetStatus right) => !left.Equals(right);
+
+        public static explicit operator string(TrustedEntitySetStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TrustedEntitySetStatus other && Equals(other);
+        public bool Equals(TrustedEntitySetStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

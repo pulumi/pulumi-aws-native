@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,7 +34,7 @@ type LookupHealthCheckResult struct {
 	// The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
 	HealthCheckId *string `pulumi:"healthCheckId"`
 	// An array of key-value pairs to apply to this resource.
-	HealthCheckTags []HealthCheckTag `pulumi:"healthCheckTags"`
+	HealthCheckTags []aws.Tag `pulumi:"healthCheckTags"`
 }
 
 func LookupHealthCheckOutput(ctx *pulumi.Context, args LookupHealthCheckOutputArgs, opts ...pulumi.InvokeOption) LookupHealthCheckResultOutput {
@@ -79,8 +80,8 @@ func (o LookupHealthCheckResultOutput) HealthCheckId() pulumi.StringPtrOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o LookupHealthCheckResultOutput) HealthCheckTags() HealthCheckTagArrayOutput {
-	return o.ApplyT(func(v LookupHealthCheckResult) []HealthCheckTag { return v.HealthCheckTags }).(HealthCheckTagArrayOutput)
+func (o LookupHealthCheckResultOutput) HealthCheckTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupHealthCheckResult) []aws.Tag { return v.HealthCheckTags }).(aws.TagArrayOutput)
 }
 
 func init() {

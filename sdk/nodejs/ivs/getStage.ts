@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Definition for type AWS::IVS::Stage.
+ * Resource Type definition for AWS::IVS::Stage.
  */
 export function getStage(args: GetStageArgs, opts?: pulumi.InvokeOptions): Promise<GetStageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,7 +44,7 @@ export interface GetStageResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource Definition for type AWS::IVS::Stage.
+ * Resource Type definition for AWS::IVS::Stage.
  */
 export function getStageOutput(args: GetStageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

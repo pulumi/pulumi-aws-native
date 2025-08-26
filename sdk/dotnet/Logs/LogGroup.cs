@@ -68,6 +68,8 @@ namespace Pulumi.AwsNative.Logs
         public Output<string?> LogGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// Creates or updates a resource policy for the specified log group that allows other services to put log events to this account. A LogGroup can have 1 resource policy.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
         /// </summary>
         [Output("resourcePolicyDocument")]
@@ -185,6 +187,8 @@ namespace Pulumi.AwsNative.Logs
         public Input<string>? LogGroupName { get; set; }
 
         /// <summary>
+        /// Creates or updates a resource policy for the specified log group that allows other services to put log events to this account. A LogGroup can have 1 resource policy.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
         /// </summary>
         [Input("resourcePolicyDocument")]

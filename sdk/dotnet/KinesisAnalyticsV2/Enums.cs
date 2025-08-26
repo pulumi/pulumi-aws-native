@@ -101,6 +101,37 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
     }
 
     /// <summary>
+    /// Specifies whether application data is encrypted using service key: AWS_OWNED_KEY or customer key: CUSTOMER_MANAGED_KEY
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationEncryptionConfigurationKeyType : IEquatable<ApplicationEncryptionConfigurationKeyType>
+    {
+        private readonly string _value;
+
+        private ApplicationEncryptionConfigurationKeyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationEncryptionConfigurationKeyType AwsOwnedKey { get; } = new ApplicationEncryptionConfigurationKeyType("AWS_OWNED_KEY");
+        public static ApplicationEncryptionConfigurationKeyType CustomerManagedKey { get; } = new ApplicationEncryptionConfigurationKeyType("CUSTOMER_MANAGED_KEY");
+
+        public static bool operator ==(ApplicationEncryptionConfigurationKeyType left, ApplicationEncryptionConfigurationKeyType right) => left.Equals(right);
+        public static bool operator !=(ApplicationEncryptionConfigurationKeyType left, ApplicationEncryptionConfigurationKeyType right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationEncryptionConfigurationKeyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationEncryptionConfigurationKeyType other && Equals(other);
+        public bool Equals(ApplicationEncryptionConfigurationKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the encoding of the records in the streaming source. For example, UTF-8.
     /// </summary>
     [EnumType]

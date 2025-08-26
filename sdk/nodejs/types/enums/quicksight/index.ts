@@ -713,6 +713,7 @@ export const AnalysisResourceStatus = {
     UpdateInProgress: "UPDATE_IN_PROGRESS",
     UpdateSuccessful: "UPDATE_SUCCESSFUL",
     UpdateFailed: "UPDATE_FAILED",
+    PendingUpdate: "PENDING_UPDATE",
     Deleted: "DELETED",
 } as const;
 
@@ -1762,6 +1763,7 @@ export const DashboardResourceStatus = {
     UpdateInProgress: "UPDATE_IN_PROGRESS",
     UpdateSuccessful: "UPDATE_SUCCESSFUL",
     UpdateFailed: "UPDATE_FAILED",
+    PendingUpdate: "PENDING_UPDATE",
     Deleted: "DELETED",
 } as const;
 
@@ -3084,6 +3086,7 @@ export const TemplateResourceStatus = {
     UpdateInProgress: "UPDATE_IN_PROGRESS",
     UpdateSuccessful: "UPDATE_SUCCESSFUL",
     UpdateFailed: "UPDATE_FAILED",
+    PendingUpdate: "PENDING_UPDATE",
     Deleted: "DELETED",
 } as const;
 
@@ -3429,6 +3432,7 @@ export const ThemeResourceStatus = {
     UpdateInProgress: "UPDATE_IN_PROGRESS",
     UpdateSuccessful: "UPDATE_SUCCESSFUL",
     UpdateFailed: "UPDATE_FAILED",
+    PendingUpdate: "PENDING_UPDATE",
     Deleted: "DELETED",
 } as const;
 

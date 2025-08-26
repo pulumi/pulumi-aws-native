@@ -31,6 +31,24 @@ __all__ = [
     'CisScanConfigurationTimeArgsDict',
     'CisScanConfigurationWeeklyScheduleArgs',
     'CisScanConfigurationWeeklyScheduleArgsDict',
+    'CodeSecurityIntegrationCreateDetailsArgs',
+    'CodeSecurityIntegrationCreateDetailsArgsDict',
+    'CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs',
+    'CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgsDict',
+    'CodeSecurityIntegrationUpdateDetailsArgs',
+    'CodeSecurityIntegrationUpdateDetailsArgsDict',
+    'CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs',
+    'CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgsDict',
+    'CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs',
+    'CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgsDict',
+    'CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs',
+    'CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgsDict',
+    'CodeSecurityScanConfigurationPeriodicScanConfigurationArgs',
+    'CodeSecurityScanConfigurationPeriodicScanConfigurationArgsDict',
+    'CodeSecurityScanConfigurationScopeSettingsArgs',
+    'CodeSecurityScanConfigurationScopeSettingsArgsDict',
+    'CodeSecurityScanConfigurationArgs',
+    'CodeSecurityScanConfigurationArgsDict',
     'FilterCriteriaArgs',
     'FilterCriteriaArgsDict',
     'FilterDateFilterArgs',
@@ -285,6 +303,412 @@ class CisScanConfigurationWeeklyScheduleArgs:
     @start_time.setter
     def start_time(self, value: pulumi.Input['CisScanConfigurationTimeArgs']):
         pulumi.set(self, "start_time", value)
+
+
+if not MYPY:
+    class CodeSecurityIntegrationCreateDetailsArgsDict(TypedDict):
+        gitlab_self_managed: pulumi.Input['CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgsDict']
+        """
+        Details specific to creating an integration with a self-managed GitLab instance.
+        """
+elif False:
+    CodeSecurityIntegrationCreateDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CodeSecurityIntegrationCreateDetailsArgs:
+    def __init__(__self__, *,
+                 gitlab_self_managed: pulumi.Input['CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs']):
+        """
+        :param pulumi.Input['CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs'] gitlab_self_managed: Details specific to creating an integration with a self-managed GitLab instance.
+        """
+        pulumi.set(__self__, "gitlab_self_managed", gitlab_self_managed)
+
+    @property
+    @pulumi.getter(name="gitlabSelfManaged")
+    def gitlab_self_managed(self) -> pulumi.Input['CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs']:
+        """
+        Details specific to creating an integration with a self-managed GitLab instance.
+        """
+        return pulumi.get(self, "gitlab_self_managed")
+
+    @gitlab_self_managed.setter
+    def gitlab_self_managed(self, value: pulumi.Input['CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs']):
+        pulumi.set(self, "gitlab_self_managed", value)
+
+
+if not MYPY:
+    class CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgsDict(TypedDict):
+        access_token: pulumi.Input[builtins.str]
+        """
+        The personal access token used to authenticate with the self-managed GitLab instance.
+        """
+        instance_url: pulumi.Input[builtins.str]
+        """
+        The URL of the self-managed GitLab instance.
+        """
+elif False:
+    CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs:
+    def __init__(__self__, *,
+                 access_token: pulumi.Input[builtins.str],
+                 instance_url: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] access_token: The personal access token used to authenticate with the self-managed GitLab instance.
+        :param pulumi.Input[builtins.str] instance_url: The URL of the self-managed GitLab instance.
+        """
+        pulumi.set(__self__, "access_token", access_token)
+        pulumi.set(__self__, "instance_url", instance_url)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> pulumi.Input[builtins.str]:
+        """
+        The personal access token used to authenticate with the self-managed GitLab instance.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "access_token", value)
+
+    @property
+    @pulumi.getter(name="instanceUrl")
+    def instance_url(self) -> pulumi.Input[builtins.str]:
+        """
+        The URL of the self-managed GitLab instance.
+        """
+        return pulumi.get(self, "instance_url")
+
+    @instance_url.setter
+    def instance_url(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "instance_url", value)
+
+
+if not MYPY:
+    class CodeSecurityIntegrationUpdateDetailsArgsDict(TypedDict):
+        github: NotRequired[pulumi.Input['CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgsDict']]
+        """
+        Details specific to updating an integration with GitHub.
+        """
+        gitlab_self_managed: NotRequired[pulumi.Input['CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgsDict']]
+        """
+        Details specific to updating an integration with a self-managed GitLab instance.
+        """
+elif False:
+    CodeSecurityIntegrationUpdateDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CodeSecurityIntegrationUpdateDetailsArgs:
+    def __init__(__self__, *,
+                 github: Optional[pulumi.Input['CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs']] = None,
+                 gitlab_self_managed: Optional[pulumi.Input['CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs']] = None):
+        """
+        :param pulumi.Input['CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs'] github: Details specific to updating an integration with GitHub.
+        :param pulumi.Input['CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs'] gitlab_self_managed: Details specific to updating an integration with a self-managed GitLab instance.
+        """
+        if github is not None:
+            pulumi.set(__self__, "github", github)
+        if gitlab_self_managed is not None:
+            pulumi.set(__self__, "gitlab_self_managed", gitlab_self_managed)
+
+    @property
+    @pulumi.getter
+    def github(self) -> Optional[pulumi.Input['CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs']]:
+        """
+        Details specific to updating an integration with GitHub.
+        """
+        return pulumi.get(self, "github")
+
+    @github.setter
+    def github(self, value: Optional[pulumi.Input['CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs']]):
+        pulumi.set(self, "github", value)
+
+    @property
+    @pulumi.getter(name="gitlabSelfManaged")
+    def gitlab_self_managed(self) -> Optional[pulumi.Input['CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs']]:
+        """
+        Details specific to updating an integration with a self-managed GitLab instance.
+        """
+        return pulumi.get(self, "gitlab_self_managed")
+
+    @gitlab_self_managed.setter
+    def gitlab_self_managed(self, value: Optional[pulumi.Input['CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs']]):
+        pulumi.set(self, "gitlab_self_managed", value)
+
+
+if not MYPY:
+    class CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgsDict(TypedDict):
+        code: pulumi.Input[builtins.str]
+        """
+        The authorization code received from GitHub to update the integration.
+        """
+        installation_id: pulumi.Input[builtins.str]
+        """
+        The installation ID of the GitHub App associated with the integration.
+        """
+elif False:
+    CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs:
+    def __init__(__self__, *,
+                 code: pulumi.Input[builtins.str],
+                 installation_id: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] code: The authorization code received from GitHub to update the integration.
+        :param pulumi.Input[builtins.str] installation_id: The installation ID of the GitHub App associated with the integration.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "installation_id", installation_id)
+
+    @property
+    @pulumi.getter
+    def code(self) -> pulumi.Input[builtins.str]:
+        """
+        The authorization code received from GitHub to update the integration.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter(name="installationId")
+    def installation_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The installation ID of the GitHub App associated with the integration.
+        """
+        return pulumi.get(self, "installation_id")
+
+    @installation_id.setter
+    def installation_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "installation_id", value)
+
+
+if not MYPY:
+    class CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgsDict(TypedDict):
+        auth_code: pulumi.Input[builtins.str]
+        """
+        The authorization code received from the self-managed GitLab instance to update the integration.
+        """
+elif False:
+    CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs:
+    def __init__(__self__, *,
+                 auth_code: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] auth_code: The authorization code received from the self-managed GitLab instance to update the integration.
+        """
+        pulumi.set(__self__, "auth_code", auth_code)
+
+    @property
+    @pulumi.getter(name="authCode")
+    def auth_code(self) -> pulumi.Input[builtins.str]:
+        """
+        The authorization code received from the self-managed GitLab instance to update the integration.
+        """
+        return pulumi.get(self, "auth_code")
+
+    @auth_code.setter
+    def auth_code(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "auth_code", value)
+
+
+if not MYPY:
+    class CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgsDict(TypedDict):
+        supported_events: pulumi.Input[Sequence[pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanEvent']]]
+        """
+        The repository events that trigger continuous integration scans, such as pull requests or commits.
+        """
+elif False:
+    CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs:
+    def __init__(__self__, *,
+                 supported_events: pulumi.Input[Sequence[pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanEvent']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanEvent']]] supported_events: The repository events that trigger continuous integration scans, such as pull requests or commits.
+        """
+        pulumi.set(__self__, "supported_events", supported_events)
+
+    @property
+    @pulumi.getter(name="supportedEvents")
+    def supported_events(self) -> pulumi.Input[Sequence[pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanEvent']]]:
+        """
+        The repository events that trigger continuous integration scans, such as pull requests or commits.
+        """
+        return pulumi.get(self, "supported_events")
+
+    @supported_events.setter
+    def supported_events(self, value: pulumi.Input[Sequence[pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanEvent']]]):
+        pulumi.set(self, "supported_events", value)
+
+
+if not MYPY:
+    class CodeSecurityScanConfigurationPeriodicScanConfigurationArgsDict(TypedDict):
+        frequency: NotRequired[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanFrequency']]
+        """
+        The frequency at which periodic scans are performed (such as weekly or monthly).
+
+        If you don't provide the `frequencyExpression` Amazon Inspector chooses day for the scan to run. If you provide the `frequencyExpression` , the schedule must match the specified `frequency` .
+        """
+        frequency_expression: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The schedule expression for periodic scans, in cron format.
+        """
+elif False:
+    CodeSecurityScanConfigurationPeriodicScanConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CodeSecurityScanConfigurationPeriodicScanConfigurationArgs:
+    def __init__(__self__, *,
+                 frequency: Optional[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanFrequency']] = None,
+                 frequency_expression: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input['CodeSecurityScanConfigurationPeriodicScanFrequency'] frequency: The frequency at which periodic scans are performed (such as weekly or monthly).
+               
+               If you don't provide the `frequencyExpression` Amazon Inspector chooses day for the scan to run. If you provide the `frequencyExpression` , the schedule must match the specified `frequency` .
+        :param pulumi.Input[builtins.str] frequency_expression: The schedule expression for periodic scans, in cron format.
+        """
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if frequency_expression is not None:
+            pulumi.set(__self__, "frequency_expression", frequency_expression)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanFrequency']]:
+        """
+        The frequency at which periodic scans are performed (such as weekly or monthly).
+
+        If you don't provide the `frequencyExpression` Amazon Inspector chooses day for the scan to run. If you provide the `frequencyExpression` , the schedule must match the specified `frequency` .
+        """
+        return pulumi.get(self, "frequency")
+
+    @frequency.setter
+    def frequency(self, value: Optional[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanFrequency']]):
+        pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter(name="frequencyExpression")
+    def frequency_expression(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The schedule expression for periodic scans, in cron format.
+        """
+        return pulumi.get(self, "frequency_expression")
+
+    @frequency_expression.setter
+    def frequency_expression(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "frequency_expression", value)
+
+
+if not MYPY:
+    class CodeSecurityScanConfigurationScopeSettingsArgsDict(TypedDict):
+        project_selection_scope: NotRequired[pulumi.Input['CodeSecurityScanConfigurationProjectSelectionScope']]
+        """
+        The scope of projects to be selected for scanning within the integrated repositories.
+        """
+elif False:
+    CodeSecurityScanConfigurationScopeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CodeSecurityScanConfigurationScopeSettingsArgs:
+    def __init__(__self__, *,
+                 project_selection_scope: Optional[pulumi.Input['CodeSecurityScanConfigurationProjectSelectionScope']] = None):
+        """
+        :param pulumi.Input['CodeSecurityScanConfigurationProjectSelectionScope'] project_selection_scope: The scope of projects to be selected for scanning within the integrated repositories.
+        """
+        if project_selection_scope is not None:
+            pulumi.set(__self__, "project_selection_scope", project_selection_scope)
+
+    @property
+    @pulumi.getter(name="projectSelectionScope")
+    def project_selection_scope(self) -> Optional[pulumi.Input['CodeSecurityScanConfigurationProjectSelectionScope']]:
+        """
+        The scope of projects to be selected for scanning within the integrated repositories.
+        """
+        return pulumi.get(self, "project_selection_scope")
+
+    @project_selection_scope.setter
+    def project_selection_scope(self, value: Optional[pulumi.Input['CodeSecurityScanConfigurationProjectSelectionScope']]):
+        pulumi.set(self, "project_selection_scope", value)
+
+
+if not MYPY:
+    class CodeSecurityScanConfigurationArgsDict(TypedDict):
+        rule_set_categories: pulumi.Input[Sequence[pulumi.Input['CodeSecurityScanConfigurationRuleSetCategory']]]
+        """
+        The categories of security rules to be applied during the scan.
+        """
+        continuous_integration_scan_configuration: NotRequired[pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgsDict']]
+        """
+        Configuration settings for continuous integration scans that run automatically when code changes are made.
+        """
+        periodic_scan_configuration: NotRequired[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanConfigurationArgsDict']]
+        """
+        Configuration settings for periodic scans that run on a scheduled basis.
+        """
+elif False:
+    CodeSecurityScanConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CodeSecurityScanConfigurationArgs:
+    def __init__(__self__, *,
+                 rule_set_categories: pulumi.Input[Sequence[pulumi.Input['CodeSecurityScanConfigurationRuleSetCategory']]],
+                 continuous_integration_scan_configuration: Optional[pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs']] = None,
+                 periodic_scan_configuration: Optional[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['CodeSecurityScanConfigurationRuleSetCategory']]] rule_set_categories: The categories of security rules to be applied during the scan.
+        :param pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs'] continuous_integration_scan_configuration: Configuration settings for continuous integration scans that run automatically when code changes are made.
+        :param pulumi.Input['CodeSecurityScanConfigurationPeriodicScanConfigurationArgs'] periodic_scan_configuration: Configuration settings for periodic scans that run on a scheduled basis.
+        """
+        pulumi.set(__self__, "rule_set_categories", rule_set_categories)
+        if continuous_integration_scan_configuration is not None:
+            pulumi.set(__self__, "continuous_integration_scan_configuration", continuous_integration_scan_configuration)
+        if periodic_scan_configuration is not None:
+            pulumi.set(__self__, "periodic_scan_configuration", periodic_scan_configuration)
+
+    @property
+    @pulumi.getter(name="ruleSetCategories")
+    def rule_set_categories(self) -> pulumi.Input[Sequence[pulumi.Input['CodeSecurityScanConfigurationRuleSetCategory']]]:
+        """
+        The categories of security rules to be applied during the scan.
+        """
+        return pulumi.get(self, "rule_set_categories")
+
+    @rule_set_categories.setter
+    def rule_set_categories(self, value: pulumi.Input[Sequence[pulumi.Input['CodeSecurityScanConfigurationRuleSetCategory']]]):
+        pulumi.set(self, "rule_set_categories", value)
+
+    @property
+    @pulumi.getter(name="continuousIntegrationScanConfiguration")
+    def continuous_integration_scan_configuration(self) -> Optional[pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs']]:
+        """
+        Configuration settings for continuous integration scans that run automatically when code changes are made.
+        """
+        return pulumi.get(self, "continuous_integration_scan_configuration")
+
+    @continuous_integration_scan_configuration.setter
+    def continuous_integration_scan_configuration(self, value: Optional[pulumi.Input['CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs']]):
+        pulumi.set(self, "continuous_integration_scan_configuration", value)
+
+    @property
+    @pulumi.getter(name="periodicScanConfiguration")
+    def periodic_scan_configuration(self) -> Optional[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanConfigurationArgs']]:
+        """
+        Configuration settings for periodic scans that run on a scheduled basis.
+        """
+        return pulumi.get(self, "periodic_scan_configuration")
+
+    @periodic_scan_configuration.setter
+    def periodic_scan_configuration(self, value: Optional[pulumi.Input['CodeSecurityScanConfigurationPeriodicScanConfigurationArgs']]):
+        pulumi.set(self, "periodic_scan_configuration", value)
 
 
 if not MYPY:

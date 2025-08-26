@@ -44,6 +44,7 @@ __all__ = [
     'IdentityProviderConfigOidcIdentityProviderConfig',
     'IdentityProviderConfigRequiredClaim',
     'Logging',
+    'NamespaceConfigProperties',
     'NodegroupLaunchTemplateSpecification',
     'NodegroupNodeRepairConfig',
     'NodegroupRemoteAccess',
@@ -1233,6 +1234,28 @@ class Logging(dict):
         The cluster control plane logging configuration for your cluster. 
         """
         return pulumi.get(self, "cluster_logging")
+
+
+@pulumi.output_type
+class NamespaceConfigProperties(dict):
+    """
+    The custom namespace configuration to use with the add-on
+    """
+    def __init__(__self__, *,
+                 namespace: builtins.str):
+        """
+        The custom namespace configuration to use with the add-on
+        :param builtins.str namespace: The custom namespace for creating the add-on
+        """
+        pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> builtins.str:
+        """
+        The custom namespace for creating the add-on
+        """
+        return pulumi.get(self, "namespace")
 
 
 @pulumi.output_type

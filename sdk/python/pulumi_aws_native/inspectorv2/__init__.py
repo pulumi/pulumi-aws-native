@@ -8,8 +8,12 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .cis_scan_configuration import *
+from .code_security_integration import *
+from .code_security_scan_configuration import *
 from .filter import *
 from .get_cis_scan_configuration import *
+from .get_code_security_integration import *
+from .get_code_security_scan_configuration import *
 from .get_filter import *
 from ._inputs import *
 from . import outputs

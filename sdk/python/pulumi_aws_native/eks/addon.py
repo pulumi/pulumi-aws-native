@@ -29,6 +29,7 @@ class AddonArgs:
                  addon_name: Optional[pulumi.Input[builtins.str]] = None,
                  addon_version: Optional[pulumi.Input[builtins.str]] = None,
                  configuration_values: Optional[pulumi.Input[builtins.str]] = None,
+                 namespace_config: Optional[pulumi.Input['NamespaceConfigPropertiesArgs']] = None,
                  pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]] = None,
                  preserve_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  resolve_conflicts: Optional[pulumi.Input['AddonResolveConflicts']] = None,
@@ -40,6 +41,7 @@ class AddonArgs:
         :param pulumi.Input[builtins.str] addon_name: Name of Addon
         :param pulumi.Input[builtins.str] addon_version: Version of Addon
         :param pulumi.Input[builtins.str] configuration_values: The configuration values to use with the add-on
+        :param pulumi.Input['NamespaceConfigPropertiesArgs'] namespace_config: The custom namespace configuration to use with the add-on
         :param pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]] pod_identity_associations: An array of pod identities to apply to this add-on.
         :param pulumi.Input[builtins.bool] preserve_on_delete: PreserveOnDelete parameter value
         :param pulumi.Input['AddonResolveConflicts'] resolve_conflicts: Resolve parameter value conflicts
@@ -53,6 +55,8 @@ class AddonArgs:
             pulumi.set(__self__, "addon_version", addon_version)
         if configuration_values is not None:
             pulumi.set(__self__, "configuration_values", configuration_values)
+        if namespace_config is not None:
+            pulumi.set(__self__, "namespace_config", namespace_config)
         if pod_identity_associations is not None:
             pulumi.set(__self__, "pod_identity_associations", pod_identity_associations)
         if preserve_on_delete is not None:
@@ -111,6 +115,18 @@ class AddonArgs:
     @configuration_values.setter
     def configuration_values(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "configuration_values", value)
+
+    @property
+    @pulumi.getter(name="namespaceConfig")
+    def namespace_config(self) -> Optional[pulumi.Input['NamespaceConfigPropertiesArgs']]:
+        """
+        The custom namespace configuration to use with the add-on
+        """
+        return pulumi.get(self, "namespace_config")
+
+    @namespace_config.setter
+    def namespace_config(self, value: Optional[pulumi.Input['NamespaceConfigPropertiesArgs']]):
+        pulumi.set(self, "namespace_config", value)
 
     @property
     @pulumi.getter(name="podIdentityAssociations")
@@ -183,6 +199,7 @@ class Addon(pulumi.CustomResource):
                  addon_version: Optional[pulumi.Input[builtins.str]] = None,
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                  configuration_values: Optional[pulumi.Input[builtins.str]] = None,
+                 namespace_config: Optional[pulumi.Input[Union['NamespaceConfigPropertiesArgs', 'NamespaceConfigPropertiesArgsDict']]] = None,
                  pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
                  preserve_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  resolve_conflicts: Optional[pulumi.Input['AddonResolveConflicts']] = None,
@@ -198,6 +215,7 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] addon_version: Version of Addon
         :param pulumi.Input[builtins.str] cluster_name: Name of Cluster
         :param pulumi.Input[builtins.str] configuration_values: The configuration values to use with the add-on
+        :param pulumi.Input[Union['NamespaceConfigPropertiesArgs', 'NamespaceConfigPropertiesArgsDict']] namespace_config: The custom namespace configuration to use with the add-on
         :param pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]] pod_identity_associations: An array of pod identities to apply to this add-on.
         :param pulumi.Input[builtins.bool] preserve_on_delete: PreserveOnDelete parameter value
         :param pulumi.Input['AddonResolveConflicts'] resolve_conflicts: Resolve parameter value conflicts
@@ -232,6 +250,7 @@ class Addon(pulumi.CustomResource):
                  addon_version: Optional[pulumi.Input[builtins.str]] = None,
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                  configuration_values: Optional[pulumi.Input[builtins.str]] = None,
+                 namespace_config: Optional[pulumi.Input[Union['NamespaceConfigPropertiesArgs', 'NamespaceConfigPropertiesArgsDict']]] = None,
                  pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
                  preserve_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  resolve_conflicts: Optional[pulumi.Input['AddonResolveConflicts']] = None,
@@ -252,13 +271,14 @@ class Addon(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["configuration_values"] = configuration_values
+            __props__.__dict__["namespace_config"] = namespace_config
             __props__.__dict__["pod_identity_associations"] = pod_identity_associations
             __props__.__dict__["preserve_on_delete"] = preserve_on_delete
             __props__.__dict__["resolve_conflicts"] = resolve_conflicts
             __props__.__dict__["service_account_role_arn"] = service_account_role_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["addonName", "clusterName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["addonName", "clusterName", "namespaceConfig"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Addon, __self__).__init__(
             'aws-native:eks:Addon',
@@ -287,6 +307,7 @@ class Addon(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["cluster_name"] = None
         __props__.__dict__["configuration_values"] = None
+        __props__.__dict__["namespace_config"] = None
         __props__.__dict__["pod_identity_associations"] = None
         __props__.__dict__["preserve_on_delete"] = None
         __props__.__dict__["resolve_conflicts"] = None
@@ -333,6 +354,14 @@ class Addon(pulumi.CustomResource):
         The configuration values to use with the add-on
         """
         return pulumi.get(self, "configuration_values")
+
+    @property
+    @pulumi.getter(name="namespaceConfig")
+    def namespace_config(self) -> pulumi.Output[Optional['outputs.NamespaceConfigProperties']]:
+        """
+        The custom namespace configuration to use with the add-on
+        """
+        return pulumi.get(self, "namespace_config")
 
     @property
     @pulumi.getter(name="podIdentityAssociations")

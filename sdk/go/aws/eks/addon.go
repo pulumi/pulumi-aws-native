@@ -27,6 +27,8 @@ type Addon struct {
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// The configuration values to use with the add-on
 	ConfigurationValues pulumi.StringPtrOutput `pulumi:"configurationValues"`
+	// The custom namespace configuration to use with the add-on
+	NamespaceConfig NamespaceConfigPropertiesPtrOutput `pulumi:"namespaceConfig"`
 	// An array of pod identities to apply to this add-on.
 	PodIdentityAssociations AddonPodIdentityAssociationArrayOutput `pulumi:"podIdentityAssociations"`
 	// PreserveOnDelete parameter value
@@ -52,6 +54,7 @@ func NewAddon(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"addonName",
 		"clusterName",
+		"namespaceConfig",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -95,6 +98,8 @@ type addonArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// The configuration values to use with the add-on
 	ConfigurationValues *string `pulumi:"configurationValues"`
+	// The custom namespace configuration to use with the add-on
+	NamespaceConfig *NamespaceConfigProperties `pulumi:"namespaceConfig"`
 	// An array of pod identities to apply to this add-on.
 	PodIdentityAssociations []AddonPodIdentityAssociation `pulumi:"podIdentityAssociations"`
 	// PreserveOnDelete parameter value
@@ -117,6 +122,8 @@ type AddonArgs struct {
 	ClusterName pulumi.StringInput
 	// The configuration values to use with the add-on
 	ConfigurationValues pulumi.StringPtrInput
+	// The custom namespace configuration to use with the add-on
+	NamespaceConfig NamespaceConfigPropertiesPtrInput
 	// An array of pod identities to apply to this add-on.
 	PodIdentityAssociations AddonPodIdentityAssociationArrayInput
 	// PreserveOnDelete parameter value
@@ -189,6 +196,11 @@ func (o AddonOutput) ClusterName() pulumi.StringOutput {
 // The configuration values to use with the add-on
 func (o AddonOutput) ConfigurationValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringPtrOutput { return v.ConfigurationValues }).(pulumi.StringPtrOutput)
+}
+
+// The custom namespace configuration to use with the add-on
+func (o AddonOutput) NamespaceConfig() NamespaceConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v *Addon) NamespaceConfigPropertiesPtrOutput { return v.NamespaceConfig }).(NamespaceConfigPropertiesPtrOutput)
 }
 
 // An array of pod identities to apply to this add-on.

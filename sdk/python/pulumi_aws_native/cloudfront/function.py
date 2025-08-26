@@ -185,6 +185,8 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["function_arn"] = None
             __props__.__dict__["stage"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Function, __self__).__init__(
             'aws-native:cloudfront:Function',
             resource_name,

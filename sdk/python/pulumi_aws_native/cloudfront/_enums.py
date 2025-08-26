@@ -10,6 +10,7 @@ __all__ = [
     'ContinuousDeploymentPolicyConfigType',
     'ContinuousDeploymentPolicyTrafficConfigType',
     'DistributionConnectionMode',
+    'DistributionCustomOriginConfigIpAddressType',
     'DistributionOriginGroupSelectionCriteria',
     'DistributionTenantDomainResultStatus',
     'DistributionTenantGeoRestrictionCustomizationRestrictionType',
@@ -42,6 +43,13 @@ class ContinuousDeploymentPolicyTrafficConfigType(builtins.str, Enum):
 class DistributionConnectionMode(builtins.str, Enum):
     DIRECT = "direct"
     TENANT_ONLY = "tenant-only"
+
+
+@pulumi.type_token("aws-native:cloudfront:DistributionCustomOriginConfigIpAddressType")
+class DistributionCustomOriginConfigIpAddressType(builtins.str, Enum):
+    IPV4 = "ipv4"
+    IPV6 = "ipv6"
+    DUALSTACK = "dualstack"
 
 
 @pulumi.type_token("aws-native:cloudfront:DistributionOriginGroupSelectionCriteria")

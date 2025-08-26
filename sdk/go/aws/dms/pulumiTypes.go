@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DataMigrationSettings struct {
-	// The property specifies whether to enable the Cloudwatch log.
+	// The property specifies whether to enable the CloudWatch log.
 	CloudwatchLogsEnabled *bool `pulumi:"cloudwatchLogsEnabled"`
 	// The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.
 	NumberOfJobs *int `pulumi:"numberOfJobs"`
@@ -34,7 +34,7 @@ type DataMigrationSettingsInput interface {
 }
 
 type DataMigrationSettingsArgs struct {
-	// The property specifies whether to enable the Cloudwatch log.
+	// The property specifies whether to enable the CloudWatch log.
 	CloudwatchLogsEnabled pulumi.BoolPtrInput `pulumi:"cloudwatchLogsEnabled"`
 	// The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.
 	NumberOfJobs pulumi.IntPtrInput `pulumi:"numberOfJobs"`
@@ -119,7 +119,7 @@ func (o DataMigrationSettingsOutput) ToDataMigrationSettingsPtrOutputWithContext
 	}).(DataMigrationSettingsPtrOutput)
 }
 
-// The property specifies whether to enable the Cloudwatch log.
+// The property specifies whether to enable the CloudWatch log.
 func (o DataMigrationSettingsOutput) CloudwatchLogsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataMigrationSettings) *bool { return v.CloudwatchLogsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -158,7 +158,7 @@ func (o DataMigrationSettingsPtrOutput) Elem() DataMigrationSettingsOutput {
 	}).(DataMigrationSettingsOutput)
 }
 
-// The property specifies whether to enable the Cloudwatch log.
+// The property specifies whether to enable the CloudWatch log.
 func (o DataMigrationSettingsPtrOutput) CloudwatchLogsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataMigrationSettings) *bool {
 		if v == nil {

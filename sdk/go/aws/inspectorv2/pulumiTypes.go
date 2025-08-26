@@ -935,6 +935,1379 @@ func (o CisScanConfigurationWeeklySchedulePtrOutput) StartTime() CisScanConfigur
 	}).(CisScanConfigurationTimePtrOutput)
 }
 
+type CodeSecurityIntegrationCreateDetails struct {
+	// Details specific to creating an integration with a self-managed GitLab instance.
+	GitlabSelfManaged CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail `pulumi:"gitlabSelfManaged"`
+}
+
+// CodeSecurityIntegrationCreateDetailsInput is an input type that accepts CodeSecurityIntegrationCreateDetailsArgs and CodeSecurityIntegrationCreateDetailsOutput values.
+// You can construct a concrete instance of `CodeSecurityIntegrationCreateDetailsInput` via:
+//
+//	CodeSecurityIntegrationCreateDetailsArgs{...}
+type CodeSecurityIntegrationCreateDetailsInput interface {
+	pulumi.Input
+
+	ToCodeSecurityIntegrationCreateDetailsOutput() CodeSecurityIntegrationCreateDetailsOutput
+	ToCodeSecurityIntegrationCreateDetailsOutputWithContext(context.Context) CodeSecurityIntegrationCreateDetailsOutput
+}
+
+type CodeSecurityIntegrationCreateDetailsArgs struct {
+	// Details specific to creating an integration with a self-managed GitLab instance.
+	GitlabSelfManaged CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailInput `pulumi:"gitlabSelfManaged"`
+}
+
+func (CodeSecurityIntegrationCreateDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityIntegrationCreateDetails)(nil)).Elem()
+}
+
+func (i CodeSecurityIntegrationCreateDetailsArgs) ToCodeSecurityIntegrationCreateDetailsOutput() CodeSecurityIntegrationCreateDetailsOutput {
+	return i.ToCodeSecurityIntegrationCreateDetailsOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityIntegrationCreateDetailsArgs) ToCodeSecurityIntegrationCreateDetailsOutputWithContext(ctx context.Context) CodeSecurityIntegrationCreateDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityIntegrationCreateDetailsOutput)
+}
+
+func (i CodeSecurityIntegrationCreateDetailsArgs) ToCodeSecurityIntegrationCreateDetailsPtrOutput() CodeSecurityIntegrationCreateDetailsPtrOutput {
+	return i.ToCodeSecurityIntegrationCreateDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityIntegrationCreateDetailsArgs) ToCodeSecurityIntegrationCreateDetailsPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationCreateDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityIntegrationCreateDetailsOutput).ToCodeSecurityIntegrationCreateDetailsPtrOutputWithContext(ctx)
+}
+
+// CodeSecurityIntegrationCreateDetailsPtrInput is an input type that accepts CodeSecurityIntegrationCreateDetailsArgs, CodeSecurityIntegrationCreateDetailsPtr and CodeSecurityIntegrationCreateDetailsPtrOutput values.
+// You can construct a concrete instance of `CodeSecurityIntegrationCreateDetailsPtrInput` via:
+//
+//	        CodeSecurityIntegrationCreateDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CodeSecurityIntegrationCreateDetailsPtrInput interface {
+	pulumi.Input
+
+	ToCodeSecurityIntegrationCreateDetailsPtrOutput() CodeSecurityIntegrationCreateDetailsPtrOutput
+	ToCodeSecurityIntegrationCreateDetailsPtrOutputWithContext(context.Context) CodeSecurityIntegrationCreateDetailsPtrOutput
+}
+
+type codeSecurityIntegrationCreateDetailsPtrType CodeSecurityIntegrationCreateDetailsArgs
+
+func CodeSecurityIntegrationCreateDetailsPtr(v *CodeSecurityIntegrationCreateDetailsArgs) CodeSecurityIntegrationCreateDetailsPtrInput {
+	return (*codeSecurityIntegrationCreateDetailsPtrType)(v)
+}
+
+func (*codeSecurityIntegrationCreateDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityIntegrationCreateDetails)(nil)).Elem()
+}
+
+func (i *codeSecurityIntegrationCreateDetailsPtrType) ToCodeSecurityIntegrationCreateDetailsPtrOutput() CodeSecurityIntegrationCreateDetailsPtrOutput {
+	return i.ToCodeSecurityIntegrationCreateDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *codeSecurityIntegrationCreateDetailsPtrType) ToCodeSecurityIntegrationCreateDetailsPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationCreateDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityIntegrationCreateDetailsPtrOutput)
+}
+
+type CodeSecurityIntegrationCreateDetailsOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityIntegrationCreateDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityIntegrationCreateDetails)(nil)).Elem()
+}
+
+func (o CodeSecurityIntegrationCreateDetailsOutput) ToCodeSecurityIntegrationCreateDetailsOutput() CodeSecurityIntegrationCreateDetailsOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationCreateDetailsOutput) ToCodeSecurityIntegrationCreateDetailsOutputWithContext(ctx context.Context) CodeSecurityIntegrationCreateDetailsOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationCreateDetailsOutput) ToCodeSecurityIntegrationCreateDetailsPtrOutput() CodeSecurityIntegrationCreateDetailsPtrOutput {
+	return o.ToCodeSecurityIntegrationCreateDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityIntegrationCreateDetailsOutput) ToCodeSecurityIntegrationCreateDetailsPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationCreateDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSecurityIntegrationCreateDetails) *CodeSecurityIntegrationCreateDetails {
+		return &v
+	}).(CodeSecurityIntegrationCreateDetailsPtrOutput)
+}
+
+// Details specific to creating an integration with a self-managed GitLab instance.
+func (o CodeSecurityIntegrationCreateDetailsOutput) GitlabSelfManaged() CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput {
+	return o.ApplyT(func(v CodeSecurityIntegrationCreateDetails) CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail {
+		return v.GitlabSelfManaged
+	}).(CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput)
+}
+
+type CodeSecurityIntegrationCreateDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityIntegrationCreateDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityIntegrationCreateDetails)(nil)).Elem()
+}
+
+func (o CodeSecurityIntegrationCreateDetailsPtrOutput) ToCodeSecurityIntegrationCreateDetailsPtrOutput() CodeSecurityIntegrationCreateDetailsPtrOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationCreateDetailsPtrOutput) ToCodeSecurityIntegrationCreateDetailsPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationCreateDetailsPtrOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationCreateDetailsPtrOutput) Elem() CodeSecurityIntegrationCreateDetailsOutput {
+	return o.ApplyT(func(v *CodeSecurityIntegrationCreateDetails) CodeSecurityIntegrationCreateDetails {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSecurityIntegrationCreateDetails
+		return ret
+	}).(CodeSecurityIntegrationCreateDetailsOutput)
+}
+
+// Details specific to creating an integration with a self-managed GitLab instance.
+func (o CodeSecurityIntegrationCreateDetailsPtrOutput) GitlabSelfManaged() CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return o.ApplyT(func(v *CodeSecurityIntegrationCreateDetails) *CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail {
+		if v == nil {
+			return nil
+		}
+		return &v.GitlabSelfManaged
+	}).(CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput)
+}
+
+type CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail struct {
+	// The personal access token used to authenticate with the self-managed GitLab instance.
+	AccessToken string `pulumi:"accessToken"`
+	// The URL of the self-managed GitLab instance.
+	InstanceUrl string `pulumi:"instanceUrl"`
+}
+
+// CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailInput is an input type that accepts CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs and CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput values.
+// You can construct a concrete instance of `CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailInput` via:
+//
+//	CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs{...}
+type CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailInput interface {
+	pulumi.Input
+
+	ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput() CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput
+	ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutputWithContext(context.Context) CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput
+}
+
+type CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs struct {
+	// The personal access token used to authenticate with the self-managed GitLab instance.
+	AccessToken pulumi.StringInput `pulumi:"accessToken"`
+	// The URL of the self-managed GitLab instance.
+	InstanceUrl pulumi.StringInput `pulumi:"instanceUrl"`
+}
+
+func (CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail)(nil)).Elem()
+}
+
+func (i CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs) ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput() CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput {
+	return i.ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs) ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutputWithContext(ctx context.Context) CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput)
+}
+
+func (i CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs) ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput() CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return i.ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs) ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput).ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutputWithContext(ctx)
+}
+
+// CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrInput is an input type that accepts CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs, CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtr and CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput values.
+// You can construct a concrete instance of `CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrInput` via:
+//
+//	        CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs{...}
+//
+//	or:
+//
+//	        nil
+type CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrInput interface {
+	pulumi.Input
+
+	ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput() CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput
+	ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutputWithContext(context.Context) CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput
+}
+
+type codeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrType CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs
+
+func CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtr(v *CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs) CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrInput {
+	return (*codeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrType)(v)
+}
+
+func (*codeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail)(nil)).Elem()
+}
+
+func (i *codeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrType) ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput() CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return i.ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutputWithContext(context.Background())
+}
+
+func (i *codeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrType) ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput)
+}
+
+type CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail)(nil)).Elem()
+}
+
+func (o CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput) ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput() CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput) ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutputWithContext(ctx context.Context) CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput) ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput() CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return o.ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput) ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail) *CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail {
+		return &v
+	}).(CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput)
+}
+
+// The personal access token used to authenticate with the self-managed GitLab instance.
+func (o CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput) AccessToken() pulumi.StringOutput {
+	return o.ApplyT(func(v CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail) string { return v.AccessToken }).(pulumi.StringOutput)
+}
+
+// The URL of the self-managed GitLab instance.
+func (o CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput) InstanceUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail) string { return v.InstanceUrl }).(pulumi.StringOutput)
+}
+
+type CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail)(nil)).Elem()
+}
+
+func (o CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput) ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput() CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput) ToCodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput) Elem() CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput {
+	return o.ApplyT(func(v *CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail) CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail
+		return ret
+	}).(CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput)
+}
+
+// The personal access token used to authenticate with the self-managed GitLab instance.
+func (o CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL of the self-managed GitLab instance.
+func (o CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput) InstanceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type CodeSecurityIntegrationUpdateDetails struct {
+	// Details specific to updating an integration with GitHub.
+	Github *CodeSecurityIntegrationUpdateGitHubIntegrationDetail `pulumi:"github"`
+	// Details specific to updating an integration with a self-managed GitLab instance.
+	GitlabSelfManaged *CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail `pulumi:"gitlabSelfManaged"`
+}
+
+// CodeSecurityIntegrationUpdateDetailsInput is an input type that accepts CodeSecurityIntegrationUpdateDetailsArgs and CodeSecurityIntegrationUpdateDetailsOutput values.
+// You can construct a concrete instance of `CodeSecurityIntegrationUpdateDetailsInput` via:
+//
+//	CodeSecurityIntegrationUpdateDetailsArgs{...}
+type CodeSecurityIntegrationUpdateDetailsInput interface {
+	pulumi.Input
+
+	ToCodeSecurityIntegrationUpdateDetailsOutput() CodeSecurityIntegrationUpdateDetailsOutput
+	ToCodeSecurityIntegrationUpdateDetailsOutputWithContext(context.Context) CodeSecurityIntegrationUpdateDetailsOutput
+}
+
+type CodeSecurityIntegrationUpdateDetailsArgs struct {
+	// Details specific to updating an integration with GitHub.
+	Github CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrInput `pulumi:"github"`
+	// Details specific to updating an integration with a self-managed GitLab instance.
+	GitlabSelfManaged CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrInput `pulumi:"gitlabSelfManaged"`
+}
+
+func (CodeSecurityIntegrationUpdateDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityIntegrationUpdateDetails)(nil)).Elem()
+}
+
+func (i CodeSecurityIntegrationUpdateDetailsArgs) ToCodeSecurityIntegrationUpdateDetailsOutput() CodeSecurityIntegrationUpdateDetailsOutput {
+	return i.ToCodeSecurityIntegrationUpdateDetailsOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityIntegrationUpdateDetailsArgs) ToCodeSecurityIntegrationUpdateDetailsOutputWithContext(ctx context.Context) CodeSecurityIntegrationUpdateDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityIntegrationUpdateDetailsOutput)
+}
+
+func (i CodeSecurityIntegrationUpdateDetailsArgs) ToCodeSecurityIntegrationUpdateDetailsPtrOutput() CodeSecurityIntegrationUpdateDetailsPtrOutput {
+	return i.ToCodeSecurityIntegrationUpdateDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityIntegrationUpdateDetailsArgs) ToCodeSecurityIntegrationUpdateDetailsPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationUpdateDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityIntegrationUpdateDetailsOutput).ToCodeSecurityIntegrationUpdateDetailsPtrOutputWithContext(ctx)
+}
+
+// CodeSecurityIntegrationUpdateDetailsPtrInput is an input type that accepts CodeSecurityIntegrationUpdateDetailsArgs, CodeSecurityIntegrationUpdateDetailsPtr and CodeSecurityIntegrationUpdateDetailsPtrOutput values.
+// You can construct a concrete instance of `CodeSecurityIntegrationUpdateDetailsPtrInput` via:
+//
+//	        CodeSecurityIntegrationUpdateDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CodeSecurityIntegrationUpdateDetailsPtrInput interface {
+	pulumi.Input
+
+	ToCodeSecurityIntegrationUpdateDetailsPtrOutput() CodeSecurityIntegrationUpdateDetailsPtrOutput
+	ToCodeSecurityIntegrationUpdateDetailsPtrOutputWithContext(context.Context) CodeSecurityIntegrationUpdateDetailsPtrOutput
+}
+
+type codeSecurityIntegrationUpdateDetailsPtrType CodeSecurityIntegrationUpdateDetailsArgs
+
+func CodeSecurityIntegrationUpdateDetailsPtr(v *CodeSecurityIntegrationUpdateDetailsArgs) CodeSecurityIntegrationUpdateDetailsPtrInput {
+	return (*codeSecurityIntegrationUpdateDetailsPtrType)(v)
+}
+
+func (*codeSecurityIntegrationUpdateDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityIntegrationUpdateDetails)(nil)).Elem()
+}
+
+func (i *codeSecurityIntegrationUpdateDetailsPtrType) ToCodeSecurityIntegrationUpdateDetailsPtrOutput() CodeSecurityIntegrationUpdateDetailsPtrOutput {
+	return i.ToCodeSecurityIntegrationUpdateDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *codeSecurityIntegrationUpdateDetailsPtrType) ToCodeSecurityIntegrationUpdateDetailsPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationUpdateDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityIntegrationUpdateDetailsPtrOutput)
+}
+
+type CodeSecurityIntegrationUpdateDetailsOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityIntegrationUpdateDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityIntegrationUpdateDetails)(nil)).Elem()
+}
+
+func (o CodeSecurityIntegrationUpdateDetailsOutput) ToCodeSecurityIntegrationUpdateDetailsOutput() CodeSecurityIntegrationUpdateDetailsOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationUpdateDetailsOutput) ToCodeSecurityIntegrationUpdateDetailsOutputWithContext(ctx context.Context) CodeSecurityIntegrationUpdateDetailsOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationUpdateDetailsOutput) ToCodeSecurityIntegrationUpdateDetailsPtrOutput() CodeSecurityIntegrationUpdateDetailsPtrOutput {
+	return o.ToCodeSecurityIntegrationUpdateDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityIntegrationUpdateDetailsOutput) ToCodeSecurityIntegrationUpdateDetailsPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationUpdateDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSecurityIntegrationUpdateDetails) *CodeSecurityIntegrationUpdateDetails {
+		return &v
+	}).(CodeSecurityIntegrationUpdateDetailsPtrOutput)
+}
+
+// Details specific to updating an integration with GitHub.
+func (o CodeSecurityIntegrationUpdateDetailsOutput) Github() CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput {
+	return o.ApplyT(func(v CodeSecurityIntegrationUpdateDetails) *CodeSecurityIntegrationUpdateGitHubIntegrationDetail {
+		return v.Github
+	}).(CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput)
+}
+
+// Details specific to updating an integration with a self-managed GitLab instance.
+func (o CodeSecurityIntegrationUpdateDetailsOutput) GitlabSelfManaged() CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return o.ApplyT(func(v CodeSecurityIntegrationUpdateDetails) *CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail {
+		return v.GitlabSelfManaged
+	}).(CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput)
+}
+
+type CodeSecurityIntegrationUpdateDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityIntegrationUpdateDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityIntegrationUpdateDetails)(nil)).Elem()
+}
+
+func (o CodeSecurityIntegrationUpdateDetailsPtrOutput) ToCodeSecurityIntegrationUpdateDetailsPtrOutput() CodeSecurityIntegrationUpdateDetailsPtrOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationUpdateDetailsPtrOutput) ToCodeSecurityIntegrationUpdateDetailsPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationUpdateDetailsPtrOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationUpdateDetailsPtrOutput) Elem() CodeSecurityIntegrationUpdateDetailsOutput {
+	return o.ApplyT(func(v *CodeSecurityIntegrationUpdateDetails) CodeSecurityIntegrationUpdateDetails {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSecurityIntegrationUpdateDetails
+		return ret
+	}).(CodeSecurityIntegrationUpdateDetailsOutput)
+}
+
+// Details specific to updating an integration with GitHub.
+func (o CodeSecurityIntegrationUpdateDetailsPtrOutput) Github() CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput {
+	return o.ApplyT(func(v *CodeSecurityIntegrationUpdateDetails) *CodeSecurityIntegrationUpdateGitHubIntegrationDetail {
+		if v == nil {
+			return nil
+		}
+		return v.Github
+	}).(CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput)
+}
+
+// Details specific to updating an integration with a self-managed GitLab instance.
+func (o CodeSecurityIntegrationUpdateDetailsPtrOutput) GitlabSelfManaged() CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return o.ApplyT(func(v *CodeSecurityIntegrationUpdateDetails) *CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail {
+		if v == nil {
+			return nil
+		}
+		return v.GitlabSelfManaged
+	}).(CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput)
+}
+
+type CodeSecurityIntegrationUpdateGitHubIntegrationDetail struct {
+	// The authorization code received from GitHub to update the integration.
+	Code string `pulumi:"code"`
+	// The installation ID of the GitHub App associated with the integration.
+	InstallationId string `pulumi:"installationId"`
+}
+
+// CodeSecurityIntegrationUpdateGitHubIntegrationDetailInput is an input type that accepts CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs and CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput values.
+// You can construct a concrete instance of `CodeSecurityIntegrationUpdateGitHubIntegrationDetailInput` via:
+//
+//	CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs{...}
+type CodeSecurityIntegrationUpdateGitHubIntegrationDetailInput interface {
+	pulumi.Input
+
+	ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput() CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput
+	ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailOutputWithContext(context.Context) CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput
+}
+
+type CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs struct {
+	// The authorization code received from GitHub to update the integration.
+	Code pulumi.StringInput `pulumi:"code"`
+	// The installation ID of the GitHub App associated with the integration.
+	InstallationId pulumi.StringInput `pulumi:"installationId"`
+}
+
+func (CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityIntegrationUpdateGitHubIntegrationDetail)(nil)).Elem()
+}
+
+func (i CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs) ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput() CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput {
+	return i.ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs) ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailOutputWithContext(ctx context.Context) CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput)
+}
+
+func (i CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs) ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput() CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput {
+	return i.ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs) ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput).ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutputWithContext(ctx)
+}
+
+// CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrInput is an input type that accepts CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs, CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtr and CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput values.
+// You can construct a concrete instance of `CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrInput` via:
+//
+//	        CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs{...}
+//
+//	or:
+//
+//	        nil
+type CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrInput interface {
+	pulumi.Input
+
+	ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput() CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput
+	ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutputWithContext(context.Context) CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput
+}
+
+type codeSecurityIntegrationUpdateGitHubIntegrationDetailPtrType CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs
+
+func CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtr(v *CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs) CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrInput {
+	return (*codeSecurityIntegrationUpdateGitHubIntegrationDetailPtrType)(v)
+}
+
+func (*codeSecurityIntegrationUpdateGitHubIntegrationDetailPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityIntegrationUpdateGitHubIntegrationDetail)(nil)).Elem()
+}
+
+func (i *codeSecurityIntegrationUpdateGitHubIntegrationDetailPtrType) ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput() CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput {
+	return i.ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutputWithContext(context.Background())
+}
+
+func (i *codeSecurityIntegrationUpdateGitHubIntegrationDetailPtrType) ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput)
+}
+
+type CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityIntegrationUpdateGitHubIntegrationDetail)(nil)).Elem()
+}
+
+func (o CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput) ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput() CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput) ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailOutputWithContext(ctx context.Context) CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput) ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput() CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput {
+	return o.ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput) ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSecurityIntegrationUpdateGitHubIntegrationDetail) *CodeSecurityIntegrationUpdateGitHubIntegrationDetail {
+		return &v
+	}).(CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput)
+}
+
+// The authorization code received from GitHub to update the integration.
+func (o CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v CodeSecurityIntegrationUpdateGitHubIntegrationDetail) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// The installation ID of the GitHub App associated with the integration.
+func (o CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput) InstallationId() pulumi.StringOutput {
+	return o.ApplyT(func(v CodeSecurityIntegrationUpdateGitHubIntegrationDetail) string { return v.InstallationId }).(pulumi.StringOutput)
+}
+
+type CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityIntegrationUpdateGitHubIntegrationDetail)(nil)).Elem()
+}
+
+func (o CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput) ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput() CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput) ToCodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput) Elem() CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput {
+	return o.ApplyT(func(v *CodeSecurityIntegrationUpdateGitHubIntegrationDetail) CodeSecurityIntegrationUpdateGitHubIntegrationDetail {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSecurityIntegrationUpdateGitHubIntegrationDetail
+		return ret
+	}).(CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput)
+}
+
+// The authorization code received from GitHub to update the integration.
+func (o CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeSecurityIntegrationUpdateGitHubIntegrationDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// The installation ID of the GitHub App associated with the integration.
+func (o CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput) InstallationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeSecurityIntegrationUpdateGitHubIntegrationDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstallationId
+	}).(pulumi.StringPtrOutput)
+}
+
+type CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail struct {
+	// The authorization code received from the self-managed GitLab instance to update the integration.
+	AuthCode string `pulumi:"authCode"`
+}
+
+// CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailInput is an input type that accepts CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs and CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput values.
+// You can construct a concrete instance of `CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailInput` via:
+//
+//	CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs{...}
+type CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailInput interface {
+	pulumi.Input
+
+	ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput() CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput
+	ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutputWithContext(context.Context) CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput
+}
+
+type CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs struct {
+	// The authorization code received from the self-managed GitLab instance to update the integration.
+	AuthCode pulumi.StringInput `pulumi:"authCode"`
+}
+
+func (CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail)(nil)).Elem()
+}
+
+func (i CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs) ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput() CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput {
+	return i.ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs) ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutputWithContext(ctx context.Context) CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput)
+}
+
+func (i CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs) ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput() CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return i.ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs) ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput).ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutputWithContext(ctx)
+}
+
+// CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrInput is an input type that accepts CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs, CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtr and CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput values.
+// You can construct a concrete instance of `CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrInput` via:
+//
+//	        CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs{...}
+//
+//	or:
+//
+//	        nil
+type CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrInput interface {
+	pulumi.Input
+
+	ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput() CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput
+	ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutputWithContext(context.Context) CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput
+}
+
+type codeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrType CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs
+
+func CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtr(v *CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs) CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrInput {
+	return (*codeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrType)(v)
+}
+
+func (*codeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail)(nil)).Elem()
+}
+
+func (i *codeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrType) ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput() CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return i.ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutputWithContext(context.Background())
+}
+
+func (i *codeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrType) ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput)
+}
+
+type CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail)(nil)).Elem()
+}
+
+func (o CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput) ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput() CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput) ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutputWithContext(ctx context.Context) CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput) ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput() CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return o.ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput) ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail) *CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail {
+		return &v
+	}).(CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput)
+}
+
+// The authorization code received from the self-managed GitLab instance to update the integration.
+func (o CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput) AuthCode() pulumi.StringOutput {
+	return o.ApplyT(func(v CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail) string { return v.AuthCode }).(pulumi.StringOutput)
+}
+
+type CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail)(nil)).Elem()
+}
+
+func (o CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput) ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput() CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput) ToCodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutputWithContext(ctx context.Context) CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput {
+	return o
+}
+
+func (o CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput) Elem() CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput {
+	return o.ApplyT(func(v *CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail) CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail
+		return ret
+	}).(CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput)
+}
+
+// The authorization code received from the self-managed GitLab instance to update the integration.
+func (o CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput) AuthCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthCode
+	}).(pulumi.StringPtrOutput)
+}
+
+type CodeSecurityScanConfigurationType struct {
+	// Configuration settings for continuous integration scans that run automatically when code changes are made.
+	ContinuousIntegrationScanConfiguration *CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration `pulumi:"continuousIntegrationScanConfiguration"`
+	// Configuration settings for periodic scans that run on a scheduled basis.
+	PeriodicScanConfiguration *CodeSecurityScanConfigurationPeriodicScanConfiguration `pulumi:"periodicScanConfiguration"`
+	// The categories of security rules to be applied during the scan.
+	RuleSetCategories []CodeSecurityScanConfigurationRuleSetCategory `pulumi:"ruleSetCategories"`
+}
+
+// CodeSecurityScanConfigurationTypeInput is an input type that accepts CodeSecurityScanConfigurationTypeArgs and CodeSecurityScanConfigurationTypeOutput values.
+// You can construct a concrete instance of `CodeSecurityScanConfigurationTypeInput` via:
+//
+//	CodeSecurityScanConfigurationTypeArgs{...}
+type CodeSecurityScanConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationTypeOutput() CodeSecurityScanConfigurationTypeOutput
+	ToCodeSecurityScanConfigurationTypeOutputWithContext(context.Context) CodeSecurityScanConfigurationTypeOutput
+}
+
+type CodeSecurityScanConfigurationTypeArgs struct {
+	// Configuration settings for continuous integration scans that run automatically when code changes are made.
+	ContinuousIntegrationScanConfiguration CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrInput `pulumi:"continuousIntegrationScanConfiguration"`
+	// Configuration settings for periodic scans that run on a scheduled basis.
+	PeriodicScanConfiguration CodeSecurityScanConfigurationPeriodicScanConfigurationPtrInput `pulumi:"periodicScanConfiguration"`
+	// The categories of security rules to be applied during the scan.
+	RuleSetCategories CodeSecurityScanConfigurationRuleSetCategoryArrayInput `pulumi:"ruleSetCategories"`
+}
+
+func (CodeSecurityScanConfigurationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityScanConfigurationType)(nil)).Elem()
+}
+
+func (i CodeSecurityScanConfigurationTypeArgs) ToCodeSecurityScanConfigurationTypeOutput() CodeSecurityScanConfigurationTypeOutput {
+	return i.ToCodeSecurityScanConfigurationTypeOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityScanConfigurationTypeArgs) ToCodeSecurityScanConfigurationTypeOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityScanConfigurationTypeOutput)
+}
+
+func (i CodeSecurityScanConfigurationTypeArgs) ToCodeSecurityScanConfigurationTypePtrOutput() CodeSecurityScanConfigurationTypePtrOutput {
+	return i.ToCodeSecurityScanConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityScanConfigurationTypeArgs) ToCodeSecurityScanConfigurationTypePtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityScanConfigurationTypeOutput).ToCodeSecurityScanConfigurationTypePtrOutputWithContext(ctx)
+}
+
+// CodeSecurityScanConfigurationTypePtrInput is an input type that accepts CodeSecurityScanConfigurationTypeArgs, CodeSecurityScanConfigurationTypePtr and CodeSecurityScanConfigurationTypePtrOutput values.
+// You can construct a concrete instance of `CodeSecurityScanConfigurationTypePtrInput` via:
+//
+//	        CodeSecurityScanConfigurationTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type CodeSecurityScanConfigurationTypePtrInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationTypePtrOutput() CodeSecurityScanConfigurationTypePtrOutput
+	ToCodeSecurityScanConfigurationTypePtrOutputWithContext(context.Context) CodeSecurityScanConfigurationTypePtrOutput
+}
+
+type codeSecurityScanConfigurationTypePtrType CodeSecurityScanConfigurationTypeArgs
+
+func CodeSecurityScanConfigurationTypePtr(v *CodeSecurityScanConfigurationTypeArgs) CodeSecurityScanConfigurationTypePtrInput {
+	return (*codeSecurityScanConfigurationTypePtrType)(v)
+}
+
+func (*codeSecurityScanConfigurationTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityScanConfigurationType)(nil)).Elem()
+}
+
+func (i *codeSecurityScanConfigurationTypePtrType) ToCodeSecurityScanConfigurationTypePtrOutput() CodeSecurityScanConfigurationTypePtrOutput {
+	return i.ToCodeSecurityScanConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (i *codeSecurityScanConfigurationTypePtrType) ToCodeSecurityScanConfigurationTypePtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityScanConfigurationTypePtrOutput)
+}
+
+type CodeSecurityScanConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityScanConfigurationType)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationTypeOutput) ToCodeSecurityScanConfigurationTypeOutput() CodeSecurityScanConfigurationTypeOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationTypeOutput) ToCodeSecurityScanConfigurationTypeOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationTypeOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationTypeOutput) ToCodeSecurityScanConfigurationTypePtrOutput() CodeSecurityScanConfigurationTypePtrOutput {
+	return o.ToCodeSecurityScanConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationTypeOutput) ToCodeSecurityScanConfigurationTypePtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSecurityScanConfigurationType) *CodeSecurityScanConfigurationType {
+		return &v
+	}).(CodeSecurityScanConfigurationTypePtrOutput)
+}
+
+// Configuration settings for continuous integration scans that run automatically when code changes are made.
+func (o CodeSecurityScanConfigurationTypeOutput) ContinuousIntegrationScanConfiguration() CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput {
+	return o.ApplyT(func(v CodeSecurityScanConfigurationType) *CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration {
+		return v.ContinuousIntegrationScanConfiguration
+	}).(CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput)
+}
+
+// Configuration settings for periodic scans that run on a scheduled basis.
+func (o CodeSecurityScanConfigurationTypeOutput) PeriodicScanConfiguration() CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput {
+	return o.ApplyT(func(v CodeSecurityScanConfigurationType) *CodeSecurityScanConfigurationPeriodicScanConfiguration {
+		return v.PeriodicScanConfiguration
+	}).(CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput)
+}
+
+// The categories of security rules to be applied during the scan.
+func (o CodeSecurityScanConfigurationTypeOutput) RuleSetCategories() CodeSecurityScanConfigurationRuleSetCategoryArrayOutput {
+	return o.ApplyT(func(v CodeSecurityScanConfigurationType) []CodeSecurityScanConfigurationRuleSetCategory {
+		return v.RuleSetCategories
+	}).(CodeSecurityScanConfigurationRuleSetCategoryArrayOutput)
+}
+
+type CodeSecurityScanConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityScanConfigurationType)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationTypePtrOutput) ToCodeSecurityScanConfigurationTypePtrOutput() CodeSecurityScanConfigurationTypePtrOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationTypePtrOutput) ToCodeSecurityScanConfigurationTypePtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationTypePtrOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationTypePtrOutput) Elem() CodeSecurityScanConfigurationTypeOutput {
+	return o.ApplyT(func(v *CodeSecurityScanConfigurationType) CodeSecurityScanConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSecurityScanConfigurationType
+		return ret
+	}).(CodeSecurityScanConfigurationTypeOutput)
+}
+
+// Configuration settings for continuous integration scans that run automatically when code changes are made.
+func (o CodeSecurityScanConfigurationTypePtrOutput) ContinuousIntegrationScanConfiguration() CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput {
+	return o.ApplyT(func(v *CodeSecurityScanConfigurationType) *CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ContinuousIntegrationScanConfiguration
+	}).(CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput)
+}
+
+// Configuration settings for periodic scans that run on a scheduled basis.
+func (o CodeSecurityScanConfigurationTypePtrOutput) PeriodicScanConfiguration() CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput {
+	return o.ApplyT(func(v *CodeSecurityScanConfigurationType) *CodeSecurityScanConfigurationPeriodicScanConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PeriodicScanConfiguration
+	}).(CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput)
+}
+
+// The categories of security rules to be applied during the scan.
+func (o CodeSecurityScanConfigurationTypePtrOutput) RuleSetCategories() CodeSecurityScanConfigurationRuleSetCategoryArrayOutput {
+	return o.ApplyT(func(v *CodeSecurityScanConfigurationType) []CodeSecurityScanConfigurationRuleSetCategory {
+		if v == nil {
+			return nil
+		}
+		return v.RuleSetCategories
+	}).(CodeSecurityScanConfigurationRuleSetCategoryArrayOutput)
+}
+
+type CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration struct {
+	// The repository events that trigger continuous integration scans, such as pull requests or commits.
+	SupportedEvents []CodeSecurityScanConfigurationContinuousIntegrationScanEvent `pulumi:"supportedEvents"`
+}
+
+// CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationInput is an input type that accepts CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs and CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput values.
+// You can construct a concrete instance of `CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationInput` via:
+//
+//	CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs{...}
+type CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput() CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput
+	ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutputWithContext(context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput
+}
+
+type CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs struct {
+	// The repository events that trigger continuous integration scans, such as pull requests or commits.
+	SupportedEvents CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayInput `pulumi:"supportedEvents"`
+}
+
+func (CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration)(nil)).Elem()
+}
+
+func (i CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs) ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput() CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput {
+	return i.ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs) ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput)
+}
+
+func (i CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs) ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput() CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput {
+	return i.ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs) ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput).ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutputWithContext(ctx)
+}
+
+// CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrInput is an input type that accepts CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs, CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtr and CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput values.
+// You can construct a concrete instance of `CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrInput` via:
+//
+//	        CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput() CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput
+	ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutputWithContext(context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput
+}
+
+type codeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrType CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs
+
+func CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtr(v *CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs) CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrInput {
+	return (*codeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrType)(v)
+}
+
+func (*codeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration)(nil)).Elem()
+}
+
+func (i *codeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrType) ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput() CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput {
+	return i.ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *codeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrType) ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput)
+}
+
+type CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput) ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput() CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput) ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput) ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput() CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput {
+	return o.ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput) ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration) *CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration {
+		return &v
+	}).(CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput)
+}
+
+// The repository events that trigger continuous integration scans, such as pull requests or commits.
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput) SupportedEvents() CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput {
+	return o.ApplyT(func(v CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration) []CodeSecurityScanConfigurationContinuousIntegrationScanEvent {
+		return v.SupportedEvents
+	}).(CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput)
+}
+
+type CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput) ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput() CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput) ToCodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput) Elem() CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput {
+	return o.ApplyT(func(v *CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration) CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration
+		return ret
+	}).(CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput)
+}
+
+// The repository events that trigger continuous integration scans, such as pull requests or commits.
+func (o CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput) SupportedEvents() CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput {
+	return o.ApplyT(func(v *CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration) []CodeSecurityScanConfigurationContinuousIntegrationScanEvent {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedEvents
+	}).(CodeSecurityScanConfigurationContinuousIntegrationScanEventArrayOutput)
+}
+
+type CodeSecurityScanConfigurationPeriodicScanConfiguration struct {
+	// The frequency at which periodic scans are performed (such as weekly or monthly).
+	//
+	// If you don't provide the `frequencyExpression` Amazon Inspector chooses day for the scan to run. If you provide the `frequencyExpression` , the schedule must match the specified `frequency` .
+	Frequency *CodeSecurityScanConfigurationPeriodicScanFrequency `pulumi:"frequency"`
+	// The schedule expression for periodic scans, in cron format.
+	FrequencyExpression *string `pulumi:"frequencyExpression"`
+}
+
+// CodeSecurityScanConfigurationPeriodicScanConfigurationInput is an input type that accepts CodeSecurityScanConfigurationPeriodicScanConfigurationArgs and CodeSecurityScanConfigurationPeriodicScanConfigurationOutput values.
+// You can construct a concrete instance of `CodeSecurityScanConfigurationPeriodicScanConfigurationInput` via:
+//
+//	CodeSecurityScanConfigurationPeriodicScanConfigurationArgs{...}
+type CodeSecurityScanConfigurationPeriodicScanConfigurationInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationPeriodicScanConfigurationOutput() CodeSecurityScanConfigurationPeriodicScanConfigurationOutput
+	ToCodeSecurityScanConfigurationPeriodicScanConfigurationOutputWithContext(context.Context) CodeSecurityScanConfigurationPeriodicScanConfigurationOutput
+}
+
+type CodeSecurityScanConfigurationPeriodicScanConfigurationArgs struct {
+	// The frequency at which periodic scans are performed (such as weekly or monthly).
+	//
+	// If you don't provide the `frequencyExpression` Amazon Inspector chooses day for the scan to run. If you provide the `frequencyExpression` , the schedule must match the specified `frequency` .
+	Frequency CodeSecurityScanConfigurationPeriodicScanFrequencyPtrInput `pulumi:"frequency"`
+	// The schedule expression for periodic scans, in cron format.
+	FrequencyExpression pulumi.StringPtrInput `pulumi:"frequencyExpression"`
+}
+
+func (CodeSecurityScanConfigurationPeriodicScanConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityScanConfigurationPeriodicScanConfiguration)(nil)).Elem()
+}
+
+func (i CodeSecurityScanConfigurationPeriodicScanConfigurationArgs) ToCodeSecurityScanConfigurationPeriodicScanConfigurationOutput() CodeSecurityScanConfigurationPeriodicScanConfigurationOutput {
+	return i.ToCodeSecurityScanConfigurationPeriodicScanConfigurationOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityScanConfigurationPeriodicScanConfigurationArgs) ToCodeSecurityScanConfigurationPeriodicScanConfigurationOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationPeriodicScanConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityScanConfigurationPeriodicScanConfigurationOutput)
+}
+
+func (i CodeSecurityScanConfigurationPeriodicScanConfigurationArgs) ToCodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput() CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput {
+	return i.ToCodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityScanConfigurationPeriodicScanConfigurationArgs) ToCodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityScanConfigurationPeriodicScanConfigurationOutput).ToCodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutputWithContext(ctx)
+}
+
+// CodeSecurityScanConfigurationPeriodicScanConfigurationPtrInput is an input type that accepts CodeSecurityScanConfigurationPeriodicScanConfigurationArgs, CodeSecurityScanConfigurationPeriodicScanConfigurationPtr and CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput values.
+// You can construct a concrete instance of `CodeSecurityScanConfigurationPeriodicScanConfigurationPtrInput` via:
+//
+//	        CodeSecurityScanConfigurationPeriodicScanConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CodeSecurityScanConfigurationPeriodicScanConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput() CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput
+	ToCodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutputWithContext(context.Context) CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput
+}
+
+type codeSecurityScanConfigurationPeriodicScanConfigurationPtrType CodeSecurityScanConfigurationPeriodicScanConfigurationArgs
+
+func CodeSecurityScanConfigurationPeriodicScanConfigurationPtr(v *CodeSecurityScanConfigurationPeriodicScanConfigurationArgs) CodeSecurityScanConfigurationPeriodicScanConfigurationPtrInput {
+	return (*codeSecurityScanConfigurationPeriodicScanConfigurationPtrType)(v)
+}
+
+func (*codeSecurityScanConfigurationPeriodicScanConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityScanConfigurationPeriodicScanConfiguration)(nil)).Elem()
+}
+
+func (i *codeSecurityScanConfigurationPeriodicScanConfigurationPtrType) ToCodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput() CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput {
+	return i.ToCodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *codeSecurityScanConfigurationPeriodicScanConfigurationPtrType) ToCodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput)
+}
+
+type CodeSecurityScanConfigurationPeriodicScanConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationPeriodicScanConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityScanConfigurationPeriodicScanConfiguration)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanConfigurationOutput) ToCodeSecurityScanConfigurationPeriodicScanConfigurationOutput() CodeSecurityScanConfigurationPeriodicScanConfigurationOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanConfigurationOutput) ToCodeSecurityScanConfigurationPeriodicScanConfigurationOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationPeriodicScanConfigurationOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanConfigurationOutput) ToCodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput() CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput {
+	return o.ToCodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanConfigurationOutput) ToCodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSecurityScanConfigurationPeriodicScanConfiguration) *CodeSecurityScanConfigurationPeriodicScanConfiguration {
+		return &v
+	}).(CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput)
+}
+
+// The frequency at which periodic scans are performed (such as weekly or monthly).
+//
+// If you don't provide the `frequencyExpression` Amazon Inspector chooses day for the scan to run. If you provide the `frequencyExpression` , the schedule must match the specified `frequency` .
+func (o CodeSecurityScanConfigurationPeriodicScanConfigurationOutput) Frequency() CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput {
+	return o.ApplyT(func(v CodeSecurityScanConfigurationPeriodicScanConfiguration) *CodeSecurityScanConfigurationPeriodicScanFrequency {
+		return v.Frequency
+	}).(CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput)
+}
+
+// The schedule expression for periodic scans, in cron format.
+func (o CodeSecurityScanConfigurationPeriodicScanConfigurationOutput) FrequencyExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeSecurityScanConfigurationPeriodicScanConfiguration) *string { return v.FrequencyExpression }).(pulumi.StringPtrOutput)
+}
+
+type CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityScanConfigurationPeriodicScanConfiguration)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput) ToCodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput() CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput) ToCodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput) Elem() CodeSecurityScanConfigurationPeriodicScanConfigurationOutput {
+	return o.ApplyT(func(v *CodeSecurityScanConfigurationPeriodicScanConfiguration) CodeSecurityScanConfigurationPeriodicScanConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSecurityScanConfigurationPeriodicScanConfiguration
+		return ret
+	}).(CodeSecurityScanConfigurationPeriodicScanConfigurationOutput)
+}
+
+// The frequency at which periodic scans are performed (such as weekly or monthly).
+//
+// If you don't provide the `frequencyExpression` Amazon Inspector chooses day for the scan to run. If you provide the `frequencyExpression` , the schedule must match the specified `frequency` .
+func (o CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput) Frequency() CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput {
+	return o.ApplyT(func(v *CodeSecurityScanConfigurationPeriodicScanConfiguration) *CodeSecurityScanConfigurationPeriodicScanFrequency {
+		if v == nil {
+			return nil
+		}
+		return v.Frequency
+	}).(CodeSecurityScanConfigurationPeriodicScanFrequencyPtrOutput)
+}
+
+// The schedule expression for periodic scans, in cron format.
+func (o CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput) FrequencyExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeSecurityScanConfigurationPeriodicScanConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FrequencyExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+type CodeSecurityScanConfigurationScopeSettings struct {
+	// The scope of projects to be selected for scanning within the integrated repositories.
+	ProjectSelectionScope *CodeSecurityScanConfigurationProjectSelectionScope `pulumi:"projectSelectionScope"`
+}
+
+// CodeSecurityScanConfigurationScopeSettingsInput is an input type that accepts CodeSecurityScanConfigurationScopeSettingsArgs and CodeSecurityScanConfigurationScopeSettingsOutput values.
+// You can construct a concrete instance of `CodeSecurityScanConfigurationScopeSettingsInput` via:
+//
+//	CodeSecurityScanConfigurationScopeSettingsArgs{...}
+type CodeSecurityScanConfigurationScopeSettingsInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationScopeSettingsOutput() CodeSecurityScanConfigurationScopeSettingsOutput
+	ToCodeSecurityScanConfigurationScopeSettingsOutputWithContext(context.Context) CodeSecurityScanConfigurationScopeSettingsOutput
+}
+
+type CodeSecurityScanConfigurationScopeSettingsArgs struct {
+	// The scope of projects to be selected for scanning within the integrated repositories.
+	ProjectSelectionScope CodeSecurityScanConfigurationProjectSelectionScopePtrInput `pulumi:"projectSelectionScope"`
+}
+
+func (CodeSecurityScanConfigurationScopeSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityScanConfigurationScopeSettings)(nil)).Elem()
+}
+
+func (i CodeSecurityScanConfigurationScopeSettingsArgs) ToCodeSecurityScanConfigurationScopeSettingsOutput() CodeSecurityScanConfigurationScopeSettingsOutput {
+	return i.ToCodeSecurityScanConfigurationScopeSettingsOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityScanConfigurationScopeSettingsArgs) ToCodeSecurityScanConfigurationScopeSettingsOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationScopeSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityScanConfigurationScopeSettingsOutput)
+}
+
+func (i CodeSecurityScanConfigurationScopeSettingsArgs) ToCodeSecurityScanConfigurationScopeSettingsPtrOutput() CodeSecurityScanConfigurationScopeSettingsPtrOutput {
+	return i.ToCodeSecurityScanConfigurationScopeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CodeSecurityScanConfigurationScopeSettingsArgs) ToCodeSecurityScanConfigurationScopeSettingsPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationScopeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityScanConfigurationScopeSettingsOutput).ToCodeSecurityScanConfigurationScopeSettingsPtrOutputWithContext(ctx)
+}
+
+// CodeSecurityScanConfigurationScopeSettingsPtrInput is an input type that accepts CodeSecurityScanConfigurationScopeSettingsArgs, CodeSecurityScanConfigurationScopeSettingsPtr and CodeSecurityScanConfigurationScopeSettingsPtrOutput values.
+// You can construct a concrete instance of `CodeSecurityScanConfigurationScopeSettingsPtrInput` via:
+//
+//	        CodeSecurityScanConfigurationScopeSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CodeSecurityScanConfigurationScopeSettingsPtrInput interface {
+	pulumi.Input
+
+	ToCodeSecurityScanConfigurationScopeSettingsPtrOutput() CodeSecurityScanConfigurationScopeSettingsPtrOutput
+	ToCodeSecurityScanConfigurationScopeSettingsPtrOutputWithContext(context.Context) CodeSecurityScanConfigurationScopeSettingsPtrOutput
+}
+
+type codeSecurityScanConfigurationScopeSettingsPtrType CodeSecurityScanConfigurationScopeSettingsArgs
+
+func CodeSecurityScanConfigurationScopeSettingsPtr(v *CodeSecurityScanConfigurationScopeSettingsArgs) CodeSecurityScanConfigurationScopeSettingsPtrInput {
+	return (*codeSecurityScanConfigurationScopeSettingsPtrType)(v)
+}
+
+func (*codeSecurityScanConfigurationScopeSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityScanConfigurationScopeSettings)(nil)).Elem()
+}
+
+func (i *codeSecurityScanConfigurationScopeSettingsPtrType) ToCodeSecurityScanConfigurationScopeSettingsPtrOutput() CodeSecurityScanConfigurationScopeSettingsPtrOutput {
+	return i.ToCodeSecurityScanConfigurationScopeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *codeSecurityScanConfigurationScopeSettingsPtrType) ToCodeSecurityScanConfigurationScopeSettingsPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationScopeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeSecurityScanConfigurationScopeSettingsPtrOutput)
+}
+
+type CodeSecurityScanConfigurationScopeSettingsOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationScopeSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeSecurityScanConfigurationScopeSettings)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationScopeSettingsOutput) ToCodeSecurityScanConfigurationScopeSettingsOutput() CodeSecurityScanConfigurationScopeSettingsOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationScopeSettingsOutput) ToCodeSecurityScanConfigurationScopeSettingsOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationScopeSettingsOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationScopeSettingsOutput) ToCodeSecurityScanConfigurationScopeSettingsPtrOutput() CodeSecurityScanConfigurationScopeSettingsPtrOutput {
+	return o.ToCodeSecurityScanConfigurationScopeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CodeSecurityScanConfigurationScopeSettingsOutput) ToCodeSecurityScanConfigurationScopeSettingsPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationScopeSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSecurityScanConfigurationScopeSettings) *CodeSecurityScanConfigurationScopeSettings {
+		return &v
+	}).(CodeSecurityScanConfigurationScopeSettingsPtrOutput)
+}
+
+// The scope of projects to be selected for scanning within the integrated repositories.
+func (o CodeSecurityScanConfigurationScopeSettingsOutput) ProjectSelectionScope() CodeSecurityScanConfigurationProjectSelectionScopePtrOutput {
+	return o.ApplyT(func(v CodeSecurityScanConfigurationScopeSettings) *CodeSecurityScanConfigurationProjectSelectionScope {
+		return v.ProjectSelectionScope
+	}).(CodeSecurityScanConfigurationProjectSelectionScopePtrOutput)
+}
+
+type CodeSecurityScanConfigurationScopeSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeSecurityScanConfigurationScopeSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeSecurityScanConfigurationScopeSettings)(nil)).Elem()
+}
+
+func (o CodeSecurityScanConfigurationScopeSettingsPtrOutput) ToCodeSecurityScanConfigurationScopeSettingsPtrOutput() CodeSecurityScanConfigurationScopeSettingsPtrOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationScopeSettingsPtrOutput) ToCodeSecurityScanConfigurationScopeSettingsPtrOutputWithContext(ctx context.Context) CodeSecurityScanConfigurationScopeSettingsPtrOutput {
+	return o
+}
+
+func (o CodeSecurityScanConfigurationScopeSettingsPtrOutput) Elem() CodeSecurityScanConfigurationScopeSettingsOutput {
+	return o.ApplyT(func(v *CodeSecurityScanConfigurationScopeSettings) CodeSecurityScanConfigurationScopeSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSecurityScanConfigurationScopeSettings
+		return ret
+	}).(CodeSecurityScanConfigurationScopeSettingsOutput)
+}
+
+// The scope of projects to be selected for scanning within the integrated repositories.
+func (o CodeSecurityScanConfigurationScopeSettingsPtrOutput) ProjectSelectionScope() CodeSecurityScanConfigurationProjectSelectionScopePtrOutput {
+	return o.ApplyT(func(v *CodeSecurityScanConfigurationScopeSettings) *CodeSecurityScanConfigurationProjectSelectionScope {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectSelectionScope
+	}).(CodeSecurityScanConfigurationProjectSelectionScopePtrOutput)
+}
+
 type FilterCriteria struct {
 	// Details of the AWS account IDs used to filter findings.
 	AwsAccountId                  []FilterStringFilter `pulumi:"awsAccountId"`
@@ -2597,6 +3970,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationTimePtrInput)(nil)).Elem(), CisScanConfigurationTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationWeeklyScheduleInput)(nil)).Elem(), CisScanConfigurationWeeklyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CisScanConfigurationWeeklySchedulePtrInput)(nil)).Elem(), CisScanConfigurationWeeklyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityIntegrationCreateDetailsInput)(nil)).Elem(), CodeSecurityIntegrationCreateDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityIntegrationCreateDetailsPtrInput)(nil)).Elem(), CodeSecurityIntegrationCreateDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailInput)(nil)).Elem(), CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrInput)(nil)).Elem(), CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityIntegrationUpdateDetailsInput)(nil)).Elem(), CodeSecurityIntegrationUpdateDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityIntegrationUpdateDetailsPtrInput)(nil)).Elem(), CodeSecurityIntegrationUpdateDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityIntegrationUpdateGitHubIntegrationDetailInput)(nil)).Elem(), CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrInput)(nil)).Elem(), CodeSecurityIntegrationUpdateGitHubIntegrationDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailInput)(nil)).Elem(), CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrInput)(nil)).Elem(), CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationTypeInput)(nil)).Elem(), CodeSecurityScanConfigurationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationTypePtrInput)(nil)).Elem(), CodeSecurityScanConfigurationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationInput)(nil)).Elem(), CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrInput)(nil)).Elem(), CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationPeriodicScanConfigurationInput)(nil)).Elem(), CodeSecurityScanConfigurationPeriodicScanConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationPeriodicScanConfigurationPtrInput)(nil)).Elem(), CodeSecurityScanConfigurationPeriodicScanConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationScopeSettingsInput)(nil)).Elem(), CodeSecurityScanConfigurationScopeSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationScopeSettingsPtrInput)(nil)).Elem(), CodeSecurityScanConfigurationScopeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterCriteriaInput)(nil)).Elem(), FilterCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterDateFilterInput)(nil)).Elem(), FilterDateFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterDateFilterArrayInput)(nil)).Elem(), FilterDateFilterArray{})
@@ -2626,6 +4017,24 @@ func init() {
 	pulumi.RegisterOutputType(CisScanConfigurationTimePtrOutput{})
 	pulumi.RegisterOutputType(CisScanConfigurationWeeklyScheduleOutput{})
 	pulumi.RegisterOutputType(CisScanConfigurationWeeklySchedulePtrOutput{})
+	pulumi.RegisterOutputType(CodeSecurityIntegrationCreateDetailsOutput{})
+	pulumi.RegisterOutputType(CodeSecurityIntegrationCreateDetailsPtrOutput{})
+	pulumi.RegisterOutputType(CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailOutput{})
+	pulumi.RegisterOutputType(CodeSecurityIntegrationCreateGitLabSelfManagedIntegrationDetailPtrOutput{})
+	pulumi.RegisterOutputType(CodeSecurityIntegrationUpdateDetailsOutput{})
+	pulumi.RegisterOutputType(CodeSecurityIntegrationUpdateDetailsPtrOutput{})
+	pulumi.RegisterOutputType(CodeSecurityIntegrationUpdateGitHubIntegrationDetailOutput{})
+	pulumi.RegisterOutputType(CodeSecurityIntegrationUpdateGitHubIntegrationDetailPtrOutput{})
+	pulumi.RegisterOutputType(CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailOutput{})
+	pulumi.RegisterOutputType(CodeSecurityIntegrationUpdateGitLabSelfManagedIntegrationDetailPtrOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationTypePtrOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationContinuousIntegrationScanConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationPeriodicScanConfigurationOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationScopeSettingsOutput{})
+	pulumi.RegisterOutputType(CodeSecurityScanConfigurationScopeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(FilterCriteriaOutput{})
 	pulumi.RegisterOutputType(FilterCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(FilterDateFilterOutput{})

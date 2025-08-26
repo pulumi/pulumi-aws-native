@@ -33,6 +33,8 @@ __all__ = [
     'ApplicationCustomArtifactConfigurationArgsDict',
     'ApplicationDeployAsApplicationConfigurationArgs',
     'ApplicationDeployAsApplicationConfigurationArgsDict',
+    'ApplicationEncryptionConfigurationArgs',
+    'ApplicationEncryptionConfigurationArgsDict',
     'ApplicationEnvironmentPropertiesArgs',
     'ApplicationEnvironmentPropertiesArgsDict',
     'ApplicationFlinkApplicationConfigurationArgs',
@@ -367,6 +369,10 @@ if not MYPY:
         """
         The code location and type parameters for a Flink-based Kinesis Data Analytics application.
         """
+        application_encryption_configuration: NotRequired[pulumi.Input['ApplicationEncryptionConfigurationArgsDict']]
+        """
+        Describes whether customer managed key is enabled and key details for customer data encryption
+        """
         application_snapshot_configuration: NotRequired[pulumi.Input['ApplicationSnapshotConfigurationArgsDict']]
         """
         Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
@@ -402,6 +408,7 @@ elif False:
 class ApplicationConfigurationArgs:
     def __init__(__self__, *,
                  application_code_configuration: Optional[pulumi.Input['ApplicationCodeConfigurationArgs']] = None,
+                 application_encryption_configuration: Optional[pulumi.Input['ApplicationEncryptionConfigurationArgs']] = None,
                  application_snapshot_configuration: Optional[pulumi.Input['ApplicationSnapshotConfigurationArgs']] = None,
                  application_system_rollback_configuration: Optional[pulumi.Input['ApplicationSystemRollbackConfigurationArgs']] = None,
                  environment_properties: Optional[pulumi.Input['ApplicationEnvironmentPropertiesArgs']] = None,
@@ -412,6 +419,7 @@ class ApplicationConfigurationArgs:
         """
         Specifies the creation parameters for a Kinesis Data Analytics application.
         :param pulumi.Input['ApplicationCodeConfigurationArgs'] application_code_configuration: The code location and type parameters for a Flink-based Kinesis Data Analytics application.
+        :param pulumi.Input['ApplicationEncryptionConfigurationArgs'] application_encryption_configuration: Describes whether customer managed key is enabled and key details for customer data encryption
         :param pulumi.Input['ApplicationSnapshotConfigurationArgs'] application_snapshot_configuration: Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
         :param pulumi.Input['ApplicationSystemRollbackConfigurationArgs'] application_system_rollback_configuration: Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
         :param pulumi.Input['ApplicationEnvironmentPropertiesArgs'] environment_properties: Describes execution properties for a Flink-based Kinesis Data Analytics application.
@@ -422,6 +430,8 @@ class ApplicationConfigurationArgs:
         """
         if application_code_configuration is not None:
             pulumi.set(__self__, "application_code_configuration", application_code_configuration)
+        if application_encryption_configuration is not None:
+            pulumi.set(__self__, "application_encryption_configuration", application_encryption_configuration)
         if application_snapshot_configuration is not None:
             pulumi.set(__self__, "application_snapshot_configuration", application_snapshot_configuration)
         if application_system_rollback_configuration is not None:
@@ -448,6 +458,18 @@ class ApplicationConfigurationArgs:
     @application_code_configuration.setter
     def application_code_configuration(self, value: Optional[pulumi.Input['ApplicationCodeConfigurationArgs']]):
         pulumi.set(self, "application_code_configuration", value)
+
+    @property
+    @pulumi.getter(name="applicationEncryptionConfiguration")
+    def application_encryption_configuration(self) -> Optional[pulumi.Input['ApplicationEncryptionConfigurationArgs']]:
+        """
+        Describes whether customer managed key is enabled and key details for customer data encryption
+        """
+        return pulumi.get(self, "application_encryption_configuration")
+
+    @application_encryption_configuration.setter
+    def application_encryption_configuration(self, value: Optional[pulumi.Input['ApplicationEncryptionConfigurationArgs']]):
+        pulumi.set(self, "application_encryption_configuration", value)
 
     @property
     @pulumi.getter(name="applicationSnapshotConfiguration")
@@ -700,6 +722,61 @@ class ApplicationDeployAsApplicationConfigurationArgs:
     @s3_content_location.setter
     def s3_content_location(self, value: pulumi.Input['ApplicationS3ContentBaseLocationArgs']):
         pulumi.set(self, "s3_content_location", value)
+
+
+if not MYPY:
+    class ApplicationEncryptionConfigurationArgsDict(TypedDict):
+        """
+        Describes whether customer managed key is enabled and key details for customer data encryption
+        """
+        key_type: pulumi.Input['ApplicationEncryptionConfigurationKeyType']
+        """
+        Specifies whether application data is encrypted using service key: AWS_OWNED_KEY or customer key: CUSTOMER_MANAGED_KEY
+        """
+        key_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        KMS KeyId. Can be either key uuid or full key arn or key alias arn or short key alias
+        """
+elif False:
+    ApplicationEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 key_type: pulumi.Input['ApplicationEncryptionConfigurationKeyType'],
+                 key_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Describes whether customer managed key is enabled and key details for customer data encryption
+        :param pulumi.Input['ApplicationEncryptionConfigurationKeyType'] key_type: Specifies whether application data is encrypted using service key: AWS_OWNED_KEY or customer key: CUSTOMER_MANAGED_KEY
+        :param pulumi.Input[builtins.str] key_id: KMS KeyId. Can be either key uuid or full key arn or key alias arn or short key alias
+        """
+        pulumi.set(__self__, "key_type", key_type)
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> pulumi.Input['ApplicationEncryptionConfigurationKeyType']:
+        """
+        Specifies whether application data is encrypted using service key: AWS_OWNED_KEY or customer key: CUSTOMER_MANAGED_KEY
+        """
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: pulumi.Input['ApplicationEncryptionConfigurationKeyType']):
+        pulumi.set(self, "key_type", value)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        KMS KeyId. Can be either key uuid or full key arn or key alias arn or short key alias
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "key_id", value)
 
 
 if not MYPY:

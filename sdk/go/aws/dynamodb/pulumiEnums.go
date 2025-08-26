@@ -10,6 +10,172 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Specifies the CloudWatch Contributor Insights mode for a global table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the global table.
+type GlobalTableContributorInsightsSpecificationMode string
+
+const (
+	GlobalTableContributorInsightsSpecificationModeAccessedAndThrottledKeys = GlobalTableContributorInsightsSpecificationMode("ACCESSED_AND_THROTTLED_KEYS")
+	GlobalTableContributorInsightsSpecificationModeThrottledKeys            = GlobalTableContributorInsightsSpecificationMode("THROTTLED_KEYS")
+)
+
+func (GlobalTableContributorInsightsSpecificationMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableContributorInsightsSpecificationMode)(nil)).Elem()
+}
+
+func (e GlobalTableContributorInsightsSpecificationMode) ToGlobalTableContributorInsightsSpecificationModeOutput() GlobalTableContributorInsightsSpecificationModeOutput {
+	return pulumi.ToOutput(e).(GlobalTableContributorInsightsSpecificationModeOutput)
+}
+
+func (e GlobalTableContributorInsightsSpecificationMode) ToGlobalTableContributorInsightsSpecificationModeOutputWithContext(ctx context.Context) GlobalTableContributorInsightsSpecificationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GlobalTableContributorInsightsSpecificationModeOutput)
+}
+
+func (e GlobalTableContributorInsightsSpecificationMode) ToGlobalTableContributorInsightsSpecificationModePtrOutput() GlobalTableContributorInsightsSpecificationModePtrOutput {
+	return e.ToGlobalTableContributorInsightsSpecificationModePtrOutputWithContext(context.Background())
+}
+
+func (e GlobalTableContributorInsightsSpecificationMode) ToGlobalTableContributorInsightsSpecificationModePtrOutputWithContext(ctx context.Context) GlobalTableContributorInsightsSpecificationModePtrOutput {
+	return GlobalTableContributorInsightsSpecificationMode(e).ToGlobalTableContributorInsightsSpecificationModeOutputWithContext(ctx).ToGlobalTableContributorInsightsSpecificationModePtrOutputWithContext(ctx)
+}
+
+func (e GlobalTableContributorInsightsSpecificationMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GlobalTableContributorInsightsSpecificationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GlobalTableContributorInsightsSpecificationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GlobalTableContributorInsightsSpecificationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GlobalTableContributorInsightsSpecificationModeOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableContributorInsightsSpecificationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableContributorInsightsSpecificationMode)(nil)).Elem()
+}
+
+func (o GlobalTableContributorInsightsSpecificationModeOutput) ToGlobalTableContributorInsightsSpecificationModeOutput() GlobalTableContributorInsightsSpecificationModeOutput {
+	return o
+}
+
+func (o GlobalTableContributorInsightsSpecificationModeOutput) ToGlobalTableContributorInsightsSpecificationModeOutputWithContext(ctx context.Context) GlobalTableContributorInsightsSpecificationModeOutput {
+	return o
+}
+
+func (o GlobalTableContributorInsightsSpecificationModeOutput) ToGlobalTableContributorInsightsSpecificationModePtrOutput() GlobalTableContributorInsightsSpecificationModePtrOutput {
+	return o.ToGlobalTableContributorInsightsSpecificationModePtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableContributorInsightsSpecificationModeOutput) ToGlobalTableContributorInsightsSpecificationModePtrOutputWithContext(ctx context.Context) GlobalTableContributorInsightsSpecificationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalTableContributorInsightsSpecificationMode) *GlobalTableContributorInsightsSpecificationMode {
+		return &v
+	}).(GlobalTableContributorInsightsSpecificationModePtrOutput)
+}
+
+func (o GlobalTableContributorInsightsSpecificationModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GlobalTableContributorInsightsSpecificationModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GlobalTableContributorInsightsSpecificationMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GlobalTableContributorInsightsSpecificationModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableContributorInsightsSpecificationModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GlobalTableContributorInsightsSpecificationMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GlobalTableContributorInsightsSpecificationModePtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableContributorInsightsSpecificationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableContributorInsightsSpecificationMode)(nil)).Elem()
+}
+
+func (o GlobalTableContributorInsightsSpecificationModePtrOutput) ToGlobalTableContributorInsightsSpecificationModePtrOutput() GlobalTableContributorInsightsSpecificationModePtrOutput {
+	return o
+}
+
+func (o GlobalTableContributorInsightsSpecificationModePtrOutput) ToGlobalTableContributorInsightsSpecificationModePtrOutputWithContext(ctx context.Context) GlobalTableContributorInsightsSpecificationModePtrOutput {
+	return o
+}
+
+func (o GlobalTableContributorInsightsSpecificationModePtrOutput) Elem() GlobalTableContributorInsightsSpecificationModeOutput {
+	return o.ApplyT(func(v *GlobalTableContributorInsightsSpecificationMode) GlobalTableContributorInsightsSpecificationMode {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalTableContributorInsightsSpecificationMode
+		return ret
+	}).(GlobalTableContributorInsightsSpecificationModeOutput)
+}
+
+func (o GlobalTableContributorInsightsSpecificationModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableContributorInsightsSpecificationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GlobalTableContributorInsightsSpecificationMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GlobalTableContributorInsightsSpecificationModeInput is an input type that accepts values of the GlobalTableContributorInsightsSpecificationMode enum
+// A concrete instance of `GlobalTableContributorInsightsSpecificationModeInput` can be one of the following:
+//
+//	GlobalTableContributorInsightsSpecificationModeAccessedAndThrottledKeys
+//	GlobalTableContributorInsightsSpecificationModeThrottledKeys
+type GlobalTableContributorInsightsSpecificationModeInput interface {
+	pulumi.Input
+
+	ToGlobalTableContributorInsightsSpecificationModeOutput() GlobalTableContributorInsightsSpecificationModeOutput
+	ToGlobalTableContributorInsightsSpecificationModeOutputWithContext(context.Context) GlobalTableContributorInsightsSpecificationModeOutput
+}
+
+var globalTableContributorInsightsSpecificationModePtrType = reflect.TypeOf((**GlobalTableContributorInsightsSpecificationMode)(nil)).Elem()
+
+type GlobalTableContributorInsightsSpecificationModePtrInput interface {
+	pulumi.Input
+
+	ToGlobalTableContributorInsightsSpecificationModePtrOutput() GlobalTableContributorInsightsSpecificationModePtrOutput
+	ToGlobalTableContributorInsightsSpecificationModePtrOutputWithContext(context.Context) GlobalTableContributorInsightsSpecificationModePtrOutput
+}
+
+type globalTableContributorInsightsSpecificationModePtr string
+
+func GlobalTableContributorInsightsSpecificationModePtr(v string) GlobalTableContributorInsightsSpecificationModePtrInput {
+	return (*globalTableContributorInsightsSpecificationModePtr)(&v)
+}
+
+func (*globalTableContributorInsightsSpecificationModePtr) ElementType() reflect.Type {
+	return globalTableContributorInsightsSpecificationModePtrType
+}
+
+func (in *globalTableContributorInsightsSpecificationModePtr) ToGlobalTableContributorInsightsSpecificationModePtrOutput() GlobalTableContributorInsightsSpecificationModePtrOutput {
+	return pulumi.ToOutput(in).(GlobalTableContributorInsightsSpecificationModePtrOutput)
+}
+
+func (in *globalTableContributorInsightsSpecificationModePtr) ToGlobalTableContributorInsightsSpecificationModePtrOutputWithContext(ctx context.Context) GlobalTableContributorInsightsSpecificationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GlobalTableContributorInsightsSpecificationModePtrOutput)
+}
+
 // The precision for the time and date that the stream was created.
 type GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision string
 
@@ -349,6 +515,172 @@ func (in *globalTableMultiRegionConsistencyPtr) ToGlobalTableMultiRegionConsiste
 	return pulumi.ToOutputWithContext(ctx, in).(GlobalTableMultiRegionConsistencyPtrOutput)
 }
 
+// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+type TableContributorInsightsSpecificationMode string
+
+const (
+	TableContributorInsightsSpecificationModeAccessedAndThrottledKeys = TableContributorInsightsSpecificationMode("ACCESSED_AND_THROTTLED_KEYS")
+	TableContributorInsightsSpecificationModeThrottledKeys            = TableContributorInsightsSpecificationMode("THROTTLED_KEYS")
+)
+
+func (TableContributorInsightsSpecificationMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableContributorInsightsSpecificationMode)(nil)).Elem()
+}
+
+func (e TableContributorInsightsSpecificationMode) ToTableContributorInsightsSpecificationModeOutput() TableContributorInsightsSpecificationModeOutput {
+	return pulumi.ToOutput(e).(TableContributorInsightsSpecificationModeOutput)
+}
+
+func (e TableContributorInsightsSpecificationMode) ToTableContributorInsightsSpecificationModeOutputWithContext(ctx context.Context) TableContributorInsightsSpecificationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TableContributorInsightsSpecificationModeOutput)
+}
+
+func (e TableContributorInsightsSpecificationMode) ToTableContributorInsightsSpecificationModePtrOutput() TableContributorInsightsSpecificationModePtrOutput {
+	return e.ToTableContributorInsightsSpecificationModePtrOutputWithContext(context.Background())
+}
+
+func (e TableContributorInsightsSpecificationMode) ToTableContributorInsightsSpecificationModePtrOutputWithContext(ctx context.Context) TableContributorInsightsSpecificationModePtrOutput {
+	return TableContributorInsightsSpecificationMode(e).ToTableContributorInsightsSpecificationModeOutputWithContext(ctx).ToTableContributorInsightsSpecificationModePtrOutputWithContext(ctx)
+}
+
+func (e TableContributorInsightsSpecificationMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableContributorInsightsSpecificationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableContributorInsightsSpecificationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TableContributorInsightsSpecificationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TableContributorInsightsSpecificationModeOutput struct{ *pulumi.OutputState }
+
+func (TableContributorInsightsSpecificationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableContributorInsightsSpecificationMode)(nil)).Elem()
+}
+
+func (o TableContributorInsightsSpecificationModeOutput) ToTableContributorInsightsSpecificationModeOutput() TableContributorInsightsSpecificationModeOutput {
+	return o
+}
+
+func (o TableContributorInsightsSpecificationModeOutput) ToTableContributorInsightsSpecificationModeOutputWithContext(ctx context.Context) TableContributorInsightsSpecificationModeOutput {
+	return o
+}
+
+func (o TableContributorInsightsSpecificationModeOutput) ToTableContributorInsightsSpecificationModePtrOutput() TableContributorInsightsSpecificationModePtrOutput {
+	return o.ToTableContributorInsightsSpecificationModePtrOutputWithContext(context.Background())
+}
+
+func (o TableContributorInsightsSpecificationModeOutput) ToTableContributorInsightsSpecificationModePtrOutputWithContext(ctx context.Context) TableContributorInsightsSpecificationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableContributorInsightsSpecificationMode) *TableContributorInsightsSpecificationMode {
+		return &v
+	}).(TableContributorInsightsSpecificationModePtrOutput)
+}
+
+func (o TableContributorInsightsSpecificationModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TableContributorInsightsSpecificationModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableContributorInsightsSpecificationMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TableContributorInsightsSpecificationModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableContributorInsightsSpecificationModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableContributorInsightsSpecificationMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableContributorInsightsSpecificationModePtrOutput struct{ *pulumi.OutputState }
+
+func (TableContributorInsightsSpecificationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableContributorInsightsSpecificationMode)(nil)).Elem()
+}
+
+func (o TableContributorInsightsSpecificationModePtrOutput) ToTableContributorInsightsSpecificationModePtrOutput() TableContributorInsightsSpecificationModePtrOutput {
+	return o
+}
+
+func (o TableContributorInsightsSpecificationModePtrOutput) ToTableContributorInsightsSpecificationModePtrOutputWithContext(ctx context.Context) TableContributorInsightsSpecificationModePtrOutput {
+	return o
+}
+
+func (o TableContributorInsightsSpecificationModePtrOutput) Elem() TableContributorInsightsSpecificationModeOutput {
+	return o.ApplyT(func(v *TableContributorInsightsSpecificationMode) TableContributorInsightsSpecificationMode {
+		if v != nil {
+			return *v
+		}
+		var ret TableContributorInsightsSpecificationMode
+		return ret
+	}).(TableContributorInsightsSpecificationModeOutput)
+}
+
+func (o TableContributorInsightsSpecificationModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableContributorInsightsSpecificationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TableContributorInsightsSpecificationMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TableContributorInsightsSpecificationModeInput is an input type that accepts values of the TableContributorInsightsSpecificationMode enum
+// A concrete instance of `TableContributorInsightsSpecificationModeInput` can be one of the following:
+//
+//	TableContributorInsightsSpecificationModeAccessedAndThrottledKeys
+//	TableContributorInsightsSpecificationModeThrottledKeys
+type TableContributorInsightsSpecificationModeInput interface {
+	pulumi.Input
+
+	ToTableContributorInsightsSpecificationModeOutput() TableContributorInsightsSpecificationModeOutput
+	ToTableContributorInsightsSpecificationModeOutputWithContext(context.Context) TableContributorInsightsSpecificationModeOutput
+}
+
+var tableContributorInsightsSpecificationModePtrType = reflect.TypeOf((**TableContributorInsightsSpecificationMode)(nil)).Elem()
+
+type TableContributorInsightsSpecificationModePtrInput interface {
+	pulumi.Input
+
+	ToTableContributorInsightsSpecificationModePtrOutput() TableContributorInsightsSpecificationModePtrOutput
+	ToTableContributorInsightsSpecificationModePtrOutputWithContext(context.Context) TableContributorInsightsSpecificationModePtrOutput
+}
+
+type tableContributorInsightsSpecificationModePtr string
+
+func TableContributorInsightsSpecificationModePtr(v string) TableContributorInsightsSpecificationModePtrInput {
+	return (*tableContributorInsightsSpecificationModePtr)(&v)
+}
+
+func (*tableContributorInsightsSpecificationModePtr) ElementType() reflect.Type {
+	return tableContributorInsightsSpecificationModePtrType
+}
+
+func (in *tableContributorInsightsSpecificationModePtr) ToTableContributorInsightsSpecificationModePtrOutput() TableContributorInsightsSpecificationModePtrOutput {
+	return pulumi.ToOutput(in).(TableContributorInsightsSpecificationModePtrOutput)
+}
+
+func (in *tableContributorInsightsSpecificationModePtr) ToTableContributorInsightsSpecificationModePtrOutputWithContext(ctx context.Context) TableContributorInsightsSpecificationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TableContributorInsightsSpecificationModePtrOutput)
+}
+
 // The precision for the time and date that the stream was created.
 type TableKinesisStreamSpecificationApproximateCreationDateTimePrecision string
 
@@ -516,16 +848,24 @@ func (in *tableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableContributorInsightsSpecificationModeInput)(nil)).Elem(), GlobalTableContributorInsightsSpecificationMode("ACCESSED_AND_THROTTLED_KEYS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableContributorInsightsSpecificationModePtrInput)(nil)).Elem(), GlobalTableContributorInsightsSpecificationMode("ACCESSED_AND_THROTTLED_KEYS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionInput)(nil)).Elem(), GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision("MICROSECOND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrInput)(nil)).Elem(), GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision("MICROSECOND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableMultiRegionConsistencyInput)(nil)).Elem(), GlobalTableMultiRegionConsistency("EVENTUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableMultiRegionConsistencyPtrInput)(nil)).Elem(), GlobalTableMultiRegionConsistency("EVENTUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableContributorInsightsSpecificationModeInput)(nil)).Elem(), TableContributorInsightsSpecificationMode("ACCESSED_AND_THROTTLED_KEYS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableContributorInsightsSpecificationModePtrInput)(nil)).Elem(), TableContributorInsightsSpecificationMode("ACCESSED_AND_THROTTLED_KEYS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionInput)(nil)).Elem(), TableKinesisStreamSpecificationApproximateCreationDateTimePrecision("MICROSECOND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrInput)(nil)).Elem(), TableKinesisStreamSpecificationApproximateCreationDateTimePrecision("MICROSECOND"))
+	pulumi.RegisterOutputType(GlobalTableContributorInsightsSpecificationModeOutput{})
+	pulumi.RegisterOutputType(GlobalTableContributorInsightsSpecificationModePtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionOutput{})
 	pulumi.RegisterOutputType(GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableMultiRegionConsistencyOutput{})
 	pulumi.RegisterOutputType(GlobalTableMultiRegionConsistencyPtrOutput{})
+	pulumi.RegisterOutputType(TableContributorInsightsSpecificationModeOutput{})
+	pulumi.RegisterOutputType(TableContributorInsightsSpecificationModePtrOutput{})
 	pulumi.RegisterOutputType(TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionOutput{})
 	pulumi.RegisterOutputType(TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput{})
 }

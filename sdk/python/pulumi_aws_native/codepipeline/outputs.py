@@ -47,6 +47,8 @@ __all__ = [
     'PipelineSuccessConditions',
     'PipelineTriggerDeclaration',
     'PipelineVariableDeclaration',
+    'WebhookAuthConfiguration',
+    'WebhookFilterRule',
 ]
 
 @pulumi.output_type
@@ -1736,5 +1738,112 @@ class PipelineVariableDeclaration(dict):
         The description of a pipeline-level variable. It's used to add additional context about the variable, and not being used at time when pipeline executes.
         """
         return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class WebhookAuthConfiguration(dict):
+    """
+    Properties that configure the authentication applied to incoming webhook trigger requests
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedIpRange":
+            suggest = "allowed_ip_range"
+        elif key == "secretToken":
+            suggest = "secret_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebhookAuthConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebhookAuthConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebhookAuthConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_ip_range: Optional[builtins.str] = None,
+                 secret_token: Optional[builtins.str] = None):
+        """
+        Properties that configure the authentication applied to incoming webhook trigger requests
+        :param builtins.str allowed_ip_range: The property used to configure acceptance of webhooks in an IP address range. For IP, only the AllowedIPRange property must be set. This property must be set to a valid CIDR range.
+        :param builtins.str secret_token: The property used to configure GitHub authentication. For GITHUB_HMAC, only the SecretToken property must be set.
+        """
+        if allowed_ip_range is not None:
+            pulumi.set(__self__, "allowed_ip_range", allowed_ip_range)
+        if secret_token is not None:
+            pulumi.set(__self__, "secret_token", secret_token)
+
+    @property
+    @pulumi.getter(name="allowedIpRange")
+    def allowed_ip_range(self) -> Optional[builtins.str]:
+        """
+        The property used to configure acceptance of webhooks in an IP address range. For IP, only the AllowedIPRange property must be set. This property must be set to a valid CIDR range.
+        """
+        return pulumi.get(self, "allowed_ip_range")
+
+    @property
+    @pulumi.getter(name="secretToken")
+    def secret_token(self) -> Optional[builtins.str]:
+        """
+        The property used to configure GitHub authentication. For GITHUB_HMAC, only the SecretToken property must be set.
+        """
+        return pulumi.get(self, "secret_token")
+
+
+@pulumi.output_type
+class WebhookFilterRule(dict):
+    """
+    A list of rules applied to the body/payload sent in the POST request to a webhook URL. All defined rules must pass for the request to be accepted and the pipeline started.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonPath":
+            suggest = "json_path"
+        elif key == "matchEquals":
+            suggest = "match_equals"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebhookFilterRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebhookFilterRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebhookFilterRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 json_path: builtins.str,
+                 match_equals: Optional[builtins.str] = None):
+        """
+        A list of rules applied to the body/payload sent in the POST request to a webhook URL. All defined rules must pass for the request to be accepted and the pipeline started.
+        :param builtins.str json_path: A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the MatchEquals field. Otherwise, the request is ignored.
+        :param builtins.str match_equals: The value selected by the JsonPath expression must match what is supplied in the MatchEquals field. Otherwise, the request is ignored.
+        """
+        pulumi.set(__self__, "json_path", json_path)
+        if match_equals is not None:
+            pulumi.set(__self__, "match_equals", match_equals)
+
+    @property
+    @pulumi.getter(name="jsonPath")
+    def json_path(self) -> builtins.str:
+        """
+        A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the MatchEquals field. Otherwise, the request is ignored.
+        """
+        return pulumi.get(self, "json_path")
+
+    @property
+    @pulumi.getter(name="matchEquals")
+    def match_equals(self) -> Optional[builtins.str]:
+        """
+        The value selected by the JsonPath expression must match what is supplied in the MatchEquals field. Otherwise, the request is ignored.
+        """
+        return pulumi.get(self, "match_equals")
 
 

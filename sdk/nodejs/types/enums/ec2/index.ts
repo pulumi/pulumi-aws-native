@@ -1053,6 +1053,16 @@ export const VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue = {
  */
 export type VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue = (typeof VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue)[keyof typeof VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue];
 
+export const VpnConnectionPreSharedKeyStorage = {
+    Standard: "Standard",
+    SecretsManager: "SecretsManager",
+} as const;
+
+/**
+ * Describes the storage location for an instance store-backed AMI.
+ */
+export type VpnConnectionPreSharedKeyStorage = (typeof VpnConnectionPreSharedKeyStorage)[keyof typeof VpnConnectionPreSharedKeyStorage];
+
 export const VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction = {
     Clear: "clear",
     None: "none",

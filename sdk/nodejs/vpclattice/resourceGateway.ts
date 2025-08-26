@@ -50,6 +50,10 @@ export class ResourceGateway extends pulumi.CustomResource {
      */
     public readonly ipAddressType!: pulumi.Output<enums.vpclattice.ResourceGatewayIpAddressType | undefined>;
     /**
+     * The number of IPv4 addresses to allocate per ENI for the resource gateway
+     */
+    public readonly ipv4AddressesPerEni!: pulumi.Output<number | undefined>;
+    /**
      * The name of the resource gateway.
      */
     public readonly name!: pulumi.Output<string>;
@@ -88,6 +92,7 @@ export class ResourceGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcIdentifier'");
             }
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            resourceInputs["ipv4AddressesPerEni"] = args ? args.ipv4AddressesPerEni : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -99,6 +104,7 @@ export class ResourceGateway extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ipAddressType"] = undefined /*out*/;
+            resourceInputs["ipv4AddressesPerEni"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
@@ -120,6 +126,10 @@ export interface ResourceGatewayArgs {
      * The type of IP address used by the resource gateway.
      */
     ipAddressType?: pulumi.Input<enums.vpclattice.ResourceGatewayIpAddressType>;
+    /**
+     * The number of IPv4 addresses to allocate per ENI for the resource gateway
+     */
+    ipv4AddressesPerEni?: pulumi.Input<number>;
     /**
      * The name of the resource gateway.
      */

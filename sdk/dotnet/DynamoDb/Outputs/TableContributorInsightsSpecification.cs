@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         /// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
         /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+        /// </summary>
+        public readonly Pulumi.AwsNative.DynamoDb.TableContributorInsightsSpecificationMode? Mode;
 
         [OutputConstructor]
-        private TableContributorInsightsSpecification(bool enabled)
+        private TableContributorInsightsSpecification(
+            bool enabled,
+
+            Pulumi.AwsNative.DynamoDb.TableContributorInsightsSpecificationMode? mode)
         {
             Enabled = enabled;
+            Mode = mode;
         }
     }
 }

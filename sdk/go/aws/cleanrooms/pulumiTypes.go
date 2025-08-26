@@ -3797,6 +3797,66 @@ func (o ConfiguredTableAthenaTableReferenceOutput) WorkGroup() pulumi.StringOutp
 	return o.ApplyT(func(v ConfiguredTableAthenaTableReference) string { return v.WorkGroup }).(pulumi.StringOutput)
 }
 
+type ConfiguredTableAthenaTableReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAthenaTableReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableAthenaTableReference)(nil)).Elem()
+}
+
+func (o ConfiguredTableAthenaTableReferencePtrOutput) ToConfiguredTableAthenaTableReferencePtrOutput() ConfiguredTableAthenaTableReferencePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableAthenaTableReferencePtrOutput) ToConfiguredTableAthenaTableReferencePtrOutputWithContext(ctx context.Context) ConfiguredTableAthenaTableReferencePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableAthenaTableReferencePtrOutput) Elem() ConfiguredTableAthenaTableReferenceOutput {
+	return o.ApplyT(func(v *ConfiguredTableAthenaTableReference) ConfiguredTableAthenaTableReference {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableAthenaTableReference
+		return ret
+	}).(ConfiguredTableAthenaTableReferenceOutput)
+}
+
+func (o ConfiguredTableAthenaTableReferencePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableAthenaTableReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredTableAthenaTableReferencePtrOutput) OutputLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableAthenaTableReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredTableAthenaTableReferencePtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableAthenaTableReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredTableAthenaTableReferencePtrOutput) WorkGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableAthenaTableReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkGroup
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConfiguredTableDifferentialPrivacy struct {
 	Columns []ConfiguredTableDifferentialPrivacyColumn `pulumi:"columns"`
 }
@@ -4081,6 +4141,48 @@ func (o ConfiguredTableGlueTableReferenceOutput) TableName() pulumi.StringOutput
 	return o.ApplyT(func(v ConfiguredTableGlueTableReference) string { return v.TableName }).(pulumi.StringOutput)
 }
 
+type ConfiguredTableGlueTableReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableGlueTableReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableGlueTableReference)(nil)).Elem()
+}
+
+func (o ConfiguredTableGlueTableReferencePtrOutput) ToConfiguredTableGlueTableReferencePtrOutput() ConfiguredTableGlueTableReferencePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableGlueTableReferencePtrOutput) ToConfiguredTableGlueTableReferencePtrOutputWithContext(ctx context.Context) ConfiguredTableGlueTableReferencePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableGlueTableReferencePtrOutput) Elem() ConfiguredTableGlueTableReferenceOutput {
+	return o.ApplyT(func(v *ConfiguredTableGlueTableReference) ConfiguredTableGlueTableReference {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableGlueTableReference
+		return ret
+	}).(ConfiguredTableGlueTableReferenceOutput)
+}
+
+func (o ConfiguredTableGlueTableReferencePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableGlueTableReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredTableGlueTableReferencePtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableGlueTableReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConfiguredTableSnowflakeTableReference struct {
 	AccountIdentifier string                                        `pulumi:"accountIdentifier"`
 	DatabaseName      string                                        `pulumi:"databaseName"`
@@ -4162,6 +4264,84 @@ func (o ConfiguredTableSnowflakeTableReferenceOutput) TableSchema() ConfiguredTa
 	}).(ConfiguredTableSnowflakeTableSchemaPropertiesOutput)
 }
 
+type ConfiguredTableSnowflakeTableReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableSnowflakeTableReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableSnowflakeTableReference)(nil)).Elem()
+}
+
+func (o ConfiguredTableSnowflakeTableReferencePtrOutput) ToConfiguredTableSnowflakeTableReferencePtrOutput() ConfiguredTableSnowflakeTableReferencePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableSnowflakeTableReferencePtrOutput) ToConfiguredTableSnowflakeTableReferencePtrOutputWithContext(ctx context.Context) ConfiguredTableSnowflakeTableReferencePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableSnowflakeTableReferencePtrOutput) Elem() ConfiguredTableSnowflakeTableReferenceOutput {
+	return o.ApplyT(func(v *ConfiguredTableSnowflakeTableReference) ConfiguredTableSnowflakeTableReference {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableSnowflakeTableReference
+		return ret
+	}).(ConfiguredTableSnowflakeTableReferenceOutput)
+}
+
+func (o ConfiguredTableSnowflakeTableReferencePtrOutput) AccountIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableSnowflakeTableReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredTableSnowflakeTableReferencePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableSnowflakeTableReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredTableSnowflakeTableReferencePtrOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableSnowflakeTableReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SchemaName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredTableSnowflakeTableReferencePtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableSnowflakeTableReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredTableSnowflakeTableReferencePtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableSnowflakeTableReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredTableSnowflakeTableReferencePtrOutput) TableSchema() ConfiguredTableSnowflakeTableSchemaPropertiesPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableSnowflakeTableReference) *ConfiguredTableSnowflakeTableSchemaProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.TableSchema
+	}).(ConfiguredTableSnowflakeTableSchemaPropertiesPtrOutput)
+}
+
 type ConfiguredTableSnowflakeTableSchema0Properties struct {
 	V1 []ConfiguredTableSnowflakeTableSchemaV1 `pulumi:"v1"`
 }
@@ -4213,6 +4393,39 @@ func (o ConfiguredTableSnowflakeTableSchemaPropertiesOutput) ToConfiguredTableSn
 
 func (o ConfiguredTableSnowflakeTableSchemaPropertiesOutput) V1() ConfiguredTableSnowflakeTableSchemaV1ArrayOutput {
 	return o.ApplyT(func(v ConfiguredTableSnowflakeTableSchemaProperties) []ConfiguredTableSnowflakeTableSchemaV1 {
+		return v.V1
+	}).(ConfiguredTableSnowflakeTableSchemaV1ArrayOutput)
+}
+
+type ConfiguredTableSnowflakeTableSchemaPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableSnowflakeTableSchemaPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableSnowflakeTableSchemaProperties)(nil)).Elem()
+}
+
+func (o ConfiguredTableSnowflakeTableSchemaPropertiesPtrOutput) ToConfiguredTableSnowflakeTableSchemaPropertiesPtrOutput() ConfiguredTableSnowflakeTableSchemaPropertiesPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableSnowflakeTableSchemaPropertiesPtrOutput) ToConfiguredTableSnowflakeTableSchemaPropertiesPtrOutputWithContext(ctx context.Context) ConfiguredTableSnowflakeTableSchemaPropertiesPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableSnowflakeTableSchemaPropertiesPtrOutput) Elem() ConfiguredTableSnowflakeTableSchemaPropertiesOutput {
+	return o.ApplyT(func(v *ConfiguredTableSnowflakeTableSchemaProperties) ConfiguredTableSnowflakeTableSchemaProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableSnowflakeTableSchemaProperties
+		return ret
+	}).(ConfiguredTableSnowflakeTableSchemaPropertiesOutput)
+}
+
+func (o ConfiguredTableSnowflakeTableSchemaPropertiesPtrOutput) V1() ConfiguredTableSnowflakeTableSchemaV1ArrayOutput {
+	return o.ApplyT(func(v *ConfiguredTableSnowflakeTableSchemaProperties) []ConfiguredTableSnowflakeTableSchemaV1 {
+		if v == nil {
+			return nil
+		}
 		return v.V1
 	}).(ConfiguredTableSnowflakeTableSchemaV1ArrayOutput)
 }
@@ -4366,6 +4579,39 @@ func (o ConfiguredTableTableReference0PropertiesOutput) Glue() ConfiguredTableGl
 	return o.ApplyT(func(v ConfiguredTableTableReference0Properties) ConfiguredTableGlueTableReference { return v.Glue }).(ConfiguredTableGlueTableReferenceOutput)
 }
 
+type ConfiguredTableTableReference0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableTableReference0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableTableReference0Properties)(nil)).Elem()
+}
+
+func (o ConfiguredTableTableReference0PropertiesPtrOutput) ToConfiguredTableTableReference0PropertiesPtrOutput() ConfiguredTableTableReference0PropertiesPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableTableReference0PropertiesPtrOutput) ToConfiguredTableTableReference0PropertiesPtrOutputWithContext(ctx context.Context) ConfiguredTableTableReference0PropertiesPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableTableReference0PropertiesPtrOutput) Elem() ConfiguredTableTableReference0PropertiesOutput {
+	return o.ApplyT(func(v *ConfiguredTableTableReference0Properties) ConfiguredTableTableReference0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableTableReference0Properties
+		return ret
+	}).(ConfiguredTableTableReference0PropertiesOutput)
+}
+
+func (o ConfiguredTableTableReference0PropertiesPtrOutput) Glue() ConfiguredTableGlueTableReferencePtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableTableReference0Properties) *ConfiguredTableGlueTableReference {
+		if v == nil {
+			return nil
+		}
+		return &v.Glue
+	}).(ConfiguredTableGlueTableReferencePtrOutput)
+}
+
 type ConfiguredTableTableReference1Properties struct {
 	Snowflake ConfiguredTableSnowflakeTableReference `pulumi:"snowflake"`
 }
@@ -4417,6 +4663,39 @@ func (o ConfiguredTableTableReference1PropertiesOutput) Snowflake() ConfiguredTa
 	}).(ConfiguredTableSnowflakeTableReferenceOutput)
 }
 
+type ConfiguredTableTableReference1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableTableReference1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableTableReference1Properties)(nil)).Elem()
+}
+
+func (o ConfiguredTableTableReference1PropertiesPtrOutput) ToConfiguredTableTableReference1PropertiesPtrOutput() ConfiguredTableTableReference1PropertiesPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableTableReference1PropertiesPtrOutput) ToConfiguredTableTableReference1PropertiesPtrOutputWithContext(ctx context.Context) ConfiguredTableTableReference1PropertiesPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableTableReference1PropertiesPtrOutput) Elem() ConfiguredTableTableReference1PropertiesOutput {
+	return o.ApplyT(func(v *ConfiguredTableTableReference1Properties) ConfiguredTableTableReference1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableTableReference1Properties
+		return ret
+	}).(ConfiguredTableTableReference1PropertiesOutput)
+}
+
+func (o ConfiguredTableTableReference1PropertiesPtrOutput) Snowflake() ConfiguredTableSnowflakeTableReferencePtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableTableReference1Properties) *ConfiguredTableSnowflakeTableReference {
+		if v == nil {
+			return nil
+		}
+		return &v.Snowflake
+	}).(ConfiguredTableSnowflakeTableReferencePtrOutput)
+}
+
 type ConfiguredTableTableReference2Properties struct {
 	Athena ConfiguredTableAthenaTableReference `pulumi:"athena"`
 }
@@ -4464,6 +4743,39 @@ func (o ConfiguredTableTableReference2PropertiesOutput) ToConfiguredTableTableRe
 
 func (o ConfiguredTableTableReference2PropertiesOutput) Athena() ConfiguredTableAthenaTableReferenceOutput {
 	return o.ApplyT(func(v ConfiguredTableTableReference2Properties) ConfiguredTableAthenaTableReference { return v.Athena }).(ConfiguredTableAthenaTableReferenceOutput)
+}
+
+type ConfiguredTableTableReference2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableTableReference2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableTableReference2Properties)(nil)).Elem()
+}
+
+func (o ConfiguredTableTableReference2PropertiesPtrOutput) ToConfiguredTableTableReference2PropertiesPtrOutput() ConfiguredTableTableReference2PropertiesPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableTableReference2PropertiesPtrOutput) ToConfiguredTableTableReference2PropertiesPtrOutputWithContext(ctx context.Context) ConfiguredTableTableReference2PropertiesPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableTableReference2PropertiesPtrOutput) Elem() ConfiguredTableTableReference2PropertiesOutput {
+	return o.ApplyT(func(v *ConfiguredTableTableReference2Properties) ConfiguredTableTableReference2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableTableReference2Properties
+		return ret
+	}).(ConfiguredTableTableReference2PropertiesOutput)
+}
+
+func (o ConfiguredTableTableReference2PropertiesPtrOutput) Athena() ConfiguredTableAthenaTableReferencePtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableTableReference2Properties) *ConfiguredTableAthenaTableReference {
+		if v == nil {
+			return nil
+		}
+		return &v.Athena
+	}).(ConfiguredTableAthenaTableReferencePtrOutput)
 }
 
 type ConfiguredTableTag struct {
@@ -7212,18 +7524,25 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAthenaTableReferenceOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAthenaTableReferencePtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyColumnOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyColumnArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableGlueTableReferenceOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableGlueTableReferencePtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableSnowflakeTableReferenceOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableSnowflakeTableReferencePtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableSnowflakeTableSchemaPropertiesOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableSnowflakeTableSchemaPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableSnowflakeTableSchemaV1Output{})
 	pulumi.RegisterOutputType(ConfiguredTableSnowflakeTableSchemaV1ArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableTableReference0PropertiesOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableTableReference0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableTableReference1PropertiesOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableTableReference1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableTableReference2PropertiesOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableTableReference2PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IdMappingTableInputReferenceConfigOutput{})
 	pulumi.RegisterOutputType(IdMappingTableInputReferencePropertiesOutput{})
 	pulumi.RegisterOutputType(IdMappingTableInputReferencePropertiesPtrOutput{})

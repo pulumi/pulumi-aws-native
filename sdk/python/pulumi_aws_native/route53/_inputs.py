@@ -23,8 +23,6 @@ __all__ = [
     'HealthCheckAlarmIdentifierArgsDict',
     'HealthCheckConfigPropertiesArgs',
     'HealthCheckConfigPropertiesArgsDict',
-    'HealthCheckTagArgs',
-    'HealthCheckTagArgsDict',
     'HostedZoneConfigArgs',
     'HostedZoneConfigArgsDict',
     'HostedZoneQueryLoggingConfigArgs',
@@ -774,60 +772,6 @@ class HealthCheckConfigPropertiesArgs:
     @search_string.setter
     def search_string(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "search_string", value)
-
-
-if not MYPY:
-    class HealthCheckTagArgsDict(TypedDict):
-        """
-        A key-value pair to associate with a resource.
-        """
-        key: pulumi.Input[builtins.str]
-        """
-        The key name of the tag.
-        """
-        value: pulumi.Input[builtins.str]
-        """
-        The value for the tag.
-        """
-elif False:
-    HealthCheckTagArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class HealthCheckTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[builtins.str],
-                 value: pulumi.Input[builtins.str]):
-        """
-        A key-value pair to associate with a resource.
-        :param pulumi.Input[builtins.str] key: The key name of the tag.
-        :param pulumi.Input[builtins.str] value: The value for the tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[builtins.str]:
-        """
-        The key name of the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[builtins.str]:
-        """
-        The value for the tag.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "value", value)
 
 
 if not MYPY:

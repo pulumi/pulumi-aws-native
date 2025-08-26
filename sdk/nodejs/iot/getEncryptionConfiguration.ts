@@ -18,15 +18,33 @@ export function getEncryptionConfiguration(args: GetEncryptionConfigurationArgs,
 }
 
 export interface GetEncryptionConfigurationArgs {
+    /**
+     * The unique identifier (ID) of an AWS account.
+     */
     accountId: string;
 }
 
 export interface GetEncryptionConfigurationResult {
+    /**
+     * The unique identifier (ID) of an AWS account.
+     */
     readonly accountId?: string;
     readonly configurationDetails?: outputs.iot.ConfigurationDetailsProperties;
+    /**
+     * The type of the KMS key.
+     */
     readonly encryptionType?: enums.iot.EncryptionConfigurationEncryptionType;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+     */
     readonly kmsAccessRoleArn?: string;
+    /**
+     * The ARN of the customer managed KMS key.
+     */
     readonly kmsKeyArn?: string;
+    /**
+     * The date when encryption configuration is last updated.
+     */
     readonly lastModifiedDate?: string;
 }
 /**
@@ -40,5 +58,8 @@ export function getEncryptionConfigurationOutput(args: GetEncryptionConfiguratio
 }
 
 export interface GetEncryptionConfigurationOutputArgs {
+    /**
+     * The unique identifier (ID) of an AWS account.
+     */
     accountId: pulumi.Input<string>;
 }

@@ -960,6 +960,11 @@ class ConfigurationDetailsProperties(dict):
                  configuration_status: Optional['EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus'] = None,
                  error_code: Optional[builtins.str] = None,
                  error_message: Optional[builtins.str] = None):
+        """
+        :param 'EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus' configuration_status: The health status of KMS key and AWS KMS access role. If either KMS key or AWS KMS access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
+        :param builtins.str error_code: The error code that indicates either the KMS key or the AWS KMS access role is `UNHEALTHY` . Valid values: `KMS_KEY_VALIDATION_ERROR` and `ROLE_VALIDATION_ERROR` .
+        :param builtins.str error_message: The detailed error message that corresponds to the `errorCode` .
+        """
         if configuration_status is not None:
             pulumi.set(__self__, "configuration_status", configuration_status)
         if error_code is not None:
@@ -970,16 +975,25 @@ class ConfigurationDetailsProperties(dict):
     @property
     @pulumi.getter(name="configurationStatus")
     def configuration_status(self) -> Optional['EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus']:
+        """
+        The health status of KMS key and AWS KMS access role. If either KMS key or AWS KMS access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
+        """
         return pulumi.get(self, "configuration_status")
 
     @property
     @pulumi.getter(name="errorCode")
     def error_code(self) -> Optional[builtins.str]:
+        """
+        The error code that indicates either the KMS key or the AWS KMS access role is `UNHEALTHY` . Valid values: `KMS_KEY_VALIDATION_ERROR` and `ROLE_VALIDATION_ERROR` .
+        """
         return pulumi.get(self, "error_code")
 
     @property
     @pulumi.getter(name="errorMessage")
     def error_message(self) -> Optional[builtins.str]:
+        """
+        The detailed error message that corresponds to the `errorCode` .
+        """
         return pulumi.get(self, "error_message")
 
 

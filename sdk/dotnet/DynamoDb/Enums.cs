@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AwsNative.DynamoDb
 {
     /// <summary>
+    /// Specifies the CloudWatch Contributor Insights mode for a global table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the global table.
+    /// </summary>
+    [EnumType]
+    public readonly struct GlobalTableContributorInsightsSpecificationMode : IEquatable<GlobalTableContributorInsightsSpecificationMode>
+    {
+        private readonly string _value;
+
+        private GlobalTableContributorInsightsSpecificationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GlobalTableContributorInsightsSpecificationMode AccessedAndThrottledKeys { get; } = new GlobalTableContributorInsightsSpecificationMode("ACCESSED_AND_THROTTLED_KEYS");
+        public static GlobalTableContributorInsightsSpecificationMode ThrottledKeys { get; } = new GlobalTableContributorInsightsSpecificationMode("THROTTLED_KEYS");
+
+        public static bool operator ==(GlobalTableContributorInsightsSpecificationMode left, GlobalTableContributorInsightsSpecificationMode right) => left.Equals(right);
+        public static bool operator !=(GlobalTableContributorInsightsSpecificationMode left, GlobalTableContributorInsightsSpecificationMode right) => !left.Equals(right);
+
+        public static explicit operator string(GlobalTableContributorInsightsSpecificationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GlobalTableContributorInsightsSpecificationMode other && Equals(other);
+        public bool Equals(GlobalTableContributorInsightsSpecificationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The precision for the time and date that the stream was created.
     /// </summary>
     [EnumType]
@@ -69,6 +100,37 @@ namespace Pulumi.AwsNative.DynamoDb
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is GlobalTableMultiRegionConsistency other && Equals(other);
         public bool Equals(GlobalTableMultiRegionConsistency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+    /// </summary>
+    [EnumType]
+    public readonly struct TableContributorInsightsSpecificationMode : IEquatable<TableContributorInsightsSpecificationMode>
+    {
+        private readonly string _value;
+
+        private TableContributorInsightsSpecificationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TableContributorInsightsSpecificationMode AccessedAndThrottledKeys { get; } = new TableContributorInsightsSpecificationMode("ACCESSED_AND_THROTTLED_KEYS");
+        public static TableContributorInsightsSpecificationMode ThrottledKeys { get; } = new TableContributorInsightsSpecificationMode("THROTTLED_KEYS");
+
+        public static bool operator ==(TableContributorInsightsSpecificationMode left, TableContributorInsightsSpecificationMode right) => left.Equals(right);
+        public static bool operator !=(TableContributorInsightsSpecificationMode left, TableContributorInsightsSpecificationMode right) => !left.Equals(right);
+
+        public static explicit operator string(TableContributorInsightsSpecificationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TableContributorInsightsSpecificationMode other && Equals(other);
+        public bool Equals(TableContributorInsightsSpecificationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

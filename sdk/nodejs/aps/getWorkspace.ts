@@ -38,9 +38,7 @@ export interface GetWorkspaceResult {
      */
     readonly arn?: string;
     /**
-     * Contains information about the current rules and alerting logging configuration for the workspace.
-     *
-     * > These logging configurations are only for rules and alerting logs.
+     * Contains information about the logging configuration for the workspace.
      */
     readonly loggingConfiguration?: outputs.aps.WorkspaceLoggingConfiguration;
     /**

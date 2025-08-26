@@ -49,6 +49,9 @@ class GetEncryptionConfigurationResult:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[builtins.str]:
+        """
+        The unique identifier (ID) of an AWS account.
+        """
         return pulumi.get(self, "account_id")
 
     @property
@@ -59,21 +62,33 @@ class GetEncryptionConfigurationResult:
     @property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> Optional['EncryptionConfigurationEncryptionType']:
+        """
+        The type of the KMS key.
+        """
         return pulumi.get(self, "encryption_type")
 
     @property
     @pulumi.getter(name="kmsAccessRoleArn")
     def kms_access_role_arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+        """
         return pulumi.get(self, "kms_access_role_arn")
 
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[builtins.str]:
+        """
+        The ARN of the customer managed KMS key.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @property
     @pulumi.getter(name="lastModifiedDate")
     def last_modified_date(self) -> Optional[builtins.str]:
+        """
+        The date when encryption configuration is last updated.
+        """
         return pulumi.get(self, "last_modified_date")
 
 
@@ -95,6 +110,9 @@ def get_encryption_configuration(account_id: Optional[builtins.str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEncryptionConfigurationResult:
     """
     Resource Type definition for AWS::IoT::EncryptionConfiguration
+
+
+    :param builtins.str account_id: The unique identifier (ID) of an AWS account.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -112,6 +130,9 @@ def get_encryption_configuration_output(account_id: Optional[pulumi.Input[builti
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEncryptionConfigurationResult]:
     """
     Resource Type definition for AWS::IoT::EncryptionConfiguration
+
+
+    :param builtins.str account_id: The unique identifier (ID) of an AWS account.
     """
     __args__ = dict()
     __args__['accountId'] = account_id

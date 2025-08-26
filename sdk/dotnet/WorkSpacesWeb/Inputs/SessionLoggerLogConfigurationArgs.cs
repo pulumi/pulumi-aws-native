@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb.Inputs
 
     public sealed class SessionLoggerLogConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration for delivering the logs to S3.
+        /// </summary>
         [Input("s3")]
         public Input<Inputs.SessionLoggerS3LogConfigurationArgs>? S3 { get; set; }
 

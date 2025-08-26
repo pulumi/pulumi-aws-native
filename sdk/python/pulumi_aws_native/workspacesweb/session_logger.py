@@ -33,6 +33,11 @@ class SessionLoggerArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SessionLogger resource.
+        :param pulumi.Input[Union['SessionLoggerEventFilter0PropertiesArgs', 'SessionLoggerEventFilter1PropertiesArgs']] event_filter: The filter that specifies which events to monitor.
+        :param pulumi.Input['SessionLoggerLogConfigurationArgs'] log_configuration: The configuration that specifies where logs are fowarded.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] additional_encryption_context: The additional encryption context of the session logger.
+        :param pulumi.Input[builtins.str] customer_managed_key: The custom managed key of the session logger.
+        :param pulumi.Input[builtins.str] display_name: The human-readable display name.
         """
         pulumi.set(__self__, "event_filter", event_filter)
         pulumi.set(__self__, "log_configuration", log_configuration)
@@ -48,6 +53,9 @@ class SessionLoggerArgs:
     @property
     @pulumi.getter(name="eventFilter")
     def event_filter(self) -> pulumi.Input[Union['SessionLoggerEventFilter0PropertiesArgs', 'SessionLoggerEventFilter1PropertiesArgs']]:
+        """
+        The filter that specifies which events to monitor.
+        """
         return pulumi.get(self, "event_filter")
 
     @event_filter.setter
@@ -57,6 +65,9 @@ class SessionLoggerArgs:
     @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> pulumi.Input['SessionLoggerLogConfigurationArgs']:
+        """
+        The configuration that specifies where logs are fowarded.
+        """
         return pulumi.get(self, "log_configuration")
 
     @log_configuration.setter
@@ -66,6 +77,9 @@ class SessionLoggerArgs:
     @property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        The additional encryption context of the session logger.
+        """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
@@ -75,6 +89,9 @@ class SessionLoggerArgs:
     @property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The custom managed key of the session logger.
+        """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
@@ -84,6 +101,9 @@ class SessionLoggerArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The human-readable display name.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -118,6 +138,11 @@ class SessionLogger(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] additional_encryption_context: The additional encryption context of the session logger.
+        :param pulumi.Input[builtins.str] customer_managed_key: The custom managed key of the session logger.
+        :param pulumi.Input[builtins.str] display_name: The human-readable display name.
+        :param pulumi.Input[Union[Union['SessionLoggerEventFilter0PropertiesArgs', 'SessionLoggerEventFilter0PropertiesArgsDict'], Union['SessionLoggerEventFilter1PropertiesArgs', 'SessionLoggerEventFilter1PropertiesArgsDict']]] event_filter: The filter that specifies which events to monitor.
+        :param pulumi.Input[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict']] log_configuration: The configuration that specifies where logs are fowarded.
         """
         ...
     @overload
@@ -209,41 +234,65 @@ class SessionLogger(pulumi.CustomResource):
     @property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        """
+        The additional encryption context of the session logger.
+        """
         return pulumi.get(self, "additional_encryption_context")
 
     @property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> pulumi.Output[Sequence[builtins.str]]:
+        """
+        The associated portal ARN.
+        """
         return pulumi.get(self, "associated_portal_arns")
 
     @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[builtins.str]:
+        """
+        The date the session logger resource was created.
+        """
         return pulumi.get(self, "creation_date")
 
     @property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The custom managed key of the session logger.
+        """
         return pulumi.get(self, "customer_managed_key")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The human-readable display name.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="eventFilter")
     def event_filter(self) -> pulumi.Output[Any]:
+        """
+        The filter that specifies which events to monitor.
+        """
         return pulumi.get(self, "event_filter")
 
     @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> pulumi.Output['outputs.SessionLoggerLogConfiguration']:
+        """
+        The configuration that specifies where logs are fowarded.
+        """
         return pulumi.get(self, "log_configuration")
 
     @property
     @pulumi.getter(name="sessionLoggerArn")
     def session_logger_arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The ARN of the session logger resource.
+        """
         return pulumi.get(self, "session_logger_arn")
 
     @property

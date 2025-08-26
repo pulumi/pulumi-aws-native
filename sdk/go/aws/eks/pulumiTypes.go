@@ -3625,6 +3625,146 @@ func (o LoggingPtrOutput) ClusterLogging() ClusterLoggingEnabledTypesPtrOutput {
 	}).(ClusterLoggingEnabledTypesPtrOutput)
 }
 
+// The custom namespace configuration to use with the add-on
+type NamespaceConfigProperties struct {
+	// The custom namespace for creating the add-on
+	Namespace string `pulumi:"namespace"`
+}
+
+// NamespaceConfigPropertiesInput is an input type that accepts NamespaceConfigPropertiesArgs and NamespaceConfigPropertiesOutput values.
+// You can construct a concrete instance of `NamespaceConfigPropertiesInput` via:
+//
+//	NamespaceConfigPropertiesArgs{...}
+type NamespaceConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToNamespaceConfigPropertiesOutput() NamespaceConfigPropertiesOutput
+	ToNamespaceConfigPropertiesOutputWithContext(context.Context) NamespaceConfigPropertiesOutput
+}
+
+// The custom namespace configuration to use with the add-on
+type NamespaceConfigPropertiesArgs struct {
+	// The custom namespace for creating the add-on
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+}
+
+func (NamespaceConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceConfigProperties)(nil)).Elem()
+}
+
+func (i NamespaceConfigPropertiesArgs) ToNamespaceConfigPropertiesOutput() NamespaceConfigPropertiesOutput {
+	return i.ToNamespaceConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i NamespaceConfigPropertiesArgs) ToNamespaceConfigPropertiesOutputWithContext(ctx context.Context) NamespaceConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceConfigPropertiesOutput)
+}
+
+func (i NamespaceConfigPropertiesArgs) ToNamespaceConfigPropertiesPtrOutput() NamespaceConfigPropertiesPtrOutput {
+	return i.ToNamespaceConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i NamespaceConfigPropertiesArgs) ToNamespaceConfigPropertiesPtrOutputWithContext(ctx context.Context) NamespaceConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceConfigPropertiesOutput).ToNamespaceConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// NamespaceConfigPropertiesPtrInput is an input type that accepts NamespaceConfigPropertiesArgs, NamespaceConfigPropertiesPtr and NamespaceConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `NamespaceConfigPropertiesPtrInput` via:
+//
+//	        NamespaceConfigPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type NamespaceConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToNamespaceConfigPropertiesPtrOutput() NamespaceConfigPropertiesPtrOutput
+	ToNamespaceConfigPropertiesPtrOutputWithContext(context.Context) NamespaceConfigPropertiesPtrOutput
+}
+
+type namespaceConfigPropertiesPtrType NamespaceConfigPropertiesArgs
+
+func NamespaceConfigPropertiesPtr(v *NamespaceConfigPropertiesArgs) NamespaceConfigPropertiesPtrInput {
+	return (*namespaceConfigPropertiesPtrType)(v)
+}
+
+func (*namespaceConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NamespaceConfigProperties)(nil)).Elem()
+}
+
+func (i *namespaceConfigPropertiesPtrType) ToNamespaceConfigPropertiesPtrOutput() NamespaceConfigPropertiesPtrOutput {
+	return i.ToNamespaceConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *namespaceConfigPropertiesPtrType) ToNamespaceConfigPropertiesPtrOutputWithContext(ctx context.Context) NamespaceConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceConfigPropertiesPtrOutput)
+}
+
+// The custom namespace configuration to use with the add-on
+type NamespaceConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (NamespaceConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceConfigProperties)(nil)).Elem()
+}
+
+func (o NamespaceConfigPropertiesOutput) ToNamespaceConfigPropertiesOutput() NamespaceConfigPropertiesOutput {
+	return o
+}
+
+func (o NamespaceConfigPropertiesOutput) ToNamespaceConfigPropertiesOutputWithContext(ctx context.Context) NamespaceConfigPropertiesOutput {
+	return o
+}
+
+func (o NamespaceConfigPropertiesOutput) ToNamespaceConfigPropertiesPtrOutput() NamespaceConfigPropertiesPtrOutput {
+	return o.ToNamespaceConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o NamespaceConfigPropertiesOutput) ToNamespaceConfigPropertiesPtrOutputWithContext(ctx context.Context) NamespaceConfigPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespaceConfigProperties) *NamespaceConfigProperties {
+		return &v
+	}).(NamespaceConfigPropertiesPtrOutput)
+}
+
+// The custom namespace for creating the add-on
+func (o NamespaceConfigPropertiesOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v NamespaceConfigProperties) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+type NamespaceConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (NamespaceConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NamespaceConfigProperties)(nil)).Elem()
+}
+
+func (o NamespaceConfigPropertiesPtrOutput) ToNamespaceConfigPropertiesPtrOutput() NamespaceConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o NamespaceConfigPropertiesPtrOutput) ToNamespaceConfigPropertiesPtrOutputWithContext(ctx context.Context) NamespaceConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o NamespaceConfigPropertiesPtrOutput) Elem() NamespaceConfigPropertiesOutput {
+	return o.ApplyT(func(v *NamespaceConfigProperties) NamespaceConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret NamespaceConfigProperties
+		return ret
+	}).(NamespaceConfigPropertiesOutput)
+}
+
+// The custom namespace for creating the add-on
+func (o NamespaceConfigPropertiesPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
 // An object representing a launch template specification for AWS EKS Nodegroup.
 type NodegroupLaunchTemplateSpecification struct {
 	// The ID of the launch template.
@@ -4675,6 +4815,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigRequiredClaimArrayInput)(nil)).Elem(), IdentityProviderConfigRequiredClaimArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingInput)(nil)).Elem(), LoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingPtrInput)(nil)).Elem(), LoggingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceConfigPropertiesInput)(nil)).Elem(), NamespaceConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceConfigPropertiesPtrInput)(nil)).Elem(), NamespaceConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupLaunchTemplateSpecificationInput)(nil)).Elem(), NodegroupLaunchTemplateSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupLaunchTemplateSpecificationPtrInput)(nil)).Elem(), NodegroupLaunchTemplateSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupNodeRepairConfigInput)(nil)).Elem(), NodegroupNodeRepairConfigArgs{})
@@ -4738,6 +4880,8 @@ func init() {
 	pulumi.RegisterOutputType(IdentityProviderConfigRequiredClaimArrayOutput{})
 	pulumi.RegisterOutputType(LoggingOutput{})
 	pulumi.RegisterOutputType(LoggingPtrOutput{})
+	pulumi.RegisterOutputType(NamespaceConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(NamespaceConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NodegroupLaunchTemplateSpecificationOutput{})
 	pulumi.RegisterOutputType(NodegroupLaunchTemplateSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(NodegroupNodeRepairConfigOutput{})

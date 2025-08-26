@@ -31,6 +31,7 @@ class VpnConnectionArgs:
                  local_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  local_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  outside_ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
+                 pre_shared_key_storage: Optional[pulumi.Input['VpnConnectionPreSharedKeyStorage']] = None,
                  remote_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  static_routes_only: Optional[pulumi.Input[builtins.bool]] = None,
@@ -53,6 +54,7 @@ class VpnConnectionArgs:
         :param pulumi.Input[builtins.str] outside_ip_address_type: The type of IP address assigned to the outside interface of the customer gateway device.
                 Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
                 Default: ``PublicIpv4``
+        :param pulumi.Input['VpnConnectionPreSharedKeyStorage'] pre_shared_key_storage: Describes the storage location for an instance store-backed AMI.
         :param pulumi.Input[builtins.str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
                 Default: ``0.0.0.0/0``
         :param pulumi.Input[builtins.str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
@@ -80,6 +82,8 @@ class VpnConnectionArgs:
             pulumi.set(__self__, "local_ipv6_network_cidr", local_ipv6_network_cidr)
         if outside_ip_address_type is not None:
             pulumi.set(__self__, "outside_ip_address_type", outside_ip_address_type)
+        if pre_shared_key_storage is not None:
+            pulumi.set(__self__, "pre_shared_key_storage", pre_shared_key_storage)
         if remote_ipv4_network_cidr is not None:
             pulumi.set(__self__, "remote_ipv4_network_cidr", remote_ipv4_network_cidr)
         if remote_ipv6_network_cidr is not None:
@@ -175,6 +179,18 @@ class VpnConnectionArgs:
     @outside_ip_address_type.setter
     def outside_ip_address_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "outside_ip_address_type", value)
+
+    @property
+    @pulumi.getter(name="preSharedKeyStorage")
+    def pre_shared_key_storage(self) -> Optional[pulumi.Input['VpnConnectionPreSharedKeyStorage']]:
+        """
+        Describes the storage location for an instance store-backed AMI.
+        """
+        return pulumi.get(self, "pre_shared_key_storage")
+
+    @pre_shared_key_storage.setter
+    def pre_shared_key_storage(self, value: Optional[pulumi.Input['VpnConnectionPreSharedKeyStorage']]):
+        pulumi.set(self, "pre_shared_key_storage", value)
 
     @property
     @pulumi.getter(name="remoteIpv4NetworkCidr")
@@ -303,6 +319,7 @@ class VpnConnection(pulumi.CustomResource):
                  local_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  local_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  outside_ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
+                 pre_shared_key_storage: Optional[pulumi.Input['VpnConnectionPreSharedKeyStorage']] = None,
                  remote_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  static_routes_only: Optional[pulumi.Input[builtins.bool]] = None,
@@ -332,6 +349,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] outside_ip_address_type: The type of IP address assigned to the outside interface of the customer gateway device.
                 Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
                 Default: ``PublicIpv4``
+        :param pulumi.Input['VpnConnectionPreSharedKeyStorage'] pre_shared_key_storage: Describes the storage location for an instance store-backed AMI.
         :param pulumi.Input[builtins.str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
                 Default: ``0.0.0.0/0``
         :param pulumi.Input[builtins.str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
@@ -382,6 +400,7 @@ class VpnConnection(pulumi.CustomResource):
                  local_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  local_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  outside_ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
+                 pre_shared_key_storage: Optional[pulumi.Input['VpnConnectionPreSharedKeyStorage']] = None,
                  remote_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  static_routes_only: Optional[pulumi.Input[builtins.bool]] = None,
@@ -408,6 +427,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["local_ipv4_network_cidr"] = local_ipv4_network_cidr
             __props__.__dict__["local_ipv6_network_cidr"] = local_ipv6_network_cidr
             __props__.__dict__["outside_ip_address_type"] = outside_ip_address_type
+            __props__.__dict__["pre_shared_key_storage"] = pre_shared_key_storage
             __props__.__dict__["remote_ipv4_network_cidr"] = remote_ipv4_network_cidr
             __props__.__dict__["remote_ipv6_network_cidr"] = remote_ipv6_network_cidr
             __props__.__dict__["static_routes_only"] = static_routes_only
@@ -421,7 +441,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
             __props__.__dict__["vpn_tunnel_options_specifications"] = vpn_tunnel_options_specifications
             __props__.__dict__["vpn_connection_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["customerGatewayId", "enableAcceleration", "localIpv4NetworkCidr", "localIpv6NetworkCidr", "outsideIpAddressType", "remoteIpv4NetworkCidr", "remoteIpv6NetworkCidr", "staticRoutesOnly", "transitGatewayId", "transportTransitGatewayAttachmentId", "tunnelInsideIpVersion", "type", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["customerGatewayId", "enableAcceleration", "localIpv4NetworkCidr", "localIpv6NetworkCidr", "outsideIpAddressType", "preSharedKeyStorage", "remoteIpv4NetworkCidr", "remoteIpv6NetworkCidr", "staticRoutesOnly", "transitGatewayId", "transportTransitGatewayAttachmentId", "tunnelInsideIpVersion", "type", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpnConnection, __self__).__init__(
             'aws-native:ec2:VpnConnection',
@@ -450,6 +470,7 @@ class VpnConnection(pulumi.CustomResource):
         __props__.__dict__["local_ipv4_network_cidr"] = None
         __props__.__dict__["local_ipv6_network_cidr"] = None
         __props__.__dict__["outside_ip_address_type"] = None
+        __props__.__dict__["pre_shared_key_storage"] = None
         __props__.__dict__["remote_ipv4_network_cidr"] = None
         __props__.__dict__["remote_ipv6_network_cidr"] = None
         __props__.__dict__["static_routes_only"] = None
@@ -507,6 +528,14 @@ class VpnConnection(pulumi.CustomResource):
          Default: ``PublicIpv4``
         """
         return pulumi.get(self, "outside_ip_address_type")
+
+    @property
+    @pulumi.getter(name="preSharedKeyStorage")
+    def pre_shared_key_storage(self) -> pulumi.Output[Optional['VpnConnectionPreSharedKeyStorage']]:
+        """
+        Describes the storage location for an instance store-backed AMI.
+        """
+        return pulumi.get(self, "pre_shared_key_storage")
 
     @property
     @pulumi.getter(name="remoteIpv4NetworkCidr")

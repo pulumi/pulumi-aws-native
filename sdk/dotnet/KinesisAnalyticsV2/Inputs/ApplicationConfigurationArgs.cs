@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         public Input<Inputs.ApplicationCodeConfigurationArgs>? ApplicationCodeConfiguration { get; set; }
 
         /// <summary>
+        /// Describes whether customer managed key is enabled and key details for customer data encryption
+        /// </summary>
+        [Input("applicationEncryptionConfiguration")]
+        public Input<Inputs.ApplicationEncryptionConfigurationArgs>? ApplicationEncryptionConfiguration { get; set; }
+
+        /// <summary>
         /// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
         /// </summary>
         [Input("applicationSnapshotConfiguration")]

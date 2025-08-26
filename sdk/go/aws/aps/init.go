@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:aps:ResourcePolicy":
+		r = &ResourcePolicy{}
 	case "aws-native:aps:RuleGroupsNamespace":
 		r = &RuleGroupsNamespace{}
 	case "aws-native:aps:Scraper":

@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Ivs
     public static class GetStage
     {
         /// <summary>
-        /// Resource Definition for type AWS::IVS::Stage.
+        /// Resource Type definition for AWS::IVS::Stage.
         /// </summary>
         public static Task<GetStageResult> InvokeAsync(GetStageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStageResult>("aws-native:ivs:getStage", args ?? new GetStageArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Definition for type AWS::IVS::Stage.
+        /// Resource Type definition for AWS::IVS::Stage.
         /// </summary>
         public static Output<GetStageResult> Invoke(GetStageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStageResult>("aws-native:ivs:getStage", args ?? new GetStageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Definition for type AWS::IVS::Stage.
+        /// Resource Type definition for AWS::IVS::Stage.
         /// </summary>
         public static Output<GetStageResult> Invoke(GetStageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStageResult>("aws-native:ivs:getStage", args ?? new GetStageInvokeArgs(), options.WithDefaults());

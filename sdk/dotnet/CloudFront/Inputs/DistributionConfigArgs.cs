@@ -19,7 +19,8 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         private InputList<string>? _aliases;
 
         /// <summary>
-        /// A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+        /// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+        ///   A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
         /// </summary>
         public InputList<string> Aliases
         {
@@ -28,7 +29,8 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         }
 
         /// <summary>
-        /// ID of the Anycast static IP list that is associated with the distribution.
+        /// To use this field for a multi-tenant distribution, use a connection group instead. For more information, see [ConnectionGroup](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ConnectionGroup.html).
+        ///   ID of the Anycast static IP list that is associated with the distribution.
         /// </summary>
         [Input("anycastIpListId")]
         public Input<string>? AnycastIpListId { get; set; }
@@ -65,13 +67,14 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The connection mode to filter distributions by.
+        /// This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants(tenant-only).
         /// </summary>
         [Input("connectionMode")]
         public Input<Pulumi.AwsNative.CloudFront.DistributionConnectionMode>? ConnectionMode { get; set; }
 
         /// <summary>
-        /// The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
+        /// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+        ///   The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
         /// </summary>
         [Input("continuousDeploymentPolicyId")]
         public Input<string>? ContinuousDeploymentPolicyId { get; set; }
@@ -131,7 +134,8 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public Input<string>? HttpVersion { get; set; }
 
         /// <summary>
-        /// If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true``. If you specify ``false``, CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
+        /// To use this field for a multi-tenant distribution, use a connection group instead. For more information, see [ConnectionGroup](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ConnectionGroup.html).
+        ///   If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true``. If you specify ``false``, CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
         ///  In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see [Creating a Signed URL Using a Custom Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html) in the *Amazon CloudFront Developer Guide*.
         ///  If you're using an R53AWSIntlong alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
         ///   +  You enable IPv6 for the distribution
@@ -171,7 +175,8 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         }
 
         /// <summary>
-        /// The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify ``PriceClass_All``, CloudFront responds to requests for your objects from all CloudFront edge locations.
+        /// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+        ///   The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify ``PriceClass_All``, CloudFront responds to requests for your objects from all CloudFront edge locations.
         ///  If you specify a price class other than ``PriceClass_All``, CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance.
         ///  For more information about price classes, see [Choosing the Price Class for a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) in the *Amazon CloudFront Developer Guide*. For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see [Amazon CloudFront Pricing](https://docs.aws.amazon.com/cloudfront/pricing/).
         /// </summary>
@@ -192,13 +197,15 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public Input<Inputs.DistributionLegacyS3OriginArgs>? S3Origin { get; set; }
 
         /// <summary>
-        /// A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
+        /// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+        ///   A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
         /// </summary>
         [Input("staging")]
         public Input<bool>? Staging { get; set; }
 
         /// <summary>
-        /// A distribution tenant configuration.
+        /// This field only supports multi-tenant distributions. You can't specify this field for standard distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+        ///   A distribution tenant configuration.
         /// </summary>
         [Input("tenantConfig")]
         public Input<Inputs.DistributionConfigTenantConfigPropertiesArgs>? TenantConfig { get; set; }
@@ -210,7 +217,8 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public Input<Inputs.DistributionViewerCertificateArgs>? ViewerCertificate { get; set; }
 
         /// <summary>
-        /// A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
+        /// Multi-tenant distributions only support WAF V2 web ACLs.
+        ///   A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
         ///  WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
         /// </summary>
         [Input("webAclId")]

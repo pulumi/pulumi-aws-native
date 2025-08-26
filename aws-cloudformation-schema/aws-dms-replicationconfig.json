@@ -116,6 +116,7 @@
   },
   "createOnlyProperties" : [ "/properties/ResourceIdentifier" ],
   "readOnlyProperties" : [ "/properties/ReplicationConfigArn" ],
+  "writeOnlyProperties" : [ "/properties/ResourceIdentifier" ],
   "primaryIdentifier" : [ "/properties/ReplicationConfigArn" ],
   "additionalIdentifiers" : [ [ "/properties/ReplicationConfigIdentifier" ] ],
   "tagging" : {

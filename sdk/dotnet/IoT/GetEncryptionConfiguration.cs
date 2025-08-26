@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetEncryptionConfigurationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier (ID) of an AWS account.
+        /// </summary>
         [Input("accountId", required: true)]
         public string AccountId { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetEncryptionConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier (ID) of an AWS account.
+        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
@@ -57,11 +63,26 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetEncryptionConfigurationResult
     {
+        /// <summary>
+        /// The unique identifier (ID) of an AWS account.
+        /// </summary>
         public readonly string? AccountId;
         public readonly Outputs.ConfigurationDetailsProperties? ConfigurationDetails;
+        /// <summary>
+        /// The type of the KMS key.
+        /// </summary>
         public readonly Pulumi.AwsNative.IoT.EncryptionConfigurationEncryptionType? EncryptionType;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+        /// </summary>
         public readonly string? KmsAccessRoleArn;
+        /// <summary>
+        /// The ARN of the customer managed KMS key.
+        /// </summary>
         public readonly string? KmsKeyArn;
+        /// <summary>
+        /// The date when encryption configuration is last updated.
+        /// </summary>
         public readonly string? LastModifiedDate;
 
         [OutputConstructor]

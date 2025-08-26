@@ -8,6 +8,8 @@ from enum import Enum
 
 __all__ = [
     'DetectorCfnFeatureConfigurationStatus',
+    'ThreatEntitySetStatus',
+    'TrustedEntitySetStatus',
 ]
 
 
@@ -18,3 +20,31 @@ class DetectorCfnFeatureConfigurationStatus(builtins.str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:guardduty:ThreatEntitySetStatus")
+class ThreatEntitySetStatus(builtins.str, Enum):
+    """
+    The status of your `ThreatEntitySet` . For information about valid status values, see [Understanding list statuses](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#guardduty-entity-list-statuses) in the *Amazon GuardDuty User Guide* .
+    """
+    INACTIVE = "INACTIVE"
+    ACTIVATING = "ACTIVATING"
+    ACTIVE = "ACTIVE"
+    DEACTIVATING = "DEACTIVATING"
+    ERROR = "ERROR"
+    DELETE_PENDING = "DELETE_PENDING"
+    DELETED = "DELETED"
+
+
+@pulumi.type_token("aws-native:guardduty:TrustedEntitySetStatus")
+class TrustedEntitySetStatus(builtins.str, Enum):
+    """
+    The status of your `TrustedEntitySet` . For information about valid status values, see [Understanding list statuses](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#guardduty-entity-list-statuses) in the *Amazon GuardDuty User Guide* .
+    """
+    INACTIVE = "INACTIVE"
+    ACTIVATING = "ACTIVATING"
+    ACTIVE = "ACTIVE"
+    DEACTIVATING = "DEACTIVATING"
+    ERROR = "ERROR"
+    DELETE_PENDING = "DELETE_PENDING"
+    DELETED = "DELETED"

@@ -21,6 +21,59 @@ export const CisScanConfigurationDay = {
 
 export type CisScanConfigurationDay = (typeof CisScanConfigurationDay)[keyof typeof CisScanConfigurationDay];
 
+export const CodeSecurityIntegrationIntegrationStatus = {
+    Pending: "PENDING",
+    InProgress: "IN_PROGRESS",
+    Active: "ACTIVE",
+    Inactive: "INACTIVE",
+    Disabling: "DISABLING",
+} as const;
+
+export type CodeSecurityIntegrationIntegrationStatus = (typeof CodeSecurityIntegrationIntegrationStatus)[keyof typeof CodeSecurityIntegrationIntegrationStatus];
+
+export const CodeSecurityIntegrationIntegrationType = {
+    GitlabSelfManaged: "GITLAB_SELF_MANAGED",
+    Github: "GITHUB",
+} as const;
+
+export type CodeSecurityIntegrationIntegrationType = (typeof CodeSecurityIntegrationIntegrationType)[keyof typeof CodeSecurityIntegrationIntegrationType];
+
+export const CodeSecurityScanConfigurationConfigurationLevel = {
+    Organization: "ORGANIZATION",
+    Account: "ACCOUNT",
+} as const;
+
+export type CodeSecurityScanConfigurationConfigurationLevel = (typeof CodeSecurityScanConfigurationConfigurationLevel)[keyof typeof CodeSecurityScanConfigurationConfigurationLevel];
+
+export const CodeSecurityScanConfigurationContinuousIntegrationScanEvent = {
+    PullRequest: "PULL_REQUEST",
+    Push: "PUSH",
+} as const;
+
+export type CodeSecurityScanConfigurationContinuousIntegrationScanEvent = (typeof CodeSecurityScanConfigurationContinuousIntegrationScanEvent)[keyof typeof CodeSecurityScanConfigurationContinuousIntegrationScanEvent];
+
+export const CodeSecurityScanConfigurationPeriodicScanFrequency = {
+    Weekly: "WEEKLY",
+    Monthly: "MONTHLY",
+    Never: "NEVER",
+} as const;
+
+export type CodeSecurityScanConfigurationPeriodicScanFrequency = (typeof CodeSecurityScanConfigurationPeriodicScanFrequency)[keyof typeof CodeSecurityScanConfigurationPeriodicScanFrequency];
+
+export const CodeSecurityScanConfigurationProjectSelectionScope = {
+    All: "ALL",
+} as const;
+
+export type CodeSecurityScanConfigurationProjectSelectionScope = (typeof CodeSecurityScanConfigurationProjectSelectionScope)[keyof typeof CodeSecurityScanConfigurationProjectSelectionScope];
+
+export const CodeSecurityScanConfigurationRuleSetCategory = {
+    Sast: "SAST",
+    Iac: "IAC",
+    Sca: "SCA",
+} as const;
+
+export type CodeSecurityScanConfigurationRuleSetCategory = (typeof CodeSecurityScanConfigurationRuleSetCategory)[keyof typeof CodeSecurityScanConfigurationRuleSetCategory];
+
 export const FilterAction = {
     None: "NONE",
     Suppress: "SUPPRESS",

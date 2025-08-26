@@ -42,6 +42,7 @@ export type FleetCustomerManagedFleetOperatingSystemFamily = (typeof FleetCustom
 export const FleetEc2MarketType = {
     OnDemand: "on-demand",
     Spot: "spot",
+    WaitAndSave: "wait-and-save",
 } as const;
 
 export type FleetEc2MarketType = (typeof FleetEc2MarketType)[keyof typeof FleetEc2MarketType];
@@ -59,6 +60,7 @@ export const FleetStatus = {
     UpdateInProgress: "UPDATE_IN_PROGRESS",
     CreateFailed: "CREATE_FAILED",
     UpdateFailed: "UPDATE_FAILED",
+    Suspended: "SUSPENDED",
 } as const;
 
 export type FleetStatus = (typeof FleetStatus)[keyof typeof FleetStatus];

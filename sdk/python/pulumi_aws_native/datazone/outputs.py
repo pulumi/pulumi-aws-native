@@ -73,6 +73,44 @@ __all__ = [
     'EnvironmentParameter',
     'EnvironmentProfileEnvironmentParameter',
     'OwnerProperties',
+    'PolicyGrantAddToProjectMemberPoolPolicyGrantDetail',
+    'PolicyGrantAllDomainUnitsGrantFilter',
+    'PolicyGrantAllUsersGrantFilter',
+    'PolicyGrantCreateAssetTypePolicyGrantDetail',
+    'PolicyGrantCreateDomainUnitPolicyGrantDetail',
+    'PolicyGrantCreateEnvironmentProfilePolicyGrantDetail',
+    'PolicyGrantCreateFormTypePolicyGrantDetail',
+    'PolicyGrantCreateGlossaryPolicyGrantDetail',
+    'PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetail',
+    'PolicyGrantCreateProjectPolicyGrantDetail',
+    'PolicyGrantDetail0Properties',
+    'PolicyGrantDetail10Properties',
+    'PolicyGrantDetail11Properties',
+    'PolicyGrantDetail12Properties',
+    'PolicyGrantDetail1Properties',
+    'PolicyGrantDetail2Properties',
+    'PolicyGrantDetail3Properties',
+    'PolicyGrantDetail4Properties',
+    'PolicyGrantDetail5Properties',
+    'PolicyGrantDetail6Properties',
+    'PolicyGrantDetail7Properties',
+    'PolicyGrantDetail8Properties',
+    'PolicyGrantDetail9Properties',
+    'PolicyGrantDomainUnitFilterForProject',
+    'PolicyGrantDomainUnitGrantFilterProperties',
+    'PolicyGrantDomainUnitPolicyGrantPrincipal',
+    'PolicyGrantGroupPolicyGrantPrincipalProperties',
+    'PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetail',
+    'PolicyGrantOverrideProjectOwnersPolicyGrantDetail',
+    'PolicyGrantPrincipal0Properties',
+    'PolicyGrantPrincipal1Properties',
+    'PolicyGrantPrincipal2Properties',
+    'PolicyGrantPrincipal3Properties',
+    'PolicyGrantProjectGrantFilterProperties',
+    'PolicyGrantProjectPolicyGrantPrincipal',
+    'PolicyGrantUnit',
+    'PolicyGrantUserPolicyGrantPrincipal0Properties',
+    'PolicyGrantUserPolicyGrantPrincipal1Properties',
     'ProjectEnvironmentConfigurationUserParameter',
     'ProjectEnvironmentParameter',
     'ProjectMembershipMember0Properties',
@@ -2587,6 +2625,1060 @@ class OwnerProperties(dict):
         The properties of a domain unit's owner.
         """
         pass
+
+
+@pulumi.output_type
+class PolicyGrantAddToProjectMemberPoolPolicyGrantDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeChildDomainUnits":
+            suggest = "include_child_domain_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantAddToProjectMemberPoolPolicyGrantDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantAddToProjectMemberPoolPolicyGrantDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantAddToProjectMemberPoolPolicyGrantDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 include_child_domain_units: Optional[builtins.bool] = None):
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "include_child_domain_units")
+
+
+@pulumi.output_type
+class PolicyGrantAllDomainUnitsGrantFilter(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class PolicyGrantAllUsersGrantFilter(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class PolicyGrantCreateAssetTypePolicyGrantDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeChildDomainUnits":
+            suggest = "include_child_domain_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantCreateAssetTypePolicyGrantDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantCreateAssetTypePolicyGrantDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantCreateAssetTypePolicyGrantDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 include_child_domain_units: Optional[builtins.bool] = None):
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "include_child_domain_units")
+
+
+@pulumi.output_type
+class PolicyGrantCreateDomainUnitPolicyGrantDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeChildDomainUnits":
+            suggest = "include_child_domain_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantCreateDomainUnitPolicyGrantDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantCreateDomainUnitPolicyGrantDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantCreateDomainUnitPolicyGrantDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 include_child_domain_units: Optional[builtins.bool] = None):
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "include_child_domain_units")
+
+
+@pulumi.output_type
+class PolicyGrantCreateEnvironmentProfilePolicyGrantDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainUnitId":
+            suggest = "domain_unit_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantCreateEnvironmentProfilePolicyGrantDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantCreateEnvironmentProfilePolicyGrantDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantCreateEnvironmentProfilePolicyGrantDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_unit_id: Optional[builtins.str] = None):
+        if domain_unit_id is not None:
+            pulumi.set(__self__, "domain_unit_id", domain_unit_id)
+
+    @property
+    @pulumi.getter(name="domainUnitId")
+    def domain_unit_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "domain_unit_id")
+
+
+@pulumi.output_type
+class PolicyGrantCreateFormTypePolicyGrantDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeChildDomainUnits":
+            suggest = "include_child_domain_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantCreateFormTypePolicyGrantDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantCreateFormTypePolicyGrantDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantCreateFormTypePolicyGrantDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 include_child_domain_units: Optional[builtins.bool] = None):
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "include_child_domain_units")
+
+
+@pulumi.output_type
+class PolicyGrantCreateGlossaryPolicyGrantDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeChildDomainUnits":
+            suggest = "include_child_domain_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantCreateGlossaryPolicyGrantDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantCreateGlossaryPolicyGrantDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantCreateGlossaryPolicyGrantDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 include_child_domain_units: Optional[builtins.bool] = None):
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "include_child_domain_units")
+
+
+@pulumi.output_type
+class PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeChildDomainUnits":
+            suggest = "include_child_domain_units"
+        elif key == "projectProfiles":
+            suggest = "project_profiles"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 include_child_domain_units: Optional[builtins.bool] = None,
+                 project_profiles: Optional[Sequence[builtins.str]] = None):
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+        if project_profiles is not None:
+            pulumi.set(__self__, "project_profiles", project_profiles)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "include_child_domain_units")
+
+    @property
+    @pulumi.getter(name="projectProfiles")
+    def project_profiles(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "project_profiles")
+
+
+@pulumi.output_type
+class PolicyGrantCreateProjectPolicyGrantDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeChildDomainUnits":
+            suggest = "include_child_domain_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantCreateProjectPolicyGrantDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantCreateProjectPolicyGrantDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantCreateProjectPolicyGrantDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 include_child_domain_units: Optional[builtins.bool] = None):
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "include_child_domain_units")
+
+
+@pulumi.output_type
+class PolicyGrantDetail0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createDomainUnit":
+            suggest = "create_domain_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantDetail0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantDetail0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantDetail0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 create_domain_unit: 'outputs.PolicyGrantCreateDomainUnitPolicyGrantDetail'):
+        pulumi.set(__self__, "create_domain_unit", create_domain_unit)
+
+    @property
+    @pulumi.getter(name="createDomainUnit")
+    def create_domain_unit(self) -> 'outputs.PolicyGrantCreateDomainUnitPolicyGrantDetail':
+        return pulumi.get(self, "create_domain_unit")
+
+
+@pulumi.output_type
+class PolicyGrantDetail10Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createEnvironment":
+            suggest = "create_environment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantDetail10Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantDetail10Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantDetail10Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 create_environment: 'outputs.PolicyGrantUnit'):
+        pulumi.set(__self__, "create_environment", create_environment)
+
+    @property
+    @pulumi.getter(name="createEnvironment")
+    def create_environment(self) -> 'outputs.PolicyGrantUnit':
+        return pulumi.get(self, "create_environment")
+
+
+@pulumi.output_type
+class PolicyGrantDetail11Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createEnvironmentFromBlueprint":
+            suggest = "create_environment_from_blueprint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantDetail11Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantDetail11Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantDetail11Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 create_environment_from_blueprint: 'outputs.PolicyGrantUnit'):
+        pulumi.set(__self__, "create_environment_from_blueprint", create_environment_from_blueprint)
+
+    @property
+    @pulumi.getter(name="createEnvironmentFromBlueprint")
+    def create_environment_from_blueprint(self) -> 'outputs.PolicyGrantUnit':
+        return pulumi.get(self, "create_environment_from_blueprint")
+
+
+@pulumi.output_type
+class PolicyGrantDetail12Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createProjectFromProjectProfile":
+            suggest = "create_project_from_project_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantDetail12Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantDetail12Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantDetail12Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 create_project_from_project_profile: 'outputs.PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetail'):
+        pulumi.set(__self__, "create_project_from_project_profile", create_project_from_project_profile)
+
+    @property
+    @pulumi.getter(name="createProjectFromProjectProfile")
+    def create_project_from_project_profile(self) -> 'outputs.PolicyGrantCreateProjectFromProjectProfilePolicyGrantDetail':
+        return pulumi.get(self, "create_project_from_project_profile")
+
+
+@pulumi.output_type
+class PolicyGrantDetail1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "overrideDomainUnitOwners":
+            suggest = "override_domain_unit_owners"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantDetail1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantDetail1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantDetail1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 override_domain_unit_owners: 'outputs.PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetail'):
+        pulumi.set(__self__, "override_domain_unit_owners", override_domain_unit_owners)
+
+    @property
+    @pulumi.getter(name="overrideDomainUnitOwners")
+    def override_domain_unit_owners(self) -> 'outputs.PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetail':
+        return pulumi.get(self, "override_domain_unit_owners")
+
+
+@pulumi.output_type
+class PolicyGrantDetail2Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addToProjectMemberPool":
+            suggest = "add_to_project_member_pool"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantDetail2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantDetail2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantDetail2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 add_to_project_member_pool: 'outputs.PolicyGrantAddToProjectMemberPoolPolicyGrantDetail'):
+        pulumi.set(__self__, "add_to_project_member_pool", add_to_project_member_pool)
+
+    @property
+    @pulumi.getter(name="addToProjectMemberPool")
+    def add_to_project_member_pool(self) -> 'outputs.PolicyGrantAddToProjectMemberPoolPolicyGrantDetail':
+        return pulumi.get(self, "add_to_project_member_pool")
+
+
+@pulumi.output_type
+class PolicyGrantDetail3Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "overrideProjectOwners":
+            suggest = "override_project_owners"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantDetail3Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantDetail3Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantDetail3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 override_project_owners: 'outputs.PolicyGrantOverrideProjectOwnersPolicyGrantDetail'):
+        pulumi.set(__self__, "override_project_owners", override_project_owners)
+
+    @property
+    @pulumi.getter(name="overrideProjectOwners")
+    def override_project_owners(self) -> 'outputs.PolicyGrantOverrideProjectOwnersPolicyGrantDetail':
+        return pulumi.get(self, "override_project_owners")
+
+
+@pulumi.output_type
+class PolicyGrantDetail4Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createGlossary":
+            suggest = "create_glossary"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantDetail4Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantDetail4Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantDetail4Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 create_glossary: 'outputs.PolicyGrantCreateGlossaryPolicyGrantDetail'):
+        pulumi.set(__self__, "create_glossary", create_glossary)
+
+    @property
+    @pulumi.getter(name="createGlossary")
+    def create_glossary(self) -> 'outputs.PolicyGrantCreateGlossaryPolicyGrantDetail':
+        return pulumi.get(self, "create_glossary")
+
+
+@pulumi.output_type
+class PolicyGrantDetail5Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createFormType":
+            suggest = "create_form_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantDetail5Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantDetail5Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantDetail5Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 create_form_type: 'outputs.PolicyGrantCreateFormTypePolicyGrantDetail'):
+        pulumi.set(__self__, "create_form_type", create_form_type)
+
+    @property
+    @pulumi.getter(name="createFormType")
+    def create_form_type(self) -> 'outputs.PolicyGrantCreateFormTypePolicyGrantDetail':
+        return pulumi.get(self, "create_form_type")
+
+
+@pulumi.output_type
+class PolicyGrantDetail6Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createAssetType":
+            suggest = "create_asset_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantDetail6Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantDetail6Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantDetail6Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 create_asset_type: 'outputs.PolicyGrantCreateAssetTypePolicyGrantDetail'):
+        pulumi.set(__self__, "create_asset_type", create_asset_type)
+
+    @property
+    @pulumi.getter(name="createAssetType")
+    def create_asset_type(self) -> 'outputs.PolicyGrantCreateAssetTypePolicyGrantDetail':
+        return pulumi.get(self, "create_asset_type")
+
+
+@pulumi.output_type
+class PolicyGrantDetail7Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createProject":
+            suggest = "create_project"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantDetail7Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantDetail7Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantDetail7Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 create_project: 'outputs.PolicyGrantCreateProjectPolicyGrantDetail'):
+        pulumi.set(__self__, "create_project", create_project)
+
+    @property
+    @pulumi.getter(name="createProject")
+    def create_project(self) -> 'outputs.PolicyGrantCreateProjectPolicyGrantDetail':
+        return pulumi.get(self, "create_project")
+
+
+@pulumi.output_type
+class PolicyGrantDetail8Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createEnvironmentProfile":
+            suggest = "create_environment_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantDetail8Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantDetail8Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantDetail8Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 create_environment_profile: 'outputs.PolicyGrantCreateEnvironmentProfilePolicyGrantDetail'):
+        pulumi.set(__self__, "create_environment_profile", create_environment_profile)
+
+    @property
+    @pulumi.getter(name="createEnvironmentProfile")
+    def create_environment_profile(self) -> 'outputs.PolicyGrantCreateEnvironmentProfilePolicyGrantDetail':
+        return pulumi.get(self, "create_environment_profile")
+
+
+@pulumi.output_type
+class PolicyGrantDetail9Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "delegateCreateEnvironmentProfile":
+            suggest = "delegate_create_environment_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantDetail9Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantDetail9Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantDetail9Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delegate_create_environment_profile: 'outputs.PolicyGrantUnit'):
+        pulumi.set(__self__, "delegate_create_environment_profile", delegate_create_environment_profile)
+
+    @property
+    @pulumi.getter(name="delegateCreateEnvironmentProfile")
+    def delegate_create_environment_profile(self) -> 'outputs.PolicyGrantUnit':
+        return pulumi.get(self, "delegate_create_environment_profile")
+
+
+@pulumi.output_type
+class PolicyGrantDomainUnitFilterForProject(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainUnit":
+            suggest = "domain_unit"
+        elif key == "includeChildDomainUnits":
+            suggest = "include_child_domain_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantDomainUnitFilterForProject. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantDomainUnitFilterForProject.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantDomainUnitFilterForProject.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_unit: builtins.str,
+                 include_child_domain_units: Optional[builtins.bool] = None):
+        pulumi.set(__self__, "domain_unit", domain_unit)
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @property
+    @pulumi.getter(name="domainUnit")
+    def domain_unit(self) -> builtins.str:
+        return pulumi.get(self, "domain_unit")
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "include_child_domain_units")
+
+
+@pulumi.output_type
+class PolicyGrantDomainUnitGrantFilterProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allDomainUnitsGrantFilter":
+            suggest = "all_domain_units_grant_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantDomainUnitGrantFilterProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantDomainUnitGrantFilterProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantDomainUnitGrantFilterProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 all_domain_units_grant_filter: 'outputs.PolicyGrantAllDomainUnitsGrantFilter'):
+        pulumi.set(__self__, "all_domain_units_grant_filter", all_domain_units_grant_filter)
+
+    @property
+    @pulumi.getter(name="allDomainUnitsGrantFilter")
+    def all_domain_units_grant_filter(self) -> 'outputs.PolicyGrantAllDomainUnitsGrantFilter':
+        return pulumi.get(self, "all_domain_units_grant_filter")
+
+
+@pulumi.output_type
+class PolicyGrantDomainUnitPolicyGrantPrincipal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainUnitDesignation":
+            suggest = "domain_unit_designation"
+        elif key == "domainUnitGrantFilter":
+            suggest = "domain_unit_grant_filter"
+        elif key == "domainUnitIdentifier":
+            suggest = "domain_unit_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantDomainUnitPolicyGrantPrincipal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantDomainUnitPolicyGrantPrincipal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantDomainUnitPolicyGrantPrincipal.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_unit_designation: Optional['PolicyGrantDomainUnitDesignation'] = None,
+                 domain_unit_grant_filter: Optional['outputs.PolicyGrantDomainUnitGrantFilterProperties'] = None,
+                 domain_unit_identifier: Optional[builtins.str] = None):
+        if domain_unit_designation is not None:
+            pulumi.set(__self__, "domain_unit_designation", domain_unit_designation)
+        if domain_unit_grant_filter is not None:
+            pulumi.set(__self__, "domain_unit_grant_filter", domain_unit_grant_filter)
+        if domain_unit_identifier is not None:
+            pulumi.set(__self__, "domain_unit_identifier", domain_unit_identifier)
+
+    @property
+    @pulumi.getter(name="domainUnitDesignation")
+    def domain_unit_designation(self) -> Optional['PolicyGrantDomainUnitDesignation']:
+        return pulumi.get(self, "domain_unit_designation")
+
+    @property
+    @pulumi.getter(name="domainUnitGrantFilter")
+    def domain_unit_grant_filter(self) -> Optional['outputs.PolicyGrantDomainUnitGrantFilterProperties']:
+        return pulumi.get(self, "domain_unit_grant_filter")
+
+    @property
+    @pulumi.getter(name="domainUnitIdentifier")
+    def domain_unit_identifier(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "domain_unit_identifier")
+
+
+@pulumi.output_type
+class PolicyGrantGroupPolicyGrantPrincipalProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIdentifier":
+            suggest = "group_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantGroupPolicyGrantPrincipalProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantGroupPolicyGrantPrincipalProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantGroupPolicyGrantPrincipalProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_identifier: builtins.str):
+        pulumi.set(__self__, "group_identifier", group_identifier)
+
+    @property
+    @pulumi.getter(name="groupIdentifier")
+    def group_identifier(self) -> builtins.str:
+        return pulumi.get(self, "group_identifier")
+
+
+@pulumi.output_type
+class PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeChildDomainUnits":
+            suggest = "include_child_domain_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantOverrideDomainUnitOwnersPolicyGrantDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 include_child_domain_units: Optional[builtins.bool] = None):
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "include_child_domain_units")
+
+
+@pulumi.output_type
+class PolicyGrantOverrideProjectOwnersPolicyGrantDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeChildDomainUnits":
+            suggest = "include_child_domain_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantOverrideProjectOwnersPolicyGrantDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantOverrideProjectOwnersPolicyGrantDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantOverrideProjectOwnersPolicyGrantDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 include_child_domain_units: Optional[builtins.bool] = None):
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "include_child_domain_units")
+
+
+@pulumi.output_type
+class PolicyGrantPrincipal0Properties(dict):
+    def __init__(__self__, *,
+                 user: Any):
+        pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Any:
+        return pulumi.get(self, "user")
+
+
+@pulumi.output_type
+class PolicyGrantPrincipal1Properties(dict):
+    def __init__(__self__, *,
+                 group: 'outputs.PolicyGrantGroupPolicyGrantPrincipalProperties'):
+        pulumi.set(__self__, "group", group)
+
+    @property
+    @pulumi.getter
+    def group(self) -> 'outputs.PolicyGrantGroupPolicyGrantPrincipalProperties':
+        return pulumi.get(self, "group")
+
+
+@pulumi.output_type
+class PolicyGrantPrincipal2Properties(dict):
+    def __init__(__self__, *,
+                 project: 'outputs.PolicyGrantProjectPolicyGrantPrincipal'):
+        pulumi.set(__self__, "project", project)
+
+    @property
+    @pulumi.getter
+    def project(self) -> 'outputs.PolicyGrantProjectPolicyGrantPrincipal':
+        return pulumi.get(self, "project")
+
+
+@pulumi.output_type
+class PolicyGrantPrincipal3Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainUnit":
+            suggest = "domain_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantPrincipal3Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantPrincipal3Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantPrincipal3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_unit: 'outputs.PolicyGrantDomainUnitPolicyGrantPrincipal'):
+        pulumi.set(__self__, "domain_unit", domain_unit)
+
+    @property
+    @pulumi.getter(name="domainUnit")
+    def domain_unit(self) -> 'outputs.PolicyGrantDomainUnitPolicyGrantPrincipal':
+        return pulumi.get(self, "domain_unit")
+
+
+@pulumi.output_type
+class PolicyGrantProjectGrantFilterProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainUnitFilter":
+            suggest = "domain_unit_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantProjectGrantFilterProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantProjectGrantFilterProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantProjectGrantFilterProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_unit_filter: 'outputs.PolicyGrantDomainUnitFilterForProject'):
+        pulumi.set(__self__, "domain_unit_filter", domain_unit_filter)
+
+    @property
+    @pulumi.getter(name="domainUnitFilter")
+    def domain_unit_filter(self) -> 'outputs.PolicyGrantDomainUnitFilterForProject':
+        return pulumi.get(self, "domain_unit_filter")
+
+
+@pulumi.output_type
+class PolicyGrantProjectPolicyGrantPrincipal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "projectDesignation":
+            suggest = "project_designation"
+        elif key == "projectGrantFilter":
+            suggest = "project_grant_filter"
+        elif key == "projectIdentifier":
+            suggest = "project_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantProjectPolicyGrantPrincipal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantProjectPolicyGrantPrincipal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantProjectPolicyGrantPrincipal.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 project_designation: Optional['PolicyGrantProjectDesignation'] = None,
+                 project_grant_filter: Optional['outputs.PolicyGrantProjectGrantFilterProperties'] = None,
+                 project_identifier: Optional[builtins.str] = None):
+        if project_designation is not None:
+            pulumi.set(__self__, "project_designation", project_designation)
+        if project_grant_filter is not None:
+            pulumi.set(__self__, "project_grant_filter", project_grant_filter)
+        if project_identifier is not None:
+            pulumi.set(__self__, "project_identifier", project_identifier)
+
+    @property
+    @pulumi.getter(name="projectDesignation")
+    def project_designation(self) -> Optional['PolicyGrantProjectDesignation']:
+        return pulumi.get(self, "project_designation")
+
+    @property
+    @pulumi.getter(name="projectGrantFilter")
+    def project_grant_filter(self) -> Optional['outputs.PolicyGrantProjectGrantFilterProperties']:
+        return pulumi.get(self, "project_grant_filter")
+
+    @property
+    @pulumi.getter(name="projectIdentifier")
+    def project_identifier(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "project_identifier")
+
+
+@pulumi.output_type
+class PolicyGrantUnit(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class PolicyGrantUserPolicyGrantPrincipal0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userIdentifier":
+            suggest = "user_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantUserPolicyGrantPrincipal0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantUserPolicyGrantPrincipal0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantUserPolicyGrantPrincipal0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 user_identifier: builtins.str):
+        pulumi.set(__self__, "user_identifier", user_identifier)
+
+    @property
+    @pulumi.getter(name="userIdentifier")
+    def user_identifier(self) -> builtins.str:
+        return pulumi.get(self, "user_identifier")
+
+
+@pulumi.output_type
+class PolicyGrantUserPolicyGrantPrincipal1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allUsersGrantFilter":
+            suggest = "all_users_grant_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyGrantUserPolicyGrantPrincipal1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyGrantUserPolicyGrantPrincipal1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyGrantUserPolicyGrantPrincipal1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 all_users_grant_filter: 'outputs.PolicyGrantAllUsersGrantFilter'):
+        pulumi.set(__self__, "all_users_grant_filter", all_users_grant_filter)
+
+    @property
+    @pulumi.getter(name="allUsersGrantFilter")
+    def all_users_grant_filter(self) -> 'outputs.PolicyGrantAllUsersGrantFilter':
+        return pulumi.get(self, "all_users_grant_filter")
 
 
 @pulumi.output_type

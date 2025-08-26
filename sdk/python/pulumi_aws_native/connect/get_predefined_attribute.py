@@ -25,16 +25,30 @@ __all__ = [
 
 @pulumi.output_type
 class GetPredefinedAttributeResult:
-    def __init__(__self__, last_modified_region=None, last_modified_time=None, values=None):
+    def __init__(__self__, attribute_configuration=None, last_modified_region=None, last_modified_time=None, purposes=None, values=None):
+        if attribute_configuration and not isinstance(attribute_configuration, dict):
+            raise TypeError("Expected argument 'attribute_configuration' to be a dict")
+        pulumi.set(__self__, "attribute_configuration", attribute_configuration)
         if last_modified_region and not isinstance(last_modified_region, str):
             raise TypeError("Expected argument 'last_modified_region' to be a str")
         pulumi.set(__self__, "last_modified_region", last_modified_region)
         if last_modified_time and not isinstance(last_modified_time, float):
             raise TypeError("Expected argument 'last_modified_time' to be a float")
         pulumi.set(__self__, "last_modified_time", last_modified_time)
+        if purposes and not isinstance(purposes, list):
+            raise TypeError("Expected argument 'purposes' to be a list")
+        pulumi.set(__self__, "purposes", purposes)
         if values and not isinstance(values, dict):
             raise TypeError("Expected argument 'values' to be a dict")
         pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="attributeConfiguration")
+    def attribute_configuration(self) -> Optional['outputs.AttributeConfigurationProperties']:
+        """
+        Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+        """
+        return pulumi.get(self, "attribute_configuration")
 
     @property
     @pulumi.getter(name="lastModifiedRegion")
@@ -54,6 +68,14 @@ class GetPredefinedAttributeResult:
 
     @property
     @pulumi.getter
+    def purposes(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The assigned purposes of the predefined attribute.
+        """
+        return pulumi.get(self, "purposes")
+
+    @property
+    @pulumi.getter
     def values(self) -> Optional['outputs.ValuesProperties']:
         """
         The values of a predefined attribute.
@@ -67,8 +89,10 @@ class AwaitableGetPredefinedAttributeResult(GetPredefinedAttributeResult):
         if False:
             yield self
         return GetPredefinedAttributeResult(
+            attribute_configuration=self.attribute_configuration,
             last_modified_region=self.last_modified_region,
             last_modified_time=self.last_modified_time,
+            purposes=self.purposes,
             values=self.values)
 
 
@@ -89,8 +113,10 @@ def get_predefined_attribute(instance_arn: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getPredefinedAttribute', __args__, opts=opts, typ=GetPredefinedAttributeResult).value
 
     return AwaitableGetPredefinedAttributeResult(
+        attribute_configuration=pulumi.get(__ret__, 'attribute_configuration'),
         last_modified_region=pulumi.get(__ret__, 'last_modified_region'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        purposes=pulumi.get(__ret__, 'purposes'),
         values=pulumi.get(__ret__, 'values'))
 def get_predefined_attribute_output(instance_arn: Optional[pulumi.Input[builtins.str]] = None,
                                     name: Optional[pulumi.Input[builtins.str]] = None,
@@ -108,6 +134,8 @@ def get_predefined_attribute_output(instance_arn: Optional[pulumi.Input[builtins
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getPredefinedAttribute', __args__, opts=opts, typ=GetPredefinedAttributeResult)
     return __ret__.apply(lambda __response__: GetPredefinedAttributeResult(
+        attribute_configuration=pulumi.get(__response__, 'attribute_configuration'),
         last_modified_region=pulumi.get(__response__, 'last_modified_region'),
         last_modified_time=pulumi.get(__response__, 'last_modified_time'),
+        purposes=pulumi.get(__response__, 'purposes'),
         values=pulumi.get(__response__, 'values')))

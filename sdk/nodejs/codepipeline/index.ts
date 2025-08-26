@@ -20,10 +20,20 @@ export const getPipeline: typeof import("./getPipeline").getPipeline = null as a
 export const getPipelineOutput: typeof import("./getPipeline").getPipelineOutput = null as any;
 utilities.lazyLoad(exports, ["getPipeline","getPipelineOutput"], () => require("./getPipeline"));
 
+export { GetWebhookArgs, GetWebhookResult, GetWebhookOutputArgs } from "./getWebhook";
+export const getWebhook: typeof import("./getWebhook").getWebhook = null as any;
+export const getWebhookOutput: typeof import("./getWebhook").getWebhookOutput = null as any;
+utilities.lazyLoad(exports, ["getWebhook","getWebhookOutput"], () => require("./getWebhook"));
+
 export { PipelineArgs } from "./pipeline";
 export type Pipeline = import("./pipeline").Pipeline;
 export const Pipeline: typeof import("./pipeline").Pipeline = null as any;
 utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
+
+export { WebhookArgs } from "./webhook";
+export type Webhook = import("./webhook").Webhook;
+export const Webhook: typeof import("./webhook").Webhook = null as any;
+utilities.lazyLoad(exports, ["Webhook"], () => require("./webhook"));
 
 
 // Export enums:
@@ -37,6 +47,8 @@ const _module = {
                 return new CustomActionType(name, <any>undefined, { urn })
             case "aws-native:codepipeline:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
+            case "aws-native:codepipeline:Webhook":
+                return new Webhook(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

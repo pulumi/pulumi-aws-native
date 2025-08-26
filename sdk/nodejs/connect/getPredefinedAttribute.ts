@@ -31,6 +31,10 @@ export interface GetPredefinedAttributeArgs {
 
 export interface GetPredefinedAttributeResult {
     /**
+     * Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+     */
+    readonly attributeConfiguration?: outputs.connect.AttributeConfigurationProperties;
+    /**
      * Last modified region.
      */
     readonly lastModifiedRegion?: string;
@@ -38,6 +42,10 @@ export interface GetPredefinedAttributeResult {
      * Last modified time.
      */
     readonly lastModifiedTime?: number;
+    /**
+     * The assigned purposes of the predefined attribute.
+     */
+    readonly purposes?: string[];
     /**
      * The values of a predefined attribute.
      */

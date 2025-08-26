@@ -28,6 +28,10 @@ export interface GetConfiguredTableArgs {
 
 export interface GetConfiguredTableResult {
     /**
+     * The columns within the underlying AWS Glue table that can be utilized within collaborations.
+     */
+    readonly allowedColumns?: string[];
+    /**
      * The analysis method for the configured table.
      *
      * `DIRECT_QUERY` allows SQL queries to be run directly on this table.
@@ -65,6 +69,10 @@ export interface GetConfiguredTableResult {
      * The selected analysis methods for the configured table.
      */
     readonly selectedAnalysisMethods?: enums.cleanrooms.ConfiguredTableSelectedAnalysisMethod[];
+    /**
+     * The table that this configured table represents.
+     */
+    readonly tableReference?: outputs.cleanrooms.ConfiguredTableTableReference0Properties | outputs.cleanrooms.ConfiguredTableTableReference1Properties | outputs.cleanrooms.ConfiguredTableTableReference2Properties;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */

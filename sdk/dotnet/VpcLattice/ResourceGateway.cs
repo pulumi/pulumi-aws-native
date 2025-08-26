@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<Pulumi.AwsNative.VpcLattice.ResourceGatewayIpAddressType?> IpAddressType { get; private set; } = null!;
 
         /// <summary>
+        /// The number of IPv4 addresses to allocate per ENI for the resource gateway
+        /// </summary>
+        [Output("ipv4AddressesPerEni")]
+        public Output<int?> Ipv4AddressesPerEni { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource gateway.
         /// </summary>
         [Output("name")]
@@ -120,6 +126,12 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         [Input("ipAddressType")]
         public Input<Pulumi.AwsNative.VpcLattice.ResourceGatewayIpAddressType>? IpAddressType { get; set; }
+
+        /// <summary>
+        /// The number of IPv4 addresses to allocate per ENI for the resource gateway
+        /// </summary>
+        [Input("ipv4AddressesPerEni")]
+        public Input<int>? Ipv4AddressesPerEni { get; set; }
 
         /// <summary>
         /// The name of the resource gateway.

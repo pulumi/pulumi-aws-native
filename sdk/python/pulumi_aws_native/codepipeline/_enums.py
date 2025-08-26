@@ -16,6 +16,7 @@ __all__ = [
     'PipelineFailureConditionsRetryConfigurationPropertiesRetryMode',
     'PipelineTriggerDeclarationProviderType',
     'PipelineType',
+    'WebhookAuthentication',
 ]
 
 
@@ -101,3 +102,13 @@ class PipelineType(builtins.str, Enum):
     """
     V1 = "V1"
     V2 = "V2"
+
+
+@pulumi.type_token("aws-native:codepipeline:WebhookAuthentication")
+class WebhookAuthentication(builtins.str, Enum):
+    """
+    Supported options are GITHUB_HMAC, IP, and UNAUTHENTICATED.
+    """
+    GITHUB_HMAC = "GITHUB_HMAC"
+    IP = "IP"
+    UNAUTHENTICATED = "UNAUTHENTICATED"

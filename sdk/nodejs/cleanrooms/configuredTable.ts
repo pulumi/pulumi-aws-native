@@ -131,8 +131,6 @@ export class ConfiguredTable extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["allowedColumns[*]", "tableReference"] };
-        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConfiguredTable.__pulumiType, name, resourceInputs, opts);
     }
 }

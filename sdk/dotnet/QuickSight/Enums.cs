@@ -2491,6 +2491,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static AnalysisResourceStatus UpdateInProgress { get; } = new AnalysisResourceStatus("UPDATE_IN_PROGRESS");
         public static AnalysisResourceStatus UpdateSuccessful { get; } = new AnalysisResourceStatus("UPDATE_SUCCESSFUL");
         public static AnalysisResourceStatus UpdateFailed { get; } = new AnalysisResourceStatus("UPDATE_FAILED");
+        public static AnalysisResourceStatus PendingUpdate { get; } = new AnalysisResourceStatus("PENDING_UPDATE");
         public static AnalysisResourceStatus Deleted { get; } = new AnalysisResourceStatus("DELETED");
 
         public static bool operator ==(AnalysisResourceStatus left, AnalysisResourceStatus right) => left.Equals(right);
@@ -6249,6 +6250,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static DashboardResourceStatus UpdateInProgress { get; } = new DashboardResourceStatus("UPDATE_IN_PROGRESS");
         public static DashboardResourceStatus UpdateSuccessful { get; } = new DashboardResourceStatus("UPDATE_SUCCESSFUL");
         public static DashboardResourceStatus UpdateFailed { get; } = new DashboardResourceStatus("UPDATE_FAILED");
+        public static DashboardResourceStatus PendingUpdate { get; } = new DashboardResourceStatus("PENDING_UPDATE");
         public static DashboardResourceStatus Deleted { get; } = new DashboardResourceStatus("DELETED");
 
         public static bool operator ==(DashboardResourceStatus left, DashboardResourceStatus right) => left.Equals(right);
@@ -10805,6 +10807,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static TemplateResourceStatus UpdateInProgress { get; } = new TemplateResourceStatus("UPDATE_IN_PROGRESS");
         public static TemplateResourceStatus UpdateSuccessful { get; } = new TemplateResourceStatus("UPDATE_SUCCESSFUL");
         public static TemplateResourceStatus UpdateFailed { get; } = new TemplateResourceStatus("UPDATE_FAILED");
+        public static TemplateResourceStatus PendingUpdate { get; } = new TemplateResourceStatus("PENDING_UPDATE");
         public static TemplateResourceStatus Deleted { get; } = new TemplateResourceStatus("DELETED");
 
         public static bool operator ==(TemplateResourceStatus left, TemplateResourceStatus right) => left.Equals(right);
@@ -12095,6 +12098,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static ThemeResourceStatus UpdateInProgress { get; } = new ThemeResourceStatus("UPDATE_IN_PROGRESS");
         public static ThemeResourceStatus UpdateSuccessful { get; } = new ThemeResourceStatus("UPDATE_SUCCESSFUL");
         public static ThemeResourceStatus UpdateFailed { get; } = new ThemeResourceStatus("UPDATE_FAILED");
+        public static ThemeResourceStatus PendingUpdate { get; } = new ThemeResourceStatus("PENDING_UPDATE");
         public static ThemeResourceStatus Deleted { get; } = new ThemeResourceStatus("DELETED");
 
         public static bool operator ==(ThemeResourceStatus left, ThemeResourceStatus right) => left.Equals(right);

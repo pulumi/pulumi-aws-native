@@ -27,6 +27,9 @@ class EncryptionConfigurationArgs:
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a EncryptionConfiguration resource.
+        :param pulumi.Input['EncryptionConfigurationEncryptionType'] encryption_type: The type of the KMS key.
+        :param pulumi.Input[builtins.str] kms_access_role_arn: The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+        :param pulumi.Input[builtins.str] kms_key_arn: The ARN of the customer managed KMS key.
         """
         pulumi.set(__self__, "encryption_type", encryption_type)
         if kms_access_role_arn is not None:
@@ -37,6 +40,9 @@ class EncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> pulumi.Input['EncryptionConfigurationEncryptionType']:
+        """
+        The type of the KMS key.
+        """
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
@@ -46,6 +52,9 @@ class EncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="kmsAccessRoleArn")
     def kms_access_role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+        """
         return pulumi.get(self, "kms_access_role_arn")
 
     @kms_access_role_arn.setter
@@ -55,6 +64,9 @@ class EncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ARN of the customer managed KMS key.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -77,6 +89,9 @@ class EncryptionConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['EncryptionConfigurationEncryptionType'] encryption_type: The type of the KMS key.
+        :param pulumi.Input[builtins.str] kms_access_role_arn: The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+        :param pulumi.Input[builtins.str] kms_key_arn: The ARN of the customer managed KMS key.
         """
         ...
     @overload
@@ -155,6 +170,9 @@ class EncryptionConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The unique identifier (ID) of an AWS account.
+        """
         return pulumi.get(self, "account_id")
 
     @property
@@ -165,20 +183,32 @@ class EncryptionConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> pulumi.Output['EncryptionConfigurationEncryptionType']:
+        """
+        The type of the KMS key.
+        """
         return pulumi.get(self, "encryption_type")
 
     @property
     @pulumi.getter(name="kmsAccessRoleArn")
     def kms_access_role_arn(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+        """
         return pulumi.get(self, "kms_access_role_arn")
 
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The ARN of the customer managed KMS key.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @property
     @pulumi.getter(name="lastModifiedDate")
     def last_modified_date(self) -> pulumi.Output[builtins.str]:
+        """
+        The date when encryption configuration is last updated.
+        """
         return pulumi.get(self, "last_modified_date")
 

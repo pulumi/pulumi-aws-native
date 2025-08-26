@@ -70,11 +70,11 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly ebsOptimized!: pulumi.Output<boolean | undefined>;
     /**
-     * An elastic GPU to associate with the instance.
+     * An elastic GPU to associate with the instance. Amazon Elastic Graphics is no longer available.
      */
     public readonly elasticGpuSpecifications!: pulumi.Output<outputs.ec2.InstanceElasticGpuSpecification[] | undefined>;
     /**
-     * An elastic inference accelerator to associate with the instance.
+     * An elastic inference accelerator to associate with the instance. Amazon Elastic Inference is no longer available.
      */
     public readonly elasticInferenceAccelerators!: pulumi.Output<outputs.ec2.InstanceElasticInferenceAccelerator[] | undefined>;
     /**
@@ -383,11 +383,11 @@ export interface InstanceArgs {
      */
     ebsOptimized?: pulumi.Input<boolean>;
     /**
-     * An elastic GPU to associate with the instance.
+     * An elastic GPU to associate with the instance. Amazon Elastic Graphics is no longer available.
      */
     elasticGpuSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceElasticGpuSpecificationArgs>[]>;
     /**
-     * An elastic inference accelerator to associate with the instance.
+     * An elastic inference accelerator to associate with the instance. Amazon Elastic Inference is no longer available.
      */
     elasticInferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceElasticInferenceAcceleratorArgs>[]>;
     /**

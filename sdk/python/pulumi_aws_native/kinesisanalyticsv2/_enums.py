@@ -10,6 +10,7 @@ __all__ = [
     'ApplicationCheckpointConfigurationConfigurationType',
     'ApplicationCodeConfigurationCodeContentType',
     'ApplicationCustomArtifactConfigurationArtifactType',
+    'ApplicationEncryptionConfigurationKeyType',
     'ApplicationInputSchemaRecordEncoding',
     'ApplicationMode',
     'ApplicationMonitoringConfigurationConfigurationType',
@@ -47,6 +48,15 @@ class ApplicationCustomArtifactConfigurationArtifactType(builtins.str, Enum):
     """
     DEPENDENCY_JAR = "DEPENDENCY_JAR"
     UDF = "UDF"
+
+
+@pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationEncryptionConfigurationKeyType")
+class ApplicationEncryptionConfigurationKeyType(builtins.str, Enum):
+    """
+    Specifies whether application data is encrypted using service key: AWS_OWNED_KEY or customer key: CUSTOMER_MANAGED_KEY
+    """
+    AWS_OWNED_KEY = "AWS_OWNED_KEY"
+    CUSTOMER_MANAGED_KEY = "CUSTOMER_MANAGED_KEY"
 
 
 @pulumi.type_token("aws-native:kinesisanalyticsv2:ApplicationInputSchemaRecordEncoding")

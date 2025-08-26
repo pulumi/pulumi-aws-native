@@ -306,19 +306,39 @@ if not MYPY:
         """
         The name of the DynamoDB table to crawl.
         """
+        scan_all: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. A value of true means to scan all records, while a value of false means to sample the records. If no value is specified, the value defaults to true.
+        """
+        scan_rate: NotRequired[pulumi.Input[builtins.float]]
+        """
+        The percentage of the configured read capacity units to use by the AWS Glue crawler. Read capacity units is a term defined by DynamoDB, and is a numeric value that acts as rate limiter for the number of reads that can be performed on that table per second.
+
+        The valid values are null or a value between 0.1 to 1.5. A null value is used when user does not provide a value, and defaults to 0.5 of the configured Read Capacity Unit (for provisioned tables), or 0.25 of the max configured Read Capacity Unit (for tables using on-demand mode).
+        """
 elif False:
     CrawlerDynamoDbTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CrawlerDynamoDbTargetArgs:
     def __init__(__self__, *,
-                 path: Optional[pulumi.Input[builtins.str]] = None):
+                 path: Optional[pulumi.Input[builtins.str]] = None,
+                 scan_all: Optional[pulumi.Input[builtins.bool]] = None,
+                 scan_rate: Optional[pulumi.Input[builtins.float]] = None):
         """
         Specifies an Amazon DynamoDB table to crawl.
         :param pulumi.Input[builtins.str] path: The name of the DynamoDB table to crawl.
+        :param pulumi.Input[builtins.bool] scan_all: Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. A value of true means to scan all records, while a value of false means to sample the records. If no value is specified, the value defaults to true.
+        :param pulumi.Input[builtins.float] scan_rate: The percentage of the configured read capacity units to use by the AWS Glue crawler. Read capacity units is a term defined by DynamoDB, and is a numeric value that acts as rate limiter for the number of reads that can be performed on that table per second.
+               
+               The valid values are null or a value between 0.1 to 1.5. A null value is used when user does not provide a value, and defaults to 0.5 of the configured Read Capacity Unit (for provisioned tables), or 0.25 of the max configured Read Capacity Unit (for tables using on-demand mode).
         """
         if path is not None:
             pulumi.set(__self__, "path", path)
+        if scan_all is not None:
+            pulumi.set(__self__, "scan_all", scan_all)
+        if scan_rate is not None:
+            pulumi.set(__self__, "scan_rate", scan_rate)
 
     @property
     @pulumi.getter
@@ -331,6 +351,32 @@ class CrawlerDynamoDbTargetArgs:
     @path.setter
     def path(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="scanAll")
+    def scan_all(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. A value of true means to scan all records, while a value of false means to sample the records. If no value is specified, the value defaults to true.
+        """
+        return pulumi.get(self, "scan_all")
+
+    @scan_all.setter
+    def scan_all(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "scan_all", value)
+
+    @property
+    @pulumi.getter(name="scanRate")
+    def scan_rate(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        The percentage of the configured read capacity units to use by the AWS Glue crawler. Read capacity units is a term defined by DynamoDB, and is a numeric value that acts as rate limiter for the number of reads that can be performed on that table per second.
+
+        The valid values are null or a value between 0.1 to 1.5. A null value is used when user does not provide a value, and defaults to 0.5 of the configured Read Capacity Unit (for provisioned tables), or 0.25 of the max configured Read Capacity Unit (for tables using on-demand mode).
+        """
+        return pulumi.get(self, "scan_rate")
+
+    @scan_rate.setter
+    def scan_rate(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "scan_rate", value)
 
 
 if not MYPY:

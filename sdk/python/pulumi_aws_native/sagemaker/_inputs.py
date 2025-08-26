@@ -33,6 +33,12 @@ __all__ = [
     'AppImageConfigKernelSpecArgsDict',
     'AppResourceSpecArgs',
     'AppResourceSpecArgsDict',
+    'ClusterAlarmDetailsArgs',
+    'ClusterAlarmDetailsArgsDict',
+    'ClusterCapacitySizeConfigArgs',
+    'ClusterCapacitySizeConfigArgsDict',
+    'ClusterDeploymentConfigArgs',
+    'ClusterDeploymentConfigArgsDict',
     'ClusterEnvironmentConfigArgs',
     'ClusterEnvironmentConfigArgsDict',
     'ClusterFSxLustreConfigArgs',
@@ -49,6 +55,10 @@ __all__ = [
     'ClusterOrchestratorArgsDict',
     'ClusterRestrictedInstanceGroupArgs',
     'ClusterRestrictedInstanceGroupArgsDict',
+    'ClusterRollingUpdatePolicyArgs',
+    'ClusterRollingUpdatePolicyArgsDict',
+    'ClusterScheduledUpdateConfigArgs',
+    'ClusterScheduledUpdateConfigArgsDict',
     'ClusterVpcConfigArgs',
     'ClusterVpcConfigArgsDict',
     'DataQualityJobDefinitionBatchTransformInputArgs',
@@ -1102,6 +1112,157 @@ class AppResourceSpecArgs:
 
 
 if not MYPY:
+    class ClusterAlarmDetailsArgsDict(TypedDict):
+        """
+        The details of the alarm to monitor during the AMI update.
+        """
+        alarm_name: pulumi.Input[builtins.str]
+        """
+        The name of the alarm.
+        """
+elif False:
+    ClusterAlarmDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterAlarmDetailsArgs:
+    def __init__(__self__, *,
+                 alarm_name: pulumi.Input[builtins.str]):
+        """
+        The details of the alarm to monitor during the AMI update.
+        :param pulumi.Input[builtins.str] alarm_name: The name of the alarm.
+        """
+        pulumi.set(__self__, "alarm_name", alarm_name)
+
+    @property
+    @pulumi.getter(name="alarmName")
+    def alarm_name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the alarm.
+        """
+        return pulumi.get(self, "alarm_name")
+
+    @alarm_name.setter
+    def alarm_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "alarm_name", value)
+
+
+if not MYPY:
+    class ClusterCapacitySizeConfigArgsDict(TypedDict):
+        """
+        The configuration of the size measurements of the AMI update. Using this configuration, you can specify whether SageMaker should update your instance group by an amount or percentage of instances.
+        """
+        type: pulumi.Input[builtins.str]
+        """
+        Specifies whether SageMaker should process the update by amount or percentage of instances.
+        """
+        value: pulumi.Input[builtins.int]
+        """
+        Specifies the amount or percentage of instances SageMaker updates at a time.
+        """
+elif False:
+    ClusterCapacitySizeConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterCapacitySizeConfigArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[builtins.str],
+                 value: pulumi.Input[builtins.int]):
+        """
+        The configuration of the size measurements of the AMI update. Using this configuration, you can specify whether SageMaker should update your instance group by an amount or percentage of instances.
+        :param pulumi.Input[builtins.str] type: Specifies whether SageMaker should process the update by amount or percentage of instances.
+        :param pulumi.Input[builtins.int] value: Specifies the amount or percentage of instances SageMaker updates at a time.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        Specifies whether SageMaker should process the update by amount or percentage of instances.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[builtins.int]:
+        """
+        Specifies the amount or percentage of instances SageMaker updates at a time.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class ClusterDeploymentConfigArgsDict(TypedDict):
+        """
+        The configuration to use when updating the AMI versions.
+        """
+        auto_rollback_configuration: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterAlarmDetailsArgsDict']]]]
+        rolling_update_policy: NotRequired[pulumi.Input['ClusterRollingUpdatePolicyArgsDict']]
+        wait_interval_in_seconds: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The duration in seconds that SageMaker waits before updating more instances in the cluster.
+        """
+elif False:
+    ClusterDeploymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterDeploymentConfigArgs:
+    def __init__(__self__, *,
+                 auto_rollback_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterAlarmDetailsArgs']]]] = None,
+                 rolling_update_policy: Optional[pulumi.Input['ClusterRollingUpdatePolicyArgs']] = None,
+                 wait_interval_in_seconds: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        The configuration to use when updating the AMI versions.
+        :param pulumi.Input[builtins.int] wait_interval_in_seconds: The duration in seconds that SageMaker waits before updating more instances in the cluster.
+        """
+        if auto_rollback_configuration is not None:
+            pulumi.set(__self__, "auto_rollback_configuration", auto_rollback_configuration)
+        if rolling_update_policy is not None:
+            pulumi.set(__self__, "rolling_update_policy", rolling_update_policy)
+        if wait_interval_in_seconds is not None:
+            pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
+
+    @property
+    @pulumi.getter(name="autoRollbackConfiguration")
+    def auto_rollback_configuration(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterAlarmDetailsArgs']]]]:
+        return pulumi.get(self, "auto_rollback_configuration")
+
+    @auto_rollback_configuration.setter
+    def auto_rollback_configuration(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterAlarmDetailsArgs']]]]):
+        pulumi.set(self, "auto_rollback_configuration", value)
+
+    @property
+    @pulumi.getter(name="rollingUpdatePolicy")
+    def rolling_update_policy(self) -> Optional[pulumi.Input['ClusterRollingUpdatePolicyArgs']]:
+        return pulumi.get(self, "rolling_update_policy")
+
+    @rolling_update_policy.setter
+    def rolling_update_policy(self, value: Optional[pulumi.Input['ClusterRollingUpdatePolicyArgs']]):
+        pulumi.set(self, "rolling_update_policy", value)
+
+    @property
+    @pulumi.getter(name="waitIntervalInSeconds")
+    def wait_interval_in_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The duration in seconds that SageMaker waits before updating more instances in the cluster.
+        """
+        return pulumi.get(self, "wait_interval_in_seconds")
+
+    @wait_interval_in_seconds.setter
+    def wait_interval_in_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "wait_interval_in_seconds", value)
+
+
+if not MYPY:
     class ClusterEnvironmentConfigArgsDict(TypedDict):
         """
         The configuration for the restricted instance groups (RIG) environment.
@@ -1205,6 +1366,7 @@ if not MYPY:
         instance_storage_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgsDict']]]]
         on_start_deep_health_checks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]]
         override_vpc_config: NotRequired[pulumi.Input['ClusterVpcConfigArgsDict']]
+        scheduled_update_config: NotRequired[pulumi.Input['ClusterScheduledUpdateConfigArgsDict']]
         threads_per_core: NotRequired[pulumi.Input[builtins.int]]
         """
         The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
@@ -1229,6 +1391,7 @@ class ClusterInstanceGroupArgs:
                  instance_storage_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgs']]]] = None,
                  on_start_deep_health_checks: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]] = None,
                  override_vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None,
+                 scheduled_update_config: Optional[pulumi.Input['ClusterScheduledUpdateConfigArgs']] = None,
                  threads_per_core: Optional[pulumi.Input[builtins.int]] = None,
                  training_plan_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -1253,6 +1416,8 @@ class ClusterInstanceGroupArgs:
             pulumi.set(__self__, "on_start_deep_health_checks", on_start_deep_health_checks)
         if override_vpc_config is not None:
             pulumi.set(__self__, "override_vpc_config", override_vpc_config)
+        if scheduled_update_config is not None:
+            pulumi.set(__self__, "scheduled_update_config", scheduled_update_config)
         if threads_per_core is not None:
             pulumi.set(__self__, "threads_per_core", threads_per_core)
         if training_plan_arn is not None:
@@ -1353,6 +1518,15 @@ class ClusterInstanceGroupArgs:
     @override_vpc_config.setter
     def override_vpc_config(self, value: Optional[pulumi.Input['ClusterVpcConfigArgs']]):
         pulumi.set(self, "override_vpc_config", value)
+
+    @property
+    @pulumi.getter(name="scheduledUpdateConfig")
+    def scheduled_update_config(self) -> Optional[pulumi.Input['ClusterScheduledUpdateConfigArgs']]:
+        return pulumi.get(self, "scheduled_update_config")
+
+    @scheduled_update_config.setter
+    def scheduled_update_config(self, value: Optional[pulumi.Input['ClusterScheduledUpdateConfigArgs']]):
+        pulumi.set(self, "scheduled_update_config", value)
 
     @property
     @pulumi.getter(name="threadsPerCore")
@@ -1701,6 +1875,95 @@ class ClusterRestrictedInstanceGroupArgs:
     @training_plan_arn.setter
     def training_plan_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "training_plan_arn", value)
+
+
+if not MYPY:
+    class ClusterRollingUpdatePolicyArgsDict(TypedDict):
+        """
+        The policy that SageMaker uses when updating the AMI versions of the cluster.
+        """
+        maximum_batch_size: pulumi.Input['ClusterCapacitySizeConfigArgsDict']
+        rollback_maximum_batch_size: NotRequired[pulumi.Input['ClusterCapacitySizeConfigArgsDict']]
+elif False:
+    ClusterRollingUpdatePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterRollingUpdatePolicyArgs:
+    def __init__(__self__, *,
+                 maximum_batch_size: pulumi.Input['ClusterCapacitySizeConfigArgs'],
+                 rollback_maximum_batch_size: Optional[pulumi.Input['ClusterCapacitySizeConfigArgs']] = None):
+        """
+        The policy that SageMaker uses when updating the AMI versions of the cluster.
+        """
+        pulumi.set(__self__, "maximum_batch_size", maximum_batch_size)
+        if rollback_maximum_batch_size is not None:
+            pulumi.set(__self__, "rollback_maximum_batch_size", rollback_maximum_batch_size)
+
+    @property
+    @pulumi.getter(name="maximumBatchSize")
+    def maximum_batch_size(self) -> pulumi.Input['ClusterCapacitySizeConfigArgs']:
+        return pulumi.get(self, "maximum_batch_size")
+
+    @maximum_batch_size.setter
+    def maximum_batch_size(self, value: pulumi.Input['ClusterCapacitySizeConfigArgs']):
+        pulumi.set(self, "maximum_batch_size", value)
+
+    @property
+    @pulumi.getter(name="rollbackMaximumBatchSize")
+    def rollback_maximum_batch_size(self) -> Optional[pulumi.Input['ClusterCapacitySizeConfigArgs']]:
+        return pulumi.get(self, "rollback_maximum_batch_size")
+
+    @rollback_maximum_batch_size.setter
+    def rollback_maximum_batch_size(self, value: Optional[pulumi.Input['ClusterCapacitySizeConfigArgs']]):
+        pulumi.set(self, "rollback_maximum_batch_size", value)
+
+
+if not MYPY:
+    class ClusterScheduledUpdateConfigArgsDict(TypedDict):
+        """
+        The configuration object of the schedule that SageMaker follows when updating the AMI.
+        """
+        schedule_expression: pulumi.Input[builtins.str]
+        """
+        A cron expression that specifies the schedule that SageMaker follows when updating the AMI.
+        """
+        deployment_config: NotRequired[pulumi.Input['ClusterDeploymentConfigArgsDict']]
+elif False:
+    ClusterScheduledUpdateConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterScheduledUpdateConfigArgs:
+    def __init__(__self__, *,
+                 schedule_expression: pulumi.Input[builtins.str],
+                 deployment_config: Optional[pulumi.Input['ClusterDeploymentConfigArgs']] = None):
+        """
+        The configuration object of the schedule that SageMaker follows when updating the AMI.
+        :param pulumi.Input[builtins.str] schedule_expression: A cron expression that specifies the schedule that SageMaker follows when updating the AMI.
+        """
+        pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if deployment_config is not None:
+            pulumi.set(__self__, "deployment_config", deployment_config)
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> pulumi.Input[builtins.str]:
+        """
+        A cron expression that specifies the schedule that SageMaker follows when updating the AMI.
+        """
+        return pulumi.get(self, "schedule_expression")
+
+    @schedule_expression.setter
+    def schedule_expression(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "schedule_expression", value)
+
+    @property
+    @pulumi.getter(name="deploymentConfig")
+    def deployment_config(self) -> Optional[pulumi.Input['ClusterDeploymentConfigArgs']]:
+        return pulumi.get(self, "deployment_config")
+
+    @deployment_config.setter
+    def deployment_config(self, value: Optional[pulumi.Input['ClusterDeploymentConfigArgs']]):
+        pulumi.set(self, "deployment_config", value)
 
 
 if not MYPY:

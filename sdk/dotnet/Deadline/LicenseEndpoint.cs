@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Deadline
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The VCP(virtual private cloud) ID associated with the license endpoint.
+        /// The VPC (virtual private cloud) ID associated with the license endpoint.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.AwsNative.Deadline
         }
 
         /// <summary>
-        /// The VCP(virtual private cloud) ID associated with the license endpoint.
+        /// The VPC (virtual private cloud) ID associated with the license endpoint.
         /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;

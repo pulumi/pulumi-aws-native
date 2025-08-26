@@ -419,6 +419,13 @@ export const ProfileLogging = {
 
 export type ProfileLogging = (typeof ProfileLogging)[keyof typeof ProfileLogging];
 
+export const TransformerElementRequirement = {
+    Optional: "OPTIONAL",
+    Mandatory: "MANDATORY",
+} as const;
+
+export type TransformerElementRequirement = (typeof TransformerElementRequirement)[keyof typeof TransformerElementRequirement];
+
 export const TransformerFileFormat = {
     Xml: "XML",
     Json: "JSON",

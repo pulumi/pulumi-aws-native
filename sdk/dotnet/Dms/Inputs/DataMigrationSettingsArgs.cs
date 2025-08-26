@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Dms.Inputs
     public sealed class DataMigrationSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The property specifies whether to enable the Cloudwatch log.
+        /// The property specifies whether to enable the CloudWatch log.
         /// </summary>
         [Input("cloudwatchLogsEnabled")]
         public Input<bool>? CloudwatchLogsEnabled { get; set; }

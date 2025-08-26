@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -55,7 +56,7 @@ class GetHealthCheckResult:
 
     @property
     @pulumi.getter(name="healthCheckTags")
-    def health_check_tags(self) -> Optional[Sequence['outputs.HealthCheckTag']]:
+    def health_check_tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         An array of key-value pairs to apply to this resource.
         """

@@ -90,6 +90,7 @@ __all__ = [
     'VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue',
     'VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue',
     'VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue',
+    'VpnConnectionPreSharedKeyStorage',
     'VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction',
     'VpnConnectionVpnTunnelOptionsSpecificationStartupAction',
 ]
@@ -1061,6 +1062,15 @@ class VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue(builtins.str, 
     SHA2256 = "SHA2-256"
     SHA2384 = "SHA2-384"
     SHA2512 = "SHA2-512"
+
+
+@pulumi.type_token("aws-native:ec2:VpnConnectionPreSharedKeyStorage")
+class VpnConnectionPreSharedKeyStorage(builtins.str, Enum):
+    """
+    Describes the storage location for an instance store-backed AMI.
+    """
+    STANDARD = "Standard"
+    SECRETS_MANAGER = "SecretsManager"
 
 
 @pulumi.type_token("aws-native:ec2:VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction")

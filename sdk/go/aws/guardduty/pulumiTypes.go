@@ -2445,10 +2445,24 @@ type PublishingDestinationTagItem struct {
 	Value string `pulumi:"value"`
 }
 
+type ThreatEntitySetTagItem struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value. This is optional.
+	Value string `pulumi:"value"`
+}
+
 type ThreatIntelSetTagItem struct {
 	// The tag key.
 	Key string `pulumi:"key"`
 	// The tag value.
+	Value string `pulumi:"value"`
+}
+
+type TrustedEntitySetTagItem struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value. This is optional.
 	Value string `pulumi:"value"`
 }
 

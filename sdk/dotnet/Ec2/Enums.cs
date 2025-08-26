@@ -2802,6 +2802,37 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// Describes the storage location for an instance store-backed AMI.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpnConnectionPreSharedKeyStorage : IEquatable<VpnConnectionPreSharedKeyStorage>
+    {
+        private readonly string _value;
+
+        private VpnConnectionPreSharedKeyStorage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnConnectionPreSharedKeyStorage Standard { get; } = new VpnConnectionPreSharedKeyStorage("Standard");
+        public static VpnConnectionPreSharedKeyStorage SecretsManager { get; } = new VpnConnectionPreSharedKeyStorage("SecretsManager");
+
+        public static bool operator ==(VpnConnectionPreSharedKeyStorage left, VpnConnectionPreSharedKeyStorage right) => left.Equals(right);
+        public static bool operator !=(VpnConnectionPreSharedKeyStorage left, VpnConnectionPreSharedKeyStorage right) => !left.Equals(right);
+
+        public static explicit operator string(VpnConnectionPreSharedKeyStorage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnConnectionPreSharedKeyStorage other && Equals(other);
+        public bool Equals(VpnConnectionPreSharedKeyStorage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The action to take after DPD timeout occurs. Specify ``restart`` to restart the IKE initiation. Specify ``clear`` to end the IKE session.
     ///  Valid Values: ``clear`` | ``none`` | ``restart``
     ///  Default: ``clear``

@@ -108,6 +108,8 @@ class GetLogGroupResult:
     @pulumi.getter(name="resourcePolicyDocument")
     def resource_policy_document(self) -> Optional[Any]:
         """
+        Creates or updates a resource policy for the specified log group that allows other services to put log events to this account. A LogGroup can have 1 resource policy.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "resource_policy_document")

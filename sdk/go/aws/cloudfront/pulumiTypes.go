@@ -2121,7 +2121,8 @@ type DistributionCacheBehavior struct {
 	CachedMethods []string `pulumi:"cachedMethods"`
 	// Whether you want CloudFront to automatically compress certain files for this cache behavior. If so, specify true; if not, specify false. For more information, see [Serving Compressed Files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html) in the *Amazon CloudFront Developer Guide*.
 	Compress *bool `pulumi:"compress"`
-	// This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 	//  The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 	DefaultTtl *float64 `pulumi:"defaultTtl"`
 	// The value of ``ID`` for the field-level encryption configuration that you want CloudFront to use for encrypting specific fields of data for this cache behavior.
@@ -2138,10 +2139,12 @@ type DistributionCacheBehavior struct {
 	GrpcConfig *DistributionGrpcConfig `pulumi:"grpcConfig"`
 	// A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
 	LambdaFunctionAssociations []DistributionLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
-	// This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 	//  The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 	MaxTtl *float64 `pulumi:"maxTtl"`
-	// This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 	//  The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 	//  You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``Headers``, if you specify ``1`` for ``Quantity`` and ``*`` for ``Name``).
 	MinTtl *float64 `pulumi:"minTtl"`
@@ -2156,7 +2159,8 @@ type DistributionCacheBehavior struct {
 	RealtimeLogConfigArn *string `pulumi:"realtimeLogConfigArn"`
 	// The identifier for a response headers policy.
 	ResponseHeadersPolicyId *string `pulumi:"responseHeadersPolicyId"`
-	// Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify ``true``; if not, specify ``false``. If you specify ``true`` for ``SmoothStreaming``, you can still distribute other content using this cache behavior if the content matches the value of ``PathPattern``.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify ``true``; if not, specify ``false``. If you specify ``true`` for ``SmoothStreaming``, you can still distribute other content using this cache behavior if the content matches the value of ``PathPattern``.
 	SmoothStreaming *bool `pulumi:"smoothStreaming"`
 	// The value of ``ID`` for the origin that you want CloudFront to route requests to when they match this cache behavior.
 	TargetOriginId string `pulumi:"targetOriginId"`
@@ -2164,6 +2168,7 @@ type DistributionCacheBehavior struct {
 	//  When a cache behavior contains trusted key groups, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with a private key whose corresponding public key is in the key group. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
 	TrustedKeyGroups []string `pulumi:"trustedKeyGroups"`
 	// We recommend using ``TrustedKeyGroups`` instead of ``TrustedSigners``.
+	//    This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 	//   A list of AWS-account IDs whose public keys CloudFront can use to validate signed URLs or signed cookies.
 	//  When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with the private key of a CloudFront key pair in the trusted signer's AWS-account. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
 	TrustedSigners []string `pulumi:"trustedSigners"`
@@ -2215,7 +2220,8 @@ type DistributionCacheBehaviorArgs struct {
 	CachedMethods pulumi.StringArrayInput `pulumi:"cachedMethods"`
 	// Whether you want CloudFront to automatically compress certain files for this cache behavior. If so, specify true; if not, specify false. For more information, see [Serving Compressed Files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html) in the *Amazon CloudFront Developer Guide*.
 	Compress pulumi.BoolPtrInput `pulumi:"compress"`
-	// This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 	//  The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 	DefaultTtl pulumi.Float64PtrInput `pulumi:"defaultTtl"`
 	// The value of ``ID`` for the field-level encryption configuration that you want CloudFront to use for encrypting specific fields of data for this cache behavior.
@@ -2232,10 +2238,12 @@ type DistributionCacheBehaviorArgs struct {
 	GrpcConfig DistributionGrpcConfigPtrInput `pulumi:"grpcConfig"`
 	// A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
 	LambdaFunctionAssociations DistributionLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
-	// This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 	//  The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 	MaxTtl pulumi.Float64PtrInput `pulumi:"maxTtl"`
-	// This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 	//  The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 	//  You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``Headers``, if you specify ``1`` for ``Quantity`` and ``*`` for ``Name``).
 	MinTtl pulumi.Float64PtrInput `pulumi:"minTtl"`
@@ -2250,7 +2258,8 @@ type DistributionCacheBehaviorArgs struct {
 	RealtimeLogConfigArn pulumi.StringPtrInput `pulumi:"realtimeLogConfigArn"`
 	// The identifier for a response headers policy.
 	ResponseHeadersPolicyId pulumi.StringPtrInput `pulumi:"responseHeadersPolicyId"`
-	// Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify ``true``; if not, specify ``false``. If you specify ``true`` for ``SmoothStreaming``, you can still distribute other content using this cache behavior if the content matches the value of ``PathPattern``.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify ``true``; if not, specify ``false``. If you specify ``true`` for ``SmoothStreaming``, you can still distribute other content using this cache behavior if the content matches the value of ``PathPattern``.
 	SmoothStreaming pulumi.BoolPtrInput `pulumi:"smoothStreaming"`
 	// The value of ``ID`` for the origin that you want CloudFront to route requests to when they match this cache behavior.
 	TargetOriginId pulumi.StringInput `pulumi:"targetOriginId"`
@@ -2258,6 +2267,7 @@ type DistributionCacheBehaviorArgs struct {
 	//  When a cache behavior contains trusted key groups, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with a private key whose corresponding public key is in the key group. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
 	TrustedKeyGroups pulumi.StringArrayInput `pulumi:"trustedKeyGroups"`
 	// We recommend using ``TrustedKeyGroups`` instead of ``TrustedSigners``.
+	//    This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 	//   A list of AWS-account IDs whose public keys CloudFront can use to validate signed URLs or signed cookies.
 	//  When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with the private key of a CloudFront key pair in the trusted signer's AWS-account. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
 	TrustedSigners pulumi.StringArrayInput `pulumi:"trustedSigners"`
@@ -2366,8 +2376,9 @@ func (o DistributionCacheBehaviorOutput) Compress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
 }
 
-// This field is deprecated. We recommend that you use the “DefaultTTL“ field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //
+//	 This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 //	The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionCacheBehaviorOutput) DefaultTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) *float64 { return v.DefaultTtl }).(pulumi.Float64PtrOutput)
@@ -2405,15 +2416,17 @@ func (o DistributionCacheBehaviorOutput) LambdaFunctionAssociations() Distributi
 	}).(DistributionLambdaFunctionAssociationArrayOutput)
 }
 
-// This field is deprecated. We recommend that you use the “MaxTTL“ field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //
+//	 This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 //	The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionCacheBehaviorOutput) MaxTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) *float64 { return v.MaxTtl }).(pulumi.Float64PtrOutput)
 }
 
-// This field is deprecated. We recommend that you use the “MinTTL“ field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //
+//	 This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 //	The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 //	You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``Headers``, if you specify ``1`` for ``Quantity`` and ``*`` for ``Name``).
 func (o DistributionCacheBehaviorOutput) MinTtl() pulumi.Float64PtrOutput {
@@ -2444,7 +2457,9 @@ func (o DistributionCacheBehaviorOutput) ResponseHeadersPolicyId() pulumi.String
 	return o.ApplyT(func(v DistributionCacheBehavior) *string { return v.ResponseHeadersPolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify “true“; if not, specify “false“. If you specify “true“ for “SmoothStreaming“, you can still distribute other content using this cache behavior if the content matches the value of “PathPattern“.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+//
+//	Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify ``true``; if not, specify ``false``. If you specify ``true`` for ``SmoothStreaming``, you can still distribute other content using this cache behavior if the content matches the value of ``PathPattern``.
 func (o DistributionCacheBehaviorOutput) SmoothStreaming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) *bool { return v.SmoothStreaming }).(pulumi.BoolPtrOutput)
 }
@@ -2463,6 +2478,7 @@ func (o DistributionCacheBehaviorOutput) TrustedKeyGroups() pulumi.StringArrayOu
 
 // We recommend using “TrustedKeyGroups“ instead of “TrustedSigners“.
 //
+//	  This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //	 A list of AWS-account IDs whose public keys CloudFront can use to validate signed URLs or signed cookies.
 //	When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with the private key of a CloudFront key pair in the trusted signer's AWS-account. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionCacheBehaviorOutput) TrustedSigners() pulumi.StringArrayOutput {
@@ -2505,9 +2521,11 @@ func (o DistributionCacheBehaviorArrayOutput) Index(i pulumi.IntInput) Distribut
 
 // A distribution configuration.
 type DistributionConfig struct {
-	// A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases []string `pulumi:"aliases"`
-	// ID of the Anycast static IP list that is associated with the distribution.
+	// To use this field for a multi-tenant distribution, use a connection group instead. For more information, see [ConnectionGroup](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ConnectionGroup.html).
+	//   ID of the Anycast static IP list that is associated with the distribution.
 	AnycastIpListId *string `pulumi:"anycastIpListId"`
 	// A complex type that contains zero or more ``CacheBehavior`` elements.
 	CacheBehaviors []DistributionCacheBehavior `pulumi:"cacheBehaviors"`
@@ -2516,9 +2534,10 @@ type DistributionConfig struct {
 	Cnames []string `pulumi:"cnames"`
 	// A comment to describe the distribution. The comment cannot be longer than 128 characters.
 	Comment *string `pulumi:"comment"`
-	// The connection mode to filter distributions by.
+	// This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants(tenant-only).
 	ConnectionMode *DistributionConnectionMode `pulumi:"connectionMode"`
-	// The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
 	ContinuousDeploymentPolicyId *string `pulumi:"continuousDeploymentPolicyId"`
 	// A complex type that controls the following:
 	//   +  Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.
@@ -2544,7 +2563,8 @@ type DistributionConfig struct {
 	//  For viewers and CF to use HTTP/2, viewers must support TLSv1.2 or later, and must support Server Name Indication (SNI).
 	//  For viewers and CF to use HTTP/3, viewers must support TLSv1.3 and Server Name Indication (SNI). CF supports HTTP/3 connection migration to allow the viewer to switch networks without losing connection. For more information about connection migration, see [Connection Migration](https://docs.aws.amazon.com/https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration) at RFC 9000. For more information about supported TLSv1.3 ciphers, see [Supported protocols and ciphers between viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html).
 	HttpVersion *string `pulumi:"httpVersion"`
-	// If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true``. If you specify ``false``, CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
+	// To use this field for a multi-tenant distribution, use a connection group instead. For more information, see [ConnectionGroup](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ConnectionGroup.html).
+	//   If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true``. If you specify ``false``, CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
 	//  In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see [Creating a Signed URL Using a Custom Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html) in the *Amazon CloudFront Developer Guide*.
 	//  If you're using an R53AWSIntlong alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
 	//   +  You enable IPv6 for the distribution
@@ -2562,7 +2582,8 @@ type DistributionConfig struct {
 	// A complex type that contains information about origins for this distribution.
 	//  Specify a value for either the ``Origins`` or ``OriginGroups`` property.
 	Origins []DistributionOrigin `pulumi:"origins"`
-	// The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify ``PriceClass_All``, CloudFront responds to requests for your objects from all CloudFront edge locations.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify ``PriceClass_All``, CloudFront responds to requests for your objects from all CloudFront edge locations.
 	//  If you specify a price class other than ``PriceClass_All``, CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance.
 	//  For more information about price classes, see [Choosing the Price Class for a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) in the *Amazon CloudFront Developer Guide*. For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see [Amazon CloudFront Pricing](https://docs.aws.amazon.com/cloudfront/pricing/).
 	PriceClass *string `pulumi:"priceClass"`
@@ -2571,13 +2592,16 @@ type DistributionConfig struct {
 	// The origin as an S3 bucket.
 	//   This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
 	S3Origin *DistributionLegacyS3Origin `pulumi:"s3Origin"`
-	// A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
 	Staging *bool `pulumi:"staging"`
-	// A distribution tenant configuration.
+	// This field only supports multi-tenant distributions. You can't specify this field for standard distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   A distribution tenant configuration.
 	TenantConfig *DistributionConfigTenantConfigProperties `pulumi:"tenantConfig"`
 	// A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
 	ViewerCertificate *DistributionViewerCertificate `pulumi:"viewerCertificate"`
-	// A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
+	// Multi-tenant distributions only support WAF V2 web ACLs.
+	//   A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
 	//  WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
 	WebAclId *string `pulumi:"webAclId"`
 }
@@ -2595,9 +2619,11 @@ type DistributionConfigInput interface {
 
 // A distribution configuration.
 type DistributionConfigArgs struct {
-	// A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases pulumi.StringArrayInput `pulumi:"aliases"`
-	// ID of the Anycast static IP list that is associated with the distribution.
+	// To use this field for a multi-tenant distribution, use a connection group instead. For more information, see [ConnectionGroup](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ConnectionGroup.html).
+	//   ID of the Anycast static IP list that is associated with the distribution.
 	AnycastIpListId pulumi.StringPtrInput `pulumi:"anycastIpListId"`
 	// A complex type that contains zero or more ``CacheBehavior`` elements.
 	CacheBehaviors DistributionCacheBehaviorArrayInput `pulumi:"cacheBehaviors"`
@@ -2606,9 +2632,10 @@ type DistributionConfigArgs struct {
 	Cnames pulumi.StringArrayInput `pulumi:"cnames"`
 	// A comment to describe the distribution. The comment cannot be longer than 128 characters.
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
-	// The connection mode to filter distributions by.
+	// This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants(tenant-only).
 	ConnectionMode DistributionConnectionModePtrInput `pulumi:"connectionMode"`
-	// The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
 	ContinuousDeploymentPolicyId pulumi.StringPtrInput `pulumi:"continuousDeploymentPolicyId"`
 	// A complex type that controls the following:
 	//   +  Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.
@@ -2634,7 +2661,8 @@ type DistributionConfigArgs struct {
 	//  For viewers and CF to use HTTP/2, viewers must support TLSv1.2 or later, and must support Server Name Indication (SNI).
 	//  For viewers and CF to use HTTP/3, viewers must support TLSv1.3 and Server Name Indication (SNI). CF supports HTTP/3 connection migration to allow the viewer to switch networks without losing connection. For more information about connection migration, see [Connection Migration](https://docs.aws.amazon.com/https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration) at RFC 9000. For more information about supported TLSv1.3 ciphers, see [Supported protocols and ciphers between viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html).
 	HttpVersion pulumi.StringPtrInput `pulumi:"httpVersion"`
-	// If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true``. If you specify ``false``, CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
+	// To use this field for a multi-tenant distribution, use a connection group instead. For more information, see [ConnectionGroup](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ConnectionGroup.html).
+	//   If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true``. If you specify ``false``, CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
 	//  In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see [Creating a Signed URL Using a Custom Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html) in the *Amazon CloudFront Developer Guide*.
 	//  If you're using an R53AWSIntlong alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
 	//   +  You enable IPv6 for the distribution
@@ -2652,7 +2680,8 @@ type DistributionConfigArgs struct {
 	// A complex type that contains information about origins for this distribution.
 	//  Specify a value for either the ``Origins`` or ``OriginGroups`` property.
 	Origins DistributionOriginArrayInput `pulumi:"origins"`
-	// The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify ``PriceClass_All``, CloudFront responds to requests for your objects from all CloudFront edge locations.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify ``PriceClass_All``, CloudFront responds to requests for your objects from all CloudFront edge locations.
 	//  If you specify a price class other than ``PriceClass_All``, CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance.
 	//  For more information about price classes, see [Choosing the Price Class for a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) in the *Amazon CloudFront Developer Guide*. For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see [Amazon CloudFront Pricing](https://docs.aws.amazon.com/cloudfront/pricing/).
 	PriceClass pulumi.StringPtrInput `pulumi:"priceClass"`
@@ -2661,13 +2690,16 @@ type DistributionConfigArgs struct {
 	// The origin as an S3 bucket.
 	//   This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
 	S3Origin DistributionLegacyS3OriginPtrInput `pulumi:"s3Origin"`
-	// A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
 	Staging pulumi.BoolPtrInput `pulumi:"staging"`
-	// A distribution tenant configuration.
+	// This field only supports multi-tenant distributions. You can't specify this field for standard distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   A distribution tenant configuration.
 	TenantConfig DistributionConfigTenantConfigPropertiesPtrInput `pulumi:"tenantConfig"`
 	// A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
 	ViewerCertificate DistributionViewerCertificatePtrInput `pulumi:"viewerCertificate"`
-	// A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
+	// Multi-tenant distributions only support WAF V2 web ACLs.
+	//   A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
 	//  WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
 	WebAclId pulumi.StringPtrInput `pulumi:"webAclId"`
 }
@@ -2699,12 +2731,16 @@ func (o DistributionConfigOutput) ToDistributionConfigOutputWithContext(ctx cont
 	return o
 }
 
-// A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+//
+//	A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
 func (o DistributionConfigOutput) Aliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionConfig) []string { return v.Aliases }).(pulumi.StringArrayOutput)
 }
 
-// ID of the Anycast static IP list that is associated with the distribution.
+// To use this field for a multi-tenant distribution, use a connection group instead. For more information, see [ConnectionGroup](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ConnectionGroup.html).
+//
+//	ID of the Anycast static IP list that is associated with the distribution.
 func (o DistributionConfigOutput) AnycastIpListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *string { return v.AnycastIpListId }).(pulumi.StringPtrOutput)
 }
@@ -2726,12 +2762,14 @@ func (o DistributionConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// The connection mode to filter distributions by.
+// This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants(tenant-only).
 func (o DistributionConfigOutput) ConnectionMode() DistributionConnectionModePtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *DistributionConnectionMode { return v.ConnectionMode }).(DistributionConnectionModePtrOutput)
 }
 
-// The identifier of a continuous deployment policy. For more information, see “CreateContinuousDeploymentPolicy“.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+//
+//	The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
 func (o DistributionConfigOutput) ContinuousDeploymentPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *string { return v.ContinuousDeploymentPolicyId }).(pulumi.StringPtrOutput)
 }
@@ -2783,8 +2821,9 @@ func (o DistributionConfigOutput) HttpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *string { return v.HttpVersion }).(pulumi.StringPtrOutput)
 }
 
-// If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify “true“. If you specify “false“, CloudFront responds to IPv6 DNS requests with the DNS response code “NOERROR“ and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
+// To use this field for a multi-tenant distribution, use a connection group instead. For more information, see [ConnectionGroup](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ConnectionGroup.html).
 //
+//	 If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true``. If you specify ``false``, CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
 //	In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see [Creating a Signed URL Using a Custom Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html) in the *Amazon CloudFront Developer Guide*.
 //	If you're using an R53AWSIntlong alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
 //	 +  You enable IPv6 for the distribution
@@ -2817,8 +2856,9 @@ func (o DistributionConfigOutput) Origins() DistributionOriginArrayOutput {
 	return o.ApplyT(func(v DistributionConfig) []DistributionOrigin { return v.Origins }).(DistributionOriginArrayOutput)
 }
 
-// The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify “PriceClass_All“, CloudFront responds to requests for your objects from all CloudFront edge locations.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //
+//	 The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify ``PriceClass_All``, CloudFront responds to requests for your objects from all CloudFront edge locations.
 //	If you specify a price class other than ``PriceClass_All``, CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance.
 //	For more information about price classes, see [Choosing the Price Class for a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) in the *Amazon CloudFront Developer Guide*. For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see [Amazon CloudFront Pricing](https://docs.aws.amazon.com/cloudfront/pricing/).
 func (o DistributionConfigOutput) PriceClass() pulumi.StringPtrOutput {
@@ -2837,12 +2877,16 @@ func (o DistributionConfigOutput) S3Origin() DistributionLegacyS3OriginPtrOutput
 	return o.ApplyT(func(v DistributionConfig) *DistributionLegacyS3Origin { return v.S3Origin }).(DistributionLegacyS3OriginPtrOutput)
 }
 
-// A Boolean that indicates whether this is a staging distribution. When this value is “true“, this is a staging distribution. When this value is “false“, this is not a staging distribution.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+//
+//	A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
 func (o DistributionConfigOutput) Staging() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *bool { return v.Staging }).(pulumi.BoolPtrOutput)
 }
 
-// A distribution tenant configuration.
+// This field only supports multi-tenant distributions. You can't specify this field for standard distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+//
+//	A distribution tenant configuration.
 func (o DistributionConfigOutput) TenantConfig() DistributionConfigTenantConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *DistributionConfigTenantConfigProperties { return v.TenantConfig }).(DistributionConfigTenantConfigPropertiesPtrOutput)
 }
@@ -2852,8 +2896,9 @@ func (o DistributionConfigOutput) ViewerCertificate() DistributionViewerCertific
 	return o.ApplyT(func(v DistributionConfig) *DistributionViewerCertificate { return v.ViewerCertificate }).(DistributionViewerCertificatePtrOutput)
 }
 
-// A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example “arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111“. To specify a web ACL created using WAF Classic, use the ACL ID, for example “a1b2c3d4-5678-90ab-cdef-EXAMPLE11111“.
+// Multi-tenant distributions only support WAF V2 web ACLs.
 //
+//	 A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
 //	WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
 func (o DistributionConfigOutput) WebAclId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *string { return v.WebAclId }).(pulumi.StringPtrOutput)
@@ -2883,7 +2928,9 @@ func (o DistributionConfigPtrOutput) Elem() DistributionConfigOutput {
 	}).(DistributionConfigOutput)
 }
 
-// A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+//
+//	A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
 func (o DistributionConfigPtrOutput) Aliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionConfig) []string {
 		if v == nil {
@@ -2893,7 +2940,9 @@ func (o DistributionConfigPtrOutput) Aliases() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// ID of the Anycast static IP list that is associated with the distribution.
+// To use this field for a multi-tenant distribution, use a connection group instead. For more information, see [ConnectionGroup](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ConnectionGroup.html).
+//
+//	ID of the Anycast static IP list that is associated with the distribution.
 func (o DistributionConfigPtrOutput) AnycastIpListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfig) *string {
 		if v == nil {
@@ -2935,7 +2984,7 @@ func (o DistributionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The connection mode to filter distributions by.
+// This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants(tenant-only).
 func (o DistributionConfigPtrOutput) ConnectionMode() DistributionConnectionModePtrOutput {
 	return o.ApplyT(func(v *DistributionConfig) *DistributionConnectionMode {
 		if v == nil {
@@ -2945,7 +2994,9 @@ func (o DistributionConfigPtrOutput) ConnectionMode() DistributionConnectionMode
 	}).(DistributionConnectionModePtrOutput)
 }
 
-// The identifier of a continuous deployment policy. For more information, see “CreateContinuousDeploymentPolicy“.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+//
+//	The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
 func (o DistributionConfigPtrOutput) ContinuousDeploymentPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfig) *string {
 		if v == nil {
@@ -3032,8 +3083,9 @@ func (o DistributionConfigPtrOutput) HttpVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify “true“. If you specify “false“, CloudFront responds to IPv6 DNS requests with the DNS response code “NOERROR“ and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
+// To use this field for a multi-tenant distribution, use a connection group instead. For more information, see [ConnectionGroup](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ConnectionGroup.html).
 //
+//	 If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true``. If you specify ``false``, CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
 //	In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see [Creating a Signed URL Using a Custom Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html) in the *Amazon CloudFront Developer Guide*.
 //	If you're using an R53AWSIntlong alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
 //	 +  You enable IPv6 for the distribution
@@ -3086,8 +3138,9 @@ func (o DistributionConfigPtrOutput) Origins() DistributionOriginArrayOutput {
 	}).(DistributionOriginArrayOutput)
 }
 
-// The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify “PriceClass_All“, CloudFront responds to requests for your objects from all CloudFront edge locations.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //
+//	 The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify ``PriceClass_All``, CloudFront responds to requests for your objects from all CloudFront edge locations.
 //	If you specify a price class other than ``PriceClass_All``, CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance.
 //	For more information about price classes, see [Choosing the Price Class for a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) in the *Amazon CloudFront Developer Guide*. For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see [Amazon CloudFront Pricing](https://docs.aws.amazon.com/cloudfront/pricing/).
 func (o DistributionConfigPtrOutput) PriceClass() pulumi.StringPtrOutput {
@@ -3121,7 +3174,9 @@ func (o DistributionConfigPtrOutput) S3Origin() DistributionLegacyS3OriginPtrOut
 	}).(DistributionLegacyS3OriginPtrOutput)
 }
 
-// A Boolean that indicates whether this is a staging distribution. When this value is “true“, this is a staging distribution. When this value is “false“, this is not a staging distribution.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+//
+//	A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
 func (o DistributionConfigPtrOutput) Staging() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionConfig) *bool {
 		if v == nil {
@@ -3131,7 +3186,9 @@ func (o DistributionConfigPtrOutput) Staging() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A distribution tenant configuration.
+// This field only supports multi-tenant distributions. You can't specify this field for standard distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+//
+//	A distribution tenant configuration.
 func (o DistributionConfigPtrOutput) TenantConfig() DistributionConfigTenantConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v *DistributionConfig) *DistributionConfigTenantConfigProperties {
 		if v == nil {
@@ -3151,8 +3208,9 @@ func (o DistributionConfigPtrOutput) ViewerCertificate() DistributionViewerCerti
 	}).(DistributionViewerCertificatePtrOutput)
 }
 
-// A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example “arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111“. To specify a web ACL created using WAF Classic, use the ACL ID, for example “a1b2c3d4-5678-90ab-cdef-EXAMPLE11111“.
+// Multi-tenant distributions only support WAF V2 web ACLs.
 //
+//	 A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
 //	WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
 func (o DistributionConfigPtrOutput) WebAclId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfig) *string {
@@ -3163,7 +3221,9 @@ func (o DistributionConfigPtrOutput) WebAclId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A distribution tenant configuration.
+// This field only supports multi-tenant distributions. You can't specify this field for standard distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+//
+//	A distribution tenant configuration.
 type DistributionConfigTenantConfigProperties struct {
 	ParameterDefinitions []DistributionParameterDefinition `pulumi:"parameterDefinitions"`
 }
@@ -3179,7 +3239,9 @@ type DistributionConfigTenantConfigPropertiesInput interface {
 	ToDistributionConfigTenantConfigPropertiesOutputWithContext(context.Context) DistributionConfigTenantConfigPropertiesOutput
 }
 
-// A distribution tenant configuration.
+// This field only supports multi-tenant distributions. You can't specify this field for standard distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+//
+//	A distribution tenant configuration.
 type DistributionConfigTenantConfigPropertiesArgs struct {
 	ParameterDefinitions DistributionParameterDefinitionArrayInput `pulumi:"parameterDefinitions"`
 }
@@ -3237,7 +3299,9 @@ func (i *distributionConfigTenantConfigPropertiesPtrType) ToDistributionConfigTe
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigTenantConfigPropertiesPtrOutput)
 }
 
-// A distribution tenant configuration.
+// This field only supports multi-tenant distributions. You can't specify this field for standard distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+//
+//	A distribution tenant configuration.
 type DistributionConfigTenantConfigPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DistributionConfigTenantConfigPropertiesOutput) ElementType() reflect.Type {
@@ -3701,20 +3765,21 @@ type DistributionCustomOriginConfig struct {
 	// The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
 	HttpPort *int `pulumi:"httpPort"`
 	// The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
-	HttpsPort *int `pulumi:"httpsPort"`
-	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
-	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
+	HttpsPort     *int                                         `pulumi:"httpsPort"`
+	IpAddressType *DistributionCustomOriginConfigIpAddressType `pulumi:"ipAddressType"`
+	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
 	OriginKeepaliveTimeout *int `pulumi:"originKeepaliveTimeout"`
 	// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
 	//   +  ``http-only`` – CloudFront always uses HTTP to connect to the origin.
 	//   +  ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
 	//   +  ``https-only`` – CloudFront always uses HTTPS to connect to the origin.
 	OriginProtocolPolicy string `pulumi:"originProtocolPolicy"`
-	// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-	//  For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+	// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+	//  For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
 	OriginReadTimeout *int `pulumi:"originReadTimeout"`
 	// Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include ``SSLv3``, ``TLSv1``, ``TLSv1.1``, and ``TLSv1.2``.
-	//  For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
+	//  For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
 	OriginSslProtocols []string `pulumi:"originSslProtocols"`
 }
 
@@ -3734,20 +3799,21 @@ type DistributionCustomOriginConfigArgs struct {
 	// The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
 	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
 	// The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
-	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
-	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
-	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
+	HttpsPort     pulumi.IntPtrInput                                  `pulumi:"httpsPort"`
+	IpAddressType DistributionCustomOriginConfigIpAddressTypePtrInput `pulumi:"ipAddressType"`
+	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
 	OriginKeepaliveTimeout pulumi.IntPtrInput `pulumi:"originKeepaliveTimeout"`
 	// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
 	//   +  ``http-only`` – CloudFront always uses HTTP to connect to the origin.
 	//   +  ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
 	//   +  ``https-only`` – CloudFront always uses HTTPS to connect to the origin.
 	OriginProtocolPolicy pulumi.StringInput `pulumi:"originProtocolPolicy"`
-	// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-	//  For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+	// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+	//  For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
 	OriginReadTimeout pulumi.IntPtrInput `pulumi:"originReadTimeout"`
 	// Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include ``SSLv3``, ``TLSv1``, ``TLSv1.1``, and ``TLSv1.2``.
-	//  For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
+	//  For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
 	OriginSslProtocols pulumi.StringArrayInput `pulumi:"originSslProtocols"`
 }
 
@@ -3839,9 +3905,15 @@ func (o DistributionCustomOriginConfigOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionCustomOriginConfig) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
 }
 
-// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+func (o DistributionCustomOriginConfigOutput) IpAddressType() DistributionCustomOriginConfigIpAddressTypePtrOutput {
+	return o.ApplyT(func(v DistributionCustomOriginConfig) *DistributionCustomOriginConfigIpAddressType {
+		return v.IpAddressType
+	}).(DistributionCustomOriginConfigIpAddressTypePtrOutput)
+}
+
+// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 //
-//	For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
+//	For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionCustomOriginConfigOutput) OriginKeepaliveTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionCustomOriginConfig) *int { return v.OriginKeepaliveTimeout }).(pulumi.IntPtrOutput)
 }
@@ -3854,16 +3926,16 @@ func (o DistributionCustomOriginConfigOutput) OriginProtocolPolicy() pulumi.Stri
 	return o.ApplyT(func(v DistributionCustomOriginConfig) string { return v.OriginProtocolPolicy }).(pulumi.StringOutput)
 }
 
-// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
 //
-//	For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+//	For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionCustomOriginConfigOutput) OriginReadTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionCustomOriginConfig) *int { return v.OriginReadTimeout }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include “SSLv3“, “TLSv1“, “TLSv1.1“, and “TLSv1.2“.
 //
-//	For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
+//	For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionCustomOriginConfigOutput) OriginSslProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionCustomOriginConfig) []string { return v.OriginSslProtocols }).(pulumi.StringArrayOutput)
 }
@@ -3912,9 +3984,18 @@ func (o DistributionCustomOriginConfigPtrOutput) HttpsPort() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+func (o DistributionCustomOriginConfigPtrOutput) IpAddressType() DistributionCustomOriginConfigIpAddressTypePtrOutput {
+	return o.ApplyT(func(v *DistributionCustomOriginConfig) *DistributionCustomOriginConfigIpAddressType {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(DistributionCustomOriginConfigIpAddressTypePtrOutput)
+}
+
+// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 //
-//	For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
+//	For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionCustomOriginConfigPtrOutput) OriginKeepaliveTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionCustomOriginConfig) *int {
 		if v == nil {
@@ -3937,9 +4018,9 @@ func (o DistributionCustomOriginConfigPtrOutput) OriginProtocolPolicy() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
 //
-//	For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+//	For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionCustomOriginConfigPtrOutput) OriginReadTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionCustomOriginConfig) *int {
 		if v == nil {
@@ -3951,7 +4032,7 @@ func (o DistributionCustomOriginConfigPtrOutput) OriginReadTimeout() pulumi.IntP
 
 // Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include “SSLv3“, “TLSv1“, “TLSv1.1“, and “TLSv1.2“.
 //
-//	For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
+//	For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionCustomOriginConfigPtrOutput) OriginSslProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionCustomOriginConfig) []string {
 		if v == nil {
@@ -3981,7 +4062,8 @@ type DistributionDefaultCacheBehavior struct {
 	CachedMethods []string `pulumi:"cachedMethods"`
 	// Whether you want CloudFront to automatically compress certain files for this cache behavior. If so, specify ``true``; if not, specify ``false``. For more information, see [Serving Compressed Files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html) in the *Amazon CloudFront Developer Guide*.
 	Compress *bool `pulumi:"compress"`
-	// This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 	//  The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 	DefaultTtl *float64 `pulumi:"defaultTtl"`
 	// The value of ``ID`` for the field-level encryption configuration that you want CloudFront to use for encrypting specific fields of data for the default cache behavior.
@@ -3998,10 +4080,12 @@ type DistributionDefaultCacheBehavior struct {
 	GrpcConfig *DistributionGrpcConfig `pulumi:"grpcConfig"`
 	// A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
 	LambdaFunctionAssociations []DistributionLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
-	// This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 	//  The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 	MaxTtl *float64 `pulumi:"maxTtl"`
-	// This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 	//  The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 	//  You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``Headers``, if you specify ``1`` for ``Quantity`` and ``*`` for ``Name``).
 	MinTtl *float64 `pulumi:"minTtl"`
@@ -4011,7 +4095,8 @@ type DistributionDefaultCacheBehavior struct {
 	RealtimeLogConfigArn *string `pulumi:"realtimeLogConfigArn"`
 	// The identifier for a response headers policy.
 	ResponseHeadersPolicyId *string `pulumi:"responseHeadersPolicyId"`
-	// Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify ``true``; if not, specify ``false``. If you specify ``true`` for ``SmoothStreaming``, you can still distribute other content using this cache behavior if the content matches the value of ``PathPattern``.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify ``true``; if not, specify ``false``. If you specify ``true`` for ``SmoothStreaming``, you can still distribute other content using this cache behavior if the content matches the value of ``PathPattern``.
 	SmoothStreaming *bool `pulumi:"smoothStreaming"`
 	// The value of ``ID`` for the origin that you want CloudFront to route requests to when they use the default cache behavior.
 	TargetOriginId string `pulumi:"targetOriginId"`
@@ -4019,6 +4104,7 @@ type DistributionDefaultCacheBehavior struct {
 	//  When a cache behavior contains trusted key groups, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with a private key whose corresponding public key is in the key group. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
 	TrustedKeyGroups []string `pulumi:"trustedKeyGroups"`
 	// We recommend using ``TrustedKeyGroups`` instead of ``TrustedSigners``.
+	//    This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 	//   A list of AWS-account IDs whose public keys CloudFront can use to validate signed URLs or signed cookies.
 	//  When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with the private key of a CloudFront key pair in a trusted signer's AWS-account. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
 	TrustedSigners []string `pulumi:"trustedSigners"`
@@ -4063,7 +4149,8 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	CachedMethods pulumi.StringArrayInput `pulumi:"cachedMethods"`
 	// Whether you want CloudFront to automatically compress certain files for this cache behavior. If so, specify ``true``; if not, specify ``false``. For more information, see [Serving Compressed Files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html) in the *Amazon CloudFront Developer Guide*.
 	Compress pulumi.BoolPtrInput `pulumi:"compress"`
-	// This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 	//  The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 	DefaultTtl pulumi.Float64PtrInput `pulumi:"defaultTtl"`
 	// The value of ``ID`` for the field-level encryption configuration that you want CloudFront to use for encrypting specific fields of data for the default cache behavior.
@@ -4080,10 +4167,12 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	GrpcConfig DistributionGrpcConfigPtrInput `pulumi:"grpcConfig"`
 	// A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
 	LambdaFunctionAssociations DistributionLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
-	// This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 	//  The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 	MaxTtl pulumi.Float64PtrInput `pulumi:"maxTtl"`
-	// This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 	//  The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 	//  You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``Headers``, if you specify ``1`` for ``Quantity`` and ``*`` for ``Name``).
 	MinTtl pulumi.Float64PtrInput `pulumi:"minTtl"`
@@ -4093,7 +4182,8 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	RealtimeLogConfigArn pulumi.StringPtrInput `pulumi:"realtimeLogConfigArn"`
 	// The identifier for a response headers policy.
 	ResponseHeadersPolicyId pulumi.StringPtrInput `pulumi:"responseHeadersPolicyId"`
-	// Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify ``true``; if not, specify ``false``. If you specify ``true`` for ``SmoothStreaming``, you can still distribute other content using this cache behavior if the content matches the value of ``PathPattern``.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//   Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify ``true``; if not, specify ``false``. If you specify ``true`` for ``SmoothStreaming``, you can still distribute other content using this cache behavior if the content matches the value of ``PathPattern``.
 	SmoothStreaming pulumi.BoolPtrInput `pulumi:"smoothStreaming"`
 	// The value of ``ID`` for the origin that you want CloudFront to route requests to when they use the default cache behavior.
 	TargetOriginId pulumi.StringInput `pulumi:"targetOriginId"`
@@ -4101,6 +4191,7 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	//  When a cache behavior contains trusted key groups, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with a private key whose corresponding public key is in the key group. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
 	TrustedKeyGroups pulumi.StringArrayInput `pulumi:"trustedKeyGroups"`
 	// We recommend using ``TrustedKeyGroups`` instead of ``TrustedSigners``.
+	//    This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 	//   A list of AWS-account IDs whose public keys CloudFront can use to validate signed URLs or signed cookies.
 	//  When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with the private key of a CloudFront key pair in a trusted signer's AWS-account. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
 	TrustedSigners pulumi.StringArrayInput `pulumi:"trustedSigners"`
@@ -4177,8 +4268,9 @@ func (o DistributionDefaultCacheBehaviorOutput) Compress() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
 }
 
-// This field is deprecated. We recommend that you use the “DefaultTTL“ field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //
+//	 This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 //	The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionDefaultCacheBehaviorOutput) DefaultTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *float64 { return v.DefaultTtl }).(pulumi.Float64PtrOutput)
@@ -4218,15 +4310,17 @@ func (o DistributionDefaultCacheBehaviorOutput) LambdaFunctionAssociations() Dis
 	}).(DistributionLambdaFunctionAssociationArrayOutput)
 }
 
-// This field is deprecated. We recommend that you use the “MaxTTL“ field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //
+//	 This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 //	The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionDefaultCacheBehaviorOutput) MaxTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *float64 { return v.MaxTtl }).(pulumi.Float64PtrOutput)
 }
 
-// This field is deprecated. We recommend that you use the “MinTTL“ field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //
+//	 This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 //	The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 //	You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``Headers``, if you specify ``1`` for ``Quantity`` and ``*`` for ``Name``).
 func (o DistributionDefaultCacheBehaviorOutput) MinTtl() pulumi.Float64PtrOutput {
@@ -4248,7 +4342,9 @@ func (o DistributionDefaultCacheBehaviorOutput) ResponseHeadersPolicyId() pulumi
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *string { return v.ResponseHeadersPolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify “true“; if not, specify “false“. If you specify “true“ for “SmoothStreaming“, you can still distribute other content using this cache behavior if the content matches the value of “PathPattern“.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+//
+//	Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify ``true``; if not, specify ``false``. If you specify ``true`` for ``SmoothStreaming``, you can still distribute other content using this cache behavior if the content matches the value of ``PathPattern``.
 func (o DistributionDefaultCacheBehaviorOutput) SmoothStreaming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *bool { return v.SmoothStreaming }).(pulumi.BoolPtrOutput)
 }
@@ -4267,6 +4363,7 @@ func (o DistributionDefaultCacheBehaviorOutput) TrustedKeyGroups() pulumi.String
 
 // We recommend using “TrustedKeyGroups“ instead of “TrustedSigners“.
 //
+//	  This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //	 A list of AWS-account IDs whose public keys CloudFront can use to validate signed URLs or signed cookies.
 //	When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with the private key of a CloudFront key pair in a trusted signer's AWS-account. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionDefaultCacheBehaviorOutput) TrustedSigners() pulumi.StringArrayOutput {
@@ -4367,8 +4464,9 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) Compress() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// This field is deprecated. We recommend that you use the “DefaultTTL“ field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //
+//	 This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 //	The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionDefaultCacheBehaviorPtrOutput) DefaultTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *float64 {
@@ -4434,8 +4532,9 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) LambdaFunctionAssociations() 
 	}).(DistributionLambdaFunctionAssociationArrayOutput)
 }
 
-// This field is deprecated. We recommend that you use the “MaxTTL“ field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //
+//	 This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 //	The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionDefaultCacheBehaviorPtrOutput) MaxTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *float64 {
@@ -4446,8 +4545,9 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) MaxTtl() pulumi.Float64PtrOut
 	}).(pulumi.Float64PtrOutput)
 }
 
-// This field is deprecated. We recommend that you use the “MinTTL“ field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //
+//	 This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
 //	The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
 //	You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``Headers``, if you specify ``1`` for ``Quantity`` and ``*`` for ``Name``).
 func (o DistributionDefaultCacheBehaviorPtrOutput) MinTtl() pulumi.Float64PtrOutput {
@@ -4489,7 +4589,9 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) ResponseHeadersPolicyId() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify “true“; if not, specify “false“. If you specify “true“ for “SmoothStreaming“, you can still distribute other content using this cache behavior if the content matches the value of “PathPattern“.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+//
+//	Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify ``true``; if not, specify ``false``. If you specify ``true`` for ``SmoothStreaming``, you can still distribute other content using this cache behavior if the content matches the value of ``PathPattern``.
 func (o DistributionDefaultCacheBehaviorPtrOutput) SmoothStreaming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *bool {
 		if v == nil {
@@ -4523,6 +4625,7 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) TrustedKeyGroups() pulumi.Str
 
 // We recommend using “TrustedKeyGroups“ instead of “TrustedSigners“.
 //
+//	  This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //	 A list of AWS-account IDs whose public keys CloudFront can use to validate signed URLs or signed cookies.
 //	When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with the private key of a CloudFront key pair in a trusted signer's AWS-account. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionDefaultCacheBehaviorPtrOutput) TrustedSigners() pulumi.StringArrayOutput {
@@ -4553,8 +4656,9 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) ViewerProtocolPolicy() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //
+//	 This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
 //	If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
 //	If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
 //	A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.
@@ -4597,8 +4701,9 @@ type DistributionForwardedValuesInput interface {
 	ToDistributionForwardedValuesOutputWithContext(context.Context) DistributionForwardedValuesOutput
 }
 
-// This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //
+//	 This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
 //	If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
 //	If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
 //	A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.
@@ -4683,8 +4788,9 @@ func (i *distributionForwardedValuesPtrType) ToDistributionForwardedValuesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionForwardedValuesPtrOutput)
 }
 
-// This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //
+//	 This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
 //	If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
 //	If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
 //	A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.
@@ -8863,7 +8969,8 @@ type DistributionViewerCertificate struct {
 	//   +   ``MinimumProtocolVersion``
 	//   +   ``SslSupportMethod``
 	CloudFrontDefaultCertificate *bool `pulumi:"cloudFrontDefaultCertificate"`
-	// In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//    In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.
 	//   If the distribution uses ``Aliases`` (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in [(IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html), provide the ID of the IAM certificate.
 	//  If you specify an IAM certificate ID, you must also specify values for ``MinimumProtocolVersion`` and ``SSLSupportMethod``. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
 	IamCertificateId *string `pulumi:"iamCertificateId"`
@@ -8923,7 +9030,8 @@ type DistributionViewerCertificateArgs struct {
 	//   +   ``MinimumProtocolVersion``
 	//   +   ``SslSupportMethod``
 	CloudFrontDefaultCertificate pulumi.BoolPtrInput `pulumi:"cloudFrontDefaultCertificate"`
-	// In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.
+	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
+	//    In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.
 	//   If the distribution uses ``Aliases`` (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in [(IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html), provide the ID of the IAM certificate.
 	//  If you specify an IAM certificate ID, you must also specify values for ``MinimumProtocolVersion`` and ``SSLSupportMethod``. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
 	IamCertificateId pulumi.StringPtrInput `pulumi:"iamCertificateId"`
@@ -9056,8 +9164,9 @@ func (o DistributionViewerCertificateOutput) CloudFrontDefaultCertificate() pulu
 	return o.ApplyT(func(v DistributionViewerCertificate) *bool { return v.CloudFrontDefaultCertificate }).(pulumi.BoolPtrOutput)
 }
 
-// In CloudFormation, this field name is “IamCertificateId“. Note the different capitalization.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //
+//	  In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.
 //	 If the distribution uses ``Aliases`` (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in [(IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html), provide the ID of the IAM certificate.
 //	If you specify an IAM certificate ID, you must also specify values for ``MinimumProtocolVersion`` and ``SSLSupportMethod``. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
 func (o DistributionViewerCertificateOutput) IamCertificateId() pulumi.StringPtrOutput {
@@ -9142,8 +9251,9 @@ func (o DistributionViewerCertificatePtrOutput) CloudFrontDefaultCertificate() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// In CloudFormation, this field name is “IamCertificateId“. Note the different capitalization.
+// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
 //
+//	  In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.
 //	 If the distribution uses ``Aliases`` (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in [(IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html), provide the ID of the IAM certificate.
 //	If you specify an IAM certificate ID, you must also specify values for ``MinimumProtocolVersion`` and ``SSLSupportMethod``. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
 func (o DistributionViewerCertificatePtrOutput) IamCertificateId() pulumi.StringPtrOutput {
@@ -9193,11 +9303,11 @@ func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.String
 
 // An Amazon CloudFront VPC origin configuration.
 type DistributionVpcOriginConfig struct {
-	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
-	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
+	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
 	OriginKeepaliveTimeout *int `pulumi:"originKeepaliveTimeout"`
-	// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-	//  For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+	// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+	//  For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
 	OriginReadTimeout *int `pulumi:"originReadTimeout"`
 	// The VPC origin ID.
 	VpcOriginId string `pulumi:"vpcOriginId"`
@@ -9216,11 +9326,11 @@ type DistributionVpcOriginConfigInput interface {
 
 // An Amazon CloudFront VPC origin configuration.
 type DistributionVpcOriginConfigArgs struct {
-	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
-	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
+	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
 	OriginKeepaliveTimeout pulumi.IntPtrInput `pulumi:"originKeepaliveTimeout"`
-	// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-	//  For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+	// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+	//  For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
 	OriginReadTimeout pulumi.IntPtrInput `pulumi:"originReadTimeout"`
 	// The VPC origin ID.
 	VpcOriginId pulumi.StringInput `pulumi:"vpcOriginId"`
@@ -9304,16 +9414,16 @@ func (o DistributionVpcOriginConfigOutput) ToDistributionVpcOriginConfigPtrOutpu
 	}).(DistributionVpcOriginConfigPtrOutput)
 }
 
-// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 //
-//	For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
+//	For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionVpcOriginConfigOutput) OriginKeepaliveTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionVpcOriginConfig) *int { return v.OriginKeepaliveTimeout }).(pulumi.IntPtrOutput)
 }
 
-// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
 //
-//	For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+//	For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionVpcOriginConfigOutput) OriginReadTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionVpcOriginConfig) *int { return v.OriginReadTimeout }).(pulumi.IntPtrOutput)
 }
@@ -9347,9 +9457,9 @@ func (o DistributionVpcOriginConfigPtrOutput) Elem() DistributionVpcOriginConfig
 	}).(DistributionVpcOriginConfigOutput)
 }
 
-// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 //
-//	For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
+//	For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionVpcOriginConfigPtrOutput) OriginKeepaliveTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionVpcOriginConfig) *int {
 		if v == nil {
@@ -9359,9 +9469,9 @@ func (o DistributionVpcOriginConfigPtrOutput) OriginKeepaliveTimeout() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
 //
-//	For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+//	For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
 func (o DistributionVpcOriginConfigPtrOutput) OriginReadTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionVpcOriginConfig) *int {
 		if v == nil {
@@ -14563,7 +14673,7 @@ type VpcOriginEndpointConfig struct {
 	// The origin protocol policy for the CloudFront VPC origin endpoint configuration.
 	OriginProtocolPolicy *string `pulumi:"originProtocolPolicy"`
 	// Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include ``SSLv3``, ``TLSv1``, ``TLSv1.1``, and ``TLSv1.2``.
-	//  For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
+	//  For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
 	OriginSslProtocols []string `pulumi:"originSslProtocols"`
 }
 
@@ -14591,7 +14701,7 @@ type VpcOriginEndpointConfigArgs struct {
 	// The origin protocol policy for the CloudFront VPC origin endpoint configuration.
 	OriginProtocolPolicy pulumi.StringPtrInput `pulumi:"originProtocolPolicy"`
 	// Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include ``SSLv3``, ``TLSv1``, ``TLSv1.1``, and ``TLSv1.2``.
-	//  For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
+	//  For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
 	OriginSslProtocols pulumi.StringArrayInput `pulumi:"originSslProtocols"`
 }
 
@@ -14649,7 +14759,7 @@ func (o VpcOriginEndpointConfigOutput) OriginProtocolPolicy() pulumi.StringPtrOu
 
 // Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include “SSLv3“, “TLSv1“, “TLSv1.1“, and “TLSv1.2“.
 //
-//	For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
+//	For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
 func (o VpcOriginEndpointConfigOutput) OriginSslProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VpcOriginEndpointConfig) []string { return v.OriginSslProtocols }).(pulumi.StringArrayOutput)
 }
@@ -14730,7 +14840,7 @@ func (o VpcOriginEndpointConfigPtrOutput) OriginProtocolPolicy() pulumi.StringPt
 
 // Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include “SSLv3“, “TLSv1“, “TLSv1.1“, and “TLSv1.2“.
 //
-//	For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
+//	For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
 func (o VpcOriginEndpointConfigPtrOutput) OriginSslProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcOriginEndpointConfig) []string {
 		if v == nil {

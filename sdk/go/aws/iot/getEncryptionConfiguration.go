@@ -23,16 +23,22 @@ func LookupEncryptionConfiguration(ctx *pulumi.Context, args *LookupEncryptionCo
 }
 
 type LookupEncryptionConfigurationArgs struct {
+	// The unique identifier (ID) of an AWS account.
 	AccountId string `pulumi:"accountId"`
 }
 
 type LookupEncryptionConfigurationResult struct {
-	AccountId            *string                                `pulumi:"accountId"`
-	ConfigurationDetails *ConfigurationDetailsProperties        `pulumi:"configurationDetails"`
-	EncryptionType       *EncryptionConfigurationEncryptionType `pulumi:"encryptionType"`
-	KmsAccessRoleArn     *string                                `pulumi:"kmsAccessRoleArn"`
-	KmsKeyArn            *string                                `pulumi:"kmsKeyArn"`
-	LastModifiedDate     *string                                `pulumi:"lastModifiedDate"`
+	// The unique identifier (ID) of an AWS account.
+	AccountId            *string                         `pulumi:"accountId"`
+	ConfigurationDetails *ConfigurationDetailsProperties `pulumi:"configurationDetails"`
+	// The type of the KMS key.
+	EncryptionType *EncryptionConfigurationEncryptionType `pulumi:"encryptionType"`
+	// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+	KmsAccessRoleArn *string `pulumi:"kmsAccessRoleArn"`
+	// The ARN of the customer managed KMS key.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The date when encryption configuration is last updated.
+	LastModifiedDate *string `pulumi:"lastModifiedDate"`
 }
 
 func LookupEncryptionConfigurationOutput(ctx *pulumi.Context, args LookupEncryptionConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupEncryptionConfigurationResultOutput {
@@ -45,6 +51,7 @@ func LookupEncryptionConfigurationOutput(ctx *pulumi.Context, args LookupEncrypt
 }
 
 type LookupEncryptionConfigurationOutputArgs struct {
+	// The unique identifier (ID) of an AWS account.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
 }
 
@@ -66,6 +73,7 @@ func (o LookupEncryptionConfigurationResultOutput) ToLookupEncryptionConfigurati
 	return o
 }
 
+// The unique identifier (ID) of an AWS account.
 func (o LookupEncryptionConfigurationResultOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEncryptionConfigurationResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
@@ -76,20 +84,24 @@ func (o LookupEncryptionConfigurationResultOutput) ConfigurationDetails() Config
 	}).(ConfigurationDetailsPropertiesPtrOutput)
 }
 
+// The type of the KMS key.
 func (o LookupEncryptionConfigurationResultOutput) EncryptionType() EncryptionConfigurationEncryptionTypePtrOutput {
 	return o.ApplyT(func(v LookupEncryptionConfigurationResult) *EncryptionConfigurationEncryptionType {
 		return v.EncryptionType
 	}).(EncryptionConfigurationEncryptionTypePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
 func (o LookupEncryptionConfigurationResultOutput) KmsAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEncryptionConfigurationResult) *string { return v.KmsAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the customer managed KMS key.
 func (o LookupEncryptionConfigurationResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEncryptionConfigurationResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The date when encryption configuration is last updated.
 func (o LookupEncryptionConfigurationResultOutput) LastModifiedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEncryptionConfigurationResult) *string { return v.LastModifiedDate }).(pulumi.StringPtrOutput)
 }

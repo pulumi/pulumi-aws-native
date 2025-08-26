@@ -194,6 +194,9 @@ export const EncryptionConfigurationConfigurationDetailsPropertiesConfigurationS
     Unhealthy: "UNHEALTHY",
 } as const;
 
+/**
+ * The health status of KMS key and AWS KMS access role. If either KMS key or AWS KMS access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
+ */
 export type EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus = (typeof EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus)[keyof typeof EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus];
 
 export const EncryptionConfigurationEncryptionType = {
@@ -201,6 +204,9 @@ export const EncryptionConfigurationEncryptionType = {
     AwsOwnedKmsKey: "AWS_OWNED_KMS_KEY",
 } as const;
 
+/**
+ * The type of the KMS key.
+ */
 export type EncryptionConfigurationEncryptionType = (typeof EncryptionConfigurationEncryptionType)[keyof typeof EncryptionConfigurationEncryptionType];
 
 export const JobTemplateAction = {

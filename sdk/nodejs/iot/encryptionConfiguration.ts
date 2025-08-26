@@ -37,11 +37,26 @@ export class EncryptionConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === EncryptionConfiguration.__pulumiType;
     }
 
+    /**
+     * The unique identifier (ID) of an AWS account.
+     */
     public /*out*/ readonly accountId!: pulumi.Output<string>;
     public /*out*/ readonly configurationDetails!: pulumi.Output<outputs.iot.ConfigurationDetailsProperties>;
+    /**
+     * The type of the KMS key.
+     */
     public readonly encryptionType!: pulumi.Output<enums.iot.EncryptionConfigurationEncryptionType>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+     */
     public readonly kmsAccessRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the customer managed KMS key.
+     */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    /**
+     * The date when encryption configuration is last updated.
+     */
     public /*out*/ readonly lastModifiedDate!: pulumi.Output<string>;
 
     /**
@@ -81,7 +96,16 @@ export class EncryptionConfiguration extends pulumi.CustomResource {
  * The set of arguments for constructing a EncryptionConfiguration resource.
  */
 export interface EncryptionConfigurationArgs {
+    /**
+     * The type of the KMS key.
+     */
     encryptionType: pulumi.Input<enums.iot.EncryptionConfigurationEncryptionType>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+     */
     kmsAccessRoleArn?: pulumi.Input<string>;
+    /**
+     * The ARN of the customer managed KMS key.
+     */
     kmsKeyArn?: pulumi.Input<string>;
 }

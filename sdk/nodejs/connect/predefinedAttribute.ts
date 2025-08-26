@@ -38,6 +38,10 @@ export class PredefinedAttribute extends pulumi.CustomResource {
     }
 
     /**
+     * Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+     */
+    public readonly attributeConfiguration!: pulumi.Output<outputs.connect.AttributeConfigurationProperties | undefined>;
+    /**
      * The identifier of the Amazon Connect instance.
      */
     public readonly instanceArn!: pulumi.Output<string>;
@@ -54,9 +58,13 @@ export class PredefinedAttribute extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The assigned purposes of the predefined attribute.
+     */
+    public readonly purposes!: pulumi.Output<string[] | undefined>;
+    /**
      * The values of a predefined attribute.
      */
-    public readonly values!: pulumi.Output<outputs.connect.ValuesProperties>;
+    public readonly values!: pulumi.Output<outputs.connect.ValuesProperties | undefined>;
 
     /**
      * Create a PredefinedAttribute resource with the given unique name, arguments, and options.
@@ -72,19 +80,20 @@ export class PredefinedAttribute extends pulumi.CustomResource {
             if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.values === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'values'");
-            }
+            resourceInputs["attributeConfiguration"] = args ? args.attributeConfiguration : undefined;
             resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["purposes"] = args ? args.purposes : undefined;
             resourceInputs["values"] = args ? args.values : undefined;
             resourceInputs["lastModifiedRegion"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {
+            resourceInputs["attributeConfiguration"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["lastModifiedRegion"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["purposes"] = undefined /*out*/;
             resourceInputs["values"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -99,6 +108,10 @@ export class PredefinedAttribute extends pulumi.CustomResource {
  */
 export interface PredefinedAttributeArgs {
     /**
+     * Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+     */
+    attributeConfiguration?: pulumi.Input<inputs.connect.AttributeConfigurationPropertiesArgs>;
+    /**
      * The identifier of the Amazon Connect instance.
      */
     instanceArn: pulumi.Input<string>;
@@ -107,7 +120,11 @@ export interface PredefinedAttributeArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * The assigned purposes of the predefined attribute.
+     */
+    purposes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The values of a predefined attribute.
      */
-    values: pulumi.Input<inputs.connect.ValuesPropertiesArgs>;
+    values?: pulumi.Input<inputs.connect.ValuesPropertiesArgs>;
 }

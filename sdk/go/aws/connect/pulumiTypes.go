@@ -21,6 +21,165 @@ type AgentStatusTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+type AttributeConfigurationProperties struct {
+	// Enables customers to enforce strict validation on the specific values that this predefined attribute can hold.
+	EnableValueValidationOnAssociation *bool `pulumi:"enableValueValidationOnAssociation"`
+	// Allows the predefined attribute to show up and be managed in the Amazon Connect UI.
+	IsReadOnly *bool `pulumi:"isReadOnly"`
+}
+
+// AttributeConfigurationPropertiesInput is an input type that accepts AttributeConfigurationPropertiesArgs and AttributeConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `AttributeConfigurationPropertiesInput` via:
+//
+//	AttributeConfigurationPropertiesArgs{...}
+type AttributeConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToAttributeConfigurationPropertiesOutput() AttributeConfigurationPropertiesOutput
+	ToAttributeConfigurationPropertiesOutputWithContext(context.Context) AttributeConfigurationPropertiesOutput
+}
+
+// Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+type AttributeConfigurationPropertiesArgs struct {
+	// Enables customers to enforce strict validation on the specific values that this predefined attribute can hold.
+	EnableValueValidationOnAssociation pulumi.BoolPtrInput `pulumi:"enableValueValidationOnAssociation"`
+	// Allows the predefined attribute to show up and be managed in the Amazon Connect UI.
+	IsReadOnly pulumi.BoolPtrInput `pulumi:"isReadOnly"`
+}
+
+func (AttributeConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AttributeConfigurationProperties)(nil)).Elem()
+}
+
+func (i AttributeConfigurationPropertiesArgs) ToAttributeConfigurationPropertiesOutput() AttributeConfigurationPropertiesOutput {
+	return i.ToAttributeConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i AttributeConfigurationPropertiesArgs) ToAttributeConfigurationPropertiesOutputWithContext(ctx context.Context) AttributeConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AttributeConfigurationPropertiesOutput)
+}
+
+func (i AttributeConfigurationPropertiesArgs) ToAttributeConfigurationPropertiesPtrOutput() AttributeConfigurationPropertiesPtrOutput {
+	return i.ToAttributeConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i AttributeConfigurationPropertiesArgs) ToAttributeConfigurationPropertiesPtrOutputWithContext(ctx context.Context) AttributeConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AttributeConfigurationPropertiesOutput).ToAttributeConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// AttributeConfigurationPropertiesPtrInput is an input type that accepts AttributeConfigurationPropertiesArgs, AttributeConfigurationPropertiesPtr and AttributeConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `AttributeConfigurationPropertiesPtrInput` via:
+//
+//	        AttributeConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type AttributeConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAttributeConfigurationPropertiesPtrOutput() AttributeConfigurationPropertiesPtrOutput
+	ToAttributeConfigurationPropertiesPtrOutputWithContext(context.Context) AttributeConfigurationPropertiesPtrOutput
+}
+
+type attributeConfigurationPropertiesPtrType AttributeConfigurationPropertiesArgs
+
+func AttributeConfigurationPropertiesPtr(v *AttributeConfigurationPropertiesArgs) AttributeConfigurationPropertiesPtrInput {
+	return (*attributeConfigurationPropertiesPtrType)(v)
+}
+
+func (*attributeConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AttributeConfigurationProperties)(nil)).Elem()
+}
+
+func (i *attributeConfigurationPropertiesPtrType) ToAttributeConfigurationPropertiesPtrOutput() AttributeConfigurationPropertiesPtrOutput {
+	return i.ToAttributeConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *attributeConfigurationPropertiesPtrType) ToAttributeConfigurationPropertiesPtrOutputWithContext(ctx context.Context) AttributeConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AttributeConfigurationPropertiesPtrOutput)
+}
+
+// Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+type AttributeConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AttributeConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AttributeConfigurationProperties)(nil)).Elem()
+}
+
+func (o AttributeConfigurationPropertiesOutput) ToAttributeConfigurationPropertiesOutput() AttributeConfigurationPropertiesOutput {
+	return o
+}
+
+func (o AttributeConfigurationPropertiesOutput) ToAttributeConfigurationPropertiesOutputWithContext(ctx context.Context) AttributeConfigurationPropertiesOutput {
+	return o
+}
+
+func (o AttributeConfigurationPropertiesOutput) ToAttributeConfigurationPropertiesPtrOutput() AttributeConfigurationPropertiesPtrOutput {
+	return o.ToAttributeConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o AttributeConfigurationPropertiesOutput) ToAttributeConfigurationPropertiesPtrOutputWithContext(ctx context.Context) AttributeConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AttributeConfigurationProperties) *AttributeConfigurationProperties {
+		return &v
+	}).(AttributeConfigurationPropertiesPtrOutput)
+}
+
+// Enables customers to enforce strict validation on the specific values that this predefined attribute can hold.
+func (o AttributeConfigurationPropertiesOutput) EnableValueValidationOnAssociation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AttributeConfigurationProperties) *bool { return v.EnableValueValidationOnAssociation }).(pulumi.BoolPtrOutput)
+}
+
+// Allows the predefined attribute to show up and be managed in the Amazon Connect UI.
+func (o AttributeConfigurationPropertiesOutput) IsReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AttributeConfigurationProperties) *bool { return v.IsReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+type AttributeConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AttributeConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AttributeConfigurationProperties)(nil)).Elem()
+}
+
+func (o AttributeConfigurationPropertiesPtrOutput) ToAttributeConfigurationPropertiesPtrOutput() AttributeConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o AttributeConfigurationPropertiesPtrOutput) ToAttributeConfigurationPropertiesPtrOutputWithContext(ctx context.Context) AttributeConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o AttributeConfigurationPropertiesPtrOutput) Elem() AttributeConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *AttributeConfigurationProperties) AttributeConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AttributeConfigurationProperties
+		return ret
+	}).(AttributeConfigurationPropertiesOutput)
+}
+
+// Enables customers to enforce strict validation on the specific values that this predefined attribute can hold.
+func (o AttributeConfigurationPropertiesPtrOutput) EnableValueValidationOnAssociation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AttributeConfigurationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableValueValidationOnAssociation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Allows the predefined attribute to show up and be managed in the Amazon Connect UI.
+func (o AttributeConfigurationPropertiesPtrOutput) IsReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AttributeConfigurationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsReadOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The constraints for the task template
 type ConstraintsProperties struct {
 	// Lists the fields that are invisible to agents.
@@ -9738,6 +9897,47 @@ func (i ValuesPropertiesArgs) ToValuesPropertiesOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ValuesPropertiesOutput)
 }
 
+func (i ValuesPropertiesArgs) ToValuesPropertiesPtrOutput() ValuesPropertiesPtrOutput {
+	return i.ToValuesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ValuesPropertiesArgs) ToValuesPropertiesPtrOutputWithContext(ctx context.Context) ValuesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ValuesPropertiesOutput).ToValuesPropertiesPtrOutputWithContext(ctx)
+}
+
+// ValuesPropertiesPtrInput is an input type that accepts ValuesPropertiesArgs, ValuesPropertiesPtr and ValuesPropertiesPtrOutput values.
+// You can construct a concrete instance of `ValuesPropertiesPtrInput` via:
+//
+//	        ValuesPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ValuesPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToValuesPropertiesPtrOutput() ValuesPropertiesPtrOutput
+	ToValuesPropertiesPtrOutputWithContext(context.Context) ValuesPropertiesPtrOutput
+}
+
+type valuesPropertiesPtrType ValuesPropertiesArgs
+
+func ValuesPropertiesPtr(v *ValuesPropertiesArgs) ValuesPropertiesPtrInput {
+	return (*valuesPropertiesPtrType)(v)
+}
+
+func (*valuesPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ValuesProperties)(nil)).Elem()
+}
+
+func (i *valuesPropertiesPtrType) ToValuesPropertiesPtrOutput() ValuesPropertiesPtrOutput {
+	return i.ToValuesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *valuesPropertiesPtrType) ToValuesPropertiesPtrOutputWithContext(ctx context.Context) ValuesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ValuesPropertiesPtrOutput)
+}
+
 // The values of a predefined attribute.
 type ValuesPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -9751,6 +9951,16 @@ func (o ValuesPropertiesOutput) ToValuesPropertiesOutput() ValuesPropertiesOutpu
 
 func (o ValuesPropertiesOutput) ToValuesPropertiesOutputWithContext(ctx context.Context) ValuesPropertiesOutput {
 	return o
+}
+
+func (o ValuesPropertiesOutput) ToValuesPropertiesPtrOutput() ValuesPropertiesPtrOutput {
+	return o.ToValuesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ValuesPropertiesOutput) ToValuesPropertiesPtrOutputWithContext(ctx context.Context) ValuesPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ValuesProperties) *ValuesProperties {
+		return &v
+	}).(ValuesPropertiesPtrOutput)
 }
 
 // Predefined attribute values of type string list.
@@ -9801,6 +10011,8 @@ type ViewTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AttributeConfigurationPropertiesInput)(nil)).Elem(), AttributeConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AttributeConfigurationPropertiesPtrInput)(nil)).Elem(), AttributeConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintsPropertiesInput)(nil)).Elem(), ConstraintsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintsPropertiesPtrInput)(nil)).Elem(), ConstraintsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormAutoEvaluationConfigurationInput)(nil)).Elem(), EvaluationFormAutoEvaluationConfigurationArgs{})
@@ -9928,6 +10140,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProficiencyInput)(nil)).Elem(), UserProficiencyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProficiencyArrayInput)(nil)).Elem(), UserProficiencyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ValuesPropertiesInput)(nil)).Elem(), ValuesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ValuesPropertiesPtrInput)(nil)).Elem(), ValuesPropertiesArgs{})
+	pulumi.RegisterOutputType(AttributeConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(AttributeConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConstraintsPropertiesOutput{})
 	pulumi.RegisterOutputType(ConstraintsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormAutoEvaluationConfigurationOutput{})

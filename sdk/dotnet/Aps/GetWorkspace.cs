@@ -76,9 +76,7 @@ namespace Pulumi.AwsNative.Aps
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// Contains information about the current rules and alerting logging configuration for the workspace.
-        /// 
-        /// &gt; These logging configurations are only for rules and alerting logs.
+        /// Contains information about the logging configuration for the workspace.
         /// </summary>
         public readonly Outputs.WorkspaceLoggingConfiguration? LoggingConfiguration;
         /// <summary>

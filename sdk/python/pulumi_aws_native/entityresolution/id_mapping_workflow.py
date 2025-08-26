@@ -29,6 +29,7 @@ class IdMappingWorkflowArgs:
                  input_source_config: pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowInputSourceArgs']]],
                  role_arn: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 id_mapping_incremental_run_config: Optional[pulumi.Input['IdMappingWorkflowIdMappingIncrementalRunConfigArgs']] = None,
                  output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowOutputSourceArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  workflow_name: Optional[pulumi.Input[builtins.str]] = None):
@@ -47,6 +48,8 @@ class IdMappingWorkflowArgs:
         pulumi.set(__self__, "role_arn", role_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if id_mapping_incremental_run_config is not None:
+            pulumi.set(__self__, "id_mapping_incremental_run_config", id_mapping_incremental_run_config)
         if output_source_config is not None:
             pulumi.set(__self__, "output_source_config", output_source_config)
         if tags is not None:
@@ -103,6 +106,15 @@ class IdMappingWorkflowArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="idMappingIncrementalRunConfig")
+    def id_mapping_incremental_run_config(self) -> Optional[pulumi.Input['IdMappingWorkflowIdMappingIncrementalRunConfigArgs']]:
+        return pulumi.get(self, "id_mapping_incremental_run_config")
+
+    @id_mapping_incremental_run_config.setter
+    def id_mapping_incremental_run_config(self, value: Optional[pulumi.Input['IdMappingWorkflowIdMappingIncrementalRunConfigArgs']]):
+        pulumi.set(self, "id_mapping_incremental_run_config", value)
+
+    @property
     @pulumi.getter(name="outputSourceConfig")
     def output_source_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowOutputSourceArgs']]]]:
         """
@@ -146,6 +158,7 @@ class IdMappingWorkflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 id_mapping_incremental_run_config: Optional[pulumi.Input[Union['IdMappingWorkflowIdMappingIncrementalRunConfigArgs', 'IdMappingWorkflowIdMappingIncrementalRunConfigArgsDict']]] = None,
                  id_mapping_techniques: Optional[pulumi.Input[Union['IdMappingWorkflowIdMappingTechniquesArgs', 'IdMappingWorkflowIdMappingTechniquesArgsDict']]] = None,
                  input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdMappingWorkflowInputSourceArgs', 'IdMappingWorkflowInputSourceArgsDict']]]]] = None,
                  output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdMappingWorkflowOutputSourceArgs', 'IdMappingWorkflowOutputSourceArgsDict']]]]] = None,
@@ -191,6 +204,7 @@ class IdMappingWorkflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 id_mapping_incremental_run_config: Optional[pulumi.Input[Union['IdMappingWorkflowIdMappingIncrementalRunConfigArgs', 'IdMappingWorkflowIdMappingIncrementalRunConfigArgsDict']]] = None,
                  id_mapping_techniques: Optional[pulumi.Input[Union['IdMappingWorkflowIdMappingTechniquesArgs', 'IdMappingWorkflowIdMappingTechniquesArgsDict']]] = None,
                  input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdMappingWorkflowInputSourceArgs', 'IdMappingWorkflowInputSourceArgsDict']]]]] = None,
                  output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdMappingWorkflowOutputSourceArgs', 'IdMappingWorkflowOutputSourceArgsDict']]]]] = None,
@@ -207,6 +221,7 @@ class IdMappingWorkflow(pulumi.CustomResource):
             __props__ = IdMappingWorkflowArgs.__new__(IdMappingWorkflowArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["id_mapping_incremental_run_config"] = id_mapping_incremental_run_config
             if id_mapping_techniques is None and not opts.urn:
                 raise TypeError("Missing required property 'id_mapping_techniques'")
             __props__.__dict__["id_mapping_techniques"] = id_mapping_techniques
@@ -248,6 +263,7 @@ class IdMappingWorkflow(pulumi.CustomResource):
 
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["id_mapping_incremental_run_config"] = None
         __props__.__dict__["id_mapping_techniques"] = None
         __props__.__dict__["input_source_config"] = None
         __props__.__dict__["output_source_config"] = None
@@ -270,6 +286,11 @@ class IdMappingWorkflow(pulumi.CustomResource):
         The description of the IdMappingWorkflow
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="idMappingIncrementalRunConfig")
+    def id_mapping_incremental_run_config(self) -> pulumi.Output[Optional['outputs.IdMappingWorkflowIdMappingIncrementalRunConfig']]:
+        return pulumi.get(self, "id_mapping_incremental_run_config")
 
     @property
     @pulumi.getter(name="idMappingTechniques")

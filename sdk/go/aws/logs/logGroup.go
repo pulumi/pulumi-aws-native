@@ -45,6 +45,8 @@ type LogGroup struct {
 	LogGroupClass LogGroupClassPtrOutput `pulumi:"logGroupClass"`
 	// The name of the log group. If you don't specify a name, CFNlong generates a unique ID for the log group.
 	LogGroupName pulumi.StringPtrOutput `pulumi:"logGroupName"`
+	// Creates or updates a resource policy for the specified log group that allows other services to put log events to this account. A LogGroup can have 1 resource policy.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 	ResourcePolicyDocument pulumi.AnyOutput `pulumi:"resourcePolicyDocument"`
 	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.
@@ -121,6 +123,8 @@ type logGroupArgs struct {
 	LogGroupClass *LogGroupClass `pulumi:"logGroupClass"`
 	// The name of the log group. If you don't specify a name, CFNlong generates a unique ID for the log group.
 	LogGroupName *string `pulumi:"logGroupName"`
+	// Creates or updates a resource policy for the specified log group that allows other services to put log events to this account. A LogGroup can have 1 resource policy.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 	ResourcePolicyDocument interface{} `pulumi:"resourcePolicyDocument"`
 	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.
@@ -155,6 +159,8 @@ type LogGroupArgs struct {
 	LogGroupClass LogGroupClassPtrInput
 	// The name of the log group. If you don't specify a name, CFNlong generates a unique ID for the log group.
 	LogGroupName pulumi.StringPtrInput
+	// Creates or updates a resource policy for the specified log group that allows other services to put log events to this account. A LogGroup can have 1 resource policy.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 	ResourcePolicyDocument pulumi.Input
 	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.
@@ -249,6 +255,8 @@ func (o LogGroupOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.StringPtrOutput { return v.LogGroupName }).(pulumi.StringPtrOutput)
 }
 
+// Creates or updates a resource policy for the specified log group that allows other services to put log events to this account. A LogGroup can have 1 resource policy.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 func (o LogGroupOutput) ResourcePolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.AnyOutput { return v.ResourcePolicyDocument }).(pulumi.AnyOutput)

@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -26,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRuleResult:
-    def __init__(__self__, arn=None, description=None, event_bus_name=None, event_pattern=None, role_arn=None, schedule_expression=None, state=None, targets=None):
+    def __init__(__self__, arn=None, description=None, event_bus_name=None, event_pattern=None, role_arn=None, schedule_expression=None, state=None, tags=None, targets=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -48,6 +49,9 @@ class GetRuleResult:
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if targets and not isinstance(targets, list):
             raise TypeError("Expected argument 'targets' to be a list")
         pulumi.set(__self__, "targets", targets)
@@ -112,6 +116,14 @@ class GetRuleResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Any tags assigned to the event rule.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def targets(self) -> Optional[Sequence['outputs.RuleTarget']]:
         """
         Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
@@ -133,6 +145,7 @@ class AwaitableGetRuleResult(GetRuleResult):
             role_arn=self.role_arn,
             schedule_expression=self.schedule_expression,
             state=self.state,
+            tags=self.tags,
             targets=self.targets)
 
 
@@ -157,6 +170,7 @@ def get_rule(arn: Optional[builtins.str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         schedule_expression=pulumi.get(__ret__, 'schedule_expression'),
         state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'),
         targets=pulumi.get(__ret__, 'targets'))
 def get_rule_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleResult]:
@@ -178,4 +192,5 @@ def get_rule_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         role_arn=pulumi.get(__response__, 'role_arn'),
         schedule_expression=pulumi.get(__response__, 'schedule_expression'),
         state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags'),
         targets=pulumi.get(__response__, 'targets')))

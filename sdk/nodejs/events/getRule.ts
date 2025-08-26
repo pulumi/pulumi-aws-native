@@ -56,6 +56,10 @@ export interface GetRuleResult {
      */
     readonly state?: enums.events.RuleState;
     /**
+     * Any tags assigned to the event rule.
+     */
+    readonly tags?: outputs.Tag[];
+    /**
      * Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
      * Targets are the resources that are invoked when a rule is triggered.
      */

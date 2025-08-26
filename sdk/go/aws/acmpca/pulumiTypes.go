@@ -2576,7 +2576,7 @@ func (o CertificateCustomAttributeArrayOutput) Index(i pulumi.IntInput) Certific
 
 // Specifies the X.509 extension information for a certificate.
 //
-//	Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough`` [template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
+//	Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough``[template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
 type CertificateCustomExtension struct {
 	// Specifies the critical flag of the X.509 extension.
 	Critical *bool `pulumi:"critical"`
@@ -2599,7 +2599,7 @@ type CertificateCustomExtensionInput interface {
 
 // Specifies the X.509 extension information for a certificate.
 //
-//	Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough`` [template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
+//	Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough``[template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
 type CertificateCustomExtensionArgs struct {
 	// Specifies the critical flag of the X.509 extension.
 	Critical pulumi.BoolPtrInput `pulumi:"critical"`
@@ -2648,7 +2648,7 @@ func (i CertificateCustomExtensionArray) ToCertificateCustomExtensionArrayOutput
 
 // Specifies the X.509 extension information for a certificate.
 //
-//	Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough`` [template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
+//	Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough``[template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
 type CertificateCustomExtensionOutput struct{ *pulumi.OutputState }
 
 func (CertificateCustomExtensionOutput) ElementType() reflect.Type {

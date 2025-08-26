@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class GetSessionLoggerArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the session logger resource.
+        /// </summary>
         [Input("sessionLoggerArn", required: true)]
         public string SessionLoggerArn { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class GetSessionLoggerInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the session logger resource.
+        /// </summary>
         [Input("sessionLoggerArn", required: true)]
         public Input<string> SessionLoggerArn { get; set; } = null!;
 
@@ -57,11 +63,29 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     [OutputType]
     public sealed class GetSessionLoggerResult
     {
+        /// <summary>
+        /// The associated portal ARN.
+        /// </summary>
         public readonly ImmutableArray<string> AssociatedPortalArns;
+        /// <summary>
+        /// The date the session logger resource was created.
+        /// </summary>
         public readonly string? CreationDate;
+        /// <summary>
+        /// The human-readable display name.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// The filter that specifies which events to monitor.
+        /// </summary>
         public readonly Union<Outputs.SessionLoggerEventFilter0Properties, Outputs.SessionLoggerEventFilter1Properties>? EventFilter;
+        /// <summary>
+        /// The configuration that specifies where logs are fowarded.
+        /// </summary>
         public readonly Outputs.SessionLoggerLogConfiguration? LogConfiguration;
+        /// <summary>
+        /// The ARN of the session logger resource.
+        /// </summary>
         public readonly string? SessionLoggerArn;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

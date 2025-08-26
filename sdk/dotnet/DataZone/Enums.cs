@@ -402,6 +402,92 @@ namespace Pulumi.AwsNative.DataZone
     }
 
     [EnumType]
+    public readonly struct PolicyGrantDomainUnitDesignation : IEquatable<PolicyGrantDomainUnitDesignation>
+    {
+        private readonly string _value;
+
+        private PolicyGrantDomainUnitDesignation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyGrantDomainUnitDesignation Owner { get; } = new PolicyGrantDomainUnitDesignation("OWNER");
+
+        public static bool operator ==(PolicyGrantDomainUnitDesignation left, PolicyGrantDomainUnitDesignation right) => left.Equals(right);
+        public static bool operator !=(PolicyGrantDomainUnitDesignation left, PolicyGrantDomainUnitDesignation right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyGrantDomainUnitDesignation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyGrantDomainUnitDesignation other && Equals(other);
+        public bool Equals(PolicyGrantDomainUnitDesignation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PolicyGrantProjectDesignation : IEquatable<PolicyGrantProjectDesignation>
+    {
+        private readonly string _value;
+
+        private PolicyGrantProjectDesignation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyGrantProjectDesignation Owner { get; } = new PolicyGrantProjectDesignation("OWNER");
+        public static PolicyGrantProjectDesignation Contributor { get; } = new PolicyGrantProjectDesignation("CONTRIBUTOR");
+        public static PolicyGrantProjectDesignation ProjectCatalogSteward { get; } = new PolicyGrantProjectDesignation("PROJECT_CATALOG_STEWARD");
+
+        public static bool operator ==(PolicyGrantProjectDesignation left, PolicyGrantProjectDesignation right) => left.Equals(right);
+        public static bool operator !=(PolicyGrantProjectDesignation left, PolicyGrantProjectDesignation right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyGrantProjectDesignation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyGrantProjectDesignation other && Equals(other);
+        public bool Equals(PolicyGrantProjectDesignation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PolicyGrantTargetEntityType : IEquatable<PolicyGrantTargetEntityType>
+    {
+        private readonly string _value;
+
+        private PolicyGrantTargetEntityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyGrantTargetEntityType DomainUnit { get; } = new PolicyGrantTargetEntityType("DomainUnit");
+        public static PolicyGrantTargetEntityType EnvironmentBlueprintConfiguration { get; } = new PolicyGrantTargetEntityType("EnvironmentBlueprintConfiguration");
+        public static PolicyGrantTargetEntityType EnvironmentProfile { get; } = new PolicyGrantTargetEntityType("EnvironmentProfile");
+        public static PolicyGrantTargetEntityType AssetType { get; } = new PolicyGrantTargetEntityType("ASSET_TYPE");
+
+        public static bool operator ==(PolicyGrantTargetEntityType left, PolicyGrantTargetEntityType right) => left.Equals(right);
+        public static bool operator !=(PolicyGrantTargetEntityType left, PolicyGrantTargetEntityType right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyGrantTargetEntityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyGrantTargetEntityType other && Equals(other);
+        public bool Equals(PolicyGrantTargetEntityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ProjectMembershipUserDesignation : IEquatable<ProjectMembershipUserDesignation>
     {
         private readonly string _value;

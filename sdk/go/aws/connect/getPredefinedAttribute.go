@@ -30,10 +30,14 @@ type LookupPredefinedAttributeArgs struct {
 }
 
 type LookupPredefinedAttributeResult struct {
+	// Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+	AttributeConfiguration *AttributeConfigurationProperties `pulumi:"attributeConfiguration"`
 	// Last modified region.
 	LastModifiedRegion *string `pulumi:"lastModifiedRegion"`
 	// Last modified time.
 	LastModifiedTime *float64 `pulumi:"lastModifiedTime"`
+	// The assigned purposes of the predefined attribute.
+	Purposes []string `pulumi:"purposes"`
 	// The values of a predefined attribute.
 	Values *ValuesProperties `pulumi:"values"`
 }
@@ -72,6 +76,13 @@ func (o LookupPredefinedAttributeResultOutput) ToLookupPredefinedAttributeResult
 	return o
 }
 
+// Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+func (o LookupPredefinedAttributeResultOutput) AttributeConfiguration() AttributeConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupPredefinedAttributeResult) *AttributeConfigurationProperties {
+		return v.AttributeConfiguration
+	}).(AttributeConfigurationPropertiesPtrOutput)
+}
+
 // Last modified region.
 func (o LookupPredefinedAttributeResultOutput) LastModifiedRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPredefinedAttributeResult) *string { return v.LastModifiedRegion }).(pulumi.StringPtrOutput)
@@ -80,6 +91,11 @@ func (o LookupPredefinedAttributeResultOutput) LastModifiedRegion() pulumi.Strin
 // Last modified time.
 func (o LookupPredefinedAttributeResultOutput) LastModifiedTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupPredefinedAttributeResult) *float64 { return v.LastModifiedTime }).(pulumi.Float64PtrOutput)
+}
+
+// The assigned purposes of the predefined attribute.
+func (o LookupPredefinedAttributeResultOutput) Purposes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupPredefinedAttributeResult) []string { return v.Purposes }).(pulumi.StringArrayOutput)
 }
 
 // The values of a predefined attribute.

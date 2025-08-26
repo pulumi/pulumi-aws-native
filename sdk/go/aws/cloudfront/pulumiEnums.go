@@ -507,6 +507,173 @@ func (in *distributionConnectionModePtr) ToDistributionConnectionModePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(DistributionConnectionModePtrOutput)
 }
 
+type DistributionCustomOriginConfigIpAddressType string
+
+const (
+	DistributionCustomOriginConfigIpAddressTypeIpv4      = DistributionCustomOriginConfigIpAddressType("ipv4")
+	DistributionCustomOriginConfigIpAddressTypeIpv6      = DistributionCustomOriginConfigIpAddressType("ipv6")
+	DistributionCustomOriginConfigIpAddressTypeDualstack = DistributionCustomOriginConfigIpAddressType("dualstack")
+)
+
+func (DistributionCustomOriginConfigIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCustomOriginConfigIpAddressType)(nil)).Elem()
+}
+
+func (e DistributionCustomOriginConfigIpAddressType) ToDistributionCustomOriginConfigIpAddressTypeOutput() DistributionCustomOriginConfigIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(DistributionCustomOriginConfigIpAddressTypeOutput)
+}
+
+func (e DistributionCustomOriginConfigIpAddressType) ToDistributionCustomOriginConfigIpAddressTypeOutputWithContext(ctx context.Context) DistributionCustomOriginConfigIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DistributionCustomOriginConfigIpAddressTypeOutput)
+}
+
+func (e DistributionCustomOriginConfigIpAddressType) ToDistributionCustomOriginConfigIpAddressTypePtrOutput() DistributionCustomOriginConfigIpAddressTypePtrOutput {
+	return e.ToDistributionCustomOriginConfigIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e DistributionCustomOriginConfigIpAddressType) ToDistributionCustomOriginConfigIpAddressTypePtrOutputWithContext(ctx context.Context) DistributionCustomOriginConfigIpAddressTypePtrOutput {
+	return DistributionCustomOriginConfigIpAddressType(e).ToDistributionCustomOriginConfigIpAddressTypeOutputWithContext(ctx).ToDistributionCustomOriginConfigIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e DistributionCustomOriginConfigIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionCustomOriginConfigIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionCustomOriginConfigIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionCustomOriginConfigIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DistributionCustomOriginConfigIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (DistributionCustomOriginConfigIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCustomOriginConfigIpAddressType)(nil)).Elem()
+}
+
+func (o DistributionCustomOriginConfigIpAddressTypeOutput) ToDistributionCustomOriginConfigIpAddressTypeOutput() DistributionCustomOriginConfigIpAddressTypeOutput {
+	return o
+}
+
+func (o DistributionCustomOriginConfigIpAddressTypeOutput) ToDistributionCustomOriginConfigIpAddressTypeOutputWithContext(ctx context.Context) DistributionCustomOriginConfigIpAddressTypeOutput {
+	return o
+}
+
+func (o DistributionCustomOriginConfigIpAddressTypeOutput) ToDistributionCustomOriginConfigIpAddressTypePtrOutput() DistributionCustomOriginConfigIpAddressTypePtrOutput {
+	return o.ToDistributionCustomOriginConfigIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o DistributionCustomOriginConfigIpAddressTypeOutput) ToDistributionCustomOriginConfigIpAddressTypePtrOutputWithContext(ctx context.Context) DistributionCustomOriginConfigIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionCustomOriginConfigIpAddressType) *DistributionCustomOriginConfigIpAddressType {
+		return &v
+	}).(DistributionCustomOriginConfigIpAddressTypePtrOutput)
+}
+
+func (o DistributionCustomOriginConfigIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DistributionCustomOriginConfigIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionCustomOriginConfigIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DistributionCustomOriginConfigIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionCustomOriginConfigIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionCustomOriginConfigIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionCustomOriginConfigIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionCustomOriginConfigIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionCustomOriginConfigIpAddressType)(nil)).Elem()
+}
+
+func (o DistributionCustomOriginConfigIpAddressTypePtrOutput) ToDistributionCustomOriginConfigIpAddressTypePtrOutput() DistributionCustomOriginConfigIpAddressTypePtrOutput {
+	return o
+}
+
+func (o DistributionCustomOriginConfigIpAddressTypePtrOutput) ToDistributionCustomOriginConfigIpAddressTypePtrOutputWithContext(ctx context.Context) DistributionCustomOriginConfigIpAddressTypePtrOutput {
+	return o
+}
+
+func (o DistributionCustomOriginConfigIpAddressTypePtrOutput) Elem() DistributionCustomOriginConfigIpAddressTypeOutput {
+	return o.ApplyT(func(v *DistributionCustomOriginConfigIpAddressType) DistributionCustomOriginConfigIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionCustomOriginConfigIpAddressType
+		return ret
+	}).(DistributionCustomOriginConfigIpAddressTypeOutput)
+}
+
+func (o DistributionCustomOriginConfigIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionCustomOriginConfigIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DistributionCustomOriginConfigIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DistributionCustomOriginConfigIpAddressTypeInput is an input type that accepts values of the DistributionCustomOriginConfigIpAddressType enum
+// A concrete instance of `DistributionCustomOriginConfigIpAddressTypeInput` can be one of the following:
+//
+//	DistributionCustomOriginConfigIpAddressTypeIpv4
+//	DistributionCustomOriginConfigIpAddressTypeIpv6
+//	DistributionCustomOriginConfigIpAddressTypeDualstack
+type DistributionCustomOriginConfigIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToDistributionCustomOriginConfigIpAddressTypeOutput() DistributionCustomOriginConfigIpAddressTypeOutput
+	ToDistributionCustomOriginConfigIpAddressTypeOutputWithContext(context.Context) DistributionCustomOriginConfigIpAddressTypeOutput
+}
+
+var distributionCustomOriginConfigIpAddressTypePtrType = reflect.TypeOf((**DistributionCustomOriginConfigIpAddressType)(nil)).Elem()
+
+type DistributionCustomOriginConfigIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToDistributionCustomOriginConfigIpAddressTypePtrOutput() DistributionCustomOriginConfigIpAddressTypePtrOutput
+	ToDistributionCustomOriginConfigIpAddressTypePtrOutputWithContext(context.Context) DistributionCustomOriginConfigIpAddressTypePtrOutput
+}
+
+type distributionCustomOriginConfigIpAddressTypePtr string
+
+func DistributionCustomOriginConfigIpAddressTypePtr(v string) DistributionCustomOriginConfigIpAddressTypePtrInput {
+	return (*distributionCustomOriginConfigIpAddressTypePtr)(&v)
+}
+
+func (*distributionCustomOriginConfigIpAddressTypePtr) ElementType() reflect.Type {
+	return distributionCustomOriginConfigIpAddressTypePtrType
+}
+
+func (in *distributionCustomOriginConfigIpAddressTypePtr) ToDistributionCustomOriginConfigIpAddressTypePtrOutput() DistributionCustomOriginConfigIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(DistributionCustomOriginConfigIpAddressTypePtrOutput)
+}
+
+func (in *distributionCustomOriginConfigIpAddressTypePtr) ToDistributionCustomOriginConfigIpAddressTypePtrOutputWithContext(ctx context.Context) DistributionCustomOriginConfigIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DistributionCustomOriginConfigIpAddressTypePtrOutput)
+}
+
 type DistributionOriginGroupSelectionCriteria string
 
 const (
@@ -1607,6 +1774,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigTypePtrInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigType("SingleWeight"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConnectionModeInput)(nil)).Elem(), DistributionConnectionMode("direct"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConnectionModePtrInput)(nil)).Elem(), DistributionConnectionMode("direct"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomOriginConfigIpAddressTypeInput)(nil)).Elem(), DistributionCustomOriginConfigIpAddressType("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomOriginConfigIpAddressTypePtrInput)(nil)).Elem(), DistributionCustomOriginConfigIpAddressType("ipv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginGroupSelectionCriteriaInput)(nil)).Elem(), DistributionOriginGroupSelectionCriteria("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginGroupSelectionCriteriaPtrInput)(nil)).Elem(), DistributionOriginGroupSelectionCriteria("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantGeoRestrictionCustomizationRestrictionTypeInput)(nil)).Elem(), DistributionTenantGeoRestrictionCustomizationRestrictionType("blacklist"))
@@ -1625,6 +1794,8 @@ func init() {
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigTypePtrOutput{})
 	pulumi.RegisterOutputType(DistributionConnectionModeOutput{})
 	pulumi.RegisterOutputType(DistributionConnectionModePtrOutput{})
+	pulumi.RegisterOutputType(DistributionCustomOriginConfigIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(DistributionCustomOriginConfigIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(DistributionOriginGroupSelectionCriteriaOutput{})
 	pulumi.RegisterOutputType(DistributionOriginGroupSelectionCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(DistributionTenantDomainResultStatusOutput{})

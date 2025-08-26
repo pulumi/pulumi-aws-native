@@ -36,7 +36,7 @@ export interface GetHealthCheckResult {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    readonly healthCheckTags?: outputs.route53.HealthCheckTag[];
+    readonly healthCheckTags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::Route53::HealthCheck.

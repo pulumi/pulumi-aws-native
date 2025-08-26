@@ -33,7 +33,7 @@ type LicenseEndpoint struct {
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// The VCP(virtual private cloud) ID associated with the license endpoint.
+	// The VPC (virtual private cloud) ID associated with the license endpoint.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -98,7 +98,7 @@ type licenseEndpointArgs struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
-	// The VCP(virtual private cloud) ID associated with the license endpoint.
+	// The VPC (virtual private cloud) ID associated with the license endpoint.
 	VpcId string `pulumi:"vpcId"`
 }
 
@@ -110,7 +110,7 @@ type LicenseEndpointArgs struct {
 	SubnetIds pulumi.StringArrayInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
-	// The VCP(virtual private cloud) ID associated with the license endpoint.
+	// The VPC (virtual private cloud) ID associated with the license endpoint.
 	VpcId pulumi.StringInput
 }
 
@@ -191,7 +191,7 @@ func (o LicenseEndpointOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *LicenseEndpoint) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The VCP(virtual private cloud) ID associated with the license endpoint.
+// The VPC (virtual private cloud) ID associated with the license endpoint.
 func (o LicenseEndpointOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseEndpoint) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

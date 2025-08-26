@@ -68,6 +68,7 @@ namespace Pulumi.AwsNative.EntityResolution
         /// The description of the IdMappingWorkflow
         /// </summary>
         public readonly string? Description;
+        public readonly Outputs.IdMappingWorkflowIdMappingIncrementalRunConfig? IdMappingIncrementalRunConfig;
         /// <summary>
         /// An object which defines the ID mapping technique and any additional configurations.
         /// </summary>
@@ -97,6 +98,8 @@ namespace Pulumi.AwsNative.EntityResolution
 
             string? description,
 
+            Outputs.IdMappingWorkflowIdMappingIncrementalRunConfig? idMappingIncrementalRunConfig,
+
             Outputs.IdMappingWorkflowIdMappingTechniques? idMappingTechniques,
 
             ImmutableArray<Outputs.IdMappingWorkflowInputSource> inputSourceConfig,
@@ -113,6 +116,7 @@ namespace Pulumi.AwsNative.EntityResolution
         {
             CreatedAt = createdAt;
             Description = description;
+            IdMappingIncrementalRunConfig = idMappingIncrementalRunConfig;
             IdMappingTechniques = idMappingTechniques;
             InputSourceConfig = inputSourceConfig;
             OutputSourceConfig = outputSourceConfig;

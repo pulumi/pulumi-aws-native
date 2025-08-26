@@ -27,7 +27,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFleetResult:
-    def __init__(__self__, arn=None, capabilities=None, configuration=None, description=None, display_name=None, fleet_id=None, host_configuration=None, max_worker_count=None, min_worker_count=None, role_arn=None, status=None, tags=None, worker_count=None):
+    def __init__(__self__, arn=None, capabilities=None, configuration=None, description=None, display_name=None, fleet_id=None, host_configuration=None, max_worker_count=None, min_worker_count=None, role_arn=None, status=None, status_message=None, tags=None, worker_count=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -61,6 +61,9 @@ class GetFleetResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if status_message and not isinstance(status_message, str):
+            raise TypeError("Expected argument 'status_message' to be a str")
+        pulumi.set(__self__, "status_message", status_message)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -160,6 +163,14 @@ class GetFleetResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> Optional[builtins.str]:
+        """
+        A message that communicates a suspended status of the fleet.
+        """
+        return pulumi.get(self, "status_message")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -193,6 +204,7 @@ class AwaitableGetFleetResult(GetFleetResult):
             min_worker_count=self.min_worker_count,
             role_arn=self.role_arn,
             status=self.status,
+            status_message=self.status_message,
             tags=self.tags,
             worker_count=self.worker_count)
 
@@ -222,6 +234,7 @@ def get_fleet(arn: Optional[builtins.str] = None,
         min_worker_count=pulumi.get(__ret__, 'min_worker_count'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         status=pulumi.get(__ret__, 'status'),
+        status_message=pulumi.get(__ret__, 'status_message'),
         tags=pulumi.get(__ret__, 'tags'),
         worker_count=pulumi.get(__ret__, 'worker_count'))
 def get_fleet_output(arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -248,5 +261,6 @@ def get_fleet_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         min_worker_count=pulumi.get(__response__, 'min_worker_count'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         status=pulumi.get(__response__, 'status'),
+        status_message=pulumi.get(__response__, 'status_message'),
         tags=pulumi.get(__response__, 'tags'),
         worker_count=pulumi.get(__response__, 'worker_count')))

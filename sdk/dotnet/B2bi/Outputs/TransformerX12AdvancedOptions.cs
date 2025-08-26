@@ -14,11 +14,16 @@ namespace Pulumi.AwsNative.B2bi.Outputs
     public sealed class TransformerX12AdvancedOptions
     {
         public readonly Outputs.TransformerX12SplitOptions? SplitOptions;
+        public readonly Outputs.TransformerX12ValidationOptions? ValidationOptions;
 
         [OutputConstructor]
-        private TransformerX12AdvancedOptions(Outputs.TransformerX12SplitOptions? splitOptions)
+        private TransformerX12AdvancedOptions(
+            Outputs.TransformerX12SplitOptions? splitOptions,
+
+            Outputs.TransformerX12ValidationOptions? validationOptions)
         {
             SplitOptions = splitOptions;
+            ValidationOptions = validationOptions;
         }
     }
 }

@@ -17,6 +17,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'IdMappingWorkflowIdMappingIncrementalRunConfigArgs',
+    'IdMappingWorkflowIdMappingIncrementalRunConfigArgsDict',
     'IdMappingWorkflowIdMappingRuleBasedPropertiesArgs',
     'IdMappingWorkflowIdMappingRuleBasedPropertiesArgsDict',
     'IdMappingWorkflowIdMappingTechniquesArgs',
@@ -68,6 +70,28 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class IdMappingWorkflowIdMappingIncrementalRunConfigArgsDict(TypedDict):
+        incremental_run_type: pulumi.Input['IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType']
+elif False:
+    IdMappingWorkflowIdMappingIncrementalRunConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdMappingWorkflowIdMappingIncrementalRunConfigArgs:
+    def __init__(__self__, *,
+                 incremental_run_type: pulumi.Input['IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType']):
+        pulumi.set(__self__, "incremental_run_type", incremental_run_type)
+
+    @property
+    @pulumi.getter(name="incrementalRunType")
+    def incremental_run_type(self) -> pulumi.Input['IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType']:
+        return pulumi.get(self, "incremental_run_type")
+
+    @incremental_run_type.setter
+    def incremental_run_type(self, value: pulumi.Input['IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType']):
+        pulumi.set(self, "incremental_run_type", value)
+
 
 if not MYPY:
     class IdMappingWorkflowIdMappingRuleBasedPropertiesArgsDict(TypedDict):

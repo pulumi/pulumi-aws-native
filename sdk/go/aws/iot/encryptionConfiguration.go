@@ -16,12 +16,17 @@ import (
 type EncryptionConfiguration struct {
 	pulumi.CustomResourceState
 
-	AccountId            pulumi.StringOutput                         `pulumi:"accountId"`
-	ConfigurationDetails ConfigurationDetailsPropertiesOutput        `pulumi:"configurationDetails"`
-	EncryptionType       EncryptionConfigurationEncryptionTypeOutput `pulumi:"encryptionType"`
-	KmsAccessRoleArn     pulumi.StringPtrOutput                      `pulumi:"kmsAccessRoleArn"`
-	KmsKeyArn            pulumi.StringPtrOutput                      `pulumi:"kmsKeyArn"`
-	LastModifiedDate     pulumi.StringOutput                         `pulumi:"lastModifiedDate"`
+	// The unique identifier (ID) of an AWS account.
+	AccountId            pulumi.StringOutput                  `pulumi:"accountId"`
+	ConfigurationDetails ConfigurationDetailsPropertiesOutput `pulumi:"configurationDetails"`
+	// The type of the KMS key.
+	EncryptionType EncryptionConfigurationEncryptionTypeOutput `pulumi:"encryptionType"`
+	// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+	KmsAccessRoleArn pulumi.StringPtrOutput `pulumi:"kmsAccessRoleArn"`
+	// The ARN of the customer managed KMS key.
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
+	// The date when encryption configuration is last updated.
+	LastModifiedDate pulumi.StringOutput `pulumi:"lastModifiedDate"`
 }
 
 // NewEncryptionConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -67,16 +72,22 @@ func (EncryptionConfigurationState) ElementType() reflect.Type {
 }
 
 type encryptionConfigurationArgs struct {
-	EncryptionType   EncryptionConfigurationEncryptionType `pulumi:"encryptionType"`
-	KmsAccessRoleArn *string                               `pulumi:"kmsAccessRoleArn"`
-	KmsKeyArn        *string                               `pulumi:"kmsKeyArn"`
+	// The type of the KMS key.
+	EncryptionType EncryptionConfigurationEncryptionType `pulumi:"encryptionType"`
+	// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+	KmsAccessRoleArn *string `pulumi:"kmsAccessRoleArn"`
+	// The ARN of the customer managed KMS key.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
 // The set of arguments for constructing a EncryptionConfiguration resource.
 type EncryptionConfigurationArgs struct {
-	EncryptionType   EncryptionConfigurationEncryptionTypeInput
+	// The type of the KMS key.
+	EncryptionType EncryptionConfigurationEncryptionTypeInput
+	// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
 	KmsAccessRoleArn pulumi.StringPtrInput
-	KmsKeyArn        pulumi.StringPtrInput
+	// The ARN of the customer managed KMS key.
+	KmsKeyArn pulumi.StringPtrInput
 }
 
 func (EncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -116,6 +127,7 @@ func (o EncryptionConfigurationOutput) ToEncryptionConfigurationOutputWithContex
 	return o
 }
 
+// The unique identifier (ID) of an AWS account.
 func (o EncryptionConfigurationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EncryptionConfiguration) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
@@ -124,18 +136,22 @@ func (o EncryptionConfigurationOutput) ConfigurationDetails() ConfigurationDetai
 	return o.ApplyT(func(v *EncryptionConfiguration) ConfigurationDetailsPropertiesOutput { return v.ConfigurationDetails }).(ConfigurationDetailsPropertiesOutput)
 }
 
+// The type of the KMS key.
 func (o EncryptionConfigurationOutput) EncryptionType() EncryptionConfigurationEncryptionTypeOutput {
 	return o.ApplyT(func(v *EncryptionConfiguration) EncryptionConfigurationEncryptionTypeOutput { return v.EncryptionType }).(EncryptionConfigurationEncryptionTypeOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
 func (o EncryptionConfigurationOutput) KmsAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionConfiguration) pulumi.StringPtrOutput { return v.KmsAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the customer managed KMS key.
 func (o EncryptionConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionConfiguration) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The date when encryption configuration is last updated.
 func (o EncryptionConfigurationOutput) LastModifiedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *EncryptionConfiguration) pulumi.StringOutput { return v.LastModifiedDate }).(pulumi.StringOutput)
 }

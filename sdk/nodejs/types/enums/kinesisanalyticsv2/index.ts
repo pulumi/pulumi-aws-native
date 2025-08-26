@@ -32,6 +32,16 @@ export const ApplicationCustomArtifactConfigurationArtifactType = {
  */
 export type ApplicationCustomArtifactConfigurationArtifactType = (typeof ApplicationCustomArtifactConfigurationArtifactType)[keyof typeof ApplicationCustomArtifactConfigurationArtifactType];
 
+export const ApplicationEncryptionConfigurationKeyType = {
+    AwsOwnedKey: "AWS_OWNED_KEY",
+    CustomerManagedKey: "CUSTOMER_MANAGED_KEY",
+} as const;
+
+/**
+ * Specifies whether application data is encrypted using service key: AWS_OWNED_KEY or customer key: CUSTOMER_MANAGED_KEY
+ */
+export type ApplicationEncryptionConfigurationKeyType = (typeof ApplicationEncryptionConfigurationKeyType)[keyof typeof ApplicationEncryptionConfigurationKeyType];
+
 export const ApplicationInputSchemaRecordEncoding = {
     Utf8: "UTF-8",
 } as const;

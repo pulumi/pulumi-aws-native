@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Dms.Outputs
     public sealed class DataMigrationSettings
     {
         /// <summary>
-        /// The property specifies whether to enable the Cloudwatch log.
+        /// The property specifies whether to enable the CloudWatch log.
         /// </summary>
         public readonly bool? CloudwatchLogsEnabled;
         /// <summary>

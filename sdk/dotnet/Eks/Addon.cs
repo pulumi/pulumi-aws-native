@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.Eks
         public Output<string?> ConfigurationValues { get; private set; } = null!;
 
         /// <summary>
+        /// The custom namespace configuration to use with the add-on
+        /// </summary>
+        [Output("namespaceConfig")]
+        public Output<Outputs.NamespaceConfigProperties?> NamespaceConfig { get; private set; } = null!;
+
+        /// <summary>
         /// An array of pod identities to apply to this add-on.
         /// </summary>
         [Output("podIdentityAssociations")]
@@ -102,6 +108,7 @@ namespace Pulumi.AwsNative.Eks
                 {
                     "addonName",
                     "clusterName",
+                    "namespaceConfig",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,6 +155,12 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         [Input("configurationValues")]
         public Input<string>? ConfigurationValues { get; set; }
+
+        /// <summary>
+        /// The custom namespace configuration to use with the add-on
+        /// </summary>
+        [Input("namespaceConfig")]
+        public Input<Inputs.NamespaceConfigPropertiesArgs>? NamespaceConfig { get; set; }
 
         [Input("podIdentityAssociations")]
         private InputList<Inputs.AddonPodIdentityAssociationArgs>? _podIdentityAssociations;

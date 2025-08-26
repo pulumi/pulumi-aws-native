@@ -14362,6 +14362,172 @@ func (in *vpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtr) ToVpnC
 	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput)
 }
 
+// Describes the storage location for an instance store-backed AMI.
+type VpnConnectionPreSharedKeyStorage string
+
+const (
+	VpnConnectionPreSharedKeyStorageStandard       = VpnConnectionPreSharedKeyStorage("Standard")
+	VpnConnectionPreSharedKeyStorageSecretsManager = VpnConnectionPreSharedKeyStorage("SecretsManager")
+)
+
+func (VpnConnectionPreSharedKeyStorage) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionPreSharedKeyStorage)(nil)).Elem()
+}
+
+func (e VpnConnectionPreSharedKeyStorage) ToVpnConnectionPreSharedKeyStorageOutput() VpnConnectionPreSharedKeyStorageOutput {
+	return pulumi.ToOutput(e).(VpnConnectionPreSharedKeyStorageOutput)
+}
+
+func (e VpnConnectionPreSharedKeyStorage) ToVpnConnectionPreSharedKeyStorageOutputWithContext(ctx context.Context) VpnConnectionPreSharedKeyStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpnConnectionPreSharedKeyStorageOutput)
+}
+
+func (e VpnConnectionPreSharedKeyStorage) ToVpnConnectionPreSharedKeyStoragePtrOutput() VpnConnectionPreSharedKeyStoragePtrOutput {
+	return e.ToVpnConnectionPreSharedKeyStoragePtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionPreSharedKeyStorage) ToVpnConnectionPreSharedKeyStoragePtrOutputWithContext(ctx context.Context) VpnConnectionPreSharedKeyStoragePtrOutput {
+	return VpnConnectionPreSharedKeyStorage(e).ToVpnConnectionPreSharedKeyStorageOutputWithContext(ctx).ToVpnConnectionPreSharedKeyStoragePtrOutputWithContext(ctx)
+}
+
+func (e VpnConnectionPreSharedKeyStorage) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionPreSharedKeyStorage) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionPreSharedKeyStorage) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionPreSharedKeyStorage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpnConnectionPreSharedKeyStorageOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionPreSharedKeyStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionPreSharedKeyStorage)(nil)).Elem()
+}
+
+func (o VpnConnectionPreSharedKeyStorageOutput) ToVpnConnectionPreSharedKeyStorageOutput() VpnConnectionPreSharedKeyStorageOutput {
+	return o
+}
+
+func (o VpnConnectionPreSharedKeyStorageOutput) ToVpnConnectionPreSharedKeyStorageOutputWithContext(ctx context.Context) VpnConnectionPreSharedKeyStorageOutput {
+	return o
+}
+
+func (o VpnConnectionPreSharedKeyStorageOutput) ToVpnConnectionPreSharedKeyStoragePtrOutput() VpnConnectionPreSharedKeyStoragePtrOutput {
+	return o.ToVpnConnectionPreSharedKeyStoragePtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPreSharedKeyStorageOutput) ToVpnConnectionPreSharedKeyStoragePtrOutputWithContext(ctx context.Context) VpnConnectionPreSharedKeyStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionPreSharedKeyStorage) *VpnConnectionPreSharedKeyStorage {
+		return &v
+	}).(VpnConnectionPreSharedKeyStoragePtrOutput)
+}
+
+func (o VpnConnectionPreSharedKeyStorageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPreSharedKeyStorageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionPreSharedKeyStorage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpnConnectionPreSharedKeyStorageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPreSharedKeyStorageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionPreSharedKeyStorage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpnConnectionPreSharedKeyStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionPreSharedKeyStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionPreSharedKeyStorage)(nil)).Elem()
+}
+
+func (o VpnConnectionPreSharedKeyStoragePtrOutput) ToVpnConnectionPreSharedKeyStoragePtrOutput() VpnConnectionPreSharedKeyStoragePtrOutput {
+	return o
+}
+
+func (o VpnConnectionPreSharedKeyStoragePtrOutput) ToVpnConnectionPreSharedKeyStoragePtrOutputWithContext(ctx context.Context) VpnConnectionPreSharedKeyStoragePtrOutput {
+	return o
+}
+
+func (o VpnConnectionPreSharedKeyStoragePtrOutput) Elem() VpnConnectionPreSharedKeyStorageOutput {
+	return o.ApplyT(func(v *VpnConnectionPreSharedKeyStorage) VpnConnectionPreSharedKeyStorage {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionPreSharedKeyStorage
+		return ret
+	}).(VpnConnectionPreSharedKeyStorageOutput)
+}
+
+func (o VpnConnectionPreSharedKeyStoragePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPreSharedKeyStoragePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpnConnectionPreSharedKeyStorage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpnConnectionPreSharedKeyStorageInput is an input type that accepts values of the VpnConnectionPreSharedKeyStorage enum
+// A concrete instance of `VpnConnectionPreSharedKeyStorageInput` can be one of the following:
+//
+//	VpnConnectionPreSharedKeyStorageStandard
+//	VpnConnectionPreSharedKeyStorageSecretsManager
+type VpnConnectionPreSharedKeyStorageInput interface {
+	pulumi.Input
+
+	ToVpnConnectionPreSharedKeyStorageOutput() VpnConnectionPreSharedKeyStorageOutput
+	ToVpnConnectionPreSharedKeyStorageOutputWithContext(context.Context) VpnConnectionPreSharedKeyStorageOutput
+}
+
+var vpnConnectionPreSharedKeyStoragePtrType = reflect.TypeOf((**VpnConnectionPreSharedKeyStorage)(nil)).Elem()
+
+type VpnConnectionPreSharedKeyStoragePtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionPreSharedKeyStoragePtrOutput() VpnConnectionPreSharedKeyStoragePtrOutput
+	ToVpnConnectionPreSharedKeyStoragePtrOutputWithContext(context.Context) VpnConnectionPreSharedKeyStoragePtrOutput
+}
+
+type vpnConnectionPreSharedKeyStoragePtr string
+
+func VpnConnectionPreSharedKeyStoragePtr(v string) VpnConnectionPreSharedKeyStoragePtrInput {
+	return (*vpnConnectionPreSharedKeyStoragePtr)(&v)
+}
+
+func (*vpnConnectionPreSharedKeyStoragePtr) ElementType() reflect.Type {
+	return vpnConnectionPreSharedKeyStoragePtrType
+}
+
+func (in *vpnConnectionPreSharedKeyStoragePtr) ToVpnConnectionPreSharedKeyStoragePtrOutput() VpnConnectionPreSharedKeyStoragePtrOutput {
+	return pulumi.ToOutput(in).(VpnConnectionPreSharedKeyStoragePtrOutput)
+}
+
+func (in *vpnConnectionPreSharedKeyStoragePtr) ToVpnConnectionPreSharedKeyStoragePtrOutputWithContext(ctx context.Context) VpnConnectionPreSharedKeyStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionPreSharedKeyStoragePtrOutput)
+}
+
 // The action to take after DPD timeout occurs. Specify “restart“ to restart the IKE initiation. Specify “clear“ to end the IKE session.
 //
 //	Valid Values: ``clear`` | ``none`` | ``restart``
@@ -14870,6 +15036,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrInput)(nil)).Elem(), VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue("AES128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueInput)(nil)).Elem(), VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue("SHA1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrInput)(nil)).Elem(), VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue("SHA1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionPreSharedKeyStorageInput)(nil)).Elem(), VpnConnectionPreSharedKeyStorage("Standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionPreSharedKeyStoragePtrInput)(nil)).Elem(), VpnConnectionPreSharedKeyStorage("Standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction("clear"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction("clear"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationStartupActionInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationStartupAction("add"))
@@ -15055,6 +15223,8 @@ func init() {
 	pulumi.RegisterOutputType(VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput{})
 	pulumi.RegisterOutputType(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput{})
+	pulumi.RegisterOutputType(VpnConnectionPreSharedKeyStorageOutput{})
+	pulumi.RegisterOutputType(VpnConnectionPreSharedKeyStoragePtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput{})
 	pulumi.RegisterOutputType(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput{})

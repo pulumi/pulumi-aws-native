@@ -55,6 +55,10 @@ func NewFunction(ctx *pulumi.Context,
 	if args.FunctionConfig == nil {
 		return nil, errors.New("invalid value for required argument 'FunctionConfig'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Function
 	err := ctx.RegisterResource("aws-native:cloudfront:Function", name, args, &resource, opts...)

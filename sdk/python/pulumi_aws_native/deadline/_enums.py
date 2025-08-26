@@ -61,6 +61,7 @@ class FleetCustomerManagedFleetOperatingSystemFamily(builtins.str, Enum):
 class FleetEc2MarketType(builtins.str, Enum):
     ON_DEMAND = "on-demand"
     SPOT = "spot"
+    WAIT_AND_SAVE = "wait-and-save"
 
 
 @pulumi.type_token("aws-native:deadline:FleetServiceManagedFleetOperatingSystemFamily")
@@ -76,6 +77,7 @@ class FleetStatus(builtins.str, Enum):
     UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
     CREATE_FAILED = "CREATE_FAILED"
     UPDATE_FAILED = "UPDATE_FAILED"
+    SUSPENDED = "SUSPENDED"
 
 
 @pulumi.type_token("aws-native:deadline:FleetTagPropagationMode")

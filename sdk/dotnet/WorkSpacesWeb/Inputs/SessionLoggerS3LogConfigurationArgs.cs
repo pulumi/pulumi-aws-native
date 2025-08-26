@@ -12,18 +12,33 @@ namespace Pulumi.AwsNative.WorkSpacesWeb.Inputs
 
     public sealed class SessionLoggerS3LogConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The S3 bucket name where logs are delivered.
+        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// The expected bucket owner of the target S3 bucket. The caller must have permissions to write to the target bucket.
+        /// </summary>
         [Input("bucketOwner")]
         public Input<string>? BucketOwner { get; set; }
 
+        /// <summary>
+        /// The folder structure that defines the organizational structure for log files in S3.
+        /// </summary>
         [Input("folderStructure", required: true)]
         public Input<Pulumi.AwsNative.WorkSpacesWeb.SessionLoggerFolderStructure> FolderStructure { get; set; } = null!;
 
+        /// <summary>
+        /// The S3 path prefix that determines where log files are stored.
+        /// </summary>
         [Input("keyPrefix")]
         public Input<string>? KeyPrefix { get; set; }
 
+        /// <summary>
+        /// The format of the LogFile that is written to S3.
+        /// </summary>
         [Input("logFileFormat", required: true)]
         public Input<Pulumi.AwsNative.WorkSpacesWeb.SessionLoggerLogFileFormat> LogFileFormat { get; set; } = null!;
 

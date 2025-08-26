@@ -69,6 +69,8 @@ __all__ = [
     'IdentityProviderConfigRequiredClaimArgsDict',
     'LoggingArgs',
     'LoggingArgsDict',
+    'NamespaceConfigPropertiesArgs',
+    'NamespaceConfigPropertiesArgsDict',
     'NodegroupLaunchTemplateSpecificationArgs',
     'NodegroupLaunchTemplateSpecificationArgsDict',
     'NodegroupNodeRepairConfigArgs',
@@ -1519,6 +1521,41 @@ class LoggingArgs:
     @cluster_logging.setter
     def cluster_logging(self, value: Optional[pulumi.Input['ClusterLoggingEnabledTypesArgs']]):
         pulumi.set(self, "cluster_logging", value)
+
+
+if not MYPY:
+    class NamespaceConfigPropertiesArgsDict(TypedDict):
+        """
+        The custom namespace configuration to use with the add-on
+        """
+        namespace: pulumi.Input[builtins.str]
+        """
+        The custom namespace for creating the add-on
+        """
+elif False:
+    NamespaceConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NamespaceConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 namespace: pulumi.Input[builtins.str]):
+        """
+        The custom namespace configuration to use with the add-on
+        :param pulumi.Input[builtins.str] namespace: The custom namespace for creating the add-on
+        """
+        pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[builtins.str]:
+        """
+        The custom namespace for creating the add-on
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "namespace", value)
 
 
 if not MYPY:

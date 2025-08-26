@@ -36,6 +36,8 @@ type VpnConnection struct {
 	//  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
 	//  Default: ``PublicIpv4``
 	OutsideIpAddressType pulumi.StringPtrOutput `pulumi:"outsideIpAddressType"`
+	// Describes the storage location for an instance store-backed AMI.
+	PreSharedKeyStorage VpnConnectionPreSharedKeyStoragePtrOutput `pulumi:"preSharedKeyStorage"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	//  Default: ``0.0.0.0/0``
 	RemoteIpv4NetworkCidr pulumi.StringPtrOutput `pulumi:"remoteIpv4NetworkCidr"`
@@ -86,6 +88,7 @@ func NewVpnConnection(ctx *pulumi.Context,
 		"localIpv4NetworkCidr",
 		"localIpv6NetworkCidr",
 		"outsideIpAddressType",
+		"preSharedKeyStorage",
 		"remoteIpv4NetworkCidr",
 		"remoteIpv6NetworkCidr",
 		"staticRoutesOnly",
@@ -145,6 +148,8 @@ type vpnConnectionArgs struct {
 	//  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
 	//  Default: ``PublicIpv4``
 	OutsideIpAddressType *string `pulumi:"outsideIpAddressType"`
+	// Describes the storage location for an instance store-backed AMI.
+	PreSharedKeyStorage *VpnConnectionPreSharedKeyStorage `pulumi:"preSharedKeyStorage"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	//  Default: ``0.0.0.0/0``
 	RemoteIpv4NetworkCidr *string `pulumi:"remoteIpv4NetworkCidr"`
@@ -191,6 +196,8 @@ type VpnConnectionArgs struct {
 	//  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
 	//  Default: ``PublicIpv4``
 	OutsideIpAddressType pulumi.StringPtrInput
+	// Describes the storage location for an instance store-backed AMI.
+	PreSharedKeyStorage VpnConnectionPreSharedKeyStoragePtrInput
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	//  Default: ``0.0.0.0/0``
 	RemoteIpv4NetworkCidr pulumi.StringPtrInput
@@ -289,6 +296,11 @@ func (o VpnConnectionOutput) LocalIpv6NetworkCidr() pulumi.StringPtrOutput {
 //	Default: ``PublicIpv4``
 func (o VpnConnectionOutput) OutsideIpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.OutsideIpAddressType }).(pulumi.StringPtrOutput)
+}
+
+// Describes the storage location for an instance store-backed AMI.
+func (o VpnConnectionOutput) PreSharedKeyStorage() VpnConnectionPreSharedKeyStoragePtrOutput {
+	return o.ApplyT(func(v *VpnConnection) VpnConnectionPreSharedKeyStoragePtrOutput { return v.PreSharedKeyStorage }).(VpnConnectionPreSharedKeyStoragePtrOutput)
 }
 
 // The IPv4 CIDR on the AWS side of the VPN connection.

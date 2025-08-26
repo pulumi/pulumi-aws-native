@@ -21,7 +21,6 @@ __all__ = [
     'CidrCollectionLocation',
     'HealthCheckAlarmIdentifier',
     'HealthCheckConfigProperties',
-    'HealthCheckTag',
     'HostedZoneConfig',
     'HostedZoneQueryLoggingConfig',
     'HostedZoneVpc',
@@ -549,39 +548,6 @@ class HealthCheckConfigProperties(dict):
         Route 53 considers case when searching for `SearchString` in the response body.
         """
         return pulumi.get(self, "search_string")
-
-
-@pulumi.output_type
-class HealthCheckTag(dict):
-    """
-    A key-value pair to associate with a resource.
-    """
-    def __init__(__self__, *,
-                 key: builtins.str,
-                 value: builtins.str):
-        """
-        A key-value pair to associate with a resource.
-        :param builtins.str key: The key name of the tag.
-        :param builtins.str value: The value for the tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> builtins.str:
-        """
-        The key name of the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> builtins.str:
-        """
-        The value for the tag.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

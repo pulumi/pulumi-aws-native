@@ -7,6 +7,33 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.EntityResolution
 {
+    [EnumType]
+    public readonly struct IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType : IEquatable<IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType>
+    {
+        private readonly string _value;
+
+        private IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType OnDemand { get; } = new IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType("ON_DEMAND");
+
+        public static bool operator ==(IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType left, IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType right) => left.Equals(right);
+        public static bool operator !=(IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType left, IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType right) => !left.Equals(right);
+
+        public static explicit operator string(IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType other && Equals(other);
+        public bool Equals(IdMappingWorkflowIdMappingIncrementalRunConfigIncrementalRunType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
     /// 

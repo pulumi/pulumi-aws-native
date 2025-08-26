@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Connect
     public sealed class GetPredefinedAttributeResult
     {
         /// <summary>
+        /// Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+        /// </summary>
+        public readonly Outputs.AttributeConfigurationProperties? AttributeConfiguration;
+        /// <summary>
         /// Last modified region.
         /// </summary>
         public readonly string? LastModifiedRegion;
@@ -84,20 +88,30 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly double? LastModifiedTime;
         /// <summary>
+        /// The assigned purposes of the predefined attribute.
+        /// </summary>
+        public readonly ImmutableArray<string> Purposes;
+        /// <summary>
         /// The values of a predefined attribute.
         /// </summary>
         public readonly Outputs.ValuesProperties? Values;
 
         [OutputConstructor]
         private GetPredefinedAttributeResult(
+            Outputs.AttributeConfigurationProperties? attributeConfiguration,
+
             string? lastModifiedRegion,
 
             double? lastModifiedTime,
 
+            ImmutableArray<string> purposes,
+
             Outputs.ValuesProperties? values)
         {
+            AttributeConfiguration = attributeConfiguration;
             LastModifiedRegion = lastModifiedRegion;
             LastModifiedTime = lastModifiedTime;
+            Purposes = purposes;
             Values = values;
         }
     }

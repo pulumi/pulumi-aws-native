@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Connect
     public partial class PredefinedAttribute : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+        /// </summary>
+        [Output("attributeConfiguration")]
+        public Output<Outputs.AttributeConfigurationProperties?> AttributeConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The identifier of the Amazon Connect instance.
         /// </summary>
         [Output("instanceArn")]
@@ -40,10 +46,16 @@ namespace Pulumi.AwsNative.Connect
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The assigned purposes of the predefined attribute.
+        /// </summary>
+        [Output("purposes")]
+        public Output<ImmutableArray<string>> Purposes { get; private set; } = null!;
+
+        /// <summary>
         /// The values of a predefined attribute.
         /// </summary>
         [Output("values")]
-        public Output<Outputs.ValuesProperties> Values { get; private set; } = null!;
+        public Output<Outputs.ValuesProperties?> Values { get; private set; } = null!;
 
 
         /// <summary>
@@ -96,6 +108,12 @@ namespace Pulumi.AwsNative.Connect
     public sealed class PredefinedAttributeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+        /// </summary>
+        [Input("attributeConfiguration")]
+        public Input<Inputs.AttributeConfigurationPropertiesArgs>? AttributeConfiguration { get; set; }
+
+        /// <summary>
         /// The identifier of the Amazon Connect instance.
         /// </summary>
         [Input("instanceArn", required: true)]
@@ -107,11 +125,23 @@ namespace Pulumi.AwsNative.Connect
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("purposes")]
+        private InputList<string>? _purposes;
+
+        /// <summary>
+        /// The assigned purposes of the predefined attribute.
+        /// </summary>
+        public InputList<string> Purposes
+        {
+            get => _purposes ?? (_purposes = new InputList<string>());
+            set => _purposes = value;
+        }
+
         /// <summary>
         /// The values of a predefined attribute.
         /// </summary>
-        [Input("values", required: true)]
-        public Input<Inputs.ValuesPropertiesArgs> Values { get; set; } = null!;
+        [Input("values")]
+        public Input<Inputs.ValuesPropertiesArgs>? Values { get; set; }
 
         public PredefinedAttributeArgs()
         {

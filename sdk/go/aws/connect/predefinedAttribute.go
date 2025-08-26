@@ -16,6 +16,8 @@ import (
 type PredefinedAttribute struct {
 	pulumi.CustomResourceState
 
+	// Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+	AttributeConfiguration AttributeConfigurationPropertiesPtrOutput `pulumi:"attributeConfiguration"`
 	// The identifier of the Amazon Connect instance.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// Last modified region.
@@ -24,8 +26,10 @@ type PredefinedAttribute struct {
 	LastModifiedTime pulumi.Float64Output `pulumi:"lastModifiedTime"`
 	// The name of the predefined attribute.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The assigned purposes of the predefined attribute.
+	Purposes pulumi.StringArrayOutput `pulumi:"purposes"`
 	// The values of a predefined attribute.
-	Values ValuesPropertiesOutput `pulumi:"values"`
+	Values ValuesPropertiesPtrOutput `pulumi:"values"`
 }
 
 // NewPredefinedAttribute registers a new resource with the given unique name, arguments, and options.
@@ -37,9 +41,6 @@ func NewPredefinedAttribute(ctx *pulumi.Context,
 
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
-	}
-	if args.Values == nil {
-		return nil, errors.New("invalid value for required argument 'Values'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"instanceArn",
@@ -79,22 +80,30 @@ func (PredefinedAttributeState) ElementType() reflect.Type {
 }
 
 type predefinedAttributeArgs struct {
+	// Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+	AttributeConfiguration *AttributeConfigurationProperties `pulumi:"attributeConfiguration"`
 	// The identifier of the Amazon Connect instance.
 	InstanceArn string `pulumi:"instanceArn"`
 	// The name of the predefined attribute.
 	Name *string `pulumi:"name"`
+	// The assigned purposes of the predefined attribute.
+	Purposes []string `pulumi:"purposes"`
 	// The values of a predefined attribute.
-	Values ValuesProperties `pulumi:"values"`
+	Values *ValuesProperties `pulumi:"values"`
 }
 
 // The set of arguments for constructing a PredefinedAttribute resource.
 type PredefinedAttributeArgs struct {
+	// Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+	AttributeConfiguration AttributeConfigurationPropertiesPtrInput
 	// The identifier of the Amazon Connect instance.
 	InstanceArn pulumi.StringInput
 	// The name of the predefined attribute.
 	Name pulumi.StringPtrInput
+	// The assigned purposes of the predefined attribute.
+	Purposes pulumi.StringArrayInput
 	// The values of a predefined attribute.
-	Values ValuesPropertiesInput
+	Values ValuesPropertiesPtrInput
 }
 
 func (PredefinedAttributeArgs) ElementType() reflect.Type {
@@ -134,6 +143,13 @@ func (o PredefinedAttributeOutput) ToPredefinedAttributeOutputWithContext(ctx co
 	return o
 }
 
+// Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+func (o PredefinedAttributeOutput) AttributeConfiguration() AttributeConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *PredefinedAttribute) AttributeConfigurationPropertiesPtrOutput {
+		return v.AttributeConfiguration
+	}).(AttributeConfigurationPropertiesPtrOutput)
+}
+
 // The identifier of the Amazon Connect instance.
 func (o PredefinedAttributeOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PredefinedAttribute) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
@@ -154,9 +170,14 @@ func (o PredefinedAttributeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PredefinedAttribute) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The assigned purposes of the predefined attribute.
+func (o PredefinedAttributeOutput) Purposes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PredefinedAttribute) pulumi.StringArrayOutput { return v.Purposes }).(pulumi.StringArrayOutput)
+}
+
 // The values of a predefined attribute.
-func (o PredefinedAttributeOutput) Values() ValuesPropertiesOutput {
-	return o.ApplyT(func(v *PredefinedAttribute) ValuesPropertiesOutput { return v.Values }).(ValuesPropertiesOutput)
+func (o PredefinedAttributeOutput) Values() ValuesPropertiesPtrOutput {
+	return o.ApplyT(func(v *PredefinedAttribute) ValuesPropertiesPtrOutput { return v.Values }).(ValuesPropertiesPtrOutput)
 }
 
 func init() {

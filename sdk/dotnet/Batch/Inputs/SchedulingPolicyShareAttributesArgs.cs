@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
     public sealed class SchedulingPolicyShareAttributesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A share identifier or share identifier prefix. If the string ends with an asterisk (*), this entry specifies the weight factor to use for share identifiers that start with that prefix. The list of share identifiers in a fair-share policy can't overlap. For example, you can't have one that specifies a `shareIdentifier` of `UserA*` and another that specifies a `shareIdentifier` of `UserA-1` .
+        /// A share identifier or share identifier prefix. If the string ends with an asterisk (*), this entry specifies the weight factor to use for share identifiers that start with that prefix. The list of share identifiers in a fair-share policy can't overlap. For example, you can't have one that specifies a `shareIdentifier` of `UserA*` and another that specifies a `shareIdentifier` of `UserA1` .
         /// 
         /// There can be no more than 500 share identifiers active in a job queue.
         /// 

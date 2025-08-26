@@ -57,7 +57,7 @@ if not MYPY:
     class DataMigrationSettingsArgsDict(TypedDict):
         cloudwatch_logs_enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
-        The property specifies whether to enable the Cloudwatch log.
+        The property specifies whether to enable the CloudWatch log.
         """
         number_of_jobs: NotRequired[pulumi.Input[builtins.int]]
         """
@@ -77,7 +77,7 @@ class DataMigrationSettingsArgs:
                  number_of_jobs: Optional[pulumi.Input[builtins.int]] = None,
                  selection_rules: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.bool] cloudwatch_logs_enabled: The property specifies whether to enable the Cloudwatch log.
+        :param pulumi.Input[builtins.bool] cloudwatch_logs_enabled: The property specifies whether to enable the CloudWatch log.
         :param pulumi.Input[builtins.int] number_of_jobs: The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.
         :param pulumi.Input[builtins.str] selection_rules: The property specifies the rules of selecting objects for data migration.
         """
@@ -92,7 +92,7 @@ class DataMigrationSettingsArgs:
     @pulumi.getter(name="cloudwatchLogsEnabled")
     def cloudwatch_logs_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        The property specifies whether to enable the Cloudwatch log.
+        The property specifies whether to enable the CloudWatch log.
         """
         return pulumi.get(self, "cloudwatch_logs_enabled")
 

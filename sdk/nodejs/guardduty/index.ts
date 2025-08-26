@@ -45,10 +45,20 @@ export const getPublishingDestination: typeof import("./getPublishingDestination
 export const getPublishingDestinationOutput: typeof import("./getPublishingDestination").getPublishingDestinationOutput = null as any;
 utilities.lazyLoad(exports, ["getPublishingDestination","getPublishingDestinationOutput"], () => require("./getPublishingDestination"));
 
+export { GetThreatEntitySetArgs, GetThreatEntitySetResult, GetThreatEntitySetOutputArgs } from "./getThreatEntitySet";
+export const getThreatEntitySet: typeof import("./getThreatEntitySet").getThreatEntitySet = null as any;
+export const getThreatEntitySetOutput: typeof import("./getThreatEntitySet").getThreatEntitySetOutput = null as any;
+utilities.lazyLoad(exports, ["getThreatEntitySet","getThreatEntitySetOutput"], () => require("./getThreatEntitySet"));
+
 export { GetThreatIntelSetArgs, GetThreatIntelSetResult, GetThreatIntelSetOutputArgs } from "./getThreatIntelSet";
 export const getThreatIntelSet: typeof import("./getThreatIntelSet").getThreatIntelSet = null as any;
 export const getThreatIntelSetOutput: typeof import("./getThreatIntelSet").getThreatIntelSetOutput = null as any;
 utilities.lazyLoad(exports, ["getThreatIntelSet","getThreatIntelSetOutput"], () => require("./getThreatIntelSet"));
+
+export { GetTrustedEntitySetArgs, GetTrustedEntitySetResult, GetTrustedEntitySetOutputArgs } from "./getTrustedEntitySet";
+export const getTrustedEntitySet: typeof import("./getTrustedEntitySet").getTrustedEntitySet = null as any;
+export const getTrustedEntitySetOutput: typeof import("./getTrustedEntitySet").getTrustedEntitySetOutput = null as any;
+utilities.lazyLoad(exports, ["getTrustedEntitySet","getTrustedEntitySetOutput"], () => require("./getTrustedEntitySet"));
 
 export { IpSetArgs } from "./ipSet";
 export type IpSet = import("./ipSet").IpSet;
@@ -75,10 +85,20 @@ export type PublishingDestination = import("./publishingDestination").Publishing
 export const PublishingDestination: typeof import("./publishingDestination").PublishingDestination = null as any;
 utilities.lazyLoad(exports, ["PublishingDestination"], () => require("./publishingDestination"));
 
+export { ThreatEntitySetArgs } from "./threatEntitySet";
+export type ThreatEntitySet = import("./threatEntitySet").ThreatEntitySet;
+export const ThreatEntitySet: typeof import("./threatEntitySet").ThreatEntitySet = null as any;
+utilities.lazyLoad(exports, ["ThreatEntitySet"], () => require("./threatEntitySet"));
+
 export { ThreatIntelSetArgs } from "./threatIntelSet";
 export type ThreatIntelSet = import("./threatIntelSet").ThreatIntelSet;
 export const ThreatIntelSet: typeof import("./threatIntelSet").ThreatIntelSet = null as any;
 utilities.lazyLoad(exports, ["ThreatIntelSet"], () => require("./threatIntelSet"));
+
+export { TrustedEntitySetArgs } from "./trustedEntitySet";
+export type TrustedEntitySet = import("./trustedEntitySet").TrustedEntitySet;
+export const TrustedEntitySet: typeof import("./trustedEntitySet").TrustedEntitySet = null as any;
+utilities.lazyLoad(exports, ["TrustedEntitySet"], () => require("./trustedEntitySet"));
 
 
 // Export enums:
@@ -102,8 +122,12 @@ const _module = {
                 return new Member(name, <any>undefined, { urn })
             case "aws-native:guardduty:PublishingDestination":
                 return new PublishingDestination(name, <any>undefined, { urn })
+            case "aws-native:guardduty:ThreatEntitySet":
+                return new ThreatEntitySet(name, <any>undefined, { urn })
             case "aws-native:guardduty:ThreatIntelSet":
                 return new ThreatIntelSet(name, <any>undefined, { urn })
+            case "aws-native:guardduty:TrustedEntitySet":
+                return new TrustedEntitySet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

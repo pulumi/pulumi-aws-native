@@ -7,32 +7,24 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53.Outputs
+namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// A key-value pair to associate with a resource.
+    /// The details of the alarm to monitor during the AMI update.
     /// </summary>
     [OutputType]
-    public sealed class HealthCheckTag
+    public sealed class ClusterAlarmDetails
     {
         /// <summary>
-        /// The key name of the tag.
+        /// The name of the alarm.
         /// </summary>
-        public readonly string Key;
-        /// <summary>
-        /// The value for the tag.
-        /// </summary>
-        public readonly string Value;
+        public readonly string AlarmName;
 
         [OutputConstructor]
-        private HealthCheckTag(
-            string key,
-
-            string value)
+        private ClusterAlarmDetails(string alarmName)
         {
-            Key = key;
-            Value = value;
+            AlarmName = alarmName;
         }
     }
 }

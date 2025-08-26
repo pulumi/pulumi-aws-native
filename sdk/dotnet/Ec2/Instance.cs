@@ -64,13 +64,13 @@ namespace Pulumi.AwsNative.Ec2
         public Output<bool?> EbsOptimized { get; private set; } = null!;
 
         /// <summary>
-        /// An elastic GPU to associate with the instance.
+        /// An elastic GPU to associate with the instance. Amazon Elastic Graphics is no longer available.
         /// </summary>
         [Output("elasticGpuSpecifications")]
         public Output<ImmutableArray<Outputs.InstanceElasticGpuSpecification>> ElasticGpuSpecifications { get; private set; } = null!;
 
         /// <summary>
-        /// An elastic inference accelerator to associate with the instance.
+        /// An elastic inference accelerator to associate with the instance. Amazon Elastic Inference is no longer available.
         /// </summary>
         [Output("elasticInferenceAccelerators")]
         public Output<ImmutableArray<Outputs.InstanceElasticInferenceAccelerator>> ElasticInferenceAccelerators { get; private set; } = null!;
@@ -427,7 +427,7 @@ namespace Pulumi.AwsNative.Ec2
         private InputList<Inputs.InstanceElasticGpuSpecificationArgs>? _elasticGpuSpecifications;
 
         /// <summary>
-        /// An elastic GPU to associate with the instance.
+        /// An elastic GPU to associate with the instance. Amazon Elastic Graphics is no longer available.
         /// </summary>
         public InputList<Inputs.InstanceElasticGpuSpecificationArgs> ElasticGpuSpecifications
         {
@@ -439,7 +439,7 @@ namespace Pulumi.AwsNative.Ec2
         private InputList<Inputs.InstanceElasticInferenceAcceleratorArgs>? _elasticInferenceAccelerators;
 
         /// <summary>
-        /// An elastic inference accelerator to associate with the instance.
+        /// An elastic inference accelerator to associate with the instance. Amazon Elastic Inference is no longer available.
         /// </summary>
         public InputList<Inputs.InstanceElasticInferenceAcceleratorArgs> ElasticInferenceAccelerators
         {

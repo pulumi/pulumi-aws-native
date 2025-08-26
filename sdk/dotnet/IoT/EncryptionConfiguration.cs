@@ -15,21 +15,36 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:iot:EncryptionConfiguration")]
     public partial class EncryptionConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The unique identifier (ID) of an AWS account.
+        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         [Output("configurationDetails")]
         public Output<Outputs.ConfigurationDetailsProperties> ConfigurationDetails { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the KMS key.
+        /// </summary>
         [Output("encryptionType")]
         public Output<Pulumi.AwsNative.IoT.EncryptionConfigurationEncryptionType> EncryptionType { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+        /// </summary>
         [Output("kmsAccessRoleArn")]
         public Output<string?> KmsAccessRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the customer managed KMS key.
+        /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The date when encryption configuration is last updated.
+        /// </summary>
         [Output("lastModifiedDate")]
         public Output<string> LastModifiedDate { get; private set; } = null!;
 
@@ -78,12 +93,21 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class EncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of the KMS key.
+        /// </summary>
         [Input("encryptionType", required: true)]
         public Input<Pulumi.AwsNative.IoT.EncryptionConfigurationEncryptionType> EncryptionType { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+        /// </summary>
         [Input("kmsAccessRoleArn")]
         public Input<string>? KmsAccessRoleArn { get; set; }
 
+        /// <summary>
+        /// The ARN of the customer managed KMS key.
+        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 

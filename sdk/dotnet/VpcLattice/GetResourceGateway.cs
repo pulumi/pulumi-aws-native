@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.VpcLattice
     public static class GetResourceGateway
     {
         /// <summary>
-        /// Creates a resource gateway for a service. 
+        /// Creates a resource gateway for a service.
         /// </summary>
         public static Task<GetResourceGatewayResult> InvokeAsync(GetResourceGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceGatewayResult>("aws-native:vpclattice:getResourceGateway", args ?? new GetResourceGatewayArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Creates a resource gateway for a service. 
+        /// Creates a resource gateway for a service.
         /// </summary>
         public static Output<GetResourceGatewayResult> Invoke(GetResourceGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceGatewayResult>("aws-native:vpclattice:getResourceGateway", args ?? new GetResourceGatewayInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Creates a resource gateway for a service. 
+        /// Creates a resource gateway for a service.
         /// </summary>
         public static Output<GetResourceGatewayResult> Invoke(GetResourceGatewayInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceGatewayResult>("aws-native:vpclattice:getResourceGateway", args ?? new GetResourceGatewayInvokeArgs(), options.WithDefaults());
@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The number of IPv4 addresses to allocate per ENI for the resource gateway
+        /// </summary>
+        public readonly int? Ipv4AddressesPerEni;
+        /// <summary>
         /// The ID of one or more security groups to associate with the endpoint network interface.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
@@ -86,12 +90,15 @@ namespace Pulumi.AwsNative.VpcLattice
 
             string? id,
 
+            int? ipv4AddressesPerEni,
+
             ImmutableArray<string> securityGroupIds,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             Id = id;
+            Ipv4AddressesPerEni = ipv4AddressesPerEni;
             SecurityGroupIds = securityGroupIds;
             Tags = tags;
         }

@@ -78,6 +78,8 @@ export class LogGroup extends pulumi.CustomResource {
      */
     public readonly logGroupName!: pulumi.Output<string | undefined>;
     /**
+     * Creates or updates a resource policy for the specified log group that allows other services to put log events to this account. A LogGroup can have 1 resource policy.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
      */
     public readonly resourcePolicyDocument!: pulumi.Output<any | undefined>;
@@ -167,6 +169,8 @@ export interface LogGroupArgs {
      */
     logGroupName?: pulumi.Input<string>;
     /**
+     * Creates or updates a resource policy for the specified log group that allows other services to put log events to this account. A LogGroup can have 1 resource policy.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
      */
     resourcePolicyDocument?: any;

@@ -14106,6 +14106,7 @@ const (
 	AnalysisResourceStatusUpdateInProgress   = AnalysisResourceStatus("UPDATE_IN_PROGRESS")
 	AnalysisResourceStatusUpdateSuccessful   = AnalysisResourceStatus("UPDATE_SUCCESSFUL")
 	AnalysisResourceStatusUpdateFailed       = AnalysisResourceStatus("UPDATE_FAILED")
+	AnalysisResourceStatusPendingUpdate      = AnalysisResourceStatus("PENDING_UPDATE")
 	AnalysisResourceStatusDeleted            = AnalysisResourceStatus("DELETED")
 )
 
@@ -14237,6 +14238,7 @@ func (o AnalysisResourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx contex
 //	AnalysisResourceStatusUpdateInProgress
 //	AnalysisResourceStatusUpdateSuccessful
 //	AnalysisResourceStatusUpdateFailed
+//	AnalysisResourceStatusPendingUpdate
 //	AnalysisResourceStatusDeleted
 type AnalysisResourceStatusInput interface {
 	pulumi.Input
@@ -35595,6 +35597,7 @@ const (
 	DashboardResourceStatusUpdateInProgress   = DashboardResourceStatus("UPDATE_IN_PROGRESS")
 	DashboardResourceStatusUpdateSuccessful   = DashboardResourceStatus("UPDATE_SUCCESSFUL")
 	DashboardResourceStatusUpdateFailed       = DashboardResourceStatus("UPDATE_FAILED")
+	DashboardResourceStatusPendingUpdate      = DashboardResourceStatus("PENDING_UPDATE")
 	DashboardResourceStatusDeleted            = DashboardResourceStatus("DELETED")
 )
 
@@ -61290,6 +61293,7 @@ const (
 	TemplateResourceStatusUpdateInProgress   = TemplateResourceStatus("UPDATE_IN_PROGRESS")
 	TemplateResourceStatusUpdateSuccessful   = TemplateResourceStatus("UPDATE_SUCCESSFUL")
 	TemplateResourceStatusUpdateFailed       = TemplateResourceStatus("UPDATE_FAILED")
+	TemplateResourceStatusPendingUpdate      = TemplateResourceStatus("PENDING_UPDATE")
 	TemplateResourceStatusDeleted            = TemplateResourceStatus("DELETED")
 )
 
@@ -68621,6 +68625,7 @@ const (
 	ThemeResourceStatusUpdateInProgress   = ThemeResourceStatus("UPDATE_IN_PROGRESS")
 	ThemeResourceStatusUpdateSuccessful   = ThemeResourceStatus("UPDATE_SUCCESSFUL")
 	ThemeResourceStatusUpdateFailed       = ThemeResourceStatus("UPDATE_FAILED")
+	ThemeResourceStatusPendingUpdate      = ThemeResourceStatus("PENDING_UPDATE")
 	ThemeResourceStatusDeleted            = ThemeResourceStatus("DELETED")
 )
 

@@ -161,6 +161,7 @@ namespace Pulumi.AwsNative.Deadline
 
         public static FleetEc2MarketType OnDemand { get; } = new FleetEc2MarketType("on-demand");
         public static FleetEc2MarketType Spot { get; } = new FleetEc2MarketType("spot");
+        public static FleetEc2MarketType WaitAndSave { get; } = new FleetEc2MarketType("wait-and-save");
 
         public static bool operator ==(FleetEc2MarketType left, FleetEc2MarketType right) => left.Equals(right);
         public static bool operator !=(FleetEc2MarketType left, FleetEc2MarketType right) => !left.Equals(right);
@@ -220,6 +221,7 @@ namespace Pulumi.AwsNative.Deadline
         public static FleetStatus UpdateInProgress { get; } = new FleetStatus("UPDATE_IN_PROGRESS");
         public static FleetStatus CreateFailed { get; } = new FleetStatus("CREATE_FAILED");
         public static FleetStatus UpdateFailed { get; } = new FleetStatus("UPDATE_FAILED");
+        public static FleetStatus Suspended { get; } = new FleetStatus("SUSPENDED");
 
         public static bool operator ==(FleetStatus left, FleetStatus right) => left.Equals(right);
         public static bool operator !=(FleetStatus left, FleetStatus right) => !left.Equals(right);

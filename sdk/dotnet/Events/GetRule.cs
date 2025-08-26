@@ -94,6 +94,10 @@ namespace Pulumi.AwsNative.Events
         /// </summary>
         public readonly Pulumi.AwsNative.Events.RuleState? State;
         /// <summary>
+        /// Any tags assigned to the event rule.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
         /// Targets are the resources that are invoked when a rule is triggered.
         /// </summary>
@@ -115,6 +119,8 @@ namespace Pulumi.AwsNative.Events
 
             Pulumi.AwsNative.Events.RuleState? state,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             ImmutableArray<Outputs.RuleTarget> targets)
         {
             Arn = arn;
@@ -124,6 +130,7 @@ namespace Pulumi.AwsNative.Events
             RoleArn = roleArn;
             ScheduleExpression = scheduleExpression;
             State = state;
+            Tags = tags;
             Targets = targets;
         }
     }

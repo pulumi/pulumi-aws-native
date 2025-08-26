@@ -176,9 +176,205 @@ func (in *detectorCfnFeatureConfigurationStatusPtr) ToDetectorCfnFeatureConfigur
 	return pulumi.ToOutputWithContext(ctx, in).(DetectorCfnFeatureConfigurationStatusPtrOutput)
 }
 
+// The status of your `ThreatEntitySet` . For information about valid status values, see [Understanding list statuses](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#guardduty-entity-list-statuses) in the *Amazon GuardDuty User Guide* .
+type ThreatEntitySetStatus string
+
+const (
+	ThreatEntitySetStatusInactive      = ThreatEntitySetStatus("INACTIVE")
+	ThreatEntitySetStatusActivating    = ThreatEntitySetStatus("ACTIVATING")
+	ThreatEntitySetStatusActive        = ThreatEntitySetStatus("ACTIVE")
+	ThreatEntitySetStatusDeactivating  = ThreatEntitySetStatus("DEACTIVATING")
+	ThreatEntitySetStatusError         = ThreatEntitySetStatus("ERROR")
+	ThreatEntitySetStatusDeletePending = ThreatEntitySetStatus("DELETE_PENDING")
+	ThreatEntitySetStatusDeleted       = ThreatEntitySetStatus("DELETED")
+)
+
+type ThreatEntitySetStatusOutput struct{ *pulumi.OutputState }
+
+func (ThreatEntitySetStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatEntitySetStatus)(nil)).Elem()
+}
+
+func (o ThreatEntitySetStatusOutput) ToThreatEntitySetStatusOutput() ThreatEntitySetStatusOutput {
+	return o
+}
+
+func (o ThreatEntitySetStatusOutput) ToThreatEntitySetStatusOutputWithContext(ctx context.Context) ThreatEntitySetStatusOutput {
+	return o
+}
+
+func (o ThreatEntitySetStatusOutput) ToThreatEntitySetStatusPtrOutput() ThreatEntitySetStatusPtrOutput {
+	return o.ToThreatEntitySetStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ThreatEntitySetStatusOutput) ToThreatEntitySetStatusPtrOutputWithContext(ctx context.Context) ThreatEntitySetStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThreatEntitySetStatus) *ThreatEntitySetStatus {
+		return &v
+	}).(ThreatEntitySetStatusPtrOutput)
+}
+
+func (o ThreatEntitySetStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ThreatEntitySetStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ThreatEntitySetStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ThreatEntitySetStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ThreatEntitySetStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ThreatEntitySetStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ThreatEntitySetStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ThreatEntitySetStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThreatEntitySetStatus)(nil)).Elem()
+}
+
+func (o ThreatEntitySetStatusPtrOutput) ToThreatEntitySetStatusPtrOutput() ThreatEntitySetStatusPtrOutput {
+	return o
+}
+
+func (o ThreatEntitySetStatusPtrOutput) ToThreatEntitySetStatusPtrOutputWithContext(ctx context.Context) ThreatEntitySetStatusPtrOutput {
+	return o
+}
+
+func (o ThreatEntitySetStatusPtrOutput) Elem() ThreatEntitySetStatusOutput {
+	return o.ApplyT(func(v *ThreatEntitySetStatus) ThreatEntitySetStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ThreatEntitySetStatus
+		return ret
+	}).(ThreatEntitySetStatusOutput)
+}
+
+func (o ThreatEntitySetStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ThreatEntitySetStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ThreatEntitySetStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of your `TrustedEntitySet` . For information about valid status values, see [Understanding list statuses](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#guardduty-entity-list-statuses) in the *Amazon GuardDuty User Guide* .
+type TrustedEntitySetStatus string
+
+const (
+	TrustedEntitySetStatusInactive      = TrustedEntitySetStatus("INACTIVE")
+	TrustedEntitySetStatusActivating    = TrustedEntitySetStatus("ACTIVATING")
+	TrustedEntitySetStatusActive        = TrustedEntitySetStatus("ACTIVE")
+	TrustedEntitySetStatusDeactivating  = TrustedEntitySetStatus("DEACTIVATING")
+	TrustedEntitySetStatusError         = TrustedEntitySetStatus("ERROR")
+	TrustedEntitySetStatusDeletePending = TrustedEntitySetStatus("DELETE_PENDING")
+	TrustedEntitySetStatusDeleted       = TrustedEntitySetStatus("DELETED")
+)
+
+type TrustedEntitySetStatusOutput struct{ *pulumi.OutputState }
+
+func (TrustedEntitySetStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustedEntitySetStatus)(nil)).Elem()
+}
+
+func (o TrustedEntitySetStatusOutput) ToTrustedEntitySetStatusOutput() TrustedEntitySetStatusOutput {
+	return o
+}
+
+func (o TrustedEntitySetStatusOutput) ToTrustedEntitySetStatusOutputWithContext(ctx context.Context) TrustedEntitySetStatusOutput {
+	return o
+}
+
+func (o TrustedEntitySetStatusOutput) ToTrustedEntitySetStatusPtrOutput() TrustedEntitySetStatusPtrOutput {
+	return o.ToTrustedEntitySetStatusPtrOutputWithContext(context.Background())
+}
+
+func (o TrustedEntitySetStatusOutput) ToTrustedEntitySetStatusPtrOutputWithContext(ctx context.Context) TrustedEntitySetStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrustedEntitySetStatus) *TrustedEntitySetStatus {
+		return &v
+	}).(TrustedEntitySetStatusPtrOutput)
+}
+
+func (o TrustedEntitySetStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TrustedEntitySetStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrustedEntitySetStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TrustedEntitySetStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrustedEntitySetStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrustedEntitySetStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrustedEntitySetStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (TrustedEntitySetStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrustedEntitySetStatus)(nil)).Elem()
+}
+
+func (o TrustedEntitySetStatusPtrOutput) ToTrustedEntitySetStatusPtrOutput() TrustedEntitySetStatusPtrOutput {
+	return o
+}
+
+func (o TrustedEntitySetStatusPtrOutput) ToTrustedEntitySetStatusPtrOutputWithContext(ctx context.Context) TrustedEntitySetStatusPtrOutput {
+	return o
+}
+
+func (o TrustedEntitySetStatusPtrOutput) Elem() TrustedEntitySetStatusOutput {
+	return o.ApplyT(func(v *TrustedEntitySetStatus) TrustedEntitySetStatus {
+		if v != nil {
+			return *v
+		}
+		var ret TrustedEntitySetStatus
+		return ret
+	}).(TrustedEntitySetStatusOutput)
+}
+
+func (o TrustedEntitySetStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrustedEntitySetStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TrustedEntitySetStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnFeatureConfigurationStatusInput)(nil)).Elem(), DetectorCfnFeatureConfigurationStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnFeatureConfigurationStatusPtrInput)(nil)).Elem(), DetectorCfnFeatureConfigurationStatus("ENABLED"))
 	pulumi.RegisterOutputType(DetectorCfnFeatureConfigurationStatusOutput{})
 	pulumi.RegisterOutputType(DetectorCfnFeatureConfigurationStatusPtrOutput{})
+	pulumi.RegisterOutputType(ThreatEntitySetStatusOutput{})
+	pulumi.RegisterOutputType(ThreatEntitySetStatusPtrOutput{})
+	pulumi.RegisterOutputType(TrustedEntitySetStatusOutput{})
+	pulumi.RegisterOutputType(TrustedEntitySetStatusPtrOutput{})
 }

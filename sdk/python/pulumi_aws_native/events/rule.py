@@ -15,6 +15,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -30,6 +32,7 @@ class RuleArgs:
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input['RuleState']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTargetArgs']]]] = None):
         """
         The set of arguments for constructing a Rule resource.
@@ -42,6 +45,7 @@ class RuleArgs:
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the role that is used for target invocation.
         :param pulumi.Input[builtins.str] schedule_expression: The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
         :param pulumi.Input['RuleState'] state: The state of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Any tags assigned to the event rule.
         :param pulumi.Input[Sequence[pulumi.Input['RuleTargetArgs']]] targets: Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
                Targets are the resources that are invoked when a rule is triggered.
         """
@@ -59,6 +63,8 @@ class RuleArgs:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
         if state is not None:
             pulumi.set(__self__, "state", state)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if targets is not None:
             pulumi.set(__self__, "targets", targets)
 
@@ -150,6 +156,18 @@ class RuleArgs:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Any tags assigned to the event rule.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
     def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleTargetArgs']]]]:
         """
         Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
@@ -175,6 +193,7 @@ class Rule(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input['RuleState']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleTargetArgs', 'RuleTargetArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -237,6 +256,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the role that is used for target invocation.
         :param pulumi.Input[builtins.str] schedule_expression: The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
         :param pulumi.Input['RuleState'] state: The state of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags assigned to the event rule.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuleTargetArgs', 'RuleTargetArgsDict']]]] targets: Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
                Targets are the resources that are invoked when a rule is triggered.
         """
@@ -317,6 +337,7 @@ class Rule(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input['RuleState']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleTargetArgs', 'RuleTargetArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -334,6 +355,7 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["schedule_expression"] = schedule_expression
             __props__.__dict__["state"] = state
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["targets"] = targets
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
@@ -368,6 +390,7 @@ class Rule(pulumi.CustomResource):
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["schedule_expression"] = None
         __props__.__dict__["state"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["targets"] = None
         return Rule(resource_name, opts=opts, __props__=__props__)
 
@@ -436,6 +459,14 @@ class Rule(pulumi.CustomResource):
         The state of the rule.
         """
         return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Any tags assigned to the event rule.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

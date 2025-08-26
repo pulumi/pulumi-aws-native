@@ -223,12 +223,18 @@ class DomainConfigurationStatus(builtins.str, Enum):
 
 @pulumi.type_token("aws-native:iot:EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus")
 class EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus(builtins.str, Enum):
+    """
+    The health status of KMS key and AWS KMS access role. If either KMS key or AWS KMS access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
+    """
     HEALTHY = "HEALTHY"
     UNHEALTHY = "UNHEALTHY"
 
 
 @pulumi.type_token("aws-native:iot:EncryptionConfigurationEncryptionType")
 class EncryptionConfigurationEncryptionType(builtins.str, Enum):
+    """
+    The type of the KMS key.
+    """
     CUSTOMER_MANAGED_KMS_KEY = "CUSTOMER_MANAGED_KMS_KEY"
     AWS_OWNED_KMS_KEY = "AWS_OWNED_KMS_KEY"
 

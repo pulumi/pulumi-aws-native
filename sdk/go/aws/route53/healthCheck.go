@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,7 +22,7 @@ type HealthCheck struct {
 	// The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
 	HealthCheckId pulumi.StringOutput `pulumi:"healthCheckId"`
 	// An array of key-value pairs to apply to this resource.
-	HealthCheckTags HealthCheckTagArrayOutput `pulumi:"healthCheckTags"`
+	HealthCheckTags aws.TagArrayOutput `pulumi:"healthCheckTags"`
 }
 
 // NewHealthCheck registers a new resource with the given unique name, arguments, and options.
@@ -70,7 +71,7 @@ type healthCheckArgs struct {
 	// A complex type that contains information about the health check.
 	HealthCheckConfig HealthCheckConfigProperties `pulumi:"healthCheckConfig"`
 	// An array of key-value pairs to apply to this resource.
-	HealthCheckTags []HealthCheckTag `pulumi:"healthCheckTags"`
+	HealthCheckTags []aws.Tag `pulumi:"healthCheckTags"`
 }
 
 // The set of arguments for constructing a HealthCheck resource.
@@ -78,7 +79,7 @@ type HealthCheckArgs struct {
 	// A complex type that contains information about the health check.
 	HealthCheckConfig HealthCheckConfigPropertiesInput
 	// An array of key-value pairs to apply to this resource.
-	HealthCheckTags HealthCheckTagArrayInput
+	HealthCheckTags aws.TagArrayInput
 }
 
 func (HealthCheckArgs) ElementType() reflect.Type {
@@ -129,8 +130,8 @@ func (o HealthCheckOutput) HealthCheckId() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o HealthCheckOutput) HealthCheckTags() HealthCheckTagArrayOutput {
-	return o.ApplyT(func(v *HealthCheck) HealthCheckTagArrayOutput { return v.HealthCheckTags }).(HealthCheckTagArrayOutput)
+func (o HealthCheckOutput) HealthCheckTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *HealthCheck) aws.TagArrayOutput { return v.HealthCheckTags }).(aws.TagArrayOutput)
 }
 
 func init() {

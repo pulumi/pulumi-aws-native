@@ -76,8 +76,8 @@ class InstanceArgs:
         :param pulumi.Input['CreditSpecificationPropertiesArgs'] credit_specification: The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
         :param pulumi.Input[builtins.bool] disable_api_termination: If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can.
         :param pulumi.Input[builtins.bool] ebs_optimized: Indicates whether the instance is optimized for Amazon EBS I/O.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceElasticGpuSpecificationArgs']]] elastic_gpu_specifications: An elastic GPU to associate with the instance.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceElasticInferenceAcceleratorArgs']]] elastic_inference_accelerators: An elastic inference accelerator to associate with the instance.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceElasticGpuSpecificationArgs']]] elastic_gpu_specifications: An elastic GPU to associate with the instance. Amazon Elastic Graphics is no longer available.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceElasticInferenceAcceleratorArgs']]] elastic_inference_accelerators: An elastic inference accelerator to associate with the instance. Amazon Elastic Inference is no longer available.
         :param pulumi.Input['EnclaveOptionsPropertiesArgs'] enclave_options: Indicates whether the instance is enabled for AWS Nitro Enclaves.
         :param pulumi.Input['HibernationOptionsPropertiesArgs'] hibernation_options: Indicates whether an instance is enabled for hibernation.
         :param pulumi.Input[builtins.str] host_id: If you specify host for the Affinity property, the ID of a dedicated host that the instance is associated with. If you don't specify an ID, Amazon EC2 launches the instance onto any available, compatible dedicated host in your account.
@@ -293,7 +293,7 @@ class InstanceArgs:
     @pulumi.getter(name="elasticGpuSpecifications")
     def elastic_gpu_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceElasticGpuSpecificationArgs']]]]:
         """
-        An elastic GPU to associate with the instance.
+        An elastic GPU to associate with the instance. Amazon Elastic Graphics is no longer available.
         """
         return pulumi.get(self, "elastic_gpu_specifications")
 
@@ -305,7 +305,7 @@ class InstanceArgs:
     @pulumi.getter(name="elasticInferenceAccelerators")
     def elastic_inference_accelerators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceElasticInferenceAcceleratorArgs']]]]:
         """
-        An elastic inference accelerator to associate with the instance.
+        An elastic inference accelerator to associate with the instance. Amazon Elastic Inference is no longer available.
         """
         return pulumi.get(self, "elastic_inference_accelerators")
 
@@ -747,8 +747,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Union['CreditSpecificationPropertiesArgs', 'CreditSpecificationPropertiesArgsDict']] credit_specification: The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
         :param pulumi.Input[builtins.bool] disable_api_termination: If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can.
         :param pulumi.Input[builtins.bool] ebs_optimized: Indicates whether the instance is optimized for Amazon EBS I/O.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceElasticGpuSpecificationArgs', 'InstanceElasticGpuSpecificationArgsDict']]]] elastic_gpu_specifications: An elastic GPU to associate with the instance.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceElasticInferenceAcceleratorArgs', 'InstanceElasticInferenceAcceleratorArgsDict']]]] elastic_inference_accelerators: An elastic inference accelerator to associate with the instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceElasticGpuSpecificationArgs', 'InstanceElasticGpuSpecificationArgsDict']]]] elastic_gpu_specifications: An elastic GPU to associate with the instance. Amazon Elastic Graphics is no longer available.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceElasticInferenceAcceleratorArgs', 'InstanceElasticInferenceAcceleratorArgsDict']]]] elastic_inference_accelerators: An elastic inference accelerator to associate with the instance. Amazon Elastic Inference is no longer available.
         :param pulumi.Input[Union['EnclaveOptionsPropertiesArgs', 'EnclaveOptionsPropertiesArgsDict']] enclave_options: Indicates whether the instance is enabled for AWS Nitro Enclaves.
         :param pulumi.Input[Union['HibernationOptionsPropertiesArgs', 'HibernationOptionsPropertiesArgsDict']] hibernation_options: Indicates whether an instance is enabled for hibernation.
         :param pulumi.Input[builtins.str] host_id: If you specify host for the Affinity property, the ID of a dedicated host that the instance is associated with. If you don't specify an ID, Amazon EC2 launches the instance onto any available, compatible dedicated host in your account.
@@ -1045,7 +1045,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="elasticGpuSpecifications")
     def elastic_gpu_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceElasticGpuSpecification']]]:
         """
-        An elastic GPU to associate with the instance.
+        An elastic GPU to associate with the instance. Amazon Elastic Graphics is no longer available.
         """
         return pulumi.get(self, "elastic_gpu_specifications")
 
@@ -1053,7 +1053,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="elasticInferenceAccelerators")
     def elastic_inference_accelerators(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceElasticInferenceAccelerator']]]:
         """
-        An elastic inference accelerator to associate with the instance.
+        An elastic inference accelerator to associate with the instance. Amazon Elastic Inference is no longer available.
         """
         return pulumi.get(self, "elastic_inference_accelerators")
 

@@ -3262,8 +3262,9 @@ func (o TransformerMappingPtrOutput) TemplateLanguage() TransformerMappingTempla
 }
 
 type TransformerOutputConversion struct {
-	FormatOptions *TransformerFormatOptionsProperties `pulumi:"formatOptions"`
-	ToFormat      TransformerToFormat                 `pulumi:"toFormat"`
+	AdvancedOptions *TransformerAdvancedOptions         `pulumi:"advancedOptions"`
+	FormatOptions   *TransformerFormatOptionsProperties `pulumi:"formatOptions"`
+	ToFormat        TransformerToFormat                 `pulumi:"toFormat"`
 }
 
 // TransformerOutputConversionInput is an input type that accepts TransformerOutputConversionArgs and TransformerOutputConversionOutput values.
@@ -3278,8 +3279,9 @@ type TransformerOutputConversionInput interface {
 }
 
 type TransformerOutputConversionArgs struct {
-	FormatOptions TransformerFormatOptionsPropertiesPtrInput `pulumi:"formatOptions"`
-	ToFormat      TransformerToFormatInput                   `pulumi:"toFormat"`
+	AdvancedOptions TransformerAdvancedOptionsPtrInput         `pulumi:"advancedOptions"`
+	FormatOptions   TransformerFormatOptionsPropertiesPtrInput `pulumi:"formatOptions"`
+	ToFormat        TransformerToFormatInput                   `pulumi:"toFormat"`
 }
 
 func (TransformerOutputConversionArgs) ElementType() reflect.Type {
@@ -3359,6 +3361,10 @@ func (o TransformerOutputConversionOutput) ToTransformerOutputConversionPtrOutpu
 	}).(TransformerOutputConversionPtrOutput)
 }
 
+func (o TransformerOutputConversionOutput) AdvancedOptions() TransformerAdvancedOptionsPtrOutput {
+	return o.ApplyT(func(v TransformerOutputConversion) *TransformerAdvancedOptions { return v.AdvancedOptions }).(TransformerAdvancedOptionsPtrOutput)
+}
+
 func (o TransformerOutputConversionOutput) FormatOptions() TransformerFormatOptionsPropertiesPtrOutput {
 	return o.ApplyT(func(v TransformerOutputConversion) *TransformerFormatOptionsProperties { return v.FormatOptions }).(TransformerFormatOptionsPropertiesPtrOutput)
 }
@@ -3389,6 +3395,15 @@ func (o TransformerOutputConversionPtrOutput) Elem() TransformerOutputConversion
 		var ret TransformerOutputConversion
 		return ret
 	}).(TransformerOutputConversionOutput)
+}
+
+func (o TransformerOutputConversionPtrOutput) AdvancedOptions() TransformerAdvancedOptionsPtrOutput {
+	return o.ApplyT(func(v *TransformerOutputConversion) *TransformerAdvancedOptions {
+		if v == nil {
+			return nil
+		}
+		return v.AdvancedOptions
+	}).(TransformerAdvancedOptionsPtrOutput)
 }
 
 func (o TransformerOutputConversionPtrOutput) FormatOptions() TransformerFormatOptionsPropertiesPtrOutput {
@@ -3665,7 +3680,8 @@ type TransformerTag struct {
 }
 
 type TransformerX12AdvancedOptions struct {
-	SplitOptions *TransformerX12SplitOptions `pulumi:"splitOptions"`
+	SplitOptions      *TransformerX12SplitOptions      `pulumi:"splitOptions"`
+	ValidationOptions *TransformerX12ValidationOptions `pulumi:"validationOptions"`
 }
 
 // TransformerX12AdvancedOptionsInput is an input type that accepts TransformerX12AdvancedOptionsArgs and TransformerX12AdvancedOptionsOutput values.
@@ -3680,7 +3696,8 @@ type TransformerX12AdvancedOptionsInput interface {
 }
 
 type TransformerX12AdvancedOptionsArgs struct {
-	SplitOptions TransformerX12SplitOptionsPtrInput `pulumi:"splitOptions"`
+	SplitOptions      TransformerX12SplitOptionsPtrInput      `pulumi:"splitOptions"`
+	ValidationOptions TransformerX12ValidationOptionsPtrInput `pulumi:"validationOptions"`
 }
 
 func (TransformerX12AdvancedOptionsArgs) ElementType() reflect.Type {
@@ -3764,6 +3781,10 @@ func (o TransformerX12AdvancedOptionsOutput) SplitOptions() TransformerX12SplitO
 	return o.ApplyT(func(v TransformerX12AdvancedOptions) *TransformerX12SplitOptions { return v.SplitOptions }).(TransformerX12SplitOptionsPtrOutput)
 }
 
+func (o TransformerX12AdvancedOptionsOutput) ValidationOptions() TransformerX12ValidationOptionsPtrOutput {
+	return o.ApplyT(func(v TransformerX12AdvancedOptions) *TransformerX12ValidationOptions { return v.ValidationOptions }).(TransformerX12ValidationOptionsPtrOutput)
+}
+
 type TransformerX12AdvancedOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (TransformerX12AdvancedOptionsPtrOutput) ElementType() reflect.Type {
@@ -3795,6 +3816,76 @@ func (o TransformerX12AdvancedOptionsPtrOutput) SplitOptions() TransformerX12Spl
 		}
 		return v.SplitOptions
 	}).(TransformerX12SplitOptionsPtrOutput)
+}
+
+func (o TransformerX12AdvancedOptionsPtrOutput) ValidationOptions() TransformerX12ValidationOptionsPtrOutput {
+	return o.ApplyT(func(v *TransformerX12AdvancedOptions) *TransformerX12ValidationOptions {
+		if v == nil {
+			return nil
+		}
+		return v.ValidationOptions
+	}).(TransformerX12ValidationOptionsPtrOutput)
+}
+
+type TransformerX12CodeListValidationRule struct {
+	CodesToAdd    []string `pulumi:"codesToAdd"`
+	CodesToRemove []string `pulumi:"codesToRemove"`
+	ElementId     string   `pulumi:"elementId"`
+}
+
+// TransformerX12CodeListValidationRuleInput is an input type that accepts TransformerX12CodeListValidationRuleArgs and TransformerX12CodeListValidationRuleOutput values.
+// You can construct a concrete instance of `TransformerX12CodeListValidationRuleInput` via:
+//
+//	TransformerX12CodeListValidationRuleArgs{...}
+type TransformerX12CodeListValidationRuleInput interface {
+	pulumi.Input
+
+	ToTransformerX12CodeListValidationRuleOutput() TransformerX12CodeListValidationRuleOutput
+	ToTransformerX12CodeListValidationRuleOutputWithContext(context.Context) TransformerX12CodeListValidationRuleOutput
+}
+
+type TransformerX12CodeListValidationRuleArgs struct {
+	CodesToAdd    pulumi.StringArrayInput `pulumi:"codesToAdd"`
+	CodesToRemove pulumi.StringArrayInput `pulumi:"codesToRemove"`
+	ElementId     pulumi.StringInput      `pulumi:"elementId"`
+}
+
+func (TransformerX12CodeListValidationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12CodeListValidationRule)(nil)).Elem()
+}
+
+func (i TransformerX12CodeListValidationRuleArgs) ToTransformerX12CodeListValidationRuleOutput() TransformerX12CodeListValidationRuleOutput {
+	return i.ToTransformerX12CodeListValidationRuleOutputWithContext(context.Background())
+}
+
+func (i TransformerX12CodeListValidationRuleArgs) ToTransformerX12CodeListValidationRuleOutputWithContext(ctx context.Context) TransformerX12CodeListValidationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerX12CodeListValidationRuleOutput)
+}
+
+type TransformerX12CodeListValidationRuleOutput struct{ *pulumi.OutputState }
+
+func (TransformerX12CodeListValidationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12CodeListValidationRule)(nil)).Elem()
+}
+
+func (o TransformerX12CodeListValidationRuleOutput) ToTransformerX12CodeListValidationRuleOutput() TransformerX12CodeListValidationRuleOutput {
+	return o
+}
+
+func (o TransformerX12CodeListValidationRuleOutput) ToTransformerX12CodeListValidationRuleOutputWithContext(ctx context.Context) TransformerX12CodeListValidationRuleOutput {
+	return o
+}
+
+func (o TransformerX12CodeListValidationRuleOutput) CodesToAdd() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TransformerX12CodeListValidationRule) []string { return v.CodesToAdd }).(pulumi.StringArrayOutput)
+}
+
+func (o TransformerX12CodeListValidationRuleOutput) CodesToRemove() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TransformerX12CodeListValidationRule) []string { return v.CodesToRemove }).(pulumi.StringArrayOutput)
+}
+
+func (o TransformerX12CodeListValidationRuleOutput) ElementId() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformerX12CodeListValidationRule) string { return v.ElementId }).(pulumi.StringOutput)
 }
 
 type TransformerX12Details struct {
@@ -3945,6 +4036,124 @@ func (o TransformerX12DetailsPtrOutput) Version() TransformerX12VersionPtrOutput
 	}).(TransformerX12VersionPtrOutput)
 }
 
+type TransformerX12ElementLengthValidationRule struct {
+	ElementId string  `pulumi:"elementId"`
+	MaxLength float64 `pulumi:"maxLength"`
+	MinLength float64 `pulumi:"minLength"`
+}
+
+// TransformerX12ElementLengthValidationRuleInput is an input type that accepts TransformerX12ElementLengthValidationRuleArgs and TransformerX12ElementLengthValidationRuleOutput values.
+// You can construct a concrete instance of `TransformerX12ElementLengthValidationRuleInput` via:
+//
+//	TransformerX12ElementLengthValidationRuleArgs{...}
+type TransformerX12ElementLengthValidationRuleInput interface {
+	pulumi.Input
+
+	ToTransformerX12ElementLengthValidationRuleOutput() TransformerX12ElementLengthValidationRuleOutput
+	ToTransformerX12ElementLengthValidationRuleOutputWithContext(context.Context) TransformerX12ElementLengthValidationRuleOutput
+}
+
+type TransformerX12ElementLengthValidationRuleArgs struct {
+	ElementId pulumi.StringInput  `pulumi:"elementId"`
+	MaxLength pulumi.Float64Input `pulumi:"maxLength"`
+	MinLength pulumi.Float64Input `pulumi:"minLength"`
+}
+
+func (TransformerX12ElementLengthValidationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12ElementLengthValidationRule)(nil)).Elem()
+}
+
+func (i TransformerX12ElementLengthValidationRuleArgs) ToTransformerX12ElementLengthValidationRuleOutput() TransformerX12ElementLengthValidationRuleOutput {
+	return i.ToTransformerX12ElementLengthValidationRuleOutputWithContext(context.Background())
+}
+
+func (i TransformerX12ElementLengthValidationRuleArgs) ToTransformerX12ElementLengthValidationRuleOutputWithContext(ctx context.Context) TransformerX12ElementLengthValidationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerX12ElementLengthValidationRuleOutput)
+}
+
+type TransformerX12ElementLengthValidationRuleOutput struct{ *pulumi.OutputState }
+
+func (TransformerX12ElementLengthValidationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12ElementLengthValidationRule)(nil)).Elem()
+}
+
+func (o TransformerX12ElementLengthValidationRuleOutput) ToTransformerX12ElementLengthValidationRuleOutput() TransformerX12ElementLengthValidationRuleOutput {
+	return o
+}
+
+func (o TransformerX12ElementLengthValidationRuleOutput) ToTransformerX12ElementLengthValidationRuleOutputWithContext(ctx context.Context) TransformerX12ElementLengthValidationRuleOutput {
+	return o
+}
+
+func (o TransformerX12ElementLengthValidationRuleOutput) ElementId() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformerX12ElementLengthValidationRule) string { return v.ElementId }).(pulumi.StringOutput)
+}
+
+func (o TransformerX12ElementLengthValidationRuleOutput) MaxLength() pulumi.Float64Output {
+	return o.ApplyT(func(v TransformerX12ElementLengthValidationRule) float64 { return v.MaxLength }).(pulumi.Float64Output)
+}
+
+func (o TransformerX12ElementLengthValidationRuleOutput) MinLength() pulumi.Float64Output {
+	return o.ApplyT(func(v TransformerX12ElementLengthValidationRule) float64 { return v.MinLength }).(pulumi.Float64Output)
+}
+
+type TransformerX12ElementRequirementValidationRule struct {
+	ElementPosition string                        `pulumi:"elementPosition"`
+	Requirement     TransformerElementRequirement `pulumi:"requirement"`
+}
+
+// TransformerX12ElementRequirementValidationRuleInput is an input type that accepts TransformerX12ElementRequirementValidationRuleArgs and TransformerX12ElementRequirementValidationRuleOutput values.
+// You can construct a concrete instance of `TransformerX12ElementRequirementValidationRuleInput` via:
+//
+//	TransformerX12ElementRequirementValidationRuleArgs{...}
+type TransformerX12ElementRequirementValidationRuleInput interface {
+	pulumi.Input
+
+	ToTransformerX12ElementRequirementValidationRuleOutput() TransformerX12ElementRequirementValidationRuleOutput
+	ToTransformerX12ElementRequirementValidationRuleOutputWithContext(context.Context) TransformerX12ElementRequirementValidationRuleOutput
+}
+
+type TransformerX12ElementRequirementValidationRuleArgs struct {
+	ElementPosition pulumi.StringInput                 `pulumi:"elementPosition"`
+	Requirement     TransformerElementRequirementInput `pulumi:"requirement"`
+}
+
+func (TransformerX12ElementRequirementValidationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12ElementRequirementValidationRule)(nil)).Elem()
+}
+
+func (i TransformerX12ElementRequirementValidationRuleArgs) ToTransformerX12ElementRequirementValidationRuleOutput() TransformerX12ElementRequirementValidationRuleOutput {
+	return i.ToTransformerX12ElementRequirementValidationRuleOutputWithContext(context.Background())
+}
+
+func (i TransformerX12ElementRequirementValidationRuleArgs) ToTransformerX12ElementRequirementValidationRuleOutputWithContext(ctx context.Context) TransformerX12ElementRequirementValidationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerX12ElementRequirementValidationRuleOutput)
+}
+
+type TransformerX12ElementRequirementValidationRuleOutput struct{ *pulumi.OutputState }
+
+func (TransformerX12ElementRequirementValidationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12ElementRequirementValidationRule)(nil)).Elem()
+}
+
+func (o TransformerX12ElementRequirementValidationRuleOutput) ToTransformerX12ElementRequirementValidationRuleOutput() TransformerX12ElementRequirementValidationRuleOutput {
+	return o
+}
+
+func (o TransformerX12ElementRequirementValidationRuleOutput) ToTransformerX12ElementRequirementValidationRuleOutputWithContext(ctx context.Context) TransformerX12ElementRequirementValidationRuleOutput {
+	return o
+}
+
+func (o TransformerX12ElementRequirementValidationRuleOutput) ElementPosition() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformerX12ElementRequirementValidationRule) string { return v.ElementPosition }).(pulumi.StringOutput)
+}
+
+func (o TransformerX12ElementRequirementValidationRuleOutput) Requirement() TransformerElementRequirementOutput {
+	return o.ApplyT(func(v TransformerX12ElementRequirementValidationRule) TransformerElementRequirement {
+		return v.Requirement
+	}).(TransformerElementRequirementOutput)
+}
+
 type TransformerX12SplitOptions struct {
 	SplitBy *TransformerX12SplitBy `pulumi:"splitBy"`
 }
@@ -4078,6 +4287,292 @@ func (o TransformerX12SplitOptionsPtrOutput) SplitBy() TransformerX12SplitByPtrO
 	}).(TransformerX12SplitByPtrOutput)
 }
 
+type TransformerX12ValidationOptions struct {
+	ValidationRules []interface{} `pulumi:"validationRules"`
+}
+
+// TransformerX12ValidationOptionsInput is an input type that accepts TransformerX12ValidationOptionsArgs and TransformerX12ValidationOptionsOutput values.
+// You can construct a concrete instance of `TransformerX12ValidationOptionsInput` via:
+//
+//	TransformerX12ValidationOptionsArgs{...}
+type TransformerX12ValidationOptionsInput interface {
+	pulumi.Input
+
+	ToTransformerX12ValidationOptionsOutput() TransformerX12ValidationOptionsOutput
+	ToTransformerX12ValidationOptionsOutputWithContext(context.Context) TransformerX12ValidationOptionsOutput
+}
+
+type TransformerX12ValidationOptionsArgs struct {
+	ValidationRules pulumi.ArrayInput `pulumi:"validationRules"`
+}
+
+func (TransformerX12ValidationOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12ValidationOptions)(nil)).Elem()
+}
+
+func (i TransformerX12ValidationOptionsArgs) ToTransformerX12ValidationOptionsOutput() TransformerX12ValidationOptionsOutput {
+	return i.ToTransformerX12ValidationOptionsOutputWithContext(context.Background())
+}
+
+func (i TransformerX12ValidationOptionsArgs) ToTransformerX12ValidationOptionsOutputWithContext(ctx context.Context) TransformerX12ValidationOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerX12ValidationOptionsOutput)
+}
+
+func (i TransformerX12ValidationOptionsArgs) ToTransformerX12ValidationOptionsPtrOutput() TransformerX12ValidationOptionsPtrOutput {
+	return i.ToTransformerX12ValidationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TransformerX12ValidationOptionsArgs) ToTransformerX12ValidationOptionsPtrOutputWithContext(ctx context.Context) TransformerX12ValidationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerX12ValidationOptionsOutput).ToTransformerX12ValidationOptionsPtrOutputWithContext(ctx)
+}
+
+// TransformerX12ValidationOptionsPtrInput is an input type that accepts TransformerX12ValidationOptionsArgs, TransformerX12ValidationOptionsPtr and TransformerX12ValidationOptionsPtrOutput values.
+// You can construct a concrete instance of `TransformerX12ValidationOptionsPtrInput` via:
+//
+//	        TransformerX12ValidationOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformerX12ValidationOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTransformerX12ValidationOptionsPtrOutput() TransformerX12ValidationOptionsPtrOutput
+	ToTransformerX12ValidationOptionsPtrOutputWithContext(context.Context) TransformerX12ValidationOptionsPtrOutput
+}
+
+type transformerX12ValidationOptionsPtrType TransformerX12ValidationOptionsArgs
+
+func TransformerX12ValidationOptionsPtr(v *TransformerX12ValidationOptionsArgs) TransformerX12ValidationOptionsPtrInput {
+	return (*transformerX12ValidationOptionsPtrType)(v)
+}
+
+func (*transformerX12ValidationOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerX12ValidationOptions)(nil)).Elem()
+}
+
+func (i *transformerX12ValidationOptionsPtrType) ToTransformerX12ValidationOptionsPtrOutput() TransformerX12ValidationOptionsPtrOutput {
+	return i.ToTransformerX12ValidationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *transformerX12ValidationOptionsPtrType) ToTransformerX12ValidationOptionsPtrOutputWithContext(ctx context.Context) TransformerX12ValidationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerX12ValidationOptionsPtrOutput)
+}
+
+type TransformerX12ValidationOptionsOutput struct{ *pulumi.OutputState }
+
+func (TransformerX12ValidationOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12ValidationOptions)(nil)).Elem()
+}
+
+func (o TransformerX12ValidationOptionsOutput) ToTransformerX12ValidationOptionsOutput() TransformerX12ValidationOptionsOutput {
+	return o
+}
+
+func (o TransformerX12ValidationOptionsOutput) ToTransformerX12ValidationOptionsOutputWithContext(ctx context.Context) TransformerX12ValidationOptionsOutput {
+	return o
+}
+
+func (o TransformerX12ValidationOptionsOutput) ToTransformerX12ValidationOptionsPtrOutput() TransformerX12ValidationOptionsPtrOutput {
+	return o.ToTransformerX12ValidationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerX12ValidationOptionsOutput) ToTransformerX12ValidationOptionsPtrOutputWithContext(ctx context.Context) TransformerX12ValidationOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformerX12ValidationOptions) *TransformerX12ValidationOptions {
+		return &v
+	}).(TransformerX12ValidationOptionsPtrOutput)
+}
+
+func (o TransformerX12ValidationOptionsOutput) ValidationRules() pulumi.ArrayOutput {
+	return o.ApplyT(func(v TransformerX12ValidationOptions) []interface{} { return v.ValidationRules }).(pulumi.ArrayOutput)
+}
+
+type TransformerX12ValidationOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformerX12ValidationOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerX12ValidationOptions)(nil)).Elem()
+}
+
+func (o TransformerX12ValidationOptionsPtrOutput) ToTransformerX12ValidationOptionsPtrOutput() TransformerX12ValidationOptionsPtrOutput {
+	return o
+}
+
+func (o TransformerX12ValidationOptionsPtrOutput) ToTransformerX12ValidationOptionsPtrOutputWithContext(ctx context.Context) TransformerX12ValidationOptionsPtrOutput {
+	return o
+}
+
+func (o TransformerX12ValidationOptionsPtrOutput) Elem() TransformerX12ValidationOptionsOutput {
+	return o.ApplyT(func(v *TransformerX12ValidationOptions) TransformerX12ValidationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TransformerX12ValidationOptions
+		return ret
+	}).(TransformerX12ValidationOptionsOutput)
+}
+
+func (o TransformerX12ValidationOptionsPtrOutput) ValidationRules() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *TransformerX12ValidationOptions) []interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.ValidationRules
+	}).(pulumi.ArrayOutput)
+}
+
+type TransformerX12ValidationRule0Properties struct {
+	CodeListValidationRule TransformerX12CodeListValidationRule `pulumi:"codeListValidationRule"`
+}
+
+// TransformerX12ValidationRule0PropertiesInput is an input type that accepts TransformerX12ValidationRule0PropertiesArgs and TransformerX12ValidationRule0PropertiesOutput values.
+// You can construct a concrete instance of `TransformerX12ValidationRule0PropertiesInput` via:
+//
+//	TransformerX12ValidationRule0PropertiesArgs{...}
+type TransformerX12ValidationRule0PropertiesInput interface {
+	pulumi.Input
+
+	ToTransformerX12ValidationRule0PropertiesOutput() TransformerX12ValidationRule0PropertiesOutput
+	ToTransformerX12ValidationRule0PropertiesOutputWithContext(context.Context) TransformerX12ValidationRule0PropertiesOutput
+}
+
+type TransformerX12ValidationRule0PropertiesArgs struct {
+	CodeListValidationRule TransformerX12CodeListValidationRuleInput `pulumi:"codeListValidationRule"`
+}
+
+func (TransformerX12ValidationRule0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12ValidationRule0Properties)(nil)).Elem()
+}
+
+func (i TransformerX12ValidationRule0PropertiesArgs) ToTransformerX12ValidationRule0PropertiesOutput() TransformerX12ValidationRule0PropertiesOutput {
+	return i.ToTransformerX12ValidationRule0PropertiesOutputWithContext(context.Background())
+}
+
+func (i TransformerX12ValidationRule0PropertiesArgs) ToTransformerX12ValidationRule0PropertiesOutputWithContext(ctx context.Context) TransformerX12ValidationRule0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerX12ValidationRule0PropertiesOutput)
+}
+
+type TransformerX12ValidationRule0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (TransformerX12ValidationRule0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12ValidationRule0Properties)(nil)).Elem()
+}
+
+func (o TransformerX12ValidationRule0PropertiesOutput) ToTransformerX12ValidationRule0PropertiesOutput() TransformerX12ValidationRule0PropertiesOutput {
+	return o
+}
+
+func (o TransformerX12ValidationRule0PropertiesOutput) ToTransformerX12ValidationRule0PropertiesOutputWithContext(ctx context.Context) TransformerX12ValidationRule0PropertiesOutput {
+	return o
+}
+
+func (o TransformerX12ValidationRule0PropertiesOutput) CodeListValidationRule() TransformerX12CodeListValidationRuleOutput {
+	return o.ApplyT(func(v TransformerX12ValidationRule0Properties) TransformerX12CodeListValidationRule {
+		return v.CodeListValidationRule
+	}).(TransformerX12CodeListValidationRuleOutput)
+}
+
+type TransformerX12ValidationRule1Properties struct {
+	ElementLengthValidationRule TransformerX12ElementLengthValidationRule `pulumi:"elementLengthValidationRule"`
+}
+
+// TransformerX12ValidationRule1PropertiesInput is an input type that accepts TransformerX12ValidationRule1PropertiesArgs and TransformerX12ValidationRule1PropertiesOutput values.
+// You can construct a concrete instance of `TransformerX12ValidationRule1PropertiesInput` via:
+//
+//	TransformerX12ValidationRule1PropertiesArgs{...}
+type TransformerX12ValidationRule1PropertiesInput interface {
+	pulumi.Input
+
+	ToTransformerX12ValidationRule1PropertiesOutput() TransformerX12ValidationRule1PropertiesOutput
+	ToTransformerX12ValidationRule1PropertiesOutputWithContext(context.Context) TransformerX12ValidationRule1PropertiesOutput
+}
+
+type TransformerX12ValidationRule1PropertiesArgs struct {
+	ElementLengthValidationRule TransformerX12ElementLengthValidationRuleInput `pulumi:"elementLengthValidationRule"`
+}
+
+func (TransformerX12ValidationRule1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12ValidationRule1Properties)(nil)).Elem()
+}
+
+func (i TransformerX12ValidationRule1PropertiesArgs) ToTransformerX12ValidationRule1PropertiesOutput() TransformerX12ValidationRule1PropertiesOutput {
+	return i.ToTransformerX12ValidationRule1PropertiesOutputWithContext(context.Background())
+}
+
+func (i TransformerX12ValidationRule1PropertiesArgs) ToTransformerX12ValidationRule1PropertiesOutputWithContext(ctx context.Context) TransformerX12ValidationRule1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerX12ValidationRule1PropertiesOutput)
+}
+
+type TransformerX12ValidationRule1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (TransformerX12ValidationRule1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12ValidationRule1Properties)(nil)).Elem()
+}
+
+func (o TransformerX12ValidationRule1PropertiesOutput) ToTransformerX12ValidationRule1PropertiesOutput() TransformerX12ValidationRule1PropertiesOutput {
+	return o
+}
+
+func (o TransformerX12ValidationRule1PropertiesOutput) ToTransformerX12ValidationRule1PropertiesOutputWithContext(ctx context.Context) TransformerX12ValidationRule1PropertiesOutput {
+	return o
+}
+
+func (o TransformerX12ValidationRule1PropertiesOutput) ElementLengthValidationRule() TransformerX12ElementLengthValidationRuleOutput {
+	return o.ApplyT(func(v TransformerX12ValidationRule1Properties) TransformerX12ElementLengthValidationRule {
+		return v.ElementLengthValidationRule
+	}).(TransformerX12ElementLengthValidationRuleOutput)
+}
+
+type TransformerX12ValidationRule2Properties struct {
+	ElementRequirementValidationRule TransformerX12ElementRequirementValidationRule `pulumi:"elementRequirementValidationRule"`
+}
+
+// TransformerX12ValidationRule2PropertiesInput is an input type that accepts TransformerX12ValidationRule2PropertiesArgs and TransformerX12ValidationRule2PropertiesOutput values.
+// You can construct a concrete instance of `TransformerX12ValidationRule2PropertiesInput` via:
+//
+//	TransformerX12ValidationRule2PropertiesArgs{...}
+type TransformerX12ValidationRule2PropertiesInput interface {
+	pulumi.Input
+
+	ToTransformerX12ValidationRule2PropertiesOutput() TransformerX12ValidationRule2PropertiesOutput
+	ToTransformerX12ValidationRule2PropertiesOutputWithContext(context.Context) TransformerX12ValidationRule2PropertiesOutput
+}
+
+type TransformerX12ValidationRule2PropertiesArgs struct {
+	ElementRequirementValidationRule TransformerX12ElementRequirementValidationRuleInput `pulumi:"elementRequirementValidationRule"`
+}
+
+func (TransformerX12ValidationRule2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12ValidationRule2Properties)(nil)).Elem()
+}
+
+func (i TransformerX12ValidationRule2PropertiesArgs) ToTransformerX12ValidationRule2PropertiesOutput() TransformerX12ValidationRule2PropertiesOutput {
+	return i.ToTransformerX12ValidationRule2PropertiesOutputWithContext(context.Background())
+}
+
+func (i TransformerX12ValidationRule2PropertiesArgs) ToTransformerX12ValidationRule2PropertiesOutputWithContext(ctx context.Context) TransformerX12ValidationRule2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformerX12ValidationRule2PropertiesOutput)
+}
+
+type TransformerX12ValidationRule2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (TransformerX12ValidationRule2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerX12ValidationRule2Properties)(nil)).Elem()
+}
+
+func (o TransformerX12ValidationRule2PropertiesOutput) ToTransformerX12ValidationRule2PropertiesOutput() TransformerX12ValidationRule2PropertiesOutput {
+	return o
+}
+
+func (o TransformerX12ValidationRule2PropertiesOutput) ToTransformerX12ValidationRule2PropertiesOutputWithContext(ctx context.Context) TransformerX12ValidationRule2PropertiesOutput {
+	return o
+}
+
+func (o TransformerX12ValidationRule2PropertiesOutput) ElementRequirementValidationRule() TransformerX12ElementRequirementValidationRuleOutput {
+	return o.ApplyT(func(v TransformerX12ValidationRule2Properties) TransformerX12ElementRequirementValidationRule {
+		return v.ElementRequirementValidationRule
+	}).(TransformerX12ElementRequirementValidationRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityConfigurationPropertiesInput)(nil)).Elem(), CapabilityConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityEdiConfigurationInput)(nil)).Elem(), CapabilityEdiConfigurationArgs{})
@@ -4127,10 +4622,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerSampleDocumentsPtrInput)(nil)).Elem(), TransformerSampleDocumentsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12AdvancedOptionsInput)(nil)).Elem(), TransformerX12AdvancedOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12AdvancedOptionsPtrInput)(nil)).Elem(), TransformerX12AdvancedOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12CodeListValidationRuleInput)(nil)).Elem(), TransformerX12CodeListValidationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12DetailsInput)(nil)).Elem(), TransformerX12DetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12DetailsPtrInput)(nil)).Elem(), TransformerX12DetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12ElementLengthValidationRuleInput)(nil)).Elem(), TransformerX12ElementLengthValidationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12ElementRequirementValidationRuleInput)(nil)).Elem(), TransformerX12ElementRequirementValidationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12SplitOptionsInput)(nil)).Elem(), TransformerX12SplitOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12SplitOptionsPtrInput)(nil)).Elem(), TransformerX12SplitOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12ValidationOptionsInput)(nil)).Elem(), TransformerX12ValidationOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12ValidationOptionsPtrInput)(nil)).Elem(), TransformerX12ValidationOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12ValidationRule0PropertiesInput)(nil)).Elem(), TransformerX12ValidationRule0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12ValidationRule1PropertiesInput)(nil)).Elem(), TransformerX12ValidationRule1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12ValidationRule2PropertiesInput)(nil)).Elem(), TransformerX12ValidationRule2PropertiesArgs{})
 	pulumi.RegisterOutputType(CapabilityConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(CapabilityConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CapabilityEdiConfigurationOutput{})
@@ -4184,8 +4687,16 @@ func init() {
 	pulumi.RegisterOutputType(TransformerSampleDocumentsPtrOutput{})
 	pulumi.RegisterOutputType(TransformerX12AdvancedOptionsOutput{})
 	pulumi.RegisterOutputType(TransformerX12AdvancedOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TransformerX12CodeListValidationRuleOutput{})
 	pulumi.RegisterOutputType(TransformerX12DetailsOutput{})
 	pulumi.RegisterOutputType(TransformerX12DetailsPtrOutput{})
+	pulumi.RegisterOutputType(TransformerX12ElementLengthValidationRuleOutput{})
+	pulumi.RegisterOutputType(TransformerX12ElementRequirementValidationRuleOutput{})
 	pulumi.RegisterOutputType(TransformerX12SplitOptionsOutput{})
 	pulumi.RegisterOutputType(TransformerX12SplitOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TransformerX12ValidationOptionsOutput{})
+	pulumi.RegisterOutputType(TransformerX12ValidationOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TransformerX12ValidationRule0PropertiesOutput{})
+	pulumi.RegisterOutputType(TransformerX12ValidationRule1PropertiesOutput{})
+	pulumi.RegisterOutputType(TransformerX12ValidationRule2PropertiesOutput{})
 }

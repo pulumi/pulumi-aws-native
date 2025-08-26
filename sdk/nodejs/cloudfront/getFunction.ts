@@ -57,10 +57,6 @@ export interface GetFunctionResult {
      * Contains metadata about a CloudFront function.
      */
     readonly functionMetadata?: outputs.cloudfront.FunctionMetadata;
-    /**
-     * A name to identify the function.
-     */
-    readonly name?: string;
     readonly stage?: string;
 }
 /**

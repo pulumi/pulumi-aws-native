@@ -697,6 +697,8 @@ func (o ApplicationCodeContentPtrOutput) ZipFileContent() pulumi.StringPtrOutput
 type ApplicationConfiguration struct {
 	// The code location and type parameters for a Flink-based Kinesis Data Analytics application.
 	ApplicationCodeConfiguration *ApplicationCodeConfiguration `pulumi:"applicationCodeConfiguration"`
+	// Describes whether customer managed key is enabled and key details for customer data encryption
+	ApplicationEncryptionConfiguration *ApplicationEncryptionConfiguration `pulumi:"applicationEncryptionConfiguration"`
 	// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 	ApplicationSnapshotConfiguration *ApplicationSnapshotConfiguration `pulumi:"applicationSnapshotConfiguration"`
 	// Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
@@ -728,6 +730,8 @@ type ApplicationConfigurationInput interface {
 type ApplicationConfigurationArgs struct {
 	// The code location and type parameters for a Flink-based Kinesis Data Analytics application.
 	ApplicationCodeConfiguration ApplicationCodeConfigurationPtrInput `pulumi:"applicationCodeConfiguration"`
+	// Describes whether customer managed key is enabled and key details for customer data encryption
+	ApplicationEncryptionConfiguration ApplicationEncryptionConfigurationPtrInput `pulumi:"applicationEncryptionConfiguration"`
 	// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 	ApplicationSnapshotConfiguration ApplicationSnapshotConfigurationPtrInput `pulumi:"applicationSnapshotConfiguration"`
 	// Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
@@ -827,6 +831,13 @@ func (o ApplicationConfigurationOutput) ApplicationCodeConfiguration() Applicati
 	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationCodeConfiguration { return v.ApplicationCodeConfiguration }).(ApplicationCodeConfigurationPtrOutput)
 }
 
+// Describes whether customer managed key is enabled and key details for customer data encryption
+func (o ApplicationConfigurationOutput) ApplicationEncryptionConfiguration() ApplicationEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationEncryptionConfiguration {
+		return v.ApplicationEncryptionConfiguration
+	}).(ApplicationEncryptionConfigurationPtrOutput)
+}
+
 // Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationConfigurationOutput) ApplicationSnapshotConfiguration() ApplicationSnapshotConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationSnapshotConfiguration {
@@ -904,6 +915,16 @@ func (o ApplicationConfigurationPtrOutput) ApplicationCodeConfiguration() Applic
 		}
 		return v.ApplicationCodeConfiguration
 	}).(ApplicationCodeConfigurationPtrOutput)
+}
+
+// Describes whether customer managed key is enabled and key details for customer data encryption
+func (o ApplicationConfigurationPtrOutput) ApplicationEncryptionConfiguration() ApplicationEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationConfiguration) *ApplicationEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationEncryptionConfiguration
+	}).(ApplicationEncryptionConfigurationPtrOutput)
 }
 
 // Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
@@ -1403,6 +1424,165 @@ func (o ApplicationDeployAsApplicationConfigurationPtrOutput) S3ContentLocation(
 		}
 		return &v.S3ContentLocation
 	}).(ApplicationS3ContentBaseLocationPtrOutput)
+}
+
+// Describes whether customer managed key is enabled and key details for customer data encryption
+type ApplicationEncryptionConfiguration struct {
+	// KMS KeyId. Can be either key uuid or full key arn or key alias arn or short key alias
+	KeyId *string `pulumi:"keyId"`
+	// Specifies whether application data is encrypted using service key: AWS_OWNED_KEY or customer key: CUSTOMER_MANAGED_KEY
+	KeyType ApplicationEncryptionConfigurationKeyType `pulumi:"keyType"`
+}
+
+// ApplicationEncryptionConfigurationInput is an input type that accepts ApplicationEncryptionConfigurationArgs and ApplicationEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationEncryptionConfigurationInput` via:
+//
+//	ApplicationEncryptionConfigurationArgs{...}
+type ApplicationEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationEncryptionConfigurationOutput() ApplicationEncryptionConfigurationOutput
+	ToApplicationEncryptionConfigurationOutputWithContext(context.Context) ApplicationEncryptionConfigurationOutput
+}
+
+// Describes whether customer managed key is enabled and key details for customer data encryption
+type ApplicationEncryptionConfigurationArgs struct {
+	// KMS KeyId. Can be either key uuid or full key arn or key alias arn or short key alias
+	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
+	// Specifies whether application data is encrypted using service key: AWS_OWNED_KEY or customer key: CUSTOMER_MANAGED_KEY
+	KeyType ApplicationEncryptionConfigurationKeyTypeInput `pulumi:"keyType"`
+}
+
+func (ApplicationEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationEncryptionConfigurationArgs) ToApplicationEncryptionConfigurationOutput() ApplicationEncryptionConfigurationOutput {
+	return i.ToApplicationEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationEncryptionConfigurationArgs) ToApplicationEncryptionConfigurationOutputWithContext(ctx context.Context) ApplicationEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationEncryptionConfigurationOutput)
+}
+
+func (i ApplicationEncryptionConfigurationArgs) ToApplicationEncryptionConfigurationPtrOutput() ApplicationEncryptionConfigurationPtrOutput {
+	return i.ToApplicationEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationEncryptionConfigurationArgs) ToApplicationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ApplicationEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationEncryptionConfigurationOutput).ToApplicationEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationEncryptionConfigurationPtrInput is an input type that accepts ApplicationEncryptionConfigurationArgs, ApplicationEncryptionConfigurationPtr and ApplicationEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationEncryptionConfigurationPtrInput` via:
+//
+//	        ApplicationEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationEncryptionConfigurationPtrOutput() ApplicationEncryptionConfigurationPtrOutput
+	ToApplicationEncryptionConfigurationPtrOutputWithContext(context.Context) ApplicationEncryptionConfigurationPtrOutput
+}
+
+type applicationEncryptionConfigurationPtrType ApplicationEncryptionConfigurationArgs
+
+func ApplicationEncryptionConfigurationPtr(v *ApplicationEncryptionConfigurationArgs) ApplicationEncryptionConfigurationPtrInput {
+	return (*applicationEncryptionConfigurationPtrType)(v)
+}
+
+func (*applicationEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *applicationEncryptionConfigurationPtrType) ToApplicationEncryptionConfigurationPtrOutput() ApplicationEncryptionConfigurationPtrOutput {
+	return i.ToApplicationEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationEncryptionConfigurationPtrType) ToApplicationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ApplicationEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationEncryptionConfigurationPtrOutput)
+}
+
+// Describes whether customer managed key is enabled and key details for customer data encryption
+type ApplicationEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationEncryptionConfigurationOutput) ToApplicationEncryptionConfigurationOutput() ApplicationEncryptionConfigurationOutput {
+	return o
+}
+
+func (o ApplicationEncryptionConfigurationOutput) ToApplicationEncryptionConfigurationOutputWithContext(ctx context.Context) ApplicationEncryptionConfigurationOutput {
+	return o
+}
+
+func (o ApplicationEncryptionConfigurationOutput) ToApplicationEncryptionConfigurationPtrOutput() ApplicationEncryptionConfigurationPtrOutput {
+	return o.ToApplicationEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationEncryptionConfigurationOutput) ToApplicationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ApplicationEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationEncryptionConfiguration) *ApplicationEncryptionConfiguration {
+		return &v
+	}).(ApplicationEncryptionConfigurationPtrOutput)
+}
+
+// KMS KeyId. Can be either key uuid or full key arn or key alias arn or short key alias
+func (o ApplicationEncryptionConfigurationOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationEncryptionConfiguration) *string { return v.KeyId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether application data is encrypted using service key: AWS_OWNED_KEY or customer key: CUSTOMER_MANAGED_KEY
+func (o ApplicationEncryptionConfigurationOutput) KeyType() ApplicationEncryptionConfigurationKeyTypeOutput {
+	return o.ApplyT(func(v ApplicationEncryptionConfiguration) ApplicationEncryptionConfigurationKeyType { return v.KeyType }).(ApplicationEncryptionConfigurationKeyTypeOutput)
+}
+
+type ApplicationEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationEncryptionConfigurationPtrOutput) ToApplicationEncryptionConfigurationPtrOutput() ApplicationEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationEncryptionConfigurationPtrOutput) ToApplicationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ApplicationEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationEncryptionConfigurationPtrOutput) Elem() ApplicationEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationEncryptionConfiguration) ApplicationEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationEncryptionConfiguration
+		return ret
+	}).(ApplicationEncryptionConfigurationOutput)
+}
+
+// KMS KeyId. Can be either key uuid or full key arn or key alias arn or short key alias
+func (o ApplicationEncryptionConfigurationPtrOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether application data is encrypted using service key: AWS_OWNED_KEY or customer key: CUSTOMER_MANAGED_KEY
+func (o ApplicationEncryptionConfigurationPtrOutput) KeyType() ApplicationEncryptionConfigurationKeyTypePtrOutput {
+	return o.ApplyT(func(v *ApplicationEncryptionConfiguration) *ApplicationEncryptionConfigurationKeyType {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyType
+	}).(ApplicationEncryptionConfigurationKeyTypePtrOutput)
 }
 
 // Describes execution properties for a Flink-based Kinesis Data Analytics application.
@@ -5785,6 +5965,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCustomArtifactConfigurationArrayInput)(nil)).Elem(), ApplicationCustomArtifactConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDeployAsApplicationConfigurationInput)(nil)).Elem(), ApplicationDeployAsApplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDeployAsApplicationConfigurationPtrInput)(nil)).Elem(), ApplicationDeployAsApplicationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEncryptionConfigurationInput)(nil)).Elem(), ApplicationEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEncryptionConfigurationPtrInput)(nil)).Elem(), ApplicationEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEnvironmentPropertiesInput)(nil)).Elem(), ApplicationEnvironmentPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEnvironmentPropertiesPtrInput)(nil)).Elem(), ApplicationEnvironmentPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationFlinkApplicationConfigurationInput)(nil)).Elem(), ApplicationFlinkApplicationConfigurationArgs{})
@@ -5859,6 +6041,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationCustomArtifactConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationDeployAsApplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationDeployAsApplicationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationEnvironmentPropertiesOutput{})
 	pulumi.RegisterOutputType(ApplicationEnvironmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationFlinkApplicationConfigurationOutput{})

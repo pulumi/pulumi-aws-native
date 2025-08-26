@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.CleanRooms
     public sealed class GetConfiguredTableResult
     {
         /// <summary>
+        /// The columns within the underlying AWS Glue table that can be utilized within collaborations.
+        /// </summary>
+        public readonly ImmutableArray<string> AllowedColumns;
+        /// <summary>
         /// The analysis method for the configured table.
         /// 
         /// `DIRECT_QUERY` allows SQL queries to be run directly on this table.
@@ -106,12 +110,18 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.CleanRooms.ConfiguredTableSelectedAnalysisMethod> SelectedAnalysisMethods;
         /// <summary>
+        /// The table that this configured table represents.
+        /// </summary>
+        public readonly object? TableReference;
+        /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetConfiguredTableResult(
+            ImmutableArray<string> allowedColumns,
+
             Pulumi.AwsNative.CleanRooms.ConfiguredTableAnalysisMethod? analysisMethod,
 
             ImmutableArray<Outputs.ConfiguredTableAnalysisRule> analysisRules,
@@ -126,8 +136,11 @@ namespace Pulumi.AwsNative.CleanRooms
 
             ImmutableArray<Pulumi.AwsNative.CleanRooms.ConfiguredTableSelectedAnalysisMethod> selectedAnalysisMethods,
 
+            object? tableReference,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            AllowedColumns = allowedColumns;
             AnalysisMethod = analysisMethod;
             AnalysisRules = analysisRules;
             Arn = arn;
@@ -135,6 +148,7 @@ namespace Pulumi.AwsNative.CleanRooms
             Description = description;
             Name = name;
             SelectedAnalysisMethods = selectedAnalysisMethods;
+            TableReference = tableReference;
             Tags = tags;
         }
     }

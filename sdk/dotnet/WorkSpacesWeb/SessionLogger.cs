@@ -15,27 +15,51 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     [AwsNativeResourceType("aws-native:workspacesweb:SessionLogger")]
     public partial class SessionLogger : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The additional encryption context of the session logger.
+        /// </summary>
         [Output("additionalEncryptionContext")]
         public Output<ImmutableDictionary<string, string>?> AdditionalEncryptionContext { get; private set; } = null!;
 
+        /// <summary>
+        /// The associated portal ARN.
+        /// </summary>
         [Output("associatedPortalArns")]
         public Output<ImmutableArray<string>> AssociatedPortalArns { get; private set; } = null!;
 
+        /// <summary>
+        /// The date the session logger resource was created.
+        /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
 
+        /// <summary>
+        /// The custom managed key of the session logger.
+        /// </summary>
         [Output("customerManagedKey")]
         public Output<string?> CustomerManagedKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The human-readable display name.
+        /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The filter that specifies which events to monitor.
+        /// </summary>
         [Output("eventFilter")]
         public Output<Union<Outputs.SessionLoggerEventFilter0Properties, Outputs.SessionLoggerEventFilter1Properties>> EventFilter { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration that specifies where logs are fowarded.
+        /// </summary>
         [Output("logConfiguration")]
         public Output<Outputs.SessionLoggerLogConfiguration> LogConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the session logger resource.
+        /// </summary>
         [Output("sessionLoggerArn")]
         public Output<string> SessionLoggerArn { get; private set; } = null!;
 
@@ -94,21 +118,37 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     {
         [Input("additionalEncryptionContext")]
         private InputMap<string>? _additionalEncryptionContext;
+
+        /// <summary>
+        /// The additional encryption context of the session logger.
+        /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {
             get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());
             set => _additionalEncryptionContext = value;
         }
 
+        /// <summary>
+        /// The custom managed key of the session logger.
+        /// </summary>
         [Input("customerManagedKey")]
         public Input<string>? CustomerManagedKey { get; set; }
 
+        /// <summary>
+        /// The human-readable display name.
+        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        /// <summary>
+        /// The filter that specifies which events to monitor.
+        /// </summary>
         [Input("eventFilter", required: true)]
         public InputUnion<Inputs.SessionLoggerEventFilter0PropertiesArgs, Inputs.SessionLoggerEventFilter1PropertiesArgs> EventFilter { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration that specifies where logs are fowarded.
+        /// </summary>
         [Input("logConfiguration", required: true)]
         public Input<Inputs.SessionLoggerLogConfigurationArgs> LogConfiguration { get; set; } = null!;
 

@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const GlobalTableContributorInsightsSpecificationMode = {
+    AccessedAndThrottledKeys: "ACCESSED_AND_THROTTLED_KEYS",
+    ThrottledKeys: "THROTTLED_KEYS",
+} as const;
+
+/**
+ * Specifies the CloudWatch Contributor Insights mode for a global table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the global table.
+ */
+export type GlobalTableContributorInsightsSpecificationMode = (typeof GlobalTableContributorInsightsSpecificationMode)[keyof typeof GlobalTableContributorInsightsSpecificationMode];
+
 export const GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision = {
     Microsecond: "MICROSECOND",
     Millisecond: "MILLISECOND",
@@ -28,6 +38,16 @@ export const GlobalTableMultiRegionConsistency = {
  * If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
  */
 export type GlobalTableMultiRegionConsistency = (typeof GlobalTableMultiRegionConsistency)[keyof typeof GlobalTableMultiRegionConsistency];
+
+export const TableContributorInsightsSpecificationMode = {
+    AccessedAndThrottledKeys: "ACCESSED_AND_THROTTLED_KEYS",
+    ThrottledKeys: "THROTTLED_KEYS",
+} as const;
+
+/**
+ * Specifies the CloudWatch Contributor Insights mode for a table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
+ */
+export type TableContributorInsightsSpecificationMode = (typeof TableContributorInsightsSpecificationMode)[keyof typeof TableContributorInsightsSpecificationMode];
 
 export const TableKinesisStreamSpecificationApproximateCreationDateTimePrecision = {
     Microsecond: "MICROSECOND",

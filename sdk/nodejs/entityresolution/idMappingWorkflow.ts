@@ -42,6 +42,7 @@ export class IdMappingWorkflow extends pulumi.CustomResource {
      * The description of the IdMappingWorkflow
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    public readonly idMappingIncrementalRunConfig!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowIdMappingIncrementalRunConfig | undefined>;
     /**
      * An object which defines the ID mapping technique and any additional configurations.
      */
@@ -90,6 +91,7 @@ export class IdMappingWorkflow extends pulumi.CustomResource {
                 throw new Error("Missing required property 'roleArn'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["idMappingIncrementalRunConfig"] = args ? args.idMappingIncrementalRunConfig : undefined;
             resourceInputs["idMappingTechniques"] = args ? args.idMappingTechniques : undefined;
             resourceInputs["inputSourceConfig"] = args ? args.inputSourceConfig : undefined;
             resourceInputs["outputSourceConfig"] = args ? args.outputSourceConfig : undefined;
@@ -102,6 +104,7 @@ export class IdMappingWorkflow extends pulumi.CustomResource {
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["idMappingIncrementalRunConfig"] = undefined /*out*/;
             resourceInputs["idMappingTechniques"] = undefined /*out*/;
             resourceInputs["inputSourceConfig"] = undefined /*out*/;
             resourceInputs["outputSourceConfig"] = undefined /*out*/;
@@ -126,6 +129,7 @@ export interface IdMappingWorkflowArgs {
      * The description of the IdMappingWorkflow
      */
     description?: pulumi.Input<string>;
+    idMappingIncrementalRunConfig?: pulumi.Input<inputs.entityresolution.IdMappingWorkflowIdMappingIncrementalRunConfigArgs>;
     /**
      * An object which defines the ID mapping technique and any additional configurations.
      */

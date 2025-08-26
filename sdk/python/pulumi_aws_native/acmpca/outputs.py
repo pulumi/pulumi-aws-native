@@ -1149,7 +1149,7 @@ class CertificateCustomAttribute(dict):
 class CertificateCustomExtension(dict):
     """
     Specifies the X.509 extension information for a certificate.
-     Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough`` [template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
+     Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough``[template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1174,7 +1174,7 @@ class CertificateCustomExtension(dict):
                  critical: Optional[builtins.bool] = None):
         """
         Specifies the X.509 extension information for a certificate.
-         Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough`` [template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
+         Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough``[template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
         :param builtins.str object_identifier: Specifies the object identifier (OID) of the X.509 extension. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
         :param builtins.str value: Specifies the base64-encoded value of the X.509 extension.
         :param builtins.bool critical: Specifies the critical flag of the X.509 extension.

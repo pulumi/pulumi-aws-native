@@ -66,6 +66,10 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     public readonly outsideIpAddressType!: pulumi.Output<string | undefined>;
     /**
+     * Describes the storage location for an instance store-backed AMI.
+     */
+    public readonly preSharedKeyStorage!: pulumi.Output<enums.ec2.VpnConnectionPreSharedKeyStorage | undefined>;
+    /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      *  Default: ``0.0.0.0/0``
      */
@@ -139,6 +143,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["localIpv4NetworkCidr"] = args ? args.localIpv4NetworkCidr : undefined;
             resourceInputs["localIpv6NetworkCidr"] = args ? args.localIpv6NetworkCidr : undefined;
             resourceInputs["outsideIpAddressType"] = args ? args.outsideIpAddressType : undefined;
+            resourceInputs["preSharedKeyStorage"] = args ? args.preSharedKeyStorage : undefined;
             resourceInputs["remoteIpv4NetworkCidr"] = args ? args.remoteIpv4NetworkCidr : undefined;
             resourceInputs["remoteIpv6NetworkCidr"] = args ? args.remoteIpv6NetworkCidr : undefined;
             resourceInputs["staticRoutesOnly"] = args ? args.staticRoutesOnly : undefined;
@@ -156,6 +161,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["localIpv4NetworkCidr"] = undefined /*out*/;
             resourceInputs["localIpv6NetworkCidr"] = undefined /*out*/;
             resourceInputs["outsideIpAddressType"] = undefined /*out*/;
+            resourceInputs["preSharedKeyStorage"] = undefined /*out*/;
             resourceInputs["remoteIpv4NetworkCidr"] = undefined /*out*/;
             resourceInputs["remoteIpv6NetworkCidr"] = undefined /*out*/;
             resourceInputs["staticRoutesOnly"] = undefined /*out*/;
@@ -169,7 +175,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["vpnTunnelOptionsSpecifications"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["customerGatewayId", "enableAcceleration", "localIpv4NetworkCidr", "localIpv6NetworkCidr", "outsideIpAddressType", "remoteIpv4NetworkCidr", "remoteIpv6NetworkCidr", "staticRoutesOnly", "transitGatewayId", "transportTransitGatewayAttachmentId", "tunnelInsideIpVersion", "type", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["customerGatewayId", "enableAcceleration", "localIpv4NetworkCidr", "localIpv6NetworkCidr", "outsideIpAddressType", "preSharedKeyStorage", "remoteIpv4NetworkCidr", "remoteIpv6NetworkCidr", "staticRoutesOnly", "transitGatewayId", "transportTransitGatewayAttachmentId", "tunnelInsideIpVersion", "type", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpnConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -204,6 +210,10 @@ export interface VpnConnectionArgs {
      *  Default: ``PublicIpv4``
      */
     outsideIpAddressType?: pulumi.Input<string>;
+    /**
+     * Describes the storage location for an instance store-backed AMI.
+     */
+    preSharedKeyStorage?: pulumi.Input<enums.ec2.VpnConnectionPreSharedKeyStorage>;
     /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      *  Default: ``0.0.0.0/0``

@@ -13263,7 +13263,14 @@ func (o TaskSetAwsVpcConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput 
 }
 
 type TaskSetCapacityProviderStrategyItem struct {
-	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of `0` is used.
+	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider for each service. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of `0` is used.
+	//
+	// Base value characteristics:
+	//
+	// - Only one capacity provider in a strategy can have a base defined
+	// - Default value is `0` if not specified
+	// - Valid range: 0 to 100,000
+	// - Base requirements are satisfied first before weight distribution
 	Base *int `pulumi:"base"`
 	// The short name of the capacity provider.
 	CapacityProvider *string `pulumi:"capacityProvider"`
@@ -13271,7 +13278,24 @@ type TaskSetCapacityProviderStrategyItem struct {
 	//
 	// If no `weight` value is specified, the default value of `0` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of `0` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of `0` , any `RunTask` or `CreateService` actions using the capacity provider strategy will fail.
 	//
-	// An example scenario for using weights is defining a strategy that contains two capacity providers and both have a weight of `1` , then when the `base` is satisfied, the tasks will be split evenly across the two capacity providers. Using that same logic, if you specify a weight of `1` for *capacityProviderA* and a weight of `4` for *capacityProviderB* , then for every one task that's run using *capacityProviderA* , four tasks would use *capacityProviderB* .
+	// Weight value characteristics:
+	//
+	// - Weight is considered after the base value is satisfied
+	// - Default value is `0` if not specified
+	// - Valid range: 0 to 1,000
+	// - At least one capacity provider must have a weight greater than zero
+	// - Capacity providers with weight of `0` cannot place tasks
+	//
+	// Task distribution logic:
+	//
+	// - Base satisfaction: The minimum number of tasks specified by the base value are placed on that capacity provider
+	// - Weight distribution: After base requirements are met, additional tasks are distributed according to weight ratios
+	//
+	// Examples:
+	//
+	// Equal Distribution: Two capacity providers both with weight `1` will split tasks evenly after base requirements are met.
+	//
+	// Weighted Distribution: If capacityProviderA has weight `1` and capacityProviderB has weight `4` , then for every 1 task on A, 4 tasks will run on B.
 	Weight *int `pulumi:"weight"`
 }
 
@@ -13287,7 +13311,14 @@ type TaskSetCapacityProviderStrategyItemInput interface {
 }
 
 type TaskSetCapacityProviderStrategyItemArgs struct {
-	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of `0` is used.
+	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider for each service. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of `0` is used.
+	//
+	// Base value characteristics:
+	//
+	// - Only one capacity provider in a strategy can have a base defined
+	// - Default value is `0` if not specified
+	// - Valid range: 0 to 100,000
+	// - Base requirements are satisfied first before weight distribution
 	Base pulumi.IntPtrInput `pulumi:"base"`
 	// The short name of the capacity provider.
 	CapacityProvider pulumi.StringPtrInput `pulumi:"capacityProvider"`
@@ -13295,7 +13326,24 @@ type TaskSetCapacityProviderStrategyItemArgs struct {
 	//
 	// If no `weight` value is specified, the default value of `0` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of `0` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of `0` , any `RunTask` or `CreateService` actions using the capacity provider strategy will fail.
 	//
-	// An example scenario for using weights is defining a strategy that contains two capacity providers and both have a weight of `1` , then when the `base` is satisfied, the tasks will be split evenly across the two capacity providers. Using that same logic, if you specify a weight of `1` for *capacityProviderA* and a weight of `4` for *capacityProviderB* , then for every one task that's run using *capacityProviderA* , four tasks would use *capacityProviderB* .
+	// Weight value characteristics:
+	//
+	// - Weight is considered after the base value is satisfied
+	// - Default value is `0` if not specified
+	// - Valid range: 0 to 1,000
+	// - At least one capacity provider must have a weight greater than zero
+	// - Capacity providers with weight of `0` cannot place tasks
+	//
+	// Task distribution logic:
+	//
+	// - Base satisfaction: The minimum number of tasks specified by the base value are placed on that capacity provider
+	// - Weight distribution: After base requirements are met, additional tasks are distributed according to weight ratios
+	//
+	// Examples:
+	//
+	// Equal Distribution: Two capacity providers both with weight `1` will split tasks evenly after base requirements are met.
+	//
+	// Weighted Distribution: If capacityProviderA has weight `1` and capacityProviderB has weight `4` , then for every 1 task on A, 4 tasks will run on B.
 	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
@@ -13350,7 +13398,14 @@ func (o TaskSetCapacityProviderStrategyItemOutput) ToTaskSetCapacityProviderStra
 	return o
 }
 
-// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of `0` is used.
+// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider for each service. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of `0` is used.
+//
+// Base value characteristics:
+//
+// - Only one capacity provider in a strategy can have a base defined
+// - Default value is `0` if not specified
+// - Valid range: 0 to 100,000
+// - Base requirements are satisfied first before weight distribution
 func (o TaskSetCapacityProviderStrategyItemOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskSetCapacityProviderStrategyItem) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
@@ -13364,7 +13419,24 @@ func (o TaskSetCapacityProviderStrategyItemOutput) CapacityProvider() pulumi.Str
 //
 // If no `weight` value is specified, the default value of `0` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of `0` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of `0` , any `RunTask` or `CreateService` actions using the capacity provider strategy will fail.
 //
-// An example scenario for using weights is defining a strategy that contains two capacity providers and both have a weight of `1` , then when the `base` is satisfied, the tasks will be split evenly across the two capacity providers. Using that same logic, if you specify a weight of `1` for *capacityProviderA* and a weight of `4` for *capacityProviderB* , then for every one task that's run using *capacityProviderA* , four tasks would use *capacityProviderB* .
+// Weight value characteristics:
+//
+// - Weight is considered after the base value is satisfied
+// - Default value is `0` if not specified
+// - Valid range: 0 to 1,000
+// - At least one capacity provider must have a weight greater than zero
+// - Capacity providers with weight of `0` cannot place tasks
+//
+// Task distribution logic:
+//
+// - Base satisfaction: The minimum number of tasks specified by the base value are placed on that capacity provider
+// - Weight distribution: After base requirements are met, additional tasks are distributed according to weight ratios
+//
+// Examples:
+//
+// Equal Distribution: Two capacity providers both with weight `1` will split tasks evenly after base requirements are met.
+//
+// Weighted Distribution: If capacityProviderA has weight `1` and capacityProviderB has weight `4` , then for every 1 task on A, 4 tasks will run on B.
 func (o TaskSetCapacityProviderStrategyItemOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskSetCapacityProviderStrategyItem) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }

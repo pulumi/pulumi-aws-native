@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GroupProfile{}
 	case "aws-native:datazone:Owner":
 		r = &Owner{}
+	case "aws-native:datazone:PolicyGrant":
+		r = &PolicyGrant{}
 	case "aws-native:datazone:Project":
 		r = &Project{}
 	case "aws-native:datazone:ProjectMembership":

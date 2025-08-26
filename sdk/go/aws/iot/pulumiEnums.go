@@ -2599,6 +2599,7 @@ func (in *domainConfigurationStatusPtr) ToDomainConfigurationStatusPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(DomainConfigurationStatusPtrOutput)
 }
 
+// The health status of KMS key and AWS KMS access role. If either KMS key or AWS KMS access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
 type EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus string
 
 const (
@@ -2689,6 +2690,7 @@ func (o EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of the KMS key.
 type EncryptionConfigurationEncryptionType string
 
 const (
