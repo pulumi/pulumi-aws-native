@@ -576,13 +576,31 @@ func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput) 
 
 // The “CapacityProviderStrategyItem“ property specifies the details of the default capacity provider strategy for the cluster. When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
 type ClusterCapacityProviderStrategyItem struct {
-	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
+	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider for each service. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
+	//  Base value characteristics:
+	//   +  Only one capacity provider in a strategy can have a base defined
+	//   +  Default value is ``0`` if not specified
+	//   +  Valid range: 0 to 100,000
+	//   +  Base requirements are satisfied first before weight distribution
 	Base *int `pulumi:"base"`
 	// The short name of the capacity provider.
 	CapacityProvider *string `pulumi:"capacityProvider"`
 	// The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The ``weight`` value is taken into consideration after the ``base`` value, if defined, is satisfied.
 	//  If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
-	//  An example scenario for using weights is defining a strategy that contains two capacity providers and both have a weight of ``1``, then when the ``base`` is satisfied, the tasks will be split evenly across the two capacity providers. Using that same logic, if you specify a weight of ``1`` for *capacityProviderA* and a weight of ``4`` for *capacityProviderB*, then for every one task that's run using *capacityProviderA*, four tasks would use *capacityProviderB*.
+	//  Weight value characteristics:
+	//   +  Weight is considered after the base value is satisfied
+	//   +  Default value is ``0`` if not specified
+	//   +  Valid range: 0 to 1,000
+	//   +  At least one capacity provider must have a weight greater than zero
+	//   +  Capacity providers with weight of ``0`` cannot place tasks
+	//
+	//  Task distribution logic:
+	//   1.  Base satisfaction: The minimum number of tasks specified by the base value are placed on that capacity provider
+	//   2.  Weight distribution: After base requirements are met, additional tasks are distributed according to weight ratios
+	//
+	//  Examples:
+	//  Equal Distribution: Two capacity providers both with weight ``1`` will split tasks evenly after base requirements are met.
+	//  Weighted Distribution: If capacityProviderA has weight ``1`` and capacityProviderB has weight ``4``, then for every 1 task on A, 4 tasks will run on B.
 	Weight *int `pulumi:"weight"`
 }
 
@@ -599,13 +617,31 @@ type ClusterCapacityProviderStrategyItemInput interface {
 
 // The “CapacityProviderStrategyItem“ property specifies the details of the default capacity provider strategy for the cluster. When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
 type ClusterCapacityProviderStrategyItemArgs struct {
-	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
+	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider for each service. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
+	//  Base value characteristics:
+	//   +  Only one capacity provider in a strategy can have a base defined
+	//   +  Default value is ``0`` if not specified
+	//   +  Valid range: 0 to 100,000
+	//   +  Base requirements are satisfied first before weight distribution
 	Base pulumi.IntPtrInput `pulumi:"base"`
 	// The short name of the capacity provider.
 	CapacityProvider pulumi.StringPtrInput `pulumi:"capacityProvider"`
 	// The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The ``weight`` value is taken into consideration after the ``base`` value, if defined, is satisfied.
 	//  If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
-	//  An example scenario for using weights is defining a strategy that contains two capacity providers and both have a weight of ``1``, then when the ``base`` is satisfied, the tasks will be split evenly across the two capacity providers. Using that same logic, if you specify a weight of ``1`` for *capacityProviderA* and a weight of ``4`` for *capacityProviderB*, then for every one task that's run using *capacityProviderA*, four tasks would use *capacityProviderB*.
+	//  Weight value characteristics:
+	//   +  Weight is considered after the base value is satisfied
+	//   +  Default value is ``0`` if not specified
+	//   +  Valid range: 0 to 1,000
+	//   +  At least one capacity provider must have a weight greater than zero
+	//   +  Capacity providers with weight of ``0`` cannot place tasks
+	//
+	//  Task distribution logic:
+	//   1.  Base satisfaction: The minimum number of tasks specified by the base value are placed on that capacity provider
+	//   2.  Weight distribution: After base requirements are met, additional tasks are distributed according to weight ratios
+	//
+	//  Examples:
+	//  Equal Distribution: Two capacity providers both with weight ``1`` will split tasks evenly after base requirements are met.
+	//  Weighted Distribution: If capacityProviderA has weight ``1`` and capacityProviderB has weight ``4``, then for every 1 task on A, 4 tasks will run on B.
 	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
@@ -661,7 +697,13 @@ func (o ClusterCapacityProviderStrategyItemOutput) ToClusterCapacityProviderStra
 	return o
 }
 
-// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of “0“ is used.
+// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider for each service. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of “0“ is used.
+//
+//	Base value characteristics:
+//	 +  Only one capacity provider in a strategy can have a base defined
+//	 +  Default value is ``0`` if not specified
+//	 +  Valid range: 0 to 100,000
+//	 +  Base requirements are satisfied first before weight distribution
 func (o ClusterCapacityProviderStrategyItemOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCapacityProviderStrategyItem) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
@@ -674,7 +716,20 @@ func (o ClusterCapacityProviderStrategyItemOutput) CapacityProvider() pulumi.Str
 // The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The “weight“ value is taken into consideration after the “base“ value, if defined, is satisfied.
 //
 //	If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
-//	An example scenario for using weights is defining a strategy that contains two capacity providers and both have a weight of ``1``, then when the ``base`` is satisfied, the tasks will be split evenly across the two capacity providers. Using that same logic, if you specify a weight of ``1`` for *capacityProviderA* and a weight of ``4`` for *capacityProviderB*, then for every one task that's run using *capacityProviderA*, four tasks would use *capacityProviderB*.
+//	Weight value characteristics:
+//	 +  Weight is considered after the base value is satisfied
+//	 +  Default value is ``0`` if not specified
+//	 +  Valid range: 0 to 1,000
+//	 +  At least one capacity provider must have a weight greater than zero
+//	 +  Capacity providers with weight of ``0`` cannot place tasks
+//
+//	Task distribution logic:
+//	 1.  Base satisfaction: The minimum number of tasks specified by the base value are placed on that capacity provider
+//	 2.  Weight distribution: After base requirements are met, additional tasks are distributed according to weight ratios
+//
+//	Examples:
+//	Equal Distribution: Two capacity providers both with weight ``1`` will split tasks evenly after base requirements are met.
+//	Weighted Distribution: If capacityProviderA has weight ``1`` and capacityProviderB has weight ``4``, then for every 1 task on A, 4 tasks will run on B.
 func (o ClusterCapacityProviderStrategyItemOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCapacityProviderStrategyItem) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -4935,6 +4990,154 @@ func (o ServiceEbsTagSpecificationArrayOutput) Index(i pulumi.IntInput) ServiceE
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEbsTagSpecification {
 		return vs[0].([]ServiceEbsTagSpecification)[vs[1].(int)]
 	}).(ServiceEbsTagSpecificationOutput)
+}
+
+type ServiceForceNewDeployment struct {
+	EnableForceNewDeployment bool    `pulumi:"enableForceNewDeployment"`
+	ForceNewDeploymentNonce  *string `pulumi:"forceNewDeploymentNonce"`
+}
+
+// ServiceForceNewDeploymentInput is an input type that accepts ServiceForceNewDeploymentArgs and ServiceForceNewDeploymentOutput values.
+// You can construct a concrete instance of `ServiceForceNewDeploymentInput` via:
+//
+//	ServiceForceNewDeploymentArgs{...}
+type ServiceForceNewDeploymentInput interface {
+	pulumi.Input
+
+	ToServiceForceNewDeploymentOutput() ServiceForceNewDeploymentOutput
+	ToServiceForceNewDeploymentOutputWithContext(context.Context) ServiceForceNewDeploymentOutput
+}
+
+type ServiceForceNewDeploymentArgs struct {
+	EnableForceNewDeployment pulumi.BoolInput      `pulumi:"enableForceNewDeployment"`
+	ForceNewDeploymentNonce  pulumi.StringPtrInput `pulumi:"forceNewDeploymentNonce"`
+}
+
+func (ServiceForceNewDeploymentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceForceNewDeployment)(nil)).Elem()
+}
+
+func (i ServiceForceNewDeploymentArgs) ToServiceForceNewDeploymentOutput() ServiceForceNewDeploymentOutput {
+	return i.ToServiceForceNewDeploymentOutputWithContext(context.Background())
+}
+
+func (i ServiceForceNewDeploymentArgs) ToServiceForceNewDeploymentOutputWithContext(ctx context.Context) ServiceForceNewDeploymentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceForceNewDeploymentOutput)
+}
+
+func (i ServiceForceNewDeploymentArgs) ToServiceForceNewDeploymentPtrOutput() ServiceForceNewDeploymentPtrOutput {
+	return i.ToServiceForceNewDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceForceNewDeploymentArgs) ToServiceForceNewDeploymentPtrOutputWithContext(ctx context.Context) ServiceForceNewDeploymentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceForceNewDeploymentOutput).ToServiceForceNewDeploymentPtrOutputWithContext(ctx)
+}
+
+// ServiceForceNewDeploymentPtrInput is an input type that accepts ServiceForceNewDeploymentArgs, ServiceForceNewDeploymentPtr and ServiceForceNewDeploymentPtrOutput values.
+// You can construct a concrete instance of `ServiceForceNewDeploymentPtrInput` via:
+//
+//	        ServiceForceNewDeploymentArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceForceNewDeploymentPtrInput interface {
+	pulumi.Input
+
+	ToServiceForceNewDeploymentPtrOutput() ServiceForceNewDeploymentPtrOutput
+	ToServiceForceNewDeploymentPtrOutputWithContext(context.Context) ServiceForceNewDeploymentPtrOutput
+}
+
+type serviceForceNewDeploymentPtrType ServiceForceNewDeploymentArgs
+
+func ServiceForceNewDeploymentPtr(v *ServiceForceNewDeploymentArgs) ServiceForceNewDeploymentPtrInput {
+	return (*serviceForceNewDeploymentPtrType)(v)
+}
+
+func (*serviceForceNewDeploymentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceForceNewDeployment)(nil)).Elem()
+}
+
+func (i *serviceForceNewDeploymentPtrType) ToServiceForceNewDeploymentPtrOutput() ServiceForceNewDeploymentPtrOutput {
+	return i.ToServiceForceNewDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceForceNewDeploymentPtrType) ToServiceForceNewDeploymentPtrOutputWithContext(ctx context.Context) ServiceForceNewDeploymentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceForceNewDeploymentPtrOutput)
+}
+
+type ServiceForceNewDeploymentOutput struct{ *pulumi.OutputState }
+
+func (ServiceForceNewDeploymentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceForceNewDeployment)(nil)).Elem()
+}
+
+func (o ServiceForceNewDeploymentOutput) ToServiceForceNewDeploymentOutput() ServiceForceNewDeploymentOutput {
+	return o
+}
+
+func (o ServiceForceNewDeploymentOutput) ToServiceForceNewDeploymentOutputWithContext(ctx context.Context) ServiceForceNewDeploymentOutput {
+	return o
+}
+
+func (o ServiceForceNewDeploymentOutput) ToServiceForceNewDeploymentPtrOutput() ServiceForceNewDeploymentPtrOutput {
+	return o.ToServiceForceNewDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceForceNewDeploymentOutput) ToServiceForceNewDeploymentPtrOutputWithContext(ctx context.Context) ServiceForceNewDeploymentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceForceNewDeployment) *ServiceForceNewDeployment {
+		return &v
+	}).(ServiceForceNewDeploymentPtrOutput)
+}
+
+func (o ServiceForceNewDeploymentOutput) EnableForceNewDeployment() pulumi.BoolOutput {
+	return o.ApplyT(func(v ServiceForceNewDeployment) bool { return v.EnableForceNewDeployment }).(pulumi.BoolOutput)
+}
+
+func (o ServiceForceNewDeploymentOutput) ForceNewDeploymentNonce() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceForceNewDeployment) *string { return v.ForceNewDeploymentNonce }).(pulumi.StringPtrOutput)
+}
+
+type ServiceForceNewDeploymentPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceForceNewDeploymentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceForceNewDeployment)(nil)).Elem()
+}
+
+func (o ServiceForceNewDeploymentPtrOutput) ToServiceForceNewDeploymentPtrOutput() ServiceForceNewDeploymentPtrOutput {
+	return o
+}
+
+func (o ServiceForceNewDeploymentPtrOutput) ToServiceForceNewDeploymentPtrOutputWithContext(ctx context.Context) ServiceForceNewDeploymentPtrOutput {
+	return o
+}
+
+func (o ServiceForceNewDeploymentPtrOutput) Elem() ServiceForceNewDeploymentOutput {
+	return o.ApplyT(func(v *ServiceForceNewDeployment) ServiceForceNewDeployment {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceForceNewDeployment
+		return ret
+	}).(ServiceForceNewDeploymentOutput)
+}
+
+func (o ServiceForceNewDeploymentPtrOutput) EnableForceNewDeployment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceForceNewDeployment) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableForceNewDeployment
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceForceNewDeploymentPtrOutput) ForceNewDeploymentNonce() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceForceNewDeployment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ForceNewDeploymentNonce
+	}).(pulumi.StringPtrOutput)
 }
 
 // The “LoadBalancer“ property specifies details on a load balancer that is used with a service.
@@ -14069,6 +14272,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentLifecycleHookArrayInput)(nil)).Elem(), ServiceDeploymentLifecycleHookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEbsTagSpecificationInput)(nil)).Elem(), ServiceEbsTagSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEbsTagSpecificationArrayInput)(nil)).Elem(), ServiceEbsTagSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceForceNewDeploymentInput)(nil)).Elem(), ServiceForceNewDeploymentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceForceNewDeploymentPtrInput)(nil)).Elem(), ServiceForceNewDeploymentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLoadBalancerInput)(nil)).Elem(), ServiceLoadBalancerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLoadBalancerArrayInput)(nil)).Elem(), ServiceLoadBalancerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLogConfigurationInput)(nil)).Elem(), ServiceLogConfigurationArgs{})
@@ -14225,6 +14430,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceDeploymentLifecycleHookArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEbsTagSpecificationOutput{})
 	pulumi.RegisterOutputType(ServiceEbsTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(ServiceForceNewDeploymentOutput{})
+	pulumi.RegisterOutputType(ServiceForceNewDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLoadBalancerOutput{})
 	pulumi.RegisterOutputType(ServiceLoadBalancerArrayOutput{})
 	pulumi.RegisterOutputType(ServiceLogConfigurationOutput{})

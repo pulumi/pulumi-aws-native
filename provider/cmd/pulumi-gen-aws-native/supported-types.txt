@@ -1227,6 +1227,7 @@ Databricks::Clusters::Cluster
 Databricks::Clusters::Job
 Datadog::Dashboards::Dashboard
 Datadog::Integrations::AWS
+Datadog::Integrations::AWSAccount
 Datadog::Monitors::Downtime
 Datadog::Monitors::DowntimeSchedule
 Datadog::Monitors::Monitor

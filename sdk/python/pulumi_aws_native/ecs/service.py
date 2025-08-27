@@ -33,6 +33,7 @@ class ServiceArgs:
                  desired_count: Optional[pulumi.Input[builtins.int]] = None,
                  enable_ecs_managed_tags: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_execute_command: Optional[pulumi.Input[builtins.bool]] = None,
+                 force_new_deployment: Optional[pulumi.Input['ServiceForceNewDeploymentArgs']] = None,
                  health_check_grace_period_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  launch_type: Optional[pulumi.Input['ServiceLaunchType']] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]] = None,
@@ -128,6 +129,8 @@ class ServiceArgs:
             pulumi.set(__self__, "enable_ecs_managed_tags", enable_ecs_managed_tags)
         if enable_execute_command is not None:
             pulumi.set(__self__, "enable_execute_command", enable_execute_command)
+        if force_new_deployment is not None:
+            pulumi.set(__self__, "force_new_deployment", force_new_deployment)
         if health_check_grace_period_seconds is not None:
             pulumi.set(__self__, "health_check_grace_period_seconds", health_check_grace_period_seconds)
         if launch_type is not None:
@@ -265,6 +268,15 @@ class ServiceArgs:
     @enable_execute_command.setter
     def enable_execute_command(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enable_execute_command", value)
+
+    @property
+    @pulumi.getter(name="forceNewDeployment")
+    def force_new_deployment(self) -> Optional[pulumi.Input['ServiceForceNewDeploymentArgs']]:
+        return pulumi.get(self, "force_new_deployment")
+
+    @force_new_deployment.setter
+    def force_new_deployment(self, value: Optional[pulumi.Input['ServiceForceNewDeploymentArgs']]):
+        pulumi.set(self, "force_new_deployment", value)
 
     @property
     @pulumi.getter(name="healthCheckGracePeriodSeconds")
@@ -512,6 +524,7 @@ class Service(pulumi.CustomResource):
                  desired_count: Optional[pulumi.Input[builtins.int]] = None,
                  enable_ecs_managed_tags: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_execute_command: Optional[pulumi.Input[builtins.bool]] = None,
+                 force_new_deployment: Optional[pulumi.Input[Union['ServiceForceNewDeploymentArgs', 'ServiceForceNewDeploymentArgsDict']]] = None,
                  health_check_grace_period_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  launch_type: Optional[pulumi.Input['ServiceLaunchType']] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]]] = None,
@@ -675,6 +688,7 @@ class Service(pulumi.CustomResource):
                  desired_count: Optional[pulumi.Input[builtins.int]] = None,
                  enable_ecs_managed_tags: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_execute_command: Optional[pulumi.Input[builtins.bool]] = None,
+                 force_new_deployment: Optional[pulumi.Input[Union['ServiceForceNewDeploymentArgs', 'ServiceForceNewDeploymentArgsDict']]] = None,
                  health_check_grace_period_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  launch_type: Optional[pulumi.Input['ServiceLaunchType']] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]]] = None,
@@ -709,6 +723,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["desired_count"] = desired_count
             __props__.__dict__["enable_ecs_managed_tags"] = enable_ecs_managed_tags
             __props__.__dict__["enable_execute_command"] = enable_execute_command
+            __props__.__dict__["force_new_deployment"] = force_new_deployment
             __props__.__dict__["health_check_grace_period_seconds"] = health_check_grace_period_seconds
             __props__.__dict__["launch_type"] = launch_type
             __props__.__dict__["load_balancers"] = load_balancers
@@ -760,6 +775,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["desired_count"] = None
         __props__.__dict__["enable_ecs_managed_tags"] = None
         __props__.__dict__["enable_execute_command"] = None
+        __props__.__dict__["force_new_deployment"] = None
         __props__.__dict__["health_check_grace_period_seconds"] = None
         __props__.__dict__["launch_type"] = None
         __props__.__dict__["load_balancers"] = None
@@ -851,6 +867,11 @@ class Service(pulumi.CustomResource):
         Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.
         """
         return pulumi.get(self, "enable_execute_command")
+
+    @property
+    @pulumi.getter(name="forceNewDeployment")
+    def force_new_deployment(self) -> pulumi.Output[Optional['outputs.ServiceForceNewDeployment']]:
+        return pulumi.get(self, "force_new_deployment")
 
     @property
     @pulumi.getter(name="healthCheckGracePeriodSeconds")

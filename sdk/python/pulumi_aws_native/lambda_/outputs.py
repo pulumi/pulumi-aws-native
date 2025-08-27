@@ -769,10 +769,18 @@ class EventSourceMappingScalingConfig(dict):
 
 @pulumi.output_type
 class EventSourceMappingSchemaRegistryAccessConfig(dict):
+    """
+    Specific access configuration settings that tell Lambda how to authenticate with your schema registry.
+     If you're working with an GLU schema registry, don't provide authentication details in this object. Instead, ensure that your execution role has the required permissions for Lambda to access your cluster.
+     If you're working with a Confluent schema registry, choose the authentication method in the ``Type`` field, and provide the ASMlong secret ARN in the ``URI`` field.
+    """
     def __init__(__self__, *,
                  type: Optional['EventSourceMappingSchemaRegistryAccessConfigType'] = None,
                  uri: Optional[builtins.str] = None):
         """
+        Specific access configuration settings that tell Lambda how to authenticate with your schema registry.
+         If you're working with an GLU schema registry, don't provide authentication details in this object. Instead, ensure that your execution role has the required permissions for Lambda to access your cluster.
+         If you're working with a Confluent schema registry, choose the authentication method in the ``Type`` field, and provide the ASMlong secret ARN in the ``URI`` field.
         :param 'EventSourceMappingSchemaRegistryAccessConfigType' type: The type of authentication Lambda uses to access your schema registry.
         :param builtins.str uri: The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
         """
@@ -800,6 +808,9 @@ class EventSourceMappingSchemaRegistryAccessConfig(dict):
 
 @pulumi.output_type
 class EventSourceMappingSchemaRegistryConfig(dict):
+    """
+    Specific configuration settings for a Kafka schema registry.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -829,15 +840,14 @@ class EventSourceMappingSchemaRegistryConfig(dict):
                  schema_registry_uri: Optional[builtins.str] = None,
                  schema_validation_configs: Optional[Sequence['outputs.EventSourceMappingSchemaValidationConfig']] = None):
         """
+        Specific configuration settings for a Kafka schema registry.
         :param Sequence['EventSourceMappingSchemaRegistryAccessConfig'] access_configs: An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
         :param 'EventSourceMappingSchemaRegistryConfigEventRecordFormat' event_record_format: The record format that Lambda delivers to your function after schema validation.
-               
-               - Choose `JSON` to have Lambda deliver the record to your function as a standard JSON object.
-               - Choose `SOURCE` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
+                 +  Choose ``JSON`` to have Lambda deliver the record to your function as a standard JSON object.
+                 +  Choose ``SOURCE`` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
         :param builtins.str schema_registry_uri: The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
-               
-               - For AWS Glue schema registries, use the ARN of the registry.
-               - For Confluent schema registries, use the URL of the registry.
+                 +  For GLU schema registries, use the ARN of the registry.
+                 +  For Confluent schema registries, use the URL of the registry.
         :param Sequence['EventSourceMappingSchemaValidationConfig'] schema_validation_configs: An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
         """
         if access_configs is not None:
@@ -862,9 +872,8 @@ class EventSourceMappingSchemaRegistryConfig(dict):
     def event_record_format(self) -> Optional['EventSourceMappingSchemaRegistryConfigEventRecordFormat']:
         """
         The record format that Lambda delivers to your function after schema validation.
-
-        - Choose `JSON` to have Lambda deliver the record to your function as a standard JSON object.
-        - Choose `SOURCE` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
+          +  Choose ``JSON`` to have Lambda deliver the record to your function as a standard JSON object.
+          +  Choose ``SOURCE`` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
         """
         return pulumi.get(self, "event_record_format")
 
@@ -873,9 +882,8 @@ class EventSourceMappingSchemaRegistryConfig(dict):
     def schema_registry_uri(self) -> Optional[builtins.str]:
         """
         The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
-
-        - For AWS Glue schema registries, use the ARN of the registry.
-        - For Confluent schema registries, use the URL of the registry.
+          +  For GLU schema registries, use the ARN of the registry.
+          +  For Confluent schema registries, use the URL of the registry.
         """
         return pulumi.get(self, "schema_registry_uri")
 
@@ -890,10 +898,14 @@ class EventSourceMappingSchemaRegistryConfig(dict):
 
 @pulumi.output_type
 class EventSourceMappingSchemaValidationConfig(dict):
+    """
+    Specific schema validation configuration settings that tell Lambda the message attributes you want to validate and filter using your schema registry.
+    """
     def __init__(__self__, *,
                  attribute: Optional['EventSourceMappingSchemaValidationConfigAttribute'] = None):
         """
-        :param 'EventSourceMappingSchemaValidationConfigAttribute' attribute: The attributes you want your schema registry to validate and filter for. If you selected `JSON` as the `EventRecordFormat` , Lambda also deserializes the selected message attributes.
+        Specific schema validation configuration settings that tell Lambda the message attributes you want to validate and filter using your schema registry.
+        :param 'EventSourceMappingSchemaValidationConfigAttribute' attribute: The attributes you want your schema registry to validate and filter for. If you selected ``JSON`` as the ``EventRecordFormat``, Lambda also deserializes the selected message attributes.
         """
         if attribute is not None:
             pulumi.set(__self__, "attribute", attribute)
@@ -902,7 +914,7 @@ class EventSourceMappingSchemaValidationConfig(dict):
     @pulumi.getter
     def attribute(self) -> Optional['EventSourceMappingSchemaValidationConfigAttribute']:
         """
-        The attributes you want your schema registry to validate and filter for. If you selected `JSON` as the `EventRecordFormat` , Lambda also deserializes the selected message attributes.
+        The attributes you want your schema registry to validate and filter for. If you selected ``JSON`` as the ``EventRecordFormat``, Lambda also deserializes the selected message attributes.
         """
         return pulumi.get(self, "attribute")
 

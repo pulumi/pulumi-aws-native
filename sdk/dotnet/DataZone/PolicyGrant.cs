@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.DataZone
         [Output("createdBy")]
         public Output<string> CreatedBy { get; private set; } = null!;
 
+        /// <summary>
+        /// The details of the policy grant member.
+        /// </summary>
         [Output("detail")]
         public Output<object?> Detail { get; private set; } = null!;
 
@@ -48,6 +51,9 @@ namespace Pulumi.AwsNative.DataZone
         [Output("policyType")]
         public Output<string> PolicyType { get; private set; } = null!;
 
+        /// <summary>
+        /// The principal of the policy grant member.
+        /// </summary>
         [Output("principal")]
         public Output<object?> Principal { get; private set; } = null!;
 
@@ -105,6 +111,9 @@ namespace Pulumi.AwsNative.DataZone
 
     public sealed class PolicyGrantArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The details of the policy grant member.
+        /// </summary>
         [Input("detail")]
         public object? Detail { get; set; }
 
@@ -120,6 +129,9 @@ namespace Pulumi.AwsNative.DataZone
         [Input("policyType", required: true)]
         public Input<string> PolicyType { get; set; } = null!;
 
+        /// <summary>
+        /// The principal of the policy grant member.
+        /// </summary>
         [Input("principal")]
         public object? Principal { get; set; }
 

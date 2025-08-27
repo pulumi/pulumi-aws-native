@@ -63,7 +63,8 @@ type Service struct {
 	//  When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
 	EnableEcsManagedTags pulumi.BoolPtrOutput `pulumi:"enableEcsManagedTags"`
 	// Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.
-	EnableExecuteCommand pulumi.BoolPtrOutput `pulumi:"enableExecuteCommand"`
+	EnableExecuteCommand pulumi.BoolPtrOutput               `pulumi:"enableExecuteCommand"`
+	ForceNewDeployment   ServiceForceNewDeploymentPtrOutput `pulumi:"forceNewDeployment"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you don't specify a health check grace period value, the default value of ``0`` is used. If you don't use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
 	//  If your service's tasks take a while to start and respond to health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
 	HealthCheckGracePeriodSeconds pulumi.IntPtrOutput `pulumi:"healthCheckGracePeriodSeconds"`
@@ -201,7 +202,8 @@ type serviceArgs struct {
 	//  When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
 	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
 	// Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.
-	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
+	EnableExecuteCommand *bool                      `pulumi:"enableExecuteCommand"`
+	ForceNewDeployment   *ServiceForceNewDeployment `pulumi:"forceNewDeployment"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you don't specify a health check grace period value, the default value of ``0`` is used. If you don't use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
 	//  If your service's tasks take a while to start and respond to health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
 	HealthCheckGracePeriodSeconds *int `pulumi:"healthCheckGracePeriodSeconds"`
@@ -290,6 +292,7 @@ type ServiceArgs struct {
 	EnableEcsManagedTags pulumi.BoolPtrInput
 	// Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.
 	EnableExecuteCommand pulumi.BoolPtrInput
+	ForceNewDeployment   ServiceForceNewDeploymentPtrInput
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you don't specify a health check grace period value, the default value of ``0`` is used. If you don't use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
 	//  If your service's tasks take a while to start and respond to health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
 	HealthCheckGracePeriodSeconds pulumi.IntPtrInput
@@ -439,6 +442,10 @@ func (o ServiceOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
 // Determines whether the execute command functionality is turned on for the service. If “true“, the execute command functionality is turned on for all containers in tasks as part of the service.
 func (o ServiceOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceOutput) ForceNewDeployment() ServiceForceNewDeploymentPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceForceNewDeploymentPtrOutput { return v.ForceNewDeployment }).(ServiceForceNewDeploymentPtrOutput)
 }
 
 // The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you don't specify a health check grace period value, the default value of “0“ is used. If you don't use any of the health checks, then “healthCheckGracePeriodSeconds“ is unused.

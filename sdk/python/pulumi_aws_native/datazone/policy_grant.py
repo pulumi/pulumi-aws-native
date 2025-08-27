@@ -31,6 +31,8 @@ class PolicyGrantArgs:
                  principal: Optional[pulumi.Input[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']]] = None):
         """
         The set of arguments for constructing a PolicyGrant resource.
+        :param pulumi.Input[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail12PropertiesArgs']] detail: The details of the policy grant member.
+        :param pulumi.Input[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']] principal: The principal of the policy grant member.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         pulumi.set(__self__, "entity_identifier", entity_identifier)
@@ -80,6 +82,9 @@ class PolicyGrantArgs:
     @property
     @pulumi.getter
     def detail(self) -> Optional[pulumi.Input[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail12PropertiesArgs']]]:
+        """
+        The details of the policy grant member.
+        """
         return pulumi.get(self, "detail")
 
     @detail.setter
@@ -89,6 +94,9 @@ class PolicyGrantArgs:
     @property
     @pulumi.getter
     def principal(self) -> Optional[pulumi.Input[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']]]:
+        """
+        The principal of the policy grant member.
+        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -114,6 +122,8 @@ class PolicyGrant(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail0PropertiesArgsDict'], Union['PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail1PropertiesArgsDict'], Union['PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail2PropertiesArgsDict'], Union['PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail3PropertiesArgsDict'], Union['PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail4PropertiesArgsDict'], Union['PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail5PropertiesArgsDict'], Union['PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail6PropertiesArgsDict'], Union['PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail7PropertiesArgsDict'], Union['PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail8PropertiesArgsDict'], Union['PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail9PropertiesArgsDict'], Union['PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail10PropertiesArgsDict'], Union['PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail11PropertiesArgsDict'], Union['PolicyGrantDetail12PropertiesArgs', 'PolicyGrantDetail12PropertiesArgsDict']]] detail: The details of the policy grant member.
+        :param pulumi.Input[Union[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal0PropertiesArgsDict'], Union['PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgsDict'], Union['PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgsDict'], Union['PolicyGrantPrincipal3PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgsDict']]] principal: The principal of the policy grant member.
         """
         ...
     @overload
@@ -225,6 +235,9 @@ class PolicyGrant(pulumi.CustomResource):
     @property
     @pulumi.getter
     def detail(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The details of the policy grant member.
+        """
         return pulumi.get(self, "detail")
 
     @property
@@ -258,5 +271,8 @@ class PolicyGrant(pulumi.CustomResource):
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The principal of the policy grant member.
+        """
         return pulumi.get(self, "principal")
 
