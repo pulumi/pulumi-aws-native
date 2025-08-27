@@ -3478,7 +3478,8 @@
           {
             "$ref": "#/types/aws-native:datazone:PolicyGrantDetail12Properties"
           }
-        ]
+        ],
+        "description": "The details of the policy grant member."
       },
       "domainIdentifier": {
         "type": "string"
@@ -3506,7 +3507,8 @@
           {
             "$ref": "#/types/aws-native:datazone:PolicyGrantPrincipal3Properties"
           }
-        ]
+        ],
+        "description": "The principal of the policy grant member."
       }
     }
   },
