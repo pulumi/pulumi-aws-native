@@ -42,45 +42,45 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
      */
-    public readonly accessPolicy!: pulumi.Output<any | undefined>;
+    declare public readonly accessPolicy: pulumi.Output<any | undefined>;
     /**
      * The ARN of the backup vault.
      */
-    public /*out*/ readonly backupVaultArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly backupVaultArn: pulumi.Output<string>;
     /**
      * The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
      */
-    public readonly backupVaultName!: pulumi.Output<string>;
+    declare public readonly backupVaultName: pulumi.Output<string>;
     /**
      * The tags to assign to the vault.
      */
-    public readonly backupVaultTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly backupVaultTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ARN of the server-side encryption key.
      */
-    public /*out*/ readonly encryptionKeyArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly encryptionKeyArn: pulumi.Output<string>;
     /**
      * The maximum retention period that the vault retains its recovery points.
      */
-    public readonly maxRetentionDays!: pulumi.Output<number>;
+    declare public readonly maxRetentionDays: pulumi.Output<number>;
     /**
      * This setting specifies the minimum retention period that the vault retains its recovery points.
      *
      * The minimum value accepted is 7 days.
      */
-    public readonly minRetentionDays!: pulumi.Output<number>;
+    declare public readonly minRetentionDays: pulumi.Output<number>;
     /**
      * Returns event notifications for the specified backup vault.
      */
-    public readonly notifications!: pulumi.Output<outputs.backup.LogicallyAirGappedBackupVaultNotificationObjectType | undefined>;
+    declare public readonly notifications: pulumi.Output<outputs.backup.LogicallyAirGappedBackupVaultNotificationObjectType | undefined>;
     /**
      * The vault state. The possible values are `CREATING` , `AVAILABLE` , and `FAILED` .
      */
-    public /*out*/ readonly vaultState!: pulumi.Output<string>;
+    declare public /*out*/ readonly vaultState: pulumi.Output<string>;
     /**
      * The vault type. The possible values are `BACKUP_VAULT` and `LOGICALLY_AIR_GAPPED_BACKUP_VAULT` .
      */
-    public /*out*/ readonly vaultType!: pulumi.Output<string>;
+    declare public /*out*/ readonly vaultType: pulumi.Output<string>;
 
     /**
      * Create a LogicallyAirGappedBackupVault resource with the given unique name, arguments, and options.
@@ -93,18 +93,18 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.maxRetentionDays === undefined) && !opts.urn) {
+            if (args?.maxRetentionDays === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxRetentionDays'");
             }
-            if ((!args || args.minRetentionDays === undefined) && !opts.urn) {
+            if (args?.minRetentionDays === undefined && !opts.urn) {
                 throw new Error("Missing required property 'minRetentionDays'");
             }
-            resourceInputs["accessPolicy"] = args ? args.accessPolicy : undefined;
-            resourceInputs["backupVaultName"] = args ? args.backupVaultName : undefined;
-            resourceInputs["backupVaultTags"] = args ? args.backupVaultTags : undefined;
-            resourceInputs["maxRetentionDays"] = args ? args.maxRetentionDays : undefined;
-            resourceInputs["minRetentionDays"] = args ? args.minRetentionDays : undefined;
-            resourceInputs["notifications"] = args ? args.notifications : undefined;
+            resourceInputs["accessPolicy"] = args?.accessPolicy;
+            resourceInputs["backupVaultName"] = args?.backupVaultName;
+            resourceInputs["backupVaultTags"] = args?.backupVaultTags;
+            resourceInputs["maxRetentionDays"] = args?.maxRetentionDays;
+            resourceInputs["minRetentionDays"] = args?.minRetentionDays;
+            resourceInputs["notifications"] = args?.notifications;
             resourceInputs["backupVaultArn"] = undefined /*out*/;
             resourceInputs["encryptionKeyArn"] = undefined /*out*/;
             resourceInputs["vaultState"] = undefined /*out*/;

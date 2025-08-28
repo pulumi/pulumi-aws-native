@@ -40,59 +40,59 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the MSK cluster.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Information about the broker nodes in the cluster.
      */
-    public readonly brokerNodeGroupInfo!: pulumi.Output<outputs.msk.ClusterBrokerNodeGroupInfo>;
+    declare public readonly brokerNodeGroupInfo: pulumi.Output<outputs.msk.ClusterBrokerNodeGroupInfo>;
     /**
      * Includes all client authentication related information.
      */
-    public readonly clientAuthentication!: pulumi.Output<outputs.msk.ClusterClientAuthentication | undefined>;
+    declare public readonly clientAuthentication: pulumi.Output<outputs.msk.ClusterClientAuthentication | undefined>;
     /**
      * The name of the cluster.
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    declare public readonly clusterName: pulumi.Output<string>;
     /**
      * Represents the configuration that you want MSK to use for the cluster.
      */
-    public readonly configurationInfo!: pulumi.Output<outputs.msk.ClusterConfigurationInfo | undefined>;
+    declare public readonly configurationInfo: pulumi.Output<outputs.msk.ClusterConfigurationInfo | undefined>;
     /**
      * The current version of the MSK cluster
      */
-    public readonly currentVersion!: pulumi.Output<string | undefined>;
+    declare public readonly currentVersion: pulumi.Output<string | undefined>;
     /**
      * Includes all encryption-related information.
      */
-    public readonly encryptionInfo!: pulumi.Output<outputs.msk.ClusterEncryptionInfo | undefined>;
+    declare public readonly encryptionInfo: pulumi.Output<outputs.msk.ClusterEncryptionInfo | undefined>;
     /**
      * Specifies the level of monitoring for the MSK cluster.
      */
-    public readonly enhancedMonitoring!: pulumi.Output<enums.msk.ClusterEnhancedMonitoring | undefined>;
+    declare public readonly enhancedMonitoring: pulumi.Output<enums.msk.ClusterEnhancedMonitoring | undefined>;
     /**
      * The version of Apache Kafka. You can use Amazon MSK to create clusters that use [supported Apache Kafka versions](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) .
      */
-    public readonly kafkaVersion!: pulumi.Output<string>;
+    declare public readonly kafkaVersion: pulumi.Output<string>;
     /**
      * Logging info details for the cluster.
      */
-    public readonly loggingInfo!: pulumi.Output<outputs.msk.ClusterLoggingInfo | undefined>;
+    declare public readonly loggingInfo: pulumi.Output<outputs.msk.ClusterLoggingInfo | undefined>;
     /**
      * The number of broker nodes in the cluster.
      */
-    public readonly numberOfBrokerNodes!: pulumi.Output<number>;
+    declare public readonly numberOfBrokerNodes: pulumi.Output<number>;
     /**
      * The settings for open monitoring.
      */
-    public readonly openMonitoring!: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
+    declare public readonly openMonitoring: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
     /**
      * This controls storage mode for supported storage tiers.
      */
-    public readonly storageMode!: pulumi.Output<enums.msk.ClusterStorageMode | undefined>;
+    declare public readonly storageMode: pulumi.Output<enums.msk.ClusterStorageMode | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -105,28 +105,28 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.brokerNodeGroupInfo === undefined) && !opts.urn) {
+            if (args?.brokerNodeGroupInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'brokerNodeGroupInfo'");
             }
-            if ((!args || args.kafkaVersion === undefined) && !opts.urn) {
+            if (args?.kafkaVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaVersion'");
             }
-            if ((!args || args.numberOfBrokerNodes === undefined) && !opts.urn) {
+            if (args?.numberOfBrokerNodes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'numberOfBrokerNodes'");
             }
-            resourceInputs["brokerNodeGroupInfo"] = args ? args.brokerNodeGroupInfo : undefined;
-            resourceInputs["clientAuthentication"] = args ? args.clientAuthentication : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["configurationInfo"] = args ? args.configurationInfo : undefined;
-            resourceInputs["currentVersion"] = args ? args.currentVersion : undefined;
-            resourceInputs["encryptionInfo"] = args ? args.encryptionInfo : undefined;
-            resourceInputs["enhancedMonitoring"] = args ? args.enhancedMonitoring : undefined;
-            resourceInputs["kafkaVersion"] = args ? args.kafkaVersion : undefined;
-            resourceInputs["loggingInfo"] = args ? args.loggingInfo : undefined;
-            resourceInputs["numberOfBrokerNodes"] = args ? args.numberOfBrokerNodes : undefined;
-            resourceInputs["openMonitoring"] = args ? args.openMonitoring : undefined;
-            resourceInputs["storageMode"] = args ? args.storageMode : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["brokerNodeGroupInfo"] = args?.brokerNodeGroupInfo;
+            resourceInputs["clientAuthentication"] = args?.clientAuthentication;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["configurationInfo"] = args?.configurationInfo;
+            resourceInputs["currentVersion"] = args?.currentVersion;
+            resourceInputs["encryptionInfo"] = args?.encryptionInfo;
+            resourceInputs["enhancedMonitoring"] = args?.enhancedMonitoring;
+            resourceInputs["kafkaVersion"] = args?.kafkaVersion;
+            resourceInputs["loggingInfo"] = args?.loggingInfo;
+            resourceInputs["numberOfBrokerNodes"] = args?.numberOfBrokerNodes;
+            resourceInputs["openMonitoring"] = args?.openMonitoring;
+            resourceInputs["storageMode"] = args?.storageMode;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

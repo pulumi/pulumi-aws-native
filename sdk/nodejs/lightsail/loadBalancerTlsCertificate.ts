@@ -37,35 +37,35 @@ export class LoadBalancerTlsCertificate extends pulumi.CustomResource {
     /**
      * An array of strings listing alternative domains and subdomains for your SSL/TLS certificate.
      */
-    public readonly certificateAlternativeNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly certificateAlternativeNames: pulumi.Output<string[] | undefined>;
     /**
      * The domain name (e.g., example.com ) for your SSL/TLS certificate.
      */
-    public readonly certificateDomainName!: pulumi.Output<string>;
+    declare public readonly certificateDomainName: pulumi.Output<string>;
     /**
      * The SSL/TLS certificate name.
      */
-    public readonly certificateName!: pulumi.Output<string>;
+    declare public readonly certificateName: pulumi.Output<string>;
     /**
      * A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
      */
-    public readonly httpsRedirectionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly httpsRedirectionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
      */
-    public readonly isAttached!: pulumi.Output<boolean | undefined>;
+    declare public readonly isAttached: pulumi.Output<boolean | undefined>;
     /**
      * The name of your load balancer.
      */
-    public readonly loadBalancerName!: pulumi.Output<string>;
+    declare public readonly loadBalancerName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the SSL/TLS certificate.
      */
-    public /*out*/ readonly loadBalancerTlsCertificateArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly loadBalancerTlsCertificateArn: pulumi.Output<string>;
     /**
      * The validation status of the SSL/TLS certificate.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
      * Create a LoadBalancerTlsCertificate resource with the given unique name, arguments, and options.
@@ -78,18 +78,18 @@ export class LoadBalancerTlsCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.certificateDomainName === undefined) && !opts.urn) {
+            if (args?.certificateDomainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateDomainName'");
             }
-            if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
+            if (args?.loadBalancerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            resourceInputs["certificateAlternativeNames"] = args ? args.certificateAlternativeNames : undefined;
-            resourceInputs["certificateDomainName"] = args ? args.certificateDomainName : undefined;
-            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
-            resourceInputs["httpsRedirectionEnabled"] = args ? args.httpsRedirectionEnabled : undefined;
-            resourceInputs["isAttached"] = args ? args.isAttached : undefined;
-            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
+            resourceInputs["certificateAlternativeNames"] = args?.certificateAlternativeNames;
+            resourceInputs["certificateDomainName"] = args?.certificateDomainName;
+            resourceInputs["certificateName"] = args?.certificateName;
+            resourceInputs["httpsRedirectionEnabled"] = args?.httpsRedirectionEnabled;
+            resourceInputs["isAttached"] = args?.isAttached;
+            resourceInputs["loadBalancerName"] = args?.loadBalancerName;
             resourceInputs["loadBalancerTlsCertificateArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

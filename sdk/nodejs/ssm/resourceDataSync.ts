@@ -204,39 +204,39 @@ export class ResourceDataSync extends pulumi.CustomResource {
     /**
      * The name of the S3 bucket where the aggregated data is stored.
      */
-    public readonly bucketName!: pulumi.Output<string | undefined>;
+    declare public readonly bucketName: pulumi.Output<string | undefined>;
     /**
      * An Amazon S3 prefix for the bucket.
      */
-    public readonly bucketPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly bucketPrefix: pulumi.Output<string | undefined>;
     /**
      * The AWS Region with the S3 bucket targeted by the resource data sync.
      */
-    public readonly bucketRegion!: pulumi.Output<string | undefined>;
+    declare public readonly bucketRegion: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an encryption key for a destination in Amazon S3 . You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same AWS Region as the destination Amazon S3 bucket.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
      * Configuration information for the target S3 bucket.
      */
-    public readonly s3Destination!: pulumi.Output<outputs.ssm.ResourceDataSyncS3Destination | undefined>;
+    declare public readonly s3Destination: pulumi.Output<outputs.ssm.ResourceDataSyncS3Destination | undefined>;
     /**
      * A supported sync format. The following format is currently supported: JsonSerDe
      */
-    public readonly syncFormat!: pulumi.Output<string | undefined>;
+    declare public readonly syncFormat: pulumi.Output<string | undefined>;
     /**
      * A name for the resource data sync.
      */
-    public readonly syncName!: pulumi.Output<string>;
+    declare public readonly syncName: pulumi.Output<string>;
     /**
      * Information about the source where the data was synchronized.
      */
-    public readonly syncSource!: pulumi.Output<outputs.ssm.ResourceDataSyncSyncSource | undefined>;
+    declare public readonly syncSource: pulumi.Output<outputs.ssm.ResourceDataSyncSyncSource | undefined>;
     /**
      * The type of resource data sync. If `SyncType` is `SyncToDestination` , then the resource data sync synchronizes data to an S3 bucket. If the `SyncType` is `SyncFromSource` then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions .
      */
-    public readonly syncType!: pulumi.Output<string | undefined>;
+    declare public readonly syncType: pulumi.Output<string | undefined>;
 
     /**
      * Create a ResourceDataSync resource with the given unique name, arguments, and options.
@@ -249,15 +249,15 @@ export class ResourceDataSync extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
-            resourceInputs["bucketPrefix"] = args ? args.bucketPrefix : undefined;
-            resourceInputs["bucketRegion"] = args ? args.bucketRegion : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["s3Destination"] = args ? args.s3Destination : undefined;
-            resourceInputs["syncFormat"] = args ? args.syncFormat : undefined;
-            resourceInputs["syncName"] = args ? args.syncName : undefined;
-            resourceInputs["syncSource"] = args ? args.syncSource : undefined;
-            resourceInputs["syncType"] = args ? args.syncType : undefined;
+            resourceInputs["bucketName"] = args?.bucketName;
+            resourceInputs["bucketPrefix"] = args?.bucketPrefix;
+            resourceInputs["bucketRegion"] = args?.bucketRegion;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["s3Destination"] = args?.s3Destination;
+            resourceInputs["syncFormat"] = args?.syncFormat;
+            resourceInputs["syncName"] = args?.syncName;
+            resourceInputs["syncSource"] = args?.syncSource;
+            resourceInputs["syncType"] = args?.syncType;
         } else {
             resourceInputs["bucketName"] = undefined /*out*/;
             resourceInputs["bucketPrefix"] = undefined /*out*/;

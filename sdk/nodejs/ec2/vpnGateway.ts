@@ -41,19 +41,19 @@ export class VpnGateway extends pulumi.CustomResource {
     /**
      * The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
      */
-    public readonly amazonSideAsn!: pulumi.Output<number | undefined>;
+    declare public readonly amazonSideAsn: pulumi.Output<number | undefined>;
     /**
      * Any tags assigned to the virtual private gateway.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of VPN connection the virtual private gateway supports.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The ID of the VPN gateway.
      */
-    public /*out*/ readonly vpnGatewayId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpnGatewayId: pulumi.Output<string>;
 
     /**
      * Create a VpnGateway resource with the given unique name, arguments, and options.
@@ -66,12 +66,12 @@ export class VpnGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["amazonSideAsn"] = args?.amazonSideAsn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["vpnGatewayId"] = undefined /*out*/;
         } else {
             resourceInputs["amazonSideAsn"] = undefined /*out*/;

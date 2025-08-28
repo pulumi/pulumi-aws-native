@@ -41,7 +41,7 @@ export class DbSubnetGroup extends pulumi.CustomResource {
     /**
      * The description for the DB subnet group.
      */
-    public readonly dbSubnetGroupDescription!: pulumi.Output<string>;
+    declare public readonly dbSubnetGroupDescription: pulumi.Output<string>;
     /**
      * The name for the DB subnet group. This value is stored as a lowercase string.
      *  Constraints:
@@ -51,15 +51,15 @@ export class DbSubnetGroup extends pulumi.CustomResource {
      *   
      *  Example: ``mydbsubnetgroup``
      */
-    public readonly dbSubnetGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly dbSubnetGroupName: pulumi.Output<string | undefined>;
     /**
      * The EC2 Subnet IDs for the DB subnet group.
      */
-    public readonly subnetIds!: pulumi.Output<string[]>;
+    declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
      * Tags to assign to the DB subnet group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DbSubnetGroup resource with the given unique name, arguments, and options.
@@ -72,16 +72,16 @@ export class DbSubnetGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dbSubnetGroupDescription === undefined) && !opts.urn) {
+            if (args?.dbSubnetGroupDescription === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbSubnetGroupDescription'");
             }
-            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+            if (args?.subnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            resourceInputs["dbSubnetGroupDescription"] = args ? args.dbSubnetGroupDescription : undefined;
-            resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dbSubnetGroupDescription"] = args?.dbSubnetGroupDescription;
+            resourceInputs["dbSubnetGroupName"] = args?.dbSubnetGroupName;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["dbSubnetGroupDescription"] = undefined /*out*/;
             resourceInputs["dbSubnetGroupName"] = undefined /*out*/;

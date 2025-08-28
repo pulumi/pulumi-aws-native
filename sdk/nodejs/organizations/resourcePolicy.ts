@@ -40,21 +40,21 @@ export class ResourcePolicy extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the resource policy.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The unique identifier (ID) associated with this resource policy.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The policy document. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::ResourcePolicy` for more information about the expected schema for this property.
      */
-    public readonly content!: pulumi.Output<any>;
+    declare public readonly content: pulumi.Output<any>;
     /**
      * A list of tags that you want to attach to the resource policy
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ResourcePolicy resource with the given unique name, arguments, and options.
@@ -67,11 +67,11 @@ export class ResourcePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

@@ -57,16 +57,16 @@ export class Volume extends pulumi.CustomResource {
     /**
      * Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
      */
-    public readonly autoEnableIo!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoEnableIo: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
      */
-    public readonly availabilityZone!: pulumi.Output<string>;
+    declare public readonly availabilityZone: pulumi.Output<string>;
     /**
      * Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
      *  Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances).
      */
-    public readonly encrypted!: pulumi.Output<boolean | undefined>;
+    declare public readonly encrypted: pulumi.Output<boolean | undefined>;
     /**
      * The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
      *  The following are the supported values for each volume type:
@@ -77,7 +77,7 @@ export class Volume extends pulumi.CustomResource {
      *  For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
      *  This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
      */
-    public readonly iops!: pulumi.Output<number | undefined>;
+    declare public readonly iops: pulumi.Output<number | undefined>;
     /**
      * The identifier of the kms-key-long to use for Amazon EBS encryption. If ``KmsKeyId`` is specified, the encrypted state must be ``true``.
      *  If you omit this property and your account is enabled for encryption by default, or *Encrypted* is set to ``true``, then the volume is encrypted using the default key specified for your account. If your account does not have a default key, then the volume is encrypted using the aws-managed-key.
@@ -87,16 +87,16 @@ export class Volume extends pulumi.CustomResource {
      *   +  Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
      *   +  Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Indicates whether Amazon EBS Multi-Attach is enabled.
      *  CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
      */
-    public readonly multiAttachEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly multiAttachEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Outpost.
      */
-    public readonly outpostArn!: pulumi.Output<string | undefined>;
+    declare public readonly outpostArn: pulumi.Output<string | undefined>;
     /**
      * The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
      *  The following are the supported volumes sizes for each volume type:
@@ -106,25 +106,25 @@ export class Volume extends pulumi.CustomResource {
      *   +  ``st1`` and ``sc1``: 125 - 16,384 GiB
      *   +  ``standard``: 1 - 1024 GiB
      */
-    public readonly size!: pulumi.Output<number | undefined>;
+    declare public readonly size: pulumi.Output<number | undefined>;
     /**
      * The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
      */
-    public readonly snapshotId!: pulumi.Output<string | undefined>;
+    declare public readonly snapshotId: pulumi.Output<string | undefined>;
     /**
      * The tags to apply to the volume during creation.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
      *  This parameter is valid only for ``gp3`` volumes. The default value is 125.
      *  Valid Range: Minimum value of 125. Maximum value of 1000.
      */
-    public readonly throughput!: pulumi.Output<number | undefined>;
+    declare public readonly throughput: pulumi.Output<number | undefined>;
     /**
      * The ID of the volume.
      */
-    public /*out*/ readonly volumeId!: pulumi.Output<string>;
+    declare public /*out*/ readonly volumeId: pulumi.Output<string>;
     /**
      * Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization*. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
      *  This parameter is supported only for volumes created from snapshots. Omit this parameter if:
@@ -135,7 +135,7 @@ export class Volume extends pulumi.CustomResource {
      *  For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide*.
      *  Valid range: 100 - 300 MiB/s
      */
-    public readonly volumeInitializationRate!: pulumi.Output<number | undefined>;
+    declare public readonly volumeInitializationRate: pulumi.Output<number | undefined>;
     /**
      * The volume type. This parameter can be one of the following values:
      *   +  General Purpose SSD: ``gp2`` | ``gp3``
@@ -147,7 +147,7 @@ export class Volume extends pulumi.CustomResource {
      *  For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html).
      *  Default: ``gp2``
      */
-    public readonly volumeType!: pulumi.Output<string | undefined>;
+    declare public readonly volumeType: pulumi.Output<string | undefined>;
 
     /**
      * Create a Volume resource with the given unique name, arguments, and options.
@@ -160,22 +160,22 @@ export class Volume extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.availabilityZone === undefined) && !opts.urn) {
+            if (args?.availabilityZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            resourceInputs["autoEnableIo"] = args ? args.autoEnableIo : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["encrypted"] = args ? args.encrypted : undefined;
-            resourceInputs["iops"] = args ? args.iops : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["multiAttachEnabled"] = args ? args.multiAttachEnabled : undefined;
-            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
-            resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["throughput"] = args ? args.throughput : undefined;
-            resourceInputs["volumeInitializationRate"] = args ? args.volumeInitializationRate : undefined;
-            resourceInputs["volumeType"] = args ? args.volumeType : undefined;
+            resourceInputs["autoEnableIo"] = args?.autoEnableIo;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["encrypted"] = args?.encrypted;
+            resourceInputs["iops"] = args?.iops;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["multiAttachEnabled"] = args?.multiAttachEnabled;
+            resourceInputs["outpostArn"] = args?.outpostArn;
+            resourceInputs["size"] = args?.size;
+            resourceInputs["snapshotId"] = args?.snapshotId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["throughput"] = args?.throughput;
+            resourceInputs["volumeInitializationRate"] = args?.volumeInitializationRate;
+            resourceInputs["volumeType"] = args?.volumeType;
             resourceInputs["volumeId"] = undefined /*out*/;
         } else {
             resourceInputs["autoEnableIo"] = undefined /*out*/;

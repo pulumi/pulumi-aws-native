@@ -40,39 +40,39 @@ export class ChannelNamespace extends pulumi.CustomResource {
     /**
      * AppSync Api Id that this Channel Namespace belongs to.
      */
-    public readonly apiId!: pulumi.Output<string>;
+    declare public readonly apiId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the channel namespace.
      */
-    public /*out*/ readonly channelNamespaceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly channelNamespaceArn: pulumi.Output<string>;
     /**
      * The event handler functions that run custom business logic to process published events and subscribe requests.
      */
-    public readonly codeHandlers!: pulumi.Output<string | undefined>;
+    declare public readonly codeHandlers: pulumi.Output<string | undefined>;
     /**
      * The Amazon S3 endpoint where the code is located.
      */
-    public readonly codeS3Location!: pulumi.Output<string | undefined>;
+    declare public readonly codeS3Location: pulumi.Output<string | undefined>;
     /**
      * The configuration for the `OnPublish` and `OnSubscribe` handlers.
      */
-    public readonly handlerConfigs!: pulumi.Output<outputs.appsync.ChannelNamespaceHandlerConfigs | undefined>;
+    declare public readonly handlerConfigs: pulumi.Output<outputs.appsync.ChannelNamespaceHandlerConfigs | undefined>;
     /**
      * The name of the channel namespace. This name must be unique within the `Api` .
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * List of AuthModes supported for Publish operations.
      */
-    public readonly publishAuthModes!: pulumi.Output<outputs.appsync.ChannelNamespaceAuthMode[] | undefined>;
+    declare public readonly publishAuthModes: pulumi.Output<outputs.appsync.ChannelNamespaceAuthMode[] | undefined>;
     /**
      * List of AuthModes supported for Subscribe operations.
      */
-    public readonly subscribeAuthModes!: pulumi.Output<outputs.appsync.ChannelNamespaceAuthMode[] | undefined>;
+    declare public readonly subscribeAuthModes: pulumi.Output<outputs.appsync.ChannelNamespaceAuthMode[] | undefined>;
     /**
      * A set of tags (key-value pairs) for this channel namespace.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ChannelNamespace resource with the given unique name, arguments, and options.
@@ -85,17 +85,17 @@ export class ChannelNamespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["codeHandlers"] = args ? args.codeHandlers : undefined;
-            resourceInputs["codeS3Location"] = args ? args.codeS3Location : undefined;
-            resourceInputs["handlerConfigs"] = args ? args.handlerConfigs : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publishAuthModes"] = args ? args.publishAuthModes : undefined;
-            resourceInputs["subscribeAuthModes"] = args ? args.subscribeAuthModes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["codeHandlers"] = args?.codeHandlers;
+            resourceInputs["codeS3Location"] = args?.codeS3Location;
+            resourceInputs["handlerConfigs"] = args?.handlerConfigs;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publishAuthModes"] = args?.publishAuthModes;
+            resourceInputs["subscribeAuthModes"] = args?.subscribeAuthModes;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["channelNamespaceArn"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;

@@ -37,17 +37,17 @@ export class ChannelPolicy extends pulumi.CustomResource {
     /**
      * The name of the channel group associated with the channel policy.
      */
-    public readonly channelGroupName!: pulumi.Output<string>;
+    declare public readonly channelGroupName: pulumi.Output<string>;
     /**
      * The name of the channel associated with the channel policy.
      */
-    public readonly channelName!: pulumi.Output<string>;
+    declare public readonly channelName: pulumi.Output<string>;
     /**
      * The policy associated with the channel.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
      */
-    public readonly policy!: pulumi.Output<any>;
+    declare public readonly policy: pulumi.Output<any>;
 
     /**
      * Create a ChannelPolicy resource with the given unique name, arguments, and options.
@@ -60,18 +60,18 @@ export class ChannelPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channelGroupName === undefined) && !opts.urn) {
+            if (args?.channelGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelGroupName'");
             }
-            if ((!args || args.channelName === undefined) && !opts.urn) {
+            if (args?.channelName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelName'");
             }
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["channelGroupName"] = args ? args.channelGroupName : undefined;
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["channelGroupName"] = args?.channelGroupName;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["policy"] = args?.policy;
         } else {
             resourceInputs["channelGroupName"] = undefined /*out*/;
             resourceInputs["channelName"] = undefined /*out*/;

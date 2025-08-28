@@ -40,67 +40,67 @@ export class OriginEndpoint extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Parameters for CDN authorization.
      */
-    public readonly authorization!: pulumi.Output<outputs.mediapackage.OriginEndpointAuthorization | undefined>;
+    declare public readonly authorization: pulumi.Output<outputs.mediapackage.OriginEndpointAuthorization | undefined>;
     /**
      * The ID of the OriginEndpoint.
      */
-    public readonly awsId!: pulumi.Output<string>;
+    declare public readonly awsId: pulumi.Output<string>;
     /**
      * The ID of the Channel the OriginEndpoint is associated with.
      */
-    public readonly channelId!: pulumi.Output<string>;
+    declare public readonly channelId: pulumi.Output<string>;
     /**
      * Parameters for Common Media Application Format (CMAF) packaging.
      */
-    public readonly cmafPackage!: pulumi.Output<outputs.mediapackage.OriginEndpointCmafPackage | undefined>;
+    declare public readonly cmafPackage: pulumi.Output<outputs.mediapackage.OriginEndpointCmafPackage | undefined>;
     /**
      * Parameters for DASH packaging.
      */
-    public readonly dashPackage!: pulumi.Output<outputs.mediapackage.OriginEndpointDashPackage | undefined>;
+    declare public readonly dashPackage: pulumi.Output<outputs.mediapackage.OriginEndpointDashPackage | undefined>;
     /**
      * A short text description of the OriginEndpoint.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Parameters for Apple HLS packaging.
      */
-    public readonly hlsPackage!: pulumi.Output<outputs.mediapackage.OriginEndpointHlsPackage | undefined>;
+    declare public readonly hlsPackage: pulumi.Output<outputs.mediapackage.OriginEndpointHlsPackage | undefined>;
     /**
      * A short string appended to the end of the OriginEndpoint URL.
      */
-    public readonly manifestName!: pulumi.Output<string | undefined>;
+    declare public readonly manifestName: pulumi.Output<string | undefined>;
     /**
      * Parameters for Microsoft Smooth Streaming packaging.
      */
-    public readonly mssPackage!: pulumi.Output<outputs.mediapackage.OriginEndpointMssPackage | undefined>;
+    declare public readonly mssPackage: pulumi.Output<outputs.mediapackage.OriginEndpointMssPackage | undefined>;
     /**
      * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
      */
-    public readonly origination!: pulumi.Output<enums.mediapackage.OriginEndpointOrigination | undefined>;
+    declare public readonly origination: pulumi.Output<enums.mediapackage.OriginEndpointOrigination | undefined>;
     /**
      * Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
      */
-    public readonly startoverWindowSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly startoverWindowSeconds: pulumi.Output<number | undefined>;
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
      */
-    public readonly timeDelaySeconds!: pulumi.Output<number | undefined>;
+    declare public readonly timeDelaySeconds: pulumi.Output<number | undefined>;
     /**
      * The URL of the packaged OriginEndpoint for consumption.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
     /**
      * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
      */
-    public readonly whitelist!: pulumi.Output<string[] | undefined>;
+    declare public readonly whitelist: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a OriginEndpoint resource with the given unique name, arguments, and options.
@@ -113,26 +113,26 @@ export class OriginEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsId === undefined) && !opts.urn) {
+            if (args?.awsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsId'");
             }
-            if ((!args || args.channelId === undefined) && !opts.urn) {
+            if (args?.channelId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelId'");
             }
-            resourceInputs["authorization"] = args ? args.authorization : undefined;
-            resourceInputs["awsId"] = args ? args.awsId : undefined;
-            resourceInputs["channelId"] = args ? args.channelId : undefined;
-            resourceInputs["cmafPackage"] = args ? args.cmafPackage : undefined;
-            resourceInputs["dashPackage"] = args ? args.dashPackage : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["hlsPackage"] = args ? args.hlsPackage : undefined;
-            resourceInputs["manifestName"] = args ? args.manifestName : undefined;
-            resourceInputs["mssPackage"] = args ? args.mssPackage : undefined;
-            resourceInputs["origination"] = args ? args.origination : undefined;
-            resourceInputs["startoverWindowSeconds"] = args ? args.startoverWindowSeconds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeDelaySeconds"] = args ? args.timeDelaySeconds : undefined;
-            resourceInputs["whitelist"] = args ? args.whitelist : undefined;
+            resourceInputs["authorization"] = args?.authorization;
+            resourceInputs["awsId"] = args?.awsId;
+            resourceInputs["channelId"] = args?.channelId;
+            resourceInputs["cmafPackage"] = args?.cmafPackage;
+            resourceInputs["dashPackage"] = args?.dashPackage;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["hlsPackage"] = args?.hlsPackage;
+            resourceInputs["manifestName"] = args?.manifestName;
+            resourceInputs["mssPackage"] = args?.mssPackage;
+            resourceInputs["origination"] = args?.origination;
+            resourceInputs["startoverWindowSeconds"] = args?.startoverWindowSeconds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeDelaySeconds"] = args?.timeDelaySeconds;
+            resourceInputs["whitelist"] = args?.whitelist;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         } else {

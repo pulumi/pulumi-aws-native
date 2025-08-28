@@ -40,47 +40,47 @@ export class EndpointAccess extends pulumi.CustomResource {
     /**
      * The DNS address of the endpoint.
      */
-    public /*out*/ readonly address!: pulumi.Output<string>;
+    declare public /*out*/ readonly address: pulumi.Output<string>;
     /**
      * A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
      */
-    public readonly clusterIdentifier!: pulumi.Output<string>;
+    declare public readonly clusterIdentifier: pulumi.Output<string>;
     /**
      * The time (UTC) that the endpoint was created.
      */
-    public /*out*/ readonly endpointCreateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpointCreateTime: pulumi.Output<string>;
     /**
      * The name of the endpoint.
      */
-    public readonly endpointName!: pulumi.Output<string>;
+    declare public readonly endpointName: pulumi.Output<string>;
     /**
      * The status of the endpoint.
      */
-    public /*out*/ readonly endpointStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpointStatus: pulumi.Output<string>;
     /**
      * The port number on which the cluster accepts incoming connections.
      */
-    public /*out*/ readonly port!: pulumi.Output<number>;
+    declare public /*out*/ readonly port: pulumi.Output<number>;
     /**
      * The AWS account ID of the owner of the cluster.
      */
-    public readonly resourceOwner!: pulumi.Output<string | undefined>;
+    declare public readonly resourceOwner: pulumi.Output<string | undefined>;
     /**
      * The subnet group name where Amazon Redshift chooses to deploy the endpoint.
      */
-    public readonly subnetGroupName!: pulumi.Output<string>;
+    declare public readonly subnetGroupName: pulumi.Output<string>;
     /**
      * The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
      */
-    public /*out*/ readonly vpcEndpoint!: pulumi.Output<outputs.redshift.VpcEndpointProperties>;
+    declare public /*out*/ readonly vpcEndpoint: pulumi.Output<outputs.redshift.VpcEndpointProperties>;
     /**
      * A list of vpc security group ids to apply to the created endpoint access.
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
+    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
     /**
      * A list of Virtual Private Cloud (VPC) security groups to be associated with the endpoint.
      */
-    public /*out*/ readonly vpcSecurityGroups!: pulumi.Output<outputs.redshift.EndpointAccessVpcSecurityGroup[]>;
+    declare public /*out*/ readonly vpcSecurityGroups: pulumi.Output<outputs.redshift.EndpointAccessVpcSecurityGroup[]>;
 
     /**
      * Create a EndpointAccess resource with the given unique name, arguments, and options.
@@ -93,23 +93,23 @@ export class EndpointAccess extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
+            if (args?.clusterIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            if ((!args || args.endpointName === undefined) && !opts.urn) {
+            if (args?.endpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.subnetGroupName === undefined) && !opts.urn) {
+            if (args?.subnetGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetGroupName'");
             }
-            if ((!args || args.vpcSecurityGroupIds === undefined) && !opts.urn) {
+            if (args?.vpcSecurityGroupIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcSecurityGroupIds'");
             }
-            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["resourceOwner"] = args ? args.resourceOwner : undefined;
-            resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["resourceOwner"] = args?.resourceOwner;
+            resourceInputs["subnetGroupName"] = args?.subnetGroupName;
+            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
             resourceInputs["address"] = undefined /*out*/;
             resourceInputs["endpointCreateTime"] = undefined /*out*/;
             resourceInputs["endpointStatus"] = undefined /*out*/;

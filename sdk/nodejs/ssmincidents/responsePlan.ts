@@ -40,39 +40,39 @@ export class ResponsePlan extends pulumi.CustomResource {
     /**
      * The list of actions.
      */
-    public readonly actions!: pulumi.Output<outputs.ssmincidents.ResponsePlanAction[] | undefined>;
+    declare public readonly actions: pulumi.Output<outputs.ssmincidents.ResponsePlanAction[] | undefined>;
     /**
      * The ARN of the response plan.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The  chat channel used for collaboration during an incident.
      */
-    public readonly chatChannel!: pulumi.Output<outputs.ssmincidents.ResponsePlanChatChannel | undefined>;
+    declare public readonly chatChannel: pulumi.Output<outputs.ssmincidents.ResponsePlanChatChannel | undefined>;
     /**
      * The display name of the response plan.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The list of engagements to use.
      */
-    public readonly engagements!: pulumi.Output<string[] | undefined>;
+    declare public readonly engagements: pulumi.Output<string[] | undefined>;
     /**
      * Details used to create an incident when using this response plan.
      */
-    public readonly incidentTemplate!: pulumi.Output<outputs.ssmincidents.ResponsePlanIncidentTemplate>;
+    declare public readonly incidentTemplate: pulumi.Output<outputs.ssmincidents.ResponsePlanIncidentTemplate>;
     /**
      * The list of integrations.
      */
-    public readonly integrations!: pulumi.Output<outputs.ssmincidents.ResponsePlanIntegration[] | undefined>;
+    declare public readonly integrations: pulumi.Output<outputs.ssmincidents.ResponsePlanIntegration[] | undefined>;
     /**
      * The name of the response plan.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The tags to apply to the response plan.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ResponsePlan resource with the given unique name, arguments, and options.
@@ -85,17 +85,17 @@ export class ResponsePlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.incidentTemplate === undefined) && !opts.urn) {
+            if (args?.incidentTemplate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'incidentTemplate'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["chatChannel"] = args ? args.chatChannel : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["engagements"] = args ? args.engagements : undefined;
-            resourceInputs["incidentTemplate"] = args ? args.incidentTemplate : undefined;
-            resourceInputs["integrations"] = args ? args.integrations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["chatChannel"] = args?.chatChannel;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["engagements"] = args?.engagements;
+            resourceInputs["incidentTemplate"] = args?.incidentTemplate;
+            resourceInputs["integrations"] = args?.integrations;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["actions"] = undefined /*out*/;

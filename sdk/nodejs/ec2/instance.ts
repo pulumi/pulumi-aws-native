@@ -40,195 +40,195 @@ export class Instance extends pulumi.CustomResource {
     /**
      * This property is reserved for internal use. If you use it, the stack fails with this error: Bad property set: [Testing this property] (Service: AmazonEC2; Status Code: 400; Error Code: InvalidParameterCombination; Request ID: 0XXXXXX-49c7-4b40-8bcc-76885dcXXXXX).
      */
-    public readonly additionalInfo!: pulumi.Output<string | undefined>;
+    declare public readonly additionalInfo: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the instance is associated with a dedicated host. If you want the instance to always restart on the same host on which it was launched, specify host. If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify default.
      */
-    public readonly affinity!: pulumi.Output<enums.ec2.InstanceAffinity | undefined>;
+    declare public readonly affinity: pulumi.Output<enums.ec2.InstanceAffinity | undefined>;
     /**
      * The Availability Zone of the instance.
      */
-    public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    declare public readonly availabilityZone: pulumi.Output<string | undefined>;
     /**
      * The block device mapping entries that defines the block devices to attach to the instance at launch.
      */
-    public readonly blockDeviceMappings!: pulumi.Output<outputs.ec2.InstanceBlockDeviceMapping[] | undefined>;
+    declare public readonly blockDeviceMappings: pulumi.Output<outputs.ec2.InstanceBlockDeviceMapping[] | undefined>;
     /**
      * The CPU options for the instance.
      */
-    public readonly cpuOptions!: pulumi.Output<outputs.ec2.CpuOptionsProperties | undefined>;
+    declare public readonly cpuOptions: pulumi.Output<outputs.ec2.CpuOptionsProperties | undefined>;
     /**
      * The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
      */
-    public readonly creditSpecification!: pulumi.Output<outputs.ec2.CreditSpecificationProperties | undefined>;
+    declare public readonly creditSpecification: pulumi.Output<outputs.ec2.CreditSpecificationProperties | undefined>;
     /**
      * If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can.
      */
-    public readonly disableApiTermination!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableApiTermination: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether the instance is optimized for Amazon EBS I/O.
      */
-    public readonly ebsOptimized!: pulumi.Output<boolean | undefined>;
+    declare public readonly ebsOptimized: pulumi.Output<boolean | undefined>;
     /**
      * An elastic GPU to associate with the instance. Amazon Elastic Graphics is no longer available.
      */
-    public readonly elasticGpuSpecifications!: pulumi.Output<outputs.ec2.InstanceElasticGpuSpecification[] | undefined>;
+    declare public readonly elasticGpuSpecifications: pulumi.Output<outputs.ec2.InstanceElasticGpuSpecification[] | undefined>;
     /**
      * An elastic inference accelerator to associate with the instance. Amazon Elastic Inference is no longer available.
      */
-    public readonly elasticInferenceAccelerators!: pulumi.Output<outputs.ec2.InstanceElasticInferenceAccelerator[] | undefined>;
+    declare public readonly elasticInferenceAccelerators: pulumi.Output<outputs.ec2.InstanceElasticInferenceAccelerator[] | undefined>;
     /**
      * Indicates whether the instance is enabled for AWS Nitro Enclaves.
      */
-    public readonly enclaveOptions!: pulumi.Output<outputs.ec2.EnclaveOptionsProperties | undefined>;
+    declare public readonly enclaveOptions: pulumi.Output<outputs.ec2.EnclaveOptionsProperties | undefined>;
     /**
      * Indicates whether an instance is enabled for hibernation.
      */
-    public readonly hibernationOptions!: pulumi.Output<outputs.ec2.HibernationOptionsProperties | undefined>;
+    declare public readonly hibernationOptions: pulumi.Output<outputs.ec2.HibernationOptionsProperties | undefined>;
     /**
      * If you specify host for the Affinity property, the ID of a dedicated host that the instance is associated with. If you don't specify an ID, Amazon EC2 launches the instance onto any available, compatible dedicated host in your account.
      */
-    public readonly hostId!: pulumi.Output<string | undefined>;
+    declare public readonly hostId: pulumi.Output<string | undefined>;
     /**
      * The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
      */
-    public readonly hostResourceGroupArn!: pulumi.Output<string | undefined>;
+    declare public readonly hostResourceGroupArn: pulumi.Output<string | undefined>;
     /**
      * The IAM instance profile.
      */
-    public readonly iamInstanceProfile!: pulumi.Output<string | undefined>;
+    declare public readonly iamInstanceProfile: pulumi.Output<string | undefined>;
     /**
      * The ID of the AMI. An AMI ID is required to launch an instance and must be specified here or in a launch template.
      */
-    public readonly imageId!: pulumi.Output<string | undefined>;
+    declare public readonly imageId: pulumi.Output<string | undefined>;
     /**
      * The EC2 Instance ID.
      */
-    public /*out*/ readonly instanceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly instanceId: pulumi.Output<string>;
     /**
      * Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
      */
-    public readonly instanceInitiatedShutdownBehavior!: pulumi.Output<string | undefined>;
+    declare public readonly instanceInitiatedShutdownBehavior: pulumi.Output<string | undefined>;
     /**
      * The instance type.
      */
-    public readonly instanceType!: pulumi.Output<string | undefined>;
+    declare public readonly instanceType: pulumi.Output<string | undefined>;
     /**
      * [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
-    public readonly ipv6AddressCount!: pulumi.Output<number | undefined>;
+    declare public readonly ipv6AddressCount: pulumi.Output<number | undefined>;
     /**
      * [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary network interface.
      */
-    public readonly ipv6Addresses!: pulumi.Output<outputs.ec2.InstanceIpv6Address[] | undefined>;
+    declare public readonly ipv6Addresses: pulumi.Output<outputs.ec2.InstanceIpv6Address[] | undefined>;
     /**
      * The ID of the kernel.
      */
-    public readonly kernelId!: pulumi.Output<string | undefined>;
+    declare public readonly kernelId: pulumi.Output<string | undefined>;
     /**
      * The name of the key pair.
      */
-    public readonly keyName!: pulumi.Output<string | undefined>;
+    declare public readonly keyName: pulumi.Output<string | undefined>;
     /**
      * The launch template to use to launch the instances.
      */
-    public readonly launchTemplate!: pulumi.Output<outputs.ec2.InstanceLaunchTemplateSpecification | undefined>;
+    declare public readonly launchTemplate: pulumi.Output<outputs.ec2.InstanceLaunchTemplateSpecification | undefined>;
     /**
      * The license configurations.
      */
-    public readonly licenseSpecifications!: pulumi.Output<outputs.ec2.InstanceLicenseSpecification[] | undefined>;
+    declare public readonly licenseSpecifications: pulumi.Output<outputs.ec2.InstanceLicenseSpecification[] | undefined>;
     /**
      * The metadata options for the instance
      */
-    public readonly metadataOptions!: pulumi.Output<outputs.ec2.InstanceMetadataOptions | undefined>;
+    declare public readonly metadataOptions: pulumi.Output<outputs.ec2.InstanceMetadataOptions | undefined>;
     /**
      * Specifies whether detailed monitoring is enabled for the instance.
      */
-    public readonly monitoring!: pulumi.Output<boolean | undefined>;
+    declare public readonly monitoring: pulumi.Output<boolean | undefined>;
     /**
      * The network interfaces to associate with the instance.
      */
-    public readonly networkInterfaces!: pulumi.Output<outputs.ec2.InstanceNetworkInterface[] | undefined>;
+    declare public readonly networkInterfaces: pulumi.Output<outputs.ec2.InstanceNetworkInterface[] | undefined>;
     /**
      * The name of an existing placement group that you want to launch the instance into (cluster | partition | spread).
      */
-    public readonly placementGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly placementGroupName: pulumi.Output<string | undefined>;
     /**
      * The private DNS name of the specified instance. For example: ip-10-24-34-0.ec2.internal.
      */
-    public /*out*/ readonly privateDnsName!: pulumi.Output<string>;
+    declare public /*out*/ readonly privateDnsName: pulumi.Output<string>;
     /**
      * The options for the instance hostname.
      */
-    public readonly privateDnsNameOptions!: pulumi.Output<outputs.ec2.InstancePrivateDnsNameOptions | undefined>;
+    declare public readonly privateDnsNameOptions: pulumi.Output<outputs.ec2.InstancePrivateDnsNameOptions | undefined>;
     /**
      * The private IP address of the specified instance. For example: 10.24.34.0.
      */
-    public /*out*/ readonly privateIp!: pulumi.Output<string>;
+    declare public /*out*/ readonly privateIp: pulumi.Output<string>;
     /**
      * [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
      */
-    public readonly privateIpAddress!: pulumi.Output<string | undefined>;
+    declare public readonly privateIpAddress: pulumi.Output<string | undefined>;
     /**
      * Indicates whether to assign the tags from the instance to all of the volumes attached to the instance at launch. If you specify true and you assign tags to the instance, those tags are automatically assigned to all of the volumes that you attach to the instance at launch. If you specify false, those tags are not assigned to the attached volumes.
      */
-    public readonly propagateTagsToVolumeOnCreation!: pulumi.Output<boolean | undefined>;
+    declare public readonly propagateTagsToVolumeOnCreation: pulumi.Output<boolean | undefined>;
     /**
      * The public DNS name of the specified instance. For example: ec2-107-20-50-45.compute-1.amazonaws.com.
      */
-    public /*out*/ readonly publicDnsName!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicDnsName: pulumi.Output<string>;
     /**
      * The public IP address of the specified instance. For example: 192.0.2.0.
      */
-    public /*out*/ readonly publicIp!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicIp: pulumi.Output<string>;
     /**
      * The ID of the RAM disk to select.
      */
-    public readonly ramdiskId!: pulumi.Output<string | undefined>;
+    declare public readonly ramdiskId: pulumi.Output<string | undefined>;
     /**
      * The IDs of the security groups.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
      * the names of the security groups. For a nondefault VPC, you must use security group IDs instead.
      */
-    public readonly securityGroups!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroups: pulumi.Output<string[] | undefined>;
     /**
      * Specifies whether to enable an instance launched in a VPC to perform NAT.
      */
-    public readonly sourceDestCheck!: pulumi.Output<boolean | undefined>;
+    declare public readonly sourceDestCheck: pulumi.Output<boolean | undefined>;
     /**
      * The SSM document and parameter values in AWS Systems Manager to associate with this instance.
      */
-    public readonly ssmAssociations!: pulumi.Output<outputs.ec2.InstanceSsmAssociation[] | undefined>;
+    declare public readonly ssmAssociations: pulumi.Output<outputs.ec2.InstanceSsmAssociation[] | undefined>;
     /**
      * The current state of the instance.
      */
-    public /*out*/ readonly state!: pulumi.Output<outputs.ec2.InstanceState>;
+    declare public /*out*/ readonly state: pulumi.Output<outputs.ec2.InstanceState>;
     /**
      * [EC2-VPC] The ID of the subnet to launch the instance into.
      */
-    public readonly subnetId!: pulumi.Output<string | undefined>;
+    declare public readonly subnetId: pulumi.Output<string | undefined>;
     /**
      * The tags to add to the instance.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
      */
-    public readonly tenancy!: pulumi.Output<string | undefined>;
+    declare public readonly tenancy: pulumi.Output<string | undefined>;
     /**
      * The user data to make available to the instance.
      */
-    public readonly userData!: pulumi.Output<string | undefined>;
+    declare public readonly userData: pulumi.Output<string | undefined>;
     /**
      * The volumes to attach to the instance.
      */
-    public readonly volumes!: pulumi.Output<outputs.ec2.InstanceVolume[] | undefined>;
+    declare public readonly volumes: pulumi.Output<outputs.ec2.InstanceVolume[] | undefined>;
     /**
      * The ID of the VPC that the instance is running in.
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a Instance resource with the given unique name, arguments, and options.
@@ -241,47 +241,47 @@ export class Instance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["additionalInfo"] = args ? args.additionalInfo : undefined;
-            resourceInputs["affinity"] = args ? args.affinity : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
-            resourceInputs["cpuOptions"] = args ? args.cpuOptions : undefined;
-            resourceInputs["creditSpecification"] = args ? args.creditSpecification : undefined;
-            resourceInputs["disableApiTermination"] = args ? args.disableApiTermination : undefined;
-            resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
-            resourceInputs["elasticGpuSpecifications"] = args ? args.elasticGpuSpecifications : undefined;
-            resourceInputs["elasticInferenceAccelerators"] = args ? args.elasticInferenceAccelerators : undefined;
-            resourceInputs["enclaveOptions"] = args ? args.enclaveOptions : undefined;
-            resourceInputs["hibernationOptions"] = args ? args.hibernationOptions : undefined;
-            resourceInputs["hostId"] = args ? args.hostId : undefined;
-            resourceInputs["hostResourceGroupArn"] = args ? args.hostResourceGroupArn : undefined;
-            resourceInputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
-            resourceInputs["imageId"] = args ? args.imageId : undefined;
-            resourceInputs["instanceInitiatedShutdownBehavior"] = args ? args.instanceInitiatedShutdownBehavior : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["ipv6AddressCount"] = args ? args.ipv6AddressCount : undefined;
-            resourceInputs["ipv6Addresses"] = args ? args.ipv6Addresses : undefined;
-            resourceInputs["kernelId"] = args ? args.kernelId : undefined;
-            resourceInputs["keyName"] = args ? args.keyName : undefined;
-            resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
-            resourceInputs["licenseSpecifications"] = args ? args.licenseSpecifications : undefined;
-            resourceInputs["metadataOptions"] = args ? args.metadataOptions : undefined;
-            resourceInputs["monitoring"] = args ? args.monitoring : undefined;
-            resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
-            resourceInputs["placementGroupName"] = args ? args.placementGroupName : undefined;
-            resourceInputs["privateDnsNameOptions"] = args ? args.privateDnsNameOptions : undefined;
-            resourceInputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
-            resourceInputs["propagateTagsToVolumeOnCreation"] = args ? args.propagateTagsToVolumeOnCreation : undefined;
-            resourceInputs["ramdiskId"] = args ? args.ramdiskId : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
-            resourceInputs["sourceDestCheck"] = args ? args.sourceDestCheck : undefined;
-            resourceInputs["ssmAssociations"] = args ? args.ssmAssociations : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tenancy"] = args ? args.tenancy : undefined;
-            resourceInputs["userData"] = args ? args.userData : undefined;
-            resourceInputs["volumes"] = args ? args.volumes : undefined;
+            resourceInputs["additionalInfo"] = args?.additionalInfo;
+            resourceInputs["affinity"] = args?.affinity;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["blockDeviceMappings"] = args?.blockDeviceMappings;
+            resourceInputs["cpuOptions"] = args?.cpuOptions;
+            resourceInputs["creditSpecification"] = args?.creditSpecification;
+            resourceInputs["disableApiTermination"] = args?.disableApiTermination;
+            resourceInputs["ebsOptimized"] = args?.ebsOptimized;
+            resourceInputs["elasticGpuSpecifications"] = args?.elasticGpuSpecifications;
+            resourceInputs["elasticInferenceAccelerators"] = args?.elasticInferenceAccelerators;
+            resourceInputs["enclaveOptions"] = args?.enclaveOptions;
+            resourceInputs["hibernationOptions"] = args?.hibernationOptions;
+            resourceInputs["hostId"] = args?.hostId;
+            resourceInputs["hostResourceGroupArn"] = args?.hostResourceGroupArn;
+            resourceInputs["iamInstanceProfile"] = args?.iamInstanceProfile;
+            resourceInputs["imageId"] = args?.imageId;
+            resourceInputs["instanceInitiatedShutdownBehavior"] = args?.instanceInitiatedShutdownBehavior;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["ipv6AddressCount"] = args?.ipv6AddressCount;
+            resourceInputs["ipv6Addresses"] = args?.ipv6Addresses;
+            resourceInputs["kernelId"] = args?.kernelId;
+            resourceInputs["keyName"] = args?.keyName;
+            resourceInputs["launchTemplate"] = args?.launchTemplate;
+            resourceInputs["licenseSpecifications"] = args?.licenseSpecifications;
+            resourceInputs["metadataOptions"] = args?.metadataOptions;
+            resourceInputs["monitoring"] = args?.monitoring;
+            resourceInputs["networkInterfaces"] = args?.networkInterfaces;
+            resourceInputs["placementGroupName"] = args?.placementGroupName;
+            resourceInputs["privateDnsNameOptions"] = args?.privateDnsNameOptions;
+            resourceInputs["privateIpAddress"] = args?.privateIpAddress;
+            resourceInputs["propagateTagsToVolumeOnCreation"] = args?.propagateTagsToVolumeOnCreation;
+            resourceInputs["ramdiskId"] = args?.ramdiskId;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["securityGroups"] = args?.securityGroups;
+            resourceInputs["sourceDestCheck"] = args?.sourceDestCheck;
+            resourceInputs["ssmAssociations"] = args?.ssmAssociations;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenancy"] = args?.tenancy;
+            resourceInputs["userData"] = args?.userData;
+            resourceInputs["volumes"] = args?.volumes;
             resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["privateDnsName"] = undefined /*out*/;
             resourceInputs["privateIp"] = undefined /*out*/;

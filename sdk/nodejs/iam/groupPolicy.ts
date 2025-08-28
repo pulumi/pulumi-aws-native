@@ -40,7 +40,7 @@ export class GroupPolicy extends pulumi.CustomResource {
      * The name of the group to associate the policy with.
      *  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
      */
-    public readonly groupName!: pulumi.Output<string>;
+    declare public readonly groupName: pulumi.Output<string>;
     /**
      * The policy document.
      *  You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
@@ -51,12 +51,12 @@ export class GroupPolicy extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::GroupPolicy` for more information about the expected schema for this property.
      */
-    public readonly policyDocument!: pulumi.Output<any | undefined>;
+    declare public readonly policyDocument: pulumi.Output<any | undefined>;
     /**
      * The name of the policy document.
      *  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
      */
-    public readonly policyName!: pulumi.Output<string>;
+    declare public readonly policyName: pulumi.Output<string>;
 
     /**
      * Create a GroupPolicy resource with the given unique name, arguments, and options.
@@ -69,12 +69,12 @@ export class GroupPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["policyDocument"] = args?.policyDocument;
+            resourceInputs["policyName"] = args?.policyName;
         } else {
             resourceInputs["groupName"] = undefined /*out*/;
             resourceInputs["policyDocument"] = undefined /*out*/;

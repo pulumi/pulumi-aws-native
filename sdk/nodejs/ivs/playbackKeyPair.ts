@@ -88,23 +88,23 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
     /**
      * Key-pair identifier.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Key-pair identifier.
      */
-    public /*out*/ readonly fingerprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly fingerprint: pulumi.Output<string>;
     /**
      * An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PlaybackKeyPair resource.
      */
-    public readonly publicKeyMaterial!: pulumi.Output<string | undefined>;
+    declare public readonly publicKeyMaterial: pulumi.Output<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PlaybackKeyPair resource with the given unique name, arguments, and options.
@@ -117,9 +117,9 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicKeyMaterial"] = args ? args.publicKeyMaterial : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicKeyMaterial"] = args?.publicKeyMaterial;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["fingerprint"] = undefined /*out*/;
         } else {

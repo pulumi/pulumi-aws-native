@@ -40,19 +40,19 @@ export class GroupMembership extends pulumi.CustomResource {
     /**
      * The unique identifier for a group in the identity store.
      */
-    public readonly groupId!: pulumi.Output<string>;
+    declare public readonly groupId: pulumi.Output<string>;
     /**
      * The globally unique identifier for the identity store.
      */
-    public readonly identityStoreId!: pulumi.Output<string>;
+    declare public readonly identityStoreId: pulumi.Output<string>;
     /**
      * An object containing the identifier of a group member.
      */
-    public readonly memberId!: pulumi.Output<outputs.identitystore.GroupMembershipMemberId>;
+    declare public readonly memberId: pulumi.Output<outputs.identitystore.GroupMembershipMemberId>;
     /**
      * The identifier for a GroupMembership in the identity store.
      */
-    public /*out*/ readonly membershipId!: pulumi.Output<string>;
+    declare public /*out*/ readonly membershipId: pulumi.Output<string>;
 
     /**
      * Create a GroupMembership resource with the given unique name, arguments, and options.
@@ -65,18 +65,18 @@ export class GroupMembership extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            if ((!args || args.identityStoreId === undefined) && !opts.urn) {
+            if (args?.identityStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityStoreId'");
             }
-            if ((!args || args.memberId === undefined) && !opts.urn) {
+            if (args?.memberId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'memberId'");
             }
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["identityStoreId"] = args ? args.identityStoreId : undefined;
-            resourceInputs["memberId"] = args ? args.memberId : undefined;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["identityStoreId"] = args?.identityStoreId;
+            resourceInputs["memberId"] = args?.memberId;
             resourceInputs["membershipId"] = undefined /*out*/;
         } else {
             resourceInputs["groupId"] = undefined /*out*/;

@@ -40,19 +40,19 @@ export class TemplateGroupAccessControlEntry extends pulumi.CustomResource {
     /**
      * Permissions to allow or deny an Active Directory group to enroll or autoenroll certificates issued against a template.
      */
-    public readonly accessRights!: pulumi.Output<outputs.pcaconnectorad.TemplateGroupAccessControlEntryAccessRights>;
+    declare public readonly accessRights: pulumi.Output<outputs.pcaconnectorad.TemplateGroupAccessControlEntryAccessRights>;
     /**
      * Name of the Active Directory group. This name does not need to match the group name in Active Directory.
      */
-    public readonly groupDisplayName!: pulumi.Output<string>;
+    declare public readonly groupDisplayName: pulumi.Output<string>;
     /**
      * Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
      */
-    public readonly groupSecurityIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly groupSecurityIdentifier: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
      */
-    public readonly templateArn!: pulumi.Output<string | undefined>;
+    declare public readonly templateArn: pulumi.Output<string | undefined>;
 
     /**
      * Create a TemplateGroupAccessControlEntry resource with the given unique name, arguments, and options.
@@ -65,16 +65,16 @@ export class TemplateGroupAccessControlEntry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessRights === undefined) && !opts.urn) {
+            if (args?.accessRights === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessRights'");
             }
-            if ((!args || args.groupDisplayName === undefined) && !opts.urn) {
+            if (args?.groupDisplayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupDisplayName'");
             }
-            resourceInputs["accessRights"] = args ? args.accessRights : undefined;
-            resourceInputs["groupDisplayName"] = args ? args.groupDisplayName : undefined;
-            resourceInputs["groupSecurityIdentifier"] = args ? args.groupSecurityIdentifier : undefined;
-            resourceInputs["templateArn"] = args ? args.templateArn : undefined;
+            resourceInputs["accessRights"] = args?.accessRights;
+            resourceInputs["groupDisplayName"] = args?.groupDisplayName;
+            resourceInputs["groupSecurityIdentifier"] = args?.groupSecurityIdentifier;
+            resourceInputs["templateArn"] = args?.templateArn;
         } else {
             resourceInputs["accessRights"] = undefined /*out*/;
             resourceInputs["groupDisplayName"] = undefined /*out*/;

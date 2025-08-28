@@ -40,86 +40,86 @@ export class ScheduledQuery extends pulumi.CustomResource {
     /**
      * The `ARN` of the scheduled query.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result. Making multiple identical CreateScheduledQuery requests has the same effect as making a single request.
      *
      * - If CreateScheduledQuery is called without a `ClientToken` , the Query SDK generates a `ClientToken` on your behalf.
      * - After 8 hours, any request with the same `ClientToken` is treated as a new request.
      */
-    public readonly clientToken!: pulumi.Output<string | undefined>;
+    declare public readonly clientToken: pulumi.Output<string | undefined>;
     /**
      * Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
      */
-    public readonly errorReportConfiguration!: pulumi.Output<outputs.timestream.ScheduledQueryErrorReportConfiguration>;
+    declare public readonly errorReportConfiguration: pulumi.Output<outputs.timestream.ScheduledQueryErrorReportConfiguration>;
     /**
      * The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with *alias/*
      *
      * If ErrorReportConfiguration uses `SSE_KMS` as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
      */
-    public readonly notificationConfiguration!: pulumi.Output<outputs.timestream.ScheduledQueryNotificationConfiguration>;
+    declare public readonly notificationConfiguration: pulumi.Output<outputs.timestream.ScheduledQueryNotificationConfiguration>;
     /**
      * The query string to run. Parameter names can be specified in the query string `@` character followed by an identifier. The named Parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run.
      *
      * The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
      */
-    public readonly queryString!: pulumi.Output<string>;
+    declare public readonly queryString: pulumi.Output<string>;
     /**
      * Schedule configuration.
      */
-    public readonly scheduleConfiguration!: pulumi.Output<outputs.timestream.ScheduledQueryScheduleConfiguration>;
+    declare public readonly scheduleConfiguration: pulumi.Output<outputs.timestream.ScheduledQueryScheduleConfiguration>;
     /**
      * The ARN for the IAM role that Timestream will assume when running the scheduled query.
      */
-    public readonly scheduledQueryExecutionRoleArn!: pulumi.Output<string>;
+    declare public readonly scheduledQueryExecutionRoleArn: pulumi.Output<string>;
     /**
      * A name for the query. Scheduled query names must be unique within each Region.
      */
-    public readonly scheduledQueryName!: pulumi.Output<string | undefined>;
+    declare public readonly scheduledQueryName: pulumi.Output<string | undefined>;
     /**
      * Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
      */
-    public /*out*/ readonly sqErrorReportConfiguration!: pulumi.Output<string>;
+    declare public /*out*/ readonly sqErrorReportConfiguration: pulumi.Output<string>;
     /**
      * The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with alias/. If ErrorReportConfiguration uses SSE_KMS as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
      */
-    public /*out*/ readonly sqKmsKeyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly sqKmsKeyId: pulumi.Output<string>;
     /**
      * The name of the scheduled query. Scheduled query names must be unique within each Region.
      */
-    public /*out*/ readonly sqName!: pulumi.Output<string>;
+    declare public /*out*/ readonly sqName: pulumi.Output<string>;
     /**
      * Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
      */
-    public /*out*/ readonly sqNotificationConfiguration!: pulumi.Output<string>;
+    declare public /*out*/ readonly sqNotificationConfiguration: pulumi.Output<string>;
     /**
      * The query string to run. Parameter names can be specified in the query string @ character followed by an identifier. The named Parameter @scheduled_runtime is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of @scheduled_runtime paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the @scheduled_runtime parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
      */
-    public /*out*/ readonly sqQueryString!: pulumi.Output<string>;
+    declare public /*out*/ readonly sqQueryString: pulumi.Output<string>;
     /**
      * Configuration for when the scheduled query is executed.
      */
-    public /*out*/ readonly sqScheduleConfiguration!: pulumi.Output<string>;
+    declare public /*out*/ readonly sqScheduleConfiguration: pulumi.Output<string>;
     /**
      * The ARN for the IAM role that Timestream will assume when running the scheduled query.
      */
-    public /*out*/ readonly sqScheduledQueryExecutionRoleArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly sqScheduledQueryExecutionRoleArn: pulumi.Output<string>;
     /**
      * Configuration of target store where scheduled query results are written to.
      */
-    public /*out*/ readonly sqTargetConfiguration!: pulumi.Output<string>;
+    declare public /*out*/ readonly sqTargetConfiguration: pulumi.Output<string>;
     /**
      * A list of key-value pairs to label the scheduled query.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Scheduled query target store configuration.
      */
-    public readonly targetConfiguration!: pulumi.Output<outputs.timestream.ScheduledQueryTargetConfiguration | undefined>;
+    declare public readonly targetConfiguration: pulumi.Output<outputs.timestream.ScheduledQueryTargetConfiguration | undefined>;
 
     /**
      * Create a ScheduledQuery resource with the given unique name, arguments, and options.
@@ -132,31 +132,31 @@ export class ScheduledQuery extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.errorReportConfiguration === undefined) && !opts.urn) {
+            if (args?.errorReportConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'errorReportConfiguration'");
             }
-            if ((!args || args.notificationConfiguration === undefined) && !opts.urn) {
+            if (args?.notificationConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notificationConfiguration'");
             }
-            if ((!args || args.queryString === undefined) && !opts.urn) {
+            if (args?.queryString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryString'");
             }
-            if ((!args || args.scheduleConfiguration === undefined) && !opts.urn) {
+            if (args?.scheduleConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleConfiguration'");
             }
-            if ((!args || args.scheduledQueryExecutionRoleArn === undefined) && !opts.urn) {
+            if (args?.scheduledQueryExecutionRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduledQueryExecutionRoleArn'");
             }
-            resourceInputs["clientToken"] = args ? args.clientToken : undefined;
-            resourceInputs["errorReportConfiguration"] = args ? args.errorReportConfiguration : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
-            resourceInputs["queryString"] = args ? args.queryString : undefined;
-            resourceInputs["scheduleConfiguration"] = args ? args.scheduleConfiguration : undefined;
-            resourceInputs["scheduledQueryExecutionRoleArn"] = args ? args.scheduledQueryExecutionRoleArn : undefined;
-            resourceInputs["scheduledQueryName"] = args ? args.scheduledQueryName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetConfiguration"] = args ? args.targetConfiguration : undefined;
+            resourceInputs["clientToken"] = args?.clientToken;
+            resourceInputs["errorReportConfiguration"] = args?.errorReportConfiguration;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["notificationConfiguration"] = args?.notificationConfiguration;
+            resourceInputs["queryString"] = args?.queryString;
+            resourceInputs["scheduleConfiguration"] = args?.scheduleConfiguration;
+            resourceInputs["scheduledQueryExecutionRoleArn"] = args?.scheduledQueryExecutionRoleArn;
+            resourceInputs["scheduledQueryName"] = args?.scheduledQueryName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetConfiguration"] = args?.targetConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["sqErrorReportConfiguration"] = undefined /*out*/;
             resourceInputs["sqKmsKeyId"] = undefined /*out*/;

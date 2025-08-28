@@ -40,19 +40,19 @@ export class ResolverDnssecConfig extends pulumi.CustomResource {
     /**
      * Id
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * AccountId
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * ResourceId
      */
-    public readonly resourceId!: pulumi.Output<string | undefined>;
+    declare public readonly resourceId: pulumi.Output<string | undefined>;
     /**
      * ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
      */
-    public /*out*/ readonly validationStatus!: pulumi.Output<enums.route53resolver.ResolverDnssecConfigValidationStatus>;
+    declare public /*out*/ readonly validationStatus: pulumi.Output<enums.route53resolver.ResolverDnssecConfigValidationStatus>;
 
     /**
      * Create a ResolverDnssecConfig resource with the given unique name, arguments, and options.
@@ -65,7 +65,7 @@ export class ResolverDnssecConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["validationStatus"] = undefined /*out*/;

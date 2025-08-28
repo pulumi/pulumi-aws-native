@@ -40,59 +40,59 @@ export class Application extends pulumi.CustomResource {
     /**
      * The resource ID of the API Gateway for the proxy.
      */
-    public /*out*/ readonly apiGatewayId!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiGatewayId: pulumi.Output<string>;
     /**
      * The endpoint URL of the Amazon API Gateway proxy.
      */
-    public readonly apiGatewayProxy!: pulumi.Output<outputs.refactorspaces.ApplicationApiGatewayProxyInput | undefined>;
+    declare public readonly apiGatewayProxy: pulumi.Output<outputs.refactorspaces.ApplicationApiGatewayProxyInput | undefined>;
     /**
      * The unique identifier of the application.
      */
-    public /*out*/ readonly applicationIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationIdentifier: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the application.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The unique identifier of the environment.
      */
-    public readonly environmentIdentifier!: pulumi.Output<string>;
+    declare public readonly environmentIdentifier: pulumi.Output<string>;
     /**
      * The name of the application.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Network Load Balancer .
      */
-    public /*out*/ readonly nlbArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly nlbArn: pulumi.Output<string>;
     /**
      * The name of the Network Load Balancer configured by the API Gateway proxy.
      */
-    public /*out*/ readonly nlbName!: pulumi.Output<string>;
+    declare public /*out*/ readonly nlbName: pulumi.Output<string>;
     /**
      * The proxy type of the proxy created within the application.
      */
-    public readonly proxyType!: pulumi.Output<enums.refactorspaces.ApplicationProxyType>;
+    declare public readonly proxyType: pulumi.Output<enums.refactorspaces.ApplicationProxyType>;
     /**
      * The endpoint URL of the Amazon API Gateway proxy.
      */
-    public /*out*/ readonly proxyUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly proxyUrl: pulumi.Output<string>;
     /**
      * The name of the API Gateway stage. The name defaults to `prod` .
      */
-    public /*out*/ readonly stageName!: pulumi.Output<string>;
+    declare public /*out*/ readonly stageName: pulumi.Output<string>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the virtual private cloud (VPC).
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
     /**
      * The `VpcLink` ID of the API Gateway proxy.
      */
-    public /*out*/ readonly vpcLinkId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcLinkId: pulumi.Output<string>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -105,21 +105,21 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.environmentIdentifier === undefined) && !opts.urn) {
+            if (args?.environmentIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentIdentifier'");
             }
-            if ((!args || args.proxyType === undefined) && !opts.urn) {
+            if (args?.proxyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'proxyType'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["apiGatewayProxy"] = args ? args.apiGatewayProxy : undefined;
-            resourceInputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["proxyType"] = args ? args.proxyType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["apiGatewayProxy"] = args?.apiGatewayProxy;
+            resourceInputs["environmentIdentifier"] = args?.environmentIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["proxyType"] = args?.proxyType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["apiGatewayId"] = undefined /*out*/;
             resourceInputs["applicationIdentifier"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;

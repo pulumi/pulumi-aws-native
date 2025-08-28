@@ -40,23 +40,23 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     /**
      * Returns the compute environment ARN, such as `batch: *us-east-1* : *111122223333* :compute-environment/ *ComputeEnvironmentName*` .
      */
-    public /*out*/ readonly computeEnvironmentArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly computeEnvironmentArn: pulumi.Output<string>;
     /**
      * The name for your compute environment. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      */
-    public readonly computeEnvironmentName!: pulumi.Output<string | undefined>;
+    declare public readonly computeEnvironmentName: pulumi.Output<string | undefined>;
     /**
      * The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
      */
-    public readonly computeResources!: pulumi.Output<outputs.batch.ComputeEnvironmentComputeResources | undefined>;
+    declare public readonly computeResources: pulumi.Output<outputs.batch.ComputeEnvironmentComputeResources | undefined>;
     /**
      * Reserved.
      */
-    public readonly context!: pulumi.Output<string | undefined>;
+    declare public readonly context: pulumi.Output<string | undefined>;
     /**
      * The details for the Amazon EKS cluster that supports the compute environment.
      */
-    public readonly eksConfiguration!: pulumi.Output<outputs.batch.ComputeEnvironmentEksConfiguration | undefined>;
+    declare public readonly eksConfiguration: pulumi.Output<outputs.batch.ComputeEnvironmentEksConfiguration | undefined>;
     /**
      * Specifies whether the compute environment is replaced if an update is made that requires replacing the instances in the compute environment. The default value is `true` . To enable more properties to be updated, set this property to `false` . When changing the value of this property to `false` , do not change any other properties at the same time. If other properties are changed at the same time, and the change needs to be rolled back but it can't, it's possible for the stack to go into the `UPDATE_ROLLBACK_FAILED` state. You can't update a stack that is in the `UPDATE_ROLLBACK_FAILED` state. However, if you can continue to roll it back, you can return the stack to its original settings and then try to update it again. For more information, see [Continue rolling back an update](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html) in the *AWS CloudFormation User Guide* .
      *
@@ -64,7 +64,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      *
      * The properties that can't be changed without replacing the compute environment are in the [`ComputeResources`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html) property type: [`AllocationStrategy`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-allocationstrategy) , [`BidPercentage`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-bidpercentage) , [`Ec2Configuration`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2configuration) , [`Ec2KeyPair`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2keypair) , [`Ec2KeyPair`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-ec2keypair) , [`ImageId`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-imageid) , [`InstanceRole`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-instancerole) , [`InstanceTypes`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-instancetypes) , [`LaunchTemplate`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-launchtemplate) , [`MaxvCpus`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-maxvcpus) , [`MinvCpus`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-minvcpus) , [`PlacementGroup`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-placementgroup) , [`SecurityGroupIds`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-securitygroupids) , [`Subnets`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-subnets) , [Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-tags) , [`Type`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-type) , and [`UpdateToLatestImageVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-updatetolatestimageversion) .
      */
-    public readonly replaceComputeEnvironment!: pulumi.Output<boolean | undefined>;
+    declare public readonly replaceComputeEnvironment: pulumi.Output<boolean | undefined>;
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf. For more information, see [AWS Batch service IAM role](https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html) in the *AWS Batch User Guide* .
      *
@@ -74,7 +74,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      *
      * > Depending on how you created your AWS Batch service role, its ARN might contain the `service-role` path prefix. When you only specify the name of the service role, AWS Batch assumes that your ARN doesn't use the `service-role` path prefix. Because of this, we recommend that you specify the full ARN of your service role when you create compute environments.
      */
-    public readonly serviceRole!: pulumi.Output<string | undefined>;
+    declare public readonly serviceRole: pulumi.Output<string | undefined>;
     /**
      * The state of the compute environment. If the state is `ENABLED` , then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
      *
@@ -86,25 +86,25 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      *
      * When an instance is idle, the instance scales down to the `minvCpus` value. However, the instance size doesn't change. For example, consider a `c5.8xlarge` instance with a `minvCpus` value of `4` and a `desiredvCpus` value of `36` . This instance doesn't scale down to a `c5.large` instance.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the compute environment: `MANAGED` or `UNMANAGED` . For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide* .
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair-share scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.
      *
      * > This parameter is only supported when the `type` parameter is set to `UNMANAGED` .
      */
-    public readonly unmanagedvCpus!: pulumi.Output<number | undefined>;
+    declare public readonly unmanagedvCpus: pulumi.Output<number | undefined>;
     /**
      * Specifies the infrastructure update policy for the compute environment. For more information about infrastructure updates, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
      */
-    public readonly updatePolicy!: pulumi.Output<outputs.batch.ComputeEnvironmentUpdatePolicy | undefined>;
+    declare public readonly updatePolicy: pulumi.Output<outputs.batch.ComputeEnvironmentUpdatePolicy | undefined>;
 
     /**
      * Create a ComputeEnvironment resource with the given unique name, arguments, and options.
@@ -117,20 +117,20 @@ export class ComputeEnvironment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["computeEnvironmentName"] = args ? args.computeEnvironmentName : undefined;
-            resourceInputs["computeResources"] = args ? args.computeResources : undefined;
-            resourceInputs["context"] = args ? args.context : undefined;
-            resourceInputs["eksConfiguration"] = args ? args.eksConfiguration : undefined;
-            resourceInputs["replaceComputeEnvironment"] = args ? args.replaceComputeEnvironment : undefined;
-            resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["unmanagedvCpus"] = args ? args.unmanagedvCpus : undefined;
-            resourceInputs["updatePolicy"] = args ? args.updatePolicy : undefined;
+            resourceInputs["computeEnvironmentName"] = args?.computeEnvironmentName;
+            resourceInputs["computeResources"] = args?.computeResources;
+            resourceInputs["context"] = args?.context;
+            resourceInputs["eksConfiguration"] = args?.eksConfiguration;
+            resourceInputs["replaceComputeEnvironment"] = args?.replaceComputeEnvironment;
+            resourceInputs["serviceRole"] = args?.serviceRole;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["unmanagedvCpus"] = args?.unmanagedvCpus;
+            resourceInputs["updatePolicy"] = args?.updatePolicy;
             resourceInputs["computeEnvironmentArn"] = undefined /*out*/;
         } else {
             resourceInputs["computeEnvironmentArn"] = undefined /*out*/;

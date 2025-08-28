@@ -40,15 +40,15 @@ export class PublicKey extends pulumi.CustomResource {
     /**
      * The identifier of the public key.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The date and time when the public key was uploaded.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
      */
-    public readonly publicKeyConfig!: pulumi.Output<outputs.cloudfront.PublicKeyConfig>;
+    declare public readonly publicKeyConfig: pulumi.Output<outputs.cloudfront.PublicKeyConfig>;
 
     /**
      * Create a PublicKey resource with the given unique name, arguments, and options.
@@ -61,10 +61,10 @@ export class PublicKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.publicKeyConfig === undefined) && !opts.urn) {
+            if (args?.publicKeyConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publicKeyConfig'");
             }
-            resourceInputs["publicKeyConfig"] = args ? args.publicKeyConfig : undefined;
+            resourceInputs["publicKeyConfig"] = args?.publicKeyConfig;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
         } else {

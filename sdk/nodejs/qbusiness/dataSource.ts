@@ -40,7 +40,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * The identifier of the Amazon Q Business application the data source will be attached to.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    declare public readonly applicationId: pulumi.Output<string>;
     /**
      * Use this property to specify a JSON or YAML schema with configuration properties specific to your data source connector to connect your data source repository to Amazon Q Business . You must use the JSON or YAML schema provided by Amazon Q .
      *
@@ -56,71 +56,71 @@ export class DataSource extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property.
      */
-    public readonly configuration!: pulumi.Output<any>;
+    declare public readonly configuration: pulumi.Output<any>;
     /**
      * The Unix timestamp when the Amazon Q Business data source was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of a data source in an Amazon Q Business application.
      */
-    public /*out*/ readonly dataSourceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataSourceArn: pulumi.Output<string>;
     /**
      * The identifier of the Amazon Q Business data source.
      */
-    public /*out*/ readonly dataSourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataSourceId: pulumi.Output<string>;
     /**
      * A description for the data source connector.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the Amazon Q Business data source.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Provides the configuration information for altering document metadata and content during the document ingestion process.
      *
      * For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
      */
-    public readonly documentEnrichmentConfiguration!: pulumi.Output<outputs.qbusiness.DataSourceDocumentEnrichmentConfiguration | undefined>;
+    declare public readonly documentEnrichmentConfiguration: pulumi.Output<outputs.qbusiness.DataSourceDocumentEnrichmentConfiguration | undefined>;
     /**
      * The identifier of the index the data source is attached to.
      */
-    public readonly indexId!: pulumi.Output<string>;
+    declare public readonly indexId: pulumi.Output<string>;
     /**
      * The configuration for extracting information from media in documents.
      */
-    public readonly mediaExtractionConfiguration!: pulumi.Output<outputs.qbusiness.DataSourceMediaExtractionConfiguration | undefined>;
+    declare public readonly mediaExtractionConfiguration: pulumi.Output<outputs.qbusiness.DataSourceMediaExtractionConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * The status of the Amazon Q Business data source.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.qbusiness.DataSourceStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.qbusiness.DataSourceStatus>;
     /**
      * Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
      *
      * Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
      */
-    public readonly syncSchedule!: pulumi.Output<string | undefined>;
+    declare public readonly syncSchedule: pulumi.Output<string | undefined>;
     /**
      * A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the Amazon Q Business data source.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The Unix timestamp when the Amazon Q Business data source was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
      */
-    public readonly vpcConfiguration!: pulumi.Output<outputs.qbusiness.DataSourceVpcConfiguration | undefined>;
+    declare public readonly vpcConfiguration: pulumi.Output<outputs.qbusiness.DataSourceVpcConfiguration | undefined>;
 
     /**
      * Create a DataSource resource with the given unique name, arguments, and options.
@@ -133,29 +133,29 @@ export class DataSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.indexId === undefined) && !opts.urn) {
+            if (args?.indexId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'indexId'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["documentEnrichmentConfiguration"] = args ? args.documentEnrichmentConfiguration : undefined;
-            resourceInputs["indexId"] = args ? args.indexId : undefined;
-            resourceInputs["mediaExtractionConfiguration"] = args ? args.mediaExtractionConfiguration : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["syncSchedule"] = args ? args.syncSchedule : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["documentEnrichmentConfiguration"] = args?.documentEnrichmentConfiguration;
+            resourceInputs["indexId"] = args?.indexId;
+            resourceInputs["mediaExtractionConfiguration"] = args?.mediaExtractionConfiguration;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["syncSchedule"] = args?.syncSchedule;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcConfiguration"] = args?.vpcConfiguration;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["dataSourceArn"] = undefined /*out*/;
             resourceInputs["dataSourceId"] = undefined /*out*/;

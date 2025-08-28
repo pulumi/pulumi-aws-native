@@ -40,43 +40,43 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The time of when the cluster was created in ISO-8601 format.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * Whether deletion protection is enabled in this cluster.
      */
-    public readonly deletionProtectionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly deletionProtectionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The encryption configuration details for the cluster.
      */
-    public /*out*/ readonly encryptionDetails!: pulumi.Output<outputs.dsql.EncryptionDetailsProperties>;
+    declare public /*out*/ readonly encryptionDetails: pulumi.Output<outputs.dsql.EncryptionDetailsProperties>;
     /**
      * The ID of the created cluster.
      */
-    public /*out*/ readonly identifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly identifier: pulumi.Output<string>;
     /**
      * The KMS key that encrypts data on the cluster.
      */
-    public readonly kmsEncryptionKey!: pulumi.Output<string | undefined>;
+    declare public readonly kmsEncryptionKey: pulumi.Output<string | undefined>;
     /**
      * The Multi-region properties associated to this cluster.
      */
-    public readonly multiRegionProperties!: pulumi.Output<outputs.dsql.MultiRegionPropertiesProperties | undefined>;
+    declare public readonly multiRegionProperties: pulumi.Output<outputs.dsql.MultiRegionPropertiesProperties | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the cluster.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
      * The status of the cluster.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * A map of key and value pairs this cluster is tagged with.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The VPC endpoint service name.
      */
-    public /*out*/ readonly vpcEndpointServiceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcEndpointServiceName: pulumi.Output<string>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -89,10 +89,10 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
-            resourceInputs["kmsEncryptionKey"] = args ? args.kmsEncryptionKey : undefined;
-            resourceInputs["multiRegionProperties"] = args ? args.multiRegionProperties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
+            resourceInputs["kmsEncryptionKey"] = args?.kmsEncryptionKey;
+            resourceInputs["multiRegionProperties"] = args?.multiRegionProperties;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["encryptionDetails"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;

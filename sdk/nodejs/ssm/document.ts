@@ -191,45 +191,45 @@ export class Document extends pulumi.CustomResource {
     /**
      * A list of key and value pairs that describe attachments to a version of a document.
      */
-    public readonly attachments!: pulumi.Output<outputs.ssm.DocumentAttachmentsSource[] | undefined>;
+    declare public readonly attachments: pulumi.Output<outputs.ssm.DocumentAttachmentsSource[] | undefined>;
     /**
      * The content for the Systems Manager document in JSON, YAML or String format.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
      */
-    public readonly content!: pulumi.Output<any>;
+    declare public readonly content: pulumi.Output<any>;
     /**
      * Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
      */
-    public readonly documentFormat!: pulumi.Output<enums.ssm.DocumentFormat | undefined>;
+    declare public readonly documentFormat: pulumi.Output<enums.ssm.DocumentFormat | undefined>;
     /**
      * The type of document to create.
      */
-    public readonly documentType!: pulumi.Output<enums.ssm.DocumentType | undefined>;
+    declare public readonly documentType: pulumi.Output<enums.ssm.DocumentType | undefined>;
     /**
      * A name for the Systems Manager document.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
      */
-    public readonly requires!: pulumi.Output<outputs.ssm.DocumentRequires[] | undefined>;
+    declare public readonly requires: pulumi.Output<outputs.ssm.DocumentRequires[] | undefined>;
     /**
      * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Specify a target type to define the kinds of resources the document can run on.
      */
-    public readonly targetType!: pulumi.Output<string | undefined>;
+    declare public readonly targetType: pulumi.Output<string | undefined>;
     /**
      * Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
      */
-    public readonly updateMethod!: pulumi.Output<enums.ssm.DocumentUpdateMethod | undefined>;
+    declare public readonly updateMethod: pulumi.Output<enums.ssm.DocumentUpdateMethod | undefined>;
     /**
      * An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
      */
-    public readonly versionName!: pulumi.Output<string | undefined>;
+    declare public readonly versionName: pulumi.Output<string | undefined>;
 
     /**
      * Create a Document resource with the given unique name, arguments, and options.
@@ -242,19 +242,19 @@ export class Document extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            resourceInputs["attachments"] = args ? args.attachments : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["documentFormat"] = args ? args.documentFormat : undefined;
-            resourceInputs["documentType"] = args ? args.documentType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["requires"] = args ? args.requires : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetType"] = args ? args.targetType : undefined;
-            resourceInputs["updateMethod"] = args ? args.updateMethod : undefined;
-            resourceInputs["versionName"] = args ? args.versionName : undefined;
+            resourceInputs["attachments"] = args?.attachments;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["documentFormat"] = args?.documentFormat;
+            resourceInputs["documentType"] = args?.documentType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["requires"] = args?.requires;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetType"] = args?.targetType;
+            resourceInputs["updateMethod"] = args?.updateMethod;
+            resourceInputs["versionName"] = args?.versionName;
         } else {
             resourceInputs["attachments"] = undefined /*out*/;
             resourceInputs["content"] = undefined /*out*/;

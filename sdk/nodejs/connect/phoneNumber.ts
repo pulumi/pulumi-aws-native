@@ -40,39 +40,39 @@ export class PhoneNumber extends pulumi.CustomResource {
     /**
      * The phone number e164 address.
      */
-    public /*out*/ readonly address!: pulumi.Output<string>;
+    declare public /*out*/ readonly address: pulumi.Output<string>;
     /**
      * The phone number country code.
      */
-    public readonly countryCode!: pulumi.Output<string | undefined>;
+    declare public readonly countryCode: pulumi.Output<string | undefined>;
     /**
      * The description of the phone number.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The phone number ARN
      */
-    public /*out*/ readonly phoneNumberArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly phoneNumberArn: pulumi.Output<string>;
     /**
      * The phone number prefix.
      */
-    public readonly prefix!: pulumi.Output<string | undefined>;
+    declare public readonly prefix: pulumi.Output<string | undefined>;
     /**
      * The source phone number arn.
      */
-    public readonly sourcePhoneNumberArn!: pulumi.Output<string | undefined>;
+    declare public readonly sourcePhoneNumberArn: pulumi.Output<string | undefined>;
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of the target the phone number is claimed to.
      */
-    public readonly targetArn!: pulumi.Output<string>;
+    declare public readonly targetArn: pulumi.Output<string>;
     /**
      * The phone number type
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a PhoneNumber resource with the given unique name, arguments, and options.
@@ -85,16 +85,16 @@ export class PhoneNumber extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.targetArn === undefined) && !opts.urn) {
+            if (args?.targetArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            resourceInputs["countryCode"] = args ? args.countryCode : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["prefix"] = args ? args.prefix : undefined;
-            resourceInputs["sourcePhoneNumberArn"] = args ? args.sourcePhoneNumberArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetArn"] = args ? args.targetArn : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["countryCode"] = args?.countryCode;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["prefix"] = args?.prefix;
+            resourceInputs["sourcePhoneNumberArn"] = args?.sourcePhoneNumberArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetArn"] = args?.targetArn;
+            resourceInputs["type"] = args?.type;
             resourceInputs["address"] = undefined /*out*/;
             resourceInputs["phoneNumberArn"] = undefined /*out*/;
         } else {

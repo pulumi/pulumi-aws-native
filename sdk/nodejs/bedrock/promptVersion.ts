@@ -40,51 +40,51 @@ export class PromptVersion extends pulumi.CustomResource {
     /**
      * ARN of a prompt version resource
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Time Stamp.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * A KMS key ARN
      */
-    public /*out*/ readonly customerEncryptionKeyArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly customerEncryptionKeyArn: pulumi.Output<string>;
     /**
      * Name for a variant.
      */
-    public /*out*/ readonly defaultVariant!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultVariant: pulumi.Output<string>;
     /**
      * Description for a prompt version resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name for a prompt resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * ARN of a prompt resource possibly with a version
      */
-    public readonly promptArn!: pulumi.Output<string>;
+    declare public readonly promptArn: pulumi.Output<string>;
     /**
      * Identifier for a Prompt
      */
-    public /*out*/ readonly promptId!: pulumi.Output<string>;
+    declare public /*out*/ readonly promptId: pulumi.Output<string>;
     /**
      * A map of tags attached to the prompt version and their values.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Time Stamp.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * List of prompt variants
      */
-    public /*out*/ readonly variants!: pulumi.Output<outputs.bedrock.PromptVersionPromptVariant[]>;
+    declare public /*out*/ readonly variants: pulumi.Output<outputs.bedrock.PromptVersionPromptVariant[]>;
     /**
      * Version.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a PromptVersion resource with the given unique name, arguments, and options.
@@ -97,12 +97,12 @@ export class PromptVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.promptArn === undefined) && !opts.urn) {
+            if (args?.promptArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'promptArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["promptArn"] = args ? args.promptArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["promptArn"] = args?.promptArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["customerEncryptionKeyArn"] = undefined /*out*/;

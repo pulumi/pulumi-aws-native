@@ -134,14 +134,14 @@ export class Topic extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
      */
-    public readonly archivePolicy!: pulumi.Output<any | undefined>;
+    declare public readonly archivePolicy: pulumi.Output<any | undefined>;
     /**
      * Enables content-based deduplication for FIFO topics.
      *   +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action. 
      *   +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).
      *  (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
      */
-    public readonly contentBasedDeduplication!: pulumi.Output<boolean | undefined>;
+    declare public readonly contentBasedDeduplication: pulumi.Output<boolean | undefined>;
     /**
      * The body of the policy document you want to use for this topic.
      *  You can only add one policy per topic.
@@ -150,7 +150,7 @@ export class Topic extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
      */
-    public readonly dataProtectionPolicy!: pulumi.Output<any | undefined>;
+    declare public readonly dataProtectionPolicy: pulumi.Output<any | undefined>;
     /**
      * The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
      *   +  HTTP 
@@ -161,52 +161,52 @@ export class Topic extends pulumi.CustomResource {
      *   
      *  Once configured, log entries are sent to Amazon CloudWatch Logs.
      */
-    public readonly deliveryStatusLogging!: pulumi.Output<outputs.sns.TopicLoggingConfig[] | undefined>;
+    declare public readonly deliveryStatusLogging: pulumi.Output<outputs.sns.TopicLoggingConfig[] | undefined>;
     /**
      * The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
      */
-    public readonly fifoThroughputScope!: pulumi.Output<string | undefined>;
+    declare public readonly fifoThroughputScope: pulumi.Output<string | undefined>;
     /**
      * Set to true to create a FIFO topic.
      */
-    public readonly fifoTopic!: pulumi.Output<boolean | undefined>;
+    declare public readonly fifoTopic: pulumi.Output<boolean | undefined>;
     /**
      * The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
      *  This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
      */
-    public readonly kmsMasterKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsMasterKeyId: pulumi.Output<string | undefined>;
     /**
      * The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
      */
-    public readonly signatureVersion!: pulumi.Output<string | undefined>;
+    declare public readonly signatureVersion: pulumi.Output<string | undefined>;
     /**
      * The SNS subscriptions (endpoints) for this topic.
      *   If you specify the ``Subscription`` property in the ``AWS::SNS::Topic`` resource and it creates an associated subscription resource, the associated subscription is not deleted when the ``AWS::SNS::Topic`` resource is deleted.
      */
-    public readonly subscription!: pulumi.Output<outputs.sns.TopicSubscription[] | undefined>;
+    declare public readonly subscription: pulumi.Output<outputs.sns.TopicSubscription[] | undefined>;
     /**
      * The list of tags to add to a new topic.
      *   To be able to tag a topic on creation, you must have the ``sns:CreateTopic`` and ``sns:TagResource`` permissions.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Returns the ARN of an Amazon SNS topic.
      */
-    public /*out*/ readonly topicArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly topicArn: pulumi.Output<string>;
     /**
      * The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with ``.fifo``.
      *  If you don't specify a name, CFN generates a unique physical ID and uses that ID for the topic name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
      *   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
-    public readonly topicName!: pulumi.Output<string | undefined>;
+    declare public readonly topicName: pulumi.Output<string | undefined>;
     /**
      * Tracing mode of an SNS topic. By default ``TracingConfig`` is set to ``PassThrough``, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to ``Active``, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true.
      */
-    public readonly tracingConfig!: pulumi.Output<string | undefined>;
+    declare public readonly tracingConfig: pulumi.Output<string | undefined>;
 
     /**
      * Create a Topic resource with the given unique name, arguments, and options.
@@ -219,19 +219,19 @@ export class Topic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["archivePolicy"] = args ? args.archivePolicy : undefined;
-            resourceInputs["contentBasedDeduplication"] = args ? args.contentBasedDeduplication : undefined;
-            resourceInputs["dataProtectionPolicy"] = args ? args.dataProtectionPolicy : undefined;
-            resourceInputs["deliveryStatusLogging"] = args ? args.deliveryStatusLogging : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["fifoThroughputScope"] = args ? args.fifoThroughputScope : undefined;
-            resourceInputs["fifoTopic"] = args ? args.fifoTopic : undefined;
-            resourceInputs["kmsMasterKeyId"] = args ? args.kmsMasterKeyId : undefined;
-            resourceInputs["signatureVersion"] = args ? args.signatureVersion : undefined;
-            resourceInputs["subscription"] = args ? args.subscription : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topicName"] = args ? args.topicName : undefined;
-            resourceInputs["tracingConfig"] = args ? args.tracingConfig : undefined;
+            resourceInputs["archivePolicy"] = args?.archivePolicy;
+            resourceInputs["contentBasedDeduplication"] = args?.contentBasedDeduplication;
+            resourceInputs["dataProtectionPolicy"] = args?.dataProtectionPolicy;
+            resourceInputs["deliveryStatusLogging"] = args?.deliveryStatusLogging;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["fifoThroughputScope"] = args?.fifoThroughputScope;
+            resourceInputs["fifoTopic"] = args?.fifoTopic;
+            resourceInputs["kmsMasterKeyId"] = args?.kmsMasterKeyId;
+            resourceInputs["signatureVersion"] = args?.signatureVersion;
+            resourceInputs["subscription"] = args?.subscription;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topicName"] = args?.topicName;
+            resourceInputs["tracingConfig"] = args?.tracingConfig;
             resourceInputs["topicArn"] = undefined /*out*/;
         } else {
             resourceInputs["archivePolicy"] = undefined /*out*/;

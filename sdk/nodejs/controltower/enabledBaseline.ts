@@ -40,21 +40,21 @@ export class EnabledBaseline extends pulumi.CustomResource {
     /**
      * The specific `Baseline` enabled as part of the `EnabledBaseline` resource.
      */
-    public readonly baselineIdentifier!: pulumi.Output<string>;
+    declare public readonly baselineIdentifier: pulumi.Output<string>;
     /**
      * The enabled version of the `Baseline` .
      */
-    public readonly baselineVersion!: pulumi.Output<string>;
-    public /*out*/ readonly enabledBaselineIdentifier!: pulumi.Output<string>;
+    declare public readonly baselineVersion: pulumi.Output<string>;
+    declare public /*out*/ readonly enabledBaselineIdentifier: pulumi.Output<string>;
     /**
      * Shows the parameters that are applied when enabling this `Baseline` .
      */
-    public readonly parameters!: pulumi.Output<outputs.controltower.EnabledBaselineParameter[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly parameters: pulumi.Output<outputs.controltower.EnabledBaselineParameter[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The target on which to enable the `Baseline` .
      */
-    public readonly targetIdentifier!: pulumi.Output<string>;
+    declare public readonly targetIdentifier: pulumi.Output<string>;
 
     /**
      * Create a EnabledBaseline resource with the given unique name, arguments, and options.
@@ -67,20 +67,20 @@ export class EnabledBaseline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.baselineIdentifier === undefined) && !opts.urn) {
+            if (args?.baselineIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'baselineIdentifier'");
             }
-            if ((!args || args.baselineVersion === undefined) && !opts.urn) {
+            if (args?.baselineVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'baselineVersion'");
             }
-            if ((!args || args.targetIdentifier === undefined) && !opts.urn) {
+            if (args?.targetIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetIdentifier'");
             }
-            resourceInputs["baselineIdentifier"] = args ? args.baselineIdentifier : undefined;
-            resourceInputs["baselineVersion"] = args ? args.baselineVersion : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetIdentifier"] = args ? args.targetIdentifier : undefined;
+            resourceInputs["baselineIdentifier"] = args?.baselineIdentifier;
+            resourceInputs["baselineVersion"] = args?.baselineVersion;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetIdentifier"] = args?.targetIdentifier;
             resourceInputs["enabledBaselineIdentifier"] = undefined /*out*/;
         } else {
             resourceInputs["baselineIdentifier"] = undefined /*out*/;

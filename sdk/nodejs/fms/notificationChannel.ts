@@ -37,11 +37,11 @@ export class NotificationChannel extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
      */
-    public readonly snsRoleName!: pulumi.Output<string>;
+    declare public readonly snsRoleName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
      */
-    public readonly snsTopicArn!: pulumi.Output<string>;
+    declare public readonly snsTopicArn: pulumi.Output<string>;
 
     /**
      * Create a NotificationChannel resource with the given unique name, arguments, and options.
@@ -54,14 +54,14 @@ export class NotificationChannel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.snsRoleName === undefined) && !opts.urn) {
+            if (args?.snsRoleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'snsRoleName'");
             }
-            if ((!args || args.snsTopicArn === undefined) && !opts.urn) {
+            if (args?.snsTopicArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'snsTopicArn'");
             }
-            resourceInputs["snsRoleName"] = args ? args.snsRoleName : undefined;
-            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
+            resourceInputs["snsRoleName"] = args?.snsRoleName;
+            resourceInputs["snsTopicArn"] = args?.snsTopicArn;
         } else {
             resourceInputs["snsRoleName"] = undefined /*out*/;
             resourceInputs["snsTopicArn"] = undefined /*out*/;

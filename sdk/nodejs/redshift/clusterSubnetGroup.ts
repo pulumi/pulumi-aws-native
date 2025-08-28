@@ -40,19 +40,19 @@ export class ClusterSubnetGroup extends pulumi.CustomResource {
     /**
      * This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
      */
-    public /*out*/ readonly clusterSubnetGroupName!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterSubnetGroupName: pulumi.Output<string>;
     /**
      * The description of the parameter group.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The list of VPC subnet IDs
      */
-    public readonly subnetIds!: pulumi.Output<string[]>;
+    declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
      * The list of tags for the cluster parameter group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ClusterSubnetGroup resource with the given unique name, arguments, and options.
@@ -65,15 +65,15 @@ export class ClusterSubnetGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+            if (args?.subnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["clusterSubnetGroupName"] = undefined /*out*/;
         } else {
             resourceInputs["clusterSubnetGroupName"] = undefined /*out*/;

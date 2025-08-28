@@ -42,11 +42,11 @@ export class FindingAggregator extends pulumi.CustomResource {
     /**
      * The home Region. Findings generated in linked Regions are replicated and sent to the home Region.
      */
-    public /*out*/ readonly findingAggregationRegion!: pulumi.Output<string>;
+    declare public /*out*/ readonly findingAggregationRegion: pulumi.Output<string>;
     /**
      * The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and delete the finding aggregator.
      */
-    public /*out*/ readonly findingAggregatorArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly findingAggregatorArn: pulumi.Output<string>;
     /**
      * Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
      *  The selected option also determines how to use the Regions provided in the Regions list.
@@ -55,12 +55,12 @@ export class FindingAggregator extends pulumi.CustomResource {
      *   +  ``ALL_REGIONS_EXCEPT_SPECIFIED`` - Indicates to aggregate findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the ``Regions`` parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them. 
      *   +  ``SPECIFIED_REGIONS`` - Indicates to aggregate findings only from the Regions listed in the ``Regions`` parameter. Security Hub does not automatically aggregate findings from new Regions.
      */
-    public readonly regionLinkingMode!: pulumi.Output<enums.securityhub.FindingAggregatorRegionLinkingMode>;
+    declare public readonly regionLinkingMode: pulumi.Output<enums.securityhub.FindingAggregatorRegionLinkingMode>;
     /**
      * If ``RegionLinkingMode`` is ``ALL_REGIONS_EXCEPT_SPECIFIED``, then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.
      *  If ``RegionLinkingMode`` is ``SPECIFIED_REGIONS``, then this is a space-separated list of Regions that do aggregate findings to the aggregation Region.
      */
-    public readonly regions!: pulumi.Output<string[] | undefined>;
+    declare public readonly regions: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a FindingAggregator resource with the given unique name, arguments, and options.
@@ -73,11 +73,11 @@ export class FindingAggregator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.regionLinkingMode === undefined) && !opts.urn) {
+            if (args?.regionLinkingMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'regionLinkingMode'");
             }
-            resourceInputs["regionLinkingMode"] = args ? args.regionLinkingMode : undefined;
-            resourceInputs["regions"] = args ? args.regions : undefined;
+            resourceInputs["regionLinkingMode"] = args?.regionLinkingMode;
+            resourceInputs["regions"] = args?.regions;
             resourceInputs["findingAggregationRegion"] = undefined /*out*/;
             resourceInputs["findingAggregatorArn"] = undefined /*out*/;
         } else {

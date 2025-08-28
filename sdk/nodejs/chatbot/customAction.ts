@@ -40,27 +40,27 @@ export class CustomAction extends pulumi.CustomResource {
     /**
      * The name of the custom action. This name is included in the Amazon Resource Name (ARN).
      */
-    public readonly actionName!: pulumi.Output<string>;
+    declare public readonly actionName: pulumi.Output<string>;
     /**
      * The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
      */
-    public readonly aliasName!: pulumi.Output<string | undefined>;
+    declare public readonly aliasName: pulumi.Output<string | undefined>;
     /**
      * Defines when this custom action button should be attached to a notification.
      */
-    public readonly attachments!: pulumi.Output<outputs.chatbot.CustomActionAttachment[] | undefined>;
+    declare public readonly attachments: pulumi.Output<outputs.chatbot.CustomActionAttachment[] | undefined>;
     /**
      * The fully defined ARN of the custom action.
      */
-    public /*out*/ readonly customActionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly customActionArn: pulumi.Output<string>;
     /**
      * The definition of the command to run when invoked as an alias or as an action button.
      */
-    public readonly definition!: pulumi.Output<outputs.chatbot.CustomActionDefinition>;
+    declare public readonly definition: pulumi.Output<outputs.chatbot.CustomActionDefinition>;
     /**
      * The tags to add to the configuration.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CustomAction resource with the given unique name, arguments, and options.
@@ -73,14 +73,14 @@ export class CustomAction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.definition === undefined) && !opts.urn) {
+            if (args?.definition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            resourceInputs["actionName"] = args ? args.actionName : undefined;
-            resourceInputs["aliasName"] = args ? args.aliasName : undefined;
-            resourceInputs["attachments"] = args ? args.attachments : undefined;
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actionName"] = args?.actionName;
+            resourceInputs["aliasName"] = args?.aliasName;
+            resourceInputs["attachments"] = args?.attachments;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["customActionArn"] = undefined /*out*/;
         } else {
             resourceInputs["actionName"] = undefined /*out*/;

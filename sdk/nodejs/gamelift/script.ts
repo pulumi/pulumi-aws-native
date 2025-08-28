@@ -40,35 +40,35 @@ export class Script extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift script resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift script ARN, the resource ID matches the Id value.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A unique identifier for the Realtime script
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * A descriptive label that is associated with a script. Script names do not need to be unique.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The file size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".
      */
-    public /*out*/ readonly sizeOnDisk!: pulumi.Output<number>;
+    declare public /*out*/ readonly sizeOnDisk: pulumi.Output<number>;
     /**
      * The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
      */
-    public readonly storageLocation!: pulumi.Output<outputs.gamelift.ScriptS3Location>;
+    declare public readonly storageLocation: pulumi.Output<outputs.gamelift.ScriptS3Location>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The version that is associated with a script. Version strings do not need to be unique.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a Script resource with the given unique name, arguments, and options.
@@ -81,13 +81,13 @@ export class Script extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.storageLocation === undefined) && !opts.urn) {
+            if (args?.storageLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageLocation'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["storageLocation"] = args?.storageLocation;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

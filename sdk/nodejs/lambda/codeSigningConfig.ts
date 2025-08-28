@@ -40,27 +40,27 @@ export class CodeSigningConfig extends pulumi.CustomResource {
     /**
      * When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
      */
-    public readonly allowedPublishers!: pulumi.Output<outputs.lambda.CodeSigningConfigAllowedPublishers>;
+    declare public readonly allowedPublishers: pulumi.Output<outputs.lambda.CodeSigningConfigAllowedPublishers>;
     /**
      * A unique Arn for CodeSigningConfig resource
      */
-    public /*out*/ readonly codeSigningConfigArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly codeSigningConfigArn: pulumi.Output<string>;
     /**
      * A unique identifier for CodeSigningConfig resource
      */
-    public /*out*/ readonly codeSigningConfigId!: pulumi.Output<string>;
+    declare public /*out*/ readonly codeSigningConfigId: pulumi.Output<string>;
     /**
      * Policies to control how to act if a signature is invalid
      */
-    public readonly codeSigningPolicies!: pulumi.Output<outputs.lambda.CodeSigningConfigCodeSigningPolicies | undefined>;
+    declare public readonly codeSigningPolicies: pulumi.Output<outputs.lambda.CodeSigningConfigCodeSigningPolicies | undefined>;
     /**
      * A description of the CodeSigningConfig
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A list of tags to apply to CodeSigningConfig resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CodeSigningConfig resource with the given unique name, arguments, and options.
@@ -73,13 +73,13 @@ export class CodeSigningConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.allowedPublishers === undefined) && !opts.urn) {
+            if (args?.allowedPublishers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'allowedPublishers'");
             }
-            resourceInputs["allowedPublishers"] = args ? args.allowedPublishers : undefined;
-            resourceInputs["codeSigningPolicies"] = args ? args.codeSigningPolicies : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowedPublishers"] = args?.allowedPublishers;
+            resourceInputs["codeSigningPolicies"] = args?.codeSigningPolicies;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["codeSigningConfigArn"] = undefined /*out*/;
             resourceInputs["codeSigningConfigId"] = undefined /*out*/;
         } else {

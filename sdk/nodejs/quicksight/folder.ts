@@ -40,49 +40,49 @@ export class Folder extends pulumi.CustomResource {
     /**
      * <p>The Amazon Resource Name (ARN) for the folder.</p>
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID for the AWS account where you want to create the folder.
      */
-    public readonly awsAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly awsAccountId: pulumi.Output<string | undefined>;
     /**
      * <p>The time that the folder was created.</p>
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The ID of the folder.
      */
-    public readonly folderId!: pulumi.Output<string | undefined>;
+    declare public readonly folderId: pulumi.Output<string | undefined>;
     /**
      * The type of folder it is.
      */
-    public readonly folderType!: pulumi.Output<enums.quicksight.FolderType | undefined>;
+    declare public readonly folderType: pulumi.Output<enums.quicksight.FolderType | undefined>;
     /**
      * <p>The time that the folder was last updated.</p>
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * A display name for the folder.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the folder.
      */
-    public readonly parentFolderArn!: pulumi.Output<string | undefined>;
+    declare public readonly parentFolderArn: pulumi.Output<string | undefined>;
     /**
      * A structure that describes the principals and the resource-level permissions of a folder.
      *
      * To specify no permissions, omit `Permissions` .
      */
-    public readonly permissions!: pulumi.Output<outputs.quicksight.FolderResourcePermission[] | undefined>;
+    declare public readonly permissions: pulumi.Output<outputs.quicksight.FolderResourcePermission[] | undefined>;
     /**
      * The sharing scope of the folder.
      */
-    public readonly sharingModel!: pulumi.Output<enums.quicksight.FolderSharingModel | undefined>;
+    declare public readonly sharingModel: pulumi.Output<enums.quicksight.FolderSharingModel | undefined>;
     /**
      * A list of tags for the folders that you want to apply overrides to.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Folder resource with the given unique name, arguments, and options.
@@ -95,14 +95,14 @@ export class Folder extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["folderId"] = args ? args.folderId : undefined;
-            resourceInputs["folderType"] = args ? args.folderType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentFolderArn"] = args ? args.parentFolderArn : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["sharingModel"] = args ? args.sharingModel : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["folderId"] = args?.folderId;
+            resourceInputs["folderType"] = args?.folderType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentFolderArn"] = args?.parentFolderArn;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["sharingModel"] = args?.sharingModel;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;

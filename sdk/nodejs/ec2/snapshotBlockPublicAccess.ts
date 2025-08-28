@@ -40,11 +40,11 @@ export class SnapshotBlockPublicAccess extends pulumi.CustomResource {
     /**
      * The identifier for the specified AWS account.
      */
-    public /*out*/ readonly accountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountId: pulumi.Output<string>;
     /**
      * The state of EBS Snapshot Block Public Access.
      */
-    public readonly state!: pulumi.Output<enums.ec2.SnapshotBlockPublicAccessState>;
+    declare public readonly state: pulumi.Output<enums.ec2.SnapshotBlockPublicAccessState>;
 
     /**
      * Create a SnapshotBlockPublicAccess resource with the given unique name, arguments, and options.
@@ -57,10 +57,10 @@ export class SnapshotBlockPublicAccess extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.state === undefined) && !opts.urn) {
+            if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["state"] = args?.state;
             resourceInputs["accountId"] = undefined /*out*/;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;

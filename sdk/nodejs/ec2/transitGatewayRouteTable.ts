@@ -40,15 +40,15 @@ export class TransitGatewayRouteTable extends pulumi.CustomResource {
     /**
      * Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the transit gateway.
      */
-    public readonly transitGatewayId!: pulumi.Output<string>;
+    declare public readonly transitGatewayId: pulumi.Output<string>;
     /**
      * Transit Gateway Route Table primary identifier
      */
-    public /*out*/ readonly transitGatewayRouteTableId!: pulumi.Output<string>;
+    declare public /*out*/ readonly transitGatewayRouteTableId: pulumi.Output<string>;
 
     /**
      * Create a TransitGatewayRouteTable resource with the given unique name, arguments, and options.
@@ -61,11 +61,11 @@ export class TransitGatewayRouteTable extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.transitGatewayId === undefined) && !opts.urn) {
+            if (args?.transitGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
             resourceInputs["transitGatewayRouteTableId"] = undefined /*out*/;
         } else {
             resourceInputs["tags"] = undefined /*out*/;

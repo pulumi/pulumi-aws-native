@@ -40,47 +40,47 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the assessment.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The unique identifier for the assessment.
      */
-    public /*out*/ readonly assessmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly assessmentId: pulumi.Output<string>;
     /**
      * The destination that evidence reports are stored in for the assessment.
      */
-    public readonly assessmentReportsDestination!: pulumi.Output<outputs.auditmanager.AssessmentReportsDestination | undefined>;
+    declare public readonly assessmentReportsDestination: pulumi.Output<outputs.auditmanager.AssessmentReportsDestination | undefined>;
     /**
      * The AWS account that's associated with the assessment.
      */
-    public readonly awsAccount!: pulumi.Output<outputs.auditmanager.AssessmentAwsAccount | undefined>;
+    declare public readonly awsAccount: pulumi.Output<outputs.auditmanager.AssessmentAwsAccount | undefined>;
     /**
      * Specifies when the assessment was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<number>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<number>;
     /**
      * The list of delegations.
      */
-    public readonly delegations!: pulumi.Output<outputs.auditmanager.AssessmentDelegation[] | undefined>;
+    declare public readonly delegations: pulumi.Output<outputs.auditmanager.AssessmentDelegation[] | undefined>;
     /**
      * The description of the assessment.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The unique identifier for the framework.
      */
-    public readonly frameworkId!: pulumi.Output<string | undefined>;
+    declare public readonly frameworkId: pulumi.Output<string | undefined>;
     /**
      * The name of the assessment.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The list of roles for the specified assessment.
      */
-    public readonly roles!: pulumi.Output<outputs.auditmanager.AssessmentRole[] | undefined>;
+    declare public readonly roles: pulumi.Output<outputs.auditmanager.AssessmentRole[] | undefined>;
     /**
      * The wrapper of AWS accounts and services that are in scope for the assessment.
      */
-    public readonly scope!: pulumi.Output<outputs.auditmanager.AssessmentScope | undefined>;
+    declare public readonly scope: pulumi.Output<outputs.auditmanager.AssessmentScope | undefined>;
     /**
      * The overall status of the assessment.
      *
@@ -88,11 +88,11 @@ export class Assessment extends pulumi.CustomResource {
      *
      * After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
      */
-    public readonly status!: pulumi.Output<enums.auditmanager.AssessmentStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.auditmanager.AssessmentStatus | undefined>;
     /**
      * The tags associated with the assessment.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Assessment resource with the given unique name, arguments, and options.
@@ -105,16 +105,16 @@ export class Assessment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["assessmentReportsDestination"] = args ? args.assessmentReportsDestination : undefined;
-            resourceInputs["awsAccount"] = args ? args.awsAccount : undefined;
-            resourceInputs["delegations"] = args ? args.delegations : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["frameworkId"] = args ? args.frameworkId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roles"] = args ? args.roles : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assessmentReportsDestination"] = args?.assessmentReportsDestination;
+            resourceInputs["awsAccount"] = args?.awsAccount;
+            resourceInputs["delegations"] = args?.delegations;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["frameworkId"] = args?.frameworkId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roles"] = args?.roles;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["assessmentId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

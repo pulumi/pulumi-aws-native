@@ -40,50 +40,50 @@ export class FlowAlias extends pulumi.CustomResource {
     /**
      * Arn of the Flow Alias
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Id for a Flow Alias generated at the server side.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The configuration that specifies how nodes in the flow are executed concurrently.
      */
-    public readonly concurrencyConfiguration!: pulumi.Output<outputs.bedrock.FlowAliasConcurrencyConfiguration | undefined>;
+    declare public readonly concurrencyConfiguration: pulumi.Output<outputs.bedrock.FlowAliasConcurrencyConfiguration | undefined>;
     /**
      * Time Stamp.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Description of the Resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Arn representation of the Flow
      */
-    public readonly flowArn!: pulumi.Output<string>;
+    declare public readonly flowArn: pulumi.Output<string>;
     /**
      * Identifier for a flow resource.
      */
-    public /*out*/ readonly flowId!: pulumi.Output<string>;
+    declare public /*out*/ readonly flowId: pulumi.Output<string>;
     /**
      * Name for a resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Routing configuration for a Flow alias.
      */
-    public readonly routingConfiguration!: pulumi.Output<outputs.bedrock.FlowAliasRoutingConfigurationListItem[]>;
+    declare public readonly routingConfiguration: pulumi.Output<outputs.bedrock.FlowAliasRoutingConfigurationListItem[]>;
     /**
      * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
      *
      * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
      * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Time Stamp.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a FlowAlias resource with the given unique name, arguments, and options.
@@ -96,18 +96,18 @@ export class FlowAlias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.flowArn === undefined) && !opts.urn) {
+            if (args?.flowArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'flowArn'");
             }
-            if ((!args || args.routingConfiguration === undefined) && !opts.urn) {
+            if (args?.routingConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routingConfiguration'");
             }
-            resourceInputs["concurrencyConfiguration"] = args ? args.concurrencyConfiguration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["flowArn"] = args ? args.flowArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["routingConfiguration"] = args ? args.routingConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["concurrencyConfiguration"] = args?.concurrencyConfiguration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["flowArn"] = args?.flowArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["routingConfiguration"] = args?.routingConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

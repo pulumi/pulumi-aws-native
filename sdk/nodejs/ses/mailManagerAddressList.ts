@@ -37,10 +37,10 @@ export class MailManagerAddressList extends pulumi.CustomResource {
         return obj['__pulumiType'] === MailManagerAddressList.__pulumiType;
     }
 
-    public /*out*/ readonly addressListArn!: pulumi.Output<string>;
-    public /*out*/ readonly addressListId!: pulumi.Output<string>;
-    public readonly addressListName!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public /*out*/ readonly addressListArn: pulumi.Output<string>;
+    declare public /*out*/ readonly addressListId: pulumi.Output<string>;
+    declare public readonly addressListName: pulumi.Output<string | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MailManagerAddressList resource with the given unique name, arguments, and options.
@@ -53,8 +53,8 @@ export class MailManagerAddressList extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["addressListName"] = args ? args.addressListName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addressListName"] = args?.addressListName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["addressListArn"] = undefined /*out*/;
             resourceInputs["addressListId"] = undefined /*out*/;
         } else {

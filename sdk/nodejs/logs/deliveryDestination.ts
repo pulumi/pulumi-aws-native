@@ -42,7 +42,7 @@ export class DeliveryDestination extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
      *
@@ -50,27 +50,27 @@ export class DeliveryDestination extends pulumi.CustomResource {
      *
      * Length Constraints: Maximum length of 51200
      */
-    public readonly deliveryDestinationPolicy!: pulumi.Output<outputs.logs.DeliveryDestinationDestinationPolicy | undefined>;
+    declare public readonly deliveryDestinationPolicy: pulumi.Output<outputs.logs.DeliveryDestinationDestinationPolicy | undefined>;
     /**
      * Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
      */
-    public /*out*/ readonly deliveryDestinationType!: pulumi.Output<string>;
+    declare public /*out*/ readonly deliveryDestinationType: pulumi.Output<string>;
     /**
      * The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
      */
-    public readonly destinationResourceArn!: pulumi.Output<string | undefined>;
+    declare public readonly destinationResourceArn: pulumi.Output<string | undefined>;
     /**
      * The name of this delivery destination.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The format of the logs that are sent to this delivery destination.
      */
-    public readonly outputFormat!: pulumi.Output<string | undefined>;
+    declare public readonly outputFormat: pulumi.Output<string | undefined>;
     /**
      * The tags that have been assigned to this delivery destination.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DeliveryDestination resource with the given unique name, arguments, and options.
@@ -83,11 +83,11 @@ export class DeliveryDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["deliveryDestinationPolicy"] = args ? args.deliveryDestinationPolicy : undefined;
-            resourceInputs["destinationResourceArn"] = args ? args.destinationResourceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outputFormat"] = args ? args.outputFormat : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deliveryDestinationPolicy"] = args?.deliveryDestinationPolicy;
+            resourceInputs["destinationResourceArn"] = args?.destinationResourceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outputFormat"] = args?.outputFormat;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["deliveryDestinationType"] = undefined /*out*/;
         } else {

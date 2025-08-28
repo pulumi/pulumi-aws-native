@@ -40,29 +40,29 @@ export class ScheduleGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the schedule group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The time at which the schedule group was created.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * The time at which the schedule group was last modified.
      */
-    public /*out*/ readonly lastModificationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModificationDate: pulumi.Output<string>;
     /**
      * The name of the schedule group.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Specifies the state of the schedule group.
      *
      * *Allowed Values* : `ACTIVE` | `DELETING`
      */
-    public /*out*/ readonly state!: pulumi.Output<enums.scheduler.ScheduleGroupState>;
+    declare public /*out*/ readonly state: pulumi.Output<enums.scheduler.ScheduleGroupState>;
     /**
      * The list of tags to associate with the schedule group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ScheduleGroup resource with the given unique name, arguments, and options.
@@ -75,8 +75,8 @@ export class ScheduleGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["lastModificationDate"] = undefined /*out*/;

@@ -40,31 +40,31 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the environment.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A description of the environment.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The unique identifier of the environment.
      */
-    public /*out*/ readonly environmentIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly environmentIdentifier: pulumi.Output<string>;
     /**
      * The name of the environment.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The network fabric type of the environment.
      */
-    public readonly networkFabricType!: pulumi.Output<enums.refactorspaces.EnvironmentNetworkFabricType | undefined>;
+    declare public readonly networkFabricType: pulumi.Output<enums.refactorspaces.EnvironmentNetworkFabricType | undefined>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the AWS Transit Gateway set up by the environment.
      */
-    public /*out*/ readonly transitGatewayId!: pulumi.Output<string>;
+    declare public /*out*/ readonly transitGatewayId: pulumi.Output<string>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -77,10 +77,10 @@ export class Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkFabricType"] = args ? args.networkFabricType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkFabricType"] = args?.networkFabricType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["environmentIdentifier"] = undefined /*out*/;
             resourceInputs["transitGatewayId"] = undefined /*out*/;

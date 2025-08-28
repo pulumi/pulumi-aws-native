@@ -40,11 +40,11 @@ export class Policy extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the policy.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the policy.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Used when deleting a policy. If `true` , Firewall Manager performs cleanup according to the policy type.
      *
@@ -61,7 +61,7 @@ export class Policy extends pulumi.CustomResource {
      *
      * After the cleanup, in-scope resources are no longer protected by web ACLs in this policy. Protection of out-of-scope resources remains unchanged. Scope is determined by tags that you create and accounts that you associate with the policy. When creating the policy, if you specify that only resources in specific accounts or with specific tags are in scope of the policy, those accounts and resources are handled by the policy. All others are out of scope. If you don't specify tags or accounts, all resources are in scope.
      */
-    public readonly deleteAllPolicyResources!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteAllPolicyResources: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
      *
@@ -73,11 +73,11 @@ export class Policy extends pulumi.CustomResource {
      * - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{"ORGUNIT" : ["ouid111", "ouid112"]}` .
      * - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"], "ORGUNIT" : ["ouid111", "ouid112"]}` .
      */
-    public readonly excludeMap!: pulumi.Output<outputs.fms.PolicyIeMap | undefined>;
+    declare public readonly excludeMap: pulumi.Output<outputs.fms.PolicyIeMap | undefined>;
     /**
      * Used only when tags are specified in the `ResourceTags` property. If this property is `True` , resources with the specified tags are not in scope of the policy. If it's `False` , only resources with the specified tags are in scope of the policy.
      */
-    public readonly excludeResourceTags!: pulumi.Output<boolean>;
+    declare public readonly excludeResourceTags: pulumi.Output<boolean>;
     /**
      * Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
      *
@@ -89,33 +89,33 @@ export class Policy extends pulumi.CustomResource {
      * - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{"ORGUNIT" : ["ouid111", "ouid112"]}` .
      * - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{"ACCOUNT" : ["accountID1", "accountID2"], "ORGUNIT" : ["ouid111", "ouid112"]}` .
      */
-    public readonly includeMap!: pulumi.Output<outputs.fms.PolicyIeMap | undefined>;
+    declare public readonly includeMap: pulumi.Output<outputs.fms.PolicyIeMap | undefined>;
     /**
      * Your description of the AWS Firewall Manager policy.
      */
-    public readonly policyDescription!: pulumi.Output<string | undefined>;
+    declare public readonly policyDescription: pulumi.Output<string | undefined>;
     /**
      * The name of the AWS Firewall Manager policy.
      */
-    public readonly policyName!: pulumi.Output<string>;
+    declare public readonly policyName: pulumi.Output<string>;
     /**
      * Indicates if the policy should be automatically applied to new resources.
      */
-    public readonly remediationEnabled!: pulumi.Output<boolean>;
+    declare public readonly remediationEnabled: pulumi.Output<boolean>;
     /**
      * The unique identifiers of the resource sets used by the policy.
      */
-    public readonly resourceSetIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly resourceSetIds: pulumi.Output<string[] | undefined>;
     /**
      * Specifies whether to combine multiple resource tags with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag.
      *
      * Default: `AND`
      */
-    public readonly resourceTagLogicalOperator!: pulumi.Output<enums.fms.PolicyResourceTagLogicalOperator | undefined>;
+    declare public readonly resourceTagLogicalOperator: pulumi.Output<enums.fms.PolicyResourceTagLogicalOperator | undefined>;
     /**
      * An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
      */
-    public readonly resourceTags!: pulumi.Output<outputs.fms.PolicyResourceTag[] | undefined>;
+    declare public readonly resourceTags: pulumi.Output<outputs.fms.PolicyResourceTag[] | undefined>;
     /**
      * The type of resource protected by or in scope of the policy. This is in the format shown in the [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) . To apply this policy to multiple resource types, specify a resource type of `ResourceTypeList` and then specify the resource types in a `ResourceTypeList` .
      *
@@ -129,11 +129,11 @@ export class Policy extends pulumi.CustomResource {
      * - Security group content audit - `AWS::EC2::SecurityGroup` , `AWS::EC2::NetworkInterface` , and `AWS::EC2::Instance` .
      * - DNS Firewall, AWS Network Firewall , and third-party firewall - `AWS::EC2::VPC` .
      */
-    public readonly resourceType!: pulumi.Output<string | undefined>;
+    declare public readonly resourceType: pulumi.Output<string | undefined>;
     /**
      * An array of `ResourceType` objects. Use this only to specify multiple resource types. To specify a single resource type, use `ResourceType` .
      */
-    public readonly resourceTypeList!: pulumi.Output<string[] | undefined>;
+    declare public readonly resourceTypeList: pulumi.Output<string[] | undefined>;
     /**
      * Indicates whether AWS Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope.
      *
@@ -141,7 +141,7 @@ export class Policy extends pulumi.CustomResource {
      *
      * This option is not available for Shield Advanced or AWS WAF Classic policies.
      */
-    public readonly resourcesCleanUp!: pulumi.Output<boolean | undefined>;
+    declare public readonly resourcesCleanUp: pulumi.Output<boolean | undefined>;
     /**
      * Details about the security service that is being used to protect the resources.
      *
@@ -231,11 +231,11 @@ export class Policy extends pulumi.CustomResource {
      *
      * `"{\"type\":\"SECURITY_GROUPS_USAGE_AUDIT\",\"deleteUnusedSecurityGroups\":true,\"coalesceRedundantSecurityGroups\":true}"`
      */
-    public readonly securityServicePolicyData!: pulumi.Output<outputs.fms.PolicySecurityServicePolicyData>;
+    declare public readonly securityServicePolicyData: pulumi.Output<outputs.fms.PolicySecurityServicePolicyData>;
     /**
      * A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -248,30 +248,30 @@ export class Policy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.excludeResourceTags === undefined) && !opts.urn) {
+            if (args?.excludeResourceTags === undefined && !opts.urn) {
                 throw new Error("Missing required property 'excludeResourceTags'");
             }
-            if ((!args || args.remediationEnabled === undefined) && !opts.urn) {
+            if (args?.remediationEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'remediationEnabled'");
             }
-            if ((!args || args.securityServicePolicyData === undefined) && !opts.urn) {
+            if (args?.securityServicePolicyData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityServicePolicyData'");
             }
-            resourceInputs["deleteAllPolicyResources"] = args ? args.deleteAllPolicyResources : undefined;
-            resourceInputs["excludeMap"] = args ? args.excludeMap : undefined;
-            resourceInputs["excludeResourceTags"] = args ? args.excludeResourceTags : undefined;
-            resourceInputs["includeMap"] = args ? args.includeMap : undefined;
-            resourceInputs["policyDescription"] = args ? args.policyDescription : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
-            resourceInputs["remediationEnabled"] = args ? args.remediationEnabled : undefined;
-            resourceInputs["resourceSetIds"] = args ? args.resourceSetIds : undefined;
-            resourceInputs["resourceTagLogicalOperator"] = args ? args.resourceTagLogicalOperator : undefined;
-            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["resourceTypeList"] = args ? args.resourceTypeList : undefined;
-            resourceInputs["resourcesCleanUp"] = args ? args.resourcesCleanUp : undefined;
-            resourceInputs["securityServicePolicyData"] = args ? args.securityServicePolicyData : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deleteAllPolicyResources"] = args?.deleteAllPolicyResources;
+            resourceInputs["excludeMap"] = args?.excludeMap;
+            resourceInputs["excludeResourceTags"] = args?.excludeResourceTags;
+            resourceInputs["includeMap"] = args?.includeMap;
+            resourceInputs["policyDescription"] = args?.policyDescription;
+            resourceInputs["policyName"] = args?.policyName;
+            resourceInputs["remediationEnabled"] = args?.remediationEnabled;
+            resourceInputs["resourceSetIds"] = args?.resourceSetIds;
+            resourceInputs["resourceTagLogicalOperator"] = args?.resourceTagLogicalOperator;
+            resourceInputs["resourceTags"] = args?.resourceTags;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["resourceTypeList"] = args?.resourceTypeList;
+            resourceInputs["resourcesCleanUp"] = args?.resourcesCleanUp;
+            resourceInputs["securityServicePolicyData"] = args?.securityServicePolicyData;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

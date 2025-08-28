@@ -40,67 +40,67 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The ARN of the Amazon DataZone domain.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The id of the Amazon DataZone domain.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The timestamp of when the Amazon DataZone domain was last updated.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The description of the Amazon DataZone domain.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
      */
-    public readonly domainExecutionRole!: pulumi.Output<string>;
+    declare public readonly domainExecutionRole: pulumi.Output<string>;
     /**
      * The version of the domain.
      */
-    public readonly domainVersion!: pulumi.Output<enums.datazone.DomainVersion | undefined>;
+    declare public readonly domainVersion: pulumi.Output<enums.datazone.DomainVersion | undefined>;
     /**
      * The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
      */
-    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
      * The timestamp of when the Amazon DataZone domain was last updated.
      */
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * The identifier of the AWS account that manages the domain.
      */
-    public /*out*/ readonly managedAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly managedAccountId: pulumi.Output<string>;
     /**
      * The name of the Amazon DataZone domain.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The URL of the data portal for this Amazon DataZone domain.
      */
-    public /*out*/ readonly portalUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly portalUrl: pulumi.Output<string>;
     /**
      * The ID of the root domain in Amazon Datazone.
      */
-    public /*out*/ readonly rootDomainUnitId!: pulumi.Output<string>;
+    declare public /*out*/ readonly rootDomainUnitId: pulumi.Output<string>;
     /**
      * The service role of the domain that is created.
      */
-    public readonly serviceRole!: pulumi.Output<string | undefined>;
+    declare public readonly serviceRole: pulumi.Output<string | undefined>;
     /**
      * The single-sign on configuration of the Amazon DataZone domain.
      */
-    public readonly singleSignOn!: pulumi.Output<outputs.datazone.DomainSingleSignOn | undefined>;
+    declare public readonly singleSignOn: pulumi.Output<outputs.datazone.DomainSingleSignOn | undefined>;
     /**
      * The status of the Amazon DataZone domain.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.datazone.DomainStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.datazone.DomainStatus>;
     /**
      * The tags specified for the Amazon DataZone domain.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -113,17 +113,17 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainExecutionRole === undefined) && !opts.urn) {
+            if (args?.domainExecutionRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainExecutionRole'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainExecutionRole"] = args ? args.domainExecutionRole : undefined;
-            resourceInputs["domainVersion"] = args ? args.domainVersion : undefined;
-            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
-            resourceInputs["singleSignOn"] = args ? args.singleSignOn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainExecutionRole"] = args?.domainExecutionRole;
+            resourceInputs["domainVersion"] = args?.domainVersion;
+            resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serviceRole"] = args?.serviceRole;
+            resourceInputs["singleSignOn"] = args?.singleSignOn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

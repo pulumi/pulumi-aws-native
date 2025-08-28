@@ -127,43 +127,43 @@ export class GameSessionQueue extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Information that is added to all events that are related to this game session queue.
      */
-    public readonly customEventData!: pulumi.Output<string | undefined>;
+    declare public readonly customEventData: pulumi.Output<string | undefined>;
     /**
      * A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
      */
-    public readonly destinations!: pulumi.Output<outputs.gamelift.GameSessionQueueDestination[] | undefined>;
+    declare public readonly destinations: pulumi.Output<outputs.gamelift.GameSessionQueueDestination[] | undefined>;
     /**
      * A list of locations where a queue is allowed to place new game sessions.
      */
-    public readonly filterConfiguration!: pulumi.Output<outputs.gamelift.GameSessionQueueFilterConfiguration | undefined>;
+    declare public readonly filterConfiguration: pulumi.Output<outputs.gamelift.GameSessionQueueFilterConfiguration | undefined>;
     /**
      * A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An SNS topic ARN that is set up to receive game session placement notifications.
      */
-    public readonly notificationTarget!: pulumi.Output<string | undefined>;
+    declare public readonly notificationTarget: pulumi.Output<string | undefined>;
     /**
      * A set of policies that act as a sliding cap on player latency.
      */
-    public readonly playerLatencyPolicies!: pulumi.Output<outputs.gamelift.GameSessionQueuePlayerLatencyPolicy[] | undefined>;
+    declare public readonly playerLatencyPolicies: pulumi.Output<outputs.gamelift.GameSessionQueuePlayerLatencyPolicy[] | undefined>;
     /**
      * Custom settings to use when prioritizing destinations and locations for game session placements.
      */
-    public readonly priorityConfiguration!: pulumi.Output<outputs.gamelift.GameSessionQueuePriorityConfiguration | undefined>;
+    declare public readonly priorityConfiguration: pulumi.Output<outputs.gamelift.GameSessionQueuePriorityConfiguration | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The maximum time, in seconds, that a new game session placement request remains in the queue.
      */
-    public readonly timeoutInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly timeoutInSeconds: pulumi.Output<number | undefined>;
 
     /**
      * Create a GameSessionQueue resource with the given unique name, arguments, and options.
@@ -176,15 +176,15 @@ export class GameSessionQueue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["customEventData"] = args ? args.customEventData : undefined;
-            resourceInputs["destinations"] = args ? args.destinations : undefined;
-            resourceInputs["filterConfiguration"] = args ? args.filterConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationTarget"] = args ? args.notificationTarget : undefined;
-            resourceInputs["playerLatencyPolicies"] = args ? args.playerLatencyPolicies : undefined;
-            resourceInputs["priorityConfiguration"] = args ? args.priorityConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
+            resourceInputs["customEventData"] = args?.customEventData;
+            resourceInputs["destinations"] = args?.destinations;
+            resourceInputs["filterConfiguration"] = args?.filterConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notificationTarget"] = args?.notificationTarget;
+            resourceInputs["playerLatencyPolicies"] = args?.playerLatencyPolicies;
+            resourceInputs["priorityConfiguration"] = args?.priorityConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeoutInSeconds"] = args?.timeoutInSeconds;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

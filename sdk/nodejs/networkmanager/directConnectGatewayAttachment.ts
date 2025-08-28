@@ -40,71 +40,71 @@ export class DirectConnectGatewayAttachment extends pulumi.CustomResource {
     /**
      * Id of the attachment.
      */
-    public /*out*/ readonly attachmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentId: pulumi.Output<string>;
     /**
      * The policy rule number associated with the attachment.
      */
-    public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly attachmentPolicyRuleNumber: pulumi.Output<number>;
     /**
      * Attachment type.
      */
-    public /*out*/ readonly attachmentType!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentType: pulumi.Output<string>;
     /**
      * The ARN of a core network for the Direct Connect Gateway attachment.
      */
-    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly coreNetworkArn: pulumi.Output<string>;
     /**
      * The ID of a core network for the Direct Connect Gateway attachment.
      */
-    public readonly coreNetworkId!: pulumi.Output<string>;
+    declare public readonly coreNetworkId: pulumi.Output<string>;
     /**
      * Creation time of the attachment.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The ARN of the Direct Connect Gateway.
      */
-    public readonly directConnectGatewayArn!: pulumi.Output<string>;
+    declare public readonly directConnectGatewayArn: pulumi.Output<string>;
     /**
      * The Regions where the edges are located.
      */
-    public readonly edgeLocations!: pulumi.Output<string[]>;
+    declare public readonly edgeLocations: pulumi.Output<string[]>;
     /**
      * The name of the network function group attachment.
      */
-    public /*out*/ readonly networkFunctionGroupName!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkFunctionGroupName: pulumi.Output<string>;
     /**
      * Owner account of the attachment.
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
     /**
      * The attachment to move from one network function group to another.
      */
-    public readonly proposedNetworkFunctionGroupChange!: pulumi.Output<outputs.networkmanager.DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange | undefined>;
+    declare public readonly proposedNetworkFunctionGroupChange: pulumi.Output<outputs.networkmanager.DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange | undefined>;
     /**
      * The attachment to move from one segment to another.
      */
-    public readonly proposedSegmentChange!: pulumi.Output<outputs.networkmanager.DirectConnectGatewayAttachmentProposedSegmentChange | undefined>;
+    declare public readonly proposedSegmentChange: pulumi.Output<outputs.networkmanager.DirectConnectGatewayAttachmentProposedSegmentChange | undefined>;
     /**
      * The ARN of the Resource.
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
      * The name of the segment attachment..
      */
-    public /*out*/ readonly segmentName!: pulumi.Output<string>;
+    declare public /*out*/ readonly segmentName: pulumi.Output<string>;
     /**
      * State of the attachment.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Tags for the attachment.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Last update time of the attachment.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a DirectConnectGatewayAttachment resource with the given unique name, arguments, and options.
@@ -117,21 +117,21 @@ export class DirectConnectGatewayAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.coreNetworkId === undefined) && !opts.urn) {
+            if (args?.coreNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'coreNetworkId'");
             }
-            if ((!args || args.directConnectGatewayArn === undefined) && !opts.urn) {
+            if (args?.directConnectGatewayArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'directConnectGatewayArn'");
             }
-            if ((!args || args.edgeLocations === undefined) && !opts.urn) {
+            if (args?.edgeLocations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'edgeLocations'");
             }
-            resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
-            resourceInputs["directConnectGatewayArn"] = args ? args.directConnectGatewayArn : undefined;
-            resourceInputs["edgeLocations"] = args ? args.edgeLocations : undefined;
-            resourceInputs["proposedNetworkFunctionGroupChange"] = args ? args.proposedNetworkFunctionGroupChange : undefined;
-            resourceInputs["proposedSegmentChange"] = args ? args.proposedSegmentChange : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["coreNetworkId"] = args?.coreNetworkId;
+            resourceInputs["directConnectGatewayArn"] = args?.directConnectGatewayArn;
+            resourceInputs["edgeLocations"] = args?.edgeLocations;
+            resourceInputs["proposedNetworkFunctionGroupChange"] = args?.proposedNetworkFunctionGroupChange;
+            resourceInputs["proposedSegmentChange"] = args?.proposedSegmentChange;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["attachmentId"] = undefined /*out*/;
             resourceInputs["attachmentPolicyRuleNumber"] = undefined /*out*/;
             resourceInputs["attachmentType"] = undefined /*out*/;

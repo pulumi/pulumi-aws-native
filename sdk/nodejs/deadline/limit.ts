@@ -37,37 +37,37 @@ export class Limit extends pulumi.CustomResource {
     /**
      * The value that you specify as the `name` in the `amounts` field of the `hostRequirements` in a step of a job template to declare the limit requirement.
      */
-    public readonly amountRequirementName!: pulumi.Output<string>;
+    declare public readonly amountRequirementName: pulumi.Output<string>;
     /**
      * The number of resources from the limit that are being used by jobs. The result is delayed and may not be the count at the time that you called the operation.
      */
-    public /*out*/ readonly currentCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly currentCount: pulumi.Output<number>;
     /**
      * A description of the limit. A clear description helps you identify the purpose of the limit.
      *
      * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the limit used in lists to identify the limit.
      *
      * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The unique identifier of the farm that contains the limit.
      */
-    public readonly farmId!: pulumi.Output<string>;
+    declare public readonly farmId: pulumi.Output<string>;
     /**
      * The unique identifier of the limit.
      */
-    public /*out*/ readonly limitId!: pulumi.Output<string>;
+    declare public /*out*/ readonly limitId: pulumi.Output<string>;
     /**
      * The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.
      *
      * The `maxValue` must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
      */
-    public readonly maxCount!: pulumi.Output<number>;
+    declare public readonly maxCount: pulumi.Output<number>;
 
     /**
      * Create a Limit resource with the given unique name, arguments, and options.
@@ -80,23 +80,23 @@ export class Limit extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.amountRequirementName === undefined) && !opts.urn) {
+            if (args?.amountRequirementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amountRequirementName'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.farmId === undefined) && !opts.urn) {
+            if (args?.farmId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'farmId'");
             }
-            if ((!args || args.maxCount === undefined) && !opts.urn) {
+            if (args?.maxCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxCount'");
             }
-            resourceInputs["amountRequirementName"] = args ? args.amountRequirementName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["farmId"] = args ? args.farmId : undefined;
-            resourceInputs["maxCount"] = args ? args.maxCount : undefined;
+            resourceInputs["amountRequirementName"] = args?.amountRequirementName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["farmId"] = args?.farmId;
+            resourceInputs["maxCount"] = args?.maxCount;
             resourceInputs["currentCount"] = undefined /*out*/;
             resourceInputs["limitId"] = undefined /*out*/;
         } else {

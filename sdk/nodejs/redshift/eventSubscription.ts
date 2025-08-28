@@ -40,59 +40,59 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * The name of the Amazon Redshift event notification subscription.
      */
-    public /*out*/ readonly custSubscriptionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly custSubscriptionId: pulumi.Output<string>;
     /**
      * The AWS account associated with the Amazon Redshift event notification subscription.
      */
-    public /*out*/ readonly customerAwsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly customerAwsId: pulumi.Output<string>;
     /**
      * A boolean value; set to true to activate the subscription, and set to false to create the subscription but not activate it.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Amazon Redshift event categories to be published by the event notification subscription.
      */
-    public readonly eventCategories!: pulumi.Output<enums.redshift.EventSubscriptionEventCategoriesItem[] | undefined>;
+    declare public readonly eventCategories: pulumi.Output<enums.redshift.EventSubscriptionEventCategoriesItem[] | undefined>;
     /**
      * The list of Amazon Redshift event categories specified in the event notification subscription.
      */
-    public /*out*/ readonly eventCategoriesList!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly eventCategoriesList: pulumi.Output<string[]>;
     /**
      * Specifies the Amazon Redshift event severity to be published by the event notification subscription.
      */
-    public readonly severity!: pulumi.Output<enums.redshift.EventSubscriptionSeverity | undefined>;
+    declare public readonly severity: pulumi.Output<enums.redshift.EventSubscriptionSeverity | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the event notifications.
      */
-    public readonly snsTopicArn!: pulumi.Output<string | undefined>;
+    declare public readonly snsTopicArn: pulumi.Output<string | undefined>;
     /**
      * A list of one or more identifiers of Amazon Redshift source objects.
      */
-    public readonly sourceIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly sourceIds: pulumi.Output<string[] | undefined>;
     /**
      * A list of the sources that publish events to the Amazon Redshift event notification subscription.
      */
-    public /*out*/ readonly sourceIdsList!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly sourceIdsList: pulumi.Output<string[]>;
     /**
      * The type of source that will be generating the events.
      */
-    public readonly sourceType!: pulumi.Output<enums.redshift.EventSubscriptionSourceType | undefined>;
+    declare public readonly sourceType: pulumi.Output<enums.redshift.EventSubscriptionSourceType | undefined>;
     /**
      * The status of the Amazon Redshift event notification subscription.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.redshift.EventSubscriptionStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.redshift.EventSubscriptionStatus>;
     /**
      * The date and time the Amazon Redshift event notification subscription was created.
      */
-    public /*out*/ readonly subscriptionCreationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly subscriptionCreationTime: pulumi.Output<string>;
     /**
      * The name of the Amazon Redshift event notification subscription
      */
-    public readonly subscriptionName!: pulumi.Output<string>;
+    declare public readonly subscriptionName: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a EventSubscription resource with the given unique name, arguments, and options.
@@ -105,14 +105,14 @@ export class EventSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["eventCategories"] = args ? args.eventCategories : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
-            resourceInputs["sourceIds"] = args ? args.sourceIds : undefined;
-            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
-            resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["eventCategories"] = args?.eventCategories;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["snsTopicArn"] = args?.snsTopicArn;
+            resourceInputs["sourceIds"] = args?.sourceIds;
+            resourceInputs["sourceType"] = args?.sourceType;
+            resourceInputs["subscriptionName"] = args?.subscriptionName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["custSubscriptionId"] = undefined /*out*/;
             resourceInputs["customerAwsId"] = undefined /*out*/;
             resourceInputs["eventCategoriesList"] = undefined /*out*/;

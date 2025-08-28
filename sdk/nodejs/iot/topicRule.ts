@@ -40,11 +40,11 @@ export class TopicRule extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the AWS IoT rule, such as `arn:aws:iot:us-east-2:123456789012:rule/MyIoTRule` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the rule.
      */
-    public readonly ruleName!: pulumi.Output<string | undefined>;
+    declare public readonly ruleName: pulumi.Output<string | undefined>;
     /**
      * Metadata which can be used to manage the topic rule.
      *
@@ -54,11 +54,11 @@ export class TopicRule extends pulumi.CustomResource {
      * > 
      * > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The rule payload.
      */
-    public readonly topicRulePayload!: pulumi.Output<outputs.iot.TopicRulePayload>;
+    declare public readonly topicRulePayload: pulumi.Output<outputs.iot.TopicRulePayload>;
 
     /**
      * Create a TopicRule resource with the given unique name, arguments, and options.
@@ -71,12 +71,12 @@ export class TopicRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.topicRulePayload === undefined) && !opts.urn) {
+            if (args?.topicRulePayload === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topicRulePayload'");
             }
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topicRulePayload"] = args ? args.topicRulePayload : undefined;
+            resourceInputs["ruleName"] = args?.ruleName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topicRulePayload"] = args?.topicRulePayload;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

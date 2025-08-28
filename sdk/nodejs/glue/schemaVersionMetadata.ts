@@ -37,15 +37,15 @@ export class SchemaVersionMetadata extends pulumi.CustomResource {
     /**
      * Metadata key
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
      * Represents the version ID associated with the schema version.
      */
-    public readonly schemaVersionId!: pulumi.Output<string>;
+    declare public readonly schemaVersionId: pulumi.Output<string>;
     /**
      * Metadata value
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
 
     /**
      * Create a SchemaVersionMetadata resource with the given unique name, arguments, and options.
@@ -58,18 +58,18 @@ export class SchemaVersionMetadata extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.schemaVersionId === undefined) && !opts.urn) {
+            if (args?.schemaVersionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaVersionId'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["schemaVersionId"] = args ? args.schemaVersionId : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["schemaVersionId"] = args?.schemaVersionId;
+            resourceInputs["value"] = args?.value;
         } else {
             resourceInputs["key"] = undefined /*out*/;
             resourceInputs["schemaVersionId"] = undefined /*out*/;

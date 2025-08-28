@@ -40,39 +40,39 @@ export class EventType extends pulumi.CustomResource {
     /**
      * The ARN of the event type.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The time when the event type was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The description of the event type.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The event type entity types.
      */
-    public readonly entityTypes!: pulumi.Output<outputs.frauddetector.EventTypeEntityType[]>;
+    declare public readonly entityTypes: pulumi.Output<outputs.frauddetector.EventTypeEntityType[]>;
     /**
      * The event type event variables.
      */
-    public readonly eventVariables!: pulumi.Output<outputs.frauddetector.EventTypeEventVariable[]>;
+    declare public readonly eventVariables: pulumi.Output<outputs.frauddetector.EventTypeEventVariable[]>;
     /**
      * The event type labels.
      */
-    public readonly labels!: pulumi.Output<outputs.frauddetector.EventTypeLabel[]>;
+    declare public readonly labels: pulumi.Output<outputs.frauddetector.EventTypeLabel[]>;
     /**
      * The time when the event type was last updated.
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * The name for the event type
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Tags associated with this event type.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a EventType resource with the given unique name, arguments, and options.
@@ -85,21 +85,21 @@ export class EventType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.entityTypes === undefined) && !opts.urn) {
+            if (args?.entityTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityTypes'");
             }
-            if ((!args || args.eventVariables === undefined) && !opts.urn) {
+            if (args?.eventVariables === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventVariables'");
             }
-            if ((!args || args.labels === undefined) && !opts.urn) {
+            if (args?.labels === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labels'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["entityTypes"] = args ? args.entityTypes : undefined;
-            resourceInputs["eventVariables"] = args ? args.eventVariables : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["entityTypes"] = args?.entityTypes;
+            resourceInputs["eventVariables"] = args?.eventVariables;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;

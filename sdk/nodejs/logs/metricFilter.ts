@@ -42,23 +42,23 @@ export class MetricFilter extends pulumi.CustomResource {
      * This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
      *  If this value is ``true``, the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
      */
-    public readonly applyOnTransformedLogs!: pulumi.Output<boolean | undefined>;
+    declare public readonly applyOnTransformedLogs: pulumi.Output<boolean | undefined>;
     /**
      * The name of the metric filter.
      */
-    public readonly filterName!: pulumi.Output<string | undefined>;
+    declare public readonly filterName: pulumi.Output<string | undefined>;
     /**
      * A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
      */
-    public readonly filterPattern!: pulumi.Output<string>;
+    declare public readonly filterPattern: pulumi.Output<string>;
     /**
      * The name of an existing log group that you want to associate with this metric filter.
      */
-    public readonly logGroupName!: pulumi.Output<string>;
+    declare public readonly logGroupName: pulumi.Output<string>;
     /**
      * The metric transformations.
      */
-    public readonly metricTransformations!: pulumi.Output<outputs.logs.MetricFilterMetricTransformation[]>;
+    declare public readonly metricTransformations: pulumi.Output<outputs.logs.MetricFilterMetricTransformation[]>;
 
     /**
      * Create a MetricFilter resource with the given unique name, arguments, and options.
@@ -71,20 +71,20 @@ export class MetricFilter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.filterPattern === undefined) && !opts.urn) {
+            if (args?.filterPattern === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filterPattern'");
             }
-            if ((!args || args.logGroupName === undefined) && !opts.urn) {
+            if (args?.logGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logGroupName'");
             }
-            if ((!args || args.metricTransformations === undefined) && !opts.urn) {
+            if (args?.metricTransformations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metricTransformations'");
             }
-            resourceInputs["applyOnTransformedLogs"] = args ? args.applyOnTransformedLogs : undefined;
-            resourceInputs["filterName"] = args ? args.filterName : undefined;
-            resourceInputs["filterPattern"] = args ? args.filterPattern : undefined;
-            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
-            resourceInputs["metricTransformations"] = args ? args.metricTransformations : undefined;
+            resourceInputs["applyOnTransformedLogs"] = args?.applyOnTransformedLogs;
+            resourceInputs["filterName"] = args?.filterName;
+            resourceInputs["filterPattern"] = args?.filterPattern;
+            resourceInputs["logGroupName"] = args?.logGroupName;
+            resourceInputs["metricTransformations"] = args?.metricTransformations;
         } else {
             resourceInputs["applyOnTransformedLogs"] = undefined /*out*/;
             resourceInputs["filterName"] = undefined /*out*/;

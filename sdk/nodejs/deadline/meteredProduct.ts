@@ -37,27 +37,27 @@ export class MeteredProduct extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the metered product.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The family to which the metered product belongs.
      */
-    public /*out*/ readonly family!: pulumi.Output<string>;
+    declare public /*out*/ readonly family: pulumi.Output<string>;
     /**
      * The Amazon EC2 identifier of the license endpoint.
      */
-    public readonly licenseEndpointId!: pulumi.Output<string | undefined>;
+    declare public readonly licenseEndpointId: pulumi.Output<string | undefined>;
     /**
      * The port on which the metered product should run.
      */
-    public /*out*/ readonly port!: pulumi.Output<number>;
+    declare public /*out*/ readonly port: pulumi.Output<number>;
     /**
      * The product ID.
      */
-    public readonly productId!: pulumi.Output<string | undefined>;
+    declare public readonly productId: pulumi.Output<string | undefined>;
     /**
      * The vendor.
      */
-    public /*out*/ readonly vendor!: pulumi.Output<string>;
+    declare public /*out*/ readonly vendor: pulumi.Output<string>;
 
     /**
      * Create a MeteredProduct resource with the given unique name, arguments, and options.
@@ -70,8 +70,8 @@ export class MeteredProduct extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["licenseEndpointId"] = args ? args.licenseEndpointId : undefined;
-            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["licenseEndpointId"] = args?.licenseEndpointId;
+            resourceInputs["productId"] = args?.productId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["family"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;

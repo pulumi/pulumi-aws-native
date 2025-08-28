@@ -40,38 +40,38 @@ export class GlobalCluster extends pulumi.CustomResource {
     /**
      * The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
      */
-    public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly deletionProtection: pulumi.Output<boolean | undefined>;
     /**
      * The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
      * If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
      */
-    public readonly engine!: pulumi.Output<enums.rds.GlobalClusterEngine | undefined>;
+    declare public readonly engine: pulumi.Output<enums.rds.GlobalClusterEngine | undefined>;
     /**
      * The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
      */
-    public readonly engineLifecycleSupport!: pulumi.Output<string | undefined>;
+    declare public readonly engineLifecycleSupport: pulumi.Output<string | undefined>;
     /**
      * The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
      */
-    public readonly engineVersion!: pulumi.Output<string | undefined>;
+    declare public readonly engineVersion: pulumi.Output<string | undefined>;
     /**
      * The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
      */
-    public readonly globalClusterIdentifier!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly globalEndpoint!: pulumi.Output<outputs.rds.GlobalClusterGlobalEndpoint>;
+    declare public readonly globalClusterIdentifier: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly globalEndpoint: pulumi.Output<outputs.rds.GlobalClusterGlobalEndpoint>;
     /**
      * The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
      */
-    public readonly sourceDbClusterIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly sourceDbClusterIdentifier: pulumi.Output<string | undefined>;
     /**
      *  The storage encryption setting for the new global database cluster.
      * If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
      */
-    public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
+    declare public readonly storageEncrypted: pulumi.Output<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a GlobalCluster resource with the given unique name, arguments, and options.
@@ -84,14 +84,14 @@ export class GlobalCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["engineLifecycleSupport"] = args ? args.engineLifecycleSupport : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
-            resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
-            resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deletionProtection"] = args?.deletionProtection;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["engineLifecycleSupport"] = args?.engineLifecycleSupport;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["globalClusterIdentifier"] = args?.globalClusterIdentifier;
+            resourceInputs["sourceDbClusterIdentifier"] = args?.sourceDbClusterIdentifier;
+            resourceInputs["storageEncrypted"] = args?.storageEncrypted;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["globalEndpoint"] = undefined /*out*/;
         } else {
             resourceInputs["deletionProtection"] = undefined /*out*/;

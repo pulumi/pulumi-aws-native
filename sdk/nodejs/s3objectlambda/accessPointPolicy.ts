@@ -37,13 +37,13 @@ export class AccessPointPolicy extends pulumi.CustomResource {
     /**
      * The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
      */
-    public readonly objectLambdaAccessPoint!: pulumi.Output<string>;
+    declare public readonly objectLambdaAccessPoint: pulumi.Output<string>;
     /**
      * A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide. 
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3ObjectLambda::AccessPointPolicy` for more information about the expected schema for this property.
      */
-    public readonly policyDocument!: pulumi.Output<any>;
+    declare public readonly policyDocument: pulumi.Output<any>;
 
     /**
      * Create a AccessPointPolicy resource with the given unique name, arguments, and options.
@@ -56,14 +56,14 @@ export class AccessPointPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.objectLambdaAccessPoint === undefined) && !opts.urn) {
+            if (args?.objectLambdaAccessPoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectLambdaAccessPoint'");
             }
-            if ((!args || args.policyDocument === undefined) && !opts.urn) {
+            if (args?.policyDocument === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            resourceInputs["objectLambdaAccessPoint"] = args ? args.objectLambdaAccessPoint : undefined;
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["objectLambdaAccessPoint"] = args?.objectLambdaAccessPoint;
+            resourceInputs["policyDocument"] = args?.policyDocument;
         } else {
             resourceInputs["objectLambdaAccessPoint"] = undefined /*out*/;
             resourceInputs["policyDocument"] = undefined /*out*/;

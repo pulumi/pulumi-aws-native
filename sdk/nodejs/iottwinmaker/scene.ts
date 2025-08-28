@@ -37,47 +37,47 @@ export class Scene extends pulumi.CustomResource {
     /**
      * The ARN of the scene.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A list of capabilities that the scene uses to render.
      */
-    public readonly capabilities!: pulumi.Output<string[] | undefined>;
+    declare public readonly capabilities: pulumi.Output<string[] | undefined>;
     /**
      * The relative path that specifies the location of the content definition file.
      */
-    public readonly contentLocation!: pulumi.Output<string>;
+    declare public readonly contentLocation: pulumi.Output<string>;
     /**
      * The date and time when the scene was created.
      */
-    public /*out*/ readonly creationDateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDateTime: pulumi.Output<string>;
     /**
      * The description of the scene.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A key-value pair of generated scene metadata for the scene.
      */
-    public /*out*/ readonly generatedSceneMetadata!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly generatedSceneMetadata: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the scene.
      */
-    public readonly sceneId!: pulumi.Output<string>;
+    declare public readonly sceneId: pulumi.Output<string>;
     /**
      * A key-value pair of scene metadata for the scene.
      */
-    public readonly sceneMetadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly sceneMetadata: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The date and time of the current update.
      */
-    public /*out*/ readonly updateDateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly updateDateTime: pulumi.Output<string>;
     /**
      * The ID of the scene.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a Scene resource with the given unique name, arguments, and options.
@@ -90,22 +90,22 @@ export class Scene extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contentLocation === undefined) && !opts.urn) {
+            if (args?.contentLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentLocation'");
             }
-            if ((!args || args.sceneId === undefined) && !opts.urn) {
+            if (args?.sceneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sceneId'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
-            resourceInputs["contentLocation"] = args ? args.contentLocation : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["sceneId"] = args ? args.sceneId : undefined;
-            resourceInputs["sceneMetadata"] = args ? args.sceneMetadata : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["capabilities"] = args?.capabilities;
+            resourceInputs["contentLocation"] = args?.contentLocation;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["sceneId"] = args?.sceneId;
+            resourceInputs["sceneMetadata"] = args?.sceneMetadata;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDateTime"] = undefined /*out*/;
             resourceInputs["generatedSceneMetadata"] = undefined /*out*/;

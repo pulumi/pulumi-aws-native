@@ -40,67 +40,67 @@ export class Route extends pulumi.CustomResource {
      * The ID of the carrier gateway.
      *  You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
      */
-    public readonly carrierGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly carrierGatewayId: pulumi.Output<string | undefined>;
     /**
      * The IPv4 CIDR block.
      */
-    public /*out*/ readonly cidrBlock!: pulumi.Output<string>;
+    declare public /*out*/ readonly cidrBlock: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the core network.
      */
-    public readonly coreNetworkArn!: pulumi.Output<string | undefined>;
+    declare public readonly coreNetworkArn: pulumi.Output<string | undefined>;
     /**
      * The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify ``100.68.0.18/18``, we modify it to ``100.68.0.0/18``.
      */
-    public readonly destinationCidrBlock!: pulumi.Output<string | undefined>;
+    declare public readonly destinationCidrBlock: pulumi.Output<string | undefined>;
     /**
      * The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.
      */
-    public readonly destinationIpv6CidrBlock!: pulumi.Output<string | undefined>;
+    declare public readonly destinationIpv6CidrBlock: pulumi.Output<string | undefined>;
     /**
      * The ID of a prefix list used for the destination match.
      */
-    public readonly destinationPrefixListId!: pulumi.Output<string | undefined>;
+    declare public readonly destinationPrefixListId: pulumi.Output<string | undefined>;
     /**
      * [IPv6 traffic only] The ID of an egress-only internet gateway.
      */
-    public readonly egressOnlyInternetGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly egressOnlyInternetGatewayId: pulumi.Output<string | undefined>;
     /**
      * The ID of an internet gateway or virtual private gateway attached to your VPC.
      */
-    public readonly gatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly gatewayId: pulumi.Output<string | undefined>;
     /**
      * The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.
      */
-    public readonly instanceId!: pulumi.Output<string | undefined>;
+    declare public readonly instanceId: pulumi.Output<string | undefined>;
     /**
      * The ID of the local gateway.
      */
-    public readonly localGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly localGatewayId: pulumi.Output<string | undefined>;
     /**
      * [IPv4 traffic only] The ID of a NAT gateway.
      */
-    public readonly natGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly natGatewayId: pulumi.Output<string | undefined>;
     /**
      * The ID of a network interface.
      */
-    public readonly networkInterfaceId!: pulumi.Output<string | undefined>;
+    declare public readonly networkInterfaceId: pulumi.Output<string | undefined>;
     /**
      * The ID of the route table for the route.
      */
-    public readonly routeTableId!: pulumi.Output<string>;
+    declare public readonly routeTableId: pulumi.Output<string>;
     /**
      * The ID of a transit gateway.
      */
-    public readonly transitGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly transitGatewayId: pulumi.Output<string | undefined>;
     /**
      * The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
      */
-    public readonly vpcEndpointId!: pulumi.Output<string | undefined>;
+    declare public readonly vpcEndpointId: pulumi.Output<string | undefined>;
     /**
      * The ID of a VPC peering connection.
      */
-    public readonly vpcPeeringConnectionId!: pulumi.Output<string | undefined>;
+    declare public readonly vpcPeeringConnectionId: pulumi.Output<string | undefined>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.
@@ -113,24 +113,24 @@ export class Route extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.routeTableId === undefined) && !opts.urn) {
+            if (args?.routeTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            resourceInputs["carrierGatewayId"] = args ? args.carrierGatewayId : undefined;
-            resourceInputs["coreNetworkArn"] = args ? args.coreNetworkArn : undefined;
-            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            resourceInputs["destinationIpv6CidrBlock"] = args ? args.destinationIpv6CidrBlock : undefined;
-            resourceInputs["destinationPrefixListId"] = args ? args.destinationPrefixListId : undefined;
-            resourceInputs["egressOnlyInternetGatewayId"] = args ? args.egressOnlyInternetGatewayId : undefined;
-            resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["localGatewayId"] = args ? args.localGatewayId : undefined;
-            resourceInputs["natGatewayId"] = args ? args.natGatewayId : undefined;
-            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
-            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
-            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
-            resourceInputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
+            resourceInputs["carrierGatewayId"] = args?.carrierGatewayId;
+            resourceInputs["coreNetworkArn"] = args?.coreNetworkArn;
+            resourceInputs["destinationCidrBlock"] = args?.destinationCidrBlock;
+            resourceInputs["destinationIpv6CidrBlock"] = args?.destinationIpv6CidrBlock;
+            resourceInputs["destinationPrefixListId"] = args?.destinationPrefixListId;
+            resourceInputs["egressOnlyInternetGatewayId"] = args?.egressOnlyInternetGatewayId;
+            resourceInputs["gatewayId"] = args?.gatewayId;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["localGatewayId"] = args?.localGatewayId;
+            resourceInputs["natGatewayId"] = args?.natGatewayId;
+            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
+            resourceInputs["routeTableId"] = args?.routeTableId;
+            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
+            resourceInputs["vpcEndpointId"] = args?.vpcEndpointId;
+            resourceInputs["vpcPeeringConnectionId"] = args?.vpcPeeringConnectionId;
             resourceInputs["cidrBlock"] = undefined /*out*/;
         } else {
             resourceInputs["carrierGatewayId"] = undefined /*out*/;

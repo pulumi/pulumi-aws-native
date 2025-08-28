@@ -40,83 +40,83 @@ export class EventDataStore extends pulumi.CustomResource {
     /**
      * The advanced event selectors that were used to select events for the data store.
      */
-    public readonly advancedEventSelectors!: pulumi.Output<outputs.cloudtrail.EventDataStoreAdvancedEventSelector[] | undefined>;
+    declare public readonly advancedEventSelectors: pulumi.Output<outputs.cloudtrail.EventDataStoreAdvancedEventSelector[] | undefined>;
     /**
      * The mode that the event data store will use to charge for event storage.
      */
-    public readonly billingMode!: pulumi.Output<string | undefined>;
+    declare public readonly billingMode: pulumi.Output<string | undefined>;
     /**
      * An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
      */
-    public readonly contextKeySelectors!: pulumi.Output<outputs.cloudtrail.EventDataStoreContextKeySelector[] | undefined>;
+    declare public readonly contextKeySelectors: pulumi.Output<outputs.cloudtrail.EventDataStoreContextKeySelector[] | undefined>;
     /**
      * The timestamp of the event data store's creation.
      */
-    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
     /**
      * The ARN of the event data store.
      */
-    public /*out*/ readonly eventDataStoreArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly eventDataStoreArn: pulumi.Output<string>;
     /**
      * Indicates whether federation is enabled on an event data store.
      */
-    public readonly federationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly federationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of the role used for event data store federation.
      */
-    public readonly federationRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly federationRoleArn: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the event data store is ingesting events.
      */
-    public readonly ingestionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly ingestionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
      */
-    public readonly insightSelectors!: pulumi.Output<outputs.cloudtrail.EventDataStoreInsightSelector[] | undefined>;
+    declare public readonly insightSelectors: pulumi.Output<outputs.cloudtrail.EventDataStoreInsightSelector[] | undefined>;
     /**
      * Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
      */
-    public readonly insightsDestination!: pulumi.Output<string | undefined>;
+    declare public readonly insightsDestination: pulumi.Output<string | undefined>;
     /**
      * Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
      */
-    public readonly maxEventSize!: pulumi.Output<enums.cloudtrail.EventDataStoreMaxEventSize | undefined>;
+    declare public readonly maxEventSize: pulumi.Output<enums.cloudtrail.EventDataStoreMaxEventSize | undefined>;
     /**
      * Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
      */
-    public readonly multiRegionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly multiRegionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the event data store.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Indicates that an event data store is collecting logged events for an organization.
      */
-    public readonly organizationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly organizationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The retention period, in days.
      */
-    public readonly retentionPeriod!: pulumi.Output<number | undefined>;
+    declare public readonly retentionPeriod: pulumi.Output<number | undefined>;
     /**
      * The status of an event data store. Values are STARTING_INGESTION, ENABLED, STOPPING_INGESTION, STOPPED_INGESTION and PENDING_DELETION.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * A list of tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Indicates whether the event data store is protected from termination.
      */
-    public readonly terminationProtectionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly terminationProtectionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The timestamp showing when an event data store was updated, if applicable. UpdatedTimestamp is always either the same or newer than the time shown in CreatedTimestamp.
      */
-    public /*out*/ readonly updatedTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedTimestamp: pulumi.Output<string>;
 
     /**
      * Create a EventDataStore resource with the given unique name, arguments, and options.
@@ -129,22 +129,22 @@ export class EventDataStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["advancedEventSelectors"] = args ? args.advancedEventSelectors : undefined;
-            resourceInputs["billingMode"] = args ? args.billingMode : undefined;
-            resourceInputs["contextKeySelectors"] = args ? args.contextKeySelectors : undefined;
-            resourceInputs["federationEnabled"] = args ? args.federationEnabled : undefined;
-            resourceInputs["federationRoleArn"] = args ? args.federationRoleArn : undefined;
-            resourceInputs["ingestionEnabled"] = args ? args.ingestionEnabled : undefined;
-            resourceInputs["insightSelectors"] = args ? args.insightSelectors : undefined;
-            resourceInputs["insightsDestination"] = args ? args.insightsDestination : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["maxEventSize"] = args ? args.maxEventSize : undefined;
-            resourceInputs["multiRegionEnabled"] = args ? args.multiRegionEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["organizationEnabled"] = args ? args.organizationEnabled : undefined;
-            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["terminationProtectionEnabled"] = args ? args.terminationProtectionEnabled : undefined;
+            resourceInputs["advancedEventSelectors"] = args?.advancedEventSelectors;
+            resourceInputs["billingMode"] = args?.billingMode;
+            resourceInputs["contextKeySelectors"] = args?.contextKeySelectors;
+            resourceInputs["federationEnabled"] = args?.federationEnabled;
+            resourceInputs["federationRoleArn"] = args?.federationRoleArn;
+            resourceInputs["ingestionEnabled"] = args?.ingestionEnabled;
+            resourceInputs["insightSelectors"] = args?.insightSelectors;
+            resourceInputs["insightsDestination"] = args?.insightsDestination;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["maxEventSize"] = args?.maxEventSize;
+            resourceInputs["multiRegionEnabled"] = args?.multiRegionEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["organizationEnabled"] = args?.organizationEnabled;
+            resourceInputs["retentionPeriod"] = args?.retentionPeriod;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["terminationProtectionEnabled"] = args?.terminationProtectionEnabled;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["eventDataStoreArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

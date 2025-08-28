@@ -68,31 +68,31 @@ export class Dataset extends pulumi.CustomResource {
     /**
      * Dataset format
      */
-    public readonly format!: pulumi.Output<enums.databrew.DatasetFormat | undefined>;
+    declare public readonly format: pulumi.Output<enums.databrew.DatasetFormat | undefined>;
     /**
      * Format options for dataset
      */
-    public readonly formatOptions!: pulumi.Output<outputs.databrew.DatasetFormatOptions | undefined>;
+    declare public readonly formatOptions: pulumi.Output<outputs.databrew.DatasetFormatOptions | undefined>;
     /**
      * Input
      */
-    public readonly input!: pulumi.Output<outputs.databrew.DatasetInput>;
+    declare public readonly input: pulumi.Output<outputs.databrew.DatasetInput>;
     /**
      * Dataset name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * PathOptions
      */
-    public readonly pathOptions!: pulumi.Output<outputs.databrew.DatasetPathOptions | undefined>;
+    declare public readonly pathOptions: pulumi.Output<outputs.databrew.DatasetPathOptions | undefined>;
     /**
      * Source type of the dataset
      */
-    public readonly source!: pulumi.Output<enums.databrew.DatasetSource | undefined>;
+    declare public readonly source: pulumi.Output<enums.databrew.DatasetSource | undefined>;
     /**
      * Metadata tags that have been applied to the dataset.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Dataset resource with the given unique name, arguments, and options.
@@ -105,16 +105,16 @@ export class Dataset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.input === undefined) && !opts.urn) {
+            if (args?.input === undefined && !opts.urn) {
                 throw new Error("Missing required property 'input'");
             }
-            resourceInputs["format"] = args ? args.format : undefined;
-            resourceInputs["formatOptions"] = args ? args.formatOptions : undefined;
-            resourceInputs["input"] = args ? args.input : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pathOptions"] = args ? args.pathOptions : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["format"] = args?.format;
+            resourceInputs["formatOptions"] = args?.formatOptions;
+            resourceInputs["input"] = args?.input;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pathOptions"] = args?.pathOptions;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["format"] = undefined /*out*/;
             resourceInputs["formatOptions"] = undefined /*out*/;

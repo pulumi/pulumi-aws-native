@@ -40,31 +40,31 @@ export class TrafficDistributionGroup extends pulumi.CustomResource {
     /**
      * A description for the traffic distribution group.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The identifier of the Amazon Connect instance that has been replicated.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * If this is the default traffic distribution group.
      */
-    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
     /**
      * The name for the traffic distribution group.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The status of the traffic distribution group.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.connect.TrafficDistributionGroupStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.connect.TrafficDistributionGroupStatus>;
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The identifier of the traffic distribution group.
      */
-    public /*out*/ readonly trafficDistributionGroupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly trafficDistributionGroupArn: pulumi.Output<string>;
 
     /**
      * Create a TrafficDistributionGroup resource with the given unique name, arguments, and options.
@@ -77,13 +77,13 @@ export class TrafficDistributionGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["isDefault"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["trafficDistributionGroupArn"] = undefined /*out*/;

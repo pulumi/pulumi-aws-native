@@ -40,39 +40,39 @@ export class DataProtectionSettings extends pulumi.CustomResource {
     /**
      * The additional encryption context of the data protection settings.
      */
-    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of web portal ARNs that this data protection settings resource is associated with.
      */
-    public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
     /**
      * The creation date timestamp of the data protection settings.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * The customer managed key used to encrypt sensitive information in the data protection settings.
      */
-    public readonly customerManagedKey!: pulumi.Output<string | undefined>;
+    declare public readonly customerManagedKey: pulumi.Output<string | undefined>;
     /**
      * The ARN of the data protection settings resource.
      */
-    public /*out*/ readonly dataProtectionSettingsArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataProtectionSettingsArn: pulumi.Output<string>;
     /**
      * The description of the data protection settings.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the data protection settings.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The inline redaction configuration for the data protection settings.
      */
-    public readonly inlineRedactionConfiguration!: pulumi.Output<outputs.workspacesweb.DataProtectionSettingsInlineRedactionConfiguration | undefined>;
+    declare public readonly inlineRedactionConfiguration: pulumi.Output<outputs.workspacesweb.DataProtectionSettingsInlineRedactionConfiguration | undefined>;
     /**
      * The tags of the data protection settings.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DataProtectionSettings resource with the given unique name, arguments, and options.
@@ -85,12 +85,12 @@ export class DataProtectionSettings extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
-            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["inlineRedactionConfiguration"] = args ? args.inlineRedactionConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
+            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["inlineRedactionConfiguration"] = args?.inlineRedactionConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["dataProtectionSettingsArn"] = undefined /*out*/;

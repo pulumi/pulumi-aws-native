@@ -40,35 +40,35 @@ export class Channel extends pulumi.CustomResource {
     /**
      * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the channel group associated with the channel configuration.
      */
-    public readonly channelGroupName!: pulumi.Output<string>;
+    declare public readonly channelGroupName: pulumi.Output<string>;
     /**
      * The name of the channel.
      */
-    public readonly channelName!: pulumi.Output<string>;
+    declare public readonly channelName: pulumi.Output<string>;
     /**
      * <p>The date and time the channel was created.</p>
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * <p>Enter any descriptive text that helps you to identify the channel.</p>
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ingest domain URL where the source stream should be sent.
      */
-    public /*out*/ readonly ingestEndpointUrls!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly ingestEndpointUrls: pulumi.Output<string[]>;
     /**
      * <p>The list of ingest endpoints.</p>
      */
-    public /*out*/ readonly ingestEndpoints!: pulumi.Output<outputs.mediapackagev2.ChannelIngestEndpoint[]>;
+    declare public /*out*/ readonly ingestEndpoints: pulumi.Output<outputs.mediapackagev2.ChannelIngestEndpoint[]>;
     /**
      * The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.
      */
-    public readonly inputSwitchConfiguration!: pulumi.Output<outputs.mediapackagev2.ChannelInputSwitchConfiguration | undefined>;
+    declare public readonly inputSwitchConfiguration: pulumi.Output<outputs.mediapackagev2.ChannelInputSwitchConfiguration | undefined>;
     /**
      * The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
      *
@@ -77,16 +77,16 @@ export class Channel extends pulumi.CustomResource {
      * - `HLS` - The HLS streaming specification (which defines M3U8 manifests and TS segments).
      * - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
      */
-    public readonly inputType!: pulumi.Output<enums.mediapackagev2.ChannelInputType | undefined>;
+    declare public readonly inputType: pulumi.Output<enums.mediapackagev2.ChannelInputType | undefined>;
     /**
      * <p>The date and time the channel was modified.</p>
      */
-    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
     /**
      * The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
      */
-    public readonly outputHeaderConfiguration!: pulumi.Output<outputs.mediapackagev2.ChannelOutputHeaderConfiguration | undefined>;
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly outputHeaderConfiguration: pulumi.Output<outputs.mediapackagev2.ChannelOutputHeaderConfiguration | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -99,16 +99,16 @@ export class Channel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channelGroupName === undefined) && !opts.urn) {
+            if (args?.channelGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelGroupName'");
             }
-            resourceInputs["channelGroupName"] = args ? args.channelGroupName : undefined;
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["inputSwitchConfiguration"] = args ? args.inputSwitchConfiguration : undefined;
-            resourceInputs["inputType"] = args ? args.inputType : undefined;
-            resourceInputs["outputHeaderConfiguration"] = args ? args.outputHeaderConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["channelGroupName"] = args?.channelGroupName;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["inputSwitchConfiguration"] = args?.inputSwitchConfiguration;
+            resourceInputs["inputType"] = args?.inputType;
+            resourceInputs["outputHeaderConfiguration"] = args?.outputHeaderConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["ingestEndpointUrls"] = undefined /*out*/;

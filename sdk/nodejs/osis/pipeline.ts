@@ -40,55 +40,55 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
      */
-    public readonly bufferOptions!: pulumi.Output<outputs.osis.PipelineBufferOptions | undefined>;
+    declare public readonly bufferOptions: pulumi.Output<outputs.osis.PipelineBufferOptions | undefined>;
     /**
      * Options to control how OpenSearch encrypts buffer data.
      */
-    public readonly encryptionAtRestOptions!: pulumi.Output<outputs.osis.PipelineEncryptionAtRestOptions | undefined>;
+    declare public readonly encryptionAtRestOptions: pulumi.Output<outputs.osis.PipelineEncryptionAtRestOptions | undefined>;
     /**
      * A list of endpoints that can be used for ingesting data into a pipeline
      */
-    public /*out*/ readonly ingestEndpointUrls!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly ingestEndpointUrls: pulumi.Output<string[]>;
     /**
      * Key-value pairs that represent log publishing settings.
      */
-    public readonly logPublishingOptions!: pulumi.Output<outputs.osis.PipelineLogPublishingOptions | undefined>;
+    declare public readonly logPublishingOptions: pulumi.Output<outputs.osis.PipelineLogPublishingOptions | undefined>;
     /**
      * The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
      */
-    public readonly maxUnits!: pulumi.Output<number>;
+    declare public readonly maxUnits: pulumi.Output<number>;
     /**
      * The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
      */
-    public readonly minUnits!: pulumi.Output<number>;
+    declare public readonly minUnits: pulumi.Output<number>;
     /**
      * The Amazon Resource Name (ARN) of the pipeline.
      */
-    public /*out*/ readonly pipelineArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly pipelineArn: pulumi.Output<string>;
     /**
      * The Data Prepper pipeline configuration.
      */
-    public readonly pipelineConfigurationBody!: pulumi.Output<string>;
+    declare public readonly pipelineConfigurationBody: pulumi.Output<string>;
     /**
      * Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
      */
-    public readonly pipelineName!: pulumi.Output<string>;
+    declare public readonly pipelineName: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The VPC endpoint service name for the pipeline.
      */
-    public /*out*/ readonly vpcEndpointService!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcEndpointService: pulumi.Output<string>;
     /**
      * The VPC interface endpoints that have access to the pipeline.
      */
-    public /*out*/ readonly vpcEndpoints!: pulumi.Output<outputs.osis.PipelineVpcEndpoint[]>;
+    declare public /*out*/ readonly vpcEndpoints: pulumi.Output<outputs.osis.PipelineVpcEndpoint[]>;
     /**
      * Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
      */
-    public readonly vpcOptions!: pulumi.Output<outputs.osis.PipelineVpcOptions | undefined>;
+    declare public readonly vpcOptions: pulumi.Output<outputs.osis.PipelineVpcOptions | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -101,24 +101,24 @@ export class Pipeline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.maxUnits === undefined) && !opts.urn) {
+            if (args?.maxUnits === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxUnits'");
             }
-            if ((!args || args.minUnits === undefined) && !opts.urn) {
+            if (args?.minUnits === undefined && !opts.urn) {
                 throw new Error("Missing required property 'minUnits'");
             }
-            if ((!args || args.pipelineConfigurationBody === undefined) && !opts.urn) {
+            if (args?.pipelineConfigurationBody === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pipelineConfigurationBody'");
             }
-            resourceInputs["bufferOptions"] = args ? args.bufferOptions : undefined;
-            resourceInputs["encryptionAtRestOptions"] = args ? args.encryptionAtRestOptions : undefined;
-            resourceInputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
-            resourceInputs["maxUnits"] = args ? args.maxUnits : undefined;
-            resourceInputs["minUnits"] = args ? args.minUnits : undefined;
-            resourceInputs["pipelineConfigurationBody"] = args ? args.pipelineConfigurationBody : undefined;
-            resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
+            resourceInputs["bufferOptions"] = args?.bufferOptions;
+            resourceInputs["encryptionAtRestOptions"] = args?.encryptionAtRestOptions;
+            resourceInputs["logPublishingOptions"] = args?.logPublishingOptions;
+            resourceInputs["maxUnits"] = args?.maxUnits;
+            resourceInputs["minUnits"] = args?.minUnits;
+            resourceInputs["pipelineConfigurationBody"] = args?.pipelineConfigurationBody;
+            resourceInputs["pipelineName"] = args?.pipelineName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcOptions"] = args?.vpcOptions;
             resourceInputs["ingestEndpointUrls"] = undefined /*out*/;
             resourceInputs["pipelineArn"] = undefined /*out*/;
             resourceInputs["vpcEndpointService"] = undefined /*out*/;

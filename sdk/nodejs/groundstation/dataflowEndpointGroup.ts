@@ -65,27 +65,27 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
     /**
      * The ARN of the dataflow endpoint group, such as `arn:aws:groundstation:us-east-2:1234567890:dataflow-endpoint-group/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * UUID of a dataflow endpoint group.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
      */
-    public readonly contactPostPassDurationSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly contactPostPassDurationSeconds: pulumi.Output<number | undefined>;
     /**
      * Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
      */
-    public readonly contactPrePassDurationSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly contactPrePassDurationSeconds: pulumi.Output<number | undefined>;
     /**
      * List of Endpoint Details, containing address and port for each endpoint. All dataflow endpoints within a single dataflow endpoint group must be of the same type. You cannot mix AWS Ground Station Agent endpoints with Dataflow endpoints in the same group. If your use case requires both types of endpoints, you must create separate dataflow endpoint groups for each type.
      */
-    public readonly endpointDetails!: pulumi.Output<outputs.groundstation.DataflowEndpointGroupEndpointDetails[]>;
+    declare public readonly endpointDetails: pulumi.Output<outputs.groundstation.DataflowEndpointGroupEndpointDetails[]>;
     /**
      * Tags assigned to a resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DataflowEndpointGroup resource with the given unique name, arguments, and options.
@@ -98,13 +98,13 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endpointDetails === undefined) && !opts.urn) {
+            if (args?.endpointDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointDetails'");
             }
-            resourceInputs["contactPostPassDurationSeconds"] = args ? args.contactPostPassDurationSeconds : undefined;
-            resourceInputs["contactPrePassDurationSeconds"] = args ? args.contactPrePassDurationSeconds : undefined;
-            resourceInputs["endpointDetails"] = args ? args.endpointDetails : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["contactPostPassDurationSeconds"] = args?.contactPostPassDurationSeconds;
+            resourceInputs["contactPrePassDurationSeconds"] = args?.contactPrePassDurationSeconds;
+            resourceInputs["endpointDetails"] = args?.endpointDetails;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

@@ -40,21 +40,21 @@ export class ResourceSet extends pulumi.CustomResource {
     /**
      * A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A description of the resource set.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The descriptive name of the resource set. You can't change the name of a resource set after you create it.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
      */
-    public readonly resourceTypeList!: pulumi.Output<string[]>;
-    public readonly resources!: pulumi.Output<string[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly resourceTypeList: pulumi.Output<string[]>;
+    declare public readonly resources: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ResourceSet resource with the given unique name, arguments, and options.
@@ -67,14 +67,14 @@ export class ResourceSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceTypeList === undefined) && !opts.urn) {
+            if (args?.resourceTypeList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceTypeList'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceTypeList"] = args ? args.resourceTypeList : undefined;
-            resourceInputs["resources"] = args ? args.resources : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceTypeList"] = args?.resourceTypeList;
+            resourceInputs["resources"] = args?.resources;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

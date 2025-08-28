@@ -40,33 +40,33 @@ export class ModelPackageGroup extends pulumi.CustomResource {
     /**
      * The time at which the model package group was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the model group.
      */
-    public /*out*/ readonly modelPackageGroupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly modelPackageGroupArn: pulumi.Output<string>;
     /**
      * The description for the model group.
      */
-    public readonly modelPackageGroupDescription!: pulumi.Output<string | undefined>;
+    declare public readonly modelPackageGroupDescription: pulumi.Output<string | undefined>;
     /**
      * The name of the model group.
      */
-    public readonly modelPackageGroupName!: pulumi.Output<string>;
+    declare public readonly modelPackageGroupName: pulumi.Output<string>;
     /**
      * A resouce policy to control access to a model group. For information about resoure policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS Identity and Access Management User Guide.* .
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
      */
-    public readonly modelPackageGroupPolicy!: pulumi.Output<any | undefined>;
+    declare public readonly modelPackageGroupPolicy: pulumi.Output<any | undefined>;
     /**
      * The status of a modelpackage group job.
      */
-    public /*out*/ readonly modelPackageGroupStatus!: pulumi.Output<enums.sagemaker.ModelPackageGroupStatus>;
+    declare public /*out*/ readonly modelPackageGroupStatus: pulumi.Output<enums.sagemaker.ModelPackageGroupStatus>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ModelPackageGroup resource with the given unique name, arguments, and options.
@@ -79,10 +79,10 @@ export class ModelPackageGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["modelPackageGroupDescription"] = args ? args.modelPackageGroupDescription : undefined;
-            resourceInputs["modelPackageGroupName"] = args ? args.modelPackageGroupName : undefined;
-            resourceInputs["modelPackageGroupPolicy"] = args ? args.modelPackageGroupPolicy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["modelPackageGroupDescription"] = args?.modelPackageGroupDescription;
+            resourceInputs["modelPackageGroupName"] = args?.modelPackageGroupName;
+            resourceInputs["modelPackageGroupPolicy"] = args?.modelPackageGroupPolicy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["modelPackageGroupArn"] = undefined /*out*/;
             resourceInputs["modelPackageGroupStatus"] = undefined /*out*/;

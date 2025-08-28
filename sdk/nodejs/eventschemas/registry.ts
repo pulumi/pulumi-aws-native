@@ -54,19 +54,19 @@ export class Registry extends pulumi.CustomResource {
     /**
      * A description of the registry to be created.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ARN of the registry.
      */
-    public /*out*/ readonly registryArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly registryArn: pulumi.Output<string>;
     /**
      * The name of the schema registry.
      */
-    public readonly registryName!: pulumi.Output<string | undefined>;
+    declare public readonly registryName: pulumi.Output<string | undefined>;
     /**
      * Tags associated with the resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Registry resource with the given unique name, arguments, and options.
@@ -79,9 +79,9 @@ export class Registry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["registryArn"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

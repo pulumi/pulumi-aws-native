@@ -40,25 +40,25 @@ export class Ruleset extends pulumi.CustomResource {
     /**
      * Description of the Ruleset
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of the Ruleset
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * List of the data quality rules in the ruleset
      */
-    public readonly rules!: pulumi.Output<outputs.databrew.RulesetRule[]>;
+    declare public readonly rules: pulumi.Output<outputs.databrew.RulesetRule[]>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Arn of the target resource (dataset) to apply the ruleset to
      */
-    public readonly targetArn!: pulumi.Output<string>;
+    declare public readonly targetArn: pulumi.Output<string>;
 
     /**
      * Create a Ruleset resource with the given unique name, arguments, and options.
@@ -71,17 +71,17 @@ export class Ruleset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.rules === undefined) && !opts.urn) {
+            if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            if ((!args || args.targetArn === undefined) && !opts.urn) {
+            if (args?.targetArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetArn"] = args ? args.targetArn : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetArn"] = args?.targetArn;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

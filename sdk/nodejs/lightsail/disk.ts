@@ -40,63 +40,63 @@ export class Disk extends pulumi.CustomResource {
     /**
      * An array of objects representing the add-ons to enable for the new instance.
      */
-    public readonly addOns!: pulumi.Output<outputs.lightsail.DiskAddOn[] | undefined>;
+    declare public readonly addOns: pulumi.Output<outputs.lightsail.DiskAddOn[] | undefined>;
     /**
      * Name of the attached Lightsail Instance
      */
-    public /*out*/ readonly attachedTo!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachedTo: pulumi.Output<string>;
     /**
      * Attachment State of the Lightsail disk
      */
-    public /*out*/ readonly attachmentState!: pulumi.Output<string>;
+    declare public /*out*/ readonly attachmentState: pulumi.Output<string>;
     /**
      * The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
      */
-    public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    declare public readonly availabilityZone: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the disk.
      */
-    public /*out*/ readonly diskArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly diskArn: pulumi.Output<string>;
     /**
      * The names to use for your new Lightsail disk.
      */
-    public readonly diskName!: pulumi.Output<string>;
+    declare public readonly diskName: pulumi.Output<string>;
     /**
      * Iops of the Lightsail disk
      */
-    public /*out*/ readonly iops!: pulumi.Output<number>;
+    declare public /*out*/ readonly iops: pulumi.Output<number>;
     /**
      * Check is Disk is attached state
      */
-    public /*out*/ readonly isAttached!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isAttached: pulumi.Output<boolean>;
     /**
      * The AWS Region and Availability Zone where the disk is located.
      */
-    public readonly location!: pulumi.Output<outputs.lightsail.DiskLocation | undefined>;
+    declare public readonly location: pulumi.Output<outputs.lightsail.DiskLocation | undefined>;
     /**
      * Path of the  attached Disk
      */
-    public /*out*/ readonly path!: pulumi.Output<string>;
+    declare public /*out*/ readonly path: pulumi.Output<string>;
     /**
      * Resource type of Lightsail instance.
      */
-    public /*out*/ readonly resourceType!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceType: pulumi.Output<string>;
     /**
      * Size of the Lightsail disk
      */
-    public readonly sizeInGb!: pulumi.Output<number>;
+    declare public readonly sizeInGb: pulumi.Output<number>;
     /**
      * State of the Lightsail disk
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Support code to help identify any issues
      */
-    public /*out*/ readonly supportCode!: pulumi.Output<string>;
+    declare public /*out*/ readonly supportCode: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Disk resource with the given unique name, arguments, and options.
@@ -109,15 +109,15 @@ export class Disk extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sizeInGb === undefined) && !opts.urn) {
+            if (args?.sizeInGb === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sizeInGb'");
             }
-            resourceInputs["addOns"] = args ? args.addOns : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["diskName"] = args ? args.diskName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["sizeInGb"] = args ? args.sizeInGb : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addOns"] = args?.addOns;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["diskName"] = args?.diskName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["sizeInGb"] = args?.sizeInGb;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["attachedTo"] = undefined /*out*/;
             resourceInputs["attachmentState"] = undefined /*out*/;
             resourceInputs["diskArn"] = undefined /*out*/;

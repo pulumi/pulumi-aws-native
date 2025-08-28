@@ -77,11 +77,11 @@ export class Template extends pulumi.CustomResource {
         return obj['__pulumiType'] === Template.__pulumiType;
     }
 
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The content of the email, composed of a subject line and either an HTML part or a text-only part.
      */
-    public readonly template!: pulumi.Output<outputs.ses.Template | undefined>;
+    declare public readonly template: pulumi.Output<outputs.ses.Template | undefined>;
 
     /**
      * Create a Template resource with the given unique name, arguments, and options.
@@ -94,7 +94,7 @@ export class Template extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["template"] = args ? args.template : undefined;
+            resourceInputs["template"] = args?.template;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

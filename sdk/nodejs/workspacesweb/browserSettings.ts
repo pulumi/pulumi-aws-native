@@ -40,29 +40,29 @@ export class BrowserSettings extends pulumi.CustomResource {
     /**
      * Additional encryption context of the browser settings.
      */
-    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalEncryptionContext: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of web portal ARNs that the browser settings resource is associated with.
      */
-    public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
     /**
      * A JSON string containing Chrome Enterprise policies that will be applied to all streaming sessions.
      */
-    public readonly browserPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly browserPolicy: pulumi.Output<string | undefined>;
     /**
      * The ARN of the browser settings.
      */
-    public /*out*/ readonly browserSettingsArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly browserSettingsArn: pulumi.Output<string>;
     /**
      * The custom managed key of the browser settings.
      *
      * *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
      */
-    public readonly customerManagedKey!: pulumi.Output<string | undefined>;
+    declare public readonly customerManagedKey: pulumi.Output<string | undefined>;
     /**
      * The tags to add to the browser settings resource. A tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a BrowserSettings resource with the given unique name, arguments, and options.
@@ -75,10 +75,10 @@ export class BrowserSettings extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
-            resourceInputs["browserPolicy"] = args ? args.browserPolicy : undefined;
-            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
+            resourceInputs["browserPolicy"] = args?.browserPolicy;
+            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["browserSettingsArn"] = undefined /*out*/;
         } else {

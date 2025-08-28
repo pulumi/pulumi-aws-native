@@ -40,33 +40,33 @@ export class EnvironmentTemplate extends pulumi.CustomResource {
     /**
      * <p>The Amazon Resource Name (ARN) of the environment template.</p>
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * <p>A description of the environment template.</p>
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * <p>The environment template name as displayed in the developer interface.</p>
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * <p>A customer provided encryption key that Proton uses to encrypt data.</p>
      */
-    public readonly encryptionKey!: pulumi.Output<string | undefined>;
+    declare public readonly encryptionKey: pulumi.Output<string | undefined>;
     /**
      * The name of the environment template.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * When included, indicates that the environment template is for customer provisioned and managed infrastructure.
      */
-    public readonly provisioning!: pulumi.Output<enums.proton.EnvironmentTemplateProvisioning | undefined>;
+    declare public readonly provisioning: pulumi.Output<enums.proton.EnvironmentTemplateProvisioning | undefined>;
     /**
      * <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
      *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
      *         <i>Proton User Guide</i>.</p>
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a EnvironmentTemplate resource with the given unique name, arguments, and options.
@@ -79,12 +79,12 @@ export class EnvironmentTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["provisioning"] = args ? args.provisioning : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["encryptionKey"] = args?.encryptionKey;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["provisioning"] = args?.provisioning;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

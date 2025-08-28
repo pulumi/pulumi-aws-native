@@ -40,39 +40,39 @@ export class RestoreTestingSelection extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource; for example: `arn:aws:iam::123456789012:role/S3Access` .
      */
-    public readonly iamRoleArn!: pulumi.Output<string>;
+    declare public readonly iamRoleArn: pulumi.Output<string>;
     /**
      * You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
      */
-    public readonly protectedResourceArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly protectedResourceArns: pulumi.Output<string[] | undefined>;
     /**
      * In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
      */
-    public readonly protectedResourceConditions!: pulumi.Output<outputs.backup.RestoreTestingSelectionProtectedResourceConditions | undefined>;
+    declare public readonly protectedResourceConditions: pulumi.Output<outputs.backup.RestoreTestingSelectionProtectedResourceConditions | undefined>;
     /**
      * The type of AWS resource included in a resource testing selection; for example, an Amazon EBS volume or an Amazon RDS database.
      */
-    public readonly protectedResourceType!: pulumi.Output<string>;
+    declare public readonly protectedResourceType: pulumi.Output<string>;
     /**
      * You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` . Key values are not case sensitive.
      *
      * See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
      */
-    public readonly restoreMetadataOverrides!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly restoreMetadataOverrides: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Unique string that is the name of the restore testing plan.
      *
      * The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
      */
-    public readonly restoreTestingPlanName!: pulumi.Output<string>;
+    declare public readonly restoreTestingPlanName: pulumi.Output<string>;
     /**
      * The unique name of the restore testing selection that belongs to the related restore testing plan.
      */
-    public readonly restoreTestingSelectionName!: pulumi.Output<string>;
+    declare public readonly restoreTestingSelectionName: pulumi.Output<string>;
     /**
      * This is amount of hours (1 to 168) available to run a validation script on the data. The data will be deleted upon the completion of the validation script or the end of the specified retention period, whichever comes first.
      */
-    public readonly validationWindowHours!: pulumi.Output<number | undefined>;
+    declare public readonly validationWindowHours: pulumi.Output<number | undefined>;
 
     /**
      * Create a RestoreTestingSelection resource with the given unique name, arguments, and options.
@@ -85,23 +85,23 @@ export class RestoreTestingSelection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.iamRoleArn === undefined) && !opts.urn) {
+            if (args?.iamRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
-            if ((!args || args.protectedResourceType === undefined) && !opts.urn) {
+            if (args?.protectedResourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protectedResourceType'");
             }
-            if ((!args || args.restoreTestingPlanName === undefined) && !opts.urn) {
+            if (args?.restoreTestingPlanName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restoreTestingPlanName'");
             }
-            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            resourceInputs["protectedResourceArns"] = args ? args.protectedResourceArns : undefined;
-            resourceInputs["protectedResourceConditions"] = args ? args.protectedResourceConditions : undefined;
-            resourceInputs["protectedResourceType"] = args ? args.protectedResourceType : undefined;
-            resourceInputs["restoreMetadataOverrides"] = args ? args.restoreMetadataOverrides : undefined;
-            resourceInputs["restoreTestingPlanName"] = args ? args.restoreTestingPlanName : undefined;
-            resourceInputs["restoreTestingSelectionName"] = args ? args.restoreTestingSelectionName : undefined;
-            resourceInputs["validationWindowHours"] = args ? args.validationWindowHours : undefined;
+            resourceInputs["iamRoleArn"] = args?.iamRoleArn;
+            resourceInputs["protectedResourceArns"] = args?.protectedResourceArns;
+            resourceInputs["protectedResourceConditions"] = args?.protectedResourceConditions;
+            resourceInputs["protectedResourceType"] = args?.protectedResourceType;
+            resourceInputs["restoreMetadataOverrides"] = args?.restoreMetadataOverrides;
+            resourceInputs["restoreTestingPlanName"] = args?.restoreTestingPlanName;
+            resourceInputs["restoreTestingSelectionName"] = args?.restoreTestingSelectionName;
+            resourceInputs["validationWindowHours"] = args?.validationWindowHours;
         } else {
             resourceInputs["iamRoleArn"] = undefined /*out*/;
             resourceInputs["protectedResourceArns"] = undefined /*out*/;

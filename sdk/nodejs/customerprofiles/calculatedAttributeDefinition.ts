@@ -40,52 +40,52 @@ export class CalculatedAttributeDefinition extends pulumi.CustomResource {
     /**
      * Mathematical expression and a list of attribute items specified in that expression.
      */
-    public readonly attributeDetails!: pulumi.Output<outputs.customerprofiles.CalculatedAttributeDefinitionAttributeDetails>;
+    declare public readonly attributeDetails: pulumi.Output<outputs.customerprofiles.CalculatedAttributeDefinitionAttributeDetails>;
     /**
      * The name of an attribute defined in a profile object type.
      */
-    public readonly calculatedAttributeName!: pulumi.Output<string>;
+    declare public readonly calculatedAttributeName: pulumi.Output<string>;
     /**
      * The conditions including range, object count, and threshold for the calculated attribute.
      */
-    public readonly conditions!: pulumi.Output<outputs.customerprofiles.CalculatedAttributeDefinitionConditions | undefined>;
+    declare public readonly conditions: pulumi.Output<outputs.customerprofiles.CalculatedAttributeDefinitionConditions | undefined>;
     /**
      * The timestamp of when the calculated attribute definition was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The description of the calculated attribute.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the calculated attribute.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The unique name of the domain.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * The timestamp of when the calculated attribute definition was most recently edited.
      */
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
-    public /*out*/ readonly readiness!: pulumi.Output<outputs.customerprofiles.CalculatedAttributeDefinitionReadiness>;
+    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
+    declare public /*out*/ readonly readiness: pulumi.Output<outputs.customerprofiles.CalculatedAttributeDefinitionReadiness>;
     /**
      * The aggregation operation to perform for the calculated attribute.
      */
-    public readonly statistic!: pulumi.Output<enums.customerprofiles.CalculatedAttributeDefinitionStatistic>;
+    declare public readonly statistic: pulumi.Output<enums.customerprofiles.CalculatedAttributeDefinitionStatistic>;
     /**
      * The status of the calculated attribute definition.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.customerprofiles.CalculatedAttributeDefinitionStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.customerprofiles.CalculatedAttributeDefinitionStatus>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Whether to use historical data for the calculated attribute.
      */
-    public readonly useHistoricalData!: pulumi.Output<boolean | undefined>;
+    declare public readonly useHistoricalData: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a CalculatedAttributeDefinition resource with the given unique name, arguments, and options.
@@ -98,27 +98,27 @@ export class CalculatedAttributeDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.attributeDetails === undefined) && !opts.urn) {
+            if (args?.attributeDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'attributeDetails'");
             }
-            if ((!args || args.calculatedAttributeName === undefined) && !opts.urn) {
+            if (args?.calculatedAttributeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'calculatedAttributeName'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.statistic === undefined) && !opts.urn) {
+            if (args?.statistic === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statistic'");
             }
-            resourceInputs["attributeDetails"] = args ? args.attributeDetails : undefined;
-            resourceInputs["calculatedAttributeName"] = args ? args.calculatedAttributeName : undefined;
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["statistic"] = args ? args.statistic : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["useHistoricalData"] = args ? args.useHistoricalData : undefined;
+            resourceInputs["attributeDetails"] = args?.attributeDetails;
+            resourceInputs["calculatedAttributeName"] = args?.calculatedAttributeName;
+            resourceInputs["conditions"] = args?.conditions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["statistic"] = args?.statistic;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["useHistoricalData"] = args?.useHistoricalData;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["readiness"] = undefined /*out*/;

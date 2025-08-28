@@ -40,27 +40,27 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * Specifies the unique Amazon Resource Name (ARN) for the workflow.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A textual description for the workflow.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.
      */
-    public readonly onExceptionSteps!: pulumi.Output<outputs.transfer.WorkflowStep[] | undefined>;
+    declare public readonly onExceptionSteps: pulumi.Output<outputs.transfer.WorkflowStep[] | undefined>;
     /**
      * Specifies the details for the steps that are in the specified workflow.
      */
-    public readonly steps!: pulumi.Output<outputs.transfer.WorkflowStep[]>;
+    declare public readonly steps: pulumi.Output<outputs.transfer.WorkflowStep[]>;
     /**
      * Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A unique identifier for the workflow.
      */
-    public /*out*/ readonly workflowId!: pulumi.Output<string>;
+    declare public /*out*/ readonly workflowId: pulumi.Output<string>;
 
     /**
      * Create a Workflow resource with the given unique name, arguments, and options.
@@ -73,13 +73,13 @@ export class Workflow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.steps === undefined) && !opts.urn) {
+            if (args?.steps === undefined && !opts.urn) {
                 throw new Error("Missing required property 'steps'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["onExceptionSteps"] = args ? args.onExceptionSteps : undefined;
-            resourceInputs["steps"] = args ? args.steps : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["onExceptionSteps"] = args?.onExceptionSteps;
+            resourceInputs["steps"] = args?.steps;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["workflowId"] = undefined /*out*/;
         } else {

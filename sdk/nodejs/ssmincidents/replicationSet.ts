@@ -40,19 +40,19 @@ export class ReplicationSet extends pulumi.CustomResource {
     /**
      * The ARN of the ReplicationSet.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
      */
-    public readonly deletionProtected!: pulumi.Output<boolean | undefined>;
+    declare public readonly deletionProtected: pulumi.Output<boolean | undefined>;
     /**
      * The ReplicationSet configuration.
      */
-    public readonly regions!: pulumi.Output<outputs.ssmincidents.ReplicationSetReplicationRegion[]>;
+    declare public readonly regions: pulumi.Output<outputs.ssmincidents.ReplicationSetReplicationRegion[]>;
     /**
      * The tags to apply to the replication set.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ReplicationSet resource with the given unique name, arguments, and options.
@@ -65,12 +65,12 @@ export class ReplicationSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.regions === undefined) && !opts.urn) {
+            if (args?.regions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'regions'");
             }
-            resourceInputs["deletionProtected"] = args ? args.deletionProtected : undefined;
-            resourceInputs["regions"] = args ? args.regions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deletionProtected"] = args?.deletionProtected;
+            resourceInputs["regions"] = args?.regions;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
