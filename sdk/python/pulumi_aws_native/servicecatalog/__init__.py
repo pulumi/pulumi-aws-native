@@ -10,7 +10,9 @@ from ._enums import *
 from .cloud_formation_provisioned_product import *
 from .get_cloud_formation_provisioned_product import *
 from .get_service_action import *
+from .get_tag_option import *
 from .service_action import *
 from .service_action_association import *
+from .tag_option import *
 from ._inputs import *
 from . import outputs

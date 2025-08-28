@@ -33,6 +33,7 @@ class ProfileArgs:
         The set of arguments for constructing a Profile resource.
         :param pulumi.Input[builtins.str] business_name: Returns the name for the business associated with this profile.
         :param pulumi.Input['ProfileLogging'] logging: Specifies whether or not logging is enabled for this profile.
+        :param pulumi.Input[builtins.str] phone: Specifies the phone number associated with the profile.
         :param pulumi.Input[builtins.str] name: Returns the display name for profile.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
@@ -73,6 +74,9 @@ class ProfileArgs:
     @property
     @pulumi.getter
     def phone(self) -> pulumi.Input[builtins.str]:
+        """
+        Specifies the phone number associated with the profile.
+        """
         return pulumi.get(self, "phone")
 
     @phone.setter
@@ -134,6 +138,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] business_name: Returns the name for the business associated with this profile.
         :param pulumi.Input['ProfileLogging'] logging: Specifies whether or not logging is enabled for this profile.
         :param pulumi.Input[builtins.str] name: Returns the display name for profile.
+        :param pulumi.Input[builtins.str] phone: Specifies the phone number associated with the profile.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
         ...
@@ -285,6 +290,9 @@ class Profile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def phone(self) -> pulumi.Output[builtins.str]:
+        """
+        Specifies the phone number associated with the profile.
+        """
         return pulumi.get(self, "phone")
 
     @property

@@ -12,9 +12,17 @@ namespace Pulumi.AwsNative.B2bi.Inputs
 
     public sealed class PartnershipX12AcknowledgmentOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether functional acknowledgments (997/999) should be generated for incoming X12 transactions. Valid values are `DO_NOT_GENERATE` , `GENERATE_ALL_SEGMENTS` and `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` .
+        /// 
+        /// If you choose `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` , AWS B2B Data Interchange skips the AK2_Loop when generating an acknowledgment document.
+        /// </summary>
         [Input("functionalAcknowledgment", required: true)]
         public Input<Pulumi.AwsNative.B2bi.PartnershipX12FunctionalAcknowledgment> FunctionalAcknowledgment { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether technical acknowledgments (TA1) should be generated for incoming X12 interchanges. Valid values are `DO_NOT_GENERATE` and `GENERATE_ALL_SEGMENTS` and.
+        /// </summary>
         [Input("technicalAcknowledgment", required: true)]
         public Input<Pulumi.AwsNative.B2bi.PartnershipX12TechnicalAcknowledgment> TechnicalAcknowledgment { get; set; } = null!;
 

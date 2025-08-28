@@ -33,8 +33,12 @@ __all__ = [
     'VariantStoreReferenceItemArgsDict',
     'VariantStoreSseConfigArgs',
     'VariantStoreSseConfigArgsDict',
+    'WorkflowDefinitionRepositoryArgs',
+    'WorkflowDefinitionRepositoryArgsDict',
     'WorkflowParameterArgs',
     'WorkflowParameterArgsDict',
+    'WorkflowSourceReferenceArgs',
+    'WorkflowSourceReferenceArgsDict',
     'WorkflowVersionWorkflowParameterArgs',
     'WorkflowVersionWorkflowParameterArgsDict',
 ]
@@ -387,6 +391,68 @@ class VariantStoreSseConfigArgs:
 
 
 if not MYPY:
+    class WorkflowDefinitionRepositoryArgsDict(TypedDict):
+        connection_arn: NotRequired[pulumi.Input[builtins.str]]
+        exclude_file_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        full_repository_id: NotRequired[pulumi.Input[builtins.str]]
+        source_reference: NotRequired[pulumi.Input['WorkflowSourceReferenceArgsDict']]
+elif False:
+    WorkflowDefinitionRepositoryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkflowDefinitionRepositoryArgs:
+    def __init__(__self__, *,
+                 connection_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 exclude_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 full_repository_id: Optional[pulumi.Input[builtins.str]] = None,
+                 source_reference: Optional[pulumi.Input['WorkflowSourceReferenceArgs']] = None):
+        if connection_arn is not None:
+            pulumi.set(__self__, "connection_arn", connection_arn)
+        if exclude_file_patterns is not None:
+            pulumi.set(__self__, "exclude_file_patterns", exclude_file_patterns)
+        if full_repository_id is not None:
+            pulumi.set(__self__, "full_repository_id", full_repository_id)
+        if source_reference is not None:
+            pulumi.set(__self__, "source_reference", source_reference)
+
+    @property
+    @pulumi.getter(name="connectionArn")
+    def connection_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "connection_arn")
+
+    @connection_arn.setter
+    def connection_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "connection_arn", value)
+
+    @property
+    @pulumi.getter(name="excludeFilePatterns")
+    def exclude_file_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "exclude_file_patterns")
+
+    @exclude_file_patterns.setter
+    def exclude_file_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "exclude_file_patterns", value)
+
+    @property
+    @pulumi.getter(name="fullRepositoryId")
+    def full_repository_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "full_repository_id")
+
+    @full_repository_id.setter
+    def full_repository_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "full_repository_id", value)
+
+    @property
+    @pulumi.getter(name="sourceReference")
+    def source_reference(self) -> Optional[pulumi.Input['WorkflowSourceReferenceArgs']]:
+        return pulumi.get(self, "source_reference")
+
+    @source_reference.setter
+    def source_reference(self, value: Optional[pulumi.Input['WorkflowSourceReferenceArgs']]):
+        pulumi.set(self, "source_reference", value)
+
+
+if not MYPY:
     class WorkflowParameterArgsDict(TypedDict):
         description: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -436,6 +502,42 @@ class WorkflowParameterArgs:
     @optional.setter
     def optional(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "optional", value)
+
+
+if not MYPY:
+    class WorkflowSourceReferenceArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input['WorkflowSourceReferencetype']]
+        value: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    WorkflowSourceReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkflowSourceReferenceArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['WorkflowSourceReferencetype']] = None,
+                 value: Optional[pulumi.Input[builtins.str]] = None):
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['WorkflowSourceReferencetype']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['WorkflowSourceReferencetype']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:

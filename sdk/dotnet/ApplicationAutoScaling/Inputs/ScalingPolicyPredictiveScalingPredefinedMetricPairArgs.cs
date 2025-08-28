@@ -11,7 +11,17 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 {
 
     /// <summary>
-    /// Represents a metric pair for a predictive scaling policy.
+    /// Represents a metric pair for a predictive scaling policy. 
+    ///  The following predefined metrics are available for predictive scaling:
+    ///   +   ``ECSServiceAverageCPUUtilization`` 
+    ///   +   ``ECSServiceAverageMemoryUtilization`` 
+    ///   +   ``ECSServiceCPUUtilization`` 
+    ///   +   ``ECSServiceMemoryUtilization`` 
+    ///   +   ``ECSServiceTotalCPUUtilization`` 
+    ///   +   ``ECSServiceTotalMemoryUtilization`` 
+    ///   +   ``ALBRequestCount`` 
+    ///   +   ``ALBRequestCountPerTarget`` 
+    ///   +   ``TotalALBRequestCount``
     /// </summary>
     public sealed class ScalingPolicyPredictiveScalingPredefinedMetricPairArgs : global::Pulumi.ResourceArgs
     {

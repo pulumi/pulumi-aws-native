@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.B2bi.Outputs
     [OutputType]
     public sealed class TransformerSampleDocuments
     {
+        /// <summary>
+        /// Contains the Amazon S3 bucket that is used to hold your sample documents.
+        /// </summary>
         public readonly string BucketName;
+        /// <summary>
+        /// Contains an array of the Amazon S3 keys used to identify the location for your sample documents.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TransformerSampleDocumentKeys> Keys;
 
         [OutputConstructor]

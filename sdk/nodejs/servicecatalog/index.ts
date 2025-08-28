@@ -20,6 +20,11 @@ export const getServiceAction: typeof import("./getServiceAction").getServiceAct
 export const getServiceActionOutput: typeof import("./getServiceAction").getServiceActionOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceAction","getServiceActionOutput"], () => require("./getServiceAction"));
 
+export { GetTagOptionArgs, GetTagOptionResult, GetTagOptionOutputArgs } from "./getTagOption";
+export const getTagOption: typeof import("./getTagOption").getTagOption = null as any;
+export const getTagOptionOutput: typeof import("./getTagOption").getTagOptionOutput = null as any;
+utilities.lazyLoad(exports, ["getTagOption","getTagOptionOutput"], () => require("./getTagOption"));
+
 export { ServiceActionArgs } from "./serviceAction";
 export type ServiceAction = import("./serviceAction").ServiceAction;
 export const ServiceAction: typeof import("./serviceAction").ServiceAction = null as any;
@@ -29,6 +34,11 @@ export { ServiceActionAssociationArgs } from "./serviceActionAssociation";
 export type ServiceActionAssociation = import("./serviceActionAssociation").ServiceActionAssociation;
 export const ServiceActionAssociation: typeof import("./serviceActionAssociation").ServiceActionAssociation = null as any;
 utilities.lazyLoad(exports, ["ServiceActionAssociation"], () => require("./serviceActionAssociation"));
+
+export { TagOptionArgs } from "./tagOption";
+export type TagOption = import("./tagOption").TagOption;
+export const TagOption: typeof import("./tagOption").TagOption = null as any;
+utilities.lazyLoad(exports, ["TagOption"], () => require("./tagOption"));
 
 
 // Export enums:
@@ -44,6 +54,8 @@ const _module = {
                 return new ServiceAction(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:ServiceActionAssociation":
                 return new ServiceActionAssociation(name, <any>undefined, { urn })
+            case "aws-native:servicecatalog:TagOption":
+                return new TagOption(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

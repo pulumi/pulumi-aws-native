@@ -23,11 +23,15 @@ func LookupPolicyGrant(ctx *pulumi.Context, args *LookupPolicyGrantArgs, opts ..
 }
 
 type LookupPolicyGrantArgs struct {
-	DomainIdentifier string                      `pulumi:"domainIdentifier"`
-	EntityIdentifier string                      `pulumi:"entityIdentifier"`
-	EntityType       PolicyGrantTargetEntityType `pulumi:"entityType"`
+	// The ID of the domain where you want to add a policy grant.
+	DomainIdentifier string `pulumi:"domainIdentifier"`
+	// The ID of the entity (resource) to which you want to add a policy grant.
+	EntityIdentifier string `pulumi:"entityIdentifier"`
+	// The type of entity (resource) to which the grant is added.
+	EntityType PolicyGrantTargetEntityType `pulumi:"entityType"`
 	// The unique identifier of the policy grant returned by the AddPolicyGrant API
-	GrantId    string `pulumi:"grantId"`
+	GrantId string `pulumi:"grantId"`
+	// The type of policy that you want to grant.
 	PolicyType string `pulumi:"policyType"`
 }
 
@@ -50,11 +54,15 @@ func LookupPolicyGrantOutput(ctx *pulumi.Context, args LookupPolicyGrantOutputAr
 }
 
 type LookupPolicyGrantOutputArgs struct {
-	DomainIdentifier pulumi.StringInput               `pulumi:"domainIdentifier"`
-	EntityIdentifier pulumi.StringInput               `pulumi:"entityIdentifier"`
-	EntityType       PolicyGrantTargetEntityTypeInput `pulumi:"entityType"`
+	// The ID of the domain where you want to add a policy grant.
+	DomainIdentifier pulumi.StringInput `pulumi:"domainIdentifier"`
+	// The ID of the entity (resource) to which you want to add a policy grant.
+	EntityIdentifier pulumi.StringInput `pulumi:"entityIdentifier"`
+	// The type of entity (resource) to which the grant is added.
+	EntityType PolicyGrantTargetEntityTypeInput `pulumi:"entityType"`
 	// The unique identifier of the policy grant returned by the AddPolicyGrant API
-	GrantId    pulumi.StringInput `pulumi:"grantId"`
+	GrantId pulumi.StringInput `pulumi:"grantId"`
+	// The type of policy that you want to grant.
 	PolicyType pulumi.StringInput `pulumi:"policyType"`
 }
 

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.B2bi.Outputs
     [OutputType]
     public sealed class TransformerSampleDocumentKeys
     {
+        /// <summary>
+        /// An array of keys for your input sample documents.
+        /// </summary>
         public readonly string? Input;
+        /// <summary>
+        /// An array of keys for your output sample documents.
+        /// </summary>
         public readonly string? Output;
 
         [OutputConstructor]

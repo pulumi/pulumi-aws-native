@@ -38,7 +38,8 @@ type LookupProfileResult struct {
 	// Returns the timestamp that identifies the most recent date and time that the profile was modified.
 	ModifiedAt *string `pulumi:"modifiedAt"`
 	// Returns the display name for profile.
-	Name  *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Specifies the phone number associated with the profile.
 	Phone *string `pulumi:"phone"`
 	// Returns an Amazon Resource Name (ARN) for the profile.
 	ProfileArn *string `pulumi:"profileArn"`
@@ -107,6 +108,7 @@ func (o LookupProfileResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the phone number associated with the profile.
 func (o LookupProfileResultOutput) Phone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileResult) *string { return v.Phone }).(pulumi.StringPtrOutput)
 }

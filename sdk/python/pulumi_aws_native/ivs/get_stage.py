@@ -63,6 +63,9 @@ class GetStageResult:
     @property
     @pulumi.getter(name="autoParticipantRecordingConfiguration")
     def auto_participant_recording_configuration(self) -> Optional['outputs.StageAutoParticipantRecordingConfiguration']:
+        """
+        Configuration object for individual participant recording.
+        """
         return pulumi.get(self, "auto_participant_recording_configuration")
 
     @property

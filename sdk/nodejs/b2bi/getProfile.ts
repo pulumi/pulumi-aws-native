@@ -43,6 +43,9 @@ export interface GetProfileResult {
      * Returns the display name for profile.
      */
     readonly name?: string;
+    /**
+     * Specifies the phone number associated with the profile.
+     */
     readonly phone?: string;
     /**
      * Returns an Amazon Resource Name (ARN) for the profile.

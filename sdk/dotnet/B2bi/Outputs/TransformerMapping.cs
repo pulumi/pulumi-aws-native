@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.B2bi.Outputs
     [OutputType]
     public sealed class TransformerMapping
     {
+        /// <summary>
+        /// A string that represents the mapping template, in the transformation language specified in `templateLanguage` .
+        /// </summary>
         public readonly string? Template;
+        /// <summary>
+        /// The transformation language for the template, either XSLT or JSONATA.
+        /// </summary>
         public readonly Pulumi.AwsNative.B2bi.TransformerMappingTemplateLanguage TemplateLanguage;
 
         [OutputConstructor]

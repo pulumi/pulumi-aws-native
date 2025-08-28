@@ -26,7 +26,9 @@ __all__ = [
     'SequenceStoreSseConfig',
     'VariantStoreReferenceItem',
     'VariantStoreSseConfig',
+    'WorkflowDefinitionRepository',
     'WorkflowParameter',
+    'WorkflowSourceReference',
     'WorkflowVersionWorkflowParameter',
 ]
 
@@ -374,6 +376,66 @@ class VariantStoreSseConfig(dict):
 
 
 @pulumi.output_type
+class WorkflowDefinitionRepository(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionArn":
+            suggest = "connection_arn"
+        elif key == "excludeFilePatterns":
+            suggest = "exclude_file_patterns"
+        elif key == "fullRepositoryId":
+            suggest = "full_repository_id"
+        elif key == "sourceReference":
+            suggest = "source_reference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkflowDefinitionRepository. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkflowDefinitionRepository.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkflowDefinitionRepository.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_arn: Optional[builtins.str] = None,
+                 exclude_file_patterns: Optional[Sequence[builtins.str]] = None,
+                 full_repository_id: Optional[builtins.str] = None,
+                 source_reference: Optional['outputs.WorkflowSourceReference'] = None):
+        if connection_arn is not None:
+            pulumi.set(__self__, "connection_arn", connection_arn)
+        if exclude_file_patterns is not None:
+            pulumi.set(__self__, "exclude_file_patterns", exclude_file_patterns)
+        if full_repository_id is not None:
+            pulumi.set(__self__, "full_repository_id", full_repository_id)
+        if source_reference is not None:
+            pulumi.set(__self__, "source_reference", source_reference)
+
+    @property
+    @pulumi.getter(name="connectionArn")
+    def connection_arn(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "connection_arn")
+
+    @property
+    @pulumi.getter(name="excludeFilePatterns")
+    def exclude_file_patterns(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "exclude_file_patterns")
+
+    @property
+    @pulumi.getter(name="fullRepositoryId")
+    def full_repository_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "full_repository_id")
+
+    @property
+    @pulumi.getter(name="sourceReference")
+    def source_reference(self) -> Optional['outputs.WorkflowSourceReference']:
+        return pulumi.get(self, "source_reference")
+
+
+@pulumi.output_type
 class WorkflowParameter(dict):
     def __init__(__self__, *,
                  description: Optional[builtins.str] = None,
@@ -402,6 +464,27 @@ class WorkflowParameter(dict):
         Whether the parameter is optional.
         """
         return pulumi.get(self, "optional")
+
+
+@pulumi.output_type
+class WorkflowSourceReference(dict):
+    def __init__(__self__, *,
+                 type: Optional['WorkflowSourceReferencetype'] = None,
+                 value: Optional[builtins.str] = None):
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['WorkflowSourceReferencetype']:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

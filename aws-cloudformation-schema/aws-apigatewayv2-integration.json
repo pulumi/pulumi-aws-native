@@ -170,10 +170,10 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "apigateway:POST" ]
+      "permissions" : [ "apigateway:POST", "iam:PassRole" ]
     },
     "update" : {
-      "permissions" : [ "apigateway:PATCH", "apigateway:GET", "apigateway:PUT" ]
+      "permissions" : [ "apigateway:PATCH", "apigateway:GET", "apigateway:PUT", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "apigateway:GET" ]

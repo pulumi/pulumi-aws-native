@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.B2bi.Inputs
 
     public sealed class TransformerSampleDocumentKeysArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An array of keys for your input sample documents.
+        /// </summary>
         [Input("input")]
         public Input<string>? Input { get; set; }
 
+        /// <summary>
+        /// An array of keys for your output sample documents.
+        /// </summary>
         [Input("output")]
         public Input<string>? Output { get; set; }
 

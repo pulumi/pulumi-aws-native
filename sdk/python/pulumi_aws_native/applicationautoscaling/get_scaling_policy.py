@@ -56,8 +56,9 @@ class GetScalingPolicyResult:
         """
         The scaling policy type.
          The following policy types are supported: 
-          ``TargetTrackingScaling``—Not supported for Amazon EMR
-          ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
+         ``TargetTrackingScaling``—Not supported for Amazon EMR
+         ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
+         ``PredictiveScaling``—Only supported for Amazon ECS
         """
         return pulumi.get(self, "policy_type")
 
@@ -109,29 +110,30 @@ def get_scaling_policy(arn: Optional[builtins.str] = None,
 
     :param builtins.str arn: Returns the ARN of a scaling policy.
     :param builtins.str scalable_dimension: The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
-             +   ``ecs:service:DesiredCount`` - The task count of an ECS service.
-             +   ``elasticmapreduce:instancegroup:InstanceCount`` - The instance count of an EMR Instance Group.
-             +   ``ec2:spot-fleet-request:TargetCapacity`` - The target capacity of a Spot Fleet.
-             +   ``appstream:fleet:DesiredCapacity`` - The capacity of an AppStream 2.0 fleet.
-             +   ``dynamodb:table:ReadCapacityUnits`` - The provisioned read capacity for a DynamoDB table.
-             +   ``dynamodb:table:WriteCapacityUnits`` - The provisioned write capacity for a DynamoDB table.
-             +   ``dynamodb:index:ReadCapacityUnits`` - The provisioned read capacity for a DynamoDB global secondary index.
-             +   ``dynamodb:index:WriteCapacityUnits`` - The provisioned write capacity for a DynamoDB global secondary index.
-             +   ``rds:cluster:ReadReplicaCount`` - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
-             +   ``sagemaker:variant:DesiredInstanceCount`` - The number of EC2 instances for a SageMaker model endpoint variant.
-             +   ``custom-resource:ResourceType:Property`` - The scalable dimension for a custom resource provided by your own application or service.
-             +   ``comprehend:document-classifier-endpoint:DesiredInferenceUnits`` - The number of inference units for an Amazon Comprehend document classification endpoint.
-             +   ``comprehend:entity-recognizer-endpoint:DesiredInferenceUnits`` - The number of inference units for an Amazon Comprehend entity recognizer endpoint.
-             +   ``lambda:function:ProvisionedConcurrency`` - The provisioned concurrency for a Lambda function.
-             +   ``cassandra:table:ReadCapacityUnits`` - The provisioned read capacity for an Amazon Keyspaces table.
-             +   ``cassandra:table:WriteCapacityUnits`` - The provisioned write capacity for an Amazon Keyspaces table.
-             +   ``kafka:broker-storage:VolumeSize`` - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.
-             +   ``elasticache:replication-group:NodeGroups`` - The number of node groups for an Amazon ElastiCache replication group.
-             +   ``elasticache:replication-group:Replicas`` - The number of replicas per node group for an Amazon ElastiCache replication group.
-             +   ``neptune:cluster:ReadReplicaCount`` - The count of read replicas in an Amazon Neptune DB cluster.
-             +   ``sagemaker:variant:DesiredProvisionedConcurrency`` - The provisioned concurrency for a SageMaker serverless endpoint.
-             +   ``sagemaker:inference-component:DesiredCopyCount`` - The number of copies across an endpoint for a SageMaker inference component.
-             +   ``workspaces:workspacespool:DesiredUserSessions`` - The number of user sessions for the WorkSpaces in the pool.
+             +  ``ecs:service:DesiredCount`` - The task count of an ECS service.
+             +  ``elasticmapreduce:instancegroup:InstanceCount`` - The instance count of an EMR Instance Group.
+             +  ``ec2:spot-fleet-request:TargetCapacity`` - The target capacity of a Spot Fleet.
+             +  ``appstream:fleet:DesiredCapacity`` - The capacity of an AppStream 2.0 fleet.
+             +  ``dynamodb:table:ReadCapacityUnits`` - The provisioned read capacity for a DynamoDB table.
+             +  ``dynamodb:table:WriteCapacityUnits`` - The provisioned write capacity for a DynamoDB table.
+             +  ``dynamodb:index:ReadCapacityUnits`` - The provisioned read capacity for a DynamoDB global secondary index.
+             +  ``dynamodb:index:WriteCapacityUnits`` - The provisioned write capacity for a DynamoDB global secondary index.
+             +  ``rds:cluster:ReadReplicaCount`` - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
+             +  ``sagemaker:variant:DesiredInstanceCount`` - The number of EC2 instances for a SageMaker model endpoint variant.
+             +  ``custom-resource:ResourceType:Property`` - The scalable dimension for a custom resource provided by your own application or service.
+             +  ``comprehend:document-classifier-endpoint:DesiredInferenceUnits`` - The number of inference units for an Amazon Comprehend document classification endpoint.
+             +  ``comprehend:entity-recognizer-endpoint:DesiredInferenceUnits`` - The number of inference units for an Amazon Comprehend entity recognizer endpoint.
+             +  ``lambda:function:ProvisionedConcurrency`` - The provisioned concurrency for a Lambda function.
+             +  ``cassandra:table:ReadCapacityUnits`` - The provisioned read capacity for an Amazon Keyspaces table.
+             +  ``cassandra:table:WriteCapacityUnits`` - The provisioned write capacity for an Amazon Keyspaces table.
+             +  ``kafka:broker-storage:VolumeSize`` - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.
+             +  ``elasticache:cache-cluster:Nodes`` - The number of nodes for an Amazon ElastiCache cache cluster.
+             +  ``elasticache:replication-group:NodeGroups`` - The number of node groups for an Amazon ElastiCache replication group.
+             +  ``elasticache:replication-group:Replicas`` - The number of replicas per node group for an Amazon ElastiCache replication group.
+             +  ``neptune:cluster:ReadReplicaCount`` - The count of read replicas in an Amazon Neptune DB cluster.
+             +  ``sagemaker:variant:DesiredProvisionedConcurrency`` - The provisioned concurrency for a SageMaker serverless endpoint.
+             +  ``sagemaker:inference-component:DesiredCopyCount`` - The number of copies across an endpoint for a SageMaker inference component.
+             +  ``workspaces:workspacespool:DesiredUserSessions`` - The number of user sessions for the WorkSpaces in the pool.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -155,29 +157,30 @@ def get_scaling_policy_output(arn: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str arn: Returns the ARN of a scaling policy.
     :param builtins.str scalable_dimension: The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
-             +   ``ecs:service:DesiredCount`` - The task count of an ECS service.
-             +   ``elasticmapreduce:instancegroup:InstanceCount`` - The instance count of an EMR Instance Group.
-             +   ``ec2:spot-fleet-request:TargetCapacity`` - The target capacity of a Spot Fleet.
-             +   ``appstream:fleet:DesiredCapacity`` - The capacity of an AppStream 2.0 fleet.
-             +   ``dynamodb:table:ReadCapacityUnits`` - The provisioned read capacity for a DynamoDB table.
-             +   ``dynamodb:table:WriteCapacityUnits`` - The provisioned write capacity for a DynamoDB table.
-             +   ``dynamodb:index:ReadCapacityUnits`` - The provisioned read capacity for a DynamoDB global secondary index.
-             +   ``dynamodb:index:WriteCapacityUnits`` - The provisioned write capacity for a DynamoDB global secondary index.
-             +   ``rds:cluster:ReadReplicaCount`` - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
-             +   ``sagemaker:variant:DesiredInstanceCount`` - The number of EC2 instances for a SageMaker model endpoint variant.
-             +   ``custom-resource:ResourceType:Property`` - The scalable dimension for a custom resource provided by your own application or service.
-             +   ``comprehend:document-classifier-endpoint:DesiredInferenceUnits`` - The number of inference units for an Amazon Comprehend document classification endpoint.
-             +   ``comprehend:entity-recognizer-endpoint:DesiredInferenceUnits`` - The number of inference units for an Amazon Comprehend entity recognizer endpoint.
-             +   ``lambda:function:ProvisionedConcurrency`` - The provisioned concurrency for a Lambda function.
-             +   ``cassandra:table:ReadCapacityUnits`` - The provisioned read capacity for an Amazon Keyspaces table.
-             +   ``cassandra:table:WriteCapacityUnits`` - The provisioned write capacity for an Amazon Keyspaces table.
-             +   ``kafka:broker-storage:VolumeSize`` - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.
-             +   ``elasticache:replication-group:NodeGroups`` - The number of node groups for an Amazon ElastiCache replication group.
-             +   ``elasticache:replication-group:Replicas`` - The number of replicas per node group for an Amazon ElastiCache replication group.
-             +   ``neptune:cluster:ReadReplicaCount`` - The count of read replicas in an Amazon Neptune DB cluster.
-             +   ``sagemaker:variant:DesiredProvisionedConcurrency`` - The provisioned concurrency for a SageMaker serverless endpoint.
-             +   ``sagemaker:inference-component:DesiredCopyCount`` - The number of copies across an endpoint for a SageMaker inference component.
-             +   ``workspaces:workspacespool:DesiredUserSessions`` - The number of user sessions for the WorkSpaces in the pool.
+             +  ``ecs:service:DesiredCount`` - The task count of an ECS service.
+             +  ``elasticmapreduce:instancegroup:InstanceCount`` - The instance count of an EMR Instance Group.
+             +  ``ec2:spot-fleet-request:TargetCapacity`` - The target capacity of a Spot Fleet.
+             +  ``appstream:fleet:DesiredCapacity`` - The capacity of an AppStream 2.0 fleet.
+             +  ``dynamodb:table:ReadCapacityUnits`` - The provisioned read capacity for a DynamoDB table.
+             +  ``dynamodb:table:WriteCapacityUnits`` - The provisioned write capacity for a DynamoDB table.
+             +  ``dynamodb:index:ReadCapacityUnits`` - The provisioned read capacity for a DynamoDB global secondary index.
+             +  ``dynamodb:index:WriteCapacityUnits`` - The provisioned write capacity for a DynamoDB global secondary index.
+             +  ``rds:cluster:ReadReplicaCount`` - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
+             +  ``sagemaker:variant:DesiredInstanceCount`` - The number of EC2 instances for a SageMaker model endpoint variant.
+             +  ``custom-resource:ResourceType:Property`` - The scalable dimension for a custom resource provided by your own application or service.
+             +  ``comprehend:document-classifier-endpoint:DesiredInferenceUnits`` - The number of inference units for an Amazon Comprehend document classification endpoint.
+             +  ``comprehend:entity-recognizer-endpoint:DesiredInferenceUnits`` - The number of inference units for an Amazon Comprehend entity recognizer endpoint.
+             +  ``lambda:function:ProvisionedConcurrency`` - The provisioned concurrency for a Lambda function.
+             +  ``cassandra:table:ReadCapacityUnits`` - The provisioned read capacity for an Amazon Keyspaces table.
+             +  ``cassandra:table:WriteCapacityUnits`` - The provisioned write capacity for an Amazon Keyspaces table.
+             +  ``kafka:broker-storage:VolumeSize`` - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.
+             +  ``elasticache:cache-cluster:Nodes`` - The number of nodes for an Amazon ElastiCache cache cluster.
+             +  ``elasticache:replication-group:NodeGroups`` - The number of node groups for an Amazon ElastiCache replication group.
+             +  ``elasticache:replication-group:Replicas`` - The number of replicas per node group for an Amazon ElastiCache replication group.
+             +  ``neptune:cluster:ReadReplicaCount`` - The count of read replicas in an Amazon Neptune DB cluster.
+             +  ``sagemaker:variant:DesiredProvisionedConcurrency`` - The provisioned concurrency for a SageMaker serverless endpoint.
+             +  ``sagemaker:inference-component:DesiredCopyCount`` - The number of copies across an endpoint for a SageMaker inference component.
+             +  ``workspaces:workspacespool:DesiredUserSessions`` - The number of user sessions for the WorkSpaces in the pool.
     """
     __args__ = dict()
     __args__['arn'] = arn
