@@ -40,19 +40,19 @@ export class Insight extends pulumi.CustomResource {
     /**
      * One or more attributes used to filter the findings included in the insight
      */
-    public readonly filters!: pulumi.Output<outputs.securityhub.InsightAwsSecurityFindingFilters>;
+    declare public readonly filters: pulumi.Output<outputs.securityhub.InsightAwsSecurityFindingFilters>;
     /**
      * The grouping attribute for the insight's findings
      */
-    public readonly groupByAttribute!: pulumi.Output<string>;
+    declare public readonly groupByAttribute: pulumi.Output<string>;
     /**
      * The ARN of a Security Hub insight
      */
-    public /*out*/ readonly insightArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly insightArn: pulumi.Output<string>;
     /**
      * The name of a Security Hub insight
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a Insight resource with the given unique name, arguments, and options.
@@ -65,15 +65,15 @@ export class Insight extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.filters === undefined) && !opts.urn) {
+            if (args?.filters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filters'");
             }
-            if ((!args || args.groupByAttribute === undefined) && !opts.urn) {
+            if (args?.groupByAttribute === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupByAttribute'");
             }
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["groupByAttribute"] = args ? args.groupByAttribute : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["groupByAttribute"] = args?.groupByAttribute;
+            resourceInputs["name"] = args?.name;
             resourceInputs["insightArn"] = undefined /*out*/;
         } else {
             resourceInputs["filters"] = undefined /*out*/;

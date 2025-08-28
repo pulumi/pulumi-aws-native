@@ -40,59 +40,59 @@ export class Device extends pulumi.CustomResource {
     /**
      * The Amazon Web Services location of the device, if applicable.
      */
-    public readonly awsLocation!: pulumi.Output<outputs.networkmanager.DeviceAwsLocation | undefined>;
+    declare public readonly awsLocation: pulumi.Output<outputs.networkmanager.DeviceAwsLocation | undefined>;
     /**
      * The date and time that the device was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The description of the device.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the device.
      */
-    public /*out*/ readonly deviceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly deviceArn: pulumi.Output<string>;
     /**
      * The ID of the device.
      */
-    public /*out*/ readonly deviceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly deviceId: pulumi.Output<string>;
     /**
      * The ID of the global network.
      */
-    public readonly globalNetworkId!: pulumi.Output<string>;
+    declare public readonly globalNetworkId: pulumi.Output<string>;
     /**
      * The site location.
      */
-    public readonly location!: pulumi.Output<outputs.networkmanager.DeviceLocation | undefined>;
+    declare public readonly location: pulumi.Output<outputs.networkmanager.DeviceLocation | undefined>;
     /**
      * The device model
      */
-    public readonly model!: pulumi.Output<string | undefined>;
+    declare public readonly model: pulumi.Output<string | undefined>;
     /**
      * The device serial number.
      */
-    public readonly serialNumber!: pulumi.Output<string | undefined>;
+    declare public readonly serialNumber: pulumi.Output<string | undefined>;
     /**
      * The site ID.
      */
-    public readonly siteId!: pulumi.Output<string | undefined>;
+    declare public readonly siteId: pulumi.Output<string | undefined>;
     /**
      * The state of the device.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The tags for the device.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The device type.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * The device vendor.
      */
-    public readonly vendor!: pulumi.Output<string | undefined>;
+    declare public readonly vendor: pulumi.Output<string | undefined>;
 
     /**
      * Create a Device resource with the given unique name, arguments, and options.
@@ -105,19 +105,19 @@ export class Device extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
+            if (args?.globalNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            resourceInputs["awsLocation"] = args ? args.awsLocation : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["model"] = args ? args.model : undefined;
-            resourceInputs["serialNumber"] = args ? args.serialNumber : undefined;
-            resourceInputs["siteId"] = args ? args.siteId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["vendor"] = args ? args.vendor : undefined;
+            resourceInputs["awsLocation"] = args?.awsLocation;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["globalNetworkId"] = args?.globalNetworkId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["model"] = args?.model;
+            resourceInputs["serialNumber"] = args?.serialNumber;
+            resourceInputs["siteId"] = args?.siteId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["vendor"] = args?.vendor;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["deviceArn"] = undefined /*out*/;
             resourceInputs["deviceId"] = undefined /*out*/;

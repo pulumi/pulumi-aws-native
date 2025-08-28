@@ -40,33 +40,33 @@ export class MailManagerTrafficPolicy extends pulumi.CustomResource {
     /**
      * Default action instructs the traﬃc policy to either Allow or Deny (block) messages that fall outside of (or not addressed by) the conditions of your policy statements
      */
-    public readonly defaultAction!: pulumi.Output<enums.ses.MailManagerTrafficPolicyAcceptAction>;
+    declare public readonly defaultAction: pulumi.Output<enums.ses.MailManagerTrafficPolicyAcceptAction>;
     /**
      * The maximum message size in bytes of email which is allowed in by this traffic policy—anything larger will be blocked.
      */
-    public readonly maxMessageSizeBytes!: pulumi.Output<number | undefined>;
+    declare public readonly maxMessageSizeBytes: pulumi.Output<number | undefined>;
     /**
      * Conditional statements for filtering email traffic.
      */
-    public readonly policyStatements!: pulumi.Output<outputs.ses.MailManagerTrafficPolicyPolicyStatement[]>;
+    declare public readonly policyStatements: pulumi.Output<outputs.ses.MailManagerTrafficPolicyPolicyStatement[]>;
     /**
      * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the traffic policy resource.
      */
-    public /*out*/ readonly trafficPolicyArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly trafficPolicyArn: pulumi.Output<string>;
     /**
      * The identifier of the traffic policy resource.
      */
-    public /*out*/ readonly trafficPolicyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly trafficPolicyId: pulumi.Output<string>;
     /**
      * The name of the policy.
      *
      * The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.
      */
-    public readonly trafficPolicyName!: pulumi.Output<string | undefined>;
+    declare public readonly trafficPolicyName: pulumi.Output<string | undefined>;
 
     /**
      * Create a MailManagerTrafficPolicy resource with the given unique name, arguments, and options.
@@ -79,17 +79,17 @@ export class MailManagerTrafficPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.defaultAction === undefined) && !opts.urn) {
+            if (args?.defaultAction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            if ((!args || args.policyStatements === undefined) && !opts.urn) {
+            if (args?.policyStatements === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyStatements'");
             }
-            resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
-            resourceInputs["maxMessageSizeBytes"] = args ? args.maxMessageSizeBytes : undefined;
-            resourceInputs["policyStatements"] = args ? args.policyStatements : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficPolicyName"] = args ? args.trafficPolicyName : undefined;
+            resourceInputs["defaultAction"] = args?.defaultAction;
+            resourceInputs["maxMessageSizeBytes"] = args?.maxMessageSizeBytes;
+            resourceInputs["policyStatements"] = args?.policyStatements;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficPolicyName"] = args?.trafficPolicyName;
             resourceInputs["trafficPolicyArn"] = undefined /*out*/;
             resourceInputs["trafficPolicyId"] = undefined /*out*/;
         } else {

@@ -76,40 +76,40 @@ export class ApiKey extends pulumi.CustomResource {
     /**
      * The ID for the API key. For example: `abc123` .
      */
-    public /*out*/ readonly apiKeyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiKeyId: pulumi.Output<string>;
     /**
      * An AWS Marketplace customer identifier, when integrating with the AWS SaaS Marketplace.
      */
-    public readonly customerId!: pulumi.Output<string | undefined>;
+    declare public readonly customerId: pulumi.Output<string | undefined>;
     /**
      * The description of the ApiKey.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the ApiKey can be used by callers.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
      */
-    public readonly generateDistinctId!: pulumi.Output<boolean | undefined>;
+    declare public readonly generateDistinctId: pulumi.Output<boolean | undefined>;
     /**
      * A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
      *   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
      */
-    public readonly stageKeys!: pulumi.Output<outputs.apigateway.ApiKeyStageKey[] | undefined>;
+    declare public readonly stageKeys: pulumi.Output<outputs.apigateway.ApiKeyStageKey[] | undefined>;
     /**
      * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Specifies a value of the API key.
      */
-    public readonly value!: pulumi.Output<string | undefined>;
+    declare public readonly value: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApiKey resource with the given unique name, arguments, and options.
@@ -122,14 +122,14 @@ export class ApiKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["customerId"] = args ? args.customerId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["generateDistinctId"] = args ? args.generateDistinctId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["stageKeys"] = args ? args.stageKeys : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["customerId"] = args?.customerId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["generateDistinctId"] = args?.generateDistinctId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["stageKeys"] = args?.stageKeys;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["value"] = args?.value;
             resourceInputs["apiKeyId"] = undefined /*out*/;
         } else {
             resourceInputs["apiKeyId"] = undefined /*out*/;

@@ -40,48 +40,48 @@ export class EventBridgeRuleTemplate extends pulumi.CustomResource {
     /**
      * An eventbridge rule template's ARN (Amazon Resource Name)
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * An eventbridge rule template's id. AWS provided templates have ids that start with `aws-`
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Placeholder documentation for __timestampIso8601
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * A resource's optional description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
      */
-    public readonly eventTargets!: pulumi.Output<outputs.medialive.EventBridgeRuleTemplateTarget[] | undefined>;
+    declare public readonly eventTargets: pulumi.Output<outputs.medialive.EventBridgeRuleTemplateTarget[] | undefined>;
     /**
      * The type of event to match with the rule.
      */
-    public readonly eventType!: pulumi.Output<enums.medialive.EventBridgeRuleTemplateEventType>;
+    declare public readonly eventType: pulumi.Output<enums.medialive.EventBridgeRuleTemplateEventType>;
     /**
      * An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`
      */
-    public /*out*/ readonly groupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly groupId: pulumi.Output<string>;
     /**
      * An eventbridge rule template group's identifier. Can be either be its id or current name.
      */
-    public readonly groupIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly groupIdentifier: pulumi.Output<string | undefined>;
     /**
      * Placeholder documentation for __string
      */
-    public /*out*/ readonly identifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly identifier: pulumi.Output<string>;
     /**
      * Placeholder documentation for __timestampIso8601
      */
-    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
     /**
      * A resource's name. Names must be unique within the scope of a resource type in a specific region.
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a EventBridgeRuleTemplate resource with the given unique name, arguments, and options.
@@ -94,15 +94,15 @@ export class EventBridgeRuleTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.eventType === undefined) && !opts.urn) {
+            if (args?.eventType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventTargets"] = args ? args.eventTargets : undefined;
-            resourceInputs["eventType"] = args ? args.eventType : undefined;
-            resourceInputs["groupIdentifier"] = args ? args.groupIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventTargets"] = args?.eventTargets;
+            resourceInputs["eventType"] = args?.eventType;
+            resourceInputs["groupIdentifier"] = args?.groupIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

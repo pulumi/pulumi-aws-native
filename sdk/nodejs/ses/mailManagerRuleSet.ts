@@ -40,23 +40,23 @@ export class MailManagerRuleSet extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the rule set resource.
      */
-    public /*out*/ readonly ruleSetArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly ruleSetArn: pulumi.Output<string>;
     /**
      * The identifier of the rule set.
      */
-    public /*out*/ readonly ruleSetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ruleSetId: pulumi.Output<string>;
     /**
      * A user-friendly name for the rule set.
      */
-    public readonly ruleSetName!: pulumi.Output<string | undefined>;
+    declare public readonly ruleSetName: pulumi.Output<string | undefined>;
     /**
      * Conditional rules that are evaluated for determining actions on email.
      */
-    public readonly rules!: pulumi.Output<outputs.ses.MailManagerRuleSetRule[]>;
+    declare public readonly rules: pulumi.Output<outputs.ses.MailManagerRuleSetRule[]>;
     /**
      * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MailManagerRuleSet resource with the given unique name, arguments, and options.
@@ -69,12 +69,12 @@ export class MailManagerRuleSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.rules === undefined) && !opts.urn) {
+            if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ruleSetName"] = args?.ruleSetName;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["ruleSetArn"] = undefined /*out*/;
             resourceInputs["ruleSetId"] = undefined /*out*/;
         } else {

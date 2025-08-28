@@ -40,43 +40,43 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * The timestamp of the dashboard creation.
      */
-    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
     /**
      * The ARN of the dashboard.
      */
-    public /*out*/ readonly dashboardArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly dashboardArn: pulumi.Output<string>;
     /**
      * The name of the dashboard.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
      */
-    public readonly refreshSchedule!: pulumi.Output<outputs.cloudtrail.DashboardRefreshSchedule | undefined>;
+    declare public readonly refreshSchedule: pulumi.Output<outputs.cloudtrail.DashboardRefreshSchedule | undefined>;
     /**
      * The status of the dashboard. Values are CREATING, CREATED, UPDATING, UPDATED and DELETING.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.cloudtrail.DashboardStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.cloudtrail.DashboardStatus>;
     /**
      * A list of tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Indicates whether the dashboard is protected from termination.
      */
-    public readonly terminationProtectionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly terminationProtectionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The type of the dashboard. Values are CUSTOM and MANAGED.
      */
-    public /*out*/ readonly type!: pulumi.Output<enums.cloudtrail.DashboardType>;
+    declare public /*out*/ readonly type: pulumi.Output<enums.cloudtrail.DashboardType>;
     /**
      * The timestamp showing when the dashboard was updated, if applicable. UpdatedTimestamp is always either the same or newer than the time shown in CreatedTimestamp.
      */
-    public /*out*/ readonly updatedTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedTimestamp: pulumi.Output<string>;
     /**
      * List of widgets on the dashboard
      */
-    public readonly widgets!: pulumi.Output<outputs.cloudtrail.DashboardWidget[] | undefined>;
+    declare public readonly widgets: pulumi.Output<outputs.cloudtrail.DashboardWidget[] | undefined>;
 
     /**
      * Create a Dashboard resource with the given unique name, arguments, and options.
@@ -89,11 +89,11 @@ export class Dashboard extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["refreshSchedule"] = args ? args.refreshSchedule : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["terminationProtectionEnabled"] = args ? args.terminationProtectionEnabled : undefined;
-            resourceInputs["widgets"] = args ? args.widgets : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["refreshSchedule"] = args?.refreshSchedule;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["terminationProtectionEnabled"] = args?.terminationProtectionEnabled;
+            resourceInputs["widgets"] = args?.widgets;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["dashboardArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

@@ -40,19 +40,19 @@ export class StudioSessionMapping extends pulumi.CustomResource {
     /**
      * The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
      */
-    public readonly identityName!: pulumi.Output<string>;
+    declare public readonly identityName: pulumi.Output<string>;
     /**
      * Specifies whether the identity to map to the Studio is a user or a group.
      */
-    public readonly identityType!: pulumi.Output<enums.emr.StudioSessionMappingIdentityType>;
+    declare public readonly identityType: pulumi.Output<enums.emr.StudioSessionMappingIdentityType>;
     /**
      * The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
      */
-    public readonly sessionPolicyArn!: pulumi.Output<string>;
+    declare public readonly sessionPolicyArn: pulumi.Output<string>;
     /**
      * The ID of the Amazon EMR Studio to which the user or group will be mapped.
      */
-    public readonly studioId!: pulumi.Output<string>;
+    declare public readonly studioId: pulumi.Output<string>;
 
     /**
      * Create a StudioSessionMapping resource with the given unique name, arguments, and options.
@@ -65,22 +65,22 @@ export class StudioSessionMapping extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.identityName === undefined) && !opts.urn) {
+            if (args?.identityName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityName'");
             }
-            if ((!args || args.identityType === undefined) && !opts.urn) {
+            if (args?.identityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityType'");
             }
-            if ((!args || args.sessionPolicyArn === undefined) && !opts.urn) {
+            if (args?.sessionPolicyArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sessionPolicyArn'");
             }
-            if ((!args || args.studioId === undefined) && !opts.urn) {
+            if (args?.studioId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'studioId'");
             }
-            resourceInputs["identityName"] = args ? args.identityName : undefined;
-            resourceInputs["identityType"] = args ? args.identityType : undefined;
-            resourceInputs["sessionPolicyArn"] = args ? args.sessionPolicyArn : undefined;
-            resourceInputs["studioId"] = args ? args.studioId : undefined;
+            resourceInputs["identityName"] = args?.identityName;
+            resourceInputs["identityType"] = args?.identityType;
+            resourceInputs["sessionPolicyArn"] = args?.sessionPolicyArn;
+            resourceInputs["studioId"] = args?.studioId;
         } else {
             resourceInputs["identityName"] = undefined /*out*/;
             resourceInputs["identityType"] = undefined /*out*/;

@@ -40,15 +40,15 @@ export class VdmAttributes extends pulumi.CustomResource {
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
      */
-    public readonly dashboardAttributes!: pulumi.Output<outputs.ses.VdmAttributesDashboardAttributes | undefined>;
+    declare public readonly dashboardAttributes: pulumi.Output<outputs.ses.VdmAttributesDashboardAttributes | undefined>;
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Guardian.
      */
-    public readonly guardianAttributes!: pulumi.Output<outputs.ses.VdmAttributesGuardianAttributes | undefined>;
+    declare public readonly guardianAttributes: pulumi.Output<outputs.ses.VdmAttributesGuardianAttributes | undefined>;
     /**
      * Unique identifier for this resource
      */
-    public /*out*/ readonly vdmAttributesResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vdmAttributesResourceId: pulumi.Output<string>;
 
     /**
      * Create a VdmAttributes resource with the given unique name, arguments, and options.
@@ -61,8 +61,8 @@ export class VdmAttributes extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["dashboardAttributes"] = args ? args.dashboardAttributes : undefined;
-            resourceInputs["guardianAttributes"] = args ? args.guardianAttributes : undefined;
+            resourceInputs["dashboardAttributes"] = args?.dashboardAttributes;
+            resourceInputs["guardianAttributes"] = args?.guardianAttributes;
             resourceInputs["vdmAttributesResourceId"] = undefined /*out*/;
         } else {
             resourceInputs["dashboardAttributes"] = undefined /*out*/;

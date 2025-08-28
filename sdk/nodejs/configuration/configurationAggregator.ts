@@ -40,23 +40,23 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
     /**
      * Provides a list of source accounts and regions to be aggregated.
      */
-    public readonly accountAggregationSources!: pulumi.Output<outputs.configuration.ConfigurationAggregatorAccountAggregationSource[] | undefined>;
+    declare public readonly accountAggregationSources: pulumi.Output<outputs.configuration.ConfigurationAggregatorAccountAggregationSource[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the aggregator.
      */
-    public /*out*/ readonly configurationAggregatorArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly configurationAggregatorArn: pulumi.Output<string>;
     /**
      * The name of the aggregator.
      */
-    public readonly configurationAggregatorName!: pulumi.Output<string | undefined>;
+    declare public readonly configurationAggregatorName: pulumi.Output<string | undefined>;
     /**
      * Provides an organization and list of regions to be aggregated.
      */
-    public readonly organizationAggregationSource!: pulumi.Output<outputs.configuration.ConfigurationAggregatorOrganizationAggregationSource | undefined>;
+    declare public readonly organizationAggregationSource: pulumi.Output<outputs.configuration.ConfigurationAggregatorOrganizationAggregationSource | undefined>;
     /**
      * The tags for the configuration aggregator.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ConfigurationAggregator resource with the given unique name, arguments, and options.
@@ -69,10 +69,10 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["accountAggregationSources"] = args ? args.accountAggregationSources : undefined;
-            resourceInputs["configurationAggregatorName"] = args ? args.configurationAggregatorName : undefined;
-            resourceInputs["organizationAggregationSource"] = args ? args.organizationAggregationSource : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountAggregationSources"] = args?.accountAggregationSources;
+            resourceInputs["configurationAggregatorName"] = args?.configurationAggregatorName;
+            resourceInputs["organizationAggregationSource"] = args?.organizationAggregationSource;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["configurationAggregatorArn"] = undefined /*out*/;
         } else {
             resourceInputs["accountAggregationSources"] = undefined /*out*/;

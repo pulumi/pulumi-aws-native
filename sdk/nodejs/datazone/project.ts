@@ -40,59 +40,59 @@ export class Project extends pulumi.CustomResource {
     /**
      * The ID of the Amazon DataZone project.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The timestamp of when the project was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The Amazon DataZone user who created the project.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * The description of the Amazon DataZone project.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The identifier of the Amazon DataZone domain in which the project was created.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainId: pulumi.Output<string>;
     /**
      * The ID of the Amazon DataZone domain in which this project is created.
      */
-    public readonly domainIdentifier!: pulumi.Output<string>;
+    declare public readonly domainIdentifier: pulumi.Output<string>;
     /**
      * The ID of the domain unit.
      */
-    public readonly domainUnitId!: pulumi.Output<string | undefined>;
+    declare public readonly domainUnitId: pulumi.Output<string | undefined>;
     /**
      * The glossary terms that can be used in this Amazon DataZone project.
      */
-    public readonly glossaryTerms!: pulumi.Output<string[] | undefined>;
+    declare public readonly glossaryTerms: pulumi.Output<string[] | undefined>;
     /**
      * The timestamp of when the project was last updated.
      */
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * The name of the Amazon DataZone project.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The project profile ID.
      */
-    public readonly projectProfileId!: pulumi.Output<string | undefined>;
+    declare public readonly projectProfileId: pulumi.Output<string | undefined>;
     /**
      * The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
      */
-    public readonly projectProfileVersion!: pulumi.Output<string | undefined>;
+    declare public readonly projectProfileVersion: pulumi.Output<string | undefined>;
     /**
      * The status of the project.
      */
-    public /*out*/ readonly projectStatus!: pulumi.Output<enums.datazone.ProjectStatus>;
+    declare public /*out*/ readonly projectStatus: pulumi.Output<enums.datazone.ProjectStatus>;
     /**
      * The user parameters of the project.
      */
-    public readonly userParameters!: pulumi.Output<outputs.datazone.ProjectEnvironmentConfigurationUserParameter[] | undefined>;
+    declare public readonly userParameters: pulumi.Output<outputs.datazone.ProjectEnvironmentConfigurationUserParameter[] | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -105,17 +105,17 @@ export class Project extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["domainUnitId"] = args ? args.domainUnitId : undefined;
-            resourceInputs["glossaryTerms"] = args ? args.glossaryTerms : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectProfileId"] = args ? args.projectProfileId : undefined;
-            resourceInputs["projectProfileVersion"] = args ? args.projectProfileVersion : undefined;
-            resourceInputs["userParameters"] = args ? args.userParameters : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["domainUnitId"] = args?.domainUnitId;
+            resourceInputs["glossaryTerms"] = args?.glossaryTerms;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectProfileId"] = args?.projectProfileId;
+            resourceInputs["projectProfileVersion"] = args?.projectProfileVersion;
+            resourceInputs["userParameters"] = args?.userParameters;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;

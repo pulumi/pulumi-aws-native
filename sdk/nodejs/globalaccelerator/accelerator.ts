@@ -40,45 +40,45 @@ export class Accelerator extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the accelerator.
      */
-    public /*out*/ readonly acceleratorArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly acceleratorArn: pulumi.Output<string>;
     /**
      * The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 addresses.
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    declare public /*out*/ readonly dnsName: pulumi.Output<string>;
     /**
      * The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 and IPv6 addresses.
      */
-    public /*out*/ readonly dualStackDnsName!: pulumi.Output<string>;
+    declare public /*out*/ readonly dualStackDnsName: pulumi.Output<string>;
     /**
      * Indicates whether an accelerator is enabled. The value is true or false.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * IP Address type.
      */
-    public readonly ipAddressType!: pulumi.Output<enums.globalaccelerator.AcceleratorIpAddressType | undefined>;
+    declare public readonly ipAddressType: pulumi.Output<enums.globalaccelerator.AcceleratorIpAddressType | undefined>;
     /**
      * The IP addresses from BYOIP Prefix pool.
      */
-    public readonly ipAddresses!: pulumi.Output<string[] | undefined>;
+    declare public readonly ipAddresses: pulumi.Output<string[] | undefined>;
     /**
      * The IPv4 addresses assigned to the accelerator.
      */
-    public /*out*/ readonly ipv4Addresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly ipv4Addresses: pulumi.Output<string[]>;
     /**
      * The IPv6 addresses assigned if the accelerator is dualstack
      */
-    public /*out*/ readonly ipv6Addresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly ipv6Addresses: pulumi.Output<string[]>;
     /**
      * Name of accelerator.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Create tags for an accelerator.
      *
      * For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Accelerator resource with the given unique name, arguments, and options.
@@ -91,11 +91,11 @@ export class Accelerator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            resourceInputs["ipAddresses"] = args ? args.ipAddresses : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["ipAddressType"] = args?.ipAddressType;
+            resourceInputs["ipAddresses"] = args?.ipAddresses;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["acceleratorArn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["dualStackDnsName"] = undefined /*out*/;

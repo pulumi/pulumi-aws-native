@@ -40,19 +40,19 @@ export class Group extends pulumi.CustomResource {
     /**
      * Id of the group.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Name of the group.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ARNs of the canaries that you want to associate with this group.
      */
-    public readonly resourceArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly resourceArns: pulumi.Output<string[] | undefined>;
     /**
      * The list of key-value pairs that are associated with the group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -65,9 +65,9 @@ export class Group extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceArns"] = args ? args.resourceArns : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceArns"] = args?.resourceArns;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

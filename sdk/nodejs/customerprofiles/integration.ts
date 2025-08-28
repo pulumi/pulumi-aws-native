@@ -40,39 +40,39 @@ export class Integration extends pulumi.CustomResource {
     /**
      * The time of this integration got created
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The unique name of the domain.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * A list of unique names for active event triggers associated with the integration.
      */
-    public readonly eventTriggerNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly eventTriggerNames: pulumi.Output<string[] | undefined>;
     /**
      * The configuration that controls how Customer Profiles retrieves data from the source.
      */
-    public readonly flowDefinition!: pulumi.Output<outputs.customerprofiles.IntegrationFlowDefinition | undefined>;
+    declare public readonly flowDefinition: pulumi.Output<outputs.customerprofiles.IntegrationFlowDefinition | undefined>;
     /**
      * The time of this integration got last updated at
      */
-    public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * The name of the ObjectType defined for the 3rd party data in Profile Service
      */
-    public readonly objectTypeName!: pulumi.Output<string | undefined>;
+    declare public readonly objectTypeName: pulumi.Output<string | undefined>;
     /**
      * The mapping between 3rd party event types and ObjectType names
      */
-    public readonly objectTypeNames!: pulumi.Output<outputs.customerprofiles.IntegrationObjectTypeMapping[] | undefined>;
+    declare public readonly objectTypeNames: pulumi.Output<outputs.customerprofiles.IntegrationObjectTypeMapping[] | undefined>;
     /**
      * The tags (keys and values) associated with the integration
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The URI of the S3 bucket or any other type of data source.
      */
-    public readonly uri!: pulumi.Output<string | undefined>;
+    declare public readonly uri: pulumi.Output<string | undefined>;
 
     /**
      * Create a Integration resource with the given unique name, arguments, and options.
@@ -85,16 +85,16 @@ export class Integration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["eventTriggerNames"] = args ? args.eventTriggerNames : undefined;
-            resourceInputs["flowDefinition"] = args ? args.flowDefinition : undefined;
-            resourceInputs["objectTypeName"] = args ? args.objectTypeName : undefined;
-            resourceInputs["objectTypeNames"] = args ? args.objectTypeNames : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["eventTriggerNames"] = args?.eventTriggerNames;
+            resourceInputs["flowDefinition"] = args?.flowDefinition;
+            resourceInputs["objectTypeName"] = args?.objectTypeName;
+            resourceInputs["objectTypeNames"] = args?.objectTypeNames;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["uri"] = args?.uri;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
         } else {

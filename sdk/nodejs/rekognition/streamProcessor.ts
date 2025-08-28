@@ -40,67 +40,67 @@ export class StreamProcessor extends pulumi.CustomResource {
     /**
      * Amazon Resource Name for the newly created stream processor.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The BoundingBoxRegionsOfInterest specifies an array of bounding boxes of interest in the video frames to analyze, as part of connected home feature. If an object is partially in a region of interest, Rekognition will tag it as detected if the overlap of the object with the region-of-interest is greater than 20%.
      */
-    public readonly boundingBoxRegionsOfInterest!: pulumi.Output<outputs.rekognition.StreamProcessorBoundingBox[] | undefined>;
+    declare public readonly boundingBoxRegionsOfInterest: pulumi.Output<outputs.rekognition.StreamProcessorBoundingBox[] | undefined>;
     /**
      * Connected home settings to use on a streaming video. You can use a stream processor for connected home features and select what you want the stream processor to detect, such as people or pets. When the stream processor has started, one notification is sent for each object class specified. For more information, see the ConnectedHome section of [StreamProcessorSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorSettings) .
      */
-    public readonly connectedHomeSettings!: pulumi.Output<outputs.rekognition.StreamProcessorConnectedHomeSettings | undefined>;
+    declare public readonly connectedHomeSettings: pulumi.Output<outputs.rekognition.StreamProcessorConnectedHomeSettings | undefined>;
     /**
      * Allows you to opt in or opt out to share data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis. Note that if you opt out at the account level this setting is ignored on individual streams. For more information, see [StreamProcessorDataSharingPreference](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorDataSharingPreference) .
      */
-    public readonly dataSharingPreference!: pulumi.Output<outputs.rekognition.StreamProcessorDataSharingPreference | undefined>;
+    declare public readonly dataSharingPreference: pulumi.Output<outputs.rekognition.StreamProcessorDataSharingPreference | undefined>;
     /**
      * The input parameters used to recognize faces in a streaming video analyzed by an Amazon Rekognition stream processor. For more information regarding the contents of the parameters, see [FaceSearchSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_FaceSearchSettings) .
      */
-    public readonly faceSearchSettings!: pulumi.Output<outputs.rekognition.StreamProcessorFaceSearchSettings | undefined>;
+    declare public readonly faceSearchSettings: pulumi.Output<outputs.rekognition.StreamProcessorFaceSearchSettings | undefined>;
     /**
      * Amazon Rekognition's Video Stream Processor takes a Kinesis video stream as input. This is the Amazon Kinesis Data Streams instance to which the Amazon Rekognition stream processor streams the analysis results. This must be created within the constraints specified at [KinesisDataStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisDataStream) .
      */
-    public readonly kinesisDataStream!: pulumi.Output<outputs.rekognition.StreamProcessorKinesisDataStream | undefined>;
+    declare public readonly kinesisDataStream: pulumi.Output<outputs.rekognition.StreamProcessorKinesisDataStream | undefined>;
     /**
      * The Kinesis video stream that provides the source of the streaming video for an Amazon Rekognition Video stream processor. For more information, see [KinesisVideoStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisVideoStream) .
      */
-    public readonly kinesisVideoStream!: pulumi.Output<outputs.rekognition.StreamProcessorKinesisVideoStream>;
+    declare public readonly kinesisVideoStream: pulumi.Output<outputs.rekognition.StreamProcessorKinesisVideoStream>;
     /**
      * The KMS key that is used by Rekognition to encrypt any intermediate customer metadata and store in the customer's S3 bucket.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * Name of the stream processor. It's an identifier you assign to the stream processor. You can use it to manage the stream processor.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation. Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. Amazon Rekognition also publishes an end-of-session notification with a summary when the stream processing session is complete. For more information, see [StreamProcessorNotificationChannel](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorNotificationChannel) .
      */
-    public readonly notificationChannel!: pulumi.Output<outputs.rekognition.StreamProcessorNotificationChannel | undefined>;
+    declare public readonly notificationChannel: pulumi.Output<outputs.rekognition.StreamProcessorNotificationChannel | undefined>;
     /**
      * The PolygonRegionsOfInterest specifies a set of polygon areas of interest in the video frames to analyze, as part of connected home feature. Each polygon is in turn, an ordered list of Point
      */
-    public readonly polygonRegionsOfInterest!: pulumi.Output<outputs.rekognition.StreamProcessorPoint[][] | undefined>;
+    declare public readonly polygonRegionsOfInterest: pulumi.Output<outputs.rekognition.StreamProcessorPoint[][] | undefined>;
     /**
      * ARN of the IAM role that allows access to the stream processor, and provides Rekognition read permissions for KVS stream and write permissions to S3 bucket and SNS topic.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. For more information, see the S3Destination section of [StreamProcessorOutput](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorOutput) .
      */
-    public readonly s3Destination!: pulumi.Output<outputs.rekognition.StreamProcessorS3Destination | undefined>;
+    declare public readonly s3Destination: pulumi.Output<outputs.rekognition.StreamProcessorS3Destination | undefined>;
     /**
      * Current status of the stream processor.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Detailed status message about the stream processor.
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a StreamProcessor resource with the given unique name, arguments, and options.
@@ -113,25 +113,25 @@ export class StreamProcessor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kinesisVideoStream === undefined) && !opts.urn) {
+            if (args?.kinesisVideoStream === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kinesisVideoStream'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["boundingBoxRegionsOfInterest"] = args ? args.boundingBoxRegionsOfInterest : undefined;
-            resourceInputs["connectedHomeSettings"] = args ? args.connectedHomeSettings : undefined;
-            resourceInputs["dataSharingPreference"] = args ? args.dataSharingPreference : undefined;
-            resourceInputs["faceSearchSettings"] = args ? args.faceSearchSettings : undefined;
-            resourceInputs["kinesisDataStream"] = args ? args.kinesisDataStream : undefined;
-            resourceInputs["kinesisVideoStream"] = args ? args.kinesisVideoStream : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationChannel"] = args ? args.notificationChannel : undefined;
-            resourceInputs["polygonRegionsOfInterest"] = args ? args.polygonRegionsOfInterest : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["s3Destination"] = args ? args.s3Destination : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["boundingBoxRegionsOfInterest"] = args?.boundingBoxRegionsOfInterest;
+            resourceInputs["connectedHomeSettings"] = args?.connectedHomeSettings;
+            resourceInputs["dataSharingPreference"] = args?.dataSharingPreference;
+            resourceInputs["faceSearchSettings"] = args?.faceSearchSettings;
+            resourceInputs["kinesisDataStream"] = args?.kinesisDataStream;
+            resourceInputs["kinesisVideoStream"] = args?.kinesisVideoStream;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notificationChannel"] = args?.notificationChannel;
+            resourceInputs["polygonRegionsOfInterest"] = args?.polygonRegionsOfInterest;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["s3Destination"] = args?.s3Destination;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusMessage"] = undefined /*out*/;

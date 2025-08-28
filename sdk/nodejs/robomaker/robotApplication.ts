@@ -122,31 +122,31 @@ export class RobotApplication extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the robot application.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The revision ID of robot application.
      */
-    public readonly currentRevisionId!: pulumi.Output<string | undefined>;
+    declare public readonly currentRevisionId: pulumi.Output<string | undefined>;
     /**
      * The URI of the Docker image for the robot application.
      */
-    public readonly environment!: pulumi.Output<string | undefined>;
+    declare public readonly environment: pulumi.Output<string | undefined>;
     /**
      * The name of the robot application.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The robot software suite used by the robot application.
      */
-    public readonly robotSoftwareSuite!: pulumi.Output<outputs.robomaker.RobotApplicationRobotSoftwareSuite>;
+    declare public readonly robotSoftwareSuite: pulumi.Output<outputs.robomaker.RobotApplicationRobotSoftwareSuite>;
     /**
      * The sources of the robot application.
      */
-    public readonly sources!: pulumi.Output<outputs.robomaker.RobotApplicationSourceConfig[] | undefined>;
+    declare public readonly sources: pulumi.Output<outputs.robomaker.RobotApplicationSourceConfig[] | undefined>;
     /**
      * A map that contains tag keys and tag values that are attached to the robot application.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a RobotApplication resource with the given unique name, arguments, and options.
@@ -159,15 +159,15 @@ export class RobotApplication extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.robotSoftwareSuite === undefined) && !opts.urn) {
+            if (args?.robotSoftwareSuite === undefined && !opts.urn) {
                 throw new Error("Missing required property 'robotSoftwareSuite'");
             }
-            resourceInputs["currentRevisionId"] = args ? args.currentRevisionId : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["robotSoftwareSuite"] = args ? args.robotSoftwareSuite : undefined;
-            resourceInputs["sources"] = args ? args.sources : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["currentRevisionId"] = args?.currentRevisionId;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["robotSoftwareSuite"] = args?.robotSoftwareSuite;
+            resourceInputs["sources"] = args?.sources;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -40,33 +40,33 @@ export class RouteResponse extends pulumi.CustomResource {
     /**
      * The API identifier.
      */
-    public readonly apiId!: pulumi.Output<string>;
+    declare public readonly apiId: pulumi.Output<string>;
     /**
      * The model selection expression for the route response. Supported only for WebSocket APIs.
      */
-    public readonly modelSelectionExpression!: pulumi.Output<string | undefined>;
+    declare public readonly modelSelectionExpression: pulumi.Output<string | undefined>;
     /**
      * The response models for the route response.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
      */
-    public readonly responseModels!: pulumi.Output<any | undefined>;
+    declare public readonly responseModels: pulumi.Output<any | undefined>;
     /**
      * The route response parameters.
      */
-    public readonly responseParameters!: pulumi.Output<{[key: string]: outputs.apigatewayv2.RouteResponseParameterConstraints} | undefined>;
+    declare public readonly responseParameters: pulumi.Output<{[key: string]: outputs.apigatewayv2.RouteResponseParameterConstraints} | undefined>;
     /**
      * The route ID.
      */
-    public readonly routeId!: pulumi.Output<string>;
+    declare public readonly routeId: pulumi.Output<string>;
     /**
      * The route response ID.
      */
-    public /*out*/ readonly routeResponseId!: pulumi.Output<string>;
+    declare public /*out*/ readonly routeResponseId: pulumi.Output<string>;
     /**
      * The route response key.
      */
-    public readonly routeResponseKey!: pulumi.Output<string>;
+    declare public readonly routeResponseKey: pulumi.Output<string>;
 
     /**
      * Create a RouteResponse resource with the given unique name, arguments, and options.
@@ -79,21 +79,21 @@ export class RouteResponse extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.routeId === undefined) && !opts.urn) {
+            if (args?.routeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeId'");
             }
-            if ((!args || args.routeResponseKey === undefined) && !opts.urn) {
+            if (args?.routeResponseKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeResponseKey'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["modelSelectionExpression"] = args ? args.modelSelectionExpression : undefined;
-            resourceInputs["responseModels"] = args ? args.responseModels : undefined;
-            resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
-            resourceInputs["routeId"] = args ? args.routeId : undefined;
-            resourceInputs["routeResponseKey"] = args ? args.routeResponseKey : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["modelSelectionExpression"] = args?.modelSelectionExpression;
+            resourceInputs["responseModels"] = args?.responseModels;
+            resourceInputs["responseParameters"] = args?.responseParameters;
+            resourceInputs["routeId"] = args?.routeId;
+            resourceInputs["routeResponseKey"] = args?.routeResponseKey;
             resourceInputs["routeResponseId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;

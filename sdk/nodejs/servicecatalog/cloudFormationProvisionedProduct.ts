@@ -43,34 +43,34 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
      * - `jp` - Japanese
      * - `zh` - Chinese
      */
-    public readonly acceptLanguage!: pulumi.Output<enums.servicecatalog.CloudFormationProvisionedProductAcceptLanguage | undefined>;
-    public /*out*/ readonly cloudformationStackArn!: pulumi.Output<string>;
+    declare public readonly acceptLanguage: pulumi.Output<enums.servicecatalog.CloudFormationProvisionedProductAcceptLanguage | undefined>;
+    declare public /*out*/ readonly cloudformationStackArn: pulumi.Output<string>;
     /**
      * Passed to AWS CloudFormation . The SNS topic ARNs to which to publish stack-related events.
      */
-    public readonly notificationArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly notificationArns: pulumi.Output<string[] | undefined>;
     /**
      * List of key-value pair outputs.
      */
-    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly outputs: pulumi.Output<{[key: string]: string}>;
     /**
      * The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
      *
      * > You must provide the name or ID, but not both.
      */
-    public readonly pathId!: pulumi.Output<string | undefined>;
+    declare public readonly pathId: pulumi.Output<string | undefined>;
     /**
      * The name of the path. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
      *
      * > You must provide the name or ID, but not both.
      */
-    public readonly pathName!: pulumi.Output<string | undefined>;
+    declare public readonly pathName: pulumi.Output<string | undefined>;
     /**
      * The product identifier.
      *
      * > You must specify either the ID or the name of the product, but not both.
      */
-    public readonly productId!: pulumi.Output<string | undefined>;
+    declare public readonly productId: pulumi.Output<string | undefined>;
     /**
      * The name of the Service Catalog product.
      *
@@ -78,45 +78,45 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
      *
      * > You must specify either the name or the ID of the product, but not both.
      */
-    public readonly productName!: pulumi.Output<string | undefined>;
+    declare public readonly productName: pulumi.Output<string | undefined>;
     /**
      * The ID of the provisioned product.
      */
-    public /*out*/ readonly provisionedProductId!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisionedProductId: pulumi.Output<string>;
     /**
      * A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
      */
-    public readonly provisionedProductName!: pulumi.Output<string | undefined>;
+    declare public readonly provisionedProductName: pulumi.Output<string | undefined>;
     /**
      * The identifier of the provisioning artifact (also known as a version).
      *
      * > You must specify either the ID or the name of the provisioning artifact, but not both.
      */
-    public readonly provisioningArtifactId!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningArtifactId: pulumi.Output<string | undefined>;
     /**
      * The name of the provisioning artifact (also known as a version) for the product. This name must be unique for the product.
      *
      * > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
      */
-    public readonly provisioningArtifactName!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningArtifactName: pulumi.Output<string | undefined>;
     /**
      * Parameters specified by the administrator that are required for provisioning the product.
      */
-    public readonly provisioningParameters!: pulumi.Output<outputs.servicecatalog.CloudFormationProvisionedProductProvisioningParameter[] | undefined>;
+    declare public readonly provisioningParameters: pulumi.Output<outputs.servicecatalog.CloudFormationProvisionedProductProvisioningParameter[] | undefined>;
     /**
      * StackSet preferences that are required for provisioning the product or updating a provisioned product.
      */
-    public readonly provisioningPreferences!: pulumi.Output<outputs.servicecatalog.CloudFormationProvisionedProductProvisioningPreferences | undefined>;
+    declare public readonly provisioningPreferences: pulumi.Output<outputs.servicecatalog.CloudFormationProvisionedProductProvisioningPreferences | undefined>;
     /**
      * The ID of the record, such as `rec-rjeatvy434trk` .
      */
-    public /*out*/ readonly recordId!: pulumi.Output<string>;
+    declare public /*out*/ readonly recordId: pulumi.Output<string>;
     /**
      * One or more tags.
      *
      * > Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CloudFormationProvisionedProduct resource with the given unique name, arguments, and options.
@@ -129,18 +129,18 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            resourceInputs["notificationArns"] = args ? args.notificationArns : undefined;
-            resourceInputs["pathId"] = args ? args.pathId : undefined;
-            resourceInputs["pathName"] = args ? args.pathName : undefined;
-            resourceInputs["productId"] = args ? args.productId : undefined;
-            resourceInputs["productName"] = args ? args.productName : undefined;
-            resourceInputs["provisionedProductName"] = args ? args.provisionedProductName : undefined;
-            resourceInputs["provisioningArtifactId"] = args ? args.provisioningArtifactId : undefined;
-            resourceInputs["provisioningArtifactName"] = args ? args.provisioningArtifactName : undefined;
-            resourceInputs["provisioningParameters"] = args ? args.provisioningParameters : undefined;
-            resourceInputs["provisioningPreferences"] = args ? args.provisioningPreferences : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["acceptLanguage"] = args?.acceptLanguage;
+            resourceInputs["notificationArns"] = args?.notificationArns;
+            resourceInputs["pathId"] = args?.pathId;
+            resourceInputs["pathName"] = args?.pathName;
+            resourceInputs["productId"] = args?.productId;
+            resourceInputs["productName"] = args?.productName;
+            resourceInputs["provisionedProductName"] = args?.provisionedProductName;
+            resourceInputs["provisioningArtifactId"] = args?.provisioningArtifactId;
+            resourceInputs["provisioningArtifactName"] = args?.provisioningArtifactName;
+            resourceInputs["provisioningParameters"] = args?.provisioningParameters;
+            resourceInputs["provisioningPreferences"] = args?.provisioningPreferences;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["cloudformationStackArn"] = undefined /*out*/;
             resourceInputs["outputs"] = undefined /*out*/;
             resourceInputs["provisionedProductId"] = undefined /*out*/;

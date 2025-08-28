@@ -40,31 +40,31 @@ export class Stream extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Kinesis Video stream.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The number of hours till which Kinesis Video will retain the data in the stream
      */
-    public readonly dataRetentionInHours!: pulumi.Output<number | undefined>;
+    declare public readonly dataRetentionInHours: pulumi.Output<number | undefined>;
     /**
      * The name of the device that is writing to the stream.
      */
-    public readonly deviceName!: pulumi.Output<string | undefined>;
+    declare public readonly deviceName: pulumi.Output<string | undefined>;
     /**
      * AWS KMS key ID that Kinesis Video Streams uses to encrypt stream data.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The media type of the stream. Consumers of the stream can use this information when processing the stream.
      */
-    public readonly mediaType!: pulumi.Output<string | undefined>;
+    declare public readonly mediaType: pulumi.Output<string | undefined>;
     /**
      * The name of the Kinesis Video stream.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs associated with the Kinesis Video Stream.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Stream resource with the given unique name, arguments, and options.
@@ -77,12 +77,12 @@ export class Stream extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["dataRetentionInHours"] = args ? args.dataRetentionInHours : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["mediaType"] = args ? args.mediaType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataRetentionInHours"] = args?.dataRetentionInHours;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["mediaType"] = args?.mediaType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -40,11 +40,11 @@ export class Preferences extends pulumi.CustomResource {
     /**
      * The AWS Account Id that the preference is associated with, used as the unique identifier for this resource.
      */
-    public /*out*/ readonly accountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountId: pulumi.Output<string>;
     /**
      * The set of preferences used for recording RDP connections in the requesting AWS account and AWS Region. This includes details such as which S3 bucket recordings are stored in.
      */
-    public readonly connectionRecordingPreferences!: pulumi.Output<outputs.ssmguiconnect.ConnectionRecordingPreferencesProperties | undefined>;
+    declare public readonly connectionRecordingPreferences: pulumi.Output<outputs.ssmguiconnect.ConnectionRecordingPreferencesProperties | undefined>;
 
     /**
      * Create a Preferences resource with the given unique name, arguments, and options.
@@ -57,7 +57,7 @@ export class Preferences extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["connectionRecordingPreferences"] = args ? args.connectionRecordingPreferences : undefined;
+            resourceInputs["connectionRecordingPreferences"] = args?.connectionRecordingPreferences;
             resourceInputs["accountId"] = undefined /*out*/;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;

@@ -37,15 +37,15 @@ export class ApplicationEntitlementAssociation extends pulumi.CustomResource {
     /**
      * The identifier of the application.
      */
-    public readonly applicationIdentifier!: pulumi.Output<string>;
+    declare public readonly applicationIdentifier: pulumi.Output<string>;
     /**
      * The name of the entitlement.
      */
-    public readonly entitlementName!: pulumi.Output<string>;
+    declare public readonly entitlementName: pulumi.Output<string>;
     /**
      * The name of the stack.
      */
-    public readonly stackName!: pulumi.Output<string>;
+    declare public readonly stackName: pulumi.Output<string>;
 
     /**
      * Create a ApplicationEntitlementAssociation resource with the given unique name, arguments, and options.
@@ -58,18 +58,18 @@ export class ApplicationEntitlementAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationIdentifier === undefined) && !opts.urn) {
+            if (args?.applicationIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationIdentifier'");
             }
-            if ((!args || args.entitlementName === undefined) && !opts.urn) {
+            if (args?.entitlementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entitlementName'");
             }
-            if ((!args || args.stackName === undefined) && !opts.urn) {
+            if (args?.stackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stackName'");
             }
-            resourceInputs["applicationIdentifier"] = args ? args.applicationIdentifier : undefined;
-            resourceInputs["entitlementName"] = args ? args.entitlementName : undefined;
-            resourceInputs["stackName"] = args ? args.stackName : undefined;
+            resourceInputs["applicationIdentifier"] = args?.applicationIdentifier;
+            resourceInputs["entitlementName"] = args?.entitlementName;
+            resourceInputs["stackName"] = args?.stackName;
         } else {
             resourceInputs["applicationIdentifier"] = undefined /*out*/;
             resourceInputs["entitlementName"] = undefined /*out*/;

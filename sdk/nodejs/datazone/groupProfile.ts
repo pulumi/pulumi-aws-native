@@ -40,27 +40,27 @@ export class GroupProfile extends pulumi.CustomResource {
     /**
      * The ID of the Amazon DataZone group profile.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The identifier of the Amazon DataZone domain in which the group profile is created.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainId: pulumi.Output<string>;
     /**
      * The identifier of the Amazon DataZone domain in which the group profile would be created.
      */
-    public readonly domainIdentifier!: pulumi.Output<string>;
+    declare public readonly domainIdentifier: pulumi.Output<string>;
     /**
      * The ID of the group.
      */
-    public readonly groupIdentifier!: pulumi.Output<string>;
+    declare public readonly groupIdentifier: pulumi.Output<string>;
     /**
      * The group-name of the Group Profile.
      */
-    public /*out*/ readonly groupName!: pulumi.Output<string>;
+    declare public /*out*/ readonly groupName: pulumi.Output<string>;
     /**
      * The status of a group profile.
      */
-    public readonly status!: pulumi.Output<enums.datazone.GroupProfileStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.datazone.GroupProfileStatus | undefined>;
 
     /**
      * Create a GroupProfile resource with the given unique name, arguments, and options.
@@ -73,15 +73,15 @@ export class GroupProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.groupIdentifier === undefined) && !opts.urn) {
+            if (args?.groupIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupIdentifier'");
             }
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["groupIdentifier"] = args ? args.groupIdentifier : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["groupIdentifier"] = args?.groupIdentifier;
+            resourceInputs["status"] = args?.status;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["groupName"] = undefined /*out*/;

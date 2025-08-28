@@ -40,49 +40,49 @@ export class TypeActivation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the extension.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
      */
-    public readonly autoUpdate!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoUpdate: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
      */
-    public readonly executionRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly executionRoleArn: pulumi.Output<string | undefined>;
     /**
      * Specifies logging configuration information for a type.
      */
-    public readonly loggingConfig!: pulumi.Output<outputs.cloudformation.TypeActivationLoggingConfig | undefined>;
+    declare public readonly loggingConfig: pulumi.Output<outputs.cloudformation.TypeActivationLoggingConfig | undefined>;
     /**
      * The Major Version of the type you want to enable
      */
-    public readonly majorVersion!: pulumi.Output<string | undefined>;
+    declare public readonly majorVersion: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Number (ARN) assigned to the public extension upon publication
      */
-    public readonly publicTypeArn!: pulumi.Output<string | undefined>;
+    declare public readonly publicTypeArn: pulumi.Output<string | undefined>;
     /**
      * The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
      */
-    public readonly publisherId!: pulumi.Output<string | undefined>;
+    declare public readonly publisherId: pulumi.Output<string | undefined>;
     /**
      * The kind of extension
      */
-    public readonly type!: pulumi.Output<enums.cloudformation.TypeActivationType | undefined>;
+    declare public readonly type: pulumi.Output<enums.cloudformation.TypeActivationType | undefined>;
     /**
      * The name of the type being registered.
      *
      * We recommend that type names adhere to the following pattern: company_or_organization::service::type.
      */
-    public readonly typeName!: pulumi.Output<string | undefined>;
+    declare public readonly typeName: pulumi.Output<string | undefined>;
     /**
      * An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
      */
-    public readonly typeNameAlias!: pulumi.Output<string | undefined>;
+    declare public readonly typeNameAlias: pulumi.Output<string | undefined>;
     /**
      * Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
      */
-    public readonly versionBump!: pulumi.Output<enums.cloudformation.TypeActivationVersionBump | undefined>;
+    declare public readonly versionBump: pulumi.Output<enums.cloudformation.TypeActivationVersionBump | undefined>;
 
     /**
      * Create a TypeActivation resource with the given unique name, arguments, and options.
@@ -95,16 +95,16 @@ export class TypeActivation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["autoUpdate"] = args ? args.autoUpdate : undefined;
-            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            resourceInputs["loggingConfig"] = args ? args.loggingConfig : undefined;
-            resourceInputs["majorVersion"] = args ? args.majorVersion : undefined;
-            resourceInputs["publicTypeArn"] = args ? args.publicTypeArn : undefined;
-            resourceInputs["publisherId"] = args ? args.publisherId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["typeName"] = args ? args.typeName : undefined;
-            resourceInputs["typeNameAlias"] = args ? args.typeNameAlias : undefined;
-            resourceInputs["versionBump"] = args ? args.versionBump : undefined;
+            resourceInputs["autoUpdate"] = args?.autoUpdate;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
+            resourceInputs["loggingConfig"] = args?.loggingConfig;
+            resourceInputs["majorVersion"] = args?.majorVersion;
+            resourceInputs["publicTypeArn"] = args?.publicTypeArn;
+            resourceInputs["publisherId"] = args?.publisherId;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["typeName"] = args?.typeName;
+            resourceInputs["typeNameAlias"] = args?.typeNameAlias;
+            resourceInputs["versionBump"] = args?.versionBump;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -40,19 +40,19 @@ export class UsagePlanKey extends pulumi.CustomResource {
     /**
      * The ID for the usage plan key. For example: `abc123` .
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The Id of the UsagePlanKey resource.
      */
-    public readonly keyId!: pulumi.Output<string>;
+    declare public readonly keyId: pulumi.Output<string>;
     /**
      * The type of a UsagePlanKey resource for a plan customer.
      */
-    public readonly keyType!: pulumi.Output<enums.apigateway.UsagePlanKeyKeyType>;
+    declare public readonly keyType: pulumi.Output<enums.apigateway.UsagePlanKeyKeyType>;
     /**
      * The Id of the UsagePlan resource representing the usage plan containing the UsagePlanKey resource representing a plan customer.
      */
-    public readonly usagePlanId!: pulumi.Output<string>;
+    declare public readonly usagePlanId: pulumi.Output<string>;
 
     /**
      * Create a UsagePlanKey resource with the given unique name, arguments, and options.
@@ -65,18 +65,18 @@ export class UsagePlanKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.keyId === undefined) && !opts.urn) {
+            if (args?.keyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyId'");
             }
-            if ((!args || args.keyType === undefined) && !opts.urn) {
+            if (args?.keyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyType'");
             }
-            if ((!args || args.usagePlanId === undefined) && !opts.urn) {
+            if (args?.usagePlanId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'usagePlanId'");
             }
-            resourceInputs["keyId"] = args ? args.keyId : undefined;
-            resourceInputs["keyType"] = args ? args.keyType : undefined;
-            resourceInputs["usagePlanId"] = args ? args.usagePlanId : undefined;
+            resourceInputs["keyId"] = args?.keyId;
+            resourceInputs["keyType"] = args?.keyType;
+            resourceInputs["usagePlanId"] = args?.usagePlanId;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

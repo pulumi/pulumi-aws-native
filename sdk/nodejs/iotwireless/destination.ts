@@ -40,31 +40,31 @@ export class Destination extends pulumi.CustomResource {
     /**
      * Destination arn. Returned after successful create.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Destination description
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Destination expression
      */
-    public readonly expression!: pulumi.Output<string>;
+    declare public readonly expression: pulumi.Output<string>;
     /**
      * Must be RuleName
      */
-    public readonly expressionType!: pulumi.Output<enums.iotwireless.DestinationExpressionType>;
+    declare public readonly expressionType: pulumi.Output<enums.iotwireless.DestinationExpressionType>;
     /**
      * Unique name of destination
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * AWS role ARN that grants access
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the destination.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Destination resource with the given unique name, arguments, and options.
@@ -77,18 +77,18 @@ export class Destination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.expression === undefined) && !opts.urn) {
+            if (args?.expression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expression'");
             }
-            if ((!args || args.expressionType === undefined) && !opts.urn) {
+            if (args?.expressionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expressionType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["expression"] = args ? args.expression : undefined;
-            resourceInputs["expressionType"] = args ? args.expressionType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["expression"] = args?.expression;
+            resourceInputs["expressionType"] = args?.expressionType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

@@ -206,19 +206,19 @@ export class Simulation extends pulumi.CustomResource {
     /**
      * Json object with all simulation details
      */
-    public /*out*/ readonly describePayload!: pulumi.Output<string>;
+    declare public /*out*/ readonly describePayload: pulumi.Output<string>;
     /**
      * The maximum running time of the simulation.
      */
-    public readonly maximumDuration!: pulumi.Output<string | undefined>;
+    declare public readonly maximumDuration: pulumi.Output<string | undefined>;
     /**
      * The name of the simulation.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Role ARN.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The location of the simulation schema in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
      *
@@ -226,7 +226,7 @@ export class Simulation extends pulumi.CustomResource {
      *
      * If you provide a `SchemaS3Location` then you can't provide a `SnapshotS3Location` .
      */
-    public readonly schemaS3Location!: pulumi.Output<outputs.simspaceweaver.SimulationS3Location | undefined>;
+    declare public readonly schemaS3Location: pulumi.Output<outputs.simspaceweaver.SimulationS3Location | undefined>;
     /**
      * The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
      *
@@ -234,7 +234,7 @@ export class Simulation extends pulumi.CustomResource {
      *
      * If you provide a `SnapshotS3Location` then you can't provide a `SchemaS3Location` .
      */
-    public readonly snapshotS3Location!: pulumi.Output<outputs.simspaceweaver.SimulationS3Location | undefined>;
+    declare public readonly snapshotS3Location: pulumi.Output<outputs.simspaceweaver.SimulationS3Location | undefined>;
 
     /**
      * Create a Simulation resource with the given unique name, arguments, and options.
@@ -247,14 +247,14 @@ export class Simulation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["maximumDuration"] = args ? args.maximumDuration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["schemaS3Location"] = args ? args.schemaS3Location : undefined;
-            resourceInputs["snapshotS3Location"] = args ? args.snapshotS3Location : undefined;
+            resourceInputs["maximumDuration"] = args?.maximumDuration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["schemaS3Location"] = args?.schemaS3Location;
+            resourceInputs["snapshotS3Location"] = args?.snapshotS3Location;
             resourceInputs["describePayload"] = undefined /*out*/;
         } else {
             resourceInputs["describePayload"] = undefined /*out*/;

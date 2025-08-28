@@ -44,27 +44,27 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
      *
      * This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\u0021` ) through the DEL character ( `\u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
      */
-    public readonly path!: pulumi.Output<string | undefined>;
+    declare public readonly path: pulumi.Output<string | undefined>;
     /**
      * Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
      */
-    public /*out*/ readonly serialNumber!: pulumi.Output<string>;
+    declare public /*out*/ readonly serialNumber: pulumi.Output<string>;
     /**
      * A list of tags that you want to attach to the new IAM virtual MFA device. Each tag consists of a key name and an associated value. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
      *
      * > If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The IAM user associated with this virtual MFA device.
      */
-    public readonly users!: pulumi.Output<string[]>;
+    declare public readonly users: pulumi.Output<string[]>;
     /**
      * The name of the virtual MFA device, which must be unique. Use with path to uniquely identify a virtual MFA device.
      *
      * This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
      */
-    public readonly virtualMfaDeviceName!: pulumi.Output<string | undefined>;
+    declare public readonly virtualMfaDeviceName: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualMfaDevice resource with the given unique name, arguments, and options.
@@ -77,13 +77,13 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.users === undefined) && !opts.urn) {
+            if (args?.users === undefined && !opts.urn) {
                 throw new Error("Missing required property 'users'");
             }
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
-            resourceInputs["virtualMfaDeviceName"] = args ? args.virtualMfaDeviceName : undefined;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["users"] = args?.users;
+            resourceInputs["virtualMfaDeviceName"] = args?.virtualMfaDeviceName;
             resourceInputs["serialNumber"] = undefined /*out*/;
         } else {
             resourceInputs["path"] = undefined /*out*/;

@@ -96,22 +96,22 @@ export class Policy extends pulumi.CustomResource {
     /**
      * Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
      */
-    public readonly definition!: pulumi.Output<outputs.verifiedpermissions.PolicyDefinition0Properties | outputs.verifiedpermissions.PolicyDefinition1Properties>;
+    declare public readonly definition: pulumi.Output<outputs.verifiedpermissions.PolicyDefinition0Properties | outputs.verifiedpermissions.PolicyDefinition1Properties>;
     /**
      * The unique ID of the new or updated policy.
      */
-    public /*out*/ readonly policyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly policyId: pulumi.Output<string>;
     /**
      * Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
      */
-    public readonly policyStoreId!: pulumi.Output<string>;
+    declare public readonly policyStoreId: pulumi.Output<string>;
     /**
      * The type of the policy. This is one of the following values:
      *
      * - Static
      * - TemplateLinked
      */
-    public /*out*/ readonly policyType!: pulumi.Output<enums.verifiedpermissions.PolicyType>;
+    declare public /*out*/ readonly policyType: pulumi.Output<enums.verifiedpermissions.PolicyType>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -124,14 +124,14 @@ export class Policy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.definition === undefined) && !opts.urn) {
+            if (args?.definition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if ((!args || args.policyStoreId === undefined) && !opts.urn) {
+            if (args?.policyStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyStoreId'");
             }
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["policyStoreId"] = args ? args.policyStoreId : undefined;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["policyStoreId"] = args?.policyStoreId;
             resourceInputs["policyId"] = undefined /*out*/;
             resourceInputs["policyType"] = undefined /*out*/;
         } else {

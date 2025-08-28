@@ -40,61 +40,61 @@ export class JobDefinition extends pulumi.CustomResource {
     /**
      * Contains a list of consumable resources required by the job.
      */
-    public readonly consumableResourceProperties!: pulumi.Output<outputs.batch.JobDefinitionConsumableResourceProperties | undefined>;
+    declare public readonly consumableResourceProperties: pulumi.Output<outputs.batch.JobDefinitionConsumableResourceProperties | undefined>;
     /**
      * An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
      */
-    public readonly containerProperties!: pulumi.Output<outputs.batch.JobDefinitionContainerProperties | undefined>;
+    declare public readonly containerProperties: pulumi.Output<outputs.batch.JobDefinitionContainerProperties | undefined>;
     /**
      * An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
      */
-    public readonly ecsProperties!: pulumi.Output<outputs.batch.JobDefinitionEcsProperties | undefined>;
+    declare public readonly ecsProperties: pulumi.Output<outputs.batch.JobDefinitionEcsProperties | undefined>;
     /**
      * An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
      */
-    public readonly eksProperties!: pulumi.Output<outputs.batch.JobDefinitionEksProperties | undefined>;
+    declare public readonly eksProperties: pulumi.Output<outputs.batch.JobDefinitionEksProperties | undefined>;
     /**
      * The job definition ARN, such as `batch: *us-east-1* : *111122223333* :job-definition/ *test-gpu* : *2*` .
      */
-    public /*out*/ readonly jobDefinitionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly jobDefinitionArn: pulumi.Output<string>;
     /**
      * The name of the job definition.
      */
-    public readonly jobDefinitionName!: pulumi.Output<string | undefined>;
+    declare public readonly jobDefinitionName: pulumi.Output<string | undefined>;
     /**
      * An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
      *
      * > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
      */
-    public readonly nodeProperties!: pulumi.Output<outputs.batch.JobDefinitionNodeProperties | undefined>;
+    declare public readonly nodeProperties: pulumi.Output<outputs.batch.JobDefinitionNodeProperties | undefined>;
     /**
      * Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
      */
-    public readonly platformCapabilities!: pulumi.Output<string[] | undefined>;
+    declare public readonly platformCapabilities: pulumi.Output<string[] | undefined>;
     /**
      * Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
      */
-    public readonly propagateTags!: pulumi.Output<boolean | undefined>;
+    declare public readonly propagateTags: pulumi.Output<boolean | undefined>;
     /**
      * The retry strategy to use for failed jobs that are submitted with this job definition.
      */
-    public readonly retryStrategy!: pulumi.Output<outputs.batch.JobDefinitionRetryStrategy | undefined>;
+    declare public readonly retryStrategy: pulumi.Output<outputs.batch.JobDefinitionRetryStrategy | undefined>;
     /**
      * The scheduling priority of the job definition. This only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
      */
-    public readonly schedulingPriority!: pulumi.Output<number | undefined>;
+    declare public readonly schedulingPriority: pulumi.Output<number | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
      */
-    public readonly timeout!: pulumi.Output<outputs.batch.JobDefinitionJobTimeout | undefined>;
+    declare public readonly timeout: pulumi.Output<outputs.batch.JobDefinitionJobTimeout | undefined>;
     /**
      * The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
      *
@@ -103,7 +103,7 @@ export class JobDefinition extends pulumi.CustomResource {
      *
      * > If the job is run on Fargate resources, then `multinode` isn't supported.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a JobDefinition resource with the given unique name, arguments, and options.
@@ -116,23 +116,23 @@ export class JobDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["consumableResourceProperties"] = args ? args.consumableResourceProperties : undefined;
-            resourceInputs["containerProperties"] = args ? args.containerProperties : undefined;
-            resourceInputs["ecsProperties"] = args ? args.ecsProperties : undefined;
-            resourceInputs["eksProperties"] = args ? args.eksProperties : undefined;
-            resourceInputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
-            resourceInputs["nodeProperties"] = args ? args.nodeProperties : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["platformCapabilities"] = args ? args.platformCapabilities : undefined;
-            resourceInputs["propagateTags"] = args ? args.propagateTags : undefined;
-            resourceInputs["retryStrategy"] = args ? args.retryStrategy : undefined;
-            resourceInputs["schedulingPriority"] = args ? args.schedulingPriority : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["consumableResourceProperties"] = args?.consumableResourceProperties;
+            resourceInputs["containerProperties"] = args?.containerProperties;
+            resourceInputs["ecsProperties"] = args?.ecsProperties;
+            resourceInputs["eksProperties"] = args?.eksProperties;
+            resourceInputs["jobDefinitionName"] = args?.jobDefinitionName;
+            resourceInputs["nodeProperties"] = args?.nodeProperties;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["platformCapabilities"] = args?.platformCapabilities;
+            resourceInputs["propagateTags"] = args?.propagateTags;
+            resourceInputs["retryStrategy"] = args?.retryStrategy;
+            resourceInputs["schedulingPriority"] = args?.schedulingPriority;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeout"] = args?.timeout;
+            resourceInputs["type"] = args?.type;
             resourceInputs["jobDefinitionArn"] = undefined /*out*/;
         } else {
             resourceInputs["consumableResourceProperties"] = undefined /*out*/;

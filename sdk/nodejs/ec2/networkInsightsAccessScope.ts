@@ -40,31 +40,31 @@ export class NetworkInsightsAccessScope extends pulumi.CustomResource {
     /**
      * The creation date.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * The paths to exclude.
      */
-    public readonly excludePaths!: pulumi.Output<outputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequest[] | undefined>;
+    declare public readonly excludePaths: pulumi.Output<outputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequest[] | undefined>;
     /**
      * The paths to match.
      */
-    public readonly matchPaths!: pulumi.Output<outputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequest[] | undefined>;
+    declare public readonly matchPaths: pulumi.Output<outputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequest[] | undefined>;
     /**
      * The ARN of the Network Access Scope.
      */
-    public /*out*/ readonly networkInsightsAccessScopeArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkInsightsAccessScopeArn: pulumi.Output<string>;
     /**
      * The ID of the Network Access Scope.
      */
-    public /*out*/ readonly networkInsightsAccessScopeId!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkInsightsAccessScopeId: pulumi.Output<string>;
     /**
      * The tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The last updated date.
      */
-    public /*out*/ readonly updatedDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedDate: pulumi.Output<string>;
 
     /**
      * Create a NetworkInsightsAccessScope resource with the given unique name, arguments, and options.
@@ -77,9 +77,9 @@ export class NetworkInsightsAccessScope extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["excludePaths"] = args ? args.excludePaths : undefined;
-            resourceInputs["matchPaths"] = args ? args.matchPaths : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["excludePaths"] = args?.excludePaths;
+            resourceInputs["matchPaths"] = args?.matchPaths;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["networkInsightsAccessScopeArn"] = undefined /*out*/;
             resourceInputs["networkInsightsAccessScopeId"] = undefined /*out*/;

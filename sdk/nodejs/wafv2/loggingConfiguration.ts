@@ -40,23 +40,23 @@ export class LoggingConfiguration extends pulumi.CustomResource {
     /**
      * The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.
      */
-    public readonly logDestinationConfigs!: pulumi.Output<string[]>;
+    declare public readonly logDestinationConfigs: pulumi.Output<string[]>;
     /**
      * Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
      */
-    public readonly loggingFilter!: pulumi.Output<outputs.wafv2.LoggingFilterProperties | undefined>;
+    declare public readonly loggingFilter: pulumi.Output<outputs.wafv2.LoggingFilterProperties | undefined>;
     /**
      * Indicates whether the logging configuration was created by AWS Firewall Manager, as part of an AWS WAF policy configuration. If true, only Firewall Manager can modify or delete the configuration.
      */
-    public /*out*/ readonly managedByFirewallManager!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly managedByFirewallManager: pulumi.Output<boolean>;
     /**
      * The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
      */
-    public readonly redactedFields!: pulumi.Output<outputs.wafv2.LoggingConfigurationFieldToMatch[] | undefined>;
+    declare public readonly redactedFields: pulumi.Output<outputs.wafv2.LoggingConfigurationFieldToMatch[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
      */
-    public readonly resourceArn!: pulumi.Output<string>;
+    declare public readonly resourceArn: pulumi.Output<string>;
 
     /**
      * Create a LoggingConfiguration resource with the given unique name, arguments, and options.
@@ -69,16 +69,16 @@ export class LoggingConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.logDestinationConfigs === undefined) && !opts.urn) {
+            if (args?.logDestinationConfigs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logDestinationConfigs'");
             }
-            if ((!args || args.resourceArn === undefined) && !opts.urn) {
+            if (args?.resourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            resourceInputs["logDestinationConfigs"] = args ? args.logDestinationConfigs : undefined;
-            resourceInputs["loggingFilter"] = args ? args.loggingFilter : undefined;
-            resourceInputs["redactedFields"] = args ? args.redactedFields : undefined;
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
+            resourceInputs["logDestinationConfigs"] = args?.logDestinationConfigs;
+            resourceInputs["loggingFilter"] = args?.loggingFilter;
+            resourceInputs["redactedFields"] = args?.redactedFields;
+            resourceInputs["resourceArn"] = args?.resourceArn;
             resourceInputs["managedByFirewallManager"] = undefined /*out*/;
         } else {
             resourceInputs["logDestinationConfigs"] = undefined /*out*/;

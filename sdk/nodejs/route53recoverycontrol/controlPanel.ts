@@ -40,31 +40,31 @@ export class ControlPanel extends pulumi.CustomResource {
     /**
      * Cluster to associate with the Control Panel
      */
-    public readonly clusterArn!: pulumi.Output<string | undefined>;
+    declare public readonly clusterArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the cluster.
      */
-    public /*out*/ readonly controlPanelArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly controlPanelArn: pulumi.Output<string>;
     /**
      * A flag that Amazon Route 53 Application Recovery Controller sets to true to designate the default control panel for a cluster. When you create a cluster, Amazon Route 53 Application Recovery Controller creates a control panel, and sets this flag for that control panel. If you create a control panel yourself, this flag is set to false.
      */
-    public /*out*/ readonly defaultControlPanel!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly defaultControlPanel: pulumi.Output<boolean>;
     /**
      * The name of the control panel. You can use any non-white space character in the name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Count of associated routing controls
      */
-    public /*out*/ readonly routingControlCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly routingControlCount: pulumi.Output<number>;
     /**
      * The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.route53recoverycontrol.ControlPanelStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.route53recoverycontrol.ControlPanelStatus>;
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a ControlPanel resource with the given unique name, arguments, and options.
@@ -77,9 +77,9 @@ export class ControlPanel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["clusterArn"] = args ? args.clusterArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterArn"] = args?.clusterArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["controlPanelArn"] = undefined /*out*/;
             resourceInputs["defaultControlPanel"] = undefined /*out*/;
             resourceInputs["routingControlCount"] = undefined /*out*/;

@@ -64,15 +64,15 @@ export class CloudFrontOriginAccessIdentity extends pulumi.CustomResource {
     /**
      * The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The current configuration information for the identity.
      */
-    public readonly cloudFrontOriginAccessIdentityConfig!: pulumi.Output<outputs.cloudfront.CloudFrontOriginAccessIdentityConfig>;
+    declare public readonly cloudFrontOriginAccessIdentityConfig: pulumi.Output<outputs.cloudfront.CloudFrontOriginAccessIdentityConfig>;
     /**
      * The Amazon S3 canonical user ID for the origin access identity, used when giving the origin access identity read permission to an object in Amazon S3. For example: `b970b42360b81c8ddbd79d2f5df0069ba9033c8a79655752abe380cd6d63ba8bcf23384d568fcf89fc49700b5e11a0fd` .
      */
-    public /*out*/ readonly s3CanonicalUserId!: pulumi.Output<string>;
+    declare public /*out*/ readonly s3CanonicalUserId: pulumi.Output<string>;
 
     /**
      * Create a CloudFrontOriginAccessIdentity resource with the given unique name, arguments, and options.
@@ -85,10 +85,10 @@ export class CloudFrontOriginAccessIdentity extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cloudFrontOriginAccessIdentityConfig === undefined) && !opts.urn) {
+            if (args?.cloudFrontOriginAccessIdentityConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cloudFrontOriginAccessIdentityConfig'");
             }
-            resourceInputs["cloudFrontOriginAccessIdentityConfig"] = args ? args.cloudFrontOriginAccessIdentityConfig : undefined;
+            resourceInputs["cloudFrontOriginAccessIdentityConfig"] = args?.cloudFrontOriginAccessIdentityConfig;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["s3CanonicalUserId"] = undefined /*out*/;
         } else {

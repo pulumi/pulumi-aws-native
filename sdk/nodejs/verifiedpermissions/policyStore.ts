@@ -58,29 +58,29 @@ export class PolicyStore extends pulumi.CustomResource {
     /**
      * The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
      *
      * The default state is `DISABLED` .
      */
-    public readonly deletionProtection!: pulumi.Output<outputs.verifiedpermissions.PolicyStoreDeletionProtection | undefined>;
+    declare public readonly deletionProtection: pulumi.Output<outputs.verifiedpermissions.PolicyStoreDeletionProtection | undefined>;
     /**
      * Descriptive text that you can provide to help with identification of the current policy store.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The unique ID of the new or updated policy store.
      */
-    public /*out*/ readonly policyStoreId!: pulumi.Output<string>;
+    declare public /*out*/ readonly policyStoreId: pulumi.Output<string>;
     /**
      * Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
      */
-    public readonly schema!: pulumi.Output<outputs.verifiedpermissions.PolicyStoreSchemaDefinition0Properties | outputs.verifiedpermissions.PolicyStoreSchemaDefinition1Properties | undefined>;
+    declare public readonly schema: pulumi.Output<outputs.verifiedpermissions.PolicyStoreSchemaDefinition0Properties | outputs.verifiedpermissions.PolicyStoreSchemaDefinition1Properties | undefined>;
     /**
      * The tags to add to the policy store
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Specifies the validation setting for this policy store.
      *
@@ -88,7 +88,7 @@ export class PolicyStore extends pulumi.CustomResource {
      *
      * > We recommend that you turn on `STRICT` mode only after you define a schema. If a schema doesn't exist, then `STRICT` mode causes any policy to fail validation, and Verified Permissions rejects the policy. You can turn off validation by using the [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) . Then, when you have a schema defined, use [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) again to turn validation back on.
      */
-    public readonly validationSettings!: pulumi.Output<outputs.verifiedpermissions.PolicyStoreValidationSettings>;
+    declare public readonly validationSettings: pulumi.Output<outputs.verifiedpermissions.PolicyStoreValidationSettings>;
 
     /**
      * Create a PolicyStore resource with the given unique name, arguments, and options.
@@ -101,14 +101,14 @@ export class PolicyStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.validationSettings === undefined) && !opts.urn) {
+            if (args?.validationSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'validationSettings'");
             }
-            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["validationSettings"] = args ? args.validationSettings : undefined;
+            resourceInputs["deletionProtection"] = args?.deletionProtection;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["validationSettings"] = args?.validationSettings;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["policyStoreId"] = undefined /*out*/;
         } else {

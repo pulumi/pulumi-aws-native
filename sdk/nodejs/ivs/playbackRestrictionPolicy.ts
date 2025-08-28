@@ -40,27 +40,27 @@ export class PlaybackRestrictionPolicy extends pulumi.CustomResource {
     /**
      * A list of country codes that control geoblocking restriction. Allowed values are the officially assigned ISO 3166-1 alpha-2 codes. Default: All countries (an empty array).
      */
-    public readonly allowedCountries!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedCountries: pulumi.Output<string[] | undefined>;
     /**
      * A list of origin sites that control CORS restriction. Allowed values are the same as valid values of the Origin header defined at https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin
      */
-    public readonly allowedOrigins!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedOrigins: pulumi.Output<string[] | undefined>;
     /**
      * Playback-restriction-policy identifier.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Whether channel playback is constrained by origin site.
      */
-    public readonly enableStrictOriginEnforcement!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableStrictOriginEnforcement: pulumi.Output<boolean | undefined>;
     /**
      * Playback-restriction-policy name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PlaybackRestrictionPolicy resource with the given unique name, arguments, and options.
@@ -73,11 +73,11 @@ export class PlaybackRestrictionPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["allowedCountries"] = args ? args.allowedCountries : undefined;
-            resourceInputs["allowedOrigins"] = args ? args.allowedOrigins : undefined;
-            resourceInputs["enableStrictOriginEnforcement"] = args ? args.enableStrictOriginEnforcement : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowedCountries"] = args?.allowedCountries;
+            resourceInputs["allowedOrigins"] = args?.allowedOrigins;
+            resourceInputs["enableStrictOriginEnforcement"] = args?.enableStrictOriginEnforcement;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["allowedCountries"] = undefined /*out*/;

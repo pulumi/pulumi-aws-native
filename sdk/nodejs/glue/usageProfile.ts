@@ -40,23 +40,23 @@ export class UsageProfile extends pulumi.CustomResource {
     /**
      * UsageProfile configuration for supported service ex: (Jobs, Sessions).
      */
-    public readonly configuration!: pulumi.Output<outputs.glue.UsageProfileProfileConfiguration | undefined>;
+    declare public readonly configuration: pulumi.Output<outputs.glue.UsageProfileProfileConfiguration | undefined>;
     /**
      * Creation time.
      */
-    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdOn: pulumi.Output<string>;
     /**
      * The description of the UsageProfile.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the UsageProfile.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The tags to be applied to this UsageProfiles.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a UsageProfile resource with the given unique name, arguments, and options.
@@ -69,10 +69,10 @@ export class UsageProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdOn"] = undefined /*out*/;
         } else {
             resourceInputs["configuration"] = undefined /*out*/;

@@ -40,35 +40,35 @@ export class FindingsFilter extends pulumi.CustomResource {
     /**
      * Findings filter action.
      */
-    public readonly action!: pulumi.Output<enums.macie.FindingsFilterFindingFilterAction | undefined>;
+    declare public readonly action: pulumi.Output<enums.macie.FindingsFilterFindingFilterAction | undefined>;
     /**
      * Findings filter ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Findings filter ID.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Findings filter description
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Findings filter criteria.
      */
-    public readonly findingCriteria!: pulumi.Output<outputs.macie.FindingsFilterFindingCriteria>;
+    declare public readonly findingCriteria: pulumi.Output<outputs.macie.FindingsFilterFindingCriteria>;
     /**
      * Findings filter name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Findings filter position.
      */
-    public readonly position!: pulumi.Output<number | undefined>;
+    declare public readonly position: pulumi.Output<number | undefined>;
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a FindingsFilter resource with the given unique name, arguments, and options.
@@ -81,15 +81,15 @@ export class FindingsFilter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.findingCriteria === undefined) && !opts.urn) {
+            if (args?.findingCriteria === undefined && !opts.urn) {
                 throw new Error("Missing required property 'findingCriteria'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["findingCriteria"] = args ? args.findingCriteria : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["position"] = args ? args.position : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["findingCriteria"] = args?.findingCriteria;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["position"] = args?.position;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

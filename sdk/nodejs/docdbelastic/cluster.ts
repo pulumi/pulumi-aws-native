@@ -46,7 +46,7 @@ export class Cluster extends pulumi.CustomResource {
      * - The first character must be a letter.
      * - Cannot be a reserved word.
      */
-    public readonly adminUserName!: pulumi.Output<string>;
+    declare public readonly adminUserName: pulumi.Output<string>;
     /**
      * The password for the Elastic DocumentDB cluster administrator and can contain any printable ASCII characters.
      *
@@ -56,20 +56,20 @@ export class Cluster extends pulumi.CustomResource {
      * - Cannot contain a forward slash (/), double quote ("), or the "at" symbol (@).
      * - A valid `AdminUserName` entry is also required.
      */
-    public readonly adminUserPassword!: pulumi.Output<string | undefined>;
+    declare public readonly adminUserPassword: pulumi.Output<string | undefined>;
     /**
      * The authentication type used to determine where to fetch the password used for accessing the elastic cluster. Valid types are `PLAIN_TEXT` or `SECRET_ARN` .
      */
-    public readonly authType!: pulumi.Output<string>;
+    declare public readonly authType: pulumi.Output<string>;
     /**
      * The number of days for which automatic snapshots are retained.
      */
-    public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
-    public /*out*/ readonly clusterArn!: pulumi.Output<string>;
+    declare public readonly backupRetentionPeriod: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly clusterArn: pulumi.Output<string>;
     /**
      * The URL used to connect to the elastic cluster.
      */
-    public /*out*/ readonly clusterEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterEndpoint: pulumi.Output<string>;
     /**
      * The name of the new elastic cluster. This parameter is stored as a lowercase string.
      *
@@ -81,7 +81,7 @@ export class Cluster extends pulumi.CustomResource {
      *
      * *Example* : `my-cluster`
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    declare public readonly clusterName: pulumi.Output<string>;
     /**
      * The KMS key identifier to use to encrypt the new elastic cluster.
      *
@@ -89,11 +89,11 @@ export class Cluster extends pulumi.CustomResource {
      *
      * If an encryption key is not specified, Amazon DocumentDB uses the default encryption key that KMS creates for your account. Your account has a different default encryption key for each Amazon Region.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled, as determined by `backupRetentionPeriod` .
      */
-    public readonly preferredBackupWindow!: pulumi.Output<string | undefined>;
+    declare public readonly preferredBackupWindow: pulumi.Output<string | undefined>;
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      *
@@ -105,31 +105,31 @@ export class Cluster extends pulumi.CustomResource {
      *
      * *Constraints* : Minimum 30-minute window.
      */
-    public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
+    declare public readonly preferredMaintenanceWindow: pulumi.Output<string | undefined>;
     /**
      * The number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64.
      */
-    public readonly shardCapacity!: pulumi.Output<number>;
+    declare public readonly shardCapacity: pulumi.Output<number>;
     /**
      * The number of shards assigned to the elastic cluster. Maximum is 32.
      */
-    public readonly shardCount!: pulumi.Output<number>;
+    declare public readonly shardCount: pulumi.Output<number>;
     /**
      * The number of replica instances applying to all shards in the cluster. A `shardInstanceCount` value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.
      */
-    public readonly shardInstanceCount!: pulumi.Output<number | undefined>;
+    declare public readonly shardInstanceCount: pulumi.Output<number | undefined>;
     /**
      * The Amazon EC2 subnet IDs for the new elastic cluster.
      */
-    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly subnetIds: pulumi.Output<string[] | undefined>;
     /**
      * The tags to be assigned to the new elastic cluster.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A list of EC2 VPC security groups to associate with the new elastic cluster.
      */
-    public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -142,32 +142,32 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.adminUserName === undefined) && !opts.urn) {
+            if (args?.adminUserName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminUserName'");
             }
-            if ((!args || args.authType === undefined) && !opts.urn) {
+            if (args?.authType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authType'");
             }
-            if ((!args || args.shardCapacity === undefined) && !opts.urn) {
+            if (args?.shardCapacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shardCapacity'");
             }
-            if ((!args || args.shardCount === undefined) && !opts.urn) {
+            if (args?.shardCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shardCount'");
             }
-            resourceInputs["adminUserName"] = args ? args.adminUserName : undefined;
-            resourceInputs["adminUserPassword"] = args ? args.adminUserPassword : undefined;
-            resourceInputs["authType"] = args ? args.authType : undefined;
-            resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
-            resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
-            resourceInputs["shardCapacity"] = args ? args.shardCapacity : undefined;
-            resourceInputs["shardCount"] = args ? args.shardCount : undefined;
-            resourceInputs["shardInstanceCount"] = args ? args.shardInstanceCount : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["adminUserName"] = args?.adminUserName;
+            resourceInputs["adminUserPassword"] = args?.adminUserPassword;
+            resourceInputs["authType"] = args?.authType;
+            resourceInputs["backupRetentionPeriod"] = args?.backupRetentionPeriod;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["preferredBackupWindow"] = args?.preferredBackupWindow;
+            resourceInputs["preferredMaintenanceWindow"] = args?.preferredMaintenanceWindow;
+            resourceInputs["shardCapacity"] = args?.shardCapacity;
+            resourceInputs["shardCount"] = args?.shardCount;
+            resourceInputs["shardInstanceCount"] = args?.shardInstanceCount;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
             resourceInputs["clusterArn"] = undefined /*out*/;
             resourceInputs["clusterEndpoint"] = undefined /*out*/;
         } else {

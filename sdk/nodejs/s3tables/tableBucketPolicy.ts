@@ -40,11 +40,11 @@ export class TableBucketPolicy extends pulumi.CustomResource {
     /**
      * The bucket policy JSON for the table bucket.
      */
-    public readonly resourcePolicy!: pulumi.Output<outputs.s3tables.TableBucketPolicyResourcePolicy>;
+    declare public readonly resourcePolicy: pulumi.Output<outputs.s3tables.TableBucketPolicyResourcePolicy>;
     /**
      * The Amazon Resource Name (ARN) of the table bucket.
      */
-    public readonly tableBucketArn!: pulumi.Output<string>;
+    declare public readonly tableBucketArn: pulumi.Output<string>;
 
     /**
      * Create a TableBucketPolicy resource with the given unique name, arguments, and options.
@@ -57,14 +57,14 @@ export class TableBucketPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourcePolicy === undefined) && !opts.urn) {
+            if (args?.resourcePolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourcePolicy'");
             }
-            if ((!args || args.tableBucketArn === undefined) && !opts.urn) {
+            if (args?.tableBucketArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableBucketArn'");
             }
-            resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
-            resourceInputs["tableBucketArn"] = args ? args.tableBucketArn : undefined;
+            resourceInputs["resourcePolicy"] = args?.resourcePolicy;
+            resourceInputs["tableBucketArn"] = args?.tableBucketArn;
         } else {
             resourceInputs["resourcePolicy"] = undefined /*out*/;
             resourceInputs["tableBucketArn"] = undefined /*out*/;

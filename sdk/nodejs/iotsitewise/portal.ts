@@ -40,56 +40,56 @@ export class Portal extends pulumi.CustomResource {
     /**
      * Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
      */
-    public readonly alarms!: pulumi.Output<outputs.iotsitewise.AlarmsProperties | undefined>;
+    declare public readonly alarms: pulumi.Output<outputs.iotsitewise.AlarmsProperties | undefined>;
     /**
      * The email address that sends alarm notifications.
      */
-    public readonly notificationSenderEmail!: pulumi.Output<string | undefined>;
+    declare public readonly notificationSenderEmail: pulumi.Output<string | undefined>;
     /**
      * The ARN of the portal, which has the following format.
      */
-    public /*out*/ readonly portalArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly portalArn: pulumi.Output<string>;
     /**
      * The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
      */
-    public readonly portalAuthMode!: pulumi.Output<string | undefined>;
+    declare public readonly portalAuthMode: pulumi.Output<string | undefined>;
     /**
      * The AWS SSO application generated client ID (used with AWS SSO APIs).
      */
-    public /*out*/ readonly portalClientId!: pulumi.Output<string>;
+    declare public /*out*/ readonly portalClientId: pulumi.Output<string>;
     /**
      * The AWS administrator's contact email address.
      */
-    public readonly portalContactEmail!: pulumi.Output<string>;
+    declare public readonly portalContactEmail: pulumi.Output<string>;
     /**
      * A description for the portal.
      */
-    public readonly portalDescription!: pulumi.Output<string | undefined>;
+    declare public readonly portalDescription: pulumi.Output<string | undefined>;
     /**
      * The ID of the portal.
      */
-    public /*out*/ readonly portalId!: pulumi.Output<string>;
+    declare public /*out*/ readonly portalId: pulumi.Output<string>;
     /**
      * A friendly name for the portal.
      */
-    public readonly portalName!: pulumi.Output<string>;
+    declare public readonly portalName: pulumi.Output<string>;
     /**
      * The public root URL for the AWS IoT AWS IoT SiteWise Monitor application portal.
      */
-    public /*out*/ readonly portalStartUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly portalStartUrl: pulumi.Output<string>;
     /**
      * The type of portal
      */
-    public readonly portalType!: pulumi.Output<enums.iotsitewise.PortalType | undefined>;
-    public readonly portalTypeConfiguration!: pulumi.Output<{[key: string]: outputs.iotsitewise.PortalTypeEntry} | undefined>;
+    declare public readonly portalType: pulumi.Output<enums.iotsitewise.PortalType | undefined>;
+    declare public readonly portalTypeConfiguration: pulumi.Output<{[key: string]: outputs.iotsitewise.PortalTypeEntry} | undefined>;
     /**
      * The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * A list of key-value pairs that contain metadata for the portal.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Portal resource with the given unique name, arguments, and options.
@@ -102,22 +102,22 @@ export class Portal extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.portalContactEmail === undefined) && !opts.urn) {
+            if (args?.portalContactEmail === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portalContactEmail'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["alarms"] = args ? args.alarms : undefined;
-            resourceInputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
-            resourceInputs["portalAuthMode"] = args ? args.portalAuthMode : undefined;
-            resourceInputs["portalContactEmail"] = args ? args.portalContactEmail : undefined;
-            resourceInputs["portalDescription"] = args ? args.portalDescription : undefined;
-            resourceInputs["portalName"] = args ? args.portalName : undefined;
-            resourceInputs["portalType"] = args ? args.portalType : undefined;
-            resourceInputs["portalTypeConfiguration"] = args ? args.portalTypeConfiguration : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["alarms"] = args?.alarms;
+            resourceInputs["notificationSenderEmail"] = args?.notificationSenderEmail;
+            resourceInputs["portalAuthMode"] = args?.portalAuthMode;
+            resourceInputs["portalContactEmail"] = args?.portalContactEmail;
+            resourceInputs["portalDescription"] = args?.portalDescription;
+            resourceInputs["portalName"] = args?.portalName;
+            resourceInputs["portalType"] = args?.portalType;
+            resourceInputs["portalTypeConfiguration"] = args?.portalTypeConfiguration;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["portalArn"] = undefined /*out*/;
             resourceInputs["portalClientId"] = undefined /*out*/;
             resourceInputs["portalId"] = undefined /*out*/;

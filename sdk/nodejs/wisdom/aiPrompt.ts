@@ -40,27 +40,27 @@ export class AiPrompt extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the AI Prompt.
      */
-    public /*out*/ readonly aiPromptArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly aiPromptArn: pulumi.Output<string>;
     /**
      * The identifier of the Amazon Q in Connect AI prompt.
      */
-    public /*out*/ readonly aiPromptId!: pulumi.Output<string>;
+    declare public /*out*/ readonly aiPromptId: pulumi.Output<string>;
     /**
      * The API format used for this AI Prompt.
      */
-    public readonly apiFormat!: pulumi.Output<enums.wisdom.AiPromptAiPromptApiFormat>;
+    declare public readonly apiFormat: pulumi.Output<enums.wisdom.AiPromptAiPromptApiFormat>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
      */
-    public /*out*/ readonly assistantArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly assistantArn: pulumi.Output<string>;
     /**
      * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
      */
-    public readonly assistantId!: pulumi.Output<string | undefined>;
+    declare public readonly assistantId: pulumi.Output<string | undefined>;
     /**
      * The description of the AI Prompt.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The identifier of the model used for this AI Prompt. The following model Ids are supported:
      *
@@ -82,28 +82,28 @@ export class AiPrompt extends pulumi.CustomResource {
      * - `us.anthropic.claude-3-7-sonnet-20250219-v1:0`
      * - `us.anthropic.claude-3-haiku-20240307-v1:0`
      */
-    public readonly modelId!: pulumi.Output<string>;
-    public /*out*/ readonly modifiedTimeSeconds!: pulumi.Output<number>;
+    declare public readonly modelId: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedTimeSeconds: pulumi.Output<number>;
     /**
      * The name of the AI Prompt
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The configuration of the prompt template for this AI Prompt.
      */
-    public readonly templateConfiguration!: pulumi.Output<outputs.wisdom.AiPromptAiPromptTemplateConfiguration>;
+    declare public readonly templateConfiguration: pulumi.Output<outputs.wisdom.AiPromptAiPromptTemplateConfiguration>;
     /**
      * The type of the prompt template for this AI Prompt.
      */
-    public readonly templateType!: pulumi.Output<enums.wisdom.AiPromptAiPromptTemplateType>;
+    declare public readonly templateType: pulumi.Output<enums.wisdom.AiPromptAiPromptTemplateType>;
     /**
      * The type of this AI Prompt.
      */
-    public readonly type!: pulumi.Output<enums.wisdom.AiPromptAiPromptType>;
+    declare public readonly type: pulumi.Output<enums.wisdom.AiPromptAiPromptType>;
 
     /**
      * Create a AiPrompt resource with the given unique name, arguments, and options.
@@ -116,30 +116,30 @@ export class AiPrompt extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiFormat === undefined) && !opts.urn) {
+            if (args?.apiFormat === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiFormat'");
             }
-            if ((!args || args.modelId === undefined) && !opts.urn) {
+            if (args?.modelId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelId'");
             }
-            if ((!args || args.templateConfiguration === undefined) && !opts.urn) {
+            if (args?.templateConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateConfiguration'");
             }
-            if ((!args || args.templateType === undefined) && !opts.urn) {
+            if (args?.templateType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateType'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["apiFormat"] = args ? args.apiFormat : undefined;
-            resourceInputs["assistantId"] = args ? args.assistantId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["modelId"] = args ? args.modelId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateConfiguration"] = args ? args.templateConfiguration : undefined;
-            resourceInputs["templateType"] = args ? args.templateType : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["apiFormat"] = args?.apiFormat;
+            resourceInputs["assistantId"] = args?.assistantId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["modelId"] = args?.modelId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateConfiguration"] = args?.templateConfiguration;
+            resourceInputs["templateType"] = args?.templateType;
+            resourceInputs["type"] = args?.type;
             resourceInputs["aiPromptArn"] = undefined /*out*/;
             resourceInputs["aiPromptId"] = undefined /*out*/;
             resourceInputs["assistantArn"] = undefined /*out*/;

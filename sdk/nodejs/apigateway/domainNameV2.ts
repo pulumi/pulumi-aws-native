@@ -40,41 +40,41 @@ export class DomainNameV2 extends pulumi.CustomResource {
     /**
      * The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
      */
-    public readonly certificateArn!: pulumi.Output<string | undefined>;
+    declare public readonly certificateArn: pulumi.Output<string | undefined>;
     /**
      * Represents a custom domain name as a user-friendly host name of an API (RestApi).
      */
-    public readonly domainName!: pulumi.Output<string | undefined>;
+    declare public readonly domainName: pulumi.Output<string | undefined>;
     /**
      * The amazon resource name (ARN) of the domain name resource.
      */
-    public /*out*/ readonly domainNameArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainNameArn: pulumi.Output<string>;
     /**
      * The domain name ID.
      */
-    public /*out*/ readonly domainNameId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainNameId: pulumi.Output<string>;
     /**
      * The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
      */
-    public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.DomainNameV2EndpointConfiguration | undefined>;
+    declare public readonly endpointConfiguration: pulumi.Output<outputs.apigateway.DomainNameV2EndpointConfiguration | undefined>;
     /**
      * A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
      */
-    public readonly policy!: pulumi.Output<any | undefined>;
+    declare public readonly policy: pulumi.Output<any | undefined>;
     /**
      * The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
      */
-    public readonly routingMode!: pulumi.Output<enums.apigateway.DomainNameV2RoutingMode | undefined>;
+    declare public readonly routingMode: pulumi.Output<enums.apigateway.DomainNameV2RoutingMode | undefined>;
     /**
      * The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
      */
-    public readonly securityPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly securityPolicy: pulumi.Output<string | undefined>;
     /**
      * The collection of tags. Each tag element is associated with a given resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DomainNameV2 resource with the given unique name, arguments, and options.
@@ -87,13 +87,13 @@ export class DomainNameV2 extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["routingMode"] = args ? args.routingMode : undefined;
-            resourceInputs["securityPolicy"] = args ? args.securityPolicy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["certificateArn"] = args?.certificateArn;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["endpointConfiguration"] = args?.endpointConfiguration;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["routingMode"] = args?.routingMode;
+            resourceInputs["securityPolicy"] = args?.securityPolicy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["domainNameArn"] = undefined /*out*/;
             resourceInputs["domainNameId"] = undefined /*out*/;
         } else {

@@ -40,18 +40,18 @@ export class SamplingRule extends pulumi.CustomResource {
     /**
      * The sampling rule ARN that was created or updated.
      */
-    public /*out*/ readonly ruleArn!: pulumi.Output<string>;
-    public readonly ruleName!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly ruleArn: pulumi.Output<string>;
+    declare public readonly ruleName: pulumi.Output<string | undefined>;
     /**
      * The sampling rule to be created or updated.
      */
-    public readonly samplingRule!: pulumi.Output<outputs.xray.SamplingRule | undefined>;
-    public readonly samplingRuleRecord!: pulumi.Output<outputs.xray.SamplingRuleRecord | undefined>;
-    public readonly samplingRuleUpdate!: pulumi.Output<outputs.xray.SamplingRuleUpdate | undefined>;
+    declare public readonly samplingRule: pulumi.Output<outputs.xray.SamplingRule | undefined>;
+    declare public readonly samplingRuleRecord: pulumi.Output<outputs.xray.SamplingRuleRecord | undefined>;
+    declare public readonly samplingRuleUpdate: pulumi.Output<outputs.xray.SamplingRuleUpdate | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SamplingRule resource with the given unique name, arguments, and options.
@@ -64,11 +64,11 @@ export class SamplingRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["samplingRule"] = args ? args.samplingRule : undefined;
-            resourceInputs["samplingRuleRecord"] = args ? args.samplingRuleRecord : undefined;
-            resourceInputs["samplingRuleUpdate"] = args ? args.samplingRuleUpdate : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ruleName"] = args?.ruleName;
+            resourceInputs["samplingRule"] = args?.samplingRule;
+            resourceInputs["samplingRuleRecord"] = args?.samplingRuleRecord;
+            resourceInputs["samplingRuleUpdate"] = args?.samplingRuleUpdate;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["ruleArn"] = undefined /*out*/;
         } else {
             resourceInputs["ruleArn"] = undefined /*out*/;

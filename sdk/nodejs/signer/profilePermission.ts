@@ -37,23 +37,23 @@ export class ProfilePermission extends pulumi.CustomResource {
     /**
      * The AWS Signer action permitted as part of cross-account permissions.
      */
-    public readonly action!: pulumi.Output<string>;
+    declare public readonly action: pulumi.Output<string>;
     /**
      * The AWS principal receiving cross-account permissions. This may be an IAM role or another AWS account ID.
      */
-    public readonly principal!: pulumi.Output<string>;
+    declare public readonly principal: pulumi.Output<string>;
     /**
      * The human-readable name of the signing profile.
      */
-    public readonly profileName!: pulumi.Output<string>;
+    declare public readonly profileName: pulumi.Output<string>;
     /**
      * The version of the signing profile.
      */
-    public readonly profileVersion!: pulumi.Output<string | undefined>;
+    declare public readonly profileVersion: pulumi.Output<string | undefined>;
     /**
      * A unique identifier for the cross-account permission statement.
      */
-    public readonly statementId!: pulumi.Output<string>;
+    declare public readonly statementId: pulumi.Output<string>;
 
     /**
      * Create a ProfilePermission resource with the given unique name, arguments, and options.
@@ -66,23 +66,23 @@ export class ProfilePermission extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.statementId === undefined) && !opts.urn) {
+            if (args?.statementId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statementId'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["profileVersion"] = args ? args.profileVersion : undefined;
-            resourceInputs["statementId"] = args ? args.statementId : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["profileVersion"] = args?.profileVersion;
+            resourceInputs["statementId"] = args?.statementId;
         } else {
             resourceInputs["action"] = undefined /*out*/;
             resourceInputs["principal"] = undefined /*out*/;

@@ -40,31 +40,31 @@ export class Url extends pulumi.CustomResource {
     /**
      * Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
      */
-    public readonly authType!: pulumi.Output<enums.lambda.UrlAuthType>;
+    declare public readonly authType: pulumi.Output<enums.lambda.UrlAuthType>;
     /**
      * The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
      */
-    public readonly cors!: pulumi.Output<outputs.lambda.UrlCors | undefined>;
+    declare public readonly cors: pulumi.Output<outputs.lambda.UrlCors | undefined>;
     /**
      * The full Amazon Resource Name (ARN) of the function associated with the Function URL.
      */
-    public /*out*/ readonly functionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly functionArn: pulumi.Output<string>;
     /**
      * The generated url for this resource.
      */
-    public /*out*/ readonly functionUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly functionUrl: pulumi.Output<string>;
     /**
      * The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
      */
-    public readonly invokeMode!: pulumi.Output<enums.lambda.UrlInvokeMode | undefined>;
+    declare public readonly invokeMode: pulumi.Output<enums.lambda.UrlInvokeMode | undefined>;
     /**
      * The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
      */
-    public readonly qualifier!: pulumi.Output<string | undefined>;
+    declare public readonly qualifier: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the function associated with the Function URL.
      */
-    public readonly targetFunctionArn!: pulumi.Output<string>;
+    declare public readonly targetFunctionArn: pulumi.Output<string>;
 
     /**
      * Create a Url resource with the given unique name, arguments, and options.
@@ -77,17 +77,17 @@ export class Url extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authType === undefined) && !opts.urn) {
+            if (args?.authType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authType'");
             }
-            if ((!args || args.targetFunctionArn === undefined) && !opts.urn) {
+            if (args?.targetFunctionArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetFunctionArn'");
             }
-            resourceInputs["authType"] = args ? args.authType : undefined;
-            resourceInputs["cors"] = args ? args.cors : undefined;
-            resourceInputs["invokeMode"] = args ? args.invokeMode : undefined;
-            resourceInputs["qualifier"] = args ? args.qualifier : undefined;
-            resourceInputs["targetFunctionArn"] = args ? args.targetFunctionArn : undefined;
+            resourceInputs["authType"] = args?.authType;
+            resourceInputs["cors"] = args?.cors;
+            resourceInputs["invokeMode"] = args?.invokeMode;
+            resourceInputs["qualifier"] = args?.qualifier;
+            resourceInputs["targetFunctionArn"] = args?.targetFunctionArn;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["functionUrl"] = undefined /*out*/;
         } else {

@@ -47,11 +47,11 @@ export class WebAclAssociation extends pulumi.CustomResource {
      * - For an AWS Verified Access instance: `arn: *partition* :ec2: *region* : *account-id* :verified-access-instance/ *instance-id*`
      * - For an AWS Amplify instance: `arn: *partition* :amplify: *region* : *account-id* :apps/ *app-id*`
      */
-    public readonly resourceArn!: pulumi.Output<string>;
+    declare public readonly resourceArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
      */
-    public readonly webAclArn!: pulumi.Output<string>;
+    declare public readonly webAclArn: pulumi.Output<string>;
 
     /**
      * Create a WebAclAssociation resource with the given unique name, arguments, and options.
@@ -64,14 +64,14 @@ export class WebAclAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceArn === undefined) && !opts.urn) {
+            if (args?.resourceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            if ((!args || args.webAclArn === undefined) && !opts.urn) {
+            if (args?.webAclArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'webAclArn'");
             }
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
-            resourceInputs["webAclArn"] = args ? args.webAclArn : undefined;
+            resourceInputs["resourceArn"] = args?.resourceArn;
+            resourceInputs["webAclArn"] = args?.webAclArn;
         } else {
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["webAclArn"] = undefined /*out*/;

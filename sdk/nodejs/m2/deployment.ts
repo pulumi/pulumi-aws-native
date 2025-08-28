@@ -37,23 +37,23 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * The application ID.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    declare public readonly applicationId: pulumi.Output<string>;
     /**
      * The version number of the application to deploy
      */
-    public readonly applicationVersion!: pulumi.Output<number>;
+    declare public readonly applicationVersion: pulumi.Output<number>;
     /**
      * The deployment ID.
      */
-    public /*out*/ readonly deploymentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly deploymentId: pulumi.Output<string>;
     /**
      * The environment ID.
      */
-    public readonly environmentId!: pulumi.Output<string>;
+    declare public readonly environmentId: pulumi.Output<string>;
     /**
      * The status of the deployment.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -66,18 +66,18 @@ export class Deployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.applicationVersion === undefined) && !opts.urn) {
+            if (args?.applicationVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationVersion'");
             }
-            if ((!args || args.environmentId === undefined) && !opts.urn) {
+            if (args?.environmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["applicationVersion"] = args ? args.applicationVersion : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["applicationVersion"] = args?.applicationVersion;
+            resourceInputs["environmentId"] = args?.environmentId;
             resourceInputs["deploymentId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

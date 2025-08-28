@@ -40,43 +40,43 @@ export class ScheduledAction extends pulumi.CustomResource {
     /**
      * If true, the schedule is enabled. If false, the scheduled action does not trigger.
      */
-    public readonly enable!: pulumi.Output<boolean | undefined>;
+    declare public readonly enable: pulumi.Output<boolean | undefined>;
     /**
      * The end time in UTC of the scheduled action. After this time, the scheduled action does not trigger.
      */
-    public readonly endTime!: pulumi.Output<string | undefined>;
+    declare public readonly endTime: pulumi.Output<string | undefined>;
     /**
      * The IAM role to assume to run the target action.
      */
-    public readonly iamRole!: pulumi.Output<string | undefined>;
+    declare public readonly iamRole: pulumi.Output<string | undefined>;
     /**
      * List of times when the scheduled action will run.
      */
-    public /*out*/ readonly nextInvocations!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly nextInvocations: pulumi.Output<string[]>;
     /**
      * The schedule in `at( )` or `cron( )` format.
      */
-    public readonly schedule!: pulumi.Output<string | undefined>;
+    declare public readonly schedule: pulumi.Output<string | undefined>;
     /**
      * The description of the scheduled action.
      */
-    public readonly scheduledActionDescription!: pulumi.Output<string | undefined>;
+    declare public readonly scheduledActionDescription: pulumi.Output<string | undefined>;
     /**
      * The name of the scheduled action. The name must be unique within an account.
      */
-    public readonly scheduledActionName!: pulumi.Output<string>;
+    declare public readonly scheduledActionName: pulumi.Output<string>;
     /**
      * The start time in UTC of the scheduled action. Before this time, the scheduled action does not trigger.
      */
-    public readonly startTime!: pulumi.Output<string | undefined>;
+    declare public readonly startTime: pulumi.Output<string | undefined>;
     /**
      * The state of the scheduled action.
      */
-    public /*out*/ readonly state!: pulumi.Output<enums.redshift.ScheduledActionState>;
+    declare public /*out*/ readonly state: pulumi.Output<enums.redshift.ScheduledActionState>;
     /**
      * A JSON format string of the Amazon Redshift API operation with input parameters.
      */
-    public readonly targetAction!: pulumi.Output<outputs.redshift.ScheduledActionType | undefined>;
+    declare public readonly targetAction: pulumi.Output<outputs.redshift.ScheduledActionType | undefined>;
 
     /**
      * Create a ScheduledAction resource with the given unique name, arguments, and options.
@@ -89,14 +89,14 @@ export class ScheduledAction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["enable"] = args ? args.enable : undefined;
-            resourceInputs["endTime"] = args ? args.endTime : undefined;
-            resourceInputs["iamRole"] = args ? args.iamRole : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["scheduledActionDescription"] = args ? args.scheduledActionDescription : undefined;
-            resourceInputs["scheduledActionName"] = args ? args.scheduledActionName : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["targetAction"] = args ? args.targetAction : undefined;
+            resourceInputs["enable"] = args?.enable;
+            resourceInputs["endTime"] = args?.endTime;
+            resourceInputs["iamRole"] = args?.iamRole;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["scheduledActionDescription"] = args?.scheduledActionDescription;
+            resourceInputs["scheduledActionName"] = args?.scheduledActionName;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["targetAction"] = args?.targetAction;
             resourceInputs["nextInvocations"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {

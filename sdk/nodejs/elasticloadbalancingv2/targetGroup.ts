@@ -40,95 +40,95 @@ export class TargetGroup extends pulumi.CustomResource {
     /**
      * Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled.
      */
-    public readonly healthCheckEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly healthCheckEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The approximate amount of time, in seconds, between health checks of an individual target.
      */
-    public readonly healthCheckIntervalSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly healthCheckIntervalSeconds: pulumi.Output<number | undefined>;
     /**
      * [HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.
      */
-    public readonly healthCheckPath!: pulumi.Output<string | undefined>;
+    declare public readonly healthCheckPath: pulumi.Output<string | undefined>;
     /**
      * The port the load balancer uses when performing health checks on targets. 
      */
-    public readonly healthCheckPort!: pulumi.Output<string | undefined>;
+    declare public readonly healthCheckPort: pulumi.Output<string | undefined>;
     /**
      * The protocol the load balancer uses when performing health checks on targets. 
      */
-    public readonly healthCheckProtocol!: pulumi.Output<string | undefined>;
+    declare public readonly healthCheckProtocol: pulumi.Output<string | undefined>;
     /**
      * The amount of time, in seconds, during which no response from a target means a failed health check.
      */
-    public readonly healthCheckTimeoutSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly healthCheckTimeoutSeconds: pulumi.Output<number | undefined>;
     /**
      * The number of consecutive health checks successes required before considering an unhealthy target healthy. 
      */
-    public readonly healthyThresholdCount!: pulumi.Output<number | undefined>;
+    declare public readonly healthyThresholdCount: pulumi.Output<number | undefined>;
     /**
      * The type of IP address used for this target group. The possible values are ipv4 and ipv6. 
      */
-    public readonly ipAddressType!: pulumi.Output<string | undefined>;
+    declare public readonly ipAddressType: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Names (ARNs) of the load balancers that route traffic to this target group.
      */
-    public /*out*/ readonly loadBalancerArns!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly loadBalancerArns: pulumi.Output<string[]>;
     /**
      * [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
      */
-    public readonly matcher!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupMatcher | undefined>;
+    declare public readonly matcher: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupMatcher | undefined>;
     /**
      * The name of the target group.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * The protocol to use for routing traffic to the targets.
      */
-    public readonly protocol!: pulumi.Output<string | undefined>;
+    declare public readonly protocol: pulumi.Output<string | undefined>;
     /**
      * [HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2.
      */
-    public readonly protocolVersion!: pulumi.Output<string | undefined>;
+    declare public readonly protocolVersion: pulumi.Output<string | undefined>;
     /**
      * The tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of the Target Group
      */
-    public /*out*/ readonly targetGroupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly targetGroupArn: pulumi.Output<string>;
     /**
      * The attributes.
      */
-    public readonly targetGroupAttributes!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupAttribute[] | undefined>;
+    declare public readonly targetGroupAttributes: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupAttribute[] | undefined>;
     /**
      * The full name of the target group.
      */
-    public /*out*/ readonly targetGroupFullName!: pulumi.Output<string>;
+    declare public /*out*/ readonly targetGroupFullName: pulumi.Output<string>;
     /**
      * The name of the target group.
      */
-    public /*out*/ readonly targetGroupName!: pulumi.Output<string>;
+    declare public /*out*/ readonly targetGroupName: pulumi.Output<string>;
     /**
      * The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
      */
-    public readonly targetType!: pulumi.Output<string | undefined>;
+    declare public readonly targetType: pulumi.Output<string | undefined>;
     /**
      * The targets.
      */
-    public readonly targets!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupTargetDescription[] | undefined>;
+    declare public readonly targets: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupTargetDescription[] | undefined>;
     /**
      * The number of consecutive health check failures required before considering a target unhealthy.
      */
-    public readonly unhealthyThresholdCount!: pulumi.Output<number | undefined>;
+    declare public readonly unhealthyThresholdCount: pulumi.Output<number | undefined>;
     /**
      * The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply.
      */
-    public readonly vpcId!: pulumi.Output<string | undefined>;
+    declare public readonly vpcId: pulumi.Output<string | undefined>;
 
     /**
      * Create a TargetGroup resource with the given unique name, arguments, and options.
@@ -141,25 +141,25 @@ export class TargetGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["healthCheckEnabled"] = args ? args.healthCheckEnabled : undefined;
-            resourceInputs["healthCheckIntervalSeconds"] = args ? args.healthCheckIntervalSeconds : undefined;
-            resourceInputs["healthCheckPath"] = args ? args.healthCheckPath : undefined;
-            resourceInputs["healthCheckPort"] = args ? args.healthCheckPort : undefined;
-            resourceInputs["healthCheckProtocol"] = args ? args.healthCheckProtocol : undefined;
-            resourceInputs["healthCheckTimeoutSeconds"] = args ? args.healthCheckTimeoutSeconds : undefined;
-            resourceInputs["healthyThresholdCount"] = args ? args.healthyThresholdCount : undefined;
-            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            resourceInputs["matcher"] = args ? args.matcher : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["protocolVersion"] = args ? args.protocolVersion : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetGroupAttributes"] = args ? args.targetGroupAttributes : undefined;
-            resourceInputs["targetType"] = args ? args.targetType : undefined;
-            resourceInputs["targets"] = args ? args.targets : undefined;
-            resourceInputs["unhealthyThresholdCount"] = args ? args.unhealthyThresholdCount : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["healthCheckEnabled"] = args?.healthCheckEnabled;
+            resourceInputs["healthCheckIntervalSeconds"] = args?.healthCheckIntervalSeconds;
+            resourceInputs["healthCheckPath"] = args?.healthCheckPath;
+            resourceInputs["healthCheckPort"] = args?.healthCheckPort;
+            resourceInputs["healthCheckProtocol"] = args?.healthCheckProtocol;
+            resourceInputs["healthCheckTimeoutSeconds"] = args?.healthCheckTimeoutSeconds;
+            resourceInputs["healthyThresholdCount"] = args?.healthyThresholdCount;
+            resourceInputs["ipAddressType"] = args?.ipAddressType;
+            resourceInputs["matcher"] = args?.matcher;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["protocolVersion"] = args?.protocolVersion;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetGroupAttributes"] = args?.targetGroupAttributes;
+            resourceInputs["targetType"] = args?.targetType;
+            resourceInputs["targets"] = args?.targets;
+            resourceInputs["unhealthyThresholdCount"] = args?.unhealthyThresholdCount;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["loadBalancerArns"] = undefined /*out*/;
             resourceInputs["targetGroupArn"] = undefined /*out*/;
             resourceInputs["targetGroupFullName"] = undefined /*out*/;

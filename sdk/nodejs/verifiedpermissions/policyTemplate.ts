@@ -57,19 +57,19 @@ export class PolicyTemplate extends pulumi.CustomResource {
     /**
      * The description to attach to the new or updated policy template.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The unique identifier of the policy store that contains the template.
      */
-    public readonly policyStoreId!: pulumi.Output<string>;
+    declare public readonly policyStoreId: pulumi.Output<string>;
     /**
      * The unique identifier of the new or modified policy template.
      */
-    public /*out*/ readonly policyTemplateId!: pulumi.Output<string>;
+    declare public /*out*/ readonly policyTemplateId: pulumi.Output<string>;
     /**
      * Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
      */
-    public readonly statement!: pulumi.Output<string>;
+    declare public readonly statement: pulumi.Output<string>;
 
     /**
      * Create a PolicyTemplate resource with the given unique name, arguments, and options.
@@ -82,15 +82,15 @@ export class PolicyTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyStoreId === undefined) && !opts.urn) {
+            if (args?.policyStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyStoreId'");
             }
-            if ((!args || args.statement === undefined) && !opts.urn) {
+            if (args?.statement === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statement'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["policyStoreId"] = args ? args.policyStoreId : undefined;
-            resourceInputs["statement"] = args ? args.statement : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["policyStoreId"] = args?.policyStoreId;
+            resourceInputs["statement"] = args?.statement;
             resourceInputs["policyTemplateId"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

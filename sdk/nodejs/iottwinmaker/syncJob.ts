@@ -37,35 +37,35 @@ export class SyncJob extends pulumi.CustomResource {
     /**
      * The ARN of the SyncJob.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The date and time when the sync job was created.
      */
-    public /*out*/ readonly creationDateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDateTime: pulumi.Output<string>;
     /**
      * The state of SyncJob.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The IAM Role that execute SyncJob.
      */
-    public readonly syncRole!: pulumi.Output<string>;
+    declare public readonly syncRole: pulumi.Output<string>;
     /**
      * The source of the SyncJob.
      */
-    public readonly syncSource!: pulumi.Output<string>;
+    declare public readonly syncSource: pulumi.Output<string>;
     /**
      * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The date and time when the sync job was updated.
      */
-    public /*out*/ readonly updateDateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly updateDateTime: pulumi.Output<string>;
     /**
      * The ID of the workspace.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a SyncJob resource with the given unique name, arguments, and options.
@@ -78,19 +78,19 @@ export class SyncJob extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.syncRole === undefined) && !opts.urn) {
+            if (args?.syncRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'syncRole'");
             }
-            if ((!args || args.syncSource === undefined) && !opts.urn) {
+            if (args?.syncSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'syncSource'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["syncRole"] = args ? args.syncRole : undefined;
-            resourceInputs["syncSource"] = args ? args.syncSource : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["syncRole"] = args?.syncRole;
+            resourceInputs["syncSource"] = args?.syncSource;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDateTime"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

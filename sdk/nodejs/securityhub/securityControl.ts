@@ -40,19 +40,19 @@ export class SecurityControl extends pulumi.CustomResource {
     /**
      * The most recent reason for updating the customizable properties of a security control. This differs from the UpdateReason field of the BatchUpdateStandardsControlAssociations API, which tracks the reason for updating the enablement status of a control. This field accepts alphanumeric characters in addition to white spaces, dashes, and underscores.
      */
-    public readonly lastUpdateReason!: pulumi.Output<string | undefined>;
+    declare public readonly lastUpdateReason: pulumi.Output<string | undefined>;
     /**
      * An object that identifies the name of a control parameter, its current value, and whether it has been customized.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: outputs.securityhub.SecurityControlParameterConfiguration}>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: outputs.securityhub.SecurityControlParameterConfiguration}>;
     /**
      * The Amazon Resource Name (ARN) for a security control across standards, such as `arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1`. This parameter doesn't mention a specific standard.
      */
-    public readonly securityControlArn!: pulumi.Output<string | undefined>;
+    declare public readonly securityControlArn: pulumi.Output<string | undefined>;
     /**
      * The unique identifier of a security control across standards. Values for this field typically consist of an AWS service name and a number, such as APIGateway.3.
      */
-    public readonly securityControlId!: pulumi.Output<string | undefined>;
+    declare public readonly securityControlId: pulumi.Output<string | undefined>;
 
     /**
      * Create a SecurityControl resource with the given unique name, arguments, and options.
@@ -65,13 +65,13 @@ export class SecurityControl extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.parameters === undefined) && !opts.urn) {
+            if (args?.parameters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parameters'");
             }
-            resourceInputs["lastUpdateReason"] = args ? args.lastUpdateReason : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["securityControlArn"] = args ? args.securityControlArn : undefined;
-            resourceInputs["securityControlId"] = args ? args.securityControlId : undefined;
+            resourceInputs["lastUpdateReason"] = args?.lastUpdateReason;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["securityControlArn"] = args?.securityControlArn;
+            resourceInputs["securityControlId"] = args?.securityControlId;
         } else {
             resourceInputs["lastUpdateReason"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;

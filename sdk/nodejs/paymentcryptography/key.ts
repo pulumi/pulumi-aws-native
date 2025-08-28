@@ -40,35 +40,35 @@ export class Key extends pulumi.CustomResource {
     /**
      * The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
      */
-    public readonly deriveKeyUsage!: pulumi.Output<enums.paymentcryptography.KeyDeriveKeyUsage | undefined>;
+    declare public readonly deriveKeyUsage: pulumi.Output<enums.paymentcryptography.KeyDeriveKeyUsage | undefined>;
     /**
      * Specifies whether the key is enabled.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the key is exportable. This data is immutable after the key is created.
      */
-    public readonly exportable!: pulumi.Output<boolean>;
+    declare public readonly exportable: pulumi.Output<boolean>;
     /**
      * The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
      */
-    public readonly keyAttributes!: pulumi.Output<outputs.paymentcryptography.KeyAttributes>;
+    declare public readonly keyAttributes: pulumi.Output<outputs.paymentcryptography.KeyAttributes>;
     /**
      * The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
      *
      * For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
      */
-    public readonly keyCheckValueAlgorithm!: pulumi.Output<enums.paymentcryptography.KeyCheckValueAlgorithm | undefined>;
-    public /*out*/ readonly keyIdentifier!: pulumi.Output<string>;
+    declare public readonly keyCheckValueAlgorithm: pulumi.Output<enums.paymentcryptography.KeyCheckValueAlgorithm | undefined>;
+    declare public /*out*/ readonly keyIdentifier: pulumi.Output<string>;
     /**
      * The source of the key material. For keys created within AWS Payment Cryptography, the value is `AWS_PAYMENT_CRYPTOGRAPHY` . For keys imported into AWS Payment Cryptography, the value is `EXTERNAL` .
      */
-    public /*out*/ readonly keyOrigin!: pulumi.Output<enums.paymentcryptography.KeyOrigin>;
+    declare public /*out*/ readonly keyOrigin: pulumi.Output<enums.paymentcryptography.KeyOrigin>;
     /**
      * The state of key that is being created or deleted.
      */
-    public /*out*/ readonly keyState!: pulumi.Output<enums.paymentcryptography.KeyState>;
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public /*out*/ readonly keyState: pulumi.Output<enums.paymentcryptography.KeyState>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Key resource with the given unique name, arguments, and options.
@@ -81,18 +81,18 @@ export class Key extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.exportable === undefined) && !opts.urn) {
+            if (args?.exportable === undefined && !opts.urn) {
                 throw new Error("Missing required property 'exportable'");
             }
-            if ((!args || args.keyAttributes === undefined) && !opts.urn) {
+            if (args?.keyAttributes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyAttributes'");
             }
-            resourceInputs["deriveKeyUsage"] = args ? args.deriveKeyUsage : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["exportable"] = args ? args.exportable : undefined;
-            resourceInputs["keyAttributes"] = args ? args.keyAttributes : undefined;
-            resourceInputs["keyCheckValueAlgorithm"] = args ? args.keyCheckValueAlgorithm : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deriveKeyUsage"] = args?.deriveKeyUsage;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["exportable"] = args?.exportable;
+            resourceInputs["keyAttributes"] = args?.keyAttributes;
+            resourceInputs["keyCheckValueAlgorithm"] = args?.keyCheckValueAlgorithm;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["keyIdentifier"] = undefined /*out*/;
             resourceInputs["keyOrigin"] = undefined /*out*/;
             resourceInputs["keyState"] = undefined /*out*/;
