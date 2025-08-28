@@ -3478,19 +3478,24 @@
           {
             "$ref": "#/types/aws-native:datazone:PolicyGrantDetail12Properties"
           }
-        ]
+        ],
+        "description": "The details of the policy grant member."
       },
       "domainIdentifier": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of the domain where you want to add a policy grant."
       },
       "entityIdentifier": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of the entity (resource) to which you want to add a policy grant."
       },
       "entityType": {
-        "$ref": "#/types/aws-native:datazone:PolicyGrantTargetEntityType"
+        "$ref": "#/types/aws-native:datazone:PolicyGrantTargetEntityType",
+        "description": "The type of entity (resource) to which the grant is added."
       },
       "policyType": {
-        "type": "string"
+        "type": "string",
+        "description": "The type of policy that you want to grant."
       },
       "principal": {
         "oneOf": [
@@ -3506,7 +3511,8 @@
           {
             "$ref": "#/types/aws-native:datazone:PolicyGrantPrincipal3Properties"
           }
-        ]
+        ],
+        "description": "The principal of the policy grant member."
       }
     }
   },
@@ -13877,6 +13883,23 @@
       "serviceActionId": {
         "type": "string",
         "description": "The self-service action identifier. For example, `act-fs7abcd89wxyz` ."
+      }
+    }
+  },
+  "aws-native:servicecatalog:TagOption": {
+    "cfTypeName": "AWS::ServiceCatalog::TagOption",
+    "properties": {
+      "active": {
+        "type": "boolean",
+        "description": "The TagOption active state."
+      },
+      "key": {
+        "type": "string",
+        "description": "The TagOption key."
+      },
+      "value": {
+        "type": "string",
+        "description": "The TagOption value."
       }
     }
   },
