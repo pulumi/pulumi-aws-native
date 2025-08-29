@@ -55,18 +55,19 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "ssm:AddTagsToResource", "ssm:ListTagsForResource", "ssm:RemoveTagsFromResource" ]
   },
   "createOnlyProperties" : [ "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/Name" ],
-  "writeOnlyProperties" : [ "/properties/Tags", "/properties/Description", "/properties/Tier", "/properties/AllowedPattern", "/properties/Policies" ],
+  "writeOnlyProperties" : [ "/properties/Description", "/properties/Tier", "/properties/AllowedPattern", "/properties/Policies" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "ssm:PutParameter", "ssm:AddTagsToResource", "ssm:GetParameters" ],
       "timeoutInMinutes" : 5
     },
     "read" : {
-      "permissions" : [ "ssm:GetParameters" ]
+      "permissions" : [ "ssm:GetParameters", "ssm:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "ssm:PutParameter", "ssm:AddTagsToResource", "ssm:RemoveTagsFromResource", "ssm:GetParameters" ],
