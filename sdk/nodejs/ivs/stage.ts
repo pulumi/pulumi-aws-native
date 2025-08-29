@@ -45,6 +45,9 @@ export class Stage extends pulumi.CustomResource {
      * Stage ARN is automatically generated on creation and assigned as the unique identifier.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Configuration object for individual participant recording.
+     */
     public readonly autoParticipantRecordingConfiguration!: pulumi.Output<outputs.ivs.StageAutoParticipantRecordingConfiguration | undefined>;
     /**
      * Stage name
@@ -87,6 +90,9 @@ export class Stage extends pulumi.CustomResource {
  * The set of arguments for constructing a Stage resource.
  */
 export interface StageArgs {
+    /**
+     * Configuration object for individual participant recording.
+     */
     autoParticipantRecordingConfiguration?: pulumi.Input<inputs.ivs.StageAutoParticipantRecordingConfigurationArgs>;
     /**
      * Stage name

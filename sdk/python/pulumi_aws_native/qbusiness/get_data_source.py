@@ -156,7 +156,7 @@ class GetDataSourceResult:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[builtins.str]:
         """
-        The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+        The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional.
         """
         return pulumi.get(self, "role_arn")
 

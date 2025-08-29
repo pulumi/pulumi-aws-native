@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.QBusiness
         /// </summary>
         public readonly Outputs.DataSourceMediaExtractionConfiguration? MediaExtractionConfiguration;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+        /// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional.
         /// </summary>
         public readonly string? RoleArn;
         /// <summary>

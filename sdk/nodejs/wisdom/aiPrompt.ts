@@ -160,7 +160,7 @@ export class AiPrompt extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["apiFormat", "assistantId", "modelId", "name", "tags.*", "templateType", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["apiFormat", "assistantId", "name", "tags.*", "templateType", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AiPrompt.__pulumiType, name, resourceInputs, opts);
     }

@@ -3215,7 +3215,8 @@ _utilities.register(
   "classes": {
    "aws-native:servicecatalog:CloudFormationProvisionedProduct": "CloudFormationProvisionedProduct",
    "aws-native:servicecatalog:ServiceAction": "ServiceAction",
-   "aws-native:servicecatalog:ServiceActionAssociation": "ServiceActionAssociation"
+   "aws-native:servicecatalog:ServiceActionAssociation": "ServiceActionAssociation",
+   "aws-native:servicecatalog:TagOption": "TagOption"
   }
  },
  {

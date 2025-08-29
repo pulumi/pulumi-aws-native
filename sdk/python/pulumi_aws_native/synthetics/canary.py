@@ -31,6 +31,7 @@ class CanaryArgs:
                  runtime_version: pulumi.Input[builtins.str],
                  schedule: pulumi.Input['CanaryScheduleArgs'],
                  artifact_config: Optional[pulumi.Input['CanaryArtifactConfigArgs']] = None,
+                 browser_configs: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryBrowserConfigArgs']]]] = None,
                  delete_lambda_resources_on_canary_deletion: Optional[pulumi.Input[builtins.bool]] = None,
                  dry_run_and_update: Optional[pulumi.Input[builtins.bool]] = None,
                  failure_retention_period: Optional[pulumi.Input[builtins.int]] = None,
@@ -42,6 +43,7 @@ class CanaryArgs:
                  success_retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  visual_reference: Optional[pulumi.Input['CanaryVisualReferenceArgs']] = None,
+                 visual_references: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryVisualReferenceArgs']]]] = None,
                  vpc_config: Optional[pulumi.Input['CanaryVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Canary resource.
@@ -51,6 +53,7 @@ class CanaryArgs:
         :param pulumi.Input[builtins.str] runtime_version: Runtime version of Synthetics Library
         :param pulumi.Input['CanaryScheduleArgs'] schedule: Frequency to run your canaries
         :param pulumi.Input['CanaryArtifactConfigArgs'] artifact_config: Provide artifact configuration
+        :param pulumi.Input[Sequence[pulumi.Input['CanaryBrowserConfigArgs']]] browser_configs: List of browser configurations for the canary
         :param pulumi.Input[builtins.bool] delete_lambda_resources_on_canary_deletion: Deletes associated lambda resources created by Synthetics if set to True. Default is False
         :param pulumi.Input[builtins.bool] dry_run_and_update: Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
         :param pulumi.Input[builtins.int] failure_retention_period: Retention period of failed canary runs represented in number of days
@@ -62,6 +65,7 @@ class CanaryArgs:
         :param pulumi.Input[builtins.int] success_retention_period: Retention period of successful canary runs represented in number of days
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The list of key-value pairs that are associated with the canary.
         :param pulumi.Input['CanaryVisualReferenceArgs'] visual_reference: Visual reference configuration for visual testing
+        :param pulumi.Input[Sequence[pulumi.Input['CanaryVisualReferenceArgs']]] visual_references: List of visual references for the canary
         :param pulumi.Input['CanaryVpcConfigArgs'] vpc_config: Provide VPC Configuration if enabled.
         """
         pulumi.set(__self__, "artifact_s3_location", artifact_s3_location)
@@ -71,6 +75,8 @@ class CanaryArgs:
         pulumi.set(__self__, "schedule", schedule)
         if artifact_config is not None:
             pulumi.set(__self__, "artifact_config", artifact_config)
+        if browser_configs is not None:
+            pulumi.set(__self__, "browser_configs", browser_configs)
         if delete_lambda_resources_on_canary_deletion is not None:
             pulumi.set(__self__, "delete_lambda_resources_on_canary_deletion", delete_lambda_resources_on_canary_deletion)
         if dry_run_and_update is not None:
@@ -93,6 +99,8 @@ class CanaryArgs:
             pulumi.set(__self__, "tags", tags)
         if visual_reference is not None:
             pulumi.set(__self__, "visual_reference", visual_reference)
+        if visual_references is not None:
+            pulumi.set(__self__, "visual_references", visual_references)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
 
@@ -167,6 +175,18 @@ class CanaryArgs:
     @artifact_config.setter
     def artifact_config(self, value: Optional[pulumi.Input['CanaryArtifactConfigArgs']]):
         pulumi.set(self, "artifact_config", value)
+
+    @property
+    @pulumi.getter(name="browserConfigs")
+    def browser_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CanaryBrowserConfigArgs']]]]:
+        """
+        List of browser configurations for the canary
+        """
+        return pulumi.get(self, "browser_configs")
+
+    @browser_configs.setter
+    def browser_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryBrowserConfigArgs']]]]):
+        pulumi.set(self, "browser_configs", value)
 
     @property
     @pulumi.getter(name="deleteLambdaResourcesOnCanaryDeletion")
@@ -301,6 +321,18 @@ class CanaryArgs:
         pulumi.set(self, "visual_reference", value)
 
     @property
+    @pulumi.getter(name="visualReferences")
+    def visual_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CanaryVisualReferenceArgs']]]]:
+        """
+        List of visual references for the canary
+        """
+        return pulumi.get(self, "visual_references")
+
+    @visual_references.setter
+    def visual_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryVisualReferenceArgs']]]]):
+        pulumi.set(self, "visual_references", value)
+
+    @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['CanaryVpcConfigArgs']]:
         """
@@ -321,6 +353,7 @@ class Canary(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_config: Optional[pulumi.Input[Union['CanaryArtifactConfigArgs', 'CanaryArtifactConfigArgsDict']]] = None,
                  artifact_s3_location: Optional[pulumi.Input[builtins.str]] = None,
+                 browser_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CanaryBrowserConfigArgs', 'CanaryBrowserConfigArgsDict']]]]] = None,
                  code: Optional[pulumi.Input[Union['CanaryCodeArgs', 'CanaryCodeArgsDict']]] = None,
                  delete_lambda_resources_on_canary_deletion: Optional[pulumi.Input[builtins.bool]] = None,
                  dry_run_and_update: Optional[pulumi.Input[builtins.bool]] = None,
@@ -336,6 +369,7 @@ class Canary(pulumi.CustomResource):
                  success_retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  visual_reference: Optional[pulumi.Input[Union['CanaryVisualReferenceArgs', 'CanaryVisualReferenceArgsDict']]] = None,
+                 visual_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CanaryVisualReferenceArgs', 'CanaryVisualReferenceArgsDict']]]]] = None,
                  vpc_config: Optional[pulumi.Input[Union['CanaryVpcConfigArgs', 'CanaryVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
@@ -432,6 +466,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CanaryArtifactConfigArgs', 'CanaryArtifactConfigArgsDict']] artifact_config: Provide artifact configuration
         :param pulumi.Input[builtins.str] artifact_s3_location: Provide the s3 bucket output location for test results
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CanaryBrowserConfigArgs', 'CanaryBrowserConfigArgsDict']]]] browser_configs: List of browser configurations for the canary
         :param pulumi.Input[Union['CanaryCodeArgs', 'CanaryCodeArgsDict']] code: Provide the canary script source
         :param pulumi.Input[builtins.bool] delete_lambda_resources_on_canary_deletion: Deletes associated lambda resources created by Synthetics if set to True. Default is False
         :param pulumi.Input[builtins.bool] dry_run_and_update: Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
@@ -447,6 +482,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] success_retention_period: Retention period of successful canary runs represented in number of days
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The list of key-value pairs that are associated with the canary.
         :param pulumi.Input[Union['CanaryVisualReferenceArgs', 'CanaryVisualReferenceArgsDict']] visual_reference: Visual reference configuration for visual testing
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CanaryVisualReferenceArgs', 'CanaryVisualReferenceArgsDict']]]] visual_references: List of visual references for the canary
         :param pulumi.Input[Union['CanaryVpcConfigArgs', 'CanaryVpcConfigArgsDict']] vpc_config: Provide VPC Configuration if enabled.
         """
         ...
@@ -562,6 +598,7 @@ class Canary(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_config: Optional[pulumi.Input[Union['CanaryArtifactConfigArgs', 'CanaryArtifactConfigArgsDict']]] = None,
                  artifact_s3_location: Optional[pulumi.Input[builtins.str]] = None,
+                 browser_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CanaryBrowserConfigArgs', 'CanaryBrowserConfigArgsDict']]]]] = None,
                  code: Optional[pulumi.Input[Union['CanaryCodeArgs', 'CanaryCodeArgsDict']]] = None,
                  delete_lambda_resources_on_canary_deletion: Optional[pulumi.Input[builtins.bool]] = None,
                  dry_run_and_update: Optional[pulumi.Input[builtins.bool]] = None,
@@ -577,6 +614,7 @@ class Canary(pulumi.CustomResource):
                  success_retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  visual_reference: Optional[pulumi.Input[Union['CanaryVisualReferenceArgs', 'CanaryVisualReferenceArgsDict']]] = None,
+                 visual_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CanaryVisualReferenceArgs', 'CanaryVisualReferenceArgsDict']]]]] = None,
                  vpc_config: Optional[pulumi.Input[Union['CanaryVpcConfigArgs', 'CanaryVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -591,6 +629,7 @@ class Canary(pulumi.CustomResource):
             if artifact_s3_location is None and not opts.urn:
                 raise TypeError("Missing required property 'artifact_s3_location'")
             __props__.__dict__["artifact_s3_location"] = artifact_s3_location
+            __props__.__dict__["browser_configs"] = browser_configs
             if code is None and not opts.urn:
                 raise TypeError("Missing required property 'code'")
             __props__.__dict__["code"] = code
@@ -614,6 +653,7 @@ class Canary(pulumi.CustomResource):
             __props__.__dict__["success_retention_period"] = success_retention_period
             __props__.__dict__["tags"] = tags
             __props__.__dict__["visual_reference"] = visual_reference
+            __props__.__dict__["visual_references"] = visual_references
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["state"] = None
@@ -644,6 +684,7 @@ class Canary(pulumi.CustomResource):
         __props__.__dict__["artifact_config"] = None
         __props__.__dict__["artifact_s3_location"] = None
         __props__.__dict__["aws_id"] = None
+        __props__.__dict__["browser_configs"] = None
         __props__.__dict__["code"] = None
         __props__.__dict__["delete_lambda_resources_on_canary_deletion"] = None
         __props__.__dict__["dry_run_and_update"] = None
@@ -660,6 +701,7 @@ class Canary(pulumi.CustomResource):
         __props__.__dict__["success_retention_period"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["visual_reference"] = None
+        __props__.__dict__["visual_references"] = None
         __props__.__dict__["vpc_config"] = None
         return Canary(resource_name, opts=opts, __props__=__props__)
 
@@ -686,6 +728,14 @@ class Canary(pulumi.CustomResource):
         Id of the canary
         """
         return pulumi.get(self, "aws_id")
+
+    @property
+    @pulumi.getter(name="browserConfigs")
+    def browser_configs(self) -> pulumi.Output[Optional[Sequence['outputs.CanaryBrowserConfig']]]:
+        """
+        List of browser configurations for the canary
+        """
+        return pulumi.get(self, "browser_configs")
 
     @property
     @pulumi.getter
@@ -814,6 +864,14 @@ class Canary(pulumi.CustomResource):
         Visual reference configuration for visual testing
         """
         return pulumi.get(self, "visual_reference")
+
+    @property
+    @pulumi.getter(name="visualReferences")
+    def visual_references(self) -> pulumi.Output[Optional[Sequence['outputs.CanaryVisualReference']]]:
+        """
+        List of visual references for the canary
+        """
+        return pulumi.get(self, "visual_references")
 
     @property
     @pulumi.getter(name="vpcConfig")

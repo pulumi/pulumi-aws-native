@@ -7,6 +7,34 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Synthetics
 {
+    [EnumType]
+    public readonly struct CanaryBrowserType : IEquatable<CanaryBrowserType>
+    {
+        private readonly string _value;
+
+        private CanaryBrowserType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CanaryBrowserType Chrome { get; } = new CanaryBrowserType("CHROME");
+        public static CanaryBrowserType Firefox { get; } = new CanaryBrowserType("FIREFOX");
+
+        public static bool operator ==(CanaryBrowserType left, CanaryBrowserType right) => left.Equals(right);
+        public static bool operator !=(CanaryBrowserType left, CanaryBrowserType right) => !left.Equals(right);
+
+        public static explicit operator string(CanaryBrowserType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CanaryBrowserType other && Equals(other);
+        public bool Equals(CanaryBrowserType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Type of dependency
     /// </summary>

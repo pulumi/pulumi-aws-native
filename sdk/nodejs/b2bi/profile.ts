@@ -62,6 +62,9 @@ export class Profile extends pulumi.CustomResource {
      * Returns the display name for profile.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies the phone number associated with the profile.
+     */
     public readonly phone!: pulumi.Output<string>;
     /**
      * Returns an Amazon Resource Name (ARN) for the profile.
@@ -141,6 +144,9 @@ export interface ProfileArgs {
      * Returns the display name for profile.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the phone number associated with the profile.
+     */
     phone: pulumi.Input<string>;
     /**
      * A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.

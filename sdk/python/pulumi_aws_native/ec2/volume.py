@@ -38,6 +38,7 @@ class VolumeArgs:
         """
         The set of arguments for constructing a Volume resource.
         :param pulumi.Input[builtins.str] availability_zone: The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
+                Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
         :param pulumi.Input[builtins.bool] auto_enable_io: Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
         :param pulumi.Input[builtins.bool] encrypted: Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
                 Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances).
@@ -120,6 +121,7 @@ class VolumeArgs:
     def availability_zone(self) -> pulumi.Input[builtins.str]:
         """
         The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
+         Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -354,6 +356,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] auto_enable_io: Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
         :param pulumi.Input[builtins.str] availability_zone: The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
+                Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
         :param pulumi.Input[builtins.bool] encrypted: Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
                 Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances).
         :param pulumi.Input[builtins.int] iops: The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
@@ -534,6 +537,7 @@ class Volume(pulumi.CustomResource):
     def availability_zone(self) -> pulumi.Output[builtins.str]:
         """
         The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
+         Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
         """
         return pulumi.get(self, "availability_zone")
 

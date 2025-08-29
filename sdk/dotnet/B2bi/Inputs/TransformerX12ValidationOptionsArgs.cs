@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.B2bi.Inputs
     {
         [Input("validationRules")]
         private InputList<object>? _validationRules;
+
+        /// <summary>
+        /// Specifies a list of validation rules to apply during EDI document processing. These rules can include code list modifications, element length constraints, and element requirement changes.
+        /// </summary>
         public InputList<object> ValidationRules
         {
             get => _validationRules ?? (_validationRules = new InputList<object>());

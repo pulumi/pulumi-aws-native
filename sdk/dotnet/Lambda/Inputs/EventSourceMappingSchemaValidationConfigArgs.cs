@@ -10,10 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
+    /// <summary>
+    /// Specific schema validation configuration settings that tell Lambda the message attributes you want to validate and filter using your schema registry.
+    /// </summary>
     public sealed class EventSourceMappingSchemaValidationConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The attributes you want your schema registry to validate and filter for. If you selected `JSON` as the `EventRecordFormat` , Lambda also deserializes the selected message attributes.
+        /// The attributes you want your schema registry to validate and filter for. If you selected ``JSON`` as the ``EventRecordFormat``, Lambda also deserializes the selected message attributes.
         /// </summary>
         [Input("attribute")]
         public Input<Pulumi.AwsNative.Lambda.EventSourceMappingSchemaValidationConfigAttribute>? Attribute { get; set; }

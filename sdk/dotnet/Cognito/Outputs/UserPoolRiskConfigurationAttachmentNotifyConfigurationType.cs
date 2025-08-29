@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
         /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentNotifyEmailType? NoActionEmail;
         /// <summary>
-        /// The reply-to email address of an email template.
+        /// The reply-to email address of an email template. Can be an email address in the format `admin@example.com` or `Administrator &lt;admin@example.com&gt;` .
         /// </summary>
         public readonly string? ReplyTo;
         /// <summary>

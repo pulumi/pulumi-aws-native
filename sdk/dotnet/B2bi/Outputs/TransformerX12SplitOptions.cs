@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.B2bi.Outputs
     [OutputType]
     public sealed class TransformerX12SplitOptions
     {
+        /// <summary>
+        /// Specifies the method used to split X12 EDI files. Valid values include `TRANSACTION` (split by individual transaction sets), or `NONE` (no splitting).
+        /// </summary>
         public readonly Pulumi.AwsNative.B2bi.TransformerX12SplitBy? SplitBy;
 
         [OutputConstructor]

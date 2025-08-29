@@ -317,7 +317,7 @@ class AiPrompt(pulumi.CustomResource):
             __props__.__dict__["ai_prompt_id"] = None
             __props__.__dict__["assistant_arn"] = None
             __props__.__dict__["modified_time_seconds"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["apiFormat", "assistantId", "modelId", "name", "tags.*", "templateType", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["apiFormat", "assistantId", "name", "tags.*", "templateType", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AiPrompt, __self__).__init__(
             'aws-native:wisdom:AiPrompt',

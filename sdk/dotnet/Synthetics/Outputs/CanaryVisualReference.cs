@@ -21,15 +21,19 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
         /// List of screenshots used as base reference for visual testing
         /// </summary>
         public readonly ImmutableArray<Outputs.CanaryBaseScreenshot> BaseScreenshots;
+        public readonly Pulumi.AwsNative.Synthetics.CanaryBrowserType? BrowserType;
 
         [OutputConstructor]
         private CanaryVisualReference(
             string baseCanaryRunId,
 
-            ImmutableArray<Outputs.CanaryBaseScreenshot> baseScreenshots)
+            ImmutableArray<Outputs.CanaryBaseScreenshot> baseScreenshots,
+
+            Pulumi.AwsNative.Synthetics.CanaryBrowserType? browserType)
         {
             BaseCanaryRunId = baseCanaryRunId;
             BaseScreenshots = baseScreenshots;
+            BrowserType = browserType;
         }
     }
 }

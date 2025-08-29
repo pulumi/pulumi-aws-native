@@ -20,6 +20,7 @@ __all__ = [
     'VariantStoreStoreStatus',
     'WorkflowAccelerators',
     'WorkflowEngine',
+    'WorkflowSourceReferencetype',
     'WorkflowStatus',
     'WorkflowStorageType',
     'WorkflowType',
@@ -123,6 +124,16 @@ class WorkflowEngine(builtins.str, Enum):
     WDL = "WDL"
     NEXTFLOW = "NEXTFLOW"
     CWL = "CWL"
+
+
+@pulumi.type_token("aws-native:omics:WorkflowSourceReferencetype")
+class WorkflowSourceReferencetype(builtins.str, Enum):
+    """
+    The type of source reference, such as branch, tag, or commit.
+    """
+    BRANCH = "BRANCH"
+    TAG = "TAG"
+    COMMIT = "COMMIT"
 
 
 @pulumi.type_token("aws-native:omics:WorkflowStatus")

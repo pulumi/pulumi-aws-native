@@ -37,6 +37,7 @@ type Volume struct {
 	// Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
 	AutoEnableIo pulumi.BoolPtrOutput `pulumi:"autoEnableIo"`
 	// The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
+	//  Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
 	//  Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances).
@@ -148,6 +149,7 @@ type volumeArgs struct {
 	// Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
 	AutoEnableIo *bool `pulumi:"autoEnableIo"`
 	// The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
+	//  Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
 	//  Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances).
@@ -216,6 +218,7 @@ type VolumeArgs struct {
 	// Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
 	AutoEnableIo pulumi.BoolPtrInput
 	// The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
+	//  Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
 	AvailabilityZone pulumi.StringInput
 	// Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
 	//  Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances).
@@ -322,6 +325,8 @@ func (o VolumeOutput) AutoEnableIo() pulumi.BoolPtrOutput {
 }
 
 // The ID of the Availability Zone in which to create the volume. For example, “us-east-1a“.
+//
+//	Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
 func (o VolumeOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }

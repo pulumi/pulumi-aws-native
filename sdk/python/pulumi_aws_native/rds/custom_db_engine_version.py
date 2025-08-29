@@ -42,8 +42,8 @@ class CustomDbEngineVersionArgs:
                  +   ``custom-oracle-ee`` 
                  +   ``custom-oracle-ee-cdb``
         :param pulumi.Input[builtins.str] engine_version: The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
-                 *Constraints:* Minimum length is 1. Maximum length is 60.
-                 *Pattern:* ``^[a-z0-9_.-]{1,60$``}
+                *Constraints:* Minimum length is 1. Maximum length is 60.
+                *Pattern:*``^[a-z0-9_.-]{1,60$``}
         :param pulumi.Input[builtins.str] database_installation_files_s3_bucket_name: The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``.
         :param pulumi.Input[builtins.str] database_installation_files_s3_prefix: The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is ``123456789012/cev1``. If this setting isn't specified, no prefix is assumed.
         :param pulumi.Input[builtins.str] description: An optional description of your CEV.
@@ -103,8 +103,8 @@ class CustomDbEngineVersionArgs:
     def engine_version(self) -> pulumi.Input[builtins.str]:
         """
         The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
-          *Constraints:* Minimum length is 1. Maximum length is 60.
-          *Pattern:* ``^[a-z0-9_.-]{1,60$``}
+         *Constraints:* Minimum length is 1. Maximum length is 60.
+         *Pattern:*``^[a-z0-9_.-]{1,60$``}
         """
         return pulumi.get(self, "engine_version")
 
@@ -270,8 +270,8 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                  +   ``custom-oracle-ee`` 
                  +   ``custom-oracle-ee-cdb``
         :param pulumi.Input[builtins.str] engine_version: The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
-                 *Constraints:* Minimum length is 1. Maximum length is 60.
-                 *Pattern:* ``^[a-z0-9_.-]{1,60$``}
+                *Constraints:* Minimum length is 1. Maximum length is 60.
+                *Pattern:*``^[a-z0-9_.-]{1,60$``}
         :param pulumi.Input[builtins.str] image_id: A value that indicates the ID of the AMI.
         :param pulumi.Input[builtins.str] kms_key_id: The AWS KMS key identifier for an encrypted CEV. A symmetric encryption KMS key is required for RDS Custom, but optional for Amazon RDS.
                 If you have an existing symmetric encryption KMS key in your account, you can use it with RDS Custom. No further action is necessary. If you don't already have a symmetric encryption KMS key in your account, follow the instructions in [Creating a symmetric encryption KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *Key Management Service Developer Guide*.
@@ -434,8 +434,8 @@ class CustomDbEngineVersion(pulumi.CustomResource):
     def engine_version(self) -> pulumi.Output[builtins.str]:
         """
         The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
-          *Constraints:* Minimum length is 1. Maximum length is 60.
-          *Pattern:* ``^[a-z0-9_.-]{1,60$``}
+         *Constraints:* Minimum length is 1. Maximum length is 60.
+         *Pattern:*``^[a-z0-9_.-]{1,60$``}
         """
         return pulumi.get(self, "engine_version")
 

@@ -241,7 +241,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["domain_id"] = None
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["project_status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "domainUnitId", "projectProfileId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "projectProfileId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Project, __self__).__init__(
             'aws-native:datazone:Project',

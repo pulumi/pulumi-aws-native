@@ -1174,8 +1174,12 @@ func (o PartnershipWrapOptionsPtrOutput) WrapBy() PartnershipWrapFormatPtrOutput
 }
 
 type PartnershipX12AcknowledgmentOptions struct {
+	// Specifies whether functional acknowledgments (997/999) should be generated for incoming X12 transactions. Valid values are `DO_NOT_GENERATE` , `GENERATE_ALL_SEGMENTS` and `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` .
+	//
+	// If you choose `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` , AWS B2B Data Interchange skips the AK2_Loop when generating an acknowledgment document.
 	FunctionalAcknowledgment PartnershipX12FunctionalAcknowledgment `pulumi:"functionalAcknowledgment"`
-	TechnicalAcknowledgment  PartnershipX12TechnicalAcknowledgment  `pulumi:"technicalAcknowledgment"`
+	// Specifies whether technical acknowledgments (TA1) should be generated for incoming X12 interchanges. Valid values are `DO_NOT_GENERATE` and `GENERATE_ALL_SEGMENTS` and.
+	TechnicalAcknowledgment PartnershipX12TechnicalAcknowledgment `pulumi:"technicalAcknowledgment"`
 }
 
 // PartnershipX12AcknowledgmentOptionsInput is an input type that accepts PartnershipX12AcknowledgmentOptionsArgs and PartnershipX12AcknowledgmentOptionsOutput values.
@@ -1190,8 +1194,12 @@ type PartnershipX12AcknowledgmentOptionsInput interface {
 }
 
 type PartnershipX12AcknowledgmentOptionsArgs struct {
+	// Specifies whether functional acknowledgments (997/999) should be generated for incoming X12 transactions. Valid values are `DO_NOT_GENERATE` , `GENERATE_ALL_SEGMENTS` and `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` .
+	//
+	// If you choose `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` , AWS B2B Data Interchange skips the AK2_Loop when generating an acknowledgment document.
 	FunctionalAcknowledgment PartnershipX12FunctionalAcknowledgmentInput `pulumi:"functionalAcknowledgment"`
-	TechnicalAcknowledgment  PartnershipX12TechnicalAcknowledgmentInput  `pulumi:"technicalAcknowledgment"`
+	// Specifies whether technical acknowledgments (TA1) should be generated for incoming X12 interchanges. Valid values are `DO_NOT_GENERATE` and `GENERATE_ALL_SEGMENTS` and.
+	TechnicalAcknowledgment PartnershipX12TechnicalAcknowledgmentInput `pulumi:"technicalAcknowledgment"`
 }
 
 func (PartnershipX12AcknowledgmentOptionsArgs) ElementType() reflect.Type {
@@ -1271,12 +1279,16 @@ func (o PartnershipX12AcknowledgmentOptionsOutput) ToPartnershipX12Acknowledgmen
 	}).(PartnershipX12AcknowledgmentOptionsPtrOutput)
 }
 
+// Specifies whether functional acknowledgments (997/999) should be generated for incoming X12 transactions. Valid values are `DO_NOT_GENERATE` , `GENERATE_ALL_SEGMENTS` and `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` .
+//
+// If you choose `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` , AWS B2B Data Interchange skips the AK2_Loop when generating an acknowledgment document.
 func (o PartnershipX12AcknowledgmentOptionsOutput) FunctionalAcknowledgment() PartnershipX12FunctionalAcknowledgmentOutput {
 	return o.ApplyT(func(v PartnershipX12AcknowledgmentOptions) PartnershipX12FunctionalAcknowledgment {
 		return v.FunctionalAcknowledgment
 	}).(PartnershipX12FunctionalAcknowledgmentOutput)
 }
 
+// Specifies whether technical acknowledgments (TA1) should be generated for incoming X12 interchanges. Valid values are `DO_NOT_GENERATE` and `GENERATE_ALL_SEGMENTS` and.
 func (o PartnershipX12AcknowledgmentOptionsOutput) TechnicalAcknowledgment() PartnershipX12TechnicalAcknowledgmentOutput {
 	return o.ApplyT(func(v PartnershipX12AcknowledgmentOptions) PartnershipX12TechnicalAcknowledgment {
 		return v.TechnicalAcknowledgment
@@ -1307,6 +1319,9 @@ func (o PartnershipX12AcknowledgmentOptionsPtrOutput) Elem() PartnershipX12Ackno
 	}).(PartnershipX12AcknowledgmentOptionsOutput)
 }
 
+// Specifies whether functional acknowledgments (997/999) should be generated for incoming X12 transactions. Valid values are `DO_NOT_GENERATE` , `GENERATE_ALL_SEGMENTS` and `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` .
+//
+// If you choose `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` , AWS B2B Data Interchange skips the AK2_Loop when generating an acknowledgment document.
 func (o PartnershipX12AcknowledgmentOptionsPtrOutput) FunctionalAcknowledgment() PartnershipX12FunctionalAcknowledgmentPtrOutput {
 	return o.ApplyT(func(v *PartnershipX12AcknowledgmentOptions) *PartnershipX12FunctionalAcknowledgment {
 		if v == nil {
@@ -1316,6 +1331,7 @@ func (o PartnershipX12AcknowledgmentOptionsPtrOutput) FunctionalAcknowledgment()
 	}).(PartnershipX12FunctionalAcknowledgmentPtrOutput)
 }
 
+// Specifies whether technical acknowledgments (TA1) should be generated for incoming X12 interchanges. Valid values are `DO_NOT_GENERATE` and `GENERATE_ALL_SEGMENTS` and.
 func (o PartnershipX12AcknowledgmentOptionsPtrOutput) TechnicalAcknowledgment() PartnershipX12TechnicalAcknowledgmentPtrOutput {
 	return o.ApplyT(func(v *PartnershipX12AcknowledgmentOptions) *PartnershipX12TechnicalAcknowledgment {
 		if v == nil {
@@ -2544,6 +2560,7 @@ type ProfileTag struct {
 }
 
 type TransformerAdvancedOptions struct {
+	// A structure that contains X12-specific advanced options, such as split options for processing X12 EDI files.
 	X12 *TransformerX12AdvancedOptions `pulumi:"x12"`
 }
 
@@ -2559,6 +2576,7 @@ type TransformerAdvancedOptionsInput interface {
 }
 
 type TransformerAdvancedOptionsArgs struct {
+	// A structure that contains X12-specific advanced options, such as split options for processing X12 EDI files.
 	X12 TransformerX12AdvancedOptionsPtrInput `pulumi:"x12"`
 }
 
@@ -2639,6 +2657,7 @@ func (o TransformerAdvancedOptionsOutput) ToTransformerAdvancedOptionsPtrOutputW
 	}).(TransformerAdvancedOptionsPtrOutput)
 }
 
+// A structure that contains X12-specific advanced options, such as split options for processing X12 EDI files.
 func (o TransformerAdvancedOptionsOutput) X12() TransformerX12AdvancedOptionsPtrOutput {
 	return o.ApplyT(func(v TransformerAdvancedOptions) *TransformerX12AdvancedOptions { return v.X12 }).(TransformerX12AdvancedOptionsPtrOutput)
 }
@@ -2667,6 +2686,7 @@ func (o TransformerAdvancedOptionsPtrOutput) Elem() TransformerAdvancedOptionsOu
 	}).(TransformerAdvancedOptionsOutput)
 }
 
+// A structure that contains X12-specific advanced options, such as split options for processing X12 EDI files.
 func (o TransformerAdvancedOptionsPtrOutput) X12() TransformerX12AdvancedOptionsPtrOutput {
 	return o.ApplyT(func(v *TransformerAdvancedOptions) *TransformerX12AdvancedOptions {
 		if v == nil {
@@ -2951,9 +2971,12 @@ func (o TransformerFormatOptionsPropertiesPtrOutput) X12() TransformerX12Details
 }
 
 type TransformerInputConversion struct {
-	AdvancedOptions *TransformerAdvancedOptions         `pulumi:"advancedOptions"`
-	FormatOptions   *TransformerFormatOptionsProperties `pulumi:"formatOptions"`
-	FromFormat      TransformerFromFormat               `pulumi:"fromFormat"`
+	// Specifies advanced options for the input conversion process. These options provide additional control over how EDI files are processed during transformation.
+	AdvancedOptions *TransformerAdvancedOptions `pulumi:"advancedOptions"`
+	// A structure that contains the formatting options for an inbound transformer.
+	FormatOptions *TransformerFormatOptionsProperties `pulumi:"formatOptions"`
+	// The format for the transformer input: currently on `X12` is supported.
+	FromFormat TransformerFromFormat `pulumi:"fromFormat"`
 }
 
 // TransformerInputConversionInput is an input type that accepts TransformerInputConversionArgs and TransformerInputConversionOutput values.
@@ -2968,9 +2991,12 @@ type TransformerInputConversionInput interface {
 }
 
 type TransformerInputConversionArgs struct {
-	AdvancedOptions TransformerAdvancedOptionsPtrInput         `pulumi:"advancedOptions"`
-	FormatOptions   TransformerFormatOptionsPropertiesPtrInput `pulumi:"formatOptions"`
-	FromFormat      TransformerFromFormatInput                 `pulumi:"fromFormat"`
+	// Specifies advanced options for the input conversion process. These options provide additional control over how EDI files are processed during transformation.
+	AdvancedOptions TransformerAdvancedOptionsPtrInput `pulumi:"advancedOptions"`
+	// A structure that contains the formatting options for an inbound transformer.
+	FormatOptions TransformerFormatOptionsPropertiesPtrInput `pulumi:"formatOptions"`
+	// The format for the transformer input: currently on `X12` is supported.
+	FromFormat TransformerFromFormatInput `pulumi:"fromFormat"`
 }
 
 func (TransformerInputConversionArgs) ElementType() reflect.Type {
@@ -3050,14 +3076,17 @@ func (o TransformerInputConversionOutput) ToTransformerInputConversionPtrOutputW
 	}).(TransformerInputConversionPtrOutput)
 }
 
+// Specifies advanced options for the input conversion process. These options provide additional control over how EDI files are processed during transformation.
 func (o TransformerInputConversionOutput) AdvancedOptions() TransformerAdvancedOptionsPtrOutput {
 	return o.ApplyT(func(v TransformerInputConversion) *TransformerAdvancedOptions { return v.AdvancedOptions }).(TransformerAdvancedOptionsPtrOutput)
 }
 
+// A structure that contains the formatting options for an inbound transformer.
 func (o TransformerInputConversionOutput) FormatOptions() TransformerFormatOptionsPropertiesPtrOutput {
 	return o.ApplyT(func(v TransformerInputConversion) *TransformerFormatOptionsProperties { return v.FormatOptions }).(TransformerFormatOptionsPropertiesPtrOutput)
 }
 
+// The format for the transformer input: currently on `X12` is supported.
 func (o TransformerInputConversionOutput) FromFormat() TransformerFromFormatOutput {
 	return o.ApplyT(func(v TransformerInputConversion) TransformerFromFormat { return v.FromFormat }).(TransformerFromFormatOutput)
 }
@@ -3086,6 +3115,7 @@ func (o TransformerInputConversionPtrOutput) Elem() TransformerInputConversionOu
 	}).(TransformerInputConversionOutput)
 }
 
+// Specifies advanced options for the input conversion process. These options provide additional control over how EDI files are processed during transformation.
 func (o TransformerInputConversionPtrOutput) AdvancedOptions() TransformerAdvancedOptionsPtrOutput {
 	return o.ApplyT(func(v *TransformerInputConversion) *TransformerAdvancedOptions {
 		if v == nil {
@@ -3095,6 +3125,7 @@ func (o TransformerInputConversionPtrOutput) AdvancedOptions() TransformerAdvanc
 	}).(TransformerAdvancedOptionsPtrOutput)
 }
 
+// A structure that contains the formatting options for an inbound transformer.
 func (o TransformerInputConversionPtrOutput) FormatOptions() TransformerFormatOptionsPropertiesPtrOutput {
 	return o.ApplyT(func(v *TransformerInputConversion) *TransformerFormatOptionsProperties {
 		if v == nil {
@@ -3104,6 +3135,7 @@ func (o TransformerInputConversionPtrOutput) FormatOptions() TransformerFormatOp
 	}).(TransformerFormatOptionsPropertiesPtrOutput)
 }
 
+// The format for the transformer input: currently on `X12` is supported.
 func (o TransformerInputConversionPtrOutput) FromFormat() TransformerFromFormatPtrOutput {
 	return o.ApplyT(func(v *TransformerInputConversion) *TransformerFromFormat {
 		if v == nil {
@@ -3114,7 +3146,9 @@ func (o TransformerInputConversionPtrOutput) FromFormat() TransformerFromFormatP
 }
 
 type TransformerMapping struct {
-	Template         *string                            `pulumi:"template"`
+	// A string that represents the mapping template, in the transformation language specified in `templateLanguage` .
+	Template *string `pulumi:"template"`
+	// The transformation language for the template, either XSLT or JSONATA.
 	TemplateLanguage TransformerMappingTemplateLanguage `pulumi:"templateLanguage"`
 }
 
@@ -3130,7 +3164,9 @@ type TransformerMappingInput interface {
 }
 
 type TransformerMappingArgs struct {
-	Template         pulumi.StringPtrInput                   `pulumi:"template"`
+	// A string that represents the mapping template, in the transformation language specified in `templateLanguage` .
+	Template pulumi.StringPtrInput `pulumi:"template"`
+	// The transformation language for the template, either XSLT or JSONATA.
 	TemplateLanguage TransformerMappingTemplateLanguageInput `pulumi:"templateLanguage"`
 }
 
@@ -3211,10 +3247,12 @@ func (o TransformerMappingOutput) ToTransformerMappingPtrOutputWithContext(ctx c
 	}).(TransformerMappingPtrOutput)
 }
 
+// A string that represents the mapping template, in the transformation language specified in `templateLanguage` .
 func (o TransformerMappingOutput) Template() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformerMapping) *string { return v.Template }).(pulumi.StringPtrOutput)
 }
 
+// The transformation language for the template, either XSLT or JSONATA.
 func (o TransformerMappingOutput) TemplateLanguage() TransformerMappingTemplateLanguageOutput {
 	return o.ApplyT(func(v TransformerMapping) TransformerMappingTemplateLanguage { return v.TemplateLanguage }).(TransformerMappingTemplateLanguageOutput)
 }
@@ -3243,6 +3281,7 @@ func (o TransformerMappingPtrOutput) Elem() TransformerMappingOutput {
 	}).(TransformerMappingOutput)
 }
 
+// A string that represents the mapping template, in the transformation language specified in `templateLanguage` .
 func (o TransformerMappingPtrOutput) Template() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformerMapping) *string {
 		if v == nil {
@@ -3252,6 +3291,7 @@ func (o TransformerMappingPtrOutput) Template() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The transformation language for the template, either XSLT or JSONATA.
 func (o TransformerMappingPtrOutput) TemplateLanguage() TransformerMappingTemplateLanguagePtrOutput {
 	return o.ApplyT(func(v *TransformerMapping) *TransformerMappingTemplateLanguage {
 		if v == nil {
@@ -3262,9 +3302,11 @@ func (o TransformerMappingPtrOutput) TemplateLanguage() TransformerMappingTempla
 }
 
 type TransformerOutputConversion struct {
-	AdvancedOptions *TransformerAdvancedOptions         `pulumi:"advancedOptions"`
-	FormatOptions   *TransformerFormatOptionsProperties `pulumi:"formatOptions"`
-	ToFormat        TransformerToFormat                 `pulumi:"toFormat"`
+	AdvancedOptions *TransformerAdvancedOptions `pulumi:"advancedOptions"`
+	// A structure that contains the X12 transaction set and version for the transformer output.
+	FormatOptions *TransformerFormatOptionsProperties `pulumi:"formatOptions"`
+	// The format for the output from an outbound transformer: only X12 is currently supported.
+	ToFormat TransformerToFormat `pulumi:"toFormat"`
 }
 
 // TransformerOutputConversionInput is an input type that accepts TransformerOutputConversionArgs and TransformerOutputConversionOutput values.
@@ -3279,9 +3321,11 @@ type TransformerOutputConversionInput interface {
 }
 
 type TransformerOutputConversionArgs struct {
-	AdvancedOptions TransformerAdvancedOptionsPtrInput         `pulumi:"advancedOptions"`
-	FormatOptions   TransformerFormatOptionsPropertiesPtrInput `pulumi:"formatOptions"`
-	ToFormat        TransformerToFormatInput                   `pulumi:"toFormat"`
+	AdvancedOptions TransformerAdvancedOptionsPtrInput `pulumi:"advancedOptions"`
+	// A structure that contains the X12 transaction set and version for the transformer output.
+	FormatOptions TransformerFormatOptionsPropertiesPtrInput `pulumi:"formatOptions"`
+	// The format for the output from an outbound transformer: only X12 is currently supported.
+	ToFormat TransformerToFormatInput `pulumi:"toFormat"`
 }
 
 func (TransformerOutputConversionArgs) ElementType() reflect.Type {
@@ -3365,10 +3409,12 @@ func (o TransformerOutputConversionOutput) AdvancedOptions() TransformerAdvanced
 	return o.ApplyT(func(v TransformerOutputConversion) *TransformerAdvancedOptions { return v.AdvancedOptions }).(TransformerAdvancedOptionsPtrOutput)
 }
 
+// A structure that contains the X12 transaction set and version for the transformer output.
 func (o TransformerOutputConversionOutput) FormatOptions() TransformerFormatOptionsPropertiesPtrOutput {
 	return o.ApplyT(func(v TransformerOutputConversion) *TransformerFormatOptionsProperties { return v.FormatOptions }).(TransformerFormatOptionsPropertiesPtrOutput)
 }
 
+// The format for the output from an outbound transformer: only X12 is currently supported.
 func (o TransformerOutputConversionOutput) ToFormat() TransformerToFormatOutput {
 	return o.ApplyT(func(v TransformerOutputConversion) TransformerToFormat { return v.ToFormat }).(TransformerToFormatOutput)
 }
@@ -3406,6 +3452,7 @@ func (o TransformerOutputConversionPtrOutput) AdvancedOptions() TransformerAdvan
 	}).(TransformerAdvancedOptionsPtrOutput)
 }
 
+// A structure that contains the X12 transaction set and version for the transformer output.
 func (o TransformerOutputConversionPtrOutput) FormatOptions() TransformerFormatOptionsPropertiesPtrOutput {
 	return o.ApplyT(func(v *TransformerOutputConversion) *TransformerFormatOptionsProperties {
 		if v == nil {
@@ -3415,6 +3462,7 @@ func (o TransformerOutputConversionPtrOutput) FormatOptions() TransformerFormatO
 	}).(TransformerFormatOptionsPropertiesPtrOutput)
 }
 
+// The format for the output from an outbound transformer: only X12 is currently supported.
 func (o TransformerOutputConversionPtrOutput) ToFormat() TransformerToFormatPtrOutput {
 	return o.ApplyT(func(v *TransformerOutputConversion) *TransformerToFormat {
 		if v == nil {
@@ -3425,7 +3473,9 @@ func (o TransformerOutputConversionPtrOutput) ToFormat() TransformerToFormatPtrO
 }
 
 type TransformerSampleDocumentKeys struct {
-	Input  *string `pulumi:"input"`
+	// An array of keys for your input sample documents.
+	Input *string `pulumi:"input"`
+	// An array of keys for your output sample documents.
 	Output *string `pulumi:"output"`
 }
 
@@ -3441,7 +3491,9 @@ type TransformerSampleDocumentKeysInput interface {
 }
 
 type TransformerSampleDocumentKeysArgs struct {
-	Input  pulumi.StringPtrInput `pulumi:"input"`
+	// An array of keys for your input sample documents.
+	Input pulumi.StringPtrInput `pulumi:"input"`
+	// An array of keys for your output sample documents.
 	Output pulumi.StringPtrInput `pulumi:"output"`
 }
 
@@ -3496,10 +3548,12 @@ func (o TransformerSampleDocumentKeysOutput) ToTransformerSampleDocumentKeysOutp
 	return o
 }
 
+// An array of keys for your input sample documents.
 func (o TransformerSampleDocumentKeysOutput) Input() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformerSampleDocumentKeys) *string { return v.Input }).(pulumi.StringPtrOutput)
 }
 
+// An array of keys for your output sample documents.
 func (o TransformerSampleDocumentKeysOutput) Output() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformerSampleDocumentKeys) *string { return v.Output }).(pulumi.StringPtrOutput)
 }
@@ -3525,8 +3579,10 @@ func (o TransformerSampleDocumentKeysArrayOutput) Index(i pulumi.IntInput) Trans
 }
 
 type TransformerSampleDocuments struct {
-	BucketName string                          `pulumi:"bucketName"`
-	Keys       []TransformerSampleDocumentKeys `pulumi:"keys"`
+	// Contains the Amazon S3 bucket that is used to hold your sample documents.
+	BucketName string `pulumi:"bucketName"`
+	// Contains an array of the Amazon S3 keys used to identify the location for your sample documents.
+	Keys []TransformerSampleDocumentKeys `pulumi:"keys"`
 }
 
 // TransformerSampleDocumentsInput is an input type that accepts TransformerSampleDocumentsArgs and TransformerSampleDocumentsOutput values.
@@ -3541,8 +3597,10 @@ type TransformerSampleDocumentsInput interface {
 }
 
 type TransformerSampleDocumentsArgs struct {
-	BucketName pulumi.StringInput                      `pulumi:"bucketName"`
-	Keys       TransformerSampleDocumentKeysArrayInput `pulumi:"keys"`
+	// Contains the Amazon S3 bucket that is used to hold your sample documents.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// Contains an array of the Amazon S3 keys used to identify the location for your sample documents.
+	Keys TransformerSampleDocumentKeysArrayInput `pulumi:"keys"`
 }
 
 func (TransformerSampleDocumentsArgs) ElementType() reflect.Type {
@@ -3622,10 +3680,12 @@ func (o TransformerSampleDocumentsOutput) ToTransformerSampleDocumentsPtrOutputW
 	}).(TransformerSampleDocumentsPtrOutput)
 }
 
+// Contains the Amazon S3 bucket that is used to hold your sample documents.
 func (o TransformerSampleDocumentsOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v TransformerSampleDocuments) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
+// Contains an array of the Amazon S3 keys used to identify the location for your sample documents.
 func (o TransformerSampleDocumentsOutput) Keys() TransformerSampleDocumentKeysArrayOutput {
 	return o.ApplyT(func(v TransformerSampleDocuments) []TransformerSampleDocumentKeys { return v.Keys }).(TransformerSampleDocumentKeysArrayOutput)
 }
@@ -3654,6 +3714,7 @@ func (o TransformerSampleDocumentsPtrOutput) Elem() TransformerSampleDocumentsOu
 	}).(TransformerSampleDocumentsOutput)
 }
 
+// Contains the Amazon S3 bucket that is used to hold your sample documents.
 func (o TransformerSampleDocumentsPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformerSampleDocuments) *string {
 		if v == nil {
@@ -3663,6 +3724,7 @@ func (o TransformerSampleDocumentsPtrOutput) BucketName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains an array of the Amazon S3 keys used to identify the location for your sample documents.
 func (o TransformerSampleDocumentsPtrOutput) Keys() TransformerSampleDocumentKeysArrayOutput {
 	return o.ApplyT(func(v *TransformerSampleDocuments) []TransformerSampleDocumentKeys {
 		if v == nil {
@@ -3680,7 +3742,9 @@ type TransformerTag struct {
 }
 
 type TransformerX12AdvancedOptions struct {
-	SplitOptions      *TransformerX12SplitOptions      `pulumi:"splitOptions"`
+	// Specifies options for splitting X12 EDI files. These options control how large X12 files are divided into smaller, more manageable units.
+	SplitOptions *TransformerX12SplitOptions `pulumi:"splitOptions"`
+	// Specifies validation options for X12 EDI processing. These options control how validation rules are applied during EDI document processing, including custom validation rules for element length constraints, code list validations, and element requirement checks.
 	ValidationOptions *TransformerX12ValidationOptions `pulumi:"validationOptions"`
 }
 
@@ -3696,7 +3760,9 @@ type TransformerX12AdvancedOptionsInput interface {
 }
 
 type TransformerX12AdvancedOptionsArgs struct {
-	SplitOptions      TransformerX12SplitOptionsPtrInput      `pulumi:"splitOptions"`
+	// Specifies options for splitting X12 EDI files. These options control how large X12 files are divided into smaller, more manageable units.
+	SplitOptions TransformerX12SplitOptionsPtrInput `pulumi:"splitOptions"`
+	// Specifies validation options for X12 EDI processing. These options control how validation rules are applied during EDI document processing, including custom validation rules for element length constraints, code list validations, and element requirement checks.
 	ValidationOptions TransformerX12ValidationOptionsPtrInput `pulumi:"validationOptions"`
 }
 
@@ -3777,10 +3843,12 @@ func (o TransformerX12AdvancedOptionsOutput) ToTransformerX12AdvancedOptionsPtrO
 	}).(TransformerX12AdvancedOptionsPtrOutput)
 }
 
+// Specifies options for splitting X12 EDI files. These options control how large X12 files are divided into smaller, more manageable units.
 func (o TransformerX12AdvancedOptionsOutput) SplitOptions() TransformerX12SplitOptionsPtrOutput {
 	return o.ApplyT(func(v TransformerX12AdvancedOptions) *TransformerX12SplitOptions { return v.SplitOptions }).(TransformerX12SplitOptionsPtrOutput)
 }
 
+// Specifies validation options for X12 EDI processing. These options control how validation rules are applied during EDI document processing, including custom validation rules for element length constraints, code list validations, and element requirement checks.
 func (o TransformerX12AdvancedOptionsOutput) ValidationOptions() TransformerX12ValidationOptionsPtrOutput {
 	return o.ApplyT(func(v TransformerX12AdvancedOptions) *TransformerX12ValidationOptions { return v.ValidationOptions }).(TransformerX12ValidationOptionsPtrOutput)
 }
@@ -3809,6 +3877,7 @@ func (o TransformerX12AdvancedOptionsPtrOutput) Elem() TransformerX12AdvancedOpt
 	}).(TransformerX12AdvancedOptionsOutput)
 }
 
+// Specifies options for splitting X12 EDI files. These options control how large X12 files are divided into smaller, more manageable units.
 func (o TransformerX12AdvancedOptionsPtrOutput) SplitOptions() TransformerX12SplitOptionsPtrOutput {
 	return o.ApplyT(func(v *TransformerX12AdvancedOptions) *TransformerX12SplitOptions {
 		if v == nil {
@@ -3818,6 +3887,7 @@ func (o TransformerX12AdvancedOptionsPtrOutput) SplitOptions() TransformerX12Spl
 	}).(TransformerX12SplitOptionsPtrOutput)
 }
 
+// Specifies validation options for X12 EDI processing. These options control how validation rules are applied during EDI document processing, including custom validation rules for element length constraints, code list validations, and element requirement checks.
 func (o TransformerX12AdvancedOptionsPtrOutput) ValidationOptions() TransformerX12ValidationOptionsPtrOutput {
 	return o.ApplyT(func(v *TransformerX12AdvancedOptions) *TransformerX12ValidationOptions {
 		if v == nil {
@@ -4155,6 +4225,7 @@ func (o TransformerX12ElementRequirementValidationRuleOutput) Requirement() Tran
 }
 
 type TransformerX12SplitOptions struct {
+	// Specifies the method used to split X12 EDI files. Valid values include `TRANSACTION` (split by individual transaction sets), or `NONE` (no splitting).
 	SplitBy *TransformerX12SplitBy `pulumi:"splitBy"`
 }
 
@@ -4170,6 +4241,7 @@ type TransformerX12SplitOptionsInput interface {
 }
 
 type TransformerX12SplitOptionsArgs struct {
+	// Specifies the method used to split X12 EDI files. Valid values include `TRANSACTION` (split by individual transaction sets), or `NONE` (no splitting).
 	SplitBy TransformerX12SplitByPtrInput `pulumi:"splitBy"`
 }
 
@@ -4250,6 +4322,7 @@ func (o TransformerX12SplitOptionsOutput) ToTransformerX12SplitOptionsPtrOutputW
 	}).(TransformerX12SplitOptionsPtrOutput)
 }
 
+// Specifies the method used to split X12 EDI files. Valid values include `TRANSACTION` (split by individual transaction sets), or `NONE` (no splitting).
 func (o TransformerX12SplitOptionsOutput) SplitBy() TransformerX12SplitByPtrOutput {
 	return o.ApplyT(func(v TransformerX12SplitOptions) *TransformerX12SplitBy { return v.SplitBy }).(TransformerX12SplitByPtrOutput)
 }
@@ -4278,6 +4351,7 @@ func (o TransformerX12SplitOptionsPtrOutput) Elem() TransformerX12SplitOptionsOu
 	}).(TransformerX12SplitOptionsOutput)
 }
 
+// Specifies the method used to split X12 EDI files. Valid values include `TRANSACTION` (split by individual transaction sets), or `NONE` (no splitting).
 func (o TransformerX12SplitOptionsPtrOutput) SplitBy() TransformerX12SplitByPtrOutput {
 	return o.ApplyT(func(v *TransformerX12SplitOptions) *TransformerX12SplitBy {
 		if v == nil {
@@ -4288,6 +4362,7 @@ func (o TransformerX12SplitOptionsPtrOutput) SplitBy() TransformerX12SplitByPtrO
 }
 
 type TransformerX12ValidationOptions struct {
+	// Specifies a list of validation rules to apply during EDI document processing. These rules can include code list modifications, element length constraints, and element requirement changes.
 	ValidationRules []interface{} `pulumi:"validationRules"`
 }
 
@@ -4303,6 +4378,7 @@ type TransformerX12ValidationOptionsInput interface {
 }
 
 type TransformerX12ValidationOptionsArgs struct {
+	// Specifies a list of validation rules to apply during EDI document processing. These rules can include code list modifications, element length constraints, and element requirement changes.
 	ValidationRules pulumi.ArrayInput `pulumi:"validationRules"`
 }
 
@@ -4383,6 +4459,7 @@ func (o TransformerX12ValidationOptionsOutput) ToTransformerX12ValidationOptions
 	}).(TransformerX12ValidationOptionsPtrOutput)
 }
 
+// Specifies a list of validation rules to apply during EDI document processing. These rules can include code list modifications, element length constraints, and element requirement changes.
 func (o TransformerX12ValidationOptionsOutput) ValidationRules() pulumi.ArrayOutput {
 	return o.ApplyT(func(v TransformerX12ValidationOptions) []interface{} { return v.ValidationRules }).(pulumi.ArrayOutput)
 }
@@ -4411,6 +4488,7 @@ func (o TransformerX12ValidationOptionsPtrOutput) Elem() TransformerX12Validatio
 	}).(TransformerX12ValidationOptionsOutput)
 }
 
+// Specifies a list of validation rules to apply during EDI document processing. These rules can include code list modifications, element length constraints, and element requirement changes.
 func (o TransformerX12ValidationOptionsPtrOutput) ValidationRules() pulumi.ArrayOutput {
 	return o.ApplyT(func(v *TransformerX12ValidationOptions) []interface{} {
 		if v == nil {

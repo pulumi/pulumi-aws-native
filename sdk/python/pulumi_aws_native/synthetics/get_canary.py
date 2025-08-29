@@ -27,13 +27,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetCanaryResult:
-    def __init__(__self__, artifact_config=None, artifact_s3_location=None, code=None, execution_role_arn=None, failure_retention_period=None, id=None, provisioned_resource_cleanup=None, run_config=None, runtime_version=None, schedule=None, state=None, success_retention_period=None, tags=None, vpc_config=None):
+    def __init__(__self__, artifact_config=None, artifact_s3_location=None, browser_configs=None, code=None, execution_role_arn=None, failure_retention_period=None, id=None, provisioned_resource_cleanup=None, run_config=None, runtime_version=None, schedule=None, state=None, success_retention_period=None, tags=None, vpc_config=None):
         if artifact_config and not isinstance(artifact_config, dict):
             raise TypeError("Expected argument 'artifact_config' to be a dict")
         pulumi.set(__self__, "artifact_config", artifact_config)
         if artifact_s3_location and not isinstance(artifact_s3_location, str):
             raise TypeError("Expected argument 'artifact_s3_location' to be a str")
         pulumi.set(__self__, "artifact_s3_location", artifact_s3_location)
+        if browser_configs and not isinstance(browser_configs, list):
+            raise TypeError("Expected argument 'browser_configs' to be a list")
+        pulumi.set(__self__, "browser_configs", browser_configs)
         if code and not isinstance(code, dict):
             raise TypeError("Expected argument 'code' to be a dict")
         pulumi.set(__self__, "code", code)
@@ -86,6 +89,14 @@ class GetCanaryResult:
         Provide the s3 bucket output location for test results
         """
         return pulumi.get(self, "artifact_s3_location")
+
+    @property
+    @pulumi.getter(name="browserConfigs")
+    def browser_configs(self) -> Optional[Sequence['outputs.CanaryBrowserConfig']]:
+        """
+        List of browser configurations for the canary
+        """
+        return pulumi.get(self, "browser_configs")
 
     @property
     @pulumi.getter
@@ -192,6 +203,7 @@ class AwaitableGetCanaryResult(GetCanaryResult):
         return GetCanaryResult(
             artifact_config=self.artifact_config,
             artifact_s3_location=self.artifact_s3_location,
+            browser_configs=self.browser_configs,
             code=self.code,
             execution_role_arn=self.execution_role_arn,
             failure_retention_period=self.failure_retention_period,
@@ -222,6 +234,7 @@ def get_canary(name: Optional[builtins.str] = None,
     return AwaitableGetCanaryResult(
         artifact_config=pulumi.get(__ret__, 'artifact_config'),
         artifact_s3_location=pulumi.get(__ret__, 'artifact_s3_location'),
+        browser_configs=pulumi.get(__ret__, 'browser_configs'),
         code=pulumi.get(__ret__, 'code'),
         execution_role_arn=pulumi.get(__ret__, 'execution_role_arn'),
         failure_retention_period=pulumi.get(__ret__, 'failure_retention_period'),
@@ -249,6 +262,7 @@ def get_canary_output(name: Optional[pulumi.Input[builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetCanaryResult(
         artifact_config=pulumi.get(__response__, 'artifact_config'),
         artifact_s3_location=pulumi.get(__response__, 'artifact_s3_location'),
+        browser_configs=pulumi.get(__response__, 'browser_configs'),
         code=pulumi.get(__response__, 'code'),
         execution_role_arn=pulumi.get(__response__, 'execution_role_arn'),
         failure_retention_period=pulumi.get(__response__, 'failure_retention_period'),

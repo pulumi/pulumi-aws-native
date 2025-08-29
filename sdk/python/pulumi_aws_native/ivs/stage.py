@@ -30,6 +30,7 @@ class StageArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Stage resource.
+        :param pulumi.Input['StageAutoParticipantRecordingConfigurationArgs'] auto_participant_recording_configuration: Configuration object for individual participant recording.
         :param pulumi.Input[builtins.str] name: Stage name
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -43,6 +44,9 @@ class StageArgs:
     @property
     @pulumi.getter(name="autoParticipantRecordingConfiguration")
     def auto_participant_recording_configuration(self) -> Optional[pulumi.Input['StageAutoParticipantRecordingConfigurationArgs']]:
+        """
+        Configuration object for individual participant recording.
+        """
         return pulumi.get(self, "auto_participant_recording_configuration")
 
     @auto_participant_recording_configuration.setter
@@ -89,6 +93,7 @@ class Stage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['StageAutoParticipantRecordingConfigurationArgs', 'StageAutoParticipantRecordingConfigurationArgsDict']] auto_participant_recording_configuration: Configuration object for individual participant recording.
         :param pulumi.Input[builtins.str] name: Stage name
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -181,6 +186,9 @@ class Stage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoParticipantRecordingConfiguration")
     def auto_participant_recording_configuration(self) -> pulumi.Output[Optional['outputs.StageAutoParticipantRecordingConfiguration']]:
+        """
+        Configuration object for individual participant recording.
+        """
         return pulumi.get(self, "auto_participant_recording_configuration")
 
     @property

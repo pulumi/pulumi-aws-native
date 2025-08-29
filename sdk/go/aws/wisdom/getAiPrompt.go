@@ -37,7 +37,27 @@ type LookupAiPromptResult struct {
 	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 	AssistantArn *string `pulumi:"assistantArn"`
 	// The description of the AI Prompt.
-	Description         *string  `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// The identifier of the model used for this AI Prompt. The following model Ids are supported:
+	//
+	// - `anthropic.claude-3-haiku--v1:0`
+	// - `apac.amazon.nova-lite-v1:0`
+	// - `apac.amazon.nova-micro-v1:0`
+	// - `apac.amazon.nova-pro-v1:0`
+	// - `apac.anthropic.claude-3-5-sonnet--v2:0`
+	// - `apac.anthropic.claude-3-haiku-20240307-v1:0`
+	// - `eu.amazon.nova-lite-v1:0`
+	// - `eu.amazon.nova-micro-v1:0`
+	// - `eu.amazon.nova-pro-v1:0`
+	// - `eu.anthropic.claude-3-7-sonnet-20250219-v1:0`
+	// - `eu.anthropic.claude-3-haiku-20240307-v1:0`
+	// - `us.amazon.nova-lite-v1:0`
+	// - `us.amazon.nova-micro-v1:0`
+	// - `us.amazon.nova-pro-v1:0`
+	// - `us.anthropic.claude-3-5-haiku-20241022-v1:0`
+	// - `us.anthropic.claude-3-7-sonnet-20250219-v1:0`
+	// - `us.anthropic.claude-3-haiku-20240307-v1:0`
+	ModelId             *string  `pulumi:"modelId"`
 	ModifiedTimeSeconds *float64 `pulumi:"modifiedTimeSeconds"`
 	// The configuration of the prompt template for this AI Prompt.
 	TemplateConfiguration *AiPromptAiPromptTemplateConfiguration `pulumi:"templateConfiguration"`
@@ -95,6 +115,29 @@ func (o LookupAiPromptResultOutput) AssistantArn() pulumi.StringPtrOutput {
 // The description of the AI Prompt.
 func (o LookupAiPromptResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiPromptResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the model used for this AI Prompt. The following model Ids are supported:
+//
+// - `anthropic.claude-3-haiku--v1:0`
+// - `apac.amazon.nova-lite-v1:0`
+// - `apac.amazon.nova-micro-v1:0`
+// - `apac.amazon.nova-pro-v1:0`
+// - `apac.anthropic.claude-3-5-sonnet--v2:0`
+// - `apac.anthropic.claude-3-haiku-20240307-v1:0`
+// - `eu.amazon.nova-lite-v1:0`
+// - `eu.amazon.nova-micro-v1:0`
+// - `eu.amazon.nova-pro-v1:0`
+// - `eu.anthropic.claude-3-7-sonnet-20250219-v1:0`
+// - `eu.anthropic.claude-3-haiku-20240307-v1:0`
+// - `us.amazon.nova-lite-v1:0`
+// - `us.amazon.nova-micro-v1:0`
+// - `us.amazon.nova-pro-v1:0`
+// - `us.anthropic.claude-3-5-haiku-20241022-v1:0`
+// - `us.anthropic.claude-3-7-sonnet-20250219-v1:0`
+// - `us.anthropic.claude-3-haiku-20240307-v1:0`
+func (o LookupAiPromptResultOutput) ModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAiPromptResult) *string { return v.ModelId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAiPromptResultOutput) ModifiedTimeSeconds() pulumi.Float64PtrOutput {

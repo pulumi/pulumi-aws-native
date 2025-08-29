@@ -58,7 +58,6 @@ func NewProject(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"domainIdentifier",
-		"domainUnitId",
 		"projectProfileId",
 	})
 	opts = append(opts, replaceOnChanges)

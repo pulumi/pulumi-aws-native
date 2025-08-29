@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
             set => _baseScreenshots = value;
         }
 
+        [Input("browserType")]
+        public Input<Pulumi.AwsNative.Synthetics.CanaryBrowserType>? BrowserType { get; set; }
+
         public CanaryVisualReferenceArgs()
         {
         }

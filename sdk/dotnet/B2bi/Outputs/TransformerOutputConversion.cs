@@ -14,7 +14,13 @@ namespace Pulumi.AwsNative.B2bi.Outputs
     public sealed class TransformerOutputConversion
     {
         public readonly Outputs.TransformerAdvancedOptions? AdvancedOptions;
+        /// <summary>
+        /// A structure that contains the X12 transaction set and version for the transformer output.
+        /// </summary>
         public readonly Outputs.TransformerFormatOptionsProperties? FormatOptions;
+        /// <summary>
+        /// The format for the output from an outbound transformer: only X12 is currently supported.
+        /// </summary>
         public readonly Pulumi.AwsNative.B2bi.TransformerToFormat ToFormat;
 
         [OutputConstructor]

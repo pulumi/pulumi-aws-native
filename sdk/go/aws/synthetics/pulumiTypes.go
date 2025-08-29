@@ -256,6 +256,100 @@ func (o CanaryBaseScreenshotArrayOutput) Index(i pulumi.IntInput) CanaryBaseScre
 	}).(CanaryBaseScreenshotOutput)
 }
 
+type CanaryBrowserConfig struct {
+	BrowserType CanaryBrowserType `pulumi:"browserType"`
+}
+
+// CanaryBrowserConfigInput is an input type that accepts CanaryBrowserConfigArgs and CanaryBrowserConfigOutput values.
+// You can construct a concrete instance of `CanaryBrowserConfigInput` via:
+//
+//	CanaryBrowserConfigArgs{...}
+type CanaryBrowserConfigInput interface {
+	pulumi.Input
+
+	ToCanaryBrowserConfigOutput() CanaryBrowserConfigOutput
+	ToCanaryBrowserConfigOutputWithContext(context.Context) CanaryBrowserConfigOutput
+}
+
+type CanaryBrowserConfigArgs struct {
+	BrowserType CanaryBrowserTypeInput `pulumi:"browserType"`
+}
+
+func (CanaryBrowserConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryBrowserConfig)(nil)).Elem()
+}
+
+func (i CanaryBrowserConfigArgs) ToCanaryBrowserConfigOutput() CanaryBrowserConfigOutput {
+	return i.ToCanaryBrowserConfigOutputWithContext(context.Background())
+}
+
+func (i CanaryBrowserConfigArgs) ToCanaryBrowserConfigOutputWithContext(ctx context.Context) CanaryBrowserConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryBrowserConfigOutput)
+}
+
+// CanaryBrowserConfigArrayInput is an input type that accepts CanaryBrowserConfigArray and CanaryBrowserConfigArrayOutput values.
+// You can construct a concrete instance of `CanaryBrowserConfigArrayInput` via:
+//
+//	CanaryBrowserConfigArray{ CanaryBrowserConfigArgs{...} }
+type CanaryBrowserConfigArrayInput interface {
+	pulumi.Input
+
+	ToCanaryBrowserConfigArrayOutput() CanaryBrowserConfigArrayOutput
+	ToCanaryBrowserConfigArrayOutputWithContext(context.Context) CanaryBrowserConfigArrayOutput
+}
+
+type CanaryBrowserConfigArray []CanaryBrowserConfigInput
+
+func (CanaryBrowserConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CanaryBrowserConfig)(nil)).Elem()
+}
+
+func (i CanaryBrowserConfigArray) ToCanaryBrowserConfigArrayOutput() CanaryBrowserConfigArrayOutput {
+	return i.ToCanaryBrowserConfigArrayOutputWithContext(context.Background())
+}
+
+func (i CanaryBrowserConfigArray) ToCanaryBrowserConfigArrayOutputWithContext(ctx context.Context) CanaryBrowserConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryBrowserConfigArrayOutput)
+}
+
+type CanaryBrowserConfigOutput struct{ *pulumi.OutputState }
+
+func (CanaryBrowserConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryBrowserConfig)(nil)).Elem()
+}
+
+func (o CanaryBrowserConfigOutput) ToCanaryBrowserConfigOutput() CanaryBrowserConfigOutput {
+	return o
+}
+
+func (o CanaryBrowserConfigOutput) ToCanaryBrowserConfigOutputWithContext(ctx context.Context) CanaryBrowserConfigOutput {
+	return o
+}
+
+func (o CanaryBrowserConfigOutput) BrowserType() CanaryBrowserTypeOutput {
+	return o.ApplyT(func(v CanaryBrowserConfig) CanaryBrowserType { return v.BrowserType }).(CanaryBrowserTypeOutput)
+}
+
+type CanaryBrowserConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (CanaryBrowserConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CanaryBrowserConfig)(nil)).Elem()
+}
+
+func (o CanaryBrowserConfigArrayOutput) ToCanaryBrowserConfigArrayOutput() CanaryBrowserConfigArrayOutput {
+	return o
+}
+
+func (o CanaryBrowserConfigArrayOutput) ToCanaryBrowserConfigArrayOutputWithContext(ctx context.Context) CanaryBrowserConfigArrayOutput {
+	return o
+}
+
+func (o CanaryBrowserConfigArrayOutput) Index(i pulumi.IntInput) CanaryBrowserConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CanaryBrowserConfig {
+		return vs[0].([]CanaryBrowserConfig)[vs[1].(int)]
+	}).(CanaryBrowserConfigOutput)
+}
+
 type CanaryCode struct {
 	// List of Lambda layers to attach to the canary
 	Dependencies []CanaryDependency `pulumi:"dependencies"`
@@ -1237,6 +1331,7 @@ type CanaryVisualReference struct {
 	BaseCanaryRunId string `pulumi:"baseCanaryRunId"`
 	// List of screenshots used as base reference for visual testing
 	BaseScreenshots []CanaryBaseScreenshot `pulumi:"baseScreenshots"`
+	BrowserType     *CanaryBrowserType     `pulumi:"browserType"`
 }
 
 // CanaryVisualReferenceInput is an input type that accepts CanaryVisualReferenceArgs and CanaryVisualReferenceOutput values.
@@ -1255,6 +1350,7 @@ type CanaryVisualReferenceArgs struct {
 	BaseCanaryRunId pulumi.StringInput `pulumi:"baseCanaryRunId"`
 	// List of screenshots used as base reference for visual testing
 	BaseScreenshots CanaryBaseScreenshotArrayInput `pulumi:"baseScreenshots"`
+	BrowserType     CanaryBrowserTypePtrInput      `pulumi:"browserType"`
 }
 
 func (CanaryVisualReferenceArgs) ElementType() reflect.Type {
@@ -1310,6 +1406,31 @@ func (i *canaryVisualReferencePtrType) ToCanaryVisualReferencePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryVisualReferencePtrOutput)
 }
 
+// CanaryVisualReferenceArrayInput is an input type that accepts CanaryVisualReferenceArray and CanaryVisualReferenceArrayOutput values.
+// You can construct a concrete instance of `CanaryVisualReferenceArrayInput` via:
+//
+//	CanaryVisualReferenceArray{ CanaryVisualReferenceArgs{...} }
+type CanaryVisualReferenceArrayInput interface {
+	pulumi.Input
+
+	ToCanaryVisualReferenceArrayOutput() CanaryVisualReferenceArrayOutput
+	ToCanaryVisualReferenceArrayOutputWithContext(context.Context) CanaryVisualReferenceArrayOutput
+}
+
+type CanaryVisualReferenceArray []CanaryVisualReferenceInput
+
+func (CanaryVisualReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CanaryVisualReference)(nil)).Elem()
+}
+
+func (i CanaryVisualReferenceArray) ToCanaryVisualReferenceArrayOutput() CanaryVisualReferenceArrayOutput {
+	return i.ToCanaryVisualReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i CanaryVisualReferenceArray) ToCanaryVisualReferenceArrayOutputWithContext(ctx context.Context) CanaryVisualReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryVisualReferenceArrayOutput)
+}
+
 type CanaryVisualReferenceOutput struct{ *pulumi.OutputState }
 
 func (CanaryVisualReferenceOutput) ElementType() reflect.Type {
@@ -1342,6 +1463,10 @@ func (o CanaryVisualReferenceOutput) BaseCanaryRunId() pulumi.StringOutput {
 // List of screenshots used as base reference for visual testing
 func (o CanaryVisualReferenceOutput) BaseScreenshots() CanaryBaseScreenshotArrayOutput {
 	return o.ApplyT(func(v CanaryVisualReference) []CanaryBaseScreenshot { return v.BaseScreenshots }).(CanaryBaseScreenshotArrayOutput)
+}
+
+func (o CanaryVisualReferenceOutput) BrowserType() CanaryBrowserTypePtrOutput {
+	return o.ApplyT(func(v CanaryVisualReference) *CanaryBrowserType { return v.BrowserType }).(CanaryBrowserTypePtrOutput)
 }
 
 type CanaryVisualReferencePtrOutput struct{ *pulumi.OutputState }
@@ -1386,6 +1511,35 @@ func (o CanaryVisualReferencePtrOutput) BaseScreenshots() CanaryBaseScreenshotAr
 		}
 		return v.BaseScreenshots
 	}).(CanaryBaseScreenshotArrayOutput)
+}
+
+func (o CanaryVisualReferencePtrOutput) BrowserType() CanaryBrowserTypePtrOutput {
+	return o.ApplyT(func(v *CanaryVisualReference) *CanaryBrowserType {
+		if v == nil {
+			return nil
+		}
+		return v.BrowserType
+	}).(CanaryBrowserTypePtrOutput)
+}
+
+type CanaryVisualReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (CanaryVisualReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CanaryVisualReference)(nil)).Elem()
+}
+
+func (o CanaryVisualReferenceArrayOutput) ToCanaryVisualReferenceArrayOutput() CanaryVisualReferenceArrayOutput {
+	return o
+}
+
+func (o CanaryVisualReferenceArrayOutput) ToCanaryVisualReferenceArrayOutputWithContext(ctx context.Context) CanaryVisualReferenceArrayOutput {
+	return o
+}
+
+func (o CanaryVisualReferenceArrayOutput) Index(i pulumi.IntInput) CanaryVisualReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CanaryVisualReference {
+		return vs[0].([]CanaryVisualReference)[vs[1].(int)]
+	}).(CanaryVisualReferenceOutput)
 }
 
 type CanaryVpcConfig struct {
@@ -1595,6 +1749,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryArtifactConfigPtrInput)(nil)).Elem(), CanaryArtifactConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryBaseScreenshotInput)(nil)).Elem(), CanaryBaseScreenshotArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryBaseScreenshotArrayInput)(nil)).Elem(), CanaryBaseScreenshotArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryBrowserConfigInput)(nil)).Elem(), CanaryBrowserConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryBrowserConfigArrayInput)(nil)).Elem(), CanaryBrowserConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryCodeInput)(nil)).Elem(), CanaryCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryDependencyInput)(nil)).Elem(), CanaryDependencyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryDependencyArrayInput)(nil)).Elem(), CanaryDependencyArray{})
@@ -1607,12 +1763,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryScheduleInput)(nil)).Elem(), CanaryScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVisualReferenceInput)(nil)).Elem(), CanaryVisualReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVisualReferencePtrInput)(nil)).Elem(), CanaryVisualReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVisualReferenceArrayInput)(nil)).Elem(), CanaryVisualReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVpcConfigInput)(nil)).Elem(), CanaryVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVpcConfigPtrInput)(nil)).Elem(), CanaryVpcConfigArgs{})
 	pulumi.RegisterOutputType(CanaryArtifactConfigOutput{})
 	pulumi.RegisterOutputType(CanaryArtifactConfigPtrOutput{})
 	pulumi.RegisterOutputType(CanaryBaseScreenshotOutput{})
 	pulumi.RegisterOutputType(CanaryBaseScreenshotArrayOutput{})
+	pulumi.RegisterOutputType(CanaryBrowserConfigOutput{})
+	pulumi.RegisterOutputType(CanaryBrowserConfigArrayOutput{})
 	pulumi.RegisterOutputType(CanaryCodeOutput{})
 	pulumi.RegisterOutputType(CanaryCodePtrOutput{})
 	pulumi.RegisterOutputType(CanaryDependencyOutput{})
@@ -1627,6 +1786,7 @@ func init() {
 	pulumi.RegisterOutputType(CanarySchedulePtrOutput{})
 	pulumi.RegisterOutputType(CanaryVisualReferenceOutput{})
 	pulumi.RegisterOutputType(CanaryVisualReferencePtrOutput{})
+	pulumi.RegisterOutputType(CanaryVisualReferenceArrayOutput{})
 	pulumi.RegisterOutputType(CanaryVpcConfigOutput{})
 	pulumi.RegisterOutputType(CanaryVpcConfigPtrOutput{})
 }

@@ -81,6 +81,10 @@ namespace Pulumi.AwsNative.Ssm
         /// </summary>
         public readonly Pulumi.AwsNative.Ssm.ParameterDataType? DataType;
         /// <summary>
+        /// Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
         /// The type of parameter.
         ///   Parameters of type ``SecureString`` are not supported by CFNlong.
         /// </summary>
@@ -95,11 +99,14 @@ namespace Pulumi.AwsNative.Ssm
         private GetParameterResult(
             Pulumi.AwsNative.Ssm.ParameterDataType? dataType,
 
+            ImmutableDictionary<string, string>? tags,
+
             Pulumi.AwsNative.Ssm.ParameterType? type,
 
             string? value)
         {
             DataType = dataType;
+            Tags = tags;
             Type = type;
             Value = value;
         }

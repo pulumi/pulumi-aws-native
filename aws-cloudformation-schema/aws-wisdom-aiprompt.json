@@ -108,7 +108,7 @@
   },
   "required" : [ "ApiFormat", "ModelId", "TemplateConfiguration", "TemplateType", "Type" ],
   "readOnlyProperties" : [ "/properties/AIPromptArn", "/properties/AIPromptId", "/properties/AssistantArn", "/properties/ModifiedTimeSeconds" ],
-  "createOnlyProperties" : [ "/properties/ApiFormat", "/properties/AssistantId", "/properties/ModelId", "/properties/Name", "/properties/Tags", "/properties/TemplateType", "/properties/Type" ],
+  "createOnlyProperties" : [ "/properties/ApiFormat", "/properties/AssistantId", "/properties/Name", "/properties/Tags", "/properties/TemplateType", "/properties/Type" ],
   "primaryIdentifier" : [ "/properties/AIPromptId", "/properties/AssistantId" ],
   "additionalIdentifiers" : [ [ "/properties/AIPromptArn", "/properties/AssistantArn" ] ],
   "tagging" : {

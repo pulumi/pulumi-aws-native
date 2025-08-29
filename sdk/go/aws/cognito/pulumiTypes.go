@@ -5923,7 +5923,7 @@ type UserPoolRiskConfigurationAttachmentNotifyConfigurationType struct {
 	MfaEmail *UserPoolRiskConfigurationAttachmentNotifyEmailType `pulumi:"mfaEmail"`
 	// The template for the email message that your user pool sends when no action is taken in response to a detected risk.
 	NoActionEmail *UserPoolRiskConfigurationAttachmentNotifyEmailType `pulumi:"noActionEmail"`
-	// The reply-to email address of an email template.
+	// The reply-to email address of an email template. Can be an email address in the format `admin@example.com` or `Administrator <admin@example.com>` .
 	ReplyTo *string `pulumi:"replyTo"`
 	// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the `From` parameter.
 	SourceArn string `pulumi:"sourceArn"`
@@ -5949,7 +5949,7 @@ type UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs struct {
 	MfaEmail UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrInput `pulumi:"mfaEmail"`
 	// The template for the email message that your user pool sends when no action is taken in response to a detected risk.
 	NoActionEmail UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrInput `pulumi:"noActionEmail"`
-	// The reply-to email address of an email template.
+	// The reply-to email address of an email template. Can be an email address in the format `admin@example.com` or `Administrator <admin@example.com>` .
 	ReplyTo pulumi.StringPtrInput `pulumi:"replyTo"`
 	// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the `From` parameter.
 	SourceArn pulumi.StringInput `pulumi:"sourceArn"`
@@ -6058,7 +6058,7 @@ func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput) NoActi
 	}).(UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput)
 }
 
-// The reply-to email address of an email template.
+// The reply-to email address of an email template. Can be an email address in the format `admin@example.com` or `Administrator <admin@example.com>` .
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput) ReplyTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
 }
@@ -6132,7 +6132,7 @@ func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) NoA
 	}).(UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput)
 }
 
-// The reply-to email address of an email template.
+// The reply-to email address of an email template. Can be an email address in the format `admin@example.com` or `Administrator <admin@example.com>` .
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) ReplyTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *string {
 		if v == nil {

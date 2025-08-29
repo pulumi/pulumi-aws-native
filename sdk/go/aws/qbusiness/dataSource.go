@@ -51,7 +51,7 @@ type DataSource struct {
 	IndexId pulumi.StringOutput `pulumi:"indexId"`
 	// The configuration for extracting information from media in documents.
 	MediaExtractionConfiguration DataSourceMediaExtractionConfigurationPtrOutput `pulumi:"mediaExtractionConfiguration"`
-	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The status of the Amazon Q Business data source.
 	Status DataSourceStatusOutput `pulumi:"status"`
@@ -154,7 +154,7 @@ type dataSourceArgs struct {
 	IndexId string `pulumi:"indexId"`
 	// The configuration for extracting information from media in documents.
 	MediaExtractionConfiguration *DataSourceMediaExtractionConfiguration `pulumi:"mediaExtractionConfiguration"`
-	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional.
 	RoleArn *string `pulumi:"roleArn"`
 	// Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
 	//
@@ -196,7 +196,7 @@ type DataSourceArgs struct {
 	IndexId pulumi.StringInput
 	// The configuration for extracting information from media in documents.
 	MediaExtractionConfiguration DataSourceMediaExtractionConfigurationPtrInput
-	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional.
 	RoleArn pulumi.StringPtrInput
 	// Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
 	//
@@ -313,7 +313,7 @@ func (o DataSourceOutput) MediaExtractionConfiguration() DataSourceMediaExtracti
 	}).(DataSourceMediaExtractionConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional.
 func (o DataSourceOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

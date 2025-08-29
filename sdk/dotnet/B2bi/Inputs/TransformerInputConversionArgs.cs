@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.B2bi.Inputs
 
     public sealed class TransformerInputConversionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies advanced options for the input conversion process. These options provide additional control over how EDI files are processed during transformation.
+        /// </summary>
         [Input("advancedOptions")]
         public Input<Inputs.TransformerAdvancedOptionsArgs>? AdvancedOptions { get; set; }
 
+        /// <summary>
+        /// A structure that contains the formatting options for an inbound transformer.
+        /// </summary>
         [Input("formatOptions")]
         public Input<Inputs.TransformerFormatOptionsPropertiesArgs>? FormatOptions { get; set; }
 
+        /// <summary>
+        /// The format for the transformer input: currently on `X12` is supported.
+        /// </summary>
         [Input("fromFormat", required: true)]
         public Input<Pulumi.AwsNative.B2bi.TransformerFromFormat> FromFormat { get; set; } = null!;
 

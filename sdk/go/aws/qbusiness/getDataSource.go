@@ -63,7 +63,7 @@ type LookupDataSourceResult struct {
 	DocumentEnrichmentConfiguration *DataSourceDocumentEnrichmentConfiguration `pulumi:"documentEnrichmentConfiguration"`
 	// The configuration for extracting information from media in documents.
 	MediaExtractionConfiguration *DataSourceMediaExtractionConfiguration `pulumi:"mediaExtractionConfiguration"`
-	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional.
 	RoleArn *string `pulumi:"roleArn"`
 	// The status of the Amazon Q Business data source.
 	Status *DataSourceStatus `pulumi:"status"`
@@ -175,7 +175,7 @@ func (o LookupDataSourceResultOutput) MediaExtractionConfiguration() DataSourceM
 	}).(DataSourceMediaExtractionConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional.
 func (o LookupDataSourceResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

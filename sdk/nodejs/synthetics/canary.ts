@@ -139,6 +139,10 @@ export class Canary extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
+     * List of browser configurations for the canary
+     */
+    public readonly browserConfigs!: pulumi.Output<outputs.synthetics.CanaryBrowserConfig[] | undefined>;
+    /**
      * Provide the canary script source
      */
     public readonly code!: pulumi.Output<outputs.synthetics.CanaryCode>;
@@ -203,6 +207,10 @@ export class Canary extends pulumi.CustomResource {
      */
     public readonly visualReference!: pulumi.Output<outputs.synthetics.CanaryVisualReference | undefined>;
     /**
+     * List of visual references for the canary
+     */
+    public readonly visualReferences!: pulumi.Output<outputs.synthetics.CanaryVisualReference[] | undefined>;
+    /**
      * Provide VPC Configuration if enabled.
      */
     public readonly vpcConfig!: pulumi.Output<outputs.synthetics.CanaryVpcConfig | undefined>;
@@ -235,6 +243,7 @@ export class Canary extends pulumi.CustomResource {
             }
             resourceInputs["artifactConfig"] = args ? args.artifactConfig : undefined;
             resourceInputs["artifactS3Location"] = args ? args.artifactS3Location : undefined;
+            resourceInputs["browserConfigs"] = args ? args.browserConfigs : undefined;
             resourceInputs["code"] = args ? args.code : undefined;
             resourceInputs["deleteLambdaResourcesOnCanaryDeletion"] = args ? args.deleteLambdaResourcesOnCanaryDeletion : undefined;
             resourceInputs["dryRunAndUpdate"] = args ? args.dryRunAndUpdate : undefined;
@@ -250,6 +259,7 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["successRetentionPeriod"] = args ? args.successRetentionPeriod : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["visualReference"] = args ? args.visualReference : undefined;
+            resourceInputs["visualReferences"] = args ? args.visualReferences : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -257,6 +267,7 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["artifactConfig"] = undefined /*out*/;
             resourceInputs["artifactS3Location"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["browserConfigs"] = undefined /*out*/;
             resourceInputs["code"] = undefined /*out*/;
             resourceInputs["deleteLambdaResourcesOnCanaryDeletion"] = undefined /*out*/;
             resourceInputs["dryRunAndUpdate"] = undefined /*out*/;
@@ -273,6 +284,7 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["successRetentionPeriod"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["visualReference"] = undefined /*out*/;
+            resourceInputs["visualReferences"] = undefined /*out*/;
             resourceInputs["vpcConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -294,6 +306,10 @@ export interface CanaryArgs {
      * Provide the s3 bucket output location for test results
      */
     artifactS3Location: pulumi.Input<string>;
+    /**
+     * List of browser configurations for the canary
+     */
+    browserConfigs?: pulumi.Input<pulumi.Input<inputs.synthetics.CanaryBrowserConfigArgs>[]>;
     /**
      * Provide the canary script source
      */
@@ -354,6 +370,10 @@ export interface CanaryArgs {
      * Visual reference configuration for visual testing
      */
     visualReference?: pulumi.Input<inputs.synthetics.CanaryVisualReferenceArgs>;
+    /**
+     * List of visual references for the canary
+     */
+    visualReferences?: pulumi.Input<pulumi.Input<inputs.synthetics.CanaryVisualReferenceArgs>[]>;
     /**
      * Provide VPC Configuration if enabled.
      */

@@ -74,6 +74,44 @@
     "Uuid" : {
       "type" : "string",
       "pattern" : "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+    },
+    "SourceReference" : {
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "type" : "string",
+          "enum" : [ "BRANCH", "TAG", "COMMIT" ]
+        },
+        "value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "DefinitionRepository" : {
+      "type" : "object",
+      "properties" : {
+        "connectionArn" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 256,
+          "pattern" : "^arn:aws(-[\\\\w]+)*:.+:.+:[0-9]{12}:.+$"
+        },
+        "fullRepositoryId" : {
+          "type" : "string",
+          "pattern" : ".+/.+"
+        },
+        "sourceReference" : {
+          "$ref" : "#/definitions/SourceReference"
+        },
+        "excludeFilePatterns" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "minItems" : 1,
+          "maxItems" : 50
+        }
+      }
     }
   },
   "properties" : {
@@ -145,11 +183,40 @@
     },
     "Uuid" : {
       "$ref" : "#/definitions/Uuid"
+    },
+    "WorkflowBucketOwnerId" : {
+      "type" : "string",
+      "description" : "Optional workflow bucket owner ID to verify the workflow bucket",
+      "pattern" : "^[0-9]{12}$"
+    },
+    "DefinitionRepository" : {
+      "$ref" : "#/definitions/DefinitionRepository"
+    },
+    "ParameterTemplatePath" : {
+      "type" : "string",
+      "description" : "Path to the primary workflow parameter template JSON file inside the repository",
+      "pattern" : "^[\\S]+$"
+    },
+    "readmePath" : {
+      "type" : "string",
+      "description" : "The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.",
+      "maxLength" : 128,
+      "minLength" : 1,
+      "pattern" : "^[\\p{L}||\\p{M}||\\p{Z}||\\p{S}||\\p{N}||\\p{P}]+$"
+    },
+    "readmeUri" : {
+      "type" : "string",
+      "description" : "The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.",
+      "pattern" : "^s3://([a-z0-9][a-z0-9-.]{1,61}[a-z0-9])/((.{1,1024}))$"
+    },
+    "readmeMarkdown" : {
+      "type" : "string",
+      "description" : "The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow."
     }
   },
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreationTime", "/properties/Id", "/properties/Status", "/properties/Type", "/properties/Uuid" ],
-  "writeOnlyProperties" : [ "/properties/DefinitionUri" ],
-  "createOnlyProperties" : [ "/properties/DefinitionUri", "/properties/Engine", "/properties/Main", "/properties/ParameterTemplate", "/properties/StorageCapacity", "/properties/Accelerators" ],
+  "writeOnlyProperties" : [ "/properties/DefinitionUri", "/properties/WorkflowBucketOwnerId", "/properties/ParameterTemplatePath", "/properties/DefinitionRepository", "/properties/readmePath", "/properties/readmeUri", "/properties/readmeMarkdown" ],
+  "createOnlyProperties" : [ "/properties/DefinitionUri", "/properties/Engine", "/properties/Main", "/properties/ParameterTemplate", "/properties/StorageCapacity", "/properties/Accelerators", "/properties/DefinitionRepository", "/properties/ParameterTemplatePath", "/properties/readmePath", "/properties/readmeUri", "/properties/WorkflowBucketOwnerId" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "tagging" : {
     "taggable" : true,
@@ -161,7 +228,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "omics:CreateWorkflow", "omics:GetWorkflow", "omics:TagResource", "s3:PutObject", "s3:GetObject", "s3:GetObjectAttributes", "s3:HeadObject", "s3:GetEncryptionConfiguration", "kms:Decrypt", "kms:GenerateDataKey", "kms:GenerateDataKeyPair", "kms:GenerateDataKeyPairWithoutPlaintext", "kms:GenerateDataKeyWithoutPlaintext" ]
+      "permissions" : [ "omics:CreateWorkflow", "omics:GetWorkflow", "omics:TagResource", "s3:PutObject", "s3:GetObject", "s3:GetObjectAttributes", "s3:HeadObject", "s3:GetEncryptionConfiguration", "kms:Decrypt", "kms:GenerateDataKey", "kms:GenerateDataKeyPair", "kms:GenerateDataKeyPairWithoutPlaintext", "kms:GenerateDataKeyWithoutPlaintext", "codeconnections:UseConnection", "codeconnections:GetConnection", "codeconnections:GetHost" ]
     },
     "read" : {
       "permissions" : [ "omics:GetWorkflow" ]

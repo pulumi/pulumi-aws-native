@@ -27,15 +27,27 @@ namespace Pulumi.AwsNative.DataZone
         [Output("createdBy")]
         public Output<string> CreatedBy { get; private set; } = null!;
 
+        /// <summary>
+        /// The details of the policy grant member.
+        /// </summary>
         [Output("detail")]
         public Output<object?> Detail { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the domain where you want to add a policy grant.
+        /// </summary>
         [Output("domainIdentifier")]
         public Output<string> DomainIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the entity (resource) to which you want to add a policy grant.
+        /// </summary>
         [Output("entityIdentifier")]
         public Output<string> EntityIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of entity (resource) to which the grant is added.
+        /// </summary>
         [Output("entityType")]
         public Output<Pulumi.AwsNative.DataZone.PolicyGrantTargetEntityType> EntityType { get; private set; } = null!;
 
@@ -45,9 +57,15 @@ namespace Pulumi.AwsNative.DataZone
         [Output("grantId")]
         public Output<string> GrantId { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of policy that you want to grant.
+        /// </summary>
         [Output("policyType")]
         public Output<string> PolicyType { get; private set; } = null!;
 
+        /// <summary>
+        /// The principal of the policy grant member.
+        /// </summary>
         [Output("principal")]
         public Output<object?> Principal { get; private set; } = null!;
 
@@ -105,21 +123,39 @@ namespace Pulumi.AwsNative.DataZone
 
     public sealed class PolicyGrantArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The details of the policy grant member.
+        /// </summary>
         [Input("detail")]
         public object? Detail { get; set; }
 
+        /// <summary>
+        /// The ID of the domain where you want to add a policy grant.
+        /// </summary>
         [Input("domainIdentifier", required: true)]
         public Input<string> DomainIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the entity (resource) to which you want to add a policy grant.
+        /// </summary>
         [Input("entityIdentifier", required: true)]
         public Input<string> EntityIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The type of entity (resource) to which the grant is added.
+        /// </summary>
         [Input("entityType", required: true)]
         public Input<Pulumi.AwsNative.DataZone.PolicyGrantTargetEntityType> EntityType { get; set; } = null!;
 
+        /// <summary>
+        /// The type of policy that you want to grant.
+        /// </summary>
         [Input("policyType", required: true)]
         public Input<string> PolicyType { get; set; } = null!;
 
+        /// <summary>
+        /// The principal of the policy grant member.
+        /// </summary>
         [Input("principal")]
         public object? Principal { get; set; }
 

@@ -59,7 +59,7 @@ class DataSourceArgs:
                
                For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
         :param pulumi.Input['DataSourceMediaExtractionConfigurationArgs'] media_extraction_configuration: The configuration for extracting information from media in documents.
-        :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+        :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional.
         :param pulumi.Input[builtins.str] sync_schedule: Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
                
                Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
@@ -187,7 +187,7 @@ class DataSourceArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+        The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional.
         """
         return pulumi.get(self, "role_arn")
 
@@ -278,7 +278,7 @@ class DataSource(pulumi.CustomResource):
                For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
         :param pulumi.Input[builtins.str] index_id: The identifier of the index the data source is attached to.
         :param pulumi.Input[Union['DataSourceMediaExtractionConfigurationArgs', 'DataSourceMediaExtractionConfigurationArgsDict']] media_extraction_configuration: The configuration for extracting information from media in documents.
-        :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+        :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional.
         :param pulumi.Input[builtins.str] sync_schedule: Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
                
                Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
@@ -495,7 +495,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+        The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional.
         """
         return pulumi.get(self, "role_arn")
 

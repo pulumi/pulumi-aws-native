@@ -22,13 +22,25 @@ export function getPolicyGrant(args: GetPolicyGrantArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetPolicyGrantArgs {
+    /**
+     * The ID of the domain where you want to add a policy grant.
+     */
     domainIdentifier: string;
+    /**
+     * The ID of the entity (resource) to which you want to add a policy grant.
+     */
     entityIdentifier: string;
+    /**
+     * The type of entity (resource) to which the grant is added.
+     */
     entityType: enums.datazone.PolicyGrantTargetEntityType;
     /**
      * The unique identifier of the policy grant returned by the AddPolicyGrant API
      */
     grantId: string;
+    /**
+     * The type of policy that you want to grant.
+     */
     policyType: string;
 }
 
@@ -61,12 +73,24 @@ export function getPolicyGrantOutput(args: GetPolicyGrantOutputArgs, opts?: pulu
 }
 
 export interface GetPolicyGrantOutputArgs {
+    /**
+     * The ID of the domain where you want to add a policy grant.
+     */
     domainIdentifier: pulumi.Input<string>;
+    /**
+     * The ID of the entity (resource) to which you want to add a policy grant.
+     */
     entityIdentifier: pulumi.Input<string>;
+    /**
+     * The type of entity (resource) to which the grant is added.
+     */
     entityType: pulumi.Input<enums.datazone.PolicyGrantTargetEntityType>;
     /**
      * The unique identifier of the policy grant returned by the AddPolicyGrant API
      */
     grantId: pulumi.Input<string>;
+    /**
+     * The type of policy that you want to grant.
+     */
     policyType: pulumi.Input<string>;
 }

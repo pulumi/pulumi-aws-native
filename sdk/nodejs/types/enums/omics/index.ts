@@ -109,6 +109,17 @@ export const WorkflowEngine = {
 
 export type WorkflowEngine = (typeof WorkflowEngine)[keyof typeof WorkflowEngine];
 
+export const WorkflowSourceReferencetype = {
+    Branch: "BRANCH",
+    Tag: "TAG",
+    Commit: "COMMIT",
+} as const;
+
+/**
+ * The type of source reference, such as branch, tag, or commit.
+ */
+export type WorkflowSourceReferencetype = (typeof WorkflowSourceReferencetype)[keyof typeof WorkflowSourceReferencetype];
+
 export const WorkflowStatus = {
     Creating: "CREATING",
     Active: "ACTIVE",

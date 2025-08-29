@@ -7,10 +7,17 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'CanaryBrowserType',
     'CanaryDependencyType',
     'CanaryProvisionedResourceCleanup',
     'CanaryResourceToTag',
 ]
+
+
+@pulumi.type_token("aws-native:synthetics:CanaryBrowserType")
+class CanaryBrowserType(builtins.str, Enum):
+    CHROME = "CHROME"
+    FIREFOX = "FIREFOX"
 
 
 @pulumi.type_token("aws-native:synthetics:CanaryDependencyType")

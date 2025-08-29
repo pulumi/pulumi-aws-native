@@ -3478,19 +3478,24 @@
           {
             "$ref": "#/types/aws-native:datazone:PolicyGrantDetail12Properties"
           }
-        ]
+        ],
+        "description": "The details of the policy grant member."
       },
       "domainIdentifier": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of the domain where you want to add a policy grant."
       },
       "entityIdentifier": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of the entity (resource) to which you want to add a policy grant."
       },
       "entityType": {
-        "$ref": "#/types/aws-native:datazone:PolicyGrantTargetEntityType"
+        "$ref": "#/types/aws-native:datazone:PolicyGrantTargetEntityType",
+        "description": "The type of entity (resource) to which the grant is added."
       },
       "policyType": {
-        "type": "string"
+        "type": "string",
+        "description": "The type of policy that you want to grant."
       },
       "principal": {
         "oneOf": [
@@ -3506,7 +3511,8 @@
           {
             "$ref": "#/types/aws-native:datazone:PolicyGrantPrincipal3Properties"
           }
-        ]
+        ],
+        "description": "The principal of the policy grant member."
       }
     }
   },
@@ -6534,7 +6540,7 @@
       },
       "availabilityZone": {
         "type": "string",
-        "description": "The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``."
+        "description": "The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.\n Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both."
       },
       "encrypted": {
         "type": "boolean",
@@ -11642,7 +11648,7 @@
       },
       "roleArn": {
         "type": "string",
-        "description": "The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources."
+        "description": "The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional."
       },
       "syncSchedule": {
         "type": "string",
@@ -11965,7 +11971,7 @@
       },
       "engineVersion": {
         "type": "string",
-        "description": "The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.\n  *Constraints:* Minimum length is 1. Maximum length is 60.\n  *Pattern:* ``^[a-z0-9_.-]{1,60$``}"
+        "description": "The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.\n *Constraints:* Minimum length is 1. Maximum length is 60.\n *Pattern:*``^[a-z0-9_.-]{1,60$``}"
       },
       "imageId": {
         "type": "string",
@@ -13877,6 +13883,23 @@
       "serviceActionId": {
         "type": "string",
         "description": "The self-service action identifier. For example, `act-fs7abcd89wxyz` ."
+      }
+    }
+  },
+  "aws-native:servicecatalog:TagOption": {
+    "cfTypeName": "AWS::ServiceCatalog::TagOption",
+    "properties": {
+      "active": {
+        "type": "boolean",
+        "description": "The TagOption active state."
+      },
+      "key": {
+        "type": "string",
+        "description": "The TagOption key."
+      },
+      "value": {
+        "type": "string",
+        "description": "The TagOption value."
       }
     }
   },

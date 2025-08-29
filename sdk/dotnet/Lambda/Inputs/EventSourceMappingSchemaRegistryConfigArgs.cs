@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
+    /// <summary>
+    /// Specific configuration settings for a Kafka schema registry.
+    /// </summary>
     public sealed class EventSourceMappingSchemaRegistryConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessConfigs")]
@@ -26,18 +29,16 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 
         /// <summary>
         /// The record format that Lambda delivers to your function after schema validation.
-        /// 
-        /// - Choose `JSON` to have Lambda deliver the record to your function as a standard JSON object.
-        /// - Choose `SOURCE` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
+        ///   +  Choose ``JSON`` to have Lambda deliver the record to your function as a standard JSON object.
+        ///   +  Choose ``SOURCE`` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
         /// </summary>
         [Input("eventRecordFormat")]
         public Input<Pulumi.AwsNative.Lambda.EventSourceMappingSchemaRegistryConfigEventRecordFormat>? EventRecordFormat { get; set; }
 
         /// <summary>
         /// The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
-        /// 
-        /// - For AWS Glue schema registries, use the ARN of the registry.
-        /// - For Confluent schema registries, use the URL of the registry.
+        ///   +  For GLU schema registries, use the ARN of the registry.
+        ///   +  For Confluent schema registries, use the URL of the registry.
         /// </summary>
         [Input("schemaRegistryUri")]
         public Input<string>? SchemaRegistryUri { get; set; }

@@ -101,6 +101,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly enableExecuteCommand!: pulumi.Output<boolean | undefined>;
     /**
+     * Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination ( `my_image:latest` ) or to roll Fargate tasks onto a newer platform version.
+     */
+    public readonly forceNewDeployment!: pulumi.Output<outputs.ecs.ServiceForceNewDeployment | undefined>;
+    /**
      * The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you don't specify a health check grace period value, the default value of ``0`` is used. If you don't use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
      *  If your service's tasks take a while to start and respond to health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
      */
@@ -223,6 +227,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["desiredCount"] = args ? args.desiredCount : undefined;
             resourceInputs["enableEcsManagedTags"] = args ? args.enableEcsManagedTags : undefined;
             resourceInputs["enableExecuteCommand"] = args ? args.enableExecuteCommand : undefined;
+            resourceInputs["forceNewDeployment"] = args ? args.forceNewDeployment : undefined;
             resourceInputs["healthCheckGracePeriodSeconds"] = args ? args.healthCheckGracePeriodSeconds : undefined;
             resourceInputs["launchType"] = args ? args.launchType : undefined;
             resourceInputs["loadBalancers"] = args ? args.loadBalancers : undefined;
@@ -251,6 +256,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["desiredCount"] = undefined /*out*/;
             resourceInputs["enableEcsManagedTags"] = undefined /*out*/;
             resourceInputs["enableExecuteCommand"] = undefined /*out*/;
+            resourceInputs["forceNewDeployment"] = undefined /*out*/;
             resourceInputs["healthCheckGracePeriodSeconds"] = undefined /*out*/;
             resourceInputs["launchType"] = undefined /*out*/;
             resourceInputs["loadBalancers"] = undefined /*out*/;
@@ -321,6 +327,10 @@ export interface ServiceArgs {
      * Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.
      */
     enableExecuteCommand?: pulumi.Input<boolean>;
+    /**
+     * Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination ( `my_image:latest` ) or to roll Fargate tasks onto a newer platform version.
+     */
+    forceNewDeployment?: pulumi.Input<inputs.ecs.ServiceForceNewDeploymentArgs>;
     /**
      * The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you don't specify a health check grace period value, the default value of ``0`` is used. If you don't use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
      *  If your service's tasks take a while to start and respond to health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.

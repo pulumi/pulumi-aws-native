@@ -387,6 +387,38 @@ namespace Pulumi.AwsNative.Omics
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of source reference, such as branch, tag, or commit.
+    /// </summary>
+    [EnumType]
+    public readonly struct WorkflowSourceReferencetype : IEquatable<WorkflowSourceReferencetype>
+    {
+        private readonly string _value;
+
+        private WorkflowSourceReferencetype(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkflowSourceReferencetype Branch { get; } = new WorkflowSourceReferencetype("BRANCH");
+        public static WorkflowSourceReferencetype Tag { get; } = new WorkflowSourceReferencetype("TAG");
+        public static WorkflowSourceReferencetype Commit { get; } = new WorkflowSourceReferencetype("COMMIT");
+
+        public static bool operator ==(WorkflowSourceReferencetype left, WorkflowSourceReferencetype right) => left.Equals(right);
+        public static bool operator !=(WorkflowSourceReferencetype left, WorkflowSourceReferencetype right) => !left.Equals(right);
+
+        public static explicit operator string(WorkflowSourceReferencetype value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkflowSourceReferencetype other && Equals(other);
+        public bool Equals(WorkflowSourceReferencetype other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct WorkflowStatus : IEquatable<WorkflowStatus>
     {

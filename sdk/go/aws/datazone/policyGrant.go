@@ -19,15 +19,21 @@ type PolicyGrant struct {
 	// Specifies the timestamp at which policy grant member was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Specifies the user who created the policy grant member.
-	CreatedBy        pulumi.StringOutput               `pulumi:"createdBy"`
-	Detail           pulumi.AnyOutput                  `pulumi:"detail"`
-	DomainIdentifier pulumi.StringOutput               `pulumi:"domainIdentifier"`
-	EntityIdentifier pulumi.StringOutput               `pulumi:"entityIdentifier"`
-	EntityType       PolicyGrantTargetEntityTypeOutput `pulumi:"entityType"`
+	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
+	// The details of the policy grant member.
+	Detail pulumi.AnyOutput `pulumi:"detail"`
+	// The ID of the domain where you want to add a policy grant.
+	DomainIdentifier pulumi.StringOutput `pulumi:"domainIdentifier"`
+	// The ID of the entity (resource) to which you want to add a policy grant.
+	EntityIdentifier pulumi.StringOutput `pulumi:"entityIdentifier"`
+	// The type of entity (resource) to which the grant is added.
+	EntityType PolicyGrantTargetEntityTypeOutput `pulumi:"entityType"`
 	// The unique identifier of the policy grant returned by the AddPolicyGrant API
-	GrantId    pulumi.StringOutput `pulumi:"grantId"`
+	GrantId pulumi.StringOutput `pulumi:"grantId"`
+	// The type of policy that you want to grant.
 	PolicyType pulumi.StringOutput `pulumi:"policyType"`
-	Principal  pulumi.AnyOutput    `pulumi:"principal"`
+	// The principal of the policy grant member.
+	Principal pulumi.AnyOutput `pulumi:"principal"`
 }
 
 // NewPolicyGrant registers a new resource with the given unique name, arguments, and options.
@@ -91,22 +97,34 @@ func (PolicyGrantState) ElementType() reflect.Type {
 }
 
 type policyGrantArgs struct {
-	Detail           interface{}                 `pulumi:"detail"`
-	DomainIdentifier string                      `pulumi:"domainIdentifier"`
-	EntityIdentifier string                      `pulumi:"entityIdentifier"`
-	EntityType       PolicyGrantTargetEntityType `pulumi:"entityType"`
-	PolicyType       string                      `pulumi:"policyType"`
-	Principal        interface{}                 `pulumi:"principal"`
+	// The details of the policy grant member.
+	Detail interface{} `pulumi:"detail"`
+	// The ID of the domain where you want to add a policy grant.
+	DomainIdentifier string `pulumi:"domainIdentifier"`
+	// The ID of the entity (resource) to which you want to add a policy grant.
+	EntityIdentifier string `pulumi:"entityIdentifier"`
+	// The type of entity (resource) to which the grant is added.
+	EntityType PolicyGrantTargetEntityType `pulumi:"entityType"`
+	// The type of policy that you want to grant.
+	PolicyType string `pulumi:"policyType"`
+	// The principal of the policy grant member.
+	Principal interface{} `pulumi:"principal"`
 }
 
 // The set of arguments for constructing a PolicyGrant resource.
 type PolicyGrantArgs struct {
-	Detail           pulumi.Input
+	// The details of the policy grant member.
+	Detail pulumi.Input
+	// The ID of the domain where you want to add a policy grant.
 	DomainIdentifier pulumi.StringInput
+	// The ID of the entity (resource) to which you want to add a policy grant.
 	EntityIdentifier pulumi.StringInput
-	EntityType       PolicyGrantTargetEntityTypeInput
-	PolicyType       pulumi.StringInput
-	Principal        pulumi.Input
+	// The type of entity (resource) to which the grant is added.
+	EntityType PolicyGrantTargetEntityTypeInput
+	// The type of policy that you want to grant.
+	PolicyType pulumi.StringInput
+	// The principal of the policy grant member.
+	Principal pulumi.Input
 }
 
 func (PolicyGrantArgs) ElementType() reflect.Type {
@@ -156,18 +174,22 @@ func (o PolicyGrantOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyGrant) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
+// The details of the policy grant member.
 func (o PolicyGrantOutput) Detail() pulumi.AnyOutput {
 	return o.ApplyT(func(v *PolicyGrant) pulumi.AnyOutput { return v.Detail }).(pulumi.AnyOutput)
 }
 
+// The ID of the domain where you want to add a policy grant.
 func (o PolicyGrantOutput) DomainIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyGrant) pulumi.StringOutput { return v.DomainIdentifier }).(pulumi.StringOutput)
 }
 
+// The ID of the entity (resource) to which you want to add a policy grant.
 func (o PolicyGrantOutput) EntityIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyGrant) pulumi.StringOutput { return v.EntityIdentifier }).(pulumi.StringOutput)
 }
 
+// The type of entity (resource) to which the grant is added.
 func (o PolicyGrantOutput) EntityType() PolicyGrantTargetEntityTypeOutput {
 	return o.ApplyT(func(v *PolicyGrant) PolicyGrantTargetEntityTypeOutput { return v.EntityType }).(PolicyGrantTargetEntityTypeOutput)
 }
@@ -177,10 +199,12 @@ func (o PolicyGrantOutput) GrantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyGrant) pulumi.StringOutput { return v.GrantId }).(pulumi.StringOutput)
 }
 
+// The type of policy that you want to grant.
 func (o PolicyGrantOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyGrant) pulumi.StringOutput { return v.PolicyType }).(pulumi.StringOutput)
 }
 
+// The principal of the policy grant member.
 func (o PolicyGrantOutput) Principal() pulumi.AnyOutput {
 	return o.ApplyT(func(v *PolicyGrant) pulumi.AnyOutput { return v.Principal }).(pulumi.AnyOutput)
 }

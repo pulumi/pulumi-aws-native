@@ -44,8 +44,8 @@ namespace Pulumi.AwsNative.Rds
 
         /// <summary>
         /// The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
-        ///   *Constraints:* Minimum length is 1. Maximum length is 60.
-        ///   *Pattern:* ``^[a-z0-9_.-]{1,60$``}
+        ///  *Constraints:* Minimum length is 1. Maximum length is 60.
+        ///  *Pattern:*``^[a-z0-9_.-]{1,60$``}
         /// </summary>
         [Input("engineVersion", required: true)]
         public string EngineVersion { get; set; } = null!;
@@ -69,8 +69,8 @@ namespace Pulumi.AwsNative.Rds
 
         /// <summary>
         /// The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
-        ///   *Constraints:* Minimum length is 1. Maximum length is 60.
-        ///   *Pattern:* ``^[a-z0-9_.-]{1,60$``}
+        ///  *Constraints:* Minimum length is 1. Maximum length is 60.
+        ///  *Pattern:*``^[a-z0-9_.-]{1,60$``}
         /// </summary>
         [Input("engineVersion", required: true)]
         public Input<string> EngineVersion { get; set; } = null!;

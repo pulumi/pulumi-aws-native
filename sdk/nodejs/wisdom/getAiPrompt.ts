@@ -46,6 +46,28 @@ export interface GetAiPromptResult {
      * The description of the AI Prompt.
      */
     readonly description?: string;
+    /**
+     * The identifier of the model used for this AI Prompt. The following model Ids are supported:
+     *
+     * - `anthropic.claude-3-haiku--v1:0`
+     * - `apac.amazon.nova-lite-v1:0`
+     * - `apac.amazon.nova-micro-v1:0`
+     * - `apac.amazon.nova-pro-v1:0`
+     * - `apac.anthropic.claude-3-5-sonnet--v2:0`
+     * - `apac.anthropic.claude-3-haiku-20240307-v1:0`
+     * - `eu.amazon.nova-lite-v1:0`
+     * - `eu.amazon.nova-micro-v1:0`
+     * - `eu.amazon.nova-pro-v1:0`
+     * - `eu.anthropic.claude-3-7-sonnet-20250219-v1:0`
+     * - `eu.anthropic.claude-3-haiku-20240307-v1:0`
+     * - `us.amazon.nova-lite-v1:0`
+     * - `us.amazon.nova-micro-v1:0`
+     * - `us.amazon.nova-pro-v1:0`
+     * - `us.anthropic.claude-3-5-haiku-20241022-v1:0`
+     * - `us.anthropic.claude-3-7-sonnet-20250219-v1:0`
+     * - `us.anthropic.claude-3-haiku-20240307-v1:0`
+     */
+    readonly modelId?: string;
     readonly modifiedTimeSeconds?: number;
     /**
      * The configuration of the prompt template for this AI Prompt.

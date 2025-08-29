@@ -78,6 +78,9 @@ namespace Pulumi.AwsNative.B2bi
         /// Returns the display name for profile.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Specifies the phone number associated with the profile.
+        /// </summary>
         public readonly string? Phone;
         /// <summary>
         /// Returns an Amazon Resource Name (ARN) for the profile.

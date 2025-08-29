@@ -47,6 +47,10 @@ export interface GetProjectResult {
      */
     readonly domainId?: string;
     /**
+     * The ID of the domain unit.
+     */
+    readonly domainUnitId?: string;
+    /**
      * The glossary terms that can be used in this Amazon DataZone project.
      */
     readonly glossaryTerms?: string[];

@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.B2bi.Inputs
 
     public sealed class TransformerSampleDocumentsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains the Amazon S3 bucket that is used to hold your sample documents.
+        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
         [Input("keys", required: true)]
         private InputList<Inputs.TransformerSampleDocumentKeysArgs>? _keys;
+
+        /// <summary>
+        /// Contains an array of the Amazon S3 keys used to identify the location for your sample documents.
+        /// </summary>
         public InputList<Inputs.TransformerSampleDocumentKeysArgs> Keys
         {
             get => _keys ?? (_keys = new InputList<Inputs.TransformerSampleDocumentKeysArgs>());

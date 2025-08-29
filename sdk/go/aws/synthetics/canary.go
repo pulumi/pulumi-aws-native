@@ -150,6 +150,8 @@ type Canary struct {
 	ArtifactS3Location pulumi.StringOutput `pulumi:"artifactS3Location"`
 	// Id of the canary
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// List of browser configurations for the canary
+	BrowserConfigs CanaryBrowserConfigArrayOutput `pulumi:"browserConfigs"`
 	// Provide the canary script source
 	Code CanaryCodeOutput `pulumi:"code"`
 	// Deletes associated lambda resources created by Synthetics if set to True. Default is False
@@ -182,6 +184,8 @@ type Canary struct {
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Visual reference configuration for visual testing
 	VisualReference CanaryVisualReferencePtrOutput `pulumi:"visualReference"`
+	// List of visual references for the canary
+	VisualReferences CanaryVisualReferenceArrayOutput `pulumi:"visualReferences"`
 	// Provide VPC Configuration if enabled.
 	VpcConfig CanaryVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
@@ -249,6 +253,8 @@ type canaryArgs struct {
 	ArtifactConfig *CanaryArtifactConfig `pulumi:"artifactConfig"`
 	// Provide the s3 bucket output location for test results
 	ArtifactS3Location string `pulumi:"artifactS3Location"`
+	// List of browser configurations for the canary
+	BrowserConfigs []CanaryBrowserConfig `pulumi:"browserConfigs"`
 	// Provide the canary script source
 	Code CanaryCode `pulumi:"code"`
 	// Deletes associated lambda resources created by Synthetics if set to True. Default is False
@@ -279,6 +285,8 @@ type canaryArgs struct {
 	Tags []aws.Tag `pulumi:"tags"`
 	// Visual reference configuration for visual testing
 	VisualReference *CanaryVisualReference `pulumi:"visualReference"`
+	// List of visual references for the canary
+	VisualReferences []CanaryVisualReference `pulumi:"visualReferences"`
 	// Provide VPC Configuration if enabled.
 	VpcConfig *CanaryVpcConfig `pulumi:"vpcConfig"`
 }
@@ -289,6 +297,8 @@ type CanaryArgs struct {
 	ArtifactConfig CanaryArtifactConfigPtrInput
 	// Provide the s3 bucket output location for test results
 	ArtifactS3Location pulumi.StringInput
+	// List of browser configurations for the canary
+	BrowserConfigs CanaryBrowserConfigArrayInput
 	// Provide the canary script source
 	Code CanaryCodeInput
 	// Deletes associated lambda resources created by Synthetics if set to True. Default is False
@@ -319,6 +329,8 @@ type CanaryArgs struct {
 	Tags aws.TagArrayInput
 	// Visual reference configuration for visual testing
 	VisualReference CanaryVisualReferencePtrInput
+	// List of visual references for the canary
+	VisualReferences CanaryVisualReferenceArrayInput
 	// Provide VPC Configuration if enabled.
 	VpcConfig CanaryVpcConfigPtrInput
 }
@@ -373,6 +385,11 @@ func (o CanaryOutput) ArtifactS3Location() pulumi.StringOutput {
 // Id of the canary
 func (o CanaryOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
+}
+
+// List of browser configurations for the canary
+func (o CanaryOutput) BrowserConfigs() CanaryBrowserConfigArrayOutput {
+	return o.ApplyT(func(v *Canary) CanaryBrowserConfigArrayOutput { return v.BrowserConfigs }).(CanaryBrowserConfigArrayOutput)
 }
 
 // Provide the canary script source
@@ -453,6 +470,11 @@ func (o CanaryOutput) Tags() aws.TagArrayOutput {
 // Visual reference configuration for visual testing
 func (o CanaryOutput) VisualReference() CanaryVisualReferencePtrOutput {
 	return o.ApplyT(func(v *Canary) CanaryVisualReferencePtrOutput { return v.VisualReference }).(CanaryVisualReferencePtrOutput)
+}
+
+// List of visual references for the canary
+func (o CanaryOutput) VisualReferences() CanaryVisualReferenceArrayOutput {
+	return o.ApplyT(func(v *Canary) CanaryVisualReferenceArrayOutput { return v.VisualReferences }).(CanaryVisualReferenceArrayOutput)
 }
 
 // Provide VPC Configuration if enabled.
