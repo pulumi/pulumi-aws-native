@@ -108,7 +108,7 @@
       "permissions" : [ "mpa:GetIdentitySource", "mpa:TagResource", "mpa:ListTagsForResource", "mpa:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "mpa:DeleteIdentitySource", "mpa:GetIdentitySource", "mpa:UntagResource", "sso:DeleteApplication", "kms:Decrypt" ]
+      "permissions" : [ "mpa:DeleteIdentitySource", "mpa:GetIdentitySource", "mpa:UntagResource", "sso:DeleteApplication", "sso:ListInstances", "kms:Decrypt" ]
     },
     "list" : {
       "permissions" : [ "mpa:ListIdentitySources", "mpa:ListTagsForResource" ]
