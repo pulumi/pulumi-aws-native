@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         /// <summary>
         /// The Availability Zone of the instance.
         /// 
-        /// Either `AvailabilityZone` or `AvailabilityZoneId` can be specified, but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone based on the load balancing criteria for the Region.
+        /// On input, you can specify `AvailabilityZone` or `AvailabilityZoneId` , but not both. If you specify neither one, Amazon EC2 automatically selects an Availability Zone for you.
         /// 
         /// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
         /// </summary>
@@ -31,7 +31,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The name of the placement group that the instance is in. If you specify `GroupName` , you can't specify `GroupId` .
+        /// The name of the placement group that the instance is in.
+        /// 
+        /// On input, you can specify `GroupId` or `GroupName` , but not both.
         /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
@@ -47,7 +49,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         /// <summary>
         /// The ARN of the host resource group in which to launch the instances.
         /// 
-        /// If you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
+        /// On input, if you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
         /// 
         /// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
         /// </summary>

@@ -94,6 +94,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
                 raise TypeError("Missing required property 'internet_gateway_block_mode'")
             __props__.__dict__["internet_gateway_block_mode"] = internet_gateway_block_mode
             __props__.__dict__["account_id"] = None
+            __props__.__dict__["exclusions_allowed"] = None
         super(VpcBlockPublicAccessOptions, __self__).__init__(
             'aws-native:ec2:VpcBlockPublicAccessOptions',
             resource_name,
@@ -117,6 +118,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
         __props__ = VpcBlockPublicAccessOptionsArgs.__new__(VpcBlockPublicAccessOptionsArgs)
 
         __props__.__dict__["account_id"] = None
+        __props__.__dict__["exclusions_allowed"] = None
         __props__.__dict__["internet_gateway_block_mode"] = None
         return VpcBlockPublicAccessOptions(resource_name, opts=opts, __props__=__props__)
 
@@ -127,6 +129,14 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
         The identifier for the specified AWS account.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="exclusionsAllowed")
+    def exclusions_allowed(self) -> pulumi.Output[builtins.str]:
+        """
+        Determines if exclusions are allowed. If you have enabled VPC BPA at the Organization level, exclusions may be not-allowed. Otherwise, they are allowed.
+        """
+        return pulumi.get(self, "exclusions_allowed")
 
     @property
     @pulumi.getter(name="internetGatewayBlockMode")

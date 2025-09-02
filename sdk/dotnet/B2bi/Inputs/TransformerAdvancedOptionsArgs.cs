@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.B2bi.Inputs
 
     public sealed class TransformerAdvancedOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A structure that contains X12-specific advanced options, such as split options for processing X12 EDI files.
+        /// </summary>
         [Input("x12")]
         public Input<Inputs.TransformerX12AdvancedOptionsArgs>? X12 { get; set; }
 

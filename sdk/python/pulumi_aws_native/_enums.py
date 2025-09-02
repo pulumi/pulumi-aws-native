@@ -68,6 +68,10 @@ class Region(builtins.str, Enum):
     """
     Asia Pacific (Malaysia)
     """
+    AP_SOUTHEAST6 = "ap-southeast-6"
+    """
+    Asia Pacific (New Zealand)
+    """
     AP_SOUTHEAST7 = "ap-southeast-7"
     """
     Asia Pacific (Thailand)

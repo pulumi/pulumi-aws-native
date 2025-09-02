@@ -33,12 +33,21 @@ namespace Pulumi.AwsNative.DataZone
 
     public sealed class GetPolicyGrantArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the domain where you want to add a policy grant.
+        /// </summary>
         [Input("domainIdentifier", required: true)]
         public string DomainIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the entity (resource) to which you want to add a policy grant.
+        /// </summary>
         [Input("entityIdentifier", required: true)]
         public string EntityIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The type of entity (resource) to which the grant is added.
+        /// </summary>
         [Input("entityType", required: true)]
         public Pulumi.AwsNative.DataZone.PolicyGrantTargetEntityType EntityType { get; set; }
 
@@ -48,6 +57,9 @@ namespace Pulumi.AwsNative.DataZone
         [Input("grantId", required: true)]
         public string GrantId { get; set; } = null!;
 
+        /// <summary>
+        /// The type of policy that you want to grant.
+        /// </summary>
         [Input("policyType", required: true)]
         public string PolicyType { get; set; } = null!;
 
@@ -59,12 +71,21 @@ namespace Pulumi.AwsNative.DataZone
 
     public sealed class GetPolicyGrantInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the domain where you want to add a policy grant.
+        /// </summary>
         [Input("domainIdentifier", required: true)]
         public Input<string> DomainIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the entity (resource) to which you want to add a policy grant.
+        /// </summary>
         [Input("entityIdentifier", required: true)]
         public Input<string> EntityIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The type of entity (resource) to which the grant is added.
+        /// </summary>
         [Input("entityType", required: true)]
         public Input<Pulumi.AwsNative.DataZone.PolicyGrantTargetEntityType> EntityType { get; set; } = null!;
 
@@ -74,6 +95,9 @@ namespace Pulumi.AwsNative.DataZone
         [Input("grantId", required: true)]
         public Input<string> GrantId { get; set; } = null!;
 
+        /// <summary>
+        /// The type of policy that you want to grant.
+        /// </summary>
         [Input("policyType", required: true)]
         public Input<string> PolicyType { get; set; } = null!;
 

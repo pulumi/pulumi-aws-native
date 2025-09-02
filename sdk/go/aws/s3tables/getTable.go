@@ -28,14 +28,19 @@ type LookupTableArgs struct {
 }
 
 type LookupTableResult struct {
+	// Contains details about the compaction settings for an Iceberg table.
 	Compaction *TableCompaction `pulumi:"compaction"`
 	// The name of the namespace.
-	Namespace          *string                  `pulumi:"namespace"`
+	Namespace *string `pulumi:"namespace"`
+	// Contains details about the Iceberg snapshot management settings for the table.
 	SnapshotManagement *TableSnapshotManagement `pulumi:"snapshotManagement"`
 	// The Amazon Resource Name (ARN) of the table.
-	TableArn          *string `pulumi:"tableArn"`
-	TableName         *string `pulumi:"tableName"`
-	VersionToken      *string `pulumi:"versionToken"`
+	TableArn *string `pulumi:"tableArn"`
+	// The name for the table.
+	TableName *string `pulumi:"tableName"`
+	// The version token of the table.
+	VersionToken *string `pulumi:"versionToken"`
+	// The warehouse location of the table.
 	WarehouseLocation *string `pulumi:"warehouseLocation"`
 }
 
@@ -71,6 +76,7 @@ func (o LookupTableResultOutput) ToLookupTableResultOutputWithContext(ctx contex
 	return o
 }
 
+// Contains details about the compaction settings for an Iceberg table.
 func (o LookupTableResultOutput) Compaction() TableCompactionPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *TableCompaction { return v.Compaction }).(TableCompactionPtrOutput)
 }
@@ -80,6 +86,7 @@ func (o LookupTableResultOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
+// Contains details about the Iceberg snapshot management settings for the table.
 func (o LookupTableResultOutput) SnapshotManagement() TableSnapshotManagementPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *TableSnapshotManagement { return v.SnapshotManagement }).(TableSnapshotManagementPtrOutput)
 }
@@ -89,14 +96,17 @@ func (o LookupTableResultOutput) TableArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *string { return v.TableArn }).(pulumi.StringPtrOutput)
 }
 
+// The name for the table.
 func (o LookupTableResultOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *string { return v.TableName }).(pulumi.StringPtrOutput)
 }
 
+// The version token of the table.
 func (o LookupTableResultOutput) VersionToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *string { return v.VersionToken }).(pulumi.StringPtrOutput)
 }
 
+// The warehouse location of the table.
 func (o LookupTableResultOutput) WarehouseLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *string { return v.WarehouseLocation }).(pulumi.StringPtrOutput)
 }

@@ -139,7 +139,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["userParameters"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier", "domainUnitId", "projectProfileId"] };
+        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier", "projectProfileId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }

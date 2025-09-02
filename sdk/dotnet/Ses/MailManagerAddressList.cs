@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.Ses
     [AwsNativeResourceType("aws-native:ses:MailManagerAddressList")]
     public partial class MailManagerAddressList : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the address list.
+        /// </summary>
         [Output("addressListArn")]
         public Output<string> AddressListArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the address list.
+        /// </summary>
         [Output("addressListId")]
         public Output<string> AddressListId { get; private set; } = null!;
 
+        /// <summary>
+        /// A user-friendly name for the address list.
+        /// </summary>
         [Output("addressListName")]
         public Output<string?> AddressListName { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -76,11 +88,18 @@ namespace Pulumi.AwsNative.Ses
 
     public sealed class MailManagerAddressListArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A user-friendly name for the address list.
+        /// </summary>
         [Input("addressListName")]
         public Input<string>? AddressListName { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

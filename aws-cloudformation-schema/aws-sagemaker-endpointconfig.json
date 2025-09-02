@@ -122,6 +122,9 @@
         "ModelDataDownloadTimeoutInSeconds" : {
           "type" : "integer"
         },
+        "CapacityReservationConfig" : {
+          "$ref" : "#/definitions/CapacityReservationConfig"
+        },
         "InferenceAmiVersion" : {
           "type" : "string"
         },
@@ -312,6 +315,18 @@
       "properties" : {
         "MaxConcurrentInvocationsPerInstance" : {
           "type" : "integer"
+        }
+      }
+    },
+    "CapacityReservationConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MlReservationArn" : {
+          "type" : "string"
+        },
+        "CapacityReservationPreference" : {
+          "type" : "string"
         }
       }
     },

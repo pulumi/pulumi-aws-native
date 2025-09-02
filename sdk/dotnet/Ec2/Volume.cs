@@ -40,6 +40,7 @@ namespace Pulumi.AwsNative.Ec2
 
         /// <summary>
         /// The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
+        ///  Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
@@ -207,6 +208,7 @@ namespace Pulumi.AwsNative.Ec2
 
         /// <summary>
         /// The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
+        ///  Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
         /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;

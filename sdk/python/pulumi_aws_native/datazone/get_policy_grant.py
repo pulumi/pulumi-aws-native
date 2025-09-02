@@ -82,7 +82,11 @@ def get_policy_grant(domain_identifier: Optional[builtins.str] = None,
     Policy Grant in AWS DataZone is an explicit authorization assignment that allows a specific principal (user, group, or project) to perform particular actions (such as creating glossary terms, managing projects, or accessing resources) on governed resources within a certain scope (like a Domain Unit or Project). Policy Grants are essentially the mechanism by which DataZone enforces fine-grained, role-based access control beyond what is possible through AWS IAM alone.
 
 
+    :param builtins.str domain_identifier: The ID of the domain where you want to add a policy grant.
+    :param builtins.str entity_identifier: The ID of the entity (resource) to which you want to add a policy grant.
+    :param 'PolicyGrantTargetEntityType' entity_type: The type of entity (resource) to which the grant is added.
     :param builtins.str grant_id: The unique identifier of the policy grant returned by the AddPolicyGrant API
+    :param builtins.str policy_type: The type of policy that you want to grant.
     """
     __args__ = dict()
     __args__['domainIdentifier'] = domain_identifier
@@ -107,7 +111,11 @@ def get_policy_grant_output(domain_identifier: Optional[pulumi.Input[builtins.st
     Policy Grant in AWS DataZone is an explicit authorization assignment that allows a specific principal (user, group, or project) to perform particular actions (such as creating glossary terms, managing projects, or accessing resources) on governed resources within a certain scope (like a Domain Unit or Project). Policy Grants are essentially the mechanism by which DataZone enforces fine-grained, role-based access control beyond what is possible through AWS IAM alone.
 
 
+    :param builtins.str domain_identifier: The ID of the domain where you want to add a policy grant.
+    :param builtins.str entity_identifier: The ID of the entity (resource) to which you want to add a policy grant.
+    :param 'PolicyGrantTargetEntityType' entity_type: The type of entity (resource) to which the grant is added.
     :param builtins.str grant_id: The unique identifier of the policy grant returned by the AddPolicyGrant API
+    :param builtins.str policy_type: The type of policy that you want to grant.
     """
     __args__ = dict()
     __args__['domainIdentifier'] = domain_identifier

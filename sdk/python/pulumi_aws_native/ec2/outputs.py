@@ -946,7 +946,7 @@ class Ec2FleetBlockDeviceMapping(dict):
                  no_device: Optional[builtins.str] = None,
                  virtual_name: Optional[builtins.str] = None):
         """
-        :param builtins.str device_name: The device name (for example, `/dev/sdh` or `xvdh` ).
+        :param builtins.str device_name: The device name. For available device names, see [Device names for volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) .
         :param 'Ec2FleetEbsBlockDevice' ebs: Parameters used to automatically set up EBS volumes when the instance is launched.
         :param builtins.str no_device: To omit the device from the block device mapping, specify an empty string. When this property is specified, the device is removed from the block device mapping regardless of the assigned value.
         :param builtins.str virtual_name: The virtual device name ( `ephemeral` N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
@@ -968,7 +968,7 @@ class Ec2FleetBlockDeviceMapping(dict):
     @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[builtins.str]:
         """
-        The device name (for example, `/dev/sdh` or `xvdh` ).
+        The device name. For available device names, see [Device names for volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) .
         """
         return pulumi.get(self, "device_name")
 
@@ -2679,16 +2679,18 @@ class Ec2FleetPlacement(dict):
                This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) or [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) .
         :param builtins.str availability_zone: The Availability Zone of the instance.
                
-               Either `AvailabilityZone` or `AvailabilityZoneId` can be specified, but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone based on the load balancing criteria for the Region.
+               On input, you can specify `AvailabilityZone` or `AvailabilityZoneId` , but not both. If you specify neither one, Amazon EC2 automatically selects an Availability Zone for you.
                
                This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
-        :param builtins.str group_name: The name of the placement group that the instance is in. If you specify `GroupName` , you can't specify `GroupId` .
+        :param builtins.str group_name: The name of the placement group that the instance is in.
+               
+               On input, you can specify `GroupId` or `GroupName` , but not both.
         :param builtins.str host_id: The ID of the Dedicated Host on which the instance resides.
                
                This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) or [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) .
         :param builtins.str host_resource_group_arn: The ARN of the host resource group in which to launch the instances.
                
-               If you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
+               On input, if you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
                
                This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
         :param builtins.int partition_number: The number of the partition that the instance is in. Valid only if the placement group strategy is set to `partition` .
@@ -2732,7 +2734,7 @@ class Ec2FleetPlacement(dict):
         """
         The Availability Zone of the instance.
 
-        Either `AvailabilityZone` or `AvailabilityZoneId` can be specified, but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone based on the load balancing criteria for the Region.
+        On input, you can specify `AvailabilityZone` or `AvailabilityZoneId` , but not both. If you specify neither one, Amazon EC2 automatically selects an Availability Zone for you.
 
         This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
         """
@@ -2742,7 +2744,9 @@ class Ec2FleetPlacement(dict):
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[builtins.str]:
         """
-        The name of the placement group that the instance is in. If you specify `GroupName` , you can't specify `GroupId` .
+        The name of the placement group that the instance is in.
+
+        On input, you can specify `GroupId` or `GroupName` , but not both.
         """
         return pulumi.get(self, "group_name")
 
@@ -2762,7 +2766,7 @@ class Ec2FleetPlacement(dict):
         """
         The ARN of the host resource group in which to launch the instances.
 
-        If you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
+        On input, if you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
 
         This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
         """
@@ -11514,7 +11518,7 @@ class SpotFleetBlockDeviceMapping(dict):
                  no_device: Optional[builtins.str] = None,
                  virtual_name: Optional[builtins.str] = None):
         """
-        :param builtins.str device_name: The device name (for example, `/dev/sdh` or `xvdh` ).
+        :param builtins.str device_name: The device name. For available device names, see [Device names for volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) .
         :param 'SpotFleetEbsBlockDevice' ebs: Parameters used to automatically set up EBS volumes when the instance is launched.
         :param builtins.str no_device: To omit the device from the block device mapping, specify an empty string. When this property is specified, the device is removed from the block device mapping regardless of the assigned value.
         :param builtins.str virtual_name: The virtual device name ( `ephemeral` N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
@@ -11535,7 +11539,7 @@ class SpotFleetBlockDeviceMapping(dict):
     @pulumi.getter(name="deviceName")
     def device_name(self) -> builtins.str:
         """
-        The device name (for example, `/dev/sdh` or `xvdh` ).
+        The device name. For available device names, see [Device names for volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) .
         """
         return pulumi.get(self, "device_name")
 

@@ -120,6 +120,7 @@ namespace Pulumi.AwsNative.Ec2
         public readonly bool? AutoEnableIo;
         /// <summary>
         /// The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
+        ///  Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>

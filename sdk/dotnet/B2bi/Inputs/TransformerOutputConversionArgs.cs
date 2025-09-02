@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.B2bi.Inputs
         [Input("advancedOptions")]
         public Input<Inputs.TransformerAdvancedOptionsArgs>? AdvancedOptions { get; set; }
 
+        /// <summary>
+        /// A structure that contains the X12 transaction set and version for the transformer output.
+        /// </summary>
         [Input("formatOptions")]
         public Input<Inputs.TransformerFormatOptionsPropertiesArgs>? FormatOptions { get; set; }
 
+        /// <summary>
+        /// The format for the output from an outbound transformer: only X12 is currently supported.
+        /// </summary>
         [Input("toFormat", required: true)]
         public Input<Pulumi.AwsNative.B2bi.TransformerToFormat> ToFormat { get; set; } = null!;
 

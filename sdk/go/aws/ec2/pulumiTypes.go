@@ -1905,7 +1905,7 @@ func (o Ec2FleetBaselinePerformanceFactorsRequestPtrOutput) Cpu() Ec2FleetCpuPer
 }
 
 type Ec2FleetBlockDeviceMapping struct {
-	// The device name (for example, `/dev/sdh` or `xvdh` ).
+	// The device name. For available device names, see [Device names for volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) .
 	DeviceName *string `pulumi:"deviceName"`
 	// Parameters used to automatically set up EBS volumes when the instance is launched.
 	Ebs *Ec2FleetEbsBlockDevice `pulumi:"ebs"`
@@ -1931,7 +1931,7 @@ type Ec2FleetBlockDeviceMappingInput interface {
 }
 
 type Ec2FleetBlockDeviceMappingArgs struct {
-	// The device name (for example, `/dev/sdh` or `xvdh` ).
+	// The device name. For available device names, see [Device names for volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) .
 	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
 	// Parameters used to automatically set up EBS volumes when the instance is launched.
 	Ebs Ec2FleetEbsBlockDevicePtrInput `pulumi:"ebs"`
@@ -1996,7 +1996,7 @@ func (o Ec2FleetBlockDeviceMappingOutput) ToEc2FleetBlockDeviceMappingOutputWith
 	return o
 }
 
-// The device name (for example, `/dev/sdh` or `xvdh` ).
+// The device name. For available device names, see [Device names for volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) .
 func (o Ec2FleetBlockDeviceMappingOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetBlockDeviceMapping) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
@@ -5842,11 +5842,13 @@ type Ec2FleetPlacement struct {
 	Affinity *string `pulumi:"affinity"`
 	// The Availability Zone of the instance.
 	//
-	// Either `AvailabilityZone` or `AvailabilityZoneId` can be specified, but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone based on the load balancing criteria for the Region.
+	// On input, you can specify `AvailabilityZone` or `AvailabilityZoneId` , but not both. If you specify neither one, Amazon EC2 automatically selects an Availability Zone for you.
 	//
 	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The name of the placement group that the instance is in. If you specify `GroupName` , you can't specify `GroupId` .
+	// The name of the placement group that the instance is in.
+	//
+	// On input, you can specify `GroupId` or `GroupName` , but not both.
 	GroupName *string `pulumi:"groupName"`
 	// The ID of the Dedicated Host on which the instance resides.
 	//
@@ -5854,7 +5856,7 @@ type Ec2FleetPlacement struct {
 	HostId *string `pulumi:"hostId"`
 	// The ARN of the host resource group in which to launch the instances.
 	//
-	// If you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
+	// On input, if you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
 	//
 	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 	HostResourceGroupArn *string `pulumi:"hostResourceGroupArn"`
@@ -5888,11 +5890,13 @@ type Ec2FleetPlacementArgs struct {
 	Affinity pulumi.StringPtrInput `pulumi:"affinity"`
 	// The Availability Zone of the instance.
 	//
-	// Either `AvailabilityZone` or `AvailabilityZoneId` can be specified, but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone based on the load balancing criteria for the Region.
+	// On input, you can specify `AvailabilityZone` or `AvailabilityZoneId` , but not both. If you specify neither one, Amazon EC2 automatically selects an Availability Zone for you.
 	//
 	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	// The name of the placement group that the instance is in. If you specify `GroupName` , you can't specify `GroupId` .
+	// The name of the placement group that the instance is in.
+	//
+	// On input, you can specify `GroupId` or `GroupName` , but not both.
 	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
 	// The ID of the Dedicated Host on which the instance resides.
 	//
@@ -5900,7 +5904,7 @@ type Ec2FleetPlacementArgs struct {
 	HostId pulumi.StringPtrInput `pulumi:"hostId"`
 	// The ARN of the host resource group in which to launch the instances.
 	//
-	// If you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
+	// On input, if you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
 	//
 	// This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 	HostResourceGroupArn pulumi.StringPtrInput `pulumi:"hostResourceGroupArn"`
@@ -6002,14 +6006,16 @@ func (o Ec2FleetPlacementOutput) Affinity() pulumi.StringPtrOutput {
 
 // The Availability Zone of the instance.
 //
-// Either `AvailabilityZone` or `AvailabilityZoneId` can be specified, but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone based on the load balancing criteria for the Region.
+// On input, you can specify `AvailabilityZone` or `AvailabilityZoneId` , but not both. If you specify neither one, Amazon EC2 automatically selects an Availability Zone for you.
 //
 // This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 func (o Ec2FleetPlacementOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetPlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// The name of the placement group that the instance is in. If you specify `GroupName` , you can't specify `GroupId` .
+// The name of the placement group that the instance is in.
+//
+// On input, you can specify `GroupId` or `GroupName` , but not both.
 func (o Ec2FleetPlacementOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetPlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
 }
@@ -6023,7 +6029,7 @@ func (o Ec2FleetPlacementOutput) HostId() pulumi.StringPtrOutput {
 
 // The ARN of the host resource group in which to launch the instances.
 //
-// If you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
+// On input, if you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
 //
 // This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 func (o Ec2FleetPlacementOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
@@ -6087,7 +6093,7 @@ func (o Ec2FleetPlacementPtrOutput) Affinity() pulumi.StringPtrOutput {
 
 // The Availability Zone of the instance.
 //
-// Either `AvailabilityZone` or `AvailabilityZoneId` can be specified, but not both. If neither is specified, Amazon EC2 automatically selects an Availability Zone based on the load balancing criteria for the Region.
+// On input, you can specify `AvailabilityZone` or `AvailabilityZoneId` , but not both. If you specify neither one, Amazon EC2 automatically selects an Availability Zone for you.
 //
 // This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 func (o Ec2FleetPlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
@@ -6099,7 +6105,9 @@ func (o Ec2FleetPlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the placement group that the instance is in. If you specify `GroupName` , you can't specify `GroupId` .
+// The name of the placement group that the instance is in.
+//
+// On input, you can specify `GroupId` or `GroupName` , but not both.
 func (o Ec2FleetPlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2FleetPlacement) *string {
 		if v == nil {
@@ -6123,7 +6131,7 @@ func (o Ec2FleetPlacementPtrOutput) HostId() pulumi.StringPtrOutput {
 
 // The ARN of the host resource group in which to launch the instances.
 //
-// If you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
+// On input, if you specify this parameter, either omit the *Tenancy* parameter or set it to `host` .
 //
 // This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 func (o Ec2FleetPlacementPtrOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
@@ -24714,7 +24722,7 @@ func (o SpotFleetBaselinePerformanceFactorsRequestPtrOutput) Cpu() SpotFleetCpuP
 }
 
 type SpotFleetBlockDeviceMapping struct {
-	// The device name (for example, `/dev/sdh` or `xvdh` ).
+	// The device name. For available device names, see [Device names for volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) .
 	DeviceName string `pulumi:"deviceName"`
 	// Parameters used to automatically set up EBS volumes when the instance is launched.
 	Ebs *SpotFleetEbsBlockDevice `pulumi:"ebs"`
@@ -24740,7 +24748,7 @@ type SpotFleetBlockDeviceMappingInput interface {
 }
 
 type SpotFleetBlockDeviceMappingArgs struct {
-	// The device name (for example, `/dev/sdh` or `xvdh` ).
+	// The device name. For available device names, see [Device names for volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) .
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// Parameters used to automatically set up EBS volumes when the instance is launched.
 	Ebs SpotFleetEbsBlockDevicePtrInput `pulumi:"ebs"`
@@ -24805,7 +24813,7 @@ func (o SpotFleetBlockDeviceMappingOutput) ToSpotFleetBlockDeviceMappingOutputWi
 	return o
 }
 
-// The device name (for example, `/dev/sdh` or `xvdh` ).
+// The device name. For available device names, see [Device names for volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) .
 func (o SpotFleetBlockDeviceMappingOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetBlockDeviceMapping) string { return v.DeviceName }).(pulumi.StringOutput)
 }

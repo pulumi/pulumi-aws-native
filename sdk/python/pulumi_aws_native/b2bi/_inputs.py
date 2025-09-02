@@ -436,7 +436,15 @@ class PartnershipWrapOptionsArgs:
 if not MYPY:
     class PartnershipX12AcknowledgmentOptionsArgsDict(TypedDict):
         functional_acknowledgment: pulumi.Input['PartnershipX12FunctionalAcknowledgment']
+        """
+        Specifies whether functional acknowledgments (997/999) should be generated for incoming X12 transactions. Valid values are `DO_NOT_GENERATE` , `GENERATE_ALL_SEGMENTS` and `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` .
+
+        If you choose `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` , AWS B2B Data Interchange skips the AK2_Loop when generating an acknowledgment document.
+        """
         technical_acknowledgment: pulumi.Input['PartnershipX12TechnicalAcknowledgment']
+        """
+        Specifies whether technical acknowledgments (TA1) should be generated for incoming X12 interchanges. Valid values are `DO_NOT_GENERATE` and `GENERATE_ALL_SEGMENTS` and.
+        """
 elif False:
     PartnershipX12AcknowledgmentOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -445,12 +453,23 @@ class PartnershipX12AcknowledgmentOptionsArgs:
     def __init__(__self__, *,
                  functional_acknowledgment: pulumi.Input['PartnershipX12FunctionalAcknowledgment'],
                  technical_acknowledgment: pulumi.Input['PartnershipX12TechnicalAcknowledgment']):
+        """
+        :param pulumi.Input['PartnershipX12FunctionalAcknowledgment'] functional_acknowledgment: Specifies whether functional acknowledgments (997/999) should be generated for incoming X12 transactions. Valid values are `DO_NOT_GENERATE` , `GENERATE_ALL_SEGMENTS` and `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` .
+               
+               If you choose `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` , AWS B2B Data Interchange skips the AK2_Loop when generating an acknowledgment document.
+        :param pulumi.Input['PartnershipX12TechnicalAcknowledgment'] technical_acknowledgment: Specifies whether technical acknowledgments (TA1) should be generated for incoming X12 interchanges. Valid values are `DO_NOT_GENERATE` and `GENERATE_ALL_SEGMENTS` and.
+        """
         pulumi.set(__self__, "functional_acknowledgment", functional_acknowledgment)
         pulumi.set(__self__, "technical_acknowledgment", technical_acknowledgment)
 
     @property
     @pulumi.getter(name="functionalAcknowledgment")
     def functional_acknowledgment(self) -> pulumi.Input['PartnershipX12FunctionalAcknowledgment']:
+        """
+        Specifies whether functional acknowledgments (997/999) should be generated for incoming X12 transactions. Valid values are `DO_NOT_GENERATE` , `GENERATE_ALL_SEGMENTS` and `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` .
+
+        If you choose `GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP` , AWS B2B Data Interchange skips the AK2_Loop when generating an acknowledgment document.
+        """
         return pulumi.get(self, "functional_acknowledgment")
 
     @functional_acknowledgment.setter
@@ -460,6 +479,9 @@ class PartnershipX12AcknowledgmentOptionsArgs:
     @property
     @pulumi.getter(name="technicalAcknowledgment")
     def technical_acknowledgment(self) -> pulumi.Input['PartnershipX12TechnicalAcknowledgment']:
+        """
+        Specifies whether technical acknowledgments (TA1) should be generated for incoming X12 interchanges. Valid values are `DO_NOT_GENERATE` and `GENERATE_ALL_SEGMENTS` and.
+        """
         return pulumi.get(self, "technical_acknowledgment")
 
     @technical_acknowledgment.setter
@@ -874,6 +896,9 @@ class PartnershipX12OutboundEdiHeadersArgs:
 if not MYPY:
     class TransformerAdvancedOptionsArgsDict(TypedDict):
         x12: NotRequired[pulumi.Input['TransformerX12AdvancedOptionsArgsDict']]
+        """
+        A structure that contains X12-specific advanced options, such as split options for processing X12 EDI files.
+        """
 elif False:
     TransformerAdvancedOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -881,12 +906,18 @@ elif False:
 class TransformerAdvancedOptionsArgs:
     def __init__(__self__, *,
                  x12: Optional[pulumi.Input['TransformerX12AdvancedOptionsArgs']] = None):
+        """
+        :param pulumi.Input['TransformerX12AdvancedOptionsArgs'] x12: A structure that contains X12-specific advanced options, such as split options for processing X12 EDI files.
+        """
         if x12 is not None:
             pulumi.set(__self__, "x12", x12)
 
     @property
     @pulumi.getter
     def x12(self) -> Optional[pulumi.Input['TransformerX12AdvancedOptionsArgs']]:
+        """
+        A structure that contains X12-specific advanced options, such as split options for processing X12 EDI files.
+        """
         return pulumi.get(self, "x12")
 
     @x12.setter
@@ -941,8 +972,17 @@ class TransformerFormatOptionsPropertiesArgs:
 if not MYPY:
     class TransformerInputConversionArgsDict(TypedDict):
         from_format: pulumi.Input['TransformerFromFormat']
+        """
+        The format for the transformer input: currently on `X12` is supported.
+        """
         advanced_options: NotRequired[pulumi.Input['TransformerAdvancedOptionsArgsDict']]
+        """
+        Specifies advanced options for the input conversion process. These options provide additional control over how EDI files are processed during transformation.
+        """
         format_options: NotRequired[pulumi.Input['TransformerFormatOptionsPropertiesArgsDict']]
+        """
+        A structure that contains the formatting options for an inbound transformer.
+        """
 elif False:
     TransformerInputConversionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -952,6 +992,11 @@ class TransformerInputConversionArgs:
                  from_format: pulumi.Input['TransformerFromFormat'],
                  advanced_options: Optional[pulumi.Input['TransformerAdvancedOptionsArgs']] = None,
                  format_options: Optional[pulumi.Input['TransformerFormatOptionsPropertiesArgs']] = None):
+        """
+        :param pulumi.Input['TransformerFromFormat'] from_format: The format for the transformer input: currently on `X12` is supported.
+        :param pulumi.Input['TransformerAdvancedOptionsArgs'] advanced_options: Specifies advanced options for the input conversion process. These options provide additional control over how EDI files are processed during transformation.
+        :param pulumi.Input['TransformerFormatOptionsPropertiesArgs'] format_options: A structure that contains the formatting options for an inbound transformer.
+        """
         pulumi.set(__self__, "from_format", from_format)
         if advanced_options is not None:
             pulumi.set(__self__, "advanced_options", advanced_options)
@@ -961,6 +1006,9 @@ class TransformerInputConversionArgs:
     @property
     @pulumi.getter(name="fromFormat")
     def from_format(self) -> pulumi.Input['TransformerFromFormat']:
+        """
+        The format for the transformer input: currently on `X12` is supported.
+        """
         return pulumi.get(self, "from_format")
 
     @from_format.setter
@@ -970,6 +1018,9 @@ class TransformerInputConversionArgs:
     @property
     @pulumi.getter(name="advancedOptions")
     def advanced_options(self) -> Optional[pulumi.Input['TransformerAdvancedOptionsArgs']]:
+        """
+        Specifies advanced options for the input conversion process. These options provide additional control over how EDI files are processed during transformation.
+        """
         return pulumi.get(self, "advanced_options")
 
     @advanced_options.setter
@@ -979,6 +1030,9 @@ class TransformerInputConversionArgs:
     @property
     @pulumi.getter(name="formatOptions")
     def format_options(self) -> Optional[pulumi.Input['TransformerFormatOptionsPropertiesArgs']]:
+        """
+        A structure that contains the formatting options for an inbound transformer.
+        """
         return pulumi.get(self, "format_options")
 
     @format_options.setter
@@ -989,7 +1043,13 @@ class TransformerInputConversionArgs:
 if not MYPY:
     class TransformerMappingArgsDict(TypedDict):
         template_language: pulumi.Input['TransformerMappingTemplateLanguage']
+        """
+        The transformation language for the template, either XSLT or JSONATA.
+        """
         template: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A string that represents the mapping template, in the transformation language specified in `templateLanguage` .
+        """
 elif False:
     TransformerMappingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -998,6 +1058,10 @@ class TransformerMappingArgs:
     def __init__(__self__, *,
                  template_language: pulumi.Input['TransformerMappingTemplateLanguage'],
                  template: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input['TransformerMappingTemplateLanguage'] template_language: The transformation language for the template, either XSLT or JSONATA.
+        :param pulumi.Input[builtins.str] template: A string that represents the mapping template, in the transformation language specified in `templateLanguage` .
+        """
         pulumi.set(__self__, "template_language", template_language)
         if template is not None:
             pulumi.set(__self__, "template", template)
@@ -1005,6 +1069,9 @@ class TransformerMappingArgs:
     @property
     @pulumi.getter(name="templateLanguage")
     def template_language(self) -> pulumi.Input['TransformerMappingTemplateLanguage']:
+        """
+        The transformation language for the template, either XSLT or JSONATA.
+        """
         return pulumi.get(self, "template_language")
 
     @template_language.setter
@@ -1014,6 +1081,9 @@ class TransformerMappingArgs:
     @property
     @pulumi.getter
     def template(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A string that represents the mapping template, in the transformation language specified in `templateLanguage` .
+        """
         return pulumi.get(self, "template")
 
     @template.setter
@@ -1024,8 +1094,14 @@ class TransformerMappingArgs:
 if not MYPY:
     class TransformerOutputConversionArgsDict(TypedDict):
         to_format: pulumi.Input['TransformerToFormat']
+        """
+        The format for the output from an outbound transformer: only X12 is currently supported.
+        """
         advanced_options: NotRequired[pulumi.Input['TransformerAdvancedOptionsArgsDict']]
         format_options: NotRequired[pulumi.Input['TransformerFormatOptionsPropertiesArgsDict']]
+        """
+        A structure that contains the X12 transaction set and version for the transformer output.
+        """
 elif False:
     TransformerOutputConversionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1035,6 +1111,10 @@ class TransformerOutputConversionArgs:
                  to_format: pulumi.Input['TransformerToFormat'],
                  advanced_options: Optional[pulumi.Input['TransformerAdvancedOptionsArgs']] = None,
                  format_options: Optional[pulumi.Input['TransformerFormatOptionsPropertiesArgs']] = None):
+        """
+        :param pulumi.Input['TransformerToFormat'] to_format: The format for the output from an outbound transformer: only X12 is currently supported.
+        :param pulumi.Input['TransformerFormatOptionsPropertiesArgs'] format_options: A structure that contains the X12 transaction set and version for the transformer output.
+        """
         pulumi.set(__self__, "to_format", to_format)
         if advanced_options is not None:
             pulumi.set(__self__, "advanced_options", advanced_options)
@@ -1044,6 +1124,9 @@ class TransformerOutputConversionArgs:
     @property
     @pulumi.getter(name="toFormat")
     def to_format(self) -> pulumi.Input['TransformerToFormat']:
+        """
+        The format for the output from an outbound transformer: only X12 is currently supported.
+        """
         return pulumi.get(self, "to_format")
 
     @to_format.setter
@@ -1062,6 +1145,9 @@ class TransformerOutputConversionArgs:
     @property
     @pulumi.getter(name="formatOptions")
     def format_options(self) -> Optional[pulumi.Input['TransformerFormatOptionsPropertiesArgs']]:
+        """
+        A structure that contains the X12 transaction set and version for the transformer output.
+        """
         return pulumi.get(self, "format_options")
 
     @format_options.setter
@@ -1072,7 +1158,13 @@ class TransformerOutputConversionArgs:
 if not MYPY:
     class TransformerSampleDocumentKeysArgsDict(TypedDict):
         input: NotRequired[pulumi.Input[builtins.str]]
+        """
+        An array of keys for your input sample documents.
+        """
         output: NotRequired[pulumi.Input[builtins.str]]
+        """
+        An array of keys for your output sample documents.
+        """
 elif False:
     TransformerSampleDocumentKeysArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1081,6 +1173,10 @@ class TransformerSampleDocumentKeysArgs:
     def __init__(__self__, *,
                  input: Optional[pulumi.Input[builtins.str]] = None,
                  output: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] input: An array of keys for your input sample documents.
+        :param pulumi.Input[builtins.str] output: An array of keys for your output sample documents.
+        """
         if input is not None:
             pulumi.set(__self__, "input", input)
         if output is not None:
@@ -1089,6 +1185,9 @@ class TransformerSampleDocumentKeysArgs:
     @property
     @pulumi.getter
     def input(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        An array of keys for your input sample documents.
+        """
         return pulumi.get(self, "input")
 
     @input.setter
@@ -1098,6 +1197,9 @@ class TransformerSampleDocumentKeysArgs:
     @property
     @pulumi.getter
     def output(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        An array of keys for your output sample documents.
+        """
         return pulumi.get(self, "output")
 
     @output.setter
@@ -1108,7 +1210,13 @@ class TransformerSampleDocumentKeysArgs:
 if not MYPY:
     class TransformerSampleDocumentsArgsDict(TypedDict):
         bucket_name: pulumi.Input[builtins.str]
+        """
+        Contains the Amazon S3 bucket that is used to hold your sample documents.
+        """
         keys: pulumi.Input[Sequence[pulumi.Input['TransformerSampleDocumentKeysArgsDict']]]
+        """
+        Contains an array of the Amazon S3 keys used to identify the location for your sample documents.
+        """
 elif False:
     TransformerSampleDocumentsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1117,12 +1225,19 @@ class TransformerSampleDocumentsArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[builtins.str],
                  keys: pulumi.Input[Sequence[pulumi.Input['TransformerSampleDocumentKeysArgs']]]):
+        """
+        :param pulumi.Input[builtins.str] bucket_name: Contains the Amazon S3 bucket that is used to hold your sample documents.
+        :param pulumi.Input[Sequence[pulumi.Input['TransformerSampleDocumentKeysArgs']]] keys: Contains an array of the Amazon S3 keys used to identify the location for your sample documents.
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "keys", keys)
 
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Contains the Amazon S3 bucket that is used to hold your sample documents.
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -1132,6 +1247,9 @@ class TransformerSampleDocumentsArgs:
     @property
     @pulumi.getter
     def keys(self) -> pulumi.Input[Sequence[pulumi.Input['TransformerSampleDocumentKeysArgs']]]:
+        """
+        Contains an array of the Amazon S3 keys used to identify the location for your sample documents.
+        """
         return pulumi.get(self, "keys")
 
     @keys.setter
@@ -1142,7 +1260,13 @@ class TransformerSampleDocumentsArgs:
 if not MYPY:
     class TransformerX12AdvancedOptionsArgsDict(TypedDict):
         split_options: NotRequired[pulumi.Input['TransformerX12SplitOptionsArgsDict']]
+        """
+        Specifies options for splitting X12 EDI files. These options control how large X12 files are divided into smaller, more manageable units.
+        """
         validation_options: NotRequired[pulumi.Input['TransformerX12ValidationOptionsArgsDict']]
+        """
+        Specifies validation options for X12 EDI processing. These options control how validation rules are applied during EDI document processing, including custom validation rules for element length constraints, code list validations, and element requirement checks.
+        """
 elif False:
     TransformerX12AdvancedOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1151,6 +1275,10 @@ class TransformerX12AdvancedOptionsArgs:
     def __init__(__self__, *,
                  split_options: Optional[pulumi.Input['TransformerX12SplitOptionsArgs']] = None,
                  validation_options: Optional[pulumi.Input['TransformerX12ValidationOptionsArgs']] = None):
+        """
+        :param pulumi.Input['TransformerX12SplitOptionsArgs'] split_options: Specifies options for splitting X12 EDI files. These options control how large X12 files are divided into smaller, more manageable units.
+        :param pulumi.Input['TransformerX12ValidationOptionsArgs'] validation_options: Specifies validation options for X12 EDI processing. These options control how validation rules are applied during EDI document processing, including custom validation rules for element length constraints, code list validations, and element requirement checks.
+        """
         if split_options is not None:
             pulumi.set(__self__, "split_options", split_options)
         if validation_options is not None:
@@ -1159,6 +1287,9 @@ class TransformerX12AdvancedOptionsArgs:
     @property
     @pulumi.getter(name="splitOptions")
     def split_options(self) -> Optional[pulumi.Input['TransformerX12SplitOptionsArgs']]:
+        """
+        Specifies options for splitting X12 EDI files. These options control how large X12 files are divided into smaller, more manageable units.
+        """
         return pulumi.get(self, "split_options")
 
     @split_options.setter
@@ -1168,6 +1299,9 @@ class TransformerX12AdvancedOptionsArgs:
     @property
     @pulumi.getter(name="validationOptions")
     def validation_options(self) -> Optional[pulumi.Input['TransformerX12ValidationOptionsArgs']]:
+        """
+        Specifies validation options for X12 EDI processing. These options control how validation rules are applied during EDI document processing, including custom validation rules for element length constraints, code list validations, and element requirement checks.
+        """
         return pulumi.get(self, "validation_options")
 
     @validation_options.setter
@@ -1342,6 +1476,9 @@ class TransformerX12ElementRequirementValidationRuleArgs:
 if not MYPY:
     class TransformerX12SplitOptionsArgsDict(TypedDict):
         split_by: NotRequired[pulumi.Input['TransformerX12SplitBy']]
+        """
+        Specifies the method used to split X12 EDI files. Valid values include `TRANSACTION` (split by individual transaction sets), or `NONE` (no splitting).
+        """
 elif False:
     TransformerX12SplitOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1349,12 +1486,18 @@ elif False:
 class TransformerX12SplitOptionsArgs:
     def __init__(__self__, *,
                  split_by: Optional[pulumi.Input['TransformerX12SplitBy']] = None):
+        """
+        :param pulumi.Input['TransformerX12SplitBy'] split_by: Specifies the method used to split X12 EDI files. Valid values include `TRANSACTION` (split by individual transaction sets), or `NONE` (no splitting).
+        """
         if split_by is not None:
             pulumi.set(__self__, "split_by", split_by)
 
     @property
     @pulumi.getter(name="splitBy")
     def split_by(self) -> Optional[pulumi.Input['TransformerX12SplitBy']]:
+        """
+        Specifies the method used to split X12 EDI files. Valid values include `TRANSACTION` (split by individual transaction sets), or `NONE` (no splitting).
+        """
         return pulumi.get(self, "split_by")
 
     @split_by.setter
@@ -1365,6 +1508,9 @@ class TransformerX12SplitOptionsArgs:
 if not MYPY:
     class TransformerX12ValidationOptionsArgsDict(TypedDict):
         validation_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['TransformerX12ValidationRule0PropertiesArgsDict', 'TransformerX12ValidationRule1PropertiesArgsDict', 'TransformerX12ValidationRule2PropertiesArgsDict']]]]]
+        """
+        Specifies a list of validation rules to apply during EDI document processing. These rules can include code list modifications, element length constraints, and element requirement changes.
+        """
 elif False:
     TransformerX12ValidationOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1372,12 +1518,18 @@ elif False:
 class TransformerX12ValidationOptionsArgs:
     def __init__(__self__, *,
                  validation_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TransformerX12ValidationRule0PropertiesArgs', 'TransformerX12ValidationRule1PropertiesArgs', 'TransformerX12ValidationRule2PropertiesArgs']]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TransformerX12ValidationRule0PropertiesArgs', 'TransformerX12ValidationRule1PropertiesArgs', 'TransformerX12ValidationRule2PropertiesArgs']]]] validation_rules: Specifies a list of validation rules to apply during EDI document processing. These rules can include code list modifications, element length constraints, and element requirement changes.
+        """
         if validation_rules is not None:
             pulumi.set(__self__, "validation_rules", validation_rules)
 
     @property
     @pulumi.getter(name="validationRules")
     def validation_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['TransformerX12ValidationRule0PropertiesArgs', 'TransformerX12ValidationRule1PropertiesArgs', 'TransformerX12ValidationRule2PropertiesArgs']]]]]:
+        """
+        Specifies a list of validation rules to apply during EDI document processing. These rules can include code list modifications, element length constraints, and element requirement changes.
+        """
         return pulumi.get(self, "validation_rules")
 
     @validation_rules.setter

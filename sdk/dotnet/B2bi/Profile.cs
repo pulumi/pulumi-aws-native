@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.B2bi
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the phone number associated with the profile.
+        /// </summary>
         [Output("phone")]
         public Output<string> Phone { get; private set; } = null!;
 
@@ -142,6 +145,9 @@ namespace Pulumi.AwsNative.B2bi
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies the phone number associated with the profile.
+        /// </summary>
         [Input("phone", required: true)]
         public Input<string> Phone { get; set; } = null!;
 

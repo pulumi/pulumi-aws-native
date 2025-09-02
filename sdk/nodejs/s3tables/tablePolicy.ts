@@ -37,10 +37,25 @@ export class TablePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === TablePolicy.__pulumiType;
     }
 
+    /**
+     * The namespace to associated with the table.
+     */
     public /*out*/ readonly namespace!: pulumi.Output<string>;
+    /**
+     * The `JSON` that defines the policy.
+     */
     public readonly resourcePolicy!: pulumi.Output<outputs.s3tables.TablePolicyResourcePolicy>;
+    /**
+     * The Amazon Resource Name (ARN) of the table.
+     */
     public readonly tableArn!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the table bucket that contains the table.
+     */
     public /*out*/ readonly tableBucketArn!: pulumi.Output<string>;
+    /**
+     * The name of the table.
+     */
     public /*out*/ readonly tableName!: pulumi.Output<string>;
 
     /**
@@ -83,6 +98,12 @@ export class TablePolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a TablePolicy resource.
  */
 export interface TablePolicyArgs {
+    /**
+     * The `JSON` that defines the policy.
+     */
     resourcePolicy: pulumi.Input<inputs.s3tables.TablePolicyResourcePolicyArgs>;
+    /**
+     * The Amazon Resource Name (ARN) of the table.
+     */
     tableArn: pulumi.Input<string>;
 }

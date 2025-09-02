@@ -251,6 +251,9 @@ if not MYPY:
         Contains details about the metadata for an Iceberg table.
         """
         iceberg_schema: pulumi.Input['TableIcebergSchemaArgsDict']
+        """
+        The schema for an Iceberg table.
+        """
 elif False:
     TableIcebergMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -260,12 +263,16 @@ class TableIcebergMetadataArgs:
                  iceberg_schema: pulumi.Input['TableIcebergSchemaArgs']):
         """
         Contains details about the metadata for an Iceberg table.
+        :param pulumi.Input['TableIcebergSchemaArgs'] iceberg_schema: The schema for an Iceberg table.
         """
         pulumi.set(__self__, "iceberg_schema", iceberg_schema)
 
     @property
     @pulumi.getter(name="icebergSchema")
     def iceberg_schema(self) -> pulumi.Input['TableIcebergSchemaArgs']:
+        """
+        The schema for an Iceberg table.
+        """
         return pulumi.get(self, "iceberg_schema")
 
     @iceberg_schema.setter
@@ -279,6 +286,9 @@ if not MYPY:
         Contains details about the schema for an Iceberg table
         """
         schema_field_list: pulumi.Input[Sequence[pulumi.Input['TableSchemaFieldArgsDict']]]
+        """
+        The schema fields for the table
+        """
 elif False:
     TableIcebergSchemaArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -288,12 +298,16 @@ class TableIcebergSchemaArgs:
                  schema_field_list: pulumi.Input[Sequence[pulumi.Input['TableSchemaFieldArgs']]]):
         """
         Contains details about the schema for an Iceberg table
+        :param pulumi.Input[Sequence[pulumi.Input['TableSchemaFieldArgs']]] schema_field_list: The schema fields for the table
         """
         pulumi.set(__self__, "schema_field_list", schema_field_list)
 
     @property
     @pulumi.getter(name="schemaFieldList")
     def schema_field_list(self) -> pulumi.Input[Sequence[pulumi.Input['TableSchemaFieldArgs']]]:
+        """
+        The schema fields for the table
+        """
         return pulumi.get(self, "schema_field_list")
 
     @schema_field_list.setter

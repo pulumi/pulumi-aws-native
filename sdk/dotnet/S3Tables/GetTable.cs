@@ -63,18 +63,33 @@ namespace Pulumi.AwsNative.S3Tables
     [OutputType]
     public sealed class GetTableResult
     {
+        /// <summary>
+        /// Contains details about the compaction settings for an Iceberg table.
+        /// </summary>
         public readonly Outputs.TableCompaction? Compaction;
         /// <summary>
         /// The name of the namespace.
         /// </summary>
         public readonly string? Namespace;
+        /// <summary>
+        /// Contains details about the Iceberg snapshot management settings for the table.
+        /// </summary>
         public readonly Outputs.TableSnapshotManagement? SnapshotManagement;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the table.
         /// </summary>
         public readonly string? TableArn;
+        /// <summary>
+        /// The name for the table.
+        /// </summary>
         public readonly string? TableName;
+        /// <summary>
+        /// The version token of the table.
+        /// </summary>
         public readonly string? VersionToken;
+        /// <summary>
+        /// The warehouse location of the table.
+        /// </summary>
         public readonly string? WarehouseLocation;
 
         [OutputConstructor]

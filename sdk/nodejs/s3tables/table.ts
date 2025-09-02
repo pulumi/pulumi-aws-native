@@ -37,6 +37,9 @@ export class Table extends pulumi.CustomResource {
         return obj['__pulumiType'] === Table.__pulumiType;
     }
 
+    /**
+     * Contains details about the compaction settings for an Iceberg table.
+     */
     public readonly compaction!: pulumi.Output<outputs.s3tables.TableCompaction | undefined>;
     /**
      * Contains details about the metadata for an Iceberg table.
@@ -46,16 +49,37 @@ export class Table extends pulumi.CustomResource {
      * The name of the namespace.
      */
     public readonly namespace!: pulumi.Output<string>;
+    /**
+     * The format of the table.
+     */
     public readonly openTableFormat!: pulumi.Output<enums.s3tables.TableOpenTableFormat>;
+    /**
+     * Contains details about the Iceberg snapshot management settings for the table.
+     */
     public readonly snapshotManagement!: pulumi.Output<outputs.s3tables.TableSnapshotManagement | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the table.
      */
     public /*out*/ readonly tableArn!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the table bucket to create the table in.
+     */
     public readonly tableBucketArn!: pulumi.Output<string>;
+    /**
+     * The name for the table.
+     */
     public readonly tableName!: pulumi.Output<string>;
+    /**
+     * The version token of the table.
+     */
     public /*out*/ readonly versionToken!: pulumi.Output<string>;
+    /**
+     * The warehouse location of the table.
+     */
     public /*out*/ readonly warehouseLocation!: pulumi.Output<string>;
+    /**
+     * Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
+     */
     public readonly withoutMetadata!: pulumi.Output<enums.s3tables.TableWithoutMetadata | undefined>;
 
     /**
@@ -113,6 +137,9 @@ export class Table extends pulumi.CustomResource {
  * The set of arguments for constructing a Table resource.
  */
 export interface TableArgs {
+    /**
+     * Contains details about the compaction settings for an Iceberg table.
+     */
     compaction?: pulumi.Input<inputs.s3tables.TableCompactionArgs>;
     /**
      * Contains details about the metadata for an Iceberg table.
@@ -122,9 +149,24 @@ export interface TableArgs {
      * The name of the namespace.
      */
     namespace: pulumi.Input<string>;
+    /**
+     * The format of the table.
+     */
     openTableFormat: pulumi.Input<enums.s3tables.TableOpenTableFormat>;
+    /**
+     * Contains details about the Iceberg snapshot management settings for the table.
+     */
     snapshotManagement?: pulumi.Input<inputs.s3tables.TableSnapshotManagementArgs>;
+    /**
+     * The Amazon Resource Name (ARN) of the table bucket to create the table in.
+     */
     tableBucketArn: pulumi.Input<string>;
+    /**
+     * The name for the table.
+     */
     tableName?: pulumi.Input<string>;
+    /**
+     * Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
+     */
     withoutMetadata?: pulumi.Input<enums.s3tables.TableWithoutMetadata>;
 }

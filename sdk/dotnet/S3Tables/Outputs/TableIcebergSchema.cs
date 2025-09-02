@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.S3Tables.Outputs
     [OutputType]
     public sealed class TableIcebergSchema
     {
+        /// <summary>
+        /// The schema fields for the table
+        /// </summary>
         public readonly ImmutableArray<Outputs.TableSchemaField> SchemaFieldList;
 
         [OutputConstructor]

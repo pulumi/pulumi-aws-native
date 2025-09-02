@@ -38,6 +38,9 @@ export class Namespace extends pulumi.CustomResource {
      * The name of the namespace.
      */
     public readonly namespace!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the table bucket to create the namespace in.
+     */
     public readonly tableBucketArn!: pulumi.Output<string>;
 
     /**
@@ -78,5 +81,8 @@ export interface NamespaceArgs {
      * The name of the namespace.
      */
     namespace: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the table bucket to create the namespace in.
+     */
     tableBucketArn: pulumi.Input<string>;
 }

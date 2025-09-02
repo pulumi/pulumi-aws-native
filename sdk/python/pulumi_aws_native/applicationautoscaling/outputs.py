@@ -301,7 +301,7 @@ class ScalingPolicyCustomizedMetricSpecification(dict):
       
      For an example of how creating new metrics can be useful, see [Scaling based on Amazon SQS](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html) in the *Amazon EC2 Auto Scaling User Guide*. This topic mentions Auto Scaling groups, but the same scenario for Amazon SQS can apply to the target tracking scaling policies that you create for a Spot Fleet by using Application Auto Scaling.
      For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html). 
-      ``CustomizedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
+     ``CustomizedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -336,7 +336,7 @@ class ScalingPolicyCustomizedMetricSpecification(dict):
           
          For an example of how creating new metrics can be useful, see [Scaling based on Amazon SQS](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html) in the *Amazon EC2 Auto Scaling User Guide*. This topic mentions Auto Scaling groups, but the same scenario for Amazon SQS can apply to the target tracking scaling policies that you create for a Spot Fleet by using Application Auto Scaling.
          For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html). 
-          ``CustomizedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
+         ``CustomizedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
         :param Sequence['ScalingPolicyMetricDimension'] dimensions: The dimensions of the metric. 
                 Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
         :param builtins.str metric_name: The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that's returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html).
@@ -445,7 +445,7 @@ class ScalingPolicyMetricDimension(dict):
 class ScalingPolicyPredefinedMetricSpecification(dict):
     """
     Contains predefined metric specification information for a target tracking scaling policy for Application Auto Scaling.
-      ``PredefinedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
+     ``PredefinedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -471,11 +471,11 @@ class ScalingPolicyPredefinedMetricSpecification(dict):
                  resource_label: Optional[builtins.str] = None):
         """
         Contains predefined metric specification information for a target tracking scaling policy for Application Auto Scaling.
-          ``PredefinedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
+         ``PredefinedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
         :param builtins.str predefined_metric_type: The metric type. The ``ALBRequestCountPerTarget`` metric type applies only to Spot fleet requests and ECS services.
         :param builtins.str resource_label: Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ``ALBRequestCountPerTarget`` and there is a target group attached to the Spot Fleet or ECS service.
                 You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). The format of the resource label is:
-                 ``app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff``.
+                ``app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff``.
                 Where:
                  +  app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN
                  +  targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
@@ -500,7 +500,7 @@ class ScalingPolicyPredefinedMetricSpecification(dict):
         """
         Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ``ALBRequestCountPerTarget`` and there is a target group attached to the Spot Fleet or ECS service.
          You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). The format of the resource label is:
-          ``app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff``.
+         ``app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff``.
          Where:
           +  app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN
           +  targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
@@ -997,7 +997,7 @@ class ScalingPolicyPredictiveScalingMetricStat(dict):
 @pulumi.output_type
 class ScalingPolicyPredictiveScalingPolicyConfiguration(dict):
     """
-    Represents a predictive scaling policy configuration.
+    Represents a predictive scaling policy configuration. Predictive scaling is supported on Amazon ECS services.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1029,7 +1029,7 @@ class ScalingPolicyPredictiveScalingPolicyConfiguration(dict):
                  mode: Optional[builtins.str] = None,
                  scheduling_buffer_time: Optional[builtins.int] = None):
         """
-        Represents a predictive scaling policy configuration.
+        Represents a predictive scaling policy configuration. Predictive scaling is supported on Amazon ECS services.
         :param Sequence['ScalingPolicyPredictiveScalingMetricSpecification'] metric_specifications: This structure includes the metrics and target utilization to use for predictive scaling. 
                 This is an array, but we currently only support a single metric specification. That is, you can specify a target value and a single metric pair, or a target value and one scaling metric and one load metric.
         :param builtins.str max_capacity_breach_behavior: Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Defaults to ``HonorMaxCapacity`` if not specified.
@@ -1098,6 +1098,16 @@ class ScalingPolicyPredictiveScalingPredefinedLoadMetric(dict):
     """
     Describes a load metric for a predictive scaling policy. 
      When returned in the output of ``DescribePolicies``, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.
+     The following predefined metrics are available for predictive scaling:
+      +   ``ECSServiceAverageCPUUtilization`` 
+      +   ``ECSServiceAverageMemoryUtilization`` 
+      +   ``ECSServiceCPUUtilization`` 
+      +   ``ECSServiceMemoryUtilization`` 
+      +   ``ECSServiceTotalCPUUtilization`` 
+      +   ``ECSServiceTotalMemoryUtilization`` 
+      +   ``ALBRequestCount`` 
+      +   ``ALBRequestCountPerTarget`` 
+      +   ``TotalALBRequestCount``
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1124,6 +1134,16 @@ class ScalingPolicyPredictiveScalingPredefinedLoadMetric(dict):
         """
         Describes a load metric for a predictive scaling policy. 
          When returned in the output of ``DescribePolicies``, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.
+         The following predefined metrics are available for predictive scaling:
+          +   ``ECSServiceAverageCPUUtilization`` 
+          +   ``ECSServiceAverageMemoryUtilization`` 
+          +   ``ECSServiceCPUUtilization`` 
+          +   ``ECSServiceMemoryUtilization`` 
+          +   ``ECSServiceTotalCPUUtilization`` 
+          +   ``ECSServiceTotalMemoryUtilization`` 
+          +   ``ALBRequestCount`` 
+          +   ``ALBRequestCountPerTarget`` 
+          +   ``TotalALBRequestCount``
         :param builtins.str predefined_metric_type: The metric type.
         :param builtins.str resource_label: A label that uniquely identifies a target group.
         """
@@ -1151,7 +1171,17 @@ class ScalingPolicyPredictiveScalingPredefinedLoadMetric(dict):
 @pulumi.output_type
 class ScalingPolicyPredictiveScalingPredefinedMetricPair(dict):
     """
-    Represents a metric pair for a predictive scaling policy.
+    Represents a metric pair for a predictive scaling policy. 
+     The following predefined metrics are available for predictive scaling:
+      +   ``ECSServiceAverageCPUUtilization`` 
+      +   ``ECSServiceAverageMemoryUtilization`` 
+      +   ``ECSServiceCPUUtilization`` 
+      +   ``ECSServiceMemoryUtilization`` 
+      +   ``ECSServiceTotalCPUUtilization`` 
+      +   ``ECSServiceTotalMemoryUtilization`` 
+      +   ``ALBRequestCount`` 
+      +   ``ALBRequestCountPerTarget`` 
+      +   ``TotalALBRequestCount``
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1176,7 +1206,17 @@ class ScalingPolicyPredictiveScalingPredefinedMetricPair(dict):
                  predefined_metric_type: builtins.str,
                  resource_label: Optional[builtins.str] = None):
         """
-        Represents a metric pair for a predictive scaling policy.
+        Represents a metric pair for a predictive scaling policy. 
+         The following predefined metrics are available for predictive scaling:
+          +   ``ECSServiceAverageCPUUtilization`` 
+          +   ``ECSServiceAverageMemoryUtilization`` 
+          +   ``ECSServiceCPUUtilization`` 
+          +   ``ECSServiceMemoryUtilization`` 
+          +   ``ECSServiceTotalCPUUtilization`` 
+          +   ``ECSServiceTotalMemoryUtilization`` 
+          +   ``ALBRequestCount`` 
+          +   ``ALBRequestCountPerTarget`` 
+          +   ``TotalALBRequestCount``
         :param builtins.str predefined_metric_type: Indicates which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
         :param builtins.str resource_label: A label that uniquely identifies a specific target group from which to determine the total and average request count.
         """
@@ -1206,6 +1246,16 @@ class ScalingPolicyPredictiveScalingPredefinedScalingMetric(dict):
     """
     Describes a scaling metric for a predictive scaling policy. 
      When returned in the output of ``DescribePolicies``, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.
+     The following predefined metrics are available for predictive scaling:
+      +   ``ECSServiceAverageCPUUtilization`` 
+      +   ``ECSServiceAverageMemoryUtilization`` 
+      +   ``ECSServiceCPUUtilization`` 
+      +   ``ECSServiceMemoryUtilization`` 
+      +   ``ECSServiceTotalCPUUtilization`` 
+      +   ``ECSServiceTotalMemoryUtilization`` 
+      +   ``ALBRequestCount`` 
+      +   ``ALBRequestCountPerTarget`` 
+      +   ``TotalALBRequestCount``
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1232,6 +1282,16 @@ class ScalingPolicyPredictiveScalingPredefinedScalingMetric(dict):
         """
         Describes a scaling metric for a predictive scaling policy. 
          When returned in the output of ``DescribePolicies``, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.
+         The following predefined metrics are available for predictive scaling:
+          +   ``ECSServiceAverageCPUUtilization`` 
+          +   ``ECSServiceAverageMemoryUtilization`` 
+          +   ``ECSServiceCPUUtilization`` 
+          +   ``ECSServiceMemoryUtilization`` 
+          +   ``ECSServiceTotalCPUUtilization`` 
+          +   ``ECSServiceTotalMemoryUtilization`` 
+          +   ``ALBRequestCount`` 
+          +   ``ALBRequestCountPerTarget`` 
+          +   ``TotalALBRequestCount``
         :param builtins.str predefined_metric_type: The metric type.
         :param builtins.str resource_label: A label that uniquely identifies a specific target group from which to determine the average request count.
         """
@@ -1511,7 +1571,7 @@ class ScalingPolicyTargetTrackingMetricDataQuery(dict):
     The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
      You can call for a single metric or perform math expressions on multiple metrics. Any expressions used in a metric specification must eventually return a single time series.
      For more information and examples, see [Create a target tracking scaling policy for Application Auto Scaling using metric math](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking-metric-math.html) in the *Application Auto Scaling User Guide*.
-      ``TargetTrackingMetricDataQuery`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html) property type.
+     ``TargetTrackingMetricDataQuery`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html) property type.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1542,7 +1602,7 @@ class ScalingPolicyTargetTrackingMetricDataQuery(dict):
         The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
          You can call for a single metric or perform math expressions on multiple metrics. Any expressions used in a metric specification must eventually return a single time series.
          For more information and examples, see [Create a target tracking scaling policy for Application Auto Scaling using metric math](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking-metric-math.html) in the *Application Auto Scaling User Guide*.
-          ``TargetTrackingMetricDataQuery`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html) property type.
+         ``TargetTrackingMetricDataQuery`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html) property type.
         :param builtins.str expression: The math expression to perform on the returned data, if this object is performing a math expression. This expression can use the ``Id`` of the other metrics to refer to those metrics, and can also use the ``Id`` of other expressions to use the result of those expressions. 
                 Conditional: Within each ``TargetTrackingMetricDataQuery`` object, you must specify either ``Expression`` or ``MetricStat``, but not both.
         :param builtins.str id: A short name that identifies the object's results in the response. This name must be unique among all ``MetricDataQuery`` objects specified for a single scaling policy. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscores. The first character must be a lowercase letter.
@@ -1648,7 +1708,7 @@ class ScalingPolicyTargetTrackingMetricDimension(dict):
 class ScalingPolicyTargetTrackingMetricStat(dict):
     """
     This structure defines the CloudWatch metric to return, along with the statistic and unit.
-      ``TargetTrackingMetricStat`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingMetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdataquery.html) property type.
+     ``TargetTrackingMetricStat`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingMetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdataquery.html) property type.
      For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) in the *Amazon CloudWatch User Guide*.
     """
     def __init__(__self__, *,
@@ -1657,7 +1717,7 @@ class ScalingPolicyTargetTrackingMetricStat(dict):
                  unit: Optional[builtins.str] = None):
         """
         This structure defines the CloudWatch metric to return, along with the statistic and unit.
-          ``TargetTrackingMetricStat`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingMetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdataquery.html) property type.
+         ``TargetTrackingMetricStat`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingMetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdataquery.html) property type.
          For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) in the *Amazon CloudWatch User Guide*.
         :param 'ScalingPolicyTargetTrackingMetric' metric: The CloudWatch metric to return, including the metric name, namespace, and dimensions. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html).
         :param builtins.str stat: The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide*.

@@ -21,6 +21,8 @@ __all__ = [
     'CanaryArtifactConfigArgsDict',
     'CanaryBaseScreenshotArgs',
     'CanaryBaseScreenshotArgsDict',
+    'CanaryBrowserConfigArgs',
+    'CanaryBrowserConfigArgsDict',
     'CanaryCodeArgs',
     'CanaryCodeArgsDict',
     'CanaryDependencyArgs',
@@ -122,6 +124,28 @@ class CanaryBaseScreenshotArgs:
     @ignore_coordinates.setter
     def ignore_coordinates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "ignore_coordinates", value)
+
+
+if not MYPY:
+    class CanaryBrowserConfigArgsDict(TypedDict):
+        browser_type: pulumi.Input['CanaryBrowserType']
+elif False:
+    CanaryBrowserConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CanaryBrowserConfigArgs:
+    def __init__(__self__, *,
+                 browser_type: pulumi.Input['CanaryBrowserType']):
+        pulumi.set(__self__, "browser_type", browser_type)
+
+    @property
+    @pulumi.getter(name="browserType")
+    def browser_type(self) -> pulumi.Input['CanaryBrowserType']:
+        return pulumi.get(self, "browser_type")
+
+    @browser_type.setter
+    def browser_type(self, value: pulumi.Input['CanaryBrowserType']):
+        pulumi.set(self, "browser_type", value)
 
 
 if not MYPY:
@@ -626,6 +650,7 @@ if not MYPY:
         """
         List of screenshots used as base reference for visual testing
         """
+        browser_type: NotRequired[pulumi.Input['CanaryBrowserType']]
 elif False:
     CanaryVisualReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -633,7 +658,8 @@ elif False:
 class CanaryVisualReferenceArgs:
     def __init__(__self__, *,
                  base_canary_run_id: pulumi.Input[builtins.str],
-                 base_screenshots: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]]] = None):
+                 base_screenshots: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]]] = None,
+                 browser_type: Optional[pulumi.Input['CanaryBrowserType']] = None):
         """
         :param pulumi.Input[builtins.str] base_canary_run_id: Canary run id to be used as base reference for visual testing
         :param pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]] base_screenshots: List of screenshots used as base reference for visual testing
@@ -641,6 +667,8 @@ class CanaryVisualReferenceArgs:
         pulumi.set(__self__, "base_canary_run_id", base_canary_run_id)
         if base_screenshots is not None:
             pulumi.set(__self__, "base_screenshots", base_screenshots)
+        if browser_type is not None:
+            pulumi.set(__self__, "browser_type", browser_type)
 
     @property
     @pulumi.getter(name="baseCanaryRunId")
@@ -665,6 +693,15 @@ class CanaryVisualReferenceArgs:
     @base_screenshots.setter
     def base_screenshots(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]]]):
         pulumi.set(self, "base_screenshots", value)
+
+    @property
+    @pulumi.getter(name="browserType")
+    def browser_type(self) -> Optional[pulumi.Input['CanaryBrowserType']]:
+        return pulumi.get(self, "browser_type")
+
+    @browser_type.setter
+    def browser_type(self, value: Optional[pulumi.Input['CanaryBrowserType']]):
+        pulumi.set(self, "browser_type", value)
 
 
 if not MYPY:

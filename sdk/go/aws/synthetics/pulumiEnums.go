@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type CanaryBrowserType string
+
+const (
+	CanaryBrowserTypeChrome  = CanaryBrowserType("CHROME")
+	CanaryBrowserTypeFirefox = CanaryBrowserType("FIREFOX")
+)
+
+func (CanaryBrowserType) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryBrowserType)(nil)).Elem()
+}
+
+func (e CanaryBrowserType) ToCanaryBrowserTypeOutput() CanaryBrowserTypeOutput {
+	return pulumi.ToOutput(e).(CanaryBrowserTypeOutput)
+}
+
+func (e CanaryBrowserType) ToCanaryBrowserTypeOutputWithContext(ctx context.Context) CanaryBrowserTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CanaryBrowserTypeOutput)
+}
+
+func (e CanaryBrowserType) ToCanaryBrowserTypePtrOutput() CanaryBrowserTypePtrOutput {
+	return e.ToCanaryBrowserTypePtrOutputWithContext(context.Background())
+}
+
+func (e CanaryBrowserType) ToCanaryBrowserTypePtrOutputWithContext(ctx context.Context) CanaryBrowserTypePtrOutput {
+	return CanaryBrowserType(e).ToCanaryBrowserTypeOutputWithContext(ctx).ToCanaryBrowserTypePtrOutputWithContext(ctx)
+}
+
+func (e CanaryBrowserType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CanaryBrowserType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CanaryBrowserType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CanaryBrowserType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CanaryBrowserTypeOutput struct{ *pulumi.OutputState }
+
+func (CanaryBrowserTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryBrowserType)(nil)).Elem()
+}
+
+func (o CanaryBrowserTypeOutput) ToCanaryBrowserTypeOutput() CanaryBrowserTypeOutput {
+	return o
+}
+
+func (o CanaryBrowserTypeOutput) ToCanaryBrowserTypeOutputWithContext(ctx context.Context) CanaryBrowserTypeOutput {
+	return o
+}
+
+func (o CanaryBrowserTypeOutput) ToCanaryBrowserTypePtrOutput() CanaryBrowserTypePtrOutput {
+	return o.ToCanaryBrowserTypePtrOutputWithContext(context.Background())
+}
+
+func (o CanaryBrowserTypeOutput) ToCanaryBrowserTypePtrOutputWithContext(ctx context.Context) CanaryBrowserTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CanaryBrowserType) *CanaryBrowserType {
+		return &v
+	}).(CanaryBrowserTypePtrOutput)
+}
+
+func (o CanaryBrowserTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CanaryBrowserTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CanaryBrowserType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CanaryBrowserTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CanaryBrowserTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CanaryBrowserType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CanaryBrowserTypePtrOutput struct{ *pulumi.OutputState }
+
+func (CanaryBrowserTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CanaryBrowserType)(nil)).Elem()
+}
+
+func (o CanaryBrowserTypePtrOutput) ToCanaryBrowserTypePtrOutput() CanaryBrowserTypePtrOutput {
+	return o
+}
+
+func (o CanaryBrowserTypePtrOutput) ToCanaryBrowserTypePtrOutputWithContext(ctx context.Context) CanaryBrowserTypePtrOutput {
+	return o
+}
+
+func (o CanaryBrowserTypePtrOutput) Elem() CanaryBrowserTypeOutput {
+	return o.ApplyT(func(v *CanaryBrowserType) CanaryBrowserType {
+		if v != nil {
+			return *v
+		}
+		var ret CanaryBrowserType
+		return ret
+	}).(CanaryBrowserTypeOutput)
+}
+
+func (o CanaryBrowserTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CanaryBrowserTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CanaryBrowserType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CanaryBrowserTypeInput is an input type that accepts values of the CanaryBrowserType enum
+// A concrete instance of `CanaryBrowserTypeInput` can be one of the following:
+//
+//	CanaryBrowserTypeChrome
+//	CanaryBrowserTypeFirefox
+type CanaryBrowserTypeInput interface {
+	pulumi.Input
+
+	ToCanaryBrowserTypeOutput() CanaryBrowserTypeOutput
+	ToCanaryBrowserTypeOutputWithContext(context.Context) CanaryBrowserTypeOutput
+}
+
+var canaryBrowserTypePtrType = reflect.TypeOf((**CanaryBrowserType)(nil)).Elem()
+
+type CanaryBrowserTypePtrInput interface {
+	pulumi.Input
+
+	ToCanaryBrowserTypePtrOutput() CanaryBrowserTypePtrOutput
+	ToCanaryBrowserTypePtrOutputWithContext(context.Context) CanaryBrowserTypePtrOutput
+}
+
+type canaryBrowserTypePtr string
+
+func CanaryBrowserTypePtr(v string) CanaryBrowserTypePtrInput {
+	return (*canaryBrowserTypePtr)(&v)
+}
+
+func (*canaryBrowserTypePtr) ElementType() reflect.Type {
+	return canaryBrowserTypePtrType
+}
+
+func (in *canaryBrowserTypePtr) ToCanaryBrowserTypePtrOutput() CanaryBrowserTypePtrOutput {
+	return pulumi.ToOutput(in).(CanaryBrowserTypePtrOutput)
+}
+
+func (in *canaryBrowserTypePtr) ToCanaryBrowserTypePtrOutputWithContext(ctx context.Context) CanaryBrowserTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CanaryBrowserTypePtrOutput)
+}
+
 // Type of dependency
 type CanaryDependencyType string
 
@@ -550,6 +715,8 @@ func (o CanaryResourceToTagArrayOutput) Index(i pulumi.IntInput) CanaryResourceT
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryBrowserTypeInput)(nil)).Elem(), CanaryBrowserType("CHROME"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryBrowserTypePtrInput)(nil)).Elem(), CanaryBrowserType("CHROME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryDependencyTypeInput)(nil)).Elem(), CanaryDependencyType("LambdaLayer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryDependencyTypePtrInput)(nil)).Elem(), CanaryDependencyType("LambdaLayer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryProvisionedResourceCleanupInput)(nil)).Elem(), CanaryProvisionedResourceCleanup("AUTOMATIC"))
@@ -557,6 +724,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryResourceToTagInput)(nil)).Elem(), CanaryResourceToTag("lambda-function"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryResourceToTagPtrInput)(nil)).Elem(), CanaryResourceToTag("lambda-function"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryResourceToTagArrayInput)(nil)).Elem(), CanaryResourceToTagArray{})
+	pulumi.RegisterOutputType(CanaryBrowserTypeOutput{})
+	pulumi.RegisterOutputType(CanaryBrowserTypePtrOutput{})
 	pulumi.RegisterOutputType(CanaryDependencyTypeOutput{})
 	pulumi.RegisterOutputType(CanaryDependencyTypePtrOutput{})
 	pulumi.RegisterOutputType(CanaryProvisionedResourceCleanupOutput{})

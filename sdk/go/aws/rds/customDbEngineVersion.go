@@ -31,8 +31,8 @@ type CustomDbEngineVersion struct {
 	//   +   ``custom-oracle-ee-cdb``
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
-	//   *Constraints:* Minimum length is 1. Maximum length is 60.
-	//   *Pattern:* ``^[a-z0-9_.-]{1,60$``}
+	//  *Constraints:* Minimum length is 1. Maximum length is 60.
+	//  *Pattern:*``^[a-z0-9_.-]{1,60$``}
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// A value that indicates the ID of the AMI.
 	ImageId pulumi.StringPtrOutput `pulumi:"imageId"`
@@ -125,8 +125,8 @@ type customDbEngineVersionArgs struct {
 	//   +   ``custom-oracle-ee-cdb``
 	Engine string `pulumi:"engine"`
 	// The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
-	//   *Constraints:* Minimum length is 1. Maximum length is 60.
-	//   *Pattern:* ``^[a-z0-9_.-]{1,60$``}
+	//  *Constraints:* Minimum length is 1. Maximum length is 60.
+	//  *Pattern:*``^[a-z0-9_.-]{1,60$``}
 	EngineVersion string `pulumi:"engineVersion"`
 	// A value that indicates the ID of the AMI.
 	ImageId *string `pulumi:"imageId"`
@@ -163,8 +163,8 @@ type CustomDbEngineVersionArgs struct {
 	//   +   ``custom-oracle-ee-cdb``
 	Engine pulumi.StringInput
 	// The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
-	//   *Constraints:* Minimum length is 1. Maximum length is 60.
-	//   *Pattern:* ``^[a-z0-9_.-]{1,60$``}
+	//  *Constraints:* Minimum length is 1. Maximum length is 60.
+	//  *Pattern:*``^[a-z0-9_.-]{1,60$``}
 	EngineVersion pulumi.StringInput
 	// A value that indicates the ID of the AMI.
 	ImageId pulumi.StringPtrInput
@@ -256,7 +256,7 @@ func (o CustomDbEngineVersionOutput) Engine() pulumi.StringOutput {
 // The name of your CEV. The name format is “major version.customized_string“. For example, a valid CEV name is “19.my_cev1“. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of “Engine“ and “EngineVersion“ is unique per customer per Region.
 //
 //	*Constraints:* Minimum length is 1. Maximum length is 60.
-//	*Pattern:* ``^[a-z0-9_.-]{1,60$``}
+//	*Pattern:*``^[a-z0-9_.-]{1,60$``}
 func (o CustomDbEngineVersionOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }

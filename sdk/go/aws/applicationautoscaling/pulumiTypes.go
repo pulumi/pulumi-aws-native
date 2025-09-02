@@ -543,7 +543,7 @@ func (o ScalableTargetSuspendedStatePtrOutput) ScheduledScalingSuspended() pulum
 //
 //	For an example of how creating new metrics can be useful, see [Scaling based on Amazon SQS](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html) in the *Amazon EC2 Auto Scaling User Guide*. This topic mentions Auto Scaling groups, but the same scenario for Amazon SQS can apply to the target tracking scaling policies that you create for a Spot Fleet by using Application Auto Scaling.
 //	For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html).
-//	 ``CustomizedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
+//	``CustomizedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
 type ScalingPolicyCustomizedMetricSpecification struct {
 	// The dimensions of the metric.
 	//  Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
@@ -580,7 +580,7 @@ type ScalingPolicyCustomizedMetricSpecificationInput interface {
 //
 //	For an example of how creating new metrics can be useful, see [Scaling based on Amazon SQS](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html) in the *Amazon EC2 Auto Scaling User Guide*. This topic mentions Auto Scaling groups, but the same scenario for Amazon SQS can apply to the target tracking scaling policies that you create for a Spot Fleet by using Application Auto Scaling.
 //	For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html).
-//	 ``CustomizedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
+//	``CustomizedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
 type ScalingPolicyCustomizedMetricSpecificationArgs struct {
 	// The dimensions of the metric.
 	//  Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
@@ -659,7 +659,7 @@ func (i *scalingPolicyCustomizedMetricSpecificationPtrType) ToScalingPolicyCusto
 //
 //	For an example of how creating new metrics can be useful, see [Scaling based on Amazon SQS](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html) in the *Amazon EC2 Auto Scaling User Guide*. This topic mentions Auto Scaling groups, but the same scenario for Amazon SQS can apply to the target tracking scaling policies that you create for a Spot Fleet by using Application Auto Scaling.
 //	For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html).
-//	 ``CustomizedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
+//	``CustomizedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
 type ScalingPolicyCustomizedMetricSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyCustomizedMetricSpecificationOutput) ElementType() reflect.Type {
@@ -921,7 +921,7 @@ type ScalingPolicyPredefinedMetricSpecification struct {
 	PredefinedMetricType string `pulumi:"predefinedMetricType"`
 	// Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ``ALBRequestCountPerTarget`` and there is a target group attached to the Spot Fleet or ECS service.
 	//  You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). The format of the resource label is:
-	//   ``app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff``.
+	//  ``app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff``.
 	//  Where:
 	//   +  app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN
 	//   +  targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
@@ -949,7 +949,7 @@ type ScalingPolicyPredefinedMetricSpecificationArgs struct {
 	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
 	// Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ``ALBRequestCountPerTarget`` and there is a target group attached to the Spot Fleet or ECS service.
 	//  You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). The format of the resource label is:
-	//   ``app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff``.
+	//  ``app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff``.
 	//  Where:
 	//   +  app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN
 	//   +  targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
@@ -1046,7 +1046,7 @@ func (o ScalingPolicyPredefinedMetricSpecificationOutput) PredefinedMetricType()
 // Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is “ALBRequestCountPerTarget“ and there is a target group attached to the Spot Fleet or ECS service.
 //
 //	You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). The format of the resource label is:
-//	 ``app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff``.
+//	``app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff``.
 //	Where:
 //	 +  app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN
 //	 +  targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
@@ -1093,7 +1093,7 @@ func (o ScalingPolicyPredefinedMetricSpecificationPtrOutput) PredefinedMetricTyp
 // Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is “ALBRequestCountPerTarget“ and there is a target group attached to the Spot Fleet or ECS service.
 //
 //	You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). The format of the resource label is:
-//	 ``app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff``.
+//	``app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff``.
 //	Where:
 //	 +  app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN
 //	 +  targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
@@ -2330,7 +2330,7 @@ func (o ScalingPolicyPredictiveScalingMetricStatPtrOutput) Unit() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a predictive scaling policy configuration.
+// Represents a predictive scaling policy configuration. Predictive scaling is supported on Amazon ECS services.
 type ScalingPolicyPredictiveScalingPolicyConfiguration struct {
 	// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Defaults to ``HonorMaxCapacity`` if not specified.
 	MaxCapacityBreachBehavior *string `pulumi:"maxCapacityBreachBehavior"`
@@ -2358,7 +2358,7 @@ type ScalingPolicyPredictiveScalingPolicyConfigurationInput interface {
 	ToScalingPolicyPredictiveScalingPolicyConfigurationOutputWithContext(context.Context) ScalingPolicyPredictiveScalingPolicyConfigurationOutput
 }
 
-// Represents a predictive scaling policy configuration.
+// Represents a predictive scaling policy configuration. Predictive scaling is supported on Amazon ECS services.
 type ScalingPolicyPredictiveScalingPolicyConfigurationArgs struct {
 	// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Defaults to ``HonorMaxCapacity`` if not specified.
 	MaxCapacityBreachBehavior pulumi.StringPtrInput `pulumi:"maxCapacityBreachBehavior"`
@@ -2428,7 +2428,7 @@ func (i *scalingPolicyPredictiveScalingPolicyConfigurationPtrType) ToScalingPoli
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput)
 }
 
-// Represents a predictive scaling policy configuration.
+// Represents a predictive scaling policy configuration. Predictive scaling is supported on Amazon ECS services.
 type ScalingPolicyPredictiveScalingPolicyConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyPredictiveScalingPolicyConfigurationOutput) ElementType() reflect.Type {
@@ -2569,6 +2569,16 @@ func (o ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput) SchedulingBu
 // Describes a load metric for a predictive scaling policy.
 //
 //	When returned in the output of ``DescribePolicies``, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.
+//	The following predefined metrics are available for predictive scaling:
+//	 +   ``ECSServiceAverageCPUUtilization``
+//	 +   ``ECSServiceAverageMemoryUtilization``
+//	 +   ``ECSServiceCPUUtilization``
+//	 +   ``ECSServiceMemoryUtilization``
+//	 +   ``ECSServiceTotalCPUUtilization``
+//	 +   ``ECSServiceTotalMemoryUtilization``
+//	 +   ``ALBRequestCount``
+//	 +   ``ALBRequestCountPerTarget``
+//	 +   ``TotalALBRequestCount``
 type ScalingPolicyPredictiveScalingPredefinedLoadMetric struct {
 	// The metric type.
 	PredefinedMetricType string `pulumi:"predefinedMetricType"`
@@ -2590,6 +2600,16 @@ type ScalingPolicyPredictiveScalingPredefinedLoadMetricInput interface {
 // Describes a load metric for a predictive scaling policy.
 //
 //	When returned in the output of ``DescribePolicies``, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.
+//	The following predefined metrics are available for predictive scaling:
+//	 +   ``ECSServiceAverageCPUUtilization``
+//	 +   ``ECSServiceAverageMemoryUtilization``
+//	 +   ``ECSServiceCPUUtilization``
+//	 +   ``ECSServiceMemoryUtilization``
+//	 +   ``ECSServiceTotalCPUUtilization``
+//	 +   ``ECSServiceTotalMemoryUtilization``
+//	 +   ``ALBRequestCount``
+//	 +   ``ALBRequestCountPerTarget``
+//	 +   ``TotalALBRequestCount``
 type ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs struct {
 	// The metric type.
 	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
@@ -2653,6 +2673,16 @@ func (i *scalingPolicyPredictiveScalingPredefinedLoadMetricPtrType) ToScalingPol
 // Describes a load metric for a predictive scaling policy.
 //
 //	When returned in the output of ``DescribePolicies``, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.
+//	The following predefined metrics are available for predictive scaling:
+//	 +   ``ECSServiceAverageCPUUtilization``
+//	 +   ``ECSServiceAverageMemoryUtilization``
+//	 +   ``ECSServiceCPUUtilization``
+//	 +   ``ECSServiceMemoryUtilization``
+//	 +   ``ECSServiceTotalCPUUtilization``
+//	 +   ``ECSServiceTotalMemoryUtilization``
+//	 +   ``ALBRequestCount``
+//	 +   ``ALBRequestCountPerTarget``
+//	 +   ``TotalALBRequestCount``
 type ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput) ElementType() reflect.Type {
@@ -2732,6 +2762,17 @@ func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput) ResourceLab
 }
 
 // Represents a metric pair for a predictive scaling policy.
+//
+//	The following predefined metrics are available for predictive scaling:
+//	 +   ``ECSServiceAverageCPUUtilization``
+//	 +   ``ECSServiceAverageMemoryUtilization``
+//	 +   ``ECSServiceCPUUtilization``
+//	 +   ``ECSServiceMemoryUtilization``
+//	 +   ``ECSServiceTotalCPUUtilization``
+//	 +   ``ECSServiceTotalMemoryUtilization``
+//	 +   ``ALBRequestCount``
+//	 +   ``ALBRequestCountPerTarget``
+//	 +   ``TotalALBRequestCount``
 type ScalingPolicyPredictiveScalingPredefinedMetricPair struct {
 	// Indicates which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
 	PredefinedMetricType string `pulumi:"predefinedMetricType"`
@@ -2751,6 +2792,17 @@ type ScalingPolicyPredictiveScalingPredefinedMetricPairInput interface {
 }
 
 // Represents a metric pair for a predictive scaling policy.
+//
+//	The following predefined metrics are available for predictive scaling:
+//	 +   ``ECSServiceAverageCPUUtilization``
+//	 +   ``ECSServiceAverageMemoryUtilization``
+//	 +   ``ECSServiceCPUUtilization``
+//	 +   ``ECSServiceMemoryUtilization``
+//	 +   ``ECSServiceTotalCPUUtilization``
+//	 +   ``ECSServiceTotalMemoryUtilization``
+//	 +   ``ALBRequestCount``
+//	 +   ``ALBRequestCountPerTarget``
+//	 +   ``TotalALBRequestCount``
 type ScalingPolicyPredictiveScalingPredefinedMetricPairArgs struct {
 	// Indicates which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
 	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
@@ -2812,6 +2864,17 @@ func (i *scalingPolicyPredictiveScalingPredefinedMetricPairPtrType) ToScalingPol
 }
 
 // Represents a metric pair for a predictive scaling policy.
+//
+//	The following predefined metrics are available for predictive scaling:
+//	 +   ``ECSServiceAverageCPUUtilization``
+//	 +   ``ECSServiceAverageMemoryUtilization``
+//	 +   ``ECSServiceCPUUtilization``
+//	 +   ``ECSServiceMemoryUtilization``
+//	 +   ``ECSServiceTotalCPUUtilization``
+//	 +   ``ECSServiceTotalMemoryUtilization``
+//	 +   ``ALBRequestCount``
+//	 +   ``ALBRequestCountPerTarget``
+//	 +   ``TotalALBRequestCount``
 type ScalingPolicyPredictiveScalingPredefinedMetricPairOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyPredictiveScalingPredefinedMetricPairOutput) ElementType() reflect.Type {
@@ -2893,6 +2956,16 @@ func (o ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput) ResourceLab
 // Describes a scaling metric for a predictive scaling policy.
 //
 //	When returned in the output of ``DescribePolicies``, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.
+//	The following predefined metrics are available for predictive scaling:
+//	 +   ``ECSServiceAverageCPUUtilization``
+//	 +   ``ECSServiceAverageMemoryUtilization``
+//	 +   ``ECSServiceCPUUtilization``
+//	 +   ``ECSServiceMemoryUtilization``
+//	 +   ``ECSServiceTotalCPUUtilization``
+//	 +   ``ECSServiceTotalMemoryUtilization``
+//	 +   ``ALBRequestCount``
+//	 +   ``ALBRequestCountPerTarget``
+//	 +   ``TotalALBRequestCount``
 type ScalingPolicyPredictiveScalingPredefinedScalingMetric struct {
 	// The metric type.
 	PredefinedMetricType string `pulumi:"predefinedMetricType"`
@@ -2914,6 +2987,16 @@ type ScalingPolicyPredictiveScalingPredefinedScalingMetricInput interface {
 // Describes a scaling metric for a predictive scaling policy.
 //
 //	When returned in the output of ``DescribePolicies``, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.
+//	The following predefined metrics are available for predictive scaling:
+//	 +   ``ECSServiceAverageCPUUtilization``
+//	 +   ``ECSServiceAverageMemoryUtilization``
+//	 +   ``ECSServiceCPUUtilization``
+//	 +   ``ECSServiceMemoryUtilization``
+//	 +   ``ECSServiceTotalCPUUtilization``
+//	 +   ``ECSServiceTotalMemoryUtilization``
+//	 +   ``ALBRequestCount``
+//	 +   ``ALBRequestCountPerTarget``
+//	 +   ``TotalALBRequestCount``
 type ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs struct {
 	// The metric type.
 	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
@@ -2977,6 +3060,16 @@ func (i *scalingPolicyPredictiveScalingPredefinedScalingMetricPtrType) ToScaling
 // Describes a scaling metric for a predictive scaling policy.
 //
 //	When returned in the output of ``DescribePolicies``, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.
+//	The following predefined metrics are available for predictive scaling:
+//	 +   ``ECSServiceAverageCPUUtilization``
+//	 +   ``ECSServiceAverageMemoryUtilization``
+//	 +   ``ECSServiceCPUUtilization``
+//	 +   ``ECSServiceMemoryUtilization``
+//	 +   ``ECSServiceTotalCPUUtilization``
+//	 +   ``ECSServiceTotalMemoryUtilization``
+//	 +   ``ALBRequestCount``
+//	 +   ``ALBRequestCountPerTarget``
+//	 +   ``TotalALBRequestCount``
 type ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput) ElementType() reflect.Type {
@@ -3628,7 +3721,7 @@ func (o ScalingPolicyTargetTrackingMetricPtrOutput) Namespace() pulumi.StringPtr
 //
 //	You can call for a single metric or perform math expressions on multiple metrics. Any expressions used in a metric specification must eventually return a single time series.
 //	For more information and examples, see [Create a target tracking scaling policy for Application Auto Scaling using metric math](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking-metric-math.html) in the *Application Auto Scaling User Guide*.
-//	 ``TargetTrackingMetricDataQuery`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html) property type.
+//	``TargetTrackingMetricDataQuery`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html) property type.
 type ScalingPolicyTargetTrackingMetricDataQuery struct {
 	// The math expression to perform on the returned data, if this object is performing a math expression. This expression can use the ``Id`` of the other metrics to refer to those metrics, and can also use the ``Id`` of other expressions to use the result of those expressions.
 	//  Conditional: Within each ``TargetTrackingMetricDataQuery`` object, you must specify either ``Expression`` or ``MetricStat``, but not both.
@@ -3661,7 +3754,7 @@ type ScalingPolicyTargetTrackingMetricDataQueryInput interface {
 //
 //	You can call for a single metric or perform math expressions on multiple metrics. Any expressions used in a metric specification must eventually return a single time series.
 //	For more information and examples, see [Create a target tracking scaling policy for Application Auto Scaling using metric math](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking-metric-math.html) in the *Application Auto Scaling User Guide*.
-//	 ``TargetTrackingMetricDataQuery`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html) property type.
+//	``TargetTrackingMetricDataQuery`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html) property type.
 type ScalingPolicyTargetTrackingMetricDataQueryArgs struct {
 	// The math expression to perform on the returned data, if this object is performing a math expression. This expression can use the ``Id`` of the other metrics to refer to those metrics, and can also use the ``Id`` of other expressions to use the result of those expressions.
 	//  Conditional: Within each ``TargetTrackingMetricDataQuery`` object, you must specify either ``Expression`` or ``MetricStat``, but not both.
@@ -3720,7 +3813,7 @@ func (i ScalingPolicyTargetTrackingMetricDataQueryArray) ToScalingPolicyTargetTr
 //
 //	You can call for a single metric or perform math expressions on multiple metrics. Any expressions used in a metric specification must eventually return a single time series.
 //	For more information and examples, see [Create a target tracking scaling policy for Application Auto Scaling using metric math](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking-metric-math.html) in the *Application Auto Scaling User Guide*.
-//	 ``TargetTrackingMetricDataQuery`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html) property type.
+//	``TargetTrackingMetricDataQuery`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html) property type.
 type ScalingPolicyTargetTrackingMetricDataQueryOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyTargetTrackingMetricDataQueryOutput) ElementType() reflect.Type {
@@ -3900,7 +3993,7 @@ func (o ScalingPolicyTargetTrackingMetricDimensionArrayOutput) Index(i pulumi.In
 
 // This structure defines the CloudWatch metric to return, along with the statistic and unit.
 //
-//	 ``TargetTrackingMetricStat`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingMetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdataquery.html) property type.
+//	``TargetTrackingMetricStat`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingMetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdataquery.html) property type.
 //	For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) in the *Amazon CloudWatch User Guide*.
 type ScalingPolicyTargetTrackingMetricStat struct {
 	// The CloudWatch metric to return, including the metric name, namespace, and dimensions. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html).
@@ -3925,7 +4018,7 @@ type ScalingPolicyTargetTrackingMetricStatInput interface {
 
 // This structure defines the CloudWatch metric to return, along with the statistic and unit.
 //
-//	 ``TargetTrackingMetricStat`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingMetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdataquery.html) property type.
+//	``TargetTrackingMetricStat`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingMetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdataquery.html) property type.
 //	For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) in the *Amazon CloudWatch User Guide*.
 type ScalingPolicyTargetTrackingMetricStatArgs struct {
 	// The CloudWatch metric to return, including the metric name, namespace, and dimensions. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html).
@@ -3992,7 +4085,7 @@ func (i *scalingPolicyTargetTrackingMetricStatPtrType) ToScalingPolicyTargetTrac
 
 // This structure defines the CloudWatch metric to return, along with the statistic and unit.
 //
-//	 ``TargetTrackingMetricStat`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingMetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdataquery.html) property type.
+//	``TargetTrackingMetricStat`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingMetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdataquery.html) property type.
 //	For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) in the *Amazon CloudWatch User Guide*.
 type ScalingPolicyTargetTrackingMetricStatOutput struct{ *pulumi.OutputState }
 

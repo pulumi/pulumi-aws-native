@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.GameLiftStreams.Outputs
     public sealed class StreamGroupLocationConfiguration
     {
         /// <summary>
-        /// The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 when creating a stream group or adding a location.
+        /// The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 (2 for high stream classes) when creating a stream group or adding a location.
         /// </summary>
         public readonly int? AlwaysOnCapacity;
         /// <summary>

@@ -26,6 +26,8 @@ class TablePolicyArgs:
                  table_arn: pulumi.Input[builtins.str]):
         """
         The set of arguments for constructing a TablePolicy resource.
+        :param pulumi.Input['TablePolicyResourcePolicyArgs'] resource_policy: The `JSON` that defines the policy.
+        :param pulumi.Input[builtins.str] table_arn: The Amazon Resource Name (ARN) of the table.
         """
         pulumi.set(__self__, "resource_policy", resource_policy)
         pulumi.set(__self__, "table_arn", table_arn)
@@ -33,6 +35,9 @@ class TablePolicyArgs:
     @property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> pulumi.Input['TablePolicyResourcePolicyArgs']:
+        """
+        The `JSON` that defines the policy.
+        """
         return pulumi.get(self, "resource_policy")
 
     @resource_policy.setter
@@ -42,6 +47,9 @@ class TablePolicyArgs:
     @property
     @pulumi.getter(name="tableArn")
     def table_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the table.
+        """
         return pulumi.get(self, "table_arn")
 
     @table_arn.setter
@@ -63,6 +71,8 @@ class TablePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['TablePolicyResourcePolicyArgs', 'TablePolicyResourcePolicyArgsDict']] resource_policy: The `JSON` that defines the policy.
+        :param pulumi.Input[builtins.str] table_arn: The Amazon Resource Name (ARN) of the table.
         """
         ...
     @overload
@@ -142,25 +152,40 @@ class TablePolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def namespace(self) -> pulumi.Output[builtins.str]:
+        """
+        The namespace to associated with the table.
+        """
         return pulumi.get(self, "namespace")
 
     @property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> pulumi.Output['outputs.TablePolicyResourcePolicy']:
+        """
+        The `JSON` that defines the policy.
+        """
         return pulumi.get(self, "resource_policy")
 
     @property
     @pulumi.getter(name="tableArn")
     def table_arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the table.
+        """
         return pulumi.get(self, "table_arn")
 
     @property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the table bucket that contains the table.
+        """
         return pulumi.get(self, "table_bucket_arn")
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[builtins.str]:
+        """
+        The name of the table.
+        """
         return pulumi.get(self, "table_name")
 

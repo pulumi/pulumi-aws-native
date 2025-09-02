@@ -73,6 +73,10 @@ namespace Pulumi.AwsNative
         /// </summary>
         public static Region ApSoutheast5 { get; } = new Region("ap-southeast-5");
         /// <summary>
+        /// Asia Pacific (New Zealand)
+        /// </summary>
+        public static Region ApSoutheast6 { get; } = new Region("ap-southeast-6");
+        /// <summary>
         /// Asia Pacific (Thailand)
         /// </summary>
         public static Region ApSoutheast7 { get; } = new Region("ap-southeast-7");

@@ -33,6 +33,8 @@ type LookupCanaryResult struct {
 	ArtifactConfig *CanaryArtifactConfig `pulumi:"artifactConfig"`
 	// Provide the s3 bucket output location for test results
 	ArtifactS3Location *string `pulumi:"artifactS3Location"`
+	// List of browser configurations for the canary
+	BrowserConfigs []CanaryBrowserConfig `pulumi:"browserConfigs"`
 	// Provide the canary script source
 	Code *CanaryCode `pulumi:"code"`
 	// Lambda Execution role used to run your canaries
@@ -99,6 +101,11 @@ func (o LookupCanaryResultOutput) ArtifactConfig() CanaryArtifactConfigPtrOutput
 // Provide the s3 bucket output location for test results
 func (o LookupCanaryResultOutput) ArtifactS3Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCanaryResult) *string { return v.ArtifactS3Location }).(pulumi.StringPtrOutput)
+}
+
+// List of browser configurations for the canary
+func (o LookupCanaryResultOutput) BrowserConfigs() CanaryBrowserConfigArrayOutput {
+	return o.ApplyT(func(v LookupCanaryResult) []CanaryBrowserConfig { return v.BrowserConfigs }).(CanaryBrowserConfigArrayOutput)
 }
 
 // Provide the canary script source

@@ -16,11 +16,16 @@ import (
 type TablePolicy struct {
 	pulumi.CustomResourceState
 
-	Namespace      pulumi.StringOutput             `pulumi:"namespace"`
+	// The namespace to associated with the table.
+	Namespace pulumi.StringOutput `pulumi:"namespace"`
+	// The `JSON` that defines the policy.
 	ResourcePolicy TablePolicyResourcePolicyOutput `pulumi:"resourcePolicy"`
-	TableArn       pulumi.StringOutput             `pulumi:"tableArn"`
-	TableBucketArn pulumi.StringOutput             `pulumi:"tableBucketArn"`
-	TableName      pulumi.StringOutput             `pulumi:"tableName"`
+	// The Amazon Resource Name (ARN) of the table.
+	TableArn pulumi.StringOutput `pulumi:"tableArn"`
+	// The Amazon Resource Name (ARN) of the table bucket that contains the table.
+	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
+	// The name of the table.
+	TableName pulumi.StringOutput `pulumi:"tableName"`
 }
 
 // NewTablePolicy registers a new resource with the given unique name, arguments, and options.
@@ -73,14 +78,18 @@ func (TablePolicyState) ElementType() reflect.Type {
 }
 
 type tablePolicyArgs struct {
+	// The `JSON` that defines the policy.
 	ResourcePolicy TablePolicyResourcePolicy `pulumi:"resourcePolicy"`
-	TableArn       string                    `pulumi:"tableArn"`
+	// The Amazon Resource Name (ARN) of the table.
+	TableArn string `pulumi:"tableArn"`
 }
 
 // The set of arguments for constructing a TablePolicy resource.
 type TablePolicyArgs struct {
+	// The `JSON` that defines the policy.
 	ResourcePolicy TablePolicyResourcePolicyInput
-	TableArn       pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the table.
+	TableArn pulumi.StringInput
 }
 
 func (TablePolicyArgs) ElementType() reflect.Type {
@@ -120,22 +129,27 @@ func (o TablePolicyOutput) ToTablePolicyOutputWithContext(ctx context.Context) T
 	return o
 }
 
+// The namespace to associated with the table.
 func (o TablePolicyOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *TablePolicy) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }
 
+// The `JSON` that defines the policy.
 func (o TablePolicyOutput) ResourcePolicy() TablePolicyResourcePolicyOutput {
 	return o.ApplyT(func(v *TablePolicy) TablePolicyResourcePolicyOutput { return v.ResourcePolicy }).(TablePolicyResourcePolicyOutput)
 }
 
+// The Amazon Resource Name (ARN) of the table.
 func (o TablePolicyOutput) TableArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TablePolicy) pulumi.StringOutput { return v.TableArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the table bucket that contains the table.
 func (o TablePolicyOutput) TableBucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TablePolicy) pulumi.StringOutput { return v.TableBucketArn }).(pulumi.StringOutput)
 }
 
+// The name of the table.
 func (o TablePolicyOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TablePolicy) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
 }

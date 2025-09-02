@@ -25,6 +25,8 @@ type ComputeEnvironment struct {
 	// Reserved.
 	Context pulumi.StringPtrOutput `pulumi:"context"`
 	// The details for the Amazon EKS cluster that supports the compute environment.
+	//
+	// > To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
 	EksConfiguration ComputeEnvironmentEksConfigurationPtrOutput `pulumi:"eksConfiguration"`
 	// Specifies whether the compute environment is replaced if an update is made that requires replacing the instances in the compute environment. The default value is `true` . To enable more properties to be updated, set this property to `false` . When changing the value of this property to `false` , do not change any other properties at the same time. If other properties are changed at the same time, and the change needs to be rolled back but it can't, it's possible for the stack to go into the `UPDATE_ROLLBACK_FAILED` state. You can't update a stack that is in the `UPDATE_ROLLBACK_FAILED` state. However, if you can continue to roll it back, you can return the stack to its original settings and then try to update it again. For more information, see [Continue rolling back an update](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html) in the *AWS CloudFormation User Guide* .
 	//
@@ -120,6 +122,8 @@ type computeEnvironmentArgs struct {
 	// Reserved.
 	Context *string `pulumi:"context"`
 	// The details for the Amazon EKS cluster that supports the compute environment.
+	//
+	// > To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
 	EksConfiguration *ComputeEnvironmentEksConfiguration `pulumi:"eksConfiguration"`
 	// Specifies whether the compute environment is replaced if an update is made that requires replacing the instances in the compute environment. The default value is `true` . To enable more properties to be updated, set this property to `false` . When changing the value of this property to `false` , do not change any other properties at the same time. If other properties are changed at the same time, and the change needs to be rolled back but it can't, it's possible for the stack to go into the `UPDATE_ROLLBACK_FAILED` state. You can't update a stack that is in the `UPDATE_ROLLBACK_FAILED` state. However, if you can continue to roll it back, you can return the stack to its original settings and then try to update it again. For more information, see [Continue rolling back an update](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html) in the *AWS CloudFormation User Guide* .
 	//
@@ -166,6 +170,8 @@ type ComputeEnvironmentArgs struct {
 	// Reserved.
 	Context pulumi.StringPtrInput
 	// The details for the Amazon EKS cluster that supports the compute environment.
+	//
+	// > To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
 	EksConfiguration ComputeEnvironmentEksConfigurationPtrInput
 	// Specifies whether the compute environment is replaced if an update is made that requires replacing the instances in the compute environment. The default value is `true` . To enable more properties to be updated, set this property to `false` . When changing the value of this property to `false` , do not change any other properties at the same time. If other properties are changed at the same time, and the change needs to be rolled back but it can't, it's possible for the stack to go into the `UPDATE_ROLLBACK_FAILED` state. You can't update a stack that is in the `UPDATE_ROLLBACK_FAILED` state. However, if you can continue to roll it back, you can return the stack to its original settings and then try to update it again. For more information, see [Continue rolling back an update](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html) in the *AWS CloudFormation User Guide* .
 	//
@@ -261,6 +267,8 @@ func (o ComputeEnvironmentOutput) Context() pulumi.StringPtrOutput {
 }
 
 // The details for the Amazon EKS cluster that supports the compute environment.
+//
+// > To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
 func (o ComputeEnvironmentOutput) EksConfiguration() ComputeEnvironmentEksConfigurationPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) ComputeEnvironmentEksConfigurationPtrOutput { return v.EksConfiguration }).(ComputeEnvironmentEksConfigurationPtrOutput)
 }

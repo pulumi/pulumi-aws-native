@@ -10,6 +10,8 @@ from ._enums import *
 from .agent import *
 from .agent_alias import *
 from .application_inference_profile import *
+from .automated_reasoning_policy import *
+from .automated_reasoning_policy_version import *
 from .blueprint import *
 from .data_automation_project import *
 from .data_source import *
@@ -19,6 +21,8 @@ from .flow_version import *
 from .get_agent import *
 from .get_agent_alias import *
 from .get_application_inference_profile import *
+from .get_automated_reasoning_policy import *
+from .get_automated_reasoning_policy_version import *
 from .get_blueprint import *
 from .get_data_automation_project import *
 from .get_data_source import *

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.S3Tables.Outputs
     [OutputType]
     public sealed class TableIcebergMetadata
     {
+        /// <summary>
+        /// The schema for an Iceberg table.
+        /// </summary>
         public readonly Outputs.TableIcebergSchema IcebergSchema;
 
         [OutputConstructor]

@@ -42,21 +42,33 @@ class GetTablePolicyResult:
     @property
     @pulumi.getter
     def namespace(self) -> Optional[builtins.str]:
+        """
+        The namespace to associated with the table.
+        """
         return pulumi.get(self, "namespace")
 
     @property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> Optional['outputs.TablePolicyResourcePolicy']:
+        """
+        The `JSON` that defines the policy.
+        """
         return pulumi.get(self, "resource_policy")
 
     @property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the table bucket that contains the table.
+        """
         return pulumi.get(self, "table_bucket_arn")
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[builtins.str]:
+        """
+        The name of the table.
+        """
         return pulumi.get(self, "table_name")
 
 
@@ -76,6 +88,9 @@ def get_table_policy(table_arn: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTablePolicyResult:
     """
     Resource Type definition for AWS::S3Tables::TablePolicy
+
+
+    :param builtins.str table_arn: The Amazon Resource Name (ARN) of the table.
     """
     __args__ = dict()
     __args__['tableArn'] = table_arn
@@ -91,6 +106,9 @@ def get_table_policy_output(table_arn: Optional[pulumi.Input[builtins.str]] = No
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTablePolicyResult]:
     """
     Resource Type definition for AWS::S3Tables::TablePolicy
+
+
+    :param builtins.str table_arn: The Amazon Resource Name (ARN) of the table.
     """
     __args__ = dict()
     __args__['tableArn'] = table_arn

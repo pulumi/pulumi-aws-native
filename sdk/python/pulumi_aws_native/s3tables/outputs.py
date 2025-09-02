@@ -239,12 +239,16 @@ class TableIcebergMetadata(dict):
                  iceberg_schema: 'outputs.TableIcebergSchema'):
         """
         Contains details about the metadata for an Iceberg table.
+        :param 'TableIcebergSchema' iceberg_schema: The schema for an Iceberg table.
         """
         pulumi.set(__self__, "iceberg_schema", iceberg_schema)
 
     @property
     @pulumi.getter(name="icebergSchema")
     def iceberg_schema(self) -> 'outputs.TableIcebergSchema':
+        """
+        The schema for an Iceberg table.
+        """
         return pulumi.get(self, "iceberg_schema")
 
 
@@ -274,12 +278,16 @@ class TableIcebergSchema(dict):
                  schema_field_list: Sequence['outputs.TableSchemaField']):
         """
         Contains details about the schema for an Iceberg table
+        :param Sequence['TableSchemaField'] schema_field_list: The schema fields for the table
         """
         pulumi.set(__self__, "schema_field_list", schema_field_list)
 
     @property
     @pulumi.getter(name="schemaFieldList")
     def schema_field_list(self) -> Sequence['outputs.TableSchemaField']:
+        """
+        The schema fields for the table
+        """
         return pulumi.get(self, "schema_field_list")
 
 

@@ -28,7 +28,7 @@ class MailManagerAddonSubscriptionArgs:
         The set of arguments for constructing a MailManagerAddonSubscription resource.
         :param pulumi.Input[builtins.str] addon_name: The name of the Add On to subscribe to. You can only have one subscription for each Add On name.
                
-               Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE`
+               Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE | VADE_ADVANCED_EMAIL_SECURITY`
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         pulumi.set(__self__, "addon_name", addon_name)
@@ -41,7 +41,7 @@ class MailManagerAddonSubscriptionArgs:
         """
         The name of the Add On to subscribe to. You can only have one subscription for each Add On name.
 
-        Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE`
+        Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE | VADE_ADVANCED_EMAIL_SECURITY`
         """
         return pulumi.get(self, "addon_name")
 
@@ -78,7 +78,7 @@ class MailManagerAddonSubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] addon_name: The name of the Add On to subscribe to. You can only have one subscription for each Add On name.
                
-               Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE`
+               Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE | VADE_ADVANCED_EMAIL_SECURITY`
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         ...
@@ -158,7 +158,7 @@ class MailManagerAddonSubscription(pulumi.CustomResource):
         """
         The name of the Add On to subscribe to. You can only have one subscription for each Add On name.
 
-        Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE`
+        Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE | VADE_ADVANCED_EMAIL_SECURITY`
         """
         return pulumi.get(self, "addon_name")
 

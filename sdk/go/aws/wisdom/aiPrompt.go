@@ -86,7 +86,6 @@ func NewAiPrompt(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"apiFormat",
 		"assistantId",
-		"modelId",
 		"name",
 		"tags.*",
 		"templateType",

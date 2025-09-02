@@ -23,14 +23,19 @@ func LookupTablePolicy(ctx *pulumi.Context, args *LookupTablePolicyArgs, opts ..
 }
 
 type LookupTablePolicyArgs struct {
+	// The Amazon Resource Name (ARN) of the table.
 	TableArn string `pulumi:"tableArn"`
 }
 
 type LookupTablePolicyResult struct {
-	Namespace      *string                    `pulumi:"namespace"`
+	// The namespace to associated with the table.
+	Namespace *string `pulumi:"namespace"`
+	// The `JSON` that defines the policy.
 	ResourcePolicy *TablePolicyResourcePolicy `pulumi:"resourcePolicy"`
-	TableBucketArn *string                    `pulumi:"tableBucketArn"`
-	TableName      *string                    `pulumi:"tableName"`
+	// The Amazon Resource Name (ARN) of the table bucket that contains the table.
+	TableBucketArn *string `pulumi:"tableBucketArn"`
+	// The name of the table.
+	TableName *string `pulumi:"tableName"`
 }
 
 func LookupTablePolicyOutput(ctx *pulumi.Context, args LookupTablePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupTablePolicyResultOutput {
@@ -43,6 +48,7 @@ func LookupTablePolicyOutput(ctx *pulumi.Context, args LookupTablePolicyOutputAr
 }
 
 type LookupTablePolicyOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the table.
 	TableArn pulumi.StringInput `pulumi:"tableArn"`
 }
 
@@ -64,18 +70,22 @@ func (o LookupTablePolicyResultOutput) ToLookupTablePolicyResultOutputWithContex
 	return o
 }
 
+// The namespace to associated with the table.
 func (o LookupTablePolicyResultOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTablePolicyResult) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
+// The `JSON` that defines the policy.
 func (o LookupTablePolicyResultOutput) ResourcePolicy() TablePolicyResourcePolicyPtrOutput {
 	return o.ApplyT(func(v LookupTablePolicyResult) *TablePolicyResourcePolicy { return v.ResourcePolicy }).(TablePolicyResourcePolicyPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the table bucket that contains the table.
 func (o LookupTablePolicyResultOutput) TableBucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTablePolicyResult) *string { return v.TableBucketArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the table.
 func (o LookupTablePolicyResultOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTablePolicyResult) *string { return v.TableName }).(pulumi.StringPtrOutput)
 }

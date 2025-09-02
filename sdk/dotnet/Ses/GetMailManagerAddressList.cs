@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Ses
 
     public sealed class GetMailManagerAddressListArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the address list.
+        /// </summary>
         [Input("addressListId", required: true)]
         public string AddressListId { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.Ses
 
     public sealed class GetMailManagerAddressListInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the address list.
+        /// </summary>
         [Input("addressListId", required: true)]
         public Input<string> AddressListId { get; set; } = null!;
 
@@ -57,8 +63,17 @@ namespace Pulumi.AwsNative.Ses
     [OutputType]
     public sealed class GetMailManagerAddressListResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the address list.
+        /// </summary>
         public readonly string? AddressListArn;
+        /// <summary>
+        /// The identifier of the address list.
+        /// </summary>
         public readonly string? AddressListId;
+        /// <summary>
+        /// The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

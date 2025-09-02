@@ -33,6 +33,8 @@ const (
 	RegionApSoutheast4 = Region("ap-southeast-4")
 	// Asia Pacific (Malaysia)
 	RegionApSoutheast5 = Region("ap-southeast-5")
+	// Asia Pacific (New Zealand)
+	RegionApSoutheast6 = Region("ap-southeast-6")
 	// Asia Pacific (Thailand)
 	RegionApSoutheast7 = Region("ap-southeast-7")
 	// Canada (Central)

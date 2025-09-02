@@ -19,7 +19,8 @@ type Stage struct {
 	// ID of the active session within the stage.
 	ActiveSessionId pulumi.StringOutput `pulumi:"activeSessionId"`
 	// Stage ARN is automatically generated on creation and assigned as the unique identifier.
-	Arn                                   pulumi.StringOutput                                 `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Configuration object for individual participant recording.
 	AutoParticipantRecordingConfiguration StageAutoParticipantRecordingConfigurationPtrOutput `pulumi:"autoParticipantRecordingConfiguration"`
 	// Stage name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
@@ -67,6 +68,7 @@ func (StageState) ElementType() reflect.Type {
 }
 
 type stageArgs struct {
+	// Configuration object for individual participant recording.
 	AutoParticipantRecordingConfiguration *StageAutoParticipantRecordingConfiguration `pulumi:"autoParticipantRecordingConfiguration"`
 	// Stage name
 	Name *string `pulumi:"name"`
@@ -76,6 +78,7 @@ type stageArgs struct {
 
 // The set of arguments for constructing a Stage resource.
 type StageArgs struct {
+	// Configuration object for individual participant recording.
 	AutoParticipantRecordingConfiguration StageAutoParticipantRecordingConfigurationPtrInput
 	// Stage name
 	Name pulumi.StringPtrInput
@@ -130,6 +133,7 @@ func (o StageOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Configuration object for individual participant recording.
 func (o StageOutput) AutoParticipantRecordingConfiguration() StageAutoParticipantRecordingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Stage) StageAutoParticipantRecordingConfigurationPtrOutput {
 		return v.AutoParticipantRecordingConfiguration

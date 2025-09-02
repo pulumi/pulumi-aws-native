@@ -88,9 +88,9 @@ class UserPoolClientArgs:
                
                See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
                
-               Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
+               Amazon Cognito requires HTTPS over HTTP except for callback URLs to `http://localhost` , `http://127.0.0.1` and `http://[::1]` . These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.
                
-               App callback URLs such as myapp://example are also supported.
+               App callback URLs such as `myapp://example` are also supported.
         :param pulumi.Input[builtins.str] client_name: A friendly name for the app client that you want to create.
         :param pulumi.Input[builtins.str] default_redirect_uri: The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
         :param pulumi.Input[builtins.bool] enable_propagate_additional_user_context_data: When `true` , your application can include additional `UserContextData` in authentication requests. This data includes the IP address, and contributes to analysis by threat protection features. For more information about propagation of user context data, see [Adding session data to API requests](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint) . If you don’t include this parameter, you can't send the source IP address to Amazon Cognito threat protection features. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
@@ -322,9 +322,9 @@ class UserPoolClientArgs:
 
         See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
 
-        Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
+        Amazon Cognito requires HTTPS over HTTP except for callback URLs to `http://localhost` , `http://127.0.0.1` and `http://[::1]` . These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.
 
-        App callback URLs such as myapp://example are also supported.
+        App callback URLs such as `myapp://example` are also supported.
         """
         return pulumi.get(self, "callback_urls")
 
@@ -635,9 +635,9 @@ class UserPoolClient(pulumi.CustomResource):
                
                See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
                
-               Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
+               Amazon Cognito requires HTTPS over HTTP except for callback URLs to `http://localhost` , `http://127.0.0.1` and `http://[::1]` . These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.
                
-               App callback URLs such as myapp://example are also supported.
+               App callback URLs such as `myapp://example` are also supported.
         :param pulumi.Input[builtins.str] client_name: A friendly name for the app client that you want to create.
         :param pulumi.Input[builtins.str] default_redirect_uri: The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
         :param pulumi.Input[builtins.bool] enable_propagate_additional_user_context_data: When `true` , your application can include additional `UserContextData` in authentication requests. This data includes the IP address, and contributes to analysis by threat protection features. For more information about propagation of user context data, see [Adding session data to API requests](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint) . If you don’t include this parameter, you can't send the source IP address to Amazon Cognito threat protection features. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
@@ -924,9 +924,9 @@ class UserPoolClient(pulumi.CustomResource):
 
         See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
 
-        Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
+        Amazon Cognito requires HTTPS over HTTP except for callback URLs to `http://localhost` , `http://127.0.0.1` and `http://[::1]` . These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.
 
-        App callback URLs such as myapp://example are also supported.
+        App callback URLs such as `myapp://example` are also supported.
         """
         return pulumi.get(self, "callback_urls")
 

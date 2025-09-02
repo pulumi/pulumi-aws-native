@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AgentAlias{}
 	case "aws-native:bedrock:ApplicationInferenceProfile":
 		r = &ApplicationInferenceProfile{}
+	case "aws-native:bedrock:AutomatedReasoningPolicy":
+		r = &AutomatedReasoningPolicy{}
+	case "aws-native:bedrock:AutomatedReasoningPolicyVersion":
+		r = &AutomatedReasoningPolicyVersion{}
 	case "aws-native:bedrock:Blueprint":
 		r = &Blueprint{}
 	case "aws-native:bedrock:DataAutomationProject":

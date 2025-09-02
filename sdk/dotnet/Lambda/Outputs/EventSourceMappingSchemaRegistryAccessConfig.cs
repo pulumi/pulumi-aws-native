@@ -10,6 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
+    /// <summary>
+    /// Specific access configuration settings that tell Lambda how to authenticate with your schema registry.
+    ///  If you're working with an GLU schema registry, don't provide authentication details in this object. Instead, ensure that your execution role has the required permissions for Lambda to access your cluster.
+    ///  If you're working with a Confluent schema registry, choose the authentication method in the ``Type`` field, and provide the ASMlong secret ARN in the ``URI`` field.
+    /// </summary>
     [OutputType]
     public sealed class EventSourceMappingSchemaRegistryAccessConfig
     {

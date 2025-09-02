@@ -75,9 +75,8 @@ class EventSourceMappingSchemaRegistryAccessConfigType(builtins.str, Enum):
 class EventSourceMappingSchemaRegistryConfigEventRecordFormat(builtins.str, Enum):
     """
     The record format that Lambda delivers to your function after schema validation.
-
-    - Choose `JSON` to have Lambda deliver the record to your function as a standard JSON object.
-    - Choose `SOURCE` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
+      +  Choose ``JSON`` to have Lambda deliver the record to your function as a standard JSON object.
+      +  Choose ``SOURCE`` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
     """
     JSON = "JSON"
     SOURCE = "SOURCE"
@@ -86,7 +85,7 @@ class EventSourceMappingSchemaRegistryConfigEventRecordFormat(builtins.str, Enum
 @pulumi.type_token("aws-native:lambda:EventSourceMappingSchemaValidationConfigAttribute")
 class EventSourceMappingSchemaValidationConfigAttribute(builtins.str, Enum):
     """
-    The attributes you want your schema registry to validate and filter for. If you selected `JSON` as the `EventRecordFormat` , Lambda also deserializes the selected message attributes.
+    The attributes you want your schema registry to validate and filter for. If you selected ``JSON`` as the ``EventRecordFormat``, Lambda also deserializes the selected message attributes.
     """
     KEY = "KEY"
     VALUE = "VALUE"

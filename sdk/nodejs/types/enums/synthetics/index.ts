@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CanaryBrowserType = {
+    Chrome: "CHROME",
+    Firefox: "FIREFOX",
+} as const;
+
+export type CanaryBrowserType = (typeof CanaryBrowserType)[keyof typeof CanaryBrowserType];
+
 export const CanaryDependencyType = {
     LambdaLayer: "LambdaLayer",
 } as const;

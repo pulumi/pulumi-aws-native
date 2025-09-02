@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.B2bi.Inputs
 
     public sealed class TransformerMappingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A string that represents the mapping template, in the transformation language specified in `templateLanguage` .
+        /// </summary>
         [Input("template")]
         public Input<string>? Template { get; set; }
 
+        /// <summary>
+        /// The transformation language for the template, either XSLT or JSONATA.
+        /// </summary>
         [Input("templateLanguage", required: true)]
         public Input<Pulumi.AwsNative.B2bi.TransformerMappingTemplateLanguage> TemplateLanguage { get; set; } = null!;
 

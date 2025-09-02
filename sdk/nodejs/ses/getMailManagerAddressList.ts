@@ -18,12 +18,24 @@ export function getMailManagerAddressList(args: GetMailManagerAddressListArgs, o
 }
 
 export interface GetMailManagerAddressListArgs {
+    /**
+     * The identifier of the address list.
+     */
     addressListId: string;
 }
 
 export interface GetMailManagerAddressListResult {
+    /**
+     * The Amazon Resource Name (ARN) of the address list.
+     */
     readonly addressListArn?: string;
+    /**
+     * The identifier of the address list.
+     */
     readonly addressListId?: string;
+    /**
+     * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -37,5 +49,8 @@ export function getMailManagerAddressListOutput(args: GetMailManagerAddressListO
 }
 
 export interface GetMailManagerAddressListOutputArgs {
+    /**
+     * The identifier of the address list.
+     */
     addressListId: pulumi.Input<string>;
 }

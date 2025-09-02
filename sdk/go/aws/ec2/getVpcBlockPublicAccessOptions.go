@@ -30,6 +30,8 @@ type LookupVpcBlockPublicAccessOptionsArgs struct {
 type LookupVpcBlockPublicAccessOptionsResult struct {
 	// The identifier for the specified AWS account.
 	AccountId *string `pulumi:"accountId"`
+	// Determines if exclusions are allowed. If you have enabled VPC BPA at the Organization level, exclusions may be not-allowed. Otherwise, they are allowed.
+	ExclusionsAllowed *string `pulumi:"exclusionsAllowed"`
 	// The desired Block Public Access mode for Internet Gateways in your account. We do not allow to create in a off mode as this is the default value
 	InternetGatewayBlockMode *VpcBlockPublicAccessOptionsInternetGatewayBlockMode `pulumi:"internetGatewayBlockMode"`
 }
@@ -69,6 +71,11 @@ func (o LookupVpcBlockPublicAccessOptionsResultOutput) ToLookupVpcBlockPublicAcc
 // The identifier for the specified AWS account.
 func (o LookupVpcBlockPublicAccessOptionsResultOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcBlockPublicAccessOptionsResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// Determines if exclusions are allowed. If you have enabled VPC BPA at the Organization level, exclusions may be not-allowed. Otherwise, they are allowed.
+func (o LookupVpcBlockPublicAccessOptionsResultOutput) ExclusionsAllowed() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcBlockPublicAccessOptionsResult) *string { return v.ExclusionsAllowed }).(pulumi.StringPtrOutput)
 }
 
 // The desired Block Public Access mode for Internet Gateways in your account. We do not allow to create in a off mode as this is the default value

@@ -212,7 +212,7 @@
       "required" : [ "ResourceType", "Tags" ]
     }
   },
-  "required" : [ "ClientCidrBlock", "ConnectionLogOptions", "AuthenticationOptions", "ServerCertificateArn" ],
+  "required" : [ "ConnectionLogOptions", "AuthenticationOptions", "ServerCertificateArn" ],
   "createOnlyProperties" : [ "/properties/TransportProtocol", "/properties/ClientCidrBlock", "/properties/TagSpecifications", "/properties/AuthenticationOptions" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]

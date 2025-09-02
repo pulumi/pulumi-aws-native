@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.B2bi.Outputs
     [OutputType]
     public sealed class TransformerX12AdvancedOptions
     {
+        /// <summary>
+        /// Specifies options for splitting X12 EDI files. These options control how large X12 files are divided into smaller, more manageable units.
+        /// </summary>
         public readonly Outputs.TransformerX12SplitOptions? SplitOptions;
+        /// <summary>
+        /// Specifies validation options for X12 EDI processing. These options control how validation rules are applied during EDI document processing, including custom validation rules for element length constraints, code list validations, and element requirement checks.
+        /// </summary>
         public readonly Outputs.TransformerX12ValidationOptions? ValidationOptions;
 
         [OutputConstructor]

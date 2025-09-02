@@ -24,13 +24,17 @@ func LookupMailManagerAddressList(ctx *pulumi.Context, args *LookupMailManagerAd
 }
 
 type LookupMailManagerAddressListArgs struct {
+	// The identifier of the address list.
 	AddressListId string `pulumi:"addressListId"`
 }
 
 type LookupMailManagerAddressListResult struct {
-	AddressListArn *string   `pulumi:"addressListArn"`
-	AddressListId  *string   `pulumi:"addressListId"`
-	Tags           []aws.Tag `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the address list.
+	AddressListArn *string `pulumi:"addressListArn"`
+	// The identifier of the address list.
+	AddressListId *string `pulumi:"addressListId"`
+	// The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupMailManagerAddressListOutput(ctx *pulumi.Context, args LookupMailManagerAddressListOutputArgs, opts ...pulumi.InvokeOption) LookupMailManagerAddressListResultOutput {
@@ -43,6 +47,7 @@ func LookupMailManagerAddressListOutput(ctx *pulumi.Context, args LookupMailMana
 }
 
 type LookupMailManagerAddressListOutputArgs struct {
+	// The identifier of the address list.
 	AddressListId pulumi.StringInput `pulumi:"addressListId"`
 }
 
@@ -64,14 +69,17 @@ func (o LookupMailManagerAddressListResultOutput) ToLookupMailManagerAddressList
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the address list.
 func (o LookupMailManagerAddressListResultOutput) AddressListArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMailManagerAddressListResult) *string { return v.AddressListArn }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the address list.
 func (o LookupMailManagerAddressListResultOutput) AddressListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMailManagerAddressListResult) *string { return v.AddressListId }).(pulumi.StringPtrOutput)
 }
 
+// The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 func (o LookupMailManagerAddressListResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupMailManagerAddressListResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

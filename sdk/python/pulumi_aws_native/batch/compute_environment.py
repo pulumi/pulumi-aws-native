@@ -41,6 +41,8 @@ class ComputeEnvironmentArgs:
         :param pulumi.Input['ComputeEnvironmentComputeResourcesArgs'] compute_resources: The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
         :param pulumi.Input[builtins.str] context: Reserved.
         :param pulumi.Input['ComputeEnvironmentEksConfigurationArgs'] eks_configuration: The details for the Amazon EKS cluster that supports the compute environment.
+               
+               > To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
         :param pulumi.Input[builtins.bool] replace_compute_environment: Specifies whether the compute environment is replaced if an update is made that requires replacing the instances in the compute environment. The default value is `true` . To enable more properties to be updated, set this property to `false` . When changing the value of this property to `false` , do not change any other properties at the same time. If other properties are changed at the same time, and the change needs to be rolled back but it can't, it's possible for the stack to go into the `UPDATE_ROLLBACK_FAILED` state. You can't update a stack that is in the `UPDATE_ROLLBACK_FAILED` state. However, if you can continue to roll it back, you can return the stack to its original settings and then try to update it again. For more information, see [Continue rolling back an update](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html) in the *AWS CloudFormation User Guide* .
                
                `ReplaceComputeEnvironment` is not applicable for Fargate compute environments. Fargate compute environments are always updated without interruption.
@@ -143,6 +145,8 @@ class ComputeEnvironmentArgs:
     def eks_configuration(self) -> Optional[pulumi.Input['ComputeEnvironmentEksConfigurationArgs']]:
         """
         The details for the Amazon EKS cluster that supports the compute environment.
+
+        > To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
         """
         return pulumi.get(self, "eks_configuration")
 
@@ -270,6 +274,8 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']] compute_resources: The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
         :param pulumi.Input[builtins.str] context: Reserved.
         :param pulumi.Input[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict']] eks_configuration: The details for the Amazon EKS cluster that supports the compute environment.
+               
+               > To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
         :param pulumi.Input[builtins.bool] replace_compute_environment: Specifies whether the compute environment is replaced if an update is made that requires replacing the instances in the compute environment. The default value is `true` . To enable more properties to be updated, set this property to `false` . When changing the value of this property to `false` , do not change any other properties at the same time. If other properties are changed at the same time, and the change needs to be rolled back but it can't, it's possible for the stack to go into the `UPDATE_ROLLBACK_FAILED` state. You can't update a stack that is in the `UPDATE_ROLLBACK_FAILED` state. However, if you can continue to roll it back, you can return the stack to its original settings and then try to update it again. For more information, see [Continue rolling back an update](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html) in the *AWS CloudFormation User Guide* .
                
                `ReplaceComputeEnvironment` is not applicable for Fargate compute environments. Fargate compute environments are always updated without interruption.
@@ -431,6 +437,8 @@ class ComputeEnvironment(pulumi.CustomResource):
     def eks_configuration(self) -> pulumi.Output[Optional['outputs.ComputeEnvironmentEksConfiguration']]:
         """
         The details for the Amazon EKS cluster that supports the compute environment.
+
+        > To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
         """
         return pulumi.get(self, "eks_configuration")
 

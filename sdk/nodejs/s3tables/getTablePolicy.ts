@@ -18,13 +18,28 @@ export function getTablePolicy(args: GetTablePolicyArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetTablePolicyArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the table.
+     */
     tableArn: string;
 }
 
 export interface GetTablePolicyResult {
+    /**
+     * The namespace to associated with the table.
+     */
     readonly namespace?: string;
+    /**
+     * The `JSON` that defines the policy.
+     */
     readonly resourcePolicy?: outputs.s3tables.TablePolicyResourcePolicy;
+    /**
+     * The Amazon Resource Name (ARN) of the table bucket that contains the table.
+     */
     readonly tableBucketArn?: string;
+    /**
+     * The name of the table.
+     */
     readonly tableName?: string;
 }
 /**
@@ -38,5 +53,8 @@ export function getTablePolicyOutput(args: GetTablePolicyOutputArgs, opts?: pulu
 }
 
 export interface GetTablePolicyOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the table.
+     */
     tableArn: pulumi.Input<string>;
 }

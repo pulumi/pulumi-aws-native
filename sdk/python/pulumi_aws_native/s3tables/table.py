@@ -34,7 +34,13 @@ class TableArgs:
         """
         The set of arguments for constructing a Table resource.
         :param pulumi.Input[builtins.str] namespace: The name of the namespace.
+        :param pulumi.Input['TableOpenTableFormat'] open_table_format: The format of the table.
+        :param pulumi.Input[builtins.str] table_bucket_arn: The Amazon Resource Name (ARN) of the table bucket to create the table in.
+        :param pulumi.Input['TableCompactionArgs'] compaction: Contains details about the compaction settings for an Iceberg table.
         :param pulumi.Input['TableIcebergMetadataArgs'] iceberg_metadata: Contains details about the metadata for an Iceberg table.
+        :param pulumi.Input['TableSnapshotManagementArgs'] snapshot_management: Contains details about the Iceberg snapshot management settings for the table.
+        :param pulumi.Input[builtins.str] table_name: The name for the table.
+        :param pulumi.Input['TableWithoutMetadata'] without_metadata: Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
         """
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "open_table_format", open_table_format)
@@ -65,6 +71,9 @@ class TableArgs:
     @property
     @pulumi.getter(name="openTableFormat")
     def open_table_format(self) -> pulumi.Input['TableOpenTableFormat']:
+        """
+        The format of the table.
+        """
         return pulumi.get(self, "open_table_format")
 
     @open_table_format.setter
@@ -74,6 +83,9 @@ class TableArgs:
     @property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the table bucket to create the table in.
+        """
         return pulumi.get(self, "table_bucket_arn")
 
     @table_bucket_arn.setter
@@ -83,6 +95,9 @@ class TableArgs:
     @property
     @pulumi.getter
     def compaction(self) -> Optional[pulumi.Input['TableCompactionArgs']]:
+        """
+        Contains details about the compaction settings for an Iceberg table.
+        """
         return pulumi.get(self, "compaction")
 
     @compaction.setter
@@ -104,6 +119,9 @@ class TableArgs:
     @property
     @pulumi.getter(name="snapshotManagement")
     def snapshot_management(self) -> Optional[pulumi.Input['TableSnapshotManagementArgs']]:
+        """
+        Contains details about the Iceberg snapshot management settings for the table.
+        """
         return pulumi.get(self, "snapshot_management")
 
     @snapshot_management.setter
@@ -113,6 +131,9 @@ class TableArgs:
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name for the table.
+        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -122,6 +143,9 @@ class TableArgs:
     @property
     @pulumi.getter(name="withoutMetadata")
     def without_metadata(self) -> Optional[pulumi.Input['TableWithoutMetadata']]:
+        """
+        Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
+        """
         return pulumi.get(self, "without_metadata")
 
     @without_metadata.setter
@@ -149,8 +173,14 @@ class Table(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['TableCompactionArgs', 'TableCompactionArgsDict']] compaction: Contains details about the compaction settings for an Iceberg table.
         :param pulumi.Input[Union['TableIcebergMetadataArgs', 'TableIcebergMetadataArgsDict']] iceberg_metadata: Contains details about the metadata for an Iceberg table.
         :param pulumi.Input[builtins.str] namespace: The name of the namespace.
+        :param pulumi.Input['TableOpenTableFormat'] open_table_format: The format of the table.
+        :param pulumi.Input[Union['TableSnapshotManagementArgs', 'TableSnapshotManagementArgsDict']] snapshot_management: Contains details about the Iceberg snapshot management settings for the table.
+        :param pulumi.Input[builtins.str] table_bucket_arn: The Amazon Resource Name (ARN) of the table bucket to create the table in.
+        :param pulumi.Input[builtins.str] table_name: The name for the table.
+        :param pulumi.Input['TableWithoutMetadata'] without_metadata: Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
         """
         ...
     @overload
@@ -250,6 +280,9 @@ class Table(pulumi.CustomResource):
     @property
     @pulumi.getter
     def compaction(self) -> pulumi.Output[Optional['outputs.TableCompaction']]:
+        """
+        Contains details about the compaction settings for an Iceberg table.
+        """
         return pulumi.get(self, "compaction")
 
     @property
@@ -271,11 +304,17 @@ class Table(pulumi.CustomResource):
     @property
     @pulumi.getter(name="openTableFormat")
     def open_table_format(self) -> pulumi.Output['TableOpenTableFormat']:
+        """
+        The format of the table.
+        """
         return pulumi.get(self, "open_table_format")
 
     @property
     @pulumi.getter(name="snapshotManagement")
     def snapshot_management(self) -> pulumi.Output[Optional['outputs.TableSnapshotManagement']]:
+        """
+        Contains details about the Iceberg snapshot management settings for the table.
+        """
         return pulumi.get(self, "snapshot_management")
 
     @property
@@ -289,25 +328,40 @@ class Table(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the table bucket to create the table in.
+        """
         return pulumi.get(self, "table_bucket_arn")
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[builtins.str]:
+        """
+        The name for the table.
+        """
         return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter(name="versionToken")
     def version_token(self) -> pulumi.Output[builtins.str]:
+        """
+        The version token of the table.
+        """
         return pulumi.get(self, "version_token")
 
     @property
     @pulumi.getter(name="warehouseLocation")
     def warehouse_location(self) -> pulumi.Output[builtins.str]:
+        """
+        The warehouse location of the table.
+        """
         return pulumi.get(self, "warehouse_location")
 
     @property
     @pulumi.getter(name="withoutMetadata")
     def without_metadata(self) -> pulumi.Output[Optional['TableWithoutMetadata']]:
+        """
+        Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
+        """
         return pulumi.get(self, "without_metadata")
 

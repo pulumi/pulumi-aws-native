@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.S3Tables
     [AwsNativeResourceType("aws-native:s3tables:Table")]
     public partial class Table : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Contains details about the compaction settings for an Iceberg table.
+        /// </summary>
         [Output("compaction")]
         public Output<Outputs.TableCompaction?> Compaction { get; private set; } = null!;
 
@@ -30,9 +33,15 @@ namespace Pulumi.AwsNative.S3Tables
         [Output("namespace")]
         public Output<string> Namespace { get; private set; } = null!;
 
+        /// <summary>
+        /// The format of the table.
+        /// </summary>
         [Output("openTableFormat")]
         public Output<Pulumi.AwsNative.S3Tables.TableOpenTableFormat> OpenTableFormat { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains details about the Iceberg snapshot management settings for the table.
+        /// </summary>
         [Output("snapshotManagement")]
         public Output<Outputs.TableSnapshotManagement?> SnapshotManagement { get; private set; } = null!;
 
@@ -42,18 +51,33 @@ namespace Pulumi.AwsNative.S3Tables
         [Output("tableArn")]
         public Output<string> TableArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the table bucket to create the table in.
+        /// </summary>
         [Output("tableBucketArn")]
         public Output<string> TableBucketArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name for the table.
+        /// </summary>
         [Output("tableName")]
         public Output<string> TableName { get; private set; } = null!;
 
+        /// <summary>
+        /// The version token of the table.
+        /// </summary>
         [Output("versionToken")]
         public Output<string> VersionToken { get; private set; } = null!;
 
+        /// <summary>
+        /// The warehouse location of the table.
+        /// </summary>
         [Output("warehouseLocation")]
         public Output<string> WarehouseLocation { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
+        /// </summary>
         [Output("withoutMetadata")]
         public Output<Pulumi.AwsNative.S3Tables.TableWithoutMetadata?> WithoutMetadata { get; private set; } = null!;
 
@@ -109,6 +133,9 @@ namespace Pulumi.AwsNative.S3Tables
 
     public sealed class TableArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains details about the compaction settings for an Iceberg table.
+        /// </summary>
         [Input("compaction")]
         public Input<Inputs.TableCompactionArgs>? Compaction { get; set; }
 
@@ -124,18 +151,33 @@ namespace Pulumi.AwsNative.S3Tables
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 
+        /// <summary>
+        /// The format of the table.
+        /// </summary>
         [Input("openTableFormat", required: true)]
         public Input<Pulumi.AwsNative.S3Tables.TableOpenTableFormat> OpenTableFormat { get; set; } = null!;
 
+        /// <summary>
+        /// Contains details about the Iceberg snapshot management settings for the table.
+        /// </summary>
         [Input("snapshotManagement")]
         public Input<Inputs.TableSnapshotManagementArgs>? SnapshotManagement { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the table bucket to create the table in.
+        /// </summary>
         [Input("tableBucketArn", required: true)]
         public Input<string> TableBucketArn { get; set; } = null!;
 
+        /// <summary>
+        /// The name for the table.
+        /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }
 
+        /// <summary>
+        /// Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
+        /// </summary>
         [Input("withoutMetadata")]
         public Input<Pulumi.AwsNative.S3Tables.TableWithoutMetadata>? WithoutMetadata { get; set; }
 

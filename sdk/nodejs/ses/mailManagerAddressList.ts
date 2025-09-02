@@ -37,9 +37,21 @@ export class MailManagerAddressList extends pulumi.CustomResource {
         return obj['__pulumiType'] === MailManagerAddressList.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the address list.
+     */
     public /*out*/ readonly addressListArn!: pulumi.Output<string>;
+    /**
+     * The identifier of the address list.
+     */
     public /*out*/ readonly addressListId!: pulumi.Output<string>;
+    /**
+     * A user-friendly name for the address list.
+     */
     public readonly addressListName!: pulumi.Output<string | undefined>;
+    /**
+     * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -74,6 +86,12 @@ export class MailManagerAddressList extends pulumi.CustomResource {
  * The set of arguments for constructing a MailManagerAddressList resource.
  */
 export interface MailManagerAddressListArgs {
+    /**
+     * A user-friendly name for the address list.
+     */
     addressListName?: pulumi.Input<string>;
+    /**
+     * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

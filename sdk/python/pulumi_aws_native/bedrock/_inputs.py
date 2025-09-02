@@ -63,6 +63,16 @@ __all__ = [
     'AgentSessionSummaryConfigurationArgsDict',
     'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs',
     'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict',
+    'AutomatedReasoningPolicyPolicyDefinitionRuleArgs',
+    'AutomatedReasoningPolicyPolicyDefinitionRuleArgsDict',
+    'AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs',
+    'AutomatedReasoningPolicyPolicyDefinitionTypeValueArgsDict',
+    'AutomatedReasoningPolicyPolicyDefinitionTypeArgs',
+    'AutomatedReasoningPolicyPolicyDefinitionTypeArgsDict',
+    'AutomatedReasoningPolicyPolicyDefinitionVariableArgs',
+    'AutomatedReasoningPolicyPolicyDefinitionVariableArgsDict',
+    'AutomatedReasoningPolicyPolicyDefinitionArgs',
+    'AutomatedReasoningPolicyPolicyDefinitionArgsDict',
     'DataAutomationProjectAudioExtractionCategoryArgs',
     'DataAutomationProjectAudioExtractionCategoryArgsDict',
     'DataAutomationProjectAudioOverrideConfigurationArgs',
@@ -1986,6 +1996,358 @@ class ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs:
     @copy_from.setter
     def copy_from(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "copy_from", value)
+
+
+if not MYPY:
+    class AutomatedReasoningPolicyPolicyDefinitionRuleArgsDict(TypedDict):
+        expression: pulumi.Input[builtins.str]
+        """
+        The SMT expression for this rule
+        """
+        id: pulumi.Input[builtins.str]
+        """
+        A unique id within the PolicyDefinition
+        """
+        alternate_expression: NotRequired[pulumi.Input[builtins.str]]
+        """
+        An alternate expression for this rule
+        """
+elif False:
+    AutomatedReasoningPolicyPolicyDefinitionRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutomatedReasoningPolicyPolicyDefinitionRuleArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input[builtins.str],
+                 id: pulumi.Input[builtins.str],
+                 alternate_expression: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] expression: The SMT expression for this rule
+        :param pulumi.Input[builtins.str] id: A unique id within the PolicyDefinition
+        :param pulumi.Input[builtins.str] alternate_expression: An alternate expression for this rule
+        """
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "id", id)
+        if alternate_expression is not None:
+            pulumi.set(__self__, "alternate_expression", alternate_expression)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[builtins.str]:
+        """
+        The SMT expression for this rule
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[builtins.str]:
+        """
+        A unique id within the PolicyDefinition
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="alternateExpression")
+    def alternate_expression(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        An alternate expression for this rule
+        """
+        return pulumi.get(self, "alternate_expression")
+
+    @alternate_expression.setter
+    def alternate_expression(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "alternate_expression", value)
+
+
+if not MYPY:
+    class AutomatedReasoningPolicyPolicyDefinitionTypeValueArgsDict(TypedDict):
+        value: pulumi.Input[builtins.str]
+        """
+        The value of the type value.
+        """
+        description: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A natural language description of the type's value.
+        """
+elif False:
+    AutomatedReasoningPolicyPolicyDefinitionTypeValueArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[builtins.str],
+                 description: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] value: The value of the type value.
+        :param pulumi.Input[builtins.str] description: A natural language description of the type's value.
+        """
+        pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[builtins.str]:
+        """
+        The value of the type value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A natural language description of the type's value.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "description", value)
+
+
+if not MYPY:
+    class AutomatedReasoningPolicyPolicyDefinitionTypeArgsDict(TypedDict):
+        name: pulumi.Input[builtins.str]
+        """
+        A name for this type.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeValueArgsDict']]]
+        """
+        A list of valid values for this type.
+        """
+        description: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A natural language description of this type.
+        """
+elif False:
+    AutomatedReasoningPolicyPolicyDefinitionTypeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutomatedReasoningPolicyPolicyDefinitionTypeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs']]],
+                 description: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] name: A name for this type.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs']]] values: A list of valid values for this type.
+        :param pulumi.Input[builtins.str] description: A natural language description of this type.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        A name for this type.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs']]]:
+        """
+        A list of valid values for this type.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs']]]):
+        pulumi.set(self, "values", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A natural language description of this type.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "description", value)
+
+
+if not MYPY:
+    class AutomatedReasoningPolicyPolicyDefinitionVariableArgsDict(TypedDict):
+        description: pulumi.Input[builtins.str]
+        """
+        A natural language description of this variable.
+        """
+        name: pulumi.Input[builtins.str]
+        """
+        A name from this variable.
+        """
+        type: pulumi.Input[builtins.str]
+        """
+        A type for this variable.
+        """
+elif False:
+    AutomatedReasoningPolicyPolicyDefinitionVariableArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutomatedReasoningPolicyPolicyDefinitionVariableArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[builtins.str],
+                 name: pulumi.Input[builtins.str],
+                 type: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] description: A natural language description of this variable.
+        :param pulumi.Input[builtins.str] name: A name from this variable.
+        :param pulumi.Input[builtins.str] type: A type for this variable.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[builtins.str]:
+        """
+        A natural language description of this variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        A name from this variable.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        A type for this variable.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class AutomatedReasoningPolicyPolicyDefinitionArgsDict(TypedDict):
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionRuleArgsDict']]]]
+        """
+        The rules definition block of an AutomatedReasoningPolicyDefinition.
+        """
+        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeArgsDict']]]]
+        """
+        The types definition block of an AutomatedReasoningPolicyDefinition.
+        """
+        variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionVariableArgsDict']]]]
+        """
+        The variables definition block of an AutomatedReasoningPolicyDefinition.
+        """
+        version: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The policy format version.
+        """
+elif False:
+    AutomatedReasoningPolicyPolicyDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutomatedReasoningPolicyPolicyDefinitionArgs:
+    def __init__(__self__, *,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionRuleArgs']]]] = None,
+                 types: Optional[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeArgs']]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionVariableArgs']]]] = None,
+                 version: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionRuleArgs']]] rules: The rules definition block of an AutomatedReasoningPolicyDefinition.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeArgs']]] types: The types definition block of an AutomatedReasoningPolicyDefinition.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionVariableArgs']]] variables: The variables definition block of an AutomatedReasoningPolicyDefinition.
+        :param pulumi.Input[builtins.str] version: The policy format version.
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionRuleArgs']]]]:
+        """
+        The rules definition block of an AutomatedReasoningPolicyDefinition.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeArgs']]]]:
+        """
+        The types definition block of an AutomatedReasoningPolicyDefinition.
+        """
+        return pulumi.get(self, "types")
+
+    @types.setter
+    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeArgs']]]]):
+        pulumi.set(self, "types", value)
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionVariableArgs']]]]:
+        """
+        The variables definition block of an AutomatedReasoningPolicyDefinition.
+        """
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionVariableArgs']]]]):
+        pulumi.set(self, "variables", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The policy format version.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "version", value)
 
 
 if not MYPY:

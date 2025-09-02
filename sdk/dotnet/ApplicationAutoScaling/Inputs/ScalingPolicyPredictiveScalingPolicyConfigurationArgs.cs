@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 {
 
     /// <summary>
-    /// Represents a predictive scaling policy configuration.
+    /// Represents a predictive scaling policy configuration. Predictive scaling is supported on Amazon ECS services.
     /// </summary>
     public sealed class ScalingPolicyPredictiveScalingPolicyConfigurationArgs : global::Pulumi.ResourceArgs
     {

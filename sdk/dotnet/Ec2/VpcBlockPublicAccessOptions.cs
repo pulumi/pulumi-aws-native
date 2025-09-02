@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
+        /// Determines if exclusions are allowed. If you have enabled VPC BPA at the Organization level, exclusions may be not-allowed. Otherwise, they are allowed.
+        /// </summary>
+        [Output("exclusionsAllowed")]
+        public Output<string> ExclusionsAllowed { get; private set; } = null!;
+
+        /// <summary>
         /// The desired Block Public Access mode for Internet Gateways in your account. We do not allow to create in a off mode as this is the default value
         /// </summary>
         [Output("internetGatewayBlockMode")]

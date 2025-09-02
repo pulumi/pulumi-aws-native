@@ -60,6 +60,7 @@ export class Volume extends pulumi.CustomResource {
     public readonly autoEnableIo!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
+     *  Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
@@ -208,6 +209,7 @@ export interface VolumeArgs {
     autoEnableIo?: pulumi.Input<boolean>;
     /**
      * The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
+     *  Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
      */
     availabilityZone: pulumi.Input<string>;
     /**

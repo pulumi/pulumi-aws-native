@@ -26,6 +26,8 @@ class MailManagerAddressListArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MailManagerAddressList resource.
+        :param pulumi.Input[builtins.str] address_list_name: A user-friendly name for the address list.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         if address_list_name is not None:
             pulumi.set(__self__, "address_list_name", address_list_name)
@@ -35,6 +37,9 @@ class MailManagerAddressListArgs:
     @property
     @pulumi.getter(name="addressListName")
     def address_list_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A user-friendly name for the address list.
+        """
         return pulumi.get(self, "address_list_name")
 
     @address_list_name.setter
@@ -44,6 +49,9 @@ class MailManagerAddressListArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -65,6 +73,8 @@ class MailManagerAddressList(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] address_list_name: A user-friendly name for the address list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         ...
     @overload
@@ -138,20 +148,32 @@ class MailManagerAddressList(pulumi.CustomResource):
     @property
     @pulumi.getter(name="addressListArn")
     def address_list_arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the address list.
+        """
         return pulumi.get(self, "address_list_arn")
 
     @property
     @pulumi.getter(name="addressListId")
     def address_list_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The identifier of the address list.
+        """
         return pulumi.get(self, "address_list_id")
 
     @property
     @pulumi.getter(name="addressListName")
     def address_list_name(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        A user-friendly name for the address list.
+        """
         return pulumi.get(self, "address_list_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        """
         return pulumi.get(self, "tags")
 

@@ -34,6 +34,10 @@ export interface GetCanaryResult {
      */
     readonly artifactS3Location?: string;
     /**
+     * List of browser configurations for the canary
+     */
+    readonly browserConfigs?: outputs.synthetics.CanaryBrowserConfig[];
+    /**
      * Provide the canary script source
      */
     readonly code?: outputs.synthetics.CanaryCode;

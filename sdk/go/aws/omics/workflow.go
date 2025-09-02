@@ -22,6 +22,8 @@ type Workflow struct {
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// When the workflow was created.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// Contains information about a source code repository that hosts the workflow definition files.
+	DefinitionRepository WorkflowDefinitionRepositoryPtrOutput `pulumi:"definitionRepository"`
 	// The URI of a definition for the workflow.
 	DefinitionUri pulumi.StringPtrOutput `pulumi:"definitionUri"`
 	// The parameter's description.
@@ -34,6 +36,14 @@ type Workflow struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The workflow's parameter template.
 	ParameterTemplate WorkflowParameterMapOutput `pulumi:"parameterTemplate"`
+	// Path to the primary workflow parameter template JSON file inside the repository
+	ParameterTemplatePath pulumi.StringPtrOutput `pulumi:"parameterTemplatePath"`
+	// The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
+	ReadmeMarkdown pulumi.StringPtrOutput `pulumi:"readmeMarkdown"`
+	// The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
+	ReadmePath pulumi.StringPtrOutput `pulumi:"readmePath"`
+	// The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
+	ReadmeUri pulumi.StringPtrOutput `pulumi:"readmeUri"`
 	// The workflow's status.
 	Status WorkflowStatusOutput `pulumi:"status"`
 	// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
@@ -44,6 +54,8 @@ type Workflow struct {
 	// The workflow's type.
 	Type WorkflowTypeOutput  `pulumi:"type"`
 	Uuid pulumi.StringOutput `pulumi:"uuid"`
+	// Optional workflow bucket owner ID to verify the workflow bucket
+	WorkflowBucketOwnerId pulumi.StringPtrOutput `pulumi:"workflowBucketOwnerId"`
 }
 
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
@@ -55,11 +67,16 @@ func NewWorkflow(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"accelerators",
+		"definitionRepository",
 		"definitionUri",
 		"engine",
 		"main",
 		"parameterTemplate.*",
+		"parameterTemplatePath",
+		"readmePath",
+		"readmeUri",
 		"storageCapacity",
+		"workflowBucketOwnerId",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -96,6 +113,8 @@ func (WorkflowState) ElementType() reflect.Type {
 
 type workflowArgs struct {
 	Accelerators *WorkflowAccelerators `pulumi:"accelerators"`
+	// Contains information about a source code repository that hosts the workflow definition files.
+	DefinitionRepository *WorkflowDefinitionRepository `pulumi:"definitionRepository"`
 	// The URI of a definition for the workflow.
 	DefinitionUri *string `pulumi:"definitionUri"`
 	// The parameter's description.
@@ -108,16 +127,28 @@ type workflowArgs struct {
 	Name *string `pulumi:"name"`
 	// The workflow's parameter template.
 	ParameterTemplate map[string]WorkflowParameter `pulumi:"parameterTemplate"`
+	// Path to the primary workflow parameter template JSON file inside the repository
+	ParameterTemplatePath *string `pulumi:"parameterTemplatePath"`
+	// The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
+	ReadmeMarkdown *string `pulumi:"readmeMarkdown"`
+	// The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
+	ReadmePath *string `pulumi:"readmePath"`
+	// The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
+	ReadmeUri *string `pulumi:"readmeUri"`
 	// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
 	StorageCapacity *float64             `pulumi:"storageCapacity"`
 	StorageType     *WorkflowStorageType `pulumi:"storageType"`
 	// Tags for the workflow.
 	Tags map[string]string `pulumi:"tags"`
+	// Optional workflow bucket owner ID to verify the workflow bucket
+	WorkflowBucketOwnerId *string `pulumi:"workflowBucketOwnerId"`
 }
 
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
 	Accelerators WorkflowAcceleratorsPtrInput
+	// Contains information about a source code repository that hosts the workflow definition files.
+	DefinitionRepository WorkflowDefinitionRepositoryPtrInput
 	// The URI of a definition for the workflow.
 	DefinitionUri pulumi.StringPtrInput
 	// The parameter's description.
@@ -130,11 +161,21 @@ type WorkflowArgs struct {
 	Name pulumi.StringPtrInput
 	// The workflow's parameter template.
 	ParameterTemplate WorkflowParameterMapInput
+	// Path to the primary workflow parameter template JSON file inside the repository
+	ParameterTemplatePath pulumi.StringPtrInput
+	// The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
+	ReadmeMarkdown pulumi.StringPtrInput
+	// The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
+	ReadmePath pulumi.StringPtrInput
+	// The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
+	ReadmeUri pulumi.StringPtrInput
 	// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
 	StorageCapacity pulumi.Float64PtrInput
 	StorageType     WorkflowStorageTypePtrInput
 	// Tags for the workflow.
 	Tags pulumi.StringMapInput
+	// Optional workflow bucket owner ID to verify the workflow bucket
+	WorkflowBucketOwnerId pulumi.StringPtrInput
 }
 
 func (WorkflowArgs) ElementType() reflect.Type {
@@ -193,6 +234,11 @@ func (o WorkflowOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// Contains information about a source code repository that hosts the workflow definition files.
+func (o WorkflowOutput) DefinitionRepository() WorkflowDefinitionRepositoryPtrOutput {
+	return o.ApplyT(func(v *Workflow) WorkflowDefinitionRepositoryPtrOutput { return v.DefinitionRepository }).(WorkflowDefinitionRepositoryPtrOutput)
+}
+
 // The URI of a definition for the workflow.
 func (o WorkflowOutput) DefinitionUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.DefinitionUri }).(pulumi.StringPtrOutput)
@@ -223,6 +269,26 @@ func (o WorkflowOutput) ParameterTemplate() WorkflowParameterMapOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowParameterMapOutput { return v.ParameterTemplate }).(WorkflowParameterMapOutput)
 }
 
+// Path to the primary workflow parameter template JSON file inside the repository
+func (o WorkflowOutput) ParameterTemplatePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.ParameterTemplatePath }).(pulumi.StringPtrOutput)
+}
+
+// The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
+func (o WorkflowOutput) ReadmeMarkdown() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.ReadmeMarkdown }).(pulumi.StringPtrOutput)
+}
+
+// The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
+func (o WorkflowOutput) ReadmePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.ReadmePath }).(pulumi.StringPtrOutput)
+}
+
+// The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
+func (o WorkflowOutput) ReadmeUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.ReadmeUri }).(pulumi.StringPtrOutput)
+}
+
 // The workflow's status.
 func (o WorkflowOutput) Status() WorkflowStatusOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowStatusOutput { return v.Status }).(WorkflowStatusOutput)
@@ -249,6 +315,11 @@ func (o WorkflowOutput) Type() WorkflowTypeOutput {
 
 func (o WorkflowOutput) Uuid() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
+}
+
+// Optional workflow bucket owner ID to verify the workflow bucket
+func (o WorkflowOutput) WorkflowBucketOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.WorkflowBucketOwnerId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

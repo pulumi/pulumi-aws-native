@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.B2bi.Outputs
     [OutputType]
     public sealed class TransformerAdvancedOptions
     {
+        /// <summary>
+        /// A structure that contains X12-specific advanced options, such as split options for processing X12 EDI files.
+        /// </summary>
         public readonly Outputs.TransformerX12AdvancedOptions? X12;
 
         [OutputConstructor]

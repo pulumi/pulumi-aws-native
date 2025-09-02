@@ -127,6 +127,8 @@ AWS::Batch::ServiceEnvironment
 AWS::Bedrock::Agent
 AWS::Bedrock::AgentAlias
 AWS::Bedrock::ApplicationInferenceProfile
+AWS::Bedrock::AutomatedReasoningPolicy
+AWS::Bedrock::AutomatedReasoningPolicyVersion
 AWS::Bedrock::Blueprint
 AWS::Bedrock::DataAutomationProject
 AWS::Bedrock::DataSource
@@ -1112,6 +1114,7 @@ AWS::SecurityLake::SubscriberNotification
 AWS::ServiceCatalog::CloudFormationProvisionedProduct
 AWS::ServiceCatalog::ServiceAction
 AWS::ServiceCatalog::ServiceActionAssociation
+AWS::ServiceCatalog::TagOption
 AWS::ServiceCatalogAppRegistry::Application
 AWS::ServiceCatalogAppRegistry::AttributeGroup
 AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation
@@ -1227,6 +1230,7 @@ Databricks::Clusters::Cluster
 Databricks::Clusters::Job
 Datadog::Dashboards::Dashboard
 Datadog::Integrations::AWS
+Datadog::Integrations::AWSAccount
 Datadog::Monitors::Downtime
 Datadog::Monitors::DowntimeSchedule
 Datadog::Monitors::Monitor

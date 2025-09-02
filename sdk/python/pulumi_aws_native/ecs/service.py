@@ -33,6 +33,7 @@ class ServiceArgs:
                  desired_count: Optional[pulumi.Input[builtins.int]] = None,
                  enable_ecs_managed_tags: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_execute_command: Optional[pulumi.Input[builtins.bool]] = None,
+                 force_new_deployment: Optional[pulumi.Input['ServiceForceNewDeploymentArgs']] = None,
                  health_check_grace_period_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  launch_type: Optional[pulumi.Input['ServiceLaunchType']] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]] = None,
@@ -67,6 +68,7 @@ class ServiceArgs:
         :param pulumi.Input[builtins.bool] enable_ecs_managed_tags: Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide*.
                 When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
         :param pulumi.Input[builtins.bool] enable_execute_command: Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.
+        :param pulumi.Input['ServiceForceNewDeploymentArgs'] force_new_deployment: Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination ( `my_image:latest` ) or to roll Fargate tasks onto a newer platform version.
         :param pulumi.Input[builtins.int] health_check_grace_period_seconds: The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you don't specify a health check grace period value, the default value of ``0`` is used. If you don't use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
                 If your service's tasks take a while to start and respond to health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
         :param pulumi.Input['ServiceLaunchType'] launch_type: The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -128,6 +130,8 @@ class ServiceArgs:
             pulumi.set(__self__, "enable_ecs_managed_tags", enable_ecs_managed_tags)
         if enable_execute_command is not None:
             pulumi.set(__self__, "enable_execute_command", enable_execute_command)
+        if force_new_deployment is not None:
+            pulumi.set(__self__, "force_new_deployment", force_new_deployment)
         if health_check_grace_period_seconds is not None:
             pulumi.set(__self__, "health_check_grace_period_seconds", health_check_grace_period_seconds)
         if launch_type is not None:
@@ -265,6 +269,18 @@ class ServiceArgs:
     @enable_execute_command.setter
     def enable_execute_command(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enable_execute_command", value)
+
+    @property
+    @pulumi.getter(name="forceNewDeployment")
+    def force_new_deployment(self) -> Optional[pulumi.Input['ServiceForceNewDeploymentArgs']]:
+        """
+        Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination ( `my_image:latest` ) or to roll Fargate tasks onto a newer platform version.
+        """
+        return pulumi.get(self, "force_new_deployment")
+
+    @force_new_deployment.setter
+    def force_new_deployment(self, value: Optional[pulumi.Input['ServiceForceNewDeploymentArgs']]):
+        pulumi.set(self, "force_new_deployment", value)
 
     @property
     @pulumi.getter(name="healthCheckGracePeriodSeconds")
@@ -512,6 +528,7 @@ class Service(pulumi.CustomResource):
                  desired_count: Optional[pulumi.Input[builtins.int]] = None,
                  enable_ecs_managed_tags: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_execute_command: Optional[pulumi.Input[builtins.bool]] = None,
+                 force_new_deployment: Optional[pulumi.Input[Union['ServiceForceNewDeploymentArgs', 'ServiceForceNewDeploymentArgsDict']]] = None,
                  health_check_grace_period_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  launch_type: Optional[pulumi.Input['ServiceLaunchType']] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]]] = None,
@@ -574,6 +591,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enable_ecs_managed_tags: Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide*.
                 When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
         :param pulumi.Input[builtins.bool] enable_execute_command: Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.
+        :param pulumi.Input[Union['ServiceForceNewDeploymentArgs', 'ServiceForceNewDeploymentArgsDict']] force_new_deployment: Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination ( `my_image:latest` ) or to roll Fargate tasks onto a newer platform version.
         :param pulumi.Input[builtins.int] health_check_grace_period_seconds: The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you don't specify a health check grace period value, the default value of ``0`` is used. If you don't use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
                 If your service's tasks take a while to start and respond to health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
         :param pulumi.Input['ServiceLaunchType'] launch_type: The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -675,6 +693,7 @@ class Service(pulumi.CustomResource):
                  desired_count: Optional[pulumi.Input[builtins.int]] = None,
                  enable_ecs_managed_tags: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_execute_command: Optional[pulumi.Input[builtins.bool]] = None,
+                 force_new_deployment: Optional[pulumi.Input[Union['ServiceForceNewDeploymentArgs', 'ServiceForceNewDeploymentArgsDict']]] = None,
                  health_check_grace_period_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  launch_type: Optional[pulumi.Input['ServiceLaunchType']] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]]] = None,
@@ -709,6 +728,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["desired_count"] = desired_count
             __props__.__dict__["enable_ecs_managed_tags"] = enable_ecs_managed_tags
             __props__.__dict__["enable_execute_command"] = enable_execute_command
+            __props__.__dict__["force_new_deployment"] = force_new_deployment
             __props__.__dict__["health_check_grace_period_seconds"] = health_check_grace_period_seconds
             __props__.__dict__["launch_type"] = launch_type
             __props__.__dict__["load_balancers"] = load_balancers
@@ -760,6 +780,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["desired_count"] = None
         __props__.__dict__["enable_ecs_managed_tags"] = None
         __props__.__dict__["enable_execute_command"] = None
+        __props__.__dict__["force_new_deployment"] = None
         __props__.__dict__["health_check_grace_period_seconds"] = None
         __props__.__dict__["launch_type"] = None
         __props__.__dict__["load_balancers"] = None
@@ -851,6 +872,14 @@ class Service(pulumi.CustomResource):
         Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.
         """
         return pulumi.get(self, "enable_execute_command")
+
+    @property
+    @pulumi.getter(name="forceNewDeployment")
+    def force_new_deployment(self) -> pulumi.Output[Optional['outputs.ServiceForceNewDeployment']]:
+        """
+        Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination ( `my_image:latest` ) or to roll Fargate tasks onto a newer platform version.
+        """
+        return pulumi.get(self, "force_new_deployment")
 
     @property
     @pulumi.getter(name="healthCheckGracePeriodSeconds")

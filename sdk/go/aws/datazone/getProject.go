@@ -38,6 +38,8 @@ type LookupProjectResult struct {
 	Description *string `pulumi:"description"`
 	// The identifier of the Amazon DataZone domain in which the project was created.
 	DomainId *string `pulumi:"domainId"`
+	// The ID of the domain unit.
+	DomainUnitId *string `pulumi:"domainUnitId"`
 	// The glossary terms that can be used in this Amazon DataZone project.
 	GlossaryTerms []string `pulumi:"glossaryTerms"`
 	// The ID of the Amazon DataZone project.
@@ -102,6 +104,11 @@ func (o LookupProjectResultOutput) Description() pulumi.StringPtrOutput {
 // The identifier of the Amazon DataZone domain in which the project was created.
 func (o LookupProjectResultOutput) DomainId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *string { return v.DomainId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the domain unit.
+func (o LookupProjectResultOutput) DomainUnitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupProjectResult) *string { return v.DomainUnitId }).(pulumi.StringPtrOutput)
 }
 
 // The glossary terms that can be used in this Amazon DataZone project.

@@ -424,6 +424,10 @@ export const Region = {
      */
     ApSoutheast5: "ap-southeast-5",
     /**
+     * Asia Pacific (New Zealand)
+     */
+    ApSoutheast6: "ap-southeast-6",
+    /**
      * Asia Pacific (Thailand)
      */
     ApSoutheast7: "ap-southeast-7",

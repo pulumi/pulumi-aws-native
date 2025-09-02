@@ -2545,6 +2545,10 @@ func (o EventSourceMappingScalingConfigPtrOutput) MaximumConcurrency() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specific access configuration settings that tell Lambda how to authenticate with your schema registry.
+//
+//	If you're working with an GLU schema registry, don't provide authentication details in this object. Instead, ensure that your execution role has the required permissions for Lambda to access your cluster.
+//	If you're working with a Confluent schema registry, choose the authentication method in the ``Type`` field, and provide the ASMlong secret ARN in the ``URI`` field.
 type EventSourceMappingSchemaRegistryAccessConfig struct {
 	// The type of authentication Lambda uses to access your schema registry.
 	Type *EventSourceMappingSchemaRegistryAccessConfigType `pulumi:"type"`
@@ -2563,6 +2567,10 @@ type EventSourceMappingSchemaRegistryAccessConfigInput interface {
 	ToEventSourceMappingSchemaRegistryAccessConfigOutputWithContext(context.Context) EventSourceMappingSchemaRegistryAccessConfigOutput
 }
 
+// Specific access configuration settings that tell Lambda how to authenticate with your schema registry.
+//
+//	If you're working with an GLU schema registry, don't provide authentication details in this object. Instead, ensure that your execution role has the required permissions for Lambda to access your cluster.
+//	If you're working with a Confluent schema registry, choose the authentication method in the ``Type`` field, and provide the ASMlong secret ARN in the ``URI`` field.
 type EventSourceMappingSchemaRegistryAccessConfigArgs struct {
 	// The type of authentication Lambda uses to access your schema registry.
 	Type EventSourceMappingSchemaRegistryAccessConfigTypePtrInput `pulumi:"type"`
@@ -2607,6 +2615,10 @@ func (i EventSourceMappingSchemaRegistryAccessConfigArray) ToEventSourceMappingS
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSchemaRegistryAccessConfigArrayOutput)
 }
 
+// Specific access configuration settings that tell Lambda how to authenticate with your schema registry.
+//
+//	If you're working with an GLU schema registry, don't provide authentication details in this object. Instead, ensure that your execution role has the required permissions for Lambda to access your cluster.
+//	If you're working with a Confluent schema registry, choose the authentication method in the ``Type`` field, and provide the ASMlong secret ARN in the ``URI`` field.
 type EventSourceMappingSchemaRegistryAccessConfigOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingSchemaRegistryAccessConfigOutput) ElementType() reflect.Type {
@@ -2653,18 +2665,17 @@ func (o EventSourceMappingSchemaRegistryAccessConfigArrayOutput) Index(i pulumi.
 	}).(EventSourceMappingSchemaRegistryAccessConfigOutput)
 }
 
+// Specific configuration settings for a Kafka schema registry.
 type EventSourceMappingSchemaRegistryConfig struct {
 	// An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
 	AccessConfigs []EventSourceMappingSchemaRegistryAccessConfig `pulumi:"accessConfigs"`
 	// The record format that Lambda delivers to your function after schema validation.
-	//
-	// - Choose `JSON` to have Lambda deliver the record to your function as a standard JSON object.
-	// - Choose `SOURCE` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
+	//   +  Choose ``JSON`` to have Lambda deliver the record to your function as a standard JSON object.
+	//   +  Choose ``SOURCE`` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
 	EventRecordFormat *EventSourceMappingSchemaRegistryConfigEventRecordFormat `pulumi:"eventRecordFormat"`
 	// The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
-	//
-	// - For AWS Glue schema registries, use the ARN of the registry.
-	// - For Confluent schema registries, use the URL of the registry.
+	//   +  For GLU schema registries, use the ARN of the registry.
+	//   +  For Confluent schema registries, use the URL of the registry.
 	SchemaRegistryUri *string `pulumi:"schemaRegistryUri"`
 	// An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
 	SchemaValidationConfigs []EventSourceMappingSchemaValidationConfig `pulumi:"schemaValidationConfigs"`
@@ -2681,18 +2692,17 @@ type EventSourceMappingSchemaRegistryConfigInput interface {
 	ToEventSourceMappingSchemaRegistryConfigOutputWithContext(context.Context) EventSourceMappingSchemaRegistryConfigOutput
 }
 
+// Specific configuration settings for a Kafka schema registry.
 type EventSourceMappingSchemaRegistryConfigArgs struct {
 	// An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
 	AccessConfigs EventSourceMappingSchemaRegistryAccessConfigArrayInput `pulumi:"accessConfigs"`
 	// The record format that Lambda delivers to your function after schema validation.
-	//
-	// - Choose `JSON` to have Lambda deliver the record to your function as a standard JSON object.
-	// - Choose `SOURCE` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
+	//   +  Choose ``JSON`` to have Lambda deliver the record to your function as a standard JSON object.
+	//   +  Choose ``SOURCE`` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
 	EventRecordFormat EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrInput `pulumi:"eventRecordFormat"`
 	// The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
-	//
-	// - For AWS Glue schema registries, use the ARN of the registry.
-	// - For Confluent schema registries, use the URL of the registry.
+	//   +  For GLU schema registries, use the ARN of the registry.
+	//   +  For Confluent schema registries, use the URL of the registry.
 	SchemaRegistryUri pulumi.StringPtrInput `pulumi:"schemaRegistryUri"`
 	// An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
 	SchemaValidationConfigs EventSourceMappingSchemaValidationConfigArrayInput `pulumi:"schemaValidationConfigs"`
@@ -2751,6 +2761,7 @@ func (i *eventSourceMappingSchemaRegistryConfigPtrType) ToEventSourceMappingSche
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSchemaRegistryConfigPtrOutput)
 }
 
+// Specific configuration settings for a Kafka schema registry.
 type EventSourceMappingSchemaRegistryConfigOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingSchemaRegistryConfigOutput) ElementType() reflect.Type {
@@ -2783,9 +2794,8 @@ func (o EventSourceMappingSchemaRegistryConfigOutput) AccessConfigs() EventSourc
 }
 
 // The record format that Lambda delivers to your function after schema validation.
-//
-// - Choose `JSON` to have Lambda deliver the record to your function as a standard JSON object.
-// - Choose `SOURCE` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
+//   - Choose “JSON“ to have Lambda deliver the record to your function as a standard JSON object.
+//   - Choose “SOURCE“ to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
 func (o EventSourceMappingSchemaRegistryConfigOutput) EventRecordFormat() EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingSchemaRegistryConfig) *EventSourceMappingSchemaRegistryConfigEventRecordFormat {
 		return v.EventRecordFormat
@@ -2793,9 +2803,8 @@ func (o EventSourceMappingSchemaRegistryConfigOutput) EventRecordFormat() EventS
 }
 
 // The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
-//
-// - For AWS Glue schema registries, use the ARN of the registry.
-// - For Confluent schema registries, use the URL of the registry.
+//   - For GLU schema registries, use the ARN of the registry.
+//   - For Confluent schema registries, use the URL of the registry.
 func (o EventSourceMappingSchemaRegistryConfigOutput) SchemaRegistryUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingSchemaRegistryConfig) *string { return v.SchemaRegistryUri }).(pulumi.StringPtrOutput)
 }
@@ -2842,9 +2851,8 @@ func (o EventSourceMappingSchemaRegistryConfigPtrOutput) AccessConfigs() EventSo
 }
 
 // The record format that Lambda delivers to your function after schema validation.
-//
-// - Choose `JSON` to have Lambda deliver the record to your function as a standard JSON object.
-// - Choose `SOURCE` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
+//   - Choose “JSON“ to have Lambda deliver the record to your function as a standard JSON object.
+//   - Choose “SOURCE“ to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
 func (o EventSourceMappingSchemaRegistryConfigPtrOutput) EventRecordFormat() EventSourceMappingSchemaRegistryConfigEventRecordFormatPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingSchemaRegistryConfig) *EventSourceMappingSchemaRegistryConfigEventRecordFormat {
 		if v == nil {
@@ -2855,9 +2863,8 @@ func (o EventSourceMappingSchemaRegistryConfigPtrOutput) EventRecordFormat() Eve
 }
 
 // The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
-//
-// - For AWS Glue schema registries, use the ARN of the registry.
-// - For Confluent schema registries, use the URL of the registry.
+//   - For GLU schema registries, use the ARN of the registry.
+//   - For Confluent schema registries, use the URL of the registry.
 func (o EventSourceMappingSchemaRegistryConfigPtrOutput) SchemaRegistryUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingSchemaRegistryConfig) *string {
 		if v == nil {
@@ -2877,8 +2884,9 @@ func (o EventSourceMappingSchemaRegistryConfigPtrOutput) SchemaValidationConfigs
 	}).(EventSourceMappingSchemaValidationConfigArrayOutput)
 }
 
+// Specific schema validation configuration settings that tell Lambda the message attributes you want to validate and filter using your schema registry.
 type EventSourceMappingSchemaValidationConfig struct {
-	// The attributes you want your schema registry to validate and filter for. If you selected `JSON` as the `EventRecordFormat` , Lambda also deserializes the selected message attributes.
+	// The attributes you want your schema registry to validate and filter for. If you selected ``JSON`` as the ``EventRecordFormat``, Lambda also deserializes the selected message attributes.
 	Attribute *EventSourceMappingSchemaValidationConfigAttribute `pulumi:"attribute"`
 }
 
@@ -2893,8 +2901,9 @@ type EventSourceMappingSchemaValidationConfigInput interface {
 	ToEventSourceMappingSchemaValidationConfigOutputWithContext(context.Context) EventSourceMappingSchemaValidationConfigOutput
 }
 
+// Specific schema validation configuration settings that tell Lambda the message attributes you want to validate and filter using your schema registry.
 type EventSourceMappingSchemaValidationConfigArgs struct {
-	// The attributes you want your schema registry to validate and filter for. If you selected `JSON` as the `EventRecordFormat` , Lambda also deserializes the selected message attributes.
+	// The attributes you want your schema registry to validate and filter for. If you selected ``JSON`` as the ``EventRecordFormat``, Lambda also deserializes the selected message attributes.
 	Attribute EventSourceMappingSchemaValidationConfigAttributePtrInput `pulumi:"attribute"`
 }
 
@@ -2935,6 +2944,7 @@ func (i EventSourceMappingSchemaValidationConfigArray) ToEventSourceMappingSchem
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSchemaValidationConfigArrayOutput)
 }
 
+// Specific schema validation configuration settings that tell Lambda the message attributes you want to validate and filter using your schema registry.
 type EventSourceMappingSchemaValidationConfigOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingSchemaValidationConfigOutput) ElementType() reflect.Type {
@@ -2949,7 +2959,7 @@ func (o EventSourceMappingSchemaValidationConfigOutput) ToEventSourceMappingSche
 	return o
 }
 
-// The attributes you want your schema registry to validate and filter for. If you selected `JSON` as the `EventRecordFormat` , Lambda also deserializes the selected message attributes.
+// The attributes you want your schema registry to validate and filter for. If you selected “JSON“ as the “EventRecordFormat“, Lambda also deserializes the selected message attributes.
 func (o EventSourceMappingSchemaValidationConfigOutput) Attribute() EventSourceMappingSchemaValidationConfigAttributePtrOutput {
 	return o.ApplyT(func(v EventSourceMappingSchemaValidationConfig) *EventSourceMappingSchemaValidationConfigAttribute {
 		return v.Attribute

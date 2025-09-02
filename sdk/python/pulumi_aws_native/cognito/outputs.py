@@ -2261,7 +2261,7 @@ class UserPoolRiskConfigurationAttachmentNotifyConfigurationType(dict):
         :param builtins.str from_: The email address that sends the email message. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
         :param 'UserPoolRiskConfigurationAttachmentNotifyEmailType' mfa_email: The template for the email message that your user pool sends when MFA is challenged in response to a detected risk.
         :param 'UserPoolRiskConfigurationAttachmentNotifyEmailType' no_action_email: The template for the email message that your user pool sends when no action is taken in response to a detected risk.
-        :param builtins.str reply_to: The reply-to email address of an email template.
+        :param builtins.str reply_to: The reply-to email address of an email template. Can be an email address in the format `admin@example.com` or `Administrator <admin@example.com>` .
         """
         pulumi.set(__self__, "source_arn", source_arn)
         if block_email is not None:
@@ -2319,7 +2319,7 @@ class UserPoolRiskConfigurationAttachmentNotifyConfigurationType(dict):
     @pulumi.getter(name="replyTo")
     def reply_to(self) -> Optional[builtins.str]:
         """
-        The reply-to email address of an email template.
+        The reply-to email address of an email template. Can be an email address in the format `admin@example.com` or `Administrator <admin@example.com>` .
         """
         return pulumi.get(self, "reply_to")
 

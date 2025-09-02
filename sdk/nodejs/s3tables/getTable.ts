@@ -25,18 +25,33 @@ export interface GetTableArgs {
 }
 
 export interface GetTableResult {
+    /**
+     * Contains details about the compaction settings for an Iceberg table.
+     */
     readonly compaction?: outputs.s3tables.TableCompaction;
     /**
      * The name of the namespace.
      */
     readonly namespace?: string;
+    /**
+     * Contains details about the Iceberg snapshot management settings for the table.
+     */
     readonly snapshotManagement?: outputs.s3tables.TableSnapshotManagement;
     /**
      * The Amazon Resource Name (ARN) of the table.
      */
     readonly tableArn?: string;
+    /**
+     * The name for the table.
+     */
     readonly tableName?: string;
+    /**
+     * The version token of the table.
+     */
     readonly versionToken?: string;
+    /**
+     * The warehouse location of the table.
+     */
     readonly warehouseLocation?: string;
 }
 /**

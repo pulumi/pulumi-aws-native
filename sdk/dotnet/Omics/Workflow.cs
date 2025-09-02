@@ -37,6 +37,12 @@ namespace Pulumi.AwsNative.Omics
         public Output<string> CreationTime { get; private set; } = null!;
 
         /// <summary>
+        /// Contains information about a source code repository that hosts the workflow definition files.
+        /// </summary>
+        [Output("definitionRepository")]
+        public Output<Outputs.WorkflowDefinitionRepository?> DefinitionRepository { get; private set; } = null!;
+
+        /// <summary>
         /// The URI of a definition for the workflow.
         /// </summary>
         [Output("definitionUri")]
@@ -73,6 +79,30 @@ namespace Pulumi.AwsNative.Omics
         public Output<ImmutableDictionary<string, Outputs.WorkflowParameter>?> ParameterTemplate { get; private set; } = null!;
 
         /// <summary>
+        /// Path to the primary workflow parameter template JSON file inside the repository
+        /// </summary>
+        [Output("parameterTemplatePath")]
+        public Output<string?> ParameterTemplatePath { get; private set; } = null!;
+
+        /// <summary>
+        /// The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
+        /// </summary>
+        [Output("readmeMarkdown")]
+        public Output<string?> ReadmeMarkdown { get; private set; } = null!;
+
+        /// <summary>
+        /// The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
+        /// </summary>
+        [Output("readmePath")]
+        public Output<string?> ReadmePath { get; private set; } = null!;
+
+        /// <summary>
+        /// The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
+        /// </summary>
+        [Output("readmeUri")]
+        public Output<string?> ReadmeUri { get; private set; } = null!;
+
+        /// <summary>
         /// The workflow's status.
         /// </summary>
         [Output("status")]
@@ -102,6 +132,12 @@ namespace Pulumi.AwsNative.Omics
         [Output("uuid")]
         public Output<string> Uuid { get; private set; } = null!;
 
+        /// <summary>
+        /// Optional workflow bucket owner ID to verify the workflow bucket
+        /// </summary>
+        [Output("workflowBucketOwnerId")]
+        public Output<string?> WorkflowBucketOwnerId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Workflow resource with the given unique name, arguments, and options.
@@ -128,11 +164,16 @@ namespace Pulumi.AwsNative.Omics
                 ReplaceOnChanges =
                 {
                     "accelerators",
+                    "definitionRepository",
                     "definitionUri",
                     "engine",
                     "main",
                     "parameterTemplate.*",
+                    "parameterTemplatePath",
+                    "readmePath",
+                    "readmeUri",
                     "storageCapacity",
+                    "workflowBucketOwnerId",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -158,6 +199,12 @@ namespace Pulumi.AwsNative.Omics
     {
         [Input("accelerators")]
         public Input<Pulumi.AwsNative.Omics.WorkflowAccelerators>? Accelerators { get; set; }
+
+        /// <summary>
+        /// Contains information about a source code repository that hosts the workflow definition files.
+        /// </summary>
+        [Input("definitionRepository")]
+        public Input<Inputs.WorkflowDefinitionRepositoryArgs>? DefinitionRepository { get; set; }
 
         /// <summary>
         /// The URI of a definition for the workflow.
@@ -202,6 +249,30 @@ namespace Pulumi.AwsNative.Omics
         }
 
         /// <summary>
+        /// Path to the primary workflow parameter template JSON file inside the repository
+        /// </summary>
+        [Input("parameterTemplatePath")]
+        public Input<string>? ParameterTemplatePath { get; set; }
+
+        /// <summary>
+        /// The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
+        /// </summary>
+        [Input("readmeMarkdown")]
+        public Input<string>? ReadmeMarkdown { get; set; }
+
+        /// <summary>
+        /// The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
+        /// </summary>
+        [Input("readmePath")]
+        public Input<string>? ReadmePath { get; set; }
+
+        /// <summary>
+        /// The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
+        /// </summary>
+        [Input("readmeUri")]
+        public Input<string>? ReadmeUri { get; set; }
+
+        /// <summary>
         /// The default static storage capacity (in gibibytes) for runs that use this workflow or workflow version. The `storageCapacity` can be overwritten at run time. The storage capacity is not required for runs with a `DYNAMIC` storage type.
         /// </summary>
         [Input("storageCapacity")]
@@ -221,6 +292,12 @@ namespace Pulumi.AwsNative.Omics
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Optional workflow bucket owner ID to verify the workflow bucket
+        /// </summary>
+        [Input("workflowBucketOwnerId")]
+        public Input<string>? WorkflowBucketOwnerId { get; set; }
 
         public WorkflowArgs()
         {

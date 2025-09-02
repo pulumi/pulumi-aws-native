@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Ses
         /// <summary>
         /// The name of the Add On to subscribe to. You can only have one subscription for each Add On name.
         /// 
-        /// Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE`
+        /// Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE | VADE_ADVANCED_EMAIL_SECURITY`
         /// </summary>
         [Output("addonName")]
         public Output<string> AddonName { get; private set; } = null!;
@@ -93,7 +93,7 @@ namespace Pulumi.AwsNative.Ses
         /// <summary>
         /// The name of the Add On to subscribe to. You can only have one subscription for each Add On name.
         /// 
-        /// Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE`
+        /// Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE | VADE_ADVANCED_EMAIL_SECURITY`
         /// </summary>
         [Input("addonName", required: true)]
         public Input<string> AddonName { get; set; } = null!;

@@ -157,9 +157,8 @@ namespace Pulumi.AwsNative.Lambda
 
     /// <summary>
     /// The record format that Lambda delivers to your function after schema validation.
-    /// 
-    /// - Choose `JSON` to have Lambda deliver the record to your function as a standard JSON object.
-    /// - Choose `SOURCE` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
+    ///   +  Choose ``JSON`` to have Lambda deliver the record to your function as a standard JSON object.
+    ///   +  Choose ``SOURCE`` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
     /// </summary>
     [EnumType]
     public readonly struct EventSourceMappingSchemaRegistryConfigEventRecordFormat : IEquatable<EventSourceMappingSchemaRegistryConfigEventRecordFormat>
@@ -190,7 +189,7 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
-    /// The attributes you want your schema registry to validate and filter for. If you selected `JSON` as the `EventRecordFormat` , Lambda also deserializes the selected message attributes.
+    /// The attributes you want your schema registry to validate and filter for. If you selected ``JSON`` as the ``EventRecordFormat``, Lambda also deserializes the selected message attributes.
     /// </summary>
     [EnumType]
     public readonly struct EventSourceMappingSchemaValidationConfigAttribute : IEquatable<EventSourceMappingSchemaValidationConfigAttribute>

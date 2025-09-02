@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.S3Tables
     [AwsNativeResourceType("aws-native:s3tables:TablePolicy")]
     public partial class TablePolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The namespace to associated with the table.
+        /// </summary>
         [Output("namespace")]
         public Output<string> Namespace { get; private set; } = null!;
 
+        /// <summary>
+        /// The `JSON` that defines the policy.
+        /// </summary>
         [Output("resourcePolicy")]
         public Output<Outputs.TablePolicyResourcePolicy> ResourcePolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the table.
+        /// </summary>
         [Output("tableArn")]
         public Output<string> TableArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the table bucket that contains the table.
+        /// </summary>
         [Output("tableBucketArn")]
         public Output<string> TableBucketArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the table.
+        /// </summary>
         [Output("tableName")]
         public Output<string> TableName { get; private set; } = null!;
 
@@ -79,9 +94,15 @@ namespace Pulumi.AwsNative.S3Tables
 
     public sealed class TablePolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The `JSON` that defines the policy.
+        /// </summary>
         [Input("resourcePolicy", required: true)]
         public Input<Inputs.TablePolicyResourcePolicyArgs> ResourcePolicy { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the table.
+        /// </summary>
         [Input("tableArn", required: true)]
         public Input<string> TableArn { get; set; } = null!;
 

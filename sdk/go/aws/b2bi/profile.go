@@ -29,7 +29,8 @@ type Profile struct {
 	// Returns the timestamp that identifies the most recent date and time that the profile was modified.
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
 	// Returns the display name for profile.
-	Name  pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies the phone number associated with the profile.
 	Phone pulumi.StringOutput `pulumi:"phone"`
 	// Returns an Amazon Resource Name (ARN) for the profile.
 	ProfileArn pulumi.StringOutput `pulumi:"profileArn"`
@@ -97,8 +98,9 @@ type profileArgs struct {
 	// Specifies whether or not logging is enabled for this profile.
 	Logging ProfileLogging `pulumi:"logging"`
 	// Returns the display name for profile.
-	Name  *string `pulumi:"name"`
-	Phone string  `pulumi:"phone"`
+	Name *string `pulumi:"name"`
+	// Specifies the phone number associated with the profile.
+	Phone string `pulumi:"phone"`
 	// A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -111,7 +113,8 @@ type ProfileArgs struct {
 	// Specifies whether or not logging is enabled for this profile.
 	Logging ProfileLoggingInput
 	// Returns the display name for profile.
-	Name  pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Specifies the phone number associated with the profile.
 	Phone pulumi.StringInput
 	// A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
 	Tags aws.TagArrayInput
@@ -188,6 +191,7 @@ func (o ProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the phone number associated with the profile.
 func (o ProfileOutput) Phone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Phone }).(pulumi.StringOutput)
 }

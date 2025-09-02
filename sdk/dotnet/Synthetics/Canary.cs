@@ -151,6 +151,12 @@ namespace Pulumi.AwsNative.Synthetics
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
+        /// List of browser configurations for the canary
+        /// </summary>
+        [Output("browserConfigs")]
+        public Output<ImmutableArray<Outputs.CanaryBrowserConfig>> BrowserConfigs { get; private set; } = null!;
+
+        /// <summary>
         /// Provide the canary script source
         /// </summary>
         [Output("code")]
@@ -247,6 +253,12 @@ namespace Pulumi.AwsNative.Synthetics
         public Output<Outputs.CanaryVisualReference?> VisualReference { get; private set; } = null!;
 
         /// <summary>
+        /// List of visual references for the canary
+        /// </summary>
+        [Output("visualReferences")]
+        public Output<ImmutableArray<Outputs.CanaryVisualReference>> VisualReferences { get; private set; } = null!;
+
+        /// <summary>
         /// Provide VPC Configuration if enabled.
         /// </summary>
         [Output("vpcConfig")]
@@ -312,6 +324,18 @@ namespace Pulumi.AwsNative.Synthetics
         /// </summary>
         [Input("artifactS3Location", required: true)]
         public Input<string> ArtifactS3Location { get; set; } = null!;
+
+        [Input("browserConfigs")]
+        private InputList<Inputs.CanaryBrowserConfigArgs>? _browserConfigs;
+
+        /// <summary>
+        /// List of browser configurations for the canary
+        /// </summary>
+        public InputList<Inputs.CanaryBrowserConfigArgs> BrowserConfigs
+        {
+            get => _browserConfigs ?? (_browserConfigs = new InputList<Inputs.CanaryBrowserConfigArgs>());
+            set => _browserConfigs = value;
+        }
 
         /// <summary>
         /// Provide the canary script source
@@ -414,6 +438,18 @@ namespace Pulumi.AwsNative.Synthetics
         /// </summary>
         [Input("visualReference")]
         public Input<Inputs.CanaryVisualReferenceArgs>? VisualReference { get; set; }
+
+        [Input("visualReferences")]
+        private InputList<Inputs.CanaryVisualReferenceArgs>? _visualReferences;
+
+        /// <summary>
+        /// List of visual references for the canary
+        /// </summary>
+        public InputList<Inputs.CanaryVisualReferenceArgs> VisualReferences
+        {
+            get => _visualReferences ?? (_visualReferences = new InputList<Inputs.CanaryVisualReferenceArgs>());
+            set => _visualReferences = value;
+        }
 
         /// <summary>
         /// Provide VPC Configuration if enabled.

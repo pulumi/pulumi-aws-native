@@ -25,6 +25,7 @@ class NamespaceArgs:
         """
         The set of arguments for constructing a Namespace resource.
         :param pulumi.Input[builtins.str] namespace: The name of the namespace.
+        :param pulumi.Input[builtins.str] table_bucket_arn: The Amazon Resource Name (ARN) of the table bucket to create the namespace in.
         """
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
@@ -44,6 +45,9 @@ class NamespaceArgs:
     @property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the table bucket to create the namespace in.
+        """
         return pulumi.get(self, "table_bucket_arn")
 
     @table_bucket_arn.setter
@@ -66,6 +70,7 @@ class Namespace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] namespace: The name of the namespace.
+        :param pulumi.Input[builtins.str] table_bucket_arn: The Amazon Resource Name (ARN) of the table bucket to create the namespace in.
         """
         ...
     @overload
@@ -147,5 +152,8 @@ class Namespace(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the table bucket to create the namespace in.
+        """
         return pulumi.get(self, "table_bucket_arn")
 

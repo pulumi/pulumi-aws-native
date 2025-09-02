@@ -35,6 +35,10 @@ export interface GetParameterResult {
      */
     readonly dataType?: enums.ssm.ParameterDataType;
     /**
+     * Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
      * The type of parameter.
      *   Parameters of type ``SecureString`` are not supported by CFNlong.
      */

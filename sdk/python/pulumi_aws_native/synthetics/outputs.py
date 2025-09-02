@@ -20,6 +20,7 @@ from ._enums import *
 __all__ = [
     'CanaryArtifactConfig',
     'CanaryBaseScreenshot',
+    'CanaryBrowserConfig',
     'CanaryCode',
     'CanaryDependency',
     'CanaryRetryConfig',
@@ -113,6 +114,35 @@ class CanaryBaseScreenshot(dict):
         List of coordinates of rectangles to be ignored during visual testing
         """
         return pulumi.get(self, "ignore_coordinates")
+
+
+@pulumi.output_type
+class CanaryBrowserConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "browserType":
+            suggest = "browser_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CanaryBrowserConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CanaryBrowserConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CanaryBrowserConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 browser_type: 'CanaryBrowserType'):
+        pulumi.set(__self__, "browser_type", browser_type)
+
+    @property
+    @pulumi.getter(name="browserType")
+    def browser_type(self) -> 'CanaryBrowserType':
+        return pulumi.get(self, "browser_type")
 
 
 @pulumi.output_type
@@ -521,6 +551,8 @@ class CanaryVisualReference(dict):
             suggest = "base_canary_run_id"
         elif key == "baseScreenshots":
             suggest = "base_screenshots"
+        elif key == "browserType":
+            suggest = "browser_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CanaryVisualReference. Access the value via the '{suggest}' property getter instead.")
@@ -535,7 +567,8 @@ class CanaryVisualReference(dict):
 
     def __init__(__self__, *,
                  base_canary_run_id: builtins.str,
-                 base_screenshots: Optional[Sequence['outputs.CanaryBaseScreenshot']] = None):
+                 base_screenshots: Optional[Sequence['outputs.CanaryBaseScreenshot']] = None,
+                 browser_type: Optional['CanaryBrowserType'] = None):
         """
         :param builtins.str base_canary_run_id: Canary run id to be used as base reference for visual testing
         :param Sequence['CanaryBaseScreenshot'] base_screenshots: List of screenshots used as base reference for visual testing
@@ -543,6 +576,8 @@ class CanaryVisualReference(dict):
         pulumi.set(__self__, "base_canary_run_id", base_canary_run_id)
         if base_screenshots is not None:
             pulumi.set(__self__, "base_screenshots", base_screenshots)
+        if browser_type is not None:
+            pulumi.set(__self__, "browser_type", browser_type)
 
     @property
     @pulumi.getter(name="baseCanaryRunId")
@@ -559,6 +594,11 @@ class CanaryVisualReference(dict):
         List of screenshots used as base reference for visual testing
         """
         return pulumi.get(self, "base_screenshots")
+
+    @property
+    @pulumi.getter(name="browserType")
+    def browser_type(self) -> Optional['CanaryBrowserType']:
+        return pulumi.get(self, "browser_type")
 
 
 @pulumi.output_type

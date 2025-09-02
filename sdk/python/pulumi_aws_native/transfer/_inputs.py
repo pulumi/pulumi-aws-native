@@ -422,6 +422,8 @@ if not MYPY:
         """
         A list of security groups IDs that are available to attach to your server's endpoint.
 
+        > While `SecurityGroupIds` appears in the response syntax for consistency with `CreateServer` and `UpdateServer` operations, this field is not populated in `DescribeServer` responses. Security groups are managed at the VPC endpoint level and can be modified outside of the Transfer Family service. To retrieve current security group information, use the EC2 `DescribeVpcEndpoints` API with the `VpcEndpointId` returned in the response.
+        > 
         > This property can only be set when `EndpointType` is set to `VPC` .
         > 
         > You can edit the `SecurityGroupIds` property in the [UpdateServer](https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html) API only if you are changing the `EndpointType` from `PUBLIC` or `VPC_ENDPOINT` to `VPC` . To change security groups associated with your server's VPC endpoint after creation, use the Amazon EC2 [ModifyVpcEndpoint](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html) API.
@@ -473,6 +475,8 @@ class ServerEndpointDetailsArgs:
                > - You can't set address allocation IDs for servers that have an `IpAddressType` set to `DUALSTACK` You can only set this property if `IpAddressType` is set to `IPV4` .
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of security groups IDs that are available to attach to your server's endpoint.
                
+               > While `SecurityGroupIds` appears in the response syntax for consistency with `CreateServer` and `UpdateServer` operations, this field is not populated in `DescribeServer` responses. Security groups are managed at the VPC endpoint level and can be modified outside of the Transfer Family service. To retrieve current security group information, use the EC2 `DescribeVpcEndpoints` API with the `VpcEndpointId` returned in the response.
+               > 
                > This property can only be set when `EndpointType` is set to `VPC` .
                > 
                > You can edit the `SecurityGroupIds` property in the [UpdateServer](https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html) API only if you are changing the `EndpointType` from `PUBLIC` or `VPC_ENDPOINT` to `VPC` . To change security groups associated with your server's VPC endpoint after creation, use the Amazon EC2 [ModifyVpcEndpoint](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html) API.
@@ -529,6 +533,8 @@ class ServerEndpointDetailsArgs:
         """
         A list of security groups IDs that are available to attach to your server's endpoint.
 
+        > While `SecurityGroupIds` appears in the response syntax for consistency with `CreateServer` and `UpdateServer` operations, this field is not populated in `DescribeServer` responses. Security groups are managed at the VPC endpoint level and can be modified outside of the Transfer Family service. To retrieve current security group information, use the EC2 `DescribeVpcEndpoints` API with the `VpcEndpointId` returned in the response.
+        > 
         > This property can only be set when `EndpointType` is set to `VPC` .
         > 
         > You can edit the `SecurityGroupIds` property in the [UpdateServer](https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html) API only if you are changing the `EndpointType` from `PUBLIC` or `VPC_ENDPOINT` to `VPC` . To change security groups associated with your server's VPC endpoint after creation, use the Amazon EC2 [ModifyVpcEndpoint](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html) API.

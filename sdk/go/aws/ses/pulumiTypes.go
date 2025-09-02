@@ -1807,7 +1807,9 @@ func (o ConfigurationSetSuppressionOptionsPtrOutput) SuppressedReasons() pulumi.
 }
 
 type ConfigurationSetTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the key-value tag.
+	Key string `pulumi:"key"`
+	// The value of the key-value tag.
 	Value string `pulumi:"value"`
 }
 
@@ -2261,7 +2263,9 @@ func (o ContactListTopicArrayOutput) Index(i pulumi.IntInput) ContactListTopicOu
 }
 
 type DedicatedIpPoolTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the key-value tag.
+	Key string `pulumi:"key"`
+	// The value of the key-value tag.
 	Value string `pulumi:"value"`
 }
 
@@ -3023,7 +3027,9 @@ func (o EmailIdentityMailFromAttributesPtrOutput) MailFromDomain() pulumi.String
 }
 
 type EmailIdentityTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the key-value tag.
+	Key string `pulumi:"key"`
+	// The value of the key-value tag.
 	Value string `pulumi:"value"`
 }
 
@@ -3042,7 +3048,9 @@ type MailManagerAddonSubscriptionTag struct {
 }
 
 type MailManagerAddressListTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the key-value tag.
+	Key string `pulumi:"key"`
+	// The value of the key-value tag.
 	Value string `pulumi:"value"`
 }
 

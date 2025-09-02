@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.B2bi.Outputs
     [OutputType]
     public sealed class TransformerX12ValidationOptions
     {
+        /// <summary>
+        /// Specifies a list of validation rules to apply during EDI document processing. These rules can include code list modifications, element length constraints, and element requirement changes.
+        /// </summary>
         public readonly ImmutableArray<object> ValidationRules;
 
         [OutputConstructor]

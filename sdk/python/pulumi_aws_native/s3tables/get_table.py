@@ -52,6 +52,9 @@ class GetTableResult:
     @property
     @pulumi.getter
     def compaction(self) -> Optional['outputs.TableCompaction']:
+        """
+        Contains details about the compaction settings for an Iceberg table.
+        """
         return pulumi.get(self, "compaction")
 
     @property
@@ -65,6 +68,9 @@ class GetTableResult:
     @property
     @pulumi.getter(name="snapshotManagement")
     def snapshot_management(self) -> Optional['outputs.TableSnapshotManagement']:
+        """
+        Contains details about the Iceberg snapshot management settings for the table.
+        """
         return pulumi.get(self, "snapshot_management")
 
     @property
@@ -78,16 +84,25 @@ class GetTableResult:
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[builtins.str]:
+        """
+        The name for the table.
+        """
         return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter(name="versionToken")
     def version_token(self) -> Optional[builtins.str]:
+        """
+        The version token of the table.
+        """
         return pulumi.get(self, "version_token")
 
     @property
     @pulumi.getter(name="warehouseLocation")
     def warehouse_location(self) -> Optional[builtins.str]:
+        """
+        The warehouse location of the table.
+        """
         return pulumi.get(self, "warehouse_location")
 
 

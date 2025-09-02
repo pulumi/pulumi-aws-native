@@ -82,6 +82,7 @@ class GetVolumeResult:
     def availability_zone(self) -> Optional[builtins.str]:
         """
         The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
+         Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
         """
         return pulumi.get(self, "availability_zone")
 

@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public Input<Inputs.UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs>? NoActionEmail { get; set; }
 
         /// <summary>
-        /// The reply-to email address of an email template.
+        /// The reply-to email address of an email template. Can be an email address in the format `admin@example.com` or `Administrator &lt;admin@example.com&gt;` .
         /// </summary>
         [Input("replyTo")]
         public Input<string>? ReplyTo { get; set; }

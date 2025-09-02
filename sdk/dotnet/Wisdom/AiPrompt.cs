@@ -135,7 +135,6 @@ namespace Pulumi.AwsNative.Wisdom
                 {
                     "apiFormat",
                     "assistantId",
-                    "modelId",
                     "name",
                     "tags.*",
                     "templateType",

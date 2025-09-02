@@ -20,6 +20,16 @@ export type ApplicationInferenceProfile = import("./applicationInferenceProfile"
 export const ApplicationInferenceProfile: typeof import("./applicationInferenceProfile").ApplicationInferenceProfile = null as any;
 utilities.lazyLoad(exports, ["ApplicationInferenceProfile"], () => require("./applicationInferenceProfile"));
 
+export { AutomatedReasoningPolicyArgs } from "./automatedReasoningPolicy";
+export type AutomatedReasoningPolicy = import("./automatedReasoningPolicy").AutomatedReasoningPolicy;
+export const AutomatedReasoningPolicy: typeof import("./automatedReasoningPolicy").AutomatedReasoningPolicy = null as any;
+utilities.lazyLoad(exports, ["AutomatedReasoningPolicy"], () => require("./automatedReasoningPolicy"));
+
+export { AutomatedReasoningPolicyVersionArgs } from "./automatedReasoningPolicyVersion";
+export type AutomatedReasoningPolicyVersion = import("./automatedReasoningPolicyVersion").AutomatedReasoningPolicyVersion;
+export const AutomatedReasoningPolicyVersion: typeof import("./automatedReasoningPolicyVersion").AutomatedReasoningPolicyVersion = null as any;
+utilities.lazyLoad(exports, ["AutomatedReasoningPolicyVersion"], () => require("./automatedReasoningPolicyVersion"));
+
 export { BlueprintArgs } from "./blueprint";
 export type Blueprint = import("./blueprint").Blueprint;
 export const Blueprint: typeof import("./blueprint").Blueprint = null as any;
@@ -64,6 +74,16 @@ export { GetApplicationInferenceProfileArgs, GetApplicationInferenceProfileResul
 export const getApplicationInferenceProfile: typeof import("./getApplicationInferenceProfile").getApplicationInferenceProfile = null as any;
 export const getApplicationInferenceProfileOutput: typeof import("./getApplicationInferenceProfile").getApplicationInferenceProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getApplicationInferenceProfile","getApplicationInferenceProfileOutput"], () => require("./getApplicationInferenceProfile"));
+
+export { GetAutomatedReasoningPolicyArgs, GetAutomatedReasoningPolicyResult, GetAutomatedReasoningPolicyOutputArgs } from "./getAutomatedReasoningPolicy";
+export const getAutomatedReasoningPolicy: typeof import("./getAutomatedReasoningPolicy").getAutomatedReasoningPolicy = null as any;
+export const getAutomatedReasoningPolicyOutput: typeof import("./getAutomatedReasoningPolicy").getAutomatedReasoningPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getAutomatedReasoningPolicy","getAutomatedReasoningPolicyOutput"], () => require("./getAutomatedReasoningPolicy"));
+
+export { GetAutomatedReasoningPolicyVersionArgs, GetAutomatedReasoningPolicyVersionResult, GetAutomatedReasoningPolicyVersionOutputArgs } from "./getAutomatedReasoningPolicyVersion";
+export const getAutomatedReasoningPolicyVersion: typeof import("./getAutomatedReasoningPolicyVersion").getAutomatedReasoningPolicyVersion = null as any;
+export const getAutomatedReasoningPolicyVersionOutput: typeof import("./getAutomatedReasoningPolicyVersion").getAutomatedReasoningPolicyVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getAutomatedReasoningPolicyVersion","getAutomatedReasoningPolicyVersionOutput"], () => require("./getAutomatedReasoningPolicyVersion"));
 
 export { GetBlueprintArgs, GetBlueprintResult, GetBlueprintOutputArgs } from "./getBlueprint";
 export const getBlueprint: typeof import("./getBlueprint").getBlueprint = null as any;
@@ -169,6 +189,10 @@ const _module = {
                 return new AgentAlias(name, <any>undefined, { urn })
             case "aws-native:bedrock:ApplicationInferenceProfile":
                 return new ApplicationInferenceProfile(name, <any>undefined, { urn })
+            case "aws-native:bedrock:AutomatedReasoningPolicy":
+                return new AutomatedReasoningPolicy(name, <any>undefined, { urn })
+            case "aws-native:bedrock:AutomatedReasoningPolicyVersion":
+                return new AutomatedReasoningPolicyVersion(name, <any>undefined, { urn })
             case "aws-native:bedrock:Blueprint":
                 return new Blueprint(name, <any>undefined, { urn })
             case "aws-native:bedrock:DataAutomationProject":

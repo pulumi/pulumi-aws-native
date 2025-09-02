@@ -19,7 +19,7 @@ type MailManagerAddonSubscription struct {
 
 	// The name of the Add On to subscribe to. You can only have one subscription for each Add On name.
 	//
-	// Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE`
+	// Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE | VADE_ADVANCED_EMAIL_SECURITY`
 	AddonName pulumi.StringOutput `pulumi:"addonName"`
 	// The Amazon Resource Name (ARN) of the Add On subscription.
 	AddonSubscriptionArn pulumi.StringOutput `pulumi:"addonSubscriptionArn"`
@@ -78,7 +78,7 @@ func (MailManagerAddonSubscriptionState) ElementType() reflect.Type {
 type mailManagerAddonSubscriptionArgs struct {
 	// The name of the Add On to subscribe to. You can only have one subscription for each Add On name.
 	//
-	// Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE`
+	// Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE | VADE_ADVANCED_EMAIL_SECURITY`
 	AddonName string `pulumi:"addonName"`
 	// The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -88,7 +88,7 @@ type mailManagerAddonSubscriptionArgs struct {
 type MailManagerAddonSubscriptionArgs struct {
 	// The name of the Add On to subscribe to. You can only have one subscription for each Add On name.
 	//
-	// Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE`
+	// Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE | VADE_ADVANCED_EMAIL_SECURITY`
 	AddonName pulumi.StringInput
 	// The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags aws.TagArrayInput
@@ -133,7 +133,7 @@ func (o MailManagerAddonSubscriptionOutput) ToMailManagerAddonSubscriptionOutput
 
 // The name of the Add On to subscribe to. You can only have one subscription for each Add On name.
 //
-// Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE`
+// Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE | VADE_ADVANCED_EMAIL_SECURITY`
 func (o MailManagerAddonSubscriptionOutput) AddonName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MailManagerAddonSubscription) pulumi.StringOutput { return v.AddonName }).(pulumi.StringOutput)
 }

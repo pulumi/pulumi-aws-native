@@ -55,6 +55,8 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     public readonly context!: pulumi.Output<string | undefined>;
     /**
      * The details for the Amazon EKS cluster that supports the compute environment.
+     *
+     * > To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
      */
     public readonly eksConfiguration!: pulumi.Output<outputs.batch.ComputeEnvironmentEksConfiguration | undefined>;
     /**
@@ -171,6 +173,8 @@ export interface ComputeEnvironmentArgs {
     context?: pulumi.Input<string>;
     /**
      * The details for the Amazon EKS cluster that supports the compute environment.
+     *
+     * > To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
      */
     eksConfiguration?: pulumi.Input<inputs.batch.ComputeEnvironmentEksConfigurationArgs>;
     /**

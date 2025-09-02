@@ -125,7 +125,6 @@ namespace Pulumi.AwsNative.DataZone
                 ReplaceOnChanges =
                 {
                     "domainIdentifier",
-                    "domainUnitId",
                     "projectProfileId",
                 },
             };

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ivs
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration object for individual participant recording.
+        /// </summary>
         [Output("autoParticipantRecordingConfiguration")]
         public Output<Outputs.StageAutoParticipantRecordingConfiguration?> AutoParticipantRecordingConfiguration { get; private set; } = null!;
 
@@ -87,6 +90,9 @@ namespace Pulumi.AwsNative.Ivs
 
     public sealed class StageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration object for individual participant recording.
+        /// </summary>
         [Input("autoParticipantRecordingConfiguration")]
         public Input<Inputs.StageAutoParticipantRecordingConfigurationArgs>? AutoParticipantRecordingConfiguration { get; set; }
 

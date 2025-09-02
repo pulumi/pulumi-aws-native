@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.B2bi.Inputs
 
     public sealed class TransformerX12SplitOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the method used to split X12 EDI files. Valid values include `TRANSACTION` (split by individual transaction sets), or `NONE` (no splitting).
+        /// </summary>
         [Input("splitBy")]
         public Input<Pulumi.AwsNative.B2bi.TransformerX12SplitBy>? SplitBy { get; set; }
 

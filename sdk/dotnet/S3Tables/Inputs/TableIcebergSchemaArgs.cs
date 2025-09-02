@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.S3Tables.Inputs
     {
         [Input("schemaFieldList", required: true)]
         private InputList<Inputs.TableSchemaFieldArgs>? _schemaFieldList;
+
+        /// <summary>
+        /// The schema fields for the table
+        /// </summary>
         public InputList<Inputs.TableSchemaFieldArgs> SchemaFieldList
         {
             get => _schemaFieldList ?? (_schemaFieldList = new InputList<Inputs.TableSchemaFieldArgs>());

@@ -40,7 +40,7 @@ export class MailManagerAddonSubscription extends pulumi.CustomResource {
     /**
      * The name of the Add On to subscribe to. You can only have one subscription for each Add On name.
      *
-     * Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE`
+     * Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE | VADE_ADVANCED_EMAIL_SECURITY`
      */
     public readonly addonName!: pulumi.Output<string>;
     /**
@@ -94,7 +94,7 @@ export interface MailManagerAddonSubscriptionArgs {
     /**
      * The name of the Add On to subscribe to. You can only have one subscription for each Add On name.
      *
-     * Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE`
+     * Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE | VADE_ADVANCED_EMAIL_SECURITY`
      */
     addonName: pulumi.Input<string>;
     /**

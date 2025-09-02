@@ -39,16 +39,25 @@ class GetMailManagerAddressListResult:
     @property
     @pulumi.getter(name="addressListArn")
     def address_list_arn(self) -> Optional[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the address list.
+        """
         return pulumi.get(self, "address_list_arn")
 
     @property
     @pulumi.getter(name="addressListId")
     def address_list_id(self) -> Optional[builtins.str]:
+        """
+        The identifier of the address list.
+        """
         return pulumi.get(self, "address_list_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -67,6 +76,9 @@ def get_mail_manager_address_list(address_list_id: Optional[builtins.str] = None
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMailManagerAddressListResult:
     """
     Definition of AWS::SES::MailManagerAddressList Resource Type
+
+
+    :param builtins.str address_list_id: The identifier of the address list.
     """
     __args__ = dict()
     __args__['addressListId'] = address_list_id
@@ -81,6 +93,9 @@ def get_mail_manager_address_list_output(address_list_id: Optional[pulumi.Input[
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMailManagerAddressListResult]:
     """
     Definition of AWS::SES::MailManagerAddressList Resource Type
+
+
+    :param builtins.str address_list_id: The identifier of the address list.
     """
     __args__ = dict()
     __args__['addressListId'] = address_list_id

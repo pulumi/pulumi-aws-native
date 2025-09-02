@@ -105,6 +105,9 @@ class GetProfileResult:
     @property
     @pulumi.getter
     def phone(self) -> Optional[builtins.str]:
+        """
+        Specifies the phone number associated with the profile.
+        """
         return pulumi.get(self, "phone")
 
     @property

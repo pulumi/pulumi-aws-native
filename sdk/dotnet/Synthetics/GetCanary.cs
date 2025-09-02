@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.Synthetics
         /// </summary>
         public readonly string? ArtifactS3Location;
         /// <summary>
+        /// List of browser configurations for the canary
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CanaryBrowserConfig> BrowserConfigs;
+        /// <summary>
         /// Provide the canary script source
         /// </summary>
         public readonly Outputs.CanaryCode? Code;
@@ -126,6 +130,8 @@ namespace Pulumi.AwsNative.Synthetics
 
             string? artifactS3Location,
 
+            ImmutableArray<Outputs.CanaryBrowserConfig> browserConfigs,
+
             Outputs.CanaryCode? code,
 
             string? executionRoleArn,
@@ -152,6 +158,7 @@ namespace Pulumi.AwsNative.Synthetics
         {
             ArtifactConfig = artifactConfig;
             ArtifactS3Location = artifactS3Location;
+            BrowserConfigs = browserConfigs;
             Code = code;
             ExecutionRoleArn = executionRoleArn;
             FailureRetentionPeriod = failureRetentionPeriod;

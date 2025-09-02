@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAiPromptResult:
-    def __init__(__self__, ai_prompt_arn=None, ai_prompt_id=None, assistant_arn=None, description=None, modified_time_seconds=None, template_configuration=None):
+    def __init__(__self__, ai_prompt_arn=None, ai_prompt_id=None, assistant_arn=None, description=None, model_id=None, modified_time_seconds=None, template_configuration=None):
         if ai_prompt_arn and not isinstance(ai_prompt_arn, str):
             raise TypeError("Expected argument 'ai_prompt_arn' to be a str")
         pulumi.set(__self__, "ai_prompt_arn", ai_prompt_arn)
@@ -38,6 +38,9 @@ class GetAiPromptResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if model_id and not isinstance(model_id, str):
+            raise TypeError("Expected argument 'model_id' to be a str")
+        pulumi.set(__self__, "model_id", model_id)
         if modified_time_seconds and not isinstance(modified_time_seconds, float):
             raise TypeError("Expected argument 'modified_time_seconds' to be a float")
         pulumi.set(__self__, "modified_time_seconds", modified_time_seconds)
@@ -78,6 +81,32 @@ class GetAiPromptResult:
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> Optional[builtins.str]:
+        """
+        The identifier of the model used for this AI Prompt. The following model Ids are supported:
+
+        - `anthropic.claude-3-haiku--v1:0`
+        - `apac.amazon.nova-lite-v1:0`
+        - `apac.amazon.nova-micro-v1:0`
+        - `apac.amazon.nova-pro-v1:0`
+        - `apac.anthropic.claude-3-5-sonnet--v2:0`
+        - `apac.anthropic.claude-3-haiku-20240307-v1:0`
+        - `eu.amazon.nova-lite-v1:0`
+        - `eu.amazon.nova-micro-v1:0`
+        - `eu.amazon.nova-pro-v1:0`
+        - `eu.anthropic.claude-3-7-sonnet-20250219-v1:0`
+        - `eu.anthropic.claude-3-haiku-20240307-v1:0`
+        - `us.amazon.nova-lite-v1:0`
+        - `us.amazon.nova-micro-v1:0`
+        - `us.amazon.nova-pro-v1:0`
+        - `us.anthropic.claude-3-5-haiku-20241022-v1:0`
+        - `us.anthropic.claude-3-7-sonnet-20250219-v1:0`
+        - `us.anthropic.claude-3-haiku-20240307-v1:0`
+        """
+        return pulumi.get(self, "model_id")
+
+    @property
     @pulumi.getter(name="modifiedTimeSeconds")
     def modified_time_seconds(self) -> Optional[builtins.float]:
         return pulumi.get(self, "modified_time_seconds")
@@ -101,6 +130,7 @@ class AwaitableGetAiPromptResult(GetAiPromptResult):
             ai_prompt_id=self.ai_prompt_id,
             assistant_arn=self.assistant_arn,
             description=self.description,
+            model_id=self.model_id,
             modified_time_seconds=self.modified_time_seconds,
             template_configuration=self.template_configuration)
 
@@ -126,6 +156,7 @@ def get_ai_prompt(ai_prompt_id: Optional[builtins.str] = None,
         ai_prompt_id=pulumi.get(__ret__, 'ai_prompt_id'),
         assistant_arn=pulumi.get(__ret__, 'assistant_arn'),
         description=pulumi.get(__ret__, 'description'),
+        model_id=pulumi.get(__ret__, 'model_id'),
         modified_time_seconds=pulumi.get(__ret__, 'modified_time_seconds'),
         template_configuration=pulumi.get(__ret__, 'template_configuration'))
 def get_ai_prompt_output(ai_prompt_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -148,5 +179,6 @@ def get_ai_prompt_output(ai_prompt_id: Optional[pulumi.Input[builtins.str]] = No
         ai_prompt_id=pulumi.get(__response__, 'ai_prompt_id'),
         assistant_arn=pulumi.get(__response__, 'assistant_arn'),
         description=pulumi.get(__response__, 'description'),
+        model_id=pulumi.get(__response__, 'model_id'),
         modified_time_seconds=pulumi.get(__response__, 'modified_time_seconds'),
         template_configuration=pulumi.get(__response__, 'template_configuration')))

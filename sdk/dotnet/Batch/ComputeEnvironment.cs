@@ -41,6 +41,8 @@ namespace Pulumi.AwsNative.Batch
 
         /// <summary>
         /// The details for the Amazon EKS cluster that supports the compute environment.
+        /// 
+        /// &gt; To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
         /// </summary>
         [Output("eksConfiguration")]
         public Output<Outputs.ComputeEnvironmentEksConfiguration?> EksConfiguration { get; private set; } = null!;
@@ -180,6 +182,8 @@ namespace Pulumi.AwsNative.Batch
 
         /// <summary>
         /// The details for the Amazon EKS cluster that supports the compute environment.
+        /// 
+        /// &gt; To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
         /// </summary>
         [Input("eksConfiguration")]
         public Input<Inputs.ComputeEnvironmentEksConfigurationArgs>? EksConfiguration { get; set; }

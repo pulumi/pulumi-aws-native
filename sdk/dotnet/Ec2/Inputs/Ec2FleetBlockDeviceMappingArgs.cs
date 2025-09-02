@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     public sealed class Ec2FleetBlockDeviceMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The device name (for example, `/dev/sdh` or `xvdh` ).
+        /// The device name. For available device names, see [Device names for volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) .
         /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }

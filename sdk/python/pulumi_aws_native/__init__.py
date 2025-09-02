@@ -1047,6 +1047,8 @@ _utilities.register(
    "aws-native:bedrock:Agent": "Agent",
    "aws-native:bedrock:AgentAlias": "AgentAlias",
    "aws-native:bedrock:ApplicationInferenceProfile": "ApplicationInferenceProfile",
+   "aws-native:bedrock:AutomatedReasoningPolicy": "AutomatedReasoningPolicy",
+   "aws-native:bedrock:AutomatedReasoningPolicyVersion": "AutomatedReasoningPolicyVersion",
    "aws-native:bedrock:Blueprint": "Blueprint",
    "aws-native:bedrock:DataAutomationProject": "DataAutomationProject",
    "aws-native:bedrock:DataSource": "DataSource",
@@ -3215,7 +3217,8 @@ _utilities.register(
   "classes": {
    "aws-native:servicecatalog:CloudFormationProvisionedProduct": "CloudFormationProvisionedProduct",
    "aws-native:servicecatalog:ServiceAction": "ServiceAction",
-   "aws-native:servicecatalog:ServiceActionAssociation": "ServiceActionAssociation"
+   "aws-native:servicecatalog:ServiceActionAssociation": "ServiceActionAssociation",
+   "aws-native:servicecatalog:TagOption": "TagOption"
   }
  },
  {

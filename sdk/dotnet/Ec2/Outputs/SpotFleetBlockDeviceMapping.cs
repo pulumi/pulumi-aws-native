@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     public sealed class SpotFleetBlockDeviceMapping
     {
         /// <summary>
-        /// The device name (for example, `/dev/sdh` or `xvdh` ).
+        /// The device name. For available device names, see [Device names for volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) .
         /// </summary>
         public readonly string DeviceName;
         /// <summary>

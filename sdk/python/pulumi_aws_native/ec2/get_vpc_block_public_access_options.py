@@ -25,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetVpcBlockPublicAccessOptionsResult:
-    def __init__(__self__, account_id=None, internet_gateway_block_mode=None):
+    def __init__(__self__, account_id=None, exclusions_allowed=None, internet_gateway_block_mode=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
+        if exclusions_allowed and not isinstance(exclusions_allowed, str):
+            raise TypeError("Expected argument 'exclusions_allowed' to be a str")
+        pulumi.set(__self__, "exclusions_allowed", exclusions_allowed)
         if internet_gateway_block_mode and not isinstance(internet_gateway_block_mode, str):
             raise TypeError("Expected argument 'internet_gateway_block_mode' to be a str")
         pulumi.set(__self__, "internet_gateway_block_mode", internet_gateway_block_mode)
@@ -40,6 +43,14 @@ class GetVpcBlockPublicAccessOptionsResult:
         The identifier for the specified AWS account.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="exclusionsAllowed")
+    def exclusions_allowed(self) -> Optional[builtins.str]:
+        """
+        Determines if exclusions are allowed. If you have enabled VPC BPA at the Organization level, exclusions may be not-allowed. Otherwise, they are allowed.
+        """
+        return pulumi.get(self, "exclusions_allowed")
 
     @property
     @pulumi.getter(name="internetGatewayBlockMode")
@@ -57,6 +68,7 @@ class AwaitableGetVpcBlockPublicAccessOptionsResult(GetVpcBlockPublicAccessOptio
             yield self
         return GetVpcBlockPublicAccessOptionsResult(
             account_id=self.account_id,
+            exclusions_allowed=self.exclusions_allowed,
             internet_gateway_block_mode=self.internet_gateway_block_mode)
 
 
@@ -75,6 +87,7 @@ def get_vpc_block_public_access_options(account_id: Optional[builtins.str] = Non
 
     return AwaitableGetVpcBlockPublicAccessOptionsResult(
         account_id=pulumi.get(__ret__, 'account_id'),
+        exclusions_allowed=pulumi.get(__ret__, 'exclusions_allowed'),
         internet_gateway_block_mode=pulumi.get(__ret__, 'internet_gateway_block_mode'))
 def get_vpc_block_public_access_options_output(account_id: Optional[pulumi.Input[builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcBlockPublicAccessOptionsResult]:
@@ -90,4 +103,5 @@ def get_vpc_block_public_access_options_output(account_id: Optional[pulumi.Input
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpcBlockPublicAccessOptions', __args__, opts=opts, typ=GetVpcBlockPublicAccessOptionsResult)
     return __ret__.apply(lambda __response__: GetVpcBlockPublicAccessOptionsResult(
         account_id=pulumi.get(__response__, 'account_id'),
+        exclusions_allowed=pulumi.get(__response__, 'exclusions_allowed'),
         internet_gateway_block_mode=pulumi.get(__response__, 'internet_gateway_block_mode')))

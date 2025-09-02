@@ -825,6 +825,9 @@ type ComputeEnvironmentEc2ConfigurationObject struct {
 	// - **ECS_AL2023** - [Amazon Linux 2023](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) : AWS Batch supports Amazon Linux 2023.
 	//
 	// > Amazon Linux 2023 does not support `A1` instances.
+	// - **ECS_AL2023_NVIDIA** - [Amazon Linux 2023 (GPU)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami) : For all GPU instance families and can be used for all non AWS Graviton-based instance types.
+	//
+	// > ECS_AL2023_NVIDIA doesn't support `p3` and `g3` instance types.
 	// - **ECS_AL1** - [Amazon Linux](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami) . Amazon Linux has reached the end-of-life of standard support. For more information, see [Amazon Linux AMI](https://docs.aws.amazon.com/amazon-linux-ami/) .
 	// - **EKS** - If the `imageIdOverride` parameter isn't specified, then a recent [Amazon EKS-optimized Amazon Linux AMI](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) ( `EKS_AL2` ) is used. If a new image type is specified in an update, but neither an `imageId` nor a `imageIdOverride` parameter is specified, then the latest Amazon EKS optimized AMI for that image type that AWS Batch supports is used.
 	//
@@ -868,6 +871,9 @@ type ComputeEnvironmentEc2ConfigurationObjectArgs struct {
 	// - **ECS_AL2023** - [Amazon Linux 2023](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) : AWS Batch supports Amazon Linux 2023.
 	//
 	// > Amazon Linux 2023 does not support `A1` instances.
+	// - **ECS_AL2023_NVIDIA** - [Amazon Linux 2023 (GPU)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami) : For all GPU instance families and can be used for all non AWS Graviton-based instance types.
+	//
+	// > ECS_AL2023_NVIDIA doesn't support `p3` and `g3` instance types.
 	// - **ECS_AL1** - [Amazon Linux](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami) . Amazon Linux has reached the end-of-life of standard support. For more information, see [Amazon Linux AMI](https://docs.aws.amazon.com/amazon-linux-ami/) .
 	// - **EKS** - If the `imageIdOverride` parameter isn't specified, then a recent [Amazon EKS-optimized Amazon Linux AMI](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) ( `EKS_AL2` ) is used. If a new image type is specified in an update, but neither an `imageId` nor a `imageIdOverride` parameter is specified, then the latest Amazon EKS optimized AMI for that image type that AWS Batch supports is used.
 	//
@@ -956,6 +962,9 @@ func (o ComputeEnvironmentEc2ConfigurationObjectOutput) ImageKubernetesVersion()
 // - **ECS_AL2023** - [Amazon Linux 2023](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) : AWS Batch supports Amazon Linux 2023.
 //
 // > Amazon Linux 2023 does not support `A1` instances.
+// - **ECS_AL2023_NVIDIA** - [Amazon Linux 2023 (GPU)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami) : For all GPU instance families and can be used for all non AWS Graviton-based instance types.
+//
+// > ECS_AL2023_NVIDIA doesn't support `p3` and `g3` instance types.
 // - **ECS_AL1** - [Amazon Linux](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami) . Amazon Linux has reached the end-of-life of standard support. For more information, see [Amazon Linux AMI](https://docs.aws.amazon.com/amazon-linux-ami/) .
 // - **EKS** - If the `imageIdOverride` parameter isn't specified, then a recent [Amazon EKS-optimized Amazon Linux AMI](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) ( `EKS_AL2` ) is used. If a new image type is specified in an update, but neither an `imageId` nor a `imageIdOverride` parameter is specified, then the latest Amazon EKS optimized AMI for that image type that AWS Batch supports is used.
 //
@@ -7061,7 +7070,7 @@ func (o JobDefinitionLinuxParametersPtrOutput) Tmpfs() JobDefinitionTmpfsArrayOu
 type JobDefinitionLogConfiguration struct {
 	// The log driver to use for the container. The valid values that are listed for this parameter are log drivers that the Amazon ECS container agent can communicate with by default.
 	//
-	// The supported log drivers are `awslogs` , `fluentd` , `gelf` , `json-file` , `journald` , `logentries` , `syslog` , and `splunk` .
+	// The supported log drivers are `awsfirelens` , `awslogs` , `fluentd` , `gelf` , `json-file` , `journald` , `logentries` , `syslog` , and `splunk` .
 	//
 	// > Jobs that are running on Fargate resources are restricted to the `awslogs` and `splunk` log drivers.
 	//
@@ -7098,7 +7107,7 @@ type JobDefinitionLogConfigurationInput interface {
 type JobDefinitionLogConfigurationArgs struct {
 	// The log driver to use for the container. The valid values that are listed for this parameter are log drivers that the Amazon ECS container agent can communicate with by default.
 	//
-	// The supported log drivers are `awslogs` , `fluentd` , `gelf` , `json-file` , `journald` , `logentries` , `syslog` , and `splunk` .
+	// The supported log drivers are `awsfirelens` , `awslogs` , `fluentd` , `gelf` , `json-file` , `journald` , `logentries` , `syslog` , and `splunk` .
 	//
 	// > Jobs that are running on Fargate resources are restricted to the `awslogs` and `splunk` log drivers.
 	//
@@ -7200,7 +7209,7 @@ func (o JobDefinitionLogConfigurationOutput) ToJobDefinitionLogConfigurationPtrO
 
 // The log driver to use for the container. The valid values that are listed for this parameter are log drivers that the Amazon ECS container agent can communicate with by default.
 //
-// The supported log drivers are `awslogs` , `fluentd` , `gelf` , `json-file` , `journald` , `logentries` , `syslog` , and `splunk` .
+// The supported log drivers are `awsfirelens` , `awslogs` , `fluentd` , `gelf` , `json-file` , `journald` , `logentries` , `syslog` , and `splunk` .
 //
 // > Jobs that are running on Fargate resources are restricted to the `awslogs` and `splunk` log drivers.
 //
@@ -7256,7 +7265,7 @@ func (o JobDefinitionLogConfigurationPtrOutput) Elem() JobDefinitionLogConfigura
 
 // The log driver to use for the container. The valid values that are listed for this parameter are log drivers that the Amazon ECS container agent can communicate with by default.
 //
-// The supported log drivers are `awslogs` , `fluentd` , `gelf` , `json-file` , `journald` , `logentries` , `syslog` , and `splunk` .
+// The supported log drivers are `awsfirelens` , `awslogs` , `fluentd` , `gelf` , `json-file` , `journald` , `logentries` , `syslog` , and `splunk` .
 //
 // > Jobs that are running on Fargate resources are restricted to the `awslogs` and `splunk` log drivers.
 //

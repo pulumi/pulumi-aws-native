@@ -17,7 +17,8 @@ type Namespace struct {
 	pulumi.CustomResourceState
 
 	// The name of the namespace.
-	Namespace      pulumi.StringOutput `pulumi:"namespace"`
+	Namespace pulumi.StringOutput `pulumi:"namespace"`
+	// The Amazon Resource Name (ARN) of the table bucket to create the namespace in.
 	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
 }
 
@@ -73,14 +74,16 @@ func (NamespaceState) ElementType() reflect.Type {
 
 type namespaceArgs struct {
 	// The name of the namespace.
-	Namespace      string `pulumi:"namespace"`
+	Namespace string `pulumi:"namespace"`
+	// The Amazon Resource Name (ARN) of the table bucket to create the namespace in.
 	TableBucketArn string `pulumi:"tableBucketArn"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
 	// The name of the namespace.
-	Namespace      pulumi.StringInput
+	Namespace pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the table bucket to create the namespace in.
 	TableBucketArn pulumi.StringInput
 }
 
@@ -126,6 +129,7 @@ func (o NamespaceOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the table bucket to create the namespace in.
 func (o NamespaceOutput) TableBucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.TableBucketArn }).(pulumi.StringOutput)
 }

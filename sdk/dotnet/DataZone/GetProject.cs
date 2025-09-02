@@ -92,6 +92,10 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         public readonly string? DomainId;
         /// <summary>
+        /// The ID of the domain unit.
+        /// </summary>
+        public readonly string? DomainUnitId;
+        /// <summary>
         /// The glossary terms that can be used in this Amazon DataZone project.
         /// </summary>
         public readonly ImmutableArray<string> GlossaryTerms;
@@ -122,6 +126,8 @@ namespace Pulumi.AwsNative.DataZone
 
             string? domainId,
 
+            string? domainUnitId,
+
             ImmutableArray<string> glossaryTerms,
 
             string? id,
@@ -136,6 +142,7 @@ namespace Pulumi.AwsNative.DataZone
             CreatedBy = createdBy;
             Description = description;
             DomainId = domainId;
+            DomainUnitId = domainUnitId;
             GlossaryTerms = glossaryTerms;
             Id = id;
             LastUpdatedAt = lastUpdatedAt;

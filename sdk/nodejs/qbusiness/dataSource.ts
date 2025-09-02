@@ -92,7 +92,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly mediaExtractionConfiguration!: pulumi.Output<outputs.qbusiness.DataSourceMediaExtractionConfiguration | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+     * The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
@@ -235,7 +235,7 @@ export interface DataSourceArgs {
      */
     mediaExtractionConfiguration?: pulumi.Input<inputs.qbusiness.DataSourceMediaExtractionConfigurationArgs>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+     * The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional.
      */
     roleArn?: pulumi.Input<string>;
     /**

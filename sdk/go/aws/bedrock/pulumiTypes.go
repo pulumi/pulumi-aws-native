@@ -3384,6 +3384,675 @@ type ApplicationInferenceProfileTag struct {
 	Value string `pulumi:"value"`
 }
 
+type AutomatedReasoningPolicyPolicyDefinition struct {
+	// The rules definition block of an AutomatedReasoningPolicyDefinition.
+	Rules []AutomatedReasoningPolicyPolicyDefinitionRule `pulumi:"rules"`
+	// The types definition block of an AutomatedReasoningPolicyDefinition.
+	Types []AutomatedReasoningPolicyPolicyDefinitionType `pulumi:"types"`
+	// The variables definition block of an AutomatedReasoningPolicyDefinition.
+	Variables []AutomatedReasoningPolicyPolicyDefinitionVariable `pulumi:"variables"`
+	// The policy format version.
+	Version *string `pulumi:"version"`
+}
+
+// AutomatedReasoningPolicyPolicyDefinitionInput is an input type that accepts AutomatedReasoningPolicyPolicyDefinitionArgs and AutomatedReasoningPolicyPolicyDefinitionOutput values.
+// You can construct a concrete instance of `AutomatedReasoningPolicyPolicyDefinitionInput` via:
+//
+//	AutomatedReasoningPolicyPolicyDefinitionArgs{...}
+type AutomatedReasoningPolicyPolicyDefinitionInput interface {
+	pulumi.Input
+
+	ToAutomatedReasoningPolicyPolicyDefinitionOutput() AutomatedReasoningPolicyPolicyDefinitionOutput
+	ToAutomatedReasoningPolicyPolicyDefinitionOutputWithContext(context.Context) AutomatedReasoningPolicyPolicyDefinitionOutput
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionArgs struct {
+	// The rules definition block of an AutomatedReasoningPolicyDefinition.
+	Rules AutomatedReasoningPolicyPolicyDefinitionRuleArrayInput `pulumi:"rules"`
+	// The types definition block of an AutomatedReasoningPolicyDefinition.
+	Types AutomatedReasoningPolicyPolicyDefinitionTypeArrayInput `pulumi:"types"`
+	// The variables definition block of an AutomatedReasoningPolicyDefinition.
+	Variables AutomatedReasoningPolicyPolicyDefinitionVariableArrayInput `pulumi:"variables"`
+	// The policy format version.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (AutomatedReasoningPolicyPolicyDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinition)(nil)).Elem()
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionArgs) ToAutomatedReasoningPolicyPolicyDefinitionOutput() AutomatedReasoningPolicyPolicyDefinitionOutput {
+	return i.ToAutomatedReasoningPolicyPolicyDefinitionOutputWithContext(context.Background())
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionArgs) ToAutomatedReasoningPolicyPolicyDefinitionOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomatedReasoningPolicyPolicyDefinitionOutput)
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionArgs) ToAutomatedReasoningPolicyPolicyDefinitionPtrOutput() AutomatedReasoningPolicyPolicyDefinitionPtrOutput {
+	return i.ToAutomatedReasoningPolicyPolicyDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionArgs) ToAutomatedReasoningPolicyPolicyDefinitionPtrOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomatedReasoningPolicyPolicyDefinitionOutput).ToAutomatedReasoningPolicyPolicyDefinitionPtrOutputWithContext(ctx)
+}
+
+// AutomatedReasoningPolicyPolicyDefinitionPtrInput is an input type that accepts AutomatedReasoningPolicyPolicyDefinitionArgs, AutomatedReasoningPolicyPolicyDefinitionPtr and AutomatedReasoningPolicyPolicyDefinitionPtrOutput values.
+// You can construct a concrete instance of `AutomatedReasoningPolicyPolicyDefinitionPtrInput` via:
+//
+//	        AutomatedReasoningPolicyPolicyDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomatedReasoningPolicyPolicyDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToAutomatedReasoningPolicyPolicyDefinitionPtrOutput() AutomatedReasoningPolicyPolicyDefinitionPtrOutput
+	ToAutomatedReasoningPolicyPolicyDefinitionPtrOutputWithContext(context.Context) AutomatedReasoningPolicyPolicyDefinitionPtrOutput
+}
+
+type automatedReasoningPolicyPolicyDefinitionPtrType AutomatedReasoningPolicyPolicyDefinitionArgs
+
+func AutomatedReasoningPolicyPolicyDefinitionPtr(v *AutomatedReasoningPolicyPolicyDefinitionArgs) AutomatedReasoningPolicyPolicyDefinitionPtrInput {
+	return (*automatedReasoningPolicyPolicyDefinitionPtrType)(v)
+}
+
+func (*automatedReasoningPolicyPolicyDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomatedReasoningPolicyPolicyDefinition)(nil)).Elem()
+}
+
+func (i *automatedReasoningPolicyPolicyDefinitionPtrType) ToAutomatedReasoningPolicyPolicyDefinitionPtrOutput() AutomatedReasoningPolicyPolicyDefinitionPtrOutput {
+	return i.ToAutomatedReasoningPolicyPolicyDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *automatedReasoningPolicyPolicyDefinitionPtrType) ToAutomatedReasoningPolicyPolicyDefinitionPtrOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomatedReasoningPolicyPolicyDefinitionPtrOutput)
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionOutput struct{ *pulumi.OutputState }
+
+func (AutomatedReasoningPolicyPolicyDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinition)(nil)).Elem()
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionOutput) ToAutomatedReasoningPolicyPolicyDefinitionOutput() AutomatedReasoningPolicyPolicyDefinitionOutput {
+	return o
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionOutput) ToAutomatedReasoningPolicyPolicyDefinitionOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionOutput {
+	return o
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionOutput) ToAutomatedReasoningPolicyPolicyDefinitionPtrOutput() AutomatedReasoningPolicyPolicyDefinitionPtrOutput {
+	return o.ToAutomatedReasoningPolicyPolicyDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionOutput) ToAutomatedReasoningPolicyPolicyDefinitionPtrOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomatedReasoningPolicyPolicyDefinition) *AutomatedReasoningPolicyPolicyDefinition {
+		return &v
+	}).(AutomatedReasoningPolicyPolicyDefinitionPtrOutput)
+}
+
+// The rules definition block of an AutomatedReasoningPolicyDefinition.
+func (o AutomatedReasoningPolicyPolicyDefinitionOutput) Rules() AutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput {
+	return o.ApplyT(func(v AutomatedReasoningPolicyPolicyDefinition) []AutomatedReasoningPolicyPolicyDefinitionRule {
+		return v.Rules
+	}).(AutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput)
+}
+
+// The types definition block of an AutomatedReasoningPolicyDefinition.
+func (o AutomatedReasoningPolicyPolicyDefinitionOutput) Types() AutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput {
+	return o.ApplyT(func(v AutomatedReasoningPolicyPolicyDefinition) []AutomatedReasoningPolicyPolicyDefinitionType {
+		return v.Types
+	}).(AutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput)
+}
+
+// The variables definition block of an AutomatedReasoningPolicyDefinition.
+func (o AutomatedReasoningPolicyPolicyDefinitionOutput) Variables() AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput {
+	return o.ApplyT(func(v AutomatedReasoningPolicyPolicyDefinition) []AutomatedReasoningPolicyPolicyDefinitionVariable {
+		return v.Variables
+	}).(AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput)
+}
+
+// The policy format version.
+func (o AutomatedReasoningPolicyPolicyDefinitionOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomatedReasoningPolicyPolicyDefinition) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (AutomatedReasoningPolicyPolicyDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomatedReasoningPolicyPolicyDefinition)(nil)).Elem()
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionPtrOutput) ToAutomatedReasoningPolicyPolicyDefinitionPtrOutput() AutomatedReasoningPolicyPolicyDefinitionPtrOutput {
+	return o
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionPtrOutput) ToAutomatedReasoningPolicyPolicyDefinitionPtrOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionPtrOutput {
+	return o
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionPtrOutput) Elem() AutomatedReasoningPolicyPolicyDefinitionOutput {
+	return o.ApplyT(func(v *AutomatedReasoningPolicyPolicyDefinition) AutomatedReasoningPolicyPolicyDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret AutomatedReasoningPolicyPolicyDefinition
+		return ret
+	}).(AutomatedReasoningPolicyPolicyDefinitionOutput)
+}
+
+// The rules definition block of an AutomatedReasoningPolicyDefinition.
+func (o AutomatedReasoningPolicyPolicyDefinitionPtrOutput) Rules() AutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput {
+	return o.ApplyT(func(v *AutomatedReasoningPolicyPolicyDefinition) []AutomatedReasoningPolicyPolicyDefinitionRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(AutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput)
+}
+
+// The types definition block of an AutomatedReasoningPolicyDefinition.
+func (o AutomatedReasoningPolicyPolicyDefinitionPtrOutput) Types() AutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput {
+	return o.ApplyT(func(v *AutomatedReasoningPolicyPolicyDefinition) []AutomatedReasoningPolicyPolicyDefinitionType {
+		if v == nil {
+			return nil
+		}
+		return v.Types
+	}).(AutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput)
+}
+
+// The variables definition block of an AutomatedReasoningPolicyDefinition.
+func (o AutomatedReasoningPolicyPolicyDefinitionPtrOutput) Variables() AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput {
+	return o.ApplyT(func(v *AutomatedReasoningPolicyPolicyDefinition) []AutomatedReasoningPolicyPolicyDefinitionVariable {
+		if v == nil {
+			return nil
+		}
+		return v.Variables
+	}).(AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput)
+}
+
+// The policy format version.
+func (o AutomatedReasoningPolicyPolicyDefinitionPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomatedReasoningPolicyPolicyDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionRule struct {
+	// An alternate expression for this rule
+	AlternateExpression *string `pulumi:"alternateExpression"`
+	// The SMT expression for this rule
+	Expression string `pulumi:"expression"`
+	// A unique id within the PolicyDefinition
+	Id string `pulumi:"id"`
+}
+
+// AutomatedReasoningPolicyPolicyDefinitionRuleInput is an input type that accepts AutomatedReasoningPolicyPolicyDefinitionRuleArgs and AutomatedReasoningPolicyPolicyDefinitionRuleOutput values.
+// You can construct a concrete instance of `AutomatedReasoningPolicyPolicyDefinitionRuleInput` via:
+//
+//	AutomatedReasoningPolicyPolicyDefinitionRuleArgs{...}
+type AutomatedReasoningPolicyPolicyDefinitionRuleInput interface {
+	pulumi.Input
+
+	ToAutomatedReasoningPolicyPolicyDefinitionRuleOutput() AutomatedReasoningPolicyPolicyDefinitionRuleOutput
+	ToAutomatedReasoningPolicyPolicyDefinitionRuleOutputWithContext(context.Context) AutomatedReasoningPolicyPolicyDefinitionRuleOutput
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionRuleArgs struct {
+	// An alternate expression for this rule
+	AlternateExpression pulumi.StringPtrInput `pulumi:"alternateExpression"`
+	// The SMT expression for this rule
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// A unique id within the PolicyDefinition
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (AutomatedReasoningPolicyPolicyDefinitionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionRule)(nil)).Elem()
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionRuleArgs) ToAutomatedReasoningPolicyPolicyDefinitionRuleOutput() AutomatedReasoningPolicyPolicyDefinitionRuleOutput {
+	return i.ToAutomatedReasoningPolicyPolicyDefinitionRuleOutputWithContext(context.Background())
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionRuleArgs) ToAutomatedReasoningPolicyPolicyDefinitionRuleOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomatedReasoningPolicyPolicyDefinitionRuleOutput)
+}
+
+// AutomatedReasoningPolicyPolicyDefinitionRuleArrayInput is an input type that accepts AutomatedReasoningPolicyPolicyDefinitionRuleArray and AutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput values.
+// You can construct a concrete instance of `AutomatedReasoningPolicyPolicyDefinitionRuleArrayInput` via:
+//
+//	AutomatedReasoningPolicyPolicyDefinitionRuleArray{ AutomatedReasoningPolicyPolicyDefinitionRuleArgs{...} }
+type AutomatedReasoningPolicyPolicyDefinitionRuleArrayInput interface {
+	pulumi.Input
+
+	ToAutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput() AutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput
+	ToAutomatedReasoningPolicyPolicyDefinitionRuleArrayOutputWithContext(context.Context) AutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionRuleArray []AutomatedReasoningPolicyPolicyDefinitionRuleInput
+
+func (AutomatedReasoningPolicyPolicyDefinitionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomatedReasoningPolicyPolicyDefinitionRule)(nil)).Elem()
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionRuleArray) ToAutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput() AutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput {
+	return i.ToAutomatedReasoningPolicyPolicyDefinitionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionRuleArray) ToAutomatedReasoningPolicyPolicyDefinitionRuleArrayOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput)
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionRuleOutput struct{ *pulumi.OutputState }
+
+func (AutomatedReasoningPolicyPolicyDefinitionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionRule)(nil)).Elem()
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionRuleOutput) ToAutomatedReasoningPolicyPolicyDefinitionRuleOutput() AutomatedReasoningPolicyPolicyDefinitionRuleOutput {
+	return o
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionRuleOutput) ToAutomatedReasoningPolicyPolicyDefinitionRuleOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionRuleOutput {
+	return o
+}
+
+// An alternate expression for this rule
+func (o AutomatedReasoningPolicyPolicyDefinitionRuleOutput) AlternateExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomatedReasoningPolicyPolicyDefinitionRule) *string { return v.AlternateExpression }).(pulumi.StringPtrOutput)
+}
+
+// The SMT expression for this rule
+func (o AutomatedReasoningPolicyPolicyDefinitionRuleOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomatedReasoningPolicyPolicyDefinitionRule) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// A unique id within the PolicyDefinition
+func (o AutomatedReasoningPolicyPolicyDefinitionRuleOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomatedReasoningPolicyPolicyDefinitionRule) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomatedReasoningPolicyPolicyDefinitionRule)(nil)).Elem()
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput) ToAutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput() AutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput {
+	return o
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput) ToAutomatedReasoningPolicyPolicyDefinitionRuleArrayOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput {
+	return o
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput) Index(i pulumi.IntInput) AutomatedReasoningPolicyPolicyDefinitionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomatedReasoningPolicyPolicyDefinitionRule {
+		return vs[0].([]AutomatedReasoningPolicyPolicyDefinitionRule)[vs[1].(int)]
+	}).(AutomatedReasoningPolicyPolicyDefinitionRuleOutput)
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionType struct {
+	// A natural language description of this type.
+	Description *string `pulumi:"description"`
+	// A name for this type.
+	Name string `pulumi:"name"`
+	// A list of valid values for this type.
+	Values []AutomatedReasoningPolicyPolicyDefinitionTypeValue `pulumi:"values"`
+}
+
+// AutomatedReasoningPolicyPolicyDefinitionTypeInput is an input type that accepts AutomatedReasoningPolicyPolicyDefinitionTypeArgs and AutomatedReasoningPolicyPolicyDefinitionTypeOutput values.
+// You can construct a concrete instance of `AutomatedReasoningPolicyPolicyDefinitionTypeInput` via:
+//
+//	AutomatedReasoningPolicyPolicyDefinitionTypeArgs{...}
+type AutomatedReasoningPolicyPolicyDefinitionTypeInput interface {
+	pulumi.Input
+
+	ToAutomatedReasoningPolicyPolicyDefinitionTypeOutput() AutomatedReasoningPolicyPolicyDefinitionTypeOutput
+	ToAutomatedReasoningPolicyPolicyDefinitionTypeOutputWithContext(context.Context) AutomatedReasoningPolicyPolicyDefinitionTypeOutput
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionTypeArgs struct {
+	// A natural language description of this type.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A name for this type.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A list of valid values for this type.
+	Values AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayInput `pulumi:"values"`
+}
+
+func (AutomatedReasoningPolicyPolicyDefinitionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionType)(nil)).Elem()
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionTypeArgs) ToAutomatedReasoningPolicyPolicyDefinitionTypeOutput() AutomatedReasoningPolicyPolicyDefinitionTypeOutput {
+	return i.ToAutomatedReasoningPolicyPolicyDefinitionTypeOutputWithContext(context.Background())
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionTypeArgs) ToAutomatedReasoningPolicyPolicyDefinitionTypeOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomatedReasoningPolicyPolicyDefinitionTypeOutput)
+}
+
+// AutomatedReasoningPolicyPolicyDefinitionTypeArrayInput is an input type that accepts AutomatedReasoningPolicyPolicyDefinitionTypeArray and AutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput values.
+// You can construct a concrete instance of `AutomatedReasoningPolicyPolicyDefinitionTypeArrayInput` via:
+//
+//	AutomatedReasoningPolicyPolicyDefinitionTypeArray{ AutomatedReasoningPolicyPolicyDefinitionTypeArgs{...} }
+type AutomatedReasoningPolicyPolicyDefinitionTypeArrayInput interface {
+	pulumi.Input
+
+	ToAutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput() AutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput
+	ToAutomatedReasoningPolicyPolicyDefinitionTypeArrayOutputWithContext(context.Context) AutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionTypeArray []AutomatedReasoningPolicyPolicyDefinitionTypeInput
+
+func (AutomatedReasoningPolicyPolicyDefinitionTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomatedReasoningPolicyPolicyDefinitionType)(nil)).Elem()
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionTypeArray) ToAutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput() AutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput {
+	return i.ToAutomatedReasoningPolicyPolicyDefinitionTypeArrayOutputWithContext(context.Background())
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionTypeArray) ToAutomatedReasoningPolicyPolicyDefinitionTypeArrayOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput)
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionTypeOutput struct{ *pulumi.OutputState }
+
+func (AutomatedReasoningPolicyPolicyDefinitionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionType)(nil)).Elem()
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionTypeOutput) ToAutomatedReasoningPolicyPolicyDefinitionTypeOutput() AutomatedReasoningPolicyPolicyDefinitionTypeOutput {
+	return o
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionTypeOutput) ToAutomatedReasoningPolicyPolicyDefinitionTypeOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionTypeOutput {
+	return o
+}
+
+// A natural language description of this type.
+func (o AutomatedReasoningPolicyPolicyDefinitionTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomatedReasoningPolicyPolicyDefinitionType) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A name for this type.
+func (o AutomatedReasoningPolicyPolicyDefinitionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomatedReasoningPolicyPolicyDefinitionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of valid values for this type.
+func (o AutomatedReasoningPolicyPolicyDefinitionTypeOutput) Values() AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput {
+	return o.ApplyT(func(v AutomatedReasoningPolicyPolicyDefinitionType) []AutomatedReasoningPolicyPolicyDefinitionTypeValue {
+		return v.Values
+	}).(AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput)
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomatedReasoningPolicyPolicyDefinitionType)(nil)).Elem()
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput) ToAutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput() AutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput {
+	return o
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput) ToAutomatedReasoningPolicyPolicyDefinitionTypeArrayOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput {
+	return o
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput) Index(i pulumi.IntInput) AutomatedReasoningPolicyPolicyDefinitionTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomatedReasoningPolicyPolicyDefinitionType {
+		return vs[0].([]AutomatedReasoningPolicyPolicyDefinitionType)[vs[1].(int)]
+	}).(AutomatedReasoningPolicyPolicyDefinitionTypeOutput)
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionTypeValue struct {
+	// A natural language description of the type's value.
+	Description *string `pulumi:"description"`
+	// The value of the type value.
+	Value string `pulumi:"value"`
+}
+
+// AutomatedReasoningPolicyPolicyDefinitionTypeValueInput is an input type that accepts AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs and AutomatedReasoningPolicyPolicyDefinitionTypeValueOutput values.
+// You can construct a concrete instance of `AutomatedReasoningPolicyPolicyDefinitionTypeValueInput` via:
+//
+//	AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs{...}
+type AutomatedReasoningPolicyPolicyDefinitionTypeValueInput interface {
+	pulumi.Input
+
+	ToAutomatedReasoningPolicyPolicyDefinitionTypeValueOutput() AutomatedReasoningPolicyPolicyDefinitionTypeValueOutput
+	ToAutomatedReasoningPolicyPolicyDefinitionTypeValueOutputWithContext(context.Context) AutomatedReasoningPolicyPolicyDefinitionTypeValueOutput
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs struct {
+	// A natural language description of the type's value.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The value of the type value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionTypeValue)(nil)).Elem()
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs) ToAutomatedReasoningPolicyPolicyDefinitionTypeValueOutput() AutomatedReasoningPolicyPolicyDefinitionTypeValueOutput {
+	return i.ToAutomatedReasoningPolicyPolicyDefinitionTypeValueOutputWithContext(context.Background())
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs) ToAutomatedReasoningPolicyPolicyDefinitionTypeValueOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionTypeValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomatedReasoningPolicyPolicyDefinitionTypeValueOutput)
+}
+
+// AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayInput is an input type that accepts AutomatedReasoningPolicyPolicyDefinitionTypeValueArray and AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput values.
+// You can construct a concrete instance of `AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayInput` via:
+//
+//	AutomatedReasoningPolicyPolicyDefinitionTypeValueArray{ AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs{...} }
+type AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayInput interface {
+	pulumi.Input
+
+	ToAutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput() AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput
+	ToAutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutputWithContext(context.Context) AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionTypeValueArray []AutomatedReasoningPolicyPolicyDefinitionTypeValueInput
+
+func (AutomatedReasoningPolicyPolicyDefinitionTypeValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomatedReasoningPolicyPolicyDefinitionTypeValue)(nil)).Elem()
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionTypeValueArray) ToAutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput() AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput {
+	return i.ToAutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutputWithContext(context.Background())
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionTypeValueArray) ToAutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput)
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionTypeValueOutput struct{ *pulumi.OutputState }
+
+func (AutomatedReasoningPolicyPolicyDefinitionTypeValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionTypeValue)(nil)).Elem()
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionTypeValueOutput) ToAutomatedReasoningPolicyPolicyDefinitionTypeValueOutput() AutomatedReasoningPolicyPolicyDefinitionTypeValueOutput {
+	return o
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionTypeValueOutput) ToAutomatedReasoningPolicyPolicyDefinitionTypeValueOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionTypeValueOutput {
+	return o
+}
+
+// A natural language description of the type's value.
+func (o AutomatedReasoningPolicyPolicyDefinitionTypeValueOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomatedReasoningPolicyPolicyDefinitionTypeValue) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The value of the type value.
+func (o AutomatedReasoningPolicyPolicyDefinitionTypeValueOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomatedReasoningPolicyPolicyDefinitionTypeValue) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomatedReasoningPolicyPolicyDefinitionTypeValue)(nil)).Elem()
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput) ToAutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput() AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput {
+	return o
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput) ToAutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput {
+	return o
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput) Index(i pulumi.IntInput) AutomatedReasoningPolicyPolicyDefinitionTypeValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomatedReasoningPolicyPolicyDefinitionTypeValue {
+		return vs[0].([]AutomatedReasoningPolicyPolicyDefinitionTypeValue)[vs[1].(int)]
+	}).(AutomatedReasoningPolicyPolicyDefinitionTypeValueOutput)
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionVariable struct {
+	// A natural language description of this variable.
+	Description string `pulumi:"description"`
+	// A name from this variable.
+	Name string `pulumi:"name"`
+	// A type for this variable.
+	Type string `pulumi:"type"`
+}
+
+// AutomatedReasoningPolicyPolicyDefinitionVariableInput is an input type that accepts AutomatedReasoningPolicyPolicyDefinitionVariableArgs and AutomatedReasoningPolicyPolicyDefinitionVariableOutput values.
+// You can construct a concrete instance of `AutomatedReasoningPolicyPolicyDefinitionVariableInput` via:
+//
+//	AutomatedReasoningPolicyPolicyDefinitionVariableArgs{...}
+type AutomatedReasoningPolicyPolicyDefinitionVariableInput interface {
+	pulumi.Input
+
+	ToAutomatedReasoningPolicyPolicyDefinitionVariableOutput() AutomatedReasoningPolicyPolicyDefinitionVariableOutput
+	ToAutomatedReasoningPolicyPolicyDefinitionVariableOutputWithContext(context.Context) AutomatedReasoningPolicyPolicyDefinitionVariableOutput
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionVariableArgs struct {
+	// A natural language description of this variable.
+	Description pulumi.StringInput `pulumi:"description"`
+	// A name from this variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A type for this variable.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AutomatedReasoningPolicyPolicyDefinitionVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionVariable)(nil)).Elem()
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionVariableArgs) ToAutomatedReasoningPolicyPolicyDefinitionVariableOutput() AutomatedReasoningPolicyPolicyDefinitionVariableOutput {
+	return i.ToAutomatedReasoningPolicyPolicyDefinitionVariableOutputWithContext(context.Background())
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionVariableArgs) ToAutomatedReasoningPolicyPolicyDefinitionVariableOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomatedReasoningPolicyPolicyDefinitionVariableOutput)
+}
+
+// AutomatedReasoningPolicyPolicyDefinitionVariableArrayInput is an input type that accepts AutomatedReasoningPolicyPolicyDefinitionVariableArray and AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput values.
+// You can construct a concrete instance of `AutomatedReasoningPolicyPolicyDefinitionVariableArrayInput` via:
+//
+//	AutomatedReasoningPolicyPolicyDefinitionVariableArray{ AutomatedReasoningPolicyPolicyDefinitionVariableArgs{...} }
+type AutomatedReasoningPolicyPolicyDefinitionVariableArrayInput interface {
+	pulumi.Input
+
+	ToAutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput() AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput
+	ToAutomatedReasoningPolicyPolicyDefinitionVariableArrayOutputWithContext(context.Context) AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionVariableArray []AutomatedReasoningPolicyPolicyDefinitionVariableInput
+
+func (AutomatedReasoningPolicyPolicyDefinitionVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomatedReasoningPolicyPolicyDefinitionVariable)(nil)).Elem()
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionVariableArray) ToAutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput() AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput {
+	return i.ToAutomatedReasoningPolicyPolicyDefinitionVariableArrayOutputWithContext(context.Background())
+}
+
+func (i AutomatedReasoningPolicyPolicyDefinitionVariableArray) ToAutomatedReasoningPolicyPolicyDefinitionVariableArrayOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput)
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionVariableOutput struct{ *pulumi.OutputState }
+
+func (AutomatedReasoningPolicyPolicyDefinitionVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionVariable)(nil)).Elem()
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionVariableOutput) ToAutomatedReasoningPolicyPolicyDefinitionVariableOutput() AutomatedReasoningPolicyPolicyDefinitionVariableOutput {
+	return o
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionVariableOutput) ToAutomatedReasoningPolicyPolicyDefinitionVariableOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionVariableOutput {
+	return o
+}
+
+// A natural language description of this variable.
+func (o AutomatedReasoningPolicyPolicyDefinitionVariableOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomatedReasoningPolicyPolicyDefinitionVariable) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// A name from this variable.
+func (o AutomatedReasoningPolicyPolicyDefinitionVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomatedReasoningPolicyPolicyDefinitionVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A type for this variable.
+func (o AutomatedReasoningPolicyPolicyDefinitionVariableOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomatedReasoningPolicyPolicyDefinitionVariable) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomatedReasoningPolicyPolicyDefinitionVariable)(nil)).Elem()
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput) ToAutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput() AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput {
+	return o
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput) ToAutomatedReasoningPolicyPolicyDefinitionVariableArrayOutputWithContext(ctx context.Context) AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput {
+	return o
+}
+
+func (o AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput) Index(i pulumi.IntInput) AutomatedReasoningPolicyPolicyDefinitionVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomatedReasoningPolicyPolicyDefinitionVariable {
+		return vs[0].([]AutomatedReasoningPolicyPolicyDefinitionVariable)[vs[1].(int)]
+	}).(AutomatedReasoningPolicyPolicyDefinitionVariableOutput)
+}
+
+// Definition of the key/value pair for a tag
+type AutomatedReasoningPolicyTag struct {
+	// Tag Key
+	Key string `pulumi:"key"`
+	// Tag Value
+	Value string `pulumi:"value"`
+}
+
+// Definition of the key/value pair for a tag
+type AutomatedReasoningPolicyVersionTag struct {
+	// Tag Key
+	Key string `pulumi:"key"`
+	// Tag Value
+	Value string `pulumi:"value"`
+}
+
 // Definition of the key/value pair for a tag
 type BlueprintTag struct {
 	// Key for the tag
@@ -42664,6 +43333,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSessionSummaryConfigurationPtrInput)(nil)).Elem(), AgentSessionSummaryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInferenceProfileInferenceProfileModelSourcePropertiesInput)(nil)).Elem(), ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrInput)(nil)).Elem(), ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionInput)(nil)).Elem(), AutomatedReasoningPolicyPolicyDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionPtrInput)(nil)).Elem(), AutomatedReasoningPolicyPolicyDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionRuleInput)(nil)).Elem(), AutomatedReasoningPolicyPolicyDefinitionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionRuleArrayInput)(nil)).Elem(), AutomatedReasoningPolicyPolicyDefinitionRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionTypeInput)(nil)).Elem(), AutomatedReasoningPolicyPolicyDefinitionTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionTypeArrayInput)(nil)).Elem(), AutomatedReasoningPolicyPolicyDefinitionTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionTypeValueInput)(nil)).Elem(), AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayInput)(nil)).Elem(), AutomatedReasoningPolicyPolicyDefinitionTypeValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionVariableInput)(nil)).Elem(), AutomatedReasoningPolicyPolicyDefinitionVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomatedReasoningPolicyPolicyDefinitionVariableArrayInput)(nil)).Elem(), AutomatedReasoningPolicyPolicyDefinitionVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryInput)(nil)).Elem(), DataAutomationProjectAudioExtractionCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryPtrInput)(nil)).Elem(), DataAutomationProjectAudioExtractionCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioOverrideConfigurationInput)(nil)).Elem(), DataAutomationProjectAudioOverrideConfigurationArgs{})
@@ -43149,6 +43828,16 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileModelArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AutomatedReasoningPolicyPolicyDefinitionOutput{})
+	pulumi.RegisterOutputType(AutomatedReasoningPolicyPolicyDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(AutomatedReasoningPolicyPolicyDefinitionRuleOutput{})
+	pulumi.RegisterOutputType(AutomatedReasoningPolicyPolicyDefinitionRuleArrayOutput{})
+	pulumi.RegisterOutputType(AutomatedReasoningPolicyPolicyDefinitionTypeOutput{})
+	pulumi.RegisterOutputType(AutomatedReasoningPolicyPolicyDefinitionTypeArrayOutput{})
+	pulumi.RegisterOutputType(AutomatedReasoningPolicyPolicyDefinitionTypeValueOutput{})
+	pulumi.RegisterOutputType(AutomatedReasoningPolicyPolicyDefinitionTypeValueArrayOutput{})
+	pulumi.RegisterOutputType(AutomatedReasoningPolicyPolicyDefinitionVariableOutput{})
+	pulumi.RegisterOutputType(AutomatedReasoningPolicyPolicyDefinitionVariableArrayOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioOverrideConfigurationOutput{})

@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetProjectResult:
-    def __init__(__self__, created_at=None, created_by=None, description=None, domain_id=None, glossary_terms=None, id=None, last_updated_at=None, name=None, project_status=None):
+    def __init__(__self__, created_at=None, created_by=None, description=None, domain_id=None, domain_unit_id=None, glossary_terms=None, id=None, last_updated_at=None, name=None, project_status=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -38,6 +38,9 @@ class GetProjectResult:
         if domain_id and not isinstance(domain_id, str):
             raise TypeError("Expected argument 'domain_id' to be a str")
         pulumi.set(__self__, "domain_id", domain_id)
+        if domain_unit_id and not isinstance(domain_unit_id, str):
+            raise TypeError("Expected argument 'domain_unit_id' to be a str")
+        pulumi.set(__self__, "domain_unit_id", domain_unit_id)
         if glossary_terms and not isinstance(glossary_terms, list):
             raise TypeError("Expected argument 'glossary_terms' to be a list")
         pulumi.set(__self__, "glossary_terms", glossary_terms)
@@ -85,6 +88,14 @@ class GetProjectResult:
         The identifier of the Amazon DataZone domain in which the project was created.
         """
         return pulumi.get(self, "domain_id")
+
+    @property
+    @pulumi.getter(name="domainUnitId")
+    def domain_unit_id(self) -> Optional[builtins.str]:
+        """
+        The ID of the domain unit.
+        """
+        return pulumi.get(self, "domain_unit_id")
 
     @property
     @pulumi.getter(name="glossaryTerms")
@@ -137,6 +148,7 @@ class AwaitableGetProjectResult(GetProjectResult):
             created_by=self.created_by,
             description=self.description,
             domain_id=self.domain_id,
+            domain_unit_id=self.domain_unit_id,
             glossary_terms=self.glossary_terms,
             id=self.id,
             last_updated_at=self.last_updated_at,
@@ -165,6 +177,7 @@ def get_project(domain_id: Optional[builtins.str] = None,
         created_by=pulumi.get(__ret__, 'created_by'),
         description=pulumi.get(__ret__, 'description'),
         domain_id=pulumi.get(__ret__, 'domain_id'),
+        domain_unit_id=pulumi.get(__ret__, 'domain_unit_id'),
         glossary_terms=pulumi.get(__ret__, 'glossary_terms'),
         id=pulumi.get(__ret__, 'id'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
@@ -190,6 +203,7 @@ def get_project_output(domain_id: Optional[pulumi.Input[builtins.str]] = None,
         created_by=pulumi.get(__response__, 'created_by'),
         description=pulumi.get(__response__, 'description'),
         domain_id=pulumi.get(__response__, 'domain_id'),
+        domain_unit_id=pulumi.get(__response__, 'domain_unit_id'),
         glossary_terms=pulumi.get(__response__, 'glossary_terms'),
         id=pulumi.get(__response__, 'id'),
         last_updated_at=pulumi.get(__response__, 'last_updated_at'),

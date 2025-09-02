@@ -25,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetParameterResult:
-    def __init__(__self__, data_type=None, type=None, value=None):
+    def __init__(__self__, data_type=None, tags=None, type=None, value=None):
         if data_type and not isinstance(data_type, str):
             raise TypeError("Expected argument 'data_type' to be a str")
         pulumi.set(__self__, "data_type", data_type)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -43,6 +46,14 @@ class GetParameterResult:
         The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
         """
         return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
@@ -70,6 +81,7 @@ class AwaitableGetParameterResult(GetParameterResult):
             yield self
         return GetParameterResult(
             data_type=self.data_type,
+            tags=self.tags,
             type=self.type,
             value=self.value)
 
@@ -94,6 +106,7 @@ def get_parameter(name: Optional[builtins.str] = None,
 
     return AwaitableGetParameterResult(
         data_type=pulumi.get(__ret__, 'data_type'),
+        tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
 def get_parameter_output(name: Optional[pulumi.Input[builtins.str]] = None,
@@ -115,5 +128,6 @@ def get_parameter_output(name: Optional[pulumi.Input[builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:ssm:getParameter', __args__, opts=opts, typ=GetParameterResult)
     return __ret__.apply(lambda __response__: GetParameterResult(
         data_type=pulumi.get(__response__, 'data_type'),
+        tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         value=pulumi.get(__response__, 'value')))

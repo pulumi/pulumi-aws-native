@@ -36,6 +36,8 @@ type LookupParameterArgs struct {
 type LookupParameterResult struct {
 	// The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
 	DataType *ParameterDataType `pulumi:"dataType"`
+	// Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
+	Tags map[string]string `pulumi:"tags"`
 	// The type of parameter.
 	//   Parameters of type ``SecureString`` are not supported by CFNlong.
 	Type *ParameterType `pulumi:"type"`
@@ -81,6 +83,11 @@ func (o LookupParameterResultOutput) ToLookupParameterResultOutputWithContext(ct
 // The data type of the parameter, such as “text“ or “aws:ec2:image“. The default is “text“.
 func (o LookupParameterResultOutput) DataType() ParameterDataTypePtrOutput {
 	return o.ApplyT(func(v LookupParameterResult) *ParameterDataType { return v.DataType }).(ParameterDataTypePtrOutput)
+}
+
+// Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
+func (o LookupParameterResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupParameterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The type of parameter.

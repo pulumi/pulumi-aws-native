@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.S3Tables.Inputs
     /// </summary>
     public sealed class TableIcebergMetadataArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The schema for an Iceberg table.
+        /// </summary>
         [Input("icebergSchema", required: true)]
         public Input<Inputs.TableIcebergSchemaArgs> IcebergSchema { get; set; } = null!;
 

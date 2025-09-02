@@ -583,6 +583,7 @@ func (o TableCompactionPtrOutput) TargetFileSizeMb() pulumi.IntPtrOutput {
 
 // Contains details about the metadata for an Iceberg table.
 type TableIcebergMetadata struct {
+	// The schema for an Iceberg table.
 	IcebergSchema TableIcebergSchema `pulumi:"icebergSchema"`
 }
 
@@ -599,6 +600,7 @@ type TableIcebergMetadataInput interface {
 
 // Contains details about the metadata for an Iceberg table.
 type TableIcebergMetadataArgs struct {
+	// The schema for an Iceberg table.
 	IcebergSchema TableIcebergSchemaInput `pulumi:"icebergSchema"`
 }
 
@@ -680,6 +682,7 @@ func (o TableIcebergMetadataOutput) ToTableIcebergMetadataPtrOutputWithContext(c
 	}).(TableIcebergMetadataPtrOutput)
 }
 
+// The schema for an Iceberg table.
 func (o TableIcebergMetadataOutput) IcebergSchema() TableIcebergSchemaOutput {
 	return o.ApplyT(func(v TableIcebergMetadata) TableIcebergSchema { return v.IcebergSchema }).(TableIcebergSchemaOutput)
 }
@@ -708,6 +711,7 @@ func (o TableIcebergMetadataPtrOutput) Elem() TableIcebergMetadataOutput {
 	}).(TableIcebergMetadataOutput)
 }
 
+// The schema for an Iceberg table.
 func (o TableIcebergMetadataPtrOutput) IcebergSchema() TableIcebergSchemaPtrOutput {
 	return o.ApplyT(func(v *TableIcebergMetadata) *TableIcebergSchema {
 		if v == nil {
@@ -719,6 +723,7 @@ func (o TableIcebergMetadataPtrOutput) IcebergSchema() TableIcebergSchemaPtrOutp
 
 // Contains details about the schema for an Iceberg table
 type TableIcebergSchema struct {
+	// The schema fields for the table
 	SchemaFieldList []TableSchemaField `pulumi:"schemaFieldList"`
 }
 
@@ -735,6 +740,7 @@ type TableIcebergSchemaInput interface {
 
 // Contains details about the schema for an Iceberg table
 type TableIcebergSchemaArgs struct {
+	// The schema fields for the table
 	SchemaFieldList TableSchemaFieldArrayInput `pulumi:"schemaFieldList"`
 }
 
@@ -816,6 +822,7 @@ func (o TableIcebergSchemaOutput) ToTableIcebergSchemaPtrOutputWithContext(ctx c
 	}).(TableIcebergSchemaPtrOutput)
 }
 
+// The schema fields for the table
 func (o TableIcebergSchemaOutput) SchemaFieldList() TableSchemaFieldArrayOutput {
 	return o.ApplyT(func(v TableIcebergSchema) []TableSchemaField { return v.SchemaFieldList }).(TableSchemaFieldArrayOutput)
 }
@@ -844,6 +851,7 @@ func (o TableIcebergSchemaPtrOutput) Elem() TableIcebergSchemaOutput {
 	}).(TableIcebergSchemaOutput)
 }
 
+// The schema fields for the table
 func (o TableIcebergSchemaPtrOutput) SchemaFieldList() TableSchemaFieldArrayOutput {
 	return o.ApplyT(func(v *TableIcebergSchema) []TableSchemaField {
 		if v == nil {

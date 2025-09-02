@@ -16,20 +16,28 @@ import (
 type Table struct {
 	pulumi.CustomResourceState
 
+	// Contains details about the compaction settings for an Iceberg table.
 	Compaction TableCompactionPtrOutput `pulumi:"compaction"`
 	// Contains details about the metadata for an Iceberg table.
 	IcebergMetadata TableIcebergMetadataPtrOutput `pulumi:"icebergMetadata"`
 	// The name of the namespace.
-	Namespace          pulumi.StringOutput              `pulumi:"namespace"`
-	OpenTableFormat    TableOpenTableFormatOutput       `pulumi:"openTableFormat"`
+	Namespace pulumi.StringOutput `pulumi:"namespace"`
+	// The format of the table.
+	OpenTableFormat TableOpenTableFormatOutput `pulumi:"openTableFormat"`
+	// Contains details about the Iceberg snapshot management settings for the table.
 	SnapshotManagement TableSnapshotManagementPtrOutput `pulumi:"snapshotManagement"`
 	// The Amazon Resource Name (ARN) of the table.
-	TableArn          pulumi.StringOutput           `pulumi:"tableArn"`
-	TableBucketArn    pulumi.StringOutput           `pulumi:"tableBucketArn"`
-	TableName         pulumi.StringOutput           `pulumi:"tableName"`
-	VersionToken      pulumi.StringOutput           `pulumi:"versionToken"`
-	WarehouseLocation pulumi.StringOutput           `pulumi:"warehouseLocation"`
-	WithoutMetadata   TableWithoutMetadataPtrOutput `pulumi:"withoutMetadata"`
+	TableArn pulumi.StringOutput `pulumi:"tableArn"`
+	// The Amazon Resource Name (ARN) of the table bucket to create the table in.
+	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
+	// The name for the table.
+	TableName pulumi.StringOutput `pulumi:"tableName"`
+	// The version token of the table.
+	VersionToken pulumi.StringOutput `pulumi:"versionToken"`
+	// The warehouse location of the table.
+	WarehouseLocation pulumi.StringOutput `pulumi:"warehouseLocation"`
+	// Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
+	WithoutMetadata TableWithoutMetadataPtrOutput `pulumi:"withoutMetadata"`
 }
 
 // NewTable registers a new resource with the given unique name, arguments, and options.
@@ -88,30 +96,42 @@ func (TableState) ElementType() reflect.Type {
 }
 
 type tableArgs struct {
+	// Contains details about the compaction settings for an Iceberg table.
 	Compaction *TableCompaction `pulumi:"compaction"`
 	// Contains details about the metadata for an Iceberg table.
 	IcebergMetadata *TableIcebergMetadata `pulumi:"icebergMetadata"`
 	// The name of the namespace.
-	Namespace          string                   `pulumi:"namespace"`
-	OpenTableFormat    TableOpenTableFormat     `pulumi:"openTableFormat"`
+	Namespace string `pulumi:"namespace"`
+	// The format of the table.
+	OpenTableFormat TableOpenTableFormat `pulumi:"openTableFormat"`
+	// Contains details about the Iceberg snapshot management settings for the table.
 	SnapshotManagement *TableSnapshotManagement `pulumi:"snapshotManagement"`
-	TableBucketArn     string                   `pulumi:"tableBucketArn"`
-	TableName          *string                  `pulumi:"tableName"`
-	WithoutMetadata    *TableWithoutMetadata    `pulumi:"withoutMetadata"`
+	// The Amazon Resource Name (ARN) of the table bucket to create the table in.
+	TableBucketArn string `pulumi:"tableBucketArn"`
+	// The name for the table.
+	TableName *string `pulumi:"tableName"`
+	// Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
+	WithoutMetadata *TableWithoutMetadata `pulumi:"withoutMetadata"`
 }
 
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
+	// Contains details about the compaction settings for an Iceberg table.
 	Compaction TableCompactionPtrInput
 	// Contains details about the metadata for an Iceberg table.
 	IcebergMetadata TableIcebergMetadataPtrInput
 	// The name of the namespace.
-	Namespace          pulumi.StringInput
-	OpenTableFormat    TableOpenTableFormatInput
+	Namespace pulumi.StringInput
+	// The format of the table.
+	OpenTableFormat TableOpenTableFormatInput
+	// Contains details about the Iceberg snapshot management settings for the table.
 	SnapshotManagement TableSnapshotManagementPtrInput
-	TableBucketArn     pulumi.StringInput
-	TableName          pulumi.StringPtrInput
-	WithoutMetadata    TableWithoutMetadataPtrInput
+	// The Amazon Resource Name (ARN) of the table bucket to create the table in.
+	TableBucketArn pulumi.StringInput
+	// The name for the table.
+	TableName pulumi.StringPtrInput
+	// Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
+	WithoutMetadata TableWithoutMetadataPtrInput
 }
 
 func (TableArgs) ElementType() reflect.Type {
@@ -151,6 +171,7 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return o
 }
 
+// Contains details about the compaction settings for an Iceberg table.
 func (o TableOutput) Compaction() TableCompactionPtrOutput {
 	return o.ApplyT(func(v *Table) TableCompactionPtrOutput { return v.Compaction }).(TableCompactionPtrOutput)
 }
@@ -165,10 +186,12 @@ func (o TableOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }
 
+// The format of the table.
 func (o TableOutput) OpenTableFormat() TableOpenTableFormatOutput {
 	return o.ApplyT(func(v *Table) TableOpenTableFormatOutput { return v.OpenTableFormat }).(TableOpenTableFormatOutput)
 }
 
+// Contains details about the Iceberg snapshot management settings for the table.
 func (o TableOutput) SnapshotManagement() TableSnapshotManagementPtrOutput {
 	return o.ApplyT(func(v *Table) TableSnapshotManagementPtrOutput { return v.SnapshotManagement }).(TableSnapshotManagementPtrOutput)
 }
@@ -178,22 +201,27 @@ func (o TableOutput) TableArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.TableArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the table bucket to create the table in.
 func (o TableOutput) TableBucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.TableBucketArn }).(pulumi.StringOutput)
 }
 
+// The name for the table.
 func (o TableOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
 }
 
+// The version token of the table.
 func (o TableOutput) VersionToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.VersionToken }).(pulumi.StringOutput)
 }
 
+// The warehouse location of the table.
 func (o TableOutput) WarehouseLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.WarehouseLocation }).(pulumi.StringOutput)
 }
 
+// Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
 func (o TableOutput) WithoutMetadata() TableWithoutMetadataPtrOutput {
 	return o.ApplyT(func(v *Table) TableWithoutMetadataPtrOutput { return v.WithoutMetadata }).(TableWithoutMetadataPtrOutput)
 }

@@ -211,7 +211,7 @@
   "readOnlyProperties" : [ "/properties/Id", "/properties/CreatedAt", "/properties/CreatedBy", "/properties/DomainId", "/properties/LastUpdatedAt", "/properties/ProjectStatus" ],
   "writeOnlyProperties" : [ "/properties/DomainIdentifier", "/properties/ProjectProfileVersion", "/properties/ProjectProfileId", "/properties/UserParameters" ],
   "primaryIdentifier" : [ "/properties/DomainId", "/properties/Id" ],
-  "createOnlyProperties" : [ "/properties/ProjectProfileId", "/properties/DomainIdentifier", "/properties/DomainUnitId" ],
+  "createOnlyProperties" : [ "/properties/ProjectProfileId", "/properties/DomainIdentifier" ],
   "additionalIdentifiers" : [ [ "/properties/DomainIdentifier" ] ],
   "tagging" : {
     "taggable" : false,

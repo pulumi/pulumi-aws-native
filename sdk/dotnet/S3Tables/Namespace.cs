@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.S3Tables
         [Output("namespace")]
         public Output<string> NamespaceValue { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the table bucket to create the namespace in.
+        /// </summary>
         [Output("tableBucketArn")]
         public Output<string> TableBucketArn { get; private set; } = null!;
 
@@ -80,6 +83,9 @@ namespace Pulumi.AwsNative.S3Tables
         [Input("namespace", required: true)]
         public Input<string> NamespaceValue { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the table bucket to create the namespace in.
+        /// </summary>
         [Input("tableBucketArn", required: true)]
         public Input<string> TableBucketArn { get; set; } = null!;
 

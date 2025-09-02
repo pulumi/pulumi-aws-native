@@ -16,10 +16,14 @@ import (
 type MailManagerAddressList struct {
 	pulumi.CustomResourceState
 
-	AddressListArn  pulumi.StringOutput    `pulumi:"addressListArn"`
-	AddressListId   pulumi.StringOutput    `pulumi:"addressListId"`
+	// The Amazon Resource Name (ARN) of the address list.
+	AddressListArn pulumi.StringOutput `pulumi:"addressListArn"`
+	// The identifier of the address list.
+	AddressListId pulumi.StringOutput `pulumi:"addressListId"`
+	// A user-friendly name for the address list.
 	AddressListName pulumi.StringPtrOutput `pulumi:"addressListName"`
-	Tags            aws.TagArrayOutput     `pulumi:"tags"`
+	// The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewMailManagerAddressList registers a new resource with the given unique name, arguments, and options.
@@ -66,14 +70,18 @@ func (MailManagerAddressListState) ElementType() reflect.Type {
 }
 
 type mailManagerAddressListArgs struct {
-	AddressListName *string   `pulumi:"addressListName"`
-	Tags            []aws.Tag `pulumi:"tags"`
+	// A user-friendly name for the address list.
+	AddressListName *string `pulumi:"addressListName"`
+	// The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MailManagerAddressList resource.
 type MailManagerAddressListArgs struct {
+	// A user-friendly name for the address list.
 	AddressListName pulumi.StringPtrInput
-	Tags            aws.TagArrayInput
+	// The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+	Tags aws.TagArrayInput
 }
 
 func (MailManagerAddressListArgs) ElementType() reflect.Type {
@@ -113,18 +121,22 @@ func (o MailManagerAddressListOutput) ToMailManagerAddressListOutputWithContext(
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the address list.
 func (o MailManagerAddressListOutput) AddressListArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MailManagerAddressList) pulumi.StringOutput { return v.AddressListArn }).(pulumi.StringOutput)
 }
 
+// The identifier of the address list.
 func (o MailManagerAddressListOutput) AddressListId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MailManagerAddressList) pulumi.StringOutput { return v.AddressListId }).(pulumi.StringOutput)
 }
 
+// A user-friendly name for the address list.
 func (o MailManagerAddressListOutput) AddressListName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MailManagerAddressList) pulumi.StringPtrOutput { return v.AddressListName }).(pulumi.StringPtrOutput)
 }
 
+// The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 func (o MailManagerAddressListOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *MailManagerAddressList) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
