@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.Ecs
         public Output<bool?> EnableExecuteCommand { get; private set; } = null!;
 
         /// <summary>
-        /// Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination ( `my_image:latest` ) or to roll Fargate tasks onto a newer platform version.
+        /// Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
         /// </summary>
         [Output("forceNewDeployment")]
         public Output<Outputs.ServiceForceNewDeployment?> ForceNewDeployment { get; private set; } = null!;
@@ -356,7 +356,7 @@ namespace Pulumi.AwsNative.Ecs
         public Input<bool>? EnableExecuteCommand { get; set; }
 
         /// <summary>
-        /// Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination ( `my_image:latest` ) or to roll Fargate tasks onto a newer platform version.
+        /// Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
         /// </summary>
         [Input("forceNewDeployment")]
         public Input<Inputs.ServiceForceNewDeploymentArgs>? ForceNewDeployment { get; set; }

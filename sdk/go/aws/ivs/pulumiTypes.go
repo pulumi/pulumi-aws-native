@@ -809,7 +809,7 @@ func (o RecordingConfigurationThumbnailConfigurationPtrOutput) TargetIntervalSec
 // Configuration object for individual participant recording, to attach to the new stage.
 type StageAutoParticipantRecordingConfiguration struct {
 	// HLS configuration object for individual participant recording.
-	HlsConfiguration *StageAutoParticipantRecordingConfigurationHlsConfigurationProperties `pulumi:"hlsConfiguration"`
+	HlsConfiguration *StageHlsConfiguration `pulumi:"hlsConfiguration"`
 	// Types of media to be recorded. Default: AUDIO_VIDEO.
 	MediaTypes []StageAutoParticipantRecordingConfigurationMediaTypesItem `pulumi:"mediaTypes"`
 	// If a stage publisher disconnects and then reconnects within the specified interval, the multiple recordings will be considered a single recording and merged together. The default value is 0, which disables merging.
@@ -817,7 +817,7 @@ type StageAutoParticipantRecordingConfiguration struct {
 	// ARN of the StorageConfiguration resource to use for individual participant recording.
 	StorageConfigurationArn string `pulumi:"storageConfigurationArn"`
 	// A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
-	ThumbnailConfiguration *StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties `pulumi:"thumbnailConfiguration"`
+	ThumbnailConfiguration *StageThumbnailConfiguration `pulumi:"thumbnailConfiguration"`
 }
 
 // StageAutoParticipantRecordingConfigurationInput is an input type that accepts StageAutoParticipantRecordingConfigurationArgs and StageAutoParticipantRecordingConfigurationOutput values.
@@ -834,7 +834,7 @@ type StageAutoParticipantRecordingConfigurationInput interface {
 // Configuration object for individual participant recording, to attach to the new stage.
 type StageAutoParticipantRecordingConfigurationArgs struct {
 	// HLS configuration object for individual participant recording.
-	HlsConfiguration StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrInput `pulumi:"hlsConfiguration"`
+	HlsConfiguration StageHlsConfigurationPtrInput `pulumi:"hlsConfiguration"`
 	// Types of media to be recorded. Default: AUDIO_VIDEO.
 	MediaTypes StageAutoParticipantRecordingConfigurationMediaTypesItemArrayInput `pulumi:"mediaTypes"`
 	// If a stage publisher disconnects and then reconnects within the specified interval, the multiple recordings will be considered a single recording and merged together. The default value is 0, which disables merging.
@@ -842,7 +842,7 @@ type StageAutoParticipantRecordingConfigurationArgs struct {
 	// ARN of the StorageConfiguration resource to use for individual participant recording.
 	StorageConfigurationArn pulumi.StringInput `pulumi:"storageConfigurationArn"`
 	// A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
-	ThumbnailConfiguration StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrInput `pulumi:"thumbnailConfiguration"`
+	ThumbnailConfiguration StageThumbnailConfigurationPtrInput `pulumi:"thumbnailConfiguration"`
 }
 
 func (StageAutoParticipantRecordingConfigurationArgs) ElementType() reflect.Type {
@@ -924,10 +924,8 @@ func (o StageAutoParticipantRecordingConfigurationOutput) ToStageAutoParticipant
 }
 
 // HLS configuration object for individual participant recording.
-func (o StageAutoParticipantRecordingConfigurationOutput) HlsConfiguration() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v StageAutoParticipantRecordingConfiguration) *StageAutoParticipantRecordingConfigurationHlsConfigurationProperties {
-		return v.HlsConfiguration
-	}).(StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput)
+func (o StageAutoParticipantRecordingConfigurationOutput) HlsConfiguration() StageHlsConfigurationPtrOutput {
+	return o.ApplyT(func(v StageAutoParticipantRecordingConfiguration) *StageHlsConfiguration { return v.HlsConfiguration }).(StageHlsConfigurationPtrOutput)
 }
 
 // Types of media to be recorded. Default: AUDIO_VIDEO.
@@ -948,10 +946,10 @@ func (o StageAutoParticipantRecordingConfigurationOutput) StorageConfigurationAr
 }
 
 // A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
-func (o StageAutoParticipantRecordingConfigurationOutput) ThumbnailConfiguration() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v StageAutoParticipantRecordingConfiguration) *StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties {
+func (o StageAutoParticipantRecordingConfigurationOutput) ThumbnailConfiguration() StageThumbnailConfigurationPtrOutput {
+	return o.ApplyT(func(v StageAutoParticipantRecordingConfiguration) *StageThumbnailConfiguration {
 		return v.ThumbnailConfiguration
-	}).(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput)
+	}).(StageThumbnailConfigurationPtrOutput)
 }
 
 type StageAutoParticipantRecordingConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -979,13 +977,13 @@ func (o StageAutoParticipantRecordingConfigurationPtrOutput) Elem() StageAutoPar
 }
 
 // HLS configuration object for individual participant recording.
-func (o StageAutoParticipantRecordingConfigurationPtrOutput) HlsConfiguration() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v *StageAutoParticipantRecordingConfiguration) *StageAutoParticipantRecordingConfigurationHlsConfigurationProperties {
+func (o StageAutoParticipantRecordingConfigurationPtrOutput) HlsConfiguration() StageHlsConfigurationPtrOutput {
+	return o.ApplyT(func(v *StageAutoParticipantRecordingConfiguration) *StageHlsConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.HlsConfiguration
-	}).(StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput)
+	}).(StageHlsConfigurationPtrOutput)
 }
 
 // Types of media to be recorded. Default: AUDIO_VIDEO.
@@ -1019,622 +1017,294 @@ func (o StageAutoParticipantRecordingConfigurationPtrOutput) StorageConfiguratio
 }
 
 // A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
-func (o StageAutoParticipantRecordingConfigurationPtrOutput) ThumbnailConfiguration() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v *StageAutoParticipantRecordingConfiguration) *StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties {
+func (o StageAutoParticipantRecordingConfigurationPtrOutput) ThumbnailConfiguration() StageThumbnailConfigurationPtrOutput {
+	return o.ApplyT(func(v *StageAutoParticipantRecordingConfiguration) *StageThumbnailConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.ThumbnailConfiguration
-	}).(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput)
+	}).(StageThumbnailConfigurationPtrOutput)
 }
 
 // HLS configuration object for individual participant recording.
-type StageAutoParticipantRecordingConfigurationHlsConfigurationProperties struct {
-	// An object representing a configuration of participant HLS recordings for individual participant recording.
-	ParticipantRecordingHlsConfiguration *StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties `pulumi:"participantRecordingHlsConfiguration"`
+type StageHlsConfiguration struct {
+	// Object specifying a configuration of participant HLS recordings for individual participant recording.
+	ParticipantRecordingHlsConfiguration *StageParticipantRecordingHlsConfiguration `pulumi:"participantRecordingHlsConfiguration"`
 }
 
-// StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesInput is an input type that accepts StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesArgs and StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput values.
-// You can construct a concrete instance of `StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesInput` via:
+// StageHlsConfigurationInput is an input type that accepts StageHlsConfigurationArgs and StageHlsConfigurationOutput values.
+// You can construct a concrete instance of `StageHlsConfigurationInput` via:
 //
-//	StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesArgs{...}
-type StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesInput interface {
+//	StageHlsConfigurationArgs{...}
+type StageHlsConfigurationInput interface {
 	pulumi.Input
 
-	ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput
-	ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutputWithContext(context.Context) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput
+	ToStageHlsConfigurationOutput() StageHlsConfigurationOutput
+	ToStageHlsConfigurationOutputWithContext(context.Context) StageHlsConfigurationOutput
 }
 
 // HLS configuration object for individual participant recording.
-type StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesArgs struct {
-	// An object representing a configuration of participant HLS recordings for individual participant recording.
-	ParticipantRecordingHlsConfiguration StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrInput `pulumi:"participantRecordingHlsConfiguration"`
+type StageHlsConfigurationArgs struct {
+	// Object specifying a configuration of participant HLS recordings for individual participant recording.
+	ParticipantRecordingHlsConfiguration StageParticipantRecordingHlsConfigurationPtrInput `pulumi:"participantRecordingHlsConfiguration"`
 }
 
-func (StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageAutoParticipantRecordingConfigurationHlsConfigurationProperties)(nil)).Elem()
+func (StageHlsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageHlsConfiguration)(nil)).Elem()
 }
 
-func (i StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesArgs) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput {
-	return i.ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutputWithContext(context.Background())
+func (i StageHlsConfigurationArgs) ToStageHlsConfigurationOutput() StageHlsConfigurationOutput {
+	return i.ToStageHlsConfigurationOutputWithContext(context.Background())
 }
 
-func (i StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesArgs) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput)
+func (i StageHlsConfigurationArgs) ToStageHlsConfigurationOutputWithContext(ctx context.Context) StageHlsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageHlsConfigurationOutput)
 }
 
-func (i StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesArgs) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput {
-	return i.ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutputWithContext(context.Background())
+func (i StageHlsConfigurationArgs) ToStageHlsConfigurationPtrOutput() StageHlsConfigurationPtrOutput {
+	return i.ToStageHlsConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesArgs) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput).ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutputWithContext(ctx)
+func (i StageHlsConfigurationArgs) ToStageHlsConfigurationPtrOutputWithContext(ctx context.Context) StageHlsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageHlsConfigurationOutput).ToStageHlsConfigurationPtrOutputWithContext(ctx)
 }
 
-// StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrInput is an input type that accepts StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesArgs, StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtr and StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput values.
-// You can construct a concrete instance of `StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrInput` via:
+// StageHlsConfigurationPtrInput is an input type that accepts StageHlsConfigurationArgs, StageHlsConfigurationPtr and StageHlsConfigurationPtrOutput values.
+// You can construct a concrete instance of `StageHlsConfigurationPtrInput` via:
 //
-//	        StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesArgs{...}
+//	        StageHlsConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrInput interface {
+type StageHlsConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput
-	ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutputWithContext(context.Context) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput
+	ToStageHlsConfigurationPtrOutput() StageHlsConfigurationPtrOutput
+	ToStageHlsConfigurationPtrOutputWithContext(context.Context) StageHlsConfigurationPtrOutput
 }
 
-type stageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrType StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesArgs
+type stageHlsConfigurationPtrType StageHlsConfigurationArgs
 
-func StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtr(v *StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesArgs) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrInput {
-	return (*stageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrType)(v)
+func StageHlsConfigurationPtr(v *StageHlsConfigurationArgs) StageHlsConfigurationPtrInput {
+	return (*stageHlsConfigurationPtrType)(v)
 }
 
-func (*stageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageAutoParticipantRecordingConfigurationHlsConfigurationProperties)(nil)).Elem()
+func (*stageHlsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageHlsConfiguration)(nil)).Elem()
 }
 
-func (i *stageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrType) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput {
-	return i.ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutputWithContext(context.Background())
+func (i *stageHlsConfigurationPtrType) ToStageHlsConfigurationPtrOutput() StageHlsConfigurationPtrOutput {
+	return i.ToStageHlsConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *stageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrType) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput)
+func (i *stageHlsConfigurationPtrType) ToStageHlsConfigurationPtrOutputWithContext(ctx context.Context) StageHlsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageHlsConfigurationPtrOutput)
 }
 
 // HLS configuration object for individual participant recording.
-type StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+type StageHlsConfigurationOutput struct{ *pulumi.OutputState }
 
-func (StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageAutoParticipantRecordingConfigurationHlsConfigurationProperties)(nil)).Elem()
+func (StageHlsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageHlsConfiguration)(nil)).Elem()
 }
 
-func (o StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput {
+func (o StageHlsConfigurationOutput) ToStageHlsConfigurationOutput() StageHlsConfigurationOutput {
 	return o
 }
 
-func (o StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput {
+func (o StageHlsConfigurationOutput) ToStageHlsConfigurationOutputWithContext(ctx context.Context) StageHlsConfigurationOutput {
 	return o
 }
 
-func (o StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput {
-	return o.ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutputWithContext(context.Background())
+func (o StageHlsConfigurationOutput) ToStageHlsConfigurationPtrOutput() StageHlsConfigurationPtrOutput {
+	return o.ToStageHlsConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageAutoParticipantRecordingConfigurationHlsConfigurationProperties) *StageAutoParticipantRecordingConfigurationHlsConfigurationProperties {
+func (o StageHlsConfigurationOutput) ToStageHlsConfigurationPtrOutputWithContext(ctx context.Context) StageHlsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageHlsConfiguration) *StageHlsConfiguration {
 		return &v
-	}).(StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput)
+	}).(StageHlsConfigurationPtrOutput)
 }
 
-// An object representing a configuration of participant HLS recordings for individual participant recording.
-func (o StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput) ParticipantRecordingHlsConfiguration() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v StageAutoParticipantRecordingConfigurationHlsConfigurationProperties) *StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties {
+// Object specifying a configuration of participant HLS recordings for individual participant recording.
+func (o StageHlsConfigurationOutput) ParticipantRecordingHlsConfiguration() StageParticipantRecordingHlsConfigurationPtrOutput {
+	return o.ApplyT(func(v StageHlsConfiguration) *StageParticipantRecordingHlsConfiguration {
 		return v.ParticipantRecordingHlsConfiguration
-	}).(StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput)
+	}).(StageParticipantRecordingHlsConfigurationPtrOutput)
 }
 
-type StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+type StageHlsConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageAutoParticipantRecordingConfigurationHlsConfigurationProperties)(nil)).Elem()
+func (StageHlsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageHlsConfiguration)(nil)).Elem()
 }
 
-func (o StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput {
+func (o StageHlsConfigurationPtrOutput) ToStageHlsConfigurationPtrOutput() StageHlsConfigurationPtrOutput {
 	return o
 }
 
-func (o StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput {
+func (o StageHlsConfigurationPtrOutput) ToStageHlsConfigurationPtrOutputWithContext(ctx context.Context) StageHlsConfigurationPtrOutput {
 	return o
 }
 
-func (o StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput) Elem() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *StageAutoParticipantRecordingConfigurationHlsConfigurationProperties) StageAutoParticipantRecordingConfigurationHlsConfigurationProperties {
+func (o StageHlsConfigurationPtrOutput) Elem() StageHlsConfigurationOutput {
+	return o.ApplyT(func(v *StageHlsConfiguration) StageHlsConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret StageAutoParticipantRecordingConfigurationHlsConfigurationProperties
+		var ret StageHlsConfiguration
 		return ret
-	}).(StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput)
+	}).(StageHlsConfigurationOutput)
 }
 
-// An object representing a configuration of participant HLS recordings for individual participant recording.
-func (o StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput) ParticipantRecordingHlsConfiguration() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v *StageAutoParticipantRecordingConfigurationHlsConfigurationProperties) *StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties {
+// Object specifying a configuration of participant HLS recordings for individual participant recording.
+func (o StageHlsConfigurationPtrOutput) ParticipantRecordingHlsConfiguration() StageParticipantRecordingHlsConfigurationPtrOutput {
+	return o.ApplyT(func(v *StageHlsConfiguration) *StageParticipantRecordingHlsConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.ParticipantRecordingHlsConfiguration
-	}).(StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput)
+	}).(StageParticipantRecordingHlsConfigurationPtrOutput)
 }
 
 // An object representing a configuration of participant HLS recordings for individual participant recording.
-type StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties struct {
+type StageParticipantRecordingHlsConfiguration struct {
 	// Defines the target duration for recorded segments generated when recording a stage participant. Segments may have durations longer than the specified value when needed to ensure each segment begins with a keyframe. Default: 6.
 	TargetSegmentDurationSeconds *int `pulumi:"targetSegmentDurationSeconds"`
 }
 
-// StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesInput is an input type that accepts StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesArgs and StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput values.
-// You can construct a concrete instance of `StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesInput` via:
+// StageParticipantRecordingHlsConfigurationInput is an input type that accepts StageParticipantRecordingHlsConfigurationArgs and StageParticipantRecordingHlsConfigurationOutput values.
+// You can construct a concrete instance of `StageParticipantRecordingHlsConfigurationInput` via:
 //
-//	StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesArgs{...}
-type StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesInput interface {
+//	StageParticipantRecordingHlsConfigurationArgs{...}
+type StageParticipantRecordingHlsConfigurationInput interface {
 	pulumi.Input
 
-	ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput
-	ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutputWithContext(context.Context) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput
+	ToStageParticipantRecordingHlsConfigurationOutput() StageParticipantRecordingHlsConfigurationOutput
+	ToStageParticipantRecordingHlsConfigurationOutputWithContext(context.Context) StageParticipantRecordingHlsConfigurationOutput
 }
 
 // An object representing a configuration of participant HLS recordings for individual participant recording.
-type StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesArgs struct {
+type StageParticipantRecordingHlsConfigurationArgs struct {
 	// Defines the target duration for recorded segments generated when recording a stage participant. Segments may have durations longer than the specified value when needed to ensure each segment begins with a keyframe. Default: 6.
 	TargetSegmentDurationSeconds pulumi.IntPtrInput `pulumi:"targetSegmentDurationSeconds"`
 }
 
-func (StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties)(nil)).Elem()
+func (StageParticipantRecordingHlsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageParticipantRecordingHlsConfiguration)(nil)).Elem()
 }
 
-func (i StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesArgs) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput {
-	return i.ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutputWithContext(context.Background())
+func (i StageParticipantRecordingHlsConfigurationArgs) ToStageParticipantRecordingHlsConfigurationOutput() StageParticipantRecordingHlsConfigurationOutput {
+	return i.ToStageParticipantRecordingHlsConfigurationOutputWithContext(context.Background())
 }
 
-func (i StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesArgs) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput)
+func (i StageParticipantRecordingHlsConfigurationArgs) ToStageParticipantRecordingHlsConfigurationOutputWithContext(ctx context.Context) StageParticipantRecordingHlsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageParticipantRecordingHlsConfigurationOutput)
 }
 
-func (i StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesArgs) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput {
-	return i.ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutputWithContext(context.Background())
+func (i StageParticipantRecordingHlsConfigurationArgs) ToStageParticipantRecordingHlsConfigurationPtrOutput() StageParticipantRecordingHlsConfigurationPtrOutput {
+	return i.ToStageParticipantRecordingHlsConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesArgs) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput).ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutputWithContext(ctx)
+func (i StageParticipantRecordingHlsConfigurationArgs) ToStageParticipantRecordingHlsConfigurationPtrOutputWithContext(ctx context.Context) StageParticipantRecordingHlsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageParticipantRecordingHlsConfigurationOutput).ToStageParticipantRecordingHlsConfigurationPtrOutputWithContext(ctx)
 }
 
-// StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrInput is an input type that accepts StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesArgs, StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtr and StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput values.
-// You can construct a concrete instance of `StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrInput` via:
+// StageParticipantRecordingHlsConfigurationPtrInput is an input type that accepts StageParticipantRecordingHlsConfigurationArgs, StageParticipantRecordingHlsConfigurationPtr and StageParticipantRecordingHlsConfigurationPtrOutput values.
+// You can construct a concrete instance of `StageParticipantRecordingHlsConfigurationPtrInput` via:
 //
-//	        StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesArgs{...}
+//	        StageParticipantRecordingHlsConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrInput interface {
+type StageParticipantRecordingHlsConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput
-	ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutputWithContext(context.Context) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput
+	ToStageParticipantRecordingHlsConfigurationPtrOutput() StageParticipantRecordingHlsConfigurationPtrOutput
+	ToStageParticipantRecordingHlsConfigurationPtrOutputWithContext(context.Context) StageParticipantRecordingHlsConfigurationPtrOutput
 }
 
-type stageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrType StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesArgs
+type stageParticipantRecordingHlsConfigurationPtrType StageParticipantRecordingHlsConfigurationArgs
 
-func StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtr(v *StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesArgs) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrInput {
-	return (*stageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrType)(v)
+func StageParticipantRecordingHlsConfigurationPtr(v *StageParticipantRecordingHlsConfigurationArgs) StageParticipantRecordingHlsConfigurationPtrInput {
+	return (*stageParticipantRecordingHlsConfigurationPtrType)(v)
 }
 
-func (*stageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties)(nil)).Elem()
+func (*stageParticipantRecordingHlsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageParticipantRecordingHlsConfiguration)(nil)).Elem()
 }
 
-func (i *stageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrType) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput {
-	return i.ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutputWithContext(context.Background())
+func (i *stageParticipantRecordingHlsConfigurationPtrType) ToStageParticipantRecordingHlsConfigurationPtrOutput() StageParticipantRecordingHlsConfigurationPtrOutput {
+	return i.ToStageParticipantRecordingHlsConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *stageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrType) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput)
+func (i *stageParticipantRecordingHlsConfigurationPtrType) ToStageParticipantRecordingHlsConfigurationPtrOutputWithContext(ctx context.Context) StageParticipantRecordingHlsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageParticipantRecordingHlsConfigurationPtrOutput)
 }
 
 // An object representing a configuration of participant HLS recordings for individual participant recording.
-type StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+type StageParticipantRecordingHlsConfigurationOutput struct{ *pulumi.OutputState }
 
-func (StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties)(nil)).Elem()
+func (StageParticipantRecordingHlsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageParticipantRecordingHlsConfiguration)(nil)).Elem()
 }
 
-func (o StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput {
+func (o StageParticipantRecordingHlsConfigurationOutput) ToStageParticipantRecordingHlsConfigurationOutput() StageParticipantRecordingHlsConfigurationOutput {
 	return o
 }
 
-func (o StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput {
+func (o StageParticipantRecordingHlsConfigurationOutput) ToStageParticipantRecordingHlsConfigurationOutputWithContext(ctx context.Context) StageParticipantRecordingHlsConfigurationOutput {
 	return o
 }
 
-func (o StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput {
-	return o.ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutputWithContext(context.Background())
+func (o StageParticipantRecordingHlsConfigurationOutput) ToStageParticipantRecordingHlsConfigurationPtrOutput() StageParticipantRecordingHlsConfigurationPtrOutput {
+	return o.ToStageParticipantRecordingHlsConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties) *StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties {
+func (o StageParticipantRecordingHlsConfigurationOutput) ToStageParticipantRecordingHlsConfigurationPtrOutputWithContext(ctx context.Context) StageParticipantRecordingHlsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageParticipantRecordingHlsConfiguration) *StageParticipantRecordingHlsConfiguration {
 		return &v
-	}).(StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput)
+	}).(StageParticipantRecordingHlsConfigurationPtrOutput)
 }
 
 // Defines the target duration for recorded segments generated when recording a stage participant. Segments may have durations longer than the specified value when needed to ensure each segment begins with a keyframe. Default: 6.
-func (o StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput) TargetSegmentDurationSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties) *int {
-		return v.TargetSegmentDurationSeconds
-	}).(pulumi.IntPtrOutput)
+func (o StageParticipantRecordingHlsConfigurationOutput) TargetSegmentDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StageParticipantRecordingHlsConfiguration) *int { return v.TargetSegmentDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
-type StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+type StageParticipantRecordingHlsConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties)(nil)).Elem()
+func (StageParticipantRecordingHlsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageParticipantRecordingHlsConfiguration)(nil)).Elem()
 }
 
-func (o StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput {
+func (o StageParticipantRecordingHlsConfigurationPtrOutput) ToStageParticipantRecordingHlsConfigurationPtrOutput() StageParticipantRecordingHlsConfigurationPtrOutput {
 	return o
 }
 
-func (o StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput) ToStageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput {
+func (o StageParticipantRecordingHlsConfigurationPtrOutput) ToStageParticipantRecordingHlsConfigurationPtrOutputWithContext(ctx context.Context) StageParticipantRecordingHlsConfigurationPtrOutput {
 	return o
 }
 
-func (o StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput) Elem() StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties) StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties {
+func (o StageParticipantRecordingHlsConfigurationPtrOutput) Elem() StageParticipantRecordingHlsConfigurationOutput {
+	return o.ApplyT(func(v *StageParticipantRecordingHlsConfiguration) StageParticipantRecordingHlsConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties
+		var ret StageParticipantRecordingHlsConfiguration
 		return ret
-	}).(StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput)
+	}).(StageParticipantRecordingHlsConfigurationOutput)
 }
 
 // Defines the target duration for recorded segments generated when recording a stage participant. Segments may have durations longer than the specified value when needed to ensure each segment begins with a keyframe. Default: 6.
-func (o StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput) TargetSegmentDurationSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationProperties) *int {
+func (o StageParticipantRecordingHlsConfigurationPtrOutput) TargetSegmentDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StageParticipantRecordingHlsConfiguration) *int {
 		if v == nil {
 			return nil
 		}
 		return v.TargetSegmentDurationSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
-type StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties struct {
-	// An object representing a configuration of thumbnails for recorded video from an individual participant.
-	ParticipantThumbnailConfiguration *StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties `pulumi:"participantThumbnailConfiguration"`
-}
-
-// StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesInput is an input type that accepts StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesArgs and StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput values.
-// You can construct a concrete instance of `StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesInput` via:
-//
-//	StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesArgs{...}
-type StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesInput interface {
-	pulumi.Input
-
-	ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput
-	ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutputWithContext(context.Context) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput
-}
-
-// A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
-type StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesArgs struct {
-	// An object representing a configuration of thumbnails for recorded video from an individual participant.
-	ParticipantThumbnailConfiguration StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrInput `pulumi:"participantThumbnailConfiguration"`
-}
-
-func (StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties)(nil)).Elem()
-}
-
-func (i StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesArgs) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput {
-	return i.ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutputWithContext(context.Background())
-}
-
-func (i StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesArgs) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput)
-}
-
-func (i StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesArgs) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput {
-	return i.ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesArgs) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput).ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutputWithContext(ctx)
-}
-
-// StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrInput is an input type that accepts StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesArgs, StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtr and StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput values.
-// You can construct a concrete instance of `StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrInput` via:
-//
-//	        StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput
-	ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutputWithContext(context.Context) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput
-}
-
-type stageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrType StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesArgs
-
-func StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtr(v *StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesArgs) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrInput {
-	return (*stageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrType)(v)
-}
-
-func (*stageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties)(nil)).Elem()
-}
-
-func (i *stageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrType) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput {
-	return i.ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *stageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrType) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput)
-}
-
-// A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
-type StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput struct{ *pulumi.OutputState }
-
-func (StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties)(nil)).Elem()
-}
-
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput {
-	return o
-}
-
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput {
-	return o
-}
-
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput {
-	return o.ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties) *StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties {
-		return &v
-	}).(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput)
-}
-
-// An object representing a configuration of thumbnails for recorded video from an individual participant.
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput) ParticipantThumbnailConfiguration() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties) *StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties {
-		return v.ParticipantThumbnailConfiguration
-	}).(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput)
-}
-
-type StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties)(nil)).Elem()
-}
-
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput {
-	return o
-}
-
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput {
-	return o
-}
-
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput) Elem() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties) StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties {
-		if v != nil {
-			return *v
-		}
-		var ret StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties
-		return ret
-	}).(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput)
-}
-
-// An object representing a configuration of thumbnails for recorded video from an individual participant.
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput) ParticipantThumbnailConfiguration() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v *StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties) *StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties {
-		if v == nil {
-			return nil
-		}
-		return v.ParticipantThumbnailConfiguration
-	}).(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput)
-}
-
-// An object representing a configuration of thumbnails for recorded video from an individual participant.
-type StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties struct {
-	// Thumbnail recording mode. Default: DISABLED.
-	RecordingMode *StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode `pulumi:"recordingMode"`
-	// Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
-	Storage []StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem `pulumi:"storage"`
-	// The targeted thumbnail-generation interval in seconds. This is configurable only if recordingMode is INTERVAL. Default: 60.
-	TargetIntervalSeconds *int `pulumi:"targetIntervalSeconds"`
-}
-
-// StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesInput is an input type that accepts StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesArgs and StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput values.
-// You can construct a concrete instance of `StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesInput` via:
-//
-//	StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesArgs{...}
-type StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesInput interface {
-	pulumi.Input
-
-	ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput
-	ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutputWithContext(context.Context) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput
-}
-
-// An object representing a configuration of thumbnails for recorded video from an individual participant.
-type StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesArgs struct {
-	// Thumbnail recording mode. Default: DISABLED.
-	RecordingMode StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingModePtrInput `pulumi:"recordingMode"`
-	// Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
-	Storage StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItemArrayInput `pulumi:"storage"`
-	// The targeted thumbnail-generation interval in seconds. This is configurable only if recordingMode is INTERVAL. Default: 60.
-	TargetIntervalSeconds pulumi.IntPtrInput `pulumi:"targetIntervalSeconds"`
-}
-
-func (StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties)(nil)).Elem()
-}
-
-func (i StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesArgs) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput {
-	return i.ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutputWithContext(context.Background())
-}
-
-func (i StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesArgs) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput)
-}
-
-func (i StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesArgs) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput {
-	return i.ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesArgs) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput).ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutputWithContext(ctx)
-}
-
-// StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrInput is an input type that accepts StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesArgs, StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtr and StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput values.
-// You can construct a concrete instance of `StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrInput` via:
-//
-//	        StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput
-	ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutputWithContext(context.Context) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput
-}
-
-type stageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrType StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesArgs
-
-func StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtr(v *StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesArgs) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrInput {
-	return (*stageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrType)(v)
-}
-
-func (*stageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties)(nil)).Elem()
-}
-
-func (i *stageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrType) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput {
-	return i.ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *stageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrType) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput)
-}
-
-// An object representing a configuration of thumbnails for recorded video from an individual participant.
-type StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput struct{ *pulumi.OutputState }
-
-func (StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties)(nil)).Elem()
-}
-
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput {
-	return o
-}
-
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput {
-	return o
-}
-
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput {
-	return o.ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties) *StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties {
-		return &v
-	}).(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput)
-}
-
-// Thumbnail recording mode. Default: DISABLED.
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput) RecordingMode() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingModePtrOutput {
-	return o.ApplyT(func(v StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties) *StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode {
-		return v.RecordingMode
-	}).(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingModePtrOutput)
-}
-
-// Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput) Storage() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItemArrayOutput {
-	return o.ApplyT(func(v StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties) []StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem {
-		return v.Storage
-	}).(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItemArrayOutput)
-}
-
-// The targeted thumbnail-generation interval in seconds. This is configurable only if recordingMode is INTERVAL. Default: 60.
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput) TargetIntervalSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties) *int {
-		return v.TargetIntervalSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-type StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties)(nil)).Elem()
-}
-
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput {
-	return o
-}
-
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput) ToStageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput {
-	return o
-}
-
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput) Elem() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties) StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties {
-		if v != nil {
-			return *v
-		}
-		var ret StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties
-		return ret
-	}).(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput)
-}
-
-// Thumbnail recording mode. Default: DISABLED.
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput) RecordingMode() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingModePtrOutput {
-	return o.ApplyT(func(v *StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties) *StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode {
-		if v == nil {
-			return nil
-		}
-		return v.RecordingMode
-	}).(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingModePtrOutput)
-}
-
-// Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput) Storage() StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItemArrayOutput {
-	return o.ApplyT(func(v *StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties) []StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem {
-		if v == nil {
-			return nil
-		}
-		return v.Storage
-	}).(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItemArrayOutput)
-}
-
-// The targeted thumbnail-generation interval in seconds. This is configurable only if recordingMode is INTERVAL. Default: 60.
-func (o StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput) TargetIntervalSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.TargetIntervalSeconds
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -1643,6 +1313,332 @@ type StageTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
+}
+
+// A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
+type StageThumbnailConfiguration struct {
+	// An object representing a configuration of thumbnails for recorded video from an individual participant.
+	ParticipantThumbnailConfiguration *StageThumbnailConfigurationParticipantThumbnailConfigurationProperties `pulumi:"participantThumbnailConfiguration"`
+}
+
+// StageThumbnailConfigurationInput is an input type that accepts StageThumbnailConfigurationArgs and StageThumbnailConfigurationOutput values.
+// You can construct a concrete instance of `StageThumbnailConfigurationInput` via:
+//
+//	StageThumbnailConfigurationArgs{...}
+type StageThumbnailConfigurationInput interface {
+	pulumi.Input
+
+	ToStageThumbnailConfigurationOutput() StageThumbnailConfigurationOutput
+	ToStageThumbnailConfigurationOutputWithContext(context.Context) StageThumbnailConfigurationOutput
+}
+
+// A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
+type StageThumbnailConfigurationArgs struct {
+	// An object representing a configuration of thumbnails for recorded video from an individual participant.
+	ParticipantThumbnailConfiguration StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrInput `pulumi:"participantThumbnailConfiguration"`
+}
+
+func (StageThumbnailConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageThumbnailConfiguration)(nil)).Elem()
+}
+
+func (i StageThumbnailConfigurationArgs) ToStageThumbnailConfigurationOutput() StageThumbnailConfigurationOutput {
+	return i.ToStageThumbnailConfigurationOutputWithContext(context.Background())
+}
+
+func (i StageThumbnailConfigurationArgs) ToStageThumbnailConfigurationOutputWithContext(ctx context.Context) StageThumbnailConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageThumbnailConfigurationOutput)
+}
+
+func (i StageThumbnailConfigurationArgs) ToStageThumbnailConfigurationPtrOutput() StageThumbnailConfigurationPtrOutput {
+	return i.ToStageThumbnailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StageThumbnailConfigurationArgs) ToStageThumbnailConfigurationPtrOutputWithContext(ctx context.Context) StageThumbnailConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageThumbnailConfigurationOutput).ToStageThumbnailConfigurationPtrOutputWithContext(ctx)
+}
+
+// StageThumbnailConfigurationPtrInput is an input type that accepts StageThumbnailConfigurationArgs, StageThumbnailConfigurationPtr and StageThumbnailConfigurationPtrOutput values.
+// You can construct a concrete instance of `StageThumbnailConfigurationPtrInput` via:
+//
+//	        StageThumbnailConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type StageThumbnailConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStageThumbnailConfigurationPtrOutput() StageThumbnailConfigurationPtrOutput
+	ToStageThumbnailConfigurationPtrOutputWithContext(context.Context) StageThumbnailConfigurationPtrOutput
+}
+
+type stageThumbnailConfigurationPtrType StageThumbnailConfigurationArgs
+
+func StageThumbnailConfigurationPtr(v *StageThumbnailConfigurationArgs) StageThumbnailConfigurationPtrInput {
+	return (*stageThumbnailConfigurationPtrType)(v)
+}
+
+func (*stageThumbnailConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageThumbnailConfiguration)(nil)).Elem()
+}
+
+func (i *stageThumbnailConfigurationPtrType) ToStageThumbnailConfigurationPtrOutput() StageThumbnailConfigurationPtrOutput {
+	return i.ToStageThumbnailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *stageThumbnailConfigurationPtrType) ToStageThumbnailConfigurationPtrOutputWithContext(ctx context.Context) StageThumbnailConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageThumbnailConfigurationPtrOutput)
+}
+
+// A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
+type StageThumbnailConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StageThumbnailConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageThumbnailConfiguration)(nil)).Elem()
+}
+
+func (o StageThumbnailConfigurationOutput) ToStageThumbnailConfigurationOutput() StageThumbnailConfigurationOutput {
+	return o
+}
+
+func (o StageThumbnailConfigurationOutput) ToStageThumbnailConfigurationOutputWithContext(ctx context.Context) StageThumbnailConfigurationOutput {
+	return o
+}
+
+func (o StageThumbnailConfigurationOutput) ToStageThumbnailConfigurationPtrOutput() StageThumbnailConfigurationPtrOutput {
+	return o.ToStageThumbnailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StageThumbnailConfigurationOutput) ToStageThumbnailConfigurationPtrOutputWithContext(ctx context.Context) StageThumbnailConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageThumbnailConfiguration) *StageThumbnailConfiguration {
+		return &v
+	}).(StageThumbnailConfigurationPtrOutput)
+}
+
+// An object representing a configuration of thumbnails for recorded video from an individual participant.
+func (o StageThumbnailConfigurationOutput) ParticipantThumbnailConfiguration() StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v StageThumbnailConfiguration) *StageThumbnailConfigurationParticipantThumbnailConfigurationProperties {
+		return v.ParticipantThumbnailConfiguration
+	}).(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput)
+}
+
+type StageThumbnailConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StageThumbnailConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageThumbnailConfiguration)(nil)).Elem()
+}
+
+func (o StageThumbnailConfigurationPtrOutput) ToStageThumbnailConfigurationPtrOutput() StageThumbnailConfigurationPtrOutput {
+	return o
+}
+
+func (o StageThumbnailConfigurationPtrOutput) ToStageThumbnailConfigurationPtrOutputWithContext(ctx context.Context) StageThumbnailConfigurationPtrOutput {
+	return o
+}
+
+func (o StageThumbnailConfigurationPtrOutput) Elem() StageThumbnailConfigurationOutput {
+	return o.ApplyT(func(v *StageThumbnailConfiguration) StageThumbnailConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StageThumbnailConfiguration
+		return ret
+	}).(StageThumbnailConfigurationOutput)
+}
+
+// An object representing a configuration of thumbnails for recorded video from an individual participant.
+func (o StageThumbnailConfigurationPtrOutput) ParticipantThumbnailConfiguration() StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *StageThumbnailConfiguration) *StageThumbnailConfigurationParticipantThumbnailConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ParticipantThumbnailConfiguration
+	}).(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput)
+}
+
+// An object representing a configuration of thumbnails for recorded video from an individual participant.
+type StageThumbnailConfigurationParticipantThumbnailConfigurationProperties struct {
+	// Thumbnail recording mode. Default: DISABLED.
+	RecordingMode *StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode `pulumi:"recordingMode"`
+	// Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
+	Storage []StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem `pulumi:"storage"`
+	// The targeted thumbnail-generation interval in seconds. This is configurable only if recordingMode is INTERVAL. Default: 60.
+	TargetIntervalSeconds *int `pulumi:"targetIntervalSeconds"`
+}
+
+// StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesInput is an input type that accepts StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs and StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesInput` via:
+//
+//	StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs{...}
+type StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput() StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput
+	ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutputWithContext(context.Context) StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput
+}
+
+// An object representing a configuration of thumbnails for recorded video from an individual participant.
+type StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs struct {
+	// Thumbnail recording mode. Default: DISABLED.
+	RecordingMode StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingModePtrInput `pulumi:"recordingMode"`
+	// Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
+	Storage StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItemArrayInput `pulumi:"storage"`
+	// The targeted thumbnail-generation interval in seconds. This is configurable only if recordingMode is INTERVAL. Default: 60.
+	TargetIntervalSeconds pulumi.IntPtrInput `pulumi:"targetIntervalSeconds"`
+}
+
+func (StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageThumbnailConfigurationParticipantThumbnailConfigurationProperties)(nil)).Elem()
+}
+
+func (i StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs) ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput() StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput {
+	return i.ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs) ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutputWithContext(ctx context.Context) StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput)
+}
+
+func (i StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs) ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput() StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput {
+	return i.ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs) ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput).ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrInput is an input type that accepts StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs, StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtr and StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrInput` via:
+//
+//	        StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput() StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput
+	ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutputWithContext(context.Context) StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput
+}
+
+type stageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrType StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs
+
+func StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtr(v *StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs) StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrInput {
+	return (*stageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrType)(v)
+}
+
+func (*stageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageThumbnailConfigurationParticipantThumbnailConfigurationProperties)(nil)).Elem()
+}
+
+func (i *stageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrType) ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput() StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput {
+	return i.ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *stageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrType) ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput)
+}
+
+// An object representing a configuration of thumbnails for recorded video from an individual participant.
+type StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageThumbnailConfigurationParticipantThumbnailConfigurationProperties)(nil)).Elem()
+}
+
+func (o StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput) ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput() StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput {
+	return o
+}
+
+func (o StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput) ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutputWithContext(ctx context.Context) StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput {
+	return o
+}
+
+func (o StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput) ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput() StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput {
+	return o.ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput) ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageThumbnailConfigurationParticipantThumbnailConfigurationProperties) *StageThumbnailConfigurationParticipantThumbnailConfigurationProperties {
+		return &v
+	}).(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput)
+}
+
+// Thumbnail recording mode. Default: DISABLED.
+func (o StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput) RecordingMode() StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingModePtrOutput {
+	return o.ApplyT(func(v StageThumbnailConfigurationParticipantThumbnailConfigurationProperties) *StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode {
+		return v.RecordingMode
+	}).(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingModePtrOutput)
+}
+
+// Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
+func (o StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput) Storage() StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItemArrayOutput {
+	return o.ApplyT(func(v StageThumbnailConfigurationParticipantThumbnailConfigurationProperties) []StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem {
+		return v.Storage
+	}).(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItemArrayOutput)
+}
+
+// The targeted thumbnail-generation interval in seconds. This is configurable only if recordingMode is INTERVAL. Default: 60.
+func (o StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput) TargetIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StageThumbnailConfigurationParticipantThumbnailConfigurationProperties) *int {
+		return v.TargetIntervalSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageThumbnailConfigurationParticipantThumbnailConfigurationProperties)(nil)).Elem()
+}
+
+func (o StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput) ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput() StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput) ToStageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutputWithContext(ctx context.Context) StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput) Elem() StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *StageThumbnailConfigurationParticipantThumbnailConfigurationProperties) StageThumbnailConfigurationParticipantThumbnailConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret StageThumbnailConfigurationParticipantThumbnailConfigurationProperties
+		return ret
+	}).(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput)
+}
+
+// Thumbnail recording mode. Default: DISABLED.
+func (o StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput) RecordingMode() StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingModePtrOutput {
+	return o.ApplyT(func(v *StageThumbnailConfigurationParticipantThumbnailConfigurationProperties) *StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode {
+		if v == nil {
+			return nil
+		}
+		return v.RecordingMode
+	}).(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingModePtrOutput)
+}
+
+// Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
+func (o StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput) Storage() StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItemArrayOutput {
+	return o.ApplyT(func(v *StageThumbnailConfigurationParticipantThumbnailConfigurationProperties) []StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem {
+		if v == nil {
+			return nil
+		}
+		return v.Storage
+	}).(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItemArrayOutput)
+}
+
+// The targeted thumbnail-generation interval in seconds. This is configurable only if recordingMode is INTERVAL. Default: 60.
+func (o StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput) TargetIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StageThumbnailConfigurationParticipantThumbnailConfigurationProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetIntervalSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // A complex type that describes an S3 location where recorded videos will be stored.
@@ -1923,14 +1919,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationPtrInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageAutoParticipantRecordingConfigurationInput)(nil)).Elem(), StageAutoParticipantRecordingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageAutoParticipantRecordingConfigurationPtrInput)(nil)).Elem(), StageAutoParticipantRecordingConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesInput)(nil)).Elem(), StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrInput)(nil)).Elem(), StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesInput)(nil)).Elem(), StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrInput)(nil)).Elem(), StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesInput)(nil)).Elem(), StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrInput)(nil)).Elem(), StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesInput)(nil)).Elem(), StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrInput)(nil)).Elem(), StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageHlsConfigurationInput)(nil)).Elem(), StageHlsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageHlsConfigurationPtrInput)(nil)).Elem(), StageHlsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageParticipantRecordingHlsConfigurationInput)(nil)).Elem(), StageParticipantRecordingHlsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageParticipantRecordingHlsConfigurationPtrInput)(nil)).Elem(), StageParticipantRecordingHlsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageThumbnailConfigurationInput)(nil)).Elem(), StageThumbnailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageThumbnailConfigurationPtrInput)(nil)).Elem(), StageThumbnailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesInput)(nil)).Elem(), StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrInput)(nil)).Elem(), StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageConfigurationS3StorageConfigurationInput)(nil)).Elem(), StorageConfigurationS3StorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VideoPropertiesInput)(nil)).Elem(), VideoPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VideoPropertiesPtrInput)(nil)).Elem(), VideoPropertiesArgs{})
@@ -1945,14 +1941,14 @@ func init() {
 	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StageAutoParticipantRecordingConfigurationOutput{})
 	pulumi.RegisterOutputType(StageAutoParticipantRecordingConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesOutput{})
-	pulumi.RegisterOutputType(StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesOutput{})
-	pulumi.RegisterOutputType(StageAutoParticipantRecordingConfigurationHlsConfigurationPropertiesParticipantRecordingHlsConfigurationPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesOutput{})
-	pulumi.RegisterOutputType(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesOutput{})
-	pulumi.RegisterOutputType(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(StageHlsConfigurationOutput{})
+	pulumi.RegisterOutputType(StageHlsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StageParticipantRecordingHlsConfigurationOutput{})
+	pulumi.RegisterOutputType(StageParticipantRecordingHlsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StageThumbnailConfigurationOutput{})
+	pulumi.RegisterOutputType(StageThumbnailConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StorageConfigurationS3StorageConfigurationOutput{})
 	pulumi.RegisterOutputType(VideoPropertiesOutput{})
 	pulumi.RegisterOutputType(VideoPropertiesPtrOutput{})

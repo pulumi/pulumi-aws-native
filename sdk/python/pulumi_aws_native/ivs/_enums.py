@@ -22,8 +22,8 @@ __all__ = [
     'RecordingConfigurationThumbnailConfigurationResolution',
     'RecordingConfigurationThumbnailConfigurationStorageItem',
     'StageAutoParticipantRecordingConfigurationMediaTypesItem',
-    'StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode',
-    'StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem',
+    'StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode',
+    'StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem',
 ]
 
 
@@ -163,8 +163,8 @@ class StageAutoParticipantRecordingConfigurationMediaTypesItem(builtins.str, Enu
     AUDIO_ONLY = "AUDIO_ONLY"
 
 
-@pulumi.type_token("aws-native:ivs:StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode")
-class StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode(builtins.str, Enum):
+@pulumi.type_token("aws-native:ivs:StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode")
+class StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode(builtins.str, Enum):
     """
     Thumbnail recording mode. Default: DISABLED.
     """
@@ -172,7 +172,7 @@ class StageAutoParticipantRecordingConfigurationThumbnailConfigurationProperties
     DISABLED = "DISABLED"
 
 
-@pulumi.type_token("aws-native:ivs:StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem")
-class StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem(builtins.str, Enum):
+@pulumi.type_token("aws-native:ivs:StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem")
+class StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem(builtins.str, Enum):
     SEQUENTIAL = "SEQUENTIAL"
     LATEST = "LATEST"
