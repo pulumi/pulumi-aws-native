@@ -40,59 +40,59 @@ export class FleetMetric extends pulumi.CustomResource {
     /**
      * The aggregation field to perform aggregation and metric emission
      */
-    public readonly aggregationField!: pulumi.Output<string | undefined>;
+    declare public readonly aggregationField: pulumi.Output<string | undefined>;
     /**
      * The type of the aggregation query.
      */
-    public readonly aggregationType!: pulumi.Output<outputs.iot.FleetMetricAggregationType | undefined>;
+    declare public readonly aggregationType: pulumi.Output<outputs.iot.FleetMetricAggregationType | undefined>;
     /**
      * The creation date of a fleet metric
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * The description of a fleet metric
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The index name of a fleet metric
      */
-    public readonly indexName!: pulumi.Output<string | undefined>;
+    declare public readonly indexName: pulumi.Output<string | undefined>;
     /**
      * The last modified date of a fleet metric
      */
-    public /*out*/ readonly lastModifiedDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedDate: pulumi.Output<string>;
     /**
      * The Amazon Resource Number (ARN) of a fleet metric metric
      */
-    public /*out*/ readonly metricArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly metricArn: pulumi.Output<string>;
     /**
      * The name of the fleet metric
      */
-    public readonly metricName!: pulumi.Output<string>;
+    declare public readonly metricName: pulumi.Output<string>;
     /**
      * The period of metric emission in seconds
      */
-    public readonly period!: pulumi.Output<number | undefined>;
+    declare public readonly period: pulumi.Output<number | undefined>;
     /**
      * The Fleet Indexing query used by a fleet metric
      */
-    public readonly queryString!: pulumi.Output<string | undefined>;
+    declare public readonly queryString: pulumi.Output<string | undefined>;
     /**
      * The version of a Fleet Indexing query used by a fleet metric
      */
-    public readonly queryVersion!: pulumi.Output<string | undefined>;
+    declare public readonly queryVersion: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The unit of data points emitted by a fleet metric
      */
-    public readonly unit!: pulumi.Output<string | undefined>;
+    declare public readonly unit: pulumi.Output<string | undefined>;
     /**
      * The version of a fleet metric
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a FleetMetric resource with the given unique name, arguments, and options.
@@ -105,16 +105,16 @@ export class FleetMetric extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["aggregationField"] = args ? args.aggregationField : undefined;
-            resourceInputs["aggregationType"] = args ? args.aggregationType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["indexName"] = args ? args.indexName : undefined;
-            resourceInputs["metricName"] = args ? args.metricName : undefined;
-            resourceInputs["period"] = args ? args.period : undefined;
-            resourceInputs["queryString"] = args ? args.queryString : undefined;
-            resourceInputs["queryVersion"] = args ? args.queryVersion : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["unit"] = args ? args.unit : undefined;
+            resourceInputs["aggregationField"] = args?.aggregationField;
+            resourceInputs["aggregationType"] = args?.aggregationType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["indexName"] = args?.indexName;
+            resourceInputs["metricName"] = args?.metricName;
+            resourceInputs["period"] = args?.period;
+            resourceInputs["queryString"] = args?.queryString;
+            resourceInputs["queryVersion"] = args?.queryVersion;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["unit"] = args?.unit;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["lastModifiedDate"] = undefined /*out*/;
             resourceInputs["metricArn"] = undefined /*out*/;

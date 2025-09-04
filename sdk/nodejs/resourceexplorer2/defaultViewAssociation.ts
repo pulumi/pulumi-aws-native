@@ -37,11 +37,11 @@ export class DefaultViewAssociation extends pulumi.CustomResource {
     /**
      * The AWS principal that the default view is associated with, used as the unique identifier for this resource.
      */
-    public /*out*/ readonly associatedAwsPrincipal!: pulumi.Output<string>;
+    declare public /*out*/ readonly associatedAwsPrincipal: pulumi.Output<string>;
     /**
      * The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation. The specified view must already exist in the specified Region.
      */
-    public readonly viewArn!: pulumi.Output<string>;
+    declare public readonly viewArn: pulumi.Output<string>;
 
     /**
      * Create a DefaultViewAssociation resource with the given unique name, arguments, and options.
@@ -54,10 +54,10 @@ export class DefaultViewAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.viewArn === undefined) && !opts.urn) {
+            if (args?.viewArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'viewArn'");
             }
-            resourceInputs["viewArn"] = args ? args.viewArn : undefined;
+            resourceInputs["viewArn"] = args?.viewArn;
             resourceInputs["associatedAwsPrincipal"] = undefined /*out*/;
         } else {
             resourceInputs["associatedAwsPrincipal"] = undefined /*out*/;

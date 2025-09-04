@@ -42,43 +42,43 @@ export class JobQueue extends pulumi.CustomResource {
      *
      * > All compute environments that are associated with a job queue must share the same architecture. AWS Batch doesn't support mixing compute environment architecture types in a single job queue.
      */
-    public readonly computeEnvironmentOrder!: pulumi.Output<outputs.batch.JobQueueComputeEnvironmentOrder[] | undefined>;
+    declare public readonly computeEnvironmentOrder: pulumi.Output<outputs.batch.JobQueueComputeEnvironmentOrder[] | undefined>;
     /**
      * Returns the job queue ARN, such as `batch: *us-east-1* : *111122223333* :job-queue/ *JobQueueName*` .
      */
-    public /*out*/ readonly jobQueueArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly jobQueueArn: pulumi.Output<string>;
     /**
      * The name of the job queue. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      */
-    public readonly jobQueueName!: pulumi.Output<string | undefined>;
+    declare public readonly jobQueueName: pulumi.Output<string | undefined>;
     /**
      * The type of job queue. For service jobs that run on SageMaker AI , this value is `SAGEMAKER_TRAINING` . For regular container jobs, this value is `EKS` , `ECS` , or `ECS_FARGATE` depending on the compute environment.
      */
-    public readonly jobQueueType!: pulumi.Output<string | undefined>;
+    declare public readonly jobQueueType: pulumi.Output<string | undefined>;
     /**
      * The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. AWS Batch will perform each action after `maxTimeSeconds` has passed.
      */
-    public readonly jobStateTimeLimitActions!: pulumi.Output<outputs.batch.JobQueueJobStateTimeLimitAction[] | undefined>;
+    declare public readonly jobStateTimeLimitActions: pulumi.Output<outputs.batch.JobQueueJobStateTimeLimitAction[] | undefined>;
     /**
      * The priority of the job queue. Job queues with a higher priority (or a higher integer value for the `priority` parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order. For example, a job queue with a priority value of `10` is given scheduling preference over a job queue with a priority value of `1` . All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * The Amazon Resource Name (ARN) of the scheduling policy. The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
      */
-    public readonly schedulingPolicyArn!: pulumi.Output<string | undefined>;
+    declare public readonly schedulingPolicyArn: pulumi.Output<string | undefined>;
     /**
      * The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.
      */
-    public readonly serviceEnvironmentOrder!: pulumi.Output<outputs.batch.JobQueueServiceEnvironmentOrder[] | undefined>;
+    declare public readonly serviceEnvironmentOrder: pulumi.Output<outputs.batch.JobQueueServiceEnvironmentOrder[] | undefined>;
     /**
      * The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
      */
-    public readonly state!: pulumi.Output<enums.batch.JobQueueState | undefined>;
+    declare public readonly state: pulumi.Output<enums.batch.JobQueueState | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a JobQueue resource with the given unique name, arguments, and options.
@@ -91,18 +91,18 @@ export class JobQueue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            resourceInputs["computeEnvironmentOrder"] = args ? args.computeEnvironmentOrder : undefined;
-            resourceInputs["jobQueueName"] = args ? args.jobQueueName : undefined;
-            resourceInputs["jobQueueType"] = args ? args.jobQueueType : undefined;
-            resourceInputs["jobStateTimeLimitActions"] = args ? args.jobStateTimeLimitActions : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["schedulingPolicyArn"] = args ? args.schedulingPolicyArn : undefined;
-            resourceInputs["serviceEnvironmentOrder"] = args ? args.serviceEnvironmentOrder : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["computeEnvironmentOrder"] = args?.computeEnvironmentOrder;
+            resourceInputs["jobQueueName"] = args?.jobQueueName;
+            resourceInputs["jobQueueType"] = args?.jobQueueType;
+            resourceInputs["jobStateTimeLimitActions"] = args?.jobStateTimeLimitActions;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["schedulingPolicyArn"] = args?.schedulingPolicyArn;
+            resourceInputs["serviceEnvironmentOrder"] = args?.serviceEnvironmentOrder;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["jobQueueArn"] = undefined /*out*/;
         } else {
             resourceInputs["computeEnvironmentOrder"] = undefined /*out*/;

@@ -37,23 +37,23 @@ export class ApiMapping extends pulumi.CustomResource {
     /**
      * The identifier of the API.
      */
-    public readonly apiId!: pulumi.Output<string>;
+    declare public readonly apiId: pulumi.Output<string>;
     /**
      * The API mapping resource ID.
      */
-    public /*out*/ readonly apiMappingId!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiMappingId: pulumi.Output<string>;
     /**
      * The API mapping key.
      */
-    public readonly apiMappingKey!: pulumi.Output<string | undefined>;
+    declare public readonly apiMappingKey: pulumi.Output<string | undefined>;
     /**
      * The domain name.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * The API stage.
      */
-    public readonly stage!: pulumi.Output<string>;
+    declare public readonly stage: pulumi.Output<string>;
 
     /**
      * Create a ApiMapping resource with the given unique name, arguments, and options.
@@ -66,19 +66,19 @@ export class ApiMapping extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.stage === undefined) && !opts.urn) {
+            if (args?.stage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stage'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["apiMappingKey"] = args ? args.apiMappingKey : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["stage"] = args ? args.stage : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["apiMappingKey"] = args?.apiMappingKey;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["stage"] = args?.stage;
             resourceInputs["apiMappingId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;

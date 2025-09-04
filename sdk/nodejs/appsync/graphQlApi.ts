@@ -40,103 +40,103 @@ export class GraphQlApi extends pulumi.CustomResource {
     /**
      * A list of additional authentication providers for the GraphqlApi API.
      */
-    public readonly additionalAuthenticationProviders!: pulumi.Output<outputs.appsync.GraphQlApiAdditionalAuthenticationProvider[] | undefined>;
+    declare public readonly additionalAuthenticationProviders: pulumi.Output<outputs.appsync.GraphQlApiAdditionalAuthenticationProvider[] | undefined>;
     /**
      * Unique AWS AppSync GraphQL API identifier.
      */
-    public /*out*/ readonly apiId!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiId: pulumi.Output<string>;
     /**
      * The value that indicates whether the GraphQL API is a standard API (GRAPHQL) or merged API (MERGED).
      */
-    public readonly apiType!: pulumi.Output<string | undefined>;
+    declare public readonly apiType: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the API key
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Security configuration for your GraphQL API
      */
-    public readonly authenticationType!: pulumi.Output<string>;
+    declare public readonly authenticationType: pulumi.Output<string>;
     /**
      * Enables and controls the enhanced metrics feature. Enhanced metrics emit granular data on API usage and performance such as AppSync request and error counts, latency, and cache hits/misses. All enhanced metric data is sent to your CloudWatch account, and you can configure the types of data that will be sent.
      */
-    public readonly enhancedMetricsConfig!: pulumi.Output<outputs.appsync.GraphQlApiEnhancedMetricsConfig | undefined>;
+    declare public readonly enhancedMetricsConfig: pulumi.Output<outputs.appsync.GraphQlApiEnhancedMetricsConfig | undefined>;
     /**
      * A map containing the list of resources with their properties and environment variables.
      */
-    public readonly environmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly environmentVariables: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The fully qualified domain name (FQDN) of the endpoint URL of your GraphQL API.
      */
-    public /*out*/ readonly graphQlDns!: pulumi.Output<string>;
+    declare public /*out*/ readonly graphQlDns: pulumi.Output<string>;
     /**
      * The GraphQL endpoint ARN.
      */
-    public /*out*/ readonly graphQlEndpointArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly graphQlEndpointArn: pulumi.Output<string>;
     /**
      * The Endpoint URL of your GraphQL API.
      */
-    public /*out*/ readonly graphQlUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly graphQlUrl: pulumi.Output<string>;
     /**
      * Sets the value of the GraphQL API to enable (ENABLED) or disable (DISABLED) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled.
      */
-    public readonly introspectionConfig!: pulumi.Output<string | undefined>;
+    declare public readonly introspectionConfig: pulumi.Output<string | undefined>;
     /**
      * A LambdaAuthorizerConfig holds configuration on how to authorize AWS AppSync API access when using the AWS_LAMBDA authorizer mode. Be aware that an AWS AppSync API may have only one Lambda authorizer configured at a time.
      */
-    public readonly lambdaAuthorizerConfig!: pulumi.Output<outputs.appsync.GraphQlApiLambdaAuthorizerConfig | undefined>;
+    declare public readonly lambdaAuthorizerConfig: pulumi.Output<outputs.appsync.GraphQlApiLambdaAuthorizerConfig | undefined>;
     /**
      * The Amazon CloudWatch Logs configuration.
      */
-    public readonly logConfig!: pulumi.Output<outputs.appsync.GraphQlApiLogConfig | undefined>;
+    declare public readonly logConfig: pulumi.Output<outputs.appsync.GraphQlApiLogConfig | undefined>;
     /**
      * The AWS Identity and Access Management service role ARN for a merged API. 
      */
-    public readonly mergedApiExecutionRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly mergedApiExecutionRoleArn: pulumi.Output<string | undefined>;
     /**
      * The API name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The OpenID Connect configuration.
      */
-    public readonly openIdConnectConfig!: pulumi.Output<outputs.appsync.GraphQlApiOpenIdConnectConfig | undefined>;
+    declare public readonly openIdConnectConfig: pulumi.Output<outputs.appsync.GraphQlApiOpenIdConnectConfig | undefined>;
     /**
      * The owner contact information for an API resource.
      */
-    public readonly ownerContact!: pulumi.Output<string | undefined>;
+    declare public readonly ownerContact: pulumi.Output<string | undefined>;
     /**
      * The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query.
      */
-    public readonly queryDepthLimit!: pulumi.Output<number | undefined>;
+    declare public readonly queryDepthLimit: pulumi.Output<number | undefined>;
     /**
      * The fully qualified domain name (FQDN) of the real-time endpoint URL of your GraphQL API.
      */
-    public /*out*/ readonly realtimeDns!: pulumi.Output<string>;
+    declare public /*out*/ readonly realtimeDns: pulumi.Output<string>;
     /**
      * The GraphQL API real-time endpoint URL.
      */
-    public /*out*/ readonly realtimeUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly realtimeUrl: pulumi.Output<string>;
     /**
      * The maximum number of resolvers that can be invoked in a single request.
      */
-    public readonly resolverCountLimit!: pulumi.Output<number | undefined>;
+    declare public readonly resolverCountLimit: pulumi.Output<number | undefined>;
     /**
      * An arbitrary set of tags (key-value pairs) for this GraphQL API.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Optional authorization configuration for using Amazon Cognito user pools with your GraphQL endpoint.
      */
-    public readonly userPoolConfig!: pulumi.Output<outputs.appsync.GraphQlApiUserPoolConfig | undefined>;
+    declare public readonly userPoolConfig: pulumi.Output<outputs.appsync.GraphQlApiUserPoolConfig | undefined>;
     /**
      * Sets the scope of the GraphQL API to public (GLOBAL) or private (PRIVATE). By default, the scope is set to Global if no value is provided.
      */
-    public readonly visibility!: pulumi.Output<string | undefined>;
+    declare public readonly visibility: pulumi.Output<string | undefined>;
     /**
      * A flag indicating whether to use AWS X-Ray tracing for this GraphqlApi.
      */
-    public readonly xrayEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly xrayEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a GraphQlApi resource with the given unique name, arguments, and options.
@@ -149,27 +149,27 @@ export class GraphQlApi extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authenticationType === undefined) && !opts.urn) {
+            if (args?.authenticationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationType'");
             }
-            resourceInputs["additionalAuthenticationProviders"] = args ? args.additionalAuthenticationProviders : undefined;
-            resourceInputs["apiType"] = args ? args.apiType : undefined;
-            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
-            resourceInputs["enhancedMetricsConfig"] = args ? args.enhancedMetricsConfig : undefined;
-            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            resourceInputs["introspectionConfig"] = args ? args.introspectionConfig : undefined;
-            resourceInputs["lambdaAuthorizerConfig"] = args ? args.lambdaAuthorizerConfig : undefined;
-            resourceInputs["logConfig"] = args ? args.logConfig : undefined;
-            resourceInputs["mergedApiExecutionRoleArn"] = args ? args.mergedApiExecutionRoleArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["openIdConnectConfig"] = args ? args.openIdConnectConfig : undefined;
-            resourceInputs["ownerContact"] = args ? args.ownerContact : undefined;
-            resourceInputs["queryDepthLimit"] = args ? args.queryDepthLimit : undefined;
-            resourceInputs["resolverCountLimit"] = args ? args.resolverCountLimit : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userPoolConfig"] = args ? args.userPoolConfig : undefined;
-            resourceInputs["visibility"] = args ? args.visibility : undefined;
-            resourceInputs["xrayEnabled"] = args ? args.xrayEnabled : undefined;
+            resourceInputs["additionalAuthenticationProviders"] = args?.additionalAuthenticationProviders;
+            resourceInputs["apiType"] = args?.apiType;
+            resourceInputs["authenticationType"] = args?.authenticationType;
+            resourceInputs["enhancedMetricsConfig"] = args?.enhancedMetricsConfig;
+            resourceInputs["environmentVariables"] = args?.environmentVariables;
+            resourceInputs["introspectionConfig"] = args?.introspectionConfig;
+            resourceInputs["lambdaAuthorizerConfig"] = args?.lambdaAuthorizerConfig;
+            resourceInputs["logConfig"] = args?.logConfig;
+            resourceInputs["mergedApiExecutionRoleArn"] = args?.mergedApiExecutionRoleArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["openIdConnectConfig"] = args?.openIdConnectConfig;
+            resourceInputs["ownerContact"] = args?.ownerContact;
+            resourceInputs["queryDepthLimit"] = args?.queryDepthLimit;
+            resourceInputs["resolverCountLimit"] = args?.resolverCountLimit;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userPoolConfig"] = args?.userPoolConfig;
+            resourceInputs["visibility"] = args?.visibility;
+            resourceInputs["xrayEnabled"] = args?.xrayEnabled;
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["graphQlDns"] = undefined /*out*/;

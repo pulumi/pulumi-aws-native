@@ -40,35 +40,35 @@ export class ApiDestination extends pulumi.CustomResource {
     /**
      * The arn of the api destination.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The arn of the api destination to be used in IAM policies.
      */
-    public /*out*/ readonly arnForPolicy!: pulumi.Output<string>;
+    declare public /*out*/ readonly arnForPolicy: pulumi.Output<string>;
     /**
      * The arn of the connection.
      */
-    public readonly connectionArn!: pulumi.Output<string>;
+    declare public readonly connectionArn: pulumi.Output<string>;
     /**
      * A description for the API destination to create.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The method to use for the request to the HTTP invocation endpoint.
      */
-    public readonly httpMethod!: pulumi.Output<enums.events.ApiDestinationHttpMethod>;
+    declare public readonly httpMethod: pulumi.Output<enums.events.ApiDestinationHttpMethod>;
     /**
      * Url endpoint to invoke.
      */
-    public readonly invocationEndpoint!: pulumi.Output<string>;
+    declare public readonly invocationEndpoint: pulumi.Output<string>;
     /**
      * The maximum number of requests per second to send to the HTTP invocation endpoint.
      */
-    public readonly invocationRateLimitPerSecond!: pulumi.Output<number | undefined>;
+    declare public readonly invocationRateLimitPerSecond: pulumi.Output<number | undefined>;
     /**
      * Name of the apiDestination.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApiDestination resource with the given unique name, arguments, and options.
@@ -81,21 +81,21 @@ export class ApiDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectionArn === undefined) && !opts.urn) {
+            if (args?.connectionArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionArn'");
             }
-            if ((!args || args.httpMethod === undefined) && !opts.urn) {
+            if (args?.httpMethod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'httpMethod'");
             }
-            if ((!args || args.invocationEndpoint === undefined) && !opts.urn) {
+            if (args?.invocationEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'invocationEndpoint'");
             }
-            resourceInputs["connectionArn"] = args ? args.connectionArn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
-            resourceInputs["invocationEndpoint"] = args ? args.invocationEndpoint : undefined;
-            resourceInputs["invocationRateLimitPerSecond"] = args ? args.invocationRateLimitPerSecond : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["connectionArn"] = args?.connectionArn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["httpMethod"] = args?.httpMethod;
+            resourceInputs["invocationEndpoint"] = args?.invocationEndpoint;
+            resourceInputs["invocationRateLimitPerSecond"] = args?.invocationRateLimitPerSecond;
+            resourceInputs["name"] = args?.name;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["arnForPolicy"] = undefined /*out*/;
         } else {

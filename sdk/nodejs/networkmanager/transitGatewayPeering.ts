@@ -40,51 +40,51 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
     /**
      * The ARN (Amazon Resource Name) of the core network that you want to peer a transit gateway to.
      */
-    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly coreNetworkArn: pulumi.Output<string>;
     /**
      * The Id of the core network that you want to peer a transit gateway to.
      */
-    public readonly coreNetworkId!: pulumi.Output<string>;
+    declare public readonly coreNetworkId: pulumi.Output<string>;
     /**
      * The creation time of the transit gateway peering
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The location of the transit gateway peering
      */
-    public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
+    declare public /*out*/ readonly edgeLocation: pulumi.Output<string>;
     /**
      * Peering owner account Id
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
     /**
      * The Id of the transit gateway peering
      */
-    public /*out*/ readonly peeringId!: pulumi.Output<string>;
+    declare public /*out*/ readonly peeringId: pulumi.Output<string>;
     /**
      * Peering type (TransitGatewayPeering)
      */
-    public /*out*/ readonly peeringType!: pulumi.Output<string>;
+    declare public /*out*/ readonly peeringType: pulumi.Output<string>;
     /**
      * The ARN (Amazon Resource Name) of the resource that you will peer to a core network
      */
-    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
      * The state of the transit gateway peering
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN (Amazon Resource Name) of the transit gateway that you will peer to a core network
      */
-    public readonly transitGatewayArn!: pulumi.Output<string>;
+    declare public readonly transitGatewayArn: pulumi.Output<string>;
     /**
      * The ID of the TransitGatewayPeeringAttachment
      */
-    public /*out*/ readonly transitGatewayPeeringAttachmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly transitGatewayPeeringAttachmentId: pulumi.Output<string>;
 
     /**
      * Create a TransitGatewayPeering resource with the given unique name, arguments, and options.
@@ -97,15 +97,15 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.coreNetworkId === undefined) && !opts.urn) {
+            if (args?.coreNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'coreNetworkId'");
             }
-            if ((!args || args.transitGatewayArn === undefined) && !opts.urn) {
+            if (args?.transitGatewayArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayArn'");
             }
-            resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayArn"] = args ? args.transitGatewayArn : undefined;
+            resourceInputs["coreNetworkId"] = args?.coreNetworkId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayArn"] = args?.transitGatewayArn;
             resourceInputs["coreNetworkArn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["edgeLocation"] = undefined /*out*/;

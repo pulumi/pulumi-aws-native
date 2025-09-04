@@ -40,47 +40,47 @@ export class Service extends pulumi.CustomResource {
     /**
      * The unique identifier of the application.
      */
-    public readonly applicationIdentifier!: pulumi.Output<string>;
+    declare public readonly applicationIdentifier: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the service.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A description of the service.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The endpoint type of the service.
      */
-    public readonly endpointType!: pulumi.Output<enums.refactorspaces.ServiceEndpointType>;
+    declare public readonly endpointType: pulumi.Output<enums.refactorspaces.ServiceEndpointType>;
     /**
      * The unique identifier of the environment.
      */
-    public readonly environmentIdentifier!: pulumi.Output<string>;
+    declare public readonly environmentIdentifier: pulumi.Output<string>;
     /**
      * A summary of the configuration for the AWS Lambda endpoint type.
      */
-    public readonly lambdaEndpoint!: pulumi.Output<outputs.refactorspaces.ServiceLambdaEndpointInput | undefined>;
+    declare public readonly lambdaEndpoint: pulumi.Output<outputs.refactorspaces.ServiceLambdaEndpointInput | undefined>;
     /**
      * The name of the service.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The unique identifier of the service.
      */
-    public /*out*/ readonly serviceIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceIdentifier: pulumi.Output<string>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The summary of the configuration for the URL endpoint type.
      */
-    public readonly urlEndpoint!: pulumi.Output<outputs.refactorspaces.ServiceUrlEndpointInput | undefined>;
+    declare public readonly urlEndpoint: pulumi.Output<outputs.refactorspaces.ServiceUrlEndpointInput | undefined>;
     /**
      * The ID of the virtual private cloud (VPC).
      */
-    public readonly vpcId!: pulumi.Output<string | undefined>;
+    declare public readonly vpcId: pulumi.Output<string | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -93,24 +93,24 @@ export class Service extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationIdentifier === undefined) && !opts.urn) {
+            if (args?.applicationIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationIdentifier'");
             }
-            if ((!args || args.endpointType === undefined) && !opts.urn) {
+            if (args?.endpointType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointType'");
             }
-            if ((!args || args.environmentIdentifier === undefined) && !opts.urn) {
+            if (args?.environmentIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentIdentifier'");
             }
-            resourceInputs["applicationIdentifier"] = args ? args.applicationIdentifier : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["endpointType"] = args ? args.endpointType : undefined;
-            resourceInputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
-            resourceInputs["lambdaEndpoint"] = args ? args.lambdaEndpoint : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["urlEndpoint"] = args ? args.urlEndpoint : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["applicationIdentifier"] = args?.applicationIdentifier;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["endpointType"] = args?.endpointType;
+            resourceInputs["environmentIdentifier"] = args?.environmentIdentifier;
+            resourceInputs["lambdaEndpoint"] = args?.lambdaEndpoint;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["urlEndpoint"] = args?.urlEndpoint;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["serviceIdentifier"] = undefined /*out*/;
         } else {

@@ -40,7 +40,7 @@ export class ConfiguredTable extends pulumi.CustomResource {
     /**
      * The columns within the underlying AWS Glue table that can be utilized within collaborations.
      */
-    public readonly allowedColumns!: pulumi.Output<string[]>;
+    declare public readonly allowedColumns: pulumi.Output<string[]>;
     /**
      * The analysis method for the configured table.
      *
@@ -50,43 +50,43 @@ export class ConfiguredTable extends pulumi.CustomResource {
      *
      * `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
      */
-    public readonly analysisMethod!: pulumi.Output<enums.cleanrooms.ConfiguredTableAnalysisMethod>;
+    declare public readonly analysisMethod: pulumi.Output<enums.cleanrooms.ConfiguredTableAnalysisMethod>;
     /**
      * The analysis rule that was created for the configured table.
      */
-    public readonly analysisRules!: pulumi.Output<outputs.cleanrooms.ConfiguredTableAnalysisRule[] | undefined>;
+    declare public readonly analysisRules: pulumi.Output<outputs.cleanrooms.ConfiguredTableAnalysisRule[] | undefined>;
     /**
      * Returns the Amazon Resource Name (ARN) of the specified configured table.
      *
      * Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Returns the unique identifier of the specified configured table.
      *
      * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
      */
-    public /*out*/ readonly configuredTableIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly configuredTableIdentifier: pulumi.Output<string>;
     /**
      * A description for the configured table.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A name for the configured table.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The selected analysis methods for the configured table.
      */
-    public readonly selectedAnalysisMethods!: pulumi.Output<enums.cleanrooms.ConfiguredTableSelectedAnalysisMethod[] | undefined>;
+    declare public readonly selectedAnalysisMethods: pulumi.Output<enums.cleanrooms.ConfiguredTableSelectedAnalysisMethod[] | undefined>;
     /**
      * The table that this configured table represents.
      */
-    public readonly tableReference!: pulumi.Output<outputs.cleanrooms.ConfiguredTableTableReference0Properties | outputs.cleanrooms.ConfiguredTableTableReference1Properties | outputs.cleanrooms.ConfiguredTableTableReference2Properties>;
+    declare public readonly tableReference: pulumi.Output<outputs.cleanrooms.ConfiguredTableTableReference0Properties | outputs.cleanrooms.ConfiguredTableTableReference1Properties | outputs.cleanrooms.ConfiguredTableTableReference2Properties>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ConfiguredTable resource with the given unique name, arguments, and options.
@@ -99,23 +99,23 @@ export class ConfiguredTable extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.allowedColumns === undefined) && !opts.urn) {
+            if (args?.allowedColumns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'allowedColumns'");
             }
-            if ((!args || args.analysisMethod === undefined) && !opts.urn) {
+            if (args?.analysisMethod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'analysisMethod'");
             }
-            if ((!args || args.tableReference === undefined) && !opts.urn) {
+            if (args?.tableReference === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableReference'");
             }
-            resourceInputs["allowedColumns"] = args ? args.allowedColumns : undefined;
-            resourceInputs["analysisMethod"] = args ? args.analysisMethod : undefined;
-            resourceInputs["analysisRules"] = args ? args.analysisRules : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["selectedAnalysisMethods"] = args ? args.selectedAnalysisMethods : undefined;
-            resourceInputs["tableReference"] = args ? args.tableReference : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowedColumns"] = args?.allowedColumns;
+            resourceInputs["analysisMethod"] = args?.analysisMethod;
+            resourceInputs["analysisRules"] = args?.analysisRules;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["selectedAnalysisMethods"] = args?.selectedAnalysisMethods;
+            resourceInputs["tableReference"] = args?.tableReference;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["configuredTableIdentifier"] = undefined /*out*/;
         } else {

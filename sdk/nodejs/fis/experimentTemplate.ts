@@ -108,43 +108,43 @@ export class ExperimentTemplate extends pulumi.CustomResource {
     /**
      * The actions for the experiment.
      */
-    public readonly actions!: pulumi.Output<{[key: string]: outputs.fis.ExperimentTemplateAction} | undefined>;
+    declare public readonly actions: pulumi.Output<{[key: string]: outputs.fis.ExperimentTemplateAction} | undefined>;
     /**
      * The ID of the experiment template.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The description for the experiment template.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The experiment options for an experiment template.
      */
-    public readonly experimentOptions!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentOptions | undefined>;
+    declare public readonly experimentOptions: pulumi.Output<outputs.fis.ExperimentTemplateExperimentOptions | undefined>;
     /**
      * Describes the report configuration for the experiment template.
      */
-    public readonly experimentReportConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentReportConfiguration | undefined>;
+    declare public readonly experimentReportConfiguration: pulumi.Output<outputs.fis.ExperimentTemplateExperimentReportConfiguration | undefined>;
     /**
      * The configuration for experiment logging.
      */
-    public readonly logConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
+    declare public readonly logConfiguration: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The stop conditions for the experiment.
      */
-    public readonly stopConditions!: pulumi.Output<outputs.fis.ExperimentTemplateStopCondition[]>;
+    declare public readonly stopConditions: pulumi.Output<outputs.fis.ExperimentTemplateStopCondition[]>;
     /**
      * The tags for the experiment template.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The targets for the experiment.
      */
-    public readonly targets!: pulumi.Output<{[key: string]: outputs.fis.ExperimentTemplateTarget}>;
+    declare public readonly targets: pulumi.Output<{[key: string]: outputs.fis.ExperimentTemplateTarget}>;
 
     /**
      * Create a ExperimentTemplate resource with the given unique name, arguments, and options.
@@ -157,27 +157,27 @@ export class ExperimentTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.stopConditions === undefined) && !opts.urn) {
+            if (args?.stopConditions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stopConditions'");
             }
-            if ((!args || args.targets === undefined) && !opts.urn) {
+            if (args?.targets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targets'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["experimentOptions"] = args ? args.experimentOptions : undefined;
-            resourceInputs["experimentReportConfiguration"] = args ? args.experimentReportConfiguration : undefined;
-            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["stopConditions"] = args ? args.stopConditions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["experimentOptions"] = args?.experimentOptions;
+            resourceInputs["experimentReportConfiguration"] = args?.experimentReportConfiguration;
+            resourceInputs["logConfiguration"] = args?.logConfiguration;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["stopConditions"] = args?.stopConditions;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targets"] = args?.targets;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["actions"] = undefined /*out*/;

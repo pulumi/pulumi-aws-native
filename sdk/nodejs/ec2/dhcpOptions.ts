@@ -40,35 +40,35 @@ export class DhcpOptions extends pulumi.CustomResource {
     /**
      * The ID of the DHCP options set.
      */
-    public /*out*/ readonly dhcpOptionsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly dhcpOptionsId: pulumi.Output<string>;
     /**
      * This value is used to complete unqualified DNS hostnames.
      */
-    public readonly domainName!: pulumi.Output<string | undefined>;
+    declare public readonly domainName: pulumi.Output<string | undefined>;
     /**
      * The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
      */
-    public readonly domainNameServers!: pulumi.Output<string[] | undefined>;
+    declare public readonly domainNameServers: pulumi.Output<string[] | undefined>;
     /**
      * The preferred Lease Time for ipV6 address in seconds.
      */
-    public readonly ipv6AddressPreferredLeaseTime!: pulumi.Output<number | undefined>;
+    declare public readonly ipv6AddressPreferredLeaseTime: pulumi.Output<number | undefined>;
     /**
      * The IPv4 addresses of up to four NetBIOS name servers.
      */
-    public readonly netbiosNameServers!: pulumi.Output<string[] | undefined>;
+    declare public readonly netbiosNameServers: pulumi.Output<string[] | undefined>;
     /**
      * The NetBIOS node type (1, 2, 4, or 8).
      */
-    public readonly netbiosNodeType!: pulumi.Output<number | undefined>;
+    declare public readonly netbiosNodeType: pulumi.Output<number | undefined>;
     /**
      * The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
      */
-    public readonly ntpServers!: pulumi.Output<string[] | undefined>;
+    declare public readonly ntpServers: pulumi.Output<string[] | undefined>;
     /**
      * Any tags assigned to the DHCP options set.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DhcpOptions resource with the given unique name, arguments, and options.
@@ -81,13 +81,13 @@ export class DhcpOptions extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["domainNameServers"] = args ? args.domainNameServers : undefined;
-            resourceInputs["ipv6AddressPreferredLeaseTime"] = args ? args.ipv6AddressPreferredLeaseTime : undefined;
-            resourceInputs["netbiosNameServers"] = args ? args.netbiosNameServers : undefined;
-            resourceInputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
-            resourceInputs["ntpServers"] = args ? args.ntpServers : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["domainNameServers"] = args?.domainNameServers;
+            resourceInputs["ipv6AddressPreferredLeaseTime"] = args?.ipv6AddressPreferredLeaseTime;
+            resourceInputs["netbiosNameServers"] = args?.netbiosNameServers;
+            resourceInputs["netbiosNodeType"] = args?.netbiosNodeType;
+            resourceInputs["ntpServers"] = args?.ntpServers;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["dhcpOptionsId"] = undefined /*out*/;
         } else {
             resourceInputs["dhcpOptionsId"] = undefined /*out*/;

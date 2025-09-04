@@ -76,35 +76,35 @@ export class Room extends pulumi.CustomResource {
     /**
      * Room ARN is automatically generated on creation and assigned as the unique identifier.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The system-generated ID of the room.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Array of logging configuration identifiers attached to the room.
      */
-    public readonly loggingConfigurationIdentifiers!: pulumi.Output<string[] | undefined>;
+    declare public readonly loggingConfigurationIdentifiers: pulumi.Output<string[] | undefined>;
     /**
      * The maximum number of characters in a single message.
      */
-    public readonly maximumMessageLength!: pulumi.Output<number | undefined>;
+    declare public readonly maximumMessageLength: pulumi.Output<number | undefined>;
     /**
      * The maximum number of messages per second that can be sent to the room.
      */
-    public readonly maximumMessageRatePerSecond!: pulumi.Output<number | undefined>;
+    declare public readonly maximumMessageRatePerSecond: pulumi.Output<number | undefined>;
     /**
      * Configuration information for optional review of messages.
      */
-    public readonly messageReviewHandler!: pulumi.Output<outputs.ivschat.RoomMessageReviewHandler | undefined>;
+    declare public readonly messageReviewHandler: pulumi.Output<outputs.ivschat.RoomMessageReviewHandler | undefined>;
     /**
      * The name of the room. The value does not need to be unique.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Room resource with the given unique name, arguments, and options.
@@ -117,12 +117,12 @@ export class Room extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["loggingConfigurationIdentifiers"] = args ? args.loggingConfigurationIdentifiers : undefined;
-            resourceInputs["maximumMessageLength"] = args ? args.maximumMessageLength : undefined;
-            resourceInputs["maximumMessageRatePerSecond"] = args ? args.maximumMessageRatePerSecond : undefined;
-            resourceInputs["messageReviewHandler"] = args ? args.messageReviewHandler : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["loggingConfigurationIdentifiers"] = args?.loggingConfigurationIdentifiers;
+            resourceInputs["maximumMessageLength"] = args?.maximumMessageLength;
+            resourceInputs["maximumMessageRatePerSecond"] = args?.maximumMessageRatePerSecond;
+            resourceInputs["messageReviewHandler"] = args?.messageReviewHandler;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

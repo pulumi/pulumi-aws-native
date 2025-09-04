@@ -67,19 +67,19 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
     /**
      * The service principal for the AWS service to which this role is attached.
      */
-    public readonly awsServiceName!: pulumi.Output<string | undefined>;
+    declare public readonly awsServiceName: pulumi.Output<string | undefined>;
     /**
      * A string that you provide, which is combined with the service-provided prefix to form the complete role name.
      */
-    public readonly customSuffix!: pulumi.Output<string | undefined>;
+    declare public readonly customSuffix: pulumi.Output<string | undefined>;
     /**
      * The description of the role.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the role.
      */
-    public /*out*/ readonly roleName!: pulumi.Output<string>;
+    declare public /*out*/ readonly roleName: pulumi.Output<string>;
 
     /**
      * Create a ServiceLinkedRole resource with the given unique name, arguments, and options.
@@ -92,9 +92,9 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["awsServiceName"] = args ? args.awsServiceName : undefined;
-            resourceInputs["customSuffix"] = args ? args.customSuffix : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["awsServiceName"] = args?.awsServiceName;
+            resourceInputs["customSuffix"] = args?.customSuffix;
+            resourceInputs["description"] = args?.description;
             resourceInputs["roleName"] = undefined /*out*/;
         } else {
             resourceInputs["awsServiceName"] = undefined /*out*/;

@@ -37,11 +37,11 @@ export class LogStream extends pulumi.CustomResource {
     /**
      * The name of the log group where the log stream is created.
      */
-    public readonly logGroupName!: pulumi.Output<string>;
+    declare public readonly logGroupName: pulumi.Output<string>;
     /**
      * The name of the log stream. The name must be unique wihtin the log group.
      */
-    public readonly logStreamName!: pulumi.Output<string | undefined>;
+    declare public readonly logStreamName: pulumi.Output<string | undefined>;
 
     /**
      * Create a LogStream resource with the given unique name, arguments, and options.
@@ -54,11 +54,11 @@ export class LogStream extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.logGroupName === undefined) && !opts.urn) {
+            if (args?.logGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logGroupName'");
             }
-            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
-            resourceInputs["logStreamName"] = args ? args.logStreamName : undefined;
+            resourceInputs["logGroupName"] = args?.logGroupName;
+            resourceInputs["logStreamName"] = args?.logStreamName;
         } else {
             resourceInputs["logGroupName"] = undefined /*out*/;
             resourceInputs["logStreamName"] = undefined /*out*/;

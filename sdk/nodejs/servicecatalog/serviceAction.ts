@@ -44,27 +44,27 @@ export class ServiceAction extends pulumi.CustomResource {
      * - `jp` - Japanese
      * - `zh` - Chinese
      */
-    public readonly acceptLanguage!: pulumi.Output<enums.servicecatalog.ServiceActionAcceptLanguage | undefined>;
+    declare public readonly acceptLanguage: pulumi.Output<enums.servicecatalog.ServiceActionAcceptLanguage | undefined>;
     /**
      * The self-service action identifier. For example, `act-fs7abcd89wxyz` .
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A map that defines the self-service action.
      */
-    public readonly definition!: pulumi.Output<outputs.servicecatalog.ServiceActionDefinitionParameter[]>;
+    declare public readonly definition: pulumi.Output<outputs.servicecatalog.ServiceActionDefinitionParameter[]>;
     /**
      * The self-service action definition type. For example, `SSM_AUTOMATION` .
      */
-    public readonly definitionType!: pulumi.Output<enums.servicecatalog.ServiceActionDefinitionType>;
+    declare public readonly definitionType: pulumi.Output<enums.servicecatalog.ServiceActionDefinitionType>;
     /**
      * The self-service action description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The self-service action name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a ServiceAction resource with the given unique name, arguments, and options.
@@ -77,17 +77,17 @@ export class ServiceAction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.definition === undefined) && !opts.urn) {
+            if (args?.definition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if ((!args || args.definitionType === undefined) && !opts.urn) {
+            if (args?.definitionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definitionType'");
             }
-            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["definitionType"] = args ? args.definitionType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["acceptLanguage"] = args?.acceptLanguage;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["definitionType"] = args?.definitionType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["acceptLanguage"] = undefined /*out*/;

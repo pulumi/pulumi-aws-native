@@ -40,33 +40,33 @@ export class Ec2Fleet extends pulumi.CustomResource {
     /**
      * Reserved.
      */
-    public readonly context!: pulumi.Output<string | undefined>;
+    declare public readonly context: pulumi.Output<string | undefined>;
     /**
      * Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
      *
      * Supported only for fleets of type `maintain` .
      */
-    public readonly excessCapacityTerminationPolicy!: pulumi.Output<enums.ec2.Ec2FleetExcessCapacityTerminationPolicy | undefined>;
+    declare public readonly excessCapacityTerminationPolicy: pulumi.Output<enums.ec2.Ec2FleetExcessCapacityTerminationPolicy | undefined>;
     /**
      * The ID of the EC2 Fleet.
      */
-    public /*out*/ readonly fleetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly fleetId: pulumi.Output<string>;
     /**
      * The configuration for the EC2 Fleet.
      */
-    public readonly launchTemplateConfigs!: pulumi.Output<outputs.ec2.Ec2FleetFleetLaunchTemplateConfigRequest[]>;
+    declare public readonly launchTemplateConfigs: pulumi.Output<outputs.ec2.Ec2FleetFleetLaunchTemplateConfigRequest[]>;
     /**
      * Describes the configuration of On-Demand Instances in an EC2 Fleet.
      */
-    public readonly onDemandOptions!: pulumi.Output<outputs.ec2.Ec2FleetOnDemandOptionsRequest | undefined>;
+    declare public readonly onDemandOptions: pulumi.Output<outputs.ec2.Ec2FleetOnDemandOptionsRequest | undefined>;
     /**
      * Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
      */
-    public readonly replaceUnhealthyInstances!: pulumi.Output<boolean | undefined>;
+    declare public readonly replaceUnhealthyInstances: pulumi.Output<boolean | undefined>;
     /**
      * Describes the configuration of Spot Instances in an EC2 Fleet.
      */
-    public readonly spotOptions!: pulumi.Output<outputs.ec2.Ec2FleetSpotOptionsRequest | undefined>;
+    declare public readonly spotOptions: pulumi.Output<outputs.ec2.Ec2FleetSpotOptionsRequest | undefined>;
     /**
      * The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
      *
@@ -74,15 +74,15 @@ export class Ec2Fleet extends pulumi.CustomResource {
      *
      * If the fleet type is `maintain` or `request` , specify a resource type of `fleet` to tag the fleet. You cannot specify a resource type of `instance` . To tag instances at launch, specify the tags in a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) .
      */
-    public readonly tagSpecifications!: pulumi.Output<outputs.ec2.Ec2FleetTagSpecification[] | undefined>;
+    declare public readonly tagSpecifications: pulumi.Output<outputs.ec2.Ec2FleetTagSpecification[] | undefined>;
     /**
      * The number of units to request.
      */
-    public readonly targetCapacitySpecification!: pulumi.Output<outputs.ec2.Ec2FleetTargetCapacitySpecificationRequest>;
+    declare public readonly targetCapacitySpecification: pulumi.Output<outputs.ec2.Ec2FleetTargetCapacitySpecificationRequest>;
     /**
      * Indicates whether running instances should be terminated when the EC2 Fleet expires.
      */
-    public readonly terminateInstancesWithExpiration!: pulumi.Output<boolean | undefined>;
+    declare public readonly terminateInstancesWithExpiration: pulumi.Output<boolean | undefined>;
     /**
      * The fleet type. The default value is `maintain` .
      *
@@ -92,15 +92,15 @@ export class Ec2Fleet extends pulumi.CustomResource {
      *
      * For more information, see [EC2 Fleet request types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html) in the *Amazon EC2 User Guide* .
      */
-    public readonly type!: pulumi.Output<enums.ec2.Ec2FleetType | undefined>;
+    declare public readonly type: pulumi.Output<enums.ec2.Ec2FleetType | undefined>;
     /**
      * The start date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). The default is to start fulfilling the request immediately.
      */
-    public readonly validFrom!: pulumi.Output<string | undefined>;
+    declare public readonly validFrom: pulumi.Output<string | undefined>;
     /**
      * The end date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
      */
-    public readonly validUntil!: pulumi.Output<string | undefined>;
+    declare public readonly validUntil: pulumi.Output<string | undefined>;
 
     /**
      * Create a Ec2Fleet resource with the given unique name, arguments, and options.
@@ -113,24 +113,24 @@ export class Ec2Fleet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.launchTemplateConfigs === undefined) && !opts.urn) {
+            if (args?.launchTemplateConfigs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'launchTemplateConfigs'");
             }
-            if ((!args || args.targetCapacitySpecification === undefined) && !opts.urn) {
+            if (args?.targetCapacitySpecification === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetCapacitySpecification'");
             }
-            resourceInputs["context"] = args ? args.context : undefined;
-            resourceInputs["excessCapacityTerminationPolicy"] = args ? args.excessCapacityTerminationPolicy : undefined;
-            resourceInputs["launchTemplateConfigs"] = args ? args.launchTemplateConfigs : undefined;
-            resourceInputs["onDemandOptions"] = args ? args.onDemandOptions : undefined;
-            resourceInputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
-            resourceInputs["spotOptions"] = args ? args.spotOptions : undefined;
-            resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
-            resourceInputs["targetCapacitySpecification"] = args ? args.targetCapacitySpecification : undefined;
-            resourceInputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["validFrom"] = args ? args.validFrom : undefined;
-            resourceInputs["validUntil"] = args ? args.validUntil : undefined;
+            resourceInputs["context"] = args?.context;
+            resourceInputs["excessCapacityTerminationPolicy"] = args?.excessCapacityTerminationPolicy;
+            resourceInputs["launchTemplateConfigs"] = args?.launchTemplateConfigs;
+            resourceInputs["onDemandOptions"] = args?.onDemandOptions;
+            resourceInputs["replaceUnhealthyInstances"] = args?.replaceUnhealthyInstances;
+            resourceInputs["spotOptions"] = args?.spotOptions;
+            resourceInputs["tagSpecifications"] = args?.tagSpecifications;
+            resourceInputs["targetCapacitySpecification"] = args?.targetCapacitySpecification;
+            resourceInputs["terminateInstancesWithExpiration"] = args?.terminateInstancesWithExpiration;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["validFrom"] = args?.validFrom;
+            resourceInputs["validUntil"] = args?.validUntil;
             resourceInputs["fleetId"] = undefined /*out*/;
         } else {
             resourceInputs["context"] = undefined /*out*/;

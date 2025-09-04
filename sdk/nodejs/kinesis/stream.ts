@@ -40,35 +40,35 @@ export class Stream extends pulumi.CustomResource {
     /**
      * The Amazon resource name (ARN) of the Kinesis stream
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The final list of shard-level metrics
      */
-    public readonly desiredShardLevelMetrics!: pulumi.Output<enums.kinesis.StreamEnhancedMetric[] | undefined>;
+    declare public readonly desiredShardLevelMetrics: pulumi.Output<enums.kinesis.StreamEnhancedMetric[] | undefined>;
     /**
      * The name of the Kinesis stream.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The number of hours for the data records that are stored in shards to remain accessible.
      */
-    public readonly retentionPeriodHours!: pulumi.Output<number | undefined>;
+    declare public readonly retentionPeriodHours: pulumi.Output<number | undefined>;
     /**
      * The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
      */
-    public readonly shardCount!: pulumi.Output<number | undefined>;
+    declare public readonly shardCount: pulumi.Output<number | undefined>;
     /**
      * When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
      */
-    public readonly streamEncryption!: pulumi.Output<outputs.kinesis.StreamEncryption | undefined>;
+    declare public readonly streamEncryption: pulumi.Output<outputs.kinesis.StreamEncryption | undefined>;
     /**
      * The mode in which the stream is running.
      */
-    public readonly streamModeDetails!: pulumi.Output<outputs.kinesis.StreamModeDetails | undefined>;
+    declare public readonly streamModeDetails: pulumi.Output<outputs.kinesis.StreamModeDetails | undefined>;
     /**
      * An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Stream resource with the given unique name, arguments, and options.
@@ -81,13 +81,13 @@ export class Stream extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["desiredShardLevelMetrics"] = args ? args.desiredShardLevelMetrics : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["retentionPeriodHours"] = args ? args.retentionPeriodHours : undefined;
-            resourceInputs["shardCount"] = args ? args.shardCount : undefined;
-            resourceInputs["streamEncryption"] = args ? args.streamEncryption : undefined;
-            resourceInputs["streamModeDetails"] = args ? args.streamModeDetails : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["desiredShardLevelMetrics"] = args?.desiredShardLevelMetrics;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["retentionPeriodHours"] = args?.retentionPeriodHours;
+            resourceInputs["shardCount"] = args?.shardCount;
+            resourceInputs["streamEncryption"] = args?.streamEncryption;
+            resourceInputs["streamModeDetails"] = args?.streamModeDetails;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

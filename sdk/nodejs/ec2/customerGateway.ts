@@ -42,36 +42,36 @@ export class CustomerGateway extends pulumi.CustomResource {
      *  Default: 65000
      *  Valid values: ``1`` to ``2,147,483,647``
      */
-    public readonly bgpAsn!: pulumi.Output<number | undefined>;
+    declare public readonly bgpAsn: pulumi.Output<number | undefined>;
     /**
      * For customer gateway devices that support BGP, specify the device's ASN. You must specify either ``BgpAsn`` or ``BgpAsnExtended`` when creating the customer gateway. If the ASN is larger than ``2,147,483,647``, you must use ``BgpAsnExtended``.
      *  Valid values: ``2,147,483,648`` to ``4,294,967,295``
      */
-    public readonly bgpAsnExtended!: pulumi.Output<number | undefined>;
+    declare public readonly bgpAsnExtended: pulumi.Output<number | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the customer gateway certificate.
      */
-    public readonly certificateArn!: pulumi.Output<string | undefined>;
+    declare public readonly certificateArn: pulumi.Output<string | undefined>;
     /**
      * The ID of the customer gateway.
      */
-    public /*out*/ readonly customerGatewayId!: pulumi.Output<string>;
+    declare public /*out*/ readonly customerGatewayId: pulumi.Output<string>;
     /**
      * The name of customer gateway device.
      */
-    public readonly deviceName!: pulumi.Output<string | undefined>;
+    declare public readonly deviceName: pulumi.Output<string | undefined>;
     /**
      * The IP address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``Ipv6``, you can use an IPv6 address.
      */
-    public readonly ipAddress!: pulumi.Output<string>;
+    declare public readonly ipAddress: pulumi.Output<string>;
     /**
      * One or more tags for the customer gateway.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of VPN connection that this customer gateway supports (``ipsec.1``).
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a CustomerGateway resource with the given unique name, arguments, and options.
@@ -84,19 +84,19 @@ export class CustomerGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ipAddress === undefined) && !opts.urn) {
+            if (args?.ipAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipAddress'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["bgpAsn"] = args ? args.bgpAsn : undefined;
-            resourceInputs["bgpAsnExtended"] = args ? args.bgpAsnExtended : undefined;
-            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["bgpAsn"] = args?.bgpAsn;
+            resourceInputs["bgpAsnExtended"] = args?.bgpAsnExtended;
+            resourceInputs["certificateArn"] = args?.certificateArn;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["ipAddress"] = args?.ipAddress;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["customerGatewayId"] = undefined /*out*/;
         } else {
             resourceInputs["bgpAsn"] = undefined /*out*/;

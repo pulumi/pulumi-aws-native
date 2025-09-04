@@ -40,59 +40,59 @@ export class Flow extends pulumi.CustomResource {
     /**
      * The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
      */
-    public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    declare public readonly availabilityZone: pulumi.Output<string | undefined>;
     /**
      * The IP address from which video will be sent to output destinations.
      */
-    public /*out*/ readonly egressIp!: pulumi.Output<string>;
+    declare public /*out*/ readonly egressIp: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
      */
-    public /*out*/ readonly flowArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly flowArn: pulumi.Output<string>;
     /**
      * The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)
      */
-    public /*out*/ readonly flowAvailabilityZone!: pulumi.Output<string>;
+    declare public /*out*/ readonly flowAvailabilityZone: pulumi.Output<string>;
     /**
      * A prefix for the names of the NDI sources that the flow creates.(ReadOnly)
      */
-    public /*out*/ readonly flowNdiMachineName!: pulumi.Output<string>;
+    declare public /*out*/ readonly flowNdiMachineName: pulumi.Output<string>;
     /**
      * Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
      */
-    public readonly flowSize!: pulumi.Output<enums.mediaconnect.FlowSize | undefined>;
+    declare public readonly flowSize: pulumi.Output<enums.mediaconnect.FlowSize | undefined>;
     /**
      * The maintenance settings you want to use for the flow.
      */
-    public readonly maintenance!: pulumi.Output<outputs.mediaconnect.FlowMaintenance | undefined>;
+    declare public readonly maintenance: pulumi.Output<outputs.mediaconnect.FlowMaintenance | undefined>;
     /**
      * The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
      */
-    public readonly mediaStreams!: pulumi.Output<outputs.mediaconnect.FlowMediaStream[] | undefined>;
+    declare public readonly mediaStreams: pulumi.Output<outputs.mediaconnect.FlowMediaStream[] | undefined>;
     /**
      * The name of the flow.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
      */
-    public readonly ndiConfig!: pulumi.Output<outputs.mediaconnect.FlowNdiConfig | undefined>;
+    declare public readonly ndiConfig: pulumi.Output<outputs.mediaconnect.FlowNdiConfig | undefined>;
     /**
      * The source of the flow.
      */
-    public readonly source!: pulumi.Output<outputs.mediaconnect.FlowSource>;
+    declare public readonly source: pulumi.Output<outputs.mediaconnect.FlowSource>;
     /**
      * The source failover config of the flow.
      */
-    public readonly sourceFailoverConfig!: pulumi.Output<outputs.mediaconnect.FlowFailoverConfig | undefined>;
+    declare public readonly sourceFailoverConfig: pulumi.Output<outputs.mediaconnect.FlowFailoverConfig | undefined>;
     /**
      * The source monitoring config of the flow.
      */
-    public readonly sourceMonitoringConfig!: pulumi.Output<outputs.mediaconnect.FlowSourceMonitoringConfig | undefined>;
+    declare public readonly sourceMonitoringConfig: pulumi.Output<outputs.mediaconnect.FlowSourceMonitoringConfig | undefined>;
     /**
      * The VPC interfaces that you added to this flow.
      */
-    public readonly vpcInterfaces!: pulumi.Output<outputs.mediaconnect.FlowVpcInterface[] | undefined>;
+    declare public readonly vpcInterfaces: pulumi.Output<outputs.mediaconnect.FlowVpcInterface[] | undefined>;
 
     /**
      * Create a Flow resource with the given unique name, arguments, and options.
@@ -105,19 +105,19 @@ export class Flow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["flowSize"] = args ? args.flowSize : undefined;
-            resourceInputs["maintenance"] = args ? args.maintenance : undefined;
-            resourceInputs["mediaStreams"] = args ? args.mediaStreams : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ndiConfig"] = args ? args.ndiConfig : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["sourceFailoverConfig"] = args ? args.sourceFailoverConfig : undefined;
-            resourceInputs["sourceMonitoringConfig"] = args ? args.sourceMonitoringConfig : undefined;
-            resourceInputs["vpcInterfaces"] = args ? args.vpcInterfaces : undefined;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["flowSize"] = args?.flowSize;
+            resourceInputs["maintenance"] = args?.maintenance;
+            resourceInputs["mediaStreams"] = args?.mediaStreams;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ndiConfig"] = args?.ndiConfig;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["sourceFailoverConfig"] = args?.sourceFailoverConfig;
+            resourceInputs["sourceMonitoringConfig"] = args?.sourceMonitoringConfig;
+            resourceInputs["vpcInterfaces"] = args?.vpcInterfaces;
             resourceInputs["egressIp"] = undefined /*out*/;
             resourceInputs["flowArn"] = undefined /*out*/;
             resourceInputs["flowAvailabilityZone"] = undefined /*out*/;

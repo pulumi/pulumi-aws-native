@@ -40,73 +40,73 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if manageAdminPassword is true.
      */
-    public readonly adminPasswordSecretKmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly adminPasswordSecretKmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit. You can't use adminUserPassword if manageAdminPassword is true.
      */
-    public readonly adminUserPassword!: pulumi.Output<string | undefined>;
+    declare public readonly adminUserPassword: pulumi.Output<string | undefined>;
     /**
      * The user name associated with the admin user for the namespace that is being created. Only alphanumeric characters and underscores are allowed. It should start with an alphabet.
      */
-    public readonly adminUsername!: pulumi.Output<string | undefined>;
+    declare public readonly adminUsername: pulumi.Output<string | undefined>;
     /**
      * The database name associated for the namespace that is being created. Only alphanumeric characters and underscores are allowed. It should start with an alphabet.
      */
-    public readonly dbName!: pulumi.Output<string | undefined>;
+    declare public readonly dbName: pulumi.Output<string | undefined>;
     /**
      * The default IAM role ARN for the namespace that is being created.
      */
-    public readonly defaultIamRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly defaultIamRoleArn: pulumi.Output<string | undefined>;
     /**
      * The name of the namespace the source snapshot was created from. Please specify the name if needed before deleting namespace
      */
-    public readonly finalSnapshotName!: pulumi.Output<string | undefined>;
+    declare public readonly finalSnapshotName: pulumi.Output<string | undefined>;
     /**
      * The number of days to retain automated snapshot in the destination region after they are copied from the source region. If the value is -1, the manual snapshot is retained indefinitely. The value must be either -1 or an integer between 1 and 3,653.
      */
-    public readonly finalSnapshotRetentionPeriod!: pulumi.Output<number | undefined>;
+    declare public readonly finalSnapshotRetentionPeriod: pulumi.Output<number | undefined>;
     /**
      * A list of AWS Identity and Access Management (IAM) roles that can be used by the namespace to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. The Default role limit for each request is 10.
      */
-    public readonly iamRoles!: pulumi.Output<string[] | undefined>;
+    declare public readonly iamRoles: pulumi.Output<string[] | undefined>;
     /**
      * The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the namespace.
      */
-    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
      * The collection of log types to be exported provided by the customer. Should only be one of the three supported log types: userlog, useractivitylog and connectionlog
      */
-    public readonly logExports!: pulumi.Output<enums.redshiftserverless.NamespaceLogExport[] | undefined>;
+    declare public readonly logExports: pulumi.Output<enums.redshiftserverless.NamespaceLogExport[] | undefined>;
     /**
      * If true, Amazon Redshift uses AWS Secrets Manager to manage the namespace's admin credentials. You can't use adminUserPassword if manageAdminPassword is true. If manageAdminPassword is false or not set, Amazon Redshift uses adminUserPassword for the admin user account's password.
      */
-    public readonly manageAdminPassword!: pulumi.Output<boolean | undefined>;
+    declare public readonly manageAdminPassword: pulumi.Output<boolean | undefined>;
     /**
      * Definition of Namespace resource.
      */
-    public /*out*/ readonly namespace!: pulumi.Output<outputs.redshiftserverless.Namespace>;
+    declare public /*out*/ readonly namespace: pulumi.Output<outputs.redshiftserverless.Namespace>;
     /**
      * A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
      */
-    public readonly namespaceName!: pulumi.Output<string>;
+    declare public readonly namespaceName: pulumi.Output<string>;
     /**
      * The resource policy document that will be attached to the namespace.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
      */
-    public readonly namespaceResourcePolicy!: pulumi.Output<any | undefined>;
+    declare public readonly namespaceResourcePolicy: pulumi.Output<any | undefined>;
     /**
      * The ARN for the Redshift application that integrates with IAM Identity Center.
      */
-    public readonly redshiftIdcApplicationArn!: pulumi.Output<string | undefined>;
+    declare public readonly redshiftIdcApplicationArn: pulumi.Output<string | undefined>;
     /**
      * The snapshot copy configurations for the namespace.
      */
-    public readonly snapshotCopyConfigurations!: pulumi.Output<outputs.redshiftserverless.NamespaceSnapshotCopyConfiguration[] | undefined>;
+    declare public readonly snapshotCopyConfigurations: pulumi.Output<outputs.redshiftserverless.NamespaceSnapshotCopyConfiguration[] | undefined>;
     /**
      * The list of tags for the namespace.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -119,22 +119,22 @@ export class Namespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["adminPasswordSecretKmsKeyId"] = args ? args.adminPasswordSecretKmsKeyId : undefined;
-            resourceInputs["adminUserPassword"] = args ? args.adminUserPassword : undefined;
-            resourceInputs["adminUsername"] = args ? args.adminUsername : undefined;
-            resourceInputs["dbName"] = args ? args.dbName : undefined;
-            resourceInputs["defaultIamRoleArn"] = args ? args.defaultIamRoleArn : undefined;
-            resourceInputs["finalSnapshotName"] = args ? args.finalSnapshotName : undefined;
-            resourceInputs["finalSnapshotRetentionPeriod"] = args ? args.finalSnapshotRetentionPeriod : undefined;
-            resourceInputs["iamRoles"] = args ? args.iamRoles : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["logExports"] = args ? args.logExports : undefined;
-            resourceInputs["manageAdminPassword"] = args ? args.manageAdminPassword : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["namespaceResourcePolicy"] = args ? args.namespaceResourcePolicy : undefined;
-            resourceInputs["redshiftIdcApplicationArn"] = args ? args.redshiftIdcApplicationArn : undefined;
-            resourceInputs["snapshotCopyConfigurations"] = args ? args.snapshotCopyConfigurations : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["adminPasswordSecretKmsKeyId"] = args?.adminPasswordSecretKmsKeyId;
+            resourceInputs["adminUserPassword"] = args?.adminUserPassword;
+            resourceInputs["adminUsername"] = args?.adminUsername;
+            resourceInputs["dbName"] = args?.dbName;
+            resourceInputs["defaultIamRoleArn"] = args?.defaultIamRoleArn;
+            resourceInputs["finalSnapshotName"] = args?.finalSnapshotName;
+            resourceInputs["finalSnapshotRetentionPeriod"] = args?.finalSnapshotRetentionPeriod;
+            resourceInputs["iamRoles"] = args?.iamRoles;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["logExports"] = args?.logExports;
+            resourceInputs["manageAdminPassword"] = args?.manageAdminPassword;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["namespaceResourcePolicy"] = args?.namespaceResourcePolicy;
+            resourceInputs["redshiftIdcApplicationArn"] = args?.redshiftIdcApplicationArn;
+            resourceInputs["snapshotCopyConfigurations"] = args?.snapshotCopyConfigurations;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["namespace"] = undefined /*out*/;
         } else {
             resourceInputs["adminPasswordSecretKmsKeyId"] = undefined /*out*/;

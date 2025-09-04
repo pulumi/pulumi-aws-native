@@ -37,26 +37,26 @@ export class SchemaMapping extends pulumi.CustomResource {
         return obj['__pulumiType'] === SchemaMapping.__pulumiType;
     }
 
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The description of the SchemaMapping
      */
-    public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly hasWorkflows!: pulumi.Output<boolean>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly hasWorkflows: pulumi.Output<boolean>;
     /**
      * The SchemaMapping attributes input
      */
-    public readonly mappedInputFields!: pulumi.Output<outputs.entityresolution.SchemaMappingSchemaInputAttribute[]>;
-    public /*out*/ readonly schemaArn!: pulumi.Output<string>;
+    declare public readonly mappedInputFields: pulumi.Output<outputs.entityresolution.SchemaMappingSchemaInputAttribute[]>;
+    declare public /*out*/ readonly schemaArn: pulumi.Output<string>;
     /**
      * The name of the SchemaMapping
      */
-    public readonly schemaName!: pulumi.Output<string>;
+    declare public readonly schemaName: pulumi.Output<string>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a SchemaMapping resource with the given unique name, arguments, and options.
@@ -69,16 +69,16 @@ export class SchemaMapping extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.mappedInputFields === undefined) && !opts.urn) {
+            if (args?.mappedInputFields === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mappedInputFields'");
             }
-            if ((!args || args.schemaName === undefined) && !opts.urn) {
+            if (args?.schemaName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["mappedInputFields"] = args ? args.mappedInputFields : undefined;
-            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["mappedInputFields"] = args?.mappedInputFields;
+            resourceInputs["schemaName"] = args?.schemaName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["hasWorkflows"] = undefined /*out*/;
             resourceInputs["schemaArn"] = undefined /*out*/;

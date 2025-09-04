@@ -40,25 +40,25 @@ export class Connector extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
      */
-    public readonly certificateAuthorityArn!: pulumi.Output<string>;
+    declare public readonly certificateAuthorityArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the connector.
      */
-    public /*out*/ readonly connectorArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectorArn: pulumi.Output<string>;
     /**
      * The connector's HTTPS public SCEP URL.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
      */
-    public readonly mobileDeviceManagement!: pulumi.Output<outputs.pcaconnectorscep.ConnectorMobileDeviceManagement | undefined>;
-    public /*out*/ readonly openIdConfiguration!: pulumi.Output<outputs.pcaconnectorscep.ConnectorOpenIdConfiguration>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly mobileDeviceManagement: pulumi.Output<outputs.pcaconnectorscep.ConnectorMobileDeviceManagement | undefined>;
+    declare public /*out*/ readonly openIdConfiguration: pulumi.Output<outputs.pcaconnectorscep.ConnectorOpenIdConfiguration>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The connector type.
      */
-    public /*out*/ readonly type!: pulumi.Output<enums.pcaconnectorscep.ConnectorType>;
+    declare public /*out*/ readonly type: pulumi.Output<enums.pcaconnectorscep.ConnectorType>;
 
     /**
      * Create a Connector resource with the given unique name, arguments, and options.
@@ -71,12 +71,12 @@ export class Connector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.certificateAuthorityArn === undefined) && !opts.urn) {
+            if (args?.certificateAuthorityArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateAuthorityArn'");
             }
-            resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
-            resourceInputs["mobileDeviceManagement"] = args ? args.mobileDeviceManagement : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["certificateAuthorityArn"] = args?.certificateAuthorityArn;
+            resourceInputs["mobileDeviceManagement"] = args?.mobileDeviceManagement;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["connectorArn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["openIdConfiguration"] = undefined /*out*/;

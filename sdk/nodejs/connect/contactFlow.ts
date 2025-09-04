@@ -61,35 +61,35 @@ export class ContactFlow extends pulumi.CustomResource {
     /**
      * The identifier of the contact flow (ARN).
      */
-    public /*out*/ readonly contactFlowArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly contactFlowArn: pulumi.Output<string>;
     /**
      * The content of the contact flow in JSON format.
      */
-    public readonly content!: pulumi.Output<string>;
+    declare public readonly content: pulumi.Output<string>;
     /**
      * The description of the contact flow.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The identifier of the Amazon Connect instance (ARN).
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * The name of the contact flow.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The state of the contact flow.
      */
-    public readonly state!: pulumi.Output<enums.connect.ContactFlowState | undefined>;
+    declare public readonly state: pulumi.Output<enums.connect.ContactFlowState | undefined>;
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the contact flow.
      */
-    public readonly type!: pulumi.Output<enums.connect.ContactFlowType>;
+    declare public readonly type: pulumi.Output<enums.connect.ContactFlowType>;
 
     /**
      * Create a ContactFlow resource with the given unique name, arguments, and options.
@@ -102,22 +102,22 @@ export class ContactFlow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["contactFlowArn"] = undefined /*out*/;
         } else {
             resourceInputs["contactFlowArn"] = undefined /*out*/;

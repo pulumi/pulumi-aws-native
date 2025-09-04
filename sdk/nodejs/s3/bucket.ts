@@ -548,43 +548,43 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
      */
-    public readonly accelerateConfiguration!: pulumi.Output<outputs.s3.BucketAccelerateConfiguration | undefined>;
+    declare public readonly accelerateConfiguration: pulumi.Output<outputs.s3.BucketAccelerateConfiguration | undefined>;
     /**
      * This is a legacy property, and it is not recommended for most use cases. A majority of modern use cases in Amazon S3 no longer require the use of ACLs, and we recommend that you keep ACLs disabled. For more information, see [Controlling object ownership](https://docs.aws.amazon.com//AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
      *   A canned access control list (ACL) that grants predefined permissions to the bucket. For more information about canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) in the *Amazon S3 User Guide*.
      *   S3 buckets are created with ACLs disabled by default. Therefore, unless you explicitly set the [AWS::S3::OwnershipControls](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html) property to enable ACLs, your resource will fail to deploy with any value other than Private. Use cases requiring ACLs are uncommon.
      *   The majority of access control configurations can be successfully and more easily achieved with bucket policies. For more information, see [AWS::S3::BucketPolicy](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html). For examples of common policy configurations, including S3 Server Access Logs buckets and more, see [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) in the *Amazon S3 User Guide*.
      */
-    public readonly accessControl!: pulumi.Output<enums.s3.BucketAccessControl | undefined>;
+    declare public readonly accessControl: pulumi.Output<enums.s3.BucketAccessControl | undefined>;
     /**
      * Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
      */
-    public readonly analyticsConfigurations!: pulumi.Output<outputs.s3.BucketAnalyticsConfiguration[] | undefined>;
+    declare public readonly analyticsConfigurations: pulumi.Output<outputs.s3.BucketAnalyticsConfiguration[] | undefined>;
     /**
      * Returns the Amazon Resource Name (ARN) of the specified bucket.
      *
      * Example: `arn:aws:s3:::DOC-EXAMPLE-BUCKET`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
      */
-    public readonly bucketEncryption!: pulumi.Output<outputs.s3.BucketEncryption | undefined>;
+    declare public readonly bucketEncryption: pulumi.Output<outputs.s3.BucketEncryption | undefined>;
     /**
      * A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*. 
      *   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
      */
-    public readonly bucketName!: pulumi.Output<string | undefined>;
+    declare public readonly bucketName: pulumi.Output<string | undefined>;
     /**
      * Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
      */
-    public readonly corsConfiguration!: pulumi.Output<outputs.s3.BucketCorsConfiguration | undefined>;
+    declare public readonly corsConfiguration: pulumi.Output<outputs.s3.BucketCorsConfiguration | undefined>;
     /**
      * Returns the IPv4 DNS name of the specified bucket.
      *
      * Example: `DOC-EXAMPLE-BUCKET.s3.amazonaws.com`
      */
-    public /*out*/ readonly domainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainName: pulumi.Output<string>;
     /**
      * Returns the IPv6 DNS name of the specified bucket.
      *
@@ -592,39 +592,39 @@ export class Bucket extends pulumi.CustomResource {
      *
      * For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html) .
      */
-    public /*out*/ readonly dualStackDomainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly dualStackDomainName: pulumi.Output<string>;
     /**
      * Defines how Amazon S3 handles Intelligent-Tiering storage.
      */
-    public readonly intelligentTieringConfigurations!: pulumi.Output<outputs.s3.BucketIntelligentTieringConfiguration[] | undefined>;
+    declare public readonly intelligentTieringConfigurations: pulumi.Output<outputs.s3.BucketIntelligentTieringConfiguration[] | undefined>;
     /**
      * Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
      */
-    public readonly inventoryConfigurations!: pulumi.Output<outputs.s3.BucketInventoryConfiguration[] | undefined>;
+    declare public readonly inventoryConfigurations: pulumi.Output<outputs.s3.BucketInventoryConfiguration[] | undefined>;
     /**
      * Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
      */
-    public readonly lifecycleConfiguration!: pulumi.Output<outputs.s3.BucketLifecycleConfiguration | undefined>;
+    declare public readonly lifecycleConfiguration: pulumi.Output<outputs.s3.BucketLifecycleConfiguration | undefined>;
     /**
      * Settings that define where logs are stored.
      */
-    public readonly loggingConfiguration!: pulumi.Output<outputs.s3.BucketLoggingConfiguration | undefined>;
+    declare public readonly loggingConfiguration: pulumi.Output<outputs.s3.BucketLoggingConfiguration | undefined>;
     /**
      * The S3 Metadata configuration for a general purpose bucket.
      */
-    public readonly metadataConfiguration!: pulumi.Output<outputs.s3.BucketMetadataConfiguration | undefined>;
+    declare public readonly metadataConfiguration: pulumi.Output<outputs.s3.BucketMetadataConfiguration | undefined>;
     /**
      * The metadata table configuration of an S3 general purpose bucket.
      */
-    public readonly metadataTableConfiguration!: pulumi.Output<outputs.s3.BucketMetadataTableConfiguration | undefined>;
+    declare public readonly metadataTableConfiguration: pulumi.Output<outputs.s3.BucketMetadataTableConfiguration | undefined>;
     /**
      * Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
      */
-    public readonly metricsConfigurations!: pulumi.Output<outputs.s3.BucketMetricsConfiguration[] | undefined>;
+    declare public readonly metricsConfigurations: pulumi.Output<outputs.s3.BucketMetricsConfiguration[] | undefined>;
     /**
      * Configuration that defines how Amazon S3 handles bucket notifications.
      */
-    public readonly notificationConfiguration!: pulumi.Output<outputs.s3.BucketNotificationConfiguration | undefined>;
+    declare public readonly notificationConfiguration: pulumi.Output<outputs.s3.BucketNotificationConfiguration | undefined>;
     /**
      * This operation is not supported for directory buckets.
      *   Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). 
@@ -634,43 +634,43 @@ export class Bucket extends pulumi.CustomResource {
      *   
      *    You must URL encode any signed header values that contain spaces. For example, if your header value is ``my file.txt``, containing two spaces after ``my``, you must URL encode this value to ``my%20%20file.txt``.
      */
-    public readonly objectLockConfiguration!: pulumi.Output<outputs.s3.BucketObjectLockConfiguration | undefined>;
+    declare public readonly objectLockConfiguration: pulumi.Output<outputs.s3.BucketObjectLockConfiguration | undefined>;
     /**
      * Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
      */
-    public readonly objectLockEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly objectLockEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Configuration that defines how Amazon S3 handles Object Ownership rules.
      */
-    public readonly ownershipControls!: pulumi.Output<outputs.s3.BucketOwnershipControls | undefined>;
+    declare public readonly ownershipControls: pulumi.Output<outputs.s3.BucketOwnershipControls | undefined>;
     /**
      * Configuration that defines how Amazon S3 handles public access.
      */
-    public readonly publicAccessBlockConfiguration!: pulumi.Output<outputs.s3.BucketPublicAccessBlockConfiguration | undefined>;
+    declare public readonly publicAccessBlockConfiguration: pulumi.Output<outputs.s3.BucketPublicAccessBlockConfiguration | undefined>;
     /**
      * Returns the regional domain name of the specified bucket.
      *
      * Example: `DOC-EXAMPLE-BUCKET.s3.us-east-2.amazonaws.com`
      */
-    public /*out*/ readonly regionalDomainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly regionalDomainName: pulumi.Output<string>;
     /**
      * Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the ``VersioningConfiguration`` property.
      *  Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist.
      */
-    public readonly replicationConfiguration!: pulumi.Output<outputs.s3.BucketReplicationConfiguration | undefined>;
+    declare public readonly replicationConfiguration: pulumi.Output<outputs.s3.BucketReplicationConfiguration | undefined>;
     /**
      * An arbitrary set of tags (key-value pairs) for this S3 bucket.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
      *   When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
      */
-    public readonly versioningConfiguration!: pulumi.Output<outputs.s3.BucketVersioningConfiguration | undefined>;
+    declare public readonly versioningConfiguration: pulumi.Output<outputs.s3.BucketVersioningConfiguration | undefined>;
     /**
      * Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
      */
-    public readonly websiteConfiguration!: pulumi.Output<outputs.s3.BucketWebsiteConfiguration | undefined>;
+    declare public readonly websiteConfiguration: pulumi.Output<outputs.s3.BucketWebsiteConfiguration | undefined>;
     /**
      * Returns the Amazon S3 website endpoint for the specified bucket.
      *
@@ -678,7 +678,7 @@ export class Bucket extends pulumi.CustomResource {
      *
      * Example (IPv6): `http://DOC-EXAMPLE-BUCKET.s3.dualstack.us-east-2.amazonaws.com`
      */
-    public /*out*/ readonly websiteUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly websiteUrl: pulumi.Output<string>;
 
     /**
      * Create a Bucket resource with the given unique name, arguments, and options.
@@ -691,28 +691,28 @@ export class Bucket extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["accelerateConfiguration"] = args ? args.accelerateConfiguration : undefined;
-            resourceInputs["accessControl"] = args ? args.accessControl : undefined;
-            resourceInputs["analyticsConfigurations"] = args ? args.analyticsConfigurations : undefined;
-            resourceInputs["bucketEncryption"] = args ? args.bucketEncryption : undefined;
-            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
-            resourceInputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
-            resourceInputs["intelligentTieringConfigurations"] = args ? args.intelligentTieringConfigurations : undefined;
-            resourceInputs["inventoryConfigurations"] = args ? args.inventoryConfigurations : undefined;
-            resourceInputs["lifecycleConfiguration"] = args ? args.lifecycleConfiguration : undefined;
-            resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
-            resourceInputs["metadataConfiguration"] = args ? args.metadataConfiguration : undefined;
-            resourceInputs["metadataTableConfiguration"] = args ? args.metadataTableConfiguration : undefined;
-            resourceInputs["metricsConfigurations"] = args ? args.metricsConfigurations : undefined;
-            resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
-            resourceInputs["objectLockConfiguration"] = args ? args.objectLockConfiguration : undefined;
-            resourceInputs["objectLockEnabled"] = args ? args.objectLockEnabled : undefined;
-            resourceInputs["ownershipControls"] = args ? args.ownershipControls : undefined;
-            resourceInputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
-            resourceInputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["versioningConfiguration"] = args ? args.versioningConfiguration : undefined;
-            resourceInputs["websiteConfiguration"] = args ? args.websiteConfiguration : undefined;
+            resourceInputs["accelerateConfiguration"] = args?.accelerateConfiguration;
+            resourceInputs["accessControl"] = args?.accessControl;
+            resourceInputs["analyticsConfigurations"] = args?.analyticsConfigurations;
+            resourceInputs["bucketEncryption"] = args?.bucketEncryption;
+            resourceInputs["bucketName"] = args?.bucketName;
+            resourceInputs["corsConfiguration"] = args?.corsConfiguration;
+            resourceInputs["intelligentTieringConfigurations"] = args?.intelligentTieringConfigurations;
+            resourceInputs["inventoryConfigurations"] = args?.inventoryConfigurations;
+            resourceInputs["lifecycleConfiguration"] = args?.lifecycleConfiguration;
+            resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
+            resourceInputs["metadataConfiguration"] = args?.metadataConfiguration;
+            resourceInputs["metadataTableConfiguration"] = args?.metadataTableConfiguration;
+            resourceInputs["metricsConfigurations"] = args?.metricsConfigurations;
+            resourceInputs["notificationConfiguration"] = args?.notificationConfiguration;
+            resourceInputs["objectLockConfiguration"] = args?.objectLockConfiguration;
+            resourceInputs["objectLockEnabled"] = args?.objectLockEnabled;
+            resourceInputs["ownershipControls"] = args?.ownershipControls;
+            resourceInputs["publicAccessBlockConfiguration"] = args?.publicAccessBlockConfiguration;
+            resourceInputs["replicationConfiguration"] = args?.replicationConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["versioningConfiguration"] = args?.versioningConfiguration;
+            resourceInputs["websiteConfiguration"] = args?.websiteConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["dualStackDomainName"] = undefined /*out*/;

@@ -48,32 +48,32 @@ export class LaunchTemplate extends pulumi.CustomResource {
      *
      * The default version of a launch template cannot be specified in AWS CloudFormation . The default version can be set in the Amazon EC2 console or by using the `modify-launch-template` AWS CLI command.
      */
-    public /*out*/ readonly defaultVersionNumber!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultVersionNumber: pulumi.Output<string>;
     /**
      * The latest version of the launch template, such as `5` .
      */
-    public /*out*/ readonly latestVersionNumber!: pulumi.Output<string>;
+    declare public /*out*/ readonly latestVersionNumber: pulumi.Output<string>;
     /**
      * The information for the launch template.
      */
-    public readonly launchTemplateData!: pulumi.Output<outputs.ec2.LaunchTemplateData>;
+    declare public readonly launchTemplateData: pulumi.Output<outputs.ec2.LaunchTemplateData>;
     /**
      * The ID of the launch template.
      */
-    public /*out*/ readonly launchTemplateId!: pulumi.Output<string>;
+    declare public /*out*/ readonly launchTemplateId: pulumi.Output<string>;
     /**
      * A name for the launch template.
      */
-    public readonly launchTemplateName!: pulumi.Output<string | undefined>;
+    declare public readonly launchTemplateName: pulumi.Output<string | undefined>;
     /**
      * The tags to apply to the launch template on creation. To tag the launch template, the resource type must be ``launch-template``.
      *  To specify the tags for resources that are created during instance launch, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications).
      */
-    public readonly tagSpecifications!: pulumi.Output<outputs.ec2.LaunchTemplateTagSpecification[] | undefined>;
+    declare public readonly tagSpecifications: pulumi.Output<outputs.ec2.LaunchTemplateTagSpecification[] | undefined>;
     /**
      * A description for the first version of the launch template.
      */
-    public readonly versionDescription!: pulumi.Output<string | undefined>;
+    declare public readonly versionDescription: pulumi.Output<string | undefined>;
 
     /**
      * Create a LaunchTemplate resource with the given unique name, arguments, and options.
@@ -86,13 +86,13 @@ export class LaunchTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.launchTemplateData === undefined) && !opts.urn) {
+            if (args?.launchTemplateData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'launchTemplateData'");
             }
-            resourceInputs["launchTemplateData"] = args ? args.launchTemplateData : undefined;
-            resourceInputs["launchTemplateName"] = args ? args.launchTemplateName : undefined;
-            resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
-            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
+            resourceInputs["launchTemplateData"] = args?.launchTemplateData;
+            resourceInputs["launchTemplateName"] = args?.launchTemplateName;
+            resourceInputs["tagSpecifications"] = args?.tagSpecifications;
+            resourceInputs["versionDescription"] = args?.versionDescription;
             resourceInputs["defaultVersionNumber"] = undefined /*out*/;
             resourceInputs["latestVersionNumber"] = undefined /*out*/;
             resourceInputs["launchTemplateId"] = undefined /*out*/;

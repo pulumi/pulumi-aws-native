@@ -40,47 +40,47 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * ARN of the LaunchWizard deployment
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Timestamp of LaunchWizard deployment creation
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Timestamp of LaunchWizard deployment deletion
      */
-    public /*out*/ readonly deletedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly deletedAt: pulumi.Output<string>;
     /**
      * Deployment ID of the LaunchWizard deployment
      */
-    public /*out*/ readonly deploymentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly deploymentId: pulumi.Output<string>;
     /**
      * Workload deployment pattern name
      */
-    public readonly deploymentPatternName!: pulumi.Output<string>;
+    declare public readonly deploymentPatternName: pulumi.Output<string>;
     /**
      * Name of LaunchWizard deployment
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Resource Group Name created for LaunchWizard deployment
      */
-    public /*out*/ readonly resourceGroup!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceGroup: pulumi.Output<string>;
     /**
      * LaunchWizard deployment specifications
      */
-    public readonly specifications!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly specifications: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Status of LaunchWizard deployment
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.launchwizard.DeploymentStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.launchwizard.DeploymentStatus>;
     /**
      * Tags for LaunchWizard deployment
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Workload Name for LaunchWizard deployment
      */
-    public readonly workloadName!: pulumi.Output<string>;
+    declare public readonly workloadName: pulumi.Output<string>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -93,17 +93,17 @@ export class Deployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deploymentPatternName === undefined) && !opts.urn) {
+            if (args?.deploymentPatternName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deploymentPatternName'");
             }
-            if ((!args || args.workloadName === undefined) && !opts.urn) {
+            if (args?.workloadName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workloadName'");
             }
-            resourceInputs["deploymentPatternName"] = args ? args.deploymentPatternName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["specifications"] = args ? args.specifications : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workloadName"] = args ? args.workloadName : undefined;
+            resourceInputs["deploymentPatternName"] = args?.deploymentPatternName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["specifications"] = args?.specifications;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workloadName"] = args?.workloadName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["deletedAt"] = undefined /*out*/;

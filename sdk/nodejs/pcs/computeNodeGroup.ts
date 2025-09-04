@@ -40,67 +40,67 @@ export class ComputeNodeGroup extends pulumi.CustomResource {
     /**
      * The ID of the Amazon Machine Image (AMI) that AWS PCS uses to launch instances. If not provided, AWS PCS uses the AMI ID specified in the custom launch template.
      */
-    public readonly amiId!: pulumi.Output<string | undefined>;
+    declare public readonly amiId: pulumi.Output<string | undefined>;
     /**
      * The unique Amazon Resource Name (ARN) of the compute node group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The generated unique ID of the compute node group.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The ID of the cluster of the compute node group.
      */
-    public readonly clusterId!: pulumi.Output<string>;
+    declare public readonly clusterId: pulumi.Output<string>;
     /**
      * An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
      */
-    public readonly customLaunchTemplate!: pulumi.Output<outputs.pcs.CustomLaunchTemplateProperties>;
+    declare public readonly customLaunchTemplate: pulumi.Output<outputs.pcs.CustomLaunchTemplateProperties>;
     /**
      * The list of errors that occurred during compute node group provisioning.
      */
-    public /*out*/ readonly errorInfo!: pulumi.Output<outputs.pcs.ComputeNodeGroupErrorInfo[]>;
+    declare public /*out*/ readonly errorInfo: pulumi.Output<outputs.pcs.ComputeNodeGroupErrorInfo[]>;
     /**
      * The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have pcs:RegisterComputeNodeGroupInstance permissions attached to provision instances correctly.
      */
-    public readonly iamInstanceProfileArn!: pulumi.Output<string>;
+    declare public readonly iamInstanceProfileArn: pulumi.Output<string>;
     /**
      * A list of EC2 instance configurations that AWS PCS can provision in the compute node group.
      */
-    public readonly instanceConfigs!: pulumi.Output<outputs.pcs.ComputeNodeGroupInstanceConfig[]>;
+    declare public readonly instanceConfigs: pulumi.Output<outputs.pcs.ComputeNodeGroupInstanceConfig[]>;
     /**
      * The name that identifies the compute node group.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand and Spot instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
      */
-    public readonly purchaseOption!: pulumi.Output<enums.pcs.ComputeNodeGroupPurchaseOption | undefined>;
+    declare public readonly purchaseOption: pulumi.Output<enums.pcs.ComputeNodeGroupPurchaseOption | undefined>;
     /**
      * Specifies the boundaries of the compute node group auto scaling.
      */
-    public readonly scalingConfiguration!: pulumi.Output<outputs.pcs.ScalingConfigurationProperties>;
+    declare public readonly scalingConfiguration: pulumi.Output<outputs.pcs.ScalingConfigurationProperties>;
     /**
      * Additional options related to the Slurm scheduler.
      */
-    public readonly slurmConfiguration!: pulumi.Output<outputs.pcs.SlurmConfigurationProperties | undefined>;
+    declare public readonly slurmConfiguration: pulumi.Output<outputs.pcs.SlurmConfigurationProperties | undefined>;
     /**
      * Additional configuration when you specify SPOT as the purchase option.
      */
-    public readonly spotOptions!: pulumi.Output<outputs.pcs.SpotOptionsProperties | undefined>;
+    declare public readonly spotOptions: pulumi.Output<outputs.pcs.SpotOptionsProperties | undefined>;
     /**
      * The provisioning status of the compute node group. The provisioning status doesn't indicate the overall health of the compute node group.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.pcs.ComputeNodeGroupStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.pcs.ComputeNodeGroupStatus>;
     /**
      * The list of subnet IDs where instances are provisioned by the compute node group. The subnets must be in the same VPC as the cluster.
      */
-    public readonly subnetIds!: pulumi.Output<string[]>;
+    declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
      * 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ComputeNodeGroup resource with the given unique name, arguments, and options.
@@ -113,36 +113,36 @@ export class ComputeNodeGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterId === undefined) && !opts.urn) {
+            if (args?.clusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            if ((!args || args.customLaunchTemplate === undefined) && !opts.urn) {
+            if (args?.customLaunchTemplate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customLaunchTemplate'");
             }
-            if ((!args || args.iamInstanceProfileArn === undefined) && !opts.urn) {
+            if (args?.iamInstanceProfileArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iamInstanceProfileArn'");
             }
-            if ((!args || args.instanceConfigs === undefined) && !opts.urn) {
+            if (args?.instanceConfigs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceConfigs'");
             }
-            if ((!args || args.scalingConfiguration === undefined) && !opts.urn) {
+            if (args?.scalingConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scalingConfiguration'");
             }
-            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+            if (args?.subnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            resourceInputs["amiId"] = args ? args.amiId : undefined;
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["customLaunchTemplate"] = args ? args.customLaunchTemplate : undefined;
-            resourceInputs["iamInstanceProfileArn"] = args ? args.iamInstanceProfileArn : undefined;
-            resourceInputs["instanceConfigs"] = args ? args.instanceConfigs : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["purchaseOption"] = args ? args.purchaseOption : undefined;
-            resourceInputs["scalingConfiguration"] = args ? args.scalingConfiguration : undefined;
-            resourceInputs["slurmConfiguration"] = args ? args.slurmConfiguration : undefined;
-            resourceInputs["spotOptions"] = args ? args.spotOptions : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["amiId"] = args?.amiId;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["customLaunchTemplate"] = args?.customLaunchTemplate;
+            resourceInputs["iamInstanceProfileArn"] = args?.iamInstanceProfileArn;
+            resourceInputs["instanceConfigs"] = args?.instanceConfigs;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["purchaseOption"] = args?.purchaseOption;
+            resourceInputs["scalingConfiguration"] = args?.scalingConfiguration;
+            resourceInputs["slurmConfiguration"] = args?.slurmConfiguration;
+            resourceInputs["spotOptions"] = args?.spotOptions;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["errorInfo"] = undefined /*out*/;

@@ -37,15 +37,15 @@ export class Master extends pulumi.CustomResource {
     /**
      * Unique ID of the detector of the GuardDuty member account.
      */
-    public readonly detectorId!: pulumi.Output<string>;
+    declare public readonly detectorId: pulumi.Output<string>;
     /**
      * Value used to validate the master account to the member account.
      */
-    public readonly invitationId!: pulumi.Output<string | undefined>;
+    declare public readonly invitationId: pulumi.Output<string | undefined>;
     /**
      * ID of the account used as the master account.
      */
-    public readonly masterId!: pulumi.Output<string>;
+    declare public readonly masterId: pulumi.Output<string>;
 
     /**
      * Create a Master resource with the given unique name, arguments, and options.
@@ -58,15 +58,15 @@ export class Master extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.detectorId === undefined) && !opts.urn) {
+            if (args?.detectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            if ((!args || args.masterId === undefined) && !opts.urn) {
+            if (args?.masterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'masterId'");
             }
-            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
-            resourceInputs["invitationId"] = args ? args.invitationId : undefined;
-            resourceInputs["masterId"] = args ? args.masterId : undefined;
+            resourceInputs["detectorId"] = args?.detectorId;
+            resourceInputs["invitationId"] = args?.invitationId;
+            resourceInputs["masterId"] = args?.masterId;
         } else {
             resourceInputs["detectorId"] = undefined /*out*/;
             resourceInputs["invitationId"] = undefined /*out*/;

@@ -40,41 +40,41 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the monitor.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the monitor that displays on the Deadline Cloud console.
      *
      * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
      */
-    public /*out*/ readonly identityCenterApplicationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly identityCenterApplicationArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
      */
-    public readonly identityCenterInstanceArn!: pulumi.Output<string>;
+    declare public readonly identityCenterInstanceArn: pulumi.Output<string>;
     /**
      * The unique identifier for the monitor.
      */
-    public /*out*/ readonly monitorId!: pulumi.Output<string>;
+    declare public /*out*/ readonly monitorId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
      */
-    public readonly subdomain!: pulumi.Output<string>;
+    declare public readonly subdomain: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The complete URL of the monitor. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a Monitor resource with the given unique name, arguments, and options.
@@ -87,23 +87,23 @@ export class Monitor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.identityCenterInstanceArn === undefined) && !opts.urn) {
+            if (args?.identityCenterInstanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityCenterInstanceArn'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.subdomain === undefined) && !opts.urn) {
+            if (args?.subdomain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subdomain'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["identityCenterInstanceArn"] = args ? args.identityCenterInstanceArn : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["subdomain"] = args ? args.subdomain : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["identityCenterInstanceArn"] = args?.identityCenterInstanceArn;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["subdomain"] = args?.subdomain;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["identityCenterApplicationArn"] = undefined /*out*/;
             resourceInputs["monitorId"] = undefined /*out*/;

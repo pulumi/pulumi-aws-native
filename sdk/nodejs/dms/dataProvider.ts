@@ -40,39 +40,39 @@ export class DataProvider extends pulumi.CustomResource {
     /**
      * The data provider ARN.
      */
-    public /*out*/ readonly dataProviderArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataProviderArn: pulumi.Output<string>;
     /**
      * The data provider creation time.
      */
-    public /*out*/ readonly dataProviderCreationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataProviderCreationTime: pulumi.Output<string>;
     /**
      * The property describes an identifier for the data provider. It is used for describing/deleting/modifying can be name/arn
      */
-    public readonly dataProviderIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly dataProviderIdentifier: pulumi.Output<string | undefined>;
     /**
      * The property describes a name to identify the data provider.
      */
-    public readonly dataProviderName!: pulumi.Output<string | undefined>;
+    declare public readonly dataProviderName: pulumi.Output<string | undefined>;
     /**
      * The optional description of the data provider.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The property describes a data engine for the data provider.
      */
-    public readonly engine!: pulumi.Output<enums.dms.DataProviderEngine>;
+    declare public readonly engine: pulumi.Output<enums.dms.DataProviderEngine>;
     /**
      * The property describes the exact settings which can be modified
      */
-    public readonly exactSettings!: pulumi.Output<boolean | undefined>;
+    declare public readonly exactSettings: pulumi.Output<boolean | undefined>;
     /**
      * The property identifies the exact type of settings for the data provider.
      */
-    public readonly settings!: pulumi.Output<outputs.dms.SettingsProperties | undefined>;
+    declare public readonly settings: pulumi.Output<outputs.dms.SettingsProperties | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DataProvider resource with the given unique name, arguments, and options.
@@ -85,16 +85,16 @@ export class DataProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.engine === undefined) && !opts.urn) {
+            if (args?.engine === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engine'");
             }
-            resourceInputs["dataProviderIdentifier"] = args ? args.dataProviderIdentifier : undefined;
-            resourceInputs["dataProviderName"] = args ? args.dataProviderName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["exactSettings"] = args ? args.exactSettings : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataProviderIdentifier"] = args?.dataProviderIdentifier;
+            resourceInputs["dataProviderName"] = args?.dataProviderName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["exactSettings"] = args?.exactSettings;
+            resourceInputs["settings"] = args?.settings;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["dataProviderArn"] = undefined /*out*/;
             resourceInputs["dataProviderCreationTime"] = undefined /*out*/;
         } else {

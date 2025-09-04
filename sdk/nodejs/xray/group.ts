@@ -74,26 +74,26 @@ export class Group extends pulumi.CustomResource {
     /**
      * The filter expression defining criteria by which to group traces.
      */
-    public readonly filterExpression!: pulumi.Output<string | undefined>;
+    declare public readonly filterExpression: pulumi.Output<string | undefined>;
     /**
      * The ARN of the group that was generated on creation.
      */
-    public /*out*/ readonly groupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly groupArn: pulumi.Output<string>;
     /**
      * The case-sensitive name of the new group. Names must be unique.
      */
-    public readonly groupName!: pulumi.Output<string>;
+    declare public readonly groupName: pulumi.Output<string>;
     /**
      * The structure containing configurations related to insights.
      *
      * - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
      * - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
      */
-    public readonly insightsConfiguration!: pulumi.Output<outputs.xray.GroupInsightsConfiguration | undefined>;
+    declare public readonly insightsConfiguration: pulumi.Output<outputs.xray.GroupInsightsConfiguration | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -106,10 +106,10 @@ export class Group extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["filterExpression"] = args ? args.filterExpression : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["insightsConfiguration"] = args ? args.insightsConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["filterExpression"] = args?.filterExpression;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["insightsConfiguration"] = args?.insightsConfiguration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["groupArn"] = undefined /*out*/;
         } else {
             resourceInputs["filterExpression"] = undefined /*out*/;

@@ -40,27 +40,27 @@ export class Channel extends pulumi.CustomResource {
     /**
      * <p>The ARN of the channel.</p>
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * <p>The list of audiences defined in channel.</p>
      */
-    public readonly audiences!: pulumi.Output<string[] | undefined>;
+    declare public readonly audiences: pulumi.Output<string[] | undefined>;
     /**
      * The name of the channel.
      */
-    public readonly channelName!: pulumi.Output<string>;
+    declare public readonly channelName: pulumi.Output<string>;
     /**
      * The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
      */
-    public readonly fillerSlate!: pulumi.Output<outputs.mediatailor.ChannelSlateSource | undefined>;
+    declare public readonly fillerSlate: pulumi.Output<outputs.mediatailor.ChannelSlateSource | undefined>;
     /**
      * The log configuration.
      */
-    public readonly logConfiguration!: pulumi.Output<outputs.mediatailor.ChannelLogConfigurationForChannel | undefined>;
+    declare public readonly logConfiguration: pulumi.Output<outputs.mediatailor.ChannelLogConfigurationForChannel | undefined>;
     /**
      * <p>The channel's output properties.</p>
      */
-    public readonly outputs!: pulumi.Output<outputs.mediatailor.ChannelRequestOutputItem[]>;
+    declare public readonly outputs: pulumi.Output<outputs.mediatailor.ChannelRequestOutputItem[]>;
     /**
      * The type of playback mode for this channel.
      *
@@ -68,19 +68,19 @@ export class Channel extends pulumi.CustomResource {
      *
      * `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
      */
-    public readonly playbackMode!: pulumi.Output<enums.mediatailor.ChannelPlaybackMode>;
+    declare public readonly playbackMode: pulumi.Output<enums.mediatailor.ChannelPlaybackMode>;
     /**
      * The tags to assign to the channel.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The tier for this channel. STANDARD tier channels can contain live programs.
      */
-    public readonly tier!: pulumi.Output<enums.mediatailor.ChannelTier | undefined>;
+    declare public readonly tier: pulumi.Output<enums.mediatailor.ChannelTier | undefined>;
     /**
      * The configuration for time-shifted viewing.
      */
-    public readonly timeShiftConfiguration!: pulumi.Output<outputs.mediatailor.ChannelTimeShiftConfiguration | undefined>;
+    declare public readonly timeShiftConfiguration: pulumi.Output<outputs.mediatailor.ChannelTimeShiftConfiguration | undefined>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -93,21 +93,21 @@ export class Channel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.outputs === undefined) && !opts.urn) {
+            if (args?.outputs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outputs'");
             }
-            if ((!args || args.playbackMode === undefined) && !opts.urn) {
+            if (args?.playbackMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'playbackMode'");
             }
-            resourceInputs["audiences"] = args ? args.audiences : undefined;
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["fillerSlate"] = args ? args.fillerSlate : undefined;
-            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
-            resourceInputs["outputs"] = args ? args.outputs : undefined;
-            resourceInputs["playbackMode"] = args ? args.playbackMode : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
-            resourceInputs["timeShiftConfiguration"] = args ? args.timeShiftConfiguration : undefined;
+            resourceInputs["audiences"] = args?.audiences;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["fillerSlate"] = args?.fillerSlate;
+            resourceInputs["logConfiguration"] = args?.logConfiguration;
+            resourceInputs["outputs"] = args?.outputs;
+            resourceInputs["playbackMode"] = args?.playbackMode;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tier"] = args?.tier;
+            resourceInputs["timeShiftConfiguration"] = args?.timeShiftConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

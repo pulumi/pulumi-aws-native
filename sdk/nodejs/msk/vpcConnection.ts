@@ -40,31 +40,31 @@ export class VpcConnection extends pulumi.CustomResource {
     /**
      * The ARN of the VPC connection.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The type of private link authentication.
      */
-    public readonly authentication!: pulumi.Output<enums.msk.VpcConnectionAuthentication>;
+    declare public readonly authentication: pulumi.Output<enums.msk.VpcConnectionAuthentication>;
     /**
      * The list of subnets in the client VPC to connect to.
      */
-    public readonly clientSubnets!: pulumi.Output<string[]>;
+    declare public readonly clientSubnets: pulumi.Output<string[]>;
     /**
      * The security groups to attach to the ENIs for the broker nodes.
      */
-    public readonly securityGroups!: pulumi.Output<string[]>;
+    declare public readonly securityGroups: pulumi.Output<string[]>;
     /**
      * An arbitrary set of tags (key-value pairs) you specify while creating the VPC connection.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the target cluster
      */
-    public readonly targetClusterArn!: pulumi.Output<string>;
+    declare public readonly targetClusterArn: pulumi.Output<string>;
     /**
      * The VPC ID of the remote client.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a VpcConnection resource with the given unique name, arguments, and options.
@@ -77,27 +77,27 @@ export class VpcConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authentication === undefined) && !opts.urn) {
+            if (args?.authentication === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authentication'");
             }
-            if ((!args || args.clientSubnets === undefined) && !opts.urn) {
+            if (args?.clientSubnets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientSubnets'");
             }
-            if ((!args || args.securityGroups === undefined) && !opts.urn) {
+            if (args?.securityGroups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityGroups'");
             }
-            if ((!args || args.targetClusterArn === undefined) && !opts.urn) {
+            if (args?.targetClusterArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetClusterArn'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["authentication"] = args ? args.authentication : undefined;
-            resourceInputs["clientSubnets"] = args ? args.clientSubnets : undefined;
-            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetClusterArn"] = args ? args.targetClusterArn : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["authentication"] = args?.authentication;
+            resourceInputs["clientSubnets"] = args?.clientSubnets;
+            resourceInputs["securityGroups"] = args?.securityGroups;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetClusterArn"] = args?.targetClusterArn;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

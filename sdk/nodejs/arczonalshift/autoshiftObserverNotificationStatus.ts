@@ -37,9 +37,9 @@ export class AutoshiftObserverNotificationStatus extends pulumi.CustomResource {
         return obj['__pulumiType'] === AutoshiftObserverNotificationStatus.__pulumiType;
     }
 
-    public /*out*/ readonly accountId!: pulumi.Output<string>;
-    public /*out*/ readonly region!: pulumi.Output<string>;
-    public readonly status!: pulumi.Output<enums.arczonalshift.AutoshiftObserverNotificationStatusEnum>;
+    declare public /*out*/ readonly accountId: pulumi.Output<string>;
+    declare public /*out*/ readonly region: pulumi.Output<string>;
+    declare public readonly status: pulumi.Output<enums.arczonalshift.AutoshiftObserverNotificationStatusEnum>;
 
     /**
      * Create a AutoshiftObserverNotificationStatus resource with the given unique name, arguments, and options.
@@ -52,10 +52,10 @@ export class AutoshiftObserverNotificationStatus extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["status"] = args?.status;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["region"] = undefined /*out*/;
         } else {

@@ -37,16 +37,16 @@ export class Studio extends pulumi.CustomResource {
         return obj['__pulumiType'] === Studio.__pulumiType;
     }
 
-    public readonly adminRoleArn!: pulumi.Output<string>;
-    public readonly displayName!: pulumi.Output<string>;
-    public /*out*/ readonly homeRegion!: pulumi.Output<string>;
-    public /*out*/ readonly ssoClientId!: pulumi.Output<string>;
-    public readonly studioEncryptionConfiguration!: pulumi.Output<outputs.nimblestudio.StudioEncryptionConfiguration | undefined>;
-    public /*out*/ readonly studioId!: pulumi.Output<string>;
-    public readonly studioName!: pulumi.Output<string>;
-    public /*out*/ readonly studioUrl!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly userRoleArn!: pulumi.Output<string>;
+    declare public readonly adminRoleArn: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
+    declare public /*out*/ readonly homeRegion: pulumi.Output<string>;
+    declare public /*out*/ readonly ssoClientId: pulumi.Output<string>;
+    declare public readonly studioEncryptionConfiguration: pulumi.Output<outputs.nimblestudio.StudioEncryptionConfiguration | undefined>;
+    declare public /*out*/ readonly studioId: pulumi.Output<string>;
+    declare public readonly studioName: pulumi.Output<string>;
+    declare public /*out*/ readonly studioUrl: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly userRoleArn: pulumi.Output<string>;
 
     /**
      * Create a Studio resource with the given unique name, arguments, and options.
@@ -59,21 +59,21 @@ export class Studio extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.adminRoleArn === undefined) && !opts.urn) {
+            if (args?.adminRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminRoleArn'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.userRoleArn === undefined) && !opts.urn) {
+            if (args?.userRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userRoleArn'");
             }
-            resourceInputs["adminRoleArn"] = args ? args.adminRoleArn : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["studioEncryptionConfiguration"] = args ? args.studioEncryptionConfiguration : undefined;
-            resourceInputs["studioName"] = args ? args.studioName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userRoleArn"] = args ? args.userRoleArn : undefined;
+            resourceInputs["adminRoleArn"] = args?.adminRoleArn;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["studioEncryptionConfiguration"] = args?.studioEncryptionConfiguration;
+            resourceInputs["studioName"] = args?.studioName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userRoleArn"] = args?.userRoleArn;
             resourceInputs["homeRegion"] = undefined /*out*/;
             resourceInputs["ssoClientId"] = undefined /*out*/;
             resourceInputs["studioId"] = undefined /*out*/;

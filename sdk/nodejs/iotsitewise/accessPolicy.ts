@@ -40,23 +40,23 @@ export class AccessPolicy extends pulumi.CustomResource {
     /**
      * The ARN of the access policy.
      */
-    public /*out*/ readonly accessPolicyArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly accessPolicyArn: pulumi.Output<string>;
     /**
      * The ID of the access policy.
      */
-    public /*out*/ readonly accessPolicyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accessPolicyId: pulumi.Output<string>;
     /**
      * The identity for this access policy. Choose either a user or a group but not both.
      */
-    public readonly accessPolicyIdentity!: pulumi.Output<outputs.iotsitewise.AccessPolicyIdentity>;
+    declare public readonly accessPolicyIdentity: pulumi.Output<outputs.iotsitewise.AccessPolicyIdentity>;
     /**
      * The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.
      */
-    public readonly accessPolicyPermission!: pulumi.Output<string>;
+    declare public readonly accessPolicyPermission: pulumi.Output<string>;
     /**
      * The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
      */
-    public readonly accessPolicyResource!: pulumi.Output<outputs.iotsitewise.AccessPolicyResource>;
+    declare public readonly accessPolicyResource: pulumi.Output<outputs.iotsitewise.AccessPolicyResource>;
 
     /**
      * Create a AccessPolicy resource with the given unique name, arguments, and options.
@@ -69,18 +69,18 @@ export class AccessPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessPolicyIdentity === undefined) && !opts.urn) {
+            if (args?.accessPolicyIdentity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessPolicyIdentity'");
             }
-            if ((!args || args.accessPolicyPermission === undefined) && !opts.urn) {
+            if (args?.accessPolicyPermission === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessPolicyPermission'");
             }
-            if ((!args || args.accessPolicyResource === undefined) && !opts.urn) {
+            if (args?.accessPolicyResource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessPolicyResource'");
             }
-            resourceInputs["accessPolicyIdentity"] = args ? args.accessPolicyIdentity : undefined;
-            resourceInputs["accessPolicyPermission"] = args ? args.accessPolicyPermission : undefined;
-            resourceInputs["accessPolicyResource"] = args ? args.accessPolicyResource : undefined;
+            resourceInputs["accessPolicyIdentity"] = args?.accessPolicyIdentity;
+            resourceInputs["accessPolicyPermission"] = args?.accessPolicyPermission;
+            resourceInputs["accessPolicyResource"] = args?.accessPolicyResource;
             resourceInputs["accessPolicyArn"] = undefined /*out*/;
             resourceInputs["accessPolicyId"] = undefined /*out*/;
         } else {

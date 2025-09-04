@@ -37,51 +37,51 @@ export class EndpointAuthorization extends pulumi.CustomResource {
     /**
      * The target AWS account ID to grant or revoke access for.
      */
-    public readonly account!: pulumi.Output<string>;
+    declare public readonly account: pulumi.Output<string>;
     /**
      * Indicates whether all VPCs in the grantee account are allowed access to the cluster.
      */
-    public /*out*/ readonly allowedAllVpcs!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly allowedAllVpcs: pulumi.Output<boolean>;
     /**
      * The VPCs allowed access to the cluster.
      */
-    public /*out*/ readonly allowedVpcs!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly allowedVpcs: pulumi.Output<string[]>;
     /**
      * The time (UTC) when the authorization was created.
      */
-    public /*out*/ readonly authorizeTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly authorizeTime: pulumi.Output<string>;
     /**
      * The cluster identifier.
      */
-    public readonly clusterIdentifier!: pulumi.Output<string>;
+    declare public readonly clusterIdentifier: pulumi.Output<string>;
     /**
      * The status of the cluster.
      */
-    public /*out*/ readonly clusterStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterStatus: pulumi.Output<string>;
     /**
      * The number of Redshift-managed VPC endpoints created for the authorization.
      */
-    public /*out*/ readonly endpointCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly endpointCount: pulumi.Output<number>;
     /**
      *  Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted.
      */
-    public readonly force!: pulumi.Output<boolean | undefined>;
+    declare public readonly force: pulumi.Output<boolean | undefined>;
     /**
      * The AWS account ID of the grantee of the cluster.
      */
-    public /*out*/ readonly grantee!: pulumi.Output<string>;
+    declare public /*out*/ readonly grantee: pulumi.Output<string>;
     /**
      * The AWS account ID of the cluster owner.
      */
-    public /*out*/ readonly grantor!: pulumi.Output<string>;
+    declare public /*out*/ readonly grantor: pulumi.Output<string>;
     /**
      * The status of the authorization action.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The virtual private cloud (VPC) identifiers to grant or revoke access to.
      */
-    public readonly vpcIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly vpcIds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a EndpointAuthorization resource with the given unique name, arguments, and options.
@@ -94,16 +94,16 @@ export class EndpointAuthorization extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.account === undefined) && !opts.urn) {
+            if (args?.account === undefined && !opts.urn) {
                 throw new Error("Missing required property 'account'");
             }
-            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
+            if (args?.clusterIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterIdentifier'");
             }
-            resourceInputs["account"] = args ? args.account : undefined;
-            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            resourceInputs["force"] = args ? args.force : undefined;
-            resourceInputs["vpcIds"] = args ? args.vpcIds : undefined;
+            resourceInputs["account"] = args?.account;
+            resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
+            resourceInputs["force"] = args?.force;
+            resourceInputs["vpcIds"] = args?.vpcIds;
             resourceInputs["allowedAllVpcs"] = undefined /*out*/;
             resourceInputs["allowedVpcs"] = undefined /*out*/;
             resourceInputs["authorizeTime"] = undefined /*out*/;

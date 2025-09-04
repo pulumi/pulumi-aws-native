@@ -40,25 +40,25 @@ export class UserPoolDomain extends pulumi.CustomResource {
     /**
      * The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
      */
-    public /*out*/ readonly cloudFrontDistribution!: pulumi.Output<string>;
+    declare public /*out*/ readonly cloudFrontDistribution: pulumi.Output<string>;
     /**
      * The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
      *
      * When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
      */
-    public readonly customDomainConfig!: pulumi.Output<outputs.cognito.UserPoolDomainCustomDomainConfigType | undefined>;
+    declare public readonly customDomainConfig: pulumi.Output<outputs.cognito.UserPoolDomainCustomDomainConfigType | undefined>;
     /**
      * The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example `auth.example.com` . For prefix domains, this is the prefix alone, such as `myprefix` .
      */
-    public readonly domain!: pulumi.Output<string>;
+    declare public readonly domain: pulumi.Output<string>;
     /**
      * A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding editor. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
      */
-    public readonly managedLoginVersion!: pulumi.Output<number | undefined>;
+    declare public readonly managedLoginVersion: pulumi.Output<number | undefined>;
     /**
      * The ID of the user pool that is associated with the domain you're updating.
      */
-    public readonly userPoolId!: pulumi.Output<string>;
+    declare public readonly userPoolId: pulumi.Output<string>;
 
     /**
      * Create a UserPoolDomain resource with the given unique name, arguments, and options.
@@ -71,16 +71,16 @@ export class UserPoolDomain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domain === undefined) && !opts.urn) {
+            if (args?.domain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["customDomainConfig"] = args ? args.customDomainConfig : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["managedLoginVersion"] = args ? args.managedLoginVersion : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["customDomainConfig"] = args?.customDomainConfig;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["managedLoginVersion"] = args?.managedLoginVersion;
+            resourceInputs["userPoolId"] = args?.userPoolId;
             resourceInputs["cloudFrontDistribution"] = undefined /*out*/;
         } else {
             resourceInputs["cloudFrontDistribution"] = undefined /*out*/;

@@ -40,105 +40,105 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The access configuration for the cluster.
      */
-    public readonly accessConfig!: pulumi.Output<outputs.eks.ClusterAccessConfig | undefined>;
+    declare public readonly accessConfig: pulumi.Output<outputs.eks.ClusterAccessConfig | undefined>;
     /**
      * The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The unique ID given to your cluster.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Set this value to false to avoid creating the default networking add-ons when the cluster is created.
      */
-    public readonly bootstrapSelfManagedAddons!: pulumi.Output<boolean | undefined>;
+    declare public readonly bootstrapSelfManagedAddons: pulumi.Output<boolean | undefined>;
     /**
      * The certificate-authority-data for your cluster.
      */
-    public /*out*/ readonly certificateAuthorityData!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificateAuthorityData: pulumi.Output<string>;
     /**
      * The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
      */
-    public /*out*/ readonly clusterSecurityGroupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterSecurityGroupId: pulumi.Output<string>;
     /**
      * Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
      */
-    public readonly computeConfig!: pulumi.Output<outputs.eks.ClusterComputeConfig | undefined>;
+    declare public readonly computeConfig: pulumi.Output<outputs.eks.ClusterComputeConfig | undefined>;
     /**
      * Set this value to true to enable deletion protection for the cluster.
      */
-    public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly deletionProtection: pulumi.Output<boolean | undefined>;
     /**
      * The encryption configuration for the cluster.
      */
-    public readonly encryptionConfig!: pulumi.Output<outputs.eks.ClusterEncryptionConfig[] | undefined>;
+    declare public readonly encryptionConfig: pulumi.Output<outputs.eks.ClusterEncryptionConfig[] | undefined>;
     /**
      * Amazon Resource Name (ARN) or alias of the customer master key (CMK).
      */
-    public /*out*/ readonly encryptionConfigKeyArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly encryptionConfigKeyArn: pulumi.Output<string>;
     /**
      * The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * Force cluster version update
      */
-    public readonly force!: pulumi.Output<boolean | undefined>;
+    declare public readonly force: pulumi.Output<boolean | undefined>;
     /**
      * The Kubernetes network configuration for the cluster.
      */
-    public readonly kubernetesNetworkConfig!: pulumi.Output<outputs.eks.ClusterKubernetesNetworkConfig | undefined>;
+    declare public readonly kubernetesNetworkConfig: pulumi.Output<outputs.eks.ClusterKubernetesNetworkConfig | undefined>;
     /**
      * The logging configuration for your cluster.
      */
-    public readonly logging!: pulumi.Output<outputs.eks.Logging | undefined>;
+    declare public readonly logging: pulumi.Output<outputs.eks.Logging | undefined>;
     /**
      * The unique name to give to your cluster.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
      */
-    public /*out*/ readonly openIdConnectIssuerUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly openIdConnectIssuerUrl: pulumi.Output<string>;
     /**
      * An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
      */
-    public readonly outpostConfig!: pulumi.Output<outputs.eks.ClusterOutpostConfig | undefined>;
+    declare public readonly outpostConfig: pulumi.Output<outputs.eks.ClusterOutpostConfig | undefined>;
     /**
      * The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this configuration after the cluster is created.
      */
-    public readonly remoteNetworkConfig!: pulumi.Output<outputs.eks.ClusterRemoteNetworkConfig | undefined>;
+    declare public readonly remoteNetworkConfig: pulumi.Output<outputs.eks.ClusterRemoteNetworkConfig | undefined>;
     /**
      * The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
      */
-    public readonly resourcesVpcConfig!: pulumi.Output<outputs.eks.ClusterResourcesVpcConfig>;
+    declare public readonly resourcesVpcConfig: pulumi.Output<outputs.eks.ClusterResourcesVpcConfig>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the *Amazon EKS User Guide* .
      */
-    public readonly storageConfig!: pulumi.Output<outputs.eks.ClusterStorageConfig | undefined>;
+    declare public readonly storageConfig: pulumi.Output<outputs.eks.ClusterStorageConfig | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * This value indicates if extended support is enabled or disabled for the cluster.
      *
      * [Learn more about EKS Extended Support in the *Amazon EKS User Guide* .](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
      */
-    public readonly upgradePolicy!: pulumi.Output<outputs.eks.ClusterUpgradePolicy | undefined>;
+    declare public readonly upgradePolicy: pulumi.Output<outputs.eks.ClusterUpgradePolicy | undefined>;
     /**
      * The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
     /**
      * The configuration for zonal shift for the cluster.
      */
-    public readonly zonalShiftConfig!: pulumi.Output<outputs.eks.ClusterZonalShiftConfig | undefined>;
+    declare public readonly zonalShiftConfig: pulumi.Output<outputs.eks.ClusterZonalShiftConfig | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -151,30 +151,30 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourcesVpcConfig === undefined) && !opts.urn) {
+            if (args?.resourcesVpcConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourcesVpcConfig'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["accessConfig"] = args ? args.accessConfig : undefined;
-            resourceInputs["bootstrapSelfManagedAddons"] = args ? args.bootstrapSelfManagedAddons : undefined;
-            resourceInputs["computeConfig"] = args ? args.computeConfig : undefined;
-            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
-            resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
-            resourceInputs["force"] = args ? args.force : undefined;
-            resourceInputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
-            resourceInputs["logging"] = args ? args.logging : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outpostConfig"] = args ? args.outpostConfig : undefined;
-            resourceInputs["remoteNetworkConfig"] = args ? args.remoteNetworkConfig : undefined;
-            resourceInputs["resourcesVpcConfig"] = args ? args.resourcesVpcConfig : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["storageConfig"] = args ? args.storageConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["zonalShiftConfig"] = args ? args.zonalShiftConfig : undefined;
+            resourceInputs["accessConfig"] = args?.accessConfig;
+            resourceInputs["bootstrapSelfManagedAddons"] = args?.bootstrapSelfManagedAddons;
+            resourceInputs["computeConfig"] = args?.computeConfig;
+            resourceInputs["deletionProtection"] = args?.deletionProtection;
+            resourceInputs["encryptionConfig"] = args?.encryptionConfig;
+            resourceInputs["force"] = args?.force;
+            resourceInputs["kubernetesNetworkConfig"] = args?.kubernetesNetworkConfig;
+            resourceInputs["logging"] = args?.logging;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outpostConfig"] = args?.outpostConfig;
+            resourceInputs["remoteNetworkConfig"] = args?.remoteNetworkConfig;
+            resourceInputs["resourcesVpcConfig"] = args?.resourcesVpcConfig;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["storageConfig"] = args?.storageConfig;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["upgradePolicy"] = args?.upgradePolicy;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["zonalShiftConfig"] = args?.zonalShiftConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["certificateAuthorityData"] = undefined /*out*/;

@@ -40,19 +40,19 @@ export class BotVersion extends pulumi.CustomResource {
     /**
      * The unique identifier of the bot.
      */
-    public readonly botId!: pulumi.Output<string>;
+    declare public readonly botId: pulumi.Output<string>;
     /**
      * The version of the bot.
      */
-    public /*out*/ readonly botVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly botVersion: pulumi.Output<string>;
     /**
      * Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
      */
-    public readonly botVersionLocaleSpecification!: pulumi.Output<outputs.lex.BotVersionLocaleSpecification[]>;
+    declare public readonly botVersionLocaleSpecification: pulumi.Output<outputs.lex.BotVersionLocaleSpecification[]>;
     /**
      * The description of the version.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
 
     /**
      * Create a BotVersion resource with the given unique name, arguments, and options.
@@ -65,15 +65,15 @@ export class BotVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.botId === undefined) && !opts.urn) {
+            if (args?.botId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botId'");
             }
-            if ((!args || args.botVersionLocaleSpecification === undefined) && !opts.urn) {
+            if (args?.botVersionLocaleSpecification === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botVersionLocaleSpecification'");
             }
-            resourceInputs["botId"] = args ? args.botId : undefined;
-            resourceInputs["botVersionLocaleSpecification"] = args ? args.botVersionLocaleSpecification : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["botId"] = args?.botId;
+            resourceInputs["botVersionLocaleSpecification"] = args?.botVersionLocaleSpecification;
+            resourceInputs["description"] = args?.description;
             resourceInputs["botVersion"] = undefined /*out*/;
         } else {
             resourceInputs["botId"] = undefined /*out*/;

@@ -44,7 +44,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * A flag that determines whether to automatically publish the function to the ``LIVE`` stage when it’s created. To automatically publish to the ``LIVE`` stage, set this property to ``true``.
      */
-    public readonly autoPublish!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoPublish: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of the function. For example:
      *
@@ -54,24 +54,24 @@ export class Function extends pulumi.CustomResource {
      *
      * `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
      */
-    public /*out*/ readonly functionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly functionArn: pulumi.Output<string>;
     /**
      * The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide*.
      */
-    public readonly functionCode!: pulumi.Output<string>;
+    declare public readonly functionCode: pulumi.Output<string>;
     /**
      * Contains configuration information about a CloudFront function.
      */
-    public readonly functionConfig!: pulumi.Output<outputs.cloudfront.FunctionConfig>;
+    declare public readonly functionConfig: pulumi.Output<outputs.cloudfront.FunctionConfig>;
     /**
      * Contains metadata about a CloudFront function.
      */
-    public readonly functionMetadata!: pulumi.Output<outputs.cloudfront.FunctionMetadata | undefined>;
+    declare public readonly functionMetadata: pulumi.Output<outputs.cloudfront.FunctionMetadata | undefined>;
     /**
      * A name to identify the function.
      */
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly stage!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly stage: pulumi.Output<string>;
 
     /**
      * Create a Function resource with the given unique name, arguments, and options.
@@ -84,17 +84,17 @@ export class Function extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.functionCode === undefined) && !opts.urn) {
+            if (args?.functionCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionCode'");
             }
-            if ((!args || args.functionConfig === undefined) && !opts.urn) {
+            if (args?.functionConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionConfig'");
             }
-            resourceInputs["autoPublish"] = args ? args.autoPublish : undefined;
-            resourceInputs["functionCode"] = args ? args.functionCode : undefined;
-            resourceInputs["functionConfig"] = args ? args.functionConfig : undefined;
-            resourceInputs["functionMetadata"] = args ? args.functionMetadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["autoPublish"] = args?.autoPublish;
+            resourceInputs["functionCode"] = args?.functionCode;
+            resourceInputs["functionConfig"] = args?.functionConfig;
+            resourceInputs["functionMetadata"] = args?.functionMetadata;
+            resourceInputs["name"] = args?.name;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["stage"] = undefined /*out*/;
         } else {

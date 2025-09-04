@@ -37,16 +37,16 @@ export class AutomatedReasoningPolicyVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === AutomatedReasoningPolicyVersion.__pulumiType;
     }
 
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    public /*out*/ readonly definitionHash!: pulumi.Output<string>;
-    public /*out*/ readonly description!: pulumi.Output<string>;
-    public readonly lastUpdatedDefinitionHash!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly policyArn!: pulumi.Output<string>;
-    public /*out*/ readonly policyId!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    declare public /*out*/ readonly definitionHash: pulumi.Output<string>;
+    declare public /*out*/ readonly description: pulumi.Output<string>;
+    declare public readonly lastUpdatedDefinitionHash: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
+    declare public readonly policyArn: pulumi.Output<string>;
+    declare public /*out*/ readonly policyId: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a AutomatedReasoningPolicyVersion resource with the given unique name, arguments, and options.
@@ -59,12 +59,12 @@ export class AutomatedReasoningPolicyVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyArn === undefined) && !opts.urn) {
+            if (args?.policyArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyArn'");
             }
-            resourceInputs["lastUpdatedDefinitionHash"] = args ? args.lastUpdatedDefinitionHash : undefined;
-            resourceInputs["policyArn"] = args ? args.policyArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["lastUpdatedDefinitionHash"] = args?.lastUpdatedDefinitionHash;
+            resourceInputs["policyArn"] = args?.policyArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["definitionHash"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

@@ -40,73 +40,73 @@ export class SignalMap extends pulumi.CustomResource {
     /**
      * A signal map's ARN (Amazon Resource Name)
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A signal map's id.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A cloudwatch alarm template group's identifier. Can be either be its id or current name.
      */
-    public readonly cloudWatchAlarmTemplateGroupIdentifiers!: pulumi.Output<string[] | undefined>;
+    declare public readonly cloudWatchAlarmTemplateGroupIdentifiers: pulumi.Output<string[] | undefined>;
     /**
      * An alarm template group's id.
      */
-    public /*out*/ readonly cloudWatchAlarmTemplateGroupIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly cloudWatchAlarmTemplateGroupIds: pulumi.Output<string[]>;
     /**
      * The date and time of resource creation.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * A resource's optional description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A top-level supported AWS resource ARN to discovery a signal map from.
      */
-    public readonly discoveryEntryPointArn!: pulumi.Output<string>;
+    declare public readonly discoveryEntryPointArn: pulumi.Output<string>;
     /**
      * Error message associated with a failed creation or failed update attempt of a signal map.
      */
-    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly errorMessage: pulumi.Output<string>;
     /**
      * An eventbridge rule template group's identifier. Can be either be its id or current name.
      */
-    public readonly eventBridgeRuleTemplateGroupIdentifiers!: pulumi.Output<string[] | undefined>;
+    declare public readonly eventBridgeRuleTemplateGroupIdentifiers: pulumi.Output<string[] | undefined>;
     /**
      * An eventbridge rule template group's id.
      */
-    public /*out*/ readonly eventBridgeRuleTemplateGroupIds!: pulumi.Output<string[]>;
-    public /*out*/ readonly failedMediaResourceMap!: pulumi.Output<{[key: string]: outputs.medialive.SignalMapMediaResource}>;
+    declare public /*out*/ readonly eventBridgeRuleTemplateGroupIds: pulumi.Output<string[]>;
+    declare public /*out*/ readonly failedMediaResourceMap: pulumi.Output<{[key: string]: outputs.medialive.SignalMapMediaResource}>;
     /**
      * If true, will force a rediscovery of a signal map if an unchanged discoveryEntryPointArn is provided.
      */
-    public readonly forceRediscovery!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly identifier!: pulumi.Output<string>;
+    declare public readonly forceRediscovery: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly identifier: pulumi.Output<string>;
     /**
      * The date and time of latest discovery.
      */
-    public /*out*/ readonly lastDiscoveredAt!: pulumi.Output<string>;
-    public /*out*/ readonly lastSuccessfulMonitorDeployment!: pulumi.Output<outputs.medialive.SignalMapSuccessfulMonitorDeployment>;
-    public /*out*/ readonly mediaResourceMap!: pulumi.Output<{[key: string]: outputs.medialive.SignalMapMediaResource}>;
+    declare public /*out*/ readonly lastDiscoveredAt: pulumi.Output<string>;
+    declare public /*out*/ readonly lastSuccessfulMonitorDeployment: pulumi.Output<outputs.medialive.SignalMapSuccessfulMonitorDeployment>;
+    declare public /*out*/ readonly mediaResourceMap: pulumi.Output<{[key: string]: outputs.medialive.SignalMapMediaResource}>;
     /**
      * The date and time of latest resource modification.
      */
-    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
     /**
      * If true, there are pending monitor changes for this signal map that can be deployed.
      */
-    public /*out*/ readonly monitorChangesPendingDeployment!: pulumi.Output<boolean>;
-    public /*out*/ readonly monitorDeployment!: pulumi.Output<outputs.medialive.SignalMapMonitorDeployment>;
+    declare public /*out*/ readonly monitorChangesPendingDeployment: pulumi.Output<boolean>;
+    declare public /*out*/ readonly monitorDeployment: pulumi.Output<outputs.medialive.SignalMapMonitorDeployment>;
     /**
      * A resource's name. Names must be unique within the scope of a resource type in a specific region.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A signal map's current status, which is dependent on its lifecycle actions or associated jobs.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.medialive.SignalMapStatus>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.medialive.SignalMapStatus>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a SignalMap resource with the given unique name, arguments, and options.
@@ -119,16 +119,16 @@ export class SignalMap extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.discoveryEntryPointArn === undefined) && !opts.urn) {
+            if (args?.discoveryEntryPointArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'discoveryEntryPointArn'");
             }
-            resourceInputs["cloudWatchAlarmTemplateGroupIdentifiers"] = args ? args.cloudWatchAlarmTemplateGroupIdentifiers : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["discoveryEntryPointArn"] = args ? args.discoveryEntryPointArn : undefined;
-            resourceInputs["eventBridgeRuleTemplateGroupIdentifiers"] = args ? args.eventBridgeRuleTemplateGroupIdentifiers : undefined;
-            resourceInputs["forceRediscovery"] = args ? args.forceRediscovery : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cloudWatchAlarmTemplateGroupIdentifiers"] = args?.cloudWatchAlarmTemplateGroupIdentifiers;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["discoveryEntryPointArn"] = args?.discoveryEntryPointArn;
+            resourceInputs["eventBridgeRuleTemplateGroupIdentifiers"] = args?.eventBridgeRuleTemplateGroupIdentifiers;
+            resourceInputs["forceRediscovery"] = args?.forceRediscovery;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cloudWatchAlarmTemplateGroupIds"] = undefined /*out*/;

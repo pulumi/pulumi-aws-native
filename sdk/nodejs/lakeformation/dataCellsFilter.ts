@@ -40,31 +40,31 @@ export class DataCellsFilter extends pulumi.CustomResource {
     /**
      * A list of columns to be included in this Data Cells Filter.
      */
-    public readonly columnNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly columnNames: pulumi.Output<string[] | undefined>;
     /**
      * An object representing the Data Cells Filter's Columns. Either Column Names or a Wildcard is required
      */
-    public readonly columnWildcard!: pulumi.Output<outputs.lakeformation.DataCellsFilterColumnWildcard | undefined>;
+    declare public readonly columnWildcard: pulumi.Output<outputs.lakeformation.DataCellsFilterColumnWildcard | undefined>;
     /**
      * The name of the Database that the Table resides in.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * The desired name of the Data Cells Filter.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An object representing the Data Cells Filter's Row Filter. Either a Filter Expression or a Wildcard is required
      */
-    public readonly rowFilter!: pulumi.Output<outputs.lakeformation.DataCellsFilterRowFilter | undefined>;
+    declare public readonly rowFilter: pulumi.Output<outputs.lakeformation.DataCellsFilterRowFilter | undefined>;
     /**
      * The Catalog Id of the Table on which to create a Data Cells Filter.
      */
-    public readonly tableCatalogId!: pulumi.Output<string>;
+    declare public readonly tableCatalogId: pulumi.Output<string>;
     /**
      * The name of the Table to create a Data Cells Filter for.
      */
-    public readonly tableName!: pulumi.Output<string>;
+    declare public readonly tableName: pulumi.Output<string>;
 
     /**
      * Create a DataCellsFilter resource with the given unique name, arguments, and options.
@@ -77,22 +77,22 @@ export class DataCellsFilter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.tableCatalogId === undefined) && !opts.urn) {
+            if (args?.tableCatalogId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableCatalogId'");
             }
-            if ((!args || args.tableName === undefined) && !opts.urn) {
+            if (args?.tableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            resourceInputs["columnNames"] = args ? args.columnNames : undefined;
-            resourceInputs["columnWildcard"] = args ? args.columnWildcard : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rowFilter"] = args ? args.rowFilter : undefined;
-            resourceInputs["tableCatalogId"] = args ? args.tableCatalogId : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["columnNames"] = args?.columnNames;
+            resourceInputs["columnWildcard"] = args?.columnWildcard;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rowFilter"] = args?.rowFilter;
+            resourceInputs["tableCatalogId"] = args?.tableCatalogId;
+            resourceInputs["tableName"] = args?.tableName;
         } else {
             resourceInputs["columnNames"] = undefined /*out*/;
             resourceInputs["columnWildcard"] = undefined /*out*/;

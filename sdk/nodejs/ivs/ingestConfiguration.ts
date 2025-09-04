@@ -40,43 +40,43 @@ export class IngestConfiguration extends pulumi.CustomResource {
     /**
      * IngestConfiguration ARN is automatically generated on creation and assigned as the unique identifier.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Ingest Protocol.
      */
-    public readonly ingestProtocol!: pulumi.Output<enums.ivs.IngestConfigurationIngestProtocol | undefined>;
+    declare public readonly ingestProtocol: pulumi.Output<enums.ivs.IngestConfigurationIngestProtocol | undefined>;
     /**
      * Whether ingest configuration allows insecure ingest.
      */
-    public readonly insecureIngest!: pulumi.Output<boolean | undefined>;
+    declare public readonly insecureIngest: pulumi.Output<boolean | undefined>;
     /**
      * IngestConfiguration
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Participant Id is automatically generated on creation and assigned.
      */
-    public /*out*/ readonly participantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly participantId: pulumi.Output<string>;
     /**
      * Stage ARN. A value other than an empty string indicates that stage is linked to IngestConfiguration. Default: "" (recording is disabled).
      */
-    public readonly stageArn!: pulumi.Output<string | undefined>;
+    declare public readonly stageArn: pulumi.Output<string | undefined>;
     /**
      * State of IngestConfiguration which determines whether IngestConfiguration is in use or not.
      */
-    public /*out*/ readonly state!: pulumi.Output<enums.ivs.IngestConfigurationState>;
+    declare public /*out*/ readonly state: pulumi.Output<enums.ivs.IngestConfigurationState>;
     /**
      * Stream-key value.
      */
-    public /*out*/ readonly streamKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly streamKey: pulumi.Output<string>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * User defined indentifier for participant associated with IngestConfiguration.
      */
-    public readonly userId!: pulumi.Output<string | undefined>;
+    declare public readonly userId: pulumi.Output<string | undefined>;
 
     /**
      * Create a IngestConfiguration resource with the given unique name, arguments, and options.
@@ -89,12 +89,12 @@ export class IngestConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["ingestProtocol"] = args ? args.ingestProtocol : undefined;
-            resourceInputs["insecureIngest"] = args ? args.insecureIngest : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["stageArn"] = args ? args.stageArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["ingestProtocol"] = args?.ingestProtocol;
+            resourceInputs["insecureIngest"] = args?.insecureIngest;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["stageArn"] = args?.stageArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userId"] = args?.userId;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["participantId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

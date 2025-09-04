@@ -40,61 +40,61 @@ export class ContainerFleet extends pulumi.CustomResource {
     /**
      * Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
      */
-    public readonly billingType!: pulumi.Output<enums.gamelift.ContainerFleetBillingType | undefined>;
+    declare public readonly billingType: pulumi.Output<enums.gamelift.ContainerFleetBillingType | undefined>;
     /**
      * A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * Set of rules for processing a deployment for a container fleet update.
      */
-    public readonly deploymentConfiguration!: pulumi.Output<outputs.gamelift.ContainerFleetDeploymentConfiguration | undefined>;
-    public /*out*/ readonly deploymentDetails!: pulumi.Output<outputs.gamelift.ContainerFleetDeploymentDetails>;
+    declare public readonly deploymentConfiguration: pulumi.Output<outputs.gamelift.ContainerFleetDeploymentConfiguration | undefined>;
+    declare public /*out*/ readonly deploymentDetails: pulumi.Output<outputs.gamelift.ContainerFleetDeploymentDetails>;
     /**
      * A human-readable description of a fleet.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift container fleet resource and uniquely identifies it across all AWS Regions.
      */
-    public /*out*/ readonly fleetArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fleetArn: pulumi.Output<string>;
     /**
      * Unique fleet ID
      */
-    public /*out*/ readonly fleetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly fleetId: pulumi.Output<string>;
     /**
      * A unique identifier for an AWS IAM role that manages access to your AWS services. Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
      */
-    public readonly fleetRoleArn!: pulumi.Output<string>;
+    declare public readonly fleetRoleArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the game server container group definition. This field will be empty if GameServerContainerGroupDefinitionName is not specified.
      */
-    public /*out*/ readonly gameServerContainerGroupDefinitionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly gameServerContainerGroupDefinitionArn: pulumi.Output<string>;
     /**
      * The name of the container group definition that will be created per game server. You must specify GAME_SERVER container group. You have the option to also specify one PER_INSTANCE container group.
      */
-    public readonly gameServerContainerGroupDefinitionName!: pulumi.Output<string | undefined>;
+    declare public readonly gameServerContainerGroupDefinitionName: pulumi.Output<string | undefined>;
     /**
      * The number of desired game server container groups per instance, a number between 1-5000.
      */
-    public readonly gameServerContainerGroupsPerInstance!: pulumi.Output<number | undefined>;
+    declare public readonly gameServerContainerGroupsPerInstance: pulumi.Output<number | undefined>;
     /**
      * A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
      */
-    public readonly gameSessionCreationLimitPolicy!: pulumi.Output<outputs.gamelift.ContainerFleetGameSessionCreationLimitPolicy | undefined>;
+    declare public readonly gameSessionCreationLimitPolicy: pulumi.Output<outputs.gamelift.ContainerFleetGameSessionCreationLimitPolicy | undefined>;
     /**
      * The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
      */
-    public readonly instanceConnectionPortRange!: pulumi.Output<outputs.gamelift.ContainerFleetConnectionPortRange | undefined>;
+    declare public readonly instanceConnectionPortRange: pulumi.Output<outputs.gamelift.ContainerFleetConnectionPortRange | undefined>;
     /**
      * A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
      */
-    public readonly instanceInboundPermissions!: pulumi.Output<outputs.gamelift.ContainerFleetIpPermission[] | undefined>;
+    declare public readonly instanceInboundPermissions: pulumi.Output<outputs.gamelift.ContainerFleetIpPermission[] | undefined>;
     /**
      * The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
      */
-    public readonly instanceType!: pulumi.Output<string | undefined>;
-    public readonly locations!: pulumi.Output<outputs.gamelift.ContainerFleetLocationConfiguration[] | undefined>;
+    declare public readonly instanceType: pulumi.Output<string | undefined>;
+    declare public readonly locations: pulumi.Output<outputs.gamelift.ContainerFleetLocationConfiguration[] | undefined>;
     /**
      * The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
      *
@@ -102,39 +102,39 @@ export class ContainerFleet extends pulumi.CustomResource {
      * - `S3` -- Store logs in an Amazon S3 bucket that you define.
      * - `NONE` -- Don't collect container logs.
      */
-    public readonly logConfiguration!: pulumi.Output<outputs.gamelift.ContainerFleetLogConfiguration | undefined>;
+    declare public readonly logConfiguration: pulumi.Output<outputs.gamelift.ContainerFleetLogConfiguration | undefined>;
     /**
      * The maximum number of game server container groups per instance, a number between 1-5000.
      */
-    public /*out*/ readonly maximumGameServerContainerGroupsPerInstance!: pulumi.Output<number>;
+    declare public /*out*/ readonly maximumGameServerContainerGroupsPerInstance: pulumi.Output<number>;
     /**
      * The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
      */
-    public readonly metricGroups!: pulumi.Output<string[] | undefined>;
+    declare public readonly metricGroups: pulumi.Output<string[] | undefined>;
     /**
      * A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
      */
-    public readonly newGameSessionProtectionPolicy!: pulumi.Output<enums.gamelift.ContainerFleetNewGameSessionProtectionPolicy | undefined>;
+    declare public readonly newGameSessionProtectionPolicy: pulumi.Output<enums.gamelift.ContainerFleetNewGameSessionProtectionPolicy | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the per instance container group definition. This field will be empty if PerInstanceContainerGroupDefinitionName is not specified.
      */
-    public /*out*/ readonly perInstanceContainerGroupDefinitionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly perInstanceContainerGroupDefinitionArn: pulumi.Output<string>;
     /**
      * The name of the container group definition that will be created per instance. This field is optional if you specify GameServerContainerGroupDefinitionName.
      */
-    public readonly perInstanceContainerGroupDefinitionName!: pulumi.Output<string | undefined>;
+    declare public readonly perInstanceContainerGroupDefinitionName: pulumi.Output<string | undefined>;
     /**
      * A list of rules that control how a fleet is scaled.
      */
-    public readonly scalingPolicies!: pulumi.Output<outputs.gamelift.ContainerFleetScalingPolicy[] | undefined>;
+    declare public readonly scalingPolicies: pulumi.Output<outputs.gamelift.ContainerFleetScalingPolicy[] | undefined>;
     /**
      * The current status of the container fleet.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.gamelift.ContainerFleetStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.gamelift.ContainerFleetStatus>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ContainerFleet resource with the given unique name, arguments, and options.
@@ -147,26 +147,26 @@ export class ContainerFleet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fleetRoleArn === undefined) && !opts.urn) {
+            if (args?.fleetRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fleetRoleArn'");
             }
-            resourceInputs["billingType"] = args ? args.billingType : undefined;
-            resourceInputs["deploymentConfiguration"] = args ? args.deploymentConfiguration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fleetRoleArn"] = args ? args.fleetRoleArn : undefined;
-            resourceInputs["gameServerContainerGroupDefinitionName"] = args ? args.gameServerContainerGroupDefinitionName : undefined;
-            resourceInputs["gameServerContainerGroupsPerInstance"] = args ? args.gameServerContainerGroupsPerInstance : undefined;
-            resourceInputs["gameSessionCreationLimitPolicy"] = args ? args.gameSessionCreationLimitPolicy : undefined;
-            resourceInputs["instanceConnectionPortRange"] = args ? args.instanceConnectionPortRange : undefined;
-            resourceInputs["instanceInboundPermissions"] = args ? args.instanceInboundPermissions : undefined;
-            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["locations"] = args ? args.locations : undefined;
-            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
-            resourceInputs["metricGroups"] = args ? args.metricGroups : undefined;
-            resourceInputs["newGameSessionProtectionPolicy"] = args ? args.newGameSessionProtectionPolicy : undefined;
-            resourceInputs["perInstanceContainerGroupDefinitionName"] = args ? args.perInstanceContainerGroupDefinitionName : undefined;
-            resourceInputs["scalingPolicies"] = args ? args.scalingPolicies : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["billingType"] = args?.billingType;
+            resourceInputs["deploymentConfiguration"] = args?.deploymentConfiguration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fleetRoleArn"] = args?.fleetRoleArn;
+            resourceInputs["gameServerContainerGroupDefinitionName"] = args?.gameServerContainerGroupDefinitionName;
+            resourceInputs["gameServerContainerGroupsPerInstance"] = args?.gameServerContainerGroupsPerInstance;
+            resourceInputs["gameSessionCreationLimitPolicy"] = args?.gameSessionCreationLimitPolicy;
+            resourceInputs["instanceConnectionPortRange"] = args?.instanceConnectionPortRange;
+            resourceInputs["instanceInboundPermissions"] = args?.instanceInboundPermissions;
+            resourceInputs["instanceType"] = args?.instanceType;
+            resourceInputs["locations"] = args?.locations;
+            resourceInputs["logConfiguration"] = args?.logConfiguration;
+            resourceInputs["metricGroups"] = args?.metricGroups;
+            resourceInputs["newGameSessionProtectionPolicy"] = args?.newGameSessionProtectionPolicy;
+            resourceInputs["perInstanceContainerGroupDefinitionName"] = args?.perInstanceContainerGroupDefinitionName;
+            resourceInputs["scalingPolicies"] = args?.scalingPolicies;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["deploymentDetails"] = undefined /*out*/;
             resourceInputs["fleetArn"] = undefined /*out*/;

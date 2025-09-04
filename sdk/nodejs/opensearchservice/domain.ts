@@ -42,50 +42,50 @@ export class Domain extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
      */
-    public readonly accessPolicies!: pulumi.Output<any | undefined>;
+    declare public readonly accessPolicies: pulumi.Output<any | undefined>;
     /**
      * Additional options to specify for the OpenSearch Service domain. For more information, see [AdvancedOptions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html#API_CreateDomain_RequestBody) in the OpenSearch Service API reference.
      */
-    public readonly advancedOptions!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly advancedOptions: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies options for fine-grained access control and SAML authentication.
      *
      * If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
      */
-    public readonly advancedSecurityOptions!: pulumi.Output<outputs.opensearchservice.DomainAdvancedSecurityOptionsInput | undefined>;
+    declare public readonly advancedSecurityOptions: pulumi.Output<outputs.opensearchservice.DomainAdvancedSecurityOptionsInput | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the CloudFormation stack.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The resource ID. For example, `123456789012/my-domain` .
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Container for the cluster configuration of a domain.
      */
-    public readonly clusterConfig!: pulumi.Output<outputs.opensearchservice.DomainClusterConfig | undefined>;
+    declare public readonly clusterConfig: pulumi.Output<outputs.opensearchservice.DomainClusterConfig | undefined>;
     /**
      * Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
      */
-    public readonly cognitoOptions!: pulumi.Output<outputs.opensearchservice.DomainCognitoOptions | undefined>;
+    declare public readonly cognitoOptions: pulumi.Output<outputs.opensearchservice.DomainCognitoOptions | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the domain. See [Identifiers for IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) in *Using AWS Identity and Access Management* for more information.
      */
-    public /*out*/ readonly domainArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainArn: pulumi.Output<string>;
     /**
      * The domain-specific endpoint used for requests to the OpenSearch APIs, such as `search-mystack-1ab2cdefghij-ab1c2deckoyb3hofw7wpqa3cm.us-west-1.es.amazonaws.com` .
      */
-    public /*out*/ readonly domainEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainEndpoint: pulumi.Output<string>;
     /**
      * Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
      */
-    public readonly domainEndpointOptions!: pulumi.Output<outputs.opensearchservice.DomainEndpointOptions | undefined>;
+    declare public readonly domainEndpointOptions: pulumi.Output<outputs.opensearchservice.DomainEndpointOptions | undefined>;
     /**
      * If `IPAddressType` to set to `dualstack` , a version 2 domain endpoint is provisioned. This endpoint functions like a normal endpoint, except that it works with both IPv4 and IPv6 IP addresses. Normal endpoints work only with IPv4 IP addresses.
      */
-    public /*out*/ readonly domainEndpointV2!: pulumi.Output<string>;
-    public /*out*/ readonly domainEndpoints!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly domainEndpointV2: pulumi.Output<string>;
+    declare public /*out*/ readonly domainEndpoints: pulumi.Output<{[key: string]: string}>;
     /**
      * A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
      *
@@ -93,63 +93,63 @@ export class Domain extends pulumi.CustomResource {
      *
      * > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
-    public readonly domainName!: pulumi.Output<string | undefined>;
+    declare public readonly domainName: pulumi.Output<string | undefined>;
     /**
      * The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
      */
-    public readonly ebsOptions!: pulumi.Output<outputs.opensearchservice.DomainEbsOptions | undefined>;
+    declare public readonly ebsOptions: pulumi.Output<outputs.opensearchservice.DomainEbsOptions | undefined>;
     /**
      * Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
      *
      * If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
      */
-    public readonly encryptionAtRestOptions!: pulumi.Output<outputs.opensearchservice.DomainEncryptionAtRestOptions | undefined>;
+    declare public readonly encryptionAtRestOptions: pulumi.Output<outputs.opensearchservice.DomainEncryptionAtRestOptions | undefined>;
     /**
      * The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
      *
      * If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
      */
-    public readonly engineVersion!: pulumi.Output<string | undefined>;
+    declare public readonly engineVersion: pulumi.Output<string | undefined>;
     /**
      * Configuration options for controlling IAM Identity Center integration within a domain.
      */
-    public readonly identityCenterOptions!: pulumi.Output<outputs.opensearchservice.DomainIdentityCenterOptions | undefined>;
+    declare public readonly identityCenterOptions: pulumi.Output<outputs.opensearchservice.DomainIdentityCenterOptions | undefined>;
     /**
      * Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
      */
-    public readonly ipAddressType!: pulumi.Output<string | undefined>;
+    declare public readonly ipAddressType: pulumi.Output<string | undefined>;
     /**
      * An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish. Each key needs a valid `LogPublishingOption` value. For the full syntax, see the [examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples) .
      */
-    public readonly logPublishingOptions!: pulumi.Output<{[key: string]: outputs.opensearchservice.DomainLogPublishingOption} | undefined>;
+    declare public readonly logPublishingOptions: pulumi.Output<{[key: string]: outputs.opensearchservice.DomainLogPublishingOption} | undefined>;
     /**
      * Specifies whether node-to-node encryption is enabled. See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
      */
-    public readonly nodeToNodeEncryptionOptions!: pulumi.Output<outputs.opensearchservice.DomainNodeToNodeEncryptionOptions | undefined>;
+    declare public readonly nodeToNodeEncryptionOptions: pulumi.Output<outputs.opensearchservice.DomainNodeToNodeEncryptionOptions | undefined>;
     /**
      * Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
      */
-    public readonly offPeakWindowOptions!: pulumi.Output<outputs.opensearchservice.DomainOffPeakWindowOptions | undefined>;
-    public /*out*/ readonly serviceSoftwareOptions!: pulumi.Output<outputs.opensearchservice.DomainServiceSoftwareOptions>;
-    public readonly skipShardMigrationWait!: pulumi.Output<boolean | undefined>;
+    declare public readonly offPeakWindowOptions: pulumi.Output<outputs.opensearchservice.DomainOffPeakWindowOptions | undefined>;
+    declare public /*out*/ readonly serviceSoftwareOptions: pulumi.Output<outputs.opensearchservice.DomainServiceSoftwareOptions>;
+    declare public readonly skipShardMigrationWait: pulumi.Output<boolean | undefined>;
     /**
      * *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
      */
-    public readonly snapshotOptions!: pulumi.Output<outputs.opensearchservice.DomainSnapshotOptions | undefined>;
+    declare public readonly snapshotOptions: pulumi.Output<outputs.opensearchservice.DomainSnapshotOptions | undefined>;
     /**
      * Service software update options for the domain.
      */
-    public readonly softwareUpdateOptions!: pulumi.Output<outputs.opensearchservice.DomainSoftwareUpdateOptions | undefined>;
+    declare public readonly softwareUpdateOptions: pulumi.Output<outputs.opensearchservice.DomainSoftwareUpdateOptions | undefined>;
     /**
      * An arbitrary set of tags (key-value pairs) for this Domain.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
      *
      * If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
      */
-    public readonly vpcOptions!: pulumi.Output<outputs.opensearchservice.DomainVpcOptions | undefined>;
+    declare public readonly vpcOptions: pulumi.Output<outputs.opensearchservice.DomainVpcOptions | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -162,26 +162,26 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["accessPolicies"] = args ? args.accessPolicies : undefined;
-            resourceInputs["advancedOptions"] = args ? args.advancedOptions : undefined;
-            resourceInputs["advancedSecurityOptions"] = args ? args.advancedSecurityOptions : undefined;
-            resourceInputs["clusterConfig"] = args ? args.clusterConfig : undefined;
-            resourceInputs["cognitoOptions"] = args ? args.cognitoOptions : undefined;
-            resourceInputs["domainEndpointOptions"] = args ? args.domainEndpointOptions : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["ebsOptions"] = args ? args.ebsOptions : undefined;
-            resourceInputs["encryptionAtRestOptions"] = args ? args.encryptionAtRestOptions : undefined;
-            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["identityCenterOptions"] = args ? args.identityCenterOptions : undefined;
-            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            resourceInputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
-            resourceInputs["nodeToNodeEncryptionOptions"] = args ? args.nodeToNodeEncryptionOptions : undefined;
-            resourceInputs["offPeakWindowOptions"] = args ? args.offPeakWindowOptions : undefined;
-            resourceInputs["skipShardMigrationWait"] = args ? args.skipShardMigrationWait : undefined;
-            resourceInputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
-            resourceInputs["softwareUpdateOptions"] = args ? args.softwareUpdateOptions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
+            resourceInputs["accessPolicies"] = args?.accessPolicies;
+            resourceInputs["advancedOptions"] = args?.advancedOptions;
+            resourceInputs["advancedSecurityOptions"] = args?.advancedSecurityOptions;
+            resourceInputs["clusterConfig"] = args?.clusterConfig;
+            resourceInputs["cognitoOptions"] = args?.cognitoOptions;
+            resourceInputs["domainEndpointOptions"] = args?.domainEndpointOptions;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["ebsOptions"] = args?.ebsOptions;
+            resourceInputs["encryptionAtRestOptions"] = args?.encryptionAtRestOptions;
+            resourceInputs["engineVersion"] = args?.engineVersion;
+            resourceInputs["identityCenterOptions"] = args?.identityCenterOptions;
+            resourceInputs["ipAddressType"] = args?.ipAddressType;
+            resourceInputs["logPublishingOptions"] = args?.logPublishingOptions;
+            resourceInputs["nodeToNodeEncryptionOptions"] = args?.nodeToNodeEncryptionOptions;
+            resourceInputs["offPeakWindowOptions"] = args?.offPeakWindowOptions;
+            resourceInputs["skipShardMigrationWait"] = args?.skipShardMigrationWait;
+            resourceInputs["snapshotOptions"] = args?.snapshotOptions;
+            resourceInputs["softwareUpdateOptions"] = args?.softwareUpdateOptions;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcOptions"] = args?.vpcOptions;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["domainArn"] = undefined /*out*/;

@@ -170,38 +170,38 @@ export class Dataset extends pulumi.CustomResource {
     /**
      * The `DatasetAction` objects that automatically create the dataset contents.
      */
-    public readonly actions!: pulumi.Output<outputs.iotanalytics.DatasetAction[]>;
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public readonly actions: pulumi.Output<outputs.iotanalytics.DatasetAction[]>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * When dataset contents are created they are delivered to destinations specified here.
      */
-    public readonly contentDeliveryRules!: pulumi.Output<outputs.iotanalytics.DatasetContentDeliveryRule[] | undefined>;
+    declare public readonly contentDeliveryRules: pulumi.Output<outputs.iotanalytics.DatasetContentDeliveryRule[] | undefined>;
     /**
      * The name of the dataset.
      */
-    public readonly datasetName!: pulumi.Output<string | undefined>;
+    declare public readonly datasetName: pulumi.Output<string | undefined>;
     /**
      * A list of data rules that send notifications to CloudWatch, when data arrives late. To specify `lateDataRules` , the dataset must use a [DeltaTimer](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) filter.
      */
-    public readonly lateDataRules!: pulumi.Output<outputs.iotanalytics.DatasetLateDataRule[] | undefined>;
+    declare public readonly lateDataRules: pulumi.Output<outputs.iotanalytics.DatasetLateDataRule[] | undefined>;
     /**
      * Optional. How long, in days, message data is kept for the dataset.
      */
-    public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.DatasetRetentionPeriod | undefined>;
+    declare public readonly retentionPeriod: pulumi.Output<outputs.iotanalytics.DatasetRetentionPeriod | undefined>;
     /**
      * Metadata which can be used to manage the data set.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The `DatasetTrigger` objects that specify when the dataset is automatically updated.
      */
-    public readonly triggers!: pulumi.Output<outputs.iotanalytics.DatasetTrigger[] | undefined>;
+    declare public readonly triggers: pulumi.Output<outputs.iotanalytics.DatasetTrigger[] | undefined>;
     /**
      * Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of AWS IoT Analytics datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *AWS IoT Analytics User Guide* .
      */
-    public readonly versioningConfiguration!: pulumi.Output<outputs.iotanalytics.DatasetVersioningConfiguration | undefined>;
+    declare public readonly versioningConfiguration: pulumi.Output<outputs.iotanalytics.DatasetVersioningConfiguration | undefined>;
 
     /**
      * Create a Dataset resource with the given unique name, arguments, and options.
@@ -214,17 +214,17 @@ export class Dataset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["contentDeliveryRules"] = args ? args.contentDeliveryRules : undefined;
-            resourceInputs["datasetName"] = args ? args.datasetName : undefined;
-            resourceInputs["lateDataRules"] = args ? args.lateDataRules : undefined;
-            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["triggers"] = args ? args.triggers : undefined;
-            resourceInputs["versioningConfiguration"] = args ? args.versioningConfiguration : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["contentDeliveryRules"] = args?.contentDeliveryRules;
+            resourceInputs["datasetName"] = args?.datasetName;
+            resourceInputs["lateDataRules"] = args?.lateDataRules;
+            resourceInputs["retentionPeriod"] = args?.retentionPeriod;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["triggers"] = args?.triggers;
+            resourceInputs["versioningConfiguration"] = args?.versioningConfiguration;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["actions"] = undefined /*out*/;

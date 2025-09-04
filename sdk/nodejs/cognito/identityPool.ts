@@ -40,26 +40,26 @@ export class IdentityPool extends pulumi.CustomResource {
     /**
      * Enables the Basic (Classic) authentication flow.
      */
-    public readonly allowClassicFlow!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowClassicFlow: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the identity pool supports unauthenticated logins.
      */
-    public readonly allowUnauthenticatedIdentities!: pulumi.Output<boolean>;
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public readonly allowUnauthenticatedIdentities: pulumi.Output<boolean>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The events to configure.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
      */
-    public readonly cognitoEvents!: pulumi.Output<any | undefined>;
+    declare public readonly cognitoEvents: pulumi.Output<any | undefined>;
     /**
      * The Amazon Cognito user pools and their client IDs.
      */
-    public readonly cognitoIdentityProviders!: pulumi.Output<outputs.cognito.IdentityPoolCognitoIdentityProvider[] | undefined>;
+    declare public readonly cognitoIdentityProviders: pulumi.Output<outputs.cognito.IdentityPoolCognitoIdentityProvider[] | undefined>;
     /**
      * Configuration options for configuring Amazon Cognito streams.
      */
-    public readonly cognitoStreams!: pulumi.Output<outputs.cognito.IdentityPoolCognitoStreams | undefined>;
+    declare public readonly cognitoStreams: pulumi.Output<outputs.cognito.IdentityPoolCognitoStreams | undefined>;
     /**
      * The "domain" Amazon Cognito uses when referencing your users. This name acts as a placeholder that allows your backend and the Amazon Cognito service to communicate about the developer provider. For the `DeveloperProviderName` , you can use letters and periods (.), underscores (_), and dashes (-).
      *
@@ -67,7 +67,7 @@ export class IdentityPool extends pulumi.CustomResource {
      *
      * *Maximum length* : 100
      */
-    public readonly developerProviderName!: pulumi.Output<string | undefined>;
+    declare public readonly developerProviderName: pulumi.Output<string | undefined>;
     /**
      * The name of your Amazon Cognito identity pool.
      *
@@ -77,33 +77,33 @@ export class IdentityPool extends pulumi.CustomResource {
      *
      * *Pattern* : `[\w\s+=,.@-]+`
      */
-    public readonly identityPoolName!: pulumi.Output<string | undefined>;
+    declare public readonly identityPoolName: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly identityPoolTags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly identityPoolTags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The name of the Amazon Cognito identity pool, returned as a string.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The Amazon Resource Names (ARNs) of the OpenID connect providers.
      */
-    public readonly openIdConnectProviderArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly openIdConnectProviderArns: pulumi.Output<string[] | undefined>;
     /**
      * The configuration options to be applied to the identity pool.
      */
-    public readonly pushSync!: pulumi.Output<outputs.cognito.IdentityPoolPushSync | undefined>;
+    declare public readonly pushSync: pulumi.Output<outputs.cognito.IdentityPoolPushSync | undefined>;
     /**
      * The Amazon Resource Names (ARNs) of the Security Assertion Markup Language (SAML) providers.
      */
-    public readonly samlProviderArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly samlProviderArns: pulumi.Output<string[] | undefined>;
     /**
      * Key-value pairs that map provider names to provider app IDs.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
      */
-    public readonly supportedLoginProviders!: pulumi.Output<any | undefined>;
+    declare public readonly supportedLoginProviders: pulumi.Output<any | undefined>;
 
     /**
      * Create a IdentityPool resource with the given unique name, arguments, and options.
@@ -116,21 +116,21 @@ export class IdentityPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.allowUnauthenticatedIdentities === undefined) && !opts.urn) {
+            if (args?.allowUnauthenticatedIdentities === undefined && !opts.urn) {
                 throw new Error("Missing required property 'allowUnauthenticatedIdentities'");
             }
-            resourceInputs["allowClassicFlow"] = args ? args.allowClassicFlow : undefined;
-            resourceInputs["allowUnauthenticatedIdentities"] = args ? args.allowUnauthenticatedIdentities : undefined;
-            resourceInputs["cognitoEvents"] = args ? args.cognitoEvents : undefined;
-            resourceInputs["cognitoIdentityProviders"] = args ? args.cognitoIdentityProviders : undefined;
-            resourceInputs["cognitoStreams"] = args ? args.cognitoStreams : undefined;
-            resourceInputs["developerProviderName"] = args ? args.developerProviderName : undefined;
-            resourceInputs["identityPoolName"] = args ? args.identityPoolName : undefined;
-            resourceInputs["identityPoolTags"] = args ? args.identityPoolTags : undefined;
-            resourceInputs["openIdConnectProviderArns"] = args ? args.openIdConnectProviderArns : undefined;
-            resourceInputs["pushSync"] = args ? args.pushSync : undefined;
-            resourceInputs["samlProviderArns"] = args ? args.samlProviderArns : undefined;
-            resourceInputs["supportedLoginProviders"] = args ? args.supportedLoginProviders : undefined;
+            resourceInputs["allowClassicFlow"] = args?.allowClassicFlow;
+            resourceInputs["allowUnauthenticatedIdentities"] = args?.allowUnauthenticatedIdentities;
+            resourceInputs["cognitoEvents"] = args?.cognitoEvents;
+            resourceInputs["cognitoIdentityProviders"] = args?.cognitoIdentityProviders;
+            resourceInputs["cognitoStreams"] = args?.cognitoStreams;
+            resourceInputs["developerProviderName"] = args?.developerProviderName;
+            resourceInputs["identityPoolName"] = args?.identityPoolName;
+            resourceInputs["identityPoolTags"] = args?.identityPoolTags;
+            resourceInputs["openIdConnectProviderArns"] = args?.openIdConnectProviderArns;
+            resourceInputs["pushSync"] = args?.pushSync;
+            resourceInputs["samlProviderArns"] = args?.samlProviderArns;
+            resourceInputs["supportedLoginProviders"] = args?.supportedLoginProviders;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {

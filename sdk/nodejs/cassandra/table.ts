@@ -516,7 +516,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * The optional auto scaling capacity settings for a table in provisioned capacity mode.
      */
-    public readonly autoScalingSpecifications!: pulumi.Output<outputs.cassandra.TableAutoScalingSpecification | undefined>;
+    declare public readonly autoScalingSpecifications: pulumi.Output<outputs.cassandra.TableAutoScalingSpecification | undefined>;
     /**
      * The billing mode for the table, which determines how you'll be charged for reads and writes:
      *
@@ -525,23 +525,23 @@ export class Table extends pulumi.CustomResource {
      *
      * If you don't specify a value for this property, then the table will use on-demand mode.
      */
-    public readonly billingMode!: pulumi.Output<outputs.cassandra.TableBillingMode | undefined>;
+    declare public readonly billingMode: pulumi.Output<outputs.cassandra.TableBillingMode | undefined>;
     /**
      * The settings for the CDC stream of a table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide* .
      */
-    public readonly cdcSpecification!: pulumi.Output<outputs.cassandra.TableCdcSpecification | undefined>;
+    declare public readonly cdcSpecification: pulumi.Output<outputs.cassandra.TableCdcSpecification | undefined>;
     /**
      * Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
      */
-    public readonly clientSideTimestampsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly clientSideTimestampsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Clustering key columns of the table
      */
-    public readonly clusteringKeyColumns!: pulumi.Output<outputs.cassandra.TableClusteringKeyColumn[] | undefined>;
+    declare public readonly clusteringKeyColumns: pulumi.Output<outputs.cassandra.TableClusteringKeyColumn[] | undefined>;
     /**
      * Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
      */
-    public readonly defaultTimeToLive!: pulumi.Output<number | undefined>;
+    declare public readonly defaultTimeToLive: pulumi.Output<number | undefined>;
     /**
      * The encryption at rest options for the table.
      *
@@ -552,23 +552,23 @@ export class Table extends pulumi.CustomResource {
      *
      * For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
      */
-    public readonly encryptionSpecification!: pulumi.Output<outputs.cassandra.TableEncryptionSpecification | undefined>;
+    declare public readonly encryptionSpecification: pulumi.Output<outputs.cassandra.TableEncryptionSpecification | undefined>;
     /**
      * Name for Cassandra keyspace
      */
-    public readonly keyspaceName!: pulumi.Output<string>;
+    declare public readonly keyspaceName: pulumi.Output<string>;
     /**
      * Partition key columns of the table
      */
-    public readonly partitionKeyColumns!: pulumi.Output<outputs.cassandra.TableColumn[]>;
+    declare public readonly partitionKeyColumns: pulumi.Output<outputs.cassandra.TableColumn[]>;
     /**
      * Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
      */
-    public readonly pointInTimeRecoveryEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly pointInTimeRecoveryEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Non-key columns of the table
      */
-    public readonly regularColumns!: pulumi.Output<outputs.cassandra.TableColumn[] | undefined>;
+    declare public readonly regularColumns: pulumi.Output<outputs.cassandra.TableColumn[] | undefined>;
     /**
      * The AWS Region specific settings of a multi-Region table.
      *
@@ -578,15 +578,15 @@ export class Table extends pulumi.CustomResource {
      * - `readCapacityUnits` : The provisioned read capacity units. (Optional)
      * - `readCapacityAutoScaling` : The read capacity auto scaling settings for the table. (Optional)
      */
-    public readonly replicaSpecifications!: pulumi.Output<outputs.cassandra.TableReplicaSpecification[] | undefined>;
+    declare public readonly replicaSpecifications: pulumi.Output<outputs.cassandra.TableReplicaSpecification[] | undefined>;
     /**
      * Name for Cassandra table
      */
-    public readonly tableName!: pulumi.Output<string | undefined>;
+    declare public readonly tableName: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -599,26 +599,26 @@ export class Table extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.keyspaceName === undefined) && !opts.urn) {
+            if (args?.keyspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyspaceName'");
             }
-            if ((!args || args.partitionKeyColumns === undefined) && !opts.urn) {
+            if (args?.partitionKeyColumns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partitionKeyColumns'");
             }
-            resourceInputs["autoScalingSpecifications"] = args ? args.autoScalingSpecifications : undefined;
-            resourceInputs["billingMode"] = args ? args.billingMode : undefined;
-            resourceInputs["cdcSpecification"] = args ? args.cdcSpecification : undefined;
-            resourceInputs["clientSideTimestampsEnabled"] = args ? args.clientSideTimestampsEnabled : undefined;
-            resourceInputs["clusteringKeyColumns"] = args ? args.clusteringKeyColumns : undefined;
-            resourceInputs["defaultTimeToLive"] = args ? args.defaultTimeToLive : undefined;
-            resourceInputs["encryptionSpecification"] = args ? args.encryptionSpecification : undefined;
-            resourceInputs["keyspaceName"] = args ? args.keyspaceName : undefined;
-            resourceInputs["partitionKeyColumns"] = args ? args.partitionKeyColumns : undefined;
-            resourceInputs["pointInTimeRecoveryEnabled"] = args ? args.pointInTimeRecoveryEnabled : undefined;
-            resourceInputs["regularColumns"] = args ? args.regularColumns : undefined;
-            resourceInputs["replicaSpecifications"] = args ? args.replicaSpecifications : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoScalingSpecifications"] = args?.autoScalingSpecifications;
+            resourceInputs["billingMode"] = args?.billingMode;
+            resourceInputs["cdcSpecification"] = args?.cdcSpecification;
+            resourceInputs["clientSideTimestampsEnabled"] = args?.clientSideTimestampsEnabled;
+            resourceInputs["clusteringKeyColumns"] = args?.clusteringKeyColumns;
+            resourceInputs["defaultTimeToLive"] = args?.defaultTimeToLive;
+            resourceInputs["encryptionSpecification"] = args?.encryptionSpecification;
+            resourceInputs["keyspaceName"] = args?.keyspaceName;
+            resourceInputs["partitionKeyColumns"] = args?.partitionKeyColumns;
+            resourceInputs["pointInTimeRecoveryEnabled"] = args?.pointInTimeRecoveryEnabled;
+            resourceInputs["regularColumns"] = args?.regularColumns;
+            resourceInputs["replicaSpecifications"] = args?.replicaSpecifications;
+            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["autoScalingSpecifications"] = undefined /*out*/;
             resourceInputs["billingMode"] = undefined /*out*/;

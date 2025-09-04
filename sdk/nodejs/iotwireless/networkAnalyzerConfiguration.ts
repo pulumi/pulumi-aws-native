@@ -40,31 +40,31 @@ export class NetworkAnalyzerConfiguration extends pulumi.CustomResource {
     /**
      * Arn for network analyzer configuration, Returned upon successful create.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The description of the new resource
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of the network analyzer configuration
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Trace content for your wireless gateway and wireless device resources
      */
-    public readonly traceContent!: pulumi.Output<outputs.iotwireless.TraceContentProperties | undefined>;
+    declare public readonly traceContent: pulumi.Output<outputs.iotwireless.TraceContentProperties | undefined>;
     /**
      * List of wireless gateway resources that have been added to the network analyzer configuration
      */
-    public readonly wirelessDevices!: pulumi.Output<string[] | undefined>;
+    declare public readonly wirelessDevices: pulumi.Output<string[] | undefined>;
     /**
      * List of wireless gateway resources that have been added to the network analyzer configuration
      */
-    public readonly wirelessGateways!: pulumi.Output<string[] | undefined>;
+    declare public readonly wirelessGateways: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a NetworkAnalyzerConfiguration resource with the given unique name, arguments, and options.
@@ -77,12 +77,12 @@ export class NetworkAnalyzerConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["traceContent"] = args ? args.traceContent : undefined;
-            resourceInputs["wirelessDevices"] = args ? args.wirelessDevices : undefined;
-            resourceInputs["wirelessGateways"] = args ? args.wirelessGateways : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["traceContent"] = args?.traceContent;
+            resourceInputs["wirelessDevices"] = args?.wirelessDevices;
+            resourceInputs["wirelessGateways"] = args?.wirelessGateways;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

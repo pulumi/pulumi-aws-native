@@ -40,40 +40,40 @@ export class AlarmModel extends pulumi.CustomResource {
     /**
      * Contains the configuration information of alarm state changes.
      */
-    public readonly alarmCapabilities!: pulumi.Output<outputs.iotevents.AlarmModelAlarmCapabilities | undefined>;
+    declare public readonly alarmCapabilities: pulumi.Output<outputs.iotevents.AlarmModelAlarmCapabilities | undefined>;
     /**
      * Contains information about one or more alarm actions.
      */
-    public readonly alarmEventActions!: pulumi.Output<outputs.iotevents.AlarmModelAlarmEventActions | undefined>;
+    declare public readonly alarmEventActions: pulumi.Output<outputs.iotevents.AlarmModelAlarmEventActions | undefined>;
     /**
      * The description of the alarm model.
      */
-    public readonly alarmModelDescription!: pulumi.Output<string | undefined>;
+    declare public readonly alarmModelDescription: pulumi.Output<string | undefined>;
     /**
      * The name of the alarm model.
      */
-    public readonly alarmModelName!: pulumi.Output<string | undefined>;
+    declare public readonly alarmModelName: pulumi.Output<string | undefined>;
     /**
      * Defines when your alarm is invoked.
      */
-    public readonly alarmRule!: pulumi.Output<outputs.iotevents.AlarmModelAlarmRule>;
+    declare public readonly alarmRule: pulumi.Output<outputs.iotevents.AlarmModelAlarmRule>;
     /**
      * An input attribute used as a key to create an alarm. ITE routes [inputs](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html) associated with this key to the alarm.
      */
-    public readonly key!: pulumi.Output<string | undefined>;
+    declare public readonly key: pulumi.Output<string | undefined>;
     /**
      * The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * A non-negative integer that reflects the severity level of the alarm.
      */
-    public readonly severity!: pulumi.Output<number | undefined>;
+    declare public readonly severity: pulumi.Output<number | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *Developer Guide*.
      *  You can create up to 50 tags for one alarm model.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a AlarmModel resource with the given unique name, arguments, and options.
@@ -86,21 +86,21 @@ export class AlarmModel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.alarmRule === undefined) && !opts.urn) {
+            if (args?.alarmRule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alarmRule'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["alarmCapabilities"] = args ? args.alarmCapabilities : undefined;
-            resourceInputs["alarmEventActions"] = args ? args.alarmEventActions : undefined;
-            resourceInputs["alarmModelDescription"] = args ? args.alarmModelDescription : undefined;
-            resourceInputs["alarmModelName"] = args ? args.alarmModelName : undefined;
-            resourceInputs["alarmRule"] = args ? args.alarmRule : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["alarmCapabilities"] = args?.alarmCapabilities;
+            resourceInputs["alarmEventActions"] = args?.alarmEventActions;
+            resourceInputs["alarmModelDescription"] = args?.alarmModelDescription;
+            resourceInputs["alarmModelName"] = args?.alarmModelName;
+            resourceInputs["alarmRule"] = args?.alarmRule;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["alarmCapabilities"] = undefined /*out*/;
             resourceInputs["alarmEventActions"] = undefined /*out*/;

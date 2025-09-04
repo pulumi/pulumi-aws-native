@@ -40,23 +40,23 @@ export class StreamGroup extends pulumi.CustomResource {
     /**
      * An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the stream group resource. For example: `arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * An ID that uniquely identifies the stream group resource. For example: `sg-1AB2C3De4` .
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Object that identifies the Amazon GameLift Streams application to stream with this stream group.
      */
-    public readonly defaultApplication!: pulumi.Output<outputs.gameliftstreams.StreamGroupDefaultApplication | undefined>;
+    declare public readonly defaultApplication: pulumi.Output<outputs.gameliftstreams.StreamGroupDefaultApplication | undefined>;
     /**
      * A descriptive label for the stream group.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * A set of one or more locations and the streaming capacity for each location. One of the locations MUST be your primary location, which is the AWS Region where you are specifying this resource.
      */
-    public readonly locationConfigurations!: pulumi.Output<outputs.gameliftstreams.StreamGroupLocationConfiguration[]>;
+    declare public readonly locationConfigurations: pulumi.Output<outputs.gameliftstreams.StreamGroupLocationConfiguration[]>;
     /**
      * The target stream quality for sessions that are hosted in this stream group. Set a stream class that is appropriate to the type of content that you're streaming. Stream class determines the type of computing resources Amazon GameLift Streams uses and impacts the cost of streaming. The following options are available:
      *
@@ -99,11 +99,11 @@ export class StreamGroup extends pulumi.CustomResource {
      * - Workload specifications: 8 vCPUs, 32 GB RAM, 16 GB VRAM
      * - Tenancy: Supports 1 concurrent stream session
      */
-    public readonly streamClass!: pulumi.Output<string>;
+    declare public readonly streamClass: pulumi.Output<string>;
     /**
      * A list of labels to assign to the new stream group resource. Tags are developer-defined key-value pairs. Tagging AWS resources is useful for resource management, access management and cost allocation. See [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* .
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a StreamGroup resource with the given unique name, arguments, and options.
@@ -116,20 +116,20 @@ export class StreamGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.locationConfigurations === undefined) && !opts.urn) {
+            if (args?.locationConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'locationConfigurations'");
             }
-            if ((!args || args.streamClass === undefined) && !opts.urn) {
+            if (args?.streamClass === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamClass'");
             }
-            resourceInputs["defaultApplication"] = args ? args.defaultApplication : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["locationConfigurations"] = args ? args.locationConfigurations : undefined;
-            resourceInputs["streamClass"] = args ? args.streamClass : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["defaultApplication"] = args?.defaultApplication;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["locationConfigurations"] = args?.locationConfigurations;
+            resourceInputs["streamClass"] = args?.streamClass;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

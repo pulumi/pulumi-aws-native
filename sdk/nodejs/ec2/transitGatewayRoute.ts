@@ -37,19 +37,19 @@ export class TransitGatewayRoute extends pulumi.CustomResource {
     /**
      * Indicates whether to drop traffic that matches this route.
      */
-    public readonly blackhole!: pulumi.Output<boolean | undefined>;
+    declare public readonly blackhole: pulumi.Output<boolean | undefined>;
     /**
      * The CIDR range used for destination matches. Routing decisions are based on the most specific match.
      */
-    public readonly destinationCidrBlock!: pulumi.Output<string>;
+    declare public readonly destinationCidrBlock: pulumi.Output<string>;
     /**
      * The ID of transit gateway attachment.
      */
-    public readonly transitGatewayAttachmentId!: pulumi.Output<string | undefined>;
+    declare public readonly transitGatewayAttachmentId: pulumi.Output<string | undefined>;
     /**
      * The ID of transit gateway route table.
      */
-    public readonly transitGatewayRouteTableId!: pulumi.Output<string>;
+    declare public readonly transitGatewayRouteTableId: pulumi.Output<string>;
 
     /**
      * Create a TransitGatewayRoute resource with the given unique name, arguments, and options.
@@ -62,16 +62,16 @@ export class TransitGatewayRoute extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationCidrBlock === undefined) && !opts.urn) {
+            if (args?.destinationCidrBlock === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if ((!args || args.transitGatewayRouteTableId === undefined) && !opts.urn) {
+            if (args?.transitGatewayRouteTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
-            resourceInputs["blackhole"] = args ? args.blackhole : undefined;
-            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
-            resourceInputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
+            resourceInputs["blackhole"] = args?.blackhole;
+            resourceInputs["destinationCidrBlock"] = args?.destinationCidrBlock;
+            resourceInputs["transitGatewayAttachmentId"] = args?.transitGatewayAttachmentId;
+            resourceInputs["transitGatewayRouteTableId"] = args?.transitGatewayRouteTableId;
         } else {
             resourceInputs["blackhole"] = undefined /*out*/;
             resourceInputs["destinationCidrBlock"] = undefined /*out*/;

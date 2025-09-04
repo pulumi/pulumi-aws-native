@@ -40,23 +40,23 @@ export class RuleGroupsNamespace extends pulumi.CustomResource {
     /**
      * The RuleGroupsNamespace ARN.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The RuleGroupsNamespace data.
      */
-    public readonly data!: pulumi.Output<string>;
+    declare public readonly data: pulumi.Output<string>;
     /**
      * The RuleGroupsNamespace name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.
      */
-    public readonly workspace!: pulumi.Output<string>;
+    declare public readonly workspace: pulumi.Output<string>;
 
     /**
      * Create a RuleGroupsNamespace resource with the given unique name, arguments, and options.
@@ -69,16 +69,16 @@ export class RuleGroupsNamespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.data === undefined) && !opts.urn) {
+            if (args?.data === undefined && !opts.urn) {
                 throw new Error("Missing required property 'data'");
             }
-            if ((!args || args.workspace === undefined) && !opts.urn) {
+            if (args?.workspace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspace'");
             }
-            resourceInputs["data"] = args ? args.data : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspace"] = args ? args.workspace : undefined;
+            resourceInputs["data"] = args?.data;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspace"] = args?.workspace;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

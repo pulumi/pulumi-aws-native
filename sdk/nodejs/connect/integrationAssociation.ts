@@ -85,7 +85,7 @@ export class IntegrationAssociation extends pulumi.CustomResource {
      *
      * *Maximum* : `100`
      */
-    public readonly instanceId!: pulumi.Output<string>;
+    declare public readonly instanceId: pulumi.Output<string>;
     /**
      * ARN of the integration being associated with the instance.
      *
@@ -93,17 +93,17 @@ export class IntegrationAssociation extends pulumi.CustomResource {
      *
      * *Maximum* : `140`
      */
-    public readonly integrationArn!: pulumi.Output<string>;
+    declare public readonly integrationArn: pulumi.Output<string>;
     /**
      * Identifier of the association with an Amazon Connect instance.
      */
-    public /*out*/ readonly integrationAssociationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly integrationAssociationId: pulumi.Output<string>;
     /**
      * Specifies the integration type to be associated with the instance.
      *
      * *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
      */
-    public readonly integrationType!: pulumi.Output<enums.connect.IntegrationAssociationIntegrationType>;
+    declare public readonly integrationType: pulumi.Output<enums.connect.IntegrationAssociationIntegrationType>;
 
     /**
      * Create a IntegrationAssociation resource with the given unique name, arguments, and options.
@@ -116,18 +116,18 @@ export class IntegrationAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceId === undefined) && !opts.urn) {
+            if (args?.instanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceId'");
             }
-            if ((!args || args.integrationArn === undefined) && !opts.urn) {
+            if (args?.integrationArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationArn'");
             }
-            if ((!args || args.integrationType === undefined) && !opts.urn) {
+            if (args?.integrationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationType'");
             }
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["integrationArn"] = args ? args.integrationArn : undefined;
-            resourceInputs["integrationType"] = args ? args.integrationType : undefined;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["integrationArn"] = args?.integrationArn;
+            resourceInputs["integrationType"] = args?.integrationType;
             resourceInputs["integrationAssociationId"] = undefined /*out*/;
         } else {
             resourceInputs["instanceId"] = undefined /*out*/;

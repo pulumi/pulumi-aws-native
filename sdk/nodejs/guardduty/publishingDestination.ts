@@ -40,31 +40,31 @@ export class PublishingDestination extends pulumi.CustomResource {
     /**
      * The ID of the publishing destination.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
      */
-    public readonly destinationProperties!: pulumi.Output<outputs.guardduty.PublishingDestinationCfnDestinationProperties>;
+    declare public readonly destinationProperties: pulumi.Output<outputs.guardduty.PublishingDestinationCfnDestinationProperties>;
     /**
      * The type of resource for the publishing destination. Currently only Amazon S3 buckets are supported.
      */
-    public readonly destinationType!: pulumi.Output<string>;
+    declare public readonly destinationType: pulumi.Output<string>;
     /**
      * The ID of the GuardDuty detector associated with the publishing destination.
      */
-    public readonly detectorId!: pulumi.Output<string>;
+    declare public readonly detectorId: pulumi.Output<string>;
     /**
      * The time, in epoch millisecond format, at which GuardDuty was first unable to publish findings to the destination.
      */
-    public /*out*/ readonly publishingFailureStartTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly publishingFailureStartTimestamp: pulumi.Output<string>;
     /**
      * The status of the publishing destination.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Describes a tag.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PublishingDestination resource with the given unique name, arguments, and options.
@@ -77,19 +77,19 @@ export class PublishingDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationProperties === undefined) && !opts.urn) {
+            if (args?.destinationProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationProperties'");
             }
-            if ((!args || args.destinationType === undefined) && !opts.urn) {
+            if (args?.destinationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationType'");
             }
-            if ((!args || args.detectorId === undefined) && !opts.urn) {
+            if (args?.detectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            resourceInputs["destinationProperties"] = args ? args.destinationProperties : undefined;
-            resourceInputs["destinationType"] = args ? args.destinationType : undefined;
-            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["destinationProperties"] = args?.destinationProperties;
+            resourceInputs["destinationType"] = args?.destinationType;
+            resourceInputs["detectorId"] = args?.detectorId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["publishingFailureStartTimestamp"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

@@ -37,13 +37,13 @@ export class BucketPolicy extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the specified bucket.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    declare public readonly bucket: pulumi.Output<string>;
     /**
      * A policy document containing permissions to add to the specified bucket.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::BucketPolicy` for more information about the expected schema for this property.
      */
-    public readonly policyDocument!: pulumi.Output<any>;
+    declare public readonly policyDocument: pulumi.Output<any>;
 
     /**
      * Create a BucketPolicy resource with the given unique name, arguments, and options.
@@ -56,14 +56,14 @@ export class BucketPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bucket === undefined) && !opts.urn) {
+            if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if ((!args || args.policyDocument === undefined) && !opts.urn) {
+            if (args?.policyDocument === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["policyDocument"] = args?.policyDocument;
         } else {
             resourceInputs["bucket"] = undefined /*out*/;
             resourceInputs["policyDocument"] = undefined /*out*/;

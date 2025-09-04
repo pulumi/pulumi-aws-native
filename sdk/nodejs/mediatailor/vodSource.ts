@@ -40,23 +40,23 @@ export class VodSource extends pulumi.CustomResource {
     /**
      * <p>The ARN of the VOD source.</p>
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * <p>A list of HTTP package configuration parameters for this VOD source.</p>
      */
-    public readonly httpPackageConfigurations!: pulumi.Output<outputs.mediatailor.VodSourceHttpPackageConfiguration[]>;
+    declare public readonly httpPackageConfigurations: pulumi.Output<outputs.mediatailor.VodSourceHttpPackageConfiguration[]>;
     /**
      * The name of the source location that the VOD source is associated with.
      */
-    public readonly sourceLocationName!: pulumi.Output<string>;
+    declare public readonly sourceLocationName: pulumi.Output<string>;
     /**
      * The tags to assign to the VOD source.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The name of the VOD source.
      */
-    public readonly vodSourceName!: pulumi.Output<string>;
+    declare public readonly vodSourceName: pulumi.Output<string>;
 
     /**
      * Create a VodSource resource with the given unique name, arguments, and options.
@@ -69,16 +69,16 @@ export class VodSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.httpPackageConfigurations === undefined) && !opts.urn) {
+            if (args?.httpPackageConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'httpPackageConfigurations'");
             }
-            if ((!args || args.sourceLocationName === undefined) && !opts.urn) {
+            if (args?.sourceLocationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceLocationName'");
             }
-            resourceInputs["httpPackageConfigurations"] = args ? args.httpPackageConfigurations : undefined;
-            resourceInputs["sourceLocationName"] = args ? args.sourceLocationName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vodSourceName"] = args ? args.vodSourceName : undefined;
+            resourceInputs["httpPackageConfigurations"] = args?.httpPackageConfigurations;
+            resourceInputs["sourceLocationName"] = args?.sourceLocationName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vodSourceName"] = args?.vodSourceName;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

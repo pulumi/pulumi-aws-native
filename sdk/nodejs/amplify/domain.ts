@@ -40,48 +40,48 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The unique ID for an Amplify app.
      */
-    public readonly appId!: pulumi.Output<string>;
+    declare public readonly appId: pulumi.Output<string>;
     /**
      * ARN for the Domain Association.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Sets the branch patterns for automatic subdomain creation.
      */
-    public readonly autoSubDomainCreationPatterns!: pulumi.Output<string[] | undefined>;
+    declare public readonly autoSubDomainCreationPatterns: pulumi.Output<string[] | undefined>;
     /**
      * The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
      */
-    public readonly autoSubDomainIamRole!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly certificate!: pulumi.Output<outputs.amplify.DomainCertificate>;
+    declare public readonly autoSubDomainIamRole: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly certificate: pulumi.Output<outputs.amplify.DomainCertificate>;
     /**
      * DNS Record for certificate verification.
      */
-    public /*out*/ readonly certificateRecord!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificateRecord: pulumi.Output<string>;
     /**
      * The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
      */
-    public readonly certificateSettings!: pulumi.Output<outputs.amplify.DomainCertificateSettings | undefined>;
+    declare public readonly certificateSettings: pulumi.Output<outputs.amplify.DomainCertificateSettings | undefined>;
     /**
      * The domain name for the domain association.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * Status for the Domain Association.
      */
-    public /*out*/ readonly domainStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainStatus: pulumi.Output<string>;
     /**
      * Enables the automated creation of subdomains for branches.
      */
-    public readonly enableAutoSubDomain!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableAutoSubDomain: pulumi.Output<boolean | undefined>;
     /**
      * Reason for the current status of the domain.
      */
-    public /*out*/ readonly statusReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusReason: pulumi.Output<string>;
     /**
      * The setting for the subdomain.
      */
-    public readonly subDomainSettings!: pulumi.Output<outputs.amplify.DomainSubDomainSetting[]>;
+    declare public readonly subDomainSettings: pulumi.Output<outputs.amplify.DomainSubDomainSetting[]>;
     /**
      * The status of the domain update operation that is currently in progress. The following list describes the valid update states.
      *
@@ -93,7 +93,7 @@ export class Domain extends pulumi.CustomResource {
      * - **UPDATE_COMPLETE** - The certificate has been associated with a domain.
      * - **UPDATE_FAILED** - The certificate has failed to be provisioned or associated, and there is no existing active certificate to roll back to.
      */
-    public /*out*/ readonly updateStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly updateStatus: pulumi.Output<string>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -106,19 +106,19 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appId === undefined) && !opts.urn) {
+            if (args?.appId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if ((!args || args.subDomainSettings === undefined) && !opts.urn) {
+            if (args?.subDomainSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subDomainSettings'");
             }
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["autoSubDomainCreationPatterns"] = args ? args.autoSubDomainCreationPatterns : undefined;
-            resourceInputs["autoSubDomainIamRole"] = args ? args.autoSubDomainIamRole : undefined;
-            resourceInputs["certificateSettings"] = args ? args.certificateSettings : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["enableAutoSubDomain"] = args ? args.enableAutoSubDomain : undefined;
-            resourceInputs["subDomainSettings"] = args ? args.subDomainSettings : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["autoSubDomainCreationPatterns"] = args?.autoSubDomainCreationPatterns;
+            resourceInputs["autoSubDomainIamRole"] = args?.autoSubDomainIamRole;
+            resourceInputs["certificateSettings"] = args?.certificateSettings;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["enableAutoSubDomain"] = args?.enableAutoSubDomain;
+            resourceInputs["subDomainSettings"] = args?.subDomainSettings;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificate"] = undefined /*out*/;
             resourceInputs["certificateRecord"] = undefined /*out*/;

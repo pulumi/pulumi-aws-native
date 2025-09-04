@@ -40,31 +40,31 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The application ID.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    declare public readonly applicationId: pulumi.Output<string>;
     /**
      * On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
      */
-    public readonly deletionProtectionCheck!: pulumi.Output<enums.appconfig.EnvironmentDeletionProtectionCheck | undefined>;
+    declare public readonly deletionProtectionCheck: pulumi.Output<enums.appconfig.EnvironmentDeletionProtectionCheck | undefined>;
     /**
      * A description of the environment.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The environment ID.
      */
-    public /*out*/ readonly environmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly environmentId: pulumi.Output<string>;
     /**
      * Amazon CloudWatch alarms to monitor during the deployment process.
      */
-    public readonly monitors!: pulumi.Output<outputs.appconfig.EnvironmentMonitor[] | undefined>;
+    declare public readonly monitors: pulumi.Output<outputs.appconfig.EnvironmentMonitor[] | undefined>;
     /**
      * A name for the environment.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -77,15 +77,15 @@ export class Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["deletionProtectionCheck"] = args ? args.deletionProtectionCheck : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["monitors"] = args ? args.monitors : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["deletionProtectionCheck"] = args?.deletionProtectionCheck;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["monitors"] = args?.monitors;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["environmentId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;

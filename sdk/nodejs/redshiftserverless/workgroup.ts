@@ -40,75 +40,75 @@ export class Workgroup extends pulumi.CustomResource {
     /**
      * The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
      */
-    public readonly baseCapacity!: pulumi.Output<number | undefined>;
+    declare public readonly baseCapacity: pulumi.Output<number | undefined>;
     /**
      * A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
      */
-    public readonly configParameters!: pulumi.Output<outputs.redshiftserverless.WorkgroupConfigParameter[] | undefined>;
+    declare public readonly configParameters: pulumi.Output<outputs.redshiftserverless.WorkgroupConfigParameter[] | undefined>;
     /**
      * The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
      */
-    public readonly enhancedVpcRouting!: pulumi.Output<boolean | undefined>;
+    declare public readonly enhancedVpcRouting: pulumi.Output<boolean | undefined>;
     /**
      * The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
      */
-    public readonly maxCapacity!: pulumi.Output<number | undefined>;
+    declare public readonly maxCapacity: pulumi.Output<number | undefined>;
     /**
      * The namespace the workgroup is associated with.
      */
-    public readonly namespaceName!: pulumi.Output<string | undefined>;
+    declare public readonly namespaceName: pulumi.Output<string | undefined>;
     /**
      * The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * A property that represents the price performance target settings for the workgroup.
      */
-    public readonly pricePerformanceTarget!: pulumi.Output<outputs.redshiftserverless.WorkgroupPerformanceTarget | undefined>;
+    declare public readonly pricePerformanceTarget: pulumi.Output<outputs.redshiftserverless.WorkgroupPerformanceTarget | undefined>;
     /**
      * A value that specifies whether the workgroup can be accessible from a public network.
      */
-    public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
+    declare public readonly publiclyAccessible: pulumi.Output<boolean | undefined>;
     /**
      * The recovery point id to restore from.
      */
-    public readonly recoveryPointId!: pulumi.Output<string | undefined>;
+    declare public readonly recoveryPointId: pulumi.Output<string | undefined>;
     /**
      * A list of security group IDs to associate with the workgroup.
      */
-    public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the snapshot to restore from.
      */
-    public readonly snapshotArn!: pulumi.Output<string | undefined>;
+    declare public readonly snapshotArn: pulumi.Output<string | undefined>;
     /**
      * The snapshot name to restore from.
      */
-    public readonly snapshotName!: pulumi.Output<string | undefined>;
+    declare public readonly snapshotName: pulumi.Output<string | undefined>;
     /**
      * The Amazon Web Services account that owns the snapshot.
      */
-    public readonly snapshotOwnerAccount!: pulumi.Output<string | undefined>;
+    declare public readonly snapshotOwnerAccount: pulumi.Output<string | undefined>;
     /**
      * A list of subnet IDs the workgroup is associated with.
      */
-    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly subnetIds: pulumi.Output<string[] | undefined>;
     /**
      * The map of the key-value pairs used to tag the workgroup.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
      */
-    public readonly trackName!: pulumi.Output<string | undefined>;
+    declare public readonly trackName: pulumi.Output<string | undefined>;
     /**
      * Definition for workgroup resource
      */
-    public readonly workgroup!: pulumi.Output<outputs.redshiftserverless.Workgroup | undefined>;
+    declare public readonly workgroup: pulumi.Output<outputs.redshiftserverless.Workgroup | undefined>;
     /**
      * The name of the workgroup.
      */
-    public readonly workgroupName!: pulumi.Output<string>;
+    declare public readonly workgroupName: pulumi.Output<string>;
 
     /**
      * Create a Workgroup resource with the given unique name, arguments, and options.
@@ -121,24 +121,24 @@ export class Workgroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["baseCapacity"] = args ? args.baseCapacity : undefined;
-            resourceInputs["configParameters"] = args ? args.configParameters : undefined;
-            resourceInputs["enhancedVpcRouting"] = args ? args.enhancedVpcRouting : undefined;
-            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["pricePerformanceTarget"] = args ? args.pricePerformanceTarget : undefined;
-            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            resourceInputs["recoveryPointId"] = args ? args.recoveryPointId : undefined;
-            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["snapshotArn"] = args ? args.snapshotArn : undefined;
-            resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
-            resourceInputs["snapshotOwnerAccount"] = args ? args.snapshotOwnerAccount : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trackName"] = args ? args.trackName : undefined;
-            resourceInputs["workgroup"] = args ? args.workgroup : undefined;
-            resourceInputs["workgroupName"] = args ? args.workgroupName : undefined;
+            resourceInputs["baseCapacity"] = args?.baseCapacity;
+            resourceInputs["configParameters"] = args?.configParameters;
+            resourceInputs["enhancedVpcRouting"] = args?.enhancedVpcRouting;
+            resourceInputs["maxCapacity"] = args?.maxCapacity;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["pricePerformanceTarget"] = args?.pricePerformanceTarget;
+            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
+            resourceInputs["recoveryPointId"] = args?.recoveryPointId;
+            resourceInputs["securityGroupIds"] = args?.securityGroupIds;
+            resourceInputs["snapshotArn"] = args?.snapshotArn;
+            resourceInputs["snapshotName"] = args?.snapshotName;
+            resourceInputs["snapshotOwnerAccount"] = args?.snapshotOwnerAccount;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trackName"] = args?.trackName;
+            resourceInputs["workgroup"] = args?.workgroup;
+            resourceInputs["workgroupName"] = args?.workgroupName;
         } else {
             resourceInputs["baseCapacity"] = undefined /*out*/;
             resourceInputs["configParameters"] = undefined /*out*/;

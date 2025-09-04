@@ -40,47 +40,47 @@ export class Rule extends pulumi.CustomResource {
     /**
      * Rule Arn is unique for each rule.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The description of the retention rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
      */
-    public readonly excludeResourceTags!: pulumi.Output<outputs.rbin.RuleResourceTag[] | undefined>;
+    declare public readonly excludeResourceTags: pulumi.Output<outputs.rbin.RuleResourceTag[] | undefined>;
     /**
      * The unique ID of the retention rule.
      */
-    public /*out*/ readonly identifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly identifier: pulumi.Output<string>;
     /**
      * Information about the retention rule lock configuration.
      */
-    public readonly lockConfiguration!: pulumi.Output<outputs.rbin.RuleUnlockDelay | undefined>;
+    declare public readonly lockConfiguration: pulumi.Output<outputs.rbin.RuleUnlockDelay | undefined>;
     /**
      * The lock state for the retention rule.
      */
-    public /*out*/ readonly lockState!: pulumi.Output<string>;
+    declare public /*out*/ readonly lockState: pulumi.Output<string>;
     /**
      * Information about the resource tags used to identify resources that are retained by the retention rule.
      */
-    public readonly resourceTags!: pulumi.Output<outputs.rbin.RuleResourceTag[] | undefined>;
+    declare public readonly resourceTags: pulumi.Output<outputs.rbin.RuleResourceTag[] | undefined>;
     /**
      * The resource type retained by the retention rule.
      */
-    public readonly resourceType!: pulumi.Output<enums.rbin.RuleResourceType>;
+    declare public readonly resourceType: pulumi.Output<enums.rbin.RuleResourceType>;
     /**
      * Information about the retention period for which the retention rule is to retain resources.
      */
-    public readonly retentionPeriod!: pulumi.Output<outputs.rbin.RuleRetentionPeriod>;
+    declare public readonly retentionPeriod: pulumi.Output<outputs.rbin.RuleRetentionPeriod>;
     /**
      * The state of the retention rule. Only retention rules that are in the available state retain resources.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Information about the tags assigned to the retention rule.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -93,20 +93,20 @@ export class Rule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if ((!args || args.retentionPeriod === undefined) && !opts.urn) {
+            if (args?.retentionPeriod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'retentionPeriod'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["excludeResourceTags"] = args ? args.excludeResourceTags : undefined;
-            resourceInputs["lockConfiguration"] = args ? args.lockConfiguration : undefined;
-            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["excludeResourceTags"] = args?.excludeResourceTags;
+            resourceInputs["lockConfiguration"] = args?.lockConfiguration;
+            resourceInputs["resourceTags"] = args?.resourceTags;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["retentionPeriod"] = args?.retentionPeriod;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;
             resourceInputs["lockState"] = undefined /*out*/;

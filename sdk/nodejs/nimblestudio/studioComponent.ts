@@ -37,17 +37,17 @@ export class StudioComponent extends pulumi.CustomResource {
         return obj['__pulumiType'] === StudioComponent.__pulumiType;
     }
 
-    public readonly configuration!: pulumi.Output<outputs.nimblestudio.StudioComponentConfiguration | undefined>;
-    public readonly description!: pulumi.Output<string | undefined>;
-    public readonly ec2SecurityGroupIds!: pulumi.Output<string[] | undefined>;
-    public readonly initializationScripts!: pulumi.Output<outputs.nimblestudio.StudioComponentInitializationScript[] | undefined>;
-    public readonly name!: pulumi.Output<string>;
-    public readonly scriptParameters!: pulumi.Output<outputs.nimblestudio.StudioComponentScriptParameterKeyValue[] | undefined>;
-    public /*out*/ readonly studioComponentId!: pulumi.Output<string>;
-    public readonly studioId!: pulumi.Output<string>;
-    public readonly subtype!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly configuration: pulumi.Output<outputs.nimblestudio.StudioComponentConfiguration | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly ec2SecurityGroupIds: pulumi.Output<string[] | undefined>;
+    declare public readonly initializationScripts: pulumi.Output<outputs.nimblestudio.StudioComponentInitializationScript[] | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly scriptParameters: pulumi.Output<outputs.nimblestudio.StudioComponentScriptParameterKeyValue[] | undefined>;
+    declare public /*out*/ readonly studioComponentId: pulumi.Output<string>;
+    declare public readonly studioId: pulumi.Output<string>;
+    declare public readonly subtype: pulumi.Output<string | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a StudioComponent resource with the given unique name, arguments, and options.
@@ -60,22 +60,22 @@ export class StudioComponent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.studioId === undefined) && !opts.urn) {
+            if (args?.studioId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'studioId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ec2SecurityGroupIds"] = args ? args.ec2SecurityGroupIds : undefined;
-            resourceInputs["initializationScripts"] = args ? args.initializationScripts : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["scriptParameters"] = args ? args.scriptParameters : undefined;
-            resourceInputs["studioId"] = args ? args.studioId : undefined;
-            resourceInputs["subtype"] = args ? args.subtype : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ec2SecurityGroupIds"] = args?.ec2SecurityGroupIds;
+            resourceInputs["initializationScripts"] = args?.initializationScripts;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["scriptParameters"] = args?.scriptParameters;
+            resourceInputs["studioId"] = args?.studioId;
+            resourceInputs["subtype"] = args?.subtype;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["studioComponentId"] = undefined /*out*/;
         } else {
             resourceInputs["configuration"] = undefined /*out*/;

@@ -79,31 +79,31 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * The parallelism configuration applied to the pipeline.
      */
-    public readonly parallelismConfiguration!: pulumi.Output<outputs.sagemaker.ParallelismConfigurationProperties | undefined>;
+    declare public readonly parallelismConfiguration: pulumi.Output<outputs.sagemaker.ParallelismConfigurationProperties | undefined>;
     /**
      * The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
      */
-    public readonly pipelineDefinition!: pulumi.Output<outputs.sagemaker.PipelineDefinition0Properties | outputs.sagemaker.PipelineDefinition1Properties>;
+    declare public readonly pipelineDefinition: pulumi.Output<outputs.sagemaker.PipelineDefinition0Properties | outputs.sagemaker.PipelineDefinition1Properties>;
     /**
      * The description of the Pipeline.
      */
-    public readonly pipelineDescription!: pulumi.Output<string | undefined>;
+    declare public readonly pipelineDescription: pulumi.Output<string | undefined>;
     /**
      * The display name of the Pipeline.
      */
-    public readonly pipelineDisplayName!: pulumi.Output<string | undefined>;
+    declare public readonly pipelineDisplayName: pulumi.Output<string | undefined>;
     /**
      * The name of the Pipeline.
      */
-    public readonly pipelineName!: pulumi.Output<string>;
+    declare public readonly pipelineName: pulumi.Output<string>;
     /**
      * Role Arn
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * The tags of the pipeline.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -116,19 +116,19 @@ export class Pipeline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.pipelineDefinition === undefined) && !opts.urn) {
+            if (args?.pipelineDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pipelineDefinition'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["parallelismConfiguration"] = args ? args.parallelismConfiguration : undefined;
-            resourceInputs["pipelineDefinition"] = args ? args.pipelineDefinition : undefined;
-            resourceInputs["pipelineDescription"] = args ? args.pipelineDescription : undefined;
-            resourceInputs["pipelineDisplayName"] = args ? args.pipelineDisplayName : undefined;
-            resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["parallelismConfiguration"] = args?.parallelismConfiguration;
+            resourceInputs["pipelineDefinition"] = args?.pipelineDefinition;
+            resourceInputs["pipelineDescription"] = args?.pipelineDescription;
+            resourceInputs["pipelineDisplayName"] = args?.pipelineDisplayName;
+            resourceInputs["pipelineName"] = args?.pipelineName;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["parallelismConfiguration"] = undefined /*out*/;
             resourceInputs["pipelineDefinition"] = undefined /*out*/;

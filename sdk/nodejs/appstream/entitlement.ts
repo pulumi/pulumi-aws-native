@@ -40,31 +40,31 @@ export class Entitlement extends pulumi.CustomResource {
     /**
      * Specifies whether to entitle all apps or only selected apps.
      */
-    public readonly appVisibility!: pulumi.Output<string>;
+    declare public readonly appVisibility: pulumi.Output<string>;
     /**
      * The attributes of the entitlement.
      */
-    public readonly attributes!: pulumi.Output<outputs.appstream.EntitlementAttribute[]>;
+    declare public readonly attributes: pulumi.Output<outputs.appstream.EntitlementAttribute[]>;
     /**
      * The time when the entitlement was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The description of the entitlement.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The time when the entitlement was last modified.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * The name of the entitlement.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the stack.
      */
-    public readonly stackName!: pulumi.Output<string>;
+    declare public readonly stackName: pulumi.Output<string>;
 
     /**
      * Create a Entitlement resource with the given unique name, arguments, and options.
@@ -77,20 +77,20 @@ export class Entitlement extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appVisibility === undefined) && !opts.urn) {
+            if (args?.appVisibility === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appVisibility'");
             }
-            if ((!args || args.attributes === undefined) && !opts.urn) {
+            if (args?.attributes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'attributes'");
             }
-            if ((!args || args.stackName === undefined) && !opts.urn) {
+            if (args?.stackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stackName'");
             }
-            resourceInputs["appVisibility"] = args ? args.appVisibility : undefined;
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["stackName"] = args ? args.stackName : undefined;
+            resourceInputs["appVisibility"] = args?.appVisibility;
+            resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["stackName"] = args?.stackName;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {

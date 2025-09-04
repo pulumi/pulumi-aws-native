@@ -44,17 +44,17 @@ export class ZonalAutoshiftConfiguration extends pulumi.CustomResource {
      *
      * You can update or delete a practice run configuration. Before you delete a practice run configuration, you must disable zonal autoshift for the resource. A practice run configuration is required when zonal autoshift is enabled.
      */
-    public readonly practiceRunConfiguration!: pulumi.Output<outputs.arczonalshift.ZonalAutoshiftConfigurationPracticeRunConfiguration | undefined>;
+    declare public readonly practiceRunConfiguration: pulumi.Output<outputs.arczonalshift.ZonalAutoshiftConfigurationPracticeRunConfiguration | undefined>;
     /**
      * The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
      *
      * At this time, supported resources are Network Load Balancers and Application Load Balancers.
      */
-    public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly resourceIdentifier: pulumi.Output<string | undefined>;
     /**
      * When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
      */
-    public readonly zonalAutoshiftStatus!: pulumi.Output<enums.arczonalshift.ZonalAutoshiftConfigurationZonalAutoshiftStatus | undefined>;
+    declare public readonly zonalAutoshiftStatus: pulumi.Output<enums.arczonalshift.ZonalAutoshiftConfigurationZonalAutoshiftStatus | undefined>;
 
     /**
      * Create a ZonalAutoshiftConfiguration resource with the given unique name, arguments, and options.
@@ -67,9 +67,9 @@ export class ZonalAutoshiftConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["practiceRunConfiguration"] = args ? args.practiceRunConfiguration : undefined;
-            resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
-            resourceInputs["zonalAutoshiftStatus"] = args ? args.zonalAutoshiftStatus : undefined;
+            resourceInputs["practiceRunConfiguration"] = args?.practiceRunConfiguration;
+            resourceInputs["resourceIdentifier"] = args?.resourceIdentifier;
+            resourceInputs["zonalAutoshiftStatus"] = args?.zonalAutoshiftStatus;
         } else {
             resourceInputs["practiceRunConfiguration"] = undefined /*out*/;
             resourceInputs["resourceIdentifier"] = undefined /*out*/;

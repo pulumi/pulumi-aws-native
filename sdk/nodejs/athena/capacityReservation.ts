@@ -40,39 +40,39 @@ export class CapacityReservation extends pulumi.CustomResource {
     /**
      * The number of DPUs Athena has provisioned and allocated for the reservation
      */
-    public /*out*/ readonly allocatedDpus!: pulumi.Output<number>;
+    declare public /*out*/ readonly allocatedDpus: pulumi.Output<number>;
     /**
      * The ARN of the capacity reservation.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
      */
-    public readonly capacityAssignmentConfiguration!: pulumi.Output<outputs.athena.CapacityReservationCapacityAssignmentConfiguration | undefined>;
+    declare public readonly capacityAssignmentConfiguration: pulumi.Output<outputs.athena.CapacityReservationCapacityAssignmentConfiguration | undefined>;
     /**
      * The date and time the reservation was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The timestamp when the last successful allocated was made
      */
-    public /*out*/ readonly lastSuccessfulAllocationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastSuccessfulAllocationTime: pulumi.Output<string>;
     /**
      * The reservation name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The status of the reservation.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.athena.CapacityReservationStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.athena.CapacityReservationStatus>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The number of DPUs to request to be allocated to the reservation.
      */
-    public readonly targetDpus!: pulumi.Output<number>;
+    declare public readonly targetDpus: pulumi.Output<number>;
 
     /**
      * Create a CapacityReservation resource with the given unique name, arguments, and options.
@@ -85,13 +85,13 @@ export class CapacityReservation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.targetDpus === undefined) && !opts.urn) {
+            if (args?.targetDpus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetDpus'");
             }
-            resourceInputs["capacityAssignmentConfiguration"] = args ? args.capacityAssignmentConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetDpus"] = args ? args.targetDpus : undefined;
+            resourceInputs["capacityAssignmentConfiguration"] = args?.capacityAssignmentConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetDpus"] = args?.targetDpus;
             resourceInputs["allocatedDpus"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

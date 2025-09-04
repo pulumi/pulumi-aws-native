@@ -40,7 +40,7 @@ export class IdentityProvider extends pulumi.CustomResource {
     /**
      * The ARN of the identity provider.
      */
-    public /*out*/ readonly identityProviderArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly identityProviderArn: pulumi.Output<string>;
     /**
      * The identity provider details. The following list describes the provider detail keys for each identity provider type.
      *
@@ -81,20 +81,20 @@ export class IdentityProvider extends pulumi.CustomResource {
      * - `RequestSigningAlgorithm` (string) *optional* - Only accepts `rsa-sha256`
      * - `EncryptedResponses` (boolean) *optional*
      */
-    public readonly identityProviderDetails!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly identityProviderDetails: pulumi.Output<{[key: string]: string}>;
     /**
      * The identity provider name.
      */
-    public readonly identityProviderName!: pulumi.Output<string>;
+    declare public readonly identityProviderName: pulumi.Output<string>;
     /**
      * The identity provider type.
      */
-    public readonly identityProviderType!: pulumi.Output<enums.workspacesweb.IdentityProviderType>;
+    declare public readonly identityProviderType: pulumi.Output<enums.workspacesweb.IdentityProviderType>;
     /**
      * The ARN of the identity provider.
      */
-    public readonly portalArn!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly portalArn: pulumi.Output<string | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a IdentityProvider resource with the given unique name, arguments, and options.
@@ -107,17 +107,17 @@ export class IdentityProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.identityProviderDetails === undefined) && !opts.urn) {
+            if (args?.identityProviderDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityProviderDetails'");
             }
-            if ((!args || args.identityProviderType === undefined) && !opts.urn) {
+            if (args?.identityProviderType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityProviderType'");
             }
-            resourceInputs["identityProviderDetails"] = args ? args.identityProviderDetails : undefined;
-            resourceInputs["identityProviderName"] = args ? args.identityProviderName : undefined;
-            resourceInputs["identityProviderType"] = args ? args.identityProviderType : undefined;
-            resourceInputs["portalArn"] = args ? args.portalArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["identityProviderDetails"] = args?.identityProviderDetails;
+            resourceInputs["identityProviderName"] = args?.identityProviderName;
+            resourceInputs["identityProviderType"] = args?.identityProviderType;
+            resourceInputs["portalArn"] = args?.portalArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["identityProviderArn"] = undefined /*out*/;
         } else {
             resourceInputs["identityProviderArn"] = undefined /*out*/;

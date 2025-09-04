@@ -40,16 +40,16 @@ export class ApplicationVersion extends pulumi.CustomResource {
     /**
      * The name of the Elastic Beanstalk application that is associated with this application version. 
      */
-    public readonly applicationName!: pulumi.Output<string>;
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public readonly applicationName: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A description of this application version.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
      */
-    public readonly sourceBundle!: pulumi.Output<outputs.elasticbeanstalk.ApplicationVersionSourceBundle>;
+    declare public readonly sourceBundle: pulumi.Output<outputs.elasticbeanstalk.ApplicationVersionSourceBundle>;
 
     /**
      * Create a ApplicationVersion resource with the given unique name, arguments, and options.
@@ -62,15 +62,15 @@ export class ApplicationVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationName === undefined) && !opts.urn) {
+            if (args?.applicationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationName'");
             }
-            if ((!args || args.sourceBundle === undefined) && !opts.urn) {
+            if (args?.sourceBundle === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceBundle'");
             }
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["sourceBundle"] = args ? args.sourceBundle : undefined;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["sourceBundle"] = args?.sourceBundle;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationName"] = undefined /*out*/;

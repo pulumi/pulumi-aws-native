@@ -40,59 +40,59 @@ export class Image extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the image.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
      */
-    public readonly containerRecipeArn!: pulumi.Output<string | undefined>;
+    declare public readonly containerRecipeArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the distribution configuration.
      */
-    public readonly distributionConfigurationArn!: pulumi.Output<string | undefined>;
+    declare public readonly distributionConfigurationArn: pulumi.Output<string | undefined>;
     /**
      * Collects additional information about the image being created, including the operating system (OS) version and package list.
      */
-    public readonly enhancedImageMetadataEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enhancedImageMetadataEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The execution role name/ARN for the image build, if provided
      */
-    public readonly executionRole!: pulumi.Output<string | undefined>;
+    declare public readonly executionRole: pulumi.Output<string | undefined>;
     /**
      * The AMI ID of the EC2 AMI in current region.
      */
-    public /*out*/ readonly imageId!: pulumi.Output<string>;
+    declare public /*out*/ readonly imageId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
      */
-    public readonly imageRecipeArn!: pulumi.Output<string | undefined>;
+    declare public readonly imageRecipeArn: pulumi.Output<string | undefined>;
     /**
      * Contains settings for vulnerability scans.
      */
-    public readonly imageScanningConfiguration!: pulumi.Output<outputs.imagebuilder.ImageScanningConfiguration | undefined>;
+    declare public readonly imageScanningConfiguration: pulumi.Output<outputs.imagebuilder.ImageScanningConfiguration | undefined>;
     /**
      * The image tests configuration used when creating this image.
      */
-    public readonly imageTestsConfiguration!: pulumi.Output<outputs.imagebuilder.ImageTestsConfiguration | undefined>;
+    declare public readonly imageTestsConfiguration: pulumi.Output<outputs.imagebuilder.ImageTestsConfiguration | undefined>;
     /**
      * URI for containers created in current Region with default ECR image tag
      */
-    public /*out*/ readonly imageUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly imageUri: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the infrastructure configuration.
      */
-    public readonly infrastructureConfigurationArn!: pulumi.Output<string | undefined>;
+    declare public readonly infrastructureConfigurationArn: pulumi.Output<string | undefined>;
     /**
      * The name of the image.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The tags associated with the image.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Workflows to define the image build process
      */
-    public readonly workflows!: pulumi.Output<outputs.imagebuilder.ImageWorkflowConfiguration[] | undefined>;
+    declare public readonly workflows: pulumi.Output<outputs.imagebuilder.ImageWorkflowConfiguration[] | undefined>;
 
     /**
      * Create a Image resource with the given unique name, arguments, and options.
@@ -105,16 +105,16 @@ export class Image extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["containerRecipeArn"] = args ? args.containerRecipeArn : undefined;
-            resourceInputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
-            resourceInputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
-            resourceInputs["executionRole"] = args ? args.executionRole : undefined;
-            resourceInputs["imageRecipeArn"] = args ? args.imageRecipeArn : undefined;
-            resourceInputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
-            resourceInputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
-            resourceInputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workflows"] = args ? args.workflows : undefined;
+            resourceInputs["containerRecipeArn"] = args?.containerRecipeArn;
+            resourceInputs["distributionConfigurationArn"] = args?.distributionConfigurationArn;
+            resourceInputs["enhancedImageMetadataEnabled"] = args?.enhancedImageMetadataEnabled;
+            resourceInputs["executionRole"] = args?.executionRole;
+            resourceInputs["imageRecipeArn"] = args?.imageRecipeArn;
+            resourceInputs["imageScanningConfiguration"] = args?.imageScanningConfiguration;
+            resourceInputs["imageTestsConfiguration"] = args?.imageTestsConfiguration;
+            resourceInputs["infrastructureConfigurationArn"] = args?.infrastructureConfigurationArn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workflows"] = args?.workflows;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["imageId"] = undefined /*out*/;
             resourceInputs["imageUri"] = undefined /*out*/;

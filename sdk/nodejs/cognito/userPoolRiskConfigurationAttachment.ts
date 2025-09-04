@@ -40,23 +40,23 @@ export class UserPoolRiskConfigurationAttachment extends pulumi.CustomResource {
     /**
      * The settings for automated responses and notification templates for adaptive authentication with threat protection.
      */
-    public readonly accountTakeoverRiskConfiguration!: pulumi.Output<outputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType | undefined>;
+    declare public readonly accountTakeoverRiskConfiguration: pulumi.Output<outputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType | undefined>;
     /**
      * The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
      */
-    public readonly clientId!: pulumi.Output<string>;
+    declare public readonly clientId: pulumi.Output<string>;
     /**
      * Settings for compromised-credentials actions and authentication types with threat protection in full-function `ENFORCED` mode.
      */
-    public readonly compromisedCredentialsRiskConfiguration!: pulumi.Output<outputs.cognito.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType | undefined>;
+    declare public readonly compromisedCredentialsRiskConfiguration: pulumi.Output<outputs.cognito.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType | undefined>;
     /**
      * Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
      */
-    public readonly riskExceptionConfiguration!: pulumi.Output<outputs.cognito.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType | undefined>;
+    declare public readonly riskExceptionConfiguration: pulumi.Output<outputs.cognito.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType | undefined>;
     /**
      * The ID of the user pool that has the risk configuration applied.
      */
-    public readonly userPoolId!: pulumi.Output<string>;
+    declare public readonly userPoolId: pulumi.Output<string>;
 
     /**
      * Create a UserPoolRiskConfigurationAttachment resource with the given unique name, arguments, and options.
@@ -69,17 +69,17 @@ export class UserPoolRiskConfigurationAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["accountTakeoverRiskConfiguration"] = args ? args.accountTakeoverRiskConfiguration : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["compromisedCredentialsRiskConfiguration"] = args ? args.compromisedCredentialsRiskConfiguration : undefined;
-            resourceInputs["riskExceptionConfiguration"] = args ? args.riskExceptionConfiguration : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["accountTakeoverRiskConfiguration"] = args?.accountTakeoverRiskConfiguration;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["compromisedCredentialsRiskConfiguration"] = args?.compromisedCredentialsRiskConfiguration;
+            resourceInputs["riskExceptionConfiguration"] = args?.riskExceptionConfiguration;
+            resourceInputs["userPoolId"] = args?.userPoolId;
         } else {
             resourceInputs["accountTakeoverRiskConfiguration"] = undefined /*out*/;
             resourceInputs["clientId"] = undefined /*out*/;

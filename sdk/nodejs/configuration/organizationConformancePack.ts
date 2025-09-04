@@ -68,31 +68,31 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
     /**
      * A list of ConformancePackInputParameter objects.
      */
-    public readonly conformancePackInputParameters!: pulumi.Output<outputs.configuration.OrganizationConformancePackConformancePackInputParameter[] | undefined>;
+    declare public readonly conformancePackInputParameters: pulumi.Output<outputs.configuration.OrganizationConformancePackConformancePackInputParameter[] | undefined>;
     /**
      * AWS Config stores intermediate files while processing conformance pack template.
      */
-    public readonly deliveryS3Bucket!: pulumi.Output<string | undefined>;
+    declare public readonly deliveryS3Bucket: pulumi.Output<string | undefined>;
     /**
      * The prefix for the delivery S3 bucket.
      */
-    public readonly deliveryS3KeyPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly deliveryS3KeyPrefix: pulumi.Output<string | undefined>;
     /**
      * A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
      */
-    public readonly excludedAccounts!: pulumi.Output<string[] | undefined>;
+    declare public readonly excludedAccounts: pulumi.Output<string[] | undefined>;
     /**
      * The name of the organization conformance pack.
      */
-    public readonly organizationConformancePackName!: pulumi.Output<string>;
+    declare public readonly organizationConformancePackName: pulumi.Output<string>;
     /**
      * A string containing full conformance pack template body.
      */
-    public readonly templateBody!: pulumi.Output<string | undefined>;
+    declare public readonly templateBody: pulumi.Output<string | undefined>;
     /**
      * Location of file containing the template body.
      */
-    public readonly templateS3Uri!: pulumi.Output<string | undefined>;
+    declare public readonly templateS3Uri: pulumi.Output<string | undefined>;
 
     /**
      * Create a OrganizationConformancePack resource with the given unique name, arguments, and options.
@@ -105,13 +105,13 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["conformancePackInputParameters"] = args ? args.conformancePackInputParameters : undefined;
-            resourceInputs["deliveryS3Bucket"] = args ? args.deliveryS3Bucket : undefined;
-            resourceInputs["deliveryS3KeyPrefix"] = args ? args.deliveryS3KeyPrefix : undefined;
-            resourceInputs["excludedAccounts"] = args ? args.excludedAccounts : undefined;
-            resourceInputs["organizationConformancePackName"] = args ? args.organizationConformancePackName : undefined;
-            resourceInputs["templateBody"] = args ? args.templateBody : undefined;
-            resourceInputs["templateS3Uri"] = args ? args.templateS3Uri : undefined;
+            resourceInputs["conformancePackInputParameters"] = args?.conformancePackInputParameters;
+            resourceInputs["deliveryS3Bucket"] = args?.deliveryS3Bucket;
+            resourceInputs["deliveryS3KeyPrefix"] = args?.deliveryS3KeyPrefix;
+            resourceInputs["excludedAccounts"] = args?.excludedAccounts;
+            resourceInputs["organizationConformancePackName"] = args?.organizationConformancePackName;
+            resourceInputs["templateBody"] = args?.templateBody;
+            resourceInputs["templateS3Uri"] = args?.templateS3Uri;
         } else {
             resourceInputs["conformancePackInputParameters"] = undefined /*out*/;
             resourceInputs["deliveryS3Bucket"] = undefined /*out*/;

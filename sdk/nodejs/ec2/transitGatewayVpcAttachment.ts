@@ -40,35 +40,35 @@ export class TransitGatewayVpcAttachment extends pulumi.CustomResource {
     /**
      * The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.
      */
-    public readonly addSubnetIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly addSubnetIds: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the attachment.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The options for the transit gateway vpc attachment.
      */
-    public readonly options!: pulumi.Output<outputs.ec2.OptionsProperties | undefined>;
+    declare public readonly options: pulumi.Output<outputs.ec2.OptionsProperties | undefined>;
     /**
      * The IDs of one or more subnets to remove.
      */
-    public readonly removeSubnetIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly removeSubnetIds: pulumi.Output<string[] | undefined>;
     /**
      * The IDs of the subnets.
      */
-    public readonly subnetIds!: pulumi.Output<string[]>;
+    declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
      * The tags for the VPC attachment.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the transit gateway.
      */
-    public readonly transitGatewayId!: pulumi.Output<string>;
+    declare public readonly transitGatewayId: pulumi.Output<string>;
     /**
      * The ID of the VPC.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a TransitGatewayVpcAttachment resource with the given unique name, arguments, and options.
@@ -81,22 +81,22 @@ export class TransitGatewayVpcAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+            if (args?.subnetIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            if ((!args || args.transitGatewayId === undefined) && !opts.urn) {
+            if (args?.transitGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["addSubnetIds"] = args ? args.addSubnetIds : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["removeSubnetIds"] = args ? args.removeSubnetIds : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["addSubnetIds"] = args?.addSubnetIds;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["removeSubnetIds"] = args?.removeSubnetIds;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transitGatewayId"] = args?.transitGatewayId;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["addSubnetIds"] = undefined /*out*/;

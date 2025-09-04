@@ -40,23 +40,23 @@ export class DeviceFleet extends pulumi.CustomResource {
     /**
      * Description for the edge device fleet
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the edge device fleet
      */
-    public readonly deviceFleetName!: pulumi.Output<string>;
+    declare public readonly deviceFleetName: pulumi.Output<string>;
     /**
      * S3 bucket and an ecryption key id (if available) to store outputs for the fleet
      */
-    public readonly outputConfig!: pulumi.Output<outputs.sagemaker.DeviceFleetEdgeOutputConfig>;
+    declare public readonly outputConfig: pulumi.Output<outputs.sagemaker.DeviceFleetEdgeOutputConfig>;
     /**
      * Role associated with the device fleet
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * Associate tags with the resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DeviceFleet resource with the given unique name, arguments, and options.
@@ -69,17 +69,17 @@ export class DeviceFleet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.outputConfig === undefined) && !opts.urn) {
+            if (args?.outputConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outputConfig'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["deviceFleetName"] = args ? args.deviceFleetName : undefined;
-            resourceInputs["outputConfig"] = args ? args.outputConfig : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["deviceFleetName"] = args?.deviceFleetName;
+            resourceInputs["outputConfig"] = args?.outputConfig;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["deviceFleetName"] = undefined /*out*/;

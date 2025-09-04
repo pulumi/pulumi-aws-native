@@ -40,37 +40,37 @@ export class SafetyRule extends pulumi.CustomResource {
     /**
      * An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
      */
-    public readonly assertionRule!: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleAssertionRule | undefined>;
+    declare public readonly assertionRule: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleAssertionRule | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the control panel.
      */
-    public readonly controlPanelArn!: pulumi.Output<string | undefined>;
+    declare public readonly controlPanelArn: pulumi.Output<string | undefined>;
     /**
      * A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
      *
      * For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control switch to be On. When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
      */
-    public readonly gatingRule!: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleGatingRule | undefined>;
+    declare public readonly gatingRule: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleGatingRule | undefined>;
     /**
      * The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
      */
-    public readonly ruleConfig!: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleRuleConfig | undefined>;
+    declare public readonly ruleConfig: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleRuleConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the safety rule.
      */
-    public /*out*/ readonly safetyRuleArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly safetyRuleArn: pulumi.Output<string>;
     /**
      * The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.route53recoverycontrol.SafetyRuleStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.route53recoverycontrol.SafetyRuleStatus>;
     /**
      * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SafetyRule resource with the given unique name, arguments, and options.
@@ -83,12 +83,12 @@ export class SafetyRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["assertionRule"] = args ? args.assertionRule : undefined;
-            resourceInputs["controlPanelArn"] = args ? args.controlPanelArn : undefined;
-            resourceInputs["gatingRule"] = args ? args.gatingRule : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ruleConfig"] = args ? args.ruleConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assertionRule"] = args?.assertionRule;
+            resourceInputs["controlPanelArn"] = args?.controlPanelArn;
+            resourceInputs["gatingRule"] = args?.gatingRule;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ruleConfig"] = args?.ruleConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["safetyRuleArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

@@ -40,47 +40,47 @@ export class App extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the App.
      */
-    public /*out*/ readonly appArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly appArn: pulumi.Output<string>;
     /**
      * Assessment execution schedule.
      */
-    public readonly appAssessmentSchedule!: pulumi.Output<enums.resiliencehub.AppAssessmentSchedule | undefined>;
+    declare public readonly appAssessmentSchedule: pulumi.Output<enums.resiliencehub.AppAssessmentSchedule | undefined>;
     /**
      * A string containing full ResilienceHub app template body.
      */
-    public readonly appTemplateBody!: pulumi.Output<string>;
+    declare public readonly appTemplateBody: pulumi.Output<string>;
     /**
      * App description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Indicates if compliance drifts (deviations) were detected while running an assessment for your application.
      */
-    public /*out*/ readonly driftStatus!: pulumi.Output<enums.resiliencehub.AppDriftStatus>;
+    declare public /*out*/ readonly driftStatus: pulumi.Output<enums.resiliencehub.AppDriftStatus>;
     /**
      * The list of events you would like to subscribe and get notification for.
      */
-    public readonly eventSubscriptions!: pulumi.Output<outputs.resiliencehub.AppEventSubscription[] | undefined>;
+    declare public readonly eventSubscriptions: pulumi.Output<outputs.resiliencehub.AppEventSubscription[] | undefined>;
     /**
      * Name of the app.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
      */
-    public readonly permissionModel!: pulumi.Output<outputs.resiliencehub.AppPermissionModel | undefined>;
+    declare public readonly permissionModel: pulumi.Output<outputs.resiliencehub.AppPermissionModel | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
      */
-    public readonly resiliencyPolicyArn!: pulumi.Output<string | undefined>;
+    declare public readonly resiliencyPolicyArn: pulumi.Output<string | undefined>;
     /**
      * An array of ResourceMapping objects.
      */
-    public readonly resourceMappings!: pulumi.Output<outputs.resiliencehub.AppResourceMapping[]>;
+    declare public readonly resourceMappings: pulumi.Output<outputs.resiliencehub.AppResourceMapping[]>;
     /**
      * Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a App resource with the given unique name, arguments, and options.
@@ -93,21 +93,21 @@ export class App extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appTemplateBody === undefined) && !opts.urn) {
+            if (args?.appTemplateBody === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appTemplateBody'");
             }
-            if ((!args || args.resourceMappings === undefined) && !opts.urn) {
+            if (args?.resourceMappings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceMappings'");
             }
-            resourceInputs["appAssessmentSchedule"] = args ? args.appAssessmentSchedule : undefined;
-            resourceInputs["appTemplateBody"] = args ? args.appTemplateBody : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventSubscriptions"] = args ? args.eventSubscriptions : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissionModel"] = args ? args.permissionModel : undefined;
-            resourceInputs["resiliencyPolicyArn"] = args ? args.resiliencyPolicyArn : undefined;
-            resourceInputs["resourceMappings"] = args ? args.resourceMappings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appAssessmentSchedule"] = args?.appAssessmentSchedule;
+            resourceInputs["appTemplateBody"] = args?.appTemplateBody;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventSubscriptions"] = args?.eventSubscriptions;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissionModel"] = args?.permissionModel;
+            resourceInputs["resiliencyPolicyArn"] = args?.resiliencyPolicyArn;
+            resourceInputs["resourceMappings"] = args?.resourceMappings;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["appArn"] = undefined /*out*/;
             resourceInputs["driftStatus"] = undefined /*out*/;
         } else {

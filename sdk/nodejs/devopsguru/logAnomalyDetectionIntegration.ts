@@ -37,7 +37,7 @@ export class LogAnomalyDetectionIntegration extends pulumi.CustomResource {
     /**
      * The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
      */
-    public /*out*/ readonly accountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountId: pulumi.Output<string>;
 
     /**
      * Create a LogAnomalyDetectionIntegration resource with the given unique name, arguments, and options.

@@ -71,35 +71,35 @@ export class HoursOfOperation extends pulumi.CustomResource {
     /**
      * Configuration information for the hours of operation: day, start time, and end time.
      */
-    public readonly config!: pulumi.Output<outputs.connect.HoursOfOperationConfig[]>;
+    declare public readonly config: pulumi.Output<outputs.connect.HoursOfOperationConfig[]>;
     /**
      * The description of the hours of operation.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the hours of operation.
      */
-    public /*out*/ readonly hoursOfOperationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly hoursOfOperationArn: pulumi.Output<string>;
     /**
      * One or more hours of operation overrides assigned to an hour of operation.
      */
-    public readonly hoursOfOperationOverrides!: pulumi.Output<outputs.connect.HoursOfOperationOverride[] | undefined>;
+    declare public readonly hoursOfOperationOverrides: pulumi.Output<outputs.connect.HoursOfOperationOverride[] | undefined>;
     /**
      * The identifier of the Amazon Connect instance.
      */
-    public readonly instanceArn!: pulumi.Output<string>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * The name of the hours of operation.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The time zone of the hours of operation.
      */
-    public readonly timeZone!: pulumi.Output<string>;
+    declare public readonly timeZone: pulumi.Output<string>;
 
     /**
      * Create a HoursOfOperation resource with the given unique name, arguments, and options.
@@ -112,22 +112,22 @@ export class HoursOfOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.config === undefined) && !opts.urn) {
+            if (args?.config === undefined && !opts.urn) {
                 throw new Error("Missing required property 'config'");
             }
-            if ((!args || args.instanceArn === undefined) && !opts.urn) {
+            if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.timeZone === undefined) && !opts.urn) {
+            if (args?.timeZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeZone'");
             }
-            resourceInputs["config"] = args ? args.config : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["hoursOfOperationOverrides"] = args ? args.hoursOfOperationOverrides : undefined;
-            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["config"] = args?.config;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["hoursOfOperationOverrides"] = args?.hoursOfOperationOverrides;
+            resourceInputs["instanceArn"] = args?.instanceArn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeZone"] = args?.timeZone;
             resourceInputs["hoursOfOperationArn"] = undefined /*out*/;
         } else {
             resourceInputs["config"] = undefined /*out*/;

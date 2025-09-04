@@ -63,11 +63,11 @@ export class SlackWorkspaceConfiguration extends pulumi.CustomResource {
     /**
      * The team ID in Slack, which uniquely identifies a workspace.
      */
-    public readonly teamId!: pulumi.Output<string>;
+    declare public readonly teamId: pulumi.Output<string>;
     /**
      * An identifier used to update an existing Slack workspace configuration in AWS CloudFormation.
      */
-    public readonly versionId!: pulumi.Output<string | undefined>;
+    declare public readonly versionId: pulumi.Output<string | undefined>;
 
     /**
      * Create a SlackWorkspaceConfiguration resource with the given unique name, arguments, and options.
@@ -80,11 +80,11 @@ export class SlackWorkspaceConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.teamId === undefined) && !opts.urn) {
+            if (args?.teamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
-            resourceInputs["versionId"] = args ? args.versionId : undefined;
+            resourceInputs["teamId"] = args?.teamId;
+            resourceInputs["versionId"] = args?.versionId;
         } else {
             resourceInputs["teamId"] = undefined /*out*/;
             resourceInputs["versionId"] = undefined /*out*/;

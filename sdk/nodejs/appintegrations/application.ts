@@ -40,51 +40,51 @@ export class Application extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the application.
      */
-    public /*out*/ readonly applicationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationArn: pulumi.Output<string>;
     /**
      * The application configuration. Cannot be used when IsService is true.
      */
-    public readonly applicationConfig!: pulumi.Output<outputs.appintegrations.ApplicationConfig | undefined>;
+    declare public readonly applicationConfig: pulumi.Output<outputs.appintegrations.ApplicationConfig | undefined>;
     /**
      * Application source config
      */
-    public readonly applicationSourceConfig!: pulumi.Output<outputs.appintegrations.ApplicationSourceConfigProperties>;
+    declare public readonly applicationSourceConfig: pulumi.Output<outputs.appintegrations.ApplicationSourceConfigProperties>;
     /**
      * The id of the application.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The application description.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The iframe configuration
      */
-    public readonly iframeConfig!: pulumi.Output<outputs.appintegrations.ApplicationIframeConfig | undefined>;
+    declare public readonly iframeConfig: pulumi.Output<outputs.appintegrations.ApplicationIframeConfig | undefined>;
     /**
      * The initialization timeout in milliseconds. Required when IsService is true.
      */
-    public readonly initializationTimeout!: pulumi.Output<number | undefined>;
+    declare public readonly initializationTimeout: pulumi.Output<number | undefined>;
     /**
      * Indicates if the application is a service
      */
-    public readonly isService!: pulumi.Output<boolean | undefined>;
+    declare public readonly isService: pulumi.Output<boolean | undefined>;
     /**
      * The name of the application.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The namespace of the application.
      */
-    public readonly namespace!: pulumi.Output<string>;
+    declare public readonly namespace: pulumi.Output<string>;
     /**
      * The configuration of events or requests that the application has access to.
      */
-    public readonly permissions!: pulumi.Output<string[] | undefined>;
+    declare public readonly permissions: pulumi.Output<string[] | undefined>;
     /**
      * The tags (keys and values) associated with the application.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -97,25 +97,25 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationSourceConfig === undefined) && !opts.urn) {
+            if (args?.applicationSourceConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationSourceConfig'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.namespace === undefined) && !opts.urn) {
+            if (args?.namespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
-            resourceInputs["applicationConfig"] = args ? args.applicationConfig : undefined;
-            resourceInputs["applicationSourceConfig"] = args ? args.applicationSourceConfig : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["iframeConfig"] = args ? args.iframeConfig : undefined;
-            resourceInputs["initializationTimeout"] = args ? args.initializationTimeout : undefined;
-            resourceInputs["isService"] = args ? args.isService : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationConfig"] = args?.applicationConfig;
+            resourceInputs["applicationSourceConfig"] = args?.applicationSourceConfig;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["iframeConfig"] = args?.iframeConfig;
+            resourceInputs["initializationTimeout"] = args?.initializationTimeout;
+            resourceInputs["isService"] = args?.isService;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

@@ -40,27 +40,27 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The ID of the identity store associated with the created Identity Center (SSO) Instance
      */
-    public /*out*/ readonly identityStoreId!: pulumi.Output<string>;
+    declare public /*out*/ readonly identityStoreId: pulumi.Output<string>;
     /**
      * The SSO Instance ARN that is returned upon creation of the Identity Center (SSO) Instance
      */
-    public /*out*/ readonly instanceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly instanceArn: pulumi.Output<string>;
     /**
      * The name you want to assign to this Identity Center (SSO) Instance
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The AWS accountId of the owner of the Identity Center (SSO) Instance
      */
-    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
     /**
      * The status of the Identity Center (SSO) Instance, create_in_progress/delete_in_progress/active
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.sso.InstanceStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.sso.InstanceStatus>;
     /**
      * Specifies tags to be attached to the instance of IAM Identity Center.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Instance resource with the given unique name, arguments, and options.
@@ -73,8 +73,8 @@ export class Instance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["identityStoreId"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;

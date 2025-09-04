@@ -40,99 +40,99 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * The metadata forms that are to be attached to the assets that this data source works with.
      */
-    public readonly assetFormsInput!: pulumi.Output<outputs.datazone.DataSourceFormInput[] | undefined>;
+    declare public readonly assetFormsInput: pulumi.Output<outputs.datazone.DataSourceFormInput[] | undefined>;
     /**
      * The unique identifier of the data source.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
      */
-    public readonly configuration!: pulumi.Output<outputs.datazone.DataSourceConfigurationInput0Properties | outputs.datazone.DataSourceConfigurationInput1Properties | outputs.datazone.DataSourceConfigurationInput2Properties | undefined>;
+    declare public readonly configuration: pulumi.Output<outputs.datazone.DataSourceConfigurationInput0Properties | outputs.datazone.DataSourceConfigurationInput1Properties | outputs.datazone.DataSourceConfigurationInput2Properties | undefined>;
     /**
      * The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
      */
-    public /*out*/ readonly connectionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionId: pulumi.Output<string>;
     /**
      * The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
      */
-    public readonly connectionIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly connectionIdentifier: pulumi.Output<string | undefined>;
     /**
      * The timestamp of when the data source was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The description of the data source.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the Amazon DataZone domain where the data source is created.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainId: pulumi.Output<string>;
     /**
      * The ID of the Amazon DataZone domain where the data source is created.
      */
-    public readonly domainIdentifier!: pulumi.Output<string>;
+    declare public readonly domainIdentifier: pulumi.Output<string>;
     /**
      * Specifies whether the data source is enabled.
      */
-    public readonly enableSetting!: pulumi.Output<enums.datazone.DataSourceEnableSetting | undefined>;
+    declare public readonly enableSetting: pulumi.Output<enums.datazone.DataSourceEnableSetting | undefined>;
     /**
      * The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
      */
-    public /*out*/ readonly environmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly environmentId: pulumi.Output<string>;
     /**
      * The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
      */
-    public readonly environmentIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly environmentIdentifier: pulumi.Output<string | undefined>;
     /**
      * The number of assets created by the data source during its last run.
      */
-    public /*out*/ readonly lastRunAssetCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly lastRunAssetCount: pulumi.Output<number>;
     /**
      * The timestamp that specifies when the data source was last run.
      */
-    public /*out*/ readonly lastRunAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastRunAt: pulumi.Output<string>;
     /**
      * The status of the last run of this data source.
      */
-    public /*out*/ readonly lastRunStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastRunStatus: pulumi.Output<string>;
     /**
      * The name of the data source.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Amazon DataZone project to which the data source is added.
      */
-    public /*out*/ readonly projectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly projectId: pulumi.Output<string>;
     /**
      * The identifier of the Amazon DataZone project in which you want to add the data source.
      */
-    public readonly projectIdentifier!: pulumi.Output<string>;
+    declare public readonly projectIdentifier: pulumi.Output<string>;
     /**
      * Specifies whether the assets that this data source creates in the inventory are to be also automatically published to the catalog.
      */
-    public readonly publishOnImport!: pulumi.Output<boolean | undefined>;
+    declare public readonly publishOnImport: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the business name generation is to be enabled for this data source.
      */
-    public readonly recommendation!: pulumi.Output<outputs.datazone.DataSourceRecommendationConfiguration | undefined>;
+    declare public readonly recommendation: pulumi.Output<outputs.datazone.DataSourceRecommendationConfiguration | undefined>;
     /**
      * The schedule of the data source runs.
      */
-    public readonly schedule!: pulumi.Output<outputs.datazone.DataSourceScheduleConfiguration | undefined>;
+    declare public readonly schedule: pulumi.Output<outputs.datazone.DataSourceScheduleConfiguration | undefined>;
     /**
      * The status of the data source.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.datazone.DataSourceStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.datazone.DataSourceStatus>;
     /**
      * The type of the data source.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The timestamp of when this data source was updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a DataSource resource with the given unique name, arguments, and options.
@@ -145,28 +145,28 @@ export class DataSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.projectIdentifier === undefined) && !opts.urn) {
+            if (args?.projectIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectIdentifier'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["assetFormsInput"] = args ? args.assetFormsInput : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["connectionIdentifier"] = args ? args.connectionIdentifier : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["enableSetting"] = args ? args.enableSetting : undefined;
-            resourceInputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectIdentifier"] = args ? args.projectIdentifier : undefined;
-            resourceInputs["publishOnImport"] = args ? args.publishOnImport : undefined;
-            resourceInputs["recommendation"] = args ? args.recommendation : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["assetFormsInput"] = args?.assetFormsInput;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["connectionIdentifier"] = args?.connectionIdentifier;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["enableSetting"] = args?.enableSetting;
+            resourceInputs["environmentIdentifier"] = args?.environmentIdentifier;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectIdentifier"] = args?.projectIdentifier;
+            resourceInputs["publishOnImport"] = args?.publishOnImport;
+            resourceInputs["recommendation"] = args?.recommendation;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["type"] = args?.type;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["connectionId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

@@ -40,47 +40,47 @@ export class IpamResourceDiscoveryAssociation extends pulumi.CustomResource {
     /**
      * Arn of the IPAM.
      */
-    public /*out*/ readonly ipamArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamArn: pulumi.Output<string>;
     /**
      * The Id of the IPAM this Resource Discovery is associated to.
      */
-    public readonly ipamId!: pulumi.Output<string>;
+    declare public readonly ipamId: pulumi.Output<string>;
     /**
      * The home region of the IPAM.
      */
-    public /*out*/ readonly ipamRegion!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamRegion: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the resource discovery association is a part of.
      */
-    public /*out*/ readonly ipamResourceDiscoveryAssociationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamResourceDiscoveryAssociationArn: pulumi.Output<string>;
     /**
      * Id of the IPAM Resource Discovery Association.
      */
-    public /*out*/ readonly ipamResourceDiscoveryAssociationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipamResourceDiscoveryAssociationId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IPAM Resource Discovery Association.
      */
-    public readonly ipamResourceDiscoveryId!: pulumi.Output<string>;
+    declare public readonly ipamResourceDiscoveryId: pulumi.Output<string>;
     /**
      * If the Resource Discovery Association exists due as part of CreateIpam.
      */
-    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
     /**
      * The AWS Account ID for the account where the shared IPAM exists.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
      * The status of the resource discovery.
      */
-    public /*out*/ readonly resourceDiscoveryStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceDiscoveryStatus: pulumi.Output<string>;
     /**
      * The operational state of the Resource Discovery Association. Related to Create/Delete activities.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a IpamResourceDiscoveryAssociation resource with the given unique name, arguments, and options.
@@ -93,15 +93,15 @@ export class IpamResourceDiscoveryAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ipamId === undefined) && !opts.urn) {
+            if (args?.ipamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipamId'");
             }
-            if ((!args || args.ipamResourceDiscoveryId === undefined) && !opts.urn) {
+            if (args?.ipamResourceDiscoveryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipamResourceDiscoveryId'");
             }
-            resourceInputs["ipamId"] = args ? args.ipamId : undefined;
-            resourceInputs["ipamResourceDiscoveryId"] = args ? args.ipamResourceDiscoveryId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ipamId"] = args?.ipamId;
+            resourceInputs["ipamResourceDiscoveryId"] = args?.ipamResourceDiscoveryId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["ipamArn"] = undefined /*out*/;
             resourceInputs["ipamRegion"] = undefined /*out*/;
             resourceInputs["ipamResourceDiscoveryAssociationArn"] = undefined /*out*/;

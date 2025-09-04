@@ -40,27 +40,27 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
     /**
      * It's set to true for the configuration with the highest Revision among all configurations that share the same Name. It's set to false otherwise.
      */
-    public /*out*/ readonly latest!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly latest: pulumi.Output<boolean>;
     /**
      * The Amazon Resource Name (ARN) of this ObservabilityConfiguration
      */
-    public /*out*/ readonly observabilityConfigurationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly observabilityConfigurationArn: pulumi.Output<string>;
     /**
      * A name for the observability configuration. When you use it for the first time in an AWS Region, App Runner creates revision number 1 of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.
      */
-    public readonly observabilityConfigurationName!: pulumi.Output<string | undefined>;
+    declare public readonly observabilityConfigurationName: pulumi.Output<string | undefined>;
     /**
      * The revision of this observability configuration. It's unique among all the active configurations ('Status': 'ACTIVE') that share the same ObservabilityConfigurationName.
      */
-    public /*out*/ readonly observabilityConfigurationRevision!: pulumi.Output<number>;
+    declare public /*out*/ readonly observabilityConfigurationRevision: pulumi.Output<number>;
     /**
      * A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing.
      */
-    public readonly traceConfiguration!: pulumi.Output<outputs.apprunner.ObservabilityConfigurationTraceConfiguration | undefined>;
+    declare public readonly traceConfiguration: pulumi.Output<outputs.apprunner.ObservabilityConfigurationTraceConfiguration | undefined>;
 
     /**
      * Create a ObservabilityConfiguration resource with the given unique name, arguments, and options.
@@ -73,9 +73,9 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["observabilityConfigurationName"] = args ? args.observabilityConfigurationName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["traceConfiguration"] = args ? args.traceConfiguration : undefined;
+            resourceInputs["observabilityConfigurationName"] = args?.observabilityConfigurationName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["traceConfiguration"] = args?.traceConfiguration;
             resourceInputs["latest"] = undefined /*out*/;
             resourceInputs["observabilityConfigurationArn"] = undefined /*out*/;
             resourceInputs["observabilityConfigurationRevision"] = undefined /*out*/;

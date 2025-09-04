@@ -40,79 +40,79 @@ export class FlowOutput extends pulumi.CustomResource {
     /**
      * The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
      */
-    public readonly cidrAllowList!: pulumi.Output<string[] | undefined>;
+    declare public readonly cidrAllowList: pulumi.Output<string[] | undefined>;
     /**
      * A description of the output.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The address where you want to send the output.
      */
-    public readonly destination!: pulumi.Output<string | undefined>;
+    declare public readonly destination: pulumi.Output<string | undefined>;
     /**
      * The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
      */
-    public readonly encryption!: pulumi.Output<outputs.mediaconnect.FlowOutputEncryption | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.mediaconnect.FlowOutputEncryption | undefined>;
     /**
      * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
      */
-    public readonly flowArn!: pulumi.Output<string>;
+    declare public readonly flowArn: pulumi.Output<string>;
     /**
      * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
      */
-    public readonly maxLatency!: pulumi.Output<number | undefined>;
+    declare public readonly maxLatency: pulumi.Output<number | undefined>;
     /**
      * The definition for each media stream that is associated with the output.
      */
-    public readonly mediaStreamOutputConfigurations!: pulumi.Output<outputs.mediaconnect.FlowOutputMediaStreamOutputConfiguration[] | undefined>;
+    declare public readonly mediaStreamOutputConfigurations: pulumi.Output<outputs.mediaconnect.FlowOutputMediaStreamOutputConfiguration[] | undefined>;
     /**
      * The minimum latency in milliseconds.
      */
-    public readonly minLatency!: pulumi.Output<number | undefined>;
+    declare public readonly minLatency: pulumi.Output<number | undefined>;
     /**
      * The name of the output. This value must be unique within the current flow.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
      */
-    public readonly ndiProgramName!: pulumi.Output<string | undefined>;
+    declare public readonly ndiProgramName: pulumi.Output<string | undefined>;
     /**
      * A quality setting for the NDI Speed HQ encoder.
      */
-    public readonly ndiSpeedHqQuality!: pulumi.Output<number | undefined>;
+    declare public readonly ndiSpeedHqQuality: pulumi.Output<number | undefined>;
     /**
      * The ARN of the output.
      */
-    public /*out*/ readonly outputArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly outputArn: pulumi.Output<string>;
     /**
      * An indication of whether the output should transmit data or not.
      */
-    public readonly outputStatus!: pulumi.Output<enums.mediaconnect.FlowOutputOutputStatus | undefined>;
+    declare public readonly outputStatus: pulumi.Output<enums.mediaconnect.FlowOutputOutputStatus | undefined>;
     /**
      * The port to use when content is distributed to this output.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * The protocol that is used by the source or output.
      */
-    public readonly protocol!: pulumi.Output<enums.mediaconnect.FlowOutputProtocol>;
+    declare public readonly protocol: pulumi.Output<enums.mediaconnect.FlowOutputProtocol>;
     /**
      * The remote ID for the Zixi-pull stream.
      */
-    public readonly remoteId!: pulumi.Output<string | undefined>;
+    declare public readonly remoteId: pulumi.Output<string | undefined>;
     /**
      * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
      */
-    public readonly smoothingLatency!: pulumi.Output<number | undefined>;
+    declare public readonly smoothingLatency: pulumi.Output<number | undefined>;
     /**
      * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
      */
-    public readonly streamId!: pulumi.Output<string | undefined>;
+    declare public readonly streamId: pulumi.Output<string | undefined>;
     /**
      * The name of the VPC interface attachment to use for this output.
      */
-    public readonly vpcInterfaceAttachment!: pulumi.Output<outputs.mediaconnect.FlowOutputVpcInterfaceAttachment | undefined>;
+    declare public readonly vpcInterfaceAttachment: pulumi.Output<outputs.mediaconnect.FlowOutputVpcInterfaceAttachment | undefined>;
 
     /**
      * Create a FlowOutput resource with the given unique name, arguments, and options.
@@ -125,30 +125,30 @@ export class FlowOutput extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.flowArn === undefined) && !opts.urn) {
+            if (args?.flowArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'flowArn'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            resourceInputs["cidrAllowList"] = args ? args.cidrAllowList : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["flowArn"] = args ? args.flowArn : undefined;
-            resourceInputs["maxLatency"] = args ? args.maxLatency : undefined;
-            resourceInputs["mediaStreamOutputConfigurations"] = args ? args.mediaStreamOutputConfigurations : undefined;
-            resourceInputs["minLatency"] = args ? args.minLatency : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ndiProgramName"] = args ? args.ndiProgramName : undefined;
-            resourceInputs["ndiSpeedHqQuality"] = args ? args.ndiSpeedHqQuality : undefined;
-            resourceInputs["outputStatus"] = args ? args.outputStatus : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["remoteId"] = args ? args.remoteId : undefined;
-            resourceInputs["smoothingLatency"] = args ? args.smoothingLatency : undefined;
-            resourceInputs["streamId"] = args ? args.streamId : undefined;
-            resourceInputs["vpcInterfaceAttachment"] = args ? args.vpcInterfaceAttachment : undefined;
+            resourceInputs["cidrAllowList"] = args?.cidrAllowList;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["flowArn"] = args?.flowArn;
+            resourceInputs["maxLatency"] = args?.maxLatency;
+            resourceInputs["mediaStreamOutputConfigurations"] = args?.mediaStreamOutputConfigurations;
+            resourceInputs["minLatency"] = args?.minLatency;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ndiProgramName"] = args?.ndiProgramName;
+            resourceInputs["ndiSpeedHqQuality"] = args?.ndiSpeedHqQuality;
+            resourceInputs["outputStatus"] = args?.outputStatus;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["remoteId"] = args?.remoteId;
+            resourceInputs["smoothingLatency"] = args?.smoothingLatency;
+            resourceInputs["streamId"] = args?.streamId;
+            resourceInputs["vpcInterfaceAttachment"] = args?.vpcInterfaceAttachment;
             resourceInputs["outputArn"] = undefined /*out*/;
         } else {
             resourceInputs["cidrAllowList"] = undefined /*out*/;

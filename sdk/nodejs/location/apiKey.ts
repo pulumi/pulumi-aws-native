@@ -40,19 +40,19 @@ export class ApiKey extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the resource. Used when you need to specify a resource across all AWS .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The timestamp for when the API key resource was created in ISO 8601 format: YYYY-MM-DDThh:mm:ss.sssZ.
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createTime: pulumi.Output<string>;
     /**
      * Updates the description for the API key resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
      */
-    public readonly expireTime!: pulumi.Output<string | undefined>;
+    declare public readonly expireTime: pulumi.Output<string | undefined>;
     /**
      * ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter `true` to delete the key or to `false` to not preemptively delete the API key.
      *
@@ -60,16 +60,16 @@ export class ApiKey extends pulumi.CustomResource {
      *
      * > This action is irreversible. Only use ForceDelete if you are certain the key is no longer in use.
      */
-    public readonly forceDelete!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceDelete: pulumi.Output<boolean | undefined>;
     /**
      * The boolean flag to be included for updating `ExpireTime` or Restrictions details.
      * Must be set to `true` to update an API key resource that has been used in the past 7 days. `False` if force update is not preferred.
      */
-    public readonly forceUpdate!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceUpdate: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify a resource across all AWS .
      */
-    public /*out*/ readonly keyArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyArn: pulumi.Output<string>;
     /**
      * A custom name for the API key resource.
      *
@@ -79,23 +79,23 @@ export class ApiKey extends pulumi.CustomResource {
      * - Must be a unique API key name.
      * - No spaces allowed. For example, `ExampleAPIKey` .
      */
-    public readonly keyName!: pulumi.Output<string>;
+    declare public readonly keyName: pulumi.Output<string>;
     /**
      * Whether the API key should expire. Set to `true` to set the API key to have no expiration time.
      */
-    public readonly noExpiry!: pulumi.Output<boolean | undefined>;
+    declare public readonly noExpiry: pulumi.Output<boolean | undefined>;
     /**
      * The API key restrictions for the API key resource.
      */
-    public readonly restrictions!: pulumi.Output<outputs.location.ApiKeyRestrictions>;
+    declare public readonly restrictions: pulumi.Output<outputs.location.ApiKeyRestrictions>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The timestamp for when the API key resource was last updated in ISO 8601 format: `YYYY-MM-DDThh:mm:ss.sssZ` .
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly updateTime: pulumi.Output<string>;
 
     /**
      * Create a ApiKey resource with the given unique name, arguments, and options.
@@ -108,17 +108,17 @@ export class ApiKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.restrictions === undefined) && !opts.urn) {
+            if (args?.restrictions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restrictions'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["expireTime"] = args ? args.expireTime : undefined;
-            resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
-            resourceInputs["forceUpdate"] = args ? args.forceUpdate : undefined;
-            resourceInputs["keyName"] = args ? args.keyName : undefined;
-            resourceInputs["noExpiry"] = args ? args.noExpiry : undefined;
-            resourceInputs["restrictions"] = args ? args.restrictions : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["expireTime"] = args?.expireTime;
+            resourceInputs["forceDelete"] = args?.forceDelete;
+            resourceInputs["forceUpdate"] = args?.forceUpdate;
+            resourceInputs["keyName"] = args?.keyName;
+            resourceInputs["noExpiry"] = args?.noExpiry;
+            resourceInputs["restrictions"] = args?.restrictions;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["keyArn"] = undefined /*out*/;

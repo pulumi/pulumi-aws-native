@@ -65,21 +65,21 @@ export class Thing extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the AWS IoT thing, such as `arn:aws:iot:us-east-2:123456789012:thing/MyThing` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
      */
-    public readonly attributePayload!: pulumi.Output<outputs.iot.ThingAttributePayload | undefined>;
+    declare public readonly attributePayload: pulumi.Output<outputs.iot.ThingAttributePayload | undefined>;
     /**
      * The Id of this thing.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The name of the thing to update.
      *
      * You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
      */
-    public readonly thingName!: pulumi.Output<string | undefined>;
+    declare public readonly thingName: pulumi.Output<string | undefined>;
 
     /**
      * Create a Thing resource with the given unique name, arguments, and options.
@@ -92,8 +92,8 @@ export class Thing extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["attributePayload"] = args ? args.attributePayload : undefined;
-            resourceInputs["thingName"] = args ? args.thingName : undefined;
+            resourceInputs["attributePayload"] = args?.attributePayload;
+            resourceInputs["thingName"] = args?.thingName;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

@@ -40,34 +40,34 @@ export class MailManagerArchive extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the archive.
      */
-    public /*out*/ readonly archiveArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly archiveArn: pulumi.Output<string>;
     /**
      * The unique identifier of the archive.
      */
-    public /*out*/ readonly archiveId!: pulumi.Output<string>;
+    declare public /*out*/ readonly archiveId: pulumi.Output<string>;
     /**
      * A unique name for the new archive.
      */
-    public readonly archiveName!: pulumi.Output<string | undefined>;
+    declare public readonly archiveName: pulumi.Output<string | undefined>;
     /**
      * The current state of the archive:
      *
      * - `ACTIVE` – The archive is ready and available for use.
      * - `PENDING_DELETION` – The archive has been marked for deletion and will be permanently deleted in 30 days. No further modifications can be made in this state.
      */
-    public /*out*/ readonly archiveState!: pulumi.Output<enums.ses.MailManagerArchiveArchiveState>;
+    declare public /*out*/ readonly archiveState: pulumi.Output<enums.ses.MailManagerArchiveArchiveState>;
     /**
      * The Amazon Resource Name (ARN) of the KMS key for encrypting emails in the archive.
      */
-    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
      * The period for retaining emails in the archive before automatic deletion.
      */
-    public readonly retention!: pulumi.Output<outputs.ses.MailManagerArchiveArchiveRetentionProperties | undefined>;
+    declare public readonly retention: pulumi.Output<outputs.ses.MailManagerArchiveArchiveRetentionProperties | undefined>;
     /**
      * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a MailManagerArchive resource with the given unique name, arguments, and options.
@@ -80,10 +80,10 @@ export class MailManagerArchive extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["archiveName"] = args ? args.archiveName : undefined;
-            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            resourceInputs["retention"] = args ? args.retention : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["archiveName"] = args?.archiveName;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["retention"] = args?.retention;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["archiveArn"] = undefined /*out*/;
             resourceInputs["archiveId"] = undefined /*out*/;
             resourceInputs["archiveState"] = undefined /*out*/;

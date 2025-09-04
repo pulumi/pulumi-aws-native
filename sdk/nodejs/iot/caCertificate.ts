@@ -46,19 +46,19 @@ export class CaCertificate extends pulumi.CustomResource {
      *
      * `arn:aws:iot:us-east-1:123456789012:cacert/a6be6b84559801927e35a8f901fae08b5971d78d1562e29504ff9663b276a5f5`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
      */
-    public readonly autoRegistrationStatus!: pulumi.Output<enums.iot.CaCertificateAutoRegistrationStatus | undefined>;
+    declare public readonly autoRegistrationStatus: pulumi.Output<enums.iot.CaCertificateAutoRegistrationStatus | undefined>;
     /**
      * The CA certificate ID.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The certificate data in PEM format.
      */
-    public readonly caCertificatePem!: pulumi.Output<string>;
+    declare public readonly caCertificatePem: pulumi.Output<string>;
     /**
      * The mode of the CA.
      *
@@ -66,29 +66,29 @@ export class CaCertificate extends pulumi.CustomResource {
      *
      * Valid values are "DEFAULT" and "SNI_ONLY".
      */
-    public readonly certificateMode!: pulumi.Output<enums.iot.CaCertificateCertificateMode | undefined>;
+    declare public readonly certificateMode: pulumi.Output<enums.iot.CaCertificateCertificateMode | undefined>;
     /**
      * Information about the registration configuration.
      */
-    public readonly registrationConfig!: pulumi.Output<outputs.iot.CaCertificateRegistrationConfig | undefined>;
+    declare public readonly registrationConfig: pulumi.Output<outputs.iot.CaCertificateRegistrationConfig | undefined>;
     /**
      * If true, removes auto registration.
      */
-    public readonly removeAutoRegistration!: pulumi.Output<boolean | undefined>;
+    declare public readonly removeAutoRegistration: pulumi.Output<boolean | undefined>;
     /**
      * The status of the CA certificate.
      *
      * Valid values are "ACTIVE" and "INACTIVE".
      */
-    public readonly status!: pulumi.Output<enums.iot.CaCertificateStatus>;
+    declare public readonly status: pulumi.Output<enums.iot.CaCertificateStatus>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The private key verification certificate.
      */
-    public readonly verificationCertificatePem!: pulumi.Output<string | undefined>;
+    declare public readonly verificationCertificatePem: pulumi.Output<string | undefined>;
 
     /**
      * Create a CaCertificate resource with the given unique name, arguments, and options.
@@ -101,20 +101,20 @@ export class CaCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.caCertificatePem === undefined) && !opts.urn) {
+            if (args?.caCertificatePem === undefined && !opts.urn) {
                 throw new Error("Missing required property 'caCertificatePem'");
             }
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["autoRegistrationStatus"] = args ? args.autoRegistrationStatus : undefined;
-            resourceInputs["caCertificatePem"] = args ? args.caCertificatePem : undefined;
-            resourceInputs["certificateMode"] = args ? args.certificateMode : undefined;
-            resourceInputs["registrationConfig"] = args ? args.registrationConfig : undefined;
-            resourceInputs["removeAutoRegistration"] = args ? args.removeAutoRegistration : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["verificationCertificatePem"] = args ? args.verificationCertificatePem : undefined;
+            resourceInputs["autoRegistrationStatus"] = args?.autoRegistrationStatus;
+            resourceInputs["caCertificatePem"] = args?.caCertificatePem;
+            resourceInputs["certificateMode"] = args?.certificateMode;
+            resourceInputs["registrationConfig"] = args?.registrationConfig;
+            resourceInputs["removeAutoRegistration"] = args?.removeAutoRegistration;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["verificationCertificatePem"] = args?.verificationCertificatePem;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

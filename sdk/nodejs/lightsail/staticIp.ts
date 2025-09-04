@@ -37,23 +37,23 @@ export class StaticIp extends pulumi.CustomResource {
     /**
      * The instance where the static IP is attached.
      */
-    public readonly attachedTo!: pulumi.Output<string | undefined>;
+    declare public readonly attachedTo: pulumi.Output<string | undefined>;
     /**
      * The static IP address.
      */
-    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipAddress: pulumi.Output<string>;
     /**
      * A Boolean value indicating whether the static IP is attached.
      */
-    public /*out*/ readonly isAttached!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isAttached: pulumi.Output<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the static IP (for example, `arn:aws:lightsail:us-east-2:123456789101:StaticIp/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
      */
-    public /*out*/ readonly staticIpArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly staticIpArn: pulumi.Output<string>;
     /**
      * The name of the static IP address.
      */
-    public readonly staticIpName!: pulumi.Output<string>;
+    declare public readonly staticIpName: pulumi.Output<string>;
 
     /**
      * Create a StaticIp resource with the given unique name, arguments, and options.
@@ -66,8 +66,8 @@ export class StaticIp extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["attachedTo"] = args ? args.attachedTo : undefined;
-            resourceInputs["staticIpName"] = args ? args.staticIpName : undefined;
+            resourceInputs["attachedTo"] = args?.attachedTo;
+            resourceInputs["staticIpName"] = args?.staticIpName;
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["isAttached"] = undefined /*out*/;
             resourceInputs["staticIpArn"] = undefined /*out*/;

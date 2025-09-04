@@ -40,43 +40,43 @@ export class Application extends pulumi.CustomResource {
     /**
      * The ID of the application.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    declare public readonly applicationId: pulumi.Output<string>;
     /**
      * The type of the application.
      */
-    public readonly applicationType!: pulumi.Output<enums.systemsmanagersap.ApplicationType>;
+    declare public readonly applicationType: pulumi.Output<enums.systemsmanagersap.ApplicationType>;
     /**
      * The ARN of the SSM-SAP application
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
      */
-    public readonly componentsInfo!: pulumi.Output<outputs.systemsmanagersap.ApplicationComponentInfo[] | undefined>;
+    declare public readonly componentsInfo: pulumi.Output<outputs.systemsmanagersap.ApplicationComponentInfo[] | undefined>;
     /**
      * The credentials of the SAP application.
      */
-    public readonly credentials!: pulumi.Output<outputs.systemsmanagersap.ApplicationCredential[] | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.systemsmanagersap.ApplicationCredential[] | undefined>;
     /**
      * The ARN of the SAP HANA database
      */
-    public readonly databaseArn!: pulumi.Output<string | undefined>;
+    declare public readonly databaseArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon EC2 instances on which your SAP application is running.
      */
-    public readonly instances!: pulumi.Output<string[] | undefined>;
+    declare public readonly instances: pulumi.Output<string[] | undefined>;
     /**
      * The SAP instance number of the application.
      */
-    public readonly sapInstanceNumber!: pulumi.Output<string | undefined>;
+    declare public readonly sapInstanceNumber: pulumi.Output<string | undefined>;
     /**
      * The System ID of the application.
      */
-    public readonly sid!: pulumi.Output<string | undefined>;
+    declare public readonly sid: pulumi.Output<string | undefined>;
     /**
      * The tags of a SystemsManagerSAP application.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -89,21 +89,21 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.applicationType === undefined) && !opts.urn) {
+            if (args?.applicationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationType'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["applicationType"] = args ? args.applicationType : undefined;
-            resourceInputs["componentsInfo"] = args ? args.componentsInfo : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["databaseArn"] = args ? args.databaseArn : undefined;
-            resourceInputs["instances"] = args ? args.instances : undefined;
-            resourceInputs["sapInstanceNumber"] = args ? args.sapInstanceNumber : undefined;
-            resourceInputs["sid"] = args ? args.sid : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["applicationType"] = args?.applicationType;
+            resourceInputs["componentsInfo"] = args?.componentsInfo;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["databaseArn"] = args?.databaseArn;
+            resourceInputs["instances"] = args?.instances;
+            resourceInputs["sapInstanceNumber"] = args?.sapInstanceNumber;
+            resourceInputs["sid"] = args?.sid;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;

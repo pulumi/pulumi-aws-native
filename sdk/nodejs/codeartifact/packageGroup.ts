@@ -40,35 +40,35 @@ export class PackageGroup extends pulumi.CustomResource {
     /**
      * The ARN of the package group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The contact info of the package group.
      */
-    public readonly contactInfo!: pulumi.Output<string | undefined>;
+    declare public readonly contactInfo: pulumi.Output<string | undefined>;
     /**
      * The text description of the package group.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the domain that contains the package group.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * The 12-digit account ID of the AWS account that owns the domain.
      */
-    public readonly domainOwner!: pulumi.Output<string | undefined>;
+    declare public readonly domainOwner: pulumi.Output<string | undefined>;
     /**
      * The package origin configuration of the package group.
      */
-    public readonly originConfiguration!: pulumi.Output<outputs.codeartifact.PackageGroupOriginConfiguration | undefined>;
+    declare public readonly originConfiguration: pulumi.Output<outputs.codeartifact.PackageGroupOriginConfiguration | undefined>;
     /**
      * The package group pattern that is used to gather packages.
      */
-    public readonly pattern!: pulumi.Output<string>;
+    declare public readonly pattern: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to the package group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a PackageGroup resource with the given unique name, arguments, and options.
@@ -81,19 +81,19 @@ export class PackageGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.pattern === undefined) && !opts.urn) {
+            if (args?.pattern === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pattern'");
             }
-            resourceInputs["contactInfo"] = args ? args.contactInfo : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["domainOwner"] = args ? args.domainOwner : undefined;
-            resourceInputs["originConfiguration"] = args ? args.originConfiguration : undefined;
-            resourceInputs["pattern"] = args ? args.pattern : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["contactInfo"] = args?.contactInfo;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["domainOwner"] = args?.domainOwner;
+            resourceInputs["originConfiguration"] = args?.originConfiguration;
+            resourceInputs["pattern"] = args?.pattern;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
