@@ -27,6 +27,9 @@ class AutomatedReasoningPolicyVersionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a AutomatedReasoningPolicyVersion resource.
+        :param pulumi.Input[builtins.str] policy_arn: The Amazon Resource Name (ARN) of the policy.
+        :param pulumi.Input[builtins.str] last_updated_definition_hash: The hash of the policy definition that was last updated.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The tags associated with the Automated Reasoning policy version.
         """
         pulumi.set(__self__, "policy_arn", policy_arn)
         if last_updated_definition_hash is not None:
@@ -37,6 +40,9 @@ class AutomatedReasoningPolicyVersionArgs:
     @property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the policy.
+        """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
@@ -46,6 +52,9 @@ class AutomatedReasoningPolicyVersionArgs:
     @property
     @pulumi.getter(name="lastUpdatedDefinitionHash")
     def last_updated_definition_hash(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The hash of the policy definition that was last updated.
+        """
         return pulumi.get(self, "last_updated_definition_hash")
 
     @last_updated_definition_hash.setter
@@ -55,6 +64,9 @@ class AutomatedReasoningPolicyVersionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        The tags associated with the Automated Reasoning policy version.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -77,6 +89,9 @@ class AutomatedReasoningPolicyVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] last_updated_definition_hash: The hash of the policy definition that was last updated.
+        :param pulumi.Input[builtins.str] policy_arn: The Amazon Resource Name (ARN) of the policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The tags associated with the Automated Reasoning policy version.
         """
         ...
     @overload
@@ -165,50 +180,80 @@ class AutomatedReasoningPolicyVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[builtins.str]:
+        """
+        The timestamp when the policy version was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="definitionHash")
     def definition_hash(self) -> pulumi.Output[builtins.str]:
+        """
+        A hash of the policy definition used to identify the version.
+        """
         return pulumi.get(self, "definition_hash")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[builtins.str]:
+        """
+        The description of the policy version.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="lastUpdatedDefinitionHash")
     def last_updated_definition_hash(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The hash of the policy definition that was last updated.
+        """
         return pulumi.get(self, "last_updated_definition_hash")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
+        """
+        The name of the policy version.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> pulumi.Output[builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the policy.
+        """
         return pulumi.get(self, "policy_arn")
 
     @property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Output[builtins.str]:
+        """
+        The unique identifier of the policy.
+        """
         return pulumi.get(self, "policy_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        The tags associated with the Automated Reasoning policy version.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[builtins.str]:
+        """
+        The timestamp when the policy version was last updated.
+        """
         return pulumi.get(self, "updated_at")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[builtins.str]:
+        """
+        The version number of the policy version.
+        """
         return pulumi.get(self, "version")
 

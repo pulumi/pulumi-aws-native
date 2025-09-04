@@ -12,6 +12,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
     /// <summary>
     /// A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if request URLs don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+    ///   If your minimum TTL is greater than 0, CloudFront will cache content for at least the duration specified in the cache policy's minimum TTL, even if the ``Cache-Control: no-cache``, ``no-store``, or ``private`` directives are present in the origin headers.
     /// </summary>
     [OutputType]
     public sealed class DistributionDefaultCacheBehavior

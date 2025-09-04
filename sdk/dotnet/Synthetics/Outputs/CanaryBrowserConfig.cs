@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
     [OutputType]
     public sealed class CanaryBrowserConfig
     {
+        /// <summary>
+        /// The browser type associated with this browser configuration.
+        /// </summary>
         public readonly Pulumi.AwsNative.Synthetics.CanaryBrowserType BrowserType;
 
         [OutputConstructor]

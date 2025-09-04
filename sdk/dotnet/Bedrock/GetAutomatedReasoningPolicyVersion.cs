@@ -33,9 +33,15 @@ namespace Pulumi.AwsNative.Bedrock
 
     public sealed class GetAutomatedReasoningPolicyVersionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the policy.
+        /// </summary>
         [Input("policyArn", required: true)]
         public string PolicyArn { get; set; } = null!;
 
+        /// <summary>
+        /// The version number of the policy version.
+        /// </summary>
         [Input("version", required: true)]
         public string Version { get; set; } = null!;
 
@@ -47,9 +53,15 @@ namespace Pulumi.AwsNative.Bedrock
 
     public sealed class GetAutomatedReasoningPolicyVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the policy.
+        /// </summary>
         [Input("policyArn", required: true)]
         public Input<string> PolicyArn { get; set; } = null!;
 
+        /// <summary>
+        /// The version number of the policy version.
+        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
@@ -63,12 +75,33 @@ namespace Pulumi.AwsNative.Bedrock
     [OutputType]
     public sealed class GetAutomatedReasoningPolicyVersionResult
     {
+        /// <summary>
+        /// The timestamp when the policy version was created.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// A hash of the policy definition used to identify the version.
+        /// </summary>
         public readonly string? DefinitionHash;
+        /// <summary>
+        /// The description of the policy version.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The name of the policy version.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The unique identifier of the policy.
+        /// </summary>
         public readonly string? PolicyId;
+        /// <summary>
+        /// The timestamp when the policy version was last updated.
+        /// </summary>
         public readonly string? UpdatedAt;
+        /// <summary>
+        /// The version number of the policy version.
+        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

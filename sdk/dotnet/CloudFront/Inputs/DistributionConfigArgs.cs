@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants(tenant-only).
+        /// This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants (tenant-only).
         /// </summary>
         [Input("connectionMode")]
         public Input<Pulumi.AwsNative.CloudFront.DistributionConnectionMode>? ConnectionMode { get; set; }

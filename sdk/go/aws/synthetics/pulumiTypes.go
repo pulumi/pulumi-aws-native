@@ -257,6 +257,7 @@ func (o CanaryBaseScreenshotArrayOutput) Index(i pulumi.IntInput) CanaryBaseScre
 }
 
 type CanaryBrowserConfig struct {
+	// The browser type associated with this browser configuration.
 	BrowserType CanaryBrowserType `pulumi:"browserType"`
 }
 
@@ -272,6 +273,7 @@ type CanaryBrowserConfigInput interface {
 }
 
 type CanaryBrowserConfigArgs struct {
+	// The browser type associated with this browser configuration.
 	BrowserType CanaryBrowserTypeInput `pulumi:"browserType"`
 }
 
@@ -326,6 +328,7 @@ func (o CanaryBrowserConfigOutput) ToCanaryBrowserConfigOutputWithContext(ctx co
 	return o
 }
 
+// The browser type associated with this browser configuration.
 func (o CanaryBrowserConfigOutput) BrowserType() CanaryBrowserTypeOutput {
 	return o.ApplyT(func(v CanaryBrowserConfig) CanaryBrowserType { return v.BrowserType }).(CanaryBrowserTypeOutput)
 }
