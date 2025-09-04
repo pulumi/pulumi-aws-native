@@ -40,91 +40,91 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * Network interface id.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A connection tracking specification for the network interface.
      */
-    public readonly connectionTrackingSpecification!: pulumi.Output<outputs.ec2.NetworkInterfaceConnectionTrackingSpecification | undefined>;
+    declare public readonly connectionTrackingSpecification: pulumi.Output<outputs.ec2.NetworkInterfaceConnectionTrackingSpecification | undefined>;
     /**
      * A description for the network interface.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
      */
-    public readonly enablePrimaryIpv6!: pulumi.Output<boolean | undefined>;
+    declare public readonly enablePrimaryIpv6: pulumi.Output<boolean | undefined>;
     /**
      * A list of security group IDs associated with this network interface.
      */
-    public readonly groupSet!: pulumi.Output<string[] | undefined>;
+    declare public readonly groupSet: pulumi.Output<string[] | undefined>;
     /**
      * Indicates the type of network interface.
      */
-    public readonly interfaceType!: pulumi.Output<string | undefined>;
+    declare public readonly interfaceType: pulumi.Output<string | undefined>;
     /**
      * The number of IPv4 prefixes to assign to a network interface. When you specify a number of IPv4 prefixes, Amazon EC2 selects these prefixes from your existing subnet CIDR reservations, if available, or from free spaces in the subnet. By default, these will be /28 prefixes. You can't specify a count of IPv4 prefixes if you've specified one of the following: specific IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.
      */
-    public readonly ipv4PrefixCount!: pulumi.Output<number | undefined>;
+    declare public readonly ipv4PrefixCount: pulumi.Output<number | undefined>;
     /**
      * Assigns a list of IPv4 prefixes to the network interface. If you want EC2 to automatically assign IPv4 prefixes, use the Ipv4PrefixCount property and do not specify this property. Presently, only /28 prefixes are supported. You can't specify IPv4 prefixes if you've specified one of the following: a count of IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.
      */
-    public readonly ipv4Prefixes!: pulumi.Output<outputs.ec2.NetworkInterfaceIpv4PrefixSpecification[] | undefined>;
+    declare public readonly ipv4Prefixes: pulumi.Output<outputs.ec2.NetworkInterfaceIpv4PrefixSpecification[] | undefined>;
     /**
      * The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property.
      */
-    public readonly ipv6AddressCount!: pulumi.Output<number | undefined>;
+    declare public readonly ipv6AddressCount: pulumi.Output<number | undefined>;
     /**
      * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property.
      */
-    public readonly ipv6Addresses!: pulumi.Output<outputs.ec2.NetworkInterfaceInstanceIpv6Address[] | undefined>;
+    declare public readonly ipv6Addresses: pulumi.Output<outputs.ec2.NetworkInterfaceInstanceIpv6Address[] | undefined>;
     /**
      * The number of IPv6 prefixes to assign to a network interface. When you specify a number of IPv6 prefixes, Amazon EC2 selects these prefixes from your existing subnet CIDR reservations, if available, or from free spaces in the subnet. By default, these will be /80 prefixes. You can't specify a count of IPv6 prefixes if you've specified one of the following: specific IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.
      */
-    public readonly ipv6PrefixCount!: pulumi.Output<number | undefined>;
+    declare public readonly ipv6PrefixCount: pulumi.Output<number | undefined>;
     /**
      * Assigns a list of IPv6 prefixes to the network interface. If you want EC2 to automatically assign IPv6 prefixes, use the Ipv6PrefixCount property and do not specify this property. Presently, only /80 prefixes are supported. You can't specify IPv6 prefixes if you've specified one of the following: a count of IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.
      */
-    public readonly ipv6Prefixes!: pulumi.Output<outputs.ec2.NetworkInterfaceIpv6PrefixSpecification[] | undefined>;
+    declare public readonly ipv6Prefixes: pulumi.Output<outputs.ec2.NetworkInterfaceIpv6PrefixSpecification[] | undefined>;
     /**
      * The primary IPv6 address
      */
-    public /*out*/ readonly primaryIpv6Address!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryIpv6Address: pulumi.Output<string>;
     /**
      * Returns the primary private IP address of the network interface.
      */
-    public /*out*/ readonly primaryPrivateIpAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryPrivateIpAddress: pulumi.Output<string>;
     /**
      * Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. 
      */
-    public readonly privateIpAddress!: pulumi.Output<string | undefined>;
+    declare public readonly privateIpAddress: pulumi.Output<string | undefined>;
     /**
      * Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property.
      */
-    public readonly privateIpAddresses!: pulumi.Output<outputs.ec2.NetworkInterfacePrivateIpAddressSpecification[] | undefined>;
+    declare public readonly privateIpAddresses: pulumi.Output<outputs.ec2.NetworkInterfacePrivateIpAddressSpecification[] | undefined>;
     /**
      * The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
      */
-    public readonly secondaryPrivateIpAddressCount!: pulumi.Output<number | undefined>;
+    declare public readonly secondaryPrivateIpAddressCount: pulumi.Output<number | undefined>;
     /**
      * Returns the secondary private IP addresses of the network interface.
      */
-    public /*out*/ readonly secondaryPrivateIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly secondaryPrivateIpAddresses: pulumi.Output<string[]>;
     /**
      * Indicates whether traffic to or from the instance is validated.
      */
-    public readonly sourceDestCheck!: pulumi.Output<boolean | undefined>;
+    declare public readonly sourceDestCheck: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the subnet to associate with the network interface.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * An arbitrary set of tags (key-value pairs) for this network interface.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the VPC
      */
-    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a NetworkInterface resource with the given unique name, arguments, and options.
@@ -137,26 +137,26 @@ export class NetworkInterface extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["connectionTrackingSpecification"] = args ? args.connectionTrackingSpecification : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enablePrimaryIpv6"] = args ? args.enablePrimaryIpv6 : undefined;
-            resourceInputs["groupSet"] = args ? args.groupSet : undefined;
-            resourceInputs["interfaceType"] = args ? args.interfaceType : undefined;
-            resourceInputs["ipv4PrefixCount"] = args ? args.ipv4PrefixCount : undefined;
-            resourceInputs["ipv4Prefixes"] = args ? args.ipv4Prefixes : undefined;
-            resourceInputs["ipv6AddressCount"] = args ? args.ipv6AddressCount : undefined;
-            resourceInputs["ipv6Addresses"] = args ? args.ipv6Addresses : undefined;
-            resourceInputs["ipv6PrefixCount"] = args ? args.ipv6PrefixCount : undefined;
-            resourceInputs["ipv6Prefixes"] = args ? args.ipv6Prefixes : undefined;
-            resourceInputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
-            resourceInputs["privateIpAddresses"] = args ? args.privateIpAddresses : undefined;
-            resourceInputs["secondaryPrivateIpAddressCount"] = args ? args.secondaryPrivateIpAddressCount : undefined;
-            resourceInputs["sourceDestCheck"] = args ? args.sourceDestCheck : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectionTrackingSpecification"] = args?.connectionTrackingSpecification;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enablePrimaryIpv6"] = args?.enablePrimaryIpv6;
+            resourceInputs["groupSet"] = args?.groupSet;
+            resourceInputs["interfaceType"] = args?.interfaceType;
+            resourceInputs["ipv4PrefixCount"] = args?.ipv4PrefixCount;
+            resourceInputs["ipv4Prefixes"] = args?.ipv4Prefixes;
+            resourceInputs["ipv6AddressCount"] = args?.ipv6AddressCount;
+            resourceInputs["ipv6Addresses"] = args?.ipv6Addresses;
+            resourceInputs["ipv6PrefixCount"] = args?.ipv6PrefixCount;
+            resourceInputs["ipv6Prefixes"] = args?.ipv6Prefixes;
+            resourceInputs["privateIpAddress"] = args?.privateIpAddress;
+            resourceInputs["privateIpAddresses"] = args?.privateIpAddresses;
+            resourceInputs["secondaryPrivateIpAddressCount"] = args?.secondaryPrivateIpAddressCount;
+            resourceInputs["sourceDestCheck"] = args?.sourceDestCheck;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["primaryIpv6Address"] = undefined /*out*/;
             resourceInputs["primaryPrivateIpAddress"] = undefined /*out*/;

@@ -40,48 +40,48 @@ export class InstanceSnapshot extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the snapshot.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the instance from which the snapshot was created.
      */
-    public /*out*/ readonly fromInstanceArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fromInstanceArn: pulumi.Output<string>;
     /**
      * The instance from which the snapshot was created.
      */
-    public /*out*/ readonly fromInstanceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fromInstanceName: pulumi.Output<string>;
     /**
      * The instance from which the snapshot was created.
      */
-    public readonly instanceName!: pulumi.Output<string>;
+    declare public readonly instanceName: pulumi.Output<string>;
     /**
      * The name of the snapshot.
      */
-    public readonly instanceSnapshotName!: pulumi.Output<string>;
+    declare public readonly instanceSnapshotName: pulumi.Output<string>;
     /**
      * A Boolean value indicating whether the snapshot was created from an automatic snapshot.
      */
-    public /*out*/ readonly isFromAutoSnapshot!: pulumi.Output<boolean>;
-    public /*out*/ readonly location!: pulumi.Output<outputs.lightsail.InstanceSnapshotLocation>;
+    declare public /*out*/ readonly isFromAutoSnapshot: pulumi.Output<boolean>;
+    declare public /*out*/ readonly location: pulumi.Output<outputs.lightsail.InstanceSnapshotLocation>;
     /**
      * The type of resource (usually InstanceSnapshot).
      */
-    public /*out*/ readonly resourceType!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceType: pulumi.Output<string>;
     /**
      * The size in GB of the SSD
      */
-    public /*out*/ readonly sizeInGb!: pulumi.Output<number>;
+    declare public /*out*/ readonly sizeInGb: pulumi.Output<number>;
     /**
      * The state the snapshot is in.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Support code to help identify any issues
      */
-    public /*out*/ readonly supportCode!: pulumi.Output<string>;
+    declare public /*out*/ readonly supportCode: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a InstanceSnapshot resource with the given unique name, arguments, and options.
@@ -94,12 +94,12 @@ export class InstanceSnapshot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.instanceName === undefined) && !opts.urn) {
+            if (args?.instanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
-            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
-            resourceInputs["instanceSnapshotName"] = args ? args.instanceSnapshotName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["instanceName"] = args?.instanceName;
+            resourceInputs["instanceSnapshotName"] = args?.instanceSnapshotName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["fromInstanceArn"] = undefined /*out*/;
             resourceInputs["fromInstanceName"] = undefined /*out*/;

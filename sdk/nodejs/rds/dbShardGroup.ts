@@ -44,19 +44,19 @@ export class DbShardGroup extends pulumi.CustomResource {
      *   +  1 - Creates a DB shard group with a standby DB data access shard in a different Availability Zone (AZ).
      *   +  2 - Creates a DB shard group with two standby DB data access shard in two different AZs.
      */
-    public readonly computeRedundancy!: pulumi.Output<number | undefined>;
+    declare public readonly computeRedundancy: pulumi.Output<number | undefined>;
     /**
      * The name of the primary DB cluster for the DB shard group.
      */
-    public readonly dbClusterIdentifier!: pulumi.Output<string>;
+    declare public readonly dbClusterIdentifier: pulumi.Output<string>;
     /**
      * The name of the DB shard group.
      */
-    public readonly dbShardGroupIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly dbShardGroupIdentifier: pulumi.Output<string | undefined>;
     /**
      * The AWS Region -unique, immutable identifier for the DB shard group.
      */
-    public /*out*/ readonly dbShardGroupResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly dbShardGroupResourceId: pulumi.Output<string>;
     /**
      * This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
      *
@@ -66,15 +66,15 @@ export class DbShardGroup extends pulumi.CustomResource {
      *
      * For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
      */
-    public readonly maxAcu!: pulumi.Output<number>;
+    declare public readonly maxAcu: pulumi.Output<number>;
     /**
      * The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
      */
-    public readonly minAcu!: pulumi.Output<number | undefined>;
+    declare public readonly minAcu: pulumi.Output<number | undefined>;
     /**
      * Specifies whether the DB shard group is publicly accessible.
      *  When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB shard group's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB shard group's VPC. Access to the DB shard group is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB shard group doesn't permit it.
@@ -88,11 +88,11 @@ export class DbShardGroup extends pulumi.CustomResource {
      *   +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB shard group is private.
      *   +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public.
      */
-    public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
+    declare public readonly publiclyAccessible: pulumi.Output<boolean | undefined>;
     /**
      * An optional set of key-value pairs to associate arbitrary data of your choosing with the DB shard group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DbShardGroup resource with the given unique name, arguments, and options.
@@ -105,19 +105,19 @@ export class DbShardGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dbClusterIdentifier === undefined) && !opts.urn) {
+            if (args?.dbClusterIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbClusterIdentifier'");
             }
-            if ((!args || args.maxAcu === undefined) && !opts.urn) {
+            if (args?.maxAcu === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxAcu'");
             }
-            resourceInputs["computeRedundancy"] = args ? args.computeRedundancy : undefined;
-            resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
-            resourceInputs["dbShardGroupIdentifier"] = args ? args.dbShardGroupIdentifier : undefined;
-            resourceInputs["maxAcu"] = args ? args.maxAcu : undefined;
-            resourceInputs["minAcu"] = args ? args.minAcu : undefined;
-            resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["computeRedundancy"] = args?.computeRedundancy;
+            resourceInputs["dbClusterIdentifier"] = args?.dbClusterIdentifier;
+            resourceInputs["dbShardGroupIdentifier"] = args?.dbShardGroupIdentifier;
+            resourceInputs["maxAcu"] = args?.maxAcu;
+            resourceInputs["minAcu"] = args?.minAcu;
+            resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["dbShardGroupResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
         } else {

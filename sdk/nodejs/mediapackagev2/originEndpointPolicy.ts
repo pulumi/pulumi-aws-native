@@ -40,25 +40,25 @@ export class OriginEndpointPolicy extends pulumi.CustomResource {
     /**
      * The settings to enable CDN authorization headers in MediaPackage.
      */
-    public readonly cdnAuthConfiguration!: pulumi.Output<outputs.mediapackagev2.OriginEndpointPolicyCdnAuthConfiguration | undefined>;
+    declare public readonly cdnAuthConfiguration: pulumi.Output<outputs.mediapackagev2.OriginEndpointPolicyCdnAuthConfiguration | undefined>;
     /**
      * The name of the channel group associated with the origin endpoint policy.
      */
-    public readonly channelGroupName!: pulumi.Output<string>;
+    declare public readonly channelGroupName: pulumi.Output<string>;
     /**
      * The channel name associated with the origin endpoint policy.
      */
-    public readonly channelName!: pulumi.Output<string>;
+    declare public readonly channelName: pulumi.Output<string>;
     /**
      * The name of the origin endpoint associated with the origin endpoint policy.
      */
-    public readonly originEndpointName!: pulumi.Output<string>;
+    declare public readonly originEndpointName: pulumi.Output<string>;
     /**
      * The policy associated with the origin endpoint.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
      */
-    public readonly policy!: pulumi.Output<any>;
+    declare public readonly policy: pulumi.Output<any>;
 
     /**
      * Create a OriginEndpointPolicy resource with the given unique name, arguments, and options.
@@ -71,23 +71,23 @@ export class OriginEndpointPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channelGroupName === undefined) && !opts.urn) {
+            if (args?.channelGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelGroupName'");
             }
-            if ((!args || args.channelName === undefined) && !opts.urn) {
+            if (args?.channelName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelName'");
             }
-            if ((!args || args.originEndpointName === undefined) && !opts.urn) {
+            if (args?.originEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'originEndpointName'");
             }
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            resourceInputs["cdnAuthConfiguration"] = args ? args.cdnAuthConfiguration : undefined;
-            resourceInputs["channelGroupName"] = args ? args.channelGroupName : undefined;
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["originEndpointName"] = args ? args.originEndpointName : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["cdnAuthConfiguration"] = args?.cdnAuthConfiguration;
+            resourceInputs["channelGroupName"] = args?.channelGroupName;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["originEndpointName"] = args?.originEndpointName;
+            resourceInputs["policy"] = args?.policy;
         } else {
             resourceInputs["cdnAuthConfiguration"] = undefined /*out*/;
             resourceInputs["channelGroupName"] = undefined /*out*/;

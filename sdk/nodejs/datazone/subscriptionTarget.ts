@@ -40,71 +40,71 @@ export class SubscriptionTarget extends pulumi.CustomResource {
     /**
      * The asset types that can be included in the subscription target.
      */
-    public readonly applicableAssetTypes!: pulumi.Output<string[]>;
+    declare public readonly applicableAssetTypes: pulumi.Output<string[]>;
     /**
      * The authorized principals of the subscription target.
      */
-    public readonly authorizedPrincipals!: pulumi.Output<string[]>;
+    declare public readonly authorizedPrincipals: pulumi.Output<string[]>;
     /**
      * The ID of the subscription target.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The timestamp of when the subscription target was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The Amazon DataZone user who created the subscription target.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * The ID of the Amazon DataZone domain in which subscription target is created.
      */
-    public /*out*/ readonly domainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainId: pulumi.Output<string>;
     /**
      * The ID of the Amazon DataZone domain in which subscription target would be created.
      */
-    public readonly domainIdentifier!: pulumi.Output<string>;
+    declare public readonly domainIdentifier: pulumi.Output<string>;
     /**
      * The ID of the environment in which subscription target is created.
      */
-    public /*out*/ readonly environmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly environmentId: pulumi.Output<string>;
     /**
      * The ID of the environment in which subscription target would be created.
      */
-    public readonly environmentIdentifier!: pulumi.Output<string>;
+    declare public readonly environmentIdentifier: pulumi.Output<string>;
     /**
      * The manage access role that is used to create the subscription target.
      */
-    public readonly manageAccessRole!: pulumi.Output<string | undefined>;
+    declare public readonly manageAccessRole: pulumi.Output<string | undefined>;
     /**
      * The name of the subscription target.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The identifier of the project specified in the subscription target.
      */
-    public /*out*/ readonly projectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly projectId: pulumi.Output<string>;
     /**
      * The provider of the subscription target.
      */
-    public readonly provider!: pulumi.Output<string | undefined>;
+    declare public readonly provider: pulumi.Output<string | undefined>;
     /**
      * The configuration of the subscription target.
      */
-    public readonly subscriptionTargetConfig!: pulumi.Output<outputs.datazone.SubscriptionTargetForm[]>;
+    declare public readonly subscriptionTargetConfig: pulumi.Output<outputs.datazone.SubscriptionTargetForm[]>;
     /**
      * The type of the subscription target.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The timestamp of when the subscription target was updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * The Amazon DataZone user who updated the subscription target.
      */
-    public /*out*/ readonly updatedBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedBy: pulumi.Output<string>;
 
     /**
      * Create a SubscriptionTarget resource with the given unique name, arguments, and options.
@@ -117,33 +117,33 @@ export class SubscriptionTarget extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicableAssetTypes === undefined) && !opts.urn) {
+            if (args?.applicableAssetTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicableAssetTypes'");
             }
-            if ((!args || args.authorizedPrincipals === undefined) && !opts.urn) {
+            if (args?.authorizedPrincipals === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizedPrincipals'");
             }
-            if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
+            if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.environmentIdentifier === undefined) && !opts.urn) {
+            if (args?.environmentIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentIdentifier'");
             }
-            if ((!args || args.subscriptionTargetConfig === undefined) && !opts.urn) {
+            if (args?.subscriptionTargetConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionTargetConfig'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["applicableAssetTypes"] = args ? args.applicableAssetTypes : undefined;
-            resourceInputs["authorizedPrincipals"] = args ? args.authorizedPrincipals : undefined;
-            resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
-            resourceInputs["environmentIdentifier"] = args ? args.environmentIdentifier : undefined;
-            resourceInputs["manageAccessRole"] = args ? args.manageAccessRole : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["provider"] = args ? args.provider : undefined;
-            resourceInputs["subscriptionTargetConfig"] = args ? args.subscriptionTargetConfig : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["applicableAssetTypes"] = args?.applicableAssetTypes;
+            resourceInputs["authorizedPrincipals"] = args?.authorizedPrincipals;
+            resourceInputs["domainIdentifier"] = args?.domainIdentifier;
+            resourceInputs["environmentIdentifier"] = args?.environmentIdentifier;
+            resourceInputs["manageAccessRole"] = args?.manageAccessRole;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["provider"] = args?.provider;
+            resourceInputs["subscriptionTargetConfig"] = args?.subscriptionTargetConfig;
+            resourceInputs["type"] = args?.type;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;

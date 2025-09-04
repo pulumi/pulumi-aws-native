@@ -65,11 +65,11 @@ export class RegistryPolicy extends pulumi.CustomResource {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::RegistryPolicy` for more information about the expected schema for this property.
      */
-    public readonly policyText!: pulumi.Output<any>;
+    declare public readonly policyText: pulumi.Output<any>;
     /**
      * The account ID of the private registry the policy is associated with.
      */
-    public /*out*/ readonly registryId!: pulumi.Output<string>;
+    declare public /*out*/ readonly registryId: pulumi.Output<string>;
 
     /**
      * Create a RegistryPolicy resource with the given unique name, arguments, and options.
@@ -82,10 +82,10 @@ export class RegistryPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyText === undefined) && !opts.urn) {
+            if (args?.policyText === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyText'");
             }
-            resourceInputs["policyText"] = args ? args.policyText : undefined;
+            resourceInputs["policyText"] = args?.policyText;
             resourceInputs["registryId"] = undefined /*out*/;
         } else {
             resourceInputs["policyText"] = undefined /*out*/;

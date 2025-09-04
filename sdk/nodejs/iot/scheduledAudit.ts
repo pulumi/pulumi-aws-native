@@ -40,31 +40,31 @@ export class ScheduledAudit extends pulumi.CustomResource {
     /**
      * The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.
      */
-    public readonly dayOfMonth!: pulumi.Output<string | undefined>;
+    declare public readonly dayOfMonth: pulumi.Output<string | undefined>;
     /**
      * The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
      */
-    public readonly dayOfWeek!: pulumi.Output<enums.iot.ScheduledAuditDayOfWeek | undefined>;
+    declare public readonly dayOfWeek: pulumi.Output<enums.iot.ScheduledAuditDayOfWeek | undefined>;
     /**
      * How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
      */
-    public readonly frequency!: pulumi.Output<enums.iot.ScheduledAuditFrequency>;
+    declare public readonly frequency: pulumi.Output<enums.iot.ScheduledAuditFrequency>;
     /**
      * The ARN (Amazon resource name) of the scheduled audit.
      */
-    public /*out*/ readonly scheduledAuditArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly scheduledAuditArn: pulumi.Output<string>;
     /**
      * The name you want to give to the scheduled audit.
      */
-    public readonly scheduledAuditName!: pulumi.Output<string | undefined>;
+    declare public readonly scheduledAuditName: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Which checks are performed during the scheduled audit. Checks must be enabled for your account.
      */
-    public readonly targetCheckNames!: pulumi.Output<string[]>;
+    declare public readonly targetCheckNames: pulumi.Output<string[]>;
 
     /**
      * Create a ScheduledAudit resource with the given unique name, arguments, and options.
@@ -77,18 +77,18 @@ export class ScheduledAudit extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.frequency === undefined) && !opts.urn) {
+            if (args?.frequency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.targetCheckNames === undefined) && !opts.urn) {
+            if (args?.targetCheckNames === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetCheckNames'");
             }
-            resourceInputs["dayOfMonth"] = args ? args.dayOfMonth : undefined;
-            resourceInputs["dayOfWeek"] = args ? args.dayOfWeek : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["scheduledAuditName"] = args ? args.scheduledAuditName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetCheckNames"] = args ? args.targetCheckNames : undefined;
+            resourceInputs["dayOfMonth"] = args?.dayOfMonth;
+            resourceInputs["dayOfWeek"] = args?.dayOfWeek;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["scheduledAuditName"] = args?.scheduledAuditName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetCheckNames"] = args?.targetCheckNames;
             resourceInputs["scheduledAuditArn"] = undefined /*out*/;
         } else {
             resourceInputs["dayOfMonth"] = undefined /*out*/;

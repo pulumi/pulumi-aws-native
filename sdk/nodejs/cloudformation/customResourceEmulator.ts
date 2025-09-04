@@ -93,31 +93,31 @@ export class CustomResourceEmulator extends pulumi.CustomResource {
     /**
      * The name of the S3 bucket to use for storing the response from the Custom Resource.
      */
-    public /*out*/ readonly bucket!: pulumi.Output<string>;
+    declare public /*out*/ readonly bucket: pulumi.Output<string>;
     /**
      * The response data returned by invoking the Custom Resource.
      */
-    public /*out*/ readonly data!: pulumi.Output<{[key: string]: any}>;
+    declare public /*out*/ readonly data: pulumi.Output<{[key: string]: any}>;
     /**
      * Whether the response data contains sensitive information that should be marked as secret and not logged.
      */
-    public /*out*/ readonly noEcho!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly noEcho: pulumi.Output<boolean>;
     /**
      * The name or unique identifier that corresponds to the `PhysicalResourceId` included in the Custom Resource response. If no `PhysicalResourceId` is provided in the response, a random ID will be generated.
      */
-    public /*out*/ readonly physicalResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly physicalResourceId: pulumi.Output<string>;
     /**
      * The CloudFormation type of the Custom Resource provider. For example, `Custom::MyCustomResource`.
      */
-    public readonly resourceType!: pulumi.Output<string>;
+    declare public readonly resourceType: pulumi.Output<string>;
     /**
      * The service token, such as a Lambda function ARN, that is invoked when the resource is created, updated, or deleted.
      */
-    public readonly serviceToken!: pulumi.Output<string>;
+    declare public readonly serviceToken: pulumi.Output<string>;
     /**
      * A stand-in value for the CloudFormation stack ID.
      */
-    public readonly stackId!: pulumi.Output<string>;
+    declare public readonly stackId: pulumi.Output<string>;
 
     /**
      * Create a CustomResourceEmulator resource with the given unique name, arguments, and options.
@@ -130,27 +130,27 @@ export class CustomResourceEmulator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bucketKeyPrefix === undefined) && !opts.urn) {
+            if (args?.bucketKeyPrefix === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucketKeyPrefix'");
             }
-            if ((!args || args.bucketName === undefined) && !opts.urn) {
+            if (args?.bucketName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucketName'");
             }
-            if ((!args || args.customResourceProperties === undefined) && !opts.urn) {
+            if (args?.customResourceProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customResourceProperties'");
             }
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if ((!args || args.serviceToken === undefined) && !opts.urn) {
+            if (args?.serviceToken === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceToken'");
             }
-            resourceInputs["bucketKeyPrefix"] = args ? args.bucketKeyPrefix : undefined;
-            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
-            resourceInputs["customResourceProperties"] = args ? args.customResourceProperties : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["serviceToken"] = args ? args.serviceToken : undefined;
-            resourceInputs["stackId"] = args ? args.stackId : undefined;
+            resourceInputs["bucketKeyPrefix"] = args?.bucketKeyPrefix;
+            resourceInputs["bucketName"] = args?.bucketName;
+            resourceInputs["customResourceProperties"] = args?.customResourceProperties;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["serviceToken"] = args?.serviceToken;
+            resourceInputs["stackId"] = args?.stackId;
             resourceInputs["bucket"] = undefined /*out*/;
             resourceInputs["data"] = undefined /*out*/;
             resourceInputs["noEcho"] = undefined /*out*/;

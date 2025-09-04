@@ -40,19 +40,19 @@ export class StorageLensGroup extends pulumi.CustomResource {
     /**
      * This property contains the criteria for the Storage Lens group data that is displayed
      */
-    public readonly filter!: pulumi.Output<outputs.s3.StorageLensGroupFilter>;
+    declare public readonly filter: pulumi.Output<outputs.s3.StorageLensGroupFilter>;
     /**
      * This property contains the Storage Lens group name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ARN for the Amazon S3 Storage Lens Group.
      */
-    public /*out*/ readonly storageLensGroupArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly storageLensGroupArn: pulumi.Output<string>;
     /**
      * A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a StorageLensGroup resource with the given unique name, arguments, and options.
@@ -65,12 +65,12 @@ export class StorageLensGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.filter === undefined) && !opts.urn) {
+            if (args?.filter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filter'");
             }
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["storageLensGroupArn"] = undefined /*out*/;
         } else {
             resourceInputs["filter"] = undefined /*out*/;

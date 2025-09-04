@@ -42,17 +42,17 @@ export class DataSource extends pulumi.CustomResource {
      *
      * `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/data-source/b8cae438-6787-4091-8897-684a652bbb0a`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The identifier for the data source. For example:
      *
      * `b8cae438-6787-4091-8897-684a652bbb0a` .
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * Configuration information for altering document metadata and content during the document ingestion process.
      */
-    public readonly customDocumentEnrichmentConfiguration!: pulumi.Output<outputs.kendra.DataSourceCustomDocumentEnrichmentConfiguration | undefined>;
+    declare public readonly customDocumentEnrichmentConfiguration: pulumi.Output<outputs.kendra.DataSourceCustomDocumentEnrichmentConfiguration | undefined>;
     /**
      * Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
      *
@@ -60,23 +60,23 @@ export class DataSource extends pulumi.CustomResource {
      *
      * The `Configuration` parameter is required for all other data sources.
      */
-    public readonly dataSourceConfiguration!: pulumi.Output<outputs.kendra.DataSourceConfiguration | undefined>;
+    declare public readonly dataSourceConfiguration: pulumi.Output<outputs.kendra.DataSourceConfiguration | undefined>;
     /**
      * A description for the data source connector.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The identifier of the index you want to use with the data source connector.
      */
-    public readonly indexId!: pulumi.Output<string>;
+    declare public readonly indexId: pulumi.Output<string>;
     /**
      * The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
      */
-    public readonly languageCode!: pulumi.Output<string | undefined>;
+    declare public readonly languageCode: pulumi.Output<string | undefined>;
     /**
      * The name of the data source.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access the data source.
      *
@@ -84,19 +84,19 @@ export class DataSource extends pulumi.CustomResource {
      *
      * The `RoleArn` parameter is required for all other data sources.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index. If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
      */
-    public readonly schedule!: pulumi.Output<string | undefined>;
+    declare public readonly schedule: pulumi.Output<string | undefined>;
     /**
      * Tags for labeling the data source
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the data source.
      */
-    public readonly type!: pulumi.Output<enums.kendra.DataSourceType>;
+    declare public readonly type: pulumi.Output<enums.kendra.DataSourceType>;
 
     /**
      * Create a DataSource resource with the given unique name, arguments, and options.
@@ -109,22 +109,22 @@ export class DataSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.indexId === undefined) && !opts.urn) {
+            if (args?.indexId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'indexId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["customDocumentEnrichmentConfiguration"] = args ? args.customDocumentEnrichmentConfiguration : undefined;
-            resourceInputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["indexId"] = args ? args.indexId : undefined;
-            resourceInputs["languageCode"] = args ? args.languageCode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["customDocumentEnrichmentConfiguration"] = args?.customDocumentEnrichmentConfiguration;
+            resourceInputs["dataSourceConfiguration"] = args?.dataSourceConfiguration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["indexId"] = args?.indexId;
+            resourceInputs["languageCode"] = args?.languageCode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

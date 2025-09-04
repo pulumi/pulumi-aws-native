@@ -48,33 +48,33 @@ export class ConfigRule extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the AWS Config rule, such as `arn:aws:config:us-east-1:123456789012:config-rule/config-rule-a1bzhi` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
      */
-    public readonly compliance!: pulumi.Output<outputs.configuration.ComplianceProperties | undefined>;
+    declare public readonly compliance: pulumi.Output<outputs.configuration.ComplianceProperties | undefined>;
     /**
      * The ID of the AWS Config rule, such as `config-rule-a1bzhi` .
      */
-    public /*out*/ readonly configRuleId!: pulumi.Output<string>;
+    declare public /*out*/ readonly configRuleId: pulumi.Output<string>;
     /**
      * A name for the CC rule. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
      */
-    public readonly configRuleName!: pulumi.Output<string | undefined>;
+    declare public readonly configRuleName: pulumi.Output<string | undefined>;
     /**
      * The description that you provide for the CC rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The modes the CC rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.
      */
-    public readonly evaluationModes!: pulumi.Output<outputs.configuration.ConfigRuleEvaluationModeConfiguration[] | undefined>;
+    declare public readonly evaluationModes: pulumi.Output<outputs.configuration.ConfigRuleEvaluationModeConfiguration[] | undefined>;
     /**
      * A string, in JSON format, that is passed to the CC rule Lambda function.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::ConfigRule` for more information about the expected schema for this property.
      */
-    public readonly inputParameters!: pulumi.Output<any | undefined>;
+    declare public readonly inputParameters: pulumi.Output<any | undefined>;
     /**
      * The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
      *   +  You are using an AWS managed rule that is triggered at a periodic frequency.
@@ -82,16 +82,16 @@ export class ConfigRule extends pulumi.CustomResource {
      *   
      *   By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
      */
-    public readonly maximumExecutionFrequency!: pulumi.Output<string | undefined>;
+    declare public readonly maximumExecutionFrequency: pulumi.Output<string | undefined>;
     /**
      * Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.
      *   The scope can be empty.
      */
-    public readonly scope!: pulumi.Output<outputs.configuration.ConfigRuleScope | undefined>;
+    declare public readonly scope: pulumi.Output<outputs.configuration.ConfigRuleScope | undefined>;
     /**
      * Provides the rule owner (```` for managed rules, ``CUSTOM_POLICY`` for Custom Policy rules, and ``CUSTOM_LAMBDA`` for Custom Lambda rules), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.
      */
-    public readonly source!: pulumi.Output<outputs.configuration.ConfigRuleSource>;
+    declare public readonly source: pulumi.Output<outputs.configuration.ConfigRuleSource>;
 
     /**
      * Create a ConfigRule resource with the given unique name, arguments, and options.
@@ -104,17 +104,17 @@ export class ConfigRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["compliance"] = args ? args.compliance : undefined;
-            resourceInputs["configRuleName"] = args ? args.configRuleName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["evaluationModes"] = args ? args.evaluationModes : undefined;
-            resourceInputs["inputParameters"] = args ? args.inputParameters : undefined;
-            resourceInputs["maximumExecutionFrequency"] = args ? args.maximumExecutionFrequency : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["compliance"] = args?.compliance;
+            resourceInputs["configRuleName"] = args?.configRuleName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["evaluationModes"] = args?.evaluationModes;
+            resourceInputs["inputParameters"] = args?.inputParameters;
+            resourceInputs["maximumExecutionFrequency"] = args?.maximumExecutionFrequency;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["source"] = args?.source;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["configRuleId"] = undefined /*out*/;
         } else {

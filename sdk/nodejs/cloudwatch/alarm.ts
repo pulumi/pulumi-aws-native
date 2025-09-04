@@ -42,109 +42,109 @@ export class Alarm extends pulumi.CustomResource {
     /**
      * Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
      */
-    public readonly actionsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly actionsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html) in the *API Reference*.
      */
-    public readonly alarmActions!: pulumi.Output<string[] | undefined>;
+    declare public readonly alarmActions: pulumi.Output<string[] | undefined>;
     /**
      * The description of the alarm.
      */
-    public readonly alarmDescription!: pulumi.Output<string | undefined>;
+    declare public readonly alarmDescription: pulumi.Output<string | undefined>;
     /**
      * The name of the alarm. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the alarm name. 
      *   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
-    public readonly alarmName!: pulumi.Output<string | undefined>;
+    declare public readonly alarmName: pulumi.Output<string | undefined>;
     /**
      * The ARN of the CloudWatch alarm, such as `arn:aws:cloudwatch:us-west-2:123456789012:alarm:myCloudWatchAlarm-CPUAlarm-UXMMZK36R55Z` .
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
      */
-    public readonly comparisonOperator!: pulumi.Output<string>;
+    declare public readonly comparisonOperator: pulumi.Output<string>;
     /**
      * The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for ``EvaluationPeriods`` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
      *  If you omit this parameter, CW uses the same value here that you set for ``EvaluationPeriods``, and the alarm goes to alarm state if that many consecutive periods are breaching.
      */
-    public readonly datapointsToAlarm!: pulumi.Output<number | undefined>;
+    declare public readonly datapointsToAlarm: pulumi.Output<number | undefined>;
     /**
      * The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify ``Dimensions``. Instead, you use ``Metrics``.
      */
-    public readonly dimensions!: pulumi.Output<outputs.cloudwatch.AlarmDimension[] | undefined>;
+    declare public readonly dimensions: pulumi.Output<outputs.cloudwatch.AlarmDimension[] | undefined>;
     /**
      * Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
      */
-    public readonly evaluateLowSampleCountPercentile!: pulumi.Output<string | undefined>;
+    declare public readonly evaluateLowSampleCountPercentile: pulumi.Output<string | undefined>;
     /**
      * The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
      *  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
      */
-    public readonly evaluationPeriods!: pulumi.Output<number>;
+    declare public readonly evaluationPeriods: pulumi.Output<number>;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
      *  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
      *  For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
      */
-    public readonly extendedStatistic!: pulumi.Output<string | undefined>;
+    declare public readonly extendedStatistic: pulumi.Output<string | undefined>;
     /**
      * The actions to execute when this alarm transitions to the ``INSUFFICIENT_DATA`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    public readonly insufficientDataActions!: pulumi.Output<string[] | undefined>;
+    declare public readonly insufficientDataActions: pulumi.Output<string[] | undefined>;
     /**
      * The name of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you use ``Metrics`` instead and you can't specify ``MetricName``.
      */
-    public readonly metricName!: pulumi.Output<string | undefined>;
+    declare public readonly metricName: pulumi.Output<string | undefined>;
     /**
      * An array that enables you to create an alarm based on the result of a metric math expression. Each item in the array either retrieves a metric or performs a math expression.
      *  If you specify the ``Metrics`` parameter, you cannot specify ``MetricName``, ``Dimensions``, ``Period``, ``Namespace``, ``Statistic``, ``ExtendedStatistic``, or ``Unit``.
      */
-    public readonly metrics!: pulumi.Output<outputs.cloudwatch.AlarmMetricDataQuery[] | undefined>;
+    declare public readonly metrics: pulumi.Output<outputs.cloudwatch.AlarmMetricDataQuery[] | undefined>;
     /**
      * The namespace of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you can't specify ``Namespace`` and you use ``Metrics`` instead.
      *  For a list of namespaces for metrics from AWS services, see [Services That Publish Metrics.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html)
      */
-    public readonly namespace!: pulumi.Output<string | undefined>;
+    declare public readonly namespace: pulumi.Output<string | undefined>;
     /**
      * The actions to execute when this alarm transitions to the ``OK`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    public readonly okActions!: pulumi.Output<string[] | undefined>;
+    declare public readonly okActions: pulumi.Output<string[] | undefined>;
     /**
      * The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 20, 30, 60, and any multiple of 60.
      *  For an alarm based on a math expression, you can't specify ``Period``, and instead you use the ``Metrics`` parameter.
      *  *Minimum:* 10
      */
-    public readonly period!: pulumi.Output<number | undefined>;
+    declare public readonly period: pulumi.Output<number | undefined>;
     /**
      * The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use ``ExtendedStatistic``.
      *  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
      *  For an alarm based on a math expression, you can't specify ``Statistic``. Instead, you use ``Metrics``.
      */
-    public readonly statistic!: pulumi.Output<string | undefined>;
+    declare public readonly statistic: pulumi.Output<string | undefined>;
     /**
      * A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the ``cloudwatch:TagResource`` permission.
      *  Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The value to compare with the specified statistic.
      */
-    public readonly threshold!: pulumi.Output<number | undefined>;
+    declare public readonly threshold: pulumi.Output<number | undefined>;
     /**
      * In an alarm based on an anomaly detection model, this is the ID of the ``ANOMALY_DETECTION_BAND`` function used as the threshold for the alarm.
      */
-    public readonly thresholdMetricId!: pulumi.Output<string | undefined>;
+    declare public readonly thresholdMetricId: pulumi.Output<string | undefined>;
     /**
      * Sets how this alarm is to handle missing data points. Valid values are ``breaching``, ``notBreaching``, ``ignore``, and ``missing``. For more information, see [Configuring How Alarms Treat Missing Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data) in the *Amazon User Guide*.
      *  If you omit this parameter, the default behavior of ``missing`` is used.
      */
-    public readonly treatMissingData!: pulumi.Output<string | undefined>;
+    declare public readonly treatMissingData: pulumi.Output<string | undefined>;
     /**
      * The unit of the metric associated with the alarm. Specify this only if you are creating an alarm based on a single metric. Do not specify this if you are specifying a ``Metrics`` array.
      *   You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
      */
-    public readonly unit!: pulumi.Output<string | undefined>;
+    declare public readonly unit: pulumi.Output<string | undefined>;
 
     /**
      * Create a Alarm resource with the given unique name, arguments, and options.
@@ -157,34 +157,34 @@ export class Alarm extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.comparisonOperator === undefined) && !opts.urn) {
+            if (args?.comparisonOperator === undefined && !opts.urn) {
                 throw new Error("Missing required property 'comparisonOperator'");
             }
-            if ((!args || args.evaluationPeriods === undefined) && !opts.urn) {
+            if (args?.evaluationPeriods === undefined && !opts.urn) {
                 throw new Error("Missing required property 'evaluationPeriods'");
             }
-            resourceInputs["actionsEnabled"] = args ? args.actionsEnabled : undefined;
-            resourceInputs["alarmActions"] = args ? args.alarmActions : undefined;
-            resourceInputs["alarmDescription"] = args ? args.alarmDescription : undefined;
-            resourceInputs["alarmName"] = args ? args.alarmName : undefined;
-            resourceInputs["comparisonOperator"] = args ? args.comparisonOperator : undefined;
-            resourceInputs["datapointsToAlarm"] = args ? args.datapointsToAlarm : undefined;
-            resourceInputs["dimensions"] = args ? args.dimensions : undefined;
-            resourceInputs["evaluateLowSampleCountPercentile"] = args ? args.evaluateLowSampleCountPercentile : undefined;
-            resourceInputs["evaluationPeriods"] = args ? args.evaluationPeriods : undefined;
-            resourceInputs["extendedStatistic"] = args ? args.extendedStatistic : undefined;
-            resourceInputs["insufficientDataActions"] = args ? args.insufficientDataActions : undefined;
-            resourceInputs["metricName"] = args ? args.metricName : undefined;
-            resourceInputs["metrics"] = args ? args.metrics : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["okActions"] = args ? args.okActions : undefined;
-            resourceInputs["period"] = args ? args.period : undefined;
-            resourceInputs["statistic"] = args ? args.statistic : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["threshold"] = args ? args.threshold : undefined;
-            resourceInputs["thresholdMetricId"] = args ? args.thresholdMetricId : undefined;
-            resourceInputs["treatMissingData"] = args ? args.treatMissingData : undefined;
-            resourceInputs["unit"] = args ? args.unit : undefined;
+            resourceInputs["actionsEnabled"] = args?.actionsEnabled;
+            resourceInputs["alarmActions"] = args?.alarmActions;
+            resourceInputs["alarmDescription"] = args?.alarmDescription;
+            resourceInputs["alarmName"] = args?.alarmName;
+            resourceInputs["comparisonOperator"] = args?.comparisonOperator;
+            resourceInputs["datapointsToAlarm"] = args?.datapointsToAlarm;
+            resourceInputs["dimensions"] = args?.dimensions;
+            resourceInputs["evaluateLowSampleCountPercentile"] = args?.evaluateLowSampleCountPercentile;
+            resourceInputs["evaluationPeriods"] = args?.evaluationPeriods;
+            resourceInputs["extendedStatistic"] = args?.extendedStatistic;
+            resourceInputs["insufficientDataActions"] = args?.insufficientDataActions;
+            resourceInputs["metricName"] = args?.metricName;
+            resourceInputs["metrics"] = args?.metrics;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["okActions"] = args?.okActions;
+            resourceInputs["period"] = args?.period;
+            resourceInputs["statistic"] = args?.statistic;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["threshold"] = args?.threshold;
+            resourceInputs["thresholdMetricId"] = args?.thresholdMetricId;
+            resourceInputs["treatMissingData"] = args?.treatMissingData;
+            resourceInputs["unit"] = args?.unit;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["actionsEnabled"] = undefined /*out*/;

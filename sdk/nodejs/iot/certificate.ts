@@ -46,15 +46,15 @@ export class Certificate extends pulumi.CustomResource {
      *
      * `arn:aws:iot:ap-southeast-2:123456789012:cert/a1234567b89c012d3e4fg567hij8k9l01mno1p23q45678901rs234567890t1u2`
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The certificate ID.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The CA certificate used to sign the device certificate being registered, not available when CertificateMode is SNI_ONLY.
      */
-    public readonly caCertificatePem!: pulumi.Output<string | undefined>;
+    declare public readonly caCertificatePem: pulumi.Output<string | undefined>;
     /**
      * Specifies which mode of certificate registration to use with this resource. Valid options are DEFAULT with CaCertificatePem and CertificatePem, SNI_ONLY with CertificatePem, and Default with CertificateSigningRequest.
      *
@@ -62,15 +62,15 @@ export class Certificate extends pulumi.CustomResource {
      *
      * `SNI_ONLY` : A certificate in `SNI_ONLY` mode is registered without an issuer CA. Devices with certificates in `SNI_ONLY` mode must send the SNI extension when connecting to AWS IoT Core .
      */
-    public readonly certificateMode!: pulumi.Output<enums.iot.CertificateMode | undefined>;
+    declare public readonly certificateMode: pulumi.Output<enums.iot.CertificateMode | undefined>;
     /**
      * The certificate data in PEM format. Requires SNI_ONLY for the certificate mode or the accompanying CACertificatePem for registration.
      */
-    public readonly certificatePem!: pulumi.Output<string | undefined>;
+    declare public readonly certificatePem: pulumi.Output<string | undefined>;
     /**
      * The certificate signing request (CSR).
      */
-    public readonly certificateSigningRequest!: pulumi.Output<string | undefined>;
+    declare public readonly certificateSigningRequest: pulumi.Output<string | undefined>;
     /**
      * The status of the certificate.
      *
@@ -78,7 +78,7 @@ export class Certificate extends pulumi.CustomResource {
      *
      * The status value REGISTER_INACTIVE is deprecated and should not be used.
      */
-    public readonly status!: pulumi.Output<enums.iot.CertificateStatus>;
+    declare public readonly status: pulumi.Output<enums.iot.CertificateStatus>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -91,14 +91,14 @@ export class Certificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["caCertificatePem"] = args ? args.caCertificatePem : undefined;
-            resourceInputs["certificateMode"] = args ? args.certificateMode : undefined;
-            resourceInputs["certificatePem"] = args ? args.certificatePem : undefined;
-            resourceInputs["certificateSigningRequest"] = args ? args.certificateSigningRequest : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["caCertificatePem"] = args?.caCertificatePem;
+            resourceInputs["certificateMode"] = args?.certificateMode;
+            resourceInputs["certificatePem"] = args?.certificatePem;
+            resourceInputs["certificateSigningRequest"] = args?.certificateSigningRequest;
+            resourceInputs["status"] = args?.status;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

@@ -37,55 +37,55 @@ export class VpcCidrBlock extends pulumi.CustomResource {
     /**
      * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.
      */
-    public readonly amazonProvidedIpv6CidrBlock!: pulumi.Output<boolean | undefined>;
+    declare public readonly amazonProvidedIpv6CidrBlock: pulumi.Output<boolean | undefined>;
     /**
      * The Id of the VPC associated CIDR Block.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * An IPv4 CIDR block to associate with the VPC.
      */
-    public readonly cidrBlock!: pulumi.Output<string | undefined>;
+    declare public readonly cidrBlock: pulumi.Output<string | undefined>;
     /**
      * The IP Source of an IPv6 VPC CIDR Block.
      */
-    public /*out*/ readonly ipSource!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipSource: pulumi.Output<string>;
     /**
      * The ID of the IPv4 IPAM pool to Associate a CIDR from to a VPC.
      */
-    public readonly ipv4IpamPoolId!: pulumi.Output<string | undefined>;
+    declare public readonly ipv4IpamPoolId: pulumi.Output<string | undefined>;
     /**
      * The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
      */
-    public readonly ipv4NetmaskLength!: pulumi.Output<number | undefined>;
+    declare public readonly ipv4NetmaskLength: pulumi.Output<number | undefined>;
     /**
      * The value denoting whether an IPv6 VPC CIDR Block is public or private.
      */
-    public /*out*/ readonly ipv6AddressAttribute!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipv6AddressAttribute: pulumi.Output<string>;
     /**
      * An IPv6 CIDR block from the IPv6 address pool.
      */
-    public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
+    declare public readonly ipv6CidrBlock: pulumi.Output<string | undefined>;
     /**
      * The name of the location from which we advertise the IPV6 CIDR block.
      */
-    public readonly ipv6CidrBlockNetworkBorderGroup!: pulumi.Output<string | undefined>;
+    declare public readonly ipv6CidrBlockNetworkBorderGroup: pulumi.Output<string | undefined>;
     /**
      * The ID of the IPv6 IPAM pool to Associate a CIDR from to a VPC.
      */
-    public readonly ipv6IpamPoolId!: pulumi.Output<string | undefined>;
+    declare public readonly ipv6IpamPoolId: pulumi.Output<string | undefined>;
     /**
      * The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
      */
-    public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
+    declare public readonly ipv6NetmaskLength: pulumi.Output<number | undefined>;
     /**
      * The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.
      */
-    public readonly ipv6Pool!: pulumi.Output<string | undefined>;
+    declare public readonly ipv6Pool: pulumi.Output<string | undefined>;
     /**
      * The ID of the VPC.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a VpcCidrBlock resource with the given unique name, arguments, and options.
@@ -98,19 +98,19 @@ export class VpcCidrBlock extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["amazonProvidedIpv6CidrBlock"] = args ? args.amazonProvidedIpv6CidrBlock : undefined;
-            resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
-            resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
-            resourceInputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
-            resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
-            resourceInputs["ipv6CidrBlockNetworkBorderGroup"] = args ? args.ipv6CidrBlockNetworkBorderGroup : undefined;
-            resourceInputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
-            resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
-            resourceInputs["ipv6Pool"] = args ? args.ipv6Pool : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["amazonProvidedIpv6CidrBlock"] = args?.amazonProvidedIpv6CidrBlock;
+            resourceInputs["cidrBlock"] = args?.cidrBlock;
+            resourceInputs["ipv4IpamPoolId"] = args?.ipv4IpamPoolId;
+            resourceInputs["ipv4NetmaskLength"] = args?.ipv4NetmaskLength;
+            resourceInputs["ipv6CidrBlock"] = args?.ipv6CidrBlock;
+            resourceInputs["ipv6CidrBlockNetworkBorderGroup"] = args?.ipv6CidrBlockNetworkBorderGroup;
+            resourceInputs["ipv6IpamPoolId"] = args?.ipv6IpamPoolId;
+            resourceInputs["ipv6NetmaskLength"] = args?.ipv6NetmaskLength;
+            resourceInputs["ipv6Pool"] = args?.ipv6Pool;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ipSource"] = undefined /*out*/;
             resourceInputs["ipv6AddressAttribute"] = undefined /*out*/;

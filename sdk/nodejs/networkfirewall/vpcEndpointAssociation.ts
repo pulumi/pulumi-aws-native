@@ -40,35 +40,35 @@ export class VpcEndpointAssociation extends pulumi.CustomResource {
     /**
      * A description of the VPC endpoint association.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The unique ID of the firewall endpoint for the subnet that you attached to the firewall.For example: "vpce-111122223333"
      */
-    public /*out*/ readonly endpointId!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpointId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the firewall.
      */
-    public readonly firewallArn!: pulumi.Output<string>;
+    declare public readonly firewallArn: pulumi.Output<string>;
     /**
      * The ID for a subnet that's used in an association with a firewall. This is used in `CreateFirewall` , `AssociateSubnets` , and `CreateVpcEndpointAssociation` . AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
      */
-    public readonly subnetMapping!: pulumi.Output<outputs.networkfirewall.VpcEndpointAssociationSubnetMapping>;
+    declare public readonly subnetMapping: pulumi.Output<outputs.networkfirewall.VpcEndpointAssociationSubnetMapping>;
     /**
      * The key:value pairs to associate with the resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of a VPC endpoint association.
      */
-    public /*out*/ readonly vpcEndpointAssociationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcEndpointAssociationArn: pulumi.Output<string>;
     /**
      * The unique identifier of the VPC endpoint association.
      */
-    public /*out*/ readonly vpcEndpointAssociationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vpcEndpointAssociationId: pulumi.Output<string>;
     /**
      * The unique identifier of the VPC for the endpoint association.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    declare public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a VpcEndpointAssociation resource with the given unique name, arguments, and options.
@@ -81,20 +81,20 @@ export class VpcEndpointAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.firewallArn === undefined) && !opts.urn) {
+            if (args?.firewallArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firewallArn'");
             }
-            if ((!args || args.subnetMapping === undefined) && !opts.urn) {
+            if (args?.subnetMapping === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetMapping'");
             }
-            if ((!args || args.vpcId === undefined) && !opts.urn) {
+            if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["firewallArn"] = args ? args.firewallArn : undefined;
-            resourceInputs["subnetMapping"] = args ? args.subnetMapping : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["firewallArn"] = args?.firewallArn;
+            resourceInputs["subnetMapping"] = args?.subnetMapping;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["endpointId"] = undefined /*out*/;
             resourceInputs["vpcEndpointAssociationArn"] = undefined /*out*/;
             resourceInputs["vpcEndpointAssociationId"] = undefined /*out*/;

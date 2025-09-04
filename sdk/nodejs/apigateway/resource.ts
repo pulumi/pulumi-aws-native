@@ -37,19 +37,19 @@ export class Resource extends pulumi.CustomResource {
     /**
      * The parent resource's identifier.
      */
-    public readonly parentId!: pulumi.Output<string>;
+    declare public readonly parentId: pulumi.Output<string>;
     /**
      * The last path segment for this resource.
      */
-    public readonly pathPart!: pulumi.Output<string>;
+    declare public readonly pathPart: pulumi.Output<string>;
     /**
      * The ID for the resource. For example: `abc123` .
      */
-    public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceId: pulumi.Output<string>;
     /**
      * The string identifier of the associated RestApi.
      */
-    public readonly restApiId!: pulumi.Output<string>;
+    declare public readonly restApiId: pulumi.Output<string>;
 
     /**
      * Create a Resource resource with the given unique name, arguments, and options.
@@ -62,18 +62,18 @@ export class Resource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.parentId === undefined) && !opts.urn) {
+            if (args?.parentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentId'");
             }
-            if ((!args || args.pathPart === undefined) && !opts.urn) {
+            if (args?.pathPart === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pathPart'");
             }
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["parentId"] = args ? args.parentId : undefined;
-            resourceInputs["pathPart"] = args ? args.pathPart : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["parentId"] = args?.parentId;
+            resourceInputs["pathPart"] = args?.pathPart;
+            resourceInputs["restApiId"] = args?.restApiId;
             resourceInputs["resourceId"] = undefined /*out*/;
         } else {
             resourceInputs["parentId"] = undefined /*out*/;

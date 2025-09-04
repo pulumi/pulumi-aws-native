@@ -219,47 +219,47 @@ export class Flow extends pulumi.CustomResource {
     /**
      * Description of the flow.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * List of Destination connectors of the flow.
      */
-    public readonly destinationFlowConfigList!: pulumi.Output<outputs.appflow.FlowDestinationFlowConfig[]>;
+    declare public readonly destinationFlowConfigList: pulumi.Output<outputs.appflow.FlowDestinationFlowConfig[]>;
     /**
      * ARN identifier of the flow.
      */
-    public /*out*/ readonly flowArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly flowArn: pulumi.Output<string>;
     /**
      * Name of the flow.
      */
-    public readonly flowName!: pulumi.Output<string>;
+    declare public readonly flowName: pulumi.Output<string>;
     /**
      * Flow activation status for Scheduled- and Event-triggered flows
      */
-    public readonly flowStatus!: pulumi.Output<enums.appflow.FlowStatus | undefined>;
+    declare public readonly flowStatus: pulumi.Output<enums.appflow.FlowStatus | undefined>;
     /**
      * The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
      */
-    public readonly kmsArn!: pulumi.Output<string | undefined>;
+    declare public readonly kmsArn: pulumi.Output<string | undefined>;
     /**
      * Configurations of metadata catalog of the flow.
      */
-    public readonly metadataCatalogConfig!: pulumi.Output<outputs.appflow.FlowMetadataCatalogConfig | undefined>;
+    declare public readonly metadataCatalogConfig: pulumi.Output<outputs.appflow.FlowMetadataCatalogConfig | undefined>;
     /**
      * Configurations of Source connector of the flow.
      */
-    public readonly sourceFlowConfig!: pulumi.Output<outputs.appflow.FlowSourceFlowConfig>;
+    declare public readonly sourceFlowConfig: pulumi.Output<outputs.appflow.FlowSourceFlowConfig>;
     /**
      * List of Tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * List of tasks for the flow.
      */
-    public readonly tasks!: pulumi.Output<outputs.appflow.FlowTask[]>;
+    declare public readonly tasks: pulumi.Output<outputs.appflow.FlowTask[]>;
     /**
      * Trigger settings of the flow.
      */
-    public readonly triggerConfig!: pulumi.Output<outputs.appflow.FlowTriggerConfig>;
+    declare public readonly triggerConfig: pulumi.Output<outputs.appflow.FlowTriggerConfig>;
 
     /**
      * Create a Flow resource with the given unique name, arguments, and options.
@@ -272,28 +272,28 @@ export class Flow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationFlowConfigList === undefined) && !opts.urn) {
+            if (args?.destinationFlowConfigList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationFlowConfigList'");
             }
-            if ((!args || args.sourceFlowConfig === undefined) && !opts.urn) {
+            if (args?.sourceFlowConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceFlowConfig'");
             }
-            if ((!args || args.tasks === undefined) && !opts.urn) {
+            if (args?.tasks === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tasks'");
             }
-            if ((!args || args.triggerConfig === undefined) && !opts.urn) {
+            if (args?.triggerConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'triggerConfig'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destinationFlowConfigList"] = args ? args.destinationFlowConfigList : undefined;
-            resourceInputs["flowName"] = args ? args.flowName : undefined;
-            resourceInputs["flowStatus"] = args ? args.flowStatus : undefined;
-            resourceInputs["kmsArn"] = args ? args.kmsArn : undefined;
-            resourceInputs["metadataCatalogConfig"] = args ? args.metadataCatalogConfig : undefined;
-            resourceInputs["sourceFlowConfig"] = args ? args.sourceFlowConfig : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tasks"] = args ? args.tasks : undefined;
-            resourceInputs["triggerConfig"] = args ? args.triggerConfig : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destinationFlowConfigList"] = args?.destinationFlowConfigList;
+            resourceInputs["flowName"] = args?.flowName;
+            resourceInputs["flowStatus"] = args?.flowStatus;
+            resourceInputs["kmsArn"] = args?.kmsArn;
+            resourceInputs["metadataCatalogConfig"] = args?.metadataCatalogConfig;
+            resourceInputs["sourceFlowConfig"] = args?.sourceFlowConfig;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tasks"] = args?.tasks;
+            resourceInputs["triggerConfig"] = args?.triggerConfig;
             resourceInputs["flowArn"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

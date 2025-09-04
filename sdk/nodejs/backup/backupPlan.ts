@@ -40,23 +40,23 @@ export class BackupPlan extends pulumi.CustomResource {
     /**
      * Uniquely identifies the backup plan to be associated with the selection of resources.
      */
-    public readonly backupPlan!: pulumi.Output<outputs.backup.BackupPlanResourceType>;
+    declare public readonly backupPlan: pulumi.Output<outputs.backup.BackupPlanResourceType>;
     /**
      * An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example, `arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50` .
      */
-    public /*out*/ readonly backupPlanArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly backupPlanArn: pulumi.Output<string>;
     /**
      * Uniquely identifies a backup plan.
      */
-    public /*out*/ readonly backupPlanId!: pulumi.Output<string>;
+    declare public /*out*/ readonly backupPlanId: pulumi.Output<string>;
     /**
      * The tags to assign to the backup plan.
      */
-    public readonly backupPlanTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly backupPlanTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes long. Version Ids cannot be edited.
      */
-    public /*out*/ readonly versionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly versionId: pulumi.Output<string>;
 
     /**
      * Create a BackupPlan resource with the given unique name, arguments, and options.
@@ -69,11 +69,11 @@ export class BackupPlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.backupPlan === undefined) && !opts.urn) {
+            if (args?.backupPlan === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupPlan'");
             }
-            resourceInputs["backupPlan"] = args ? args.backupPlan : undefined;
-            resourceInputs["backupPlanTags"] = args ? args.backupPlanTags : undefined;
+            resourceInputs["backupPlan"] = args?.backupPlan;
+            resourceInputs["backupPlanTags"] = args?.backupPlanTags;
             resourceInputs["backupPlanArn"] = undefined /*out*/;
             resourceInputs["backupPlanId"] = undefined /*out*/;
             resourceInputs["versionId"] = undefined /*out*/;

@@ -439,45 +439,45 @@ export class RestApi extends pulumi.CustomResource {
     /**
      * The source of the API key for metering requests according to a usage plan. Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
      */
-    public readonly apiKeySourceType!: pulumi.Output<string | undefined>;
+    declare public readonly apiKeySourceType: pulumi.Output<string | undefined>;
     /**
      * The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
      */
-    public readonly binaryMediaTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly binaryMediaTypes: pulumi.Output<string[] | undefined>;
     /**
      * An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
      */
-    public readonly body!: pulumi.Output<any | undefined>;
+    declare public readonly body: pulumi.Output<any | undefined>;
     /**
      * The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
      */
-    public readonly bodyS3Location!: pulumi.Output<outputs.apigateway.RestApiS3Location | undefined>;
+    declare public readonly bodyS3Location: pulumi.Output<outputs.apigateway.RestApiS3Location | undefined>;
     /**
      * The ID of the RestApi that you want to clone from.
      */
-    public readonly cloneFrom!: pulumi.Output<string | undefined>;
+    declare public readonly cloneFrom: pulumi.Output<string | undefined>;
     /**
      * The description of the RestApi.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
      */
-    public readonly disableExecuteApiEndpoint!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableExecuteApiEndpoint: pulumi.Output<boolean | undefined>;
     /**
      * A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
      */
-    public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.RestApiEndpointConfiguration | undefined>;
+    declare public readonly endpointConfiguration: pulumi.Output<outputs.apigateway.RestApiEndpointConfiguration | undefined>;
     /**
      * A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
      */
-    public readonly failOnWarnings!: pulumi.Output<boolean | undefined>;
+    declare public readonly failOnWarnings: pulumi.Output<boolean | undefined>;
     /**
      * A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
      */
-    public readonly minimumCompressionSize!: pulumi.Output<number | undefined>;
+    declare public readonly minimumCompressionSize: pulumi.Output<number | undefined>;
     /**
      * This property applies only when you use OpenAPI to define your REST API. The ``Mode`` determines how API Gateway handles resource updates.
      *  Valid values are ``overwrite`` or ``merge``. 
@@ -486,33 +486,33 @@ export class RestApi extends pulumi.CustomResource {
      *  If you don't specify this property, a default value is chosen. For REST APIs created before March 29, 2021, the default is ``overwrite``. For REST APIs created after March 29, 2021, the new API definition takes precedence, but any container types such as endpoint configurations and binary media types are merged with the existing API. 
      *  Use the default mode to define top-level ``RestApi`` properties in addition to using OpenAPI. Generally, it's preferred to use API Gateway's OpenAPI extensions to model these properties.
      */
-    public readonly mode!: pulumi.Output<string | undefined>;
+    declare public readonly mode: pulumi.Output<string | undefined>;
     /**
      * The name of the RestApi. A name is required if the REST API is not based on an OpenAPI specification.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set `ignore=documentation` as a `parameters` value, as in the AWS CLI command of `aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'` .
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
      */
-    public readonly policy!: pulumi.Output<any | undefined>;
+    declare public readonly policy: pulumi.Output<any | undefined>;
     /**
      * The string identifier of the associated RestApi.
      */
-    public /*out*/ readonly restApiId!: pulumi.Output<string>;
+    declare public /*out*/ readonly restApiId: pulumi.Output<string>;
     /**
      * The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
      */
-    public /*out*/ readonly rootResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly rootResourceId: pulumi.Output<string>;
     /**
      * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a RestApi resource with the given unique name, arguments, and options.
@@ -525,21 +525,21 @@ export class RestApi extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["apiKeySourceType"] = args ? args.apiKeySourceType : undefined;
-            resourceInputs["binaryMediaTypes"] = args ? args.binaryMediaTypes : undefined;
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["bodyS3Location"] = args ? args.bodyS3Location : undefined;
-            resourceInputs["cloneFrom"] = args ? args.cloneFrom : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["disableExecuteApiEndpoint"] = args ? args.disableExecuteApiEndpoint : undefined;
-            resourceInputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
-            resourceInputs["failOnWarnings"] = args ? args.failOnWarnings : undefined;
-            resourceInputs["minimumCompressionSize"] = args ? args.minimumCompressionSize : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["apiKeySourceType"] = args?.apiKeySourceType;
+            resourceInputs["binaryMediaTypes"] = args?.binaryMediaTypes;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["bodyS3Location"] = args?.bodyS3Location;
+            resourceInputs["cloneFrom"] = args?.cloneFrom;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["disableExecuteApiEndpoint"] = args?.disableExecuteApiEndpoint;
+            resourceInputs["endpointConfiguration"] = args?.endpointConfiguration;
+            resourceInputs["failOnWarnings"] = args?.failOnWarnings;
+            resourceInputs["minimumCompressionSize"] = args?.minimumCompressionSize;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["restApiId"] = undefined /*out*/;
             resourceInputs["rootResourceId"] = undefined /*out*/;
         } else {

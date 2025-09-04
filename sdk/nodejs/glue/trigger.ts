@@ -124,45 +124,45 @@ export class Trigger extends pulumi.CustomResource {
     /**
      * The actions initiated by this trigger.
      */
-    public readonly actions!: pulumi.Output<outputs.glue.TriggerAction[]>;
+    declare public readonly actions: pulumi.Output<outputs.glue.TriggerAction[]>;
     /**
      * A description of this trigger.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
      */
-    public readonly eventBatchingCondition!: pulumi.Output<outputs.glue.TriggerEventBatchingCondition | undefined>;
+    declare public readonly eventBatchingCondition: pulumi.Output<outputs.glue.TriggerEventBatchingCondition | undefined>;
     /**
      * The name of the trigger.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The predicate of this trigger, which defines when it will fire.
      */
-    public readonly predicate!: pulumi.Output<outputs.glue.TriggerPredicate | undefined>;
+    declare public readonly predicate: pulumi.Output<outputs.glue.TriggerPredicate | undefined>;
     /**
      * A cron expression used to specify the schedule.
      */
-    public readonly schedule!: pulumi.Output<string | undefined>;
+    declare public readonly schedule: pulumi.Output<string | undefined>;
     /**
      * Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
      */
-    public readonly startOnCreation!: pulumi.Output<boolean | undefined>;
+    declare public readonly startOnCreation: pulumi.Output<boolean | undefined>;
     /**
      * The tags to use with this trigger.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Trigger` for more information about the expected schema for this property.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    declare public readonly tags: pulumi.Output<any | undefined>;
     /**
      * The type of trigger that this is.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The name of the workflow associated with the trigger.
      */
-    public readonly workflowName!: pulumi.Output<string | undefined>;
+    declare public readonly workflowName: pulumi.Output<string | undefined>;
 
     /**
      * Create a Trigger resource with the given unique name, arguments, and options.
@@ -175,22 +175,22 @@ export class Trigger extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventBatchingCondition"] = args ? args.eventBatchingCondition : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["predicate"] = args ? args.predicate : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["startOnCreation"] = args ? args.startOnCreation : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["workflowName"] = args ? args.workflowName : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventBatchingCondition"] = args?.eventBatchingCondition;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["predicate"] = args?.predicate;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["startOnCreation"] = args?.startOnCreation;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["workflowName"] = args?.workflowName;
         } else {
             resourceInputs["actions"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

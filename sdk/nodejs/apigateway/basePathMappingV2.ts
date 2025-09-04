@@ -37,23 +37,23 @@ export class BasePathMappingV2 extends pulumi.CustomResource {
     /**
      * The base path name that callers of the API must provide in the URL after the domain name.
      */
-    public readonly basePath!: pulumi.Output<string | undefined>;
+    declare public readonly basePath: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the resource.
      */
-    public /*out*/ readonly basePathMappingArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly basePathMappingArn: pulumi.Output<string>;
     /**
      * The Arn of an AWS::ApiGateway::DomainNameV2 resource.
      */
-    public readonly domainNameArn!: pulumi.Output<string>;
+    declare public readonly domainNameArn: pulumi.Output<string>;
     /**
      * The ID of the API.
      */
-    public readonly restApiId!: pulumi.Output<string>;
+    declare public readonly restApiId: pulumi.Output<string>;
     /**
      * The name of the API's stage.
      */
-    public readonly stage!: pulumi.Output<string | undefined>;
+    declare public readonly stage: pulumi.Output<string | undefined>;
 
     /**
      * Create a BasePathMappingV2 resource with the given unique name, arguments, and options.
@@ -66,16 +66,16 @@ export class BasePathMappingV2 extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainNameArn === undefined) && !opts.urn) {
+            if (args?.domainNameArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainNameArn'");
             }
-            if ((!args || args.restApiId === undefined) && !opts.urn) {
+            if (args?.restApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            resourceInputs["basePath"] = args ? args.basePath : undefined;
-            resourceInputs["domainNameArn"] = args ? args.domainNameArn : undefined;
-            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
-            resourceInputs["stage"] = args ? args.stage : undefined;
+            resourceInputs["basePath"] = args?.basePath;
+            resourceInputs["domainNameArn"] = args?.domainNameArn;
+            resourceInputs["restApiId"] = args?.restApiId;
+            resourceInputs["stage"] = args?.stage;
             resourceInputs["basePathMappingArn"] = undefined /*out*/;
         } else {
             resourceInputs["basePath"] = undefined /*out*/;

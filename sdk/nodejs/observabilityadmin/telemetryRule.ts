@@ -37,19 +37,19 @@ export class TelemetryRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === TelemetryRule.__pulumiType;
     }
 
-    public readonly rule!: pulumi.Output<outputs.observabilityadmin.TelemetryRule>;
+    declare public readonly rule: pulumi.Output<outputs.observabilityadmin.TelemetryRule>;
     /**
      * The arn of the telemetry rule
      */
-    public /*out*/ readonly ruleArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly ruleArn: pulumi.Output<string>;
     /**
      * The name of the telemetry rule
      */
-    public readonly ruleName!: pulumi.Output<string>;
+    declare public readonly ruleName: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a TelemetryRule resource with the given unique name, arguments, and options.
@@ -62,12 +62,12 @@ export class TelemetryRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.rule === undefined) && !opts.urn) {
+            if (args?.rule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rule'");
             }
-            resourceInputs["rule"] = args ? args.rule : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["rule"] = args?.rule;
+            resourceInputs["ruleName"] = args?.ruleName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["ruleArn"] = undefined /*out*/;
         } else {
             resourceInputs["rule"] = undefined /*out*/;

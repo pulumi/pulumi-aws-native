@@ -40,43 +40,43 @@ export class DataMigration extends pulumi.CustomResource {
     /**
      * The property describes an ARN of the data migration.
      */
-    public /*out*/ readonly dataMigrationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataMigrationArn: pulumi.Output<string>;
     /**
      * The property describes the create time of the data migration.
      */
-    public /*out*/ readonly dataMigrationCreateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataMigrationCreateTime: pulumi.Output<string>;
     /**
      * The property describes an ARN of the data migration.
      */
-    public readonly dataMigrationIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly dataMigrationIdentifier: pulumi.Output<string | undefined>;
     /**
      * The property describes a name to identify the data migration.
      */
-    public readonly dataMigrationName!: pulumi.Output<string | undefined>;
+    declare public readonly dataMigrationName: pulumi.Output<string | undefined>;
     /**
      * The property describes the settings for the data migration.
      */
-    public readonly dataMigrationSettings!: pulumi.Output<outputs.dms.DataMigrationSettings | undefined>;
+    declare public readonly dataMigrationSettings: pulumi.Output<outputs.dms.DataMigrationSettings | undefined>;
     /**
      * The property describes the type of migration.
      */
-    public readonly dataMigrationType!: pulumi.Output<enums.dms.DataMigrationType>;
+    declare public readonly dataMigrationType: pulumi.Output<enums.dms.DataMigrationType>;
     /**
      * The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
      */
-    public readonly migrationProjectIdentifier!: pulumi.Output<string>;
+    declare public readonly migrationProjectIdentifier: pulumi.Output<string>;
     /**
      * The property describes Amazon Resource Name (ARN) of the service access role.
      */
-    public readonly serviceAccessRoleArn!: pulumi.Output<string>;
+    declare public readonly serviceAccessRoleArn: pulumi.Output<string>;
     /**
      * The property describes the settings for the data migration.
      */
-    public readonly sourceDataSettings!: pulumi.Output<outputs.dms.DataMigrationSourceDataSettings[] | undefined>;
+    declare public readonly sourceDataSettings: pulumi.Output<outputs.dms.DataMigrationSourceDataSettings[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a DataMigration resource with the given unique name, arguments, and options.
@@ -89,23 +89,23 @@ export class DataMigration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataMigrationType === undefined) && !opts.urn) {
+            if (args?.dataMigrationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataMigrationType'");
             }
-            if ((!args || args.migrationProjectIdentifier === undefined) && !opts.urn) {
+            if (args?.migrationProjectIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'migrationProjectIdentifier'");
             }
-            if ((!args || args.serviceAccessRoleArn === undefined) && !opts.urn) {
+            if (args?.serviceAccessRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccessRoleArn'");
             }
-            resourceInputs["dataMigrationIdentifier"] = args ? args.dataMigrationIdentifier : undefined;
-            resourceInputs["dataMigrationName"] = args ? args.dataMigrationName : undefined;
-            resourceInputs["dataMigrationSettings"] = args ? args.dataMigrationSettings : undefined;
-            resourceInputs["dataMigrationType"] = args ? args.dataMigrationType : undefined;
-            resourceInputs["migrationProjectIdentifier"] = args ? args.migrationProjectIdentifier : undefined;
-            resourceInputs["serviceAccessRoleArn"] = args ? args.serviceAccessRoleArn : undefined;
-            resourceInputs["sourceDataSettings"] = args ? args.sourceDataSettings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataMigrationIdentifier"] = args?.dataMigrationIdentifier;
+            resourceInputs["dataMigrationName"] = args?.dataMigrationName;
+            resourceInputs["dataMigrationSettings"] = args?.dataMigrationSettings;
+            resourceInputs["dataMigrationType"] = args?.dataMigrationType;
+            resourceInputs["migrationProjectIdentifier"] = args?.migrationProjectIdentifier;
+            resourceInputs["serviceAccessRoleArn"] = args?.serviceAccessRoleArn;
+            resourceInputs["sourceDataSettings"] = args?.sourceDataSettings;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["dataMigrationArn"] = undefined /*out*/;
             resourceInputs["dataMigrationCreateTime"] = undefined /*out*/;
         } else {

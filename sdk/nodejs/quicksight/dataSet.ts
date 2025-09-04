@@ -40,107 +40,107 @@ export class DataSet extends pulumi.CustomResource {
     /**
      * <p>The Amazon Resource Name (ARN) of the resource.</p>
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The AWS account ID.
      */
-    public readonly awsAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly awsAccountId: pulumi.Output<string | undefined>;
     /**
      * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
      */
-    public readonly columnGroups!: pulumi.Output<outputs.quicksight.DataSetColumnGroup[] | undefined>;
+    declare public readonly columnGroups: pulumi.Output<outputs.quicksight.DataSetColumnGroup[] | undefined>;
     /**
      * <p>A set of one or more definitions of a <code>
      *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
      *             </code>.</p>
      */
-    public readonly columnLevelPermissionRules!: pulumi.Output<outputs.quicksight.DataSetColumnLevelPermissionRule[] | undefined>;
+    declare public readonly columnLevelPermissionRules: pulumi.Output<outputs.quicksight.DataSetColumnLevelPermissionRule[] | undefined>;
     /**
      * <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
      *             imported into SPICE.</p>
      */
-    public /*out*/ readonly consumedSpiceCapacityInBytes!: pulumi.Output<number>;
+    declare public /*out*/ readonly consumedSpiceCapacityInBytes: pulumi.Output<number>;
     /**
      * <p>The time that this dataset was created.</p>
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
      */
-    public readonly dataSetId!: pulumi.Output<string | undefined>;
+    declare public readonly dataSetId: pulumi.Output<string | undefined>;
     /**
      * The refresh properties of a dataset.
      */
-    public readonly dataSetRefreshProperties!: pulumi.Output<outputs.quicksight.DataSetRefreshProperties | undefined>;
+    declare public readonly dataSetRefreshProperties: pulumi.Output<outputs.quicksight.DataSetRefreshProperties | undefined>;
     /**
      * The usage configuration to apply to child datasets that reference this dataset as a source.
      */
-    public readonly dataSetUsageConfiguration!: pulumi.Output<outputs.quicksight.DataSetUsageConfiguration | undefined>;
+    declare public readonly dataSetUsageConfiguration: pulumi.Output<outputs.quicksight.DataSetUsageConfiguration | undefined>;
     /**
      * <p>The parameter declarations of the dataset.</p>
      */
-    public readonly datasetParameters!: pulumi.Output<outputs.quicksight.DataSetDatasetParameter[] | undefined>;
+    declare public readonly datasetParameters: pulumi.Output<outputs.quicksight.DataSetDatasetParameter[] | undefined>;
     /**
      * The folder that contains fields and nested subfolders for your dataset.
      */
-    public readonly fieldFolders!: pulumi.Output<{[key: string]: outputs.quicksight.DataSetFieldFolder} | undefined>;
+    declare public readonly fieldFolders: pulumi.Output<{[key: string]: outputs.quicksight.DataSetFieldFolder} | undefined>;
     /**
      * <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
      */
-    public readonly folderArns!: pulumi.Output<string[] | undefined>;
+    declare public readonly folderArns: pulumi.Output<string[] | undefined>;
     /**
      * Indicates whether you want to import the data into SPICE.
      */
-    public readonly importMode!: pulumi.Output<enums.quicksight.DataSetImportMode | undefined>;
+    declare public readonly importMode: pulumi.Output<enums.quicksight.DataSetImportMode | undefined>;
     /**
      * The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
      */
-    public readonly ingestionWaitPolicy!: pulumi.Output<outputs.quicksight.DataSetIngestionWaitPolicy | undefined>;
+    declare public readonly ingestionWaitPolicy: pulumi.Output<outputs.quicksight.DataSetIngestionWaitPolicy | undefined>;
     /**
      * <p>The last time that this dataset was updated.</p>
      */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * Configures the combination and transformation of the data from the physical tables.
      */
-    public readonly logicalTableMap!: pulumi.Output<{[key: string]: outputs.quicksight.DataSetLogicalTable} | undefined>;
+    declare public readonly logicalTableMap: pulumi.Output<{[key: string]: outputs.quicksight.DataSetLogicalTable} | undefined>;
     /**
      * <p>The display name for the dataset.</p>
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * <p>The list of columns after all transforms. These columns are available in templates,
      *             analyses, and dashboards.</p>
      */
-    public /*out*/ readonly outputColumns!: pulumi.Output<outputs.quicksight.DataSetOutputColumn[]>;
+    declare public /*out*/ readonly outputColumns: pulumi.Output<outputs.quicksight.DataSetOutputColumn[]>;
     /**
      * The performance optimization configuration of a dataset.
      */
-    public readonly performanceConfiguration!: pulumi.Output<outputs.quicksight.DataSetPerformanceConfiguration | undefined>;
+    declare public readonly performanceConfiguration: pulumi.Output<outputs.quicksight.DataSetPerformanceConfiguration | undefined>;
     /**
      * <p>A list of resource permissions on the dataset.</p>
      */
-    public readonly permissions!: pulumi.Output<outputs.quicksight.DataSetResourcePermission[] | undefined>;
+    declare public readonly permissions: pulumi.Output<outputs.quicksight.DataSetResourcePermission[] | undefined>;
     /**
      * Declares the physical tables that are available in the underlying data sources.
      */
-    public readonly physicalTableMap!: pulumi.Output<{[key: string]: outputs.quicksight.DataSetPhysicalTable} | undefined>;
+    declare public readonly physicalTableMap: pulumi.Output<{[key: string]: outputs.quicksight.DataSetPhysicalTable} | undefined>;
     /**
      * The row-level security configuration for the data that you want to create.
      */
-    public readonly rowLevelPermissionDataSet!: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionDataSet | undefined>;
+    declare public readonly rowLevelPermissionDataSet: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionDataSet | undefined>;
     /**
      * The element you can use to define tags for row-level security.
      */
-    public readonly rowLevelPermissionTagConfiguration!: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionTagConfiguration | undefined>;
+    declare public readonly rowLevelPermissionTagConfiguration: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionTagConfiguration | undefined>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The usage of the dataset.
      */
-    public readonly useAs!: pulumi.Output<enums.quicksight.DataSetUseAs | undefined>;
+    declare public readonly useAs: pulumi.Output<enums.quicksight.DataSetUseAs | undefined>;
 
     /**
      * Create a DataSet resource with the given unique name, arguments, and options.
@@ -153,26 +153,26 @@ export class DataSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["columnGroups"] = args ? args.columnGroups : undefined;
-            resourceInputs["columnLevelPermissionRules"] = args ? args.columnLevelPermissionRules : undefined;
-            resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
-            resourceInputs["dataSetRefreshProperties"] = args ? args.dataSetRefreshProperties : undefined;
-            resourceInputs["dataSetUsageConfiguration"] = args ? args.dataSetUsageConfiguration : undefined;
-            resourceInputs["datasetParameters"] = args ? args.datasetParameters : undefined;
-            resourceInputs["fieldFolders"] = args ? args.fieldFolders : undefined;
-            resourceInputs["folderArns"] = args ? args.folderArns : undefined;
-            resourceInputs["importMode"] = args ? args.importMode : undefined;
-            resourceInputs["ingestionWaitPolicy"] = args ? args.ingestionWaitPolicy : undefined;
-            resourceInputs["logicalTableMap"] = args ? args.logicalTableMap : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["performanceConfiguration"] = args ? args.performanceConfiguration : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["physicalTableMap"] = args ? args.physicalTableMap : undefined;
-            resourceInputs["rowLevelPermissionDataSet"] = args ? args.rowLevelPermissionDataSet : undefined;
-            resourceInputs["rowLevelPermissionTagConfiguration"] = args ? args.rowLevelPermissionTagConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["useAs"] = args ? args.useAs : undefined;
+            resourceInputs["awsAccountId"] = args?.awsAccountId;
+            resourceInputs["columnGroups"] = args?.columnGroups;
+            resourceInputs["columnLevelPermissionRules"] = args?.columnLevelPermissionRules;
+            resourceInputs["dataSetId"] = args?.dataSetId;
+            resourceInputs["dataSetRefreshProperties"] = args?.dataSetRefreshProperties;
+            resourceInputs["dataSetUsageConfiguration"] = args?.dataSetUsageConfiguration;
+            resourceInputs["datasetParameters"] = args?.datasetParameters;
+            resourceInputs["fieldFolders"] = args?.fieldFolders;
+            resourceInputs["folderArns"] = args?.folderArns;
+            resourceInputs["importMode"] = args?.importMode;
+            resourceInputs["ingestionWaitPolicy"] = args?.ingestionWaitPolicy;
+            resourceInputs["logicalTableMap"] = args?.logicalTableMap;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["performanceConfiguration"] = args?.performanceConfiguration;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["physicalTableMap"] = args?.physicalTableMap;
+            resourceInputs["rowLevelPermissionDataSet"] = args?.rowLevelPermissionDataSet;
+            resourceInputs["rowLevelPermissionTagConfiguration"] = args?.rowLevelPermissionTagConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["useAs"] = args?.useAs;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["consumedSpiceCapacityInBytes"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;

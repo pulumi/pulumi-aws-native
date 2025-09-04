@@ -37,16 +37,16 @@ export class AutomatedReasoningPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === AutomatedReasoningPolicy.__pulumiType;
     }
 
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    public /*out*/ readonly definitionHash!: pulumi.Output<string>;
-    public readonly description!: pulumi.Output<string | undefined>;
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly policyArn!: pulumi.Output<string>;
-    public readonly policyDefinition!: pulumi.Output<outputs.bedrock.AutomatedReasoningPolicyPolicyDefinition | undefined>;
-    public /*out*/ readonly policyId!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    declare public /*out*/ readonly definitionHash: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly policyArn: pulumi.Output<string>;
+    declare public readonly policyDefinition: pulumi.Output<outputs.bedrock.AutomatedReasoningPolicyPolicyDefinition | undefined>;
+    declare public /*out*/ readonly policyId: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a AutomatedReasoningPolicy resource with the given unique name, arguments, and options.
@@ -59,10 +59,10 @@ export class AutomatedReasoningPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyDefinition"] = args ? args.policyDefinition : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyDefinition"] = args?.policyDefinition;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["definitionHash"] = undefined /*out*/;
             resourceInputs["policyArn"] = undefined /*out*/;

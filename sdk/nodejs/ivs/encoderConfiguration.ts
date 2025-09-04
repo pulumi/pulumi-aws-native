@@ -40,19 +40,19 @@ export class EncoderConfiguration extends pulumi.CustomResource {
     /**
      * Encoder configuration identifier.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Encoder configuration name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
      */
-    public readonly video!: pulumi.Output<outputs.ivs.VideoProperties | undefined>;
+    declare public readonly video: pulumi.Output<outputs.ivs.VideoProperties | undefined>;
 
     /**
      * Create a EncoderConfiguration resource with the given unique name, arguments, and options.
@@ -65,9 +65,9 @@ export class EncoderConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["video"] = args ? args.video : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["video"] = args?.video;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;

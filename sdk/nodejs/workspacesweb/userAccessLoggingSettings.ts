@@ -40,19 +40,19 @@ export class UserAccessLoggingSettings extends pulumi.CustomResource {
     /**
      * A list of web portal ARNs that this user access logging settings is associated with.
      */
-    public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
     /**
      * Kinesis stream ARN to which log events are published.
      */
-    public readonly kinesisStreamArn!: pulumi.Output<string>;
+    declare public readonly kinesisStreamArn: pulumi.Output<string>;
     /**
      * The tags to add to the user access logging settings resource. A tag is a key-value pair.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ARN of the user access logging settings.
      */
-    public /*out*/ readonly userAccessLoggingSettingsArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly userAccessLoggingSettingsArn: pulumi.Output<string>;
 
     /**
      * Create a UserAccessLoggingSettings resource with the given unique name, arguments, and options.
@@ -65,11 +65,11 @@ export class UserAccessLoggingSettings extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kinesisStreamArn === undefined) && !opts.urn) {
+            if (args?.kinesisStreamArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kinesisStreamArn'");
             }
-            resourceInputs["kinesisStreamArn"] = args ? args.kinesisStreamArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["kinesisStreamArn"] = args?.kinesisStreamArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["userAccessLoggingSettingsArn"] = undefined /*out*/;
         } else {

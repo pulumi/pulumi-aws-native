@@ -40,85 +40,85 @@ export class Application extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Amazon Q Business application.
      */
-    public /*out*/ readonly applicationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationArn: pulumi.Output<string>;
     /**
      * The identifier for the Amazon Q Business application.
      */
-    public /*out*/ readonly applicationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationId: pulumi.Output<string>;
     /**
      * Configuration information for the file upload during chat feature.
      */
-    public readonly attachmentsConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationAttachmentsConfiguration | undefined>;
+    declare public readonly attachmentsConfiguration: pulumi.Output<outputs.qbusiness.ApplicationAttachmentsConfiguration | undefined>;
     /**
      * Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
      */
-    public readonly autoSubscriptionConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationAutoSubscriptionConfiguration | undefined>;
+    declare public readonly autoSubscriptionConfiguration: pulumi.Output<outputs.qbusiness.ApplicationAutoSubscriptionConfiguration | undefined>;
     /**
      * The OIDC client ID for a Amazon Q Business application.
      */
-    public readonly clientIdsForOidc!: pulumi.Output<string[] | undefined>;
+    declare public readonly clientIdsForOidc: pulumi.Output<string[] | undefined>;
     /**
      * The Unix timestamp when the Amazon Q Business application was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * A description for the Amazon Q Business application.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the Amazon Q Business application.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
      */
-    public readonly encryptionConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationEncryptionConfiguration | undefined>;
+    declare public readonly encryptionConfiguration: pulumi.Output<outputs.qbusiness.ApplicationEncryptionConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
      */
-    public readonly iamIdentityProviderArn!: pulumi.Output<string | undefined>;
+    declare public readonly iamIdentityProviderArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
      */
-    public /*out*/ readonly identityCenterApplicationArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly identityCenterApplicationArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
      *
      * *Required* : `Yes`
      */
-    public readonly identityCenterInstanceArn!: pulumi.Output<string | undefined>;
+    declare public readonly identityCenterInstanceArn: pulumi.Output<string | undefined>;
     /**
      * The authentication type being used by a Amazon Q Business application.
      */
-    public readonly identityType!: pulumi.Output<enums.qbusiness.ApplicationIdentityType | undefined>;
+    declare public readonly identityType: pulumi.Output<enums.qbusiness.ApplicationIdentityType | undefined>;
     /**
      * Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
      */
-    public readonly personalizationConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationPersonalizationConfiguration | undefined>;
+    declare public readonly personalizationConfiguration: pulumi.Output<outputs.qbusiness.ApplicationPersonalizationConfiguration | undefined>;
     /**
      * Configuration information about Amazon Q Apps.
      */
-    public readonly qAppsConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationQAppsConfiguration | undefined>;
+    declare public readonly qAppsConfiguration: pulumi.Output<outputs.qbusiness.ApplicationQAppsConfiguration | undefined>;
     /**
      * The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider.
      */
-    public readonly quickSightConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationQuickSightConfiguration | undefined>;
+    declare public readonly quickSightConfiguration: pulumi.Output<outputs.qbusiness.ApplicationQuickSightConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * The status of the Amazon Q Business application. The application is ready to use when the status is `ACTIVE` .
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.qbusiness.ApplicationStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.qbusiness.ApplicationStatus>;
     /**
      * A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The Unix timestamp when the Amazon Q Business application was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -131,23 +131,23 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            resourceInputs["attachmentsConfiguration"] = args ? args.attachmentsConfiguration : undefined;
-            resourceInputs["autoSubscriptionConfiguration"] = args ? args.autoSubscriptionConfiguration : undefined;
-            resourceInputs["clientIdsForOidc"] = args ? args.clientIdsForOidc : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            resourceInputs["iamIdentityProviderArn"] = args ? args.iamIdentityProviderArn : undefined;
-            resourceInputs["identityCenterInstanceArn"] = args ? args.identityCenterInstanceArn : undefined;
-            resourceInputs["identityType"] = args ? args.identityType : undefined;
-            resourceInputs["personalizationConfiguration"] = args ? args.personalizationConfiguration : undefined;
-            resourceInputs["qAppsConfiguration"] = args ? args.qAppsConfiguration : undefined;
-            resourceInputs["quickSightConfiguration"] = args ? args.quickSightConfiguration : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["attachmentsConfiguration"] = args?.attachmentsConfiguration;
+            resourceInputs["autoSubscriptionConfiguration"] = args?.autoSubscriptionConfiguration;
+            resourceInputs["clientIdsForOidc"] = args?.clientIdsForOidc;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["iamIdentityProviderArn"] = args?.iamIdentityProviderArn;
+            resourceInputs["identityCenterInstanceArn"] = args?.identityCenterInstanceArn;
+            resourceInputs["identityType"] = args?.identityType;
+            resourceInputs["personalizationConfiguration"] = args?.personalizationConfiguration;
+            resourceInputs["qAppsConfiguration"] = args?.qAppsConfiguration;
+            resourceInputs["quickSightConfiguration"] = args?.quickSightConfiguration;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

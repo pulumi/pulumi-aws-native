@@ -40,15 +40,15 @@ export class LogDeliveryConfiguration extends pulumi.CustomResource {
     /**
      * A user pool ID, for example `us-east-1_EXAMPLE` .
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
      */
-    public readonly logConfigurations!: pulumi.Output<outputs.cognito.LogDeliveryConfigurationLogConfiguration[] | undefined>;
+    declare public readonly logConfigurations: pulumi.Output<outputs.cognito.LogDeliveryConfigurationLogConfiguration[] | undefined>;
     /**
      * The ID of the user pool where you configured logging.
      */
-    public readonly userPoolId!: pulumi.Output<string>;
+    declare public readonly userPoolId: pulumi.Output<string>;
 
     /**
      * Create a LogDeliveryConfiguration resource with the given unique name, arguments, and options.
@@ -61,11 +61,11 @@ export class LogDeliveryConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.userPoolId === undefined) && !opts.urn) {
+            if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            resourceInputs["logConfigurations"] = args ? args.logConfigurations : undefined;
-            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["logConfigurations"] = args?.logConfigurations;
+            resourceInputs["userPoolId"] = args?.userPoolId;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

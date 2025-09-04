@@ -40,35 +40,35 @@ export class Bot extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the bot.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
      */
-    public readonly autoBuildBotLocales!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoBuildBotLocales: pulumi.Output<boolean | undefined>;
     /**
      * The unique identifier of the bot.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
      */
-    public readonly botFileS3Location!: pulumi.Output<outputs.lex.BotS3Location | undefined>;
+    declare public readonly botFileS3Location: pulumi.Output<outputs.lex.BotS3Location | undefined>;
     /**
      * A list of locales for the bot.
      */
-    public readonly botLocales!: pulumi.Output<outputs.lex.BotLocale[] | undefined>;
+    declare public readonly botLocales: pulumi.Output<outputs.lex.BotLocale[] | undefined>;
     /**
      * A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
      */
-    public readonly botTags!: pulumi.Output<outputs.lex.BotTag[] | undefined>;
+    declare public readonly botTags: pulumi.Output<outputs.lex.BotTag[] | undefined>;
     /**
      * By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
      */
-    public readonly dataPrivacy!: pulumi.Output<outputs.lex.DataPrivacyProperties>;
+    declare public readonly dataPrivacy: pulumi.Output<outputs.lex.DataPrivacyProperties>;
     /**
      * The description of the version.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
      *
@@ -76,24 +76,24 @@ export class Bot extends pulumi.CustomResource {
      *
      * You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
      */
-    public readonly idleSessionTtlInSeconds!: pulumi.Output<number>;
+    declare public readonly idleSessionTtlInSeconds: pulumi.Output<number>;
     /**
      * The name of the bot locale.
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly replication!: pulumi.Output<outputs.lex.BotReplication | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly replication: pulumi.Output<outputs.lex.BotReplication | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
      */
-    public readonly testBotAliasSettings!: pulumi.Output<outputs.lex.BotTestBotAliasSettings | undefined>;
+    declare public readonly testBotAliasSettings: pulumi.Output<outputs.lex.BotTestBotAliasSettings | undefined>;
     /**
      * A list of tags to add to the test alias for a bot. You can only add tags when you import a bot. You can't use the `UpdateAlias` operation to update tags. To update tags on the test alias, use the `TagResource` operation.
      */
-    public readonly testBotAliasTags!: pulumi.Output<outputs.lex.BotTag[] | undefined>;
+    declare public readonly testBotAliasTags: pulumi.Output<outputs.lex.BotTag[] | undefined>;
 
     /**
      * Create a Bot resource with the given unique name, arguments, and options.
@@ -106,27 +106,27 @@ export class Bot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataPrivacy === undefined) && !opts.urn) {
+            if (args?.dataPrivacy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataPrivacy'");
             }
-            if ((!args || args.idleSessionTtlInSeconds === undefined) && !opts.urn) {
+            if (args?.idleSessionTtlInSeconds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'idleSessionTtlInSeconds'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["autoBuildBotLocales"] = args ? args.autoBuildBotLocales : undefined;
-            resourceInputs["botFileS3Location"] = args ? args.botFileS3Location : undefined;
-            resourceInputs["botLocales"] = args ? args.botLocales : undefined;
-            resourceInputs["botTags"] = args ? args.botTags : undefined;
-            resourceInputs["dataPrivacy"] = args ? args.dataPrivacy : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["idleSessionTtlInSeconds"] = args ? args.idleSessionTtlInSeconds : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["replication"] = args ? args.replication : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["testBotAliasSettings"] = args ? args.testBotAliasSettings : undefined;
-            resourceInputs["testBotAliasTags"] = args ? args.testBotAliasTags : undefined;
+            resourceInputs["autoBuildBotLocales"] = args?.autoBuildBotLocales;
+            resourceInputs["botFileS3Location"] = args?.botFileS3Location;
+            resourceInputs["botLocales"] = args?.botLocales;
+            resourceInputs["botTags"] = args?.botTags;
+            resourceInputs["dataPrivacy"] = args?.dataPrivacy;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["idleSessionTtlInSeconds"] = args?.idleSessionTtlInSeconds;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["replication"] = args?.replication;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["testBotAliasSettings"] = args?.testBotAliasSettings;
+            resourceInputs["testBotAliasTags"] = args?.testBotAliasTags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

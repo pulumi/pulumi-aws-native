@@ -40,47 +40,47 @@ export class Container extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the container.
      */
-    public /*out*/ readonly containerArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly containerArn: pulumi.Output<string>;
     /**
      * Describes a container deployment configuration of an Amazon Lightsail container service.
      */
-    public readonly containerServiceDeployment!: pulumi.Output<outputs.lightsail.ContainerServiceDeployment | undefined>;
+    declare public readonly containerServiceDeployment: pulumi.Output<outputs.lightsail.ContainerServiceDeployment | undefined>;
     /**
      * A Boolean value to indicate whether the container service is disabled.
      */
-    public readonly isDisabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isDisabled: pulumi.Output<boolean | undefined>;
     /**
      * The power specification for the container service.
      */
-    public readonly power!: pulumi.Output<string>;
+    declare public readonly power: pulumi.Output<string>;
     /**
      * The principal ARN of the container service.
      */
-    public /*out*/ readonly principalArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly principalArn: pulumi.Output<string>;
     /**
      * A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
      */
-    public readonly privateRegistryAccess!: pulumi.Output<outputs.lightsail.ContainerPrivateRegistryAccess | undefined>;
+    declare public readonly privateRegistryAccess: pulumi.Output<outputs.lightsail.ContainerPrivateRegistryAccess | undefined>;
     /**
      * The public domain names to use with the container service, such as example.com and www.example.com.
      */
-    public readonly publicDomainNames!: pulumi.Output<outputs.lightsail.ContainerPublicDomainName[] | undefined>;
+    declare public readonly publicDomainNames: pulumi.Output<outputs.lightsail.ContainerPublicDomainName[] | undefined>;
     /**
      * The scale specification for the container service.
      */
-    public readonly scale!: pulumi.Output<number>;
+    declare public readonly scale: pulumi.Output<number>;
     /**
      * The name for the container service.
      */
-    public readonly serviceName!: pulumi.Output<string>;
+    declare public readonly serviceName: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The publicly accessible URL of the container service.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a Container resource with the given unique name, arguments, and options.
@@ -93,23 +93,23 @@ export class Container extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.power === undefined) && !opts.urn) {
+            if (args?.power === undefined && !opts.urn) {
                 throw new Error("Missing required property 'power'");
             }
-            if ((!args || args.scale === undefined) && !opts.urn) {
+            if (args?.scale === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scale'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["containerServiceDeployment"] = args ? args.containerServiceDeployment : undefined;
-            resourceInputs["isDisabled"] = args ? args.isDisabled : undefined;
-            resourceInputs["power"] = args ? args.power : undefined;
-            resourceInputs["privateRegistryAccess"] = args ? args.privateRegistryAccess : undefined;
-            resourceInputs["publicDomainNames"] = args ? args.publicDomainNames : undefined;
-            resourceInputs["scale"] = args ? args.scale : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["containerServiceDeployment"] = args?.containerServiceDeployment;
+            resourceInputs["isDisabled"] = args?.isDisabled;
+            resourceInputs["power"] = args?.power;
+            resourceInputs["privateRegistryAccess"] = args?.privateRegistryAccess;
+            resourceInputs["publicDomainNames"] = args?.publicDomainNames;
+            resourceInputs["scale"] = args?.scale;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["containerArn"] = undefined /*out*/;
             resourceInputs["principalArn"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;

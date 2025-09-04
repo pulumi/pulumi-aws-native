@@ -40,44 +40,44 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Specifies X.509 certificate information to be included in the issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored.
      */
-    public readonly apiPassthrough!: pulumi.Output<outputs.acmpca.CertificateApiPassthrough | undefined>;
+    declare public readonly apiPassthrough: pulumi.Output<outputs.acmpca.CertificateApiPassthrough | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the issued certificate.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The issued Base64 PEM-encoded certificate.
      */
-    public /*out*/ readonly certificate!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificate: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the private CA issues the certificate.
      */
-    public readonly certificateAuthorityArn!: pulumi.Output<string>;
+    declare public readonly certificateAuthorityArn: pulumi.Output<string>;
     /**
      * The certificate signing request (CSR) for the certificate.
      */
-    public readonly certificateSigningRequest!: pulumi.Output<string>;
+    declare public readonly certificateSigningRequest: pulumi.Output<string>;
     /**
      * The name of the algorithm that will be used to sign the certificate to be issued. 
      *  This parameter should not be confused with the ``SigningAlgorithm`` parameter used to sign a CSR in the ``CreateCertificateAuthority`` action.
      *   The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
      */
-    public readonly signingAlgorithm!: pulumi.Output<string>;
+    declare public readonly signingAlgorithm: pulumi.Output<string>;
     /**
      * Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, PCAshort defaults to the ``EndEntityCertificate/V1`` template. For more information about PCAshort templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html).
      */
-    public readonly templateArn!: pulumi.Output<string | undefined>;
+    declare public readonly templateArn: pulumi.Output<string | undefined>;
     /**
      * The period of time during which the certificate will be valid.
      */
-    public readonly validity!: pulumi.Output<outputs.acmpca.CertificateValidity>;
+    declare public readonly validity: pulumi.Output<outputs.acmpca.CertificateValidity>;
     /**
      * Information describing the start of the validity period of the certificate. This parameter sets the "Not Before" date for the certificate.
      *  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the "Not Before" value. 
      *  Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
      *  The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
      */
-    public readonly validityNotBefore!: pulumi.Output<outputs.acmpca.CertificateValidity | undefined>;
+    declare public readonly validityNotBefore: pulumi.Output<outputs.acmpca.CertificateValidity | undefined>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -90,25 +90,25 @@ export class Certificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.certificateAuthorityArn === undefined) && !opts.urn) {
+            if (args?.certificateAuthorityArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateAuthorityArn'");
             }
-            if ((!args || args.certificateSigningRequest === undefined) && !opts.urn) {
+            if (args?.certificateSigningRequest === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateSigningRequest'");
             }
-            if ((!args || args.signingAlgorithm === undefined) && !opts.urn) {
+            if (args?.signingAlgorithm === undefined && !opts.urn) {
                 throw new Error("Missing required property 'signingAlgorithm'");
             }
-            if ((!args || args.validity === undefined) && !opts.urn) {
+            if (args?.validity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'validity'");
             }
-            resourceInputs["apiPassthrough"] = args ? args.apiPassthrough : undefined;
-            resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
-            resourceInputs["certificateSigningRequest"] = args ? args.certificateSigningRequest : undefined;
-            resourceInputs["signingAlgorithm"] = args ? args.signingAlgorithm : undefined;
-            resourceInputs["templateArn"] = args ? args.templateArn : undefined;
-            resourceInputs["validity"] = args ? args.validity : undefined;
-            resourceInputs["validityNotBefore"] = args ? args.validityNotBefore : undefined;
+            resourceInputs["apiPassthrough"] = args?.apiPassthrough;
+            resourceInputs["certificateAuthorityArn"] = args?.certificateAuthorityArn;
+            resourceInputs["certificateSigningRequest"] = args?.certificateSigningRequest;
+            resourceInputs["signingAlgorithm"] = args?.signingAlgorithm;
+            resourceInputs["templateArn"] = args?.templateArn;
+            resourceInputs["validity"] = args?.validity;
+            resourceInputs["validityNotBefore"] = args?.validityNotBefore;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificate"] = undefined /*out*/;
         } else {

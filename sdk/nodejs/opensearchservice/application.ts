@@ -40,35 +40,35 @@ export class Application extends pulumi.CustomResource {
     /**
      * List of application configurations.
      */
-    public readonly appConfigs!: pulumi.Output<outputs.opensearchservice.ApplicationAppConfig[] | undefined>;
+    declare public readonly appConfigs: pulumi.Output<outputs.opensearchservice.ApplicationAppConfig[] | undefined>;
     /**
      * Amazon Resource Name (ARN) format.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The identifier of the application.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * List of data sources.
      */
-    public readonly dataSources!: pulumi.Output<outputs.opensearchservice.ApplicationDataSource[] | undefined>;
+    declare public readonly dataSources: pulumi.Output<outputs.opensearchservice.ApplicationDataSource[] | undefined>;
     /**
      * The endpoint for the application.
      */
-    public readonly endpoint!: pulumi.Output<string | undefined>;
+    declare public readonly endpoint: pulumi.Output<string | undefined>;
     /**
      * Options for configuring IAM Identity Center
      */
-    public readonly iamIdentityCenterOptions!: pulumi.Output<outputs.opensearchservice.IamIdentityCenterOptionsProperties | undefined>;
+    declare public readonly iamIdentityCenterOptions: pulumi.Output<outputs.opensearchservice.IamIdentityCenterOptionsProperties | undefined>;
     /**
      * The name of the application.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An arbitrary set of tags (key-value pairs) for this application.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -81,12 +81,12 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["appConfigs"] = args ? args.appConfigs : undefined;
-            resourceInputs["dataSources"] = args ? args.dataSources : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["iamIdentityCenterOptions"] = args ? args.iamIdentityCenterOptions : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appConfigs"] = args?.appConfigs;
+            resourceInputs["dataSources"] = args?.dataSources;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["iamIdentityCenterOptions"] = args?.iamIdentityCenterOptions;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {

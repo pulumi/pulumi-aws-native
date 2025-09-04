@@ -150,39 +150,39 @@ export class AnomalySubscription extends pulumi.CustomResource {
     /**
      * The accountId
      */
-    public /*out*/ readonly accountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountId: pulumi.Output<string>;
     /**
      * The frequency at which anomaly reports are sent over email. 
      */
-    public readonly frequency!: pulumi.Output<enums.ce.AnomalySubscriptionFrequency>;
+    declare public readonly frequency: pulumi.Output<enums.ce.AnomalySubscriptionFrequency>;
     /**
      * A list of cost anomaly monitors.
      */
-    public readonly monitorArnList!: pulumi.Output<string[]>;
+    declare public readonly monitorArnList: pulumi.Output<string[]>;
     /**
      * Tags to assign to subscription.
      */
-    public readonly resourceTags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly resourceTags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * A list of subscriber
      */
-    public readonly subscribers!: pulumi.Output<outputs.ce.AnomalySubscriptionSubscriber[]>;
+    declare public readonly subscribers: pulumi.Output<outputs.ce.AnomalySubscriptionSubscriber[]>;
     /**
      * The `AnomalySubscription` Amazon Resource Name (ARN).
      */
-    public /*out*/ readonly subscriptionArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly subscriptionArn: pulumi.Output<string>;
     /**
      * The name of the subscription.
      */
-    public readonly subscriptionName!: pulumi.Output<string>;
+    declare public readonly subscriptionName: pulumi.Output<string>;
     /**
      * The dollar value that triggers a notification if the threshold is exceeded. 
      */
-    public readonly threshold!: pulumi.Output<number | undefined>;
+    declare public readonly threshold: pulumi.Output<number | undefined>;
     /**
      * An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
      */
-    public readonly thresholdExpression!: pulumi.Output<string | undefined>;
+    declare public readonly thresholdExpression: pulumi.Output<string | undefined>;
 
     /**
      * Create a AnomalySubscription resource with the given unique name, arguments, and options.
@@ -195,22 +195,22 @@ export class AnomalySubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.frequency === undefined) && !opts.urn) {
+            if (args?.frequency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.monitorArnList === undefined) && !opts.urn) {
+            if (args?.monitorArnList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitorArnList'");
             }
-            if ((!args || args.subscribers === undefined) && !opts.urn) {
+            if (args?.subscribers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscribers'");
             }
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["monitorArnList"] = args ? args.monitorArnList : undefined;
-            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
-            resourceInputs["subscribers"] = args ? args.subscribers : undefined;
-            resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
-            resourceInputs["threshold"] = args ? args.threshold : undefined;
-            resourceInputs["thresholdExpression"] = args ? args.thresholdExpression : undefined;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["monitorArnList"] = args?.monitorArnList;
+            resourceInputs["resourceTags"] = args?.resourceTags;
+            resourceInputs["subscribers"] = args?.subscribers;
+            resourceInputs["subscriptionName"] = args?.subscriptionName;
+            resourceInputs["threshold"] = args?.threshold;
+            resourceInputs["thresholdExpression"] = args?.thresholdExpression;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["subscriptionArn"] = undefined /*out*/;
         } else {

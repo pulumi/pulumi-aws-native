@@ -40,35 +40,35 @@ export class Table extends pulumi.CustomResource {
     /**
      * The `arn` of the table.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name for the database which the table to be created belongs to.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * The properties that determine whether magnetic store writes are enabled.
      */
-    public readonly magneticStoreWriteProperties!: pulumi.Output<outputs.timestream.MagneticStoreWritePropertiesProperties | undefined>;
+    declare public readonly magneticStoreWriteProperties: pulumi.Output<outputs.timestream.MagneticStoreWritePropertiesProperties | undefined>;
     /**
      * The table name exposed as a read-only attribute.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The retention duration of the memory store and the magnetic store.
      */
-    public readonly retentionProperties!: pulumi.Output<outputs.timestream.RetentionPropertiesProperties | undefined>;
+    declare public readonly retentionProperties: pulumi.Output<outputs.timestream.RetentionPropertiesProperties | undefined>;
     /**
      * A Schema specifies the expected data model of the table.
      */
-    public readonly schema!: pulumi.Output<outputs.timestream.SchemaProperties | undefined>;
+    declare public readonly schema: pulumi.Output<outputs.timestream.SchemaProperties | undefined>;
     /**
      * The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
      */
-    public readonly tableName!: pulumi.Output<string | undefined>;
+    declare public readonly tableName: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -81,15 +81,15 @@ export class Table extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["magneticStoreWriteProperties"] = args ? args.magneticStoreWriteProperties : undefined;
-            resourceInputs["retentionProperties"] = args ? args.retentionProperties : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["magneticStoreWriteProperties"] = args?.magneticStoreWriteProperties;
+            resourceInputs["retentionProperties"] = args?.retentionProperties;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {

@@ -40,35 +40,35 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
      */
-    public readonly activate!: pulumi.Output<boolean | undefined>;
+    declare public readonly activate: pulumi.Output<boolean | undefined>;
     /**
      * A description of the pipeline.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the pipeline.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The parameter objects used with the pipeline.
      */
-    public readonly parameterObjects!: pulumi.Output<outputs.datapipeline.PipelineParameterObject[] | undefined>;
+    declare public readonly parameterObjects: pulumi.Output<outputs.datapipeline.PipelineParameterObject[] | undefined>;
     /**
      * The parameter values used with the pipeline.
      */
-    public readonly parameterValues!: pulumi.Output<outputs.datapipeline.PipelineParameterValue[] | undefined>;
+    declare public readonly parameterValues: pulumi.Output<outputs.datapipeline.PipelineParameterValue[] | undefined>;
     /**
      * The ID of the pipeline.
      */
-    public /*out*/ readonly pipelineId!: pulumi.Output<string>;
+    declare public /*out*/ readonly pipelineId: pulumi.Output<string>;
     /**
      * The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
      */
-    public readonly pipelineObjects!: pulumi.Output<outputs.datapipeline.PipelineObject[] | undefined>;
+    declare public readonly pipelineObjects: pulumi.Output<outputs.datapipeline.PipelineObject[] | undefined>;
     /**
      * A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
      */
-    public readonly pipelineTags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly pipelineTags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -81,13 +81,13 @@ export class Pipeline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["activate"] = args ? args.activate : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameterObjects"] = args ? args.parameterObjects : undefined;
-            resourceInputs["parameterValues"] = args ? args.parameterValues : undefined;
-            resourceInputs["pipelineObjects"] = args ? args.pipelineObjects : undefined;
-            resourceInputs["pipelineTags"] = args ? args.pipelineTags : undefined;
+            resourceInputs["activate"] = args?.activate;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameterObjects"] = args?.parameterObjects;
+            resourceInputs["parameterValues"] = args?.parameterValues;
+            resourceInputs["pipelineObjects"] = args?.pipelineObjects;
+            resourceInputs["pipelineTags"] = args?.pipelineTags;
             resourceInputs["pipelineId"] = undefined /*out*/;
         } else {
             resourceInputs["activate"] = undefined /*out*/;

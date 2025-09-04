@@ -39,11 +39,11 @@ export class Alias extends pulumi.CustomResource {
      *
      * > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
      */
-    public readonly aliasName!: pulumi.Output<string>;
+    declare public readonly aliasName: pulumi.Output<string>;
     /**
      * The `KeyARN` of the key associated with the alias.
      */
-    public readonly keyArn!: pulumi.Output<string | undefined>;
+    declare public readonly keyArn: pulumi.Output<string | undefined>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -56,8 +56,8 @@ export class Alias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["aliasName"] = args ? args.aliasName : undefined;
-            resourceInputs["keyArn"] = args ? args.keyArn : undefined;
+            resourceInputs["aliasName"] = args?.aliasName;
+            resourceInputs["keyArn"] = args?.keyArn;
         } else {
             resourceInputs["aliasName"] = undefined /*out*/;
             resourceInputs["keyArn"] = undefined /*out*/;

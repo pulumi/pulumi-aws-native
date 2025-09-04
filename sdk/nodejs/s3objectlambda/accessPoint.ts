@@ -37,28 +37,28 @@ export class AccessPoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessPoint.__pulumiType;
     }
 
-    public /*out*/ readonly alias!: pulumi.Output<outputs.s3objectlambda.AccessPointAlias>;
+    declare public /*out*/ readonly alias: pulumi.Output<outputs.s3objectlambda.AccessPointAlias>;
     /**
      * Specifies the ARN for the Object Lambda Access Point.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The date and time when the Object lambda Access Point was created.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * The name you want to assign to this Object lambda Access Point.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
      */
-    public readonly objectLambdaConfiguration!: pulumi.Output<outputs.s3objectlambda.AccessPointObjectLambdaConfiguration>;
-    public /*out*/ readonly policyStatus!: pulumi.Output<outputs.s3objectlambda.AccessPointPolicyStatus>;
+    declare public readonly objectLambdaConfiguration: pulumi.Output<outputs.s3objectlambda.AccessPointObjectLambdaConfiguration>;
+    declare public /*out*/ readonly policyStatus: pulumi.Output<outputs.s3objectlambda.AccessPointPolicyStatus>;
     /**
      * The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
      */
-    public /*out*/ readonly publicAccessBlockConfiguration!: pulumi.Output<outputs.s3objectlambda.AccessPointPublicAccessBlockConfiguration>;
+    declare public /*out*/ readonly publicAccessBlockConfiguration: pulumi.Output<outputs.s3objectlambda.AccessPointPublicAccessBlockConfiguration>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -71,11 +71,11 @@ export class AccessPoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.objectLambdaConfiguration === undefined) && !opts.urn) {
+            if (args?.objectLambdaConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectLambdaConfiguration'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["objectLambdaConfiguration"] = args ? args.objectLambdaConfiguration : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["objectLambdaConfiguration"] = args?.objectLambdaConfiguration;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;

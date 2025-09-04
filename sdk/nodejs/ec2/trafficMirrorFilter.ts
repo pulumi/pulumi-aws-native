@@ -40,19 +40,19 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
     /**
      * The ID of a traffic mirror filter.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The description of a traffic mirror filter.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The network service that is associated with the traffic mirror filter.
      */
-    public readonly networkServices!: pulumi.Output<enums.ec2.TrafficMirrorFilterTrafficMirrorNetworkService[] | undefined>;
+    declare public readonly networkServices: pulumi.Output<enums.ec2.TrafficMirrorFilterTrafficMirrorNetworkService[] | undefined>;
     /**
      * The tags for a traffic mirror filter.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a TrafficMirrorFilter resource with the given unique name, arguments, and options.
@@ -65,9 +65,9 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["networkServices"] = args ? args.networkServices : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["networkServices"] = args?.networkServices;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;

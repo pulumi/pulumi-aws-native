@@ -40,91 +40,91 @@ export class ProcessingJob extends pulumi.CustomResource {
     /**
      * Configuration to run a processing job in a specified container image.
      */
-    public readonly appSpecification!: pulumi.Output<outputs.sagemaker.ProcessingJobAppSpecification>;
+    declare public readonly appSpecification: pulumi.Output<outputs.sagemaker.ProcessingJobAppSpecification>;
     /**
      * The ARN of an AutoML job associated with this processing job.
      */
-    public /*out*/ readonly autoMlJobArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly autoMlJobArn: pulumi.Output<string>;
     /**
      * The time at which the processing job was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * Sets the environment variables in the Docker container.
      */
-    public readonly environment!: pulumi.Output<outputs.sagemaker.ProcessingJobEnvironment | undefined>;
+    declare public readonly environment: pulumi.Output<outputs.sagemaker.ProcessingJobEnvironment | undefined>;
     /**
      * An optional string, up to one KB in size, that contains metadata from the processing container when the processing job exits.
      */
-    public /*out*/ readonly exitMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly exitMessage: pulumi.Output<string>;
     /**
      * Associates a SageMaker job as a trial component with an experiment and trial. Specified when you call the [CreateProcessingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html) API.
      */
-    public readonly experimentConfig!: pulumi.Output<outputs.sagemaker.ProcessingJobExperimentConfig | undefined>;
+    declare public readonly experimentConfig: pulumi.Output<outputs.sagemaker.ProcessingJobExperimentConfig | undefined>;
     /**
      * A string, up to one KB in size, that contains the reason a processing job failed, if it failed.
      */
-    public /*out*/ readonly failureReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly failureReason: pulumi.Output<string>;
     /**
      * The time at which the processing job was last modified.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * The ARN of a monitoring schedule for an endpoint associated with this processing job.
      */
-    public /*out*/ readonly monitoringScheduleArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly monitoringScheduleArn: pulumi.Output<string>;
     /**
      * Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
      */
-    public readonly networkConfig!: pulumi.Output<outputs.sagemaker.ProcessingJobNetworkConfig | undefined>;
+    declare public readonly networkConfig: pulumi.Output<outputs.sagemaker.ProcessingJobNetworkConfig | undefined>;
     /**
      * The time at which the processing job completed.
      */
-    public /*out*/ readonly processingEndTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly processingEndTime: pulumi.Output<string>;
     /**
      * An array of inputs configuring the data to download into the processing container.
      */
-    public readonly processingInputs!: pulumi.Output<outputs.sagemaker.ProcessingJobProcessingInputsObject[] | undefined>;
+    declare public readonly processingInputs: pulumi.Output<outputs.sagemaker.ProcessingJobProcessingInputsObject[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the processing job.
      */
-    public /*out*/ readonly processingJobArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly processingJobArn: pulumi.Output<string>;
     /**
      * The name of the processing job. The name must be unique within an AWS Region in the AWS account.
      */
-    public readonly processingJobName!: pulumi.Output<string | undefined>;
+    declare public readonly processingJobName: pulumi.Output<string | undefined>;
     /**
      * Provides the status of a processing job.
      */
-    public /*out*/ readonly processingJobStatus!: pulumi.Output<enums.sagemaker.ProcessingJobStatus>;
+    declare public /*out*/ readonly processingJobStatus: pulumi.Output<enums.sagemaker.ProcessingJobStatus>;
     /**
      * Contains information about the output location for the compiled model and the target device that the model runs on. `TargetDevice` and `TargetPlatform` are mutually exclusive, so you need to choose one between the two to specify your target device or platform. If you cannot find your device you want to use from the `TargetDevice` list, use `TargetPlatform` to describe the platform of your edge device and `CompilerOptions` if there are specific settings that are required or recommended to use for particular TargetPlatform.
      */
-    public readonly processingOutputConfig!: pulumi.Output<outputs.sagemaker.ProcessingJobProcessingOutputConfig | undefined>;
+    declare public readonly processingOutputConfig: pulumi.Output<outputs.sagemaker.ProcessingJobProcessingOutputConfig | undefined>;
     /**
      * Identifies the resources, ML compute instances, and ML storage volumes to deploy for a processing job. In distributed training, you specify more than one instance.
      */
-    public readonly processingResources!: pulumi.Output<outputs.sagemaker.ProcessingJobProcessingResources>;
+    declare public readonly processingResources: pulumi.Output<outputs.sagemaker.ProcessingJobProcessingResources>;
     /**
      * The time at which the processing job started.
      */
-    public /*out*/ readonly processingStartTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly processingStartTime: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    declare public readonly roleArn: pulumi.Output<string>;
     /**
      * Configures conditions under which the processing job should be stopped, such as how long the processing job has been running. After the condition is met, the processing job is stopped.
      */
-    public readonly stoppingCondition!: pulumi.Output<outputs.sagemaker.ProcessingJobStoppingCondition | undefined>;
+    declare public readonly stoppingCondition: pulumi.Output<outputs.sagemaker.ProcessingJobStoppingCondition | undefined>;
     /**
      * (Optional) An array of key-value pairs. For more information, see Using Cost Allocation Tags(https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL) in the AWS Billing and Cost Management User Guide.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * The ARN of a training job associated with this processing job
      */
-    public /*out*/ readonly trainingJobArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly trainingJobArn: pulumi.Output<string>;
 
     /**
      * Create a ProcessingJob resource with the given unique name, arguments, and options.
@@ -137,26 +137,26 @@ export class ProcessingJob extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appSpecification === undefined) && !opts.urn) {
+            if (args?.appSpecification === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appSpecification'");
             }
-            if ((!args || args.processingResources === undefined) && !opts.urn) {
+            if (args?.processingResources === undefined && !opts.urn) {
                 throw new Error("Missing required property 'processingResources'");
             }
-            if ((!args || args.roleArn === undefined) && !opts.urn) {
+            if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            resourceInputs["appSpecification"] = args ? args.appSpecification : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["experimentConfig"] = args ? args.experimentConfig : undefined;
-            resourceInputs["networkConfig"] = args ? args.networkConfig : undefined;
-            resourceInputs["processingInputs"] = args ? args.processingInputs : undefined;
-            resourceInputs["processingJobName"] = args ? args.processingJobName : undefined;
-            resourceInputs["processingOutputConfig"] = args ? args.processingOutputConfig : undefined;
-            resourceInputs["processingResources"] = args ? args.processingResources : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["stoppingCondition"] = args ? args.stoppingCondition : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appSpecification"] = args?.appSpecification;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["experimentConfig"] = args?.experimentConfig;
+            resourceInputs["networkConfig"] = args?.networkConfig;
+            resourceInputs["processingInputs"] = args?.processingInputs;
+            resourceInputs["processingJobName"] = args?.processingJobName;
+            resourceInputs["processingOutputConfig"] = args?.processingOutputConfig;
+            resourceInputs["processingResources"] = args?.processingResources;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["stoppingCondition"] = args?.stoppingCondition;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["autoMlJobArn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["exitMessage"] = undefined /*out*/;

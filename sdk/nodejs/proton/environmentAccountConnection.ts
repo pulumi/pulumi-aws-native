@@ -40,45 +40,45 @@ export class EnvironmentAccountConnection extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the environment account connection.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ID of the environment account connection.
      */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of an IAM service role in the environment account. AWS Proton uses this role to provision infrastructure resources using CodeBuild-based provisioning in the associated environment account.
      */
-    public readonly codebuildRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly codebuildRoleArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM service role that AWS Proton uses when provisioning directly defined components in the associated environment account. It determines the scope of infrastructure that a component can provision in the account.
      */
-    public readonly componentRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly componentRoleArn: pulumi.Output<string | undefined>;
     /**
      * The environment account that's connected to the environment account connection.
      */
-    public readonly environmentAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly environmentAccountId: pulumi.Output<string | undefined>;
     /**
      * The name of the AWS Proton environment that's created in the associated management account.
      */
-    public readonly environmentName!: pulumi.Output<string | undefined>;
+    declare public readonly environmentName: pulumi.Output<string | undefined>;
     /**
      * The ID of the management account that accepts or rejects the environment account connection. You create an manage the AWS Proton environment in this account. If the management account accepts the environment account connection, AWS Proton can use the associated IAM role to provision environment infrastructure resources in the associated environment account.
      */
-    public readonly managementAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly managementAccountId: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM service role that's created in the environment account. AWS Proton uses this role to provision infrastructure resources in the associated environment account.
      */
-    public readonly roleArn!: pulumi.Output<string | undefined>;
+    declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
      * The status of the environment account connection.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.proton.EnvironmentAccountConnectionStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.proton.EnvironmentAccountConnectionStatus>;
     /**
      * <p>An optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.</p>
      *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
      *         <i>Proton User Guide</i>.</p>
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a EnvironmentAccountConnection resource with the given unique name, arguments, and options.
@@ -91,13 +91,13 @@ export class EnvironmentAccountConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["codebuildRoleArn"] = args ? args.codebuildRoleArn : undefined;
-            resourceInputs["componentRoleArn"] = args ? args.componentRoleArn : undefined;
-            resourceInputs["environmentAccountId"] = args ? args.environmentAccountId : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["managementAccountId"] = args ? args.managementAccountId : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["codebuildRoleArn"] = args?.codebuildRoleArn;
+            resourceInputs["componentRoleArn"] = args?.componentRoleArn;
+            resourceInputs["environmentAccountId"] = args?.environmentAccountId;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["managementAccountId"] = args?.managementAccountId;
+            resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
