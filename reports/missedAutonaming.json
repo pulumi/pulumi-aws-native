@@ -1507,16 +1507,19 @@
     "cfTypeName": "AWS::Bedrock::AutomatedReasoningPolicyVersion",
     "properties": {
       "lastUpdatedDefinitionHash": {
-        "type": "string"
+        "type": "string",
+        "description": "The hash of the policy definition that was last updated."
       },
       "policyArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the policy."
       },
       "tags": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:CreateOnlyTag"
-        }
+        },
+        "description": "The tags associated with the Automated Reasoning policy version."
       }
     }
   },
