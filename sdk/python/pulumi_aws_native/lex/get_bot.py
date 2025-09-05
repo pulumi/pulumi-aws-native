@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetBotResult:
-    def __init__(__self__, arn=None, data_privacy=None, description=None, id=None, idle_session_ttl_in_seconds=None, name=None, role_arn=None, test_bot_alias_settings=None):
+    def __init__(__self__, arn=None, data_privacy=None, description=None, error_log_settings=None, id=None, idle_session_ttl_in_seconds=None, name=None, role_arn=None, test_bot_alias_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,6 +35,9 @@ class GetBotResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if error_log_settings and not isinstance(error_log_settings, dict):
+            raise TypeError("Expected argument 'error_log_settings' to be a dict")
+        pulumi.set(__self__, "error_log_settings", error_log_settings)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -74,6 +77,11 @@ class GetBotResult:
         The description of the version.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="errorLogSettings")
+    def error_log_settings(self) -> Optional['outputs.ErrorLogSettingsProperties']:
+        return pulumi.get(self, "error_log_settings")
 
     @property
     @pulumi.getter
@@ -129,6 +137,7 @@ class AwaitableGetBotResult(GetBotResult):
             arn=self.arn,
             data_privacy=self.data_privacy,
             description=self.description,
+            error_log_settings=self.error_log_settings,
             id=self.id,
             idle_session_ttl_in_seconds=self.idle_session_ttl_in_seconds,
             name=self.name,
@@ -153,6 +162,7 @@ def get_bot(id: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         data_privacy=pulumi.get(__ret__, 'data_privacy'),
         description=pulumi.get(__ret__, 'description'),
+        error_log_settings=pulumi.get(__ret__, 'error_log_settings'),
         id=pulumi.get(__ret__, 'id'),
         idle_session_ttl_in_seconds=pulumi.get(__ret__, 'idle_session_ttl_in_seconds'),
         name=pulumi.get(__ret__, 'name'),
@@ -174,6 +184,7 @@ def get_bot_output(id: Optional[pulumi.Input[builtins.str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         data_privacy=pulumi.get(__response__, 'data_privacy'),
         description=pulumi.get(__response__, 'description'),
+        error_log_settings=pulumi.get(__response__, 'error_log_settings'),
         id=pulumi.get(__response__, 'id'),
         idle_session_ttl_in_seconds=pulumi.get(__response__, 'idle_session_ttl_in_seconds'),
         name=pulumi.get(__response__, 'name'),

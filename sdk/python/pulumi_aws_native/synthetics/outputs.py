@@ -137,11 +137,17 @@ class CanaryBrowserConfig(dict):
 
     def __init__(__self__, *,
                  browser_type: 'CanaryBrowserType'):
+        """
+        :param 'CanaryBrowserType' browser_type: The browser type associated with this browser configuration.
+        """
         pulumi.set(__self__, "browser_type", browser_type)
 
     @property
     @pulumi.getter(name="browserType")
     def browser_type(self) -> 'CanaryBrowserType':
+        """
+        The browser type associated with this browser configuration.
+        """
         return pulumi.get(self, "browser_type")
 
 

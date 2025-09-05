@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly string? Comment;
         /// <summary>
-        /// This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants(tenant-only).
+        /// This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants (tenant-only).
         /// </summary>
         public readonly Pulumi.AwsNative.CloudFront.DistributionConnectionMode? ConnectionMode;
         /// <summary>

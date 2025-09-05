@@ -31,7 +31,8 @@ type Bot struct {
 	// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
 	DataPrivacy DataPrivacyPropertiesOutput `pulumi:"dataPrivacy"`
 	// The description of the version.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description      pulumi.StringPtrOutput              `pulumi:"description"`
+	ErrorLogSettings ErrorLogSettingsPropertiesPtrOutput `pulumi:"errorLogSettings"`
 	// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
 	//
 	// A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
@@ -109,7 +110,8 @@ type botArgs struct {
 	// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
 	DataPrivacy DataPrivacyProperties `pulumi:"dataPrivacy"`
 	// The description of the version.
-	Description *string `pulumi:"description"`
+	Description      *string                     `pulumi:"description"`
+	ErrorLogSettings *ErrorLogSettingsProperties `pulumi:"errorLogSettings"`
 	// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
 	//
 	// A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
@@ -140,7 +142,8 @@ type BotArgs struct {
 	// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
 	DataPrivacy DataPrivacyPropertiesInput
 	// The description of the version.
-	Description pulumi.StringPtrInput
+	Description      pulumi.StringPtrInput
+	ErrorLogSettings ErrorLogSettingsPropertiesPtrInput
 	// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
 	//
 	// A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
@@ -233,6 +236,10 @@ func (o BotOutput) DataPrivacy() DataPrivacyPropertiesOutput {
 // The description of the version.
 func (o BotOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Bot) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o BotOutput) ErrorLogSettings() ErrorLogSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *Bot) ErrorLogSettingsPropertiesPtrOutput { return v.ErrorLogSettings }).(ErrorLogSettingsPropertiesPtrOutput)
 }
 
 // The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.

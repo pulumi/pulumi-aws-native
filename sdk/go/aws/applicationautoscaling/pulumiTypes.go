@@ -182,7 +182,7 @@ type ScalableTargetScheduledAction struct {
 	ScalableTargetAction *ScalableTargetAction `pulumi:"scalableTargetAction"`
 	// The schedule for this action. The following formats are supported:
 	//   +  At expressions - "``at(yyyy-mm-ddThh:mm:ss)``"
-	//   +  Rate expressions - "``rate(value unit)``"
+	//   +  Rate expressions - "``rate(valueunit)``"
 	//   +  Cron expressions - "``cron(fields)``"
 	//
 	//  At expressions are useful for one-time schedules. Cron expressions are useful for scheduled actions that run periodically at a specified date and time, and rate expressions are useful for scheduled actions that run at a regular interval.
@@ -219,7 +219,7 @@ type ScalableTargetScheduledActionArgs struct {
 	ScalableTargetAction ScalableTargetActionPtrInput `pulumi:"scalableTargetAction"`
 	// The schedule for this action. The following formats are supported:
 	//   +  At expressions - "``at(yyyy-mm-ddThh:mm:ss)``"
-	//   +  Rate expressions - "``rate(value unit)``"
+	//   +  Rate expressions - "``rate(valueunit)``"
 	//   +  Cron expressions - "``cron(fields)``"
 	//
 	//  At expressions are useful for one-time schedules. Cron expressions are useful for scheduled actions that run periodically at a specified date and time, and rate expressions are useful for scheduled actions that run at a regular interval.
@@ -303,7 +303,7 @@ func (o ScalableTargetScheduledActionOutput) ScalableTargetAction() ScalableTarg
 //
 //   - At expressions - "“at(yyyy-mm-ddThh:mm:ss)“"
 //
-//   - Rate expressions - "“rate(value unit)“"
+//   - Rate expressions - "“rate(valueunit)“"
 //
 //   - Cron expressions - "“cron(fields)“"
 //

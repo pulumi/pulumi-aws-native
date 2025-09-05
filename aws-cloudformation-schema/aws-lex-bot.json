@@ -271,6 +271,18 @@
       "required" : [ "ChildDirected" ],
       "additionalProperties" : false
     },
+    "ErrorLogSettings" : {
+      "description" : "Error logs configuration for this bot. This is used by Amazon Lex to emit any errors that occur during Lex Runtime API invocations.",
+      "type" : "object",
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean",
+          "description" : "Specify whether error log feature has been enabled"
+        }
+      },
+      "required" : [ "Enabled" ],
+      "additionalProperties" : false
+    },
     "IdleSessionTTLInSeconds" : {
       "type" : "integer",
       "minimum" : 60,
@@ -2103,6 +2115,16 @@
         }
       },
       "required" : [ "ChildDirected" ],
+      "additionalProperties" : false
+    },
+    "ErrorLogSettings" : {
+      "type" : "object",
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Enabled" ],
       "additionalProperties" : false
     },
     "IdleSessionTTLInSeconds" : {

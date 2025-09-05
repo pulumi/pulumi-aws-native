@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.Lex
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("errorLogSettings")]
+        public Output<Outputs.ErrorLogSettingsProperties?> ErrorLogSettings { get; private set; } = null!;
+
         /// <summary>
         /// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
         /// 
@@ -192,6 +195,9 @@ namespace Pulumi.AwsNative.Lex
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("errorLogSettings")]
+        public Input<Inputs.ErrorLogSettingsPropertiesArgs>? ErrorLogSettings { get; set; }
 
         /// <summary>
         /// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.

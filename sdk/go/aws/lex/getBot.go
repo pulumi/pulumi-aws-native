@@ -33,7 +33,8 @@ type LookupBotResult struct {
 	// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
 	DataPrivacy *DataPrivacyProperties `pulumi:"dataPrivacy"`
 	// The description of the version.
-	Description *string `pulumi:"description"`
+	Description      *string                     `pulumi:"description"`
+	ErrorLogSettings *ErrorLogSettingsProperties `pulumi:"errorLogSettings"`
 	// The unique identifier of the bot.
 	Id *string `pulumi:"id"`
 	// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
@@ -95,6 +96,10 @@ func (o LookupBotResultOutput) DataPrivacy() DataPrivacyPropertiesPtrOutput {
 // The description of the version.
 func (o LookupBotResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBotResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupBotResultOutput) ErrorLogSettings() ErrorLogSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupBotResult) *ErrorLogSettingsProperties { return v.ErrorLogSettings }).(ErrorLogSettingsPropertiesPtrOutput)
 }
 
 // The unique identifier of the bot.

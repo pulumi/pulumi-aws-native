@@ -17,16 +17,26 @@ import (
 type AutomatedReasoningPolicyVersion struct {
 	pulumi.CustomResourceState
 
-	CreatedAt                 pulumi.StringOutput          `pulumi:"createdAt"`
-	DefinitionHash            pulumi.StringOutput          `pulumi:"definitionHash"`
-	Description               pulumi.StringOutput          `pulumi:"description"`
-	LastUpdatedDefinitionHash pulumi.StringPtrOutput       `pulumi:"lastUpdatedDefinitionHash"`
-	Name                      pulumi.StringOutput          `pulumi:"name"`
-	PolicyArn                 pulumi.StringOutput          `pulumi:"policyArn"`
-	PolicyId                  pulumi.StringOutput          `pulumi:"policyId"`
-	Tags                      aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
-	UpdatedAt                 pulumi.StringOutput          `pulumi:"updatedAt"`
-	Version                   pulumi.StringOutput          `pulumi:"version"`
+	// The timestamp when the policy version was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// A hash of the policy definition used to identify the version.
+	DefinitionHash pulumi.StringOutput `pulumi:"definitionHash"`
+	// The description of the policy version.
+	Description pulumi.StringOutput `pulumi:"description"`
+	// The hash of the policy definition that was last updated.
+	LastUpdatedDefinitionHash pulumi.StringPtrOutput `pulumi:"lastUpdatedDefinitionHash"`
+	// The name of the policy version.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of the policy.
+	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
+	// The unique identifier of the policy.
+	PolicyId pulumi.StringOutput `pulumi:"policyId"`
+	// The tags associated with the Automated Reasoning policy version.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	// The timestamp when the policy version was last updated.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	// The version number of the policy version.
+	Version pulumi.StringOutput `pulumi:"version"`
 }
 
 // NewAutomatedReasoningPolicyVersion registers a new resource with the given unique name, arguments, and options.
@@ -78,16 +88,22 @@ func (AutomatedReasoningPolicyVersionState) ElementType() reflect.Type {
 }
 
 type automatedReasoningPolicyVersionArgs struct {
-	LastUpdatedDefinitionHash *string             `pulumi:"lastUpdatedDefinitionHash"`
-	PolicyArn                 string              `pulumi:"policyArn"`
-	Tags                      []aws.CreateOnlyTag `pulumi:"tags"`
+	// The hash of the policy definition that was last updated.
+	LastUpdatedDefinitionHash *string `pulumi:"lastUpdatedDefinitionHash"`
+	// The Amazon Resource Name (ARN) of the policy.
+	PolicyArn string `pulumi:"policyArn"`
+	// The tags associated with the Automated Reasoning policy version.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AutomatedReasoningPolicyVersion resource.
 type AutomatedReasoningPolicyVersionArgs struct {
+	// The hash of the policy definition that was last updated.
 	LastUpdatedDefinitionHash pulumi.StringPtrInput
-	PolicyArn                 pulumi.StringInput
-	Tags                      aws.CreateOnlyTagArrayInput
+	// The Amazon Resource Name (ARN) of the policy.
+	PolicyArn pulumi.StringInput
+	// The tags associated with the Automated Reasoning policy version.
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (AutomatedReasoningPolicyVersionArgs) ElementType() reflect.Type {
@@ -127,42 +143,52 @@ func (o AutomatedReasoningPolicyVersionOutput) ToAutomatedReasoningPolicyVersion
 	return o
 }
 
+// The timestamp when the policy version was created.
 func (o AutomatedReasoningPolicyVersionOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomatedReasoningPolicyVersion) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// A hash of the policy definition used to identify the version.
 func (o AutomatedReasoningPolicyVersionOutput) DefinitionHash() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomatedReasoningPolicyVersion) pulumi.StringOutput { return v.DefinitionHash }).(pulumi.StringOutput)
 }
 
+// The description of the policy version.
 func (o AutomatedReasoningPolicyVersionOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomatedReasoningPolicyVersion) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
+// The hash of the policy definition that was last updated.
 func (o AutomatedReasoningPolicyVersionOutput) LastUpdatedDefinitionHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomatedReasoningPolicyVersion) pulumi.StringPtrOutput { return v.LastUpdatedDefinitionHash }).(pulumi.StringPtrOutput)
 }
 
+// The name of the policy version.
 func (o AutomatedReasoningPolicyVersionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomatedReasoningPolicyVersion) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the policy.
 func (o AutomatedReasoningPolicyVersionOutput) PolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomatedReasoningPolicyVersion) pulumi.StringOutput { return v.PolicyArn }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the policy.
 func (o AutomatedReasoningPolicyVersionOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomatedReasoningPolicyVersion) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
+// The tags associated with the Automated Reasoning policy version.
 func (o AutomatedReasoningPolicyVersionOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *AutomatedReasoningPolicyVersion) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
+// The timestamp when the policy version was last updated.
 func (o AutomatedReasoningPolicyVersionOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomatedReasoningPolicyVersion) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
+// The version number of the policy version.
 func (o AutomatedReasoningPolicyVersionOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomatedReasoningPolicyVersion) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

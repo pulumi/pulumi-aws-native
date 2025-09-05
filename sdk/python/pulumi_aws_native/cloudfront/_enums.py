@@ -47,6 +47,9 @@ class DistributionConnectionMode(builtins.str, Enum):
 
 @pulumi.type_token("aws-native:cloudfront:DistributionCustomOriginConfigIpAddressType")
 class DistributionCustomOriginConfigIpAddressType(builtins.str, Enum):
+    """
+    Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose `dualstack` to help optimize reliability.
+    """
     IPV4 = "ipv4"
     IPV6 = "ipv6"
     DUALSTACK = "dualstack"

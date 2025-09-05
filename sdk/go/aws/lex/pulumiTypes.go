@@ -16998,6 +16998,139 @@ func (o DataPrivacyPropertiesPtrOutput) ChildDirected() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ErrorLogSettingsProperties struct {
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ErrorLogSettingsPropertiesInput is an input type that accepts ErrorLogSettingsPropertiesArgs and ErrorLogSettingsPropertiesOutput values.
+// You can construct a concrete instance of `ErrorLogSettingsPropertiesInput` via:
+//
+//	ErrorLogSettingsPropertiesArgs{...}
+type ErrorLogSettingsPropertiesInput interface {
+	pulumi.Input
+
+	ToErrorLogSettingsPropertiesOutput() ErrorLogSettingsPropertiesOutput
+	ToErrorLogSettingsPropertiesOutputWithContext(context.Context) ErrorLogSettingsPropertiesOutput
+}
+
+type ErrorLogSettingsPropertiesArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ErrorLogSettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorLogSettingsProperties)(nil)).Elem()
+}
+
+func (i ErrorLogSettingsPropertiesArgs) ToErrorLogSettingsPropertiesOutput() ErrorLogSettingsPropertiesOutput {
+	return i.ToErrorLogSettingsPropertiesOutputWithContext(context.Background())
+}
+
+func (i ErrorLogSettingsPropertiesArgs) ToErrorLogSettingsPropertiesOutputWithContext(ctx context.Context) ErrorLogSettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorLogSettingsPropertiesOutput)
+}
+
+func (i ErrorLogSettingsPropertiesArgs) ToErrorLogSettingsPropertiesPtrOutput() ErrorLogSettingsPropertiesPtrOutput {
+	return i.ToErrorLogSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ErrorLogSettingsPropertiesArgs) ToErrorLogSettingsPropertiesPtrOutputWithContext(ctx context.Context) ErrorLogSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorLogSettingsPropertiesOutput).ToErrorLogSettingsPropertiesPtrOutputWithContext(ctx)
+}
+
+// ErrorLogSettingsPropertiesPtrInput is an input type that accepts ErrorLogSettingsPropertiesArgs, ErrorLogSettingsPropertiesPtr and ErrorLogSettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `ErrorLogSettingsPropertiesPtrInput` via:
+//
+//	        ErrorLogSettingsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ErrorLogSettingsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToErrorLogSettingsPropertiesPtrOutput() ErrorLogSettingsPropertiesPtrOutput
+	ToErrorLogSettingsPropertiesPtrOutputWithContext(context.Context) ErrorLogSettingsPropertiesPtrOutput
+}
+
+type errorLogSettingsPropertiesPtrType ErrorLogSettingsPropertiesArgs
+
+func ErrorLogSettingsPropertiesPtr(v *ErrorLogSettingsPropertiesArgs) ErrorLogSettingsPropertiesPtrInput {
+	return (*errorLogSettingsPropertiesPtrType)(v)
+}
+
+func (*errorLogSettingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ErrorLogSettingsProperties)(nil)).Elem()
+}
+
+func (i *errorLogSettingsPropertiesPtrType) ToErrorLogSettingsPropertiesPtrOutput() ErrorLogSettingsPropertiesPtrOutput {
+	return i.ToErrorLogSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *errorLogSettingsPropertiesPtrType) ToErrorLogSettingsPropertiesPtrOutputWithContext(ctx context.Context) ErrorLogSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorLogSettingsPropertiesPtrOutput)
+}
+
+type ErrorLogSettingsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ErrorLogSettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorLogSettingsProperties)(nil)).Elem()
+}
+
+func (o ErrorLogSettingsPropertiesOutput) ToErrorLogSettingsPropertiesOutput() ErrorLogSettingsPropertiesOutput {
+	return o
+}
+
+func (o ErrorLogSettingsPropertiesOutput) ToErrorLogSettingsPropertiesOutputWithContext(ctx context.Context) ErrorLogSettingsPropertiesOutput {
+	return o
+}
+
+func (o ErrorLogSettingsPropertiesOutput) ToErrorLogSettingsPropertiesPtrOutput() ErrorLogSettingsPropertiesPtrOutput {
+	return o.ToErrorLogSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ErrorLogSettingsPropertiesOutput) ToErrorLogSettingsPropertiesPtrOutputWithContext(ctx context.Context) ErrorLogSettingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorLogSettingsProperties) *ErrorLogSettingsProperties {
+		return &v
+	}).(ErrorLogSettingsPropertiesPtrOutput)
+}
+
+func (o ErrorLogSettingsPropertiesOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ErrorLogSettingsProperties) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ErrorLogSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ErrorLogSettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ErrorLogSettingsProperties)(nil)).Elem()
+}
+
+func (o ErrorLogSettingsPropertiesPtrOutput) ToErrorLogSettingsPropertiesPtrOutput() ErrorLogSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o ErrorLogSettingsPropertiesPtrOutput) ToErrorLogSettingsPropertiesPtrOutputWithContext(ctx context.Context) ErrorLogSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o ErrorLogSettingsPropertiesPtrOutput) Elem() ErrorLogSettingsPropertiesOutput {
+	return o.ApplyT(func(v *ErrorLogSettingsProperties) ErrorLogSettingsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ErrorLogSettingsProperties
+		return ret
+	}).(ErrorLogSettingsPropertiesOutput)
+}
+
+func (o ErrorLogSettingsPropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ErrorLogSettingsProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // A resource policy to add to the resource. The policy is a JSON structure following the IAM syntax that contains one or more statements that define the policy.
 type ResourcePolicyPolicy struct {
 }
@@ -17433,6 +17566,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotWaitAndContinueSpecificationInput)(nil)).Elem(), BotWaitAndContinueSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotWaitAndContinueSpecificationPtrInput)(nil)).Elem(), BotWaitAndContinueSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataPrivacyPropertiesInput)(nil)).Elem(), DataPrivacyPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ErrorLogSettingsPropertiesInput)(nil)).Elem(), ErrorLogSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ErrorLogSettingsPropertiesPtrInput)(nil)).Elem(), ErrorLogSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyPolicyInput)(nil)).Elem(), ResourcePolicyPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SentimentAnalysisSettingsPropertiesInput)(nil)).Elem(), SentimentAnalysisSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SentimentAnalysisSettingsPropertiesPtrInput)(nil)).Elem(), SentimentAnalysisSettingsPropertiesArgs{})
@@ -17661,6 +17796,8 @@ func init() {
 	pulumi.RegisterOutputType(BotWaitAndContinueSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(DataPrivacyPropertiesOutput{})
 	pulumi.RegisterOutputType(DataPrivacyPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ErrorLogSettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(ErrorLogSettingsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ResourcePolicyPolicyOutput{})
 	pulumi.RegisterOutputType(ResourcePolicyPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SentimentAnalysisSettingsPropertiesOutput{})

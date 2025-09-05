@@ -477,26 +477,26 @@ namespace Pulumi.AwsNative.Ivs
     /// Thumbnail recording mode. Default: DISABLED.
     /// </summary>
     [EnumType]
-    public readonly struct StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode : IEquatable<StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode>
+    public readonly struct StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode : IEquatable<StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode>
     {
         private readonly string _value;
 
-        private StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode(string value)
+        private StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode Interval { get; } = new StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode("INTERVAL");
-        public static StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode Disabled { get; } = new StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode("DISABLED");
+        public static StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode Interval { get; } = new StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode("INTERVAL");
+        public static StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode Disabled { get; } = new StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode("DISABLED");
 
-        public static bool operator ==(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode left, StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode right) => left.Equals(right);
-        public static bool operator !=(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode left, StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode right) => !left.Equals(right);
+        public static bool operator ==(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode left, StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode right) => left.Equals(right);
+        public static bool operator !=(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode left, StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode right) => !left.Equals(right);
 
-        public static explicit operator string(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode value) => value._value;
+        public static explicit operator string(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode other && Equals(other);
-        public bool Equals(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesRecordingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode other && Equals(other);
+        public bool Equals(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -505,26 +505,26 @@ namespace Pulumi.AwsNative.Ivs
     }
 
     [EnumType]
-    public readonly struct StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem : IEquatable<StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem>
+    public readonly struct StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem : IEquatable<StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem>
     {
         private readonly string _value;
 
-        private StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem(string value)
+        private StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem Sequential { get; } = new StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem("SEQUENTIAL");
-        public static StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem Latest { get; } = new StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem("LATEST");
+        public static StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem Sequential { get; } = new StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem("SEQUENTIAL");
+        public static StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem Latest { get; } = new StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem("LATEST");
 
-        public static bool operator ==(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem left, StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem right) => left.Equals(right);
-        public static bool operator !=(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem left, StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem right) => !left.Equals(right);
+        public static bool operator ==(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem left, StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem right) => left.Equals(right);
+        public static bool operator !=(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem left, StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem right) => !left.Equals(right);
 
-        public static explicit operator string(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem value) => value._value;
+        public static explicit operator string(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem other && Equals(other);
-        public bool Equals(StageAutoParticipantRecordingConfigurationThumbnailConfigurationPropertiesParticipantThumbnailConfigurationPropertiesStorageItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem other && Equals(other);
+        public bool Equals(StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

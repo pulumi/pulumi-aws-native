@@ -31,6 +31,7 @@ class BotArgs:
                  bot_locales: Optional[pulumi.Input[Sequence[pulumi.Input['BotLocaleArgs']]]] = None,
                  bot_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 error_log_settings: Optional[pulumi.Input['ErrorLogSettingsPropertiesArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  replication: Optional[pulumi.Input['BotReplicationArgs']] = None,
                  test_bot_alias_settings: Optional[pulumi.Input['BotTestBotAliasSettingsArgs']] = None,
@@ -66,6 +67,8 @@ class BotArgs:
             pulumi.set(__self__, "bot_tags", bot_tags)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if error_log_settings is not None:
+            pulumi.set(__self__, "error_log_settings", error_log_settings)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if replication is not None:
@@ -176,6 +179,15 @@ class BotArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="errorLogSettings")
+    def error_log_settings(self) -> Optional[pulumi.Input['ErrorLogSettingsPropertiesArgs']]:
+        return pulumi.get(self, "error_log_settings")
+
+    @error_log_settings.setter
+    def error_log_settings(self, value: Optional[pulumi.Input['ErrorLogSettingsPropertiesArgs']]):
+        pulumi.set(self, "error_log_settings", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -233,6 +245,7 @@ class Bot(pulumi.CustomResource):
                  bot_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotTagArgs', 'BotTagArgsDict']]]]] = None,
                  data_privacy: Optional[pulumi.Input[Union['DataPrivacyPropertiesArgs', 'DataPrivacyPropertiesArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 error_log_settings: Optional[pulumi.Input[Union['ErrorLogSettingsPropertiesArgs', 'ErrorLogSettingsPropertiesArgsDict']]] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  replication: Optional[pulumi.Input[Union['BotReplicationArgs', 'BotReplicationArgsDict']]] = None,
@@ -291,6 +304,7 @@ class Bot(pulumi.CustomResource):
                  bot_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotTagArgs', 'BotTagArgsDict']]]]] = None,
                  data_privacy: Optional[pulumi.Input[Union['DataPrivacyPropertiesArgs', 'DataPrivacyPropertiesArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 error_log_settings: Optional[pulumi.Input[Union['ErrorLogSettingsPropertiesArgs', 'ErrorLogSettingsPropertiesArgsDict']]] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  replication: Optional[pulumi.Input[Union['BotReplicationArgs', 'BotReplicationArgsDict']]] = None,
@@ -314,6 +328,7 @@ class Bot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'data_privacy'")
             __props__.__dict__["data_privacy"] = data_privacy
             __props__.__dict__["description"] = description
+            __props__.__dict__["error_log_settings"] = error_log_settings
             if idle_session_ttl_in_seconds is None and not opts.urn:
                 raise TypeError("Missing required property 'idle_session_ttl_in_seconds'")
             __props__.__dict__["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
@@ -356,6 +371,7 @@ class Bot(pulumi.CustomResource):
         __props__.__dict__["bot_tags"] = None
         __props__.__dict__["data_privacy"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["error_log_settings"] = None
         __props__.__dict__["idle_session_ttl_in_seconds"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["replication"] = None
@@ -427,6 +443,11 @@ class Bot(pulumi.CustomResource):
         The description of the version.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="errorLogSettings")
+    def error_log_settings(self) -> pulumi.Output[Optional['outputs.ErrorLogSettingsProperties']]:
+        return pulumi.get(self, "error_log_settings")
 
     @property
     @pulumi.getter(name="idleSessionTtlInSeconds")

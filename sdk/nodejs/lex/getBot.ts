@@ -37,6 +37,7 @@ export interface GetBotResult {
      * The description of the version.
      */
     readonly description?: string;
+    readonly errorLogSettings?: outputs.lex.ErrorLogSettingsProperties;
     /**
      * The unique identifier of the bot.
      */
