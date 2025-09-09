@@ -1300,6 +1300,7 @@ MongoDB::Atlas::EncryptionAtRest
 MongoDB::Atlas::FederatedDatabaseInstance
 MongoDB::Atlas::FederatedQueryLimit
 MongoDB::Atlas::FederatedSettingsOrgRoleMapping
+MongoDB::Atlas::FlexCluster
 MongoDB::Atlas::GlobalClusterConfig
 MongoDB::Atlas::LDAPConfiguration
 MongoDB::Atlas::LDAPVerify

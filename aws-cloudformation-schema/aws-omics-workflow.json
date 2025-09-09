@@ -215,7 +215,7 @@
     }
   },
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreationTime", "/properties/Id", "/properties/Status", "/properties/Type", "/properties/Uuid" ],
-  "writeOnlyProperties" : [ "/properties/DefinitionUri", "/properties/WorkflowBucketOwnerId", "/properties/ParameterTemplatePath", "/properties/DefinitionRepository", "/properties/readmePath", "/properties/readmeUri", "/properties/readmeMarkdown" ],
+  "writeOnlyProperties" : [ "/properties/DefinitionUri", "/properties/WorkflowBucketOwnerId", "/properties/ParameterTemplatePath", "/properties/DefinitionRepository", "/properties/readmeUri", "/properties/readmeMarkdown" ],
   "createOnlyProperties" : [ "/properties/DefinitionUri", "/properties/Engine", "/properties/Main", "/properties/ParameterTemplate", "/properties/StorageCapacity", "/properties/Accelerators", "/properties/DefinitionRepository", "/properties/ParameterTemplatePath", "/properties/readmePath", "/properties/readmeUri", "/properties/WorkflowBucketOwnerId" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "tagging" : {
