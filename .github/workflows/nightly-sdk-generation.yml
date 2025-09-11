@@ -15,8 +15,16 @@ env:
   PYTHONVERSION: "3.11"
   DOTNETVERSION: 8.0.x
   JAVAVERSION: "11"
+  AWS_CORP_S3_UPLOAD_ACCESS_KEY_ID: ${{ secrets.AWS_CORP_S3_UPLOAD_ACCESS_KEY_ID }}
+  AWS_CORP_S3_UPLOAD_SECRET_ACCESS_KEY: ${{ secrets.AWS_CORP_S3_UPLOAD_SECRET_ACCESS_KEY }}
   AWS_REGION: us-west-2
+  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   PULUMI_API: https://api.pulumi-staging.io
+  PULUMI_BOT_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+  RELEASE_BOT_ENDPOINT: ${{ secrets.RELEASE_BOT_ENDPOINT }}
+  RELEASE_BOT_KEY: ${{ secrets.RELEASE_BOT_KEY }}
+  S3_COVERAGE_BUCKET_NAME: ${{ secrets.S3_COVERAGE_BUCKET_NAME }}
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 jobs:
   generate-sdk:
     runs-on: ubuntu-latest
@@ -29,7 +37,10 @@ jobs:
     - name: Checkout Repo
       uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       with:
-        lfs: true
+        lfs: true    
+    - id: esc-secrets
+      name: Map environment to ESC outputs
+      uses: ./.github/actions/esc-action
     - name: Install Go
       uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5.5.0
       with:
@@ -95,7 +106,7 @@ jobs:
       uses: repo-sync/pull-request@7e79a9f5dc3ad0ce53138f01df2fad14a04831c5 # v2.12.1
       with:
         destination_branch: master
-        github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
+        github_token: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
         pr_body: "*Automated PR*"
         pr_title: Automated SDK generation @ aws-cloudformation-user-guide ${{
           steps.vars.outputs.commit-hash }}
@@ -109,4 +120,4 @@ jobs:
         fields: repo,commit,author,action
         status: ${{ job.status }}
       env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_WEBHOOK_URL: ${{ steps.esc-secrets.outputs.SLACK_WEBHOOK_URL }}
